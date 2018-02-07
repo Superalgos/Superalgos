@@ -3,7 +3,7 @@
     let bot = BOT;
     const ROOT_DIR = '../';
 
-    const INTERVAL_LAPSE = 24 * 60 * 60 * 1000;
+    const INTERVAL_LAPSE =  60 * 1000;
 
     const MODULE_NAME = "Poloniex Exchange Hole Fixing";
     const LOG_INFO = true;
@@ -145,7 +145,7 @@
                         const logText = "[WARN] 'loopControl'. Staring new Interval. ";
                         logger.write(logText);
 
-                        startNewInterval(); // Looped Execution.
+                        setTimeout(startNewInterval, INTERVAL_LAPSE);// Looped Execution.
 
                     }
 

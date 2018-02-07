@@ -26,7 +26,6 @@
     <Compile Include="Poloniex-Historic-Trades\Interval.js" />
     <Compile Include="Poloniex-Historic-Trades\Poloniex Historic Trades.js" />
     <Compile Include="Poloniex-Historic-Trades\run.js" />
-    <Compile Include="Poloniex-Historic-Trades\Temp.js" />
     <Compile Include="Poloniex-Hole-Fixing\Interval.js" />
     <Compile Include="Poloniex-Hole-Fixing\Poloniex Hole Fixing.js" />
     <Compile Include="Poloniex-Hole-Fixing\run.js" />

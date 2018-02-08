@@ -11,9 +11,10 @@ const ROOT_DIR = '../';
 
 const MODULE_NAME = "run";
 
-const START_ONE_MIN_DAILY_CANDLES = true;
+const START_POLONIEX_HOLE_FIXING = true;
+const START_POLONIEX_HOLE_FIXING_AT_ONE_MONTH = false;
 
-const POLONIEX_ORDE_BOOKS_MODULE = require('./One Min Daily Candles');
+const POLONIEX_HOLE_FIXING_MODULE = require('./Poloniex Hole Fixing');
 
 const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
 const logger = DEBUG_MODULE.newDebugLog();
@@ -21,7 +22,7 @@ logger.fileName = MODULE_NAME;
 logger.bot = bot;
 
 process.on('uncaughtException', function (err) {
-    logger.write('uncaughtException' + err.message);
+    logger.write('uncaughtException - ' + err.message);
 });
 
 
@@ -35,27 +36,62 @@ process.on('exit', function (code) {
 });
 
 
-
 try {
-    if (START_ONE_MIN_DAILY_CANDLES === true) {
+    if (START_POLONIEX_HOLE_FIXING === true) {
 
-        const poloniexOrderBooks = POLONIEX_ORDE_BOOKS_MODULE.newPloniexOrderBooks(bot);
+        for (let year = 2018; year > 2014; year--) {
 
-        poloniexOrderBooks.initialize(onInitializeReady);
+            for (let month = 12; month > 0; month--) {
 
-        function onInitializeReady() {
+                let timeDelay = Math.random() * 100 * 1000; // We need a delay so as not to get banned from the exchange for requesting to many things at the same time.
 
-            poloniexOrderBooks.start();
+                setTimeout(startProcess, timeDelay);
+
+                function startProcess() {
+
+                    const newPloniexHoleFixing = POLONIEX_HOLE_FIXING_MODULE.newPloniexHoleFixing(bot);
+
+                    newPloniexHoleFixing.initialize(year, month, onInitializeReady);
+
+                    function onInitializeReady() {
+
+                        newPloniexHoleFixing.start();
+
+                    }
+
+                }
+
+            }
 
         }
 
     }
 
+
+    if (START_POLONIEX_HOLE_FIXING_AT_ONE_MONTH === true) {
+
+        startProcess();
+
+        function startProcess() {
+
+            const newPloniexHoleFixing = POLONIEX_HOLE_FIXING_MODULE.newPloniexHoleFixing(bot);
+
+            let month = 2;
+            let year = 2015;
+
+            newPloniexHoleFixing.initialize(year, month, onInitializeReady);
+
+            function onInitializeReady() {
+
+                newPloniexHoleFixing.start();
+
+            }
+        }
+    }
+
+
 } catch (err) {
     console.log(err.message);
     logger.write(err.message);
 }
-
-
-
 

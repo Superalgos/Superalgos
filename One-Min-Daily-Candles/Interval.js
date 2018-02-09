@@ -14,6 +14,12 @@
 
     const TRADES_FOLDER_NAME = "Trades";
 
+    const CANDLES_FOLDER_NAME = "Candles";
+    const CANDLES_ONE_MIN = "One-Min";
+
+    const VOLUMES_FOLDER_NAME = "Volumes";
+    const VOLUMES_ONE_MIN = "One-Min";
+
     const GO_RANDOM = false;
     const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. 
 
@@ -573,7 +579,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         if (date.getUTCDate() !== lastCandleFile.getUTCDate()) {
 
-                            writeFiles(candles, volumes, true, onFilesWritten);
+                            writeFiles(lastCandleFile, candles, volumes, true, onFilesWritten);
 
                             return;
 
@@ -607,7 +613,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         if (date.valueOf() > lastFileWithoutHoles.valueOf()) {
 
-                            writeFiles(candles, volumes, false, onFilesWritten);
+                            writeFiles(lastCandleFile, candles, volumes, false, onFilesWritten);
 
                             return;
 
@@ -716,315 +722,131 @@ Read the trades from Charly's Output and pack them into daily files with candles
                 }
             }
 
-
-
-
-            function tradesReadyToBeSaved(tradesRequested) {
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'tradesReadyToBeSaved'");
-                    }
-
-                    nextIntervalExecution = true; // When there is at least one hole, we activate this flag to get an extra Interval execution when this one ends.
-
-                    /*
-
-                    We have learnt that the records from the exchange dont always come in the right order, sorted by TradeId. That means the we need to sort them
-                    by ourselves if we want that our verification of holes work. 
-
-                    */
-
-                    let iterations = tradesRequested.length;
-
-                    for (let i = 0; i < iterations; i++) {
-
-                        for (let j = 0; j < iterations - 1; j++) {
-
-                            if (tradesRequested[j].tradeID < tradesRequested[j + 1].tradeID) {
-
-                                let trade = tradesRequested[j + 1];
-
-                                tradesRequested.splice(j + 1, 1); // Remove that trade from the array.
-
-                                tradesRequested.splice(j, 0, trade); // Insert the trade removed.
-
-
-                            }
-
-                        }
-
-                    }
-
-                    /*
-
-                    The trades received from the exchange might or might not be enough to fix the hole. We wont worry about that at this point. We will simple record the trades received
-                    in the range where records where missing.
-
-                    We only have to take into account that the lowest id we have is already on a file that exist and it is partially verified, so we have to be carefull to overwrite this file
-                    without introducing new holes. 
-
-                    */
-
-                    let fileRecordCounter = 0;
-
-                    let needSeparator;
-                    let separator;
-
-                    let lastProcessMinute;  // Stores the previous record minute during each iteration
-                    let filesToSave = [];   // Array where we will store all the content to be written to files
-
-                    needSeparator = false;
-
-                    let fileContent = "";
-
-                    let currentProcessMinute = Math.trunc(holeFinalDatetime.valueOf() / 1000 / 60); // Number of minutes since the begining of time, where the process is pointing to.
-                    let holeStartsMinute = Math.trunc(holeInitialDatetime.valueOf() / 1000 / 60); // Number of minutes since the begining of time, where the hole started.
-
-                    /* We will iterate through all the records received from the exchange. We know Poloniex sends the older records first, so this is going to be going back in time as we advance. */
-
-                    for (let i = 0; i < tradesRequested.length; i++) {
-
-                        let record = tradesRequested[i];
-
-                        const trade = {
-                            tradeIdAtExchange: record.tradeID,
-                            marketIdAtExchange: record.globalTradeID,
-                            type: record.type,
-                            rate: record.rate,
-                            amountA: record.total,
-                            amountB: record.amount,
-                            datetime: new Date(record.date + GMT_MILI_SECONDS)
-                        };
-
-                        trade.seconds = trade.datetime.getUTCSeconds();
-
-                        let currentRecordMinute = Math.trunc(trade.datetime.valueOf() / 1000 / 60);  // This are the number of minutes since the begining of time of this trade.
-
-                        if (currentRecordMinute > currentProcessMinute) {
-
-                            /* We discard this trade, since it happened after the minute we want to record in the current file. */
-
-                            continue;
-                        }
-
-                        if (currentRecordMinute < currentProcessMinute) {
-
-                            /* 
-
-                            The information is older that the current time.
-                            We must store the current info and reset the pointer to the current time to match the one on the information currently being processd.
-                            We know this can lead to a 'hole' or some empty files being skipped, but we solve that problem with the next loop.
-
-                            */
-
-                            let blackMinutes = currentProcessMinute - currentRecordMinute;
-
-                            for (let j = 1; j <= blackMinutes; j++) {
-
-                                storeFileContent();
-                                currentProcessMinute--;
-
-                            }
-                        }
-
-                        if (currentRecordMinute === currentProcessMinute) {
-
-                            if (needSeparator === false) {
-
-                                needSeparator = true;
-                                separator = '';
-
-                            } else {
-                                separator = ',';
-                            }
-
-                            if (trade.tradeIdAtExchange > holeInitialId) {
-
-                                /* We only add trades with ids bigger that the last id verified without holes. */
-
-                                fileContent = '[' + trade.tradeIdAtExchange + ',"' + trade.type + '",' + trade.rate + ',' + trade.amountA + ',' + trade.amountB + ',' + trade.seconds + ']' + separator + fileContent;
-
-                                fileRecordCounter++;
-
-                            }
-                        }
-                    }
-
-                    if (fileContent !== "") {
-
-                        /* 
-
-                        Usually the last file Content must be discarded since it could belong to an incomplete file. But there is one exception: it a hole is found at a file and the previous minute is empty
-                        then this will produce the exception in which the fileContent needs to saved. To figure out if we are in this situation we do the following:
-
-                        */
-
-                        if (currentProcessMinute === holeStartsMinute) {
-
-                            storeFileContent();
-
-                        }
-
-
-                    }
-
-                    function storeFileContent() {
-
-                        let existingFileContent = "";
-                        let separator = "";
-
-                        if (currentProcessMinute === holeStartsMinute) {
-
-                            /*
-
-                            Here we are at the situation that the content already generated has to be added to the content already existing on the file where the hole was found.
-
-                            */
-
-                            for (let i = 0; i < tradesWithHole.length; i++) {
-
-                                if (tradesWithHole[i][0] <= holeInitialId && tradesWithHole[i][0] !== 0) { // 0 because of the empty trade record signaling an incomplete file.
-
-                                    /* We only add trades with ids smallers that the last id verified without holes. */
-
-                                    existingFileContent = existingFileContent + separator + '[' + tradesWithHole[i][0] + ',"' + tradesWithHole[i][1] + '",' + tradesWithHole[i][2] + ',' + tradesWithHole[i][3] + ',' + tradesWithHole[i][4] + ',' + tradesWithHole[i][5] + ']';
-
-                                    fileRecordCounter++;
-
-                                    if (separator === "") {
-
-                                        separator = ",";
-
-                                    }
-                                }
-                            }
-                        }
-
-                        if (existingFileContent === "") {
-
-                            fileContent = '[' + fileContent + ']';
-
-                        } else {
-
-                            if (fileContent === "") {
-
-                                fileContent = '[' + existingFileContent + ']';
-
-                            } else {
-
-                                fileContent = '[' + existingFileContent + "," + fileContent + ']';
-                            }
-                        }
-
-                        let fileRecord = {
-                            datetime: currentProcessMinute,
-                            content: fileContent,
-                            records: fileRecordCounter
-                        };
-
-                        filesToSave.push(fileRecord);
-
-                        fileRecordCounter = 0;
-                        needSeparator = false;
-                        fileContent = "";
-                    }
-
-                    /*
-
-                    Now it is time to process all the information we stored at filesToSave.
-
-                    */
-
-                    let i = 0;
-                    let date;
-
-                    nextRecord();
-
-                    function nextRecord() {
-
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                        date = new Date(filesToSave[i].datetime * 60 * 1000);
-                        fileRecordCounter = filesToSave[i].records;
-                        fileContent = filesToSave[i].content;
-
-                        dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-
-                        filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
-
-                        utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
-
-                        function onFolderCreated() {
-
-                            azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated() {
-
-                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                console.log(logText);
-                                logger.write(logText);
-
-                                controlLoop();
-                            }
-                        }
-                    }
-
-                    
-                    function controlLoop() {
-
-                        i++;
-
-                        if (i < filesToSave.length) {
-
-                            nextRecord();
-
-                        } else {
-
-                            if (LOG_INFO === true) {
-                                logger.write("[INFO] Leaving function 'tradesReadyToBeSaved'");
-                            }
-
-                            writeStatusReport(undefined, undefined, false, false, onStatusReportWritten);
-
-                            function onStatusReportWritten() {
-
-                                closeAndOpenMarket();
-
-                            }
-
-                        }
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'tradesReadyToBeSaved' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-            function writeStatusReport(lastTradeDatetime, lastTradeId, monthChecked, atHeadOfMarket, callBack) {
+            function writeFiles(date, candles, volumes, isFileComplete, callBack) {
 
                 /*
 
-                If no parameters are provided, that means that last good information is the begining of the hole. If they are provided is because no hole was detected until the
-                forward end of the market.
+                Here we will write the contents of the Candles and Volumens files. If the File is declared as complete, we will also write the status report.
 
                 */
+
+                writeCandles();
+
+                function writeCandles() {
+
+                    let separator = "";
+                    let fileRecordCounter = 0;
+
+                    let fileContent = "";
+
+                    for (i = 0; i < candles.length; i++) {
+
+                        let candle = candles[i];
+
+                        fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
+
+                        if (separator === "") { separator = ","; }
+
+                        fileRecordCounter++;
+
+                    }
+
+                    fileContent = "[" + fileContent + "]";
+
+                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                    let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
+
+                    let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+
+                    utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
+
+                    function onFolderCreated() {
+
+                        azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                        function onFileCreated() {
+
+                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                            console.log(logText);
+                            logger.write(logText);
+
+                            writeVolumes();
+                        }
+                    }
+
+                }
+
+                function writeVolumes() {
+
+                    let separator = "";
+                    let fileRecordCounter = 0;
+
+                    let fileContent = "";
+
+                    for (i = 0; i < volumes.length; i++) {
+
+                        let candle = volumes[i];
+
+                        fileContent = fileContent + separator + '[' + volumes[i].buy + "," + volumes[i].sell + "," + volumes[i].begin + "," + volumes[i].end + "]";
+
+                        if (separator === "") { separator = ","; }
+
+                        fileRecordCounter++;
+
+                    }
+
+                    fileContent = "[" + fileContent + "]";
+
+                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                    let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
+
+                    let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+
+                    utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
+
+                    function onFolderCreated() {
+
+                        azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                        function onFileCreated() {
+
+                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                            console.log(logText);
+                            logger.write(logText);
+
+                            writeReport();
+                        }
+                    }
+                }
+
+                function writeReport() {
+
+                    if (isFileComplete === true) {
+
+                        writeStatusReport(date, false, onStatusReportWritten);
+
+                        function onStatusReportWritten() {
+
+                            callBack();
+
+                        }
+
+                    } else {
+
+                        callBack();
+
+                    }
+                }
+            }
+
+            function writeStatusReport(lastFileDate, isMonthComplete, callBack) {
+
 
                 if (LOG_INFO === true) {
                     logger.write("[INFO] Entering function 'writeStatusReport'");
                 }
-
-                if (lastTradeId === undefined) {
-
-                    lastTradeId = holeInitialId;
-                    lastTradeDatetime = holeInitialDatetime;
-
-                }
-
-                let lastFileWithoutHoles = new Date(lastTradeDatetime.valueOf() - 60 * 1000); // It is the previous file where the last verified trade is.
 
                 try {
 
@@ -1036,93 +858,27 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         try {
 
-                            /*
-
-                            Here we will calculate the "counter". The counter keeps track of how many times the process tried to fix the same hole. This allows
-                            the process to know when a hole is not fixable. To do that we need to compre the current status report with the information we ve got
-                            about the hole. If it is the same, we add to the counter.
-
-                            */
-
-                            let counter = 0;
-
-                            try {
-
-                                if (holeFixingStatusReport.lastTrade.id === lastTradeId) {
-
-                                    counter = holeFixingStatusReport.lastTrade.counter;
-
-                                    if (counter === undefined) { counter = 0; }
-                                    counter++;
-
-                                }
-
-                            } catch (err) { // we are here when the status report did not exist.
-
-                                counter = 0;
-
-                            }
-
                             let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
                             let report = {
                                 lastFile: {
-                                    year: lastFileWithoutHoles.getUTCFullYear(),
-                                    month: (lastFileWithoutHoles.getUTCMonth() + 1),
-                                    days: lastFileWithoutHoles.getUTCDate(),
-                                    hours: lastFileWithoutHoles.getUTCHours(),
-                                    minutes: lastFileWithoutHoles.getUTCMinutes()
+                                    year: lastFileDate.getUTCFullYear(),
+                                    month: (lastFileDate.getUTCMonth() + 1),
+                                    days: lastFileDate.getUTCDate()
                                 },
-                                lastTrade: {
-                                    year: lastTradeDatetime.getUTCFullYear(),
-                                    month: (lastTradeDatetime.getUTCMonth() + 1),
-                                    days: lastTradeDatetime.getUTCDate(),
-                                    hours: lastTradeDatetime.getUTCHours(),
-                                    minutes: lastTradeDatetime.getUTCMinutes(),
-                                    seconds: lastTradeDatetime.getUTCSeconds(),
-                                    id: lastTradeId,
-                                    counter: counter
-                                },
-                                monthChecked: monthChecked,
-                                atHeadOfMarket: atHeadOfMarket
+                                monthCompleted: isMonthComplete
                             };
 
                             let fileContent = JSON.stringify(report); 
 
-                            azureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileBCreated);
+                            azureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
 
-                            function onFileBCreated() {
+                            function onFileCreated() {
 
                                 if (LOG_INFO === true) {
                                     logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
                                 }
-
-                                /* 
-
-                                If we are at the same month of the begining of the market, we need to create the main status report file.
-                                We will re-create it even every time the month status report is created. When this month check finished, other months later
-                                will update it.
-
-                                */
-
-                                if (processDate.getUTCMonth() === lastHistoricTradeFile.getUTCMonth() && processDate.getUTCFullYear() === lastHistoricTradeFile.getUTCFullYear()) {
-
-                                    createMainStatusReport(lastTradeDatetime, lastTradeId, onMainReportCreated);
-
-                                    function onMainReportCreated () {
-
-                                        verifyMarketComplete(monthChecked, callBack);
-
-                                    }
-
-                                } else {
-
-                                    verifyMarketComplete(monthChecked, callBack);
-
-                                }
-
                             }
-
                         }
                         catch (err) {
                             const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
@@ -1139,253 +895,6 @@ Read the trades from Charly's Output and pack them into daily files with candles
                 }
 
             }
-
-            function createMainStatusReport(lastTradeDatetime, lastTradeId,callBack) {
-                try {
-
-                    let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
-
-                    utilities.createFolderIfNeeded(reportFilePath, azureFileStorage, onFolderCreated);
-
-                    function onFolderCreated() {
-
-                        try {
-
-                            let lastFileWithoutHoles = new Date(lastTradeDatetime.valueOf() - 60 * 1000); // It is the previous file where the last verified trade is.
-
-                            let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                            let report = {
-                                lastFile: {
-                                    year: lastFileWithoutHoles.getUTCFullYear(),
-                                    month: (lastFileWithoutHoles.getUTCMonth() + 1),
-                                    days: lastFileWithoutHoles.getUTCDate(),
-                                    hours: lastFileWithoutHoles.getUTCHours(),
-                                    minutes: lastFileWithoutHoles.getUTCMinutes()
-                                },
-                                lastTrade: {
-                                    year: lastTradeDatetime.getUTCFullYear(),
-                                    month: (lastTradeDatetime.getUTCMonth() + 1),
-                                    days: lastTradeDatetime.getUTCDate(),
-                                    hours: lastTradeDatetime.getUTCHours(),
-                                    minutes: lastTradeDatetime.getUTCMinutes(),
-                                    seconds: lastTradeDatetime.getUTCSeconds(),
-                                    id: lastTradeId
-                                }
-                            };
-
-                            let fileContent = JSON.stringify(report);
-
-                            azureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileBCreated);
-
-                            function onFileBCreated() {
-
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'createMainStatusReport' - Content written: " + fileContent);
-                                }
-
-                                callBack();
-
-                            }
-
-                        }
-                        catch (err) {
-                            const logText = "[ERROR] 'createMainStatusReport - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(logText);
-                            closeMarket();
-                        }
-                    }
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'createMainStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-            function verifyMarketComplete(isMonthComplete, callBack) {
-
-                if (isMonthComplete === true) {
-
-                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Month Completed !!! ");
-
-                    /*
- 
-                    The mission of this function is to update the main status report. This report contains the date of the last file sucessfully checked
-                    but in a consecutive way.
-
-                    For example: if the market starts in March, and March, April and June are checked, then the file will be the last of June even if September is also checked.
- 
-                    */
-
-                    let initialYear;
-                    let initialMonth;
-
-                    let finalYear = (new Date()).getUTCFullYear();
-                    let finalMonth = (new Date()).getUTCMonth() + 1;
-
-                    let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                    /* Lets read the main status report */
-
-                    azureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
-
-                    function onFileReceived(text) {
-
-                        if (text === undefined) {
-
-                            /* The first month of the market didnt create this file yet. Aborting verification. */
-
-                            logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the main status report does not exist. ");
-
-                            callBack();
-
-                        } else {
-
-                            let statusReport = JSON.parse(text);
-
-                            initialYear = statusReport.lastFile.year;
-                            initialMonth = statusReport.lastFile.month;
-
-                            loopCycle();
-                        }
-
-                    }
-
-                    function loopCycle() {
-
-                        /*
-
-                        Here we read the status report file of each month / year to verify if it is complete or not.
-
-                        */
-                        let paddedInitialMonth = utilities.pad(initialMonth, 2);
-
-                        let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + initialYear + "/" + paddedInitialMonth;
-                        let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                        azureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived, true);
-
-                        function onStatusReportFileReceived(text) {
-
-                            if (text === undefined) {
-
-                                /* If any of the files do not exist, it means that the continuity has ben broken and this checking procedure must be aborted */
-
-                                logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED  since the status report for year  " + initialYear + " and month " + initialMonth + " did not exist. ");
-
-                                callBack();
-
-                            } else {
-
-                                let statusReport = JSON.parse(text);
-
-                                if (statusReport.monthChecked === true) {
-
-                                    readAndWriteNewReport(statusReport);
-
-                                } else {
-
-                                    /* If any of the files says that month is not checked then it is enough to know the market continuity is broken. */
-
-                                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the status report for year  " + initialYear + " and month " + initialMonth + " is not hole checked. ");
-
-                                    callBack();
-
-                                }
-                            }
-                        }
-                    }
-
-
-
-                    function readAndWriteNewReport(monthlyStatusReport) {
-
-                        /* We will read the current file to preserve its data, and save it again with the new lastFile */
-
-                        let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
-                        let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                        azureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
-
-                        function onFileReceived(text) {
-
-                            let statusReport = JSON.parse(text);
-
-                            /*
-
-                            Only if the last trade ID of the month being evaluated is bigger the trade Id at the status report we do replace it, otherwise not.
-
-                            */
-
-                            if (monthlyStatusReport.lastTrade.id > statusReport.lastTrade.id) {
-
-                                statusReport.lastFile = monthlyStatusReport.lastFile;
-                                statusReport.lastTrade = monthlyStatusReport.lastTrade;
-                                statusReport.lastTrade.counter = undefined;
-
-                                let fileContent = JSON.stringify(statusReport);
-
-                                azureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
-
-                                function onMasterFileCreated() {
-
-                                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Main Status Report Updated - Content written: " + fileContent);
-
-                                    loop();  // Lets see the next month.
-
-                                }
-
-                            } else {
-
-                                logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Main Status Report Not Updated since current Trade Id (" + monthlyStatusReport.lastTrade.id + ") is <= than Id at main status report file. (" + statusReport.lastTrade.id + ")" );
-
-                                loop();  // Lets see the next month.
-
-                            } 
-                        }
-                    }
-
-
-                    function loop() {
-
-                        initialMonth++;
-
-                        if (initialMonth > 12) {
-
-                            initialMonth = 1;
-                            initialYear++;
-
-                        }
-
-                        if ((initialYear === finalYear && initialMonth > finalMonth) || (initialYear > finalYear)) {
-
-                            /* We arrived to the point where we have checked all the status reports of every month and they are all complete. */
-
-                            logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification Finished. ");
-
-                            callBack();
-
-                            return;
-                        }
-
-                        loopCycle();
-
-                    }
-
-                } else {
-
-                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED: Month is not checked. ");
-                    callBack();
-
-                }
-
-            }
-
-
-
 
         }
         catch (err) {

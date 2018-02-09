@@ -1,7 +1,7 @@
 ﻿
 let bot = {
     name: "Bruce",
-    process: "One-Min-Daily-Candles",
+    process: "One-Min-Daily-Candles-Volumes",
     type: "Indicator",
     version: "1.0.0",
     devTeam: "AA Masters" 
@@ -14,7 +14,7 @@ const MODULE_NAME = "run";
 const START_ONE_MIN_DAILY_CANDLES = true;
 const START_ONE_MIN_DAILY_CANDLES_AT_ONE_MONTH = false;
 
-const ONE_MIN_DAILY_CANDLES_MODULE = require('./One Min Daily Candles');
+const ONE_MIN_DAILY_CANDLES_MODULE = require('./One Min Daily Candles Volumes');
 
 const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
 const logger = DEBUG_MODULE.newDebugLog();

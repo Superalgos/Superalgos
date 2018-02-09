@@ -5,7 +5,7 @@
 
     const INTERVAL_LAPSE = 60 * 1000;
 
-    const MODULE_NAME = "One Min Daily Candles";
+    const MODULE_NAME = "One Min Daily Candles Volumes";
     const LOG_INFO = true;
 
     const INTERVAL_MODULE = require('./Interval');

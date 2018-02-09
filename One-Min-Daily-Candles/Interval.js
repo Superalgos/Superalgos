@@ -124,11 +124,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
             }
 
-
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
-
-            let currentDate;            // This will hold the current datetime of each execution.
-            let cursorDatetime;         // This holds the datetime we are using to request records from, backwards.
 
             let marketQueue;            // This is the queue of all markets to be procesesd at each interval.
             let market = {              // This is the current market being processed after removing it from the queue.
@@ -137,34 +133,9 @@ Read the trades from Charly's Output and pack them into daily files with candles
                 assetB: ""
             };
 
-            let dateForPath;
-
-            let filePath;
-
-
-            const FIRST_TRADE_RECORD_ID = -1;
-            const UNKNOWN_TRADE_RECORD_ID = -2;
-
-            let tradesWithHole = [];         // File content of the file where a hole was discovered.
-
-            let currentTradeId;         // This points to the last Trade Id that is ok.
-            let currentDatetime;        // This points to the last Trade datetime that is ok.
-
-            /* The next 3 variables hold the information read from varios Status Reports. */
-
-            let lastLiveTradeFile;      // Datetime of the last complete trades file written by the Live Trades process.
-            let lastHistoricTradeFile;  // Datatime of the last trades file written by the Historic Trades process.
-            let lastCandleFile;     // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
-
-            /* The next 4 variables hold the results of the search of the next hole. */
-
-            let holeInitialId;          // This is the Id just before the hole.
-            let holeInitialDatetime;    // This is the Datetime just before the hole.
-
-            let holeFinalId;            // This is the Id just after the hole.
-            let holeFinalDatetime;      // This is the Datetime just after the hole.
-
-            let holeFixingStatusReport; // Current hole Fixing Status Report.
+            let lastCandleFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
+            let firstTradeFile;         // Datetime of the first trade file in the whole market history.
+            let lastFileWithoutHoles;   // Datetime of the last verified file without holes.
 
             marketsLoop(); 
 
@@ -183,7 +154,6 @@ Read the trades from Charly's Output and pack them into daily files with candles
                         logger.write("[INFO] Entering function 'marketsLoop'");
                     }
 
-                    currentDate = new Date();
                     markets.getMarketsByExchange(EXCHANGE_ID, onMarketsReady);
 
                     function onMarketsReady(marketsArray) {
@@ -293,13 +263,11 @@ Read the trades from Charly's Output and pack them into daily files with candles
                 openMarket();
             }
 
-
             /*
 
-            The following code executes for each market, trying to fix the hole in trades history.
+            The following code executes for each market.
 
             */
-
 
             function getStatusReport() {
 
@@ -378,7 +346,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                             } else {
 
-                                if (holeFixingStatusReport.monthChecked === true) {
+                                if (statusReport.monthChecked === true) {
 
                                     lastFileWithoutHoles = new Date();  // We need this with a valid value.
                                     getOneMinDailyCandles();
@@ -618,6 +586,8 @@ Read the trades from Charly's Output and pack them into daily files with candles
                             return;
 
                             function onFilesWritten() {
+
+                                nextIntervalExecution = true;
 
                                 const logText = "[ERR] 'buildCandles' - Head of the market reached for market " + market.assetA + '_' + market.assetB + " . ";
                                 logger.write(logText);

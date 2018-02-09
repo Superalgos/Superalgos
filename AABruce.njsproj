@@ -27,7 +27,7 @@
     <Compile Include="Poloniex API Client.js" />
     <Compile Include="Utilities.js" />
     <Content Include="logs\Dummy File.txt" />
-    <Compile Include="One-Min-Daily-Candles\One Min Daily Candles.js" />
+    <Compile Include="One-Min-Daily-Candles\One Min Daily Candles Volumes.js" />
     <Compile Include="One-Min-Daily-Candles\run.js" />
     <Content Include="obj\Debug\AACarol.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACharly.njsproj.FileListAbsolute.txt" />

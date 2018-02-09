@@ -77,7 +77,7 @@ try {
             const newPloniexHoleFixing = ONE_MIN_DAILY_CANDLES_MODULE.newPloniexHoleFixing(bot);
 
             let month = 6;
-            let year = 2016;
+            let year = 2015;
 
             newPloniexHoleFixing.initialize(year, month, onInitializeReady);
 

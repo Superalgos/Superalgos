@@ -396,7 +396,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                 statusReport = JSON.parse(text);
 
                                 lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-                                lastCandleClose = statusReport.lastFile.candleClose;
+                                lastCandleClose = statusReport.candleClose;
 
                                 buildCandles();
 
@@ -443,6 +443,10 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         */
 
+                        const logText = "[INFO] 'findLastCandleCloseValue' - Begining of the market detected for market " + market.assetA + '_' + market.assetB + " . lastCandleClose = " + lastCandleClose;
+                        logger.write(logText);
+                        console.log(logText);
+
                         lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDay() + " " + "00:00"  + GMT_SECONDS);
                         lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
@@ -486,6 +490,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                                         const logText = "[INFO] 'findLastCandleCloseValue' - Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . lastCandleClose = " + lastCandleClose;
                                         logger.write(logText);
+                                        console.log(logText);
 
                                         buildCandles();
 
@@ -493,6 +498,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                                         const logText = "[INFO] 'findLastCandleCloseValue' - No trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " .";
                                         logger.write(logText);
+                                        console.log(logText);
 
                                         loopStart();
 

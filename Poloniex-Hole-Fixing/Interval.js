@@ -464,10 +464,10 @@ What is the lastFile pointer?
                                 holeFixingStatusReport = JSON.parse(text);
                             } 
                             catch (err) {
-                                text = undefined; // If the content of the file is corrupt, this equals as if the file did not exist.
+                                text = ""; // If the content of the file is corrupt, this equals as if the file did not exist.
                             }
 
-                            if (text === undefined) {
+                            if (text === "") {
 
                                 /* 
 

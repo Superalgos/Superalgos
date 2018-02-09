@@ -105,7 +105,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
             let thisDatetime = new Date();
 
-            if ((year === thisDatetime.getUTCFullYear() && month > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
+            if ((year === thisDatetime.getUTCFullYear() && parseInt(month) > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
 
                 logger.write("[INFO] We are too far in the future. Interval will not execute. Sorry.");
                 return;
@@ -114,7 +114,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
             let atHeadOfMarket;         // This tell us if we are at the month which includes the head of the market according to current datetime.
 
-            if ((year === thisDatetime.getUTCFullYear() && month === thisDatetime.getUTCMonth() + 1)) {
+            if ((year === thisDatetime.getUTCFullYear() && parseInt(month) === thisDatetime.getUTCMonth() + 1)) {
 
                 atHeadOfMarket = true;
 
@@ -302,7 +302,18 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                                 firstTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
 
-                                getHoleFixing();
+                                if ((year === firstTradeFile.getUTCFullYear() && parseInt(month) < firstTradeFile.getUTCMonth() + 1) || year < firstTradeFile.getUTCFullYear()) {
+
+                                    const logText = "[INFO] 'getStatusReport' - the requested month / year are before the begining of this market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
+                                    logger.write(logText);
+
+                                    closeAndOpenMarket();
+
+                                } else {
+
+                                    getHoleFixing();
+
+                                }
 
                             } catch (err) {
 
@@ -588,6 +599,8 @@ Read the trades from Charly's Output and pack them into daily files with candles
                             /* Check if we are outside the currrent Month */
 
                             if (date.getUTCMonth() + 1 !== parseInt(month)) {
+
+                                lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
                                 writeStatusReport(lastCandleFile, lastCandleClose, true, onStatusReportWritten);
 

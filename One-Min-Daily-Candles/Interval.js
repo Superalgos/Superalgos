@@ -521,7 +521,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                             } catch (err) {
 
-                                const logText = "[INFO] 'findLastCandleCloseValue' - Empy of corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
+                                const logText = "[ERR] 'findLastCandleCloseValue' - Empty or corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                 logger.write(logText);
 
                                 closeAndOpenMarket();
@@ -537,409 +537,187 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                 Here we are going to scan the trades files packing them in candles files every one day.
                 We need for this the last close value, bacause all candles that are empty of trades at the begining, they need to
-                have a valid open and close value.
+                have a valid open and close value. This was previously calculated before arriving to this function.
 
                 */
 
-            }
+                nextCandleFile();
 
-            function findNextHole() {
-                try {
+                function nextCandleFile() {
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'findNextHole'");
-                    }
+                    lastCandleFile = new Date(lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
-                    /*
+                    let date = new Date(lastCandleFile.valueOf() - 60 * 1000);
 
-                    To find the next hole, we will read first the current file (which we know if fully ok) and get from it the current Trade Id.
-                    After that, we will continue reading the next files, checking all the ids, until we find a hole.
+                    let candles = [];
+                    let volumes = [];
 
-                    */
+                    let lastCandle = {
+                        open: lastCandleClose,
+                        close: lastCandleClose,
+                        min: lastCandleClose,
+                        max: lastCandleClose,
+                        begin: 0,
+                        end: 0,
+                        buy: 0,
+                        sell: 0
+                    };
 
-                    let filePath;
-                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                    let date;               // This is pointing to each Trades File
+                    nextDate();
 
-                    let fileCheckedCounter = 0;
-
-                    date = new Date(lastCandleFile.valueOf()); 
-
-                    readNextFile();
-
-                    function readNextFile() {
+                    function nextDate() {
 
                         date = new Date(date.valueOf() + 60 * 1000);
 
-                        if (LOG_INFO === true) {
-                            const logText = "[INFO] Entering function 'readNextFile' with date = " + date.toUTCString();
-                            logger.write(logText);
-                        }
+                        /* Check if we are outside the current Day / File */
 
-                        if (date.valueOf() > lastLiveTradeFile.valueOf()) {
+                        if (date.getUTCDate() !== lastCandleFile.getUTCDate()) {
 
-                            /* This mean we reached the forward end of the market */
+                            writeFiles(candles, volumes, true, onFilesWritten);
 
-                            if (LOG_INFO === true) {
-                                logger.write("[INFO] readNextFile - End of the market reached at date = " + date.toUTCString());
+                            return;
+
+                            function onFilesWritten() {
+
+                                nextCandleFile();
+
                             }
 
-                            nextIntervalExecution = true; // Even if we didn-t find a hole, we need to continue the execution of this month interval.
+                        }
 
-                            writeStatusReport(currentDatetime, currentTradeId, false, true, onStatusReportWritten);
+                        /* Check if we are outside the currrent Month */
+
+                        if (date.getUTCMont() + 1 !== month) {
+
+                            writeStatusReport(lastCandleFile, true, onStatusReportWritten);
+
+                            return;
 
                             function onStatusReportWritten() {
+
+                                const logText = "[ERR] 'buildCandles' - Finishing processing the whole month for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                logger.write(logText);
 
                                 closeAndOpenMarket();
 
                             }
+                        }
+
+                        /* Check if we have past the most recent hole fixed file */
+
+                        if (date.valueOf() > lastFileWithoutHoles.valueOf()) {
+
+                            writeFiles(candles, volumes, false, onFilesWritten);
 
                             return;
 
-                        }
+                            function onFilesWritten() {
 
-                        /* Lets check if we have reached the end of the month. */ 
-
-                        if (date.valueOf() > lastMinuteOfMonth.valueOf()) {
-
-                            /* This mean we reached the forward end of the market */
-
-                            if (LOG_INFO === true) {
-                                logger.write("[INFO] readNextFile - End of the month reached at date = " + date.toUTCString());
-                            }
-
-                            writeStatusReport(currentDatetime, currentTradeId, true, false, onStatusReportWritten);
-
-                            function onStatusReportWritten() {
+                                const logText = "[ERR] 'buildCandles' - Head of the market reached for market " + market.assetA + '_' + market.assetB + " . ";
+                                logger.write(logText);
 
                                 closeAndOpenMarket();
-
-                            }
-
-                            return;
-
-                        }
-
-                        dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-
-                        filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
-
-                        azureFileStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
-
-                        function onNextFileReceived(text) {
-
-                            if (text === undefined) {
-
-                                /* The file does not exist, so this means there is a hole!!!  */
-
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] Hole by missing file detected. Date = " + date.toUTCString());
-                                }
-
-                                holeInitialId = currentTradeId;
-                                holeInitialDatetime = new Date(currentDatetime.valueOf());  // Field #5 contains the seconds.
-
-                                findEndOfHole();
-
-                            } else {
-
-                                try {
-
-                                    let tradesTest = JSON.parse(text);
-
-                                } catch (err) {
-
-                                    /*
-
-                                    If the file is corrupt, then we are in a similar situation as if it does not exist.
-
-                                    */
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] Hole by corrupt file detected. Date = " + date.toUTCString());
-                                    }
-
-                                    holeInitialId = currentTradeId;
-                                    holeInitialDatetime = new Date(currentDatetime.valueOf());  // Field #5 contains the seconds.
-
-                                    findEndOfHole();
-
-                                    return;
-                                }
-
-                                checkHolesInFile(text);
 
                             }
                         }
                     }
 
-                    function checkHolesInFile(text) {
+                    function readTrades() {
 
-                        let trades = JSON.parse(text);
+                        let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
+                        let fileName = market.assetA + '_' + market.assetB + ".json"
+                        let filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                        /*
+                        charlyAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                        tradesWithHole variable:
+                        function onFileReceived(text) {
 
-                        Until verified, this trades in this file becomes potentially the last set of trades with hole. If it is not, then this variable will be overwritten later
-                        by the one.
+                            let tradesFile;
 
+                            try {
 
-                        We will need these trades at the end of the process.
+                                let candle = {
+                                    open: lastCandle.close,
+                                    close: lastCandle.close,
+                                    min: lastCandle.close,
+                                    max: lastCandle.close,
+                                    begin: date.valueOf(),
+                                    end: date.valueOf() + 60 * 1000 - 1
+                                };
 
-                        */
+                                let volume = {
+                                    begin: date.valueOf(),
+                                    end: date.valueOf() + 60 * 1000 - 1,
+                                    buy: 0,
+                                    sell: 0
+                                };
 
-                        tradesWithHole = trades; 
+                                tradesFile = JSON.parse(text);
 
-                        if (LOG_INFO === true) {
-                            const logText = "[INFO] Entering function 'checkHolesInFile' to check File '" + fileName + "' @ " + filePath + " - " + trades.length + " records in it.";
-                            logger.write(logText);
-                            console.log(logText);
-                        }
+                                if (tradesFile.length > 0) {
 
-                        if (currentTradeId === FIRST_TRADE_RECORD_ID || currentTradeId === UNKNOWN_TRADE_RECORD_ID) { 
+                                    /* Candle open and close Calculations */
 
-                            /*
-
-                            Here we dont know the currentTradeId, so we might take it directly from the file. There will be a problem though if the market starts
-                            with some empty files. In those cases, we need to jump to the next file until we find one with some records.
-
-                            */
-
-                            if (trades.length > 0) {
-
-                                currentTradeId = trades[0][0] - 1;
-
-                            } else {
-
-                                readNextFile();
-                                return;
-
-                            }
-
-                        }
-
-                        for (let i = 0; i < trades.length; i++) {
-
-                            let fileTradeId = trades[i][0]; // First position in each record.
-
-                            if (currentTradeId + 1 > fileTradeId) {
-
-                                /*
-
-                                This happens when the process resumes execution, reads the first file and the first trades have lowers ids that the ones the process already
-                                checked during the last execution.
-
-                                It also happens when we find a non valid id, as the one used in an empty record signaling that the file is incomplete. (zero).
-
-                                */
-
-                                continue; // we simply jump to the next trade.
-
-                            }
-
-                            if (currentTradeId + 1 < fileTradeId) {
-
-                                /*
-
-                                We should usually try to fix the hole, but there is an exception. If the we tried this 3 times already, we must declare the problem
-                                unsolvable and move forward. 
-
-                                */
-
-                                let lastRecordedTradeId = 0;
-                                let lastRecordedCounter = 0;
-
-                                if (holeFixingStatusReport !== undefined) { // The whole could have benn found before the monthly report was created.
-
-                                    lastRecordedTradeId = holeFixingStatusReport.lastTrade.id;
-                                    lastRecordedCounter = holeFixingStatusReport.lastTrade.counter;
+                                    candle.open = tradesFile[0][2];
+                                    candle.close = tradesFile[tradesFile.length - 1][2];
 
                                 }
 
-                                if (currentTradeId === lastRecordedTradeId && lastRecordedCounter >= MAX_HOLE_FIXING_RETRIES) {
+                                for (let i = 0; i < tradesFile.length; i++) {
 
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] Hole by non consecutive ID detected. MAX_HOLE_FIXING_RETRIES reched, giving up with this validation. Date = " + date.toUTCString());
+                                    const trade = {
+                                        id: tradesFile[i][0],
+                                        type: tradesFile[i][1],
+                                        rate: tradesFile[i][2],
+                                        amountA: tradesFile[i][3],
+                                        amountB: tradesFile[i][4],
+                                        seconds: tradesFile[i][5]
+                                    };
+
+                                    /* Candle min and max Calculations */
+
+                                    if (trade.rate < candle.min) {
+
+                                        candle.min = trade.rate;
+
                                     }
 
-                                    /* We advance anyway to the next Id since there is no other solution. */
+                                    if (trade.rate > candle.max) {
 
-                                    currentTradeId = fileTradeId;
-                                    currentDatetime = new Date(date.valueOf() + trades[i][5] * 1000);
+                                        candle.max = trade.rate;
 
-
-                                } else {
-
-                                    /* Here we have a hole that needs to be fixed !!! */
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] Hole by non consecutive ID detected. Date = " + date.toUTCString());
                                     }
 
-                                    holeInitialId = currentTradeId;
-                                    holeInitialDatetime = new Date(currentDatetime.valueOf());
+                                    /* Volume Calculations */
 
-                                    holeFinalId = fileTradeId;
-                                    holeFinalDatetime = new Date(date.valueOf() + trades[i][5] * 1000);  // Field #5 contains the seconds.
-
-                                    getTheTrades();
-
-                                    break;
+                                    if (trade.type === "sell") {
+                                        volume.sell = volume.sell + trade.amountA;
+                                    } else {
+                                        volume.buy = volume.buy + trade.amountA;
+                                    }
 
                                 }
 
+                                candles.push(candle);
 
-                            } else {
+                                lastCandle = candle;
 
-                                /* We keep here the last Trade Id and Datetime that are allright. */
+                                volumes.push(volume);
 
-                                currentTradeId = fileTradeId;
-                                currentDatetime = new Date(date.valueOf() + trades[i][5] * 1000);
+                            } catch (err) {
 
-                            }
-                        }
-
-                        if (holeInitialId === undefined) {
-
-                            fileCheckedCounter++;
-
-                            if (fileCheckedCounter === 60) { // Every hour checked we write a Status Report so that if the process is terminated, it can resume later from there.
-
-                                writeStatusReport(currentDatetime, currentTradeId, false, false, onStatusReportWritten);
-
-                                function onStatusReportWritten() {
-
-                                    fileCheckedCounter = 0;
-                                    readNextFile();
-                                }
-                                
-                            } else {
-
-                                readNextFile();
-
-                            }
-                        }
-                    }
-
-
-                    function findEndOfHole() {
-
-                        /* Here we will enter a loop where will try to find the next available file recorded and extract from it the Id and Datetime from the first record. */
-
-                        date = new Date(date.valueOf() + 60 * 1000);
-
-                        if (LOG_INFO === true) {
-                            logger.write("[INFO] Entering function 'findEndOfHole' with date = " + date.toUTCString());
-                        }
-
-                        if (date.valueOf() > lastLiveTradeFile.valueOf()) {
-
-                            /*
-
-                            In this case we have an open hole produced by a missing file, and because live trades files contains zero records or are missing, we reached the
-                            forward side of the market. The situation in unsolvable for now, we will leave it of future execution.
-
-                            */
-
-                            if (LOG_INFO === true) {
-                                logger.write("[INFO] findEndOfHole - End of the market reached at date = " + date.toUTCString());
-                            }
-
-                            nextIntervalExecution = true; // Even if we didn-t find the end of the hole, we need to continue the execution of this month interval.
-
-                            writeStatusReport(currentDatetime, currentTradeId, false, false, onStatusReportWritten);
-
-                            function onStatusReportWritten() {
+                                const logText = "[ERR] 'buildCandles' - Empty or corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                logger.write(logText);
 
                                 closeAndOpenMarket();
-
-                            }
-
-                            return;
-
-                        }
-
-                        dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-
-                        filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
-
-                        azureFileStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
-
-                        function onNextFileReceived(text) {
-
-                            if (text === undefined) {
-
-                                /* The file does not exist, so this means we need to move forward  */
-
-                                findEndOfHole();
-
-                                return;
-
-                            } else {
-
-                                let trades;
-
-                                try {
-
-                                    trades = JSON.parse(text);
-
-                                } catch(err) {
-                                    /*
-
-                                    If the file is corrupt, then we are in a similar situation as if it does not exist.
-
-                                    */
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] findEndOfHole - Corrupt file with no records found at date = " + date.toUTCString());
-                                    }
-
-                                    findEndOfHole();
-
-                                    return;
-
-                                } 
-
-                                if (trades.length === 0) {
-
-                                    /* This is the same situation that if there is no file, move forward */
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] findEndOfHole - File with no records found at date = " + date.toUTCString());
-                                    }
-
-                                    findEndOfHole();
-
-                                    return;
-
-                                }
-
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] findEndOfHole - Next available record found at date = " + date.toUTCString());
-                                }
-
-                                let fileTradeId = trades[0][0]; // First position in each record.
-
-                                holeFinalId = fileTradeId;
-                                holeFinalDatetime = new Date(date.valueOf() + trades[0][5] * 1000);  // Field #5 contains the seconds.
-
-                                getTheTrades();
-
-                                return;
-
                             }
                         }
                     }
-
                 }
-                catch (err) {
-                    const logText = "[ERROR] 'findNextHole' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-
             }
+
+
+
 
             function tradesReadyToBeSaved(tradesRequested) {
 

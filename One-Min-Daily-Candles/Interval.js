@@ -137,6 +137,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
             let lastFileWithoutHoles;   // Datetime of the last verified file without holes.
             let lastCandleClose;        // Value of the last candle close.
+            let lastTradeFile;          // Datetime pointing to the last Trade File sucessfuly processed and included in the last file.
 
             marketsLoop(); 
 
@@ -418,8 +419,16 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                     lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
                                     lastCandleClose = statusReport.candleClose;
 
-                                    buildCandles();
+                                    if (statusReport.fileComplete === true) {
 
+                                        buildCandles();
+
+                                    } else {
+
+                                        lastTradeFile = new Date(statusReport.lastTradeFile.year + "-" + statusReport.lastTradeFile.month + "-" + statusReport.lastTradeFile.days + " " + statusReport.lastTradeFile.hours + ":" + statusReport.lastTradeFile.minutes + GMT_SECONDS);
+                                        findPreviousContent();
+
+                                    }
                                 }
 
                             } catch (err) {
@@ -444,6 +453,89 @@ Read the trades from Charly's Output and pack them into daily files with candles
                     logger.write(logText);
                     closeMarket();
                 }
+            }
+
+            function findPreviousContent() {
+
+                try {
+
+                    let previousCandles;
+                    let previousVolumes;
+
+                    getCandles();
+
+                    function getCandles() {
+
+                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                        let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+
+                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+
+                        bruceAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                        function onFileReceived(text) {
+
+                            let candlesFile;
+
+                            try {
+
+                                candlesFile = JSON.parse(text);
+
+                                previousCandles = candlesFile;
+
+                                getVolumes();
+
+                            } catch (err) {
+
+                                const logText = "[ERR] 'findPreviousContent' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                logger.write(logText);
+
+                                closeAndOpenMarket();
+                            }
+                        }
+                    }
+
+                    function getVolumes() {
+
+                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                        let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+
+                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+
+                        bruceAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                        function onFileReceived(text) {
+
+                            let volumesFile;
+
+                            try {
+
+                                volumesFile = JSON.parse(text);
+
+                                previousVolumes = volumesFile;
+
+                                lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
+
+                                buildCandles(previousCandles, previousVolumes);
+
+                            } catch (err) {
+
+                                const logText = "[ERR] 'findPreviousContent' - Empty or corrupt volume file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                logger.write(logText);
+
+                                closeAndOpenMarket();
+                            }
+                        }
+                    } 
+                }
+                catch (err) {
+                const logText = "[ERROR] 'findPreviousContent' - ERROR : " + err.message;
+                logger.write(logText);
+                closeMarket();
+                }
+
             }
 
             function findLastCandleCloseValue() {
@@ -544,7 +636,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
                 }
             }
 
-            function buildCandles() {
+            function buildCandles(previousCandles, previousVolumes) {
 
                 /*
 
@@ -553,6 +645,8 @@ Read the trades from Charly's Output and pack them into daily files with candles
                 have a valid open and close value. This was previously calculated before arriving to this function.
 
                 */
+
+                let canAddPrevious = true;
 
                 try {
 
@@ -571,8 +665,50 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         }
 
+                        if (lastTradeFile !== undefined) {
+
+                            date = new Date(lastTradeFile.valueOf());
+
+                        }
+
                         let candles = [];
                         let volumes = [];
+
+                        if (previousCandles !== undefined && canAddPrevious === true) {
+
+                            for (let i = 0; i < previousCandles.length; i++) {
+
+                                let candle = {
+                                    open: previousCandles[i][2],
+                                    close: previousCandles[i][3],
+                                    min: previousCandles[i][0],
+                                    max: previousCandles[i][1],
+                                    begin: previousCandles[i][4],
+                                    end: previousCandles[i][5]
+                                };
+
+                                candles.push(candle);
+                            }
+
+                        }
+
+                        if (previousVolumes !== undefined && canAddPrevious === true) {
+
+                            for (let i = 0; i < previousVolumes.length; i++) {
+
+                                let volume = {
+                                    begin: previousVolumes[i][2],
+                                    end: previousVolumes[i][3],
+                                    buy: previousVolumes[i][0],
+                                    sell: previousVolumes[i][1]
+                                };
+
+                                volumes.push(volume);
+                            }
+
+                        }
+
+                        canAddPrevious = false; // We add them only onece.
 
                         nextDate();
 
@@ -602,7 +738,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                                 lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                                writeStatusReport(lastCandleFile, lastCandleClose, true, onStatusReportWritten);
+                                writeStatusReport(lastCandleFile, lastTradeFile, lastCandleClose, true, true, onStatusReportWritten);
 
                                 return;
 
@@ -640,6 +776,8 @@ Read the trades from Charly's Output and pack them into daily files with candles
                         }
 
                         function readTrades() {
+
+                            lastTradeFile = new Date(date.valueOf());
 
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                             let fileName = market.assetA + '_' + market.assetB + ".json"
@@ -852,17 +990,9 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                     function writeReport() {
 
-                        if (isFileComplete === true) {
+                        writeStatusReport(date, lastTradeFile, lastCandleClose, isFileComplete, false, onStatusReportWritten);
 
-                            writeStatusReport(date, lastCandleClose, false, onStatusReportWritten);
-
-                            function onStatusReportWritten() {
-
-                                callBack();
-
-                            }
-
-                        } else {
+                        function onStatusReportWritten() {
 
                             callBack();
 
@@ -877,7 +1007,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
                 }
             }
 
-            function writeStatusReport(lastFileDate, candleClose, isMonthComplete, callBack) {
+            function writeStatusReport(lastFileDate, lastTradeFile, candleClose, isFileComplete, isMonthComplete, callBack) {
 
 
                 if (LOG_INFO === true) {
@@ -902,8 +1032,16 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                     month: (lastFileDate.getUTCMonth() + 1),
                                     days: lastFileDate.getUTCDate()
                                 },
+                                lastTradeFile: {
+                                    year: lastTradeFile.getUTCFullYear(),
+                                    month: (lastTradeFile.getUTCMonth() + 1),
+                                    days: lastTradeFile.getUTCDate(),
+                                    hours: lastTradeFile.getUTCHours(),
+                                    minutes: lastTradeFile.getUTCMinutes()
+                                },
                                 candleClose: candleClose,
-                                monthCompleted: isMonthComplete
+                                monthCompleted: isMonthComplete,
+                                fileComplete: isFileComplete
                             };
 
                             let fileContent = JSON.stringify(report); 

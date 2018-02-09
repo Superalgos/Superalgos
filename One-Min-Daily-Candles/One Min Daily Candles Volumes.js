@@ -3,7 +3,7 @@
     let bot = BOT;
     const ROOT_DIR = '../';
 
-    const INTERVAL_LAPSE = 60 * 1000;
+    const INTERVAL_LAPSE = 10 * 1000;
 
     const MODULE_NAME = "One Min Daily Candles Volumes";
     const LOG_INFO = true;

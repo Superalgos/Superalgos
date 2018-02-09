@@ -136,6 +136,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
             let lastCandleFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
             let lastFileWithoutHoles;   // Datetime of the last verified file without holes.
+            let lastCandleClose;        // Value of the last candle close.
 
             marketsLoop(); 
 
@@ -349,7 +350,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                 if (statusReport.monthChecked === true) {
 
                                     lastFileWithoutHoles = new Date();  // We need this with a valid value.
-                                    getOneMinDailyCandles();
+                                    getOneMinDailyCandlesVolumes();
 
                                 } else {
 
@@ -363,7 +364,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                     if (atHeadOfMarket === true) {
 
                                         lastFileWithoutHoles = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
-                                        getOneMinDailyCandles();
+                                        getOneMinDailyCandlesVolumes();
 
                                     } else {
 
@@ -378,11 +379,11 @@ Read the trades from Charly's Output and pack them into daily files with candles
                         }
                     }
 
-                    function getOneMinDailyCandles() {
+                    function getOneMinDailyCandlesVolumes() {
 
                         /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "One-Min-Daily-Candles" + "/" + year + "/" + month;
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "One-Min-Daily-Candles-Volumes" + "/" + year + "/" + month;
 
                         bruceAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
@@ -394,7 +395,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                                 statusReport = JSON.parse(text);
 
-                                lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
+                                lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
                                 lastCandleClose = statusReport.lastFile.candleClose;
 
                                 buildCandles();
@@ -526,17 +527,6 @@ Read the trades from Charly's Output and pack them into daily files with candles
                     let candles = [];
                     let volumes = [];
 
-                    let lastCandle = {
-                        open: lastCandleClose,
-                        close: lastCandleClose,
-                        min: lastCandleClose,
-                        max: lastCandleClose,
-                        begin: 0,
-                        end: 0,
-                        buy: 0,
-                        sell: 0
-                    };
-
                     nextDate();
 
                     function nextDate() {
@@ -563,7 +553,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         if (date.getUTCMont() + 1 !== month) {
 
-                            writeStatusReport(lastCandleFile, true, onStatusReportWritten);
+                            writeStatusReport(lastCandleFile, lastCandleClose, true, onStatusReportWritten);
 
                             return;
 
@@ -613,10 +603,10 @@ Read the trades from Charly's Output and pack them into daily files with candles
                             try {
 
                                 let candle = {
-                                    open: lastCandle.close,
-                                    close: lastCandle.close,
-                                    min: lastCandle.close,
-                                    max: lastCandle.close,
+                                    open: lastCandleClose,
+                                    close: lastCandleClose,
+                                    min: lastCandleClose,
+                                    max: lastCandleClose,
                                     begin: date.valueOf(),
                                     end: date.valueOf() + 60 * 1000 - 1
                                 };
@@ -636,6 +626,8 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                                     candle.open = tradesFile[0][2];
                                     candle.close = tradesFile[tradesFile.length - 1][2];
+
+                                    lastCandleClose = candle.close;
 
                                 }
 
@@ -675,8 +667,6 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                 }
 
                                 candles.push(candle);
-
-                                lastCandle = candle;
 
                                 volumes.push(volume);
 
@@ -795,7 +785,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                     if (isFileComplete === true) {
 
-                        writeStatusReport(date, false, onStatusReportWritten);
+                        writeStatusReport(date, lastCandleClose, false, onStatusReportWritten);
 
                         function onStatusReportWritten() {
 
@@ -811,7 +801,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
                 }
             }
 
-            function writeStatusReport(lastFileDate, isMonthComplete, callBack) {
+            function writeStatusReport(lastFileDate, candleClose, isMonthComplete, callBack) {
 
 
                 if (LOG_INFO === true) {
@@ -836,6 +826,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                     month: (lastFileDate.getUTCMonth() + 1),
                                     days: lastFileDate.getUTCDate()
                                 },
+                                candleClose: candleClose,
                                 monthCompleted: isMonthComplete
                             };
 

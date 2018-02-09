@@ -11,8 +11,8 @@ const ROOT_DIR = '../';
 
 const MODULE_NAME = "run";
 
-const START_ONE_MIN_DAILY_CANDLES = true;
-const START_ONE_MIN_DAILY_CANDLES_AT_ONE_MONTH = false;
+const START_ONE_MIN_DAILY_CANDLES_VOLUMES = false;
+const START_ONE_MIN_DAILY_CANDLES_VOLUMES_AT_ONE_MONTH = true;
 
 const ONE_MIN_DAILY_CANDLES_MODULE = require('./One Min Daily Candles Volumes');
 
@@ -37,7 +37,7 @@ process.on('exit', function (code) {
 
 
 try {
-    if (START_ONE_MIN_DAILY_CANDLES === true) {
+    if (START_ONE_MIN_DAILY_CANDLES_VOLUMES === true) {
 
         for (let year = 2018; year > 2014; year--) {
 
@@ -68,7 +68,7 @@ try {
     }
 
 
-    if (START_ONE_MIN_DAILY_CANDLES_AT_ONE_MONTH === true) {
+    if (START_ONE_MIN_DAILY_CANDLES_VOLUMES_AT_ONE_MONTH === true) {
 
         startProcess();
 
@@ -76,8 +76,8 @@ try {
 
             const newPloniexHoleFixing = ONE_MIN_DAILY_CANDLES_MODULE.newPloniexHoleFixing(bot);
 
-            let month = 2;
-            let year = 2015;
+            let month = 6;
+            let year = 2016;
 
             newPloniexHoleFixing.initialize(year, month, onInitializeReady);
 

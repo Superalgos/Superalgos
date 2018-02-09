@@ -288,7 +288,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         */
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Hiistoric-Trades";
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Historic-Trades";
 
                         charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
@@ -325,7 +325,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         reportFilePath = EXCHANGE_NAME + "/Processes/" + "Hole-Fixing" + "/" + year + "/" + month;
 
-                        cahrlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                        charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
                         function onStatusReportReceived(text) {
 
@@ -426,83 +426,93 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
             function findLastCandleCloseValue() {
 
-                /* 
+                try {
 
-                We will search and find for the last trade before the begining of the current candle and that will give us the last close value.
-                Before going backwards, we need to be sure we are not at the begining of the market.
+                    /* 
 
-                */
-
-                if ((year === firstTradeFile.getUTCFullYear() && month === firstTradeFile.getUTCMonth() + 1)) {
-
-                    /*
-
-                    We are at the begining of the market, so we will set everyting to build the first candle.
+                    We will search and find for the last trade before the begining of the current candle and that will give us the last close value.
+                    Before going backwards, we need to be sure we are not at the begining of the market.
 
                     */
 
-                    lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDay() + " " + "00:00"  + GMT_SECONDS);
-                    lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
+                    if ((year === firstTradeFile.getUTCFullYear() && month === firstTradeFile.getUTCMonth() + 1)) {
 
-                    lastCandleClose = 0;
+                        /*
 
-                    buildCandles();
+                        We are at the begining of the market, so we will set everyting to build the first candle.
 
-                } else {
+                        */
 
-                    /*
+                        lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDay() + " " + "00:00"  + GMT_SECONDS);
+                        lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                    We are not at the begining of the market, so we need scan backwards the trade files until we find a non empty one and get the last trade.
+                        lastCandleClose = 0;
 
-                    */
+                        buildCandles();
 
-                    let date = new Date(processDate.valueOf());
+                    } else {
 
-                    function loopStart() {
+                        /*
 
-                        date = new Date(date.valueOf() - 60 * 1000);
+                        We are not at the begining of the market, so we need scan backwards the trade files until we find a non empty one and get the last trade.
 
-                        let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                        let fileName = market.assetA + '_' + market.assetB + ".json"
-                        let filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+                        */
 
-                        charlyAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                        let date = new Date(processDate.valueOf());
 
-                        function onFileReceived(text) {
+                        loopStart();
 
-                            let tradesFile;
+                        function loopStart() {
 
-                            try {
+                            date = new Date(date.valueOf() - 60 * 1000);
 
-                                tradesFile = JSON.parse(text);
+                            let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
+                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                            let filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                                if (tradesFile.length > 0) {
+                            charlyAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                                    lastCandleClose = tradesFile[tradesFile.length - 1][2]; // Position 2 is the rate at which the trade was executed.
+                            function onFileReceived(text) {
 
-                                    const logText = "[INFO] 'findLastCandleCloseValue' - Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . lastCandleClose = " + lastCandleClose;
+                                let tradesFile;
+
+                                try {
+
+                                    tradesFile = JSON.parse(text);
+
+                                    if (tradesFile.length > 0) {
+
+                                        lastCandleClose = tradesFile[tradesFile.length - 1][2]; // Position 2 is the rate at which the trade was executed.
+
+                                        const logText = "[INFO] 'findLastCandleCloseValue' - Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . lastCandleClose = " + lastCandleClose;
+                                        logger.write(logText);
+
+                                        buildCandles();
+
+                                    } else {
+
+                                        const logText = "[INFO] 'findLastCandleCloseValue' - No trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " .";
+                                        logger.write(logText);
+
+                                        loopStart();
+
+                                    }
+
+                                } catch (err) {
+
+                                    const logText = "[ERR] 'findLastCandleCloseValue' - Empty or corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                     logger.write(logText);
 
-                                    buildCandles();
-
-                                } else {
-
-                                    const logText = "[INFO] 'findLastCandleCloseValue' - No trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " .";
-                                    logger.write(logText);
-
-                                    loopStart();
-
+                                    closeAndOpenMarket();
                                 }
-
-                            } catch (err) {
-
-                                const logText = "[ERR] 'findLastCandleCloseValue' - Empty or corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
                             }
                         }
                     }
+                }
+                catch (err) {
+                    const logText = "[ERROR] 'findLastCandleCloseValue' - ERROR : " + err.message;
+                    logger.write(logText);
+                    closeMarket();
                 }
             }
 
@@ -516,170 +526,181 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                 */
 
-                nextCandleFile();
+                try {
 
-                function nextCandleFile() {
 
-                    lastCandleFile = new Date(lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
+                    nextCandleFile();
 
-                    let date = new Date(lastCandleFile.valueOf() - 60 * 1000);
+                    function nextCandleFile() {
 
-                    let candles = [];
-                    let volumes = [];
+                        lastCandleFile = new Date(lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
-                    nextDate();
+                        let date = new Date(lastCandleFile.valueOf() - 60 * 1000);
 
-                    function nextDate() {
+                        let candles = [];
+                        let volumes = [];
 
-                        date = new Date(date.valueOf() + 60 * 1000);
+                        nextDate();
 
-                        /* Check if we are outside the current Day / File */
+                        function nextDate() {
 
-                        if (date.getUTCDate() !== lastCandleFile.getUTCDate()) {
+                            date = new Date(date.valueOf() + 60 * 1000);
 
-                            writeFiles(lastCandleFile, candles, volumes, true, onFilesWritten);
+                            /* Check if we are outside the current Day / File */
 
-                            return;
+                            if (date.getUTCDate() !== lastCandleFile.getUTCDate()) {
 
-                            function onFilesWritten() {
+                                writeFiles(lastCandleFile, candles, volumes, true, onFilesWritten);
 
-                                nextCandleFile();
+                                return;
 
-                            }
+                                function onFilesWritten() {
 
-                        }
-
-                        /* Check if we are outside the currrent Month */
-
-                        if (date.getUTCMont() + 1 !== month) {
-
-                            writeStatusReport(lastCandleFile, lastCandleClose, true, onStatusReportWritten);
-
-                            return;
-
-                            function onStatusReportWritten() {
-
-                                const logText = "[ERR] 'buildCandles' - Finishing processing the whole month for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
-
-                            }
-                        }
-
-                        /* Check if we have past the most recent hole fixed file */
-
-                        if (date.valueOf() > lastFileWithoutHoles.valueOf()) {
-
-                            writeFiles(lastCandleFile, candles, volumes, false, onFilesWritten);
-
-                            return;
-
-                            function onFilesWritten() {
-
-                                nextIntervalExecution = true;
-
-                                const logText = "[ERR] 'buildCandles' - Head of the market reached for market " + market.assetA + '_' + market.assetB + " . ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
-
-                            }
-                        }
-                    }
-
-                    function readTrades() {
-
-                        let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                        let fileName = market.assetA + '_' + market.assetB + ".json"
-                        let filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
-
-                        charlyAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                        function onFileReceived(text) {
-
-                            let tradesFile;
-
-                            try {
-
-                                let candle = {
-                                    open: lastCandleClose,
-                                    close: lastCandleClose,
-                                    min: lastCandleClose,
-                                    max: lastCandleClose,
-                                    begin: date.valueOf(),
-                                    end: date.valueOf() + 60 * 1000 - 1
-                                };
-
-                                let volume = {
-                                    begin: date.valueOf(),
-                                    end: date.valueOf() + 60 * 1000 - 1,
-                                    buy: 0,
-                                    sell: 0
-                                };
-
-                                tradesFile = JSON.parse(text);
-
-                                if (tradesFile.length > 0) {
-
-                                    /* Candle open and close Calculations */
-
-                                    candle.open = tradesFile[0][2];
-                                    candle.close = tradesFile[tradesFile.length - 1][2];
-
-                                    lastCandleClose = candle.close;
+                                    nextCandleFile();
 
                                 }
 
-                                for (let i = 0; i < tradesFile.length; i++) {
+                            }
 
-                                    const trade = {
-                                        id: tradesFile[i][0],
-                                        type: tradesFile[i][1],
-                                        rate: tradesFile[i][2],
-                                        amountA: tradesFile[i][3],
-                                        amountB: tradesFile[i][4],
-                                        seconds: tradesFile[i][5]
+                            /* Check if we are outside the currrent Month */
+
+                            if (date.getUTCMonth() + 1 !== month) {
+
+                                writeStatusReport(lastCandleFile, lastCandleClose, true, onStatusReportWritten);
+
+                                return;
+
+                                function onStatusReportWritten() {
+
+                                    const logText = "[ERR] 'buildCandles' - Finishing processing the whole month for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                    logger.write(logText);
+
+                                    closeAndOpenMarket();
+
+                                }
+                            }
+
+                            /* Check if we have past the most recent hole fixed file */
+
+                            if (date.valueOf() > lastFileWithoutHoles.valueOf()) {
+
+                                writeFiles(lastCandleFile, candles, volumes, false, onFilesWritten);
+
+                                return;
+
+                                function onFilesWritten() {
+
+                                    nextIntervalExecution = true;
+
+                                    const logText = "[ERR] 'buildCandles' - Head of the market reached for market " + market.assetA + '_' + market.assetB + " . ";
+                                    logger.write(logText);
+
+                                    closeAndOpenMarket();
+
+                                }
+                            }
+                        }
+
+                        function readTrades() {
+
+                            let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
+                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                            let filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+
+                            charlyAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                            function onFileReceived(text) {
+
+                                let tradesFile;
+
+                                try {
+
+                                    let candle = {
+                                        open: lastCandleClose,
+                                        close: lastCandleClose,
+                                        min: lastCandleClose,
+                                        max: lastCandleClose,
+                                        begin: date.valueOf(),
+                                        end: date.valueOf() + 60 * 1000 - 1
                                     };
 
-                                    /* Candle min and max Calculations */
+                                    let volume = {
+                                        begin: date.valueOf(),
+                                        end: date.valueOf() + 60 * 1000 - 1,
+                                        buy: 0,
+                                        sell: 0
+                                    };
 
-                                    if (trade.rate < candle.min) {
+                                    tradesFile = JSON.parse(text);
 
-                                        candle.min = trade.rate;
+                                    if (tradesFile.length > 0) {
+
+                                        /* Candle open and close Calculations */
+
+                                        candle.open = tradesFile[0][2];
+                                        candle.close = tradesFile[tradesFile.length - 1][2];
+
+                                        lastCandleClose = candle.close;
 
                                     }
 
-                                    if (trade.rate > candle.max) {
+                                    for (let i = 0; i < tradesFile.length; i++) {
 
-                                        candle.max = trade.rate;
+                                        const trade = {
+                                            id: tradesFile[i][0],
+                                            type: tradesFile[i][1],
+                                            rate: tradesFile[i][2],
+                                            amountA: tradesFile[i][3],
+                                            amountB: tradesFile[i][4],
+                                            seconds: tradesFile[i][5]
+                                        };
+
+                                        /* Candle min and max Calculations */
+
+                                        if (trade.rate < candle.min) {
+
+                                            candle.min = trade.rate;
+
+                                        }
+
+                                        if (trade.rate > candle.max) {
+
+                                            candle.max = trade.rate;
+
+                                        }
+
+                                        /* Volume Calculations */
+
+                                        if (trade.type === "sell") {
+                                            volume.sell = volume.sell + trade.amountA;
+                                        } else {
+                                            volume.buy = volume.buy + trade.amountA;
+                                        }
 
                                     }
 
-                                    /* Volume Calculations */
+                                    candles.push(candle);
 
-                                    if (trade.type === "sell") {
-                                        volume.sell = volume.sell + trade.amountA;
-                                    } else {
-                                        volume.buy = volume.buy + trade.amountA;
-                                    }
+                                    volumes.push(volume);
 
+                                } catch (err) {
+
+                                    const logText = "[ERR] 'buildCandles' - Empty or corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                    logger.write(logText);
+
+                                    closeAndOpenMarket();
                                 }
-
-                                candles.push(candle);
-
-                                volumes.push(volume);
-
-                            } catch (err) {
-
-                                const logText = "[ERR] 'buildCandles' - Empty or corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
                             }
                         }
                     }
+                } 
+                     
+                catch (err) {
+                    const logText = "[ERROR] 'buildCandles' - ERROR : " + err.message;
+                logger.write(logText);
+                closeMarket();
                 }
+
             }
 
             function writeFiles(date, candles, volumes, isFileComplete, callBack) {
@@ -690,114 +711,123 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                 */
 
-                writeCandles();
+                try {
 
-                function writeCandles() {
+                    writeCandles();
 
-                    let separator = "";
-                    let fileRecordCounter = 0;
+                    function writeCandles() {
 
-                    let fileContent = "";
+                        let separator = "";
+                        let fileRecordCounter = 0;
 
-                    for (i = 0; i < candles.length; i++) {
+                        let fileContent = "";
 
-                        let candle = candles[i];
+                        for (i = 0; i < candles.length; i++) {
 
-                        fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
+                            let candle = candles[i];
 
-                        if (separator === "") { separator = ","; }
+                            fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
 
-                        fileRecordCounter++;
+                            if (separator === "") { separator = ","; }
+
+                            fileRecordCounter++;
+
+                        }
+
+                        fileContent = "[" + fileContent + "]";
+
+                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                        let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
+
+                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+
+                        utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
+
+                        function onFolderCreated() {
+
+                            azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                            function onFileCreated() {
+
+                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                console.log(logText);
+                                logger.write(logText);
+
+                                writeVolumes();
+                            }
+                        }
 
                     }
 
-                    fileContent = "[" + fileContent + "]";
+                    function writeVolumes() {
 
-                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let separator = "";
+                        let fileRecordCounter = 0;
 
-                    let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
+                        let fileContent = "";
 
-                    let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                        for (i = 0; i < volumes.length; i++) {
 
-                    utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
+                            let candle = volumes[i];
 
-                    function onFolderCreated() {
+                            fileContent = fileContent + separator + '[' + volumes[i].buy + "," + volumes[i].sell + "," + volumes[i].begin + "," + volumes[i].end + "]";
 
-                        azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            if (separator === "") { separator = ","; }
 
-                        function onFileCreated() {
+                            fileRecordCounter++;
 
-                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                            console.log(logText);
-                            logger.write(logText);
+                        }
 
-                            writeVolumes();
+                        fileContent = "[" + fileContent + "]";
+
+                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                        let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
+
+                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+
+                        utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
+
+                        function onFolderCreated() {
+
+                            azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                            function onFileCreated() {
+
+                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                console.log(logText);
+                                logger.write(logText);
+
+                                writeReport();
+                            }
                         }
                     }
 
-                }
+                    function writeReport() {
 
-                function writeVolumes() {
+                        if (isFileComplete === true) {
 
-                    let separator = "";
-                    let fileRecordCounter = 0;
+                            writeStatusReport(date, lastCandleClose, false, onStatusReportWritten);
 
-                    let fileContent = "";
+                            function onStatusReportWritten() {
 
-                    for (i = 0; i < volumes.length; i++) {
+                                callBack();
 
-                        let candle = volumes[i];
+                            }
 
-                        fileContent = fileContent + separator + '[' + volumes[i].buy + "," + volumes[i].sell + "," + volumes[i].begin + "," + volumes[i].end + "]";
-
-                        if (separator === "") { separator = ","; }
-
-                        fileRecordCounter++;
-
-                    }
-
-                    fileContent = "[" + fileContent + "]";
-
-                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                    let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
-
-                    let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
-
-                    utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
-
-                    function onFolderCreated() {
-
-                        azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated() {
-
-                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                            console.log(logText);
-                            logger.write(logText);
-
-                            writeReport();
-                        }
-                    }
-                }
-
-                function writeReport() {
-
-                    if (isFileComplete === true) {
-
-                        writeStatusReport(date, lastCandleClose, false, onStatusReportWritten);
-
-                        function onStatusReportWritten() {
+                        } else {
 
                             callBack();
 
                         }
-
-                    } else {
-
-                        callBack();
-
                     }
+                }
+                     
+                catch (err) {
+                    const logText = "[ERROR] 'writeFiles' - ERROR : " + err.message;
+                logger.write(logText);
+                closeMarket();
                 }
             }
 

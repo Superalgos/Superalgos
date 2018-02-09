@@ -18,8 +18,6 @@
 
     const MARKETS_MODULE = require(ROOT_DIR + 'Markets');
 
-    const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
-
     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -33,7 +31,8 @@
     let markets;
 
     const AZURE_FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
-    let azureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
+    let charlyAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
+    let bruceAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
 
     const UTILITIES = require(ROOT_DIR + 'Utilities');
     let utilities = UTILITIES.newUtilities(bot);
@@ -58,7 +57,8 @@
             console.log(logText);
             logger.write(logText);
 
-            azureFileStorage.initialize();
+            charlyAzureFileStorage.initialize("Charly");
+            bruceAzureFileStorage.initialize("Bruce");
 
             markets = MARKETS_MODULE.newMarkets(bot);
             markets.initialize(callBackFunction);
@@ -930,146 +930,6 @@ What is the lastFile pointer?
 
             }
 
-            function getTheTrades() {
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'getTheTrades' with input variables: holeInitialDatetime = " + holeInitialDatetime.toUTCString() + ", holeInitialId = " + holeInitialId + ", holeFinalDatetime = " + holeFinalDatetime.toUTCString() + ", holeFinalId = " + holeFinalId );
-                    }
-
-                    /* We request to the Exchange API some more records than needed, anyway we will discard records out of the range we need. To do this we substract some seconds and add some others
-                    seconds to the already calculated UNIX timestamps. */
-
-                    const startTime = parseInt(holeInitialDatetime.valueOf() / 1000 - 65);
-                    const endTime = parseInt(holeFinalDatetime.valueOf() / 1000 + 65);
-
-                    exchangeCallTime = new Date();
-
-                    let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
-
-                    poloniexApiClient.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'getTheTrades' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-            function onExchangeCallReturned(err, tradesRequested) {
-
-                try {
-
-                    if (LOG_INFO === true) {
-
-                        let exchangeResponseTime = new Date();
-                        let timeDifference = (exchangeResponseTime.valueOf() - exchangeCallTime.valueOf()) / 1000;
-                        logger.write("[INFO] Entering function 'onExchangeCallReturned' - Call time recorded = " + timeDifference + " seconds.");
-                    }
-
-                    if (err || tradesRequested.error !== undefined) {
-                        try {
-
-                            if (err.message.indexOf("ETIMEDOUT") > 0) {
-
-                                exchangeCallRetries++;
-
-                                if (exchangeCallRetries > MAX_EXCHANGE_CALL_RETRIES) {
-
-                                    const logText = "[WARN] onExchangeCallReturned - Timeout reached while trying to access the Exchange API. MAX_EXCHANGE_CALL_RETRIES reached. Giving up. : ERROR = " + err.message;
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-                                    return;
-
-                                } else {
-
-                                    const logText = "[WARN] onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Trying again. : ERROR = " + err.message;
-                                    logger.write(logText);
-
-                                    /* We try to reconnect to the exchange and fetch the data again. */
-
-                                    getTheTrades();
-                                    return;
-
-                                }
-
-                            } else {
-
-                                if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                    exchangeCallRetries++;
-
-                                    if (exchangeCallRetries > MAX_EXCHANGE_CALL_RETRIES) {
-
-                                        const logText = "[WARN] onExchangeCallReturned - The exchange reseted the connection. MAX_EXCHANGE_CALL_RETRIES reached. Giving up. : ERROR = " + err.message;
-                                        logger.write(logText);
-
-                                        closeAndOpenMarket();
-                                        return;
-
-                                    } else {
-
-                                        const logText = "[WARN] onExchangeCallReturned - The exchange reseted the connection. Trying again. : ERROR = " + err.message;
-                                        logger.write(logText);
-
-                                        /* We try to reconnect to the exchange and fetch the data again. */
-
-                                        getTheTrades();
-                                        return;
-
-                                    }
-
-                                } else {
-
-                                    const logText = "[ERROR] onExchangeCallReturned - Unexpected error trying to contact the Exchange. Giving up. : ERROR = " + err.message;
-                                    logger.write(logText);
-                                    closeMarket();
-                                    return;
-                                }
-                            }
-
-                        } catch (err) {
-                            const logText = "[ERROR] onExchangeCallReturned : ERROR : tradesRequested.error = " + tradesRequested.error;
-                            logger.write(logText);
-
-                            if (tradesRequested.error === "Invalid currency pair.") {
-
-                                markets.disableMarket(EXCHANGE_ID, market.id, onMarketDeactivated)
-
-                                function onMarketDeactivated() {
-
-                                    logger.write("[INFO] Market " + market.assetA + "_" + market.assetB + " deactivated. Id = " + market.id);
-
-                                    closeAndOpenMarket();
-                                    return;
-
-                                }
-
-                            }
-
-                            closeMarket();
-                            return;
-                        }
-
-                        closeMarket();
-                        return;
-
-                    } else {
-
-                        tradesReadyToBeSaved(tradesRequested);
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'onExchangeCallReturned' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-
-            }
-
             function tradesReadyToBeSaved(tradesRequested) {
 
                 try {
@@ -1554,7 +1414,6 @@ What is the lastFile pointer?
                     closeMarket();
                 }
             }
-
 
             function verifyMarketComplete(isMonthComplete, callBack) {
 

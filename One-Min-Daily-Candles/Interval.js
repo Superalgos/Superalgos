@@ -637,7 +637,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                                     let tradesCount = utilities.pad(tradesFile.length, 5);
 
-                                    const logText = "[INFO] 'buildCandles' - " + tradesCount +" trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . ";
+                                    const logText = "[INFO] 'buildCandles' - " + tradesCount +" trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ". ";
                                     logger.write(logText);
                                     console.log(logText);
 
@@ -879,6 +879,8 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                 if (LOG_INFO === true) {
                                     logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
                                 }
+
+                                callBack();
                             }
                         }
                         catch (err) {

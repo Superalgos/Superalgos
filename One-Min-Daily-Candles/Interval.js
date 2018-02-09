@@ -564,7 +564,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                             /* Check if we are outside the currrent Month */
 
-                            if (date.getUTCMonth() + 1 !== month) {
+                            if (date.getUTCMonth() + 1 !== parseInt(month)) {
 
                                 writeStatusReport(lastCandleFile, lastCandleClose, true, onStatusReportWritten);
 
@@ -599,6 +599,8 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                                 }
                             }
+
+                            readTrades();
                         }
 
                         function readTrades() {
@@ -632,6 +634,12 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                     };
 
                                     tradesFile = JSON.parse(text);
+
+                                    let tradesCount = utilities.pad(tradesFile.length, 5);
+
+                                    const logText = "[INFO] 'buildCandles' - " + tradesCount +" trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . ";
+                                    logger.write(logText);
+                                    console.log(logText);
 
                                     if (tradesFile.length > 0) {
 
@@ -682,6 +690,8 @@ Read the trades from Charly's Output and pack them into daily files with candles
                                     candles.push(candle);
 
                                     volumes.push(volume);
+
+                                    nextDate();
 
                                 } catch (err) {
 
@@ -742,11 +752,11 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                        utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, bruceAzureFileStorage, onFolderCreated);
 
                         function onFolderCreated() {
 
-                            azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            bruceAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
@@ -787,11 +797,11 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
-                        utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, bruceAzureFileStorage, onFolderCreated);
 
                         function onFolderCreated() {
 
-                            azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            bruceAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
@@ -842,7 +852,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
 
-                    utilities.createFolderIfNeeded(reportFilePath, azureFileStorage, onFolderCreated);
+                    utilities.createFolderIfNeeded(reportFilePath, bruceAzureFileStorage, onFolderCreated);
 
                     function onFolderCreated() {
 
@@ -862,7 +872,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                             let fileContent = JSON.stringify(report); 
 
-                            azureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+                            bruceAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 

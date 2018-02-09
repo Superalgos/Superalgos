@@ -395,10 +395,21 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                                 statusReport = JSON.parse(text);
 
-                                lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-                                lastCandleClose = statusReport.candleClose;
+                                if (statusReport.monthCompleted === true) {
 
-                                buildCandles();
+                                    const logText = "[INFO] 'getStatusReport' - The current year / month is already complete for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
+                                    logger.write(logText);
+
+                                    closeAndOpenMarket();
+
+                                } else {
+
+                                    lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
+                                    lastCandleClose = statusReport.candleClose;
+
+                                    buildCandles();
+
+                                }
 
                             } catch (err) {
 
@@ -435,7 +446,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                     */
 
-                    if ((year === firstTradeFile.getUTCFullYear() && month === firstTradeFile.getUTCMonth() + 1)) {
+                    if ((year === firstTradeFile.getUTCFullYear() && parseInt(month) === firstTradeFile.getUTCMonth() + 1)) {
 
                         /*
 
@@ -447,7 +458,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
                         logger.write(logText);
                         console.log(logText);
 
-                        lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDay() + " " + "00:00"  + GMT_SECONDS);
+                        lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00"  + GMT_SECONDS);
                         lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
                         lastCandleClose = 0;
@@ -542,6 +553,12 @@ Read the trades from Charly's Output and pack them into daily files with candles
                         lastCandleFile = new Date(lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
                         let date = new Date(lastCandleFile.valueOf() - 60 * 1000);
+
+                        if (date.valueOf() < firstTradeFile.valueOf()) {  // At the special case where we are at the begining of the market, this might be true.
+
+                            date = new Date(firstTradeFile.valueOf() - 60 * 1000);
+
+                        }
 
                         let candles = [];
                         let volumes = [];

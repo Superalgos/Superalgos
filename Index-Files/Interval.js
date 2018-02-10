@@ -84,7 +84,7 @@
 
 This process is going to do the following:
 
-Read the trades from Charly's Output and pack them into daily files with candles of one minute.
+Read the candles and volumes from Bruce and produce a single Index File for each market with daily candles and volumes. 
 
 */
 

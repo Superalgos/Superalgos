@@ -135,9 +135,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
             let lastCandleFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
-            let lastFileWithoutHoles;   // Datetime of the last verified file without holes.
+
             let lastCandleClose;        // Value of the last candle close.
-            let lastTradeFile;          // Datetime pointing to the last Trade File sucessfuly processed and included in the last file.
 
             marketsLoop(); 
 
@@ -284,8 +283,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         /*
 
-                        We need to know where is the begining of the market, since that will help us know how to estimate the value of the last close.
-                        If we are at the begining of the market, the last close should be zero. 
+                        We need to know where is the begining of the market, since that will help us know where the Index Files should start. 
 
                         */
 
@@ -303,18 +301,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                                 firstTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
 
-                                if ((year === firstTradeFile.getUTCFullYear() && parseInt(month) < firstTradeFile.getUTCMonth() + 1) || year < firstTradeFile.getUTCFullYear()) {
-
-                                    const logText = "[INFO] 'getStatusReport' - the requested month / year are before the begining of this market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-
-                                } else {
-
-                                    getHoleFixing();
-
-                                }
+                                getIndexFiles();
 
                             } catch (err) {
 
@@ -326,76 +313,11 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                         }
                     }
 
-                    function getHoleFixing() {
-
-                        /*
-
-                        The limit in the future as of which candles to include is determined by the Hole Fixing process. We wont include
-                        trades not certified to be without hole.
-
-                        */
-
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Hole-Fixing" + "/" + year + "/" + month;
-
-                        charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
-
-                        function onStatusReportReceived(text) {
-
-                            let statusReport;
-
-                            try {
-                                statusReport = JSON.parse(text);
-                            } 
-                            catch (err) {
-                                text = undefined; // If the content of the file is corrupt, this equals as if the file did not exist.
-                            }
-
-                            if (text === undefined) {
-
-                                const logText = "[INFO] 'getStatusReport' - The current year / month was not yet hole-fixed for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
-
-                            } else {
-
-                                if (statusReport.monthChecked === true) {
-
-                                    lastFileWithoutHoles = new Date();  // We need this with a valid value.
-                                    getOneMinDailyCandlesVolumes();
-
-                                } else {
-
-                                    /*
-
-                                    If the hole report is incomplete, we are only interested if we are at the head of the market.
-                                    Otherwise, we are not going to calculate the candles of a month which was not fully checked for holes.
-
-                                    */
-
-                                    if (atHeadOfMarket === true) {
-
-                                        lastFileWithoutHoles = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
-                                        getOneMinDailyCandlesVolumes();
-
-                                    } else {
-
-                                        const logText = "[INFO] 'getStatusReport' - The current year / month was not completely hole-fixed for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                        logger.write(logText);
-
-                                        closeAndOpenMarket();
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    function getOneMinDailyCandlesVolumes() {
+                    function getIndexFiles() {
 
                         /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "One-Min-Daily-Candles-Volumes" + "/" + year + "/" + month;
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Index-Files";
 
                         bruceAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
@@ -407,41 +329,23 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                                 statusReport = JSON.parse(text);
 
-                                if (statusReport.monthCompleted === true) {
+                                lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
 
-                                    const logText = "[INFO] 'getStatusReport' - The current year / month is already complete for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-
-                                } else {
-
-                                    lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-                                    lastCandleClose = statusReport.candleClose;
-
-                                    if (statusReport.fileComplete === true) {
-
-                                        buildCandles();
-
-                                    } else {
-
-                                        lastTradeFile = new Date(statusReport.lastTradeFile.year + "-" + statusReport.lastTradeFile.month + "-" + statusReport.lastTradeFile.days + " " + statusReport.lastTradeFile.hours + ":" + statusReport.lastTradeFile.minutes + GMT_SECONDS);
-                                        findPreviousContent();
-
-                                    }
-                                }
+                                findPreviousContent();
 
                             } catch (err) {
 
                                 /*
 
                                 It might happen that the file content is corrupt or it does not exist. In either case we will point our lastCandleFile
-                                to the last day of the previous month.
+                                to the begining of the market.
 
                                 */
 
-                                lastCandleFile = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
-                                findLastCandleCloseValue();
+                                lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+
+                                lastCandleClose = 0;
+                                buildCandles();
 
                             }
                         }
@@ -538,103 +442,6 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
             }
 
-            function findLastCandleCloseValue() {
-
-                try {
-
-                    /* 
-
-                    We will search and find for the last trade before the begining of the current candle and that will give us the last close value.
-                    Before going backwards, we need to be sure we are not at the begining of the market.
-
-                    */
-
-                    if ((year === firstTradeFile.getUTCFullYear() && parseInt(month) === firstTradeFile.getUTCMonth() + 1)) {
-
-                        /*
-
-                        We are at the begining of the market, so we will set everyting to build the first candle.
-
-                        */
-
-                        const logText = "[INFO] 'findLastCandleCloseValue' - Begining of the market detected for market " + market.assetA + '_' + market.assetB + " . lastCandleClose = " + lastCandleClose;
-                        logger.write(logText);
-                        console.log(logText);
-
-                        lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00"  + GMT_SECONDS);
-                        lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
-
-                        lastCandleClose = 0;
-
-                        buildCandles();
-
-                    } else {
-
-                        /*
-
-                        We are not at the begining of the market, so we need scan backwards the trade files until we find a non empty one and get the last trade.
-
-                        */
-
-                        let date = new Date(processDate.valueOf());
-
-                        loopStart();
-
-                        function loopStart() {
-
-                            date = new Date(date.valueOf() - 60 * 1000);
-
-                            let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                            let fileName = market.assetA + '_' + market.assetB + ".json"
-                            let filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
-
-                            charlyAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                            function onFileReceived(text) {
-
-                                let tradesFile;
-
-                                try {
-
-                                    tradesFile = JSON.parse(text);
-
-                                    if (tradesFile.length > 0) {
-
-                                        lastCandleClose = tradesFile[tradesFile.length - 1][2]; // Position 2 is the rate at which the trade was executed.
-
-                                        const logText = "[INFO] 'findLastCandleCloseValue' - Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . lastCandleClose = " + lastCandleClose;
-                                        logger.write(logText);
-                                        console.log(logText);
-
-                                        buildCandles();
-
-                                    } else {
-
-                                        const logText = "[INFO] 'findLastCandleCloseValue' - No trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " .";
-                                        logger.write(logText);
-                                        console.log(logText);
-
-                                        loopStart();
-
-                                    }
-
-                                } catch (err) {
-
-                                    const logText = "[ERR] 'findLastCandleCloseValue' - Empty or corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-                                }
-                            }
-                        }
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'findLastCandleCloseValue' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
 
             function buildCandles(previousCandles, previousVolumes) {
 

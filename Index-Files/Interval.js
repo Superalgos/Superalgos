@@ -440,7 +440,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME;
+                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME;
 
                         oliviaAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 

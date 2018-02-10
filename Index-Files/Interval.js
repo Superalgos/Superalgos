@@ -454,8 +454,6 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                                 previousVolumes = volumesFile;
 
-                                lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
-
                                 buildCandles(previousCandles, previousVolumes);
 
                             } catch (err) {
@@ -529,11 +527,15 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         lastCandleFile = new Date(lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
+                        const logText = "[INFO] New processing time @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + ".";
+                        console.log(logText);
+                        logger.write(logText);
+
                         /* Validation that we are not going past the head of the market. */
 
                         if (lastCandleFile.valueOf() > maxCandleFile.valueOf()) {
 
-                            const logText = "[INFO] 'buildCandles' - Head of the market found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ". ";
+                            const logText = "[INFO] 'buildCandles' - Head of the market found @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + ".";
                             logger.write(logText);
 
                             closeAndOpenMarket();
@@ -630,10 +632,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             indexCandles.push(indexCandle);
 
+                            nextVolumeFile();
+
                         }
-
-                        nextVolumeFile();
-
                     }
 
                     function nextVolumeFile() {
@@ -701,12 +702,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             indexVolumes.push(indexVolume);
 
+                            writeFiles(lastCandleFile, indexCandles, indexVolumes, advanceTime);
                         }
-
-                        writeFiles(lastCandleFile, indexCandles, indexVolumes, advanceTime);
-
                     }
-
                 } 
                      
                 catch (err) {
@@ -841,7 +839,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                 try {
 
-                    let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
+                    let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
 
                     utilities.createFolderIfNeeded(reportFilePath, oliviaAzureFileStorage, onFolderCreated);
 

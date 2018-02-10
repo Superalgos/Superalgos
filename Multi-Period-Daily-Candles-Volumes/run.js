@@ -1,7 +1,7 @@
 ﻿
 let bot = {
     name: "Bruce",
-    process: "One-Min-Daily-Candles-Volumes",
+    process: "Multi-Period-Daily-Candles-Volumes",
     type: "Indicator",
     version: "1.0.0",
     devTeam: "AA Masters" 
@@ -11,10 +11,10 @@ const ROOT_DIR = '../';
 
 const MODULE_NAME = "run";
 
-const START_ONE_MIN_DAILY_CANDLES_VOLUMES = false;
-const START_ONE_MIN_DAILY_CANDLES_VOLUMES_AT_ONE_MONTH = true;
+const START_ALL_MONTHS = false;
+const START_ONE_MONTH = true;
 
-const ONE_MIN_DAILY_CANDLES_MODULE = require('./One Min Daily Candles Volumes');
+const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
 
 const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
 const logger = DEBUG_MODULE.newDebugLog();
@@ -37,7 +37,7 @@ process.on('exit', function (code) {
 
 
 try {
-    if (START_ONE_MIN_DAILY_CANDLES_VOLUMES === true) {
+    if (START_ALL_MONTHS === true) {
 
         for (let year = 2018; year > 2014; year--) {
 
@@ -49,13 +49,13 @@ try {
 
                 function startProcess() {
 
-                    const newPloniexHoleFixing = ONE_MIN_DAILY_CANDLES_MODULE.newPloniexHoleFixing(bot);
+                    const newIntervalExecutor = INTERVAL_EXECUTOR_MODULE.newIntervalExecutor(bot);
 
-                    newPloniexHoleFixing.initialize(year, month, onInitializeReady);
+                    newIntervalExecutor.initialize(year, month, onInitializeReady);
 
                     function onInitializeReady() {
 
-                        newPloniexHoleFixing.start();
+                        newIntervalExecutor.start();
 
                     }
 
@@ -68,22 +68,22 @@ try {
     }
 
 
-    if (START_ONE_MIN_DAILY_CANDLES_VOLUMES_AT_ONE_MONTH === true) {
+    if (START_ONE_MONTH === true) {
 
         startProcess();
 
         function startProcess() {
 
-            const newPloniexHoleFixing = ONE_MIN_DAILY_CANDLES_MODULE.newPloniexHoleFixing(bot);
+            const newIntervalExecutor = INTERVAL_EXECUTOR_MODULE.newIntervalExecutor(bot);
 
             let month = 2;
             let year = 2018;
 
-            newPloniexHoleFixing.initialize(year, month, onInitializeReady);
+            newIntervalExecutor.initialize(year, month, onInitializeReady);
 
             function onInitializeReady() {
 
-                newPloniexHoleFixing.start();
+                newIntervalExecutor.start();
 
             }
         }

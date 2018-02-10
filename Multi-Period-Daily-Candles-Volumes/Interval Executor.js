@@ -1,11 +1,11 @@
-﻿exports.newPloniexHoleFixing = function newPloniexHoleFixing(BOT) {
+﻿exports.newIntervalExecutor = function newIntervalExecutor(BOT) {
 
     let bot = BOT;
     const ROOT_DIR = '../';
 
     const INTERVAL_LAPSE = 10 * 1000;
 
-    const MODULE_NAME = "One Min Daily Candles Volumes";
+    const MODULE_NAME = "Interval Executor";
     const LOG_INFO = true;
 
     const INTERVAL_MODULE = require('./Interval');

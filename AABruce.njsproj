@@ -6,8 +6,8 @@
     <ProjectGuid>{045bbaef-3c35-4017-8458-e46aef438790}</ProjectGuid>
     <ProjectHome />
     <ProjectView>ShowAllFiles</ProjectView>
-    <StartupFile>Multi-Period-Daily-Candles-Volumes\run.js</StartupFile>
-    <WorkingDirectory>C:\Users\Luis\source\repos\AABruce\Multi-Period-Daily-Candles-Volumes\</WorkingDirectory>
+    <StartupFile>One-Min-Daily-Candles-Volumes\run.js</StartupFile>
+    <WorkingDirectory>C:\Users\Luis\source\repos\One-Min-Daily-Candles-Volumes\</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
@@ -23,9 +23,6 @@
     <Compile Include="Azure Web Job Shutdown.js" />
     <Compile Include="Debug Log.js" />
     <Compile Include="Markets.js" />
-    <Compile Include="Multi-Period-Daily-Candles-Volumes\Interval.js" />
-    <Compile Include="Multi-Period-Daily-Candles-Volumes\Interval Executor.js" />
-    <Compile Include="Multi-Period-Daily-Candles-Volumes\run.js" />
     <Compile Include="One-Min-Daily-Candles-Volumes\Interval.js" />
     <Compile Include="Poloniex API Client.js" />
     <Compile Include="Utilities.js" />
@@ -43,7 +40,6 @@
     <Folder Include="logs\AA Masters\Connectivity\Carol" />
     <Folder Include="logs\AA Masters\Connectivity\Carol\1.0.0" />
     <Folder Include="logs\AA Masters\Connectivity\Carol\1.0.0\Order-Books" />
-    <Folder Include="Multi-Period-Daily-Candles-Volumes\" />
     <Folder Include="obj" />
     <Folder Include="obj\Debug" />
     <Folder Include="One-Min-Daily-Candles-Volumes\" />

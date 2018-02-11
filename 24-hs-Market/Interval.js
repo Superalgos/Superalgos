@@ -332,7 +332,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                                 maxCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
 
-                                getIndexFiles();
+                                getThisProcessReport();
 
                             } catch (err) {
 
@@ -350,11 +350,11 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                         }
                     }
 
-                    function getIndexFiles() {
+                    function getThisProcessReport() {
 
                         /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Index-Files";
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
 
                         oliviaAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
@@ -750,7 +750,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME;
+                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process;
 
                         utilities.createFolderIfNeeded(filePath, oliviaAzureFileStorage, onFolderCreated);
 
@@ -793,7 +793,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME;
+                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process;
 
                         utilities.createFolderIfNeeded(filePath, oliviaAzureFileStorage, onFolderCreated);
 

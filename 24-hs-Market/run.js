@@ -1,7 +1,7 @@
 ﻿
 let bot = {
     name: "Olivia",
-    process: "Index-Files",
+    process: "24-hs-Market",
     type: "Indicator",
     version: "1.0.0",
     devTeam: "AA Masters"

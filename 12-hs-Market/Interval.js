@@ -482,8 +482,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                 */
 
-                let indexCandles = [];
-                let indexVolumes = [];
+                let outputCandles = [];
+                let outputVolumes = [];
 
                 try {
 
@@ -500,7 +500,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 end: previousCandles[i][5]
                             };
 
-                            indexCandles.push(candle);
+                            outputCandles.push(candle);
                         }
 
                     }
@@ -516,7 +516,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 sell: previousVolumes[i][1]
                             };
 
-                            indexVolumes.push(volume);
+                            outputVolumes.push(volume);
                         }
 
                     }
@@ -574,63 +574,76 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 return;
                             }
 
-                            let indexCandle = {
-                                open: 0,
-                                close: 0,
-                                min: 0,
-                                max: 0,
-                                begin: 0,
-                                end: 0
-                            };
+                            const outputCandlesPeriod = 12 * 60 * 60 * 1000;    // 12 hs
+                            const inputCandlesPerdiod = 60 * 1000;              // 1 min
+                            const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
-                            if (candlesFile.length > 0) {
+                            let totalOutputCandles = inputFilePeriod / outputCandlesPeriod; // this should be 2 in this case.
+                            let beginingOutputTime = lastCandleFile.valueOf();
 
-                                indexCandle.open = candlesFile[0][2];
-                                indexCandle.close = candlesFile[candlesFile.length - 1][3];
+                            for (let i = 0; i < totalOutputCandles; i++) {
 
-                                indexCandle.min = candlesFile[0][0];
-                                indexCandle.max = candlesFile[0][1];
-
-                                indexCandle.begin = candlesFile[0][4];
-                                indexCandle.end = candlesFile[candlesFile.length - 1][5];
-
-                            } else {
-
-                                const logText = "[ERR] 'buildCandles' - No candles found at file " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
-
-                                return;
-
-                            }
-
-                            for (let i = 0; i < candlesFile.length; i++) {
-
-                                let candle = {
-                                    open: candlesFile[i][2],
-                                    close: candlesFile[i][3],
-                                    min: candlesFile[i][0],
-                                    max: candlesFile[i][1],
-                                    begin: candlesFile[i][4],
-                                    end: candlesFile[i][5]
+                                let outputCandle = {
+                                    open: 0,
+                                    close: 0,
+                                    min: 0,
+                                    max: 0,
+                                    begin: 0,
+                                    end: 0
                                 };
 
-                                if (candle.min < indexCandle.min) {
+                                let saveCandle = false;
 
-                                    indexCandle.min = candle.min;
+                                outputCandle.begin = beginingOutputTime + i * outputCandlesPeriod;
+                                outputCandle.end = beginingOutputTime + (i + 1) * outputCandlesPeriod - 1;
 
+                                for (let j = 0; j < candlesFile.length; j++) {
+
+                                    let candle = {
+                                        open: candlesFile[j][2],
+                                        close: candlesFile[j][3],
+                                        min: candlesFile[j][0],
+                                        max: candlesFile[j][1],
+                                        begin: candlesFile[j][4],
+                                        end: candlesFile[j][5]
+                                    };
+
+                                    /* Here we discard all the candles out of range.  */
+
+                                    if (candle.begin >= outputCandle.begin && candle.end <= outputCandle.end) {
+
+                                        if (saveCandle === false) { // this will set the value only once.
+
+                                            outputCandle.open = candle.open;
+                                            outputCandle.min = candle.min;
+                                            outputCandle.max = candle.max;
+
+                                        }
+
+                                        saveCandle = true;
+
+                                        outputCandle.close = candle.close;      // only the last one will be saved
+
+                                        if (candle.min < outputCandle.min) {
+
+                                            outputCandle.min = candle.min;
+
+                                        }
+
+                                        if (candle.max > outputCandle.max) {
+
+                                            outputCandle.max = candle.max;
+
+                                        }
+                                    }
+
+                                    if (saveCandle === true) {      // then we have a valid candle, otherwise it means there were no candles to fill this one in its time range.
+
+                                        outputCandles.push(outputCandle);
+
+                                    }
                                 }
-
-                                if (candle.max > indexCandle.max) {
-
-                                    indexCandle.max = candle.max;
-
-                                }
-
                             }
-
-                            indexCandles.push(indexCandle);
 
                             nextVolumeFile();
 
@@ -663,46 +676,57 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 return;
                             }
 
-                            let indexVolume = {
-                                buy: 0,
-                                sell: 0,
-                                begin: 0,
-                                end: 0
-                            };
+                            const outputVolumesPeriod = 12 * 60 * 60 * 1000;    // 12 hs
+                            const inputVolumesPerdiod = 60 * 1000;              // 1 min
+                            const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
-                            if (volumesFile.length > 0) {
+                            let totalOutputVolumes = inputFilePeriod / outputVolumesPeriod; // this should be 2 in this case.
+                            let beginingOutputTime = lastCandleFile.valueOf();
 
-                                indexVolume.begin = volumesFile[0][2];
-                                indexVolume.end = volumesFile[volumesFile.length - 1][3];
+                            for (let i = 0; i < totalOutputVolumes; i++) {
 
-                            } else {
-
-                                const logText = "[ERR] 'buildCandles' - No volumes found at file " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
-
-                                return;
-
-                            }
-
-                            for (let i = 0; i < volumesFile.length; i++) {
-
-                                let volume = {
-                                    buy: volumesFile[i][0],
-                                    sell: volumesFile[i][1],
-                                    begin: volumesFile[i][2],
-                                    end: volumesFile[i][3]
+                                let outputVolume = {
+                                    buy: 0,
+                                    sell: 0,
+                                    begin: 0,
+                                    end: 0
                                 };
 
-                                indexVolume.buy = indexVolume.buy + volume.buy;
-                                indexVolume.sell = indexVolume.sell + volume.sell;
+                                let saveVolume = false;
 
+                                outputVolume.begin = beginingOutputTime + i * outputVolumesPeriod;
+                                outputVolume.end = beginingOutputTime + (i + 1) * outputVolumesPeriod - 1;
+
+                                for (let j = 0; j < VolumesFile.length; j++) {
+
+                                    let volume = {
+                                        buy: volumesFile[i][0],
+                                        sell: volumesFile[i][1],
+                                        begin: volumesFile[i][2],
+                                        end: volumesFile[i][3]
+                                    };
+
+                                    /* Here we discard all the Volumes out of range.  */
+
+                                    if (volume.begin >= outputVolume.begin && volume.end <= outputVolume.end) {
+
+                                        saveVolume = true;
+
+                                        outputVolume.buy = outputVolume.buy + volume.buy;
+                                        outputVolume.sell = outputVolume.sell + volume.sell;
+
+                                    }
+
+                                    if (saveVolume === true) {      
+
+                                        outputVolumes.push(outputVolume);
+
+                                    }
+                                }
                             }
 
-                            indexVolumes.push(indexVolume);
+                            writeFiles(lastCandleFile, outputCandles, outputVolumes, advanceTime);
 
-                            writeFiles(lastCandleFile, indexCandles, indexVolumes, advanceTime);
                         }
                     }
                 } 

@@ -6,8 +6,8 @@
     <ProjectGuid>{aa2901bc-8f81-40f0-a402-5ca79a3f22ad}</ProjectGuid>
     <ProjectHome />
     <ProjectView>ShowAllFiles</ProjectView>
-    <StartupFile>24-hs-Market\run.js</StartupFile>
-    <WorkingDirectory>c:\users\luis\source\repos\AAOlivia\24-hs-Market</WorkingDirectory>
+    <StartupFile>12-hs-Market\run.js</StartupFile>
+    <WorkingDirectory>c:\users\luis\source\repos\AAOlivia\12-hs-Market</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
@@ -19,6 +19,9 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Compile Include="12-hs-Market\Interval Executor.js" />
+    <Compile Include="12-hs-Market\Interval.js" />
+    <Compile Include="12-hs-Market\run.js" />
     <Compile Include="24-hs-Market\Interval Executor.js" />
     <Compile Include="24-hs-Market\Interval.js" />
     <Compile Include="24-hs-Market\run.js" />
@@ -28,18 +31,15 @@
     <Compile Include="Markets.js" />
     <Compile Include="Poloniex API Client.js" />
     <Compile Include="Utilities.js" />
-    <Compile Include="Index-Files\Interval Executor.js" />
-    <Compile Include="Index-Files\Interval.js" />
-    <Compile Include="Index-Files\run.js" />
     <Content Include="logs\Dummy File.txt" />
     <Content Include="obj\Debug\AABruce.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACarol.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACharly.njsproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="12-hs-Market\" />
     <Folder Include="24-hs-Market\" />
     <Folder Include="bin" />
-    <Folder Include="Index-Files" />
     <Folder Include="logs" />
     <Folder Include="logs\AA Masters" />
     <Folder Include="logs\AA Masters\Indicator" />

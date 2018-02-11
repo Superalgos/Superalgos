@@ -482,8 +482,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                 */
 
-                let outputCandles = [];
-                let outputVolumes = [];
+                let indexCandles = [];
+                let indexVolumes = [];
 
                 try {
 
@@ -500,7 +500,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 end: previousCandles[i][5]
                             };
 
-                            outputCandles.push(candle);
+                            indexCandles.push(candle);
                         }
 
                     }
@@ -516,7 +516,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 sell: previousVolumes[i][1]
                             };
 
-                            outputVolumes.push(volume);
+                            indexVolumes.push(volume);
                         }
 
                     }
@@ -574,7 +574,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 return;
                             }
 
-                            let outputCandle = {
+                            let indexCandle = {
                                 open: 0,
                                 close: 0,
                                 min: 0,
@@ -585,14 +585,14 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             if (candlesFile.length > 0) {
 
-                                outputCandle.open = candlesFile[0][2];
-                                outputCandle.close = candlesFile[candlesFile.length - 1][3];
+                                indexCandle.open = candlesFile[0][2];
+                                indexCandle.close = candlesFile[candlesFile.length - 1][3];
 
-                                outputCandle.min = candlesFile[0][0];
-                                outputCandle.max = candlesFile[0][1];
+                                indexCandle.min = candlesFile[0][0];
+                                indexCandle.max = candlesFile[0][1];
 
-                                outputCandle.begin = candlesFile[0][4];
-                                outputCandle.end = candlesFile[candlesFile.length - 1][5];
+                                indexCandle.begin = candlesFile[0][4];
+                                indexCandle.end = candlesFile[candlesFile.length - 1][5];
 
                             } else {
 
@@ -616,21 +616,21 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                     end: candlesFile[i][5]
                                 };
 
-                                if (candle.min < outputCandle.min) {
+                                if (candle.min < indexCandle.min) {
 
-                                    outputCandle.min = candle.min;
+                                    indexCandle.min = candle.min;
 
                                 }
 
-                                if (candle.max > outputCandle.max) {
+                                if (candle.max > indexCandle.max) {
 
-                                    outputCandle.max = candle.max;
+                                    indexCandle.max = candle.max;
 
                                 }
 
                             }
 
-                            outputCandles.push(outputCandle);
+                            indexCandles.push(indexCandle);
 
                             nextVolumeFile();
 
@@ -663,7 +663,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 return;
                             }
 
-                            let outputVolume = {
+                            let indexVolume = {
                                 buy: 0,
                                 sell: 0,
                                 begin: 0,
@@ -672,8 +672,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             if (volumesFile.length > 0) {
 
-                                outputVolume.begin = volumesFile[0][2];
-                                outputVolume.end = volumesFile[volumesFile.length - 1][3];
+                                indexVolume.begin = volumesFile[0][2];
+                                indexVolume.end = volumesFile[volumesFile.length - 1][3];
 
                             } else {
 
@@ -695,14 +695,14 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                     end: volumesFile[i][3]
                                 };
 
-                                outputVolume.buy = outputVolume.buy + volume.buy;
-                                outputVolume.sell = outputVolume.sell + volume.sell;
+                                indexVolume.buy = indexVolume.buy + volume.buy;
+                                indexVolume.sell = indexVolume.sell + volume.sell;
 
                             }
 
-                            outputVolumes.push(outputVolume);
+                            indexVolumes.push(indexVolume);
 
-                            writeFiles(lastCandleFile, outputCandles, outputVolumes, advanceTime);
+                            writeFiles(lastCandleFile, indexCandles, indexVolumes, advanceTime);
                         }
                     }
                 } 

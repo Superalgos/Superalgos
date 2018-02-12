@@ -329,7 +329,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         let date = new Date();
                         let currentYear = date.getUTCFullYear();
-                        let currentMonth = date.getUTCMonth();
+                        let currentMonth = utilities.pad(date.getUTCMonth() + 1,2);
 
                         reportFilePath = EXCHANGE_NAME + "/Processes/" + "One-Min-Daily-Candles-Volumes" + "/" + currentYear + "/" + currentMonth;
 
@@ -356,8 +356,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                                 */
 
-                                lastCandleFile = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
-                                findLastCandleCloseValue();
+                                maxCandleFile = new Date(date.valueOf() - ONE_DAY_IN_MILISECONDS);
+                                getThisProcessReport();
 
                             }
                         }

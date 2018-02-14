@@ -1,0 +1,9 @@
+{
+  "name": "browser",
+  "version": "0.0.0",
+  "description": "browser",
+  "main": "server.js",
+  "author": {
+    "name": "Luis"
+  }
+}

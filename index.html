@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Advanced Algos</title>
+    <script type="text/javascript" src="FileServer.js"></script>
+    <script type="text/javascript" src="SplashScreen.js"></script>
+    <script type="text/javascript" src="Canvas.js"></script>
+    <script type="text/javascript" src="Button.js"></script>
+    <script type="text/javascript" src="TextButton.js"></script>
+    <script type="text/javascript" src="EventHandler.js"></script>
+    <script type="text/javascript" src="Frame.js"></script>
+    <script type="text/javascript" src="Container.js"></script>
+    <script type="text/javascript" src="TimeMachine.js"></script>
+    <script type="text/javascript" src="ChartSpace.js"></script>
+    <script type="text/javascript" src="FloatingSpace.js"></script>
+    <script type="text/javascript" src="Ball.js"></script>
+    <script type="text/javascript" src="Balls.js"></script>
+    <script type="text/javascript" src="Candle.js"></script>
+    <script type="text/javascript" src="VolumeBar.js"></script>
+    <script type="text/javascript" src="Order.js"></script>
+    <script type="text/javascript" src="Trade.js"></script>
+    <script type="text/javascript" src="MarketTrades.js"></script>
+    <script type="text/javascript" src="PriceChart.js"></script>
+    <script type="text/javascript" src="SpreadChart.js"></script>
+    <script type="text/javascript" src="ChartUtilities.js"></script>
+    <script type="text/javascript" src="OrderBookDepthChart.js"></script>
+    <script type="text/javascript" src="TimelineChart.js"></script>
+    <script type="text/javascript" src="OrderBookSnapShot.js"></script>
+    <script type="text/javascript" src="OrderBook.js"></script>
+    <script type="text/javascript" src="OrderBookChart.js"></script>
+    <script type="text/javascript" src="OrderBookFilesCursor.js"></script>
+    <script type="text/javascript" src="Resistance.js"></script>
+    <script type="text/javascript" src="ChartGrid.js"></script>
+    <script type="text/javascript" src="MarketIndex.js"></script>
+    <script type="text/javascript" src="DailyFileCursor.js"></script>
+    <script type="text/javascript" src="TradesCursor.js"></script>
+    <script type="text/javascript" src="Animation.js"></script>
+    <script type="text/javascript" src="Physics.js"></script>
+    <script type="text/javascript" src="Zoom.js"></script>
+    <script type="text/javascript" src="Displace.js"></script>
+    <script type="text/javascript" src="PlotArea.js"></script>
+    <script type="text/javascript" src="Utilities.js"></script>
+    <script type="text/javascript" src="ViewPort.js"></script>
+    <script type="text/javascript" src="AggregatedOrdersArray.js"></script>
+    <script type="text/javascript" src="Dashboard.js"></script>
+    <script type="text/javascript" src="AccumulatedVolumeBar.js"></script>
+
+    <script type="text/javascript" src="Azure/azure-storage.common.js"></script>
+    <script type="text/javascript" src="Azure/azure-storage.file.js"></script>
+
+    <script type="text/javascript" src="Panels/ControlPanel.js"></script>
+    <script type="text/javascript" src="Panels/ChartLayersPanel.js"></script>
+    <script type="text/javascript" src="Panels/BotsLayersPanel.js"></script>
+    <script type="text/javascript" src="Panels/CurrentCandlePanel.js"></script>
+    <script type="text/javascript" src="Panels/CurrentVolumePanel.js"></script>
+    <script type="text/javascript" src="Panels/OrderBookPanel.js"></script>
+
+    <script type="text/javascript" src="VolumeTechnicalAnalisys/Stairs.js"></script>
+
+    <script type="text/javascript" src="CandleTechnicalAnalisys/Stairs.js"></script>
+    <script type="text/javascript" src="CandleTechnicalAnalisys/Support.js"></script>
+    <script type="text/javascript" src="CandleTechnicalAnalisys/Resistance.js"></script>
+    <script type="text/javascript" src="CandleTechnicalAnalisys/HighLowFlag.js"></script>
+
+    <script type="text/javascript" src="ChartLayers/OrderBooksChartLayer.js"></script>
+    <script type="text/javascript" src="ChartLayers/ForecastChartLayer.js"></script>
+    <script type="text/javascript" src="ChartLayers/CandleTechnicalAnalisysChartLayer.js"></script>
+    <script type="text/javascript" src="ChartLayers/VolumeTechnicalAnalisysChartLayer.js"></script>
+    <script type="text/javascript" src="ChartLayers/AccumulatedVolumeChartLayer.js"></script>
+    <script type="text/javascript" src="ChartLayers/CandeStickChartLayer.js"></script>
+    <script type="text/javascript" src="ChartLayers/VolumeChartLayer.js"></script>
+    <script type="text/javascript" src="ChartLayers/SupportResistanceChartLayer.js"></script>
+    <script type="text/javascript" src="ChartLayers/HighLowChartLayer.js"></script>
+    <script type="text/javascript" src="ChartLayers/AllTimeChartLayer.js"></script>
+
+    <script type="text/javascript" src="Indicators/LRC.js"></script>
+    <script type="text/javascript" src="ChartLayers/LinearRegressionCurve.js"></script>
+    <style type="text/css">
+        browserCanvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body id="body" style="margin: 0px; padding: 0px; border: 0px; overflow:hidden;"  onload="dashboardStart();">
+    <canvas id="canvas" width="1400" height="600" border="0">
+></canvas>
+</body>
+</html>

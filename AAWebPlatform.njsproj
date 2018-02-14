@@ -1,0 +1,165 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>AAWebPlatform</Name>
+    <RootNamespace>browser</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>3ef11619-de26-4b8b-819d-a413df220b76</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>server.js</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AccumulatedVolumeBar.js" />
+    <Compile Include="AggregatedOrdersArray.js" />
+    <Compile Include="Animation.js" />
+    <Compile Include="Azure\azure-storage.common.js" />
+    <Compile Include="Azure\azure-storage.file.js" />
+    <Compile Include="Ball.js" />
+    <Compile Include="Balls.js" />
+    <Compile Include="Panels\BotsLayersPanel.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Button.js" />
+    <Compile Include="Candle.js" />
+    <Compile Include="CandleTechnicalAnalisys\HighLowFlag.js" />
+    <Compile Include="CandleTechnicalAnalisys\Resistance.js" />
+    <Compile Include="CandleTechnicalAnalisys\Stairs.js" />
+    <Compile Include="CandleTechnicalAnalisys\Support.js" />
+    <Compile Include="Canvas.js" />
+    <Compile Include="ChartGrid.js" />
+    <Compile Include="ChartLayers\AccumulatedVolumeChartLayer.js" />
+    <Compile Include="ChartLayers\AllTimeChartlayer.js" />
+    <Compile Include="ChartLayers\CandeStickChartLayer.js" />
+    <Compile Include="ChartLayers\CandleTechnicalAnalisysChartLayer.js" />
+    <Compile Include="ChartLayers\ForecastChartLayer.js" />
+    <Compile Include="ChartLayers\HighLowChartLayer.js" />
+    <Compile Include="ChartLayers\LinearRegressionCurve.js" />
+    <Compile Include="ChartLayers\OrderBooksChartLayer.js" />
+    <Compile Include="ChartLayers\SupportResistanceChartLayer.js" />
+    <Compile Include="ChartLayers\VolumeChartLayer.js" />
+    <Compile Include="ChartLayers\VolumeTechnicalAnalisysChartLayer.js" />
+    <Compile Include="ChartSpace.js" />
+    <Compile Include="ChartUtilities.js" />
+    <Compile Include="Container.js" />
+    <Compile Include="DailyFileCursor.js" />
+    <Compile Include="Dashboard.js" />
+    <Compile Include="FileCache.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileCloud.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="server.js" />
+    <Compile Include="Displace.js" />
+    <Compile Include="EventHandler.js" />
+    <Compile Include="FloatingSpace.js" />
+    <Compile Include="Frame.js" />
+    <Compile Include="Indicators\LRC.js" />
+    <Compile Include="MarketIndex.js" />
+    <Compile Include="Markets.js" />
+    <Compile Include="MarketTrades.js" />
+    <Compile Include="Order.js" />
+    <Compile Include="OrderBook.js" />
+    <Compile Include="OrderBookChart.js" />
+    <Compile Include="OrderBookDepthChart.js" />
+    <Compile Include="OrderBookFilesCursor.js" />
+    <Compile Include="OrderBookSnapShot.js" />
+    <Compile Include="Panels\ChartLayersPanel.js" />
+    <Compile Include="Panels\ControlPanel.js" />
+    <Compile Include="Panels\CurrentCandlePanel.js" />
+    <Compile Include="Panels\CurrentVolumePanel.js" />
+    <Compile Include="Panels\OrderBookPanel.js" />
+    <Compile Include="Physics.js" />
+    <Compile Include="PlotArea.js" />
+    <Compile Include="PriceChart.js" />
+    <Compile Include="Resistance.js" />
+    <Compile Include="FileServer.js" />
+    <Compile Include="SplashScreen.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SpreadChart.js" />
+    <Compile Include="temp.js" />
+    <Compile Include="TextButton.js" />
+    <Compile Include="TimelineChart.js" />
+    <Compile Include="TimeMachine.js" />
+    <Compile Include="Trade.js" />
+    <Compile Include="TradesCursor.js" />
+    <Compile Include="Utilities.js" />
+    <Compile Include="ViewPort.js" />
+    <Compile Include="VolumeBar.js" />
+    <Compile Include="VolumeTechnicalAnalisys\Stairs.js" />
+    <Compile Include="Zoom.js" />
+    <Content Include="index.html" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Azure\" />
+    <Folder Include="CandleTechnicalAnalisys\" />
+    <Folder Include="ChartLayers\" />
+    <Folder Include="Indicators\" />
+    <Folder Include="Panels\" />
+    <Folder Include="VolumeTechnicalAnalisys\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,333 @@
+
+const MODULE_NAME = "Node Server";
+const START_BROWSER_APP = true;
+
+const FILE_PATH = '../../AAlgos/Data';
+
+///const DATABASE_MODULE = require('../../Picha - API/Picha/Database');
+//const database = DATABASE_MODULE.newDatabase();
+
+try {
+  //  database.connectToServer(startHtttpServer);
+}
+catch (err) {
+    //console.log(err);
+}
+
+
+
+//'use strict';
+var http = require('http');
+var port = process.env.PORT || 1337;
+
+startHtttpServer();
+
+function onRequestReceivedFromBrowser(request, response) {
+
+    var htmlResponse;
+    var requestParameters = request.url.split("/");
+
+
+    switch (requestParameters[1]) {
+
+        case "index-files":
+            {
+                respondWithFile(FILE_PATH + '/index-files/' + requestParameters[2], response);
+            }
+            break;
+
+        case "daily-files":
+            {
+                respondWithFile(FILE_PATH + '/daily-files/' + requestParameters[2], response);
+            }
+            break;
+
+        case "other-files":
+            {
+                respondWithFile(FILE_PATH + '/other-files/' + requestParameters[2], response);
+            }
+            break;
+
+        case "all-times":
+            {
+                respondWithFile(FILE_PATH + '/all-times/' + requestParameters[2], response);
+            }
+            break;
+
+        case "order-books":
+            {
+                respondWithFile(FILE_PATH + '/order-books/' + requestParameters[2] + "/" + requestParameters[3] + "/" + requestParameters[4] + "/" + requestParameters[5] + "/" + requestParameters[6] + "/" + requestParameters[7], response);
+            }
+            break;
+
+        case "aggregatted-order-books":
+            {
+                respondWithFile(FILE_PATH + '/aggregatted-order-books/' + requestParameters[2] + "/" + requestParameters[3] + "/" + requestParameters[4] + "/" + requestParameters[5] + "/" + requestParameters[6] + "/" + requestParameters[7], response);
+            }
+            break;
+
+        case "CandleTechnicalAnalisys":
+            {
+                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+            }
+            break; 
+
+        case "VolumeTechnicalAnalisys":
+            {
+                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+            }
+            break; 
+
+        case "Panels":
+            {
+                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+            }
+            break;
+
+        case "ChartLayers":
+            {
+                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+            }
+            break;
+
+        case "Indicators":
+            {
+                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+            }
+            break;
+
+        case "Azure":
+            {
+                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+            }
+            break;
+
+        case "lastTrades":
+            {
+                const marketId = requestParameters[2];
+                const exchangeId = requestParameters[3];
+
+                const sqlQuery = "SELECT TOP 100000 "
+                    + " InternalExchangeTradeId AS Id, "
+                    + " Type, "
+                    + " Rate, "
+                    + " AmountAssetA AS AmountA, "
+                    + " AmountAssetB AS AmountB, "
+                    + " Timestamp "
+                    + " FROM Trades "
+                    + " WHERE "
+                    + " IdMarket = " + marketId + " "
+                    + " AND "
+                    + " IdExchange = " + exchangeId + " "
+                    + " ORDER BY IdExchange ASC, IdMarket ASC, InternalExchangeTradeId DESC"
+                    ;
+
+                ////console.log("About to execute: " + sqlQuery);
+
+
+                /* Then we execute the query */
+
+                database.executeSQL(sqlQuery, function (err, resultSet) {
+
+                    //console.log("Query executed: " + sqlQuery);
+
+                    var myJsonString = JSON.stringify(resultSet);
+
+                    ////console.log(myJsonString);
+
+                    response.writeHead(200, { 'Content-Type': 'text/plain' });
+                    response.write(myJsonString);
+                    response.end("\n");
+                }
+                );
+
+            }
+            break;
+
+
+        case "trades":
+            {
+                const marketId = requestParameters[2];
+                const exchangeId = requestParameters[3];
+                const idBegin = unescape(requestParameters[4]);
+                const idEnd = unescape(requestParameters[5]);
+
+                const sqlQuery = "SELECT "
+                    + " InternalExchangeTradeId AS Id, "
+                    + " Type, "
+                    + " Rate, "
+                    + " AmountAssetA AS AmountA, "
+                    + " AmountAssetB AS AmountB, "
+                    + " Timestamp "
+                    + " FROM Trades "
+                    + " WHERE "
+                    + " IdExchange = " + exchangeId + " "
+                    + " AND "
+                    + " IdMarket = " + marketId + " "
+                    + " AND "
+                    + " InternalExchangeTradeId >= " + idBegin + " "
+                    + " AND "
+                    + " InternalExchangeTradeId <= " + idEnd + " "
+                    + " ORDER BY IdExchange, IdMarket, InternalExchangeTradeId "
+                    ;
+
+                let records = idEnd - idBegin;
+                console.log("Records Requested: " + records + " idBegin = " + idBegin + " idEnd = " + idEnd);
+
+
+                /* Then we execute the query */
+
+                database.executeSQL(sqlQuery, function (err, resultSet) {
+
+                    //console.log("Query executed: " + sqlQuery);
+
+                    var myJsonString = JSON.stringify(resultSet);
+
+                    ////console.log(myJsonString);
+
+                    response.writeHead(200, { 'Content-Type': 'text/plain' });
+                    response.write(myJsonString);
+                    response.end("\n");
+                }
+                );
+
+            }
+            break;
+
+
+        case "orderbook":
+
+            {
+                const marketId = requestParameters[2];
+                const datetimeBegin = unescape(requestParameters[3]);
+                const datetimeEnd = unescape(requestParameters[4]);
+
+                var sqlQuery = "SELECT "
+                    + " Id, "
+                    + " Rate, "
+                    + " Amount * Rate AS AmountA, "
+                    + " Amount AS AmountB, "
+                    + " Type AS Type, "
+                    + " DatetimeIn AS DatetimeIn, "
+                    + " ISNULL(DatetimeOut, '3000-01-01') AS DatetimeOut "
+                    + " FROM OrderBooks "
+                    + " WHERE "
+                    + " ( "
+                    + " IdMarket = " + marketId + " "
+                    + " ) "
+                    + " AND "
+                    + " ( "
+                    + " DatetimeIn <= '" + datetimeEnd + "' "
+                    + " ) "
+                    + " AND "
+                    + " ( "
+                    + " ISNULL(DatetimeOut, '3000-01-01') > '" + datetimeBegin + "' "
+                    + " ) "
+                    ;
+
+
+                //console.log(sqlQuery);
+
+
+                /* Then we execute the query */
+
+                database.executeSQL(sqlQuery, function (err, resultSet) {
+
+                    var myJsonString = JSON.stringify(resultSet);
+
+                    //console.log(myJsonString);
+
+                    response.writeHead(200, { 'Content-Type': 'text/plain' });
+                    response.write(myJsonString);
+                    response.end("\n");
+                }
+                );
+            }
+            break;
+
+
+
+
+
+        default:
+            ////console.log("Unknown request received from the browser: " + request.url);
+
+            if (requestParameters[1] === "") {
+                requestParameters[1] = "index.html";
+            }
+
+            respondWithFile("" + requestParameters[1], response);
+
+    }
+
+    function sendResponseToBrowser(htmlResponse) {
+        response.writeHead(200, { 'Content-Type': 'text/html' });
+        response.write(htmlResponse);
+
+        response.end("\n");
+    }
+}
+
+
+function respondWithFile(fileName, response) {
+
+    let fs = require('fs');
+    try {
+
+        fs.readFile(fileName, onFileRead);
+
+        function onFileRead(err, file) {
+
+            try {
+                let htmlResponse = file.toString();
+
+                response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+                response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+                response.setHeader("Expires", "0"); // Proxies.
+                response.setHeader("Access-Control-Allow-Origin", "*"); // Allows to access data from other domains.
+
+                response.writeHead(200, { 'Content-Type': 'text/html' });
+                response.write(htmlResponse);
+                response.end("\n");
+                console.log("File Sent: " + fileName);
+                //
+            }
+            catch (err) {
+                returnEmptyArray();
+                console.log("File Not Found: " + fileName);
+            }
+
+        }
+    }
+    catch (err) {
+        returnEmptyArray();
+    }
+
+    function returnEmptyArray() {
+
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+        response.setHeader("Expires", "0"); // Proxies.
+
+        response.writeHead(200, { 'Content-Type': 'text/html' });
+        response.write("[]");
+        response.end("\n");
+
+    }
+}
+
+function startHtttpServer() {
+
+    if (START_BROWSER_APP === true) {
+
+        try {
+
+            gWebServer = http.createServer(onRequestReceivedFromBrowser).listen(port);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+}
+
+

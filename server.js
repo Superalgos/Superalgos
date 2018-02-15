@@ -4,14 +4,29 @@ const START_BROWSER_APP = true;
 
 const FILE_PATH = '../../AAlgos/Data';
 
-///const DATABASE_MODULE = require('../../Picha - API/Picha/Database');
-//const database = DATABASE_MODULE.newDatabase();
 
-try {
-  //  database.connectToServer(startHtttpServer);
-}
-catch (err) {
-    //console.log(err);
+
+const octokit = require('@octokit/rest')()
+global.atob = require("atob");
+
+let owner = "AAMasters";
+let repo = "AABruce-Bot";
+let branch = "master";
+let page = 1;
+let per_page = 100;
+let ref = "master";
+let path = "One-Min-Daily-Candles-Volumes/run.js";
+
+octokit.repos.getContent({ owner, repo, path, ref }, onContent);
+
+function onContent (error, result) {
+
+    let decoded = atob(result.data.content);
+
+    console.log(decoded);
+
+    console.log(result);
+
 }
 
 

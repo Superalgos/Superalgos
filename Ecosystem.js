@@ -13,7 +13,22 @@
             org: "Advanced Algos",
             repos: {
                 repo: {
-                    name: "AABrowser",
+                    name: "AAWebSite",
+                    description: "AA Consortium Web Site.",
+                    openIssues: 0,
+                    openPullRequests: 0,
+                    contributors: 1
+                },
+                repo: {
+                    name: "AAWebPlatform",
+                    description: "The part of the AA Platform that runs on web browsers.",
+                    openIssues: 0,
+                    openPullRequests: 0,
+                    contributors: 1
+                },
+                repo: {
+                    name: "AACloudPlatform",
+                    description: "The part of the AA Platform that runs on the cloud.",
                     openIssues: 0,
                     openPullRequests: 0,
                     contributors: 1
@@ -92,9 +107,9 @@
                                     displayName: "Trades",
                                     exchangeList: ["Poloniex"],
                                     validPeriods: ["01-min"],
-                                    renderer: {
+                                    plotter: {
                                         devTeam: "AAMasters",
-                                        bot: "AACharly",
+                                        repo: "AACharly-Plotter",
                                         moduleName: "TradeList",
                                         target: "Timeline"
                                     }
@@ -132,7 +147,15 @@
                         org: "AAMasters",
                         repos: {
                             repo: {
-                                name: "AACharly",
+                                name: "AACharly-Bot",
+                                description: "Produces a data-set of all trades of every market in multiple exchanges.",
+                                openIssues: 0,
+                                openPullRequests: 0,
+                                contributors: 1
+                            },
+                            repo: {
+                                name: "AACharly-Plotter",
+                                description: "Plotters plug-ins to browse trades at the AA Web Platform.",
                                 openIssues: 0,
                                 openPullRequests: 0,
                                 contributors: 1
@@ -169,9 +192,9 @@
                                     displayName: "Order Book",
                                     exchangeList: ["Poloniex"],
                                     validPeriods: ["06-hs", "03-hs", "01-hs", "30-min", "10-min", "05-min", "01-min"],
-                                    renderer: {
+                                    plotter: {
                                         devTeam: "AAMasters",
-                                        bot: "AACarol",
+                                        repo: "AACarol-Plotter",
                                         moduleName: "OrderBook",
                                         target: "Panel"
                                     }
@@ -198,9 +221,9 @@
                                     displayName: "Order Books",
                                     exchangeList: ["Poloniex"],
                                     validPeriods: ["06-hs", "03-hs", "01-hs", "30-min", "10-min", "05-min", "01-min"],
-                                    renderer: {
+                                    plotter: {
                                         devTeam: "AAMasters",
-                                        bot: "AACarol",
+                                        repo: "AACarol-Plotter",
                                         moduleName: "OrderBooks",
                                         target: "Timeline"
                                     }
@@ -226,6 +249,7 @@
                         repos: {
                             repo: {
                                 name: "AACarol",
+                                description: "Produces a data-set with a snapshot of all markets order books every minute.",
                                 openIssues: 0,
                                 openPullRequests: 0,
                                 contributors: 1
@@ -262,11 +286,18 @@
                                     displayName: "Candlesticks",
                                     exchangeList: ["Poloniex"],
                                     validPeriods: ["30-min", "10-min", "05-min", "01-min"],
-                                    renderer: {
+                                    plotter: {
                                         devTeam: "AAMasters",
-                                        bot: "AABruce",
+                                        repo: "AABruce-Plotter",
                                         moduleName: "Candlesticks",
-                                        target: "Timeline"
+                                        target: "Timeline",
+                                        dependencies: {
+                                            dependency: {
+                                                devTeam: "AAMasters",
+                                                repo: "Plotters-Utilities",
+                                                moduleName: "Candlesticks"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -291,11 +322,18 @@
                                     displayName: "Sell and Buy Volumes",
                                     exchangeList: ["Poloniex"],
                                     validPeriods: ["06-hs", "03-hs", "01-hs", "30-min", "10-min", "05-min", "01-min"],
-                                    renderer: {
+                                    plotter: {
                                         devTeam: "AAMasters",
-                                        bot: "AABruce",
+                                        repo: "AABruce-Plotter",
                                         moduleName: "Volumes",
-                                        target: "Timeline"
+                                        target: "Timeline",
+                                        dependencies: {
+                                            dependency: {
+                                                devTeam: "AAMasters",
+                                                repo: "Plotters-Utilities",
+                                                moduleName: "Volumes"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -314,7 +352,112 @@
                         org: "AAMasters",
                         repos: {
                             repo: {
-                                name: "AACarol",
+                                name: "AABruce",
+                                description: "Produces two data-sets with candles and volumes for all markets at all exchanges.",
+                                openIssues: 0,
+                                openPullRequests: 0,
+                                contributors: 1
+                            }
+                        }
+                    }
+                },
+                bot: {
+                    codeName: "AAOlivia",
+                    displayName: "Olivia",
+                    type: "Indicator",
+                    version: {
+                        number: "1.0.0",
+                        status: "Mantained", // Discontinued
+                    },
+                    products: {
+                        product: {
+                            name: "Market Candles per Period",
+                            description: "A set of files per period that contains all candles of one whole market.",
+                            storageAccount: "aaolivia",
+                            filePath: "@Exchange/Output/Candles/Multi-Period-Market/@Period",
+                            fileName: "@AssetA_@AssetB.json",
+                            exchangeList: {
+                                exchange: {
+                                    name: "Poloniex",
+                                    datetimeRange: {
+                                        minDatetime: "2017-02-19 19:15:00.000 GMT+0000",
+                                        maxDatetime: "2018-02-13 10:10:00.000 GMT+0000"
+                                    }
+                                }
+                            },
+                            layers: {
+                                layer: {
+                                    displayName: "Candlesticks",
+                                    exchangeList: ["Poloniex"],
+                                    validPeriods: ["24-hs", "12-hs", "06-hs", "03-hs", "01-hs"],
+                                    plotter: {
+                                        devTeam: "AAMasters",
+                                        repo: "AAOlivia-Plotter",
+                                        moduleName: "Candlesticks",
+                                        target: "Timeline",
+                                        dependencies: {
+                                            dependency: {
+                                                devTeam: "AAMasters",
+                                                repo: "Plotters-Utilities",
+                                                moduleName: "Candlesticks"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        product: {
+                            name: "Market Volumes per Period",
+                            description: "A set of files per period that contains all volumes of one whole market.",
+                            storageAccount: "aaolivia",
+                            filePath: "@Exchange/Output/Candles/Multi-Period-Market/@Period",
+                            fileName: "@AssetA_@AssetB.json",
+                            exchangeList: {
+                                exchange: {
+                                    name: "Poloniex",
+                                    datetimeRange: {
+                                        minDatetime: "2017-02-19 19:15:00.000 GMT+0000",
+                                        maxDatetime: "2018-02-13 10:10:00.000 GMT+0000"
+                                    }
+                                }
+                            },
+                            layers: {
+                                layer: {
+                                    displayName: "Volumes",
+                                    exchangeList: ["Poloniex"],
+                                    validPeriods: ["24-hs", "12-hs", "06-hs", "03-hs", "01-hs"],
+                                    plotter: {
+                                        devTeam: "AAMasters",
+                                        repo: "AAOlivia-Plotter",
+                                        moduleName: "Volumes",
+                                        target: "Timeline",
+                                        dependencies: {
+                                            dependency: {
+                                                devTeam: "AAMasters",
+                                                repo: "Plotters-Utilities",
+                                                moduleName: "Volumes"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    processes: {
+                        process: {
+                            name: "One-Min-Daily-Candles-Volumes",
+                            description: "Read trades files and generates one minute candles and volumes files for each day."
+                        }
+                    },
+                    directDependencies: {},
+                    directDependents: {},
+                    collaboratorsList: [],
+                    github: {
+                        org: "AAMasters",
+                        repos: {
+                            repo: {
+                                name: "AABruce",
+                                description: "Produces two data-sets with candles and volumes for all markets at all exchanges.",
                                 openIssues: 0,
                                 openPullRequests: 0,
                                 contributors: 1

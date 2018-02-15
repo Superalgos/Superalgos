@@ -1,0 +1,7 @@
+.gitignore
+.travis.yml
+.git/
+src/
+test/
+node_modules/
+

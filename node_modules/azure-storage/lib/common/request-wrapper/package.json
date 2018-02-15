@@ -1,0 +1,7 @@
+{
+  "name": "azure-storage-request-wrapper",
+  "author": "Microsoft Corporation",
+  "license": "Apache-2.0",
+  "main": "request.node.js",
+  "browser": "request.browser.js"
+}

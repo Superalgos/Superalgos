@@ -19,7 +19,7 @@ exports.newMarkets = function newMarkets(BOT) {
     const EXCHANGE_ID = 1;
     const fileName = "Markets_" + EXCHANGE_ID + ".json";
 
-    const DATA_OWNER_BOT_NAME = "Carol"
+    const DATA_OWNER_BOT_NAME = "Legacy";
 
     const markets = {
         DISABLED: 0,

@@ -1,6 +1,5 @@
 
 *.config
-*.connstring
 .vs/AACharly/v15/.suo
 *.log
 *.cache

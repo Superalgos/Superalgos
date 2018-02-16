@@ -1,7 +1,7 @@
 {
   "bot": {
     "name": "Charly",
-    "type": "Extracting",
+    "type": "Extraction",
     "version": "1.0.0",
     "devTeam": "AA Masters"
   },

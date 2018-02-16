@@ -336,7 +336,7 @@ What is the lastFile pointer?
 
                     function getLivesTrades() {
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Live-Trades";
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Live-Trades";
 
                         azureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
@@ -384,7 +384,7 @@ What is the lastFile pointer?
                     
                     function getHistoricTrades() {
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Historic-Trades";
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Historic-Trades";
 
                         azureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
@@ -447,7 +447,7 @@ What is the lastFile pointer?
 
                     function getHoleFixing() {
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Hole-Fixing" + "/" + year + "/" + month;
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Hole-Fixing" + "/" + year + "/" + month;
 
                         azureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 

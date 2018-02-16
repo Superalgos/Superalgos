@@ -1,4 +1,4 @@
-﻿exports.newInterval = function newInterval(BOT) {
+﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
 
     let bot = BOT;
     const ROOT_DIR = '../';
@@ -23,9 +23,6 @@
     const GO_RANDOM = false;
     const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. 
 
-    const MARKETS_MODULE = require(ROOT_DIR + 'Markets');
-
-    const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
@@ -37,11 +34,9 @@
 
     let markets;
 
-    const AZURE_FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
     let charlyAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
     let bruceAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
 
-    const UTILITIES = require(ROOT_DIR + 'Utilities');
     let utilities = UTILITIES.newUtilities(bot);
 
     let year;
@@ -289,7 +284,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         */
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Historic-Trades";
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Historic-Trades";
 
                         charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
@@ -335,7 +330,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
                         */
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Hole-Fixing" + "/" + year + "/" + month;
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Hole-Fixing" + "/" + year + "/" + month;
 
                         charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 

@@ -6,7 +6,8 @@
     <ProjectGuid>{045bbaef-3c35-4017-8458-e46aef438790}</ProjectGuid>
     <ProjectHome />
     <ProjectView>ShowAllFiles</ProjectView>
-    <StartupFile>One-Min-Daily-Candles-Volumes\run.js</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <WorkingDirectory>C:\Users\Luis\source\repos\AABruce\One-Min-Daily-Candles-Volumes</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
@@ -19,18 +20,11 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Compile Include="Azure File Storage.js" />
-    <Compile Include="Azure Web Job Shutdown.js" />
-    <Compile Include="Debug Log.js" />
-    <Compile Include="Markets.js" />
     <Compile Include="One-Min-Daily-Candles-Volumes\Interval.js" />
-    <Compile Include="Poloniex API Client.js" />
-    <Compile Include="Utilities.js" />
     <Content Include="logs\Dummy File.txt" />
-    <Compile Include="One-Min-Daily-Candles-Volumes\Interval Executor.js" />
-    <Compile Include="One-Min-Daily-Candles-Volumes\run.js" />
     <Content Include="obj\Debug\AACarol.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACharly.njsproj.FileListAbsolute.txt" />
+    <Content Include="this.bot.config.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin" />

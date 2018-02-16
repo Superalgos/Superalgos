@@ -1,0 +1,34 @@
+{
+  "bot": {
+    "name": "Bruce",
+    "type": "Indicator",
+    "version": "1.0.0",
+    "devTeam": "AA Masters"
+  },
+  "processes": [
+    {
+      "name": "One-Min-Daily-Candles-Volumes",
+      "description": "Produces two data-sets with candles and volumes for all markets at Poloniex.",
+      "startMode": {
+        "allMonths": {
+          "run": "false",
+          "minYear": "2014",
+          "maxYear": "2018"
+        },
+        "oneMonth": {
+          "run": "true",
+          "year": "2018",
+          "month": "1"
+        },
+        "noTime": {
+          "run": "false"
+        }
+      },
+      "intervalLapse": 10000,
+      "intervalMaxLoops": -1
+    }
+  ]
+}
+
+
+

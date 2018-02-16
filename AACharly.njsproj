@@ -6,7 +6,8 @@
     <ProjectGuid>{ae0a3fe2-7021-4cc2-9922-a887ca5cdd7c}</ProjectGuid>
     <ProjectHome />
     <ProjectView>ShowAllFiles</ProjectView>
-    <StartupFile>Poloniex-Hole-Fixing\run.js</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <WorkingDirectory>c:\users\luis\source\repos\AACharly\Poloniex-Hole-Fixing</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
@@ -17,21 +18,10 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Content Include="README.md" />
-    <Compile Include="Azure File Storage.js" />
-    <Compile Include="Azure Web Job Shutdown.js" />
-    <Compile Include="Debug Log.js" />
-    <Compile Include="Markets.js" />
-    <Compile Include="Poloniex API Client.js" />
-    <Compile Include="Utilities.js" />
     <Compile Include="Poloniex-Historic-Trades\Interval.js" />
-    <Compile Include="Poloniex-Historic-Trades\Poloniex Historic Trades.js" />
-    <Compile Include="Poloniex-Historic-Trades\run.js" />
     <Compile Include="Poloniex-Hole-Fixing\Interval.js" />
-    <Compile Include="Poloniex-Hole-Fixing\Poloniex Hole Fixing.js" />
-    <Compile Include="Poloniex-Hole-Fixing\run.js" />
     <Compile Include="Poloniex-Live-Trades\Interval.js" />
-    <Compile Include="Poloniex-Live-Trades\Poloniex Live Trades.js" />
-    <Compile Include="Poloniex-Live-Trades\run.js" />
+    <Content Include="this.bot.config.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Poloniex-Historic-Trades" />

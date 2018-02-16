@@ -1,0 +1,76 @@
+{
+  "bot": {
+    "name": "Charly",
+    "type": "Extracting",
+    "version": "1.0.0",
+    "devTeam": "AA Masters"
+  },
+  "processes": [
+    {
+      "name": "Poloniex-Live-Trades",
+      "description": "Retrieves the trades done at the current and the previous minute and saves them at the storage account.",
+      "startMode": {
+        "allMonths": {
+          "run": "false",
+          "minYear": "",
+          "maxYear": ""
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "",
+          "month": ""
+        },
+        "noTime": {
+          "run": "true"
+        }
+      },
+      "intervalLapse": 60000,
+      "intervalMaxLoops": 0 
+    },
+    {
+      "name": "Poloniex-Historic-Trades",
+      "description": "Retrieves and saves the historical trades in batches going backwards from the current time until reaching the begining of the market.",
+      "startMode": {
+        "allMonths": {
+          "run": "true",
+          "minYear": "2014",
+          "maxYear": "2018"
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "",
+          "month": ""
+        },
+        "noTime": {
+          "run": "false"
+        }
+      },
+      "intervalLapse": 30000,
+      "intervalMaxLoops": -1
+    },
+    {
+      "name": "Poloniex-Hole-Fixing",
+      "description": "Scans the trades saved by the Live Trades and Historic Trades processes searching for missing records. Once a hole is found on the data set, it patches it by retrieving the missing records from the exchange.",
+      "startMode": {
+        "allMonths": {
+          "run": "true",
+          "minYear": "2014",
+          "maxYear": "2018"
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "",
+          "month": ""
+        },
+        "noTime": {
+          "run": "false"
+        }
+      },
+      "intervalLapse": 60000,
+      "intervalMaxLoops": -1
+    }
+  ]
+}
+
+
+

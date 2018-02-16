@@ -1,7 +1,7 @@
-﻿exports.newInterval = function newInterval(BOT) {
+﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
 
     let bot = BOT;
-    const ROOT_DIR = '../';
+    const ROOT_DIR = './';
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
 
@@ -16,11 +16,6 @@
     const GO_RANDOM = false;
     const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. 
 
-    const MARKETS_MODULE = require(ROOT_DIR + 'Markets');
-
-    const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
-
-    const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
@@ -32,10 +27,8 @@
 
     let markets;
 
-    const AZURE_FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
     let azureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
 
-    const UTILITIES = require(ROOT_DIR + 'Utilities');
     let utilities = UTILITIES.newUtilities(bot);
 
     let year;

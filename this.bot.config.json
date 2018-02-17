@@ -1,0 +1,34 @@
+{
+  "bot": {
+    "name": "Olivia",
+    "type": "Indicator",
+    "version": "1.0.0",
+    "devTeam": "AA Masters"
+  },
+  "processes": [
+    {
+      "name": "Multi-Period-Market",
+      "description": "Produces different files with multi-period candles and volumes for entire markets.",
+      "startMode": {
+        "allMonths": {
+          "run": "true",
+          "minYear": "2014",
+          "maxYear": "2018"
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "2018",
+          "month": "2"
+        },
+        "noTime": {
+          "run": "false"
+        }
+      },
+      "intervalLapse": 3600000,
+      "intervalMaxLoops": -1
+    }
+  ]
+}
+
+
+

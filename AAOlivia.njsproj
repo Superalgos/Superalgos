@@ -25,16 +25,11 @@
     <Compile Include="24-hs-Market\Interval Executor.js" />
     <Compile Include="24-hs-Market\Interval.js" />
     <Compile Include="24-hs-Market\run.js" />
-    <Compile Include="Azure File Storage.js" />
-    <Compile Include="Azure Web Job Shutdown.js" />
-    <Compile Include="Debug Log.js" />
-    <Compile Include="Markets.js" />
-    <Compile Include="Poloniex API Client.js" />
-    <Compile Include="Utilities.js" />
     <Content Include="logs\Dummy File.txt" />
     <Content Include="obj\Debug\AABruce.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACarol.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACharly.njsproj.FileListAbsolute.txt" />
+    <Content Include="this.bot.config.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Multi-Period-Market\" />

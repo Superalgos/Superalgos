@@ -109,7 +109,7 @@ Read the trades from Charly's Output and pack them into daily files with candles
 
             let atHeadOfMarket;         // This tell us if we are at the month which includes the head of the market according to current datetime.
 
-            if ((year === thisDatetime.getUTCFullYear() && parseInt(month) === thisDatetime.getUTCMonth() + 1)) {
+            if ((parseInt(year) === thisDatetime.getUTCFullYear() && parseInt(month) === thisDatetime.getUTCMonth() + 1)) {
 
                 atHeadOfMarket = true;
 

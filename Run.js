@@ -10,7 +10,7 @@ try {
 }
 catch (err) {
     const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;
-    logger.write(logText);
+    console.log(logText);
 
     return;
 }
@@ -26,7 +26,7 @@ try {
 }
 catch (err) {
     const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;
-    logger.write(logText);
+    console.log.write(logText);
 
     return;
 }

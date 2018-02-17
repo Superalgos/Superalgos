@@ -96,35 +96,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
         try {
 
             if (LOG_INFO === true) {
-                logger.write("[INFO] Entering function 'start', with year = " + year + " and month = " + month);
-            }
-
-            let processDate = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-
-            let lastMinuteOfMonth = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-
-            lastMinuteOfMonth.setUTCMonth(lastMinuteOfMonth.getUTCMonth() + 1);          // First we go 1 month into the future.
-            lastMinuteOfMonth.setUTCSeconds(lastMinuteOfMonth.getUTCSeconds() - 30);    // Then we go back 30 seconds, or to the last minute of the original month.
-
-            let thisDatetime = new Date();
-
-            if ((year === thisDatetime.getUTCFullYear() && parseInt(month) > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
-
-                logger.write("[INFO] We are too far in the future. Interval will not execute. Sorry.");
-                return;
-
-            }
-
-            let atHeadOfMarket;         // This tell us if we are at the month which includes the head of the market according to current datetime.
-
-            if ((year === thisDatetime.getUTCFullYear() && parseInt(month) === thisDatetime.getUTCMonth() + 1)) {
-
-                atHeadOfMarket = true;
-
-            } else {
-
-                atHeadOfMarket = false;
-
+                logger.write("[INFO] Entering function 'start'");
             }
 
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.

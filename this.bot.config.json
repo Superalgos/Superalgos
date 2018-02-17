@@ -11,17 +11,17 @@
       "description": "Produces different files with multi-period candles and volumes for entire markets.",
       "startMode": {
         "allMonths": {
-          "run": "true",
-          "minYear": "2014",
-          "maxYear": "2018"
+          "run": "false",
+          "minYear": "",
+          "maxYear": ""
         },
         "oneMonth": {
           "run": "false",
-          "year": "2018",
-          "month": "2"
+          "year": "",
+          "month": ""
         },
         "noTime": {
-          "run": "false"
+          "run": "true"
         }
       },
       "intervalLapse": 3600000,

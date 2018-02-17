@@ -40,17 +40,11 @@
 
     let utilities = UTILITIES.newUtilities(bot);
 
-    let year;
-    let month;
-
     return interval;
 
     function initialize(yearAssigend, monthAssigned, callBackFunction) {
 
         try {
-
-            year = yearAssigend;
-            month = monthAssigned;
 
             /* IMPORTANT NOTE:
 
@@ -58,11 +52,9 @@
 
             */
 
-            month = utilities.pad(month, 2); // Adding a left zero when needed.
+            logger.fileName = MODULE_NAME;
 
-            logger.fileName = MODULE_NAME + "-" + year + "-" + month;
-
-            const logText = "[INFO] initialize - Entering function 'initialize' " + " @ " + year + "-" + month;
+            const logText = "[INFO] initialize - Entering function 'initialize' ";
             console.log(logText);
             logger.write(logText);
 

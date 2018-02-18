@@ -45,7 +45,7 @@
           "run": "true"
         }
       },
-      "intervalLapse": 3600000,
+      "intervalLapse": 60000,
       "intervalMaxLoops": -1
     }
   ]

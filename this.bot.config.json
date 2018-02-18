@@ -26,6 +26,27 @@
       },
       "intervalLapse": 3600000,
       "intervalMaxLoops": -1
+    },
+    {
+      "name": "Multi-Period-Daily",
+      "description": "Produces different files with multi-period candles and volumes on a daily format.",
+      "startMode": {
+        "allMonths": {
+          "run": "false",
+          "minYear": "",
+          "maxYear": ""
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "",
+          "month": ""
+        },
+        "noTime": {
+          "run": "true"
+        }
+      },
+      "intervalLapse": 3600000,
+      "intervalMaxLoops": -1
     }
   ]
 }

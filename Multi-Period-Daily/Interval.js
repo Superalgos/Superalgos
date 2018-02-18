@@ -107,13 +107,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
             let periods =
                 '[' +
-                '[' + 55 * 60 * 1000 + ',' + '"55-min"' + ']' + ',' +
-                '[' + 50 * 60 * 1000 + ',' + '"50-min"' + ']' + ',' +
                 '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
                 '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
-                '[' + 35 * 60 * 1000 + ',' + '"35-min"' + ']' + ',' +
                 '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
-                '[' + 25 * 60 * 1000 + ',' + '"25-min"' + ']' + ',' +
                 '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
                 '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
                 '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
@@ -391,24 +387,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                 try {
 
-                    /*
-
-                    Firstly we prepere the arrays that will accumulate all the information for each output file.
-
-                    */
-
-                    let outputCandles = [];
-                    let outputVolumes = [];
-
-                    for (n = 0; n < outputPeriods.length; n++) {
-
-                        const emptyArray1 = [];
-                        const emptyArray2 = [];
-
-                        outputCandles.push(emptyArray1);
-                        outputVolumes.push(emptyArray2);
-
-                    }
+                    let outputCandles;
+                    let outputVolumes;
 
                     advanceTime();
 
@@ -432,6 +412,25 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                             closeAndOpenMarket();
 
                             return;
+
+                        }
+
+                        /*
+
+                        We prepere the arrays that will accumulate all the information for each output file.
+
+                        */
+
+                        outputCandles = [];
+                        outputVolumes = [];
+
+                        for (n = 0; n < outputPeriods.length; n++) {
+
+                            const emptyArray1 = [];
+                            const emptyArray2 = [];
+
+                            outputCandles.push(emptyArray1);
+                            outputVolumes.push(emptyArray2);
 
                         }
 

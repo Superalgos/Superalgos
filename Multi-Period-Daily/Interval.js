@@ -107,30 +107,21 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
             let periods =
                 '[' +
-                '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
-                '[' + 23 * 60 * 60 * 1000 + ',' + '"23-hs"' + ']' + ',' +
-                '[' + 22 * 60 * 60 * 1000 + ',' + '"22-hs"' + ']' + ',' +
-                '[' + 21 * 60 * 60 * 1000 + ',' + '"21-hs"' + ']' + ',' +
-                '[' + 20 * 60 * 60 * 1000 + ',' + '"20-hs"' + ']' + ',' +
-                '[' + 19 * 60 * 60 * 1000 + ',' + '"19-hs"' + ']' + ',' +
-                '[' + 18 * 60 * 60 * 1000 + ',' + '"18-hs"' + ']' + ',' +
-                '[' + 17 * 60 * 60 * 1000 + ',' + '"17-hs"' + ']' + ',' +
-                '[' + 16 * 60 * 60 * 1000 + ',' + '"16-hs"' + ']' + ',' +
-                '[' + 15 * 60 * 60 * 1000 + ',' + '"15-hs"' + ']' + ',' +
-                '[' + 14 * 60 * 60 * 1000 + ',' + '"14-hs"' + ']' + ',' +
-                '[' + 13 * 60 * 60 * 1000 + ',' + '"13-hs"' + ']' + ',' +
-                '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
-                '[' + 11 * 60 * 60 * 1000 + ',' + '"11-hs"' + ']' + ',' +
-                '[' + 10 * 60 * 60 * 1000 + ',' + '"10-hs"' + ']' + ',' +
-                '[' + 9 * 60 * 60 * 1000 + ',' + '"09-hs"' + ']' + ',' +
-                '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
-                '[' + 7 * 60 * 60 * 1000 + ',' + '"07-hs"' + ']' + ',' +
-                '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
-                '[' + 5 * 60 * 60 * 1000 + ',' + '"05-hs"' + ']' + ',' +
-                '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
-                '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
-                '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
-                '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
+                '[' + 55 * 60 * 1000 + ',' + '"55-min"' + ']' + ',' +
+                '[' + 50 * 60 * 1000 + ',' + '"50-min"' + ']' + ',' +
+                '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
+                '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
+                '[' + 35 * 60 * 1000 + ',' + '"35-min"' + ']' + ',' +
+                '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
+                '[' + 25 * 60 * 1000 + ',' + '"25-min"' + ']' + ',' +
+                '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
+                '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
+                '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
+                '[' + 05 * 60 * 1000 + ',' + '"05-min"' + ']' + ',' +
+                '[' + 04 * 60 * 1000 + ',' + '"04-min"' + ']' + ',' +
+                '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
+                '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
+                '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
 
             const outputPeriods = JSON.parse(periods);
 
@@ -367,16 +358,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                                 lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
 
-                                /*
-
-                                Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
-                                For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
-
-                                */
-
-                                lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); 
-
-                                findPreviousContent();
+                                buildCandles();
 
                             } catch (err) {
 
@@ -405,116 +387,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                 }
             }
 
-            function findPreviousContent() {
-
-                try {
-
-                    let n = 0   // loop Variable representing each possible period as defined at the periods array.
-
-                    let allPreviousCandles = [];
-                    let allPreviousVolumes = [];
-
-
-                    loopBody();
-
-                    function loopBody() {
-
-                        let folderName = outputPeriods[n][1];
-
-                        let previousCandles;
-                        let previousVolumes;
-
-                        getCandles();
-
-                        function getCandles() {
-
-                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
-
-                            oliviaAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                            function onFileReceived(text) {
-
-                                let candlesFile;
-
-                                try {
-
-                                    candlesFile = JSON.parse(text);
-
-                                    previousCandles = candlesFile;
-
-                                    getVolumes();
-
-                                } catch (err) {
-
-                                    const logText = "[ERR] 'findPreviousContent' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-                                }
-                            }
-                        }
-
-                        function getVolumes() {
-
-                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                            let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
-
-                            oliviaAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                            function onFileReceived(text) {
-
-                                let volumesFile;
-
-                                try {
-
-                                    volumesFile = JSON.parse(text);
-
-                                    previousVolumes = volumesFile;
-
-                                    allPreviousCandles.push(previousCandles);
-                                    allPreviousVolumes.push(previousVolumes);
-
-                                    controlLoop();
-
-                                } catch (err) {
-
-                                    const logText = "[ERR] 'findPreviousContent' - Empty or corrupt volume file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-                                }
-                            }
-                        } 
-
-                    }
-
-                    function controlLoop() {
-
-                        n++;
-
-                        if (n < outputPeriods.length) {
-
-                            loopBody();
-
-                        } else {
-
-                            buildCandles(allPreviousCandles, allPreviousVolumes);
-
-                        }
-                    }
-                }
-                catch (err) {
-                const logText = "[ERROR] 'findPreviousContent' - ERROR : " + err.message;
-                logger.write(logText);
-                closeMarket();
-                }
-
-            }
-
-            function buildCandles(allPreviousCandles, allPreviousVolumes) {
+            function buildCandles() {
 
                 try {
 
@@ -580,78 +453,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         function loopBody() {
 
-                            let previousCandles;
-                            let previousVolumes;
-
-                            if (allPreviousCandles !== undefined) {
-
-                                previousCandles = allPreviousCandles[n];
-                                previousVolumes = allPreviousVolumes[n];
-
-                            }
-
                             const outputPeriod = outputPeriods[n][0];
                             const folderName = outputPeriods[n][1];
-
-                            /* Lest see if we are adding previous candles. */
-
-                            if (previousCandles !== undefined) {
-
-                                for (let i = 0; i < previousCandles.length; i++) {
-
-                                    let candle = {
-                                        open: previousCandles[i][2],
-                                        close: previousCandles[i][3],
-                                        min: previousCandles[i][0],
-                                        max: previousCandles[i][1],
-                                        begin: previousCandles[i][4],
-                                        end: previousCandles[i][5]
-                                    };
-
-                                    if (candle.end < lastCandleFile.valueOf()) {
-
-                                        outputCandles[n].push(candle);
-
-                                    } else {
-
-                                        const logText = "[WARN] 'buildCandles' - Candle # " + i + " @ " + folderName + " discarded for closing past the current process time.";
-                                        logger.write(logText);
-
-                                    }
-                                }
-
-                                allPreviousCandles[n] = []; // erasing these so as not to duplicate them.
-
-                            }
-
-                            if (previousVolumes !== undefined) {
-
-                                for (let i = 0; i < previousVolumes.length; i++) {
-
-                                    let volume = {
-                                        begin: previousVolumes[i][2],
-                                        end: previousVolumes[i][3],
-                                        buy: previousVolumes[i][0],
-                                        sell: previousVolumes[i][1]
-                                    };
-
-                                    if (volume.end < lastCandleFile.valueOf()) {
-
-                                        outputVolumes[n].push(volume);
-
-                                    } else {
-
-                                        const logText = "[WARN] 'buildCandles' - Volume # " + i + " @ " + folderName + " discarded for closing past the current process time.";
-                                        logger.write(logText);
-
-                                    }
-
-
-                                }
-
-                                allPreviousVolumes[n] = []; // erasing these so as not to duplicate them.
-
-                            }
 
                             nextCandleFile();
 
@@ -687,7 +490,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                     const inputCandlesPerdiod = 60 * 1000;              // 1 min
                                     const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
-                                    let totalOutputCandles = inputFilePeriod / outputPeriod; // this should be 2 in this case.
+                                    let totalOutputCandles = inputFilePeriod / outputPeriod; 
                                     let beginingOutputTime = lastCandleFile.valueOf();
 
                                     for (let i = 0; i < totalOutputCandles; i++) {
@@ -899,7 +702,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                        let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+
+                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
 
                         utilities.createFolderIfNeeded(filePath, oliviaAzureFileStorage, onFolderCreated);
 
@@ -942,7 +747,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                        let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+
+                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
 
                         utilities.createFolderIfNeeded(filePath, oliviaAzureFileStorage, onFolderCreated);
 

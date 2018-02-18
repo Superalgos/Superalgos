@@ -20,6 +20,7 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Compile Include="Multi-Period-Daily\Interval.js" />
     <Compile Include="Multi-Period-Market\Interval.js" />
     <Content Include="logs\Dummy File.txt" />
     <Content Include="obj\Debug\AABruce.njsproj.FileListAbsolute.txt" />
@@ -28,6 +29,7 @@
     <Content Include="this.bot.config.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Multi-Period-Daily\" />
     <Folder Include="Multi-Period-Market\" />
     <Folder Include="bin" />
     <Folder Include="logs" />

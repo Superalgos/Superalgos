@@ -159,7 +159,7 @@
                 }
             }
 
-            function loopControl(moreIntervalExecutionsNeeded) {
+            function loopControl(moreIntervalExecutionsNeeded, nextIntervalLapse) {
 
                 if (moreIntervalExecutionsNeeded === true) {
 
@@ -175,8 +175,15 @@
                         const logText = "[WARN] 'loopControl'. Staring new Interval. ";
                         logger.write(logText);
 
-                        setTimeout(startNewInterval, processConfig.intervalLapse);// Looped Execution.
+                        if (nextIntervalLapse === undefined) {
 
+                            setTimeout(startNewInterval, processConfig.intervalLapse);// Looped Execution.
+
+                        } else {
+
+                            setTimeout(startNewInterval, nextIntervalLapse);
+
+                        }
                     }
 
                 } else {

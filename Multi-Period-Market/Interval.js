@@ -92,6 +92,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
             }
 
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
+            let nextIntervalLapse;             // With this we can request the next execution wait time. 
 
             let marketQueue;            // This is the queue of all markets to be procesesd at each interval.
             let market = {              // This is the current market being processed after removing it from the queue.
@@ -160,7 +161,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                         const logText = "[WARN] We processed all the markets.";
                         logger.write(logText);
 
-                        callBackFunction(nextIntervalExecution);
+                        callBackFunction(nextIntervalExecution, nextIntervalLapse);
 
                         return;
                     }
@@ -650,6 +651,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                         logger.write(logText);
 
                                         closeAndOpenMarket();
+
+                                        nextIntervalExecution = true;  // we request a new interval execution.
+                                        nextIntervalLapse = 30000;      
 
                                         return;
                                     }

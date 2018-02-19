@@ -1,7 +1,7 @@
 ﻿
 function newAAMastersAAOliviaCandlesticks() {
 
-    var candles = [];
+    var candles = []; // this changed.
     let timePeriod = INITIAL_TIME_PERIOD;
 
     var plotArea = newPlotArea();

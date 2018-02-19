@@ -1,5 +1,4 @@
-﻿
-function newAAMastersAAOliviaCandlesticks() {
+﻿function newAAMastersAAOliviaCandlesticks() {
 
     var candles = []; // this changed.
     let timePeriod = INITIAL_TIME_PERIOD;

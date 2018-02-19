@@ -2,6 +2,8 @@
 const MODULE_NAME = "Node Server";
 const START_BROWSER_APP = true;
 
+
+/*
 const octokit = require('@octokit/rest')()
 global.atob = require("atob");
 
@@ -25,7 +27,7 @@ function onContent (error, result) {
 
 }
 
-
+*/
 
 //'use strict';
 var http = require('http');

@@ -12,6 +12,8 @@ function newFileCache() {
         '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
         '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
 
+    marketFilesPeriods = JSON.parse(marketFilesPeriods);
+
     let dailyFilePeriods =
         '[' +
         '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
@@ -25,6 +27,8 @@ function newFileCache() {
         '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
         '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
         '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
+
+    dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
     let fileCache = {
         getMarketFile: getMarketFile,
@@ -44,24 +48,24 @@ function newFileCache() {
 
         if (product === undefined) {
 
-            throw "Product not found at this bot of the ecosystem! - pTeamCodeName = " + pTeamCodeName + " pBotCodeName = " + pBotCodeName + " pProductCodeName = " + pProductCodeName;
-            return;
+            throw "Product not found at this bot of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName;
+
         }
 
-        let exchange = ecosystem.getExchange(product, name);
+        let exchange = ecosystem.getExchange(product, pExchange);
 
         if (exchange === undefined) {
 
-            throw "Exchange not supoorted by this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + " pBotCodeName = " + pBotCodeName + " pProductCodeName = " + pProductCodeName + " pExchange = " + pExchange;
-            return;
+            throw "Exchange not supoorted by this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pExchange = " + pExchange;
+
         }
 
         let layer = ecosystem.getLayer(product, pLayerCodeName);
 
         if (layer === undefined) {
 
-            throw "Layer not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + " pBotCodeName = " + pBotCodeName + " pProductCodeName = " + pProductCodeName + " pLayerCodeName = " + pLayerCodeName;
-            return;
+            throw "Layer not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pLayerCodeName = " + pLayerCodeName;
+
         }
 
         fileCloud = newFileCloud();
@@ -69,7 +73,7 @@ function newFileCache() {
 
         let filesReceived = 0;
 
-        for (i = 0; i < marketFilesPeriods; i++) {
+        for (i = 0; i < marketFilesPeriods.length; i++) {
 
             let periodTime = marketFilesPeriods[i][0];
             let periodName = marketFilesPeriods[i][1];
@@ -84,7 +88,7 @@ function newFileCache() {
 
                     filesReceived++;
 
-                    if (filesReceived === layer.validPeriods.lenght + 1) {
+                    if (filesReceived === layer.validPeriods.length + 1) {
 
                         callBackFunction();
 

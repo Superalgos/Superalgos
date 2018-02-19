@@ -23,11 +23,11 @@ function newFileCloud() {
         let fileName = pProduct.fileName;
         let filePath = pProduct.filePath;
 
-        fileName.replace("@AssetA", pMarket.assetA);
-        fileName.replace("@AssetB", pMarket.assetB);
+        fileName = fileName.replace("@AssetA", pMarket.assetA);
+        fileName = fileName.replace("@AssetB", pMarket.assetB);
 
-        filePath.replace("@Exchange", pExchange.name);
-        filePath.replace("@Period", pPeriodName);
+        filePath = filePath.replace("@Exchange", pExchange.name);
+        filePath = filePath.replace("@Period", pPeriodName);
 
         fileService.getFileToText('data', filePath, fileName, undefined, onFileReceived);
 

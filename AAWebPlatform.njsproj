@@ -72,9 +72,6 @@
     <Compile Include="FileCache.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AAMasters\AAOlivia\Candlestick.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="server.js" />
     <Compile Include="Displace.js" />
     <Compile Include="EventHandler.js" />
@@ -105,6 +102,9 @@
     </Compile>
     <Compile Include="SpreadChart.js" />
     <Compile Include="temp.js" />
+    <Compile Include="TempExosystem.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TextButton.js" />
     <Compile Include="TimelineChart.js" />
     <Compile Include="TimeMachine.js" />
@@ -124,9 +124,7 @@
     <Folder Include="CandleTechnicalAnalisys\" />
     <Folder Include="ChartLayers\" />
     <Folder Include="Indicators\" />
-    <Folder Include="AAMasters\" />
     <Folder Include="Panels\" />
-    <Folder Include="AAMasters\AAOlivia\" />
     <Folder Include="VolumeTechnicalAnalisys\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

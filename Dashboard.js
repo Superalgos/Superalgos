@@ -3,7 +3,8 @@
 
 var canvas;
 var markets;  
-var ecosystem = newEcosystem();
+let ecosystem = newEcosystem();
+
 
 var viewPort = newViewPort();
 

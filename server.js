@@ -8,12 +8,12 @@ const octokit = require('@octokit/rest')()
 global.atob = require("atob");
 
 let owner = "AAMasters";
-let repo = "AABruce-Bot";
+let repo = "AABruce-Indicator-Bot";
 let branch = "master";
 let page = 1;
 let per_page = 100;
 let ref = "master";
-let path = "One-Min-Daily-Candles-Volumes/run.js";
+let path = "One-Min-Daily-Candles-Volumes/Interval.js";
 
 octokit.repos.getContent({ owner, repo, path, ref }, onContent);
 
@@ -21,13 +21,16 @@ function onContent (error, result) {
 
     let decoded = atob(result.data.content);
 
-    console.log(decoded);
+    console.log(decoded.substring(3));
 
     console.log(result);
 
 }
 
+return;
 */
+
+
 
 //'use strict';
 var http = require('http');
@@ -42,6 +45,36 @@ function onRequestReceivedFromBrowser(request, response) {
 
 
     switch (requestParameters[1]) {
+
+        case "AAMasters":
+            {
+
+                const octokit = require('@octokit/rest')()
+                global.atob = require("atob");
+
+                let owner = "AAMasters";
+                let repo = "AAOlivia-Plotter";
+                let branch = "master";
+                let page = 1;
+                let per_page = 100;
+                let ref = "master";
+                let path = "Candlestick.js";
+
+                octokit.repos.getContent({ owner, repo, path, ref }, onContent);
+
+                function onContent(error, result) {
+
+                    let decoded = atob(result.data.content);
+
+                    //console.log(decoded);
+
+                    //console.log(result);
+
+                    respondWithContent(decoded.substring(3), response);  // Eliminate first 2 bytes of noise.
+
+                }  
+            }
+            break; 
 
         case "CandleTechnicalAnalisys":
             {
@@ -244,6 +277,28 @@ function onRequestReceivedFromBrowser(request, response) {
         response.end("\n");
     }
 }
+
+
+function respondWithContent(content, response) {
+
+    try {
+
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+        response.setHeader("Expires", "0"); // Proxies.
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Allows to access data from other domains.
+
+        response.writeHead(200, { 'Content-Type': 'text/html' });
+        response.write(content);
+        response.end("\n");
+        console.log("Content Sent: " + content);
+
+    }
+    catch (err) {
+        returnEmptyArray();
+    }
+}
+
 
 
 function respondWithFile(fileName, response) {

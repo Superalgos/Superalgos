@@ -2,10 +2,6 @@
 const MODULE_NAME = "Node Server";
 const START_BROWSER_APP = true;
 
-const FILE_PATH = '../../AAlgos/Data';
-
-
-
 const octokit = require('@octokit/rest')()
 global.atob = require("atob");
 
@@ -44,42 +40,6 @@ function onRequestReceivedFromBrowser(request, response) {
 
 
     switch (requestParameters[1]) {
-
-        case "index-files":
-            {
-                respondWithFile(FILE_PATH + '/index-files/' + requestParameters[2], response);
-            }
-            break;
-
-        case "daily-files":
-            {
-                respondWithFile(FILE_PATH + '/daily-files/' + requestParameters[2], response);
-            }
-            break;
-
-        case "other-files":
-            {
-                respondWithFile(FILE_PATH + '/other-files/' + requestParameters[2], response);
-            }
-            break;
-
-        case "all-times":
-            {
-                respondWithFile(FILE_PATH + '/all-times/' + requestParameters[2], response);
-            }
-            break;
-
-        case "order-books":
-            {
-                respondWithFile(FILE_PATH + '/order-books/' + requestParameters[2] + "/" + requestParameters[3] + "/" + requestParameters[4] + "/" + requestParameters[5] + "/" + requestParameters[6] + "/" + requestParameters[7], response);
-            }
-            break;
-
-        case "aggregatted-order-books":
-            {
-                respondWithFile(FILE_PATH + '/aggregatted-order-books/' + requestParameters[2] + "/" + requestParameters[3] + "/" + requestParameters[4] + "/" + requestParameters[5] + "/" + requestParameters[6] + "/" + requestParameters[7], response);
-            }
-            break;
 
         case "CandleTechnicalAnalisys":
             {

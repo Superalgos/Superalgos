@@ -1,6 +1,6 @@
 ﻿
 
-
+/* This module is about to be replaced by FileClound. */
 
 function newFileServer() {
 
@@ -20,7 +20,7 @@ function newFileServer() {
         getMarkets: getMarkets,
         getLastTrades: getLastTrades,
         getTrades: getTrades,
-        getMarketIndexCandles: getMarketIndexCandles,
+        getMarketFilesCandles: getMarketFilesCandles,
         getMarketIndexVolumes: getMarketIndexVolumes,
         getAllTimes: getAllTimes,
         getDailyFile: getDailyFile,
@@ -79,7 +79,7 @@ function newFileServer() {
 
     }
 
-    function getMarketIndexCandles(exchangeId, marketId, callBackFunction) {
+    function getMarketFilesCandles(exchangeId, marketId, callBackFunction) {
 
         //let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 

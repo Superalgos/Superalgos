@@ -93,6 +93,23 @@ function newTimelineChart() {
 
     function initializeLayers() {
 
+        /* AAMasters AAOlivia Candlesticks */
+
+        var layerAAMastersAAOliviaCandlesticks = newAAMastersAAOliviaCandlesticks();
+
+        layerAAMastersAAOliviaCandlesticks.container.displacement.parentDisplacement = timelineChart.container.displacement;
+        layerAAMastersAAOliviaCandlesticks.container.zoom.parentZoom = timelineChart.container.zoom;
+        layerAAMastersAAOliviaCandlesticks.container.frame.parentFrame = timelineChart.container.frame;
+
+        layerAAMastersAAOliviaCandlesticks.container.parentContainer = timelineChart.container;
+
+        layerAAMastersAAOliviaCandlesticks.container.frame.width = timelineChart.container.frame.width * 1;
+        layerAAMastersAAOliviaCandlesticks.container.frame.height = timelineChart.container.frame.height * 1;
+
+        layerAAMastersAAOliviaCandlesticks.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAAOliviaCandlesticks.container.frame.width / 2;
+        layerAAMastersAAOliviaCandlesticks.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAAOliviaCandlesticks.container.frame.height / 2;
+
+        layerAAMastersAAOliviaCandlesticks.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, chartLayersPanel);
 
         /* All Time Layer */
 
@@ -310,6 +327,8 @@ function newTimelineChart() {
         
         /* Add all layers to the internal array */
 
+        timelineChart.layers.push(layerAAMastersAAOliviaCandlesticks);
+
         timelineChart.layers.push(allTimeChartLayer);
         timelineChart.layers.push(orderBooksChartLayer);
         timelineChart.layers.push(forecastChartLayer);
@@ -337,6 +356,8 @@ function newTimelineChart() {
         orderBooksChartLayer.container.eventHandler.listenToEvent("Current Order Book Changed", orderBookPanel.onCurrentOrderBookChanged);
 
         /* Connecting all layers to the panel that provides a user interface to turn them on - visible - off */
+
+        chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAOliviaCandlesticks.onLayerStatusChanged);
 
         chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", accumulatedVolumeChartLayer.onLayerStatusChanged);
         chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", candleStickChartLayer.onLayerStatusChanged);

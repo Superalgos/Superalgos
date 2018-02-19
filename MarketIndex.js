@@ -25,7 +25,7 @@ function newMarketIndex() {
         server = newFileServer();
         server.initialize();
 
-        server.getMarketIndexCandles(exchangeId, marketId, onCandlesReady);
+        server.getMarketFilesCandles(exchangeId, marketId, onCandlesReady);
 
         function onCandlesReady(data) {
 

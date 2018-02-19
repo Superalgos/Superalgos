@@ -3,11 +3,17 @@
 
 var canvas;
 var markets;  
+var ecosystem = newEcosystem();
 
 var viewPort = newViewPort();
 
 const DEBUG_START_UP_DELAY = 0 //3000; // This is a waiting time in case there is a need to debug the very first steps of initialization, to be able to hit F12 on time.
 const INITIAL_DEFAULT_MARKET = 2;       // This is the market that will be shown when loading the site for the first time.
+const DEFAULT_EXCHANGE = "Poloniex";
+const DEFAULT_MARKET = {
+    assetA: "USDT",
+    assetB: "BTC",
+};
 
 const WIDHTER_VOLUME_BAR_BASE_FACTOR = 2.5;
 const LESS_WIDHTER_VOLUME_BAR_TOP_FACTOR = 1 / 4;
@@ -25,7 +31,7 @@ const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
 const FONT_ASPECT_RATIO = 0.60;
 const CHART_ASPECT_RATIO = 1 / 10;
-const INITIAL_TIME_PERIOD = _10_MINUTES_IN_MILISECONDS;
+const INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS;
 
 /* Here we list the valid Time Periods: */
 

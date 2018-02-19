@@ -10,6 +10,7 @@ function newChartLayersPanel() {
     };
 
     const LAYER_NAMES = {
+        OLIVIA_CANDLES: 'Olivia Candlesticks',
         CANDLESTICKS: 'Candlesticks',
         VOLUME: 'Volume',
         ATH: 'All-time Highs and Lows',
@@ -50,7 +51,7 @@ function newChartLayersPanel() {
     function initialize() {
 
         this.container.frame.width = 200;
-        this.container.frame.height = 170;
+        this.container.frame.height = 200;
 
         var position = {
             x: viewPort.visibleArea.topRight.x - this.container.frame.width,
@@ -61,7 +62,7 @@ function newChartLayersPanel() {
 
         var buttonPosition;
 
-        var buttonNames = [LAYER_NAMES.CANDLESTICKS, LAYER_NAMES.VOLUME, LAYER_NAMES.ATH, LAYER_NAMES.HIGH_LOWS, LAYER_NAMES.FORECAST, LAYER_NAMES.ORDER_BOOKS, LAYER_NAMES.CANDLE_STAIRS, LAYER_NAMES.VOLUME_STAIRS, LAYER_NAMES.BUY_SELL_BALANCE, LAYER_NAMES.LINEAR_REGRESION_CURVE];
+        var buttonNames = [LAYER_NAMES.OLIVIA_CANDLES,LAYER_NAMES.CANDLESTICKS, LAYER_NAMES.VOLUME, LAYER_NAMES.ATH, LAYER_NAMES.HIGH_LOWS, LAYER_NAMES.FORECAST, LAYER_NAMES.ORDER_BOOKS, LAYER_NAMES.CANDLE_STAIRS, LAYER_NAMES.VOLUME_STAIRS, LAYER_NAMES.BUY_SELL_BALANCE, LAYER_NAMES.LINEAR_REGRESION_CURVE];
         var lastY = 5;
         buttons = [];
 

@@ -1,71 +1,108 @@
 ﻿
-/*
-
-This module will acts as a dinamic file cache for each market. It works like this:
-
-1.  It is always listening to the DATETIME the user is browsing and dinamically adjusts the cache according to that, meaning that it loads more files or
-    unload files that at far in time and unlikely to be needed.
-
-2.  It is always listening to the PERIOD of candles and other visual objects to dinamically adjust the cache loading or unloading files according to that.
-
-3.  It is also listening to the Layers Panel to only keep in the cache the files of visible layers.
-
-*/
-
 function newFileCache() {
 
-    const FILE_TYPES = {
-        candles: {
-            layers: ["candles"],
-            periods: [PERIOD_24_HS, PERIOD_12_HS, PERIOD_06_HS, PERIOD_03_HS, PERIOD_01_HS]
-        },
-        volumes: {
-            layers: ["volumes"],
-            periods: [PERIOD_24_HS, PERIOD_12_HS, PERIOD_06_HS, PERIOD_03_HS, PERIOD_01_HS]
-        }
-    }
+    let marketFilesPeriods =
+        '[' +
+        '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
+        '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
+        '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
+        '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
+        '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
+        '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
+        '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
+        '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
+
+    let dailyFilePeriods =
+        '[' +
+        '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
+        '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
+        '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
+        '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
+        '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
+        '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
+        '[' + 05 * 60 * 1000 + ',' + '"05-min"' + ']' + ',' +
+        '[' + 04 * 60 * 1000 + ',' + '"04-min"' + ']' + ',' +
+        '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
+        '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
+        '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
 
     let fileCache = {
-        getFile: getFile,
+        getMarketFile: getMarketFile,
+        getFileCursor: getFileCursor,
         initialize: initialize
     }
 
-    let exchange;
-    let market;
+    let fileCloud;
 
-    let files = new Map;
+    let marketFiles = new Map;
     
     return fileCache;
 
-    function initialize(pExchange, pMarket, callBackFunction) {
+    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pLayerCodeName, pExchange, pMarket, pDatetime, callBackFunction) {
 
-        exchange = pExchange;
-        market = pMarket;
-        
-        let server;
+        let product = ecosystem.getProduct(ecosystem.getBot(ecosystem.getTeam(pTeamCodeName), pBotCodeName), pProductCodeName);
 
-        server = newFileServer();
-        server.initialize();
+        if (product === undefined) {
 
-        server.getMarketIndexCandles(exchangeId, marketId, onCandlesReady);
+            throw "Product not found at this bot of the ecosystem! - pTeamCodeName = " + pTeamCodeName + " pBotCodeName = " + pBotCodeName + " pProductCodeName = " + pProductCodeName;
+            return;
+        }
 
-        function onCandlesReady(data) {
+        let exchange = ecosystem.getExchange(product, name);
 
-            dataCache.candles = data;
+        if (exchange === undefined) {
 
-            server.getMarketIndexVolumes(exchangeId, marketId, onVolumesReady);
+            throw "Exchange not supoorted by this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + " pBotCodeName = " + pBotCodeName + " pProductCodeName = " + pProductCodeName + " pExchange = " + pExchange;
+            return;
+        }
 
-            function onVolumesReady(data) {
+        let layer = ecosystem.getLayer(product, pLayerCodeName);
 
-                dataCache.volumes = data;
+        if (layer === undefined) {
 
-                callBackFunction();
+            throw "Layer not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + " pBotCodeName = " + pBotCodeName + " pProductCodeName = " + pProductCodeName + " pLayerCodeName = " + pLayerCodeName;
+            return;
+        }
 
+        fileCloud = newFileCloud();
+        fileCloud.initialize(pTeamCodeName, pBotCodeName);
+
+        let filesReceived = 0;
+
+        for (i = 0; i < marketFilesPeriods; i++) {
+
+            let periodTime = marketFilesPeriods[i][0];
+            let periodName = marketFilesPeriods[i][1];
+
+            if (layer.validPeriods.includes(periodName) === true) {
+
+                fileCloud.getMarketFile(product, exchange, pMarket, periodName, onFileReceived);
+
+                function onFileReceived(file) {
+
+                    marketFiles.set(periodTime, file);
+
+                    filesReceived++;
+
+                    if (filesReceived === layer.validPeriods.lenght + 1) {
+
+                        callBackFunction();
+
+                    }
+                }
             }
         }
     }
 
-    function getFile(pName, pPeriod, pDatetime) {
+  
+    function getMarketFile(pPeriod) {
+
+        marketFiles.get(pPeriod);
+
+    }
+
+
+    function getFileCursor(pPeriod, pDatetime) {
 
 
 

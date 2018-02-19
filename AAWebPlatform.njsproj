@@ -39,6 +39,9 @@
     <Compile Include="Ecosystem.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FileCloud.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Panels\BotsLayersPanel.js">
       <SubType>Code</SubType>
     </Compile>
@@ -69,7 +72,7 @@
     <Compile Include="FileCache.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileCloud.js">
+    <Compile Include="AAMasters\AAOlivia\Candlestick.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="server.js" />
@@ -121,7 +124,9 @@
     <Folder Include="CandleTechnicalAnalisys\" />
     <Folder Include="ChartLayers\" />
     <Folder Include="Indicators\" />
+    <Folder Include="AAMasters\" />
     <Folder Include="Panels\" />
+    <Folder Include="AAMasters\AAOlivia\" />
     <Folder Include="VolumeTechnicalAnalisys\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

@@ -50,6 +50,8 @@
 
             let newMarketFile = fileCache.getFile(pTimePeriod);
 
+            recalculateScale(); // With any of the market files we can calculate the scale. 
+
             if (newMarketFile !== undefined && marketFile === undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.
 
                 marketFile = newMarketFile;
@@ -76,8 +78,6 @@
             }
 
             function finishInitialization() {
-
-                recalculateScale();
 
                 layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
 
@@ -279,7 +279,7 @@
 
         this.container.frame.draw();
 
-        if (timePeriod !== ONE_DAY_IN_MILISECONDS) {
+        if (timePeriod < _1_HOUR_IN_MILISECONDS) {
 
             if (Math.random() * 100 > 98) {
                 recalculateCandles();
@@ -406,7 +406,9 @@
 
     function recalculateScale() {
 
-        if (marketFile === undefined) { return; } // Initialization not complete yet.
+        if (marketFile === undefined) { return; } // We need the market file to be loaded to make the calculation.
+
+        if (plotArea.maxValue > 0) { return; } // Already calculated.
 
         var minValue = {
             x: EARLIEST_DATE.valueOf(),

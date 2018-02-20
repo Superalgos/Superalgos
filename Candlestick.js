@@ -43,9 +43,6 @@
         fileCache = newFileCache();
         fileCache.initialize("AAMasters", "AAOlivia", "Market Candles", "Market Candlesticks", pExchange, pMarket, onFileReady);
 
-        fileCursorCache = newFileCursorCache();
-        fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, onFileCursorReady);
-
         function onFileReady() {
 
             let newMarketFile = fileCache.getFile(ONE_DAY_IN_MILISECONDS);
@@ -54,17 +51,16 @@
 
                 marketFile = newMarketFile;
 
-                recalculateScale(); // With any of the market files we can calculate the scale. 
-
-                layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
-
-                recalculateCandles();
-                postitionViewPort();
-
-                viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-                canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+                initializeFileCursorCache();
 
             }
+        }
+
+        function initializeFileCursorCache() {
+
+            fileCursorCache = newFileCursorCache();
+            fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, onFileCursorReady);
+
         }
 
         function onFileCursorReady() {
@@ -80,6 +76,17 @@
                 if (dailyFile !== undefined) {
 
                     fileCursor = newFileCursor;
+
+                    recalculateScale(); // With any of the market files we can calculate the scale. 
+
+                    layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
+
+                    recalculateCandles();
+                    postitionViewPort();
+
+                    viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+                    canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+
                     callBackFunction();
 
                 }

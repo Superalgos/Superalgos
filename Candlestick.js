@@ -117,7 +117,14 @@
 
         if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-            marketFile = fileCache.getMarketFile(pTimePeriod);
+            let newMarketFile = fileCache.getMarketFile(pTimePeriod);
+
+            if (newMarketFile !== undefined) {
+
+                marketFile = newMarketFile;
+
+            }
+            
 
         } else {
 

@@ -153,13 +153,9 @@
 
     function onDragFinished() {
 
-        if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+        recalculateCandles();
+        console.log("onDragFinished");
 
-            recalculateCandles();
-
-            console.log("onDragFinished");
-
-        }
     }
 
 

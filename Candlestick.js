@@ -73,6 +73,9 @@
 
         function onFileCursorReady() {
 
+            recalculateCandles();
+            console.log("onFileCursorReady");
+
             let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
 
             if (newFileCursor !== undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.

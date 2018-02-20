@@ -159,7 +159,7 @@
 
         } else {
 
-            let newFileCursor = fileCache.getFileCursor(pTimePeriod);
+            let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
 
             if (newFileCursor !== undefined) {
 

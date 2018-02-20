@@ -28,7 +28,7 @@
     container.frame.containerName = "AAMasters AAOlivia Candlesticks";
 
     let marketFile;
-    let dailyFilesCursor;
+    let fileCursor;
 
     let layerStatus = 'off';
 
@@ -128,7 +128,13 @@
 
         } else {
 
-            dailyFilesCursor = fileCache.getFileCursor(pTimePeriod);
+            let newFileCursor = fileCache.getFileCursor(pTimePeriod);
+
+            if (newFileCursor !== undefined) {
+
+                fileCursor = newFileCursor;
+
+            }
 
         }
 
@@ -313,7 +319,7 @@
 
             let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
 
-            let dailyFile = dailyFilesCursor.dailyFiles.get(stringDate);
+            let dailyFile = fileCursor.dailyFiles.get(stringDate);
 
             if (dailyFile !== undefined) {
 

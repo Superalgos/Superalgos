@@ -199,10 +199,12 @@
         if (currentDate !== newDate) {
 
             if (timePeriod < _1_HOUR_IN_MILISECONDS) {
-                /*
-                recalculateCandles();
+
                 fileCursorCache.setDatetime(newDatetime);
 
+                /*
+                recalculateCandles();
+                
                 console.log("setDatetime");
                 */
             }

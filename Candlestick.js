@@ -352,8 +352,13 @@
         let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
         let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
-        leftDate.setUTCDate(leftDate.getUTCDate() - daysOnSides);
-        rightDate.setUTCDate(rightDate.getUTCDate() + daysOnSides);
+        // leftDate.setUTCDate(leftDate.getUTCDate() - daysOnSides);
+        // rightDate.setUTCDate(rightDate.getUTCDate() + daysOnSides);
+
+        let dateDiff = rightDate.valueOf() - leftDate.valueOf();
+
+        leftDate = new Date(leftDate.valueOf() - dateDiff);
+        rightDate = new Date(rightDate.valueOf() + dateDiff);
 
         let currentDate = new Date(leftDate.getTime());
 

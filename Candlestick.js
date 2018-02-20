@@ -1,11 +1,10 @@
 ﻿function newAAMastersAAOliviaCandlesticks() {
 
-    var candles = []; // this changed.
-    let timePeriod = INITIAL_TIME_PERIOD;
-
+    var candles = [];  
     var plotArea = newPlotArea();
 
-    var datetime = INITIAL_DATE;
+    let timePeriod;
+    var datetime;
 
     var candlesticks = {
         onLayerStatusChanged: onLayerStatusChanged,
@@ -36,21 +35,47 @@
 
     return candlesticks;
 
-    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, chartLayersPanel) {
+    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, chartLayersPanel, callBackFunction) {
 
         datetime = pDatetime;
         timePeriod = pTimePeriod;
 
         fileCache = newFileCache();
-        fileCache.initialize("AAMasters", "AAOlivia", "Candles", "Candlesticks", pExchange, pMarket, pDatetime, onFileReady);
+        fileCache.initialize("AAMasters", "AAOlivia", "Market Candles", "Market Candlesticks", pExchange, pMarket, onFileReady);
+
+        fileCursorCache = newFileCursorCache();
+        fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, onFileReady);
 
         function onFileReady() {
 
-            let newMarketFile = fileCache.getMarketFile(pTimePeriod);
+            let newMarketFile = fileCache.getFile(pTimePeriod);
 
             if (newMarketFile !== undefined && marketFile === undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.
 
                 marketFile = newMarketFile;
+
+                finishInitialization();
+
+            }
+
+            let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
+
+            if (newFileCursor !== undefined && marketFile === undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.
+
+                fileCursor = newFileCursor;
+
+                let stringDate = datetime.getUTCFullYear() + '-' + pad(datetime.getUTCMonth() + 1, 2) + '-' + pad(datetime.getUTCDate(), 2);
+
+                let dailyFile = fileCursor.files.get(stringDate);
+
+                if (dailyFile !== undefined) {
+
+                    finishInitialization();
+
+                }
+            }
+
+            function finishInitialization() {
 
                 recalculateScale();
 
@@ -62,7 +87,10 @@
                 viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
                 canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
+                callBackFunction();
+
             }
+
         }
     }
 
@@ -119,7 +147,7 @@
 
         if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-            let newMarketFile = fileCache.getMarketFile(pTimePeriod);
+            let newMarketFile = fileCache.getFile(pTimePeriod);
 
             if (newMarketFile !== undefined) {
 
@@ -148,7 +176,7 @@
         datetime = newDatetime;
         recalculateCandles();
 
-        fileCache.setDatetime(newDatetime);
+        fileCursorCache.setDatetime(newDatetime);
 
     }
 
@@ -305,8 +333,6 @@
             leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
             rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
-
-
             leftDate.setDate(leftDate.getDate() - daysOnSides);
             rightDate.setDate(rightDate.getDate() + daysOnSides);
 
@@ -320,46 +346,22 @@
 
             let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
 
-            let dailyFile = fileCursor.dailyFiles.get(stringDate);
+            let dailyFile = fileCursor.files.get(stringDate);
 
             if (dailyFile !== undefined) {
 
-                const fileTimePeriod = 60 * 1000;
-                const totalCandles = dailyFile.length * fileTimePeriod / timePeriod;
-                const recordsPerCandle = timePeriod / fileTimePeriod;
-
-                for (var i = 0; i < totalCandles; i++) {
+                for (var i = 0; i < dailyFile.length; i++) {
 
                     var candle = newCandle();
 
-                    let min = dailyFile[i * recordsPerCandle][0];
-                    let max = dailyFile[i * recordsPerCandle][1];
+                    candle.min = dailyFile[i][0];
+                    candle.max = dailyFile[i][1];
 
-                    for (var j = 0; j < recordsPerCandle; j++) {
+                    candle.open = dailyFile[i][2];
+                    candle.close = dailyFile[i][3];
 
-                        if (dailyFile[i * recordsPerCandle + j][0] < min) {
-
-                            min = dailyFile[i * recordsPerCandle + j][0];
-                        }
-
-                        if (dailyFile[i * recordsPerCandle + j][1] > max) {
-
-                            max = dailyFile[i * recordsPerCandle + j][1];
-                        }
-
-                    }
-
-                    candle.min = min;
-                    candle.max = max;
-
-                    candle.open = dailyFile[i * recordsPerCandle][2];
-                    candle.close = dailyFile[i * recordsPerCandle + recordsPerCandle - 1][3];
-
-                    candle.begin = dailyFile[i * recordsPerCandle][4];
-                    candle.end = dailyFile[i * recordsPerCandle + recordsPerCandle - 1][5];
-
-                    candle.beginId = dailyFile[i * recordsPerCandle][6];
-                    candle.endId = dailyFile[i * recordsPerCandle + recordsPerCandle - 1][7];
+                    candle.begin = (new Date(dailyFile[i][4])).valueOf();
+                    candle.end = (new Date(dailyFile[i][5])).valueOf();
 
                     if (candle.open > candle.close) { candle.direction = 'down'; }
                     if (candle.open < candle.close) { candle.direction = 'up'; }
@@ -377,7 +379,7 @@
 
             }
 
-            currentDate.setDate(currentDate.getDate() + 1);
+            currentDate.setUTCDate(currentDate.getUTCDate() + 1);
         }
 
     }

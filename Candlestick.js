@@ -387,6 +387,8 @@
             currentDate.setUTCDate(currentDate.getUTCDate() + 1);
         }
 
+        console.log("Olivia > recalculateCandlesUsingDailyFiles > total candles generated : " + candles.length);
+
     }
 
 

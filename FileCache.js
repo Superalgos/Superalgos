@@ -101,7 +101,7 @@ function newFileCache() {
   
     function getMarketFile(pPeriod) {
 
-        marketFiles.get(pPeriod);
+        return marketFiles.get(pPeriod);
 
     }
 

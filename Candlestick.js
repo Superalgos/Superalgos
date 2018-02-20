@@ -188,11 +188,21 @@
 
     function setDatetime(newDatetime) {
 
-        datetime = newDatetime;
-        recalculateCandles();
+        /* If there is a change in the day, then we take some actions, otherwise, we dont. */
 
-        fileCursorCache.setDatetime(newDatetime);
+        let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS);
+        let newDate = Math.trunc(newDatetime.valueOf() / ONE_DAY_IN_MILISECONDS);
 
+        if (currentDate !== newDate) {
+
+            datetime = newDatetime;
+            recalculateCandles();
+            fileCursorCache.setDatetime(newDatetime);
+
+        } else {
+
+            datetime = newDatetime;
+        }
     }
 
 

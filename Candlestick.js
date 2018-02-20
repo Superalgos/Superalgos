@@ -110,11 +110,11 @@
 
     function setTimePeriod(pTimePeriod) {
 
-        timePeriod = period;
+        timePeriod = pTimePeriod;
 
         if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-            marketFile = fileCache.getMarketFile(pTimePeriod, datetime);
+            marketFile = fileCache.getMarketFile(pTimePeriod);
 
         } else {
 

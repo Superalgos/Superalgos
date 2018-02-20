@@ -403,7 +403,7 @@
                 }
             }
 
-            currentDate = new Date( currentDate.valueOf + 24 * 60 * 60 * 1000);
+            currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
         }
 
         console.log("Olivia > recalculateCandlesUsingDailyFiles > total candles generated : " + candles.length);

@@ -46,7 +46,7 @@
 
         function onCacheInitialized() {
 
-            marketFile = fileCache.getMarketFile(pTimePeriod, pDatetime);
+            marketFile = fileCache.getMarketFile(pTimePeriod);
 
             recalculateScale();
 
@@ -430,9 +430,9 @@
 
             let maxValue = 0;
 
-            for (var i = 0; i < marketIndex.length; i++) {
+            for (var i = 0; i < marketFile.length; i++) {
 
-                let currentMax = marketIndex[i][1];   // 1 = rates.
+                let currentMax = marketFile[i][1];   // 1 = rates.
 
                 if (maxValue < currentMax) {
                     maxValue = currentMax;

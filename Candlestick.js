@@ -118,7 +118,7 @@
 
         } else {
 
-            dailyFilesCursor = fileCache.getFileCursor(pTimePeriod, datetime);
+            dailyFilesCursor = fileCache.getFileCursor(pTimePeriod);
 
         }
 

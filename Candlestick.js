@@ -144,6 +144,8 @@
 
         recalculateCandles();
 
+        console.log("onZoomChanged");
+
     }
 
     function onDragFinished() {
@@ -152,7 +154,7 @@
 
             recalculateCandles();
 
-            console.log("onDragFinished")
+            console.log("onDragFinished");
 
         }
     }
@@ -172,6 +174,8 @@
 
                 recalculateCandles();
 
+                console.log("setTimePeriod");
+
             }
 
         } else {
@@ -183,6 +187,8 @@
                 fileCursor = newFileCursor;
 
                 recalculateCandles();
+
+                console.log("setTimePeriod");
 
             }
         }
@@ -200,6 +206,8 @@
             datetime = newDatetime;
             recalculateCandles();
             fileCursorCache.setDatetime(newDatetime);
+
+            console.log("setDatetime");
 
         } else {
 
@@ -310,6 +318,8 @@
 
             if (Math.random() * 100 > 98) {
                 recalculateCandles();
+
+                console.log("draw");
             }
 
 

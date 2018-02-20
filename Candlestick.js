@@ -37,6 +37,8 @@
 
     function initialize(pExchange, pMarket, pDatetime, pTimePeriod, chartLayersPanel, callBackFunction) {
 
+        let cursorCacheInProgress = false;
+
         datetime = pDatetime;
         timePeriod = pTimePeriod;
 
@@ -58,9 +60,14 @@
 
         function initializeFileCursorCache() {
 
-            fileCursorCache = newFileCursorCache();
-            fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, onFileCursorReady);
+            if (cursorCacheInProgress === false) {
 
+                cursorCacheInProgress = true;
+
+                fileCursorCache = newFileCursorCache();
+                fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, onFileCursorReady);
+
+            }
         }
 
         function onFileCursorReady() {

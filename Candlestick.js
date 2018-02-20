@@ -42,22 +42,25 @@
         timePeriod = pTimePeriod;
 
         fileCache = newFileCache();
-        fileCache.initialize("AAMasters", "AAOlivia", "Candles", "Candlesticks", pExchange, pMarket, pDatetime, onCacheInitialized);
+        fileCache.initialize("AAMasters", "AAOlivia", "Candles", "Candlesticks", pExchange, pMarket, pDatetime, onFileReady);
 
-        function onCacheInitialized() {
+        function onFileReady() {
 
             marketFile = fileCache.getMarketFile(pTimePeriod);
 
-            recalculateScale();
+            if (marketFile !== undefined) { // if the file ready is the one we need then it will continue here.
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
+                recalculateScale();
 
-            recalculateCandles();
-            postitionViewPort();
+                layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
 
-            viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-            canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+                recalculateCandles();
+                postitionViewPort();
 
+                viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+                canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+
+            }
         }
     }
 
@@ -130,6 +133,9 @@
 
         datetime = newDatetime;
         recalculateCandles();
+
+        fileCache.setDatetime(newDatetime);
+
     }
 
 

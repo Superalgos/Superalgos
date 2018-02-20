@@ -360,11 +360,11 @@
         leftDate = new Date(leftDate.valueOf() - dateDiff);
         rightDate = new Date(rightDate.valueOf() + dateDiff);
 
-        let currentDate = new Date(leftDate.getTime());
+        let currentDate = new Date(leftDate.valueOf());
 
         candles = [];
 
-        while (currentDate.getTime() <= rightDate.getTime()) {
+        while (currentDate.valueOf() <= rightDate.valueOf()) {
 
             let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
 
@@ -389,19 +389,21 @@
                     if (candle.open < candle.close) { candle.direction = 'up'; }
                     if (candle.open === candle.close) { candle.direction = 'side'; }
 
-                    candles.push(candle);
+                    if (candle.begin >= leftDate.valueOf() && candle.end <= rightDate.valueOf()) {
 
-                    if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
+                        candles.push(candle);
 
-                        candlesticks.currentCandle = candle;
-                        candlesticks.container.eventHandler.raiseEvent("Current Candle Changed", candlesticks.currentCandle);
+                        if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
 
+                            candlesticks.currentCandle = candle;
+                            candlesticks.container.eventHandler.raiseEvent("Current Candle Changed", candlesticks.currentCandle);
+
+                        }
                     }
                 }
-
             }
 
-            currentDate.setUTCDate(currentDate.getUTCDate() + 1);
+            currentDate = new Date( currentDate.valueOf + 24 * 60 * 60 * 1000);
         }
 
         console.log("Olivia > recalculateCandlesUsingDailyFiles > total candles generated : " + candles.length);

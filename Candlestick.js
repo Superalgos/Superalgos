@@ -352,9 +352,6 @@
         let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
         let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
-        // leftDate.setUTCDate(leftDate.getUTCDate() - daysOnSides);
-        // rightDate.setUTCDate(rightDate.getUTCDate() + daysOnSides);
-
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
         leftDate = new Date(leftDate.valueOf() - dateDiff);
@@ -420,8 +417,10 @@
         let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
         let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
-        leftDate.setUTCDate(leftDate.getUTCDate() - daysOnSides);
-        rightDate.setUTCDate(rightDate.getUTCDate() + daysOnSides);
+        let dateDiff = rightDate.valueOf() - leftDate.valueOf();
+
+        leftDate = new Date(leftDate.valueOf() - dateDiff);
+        rightDate = new Date(rightDate.valueOf() + dateDiff);
 
         candles = [];
 
@@ -446,8 +445,16 @@
 
                 candles.push(candle);
 
+                if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
+
+                    candlesticks.currentCandle = candle;
+                    candlesticks.container.eventHandler.raiseEvent("Current Candle Changed", candlesticks.currentCandle);
+
+                }
             } 
         }
+
+        console.log("Olivia > recalculateCandlesUsingMarketFiles > total candles generated : " + candles.length);
     }
 
 

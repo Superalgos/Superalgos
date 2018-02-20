@@ -201,18 +201,19 @@
         let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS);
         let newDate = Math.trunc(newDatetime.valueOf() / ONE_DAY_IN_MILISECONDS);
 
+        datetime = newDatetime;
+
         if (currentDate !== newDate) {
 
-            datetime = newDatetime;
-            recalculateCandles();
-            fileCursorCache.setDatetime(newDatetime);
+            if (timePeriod < _1_HOUR_IN_MILISECONDS) {
 
-            console.log("setDatetime");
+                recalculateCandles();
+                fileCursorCache.setDatetime(newDatetime);
 
-        } else {
+                console.log("setDatetime");
 
-            datetime = newDatetime;
-        }
+            }
+        } 
     }
 
 

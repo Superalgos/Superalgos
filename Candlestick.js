@@ -50,8 +50,6 @@
 
             let newMarketFile = fileCache.getFile(pTimePeriod);
 
-            recalculateScale(); // With any of the market files we can calculate the scale. 
-
             if (newMarketFile !== undefined && marketFile === undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.
 
                 marketFile = newMarketFile;
@@ -72,12 +70,14 @@
 
                 if (dailyFile !== undefined) {
 
-                    finishInitialization();
+                    callBackFunction();
 
                 }
             }
 
             function finishInitialization() {
+
+                recalculateScale(); // With any of the market files we can calculate the scale. 
 
                 layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
 
@@ -86,8 +86,6 @@
 
                 viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
                 canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
-
-                callBackFunction();
 
             }
 

@@ -407,7 +407,7 @@
         let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
         leftDate.setUTCDate(leftDate.getUTCDate() - 1);
-        rightDate.setUTCDate(leftDate.getUTCDate() + 1);
+        rightDate.setUTCDate(rightDate.getUTCDate() + 1);
 
         candles = [];
 

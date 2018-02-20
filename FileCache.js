@@ -33,12 +33,16 @@ function newFileCache() {
     let fileCache = {
         getMarketFile: getMarketFile,
         getFileCursor: getFileCursor,
+        setDatetime: setDatetime,
         initialize: initialize
     }
 
     let fileCloud;
 
     let marketFiles = new Map;
+    let fileCursors = new Map;
+
+    let datetime;
     
     return fileCache;
 
@@ -71,8 +75,6 @@ function newFileCache() {
         fileCloud = newFileCloud();
         fileCloud.initialize(pTeamCodeName, pBotCodeName);
 
-        let filesReceived = 0;
-
         for (i = 0; i < marketFilesPeriods.length; i++) {
 
             let periodTime = marketFilesPeriods[i][0];
@@ -86,13 +88,8 @@ function newFileCache() {
 
                     marketFiles.set(periodTime, file);
 
-                    filesReceived++;
+                    callBackFunction(); // Note that the call back is called for every file loaded.
 
-                    if (filesReceived === layer.validPeriods.length) {
-
-                        callBackFunction();
-
-                    }
                 }
             }
         }
@@ -106,10 +103,16 @@ function newFileCache() {
     }
 
 
-    function getFileCursor(pPeriod, pDatetime) {
+    function getFileCursor(pPeriod) {
 
-
-
+        return fileCursors.get(pPeriod);
 
     }
+
+    function setDatetime(newDatetime) {
+
+        datetime = newDatetime;
+
+    }
+
 }

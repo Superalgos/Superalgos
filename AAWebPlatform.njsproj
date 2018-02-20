@@ -42,6 +42,9 @@
     <Compile Include="FileCloud.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FileCursor.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Panels\BotsLayersPanel.js">
       <SubType>Code</SubType>
     </Compile>

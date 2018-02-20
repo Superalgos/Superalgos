@@ -2,6 +2,8 @@
 
 function getSideDays(timePeriod) {
 
+    let daysOnSides;
+
     if (timePeriod < _1_HOUR_IN_MILISECONDS) {
         daysOnSides = 1;
     }

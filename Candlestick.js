@@ -344,11 +344,8 @@
 
         let daysOnSides = getSideDays(timePeriod);
 
-        let leftDate;
-        let rightDate;
-
-        leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
-        rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
+        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
+        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
         leftDate.setDate(leftDate.getDate() - daysOnSides);
         rightDate.setDate(rightDate.getDate() + daysOnSides);
@@ -404,7 +401,10 @@
 
     function recalculateCandlesUsingMarketFiles() {
 
-        if (marketFile === undefined) { return;} // Initialization not complete yet.
+        if (marketFile === undefined) { return; } // Initialization not complete yet.
+
+        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
+        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
         candles = [];
 
@@ -425,7 +425,11 @@
             if (candle.open < candle.close) { candle.direction = 'up'; }
             if (candle.open === candle.close) { candle.direction = 'side'; }
 
-            candles.push(candle);
+            if (candle.begin >= leftDate.valueOf() && candle.end <= rightDate.valueOf()) {
+
+                candles.push(candle);
+
+            } 
         }
 
         console.log("Olivia > recalculateCandlesUsingMarketFiles > total candles generated : " + candles.length);

@@ -428,6 +428,7 @@
             candles.push(candle);
         }
 
+        console.log("Olivia > recalculateCandlesUsingMarketFiles > total candles generated : " + candles.length);
     }
 
 

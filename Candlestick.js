@@ -185,6 +185,13 @@
 
             }
         }
+
+        if (timePeriod === _1_HOUR_IN_MILISECONDS) {
+
+            fileCursorCache.setDatetime(datetime);
+
+        }
+
     }
 
     function setDatetime(newDatetime) {
@@ -198,15 +205,10 @@
 
         if (currentDate !== newDate) {
 
-            if (timePeriod < _1_HOUR_IN_MILISECONDS) {
+            if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
 
                 fileCursorCache.setDatetime(newDatetime);
 
-                /*
-                recalculateCandles();
-                
-                console.log("setDatetime");
-                */
             }
         } 
     }

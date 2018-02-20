@@ -152,6 +152,8 @@
 
             recalculateCandles();
 
+            console.log("onDragFinished")
+
         }
     }
 

@@ -317,9 +317,9 @@
         if (timePeriod < _1_HOUR_IN_MILISECONDS) {
 
             if (Math.random() * 100 > 98) {
-                recalculateCandles();
+                //recalculateCandles();
 
-                console.log("draw");
+                //console.log("draw");
             }
 
 

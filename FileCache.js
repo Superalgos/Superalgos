@@ -88,7 +88,7 @@ function newFileCache() {
 
                     filesReceived++;
 
-                    if (filesReceived === layer.validPeriods.length + 1) {
+                    if (filesReceived === layer.validPeriods.length) {
 
                         callBackFunction();
 

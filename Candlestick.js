@@ -38,6 +38,7 @@
     function initialize(pExchange, pMarket, pDatetime, pTimePeriod, chartLayersPanel, callBackFunction) {
 
         let cursorCacheInProgress = false;
+        let finaleStepsInProgress = false;
 
         datetime = pDatetime;
         timePeriod = pTimePeriod;
@@ -82,20 +83,25 @@
 
                 if (dailyFile !== undefined) {
 
-                    fileCursor = newFileCursor;
+                    if (finaleStepsInProgress === false) {
 
-                    recalculateScale(); // With any of the market files we can calculate the scale. 
+                        finaleStepsInProgress = true;
 
-                    layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
+                        fileCursor = newFileCursor;
 
-                    recalculateCandles();
-                    postitionViewPort();
+                        recalculateScale(); // With any of the market files we can calculate the scale. 
 
-                    viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-                    canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+                        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
 
-                    callBackFunction();
+                        recalculateCandles();
+                        postitionViewPort();
 
+                        viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+                        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+
+                        callBackFunction();
+
+                    }
                 }
             }
 

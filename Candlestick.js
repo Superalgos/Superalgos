@@ -50,19 +50,8 @@
 
             recalculateScale();
 
-            // From here old code...
-
-            
-            //recalculateCandlesUsingDailyFiles(true); // We need the first day of candles so as to see which is going to be the center of the viewport.
-
-
-           // if (marketId === INITIAL_DEFAULT_MARKET) {  // For now, lets position the view port at the market USDT/BTC
-
-            //    postitionViewPort();
-
-           // }
-
             recalculateCandles();
+            postitionViewPort();
 
             viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
             canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);

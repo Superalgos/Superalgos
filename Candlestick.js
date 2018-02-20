@@ -359,8 +359,8 @@
         let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
         let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
-        leftDate.setDate(leftDate.getDate() - daysOnSides);
-        rightDate.setDate(rightDate.getDate() + daysOnSides);
+        leftDate.setUTCDate(leftDate.getUTCDate() - daysOnSides);
+        rightDate.setUTCDate(rightDate.getUTCDate() + daysOnSides);
 
         let currentDate = new Date(leftDate.getTime());
 
@@ -415,11 +415,13 @@
 
         if (marketFile === undefined) { return; } // Initialization not complete yet.
 
+        let daysOnSides = getSideDays(timePeriod);
+
         let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
         let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
-        leftDate.setUTCDate(leftDate.getUTCDate() - 1);
-        rightDate.setUTCDate(rightDate.getUTCDate() + 2);
+        leftDate.setUTCDate(leftDate.getUTCDate() - daysOnSides);
+        rightDate.setUTCDate(rightDate.getUTCDate() + daysOnSides);
 
         candles = [];
 

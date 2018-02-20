@@ -199,7 +199,9 @@ function newViewPort() {
         } else {
             event.type = "Zoom Out";
         }
-        
+
+        console.log("Zoom Changed > " + event.newLevel);
+
         viewPort.eventHandler.raiseEvent("Zoom Changed", event);
         return true;
    }

@@ -12,7 +12,8 @@ function newFileCursor() {
 
     fileCursor.files = files;
 
-    let cursorSize = 3;
+    let minCursorSize = 10;
+    let maxCursorSize = 30;
 
     let market;
     let exchange;
@@ -115,7 +116,7 @@ function newFileCursor() {
 
             i++;
 
-            if (i < cursorSize) {
+            if (i < minCursorSize) {
 
                 getNextFile();
 
@@ -128,8 +129,8 @@ function newFileCursor() {
 
         date = removeTime(cursorDate);
 
-        let minDate = date.valueOf() - cursorSize / 2 * 24 * 60 * 60 * 1000;
-        let maxDate = date.valueOf() + cursorSize / 2 * 24 * 60 * 60 * 1000;
+        let minDate = date.valueOf() - maxCursorSize * ONE_DAY_IN_MILISECONDS / 2;
+        let maxDate = date.valueOf() + maxCursorSize * ONE_DAY_IN_MILISECONDS / 2;
 
         for (let key of fileCursor.files.keys()) {
 

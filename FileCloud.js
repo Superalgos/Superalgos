@@ -33,11 +33,13 @@ function newFileCloud() {
 
             filePath = filePath.replace("@Year", pDatetime.getUTCFullYear());
             filePath = filePath.replace("@Month", pad(pDatetime.getUTCMonth() + 1, 2));
-            filePath = filePath.replace("@Month", pad(pDatetime.getUTCDate(), 2));
+            filePath = filePath.replace("@Day", pad(pDatetime.getUTCDate(), 2));
 
         }
 
         fileService.getFileToText('data', filePath, fileName, undefined, onFileReceived);
+
+        console.log("File Requested > " + filePath);
 
         function onFileReceived(err, text, response) {
 

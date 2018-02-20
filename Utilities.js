@@ -52,8 +52,6 @@ function getDateFromPoint(point, container, plotArea) {
 
     let date = new Date(point.x);
 
-    date = removeTime(date);
-
     return date;
 }
 

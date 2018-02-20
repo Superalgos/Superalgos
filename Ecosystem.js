@@ -70,7 +70,7 @@ function newEcosystem() {
                                             codeName: "Market Candlesticks",
                                             displayName: "Candlesticks",
                                             exchangeList: ["Poloniex"],
-                                            validPeriods: ["24-hs", "12-hs", "06-hs", "03-hs", "01-hs"],
+                                            validPeriods: ["24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs"],
                                             plotter: {
                                                 devTeam: "AAMasters",
                                                 repo: "AAOlivia-Plotter",
@@ -107,7 +107,7 @@ function newEcosystem() {
                                             codeName: "Market Volumes",
                                             displayName: "Volumes",
                                             exchangeList: ["Poloniex"],
-                                            validPeriods: ["24-hs", "12-hs", "06-hs", "03-hs", "01-hs"],
+                                            validPeriods: ["24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs"],
                                             plotter: {
                                                 devTeam: "AAMasters",
                                                 repo: "AAOlivia-Plotter",
@@ -144,7 +144,7 @@ function newEcosystem() {
                                                 codeName: "Daily Candlesticks",
                                                 displayName: "Candlesticks",
                                                 exchangeList: ["Poloniex"],
-                                                validPeriods: ["30-min", "15-min", "10-min", "05-min", "01-min"],
+                                                validPeriods: ["45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min"],
                                                 plotter: {
                                                     devTeam: "AAMasters",
                                                     repo: "AAOlivia-Plotter",
@@ -181,7 +181,7 @@ function newEcosystem() {
                                                 codeName: "Daily Volumes",
                                                 displayName: "Volumes",
                                                 exchangeList: ["Poloniex"],
-                                                validPeriods: ["30-min", "15-min", "10-min", "05-min", "01-min"],
+                                                validPeriods: ["45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min"],
                                                 plotter: {
                                                     devTeam: "AAMasters",
                                                     repo: "AAOlivia-Plotter",

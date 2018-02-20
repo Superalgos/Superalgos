@@ -2,7 +2,7 @@
 function newFileCloud() {
 
     var fileCloud = {
-        getMarketFile: getMarketFile,
+        getFile: getFile,
         initialize: initialize
     };
 
@@ -18,7 +18,7 @@ function newFileCloud() {
 
     }
 
-    function getMarketFile(pProduct, pExchange, pMarket, pPeriodName, callBackFunction) {
+    function getFile(pProduct, pExchange, pMarket, pPeriodName, pDatetime, callBackFunction) {
 
         let fileName = pProduct.fileName;
         let filePath = pProduct.filePath;
@@ -28,6 +28,14 @@ function newFileCloud() {
 
         filePath = filePath.replace("@Exchange", pExchange.name);
         filePath = filePath.replace("@Period", pPeriodName);
+
+        if (pDatetime !== undefined) {
+
+            filePath = filePath.replace("@Year", pDatetime.getUTCFullYear());
+            filePath = filePath.replace("@Month", pad(pDatetime.getUTCMonth() + 1, 2));
+            filePath = filePath.replace("@Month", pad(pDatetime.getUTCDate(), 2));
+
+        }
 
         fileService.getFileToText('data', filePath, fileName, undefined, onFileReceived);
 
@@ -56,6 +64,8 @@ function newFileCloud() {
 
         }
     }
+
+
 }
 
 

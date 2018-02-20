@@ -50,7 +50,7 @@ function newEcosystem() {
                             },
                             products: {
                                 product: [{
-                                    codeName: "Candles",
+                                    codeName: "Market Candles",
                                     displayName: "Market Candles per Period",
                                     description: "A set of files per period that contains all candles of one whole market.",
                                     storageAccount: "aaolivia",
@@ -67,7 +67,7 @@ function newEcosystem() {
                                     },
                                     layers: {
                                         layer: [{
-                                            codeName: "Candlesticks",
+                                            codeName: "Market Candlesticks",
                                             displayName: "Candlesticks",
                                             exchangeList: ["Poloniex"],
                                             validPeriods: ["24-hs", "12-hs", "06-hs", "03-hs", "01-hs"],
@@ -87,7 +87,7 @@ function newEcosystem() {
                                         }]
                                     }
                                 }, {
-                                    codeName: "Volumes",
+                                    codeName: "Market Volumes",
                                     displayName: "Market Volumes per Period",
                                     description: "A set of files per period that contains all volumes of one whole market.",
                                     storageAccount: "aaolivia",
@@ -104,7 +104,7 @@ function newEcosystem() {
                                     },
                                     layers: {
                                         layer: [{
-                                            codeName: "Volumes",
+                                            codeName: "Market Volumes",
                                             displayName: "Volumes",
                                             exchangeList: ["Poloniex"],
                                             validPeriods: ["24-hs", "12-hs", "06-hs", "03-hs", "01-hs"],
@@ -123,7 +123,81 @@ function newEcosystem() {
                                             }
                                         }]
                                     }
-                                }]
+                                    }, {
+                                        codeName: "Daily Candles",
+                                        displayName: "Daily Candles per Period",
+                                        description: "A set of files per period that contains all candles of one whole market.",
+                                        storageAccount: "aaolivia",
+                                        filePath: "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                                        fileName: "@AssetA_@AssetB.json",
+                                        exchangeList: {
+                                            exchange: [{
+                                                name: "Poloniex",
+                                                datetimeRange: {
+                                                    minDatetime: "2017-02-19 19:15:00.000 GMT+0000",
+                                                    maxDatetime: "2018-02-13 10:10:00.000 GMT+0000"
+                                                }
+                                            }]
+                                        },
+                                        layers: {
+                                            layer: [{
+                                                codeName: "Daily Candlesticks",
+                                                displayName: "Candlesticks",
+                                                exchangeList: ["Poloniex"],
+                                                validPeriods: ["30-min", "15-min", "10-min", "05-min", "01-min"],
+                                                plotter: {
+                                                    devTeam: "AAMasters",
+                                                    repo: "AAOlivia-Plotter",
+                                                    moduleName: "Candlesticks",
+                                                    target: "Timeline",
+                                                    dependencies: {
+                                                        dependency: {
+                                                            devTeam: "AAMasters",
+                                                            repo: "Plotters-Utilities",
+                                                            moduleName: "Candlesticks"
+                                                        }
+                                                    }
+                                                }
+                                            }]
+                                        }
+                                    }, {
+                                        codeName: "Daily Volumes",
+                                        displayName: "Daily Volumes per Period",
+                                        description: "A set of files per period that contains all volumes of one whole market.",
+                                        storageAccount: "aaolivia",
+                                        filePath: "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                                        fileName: "@AssetA_@AssetB.json",
+                                        exchangeList: {
+                                            exchange: [{
+                                                name: "Poloniex",
+                                                datetimeRange: {
+                                                    minDatetime: "2017-02-19 19:15:00.000 GMT+0000",
+                                                    maxDatetime: "2018-02-13 10:10:00.000 GMT+0000"
+                                                }
+                                            }]
+                                        },
+                                        layers: {
+                                            layer: [{
+                                                codeName: "Daily Volumes",
+                                                displayName: "Volumes",
+                                                exchangeList: ["Poloniex"],
+                                                validPeriods: ["30-min", "15-min", "10-min", "05-min", "01-min"],
+                                                plotter: {
+                                                    devTeam: "AAMasters",
+                                                    repo: "AAOlivia-Plotter",
+                                                    moduleName: "Volumes",
+                                                    target: "Timeline",
+                                                    dependencies: {
+                                                        dependency: {
+                                                            devTeam: "AAMasters",
+                                                            repo: "Plotters-Utilities",
+                                                            moduleName: "Volumes"
+                                                        }
+                                                    }
+                                                }
+                                            }]
+                                        }
+                                    }]
                             },
                             processes:
                             {

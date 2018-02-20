@@ -1,20 +1,22 @@
 ﻿
-function newFileCache() {
+function newFileCursorCache() {
 
-    let fileCache = {
-        getFile: getFile,
+    let fileCursorCache = {
+        getFileCursor: getFileCursor,
+        setDatetime: setDatetime,
         initialize: initialize
     }
 
     let fileCloud;
 
-    let files = new Map;
+    let marketFiles = new Map;
+    let fileCursors = new Map;
 
     let datetime;
-    
-    return fileCache;
 
-    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pLayerCodeName, pExchange, pMarket, callBackFunction) {
+    return fileCursorCache;
+
+    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pLayerCodeName, pExchange, pMarket, pDatetime, callBackFunction) {
 
         let product = ecosystem.getProduct(ecosystem.getBot(ecosystem.getTeam(pTeamCodeName), pBotCodeName), pProductCodeName);
 
@@ -43,32 +45,45 @@ function newFileCache() {
         fileCloud = newFileCloud();
         fileCloud.initialize(pTeamCodeName, pBotCodeName);
 
-        /* Now we will get the market files */
+        /* Now we will get the daily files */
 
-        for (i = 0; i < marketFilesPeriods.length; i++) {
+        for (i = 0; i < dailyFilePeriods.length; i++) {
 
-            let periodTime = marketFilesPeriods[i][0];
-            let periodName = marketFilesPeriods[i][1];
+            let periodTime = dailyFilePeriods[i][0];
+            let periodName = dailyFilePeriods[i][1];
 
             if (layer.validPeriods.includes(periodName) === true) {
 
-                fileCloud.getFile(product, exchange, pMarket, periodName, undefined, onFileReceived);
+                let fileCursor = newFileCursos();
+                fileCursor.initialize(fileCloud, product, exchange, pMarket, periodName, pDatetime, onFileReceived);
 
-                function onFileReceived(file) {
+                fileCursors.set(periodTime, fileCursor);
 
-                    files.set(periodTime, file);
+                function onFileReceived() {
 
-                    callBackFunction(); // Note that the call back is called for every file loaded.
+                    callBackFunction(); // Note that the call back is called for every file loaded at each cursor.
 
                 }
             }
         }
     }
-  
-    function getFile(pPeriod) {
 
-        return files.get(pPeriod);
+    function getFileCursor(pPeriod) {
+
+        return fileCursors.get(pPeriod);
 
     }
 
+    function setDatetime(newDatetime) {
+
+        datetime = newDatetime;
+
+        fileCursors.forEach(setDatetime)
+
+        function setDatetimeToEach(value, key, map) {
+
+            value.setDatetime(newDatetime);
+
+        }
+    }
 }

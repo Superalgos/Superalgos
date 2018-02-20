@@ -1,33 +1,35 @@
 ﻿
 function newFileCursor() {
 
-    
-
-    let dailyFiles = new Map;
-    let cursorDate = new Date(INITIAL_DATE);
+    let files = new Map;
+    let cursorDate;
 
     let fileCursor = {
         setDatetime: setDatetime,
-        dailyFiles: undefined,
+        files: undefined,
         initialize: initialize
     }
 
-    fileCursor.dailyFiles = dailyFiles;
+    fileCursor.files = files;
+
+    let cursorSize = 3;
 
     let market;
     let exchange;
-    let cursorSize = 3;
-
-    let server = newFileServer();
+    let fileCloud;
+    let product;
+    let periodName;
 
     return fileCursor;
 
-    function initialize(pExchange, pMarket, callBackFunction) {
+    function initialize(pFileCloud, pProduct, pExchange, pMarket, pPeriodName, pCursorDate, callBackFunction) {
 
         market = pMarket;
         exchange = pExchange;
-
-        server.initialize();
+        fileCloud = pFileCloud;
+        product = pProduct;
+        periodName = pPeriodName;
+        cursorDate = pCursorDate;
 
         getFiles(callBackFunction);
 
@@ -56,8 +58,9 @@ function newFileCursor() {
         function getNextFile() {
 
             let targetDate = new Date(cursorDate);
-            targetDate.setDate(targetDate.getDate() + j);
+            targetDate.setUTCDate(targetDate.getUTCDate() + j);
 
+            /* Small algorith to allow load first the current date, then alternate between the most forwad and the most backwards ones. */
             if (j === 0) { j++; }
             else {
                 if (j < 0) {
@@ -80,9 +83,9 @@ function newFileCursor() {
 
             } else {
 
-                if (fileCursor.dailyFiles.get(dateString) === undefined) {
+                if (fileCursor.files.get(dateString) === undefined) { // We dont reload files we already have. 
 
-                    server.getDailyFile(exchange, market, targetDate, newDailyFilesReady)
+                    fileCloud.getFile(product, exchange, market, periodName, targetDate, onFileReceived);
 
                 } else {
 
@@ -93,9 +96,9 @@ function newFileCursor() {
 
         }
 
-        function newDailyFilesReady(dailyFileReceived) {
+        function onFileReceived(file) {
 
-            fileCursor.dailyFiles.set(dateString, dailyFileReceived);
+            fileCursor.files.set(dateString, file);
 
             controlLoop();
 
@@ -104,19 +107,11 @@ function newFileCursor() {
 
         function controlLoop() {
 
-            if (j === 3) { // We call the callBack after we have the first few files.
+            if (callBackFunction !== undefined) {
 
-                if (callBackFunction !== undefined) {
+                callBackFunction();
 
-                    callBackFunction();
-
-                    if (market === INITIAL_DEFAULT_MARKET) {  // This is when we dont need a splash screen anymore!
-
-                        splashScreenNeeded = false;
-
-                    }
-
-                }
+                splashScreenNeeded = false; // This is when we dont need a splash screen anymore!
 
             }
 
@@ -138,13 +133,13 @@ function newFileCursor() {
         let minDate = date.valueOf() - cursorSize / 2 * 24 * 60 * 60 * 1000;
         let maxDate = date.valueOf() + cursorSize / 2 * 24 * 60 * 60 * 1000;
 
-        for (let key of fileCursor.dailyFiles.keys()) {
+        for (let key of fileCursor.files.keys()) {
 
             let keyDate = new Date(key);
 
             if (keyDate.valueOf() < minDate || keyDate.valueOf() > maxDate) {
 
-                fileCursor.dailyFiles.delete(key);
+                fileCursor.files.delete(key);
 
             }
 

@@ -406,6 +406,9 @@
         let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
         let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
+        leftDate.setUTCDate(leftDate.getUTCDate() - 1);
+        rightDate.setUTCDate(leftDate.getUTCDate() + 1);
+
         candles = [];
 
         for (var i = 0; i < marketFile.length; i++) {

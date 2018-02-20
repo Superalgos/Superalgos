@@ -112,7 +112,7 @@
 
         timePeriod = period;
 
-        if (timePeriod >= ONE_HOUR_IN_MILISECONDS) {
+        if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
             marketFile = fileCache.getMarketFile(pTimePeriod, datetime);
 
@@ -250,7 +250,7 @@
 
         if (layerStatus === 'off') { return; }
 
-        if (timePeriod >= ONE_HOUR_IN_MILISECONDS) {
+        if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
             recalculateCandlesUsingMarketFiles();
 

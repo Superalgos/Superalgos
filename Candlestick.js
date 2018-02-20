@@ -311,10 +311,11 @@
 
         if (timePeriod < _1_HOUR_IN_MILISECONDS) {
 
-            if (Math.random() * 100 > 98) {
-                //recalculateCandles();
+            if (Math.random() * 1000 > 995) {
 
-                //console.log("draw");
+                recalculateCandles();
+
+                console.log("draw");
             }
 
 

@@ -313,30 +313,18 @@
 
 
 
-    function recalculateCandlesUsingDailyFiles(currentDateOnly) {
+    function recalculateCandlesUsingDailyFiles() {
 
         let daysOnSides = getSideDays(timePeriod);
 
         let leftDate;
         let rightDate;
 
-        if (currentDateOnly === true) {
+        leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
+        rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
 
-            leftDate = new Date(datetime.getTime());
-            rightDate = new Date(datetime.getTime());
-
-            leftDate = removeTime(datetime);
-            rightDate = removeTime(datetime);
-
-        } else {
-
-            leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
-            rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
-
-            leftDate.setDate(leftDate.getDate() - daysOnSides);
-            rightDate.setDate(rightDate.getDate() + daysOnSides);
-
-        }
+        leftDate.setDate(leftDate.getDate() - daysOnSides);
+        rightDate.setDate(rightDate.getDate() + daysOnSides);
 
         let currentDate = new Date(leftDate.getTime());
 

@@ -46,9 +46,11 @@
 
         function onFileReady() {
 
-            marketFile = fileCache.getMarketFile(pTimePeriod);
+            let newMarketFile = fileCache.getMarketFile(pTimePeriod);
 
-            if (marketFile !== undefined) { // if the file ready is the one we need then it will continue here.
+            if (newMarketFile !== undefined && marketFile === undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.
+
+                marketFile = newMarketFile;
 
                 recalculateScale();
 
@@ -123,8 +125,9 @@
 
                 marketFile = newMarketFile;
 
+                recalculateCandles();
+
             }
-            
 
         } else {
 
@@ -134,12 +137,10 @@
 
                 fileCursor = newFileCursor;
 
+                recalculateCandles();
+
             }
-
         }
-
-        recalculateCandles();
-
     }
 
     function setDatetime(newDatetime) {

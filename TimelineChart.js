@@ -109,7 +109,13 @@ function newTimelineChart() {
         layerAAMastersAAOliviaCandlesticks.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAAOliviaCandlesticks.container.frame.width / 2;
         layerAAMastersAAOliviaCandlesticks.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAAOliviaCandlesticks.container.frame.height / 2;
 
-        layerAAMastersAAOliviaCandlesticks.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, chartLayersPanel);
+        layerAAMastersAAOliviaCandlesticks.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, chartLayersPanel, onOliviaInitialized);
+
+        function onOliviaInitialized() {
+
+            splashScreenNeeded = false; // This is when we dont need a splash screen anymore!
+
+        }
 
         /* All Time Layer */
 

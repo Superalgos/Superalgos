@@ -111,8 +111,6 @@ function newFileCursor() {
 
                 callBackFunction();
 
-                splashScreenNeeded = false; // This is when we dont need a splash screen anymore!
-
             }
 
             i++;

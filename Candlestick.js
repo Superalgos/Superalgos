@@ -44,38 +44,15 @@
         fileCache.initialize("AAMasters", "AAOlivia", "Market Candles", "Market Candlesticks", pExchange, pMarket, onFileReady);
 
         fileCursorCache = newFileCursorCache();
-        fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, onFileReady);
+        fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, onFileCursorReady);
 
         function onFileReady() {
 
-            let newMarketFile = fileCache.getFile(pTimePeriod);
+            let newMarketFile = fileCache.getFile(ONE_DAY_IN_MILISECONDS);
 
-            if (newMarketFile !== undefined && marketFile === undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.
+            if (newMarketFile !== undefined) { 
 
                 marketFile = newMarketFile;
-
-                finishInitialization();
-
-            }
-
-            let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
-
-            if (newFileCursor !== undefined && marketFile === undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.
-
-                fileCursor = newFileCursor;
-
-                let stringDate = datetime.getUTCFullYear() + '-' + pad(datetime.getUTCMonth() + 1, 2) + '-' + pad(datetime.getUTCDate(), 2);
-
-                let dailyFile = fileCursor.files.get(stringDate);
-
-                if (dailyFile !== undefined) {
-
-                    callBackFunction();
-
-                }
-            }
-
-            function finishInitialization() {
 
                 recalculateScale(); // With any of the market files we can calculate the scale. 
 
@@ -88,8 +65,28 @@
                 canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
             }
+        }
+
+        function onFileCursorReady() {
+
+            let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
+
+            if (newFileCursor !== undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.
+
+                let stringDate = datetime.getUTCFullYear() + '-' + pad(datetime.getUTCMonth() + 1, 2) + '-' + pad(datetime.getUTCDate(), 2);
+
+                let dailyFile = newFileCursor.files.get(stringDate);
+
+                if (dailyFile !== undefined) {
+
+                    fileCursor = newFileCursor;
+                    callBackFunction();
+
+                }
+            }
 
         }
+
     }
 
 
@@ -312,6 +309,8 @@
 
 
     function recalculateCandlesUsingDailyFiles() {
+
+        if (fileCursor.files.size === 0) { return;} // We need to wait until there are files in the cursor
 
         let daysOnSides = getSideDays(timePeriod);
 

@@ -361,7 +361,7 @@
 
         candles = [];
 
-        while (currentDate.valueOf() <= rightDate.valueOf()) {
+        while (currentDate.valueOf() <= rightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
             let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
 

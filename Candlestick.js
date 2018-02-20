@@ -354,8 +354,8 @@
 
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
-        leftDate = new Date(leftDate.valueOf() - dateDiff);
-        rightDate = new Date(rightDate.valueOf() + dateDiff);
+        leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
+        rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
 
         let currentDate = new Date(leftDate.valueOf());
 
@@ -419,8 +419,8 @@
 
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
-        leftDate = new Date(leftDate.valueOf() - dateDiff);
-        rightDate = new Date(rightDate.valueOf() + dateDiff);
+        leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
+        rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
 
         candles = [];
 

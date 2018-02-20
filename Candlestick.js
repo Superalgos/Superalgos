@@ -74,7 +74,6 @@
         function onFileCursorReady() {
 
             recalculateCandles();
-            console.log("onFileCursorReady");
 
             let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
 
@@ -147,14 +146,11 @@
 
         recalculateCandles();
 
-        console.log("onZoomChanged");
-
     }
 
     function onDragFinished() {
 
         recalculateCandles();
-        console.log("onDragFinished");
 
     }
 
@@ -172,8 +168,6 @@
                 marketFile = newMarketFile;
 
                 recalculateCandles();
-
-                console.log("setTimePeriod");
 
             }
 
@@ -205,12 +199,12 @@
         if (currentDate !== newDate) {
 
             if (timePeriod < _1_HOUR_IN_MILISECONDS) {
-
+                /*
                 recalculateCandles();
                 fileCursorCache.setDatetime(newDatetime);
 
                 console.log("setDatetime");
-
+                */
             }
         } 
     }
@@ -305,9 +299,6 @@
         }
     }
 
-
-
-
     function draw() {
 
         if (layerStatus !== 'on') { return; }
@@ -328,8 +319,6 @@
         plotCandleChart();
 
     }
-
-
 
     function recalculateCandles() {
 
@@ -448,8 +437,6 @@
 
             } 
         }
-
-        console.log("Olivia > recalculateCandlesUsingMarketFiles > total candles generated : " + candles.length);
     }
 
 

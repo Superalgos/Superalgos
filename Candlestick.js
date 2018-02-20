@@ -50,13 +50,14 @@
 
             recalculateScale();
 
+            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
+
             recalculateCandles();
             postitionViewPort();
 
             viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
             canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
         }
     }
 

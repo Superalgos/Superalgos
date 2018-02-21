@@ -268,11 +268,11 @@
 
                     var volume = newVolumeBar();
 
-                    volume.begin = (new Date(marketFile.volumes[i][2])).valueOf(); // TODO ELIMINATE THIS
-                    volume.end = (new Date(marketFile.volumes[i][3])).valueOf();
+                    volume.begin = (new Date(dailyFile.volumes[i][2])).valueOf(); // TODO ELIMINATE THIS
+                    volume.end = (new Date(dailyFile.volumes[i][3])).valueOf();
 
-                    volume.amountBuy = marketFile.volumes[i][0];
-                    volume.amountSell = marketFile.volumes[i][1];
+                    volume.amountBuy = dailyFile.volumes[i][0];
+                    volume.amountSell = dailyFile.volumes[i][1];
 
                     if (volume.begin >= farLeftDate.valueOf() && volume.end <= farRightDate.valueOf()) {
 

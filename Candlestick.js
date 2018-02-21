@@ -12,13 +12,9 @@
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     candlesticks.container = container;
-
-    container.displacement.containerName = "AAMasters AAOlivia Candlesticks";
-    container.zoom.containerName = "AAMasters AAOlivia Candlesticks";
-    container.frame.containerName = "AAMasters AAOlivia Candlesticks";
 
     let candles = [];
     let plotArea = newPlotArea();
@@ -118,7 +114,7 @@
 
         if (layerStatus !== 'on') { return; }
 
-        var container;
+        let container;
 
         /* First we check if this point is inside this space. */
 
@@ -374,9 +370,9 @@
 
             if (dailyFile !== undefined) {
 
-                for (var i = 0; i < dailyFile.length; i++) {
+                for (let i = 0; i < dailyFile.length; i++) {
 
-                    var candle = newCandle();
+                    let candle = newCandle();
 
                     candle.min = dailyFile[i][0];
                     candle.max = dailyFile[i][1];
@@ -442,9 +438,9 @@
 
         candles = [];
 
-        for (var i = 0; i < marketFile.length; i++) {
+        for (let i = 0; i < marketFile.length; i++) {
 
-            var candle = newCandle();
+            let candle = newCandle();
 
             candle.min = marketFile[i][0];
             candle.max = marketFile[i][1];
@@ -484,12 +480,12 @@
 
         if (plotArea.maxValue > 0) { return; } // Already calculated.
 
-        var minValue = {
+        let minValue = {
             x: EARLIEST_DATE.valueOf(),
             y: 0
         };
 
-        var maxValue = {
+        let maxValue = {
             x: MAX_PLOTABLE_DATE.valueOf(),
             y: nextPorwerOf10(getMaxRate())
         };
@@ -506,7 +502,7 @@
 
             let maxValue = 0;
 
-            for (var i = 0; i < marketFile.length; i++) {
+            for (let i = 0; i < marketFile.length; i++) {
 
                 let currentMax = marketFile[i][1];   // 1 = rates.
 
@@ -533,26 +529,26 @@
 
             /* Now we calculate and plot the candles */
 
-            for (var i = 0; i < candles.length; i++) {
+            for (let i = 0; i < candles.length; i++) {
 
                 candle = candles[i];
 
-                var candlePoint1 = {
+                let candlePoint1 = {
                     x: candle.begin + timePeriod / 7 * 1.5,
                     y: candle.open
                 };
 
-                var candlePoint2 = {
+                let candlePoint2 = {
                     x: candle.begin + timePeriod / 7 * 5.5,
                     y: candle.open
                 };
 
-                var candlePoint3 = {
+                let candlePoint3 = {
                     x: candle.begin + timePeriod / 7 * 5.5,
                     y: candle.close
                 };
 
-                var candlePoint4 = {
+                let candlePoint4 = {
                     x: candle.begin + timePeriod / 7 * 1.5,
                     y: candle.close
                 };
@@ -576,22 +572,22 @@
                 candlePoint3 = viewPort.fitIntoVisibleArea(candlePoint3);
                 candlePoint4 = viewPort.fitIntoVisibleArea(candlePoint4);
 
-                var stickPoint1 = {
+                let stickPoint1 = {
                     x: candle.begin + timePeriod / 7 * 3.2,
                     y: candle.max
                 };
 
-                var stickPoint2 = {
+                let stickPoint2 = {
                     x: candle.begin + timePeriod / 7 * 3.8,
                     y: candle.max
                 };
 
-                var stickPoint3 = {
+                let stickPoint3 = {
                     x: candle.begin + timePeriod / 7 * 3.8,
                     y: candle.min
                 };
 
-                var stickPoint4 = {
+                let stickPoint4 = {
                     x: candle.begin + timePeriod / 7 * 3.2,
                     y: candle.min
                 };

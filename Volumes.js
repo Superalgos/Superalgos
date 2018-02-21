@@ -361,13 +361,13 @@
         plotArea.initializeX(
             minValue,
             maxValue,
-            volumeChartLayer.container.frame.width
+            thisObject.container.frame.width
         );
 
         plotAreaFrame.initializeX(
             minValue,
             maxValue,
-            volumeChartLayer.container.frame.width
+            thisObject.container.frame.width
         );
 
     }
@@ -395,7 +395,7 @@
         plotAreaFrame.initializeY(
             minValue,
             maxValue,
-            volumeChartLayer.container.frame.height
+            thisObject.container.frame.height
         );
 
     }
@@ -414,15 +414,15 @@
             };
 
             let frameCorner2 = {
-                x: volumeChartLayer.container.frame.width,
-                y: volumeChartLayer.container.frame.height
+                x: thisObject.container.frame.width,
+                y: thisObject.container.frame.height
             };
 
 
             /* Now the transformations. */
 
-            frameCorner1 = transformThisPoint(frameCorner1, volumeChartLayer.container.frame.container);
-            frameCorner2 = transformThisPoint(frameCorner2, volumeChartLayer.container.frame.container);
+            frameCorner1 = transformThisPoint(frameCorner1, thisObject.container.frame.container);
+            frameCorner2 = transformThisPoint(frameCorner2, thisObject.container.frame.container);
 
             let frameHeightInViewPort = frameCorner2.y - frameCorner1.y;
 
@@ -464,10 +464,10 @@
                         volumePointA3 = plot.inverseTransform(volumePointA3, height);
                         volumePointA4 = plot.inverseTransform(volumePointA4, height);
 
-                        volumePointA1 = transformThisPoint(volumePointA1, volumeChartLayer.container);
-                        volumePointA2 = transformThisPoint(volumePointA2, volumeChartLayer.container);
-                        volumePointA3 = transformThisPoint(volumePointA3, volumeChartLayer.container);
-                        volumePointA4 = transformThisPoint(volumePointA4, volumeChartLayer.container);
+                        volumePointA1 = transformThisPoint(volumePointA1, thisObject.container);
+                        volumePointA2 = transformThisPoint(volumePointA2, thisObject.container);
+                        volumePointA3 = transformThisPoint(volumePointA3, thisObject.container);
+                        volumePointA4 = transformThisPoint(volumePointA4, thisObject.container);
 
                         let baseIncrement = (volumePointA3.x - volumePointA1.x) * WIDHTER_VOLUME_BAR_BASE_FACTOR;
 
@@ -482,7 +482,7 @@
 
                     }
 
-                    if (calculateBuys(plotAreaFrame, volumeChartLayer.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
+                    if (calculateBuys(plotAreaFrame, thisObject.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
 
                     if (volumePointA1.y > viewPort.visibleArea.bottomLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
@@ -529,14 +529,14 @@
                         volumePointB3 = plot.inverseTransform2(volumePointB3, height);
                         volumePointB4 = plot.inverseTransform2(volumePointB4, height);
 
-                        volumePointB1 = transformThisPoint(volumePointB1, volumeChartLayer.container);
-                        volumePointB2 = transformThisPoint(volumePointB2, volumeChartLayer.container);
-                        volumePointB3 = transformThisPoint(volumePointB3, volumeChartLayer.container);
-                        volumePointB4 = transformThisPoint(volumePointB4, volumeChartLayer.container);
+                        volumePointB1 = transformThisPoint(volumePointB1, thisObject.container);
+                        volumePointB2 = transformThisPoint(volumePointB2, thisObject.container);
+                        volumePointB3 = transformThisPoint(volumePointB3, thisObject.container);
+                        volumePointB4 = transformThisPoint(volumePointB4, thisObject.container);
 
                     }
 
-                    calculateSells(plotAreaFrame, volumeChartLayer.container.frame.height); // We try to see if it fits in the visible area.
+                    calculateSells(plotAreaFrame, thisObject.container.frame.height); // We try to see if it fits in the visible area.
 
                     if (volumePointB1.y < viewPort.visibleArea.topLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
@@ -695,7 +695,7 @@
                                 innerVolumeBar: volume
                             };
 
-                            volumeChartLayer.container.eventHandler.raiseEvent("Current Volume Info Changed", currentVolume);
+                            thisObject.container.eventHandler.raiseEvent("Current Volume Info Changed", currentVolume);
 
                         }
                     }

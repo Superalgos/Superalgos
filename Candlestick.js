@@ -358,14 +358,14 @@
 
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
-        leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
-        rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
+        let farLeftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
+        let farRightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
 
-        let currentDate = new Date(leftDate.valueOf());
+        let currentDate = new Date(farLeftDate.valueOf());
 
         candles = [];
 
-        while (currentDate.valueOf() <= rightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
+        while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
             let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
 
@@ -390,7 +390,7 @@
                     if (candle.open < candle.close) { candle.direction = 'up'; }
                     if (candle.open === candle.close) { candle.direction = 'side'; }
 
-                    if (candle.begin >= leftDate.valueOf() && candle.end <= rightDate.valueOf()) {
+                    if (candle.begin >= farLeftDate.valueOf() && candle.end <= farRightDate.valueOf()) {
 
                         candles.push(candle);
 
@@ -402,15 +402,19 @@
                         }
                     }
                 }
-            } else {
-
-                //setTimeout(recalculateCandlesUsingDailyFiles, 5000);
-
-                console.log("File missing while calculating candles, scheduling a recalculation in 5 seconds.");
-
-            }
+            } 
 
             currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
+        }
+
+        /* Lests check if all the visible screen is going to be covered by candles. */
+
+        if (candles[0].begin > leftDate.valueOf() || candles[candles.length - 1].end > rightDate.valueOf()) {
+
+            //setTimeout(recalculateCandlesUsingDailyFiles, 5000);
+
+            console.log("File missing while calculating candles, scheduling a recalculation in 5 seconds.");
+
         }
 
         //console.log("Olivia > recalculateCandlesUsingDailyFiles > total candles generated : " + candles.length);

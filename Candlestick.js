@@ -66,7 +66,7 @@
                 cursorCacheInProgress = true;
 
                 fileCursorCache = newFileCursorCache();
-                fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, onFileCursorReady);
+                fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
 
             }
         }
@@ -180,8 +180,6 @@
                 fileCursor = newFileCursor;
 
                 recalculateCandles();
-
-                console.log("setTimePeriod");
 
             }
         }
@@ -315,7 +313,6 @@
 
                 recalculateCandles();
 
-                console.log("draw");
             }
 
 
@@ -404,7 +401,7 @@
             currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
         }
 
-        console.log("Olivia > recalculateCandlesUsingDailyFiles > total candles generated : " + candles.length);
+        //console.log("Olivia > recalculateCandlesUsingDailyFiles > total candles generated : " + candles.length);
 
     }
 
@@ -455,7 +452,7 @@
             } 
         }
 
-        console.log("Olivia > recalculateCandlesUsingMarketFiles > total candles generated : " + candles.length);
+        //console.log("Olivia > recalculateCandlesUsingMarketFiles > total candles generated : " + candles.length);
     }
 
 

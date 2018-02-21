@@ -391,12 +391,15 @@
         let lowerEnd = leftDate.valueOf();
         let upperEnd = rightDate.valueOf();
 
-        if (candles[0].begin > lowerEnd || candles[candles.length - 1].end < upperEnd) {
+        if (candles.length > 0) {
 
-            setTimeout(recalculate, 2000);
+            if (candles[0].begin > lowerEnd || candles[candles.length - 1].end < upperEnd) {
 
-            //console.log("File missing while calculating candles, scheduling a recalculation in 2 seconds.");
+                setTimeout(recalculate, 2000);
 
+                //console.log("File missing while calculating candles, scheduling a recalculation in 2 seconds.");
+
+            }
         }
 
         //console.log("Olivia > recalculateUsingDailyFiles > total candles generated : " + candles.length);

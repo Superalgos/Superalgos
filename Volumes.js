@@ -295,12 +295,15 @@
         let lowerEnd = leftDate.valueOf();
         let upperEnd = rightDate.valueOf();
 
-        if (volumes[0].begin > lowerEnd || volumes[volumes.length - 1].end < upperEnd) {
+        if (volumes.length > 0) {
 
-            setTimeout(recalculate, 2000);
+            if (volumes[0].begin > lowerEnd || volumes[volumes.length - 1].end < upperEnd) {
 
-            //console.log("File missing while calculating volumes, scheduling a recalculation in 2 seconds.");
+                setTimeout(recalculate, 2000);
 
+                //console.log("File missing while calculating volumes, scheduling a recalculation in 2 seconds.");
+
+            }
         }
 
         //console.log("Olivia > recalculateUsingDailyFiles > total volumes generated : " + volumes.length);

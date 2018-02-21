@@ -21,7 +21,7 @@
     const VOLUMES_ONE_MIN = "One-Min";
 
     const GO_RANDOM = false;
-    const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. 
+    const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. *
 
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;

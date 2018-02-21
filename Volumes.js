@@ -328,7 +328,7 @@
 
         for (let i = 0; i < marketFile.length; i++) {
 
-            var volume = newVolumeBar();
+            var volume = newVolumeBar();  // TODO ELIMINATE THIS OBJECT DEPENDENCYY
 
             volume.begin = (new Date(marketFile[i][2])).valueOf(); // TODO ELIMINATE THIS
             volume.end = (new Date(marketFile[i][3])).valueOf();

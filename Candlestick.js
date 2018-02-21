@@ -404,9 +404,9 @@
                 }
             } else {
 
-                setTimeout(recalculateCandlesUsingDailyFiles, 1000);
+                setTimeout(recalculateCandlesUsingDailyFiles, 5000);
 
-                console.log("File missing while calculating candles, scheduling a recalculation in 1 second.");
+                console.log("File missing while calculating candles, scheduling a recalculation in 5 seconds.");
 
             }
 

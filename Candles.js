@@ -1,4 +1,4 @@
-﻿function newAAMastersAAOliviaCandlesticks() {
+﻿function newAAMastersAAOliviaCandles() {
 
     let thisObject = {
 

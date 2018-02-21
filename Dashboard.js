@@ -34,6 +34,32 @@ let dailyFilePeriods =
 
 dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
+function convertTimePeriodToName(pTimePeriod) {
+
+    for (let i = 0; i < dailyFilePeriods.length; i++) {
+
+        let period = dailyFilePeriods[i];
+
+        if (period[0] === pTimePeriod) {
+
+            return period[1];
+
+        }
+    }
+
+    for (let i = 0; i < marketFilesPeriods.length; i++) {
+
+        let period = marketFilesPeriods[i];
+
+        if (period[0] === pTimePeriod) {
+
+            return period[1];
+
+        }
+    }
+}
+
+
 
 var viewPort = newViewPort();
 

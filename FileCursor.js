@@ -6,6 +6,7 @@ function newFileCursor() {
 
     let fileCursor = {
         setDatetime: setDatetime,
+        setTimePeriod: setTimePeriod,
         files: undefined,
         initialize: initialize
     }
@@ -20,10 +21,11 @@ function newFileCursor() {
     let fileCloud;
     let product;
     let periodName;
+    let timePeriod;
 
     return fileCursor;
 
-    function initialize(pFileCloud, pProduct, pExchange, pMarket, pPeriodName, pCursorDate, callBackFunction) {
+    function initialize(pFileCloud, pProduct, pExchange, pMarket, pPeriodName, pCursorDate, pTimePeriod, callBackFunction) {
 
         market = pMarket;
         exchange = pExchange;
@@ -31,10 +33,211 @@ function newFileCursor() {
         product = pProduct;
         periodName = pPeriodName;
         cursorDate = pCursorDate;
+        timePeriod = pTimePeriod;
+
+        setTimePeriod(pTimePeriod);
 
         getFiles(callBackFunction);
 
     }
+
+    function setTimePeriod(pTimePeriod) {
+
+        /*
+
+        We are implementing here an algorithm designed to save bandwidth, memory and processing power at the browser.
+        We say there is a saving mode where the cursor is running at a minimum size. When the end user aproaches the time period the cursor
+        is set, then it should exit the saving mode and go to its actual size.
+
+        To do this we are going to measure the distance from the Time Period received to the one the cursors was initialized with.
+        If these periods are consecutive, it means that the cursor should exit saving mode and load its full size.
+
+        */
+
+        let positionA;
+
+        for (let i = 0; i < dailyFilePeriods.length; i++) {
+
+            let period = dailyFilePeriods[i];
+
+            if (period[0] === pTimePeriod) {
+
+                positionA = i;
+
+            }
+
+            if (period[0] === timePeriod) {
+
+                positionB = i;
+
+            }
+        }
+
+        if (Math.abs(positionB - positionA) <= 1) {
+
+            exitSavingMode();
+            console.log("File Cursor with period " + periodName + " EXITED saving mode after being notified the user is at period " + convertTimePeriodToName(pTimePeriod));
+
+        } else {
+
+            enterSavingMode();
+            console.log("File Cursor with period " + periodName + " ENTERED saving mode after being notified the user is at period " + convertTimePeriodToName(pTimePeriod));
+
+        }
+
+
+        function enterSavingMode() {
+
+            switch (timePeriod) {
+
+                case _45_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 30;
+                    }
+                    break;
+                case _40_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 20;
+                    }
+                    break;
+                case _30_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _20_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _15_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _10_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _5_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _4_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _3_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _2_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _1_MINUTE_IN_MILISECONDS:
+                    {
+                        minCursorSize = 1;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                default:
+            }
+        }
+
+        function exitSavingMode() {
+
+            switch (timePeriod) {
+
+                case _45_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 10;
+                        maxCursorSize = 30;
+                    }
+                    break;
+                case _40_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 8;
+                        maxCursorSize = 20;
+                    }
+                    break;
+                case _30_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 6;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _20_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 5;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _15_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 5;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _10_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 5;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _5_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 3;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _4_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 3;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _3_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 3;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _2_MINUTES_IN_MILISECONDS:
+                    {
+                        minCursorSize = 3;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                case _1_MINUTE_IN_MILISECONDS:
+                    {
+                        minCursorSize = 3;
+                        maxCursorSize = 15;
+                    }
+                    break;
+                default:
+            }
+        }
+
+
+    }
+
+
 
     function setDatetime(datetime) {
 

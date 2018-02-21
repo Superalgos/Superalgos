@@ -12,11 +12,9 @@ function newFileCursorCache() {
     let marketFiles = new Map;
     let fileCursors = new Map;
 
-    let datetime;
-
     return fileCursorCache;
 
-    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pLayerCodeName, pExchange, pMarket, pDatetime, callBackFunction) {
+    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pLayerCodeName, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
         let product = ecosystem.getProduct(ecosystem.getBot(ecosystem.getTeam(pTeamCodeName), pBotCodeName), pProductCodeName);
 
@@ -55,7 +53,7 @@ function newFileCursorCache() {
             if (layer.validPeriods.includes(periodName) === true) {
 
                 let fileCursor = newFileCursor();
-                fileCursor.initialize(fileCloud, product, exchange, pMarket, periodName, pDatetime, onFileReceived);
+                fileCursor.initialize(fileCloud, product, exchange, pMarket, periodName, pDatetime, pTimePeriod, onFileReceived);
 
                 fileCursors.set(periodTime, fileCursor);
 
@@ -74,15 +72,24 @@ function newFileCursorCache() {
 
     }
 
-    function setDatetime(newDatetime) {
-
-        datetime = newDatetime;
+    function setDatetime(pDatetime) {
 
         fileCursors.forEach(setDatetimeToEach)
 
         function setDatetimeToEach(value, key, map) {
 
-            value.setDatetime(newDatetime);
+            value.setDatetime(pDatetime);
+
+        }
+    }
+
+    function setTimePeriod(pTimePeriod) {
+
+        fileCursors.forEach(setTimePeriodToEach)
+
+        function setTimePeriodToEach(value, key, map) {
+
+            value.setTimePeriod(pTimePeriod);
 
         }
     }

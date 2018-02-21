@@ -66,7 +66,7 @@
                 cursorCacheInProgress = true;
 
                 fileCursorCache = newFileCursorCache();
-                fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
+                fileCursorCache.initialize("AAMasters", "AAOlivia", "Daily Candles", "Daily Candlesticks", pExchange, pMarket, pDatetime, onFileCursorReady);
 
             }
         }

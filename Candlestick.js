@@ -1,36 +1,47 @@
 ﻿function newAAMastersAAOliviaCandlesticks() {
 
-    let candlesticks = {
+    let thisObject = {
+
+        // Main functions and properties.
+
         initialize: initialize,
-        currentCandle: undefined,
         container: undefined,
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
-        positionAtDatetime: positionAtDatetime,
         draw: draw,
+
+        // Secondary functions.
+
+        currentCandle: undefined,
+        positionAtDatetime: positionAtDatetime,
         onLayerStatusChanged: onLayerStatusChanged
     };
 
-    let container = newContainer();
+    /* this is part of the module template */
+
+    let container = newContainer();     // Do not touch this 3 lines, they are just needed.
     container.initialize();
-    candlesticks.container = container;
+    thisObject.container = container;
 
-    let candles = [];
-    let plotArea = newPlotArea();
+    let layerStatus = 'off';            // Since the moduleis a layer, it must handle the different possible layer status.
 
-    let timePeriod;
-    let datetime;
+    let plotArea = newPlotArea();       // Needed to be able to plot on the timeline, otherwise not.
 
-    let marketFile;
-    let fileCursor;
+    let timePeriod;                     // This will hold the current Time Period the user is at.
+    let datetime;                       // This will hold the current Datetime the user is at.
 
-    let layerStatus = 'off';
+    let marketFile;                     // This is the current Market File being plotted.
+    let fileCursor;                     // This is the current File Cursor being used to retrieve Daily Files.
 
-    let fileCache;
-    let fileCursorCache;
+    let fileCache;                      // This object will provide the different Market Files at different Time Periods.
+    let fileCursorCache;                // This object will provide the different File Cursors at different Time Periods.
 
-    return candlesticks;
+    /* these are module specific variables: */
+
+    let candles = [];                   // Here we keep the candles to be ploted every time the Draw() function is called by the AAWebPlatform.
+
+    return thisObject;
 
     function initialize(pExchange, pMarket, pDatetime, pTimePeriod, pLayerStatus, callBackFunction) {
 
@@ -70,7 +81,7 @@
 
         function onFileCursorReady() {
 
-            recalculateCandles();
+            recalculate();
 
             let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
 
@@ -92,7 +103,7 @@
 
                         layerStatus = pLayerStatus;
 
-                        recalculateCandles();
+                        recalculate();
                         postitionViewPort();
 
                         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
@@ -141,7 +152,7 @@
 
                 marketFile = newMarketFile;
 
-                recalculateCandles();
+                recalculate();
 
             }
 
@@ -157,7 +168,7 @@
 
                 fileCursor = newFileCursor;
 
-                recalculateCandles();
+                recalculate();
 
             }
         }
@@ -200,8 +211,8 @@
                 y: candles[Math.round(candles.length / 2)].min + (candles[Math.round(candles.length / 2)].max - candles[Math.round(candles.length / 2)].min)
             };
 
-            targetPoint = plotArea.inverseTransform(targetPoint, candlesticks.container.frame.height);
-            targetPoint = transformThisPoint(targetPoint, candlesticks.container);
+            targetPoint = plotArea.inverseTransform(targetPoint, thisObject.container.frame.height);
+            targetPoint = transformThisPoint(targetPoint, thisObject.container);
 
             let displaceVector = {
                 x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2 - targetPoint.x,
@@ -232,24 +243,24 @@
                     y: candles[i].open
                 };
 
-                targetPoint = plotArea.inverseTransform(targetPoint, candlesticks.container.frame.height);
-                targetPoint = transformThisPoint(targetPoint, candlesticks.container);
+                targetPoint = plotArea.inverseTransform(targetPoint, thisObject.container.frame.height);
+                targetPoint = transformThisPoint(targetPoint, thisObject.container);
 
                 let targetMax = {
                     x: value,
                     y: candles[i].max
                 };
 
-                targetMax = plotArea.inverseTransform(targetMax, candlesticks.container.frame.height);
-                targetMax = transformThisPoint(targetMax, candlesticks.container);
+                targetMax = plotArea.inverseTransform(targetMax, thisObject.container.frame.height);
+                targetMax = transformThisPoint(targetMax, thisObject.container);
 
                 let targetMin = {
                     x: value,
                     y: candles[i].min
                 };
 
-                targetMin = plotArea.inverseTransform(targetMin, candlesticks.container.frame.height);
-                targetMin = transformThisPoint(targetMin, candlesticks.container);
+                targetMin = plotArea.inverseTransform(targetMin, thisObject.container.frame.height);
+                targetMin = transformThisPoint(targetMin, thisObject.container);
 
                 let center = {
                     x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
@@ -289,7 +300,7 @@
 
             if (Math.random() * 1000 > 995) {
 
-                recalculateCandles();
+                recalculate();
 
             }
 
@@ -300,31 +311,31 @@
 
     }
 
-    function recalculateCandles() {
+    function recalculate() {
 
         if (layerStatus === 'off') { return; }
 
         if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-            recalculateCandlesUsingMarketFiles();
+            recalculateUsingMarketFiles();
 
         } else {
 
-            recalculateCandlesUsingDailyFiles();
+            recalculateUsingDailyFiles();
 
         }
 
-        candlesticks.container.eventHandler.raiseEvent("Candles Changed", candles);
+        thisObject.container.eventHandler.raiseEvent("Candles Changed", candles);
     }
 
-    function recalculateCandlesUsingDailyFiles() {
+    function recalculateUsingDailyFiles() {
 
         if (fileCursor.files.size === 0) { return;} // We need to wait until there are files in the cursor
 
         let daysOnSides = getSideDays(timePeriod);
 
-        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
-        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
+        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, plotArea);
+        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, plotArea);
 
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -366,8 +377,8 @@
 
                         if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
 
-                            candlesticks.currentCandle = candle;
-                            candlesticks.container.eventHandler.raiseEvent("Current Candle Changed", candlesticks.currentCandle);
+                            thisObject.currentCandle = candle;
+                            thisObject.container.eventHandler.raiseEvent("Current Candle Changed", thisObject.currentCandle);
 
                         }
                     }
@@ -384,24 +395,24 @@
 
         if (candles[0].begin > lowerEnd || candles[candles.length - 1].end < upperEnd) {
 
-            setTimeout(recalculateCandles, 2000);
+            setTimeout(recalculate, 2000);
 
             //console.log("File missing while calculating candles, scheduling a recalculation in 2 seconds.");
 
         }
 
-        //console.log("Olivia > recalculateCandlesUsingDailyFiles > total candles generated : " + candles.length);
+        //console.log("Olivia > recalculateUsingDailyFiles > total candles generated : " + candles.length);
 
     }
 
-    function recalculateCandlesUsingMarketFiles() {
+    function recalculateUsingMarketFiles() {
 
         if (marketFile === undefined) { return; } // Initialization not complete yet.
 
         let daysOnSides = getSideDays(timePeriod);
 
-        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, candlesticks.container, plotArea);
-        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, candlesticks.container, plotArea);
+        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, plotArea);
+        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, plotArea);
 
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -433,14 +444,14 @@
 
                 if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
 
-                    candlesticks.currentCandle = candle;
-                    candlesticks.container.eventHandler.raiseEvent("Current Candle Changed", candlesticks.currentCandle);
+                    thisObject.currentCandle = candle;
+                    thisObject.container.eventHandler.raiseEvent("Current Candle Changed", thisObject.currentCandle);
 
                 }
             } 
         }
 
-        //console.log("Olivia > recalculateCandlesUsingMarketFiles > total candles generated : " + candles.length);
+        //console.log("Olivia > recalculateUsingMarketFiles > total candles generated : " + candles.length);
     }
 
     function recalculateScale() {
@@ -463,8 +474,8 @@
         plotArea.initialize(
             minValue,
             maxValue,
-            candlesticks.container.frame.width,
-            candlesticks.container.frame.height
+            thisObject.container.frame.width,
+            thisObject.container.frame.height
         );
 
         function getMaxRate() {
@@ -516,15 +527,15 @@
                     y: candle.close
                 };
 
-                candlePoint1 = plotArea.inverseTransform(candlePoint1, candlesticks.container.frame.height);
-                candlePoint2 = plotArea.inverseTransform(candlePoint2, candlesticks.container.frame.height);
-                candlePoint3 = plotArea.inverseTransform(candlePoint3, candlesticks.container.frame.height);
-                candlePoint4 = plotArea.inverseTransform(candlePoint4, candlesticks.container.frame.height);
+                candlePoint1 = plotArea.inverseTransform(candlePoint1, thisObject.container.frame.height);
+                candlePoint2 = plotArea.inverseTransform(candlePoint2, thisObject.container.frame.height);
+                candlePoint3 = plotArea.inverseTransform(candlePoint3, thisObject.container.frame.height);
+                candlePoint4 = plotArea.inverseTransform(candlePoint4, thisObject.container.frame.height);
 
-                candlePoint1 = transformThisPoint(candlePoint1, candlesticks.container);
-                candlePoint2 = transformThisPoint(candlePoint2, candlesticks.container);
-                candlePoint3 = transformThisPoint(candlePoint3, candlesticks.container);
-                candlePoint4 = transformThisPoint(candlePoint4, candlesticks.container);
+                candlePoint1 = transformThisPoint(candlePoint1, thisObject.container);
+                candlePoint2 = transformThisPoint(candlePoint2, thisObject.container);
+                candlePoint3 = transformThisPoint(candlePoint3, thisObject.container);
+                candlePoint4 = transformThisPoint(candlePoint4, thisObject.container);
 
                 if (candlePoint2.x < viewPort.visibleArea.bottomLeft.x || candlePoint1.x > viewPort.visibleArea.bottomRight.x) {
                     continue;
@@ -555,15 +566,15 @@
                     y: candle.min
                 };
 
-                stickPoint1 = plotArea.inverseTransform(stickPoint1, candlesticks.container.frame.height);
-                stickPoint2 = plotArea.inverseTransform(stickPoint2, candlesticks.container.frame.height);
-                stickPoint3 = plotArea.inverseTransform(stickPoint3, candlesticks.container.frame.height);
-                stickPoint4 = plotArea.inverseTransform(stickPoint4, candlesticks.container.frame.height);
+                stickPoint1 = plotArea.inverseTransform(stickPoint1, thisObject.container.frame.height);
+                stickPoint2 = plotArea.inverseTransform(stickPoint2, thisObject.container.frame.height);
+                stickPoint3 = plotArea.inverseTransform(stickPoint3, thisObject.container.frame.height);
+                stickPoint4 = plotArea.inverseTransform(stickPoint4, thisObject.container.frame.height);
 
-                stickPoint1 = transformThisPoint(stickPoint1, candlesticks.container);
-                stickPoint2 = transformThisPoint(stickPoint2, candlesticks.container);
-                stickPoint3 = transformThisPoint(stickPoint3, candlesticks.container);
-                stickPoint4 = transformThisPoint(stickPoint4, candlesticks.container);
+                stickPoint1 = transformThisPoint(stickPoint1, thisObject.container);
+                stickPoint2 = transformThisPoint(stickPoint2, thisObject.container);
+                stickPoint3 = transformThisPoint(stickPoint3, thisObject.container);
+                stickPoint4 = transformThisPoint(stickPoint4, thisObject.container);
 
                 stickPoint1 = viewPort.fitIntoVisibleArea(stickPoint1);
                 stickPoint2 = viewPort.fitIntoVisibleArea(stickPoint2);
@@ -633,7 +644,7 @@
                             innerCandle: candle
                         };
 
-                        candlesticks.container.eventHandler.raiseEvent("Current Candle Info Changed", currentCandle);
+                        thisObject.container.eventHandler.raiseEvent("Current Candle Info Changed", currentCandle);
 
                     } else {
 
@@ -680,13 +691,13 @@
 
     function onZoomChanged(event) {
 
-        recalculateCandles();
+        recalculate();
 
     }
 
     function onDragFinished() {
 
-        recalculateCandles();
+        recalculate();
 
     }
 }

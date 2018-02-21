@@ -388,7 +388,7 @@
 
         let timePeriodRatio = ONE_DAY_IN_MILISECONDS / timePeriod;
 
-        maxValue.y = marketFile.maxVolume() / (timePeriodRatio / 10);
+        maxValue.y = getMaxVolume() / (timePeriodRatio / 10);
 
         plotArea.initializeY(
             minValue,
@@ -401,6 +401,23 @@
             maxValue,
             thisObject.container.frame.height
         );
+
+        function getMaxVolume() {
+
+            let maxValue = 0;
+
+            for (var i = 0; i < marketFile.length; i++) {
+
+                let currentMax = marketFile[i][0] + marketFile[i][1];
+
+                if (maxValue < currentMax) {
+                    maxValue = currentMax;
+                }
+            }
+
+            return maxValue;
+
+        }
 
     }
 

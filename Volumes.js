@@ -25,6 +25,7 @@
     let layerStatus = 'off';            // Since the moduleis a layer, it must handle the different possible layer status.
 
     let plotArea = newPlotArea();       // Needed to be able to plot on the timeline, otherwise not.
+    let plotAreaFrame = newPlotArea();  // This chart uses this extra object.
 
     let timePeriod;                     // This will hold the current Time Period the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -267,11 +268,11 @@
 
                     var volume = newVolumeBar();
 
-                    volume.begin = (new Date(marketIndex.volumes[i][2])).valueOf(); // TODO ELIMINATE THIS
-                    volume.end = (new Date(marketIndex.volumes[i][3])).valueOf();
+                    volume.begin = (new Date(marketFile.volumes[i][2])).valueOf(); // TODO ELIMINATE THIS
+                    volume.end = (new Date(marketFile.volumes[i][3])).valueOf();
 
-                    volume.amountBuy = marketIndex.volumes[i][0];
-                    volume.amountSell = marketIndex.volumes[i][1];
+                    volume.amountBuy = marketFile.volumes[i][0];
+                    volume.amountSell = marketFile.volumes[i][1];
 
                     if (volume.begin >= farLeftDate.valueOf() && volume.end <= farRightDate.valueOf()) {
 
@@ -326,11 +327,11 @@
 
             var volume = newVolumeBar();
 
-            volume.begin = (new Date(marketIndex.volumes[i][2])).valueOf(); // TODO ELIMINATE THIS
-            volume.end = (new Date(marketIndex.volumes[i][3])).valueOf();
+            volume.begin = (new Date(marketFile.volumes[i][2])).valueOf(); // TODO ELIMINATE THIS
+            volume.end = (new Date(marketFile.volumes[i][3])).valueOf();
 
-            volume.amountBuy = marketIndex.volumes[i][0];
-            volume.amountSell = marketIndex.volumes[i][1];
+            volume.amountBuy = marketFile.volumes[i][0];
+            volume.amountSell = marketFile.volumes[i][1];
 
             if (volume.begin >= leftDate.valueOf() && volume.end <= rightDate.valueOf()) {
 
@@ -384,7 +385,7 @@
 
         let timePeriodRatio = ONE_DAY_IN_MILISECONDS / timePeriod;
 
-        maxValue.y = marketIndex.maxVolume() / (timePeriodRatio / 10);
+        maxValue.y = marketFile.maxVolume() / (timePeriodRatio / 10);
 
         plotArea.initializeY(
             minValue,

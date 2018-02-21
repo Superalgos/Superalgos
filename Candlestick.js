@@ -173,6 +173,10 @@
 
         } else {
 
+            fileCursorCache.setTimePeriod(pTimePeriod);
+
+            fileCursorCache.setDatetime(datetime);
+
             let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
 
             if (newFileCursor !== undefined) {
@@ -185,6 +189,8 @@
         }
 
         if (timePeriod === _1_HOUR_IN_MILISECONDS) {
+
+            fileCursorCache.setTimePeriod(pTimePeriod);
 
             fileCursorCache.setDatetime(datetime);
 

@@ -11,7 +11,7 @@
         setDatetime: setDatetime,
         draw: draw,
 
-        // Secondary functions.
+        // Secondary functions and properties.
 
         currentCandle: undefined,
         positionAtDatetime: positionAtDatetime,
@@ -303,11 +303,9 @@
                 recalculate();
 
             }
-
-
         }
 
-        plotCandleChart();
+        plotChart();
 
     }
 
@@ -431,7 +429,7 @@
             candle.open = marketFile[i][2];
             candle.close = marketFile[i][3];
 
-            candle.begin = (new Date(marketFile[i][4])).valueOf();
+            candle.begin = (new Date(marketFile[i][4])).valueOf();  //TODO REMOVE THIS
             candle.end = (new Date(marketFile[i][5])).valueOf();
 
             if (candle.open > candle.close) { candle.direction = 'down'; }
@@ -497,7 +495,7 @@
 
     }
 
-    function plotCandleChart() {
+    function plotChart() {
 
         if (candles.length > 0) {
 

@@ -38,8 +38,6 @@
 
     function initialize(pExchange, pMarket, pDatetime, pTimePeriod, pLayerStatus, callBackFunction) {
 
-        layerStatus = pLayerStatus;
-
         let cursorCacheInProgress = false;
         let finaleStepsInProgress = false;
 
@@ -95,6 +93,8 @@
                         fileCursor = newFileCursor;
 
                         recalculateScale(); // With any of the market files we can calculate the scale. 
+
+                        layerStatus = pLayerStatus;
 
                         recalculateCandles();
                         postitionViewPort();

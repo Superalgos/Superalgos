@@ -410,7 +410,7 @@
         /* Lests check if all the visible screen is going to be covered by candles. */
 
         let lowerEnd = leftDate.valueOf();
-        let upperEnd = removeTime(rightDate).valueOf() + ONE_DAY_IN_MILISECONDS;
+        let upperEnd = rightDate.valueOf();
 
         if (candles[0].begin > lowerEnd || candles[candles.length - 1].end < upperEnd) {
 

@@ -414,9 +414,9 @@
 
         if (candles[0].begin > lowerEnd || candles[candles.length - 1].end < upperEnd) {
 
-            //setTimeout(recalculateCandlesUsingDailyFiles, 5000);
+            setTimeout(recalculateCandlesUsingDailyFiles, 2000);
 
-            console.log("File missing while calculating candles, scheduling a recalculation in 5 seconds.");
+            console.log("File missing while calculating candles, scheduling a recalculation in 2 seconds.");
 
         }
 

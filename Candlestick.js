@@ -1,12 +1,6 @@
 ﻿function newAAMastersAAOliviaCandlesticks() {
 
-    var candles = [];  
-    var plotArea = newPlotArea();
-
-    let timePeriod;
-    var datetime;
-
-    var candlesticks = {
+    let candlesticks = {
         onLayerStatusChanged: onLayerStatusChanged,
         currentCandle: undefined,
         positionAtDatetime: positionAtDatetime,
@@ -26,16 +20,25 @@
     container.zoom.containerName = "AAMasters AAOlivia Candlesticks";
     container.frame.containerName = "AAMasters AAOlivia Candlesticks";
 
+    let candles = [];
+    let plotArea = newPlotArea();
+
+    let timePeriod;
+    let datetime;
+
     let marketFile;
     let fileCursor;
 
     let layerStatus = 'off';
 
     let fileCache;
+    let fileCursorCache;
 
     return candlesticks;
 
-    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, chartLayersPanel, callBackFunction) {
+    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, pLayerStatus, callBackFunction) {
+
+        layerStatus = pLayerStatus;
 
         let cursorCacheInProgress = false;
         let finaleStepsInProgress = false;
@@ -92,8 +95,6 @@
                         fileCursor = newFileCursor;
 
                         recalculateScale(); // With any of the market files we can calculate the scale. 
-
-                        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
 
                         recalculateCandles();
                         postitionViewPort();

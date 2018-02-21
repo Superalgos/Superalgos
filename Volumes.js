@@ -97,11 +97,11 @@
 
                         fileCursor = newFileCursor;
 
-                        recalculateScale(); // With any of the market files we can calculate the scale. 
-
                         layerStatus = pLayerStatus;
 
+                        recalculateScaleX();
                         recalculate();
+                        recalculateScaleY();
 
                         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
                         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);

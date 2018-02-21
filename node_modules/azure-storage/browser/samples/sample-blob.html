@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Azure Storage JavaScript Client Library Sample for Blob Operations</title>
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="mt-1">
+                <h1>Azure Storage JavaScript Client Library Sample for Blob Operations</h1>
+            </div>
+            <p class="lead">In this sample, we will demonstrate common scenarios for Azure Blob Storage that includes creating, listing and deleting containers and blobs.</p>
+            <hr/>
+            <p>Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.</p>
+
+            <div class="panel panel-danger"> 
+                <div class="panel-body">
+                    <b>Note</b>: You may need set up a HTTP server to host this sample for IE browser, because IndexedDB is only available on websites with http or https URL schemes in IE. Azure Storage JavaScript Client Library currently depends on IndexedDB.
+                </div> 
+            </div>
+
+            <h2>Contents:</h2>
+            <ul>
+                <li><a href="#step1">Step 1: Preparing an Azure Storage account with CORS rules set</a></li>
+                <li><a href="#step2">Step 2: Importing Azure Storage JavaScript Client Library</a></li>
+                <li><a href="#step3">Step 3: Creating an Azure Storage BlobService Object</a></li>
+                <li><a href="#step4">Step 4: Container Operations</a></li>
+                <li><a href="#step5">Step 5: Blob Operations</a></li>
+                <li><a href="#step6">Step 6: Creating your JavaScript Application based on Azure Storage JavaScript Client Library</a></li>
+            </ul>
+
+            <h2 id="step1">Step 1: Preparing an Azure Storage account with CORS rules set</h2>
+            <p>Cross-origin resource sharing, or CORS, must be configured on the Azure Storage account to be accessed directly from JavaScript in the browser.
+            You are able to set the CORS rules for specific Azure Storage account on the <a href="https://portal.azure.com">Azure Portal</a>.
+            The "Allowed origins" could be set to "*" to allow all the origins in this sample.
+            For more information about CORS, see <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services">Cross-Origin Resource Sharing (CORS)</a>.</p>
+            <img src="cors.PNG"/>
+
+            <h2 id="step2">Step 2: Importing Azure Storage JavaScript Client Library</h2>
+            <p>
+                Importing <code>azure-storage.common.js</code> and <code>azure-storage.blob.js</code> in your HTML file for blob operations, and make sure <code>azure-storage.common.js</code> is in front of <code>azure-storage.blob.js</code>.
+            <p>
+<pre>
+&lt;script src="azure-storage.common.js"&gt;&lt;/script&gt;
+&lt;script src="azure-storage.blob.js"&gt;&lt;/script&gt;
+</pre>
+
+            <h2 id="step3">Step 3: Creating an Azure Storage Blob Service Object</h2>
+            <p>
+                The <code>BlobService</code> object lets you work with containers and blobs. 
+                Following code creates a <code>BlobService</code> object with storage account and SAS Token.
+            </p>
+<pre>
+var blobUri = 'https://' + 'STORAGE_ACCOUNT' + '.blob.core.windows.net';
+var blobService = AzureStorage.createBlobServiceWithSas(blobUri, 'SAS_TOKEN');
+</pre>
+            <p>
+                In Azure Storage JavaScript Client Library, a global variable <code>AzureStorage</code> is the start point where we can create service objects for blob/table/queue/file and access to the storage utilities.
+            </p>
+            <div class="panel panel-primary"> 
+                <div class="panel-body">
+                    <b>How to get full detailed API definitions? </b> Currently, the JavaScript Client Library shares the same API definitions with Node.js SDK. 
+                    Please check API details on <a href="http://azure.github.io/azure-storage-node/">Azure Storage Node.js API reference documents</a>. The JavaScript global variable <code>AzureStorage</code> is just like the object <code>require('azure-storage')</code> returns in Node.js.
+                </div> 
+            </div>
+            <div class="panel panel-danger"> 
+                <div class="panel-body">
+                    <b>Warning</b>: Azure Storage JavaScript Client Library also supports creating <code>BlobService</code> based on Storage Account Key for authentication besides SAS Token. 
+                    However, for security concerns, we recommend use of a limited time SAS Token, generated by a backend web server using a <a href="https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1">Stored Access Policy</a>.    
+                </div> 
+            </div>
+
+            <h2 id="step4">Step 4: Container Operations</h2>
+            <p>
+                A container provides a grouping of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase. 
+                <code>BlobService</code> object provides plenty of interfaces for container operations.
+            </p>
+            
+            <h3>List Containers</h3>
+            <p><code>BlobService</code> provides <code>listContainersSegmented</code> and <code>listContainersSegmentedWithPrefix</code> for retrieving the containers list under a storage account.</p>
+<pre>
+blobService.listContainersSegmented(null, function (error, results) {
+    if (error) {
+        // List container error
+    } else {
+        for (var i = 0, container; container = results.entries[i]; i++) {
+            // Deal with container object
+        }
+    }
+});
+</pre>
+
+            <h3>Create Container</h3>
+            <p><code>BlobService</code> provides <code>createContainer</code> and <code>createContainerIfNotExists</code> for creating a container under a storage account.</p>
+<pre>
+blobService.createContainerIfNotExists('mycontainer', function(error, result) {
+    if (error) {
+        // Create container error
+    } else {
+        // Create container successfully
+    }
+});
+</pre>
+
+            <h3>Delete Container</h3>
+            <p><code>BlobService</code> provides <code>deleteContainer</code> and <code>deleteContainerIfExists</code> for deleting a container under a storage account.</p>
+<pre>
+blobService.deleteContainerIfExists('mycontainer', function(error, result) {
+    if (error) {
+        // Delete container error
+    } else {
+        // Delete container successfully
+    }
+});
+</pre>
+
+            <h3>Executable Example</h3>
+            <p>
+                The sample will try to create an Azure Storage blob service object based on SAS Token authorization. 
+                Enter your Azure Storage account name and SAS Token here, and executable examples in following steps dependent on the settings here.
+                Make sure you have set the CORS rules for the Azure Storage blob service, and the SAS Token is in valid period.
+            </p>
+            <p>
+                <label><b>Storage account:</b> </label> <input type="text" id="account"/> 
+                <label><b>SAS Token:</b> </label> <input type="text" id="sas"/>
+            </p>
+            <p>In the following executable example, you can try to list all the containers under your storage account settings, and try to create or delete one container from your account.</p> 
+            <ul>
+                <li><p> Click <button class="btn btn-xs btn-primary" onclick="refreshContainer()">ListContainers</button> button to view the container list under your Azure Storage account</p></li>
+                <li>
+                    <p> Click <button class="btn btn-xs btn-primary" onclick="createContainer()">CreateContainer</button> button to create a container under your Azure Storage account:</p>
+                    <p><label><b>New Container Name:</b> </label> <input type="text" value="mycontainer" id="newcontainer"/> </p>
+                </li>
+                <li><p> Click "<b>Delete</b>" button in the container list to delete the container under your Azure Storage account</p></li>
+                <li><p> Click "<b>Select</b>" button to select and operate with the blobs in next step</p></li>
+            </ul>
+            <div id="containers"></div>
+
+            <h2 id="step5">Step 5: Blob Operations</h2>
+            <p><b>Blob:</b> A file of any type and size. Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.</p>
+            <p><b>Block blobs</b> are ideal for storing text or binary files, such as documents and media files. Append blobs are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios. A single block blob can contain up to 50,000 blocks of up to 100 MB each, for a total size of slightly more than 4.75 TB (100 MB X 50,000). A single append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).</p>
+            <p><b>Page blobs</b> can be up to 1 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines use page blobs as OS and data disks.</p>
+            <p>For details about naming containers and blobs, see <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata?redirectedfrom=MSDN">Naming and Referencing Containers, Blobs, and Metadata</a>.</p>
+
+            <h3>List Blobs</h3>
+            <p><code>BlobService</code> provides <code>listBlobsSegmented</code> and <code>listBlobsSegmentedWithPrefix</code> for retrieving the blobs list under a container.</p>
+<pre>
+blobService.listBlobsSegmented('mycontainer', null, function (error, results) {
+    if (error) {
+        // List blobs error
+    } else {
+        for (var i = 0, blob; blob = results.entries[i]; i++) {
+            // Deal with blob object
+        }
+    }
+});
+</pre>
+            <h3>Upload Blob</h3>
+            <p><code>BlobService</code> provides <code>createBlockBlobFromBrowserFile</code>, <code>createPageBlobFromBrowserFile</code>, <code>createAppendBlobFromBrowserFile</code> and <code>appendFromBrowserFile</code> for uploading or appending a blob from an HTML file in browsers.
+            </p>
+
+            <p>Uploading blob from stream. You can set up the blob name as well as the size of this uploading session. </p>
+<pre>
+// If one file has been selected in the HTML file input element
+var file = document.getElementById('fileinput').files[0];
+
+var customBlockSize = file.size > 1024 * 1024 * 32 ? 1024 * 1024 * 4 : 1024 * 512;
+blobService.singleBlobPutThresholdInBytes = customBlockSize;
+
+var finishedOrError = false;
+var speedSummary = blobService.createBlockBlobFromBrowserFile('mycontainer', file.name, file, {blockSize : customBlockSize}, function(error, result, response) {
+    finishedOrError = true;
+    if (error) {
+        // Upload blob failed
+    } else {
+        // Upload successfully
+    }
+});
+refreshProgress();
+</pre>
+            <p>Checking the upload progress with speedSummary object. </p>
+<pre>
+function refreshProgress() {
+    setTimeout(function() {
+        if (!finishedOrError) {
+            var process = speedSummary.getCompletePercent();
+            displayProcess(process);
+            refreshProgress();
+        }
+    }, 200);
+}
+</pre>
+            <div class="panel panel-danger"> 
+                <div class="panel-body">
+                    <b>Warning:</b> 
+                    By default, the <code>speedSummary.getCompletePercent()</code> only updates progress when a block is uploaded to server. There are 2 default settings may influence the upload progress display.
+                    
+                    <ul>
+                        <li><code>blobService.singleBlobPutThresholdInBytes</code> is the maximum size (default 32MB), in bytes, of a blob before it must be separated into blocks.</li>
+                        <li>Option <code>{blockSize: SizeInBytes}</code> of <code>blobService.createBlockBlobFromStream()</code> is the size (default 4MB) of every block in the storage layer.</li>
+                    </ul>
+
+                    This means, by default, blobs smaller than 32MB will only get the progress update when the upload is over, and blobs larger than 32MB will update the process every 4MB.
+                    For slow connections or progress reporting for small blobs, you can customize both the two settings into samller values such as 1MB or 512KB. Thus the progress will update with the smaller step you set.
+                    However, very small block sizes will impact the storage performance especially for a large blob.
+                </div> 
+            </div>
+
+            <h3>Download Blob</h3>
+            <p>
+                <code>BlobService</code> provides interfaces for downloading a blob into browser memory. 
+                Because of browser's sandbox limitation, we cannot save the downloaded data trunks into disk until we get all the data trunks of a blob into browser memory.
+                The browser's memory size is also limited especially for downloading huge blobs, so it's recommended to download a blob in browser with SAS Token authorized link directly.
+            </p>
+            <p>
+                Shared access signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. Shared access signatures are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
+                The following code example generates a new shared access policy that allows the shared access signatures holder to perform read operations on the myblob blob, and expires 100 minutes after the time it is created.
+            </p>
+            <div class="panel panel-primary"> 
+                <div class="panel-body">
+                    <b>Note: </b> You can choose to use the SAS Token in browser side, or generate a temporary SAS Token dynamically in your server side with Azure Storage C# or Node.js SDKs etc. according to your security requirements.
+                </div> 
+            </div>
+<pre>
+var downloadLink = blobService.getUrl('mycontainer', 'myblob', 'SAS_TOKEN');
+</pre>
+
+            <h3>Delete Blob</h3>
+            <p><code>BlobService</code> provides <code>deleteContainer</code> and <code>deleteContainerIfExists</code> for deleting a blob under a storage account.</p>
+<pre>
+blobService.deleteBlobIfExists(container, blob, function(error, result) {
+    if (error) {
+        // Delete blob failed
+    } else {
+        // Delete blob successfully
+    }
+});
+</pre>
+            <h3>Executable Example</h3>
+            <p>After clicked the "<b>Select</b>" button on the container list in last step, you are able to operate with the blobs under the selected container. </p><p><b><label>Selected container name: </label></b> <input type="text" id="container" disabled=true/></p>
+            
+            <ul>
+                <li><p> Click <button class="btn btn-xs btn-primary" onclick="refreshBlobList()">ListBlobs</button> button to view the blobs under your selected container</p></li>
+                <li><p> 
+                    Click <button id="upload-button" class="btn btn-xs btn-primary" onclick="uploadBlobByStream(false)">UploadBlob</button> button to upload a local file to current container after selecting a file:  
+                </p>
+                <p> <input type="file" id="files" name="file" onclick="displayProcess(0)" /> </p></li>
+                <li><p> Click "<b>Delete</b>" button to delete the blob</p></li>
+                <li><p> Click "<b>Download</b>" link to download a blob to local</p></li>
+            </ul>
+            
+            <hr/>
+            <div> Uploaded Bytes: <font id="read"> </font> </div> 
+            <div class="progress">
+                <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                    0%
+                </div>
+            </div>
+
+            <div id="result"></div>
+
+            <h3 id="step6">Step 6: Creating your JavaScript Application based on Azure Storage JavaScript Client Library</h3>
+            <ul>
+                <li>1. Setting CORS rules for your selected Azure-Storage account blob service.</li>
+                <li>2. Including "azure-storage.common.js" in the html file.</li>
+                <li>3. Including functional file(s) needed, such as "azure-storage.blob.js" for blob operation.</li>
+                <li>4. Using keyword "AzureStorage" to access to Azure storage JavaScript APIs.</li>
+                <li>5. Referring to <a href="http://azure.github.io/azure-storage-node/">Azure Storage Node.js SDK documents</a> for detailed API definitions which keep same with JavaScript APIs.</li>
+            </ul>
+            <p> You can view the source code of this sample for detailed reference. </p>
+        </div>
+
+        <!-- azure-storage.common.js also exports Node.js module stream, util and buffer -->
+        <script src="../bundle/azure-storage.common.js"></script> 
+        <script src="../bundle/azure-storage.blob.js"></script>
+
+        <script>
+            var account = document.getElementById('account').value;
+            var sas = document.getElementById('sas').value;
+            var container = '';
+            var blobUri = '';
+            
+            function checkParameters() {
+                account = document.getElementById('account').value;
+                sas = document.getElementById('sas').value;
+
+                if (account == null || account.length < 1)
+                {
+                    alert('Please enter a valid storage account name!');
+                    return false;
+                }
+                if (sas == null || sas.length < 1)
+                {
+                    alert('Please enter a valid SAS Token!');
+                    return false;
+                }
+
+                return true;
+            }
+
+            function getBlobService() {
+                if (!checkParameters())
+                    return null;
+
+                blobUri = 'https://' + account + '.blob.core.windows.net';
+                var blobService = AzureStorage.createBlobServiceWithSas(blobUri, sas).withFilter(new AzureStorage.ExponentialRetryPolicyFilter());
+                return blobService;
+            }
+
+            function refreshContainer() {
+                var blobService = getBlobService();
+                if (!blobService)
+                    return;
+
+                document.getElementById('containers').innerHTML = 'Loading...';
+                blobService.listContainersSegmented(null, function (error, results) {
+                    if (error) {
+                        alert('List container error, please open browser console to view detailed error');
+                        console.log(error);
+                    } else {
+                        var output = [];
+                        output.push('<tr>',
+                                        '<th>ContainerName</th>',
+                                        '<th>ContainerETag</th>',
+                                        '<th>LastModified</th>',
+                                        '<th>Operations</th>',
+                                    '</tr>');
+                        if (results.entries.length < 1) {
+                            output.push('<tr><td>Empty results...</td></tr>');
+                        }
+                        for (var i = 0, container; container = results.entries[i]; i++) {
+                            output.push('<tr>',
+                                            '<td>', container.name, '</td>',
+                                            '<td>', container.etag, '</td>',
+                                            '<td>', container.lastModified, '</td>',
+                                            '<td>', '<button class="btn btn-xs btn-danger" onclick="deleteContainer(\'', container.name ,'\')">Delete</button> ',
+                                                    '<button class="btn btn-xs btn-success" onclick="viewContainer(\'', container.name ,'\')">Select</button>', '</td>',
+                                        '</tr>');
+                        }
+                        document.getElementById('containers').innerHTML = '<table class="table table-condensed table-bordered">' + output.join('') + '</table>';
+                    }
+                });
+            }
+
+            function deleteContainer(name) {
+                var blobService = getBlobService();
+                if (!blobService)
+                    return;
+
+                blobService.deleteContainerIfExists(name, function(error, result) {
+                    if (error) {
+                        alert('Delete container failed, open brower console for more detailed info.');
+                        console.log(error);
+                    } else {
+                        alert('Delete ' + name + ' successfully!');
+                        refreshContainer();
+                    }
+                });
+            }
+
+            function createContainer() {
+                var blobService = getBlobService();
+                if (!blobService)
+                    return;
+
+                var container = document.getElementById('newcontainer').value;
+                if (!AzureStorage.Validate.containerNameIsValid(container, function(err, res){})) {
+                    alert('Invalid container name!');
+                    return;
+                }
+
+                blobService.createContainerIfNotExists(container, function(error, result){
+                    if (error) {
+                        alert('Create container failed, open brower console for more detailed info.');
+                        console.log(error);
+                    } else {
+                        alert('Create ' + container + ' successfully!');
+                        refreshContainer();
+                    }
+                });
+            }
+
+            function viewContainer(selectedContainer) {
+                container = selectedContainer;
+                document.getElementById('container').value = container;
+                alert('Selected ' + container + ' !');
+                refreshBlobList();
+            }
+
+            function refreshBlobList() {
+                var blobService = getBlobService();
+                if (!blobService)
+                    return;
+
+                document.getElementById('result').innerHTML = 'Loading...';
+                blobService.createContainerIfNotExists(container, function(error, result) {
+                    if (error) {
+                        alert('createContainerIfNotExists error, please open browser console to view detailed error');
+                        console.log(error);
+                    } else {
+                        blobService.listBlobsSegmented(container, null, function (error, results) {
+                            if (error) {
+                                alert('List blob error, please open browser console to view detailed error');
+                                console.log(error);
+                            } else {
+                                var output = [];
+                                output.push('<tr>',
+                                                '<th>BlobName</th>',
+                                                '<th>ContentLength</th>',
+                                                '<th>LastModified</th>',
+                                                '<th>Operations</th>',
+                                            '</tr>');
+                                if (results.entries.length < 1) {
+                                    output.push('<tr><td>Empty results...</td></tr>');
+                                }
+                                for (var i = 0, blob; blob = results.entries[i]; i++) {
+                                    output.push('<tr>',
+                                                    '<td>', blob.name, '</td>',
+                                                    '<td>', blob.contentLength, '</td>',
+                                                    '<td>', blob.lastModified, '</td>',
+                                                    '<td>', '<button class="btn btn-xs btn-danger" onclick="deleteBlob(\'', blob.name ,'\')">Delete</button> ',
+                                                            '<a class="btn btn-xs btn-success" href="', blobUri + '/' + container + '/' + blob.name + sas, '" download>Download</a>' , '</td>',
+                                                    '</td>',
+                                                '</tr>');
+                                }
+                                document.getElementById('result').innerHTML = '<table class="table table-condensed table-bordered">' + output.join('') + '</table>';
+                            }
+                        });
+                    }
+                })
+            }
+
+            function deleteBlob(blob) {
+                var blobService = getBlobService();
+                if (!blobService)
+                    return;
+
+                blobService.deleteBlobIfExists(container, blob, function(error, result) {
+                    if (error) {
+                        alert('Delete blob failed, open brower console for more detailed info.');
+                        console.log(error);
+                    } else {
+                        alert('Delete ' + blob + ' successfully!');
+                        refreshBlobList();
+                    }
+                });
+            }
+
+            function displayProcess(process) {
+                document.getElementById("progress").style.width = process + '%';
+                document.getElementById("progress").innerHTML = process + '%';                   
+            }
+
+            function uploadBlobByStream(checkMD5) {
+                var files = document.getElementById('files').files;
+                if (!files.length) {
+                    alert('Please select a file!');
+                    return;
+                }
+                var file = files[0];
+
+                var blobService = getBlobService();
+                if (!blobService)
+                    return;
+
+                var btn = document.getElementById("upload-button");
+                btn.disabled = true;
+                btn.innerHTML = "Uploading";
+
+                // Make a smaller block size when uploading small blobs
+                var blockSize = file.size > 1024 * 1024 * 32 ? 1024 * 1024 * 4 : 1024 * 512;
+                var options = {
+                    storeBlobContentMD5 : checkMD5,
+                    blockSize : blockSize
+                };
+                blobService.singleBlobPutThresholdInBytes = blockSize;
+
+                var finishedOrError = false;
+                var speedSummary = blobService.createBlockBlobFromBrowserFile(container, file.name, file, options, function(error, result, response) {
+                    finishedOrError = true;
+                    btn.disabled = false;
+                    btn.innerHTML = "UploadBlob";
+                    if (error) {
+                        alert('Upload filed, open brower console for more detailed info.');
+                        console.log(error);
+                        displayProcess(0);                        
+                    } else {
+                        displayProcess(100);
+                        setTimeout(function() { // Prevent alert from stopping UI progress update
+                            alert('Upload successfully!');
+                        }, 1000);
+                        refreshBlobList();
+                    }
+                });
+
+                function refreshProgress() {
+                    setTimeout(function() {
+                        if (!finishedOrError) {
+                            var process = speedSummary.getCompletePercent();
+                            displayProcess(process);
+                            refreshProgress();
+                        }
+                    }, 200);
+                }
+                refreshProgress();
+            }
+        </script>
+    </body> 
+</html>

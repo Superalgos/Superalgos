@@ -1,0 +1,27 @@
+{
+  "tags"      : {
+    "allowUnknownTags" : true
+  },
+  "plugins"   : ["plugins/markdown"],
+
+  "templates" : {
+    "cleverLinks"           : false,
+    "monospaceLinks"        : false,
+    "dateFormat"            : "ddd MMM Do YYYY",
+    "outputSourceFiles"     : true,
+    "outputSourcePath"      : true,
+    "systemName"            : "Microsoft Azure Storage Client Library for node.js",
+    "footer"                : "",
+    "navType"               : "vertical",
+    "theme"                 : "cosmo",
+    "linenums"              : true,
+    "collapseSymbols"       : false,
+    "inverseNav"            : true,
+    "highlightTutorialCode" : false,
+    "protocol": "fred://"
+  },
+  "markdown"  : {
+    "parser"   : "gfm",
+    "hardwrap" : true
+  }
+}

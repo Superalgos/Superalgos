@@ -192,7 +192,7 @@
 
             fileCursorCache.setTimePeriod(pTimePeriod);
 
-            fileCursorCache.setDatetime(datetime);
+            fileCursorCache.setDatetime(datetime); 
 
         }
 
@@ -402,6 +402,12 @@
                         }
                     }
                 }
+            } else {
+
+                setTimeout(recalculateCandlesUsingDailyFiles, 1000);
+
+                console.log("File missing while calculating candles, scheduling a recalculation in 1 second.");
+
             }
 
             currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);

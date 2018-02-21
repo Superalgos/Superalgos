@@ -1,15 +1,15 @@
 ﻿function newAAMastersAAOliviaCandlesticks() {
 
     let candlesticks = {
-        onLayerStatusChanged: onLayerStatusChanged,
+        initialize: initialize,
         currentCandle: undefined,
-        positionAtDatetime: positionAtDatetime,
+        container: undefined,
+        getContainer: getContainer,
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
-        container: undefined,
+        positionAtDatetime: positionAtDatetime,
         draw: draw,
-        getContainer: getContainer,
-        initialize: initialize
+        onLayerStatusChanged: onLayerStatusChanged
     };
 
     let container = newContainer();
@@ -108,8 +108,6 @@
 
     }
 
-
-
     function getContainer(point) {
 
         if (layerStatus !== 'on') { return; }
@@ -130,27 +128,6 @@
         }
 
     }
-
-    function onLayerStatusChanged(eventData) {
-
-        if (eventData.layer === 'Olivia Candlesticks') {
-            layerStatus = eventData.status;
-        }
-
-    }
-
-    function onZoomChanged(event) {
-
-        recalculateCandles();
-
-    }
-
-    function onDragFinished() {
-
-        recalculateCandles();
-
-    }
-
 
     function setTimePeriod(pTimePeriod) {
 
@@ -214,7 +191,6 @@
         } 
     }
 
-
     function postitionViewPort() {
 
         try {
@@ -240,7 +216,6 @@
         }
 
     }
-
 
     function positionAtDatetime(newDatetime) {
 
@@ -342,8 +317,6 @@
         candlesticks.container.eventHandler.raiseEvent("Candles Changed", candles);
     }
 
-
-
     function recalculateCandlesUsingDailyFiles() {
 
         if (fileCursor.files.size === 0) { return;} // We need to wait until there are files in the cursor
@@ -421,7 +394,6 @@
 
     }
 
-
     function recalculateCandlesUsingMarketFiles() {
 
         if (marketFile === undefined) { return; } // Initialization not complete yet.
@@ -471,9 +443,6 @@
         //console.log("Olivia > recalculateCandlesUsingMarketFiles > total candles generated : " + candles.length);
     }
 
-
-
-
     function recalculateScale() {
 
         if (marketFile === undefined) { return; } // We need the market file to be loaded to make the calculation.
@@ -516,12 +485,6 @@
         }
 
     }
-
-
-
-
-
-
 
     function plotCandleChart() {
 
@@ -707,6 +670,24 @@
         }
     }
 
+    function onLayerStatusChanged(eventData) {
 
+        if (eventData.layer === 'Olivia Candlesticks') {
+            layerStatus = eventData.status;
+        }
+
+    }
+
+    function onZoomChanged(event) {
+
+        recalculateCandles();
+
+    }
+
+    function onDragFinished() {
+
+        recalculateCandles();
+
+    }
 }
 

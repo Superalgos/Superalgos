@@ -333,7 +333,7 @@
 
         for (let i = 0; i < marketFile.length; i++) {
 
-            var volume = = {
+            var volume = {
                 amountBuy: 0,
                 amountSell: 0,
                 begin: undefined,

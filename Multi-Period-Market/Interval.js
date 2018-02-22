@@ -62,6 +62,7 @@
             charlyAzureFileStorage.initialize("Charly");
             bruceAzureFileStorage.initialize("Bruce");
             oliviaAzureFileStorage.initialize("Olivia");
+            tomAzureFileStorage.initialize("Tom");
 
             markets = MARKETS_MODULE.newMarkets(bot);
             markets.initialize(callBackFunction);
@@ -247,6 +248,8 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
             function buildStairs() {
 
+                let n;
+
                 periodsLoop();
 
                 function periodsLoop() {
@@ -257,7 +260,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
     
                     */
 
-                    let n = 0   // loop Variable representing each possible period as defined at the periods array.
+                    n = 0   // loop Variable representing each possible period as defined at the periods array.
 
                     loopBody();
 
@@ -276,7 +279,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                         let fileName = market.assetA + '_' + market.assetB + ".json"
                         let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + folderName;
 
-                        oliviaFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                        oliviaAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                         function onFileReceived(text) {
 
@@ -453,7 +456,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                         stairs.max + "," +
                                         stairs.begin + "," +
                                         stairs.end + "," +
-                                        stairs.direction + "," +
+                                        '"' + stairs.direction + '"' + "," +
                                         stairs.candleCount + "," +
                                         stairs.firstMin + "," +
                                         stairs.firstMax + "," +
@@ -467,10 +470,10 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                 }
 
                                 fileContent = "[" + fileContent + "]";
-
+                                
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                                 utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
 
@@ -497,7 +500,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                         let fileName = market.assetA + '_' + market.assetB + ".json"
                         let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + folderName;
 
-                        oliviaFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                        oliviaAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                         function onFileReceived(text) {
 
@@ -542,7 +545,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                     volume.begin = marketFile[i][2];
                                     volume.end = marketFile[i][3];
 
-                                    volumes.push(candle);
+                                    volumes.push(volume);
 
                                 }
 
@@ -770,10 +773,10 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                     let stairs = stairsArray[i];
 
                                     fileContent = fileContent + separator + '[' +
-                                        stairs.type + "," +
+                                        '"' + stairs.type + '"' + "," +
                                         stairs.begin + "," +
                                         stairs.end + "," +
-                                        stairs.direction + "," +
+                                        '"' + stairs.direction + '"' + "," +
                                         stairs.barsCount + "," +
                                         stairs.firstAmount + "," +
                                         stairs.lastAmount + "]";
@@ -788,7 +791,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/"+ VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                                 utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
 
@@ -835,7 +838,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                 try {
 
-                    let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
+                    let reportFilePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
 
                     utilities.createFolderIfNeeded(reportFilePath, tomAzureFileStorage, onFolderCreated);
 
@@ -857,7 +860,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                             let fileContent = JSON.stringify(report); 
 
-                            oliviaAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+                            tomAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
@@ -865,6 +868,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                     logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
                                 }
 
+                                nextIntervalExecution = true;
                                 closeAndOpenMarket();
                             }
                         }

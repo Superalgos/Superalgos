@@ -3,11 +3,12 @@
     "name": "Tom",
     "type": "Indicator",
     "version": "1.0.0",
-    "devTeam": "AA Masters"
+    "devTeam": "AA Masters",
+    "dataSetVersion": "dataSet.V1"
   },
   "processes": [
     {
-      "name": "Candles-Volumes-Stairs-Market",
+      "name": "Multi-Period-Market",
       "description": "Produces for each market two files with candles stairs and volumes stairs respectively.",
       "startMode": {
         "allMonths": {
@@ -25,6 +26,27 @@
         }
       },
       "intervalLapse": 3600000,
+      "intervalMaxLoops": -1
+    },
+    {
+      "name": "Multi-Period-Daily",
+      "description": "Produces for each market two files with candles stairs and volumes stairs respectively at each day of the market history.",
+      "startMode": {
+        "allMonths": {
+          "run": "false",
+          "minYear": "",
+          "maxYear": ""
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "",
+          "month": ""
+        },
+        "noTime": {
+          "run": "true"
+        }
+      },
+      "intervalLapse": 60000,
       "intervalMaxLoops": -1
     }
   ]

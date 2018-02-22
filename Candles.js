@@ -424,7 +424,15 @@
 
         for (let i = 0; i < marketFile.length; i++) {
 
-            let candle = newCandle();
+            let candle = {
+                open: undefined,
+                close: undefined,
+                min: 10000000000000,
+                max: 0,
+                begin: undefined,
+                end: undefined,
+                direction: undefined
+            };
 
             candle.min = marketFile[i][0];
             candle.max = marketFile[i][1];

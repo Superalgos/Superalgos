@@ -354,7 +354,15 @@
 
                 for (let i = 0; i < dailyFile.length; i++) {
 
-                    let candle = newCandle();
+                    let candle = {
+                        open: undefined,
+                        close: undefined,
+                        min: 10000000000000,
+                        max: 0,
+                        begin: undefined,
+                        end: undefined,
+                        direction: undefined
+                    };
 
                     candle.min = dailyFile[i][0];
                     candle.max = dailyFile[i][1];
@@ -362,8 +370,8 @@
                     candle.open = dailyFile[i][2];
                     candle.close = dailyFile[i][3];
 
-                    candle.begin = (new Date(dailyFile[i][4])).valueOf();
-                    candle.end = (new Date(dailyFile[i][5])).valueOf();
+                    candle.begin = marketFile[i][4];
+                    candle.end = marketFile[i][5];
 
                     if (candle.open > candle.close) { candle.direction = 'down'; }
                     if (candle.open < candle.close) { candle.direction = 'up'; }

@@ -266,10 +266,15 @@
 
                 for (let i = 0; i < dailyFile.length; i++) {
 
-                    var volume = newVolumeBar();
+                    var volume = {
+                        amountBuy: 0,
+                        amountSell: 0,
+                        begin: undefined,
+                        end: undefined
+                    };
 
-                    volume.begin = (new Date(dailyFile[i][2])).valueOf(); // TODO ELIMINATE THIS
-                    volume.end = (new Date(dailyFile[i][3])).valueOf();
+                    volume.begin = marketFile[i][2];
+                    volume.end = marketFile[i][3];
 
                     volume.amountBuy = dailyFile[i][0];
                     volume.amountSell = dailyFile[i][1];
@@ -328,10 +333,15 @@
 
         for (let i = 0; i < marketFile.length; i++) {
 
-            var volume = newVolumeBar();  // TODO ELIMINATE THIS OBJECT DEPENDENCYY
+            var volume = = {
+                amountBuy: 0,
+                amountSell: 0,
+                begin: undefined,
+                end: undefined
+            };
 
-            volume.begin = (new Date(marketFile[i][2])).valueOf(); // TODO ELIMINATE THIS
-            volume.end = (new Date(marketFile[i][3])).valueOf();
+            volume.begin = marketFile[i][2];
+            volume.end = marketFile[i][3];
 
             volume.amountBuy = marketFile[i][0];
             volume.amountSell = marketFile[i][1];

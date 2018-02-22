@@ -37,6 +37,7 @@
     let charlyAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
     let bruceAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
     let oliviaAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
+    let tomAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -79,7 +80,7 @@
 
 This process is going to do the following:
 
-Read the candles and volumes from Bruce and produce a single Index File for each market with daily candles and volumes. 
+Read the candles and volumes from Olivia and produce for each market two files with candles stairs and volumes stairs respectively.
 
 */
 
@@ -100,10 +101,6 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                 assetA: "",
                 assetB: ""
             };
-
-            let lastCandleFile;         // Datetime of the last file included on the Index File.
-            let firstTradeFile;         // Datetime of the first trade file in the whole market history.
-            let maxCandleFile;          // Datetime of the last file available to be included in the Index File.
 
             let periods =
                 '[' +
@@ -208,7 +205,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     if (market.status === markets.ENABLED) {
 
-                        getStatusReport();
+                        buildStairs();
 
                     } else {
 
@@ -217,8 +214,6 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                         return;
 
                     }
-
-
                 }
                 catch (err) {
                     const logText = "[ERROR] 'openMarket' - ERROR : " + err.message;
@@ -249,145 +244,6 @@ Read the candles and volumes from Bruce and produce a single Index File for each
             The following code executes for each market.
 
             */
-
-            function getStatusReport() {
-
-                try {
-
-                    let reportFilePath;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
-
-                    getHistoricTrades();
-
-                    function getHistoricTrades() {
-
-                        /*
-
-                        We need to know where is the begining of the market, since that will help us know where the Index Files should start. 
-
-                        */
-
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Historic-Trades";
-
-                        charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
-
-                        function onStatusReportReceived(text) {
-
-                            let statusReport;
-
-                            try {
-
-                                statusReport = JSON.parse(text);
-
-                                firstTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
-
-                                getOneMinDailyCandlesVolumes();
-
-                            } catch (err) {
-
-                                const logText = "[INFO] 'getStatusReport' - Failed to read main Historic Trades Status Report for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
-                            }
-                        }
-                    }
-
-                    function getOneMinDailyCandlesVolumes() {
-
-                        /* We need to discover the maxCandle file, which is the last file with candles we can use as input. */
-
-                        let date = new Date();
-                        let currentYear = date.getUTCFullYear();
-                        let currentMonth = utilities.pad(date.getUTCMonth() + 1,2);
-
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "One-Min-Daily-Candles-Volumes" + "/" + currentYear + "/" + currentMonth;
-
-                        bruceAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
-
-                        function onStatusReportReceived(text) {
-
-                            let statusReport;
-
-                            try {
-
-                                statusReport = JSON.parse(text);
-
-                                maxCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-
-                                getThisProcessReport();
-
-                            } catch (err) {
-
-                                /*
-
-                                It might happen that the file content is corrupt or it does not exist. In either case we will point our lastCandleFile
-                                to the last day of the previous month.
-
-                                */
-
-                                maxCandleFile = new Date(date.valueOf() - ONE_DAY_IN_MILISECONDS);
-                                getThisProcessReport();
-
-                            }
-                        }
-                    }
-
-                    function getThisProcessReport() {
-
-                        /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
-
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
-
-                        oliviaAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
-
-                        function onStatusReportReceived(text) {
-
-                            let statusReport;
-
-                            try {
-
-                                statusReport = JSON.parse(text);
-
-                                lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-
-                                /*
-
-                                Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
-                                For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
-
-                                */
-
-                                lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); 
-
-                                findPreviousContent();
-
-                            } catch (err) {
-
-                                /*
-
-                                It might happen that the file content is corrupt or it does not exist. In either case we will point our lastCandleFile
-                                to the begining of the market.
-
-                                */
-
-                                lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
-
-                                lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
-
-                                buildCandles();
-
-                            }
-                        }
-                    }
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'getStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
 
             function buildStairs() {
 
@@ -964,14 +820,14 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     } else {
 
-                        writeStatusReport(lastCandleFile, advanceTime);
+                        writeStatusReport();
 
                     }
                 }
 
             }
 
-            function writeStatusReport(lastFileDate, callBack) {
+            function writeStatusReport() {
 
                 if (LOG_INFO === true) {
                     logger.write("[INFO] Entering function 'writeStatusReport'");
@@ -981,11 +837,13 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
 
-                    utilities.createFolderIfNeeded(reportFilePath, oliviaAzureFileStorage, onFolderCreated);
+                    utilities.createFolderIfNeeded(reportFilePath, tomAzureFileStorage, onFolderCreated);
 
                     function onFolderCreated() {
 
                         try {
+
+                            let lastFileDate = new Date();
 
                             let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
@@ -1007,7 +865,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                     logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
                                 }
 
-                                callBack();
+                                closeAndOpenMarket();
                             }
                         }
                         catch (err) {

@@ -7,8 +7,8 @@
   },
   "processes": [
     {
-      "name": "Multi-Period-Market",
-      "description": "Produces different files with multi-period candles and volumes for entire markets.",
+      "name": "Candles-Volumes-Stairs-Market",
+      "description": "Produces for each market two files with candles stairs and volumes stairs respectively.",
       "startMode": {
         "allMonths": {
           "run": "false",
@@ -25,27 +25,6 @@
         }
       },
       "intervalLapse": 3600000,
-      "intervalMaxLoops": -1
-    },
-    {
-      "name": "Multi-Period-Daily",
-      "description": "Produces different files with multi-period candles and volumes on a daily format.",
-      "startMode": {
-        "allMonths": {
-          "run": "false",
-          "minYear": "",
-          "maxYear": ""
-        },
-        "oneMonth": {
-          "run": "false",
-          "year": "",
-          "month": ""
-        },
-        "noTime": {
-          "run": "true"
-        }
-      },
-      "intervalLapse": 60000,
       "intervalMaxLoops": -1
     }
   ]

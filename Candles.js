@@ -370,8 +370,8 @@
                     candle.open = dailyFile[i][2];
                     candle.close = dailyFile[i][3];
 
-                    candle.begin = marketFile[i][4];
-                    candle.end = marketFile[i][5];
+                    candle.begin = dailyFile[i][4];
+                    candle.end = dailyFile[i][5];
 
                     if (candle.open > candle.close) { candle.direction = 'down'; }
                     if (candle.open < candle.close) { candle.direction = 'up'; }

@@ -273,8 +273,8 @@
                         end: undefined
                     };
 
-                    volume.begin = marketFile[i][2];
-                    volume.end = marketFile[i][3];
+                    volume.begin = dailyFile[i][2];
+                    volume.end = dailyFile[i][3];
 
                     volume.amountBuy = dailyFile[i][0];
                     volume.amountSell = dailyFile[i][1];

@@ -266,18 +266,18 @@
 
                 for (let i = 0; i < dailyFile.length; i++) {
 
-                    var volume = {
+                    let volume = {
                         amountBuy: 0,
                         amountSell: 0,
                         begin: undefined,
                         end: undefined
                     };
 
-                    volume.begin = dailyFile[i][2];
-                    volume.end = dailyFile[i][3];
-
                     volume.amountBuy = dailyFile[i][0];
                     volume.amountSell = dailyFile[i][1];
+
+                    volume.begin = dailyFile[i][2];
+                    volume.end = dailyFile[i][3];
 
                     if (volume.begin >= farLeftDate.valueOf() && volume.end <= farRightDate.valueOf()) {
 
@@ -333,18 +333,18 @@
 
         for (let i = 0; i < marketFile.length; i++) {
 
-            var volume = {
+            let volume = {
                 amountBuy: 0,
                 amountSell: 0,
                 begin: undefined,
                 end: undefined
             };
 
-            volume.begin = marketFile[i][2];
-            volume.end = marketFile[i][3];
-
             volume.amountBuy = marketFile[i][0];
             volume.amountSell = marketFile[i][1];
+
+            volume.begin = marketFile[i][2];
+            volume.end = marketFile[i][3];
 
             if (volume.begin >= leftDate.valueOf() && volume.end <= rightDate.valueOf()) {
 

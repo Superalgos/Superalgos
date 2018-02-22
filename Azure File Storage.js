@@ -72,6 +72,13 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     function createFolder(folderPath, callBackFunction) {
 
+        if (fileService === undefined) {
+
+            const logText = "[ERROR] initialize function not executed or failed. Can not process this request. Sorry.";
+            logger.write(logText);
+            return;
+        }
+
         try {
 
             fileService.createDirectoryIfNotExists(shareName, folderPath, onFolderCreated);
@@ -99,6 +106,13 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
     }
 
     function createTextFile(folderPath, fileName, fileContent, callBackFunction) {
+
+        if (fileService === undefined) {
+
+            const logText = "[ERROR] initialize function not executed or failed. Can not process this request. Sorry.";
+            logger.write(logText);
+            return;
+        }
 
         try {
 
@@ -148,6 +162,13 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     function getTextFile(folderPath, fileName, callBackFunction, ignoreNotFound) {
 
+        if (fileService === undefined) {
+
+            const logText = "[ERROR] initialize function not executed or failed. Can not process this request. Sorry.";
+            logger.write(logText);
+            return;
+        }
+
         try {
 
             fileService.getFileToText(shareName, folderPath, fileName, undefined, onFileReceived);
@@ -180,6 +201,13 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
     }
 
     function listFilesAndFolders(folderPath, callBackFunction) {
+
+        if (fileService === undefined) {
+
+            const logText = "[ERROR] initialize function not executed or failed. Can not process this request. Sorry.";
+            logger.write(logText);
+            return;
+        }
 
         try {
 

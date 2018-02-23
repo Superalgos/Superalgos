@@ -25,7 +25,7 @@ function newFileCursor() {
 
     return fileCursor;
 
-    function initialize(pFileCloud, pProduct, pExchange, pMarket, pPeriodName, pCursorDate, pTimePeriod, callBackFunction) {
+    function initialize(pFileCloud, pProduct, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, callBackFunction) {
 
         market = pMarket;
         exchange = pExchange;
@@ -35,7 +35,7 @@ function newFileCursor() {
         cursorDate = pCursorDate;
         timePeriod = pTimePeriod;
 
-        setTimePeriod(pTimePeriod);
+        setTimePeriod(pCurrentTimePeriod);
 
         getFiles(callBackFunction);
 
@@ -76,12 +76,12 @@ function newFileCursor() {
         if (Math.abs(positionB - positionA) <= 1) {
 
             exitSavingMode();
-            console.log("File Cursor with period " + periodName + " EXITED saving mode after being notified the user is at period " + convertTimePeriodToName(pTimePeriod));
+            //console.log("File Cursor with period " + periodName + " EXITED saving mode after being notified the user is at period " + convertTimePeriodToName(pTimePeriod));
 
         } else {
 
             enterSavingMode();
-            console.log("File Cursor with period " + periodName + " ENTERED saving mode after being notified the user is at period " + convertTimePeriodToName(pTimePeriod));
+            //console.log("File Cursor with period " + periodName + " ENTERED saving mode after being notified the user is at period " + convertTimePeriodToName(pTimePeriod));
 
         }
 
@@ -166,25 +166,25 @@ function newFileCursor() {
 
                 case _45_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 10;
+                        minCursorSize = 13;
                         maxCursorSize = 30;
                     }
                     break;
                 case _40_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 8;
+                        minCursorSize = 11;
                         maxCursorSize = 20;
                     }
                     break;
                 case _30_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 6;
+                        minCursorSize = 9;
                         maxCursorSize = 15;
                     }
                     break;
                 case _20_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 5;
+                        minCursorSize = 7;
                         maxCursorSize = 15;
                     }
                     break;

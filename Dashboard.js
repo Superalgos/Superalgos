@@ -61,8 +61,6 @@ function convertTimePeriodToName(pTimePeriod) {
 
 
 
-var viewPort = newViewPort();
-
 const DEBUG_START_UP_DELAY = 0 //3000; // This is a waiting time in case there is a need to debug the very first steps of initialization, to be able to hit F12 on time.
 const INITIAL_DEFAULT_MARKET = 2;       // This is the market that will be shown when loading the site for the first time.
 const DEFAULT_EXCHANGE = "Poloniex";
@@ -98,7 +96,15 @@ const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
 const FONT_ASPECT_RATIO = 0.60;
 const CHART_ASPECT_RATIO = 1 / 10;
-const INITIAL_TIME_PERIOD = _10_MINUTES_IN_MILISECONDS;
+
+const INITIAL_ZOOM_LEVEL = 0;       // This is the zoom level at the view port in which the APP starts.
+const INITIAL_TIME_PERIOD = recalculatePeriod(INITIAL_ZOOM_LEVEL);
+
+var viewPort = newViewPort();
+
+
+
+
 
 /* Here we list the valid Time Periods: */
 
@@ -116,7 +122,7 @@ var newDate = new Date();
 newDate.setMilliseconds(0);
 newDate.setDate(newDate.getDate() - 90);
 
-const INITIAL_DATE = newDate;
+const INITIAL_DATE = new Date(2017,11,17,14,18,0,0);
 
 var maxDate = new Date();
 maxDate.setMilliseconds(0);

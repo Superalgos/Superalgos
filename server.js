@@ -48,17 +48,17 @@ function onRequestReceivedFromBrowser(request, response) {
 
         case "AAMasters":
             {
-
+                /*
                 const octokit = require('@octokit/rest')()
                 global.atob = require("atob");
 
-                let owner = "AAMasters";
-                let repo = "AAOlivia-Plotter";
+                let owner = requestParameters[1];
+                let repo = requestParameters[2] + "-Plotter";
                 let branch = "master";
                 let page = 1;
                 let per_page = 100;
                 let ref = "master";
-                let path = "Candlestick.js";
+                let path = requestParameters[3];
 
                 octokit.repos.getContent({ owner, repo, path, ref }, onContent);
 
@@ -66,13 +66,14 @@ function onRequestReceivedFromBrowser(request, response) {
 
                     let decoded = atob(result.data.content);
 
-                    //console.log(decoded);
-
-                    //console.log(result);
-
                     respondWithContent(decoded.substring(3), response);  // Eliminate first 2 bytes of noise.
 
-                }  
+                }
+                */
+
+
+                respondWithFile('../' + requestParameters[2] + "-Plotter" + '/' + requestParameters[3], response);
+
             }
             break; 
 

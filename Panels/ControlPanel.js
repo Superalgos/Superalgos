@@ -102,7 +102,7 @@ function newControlPanel() {
 
 
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-        PLAY_STEP = recalculatePeriod(viewPort.zoomLevel);
+        PLAY_STEP = INITIAL_TIME_PERIOD;
 
     }
 

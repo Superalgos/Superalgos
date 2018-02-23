@@ -70,7 +70,7 @@ function getTransparenceFactor(timePeriod) {
 
 function recalculatePeriod(zoomLevel) {
 
-    console.log(" recalculatePeriod > " + zoomLevel);
+    //console.log(" recalculatePeriod > " + zoomLevel);
 
     if (zoomLevel > 200) {
         return _1_MINUTE_IN_MILISECONDS;

@@ -39,7 +39,7 @@ function newFileCloud() {
 
         fileService.getFileToText('data', filePath, fileName, undefined, onFileReceived);
 
-        console.log("File Requested > " + filePath);
+        //console.log("File Requested > " + filePath);
 
         function onFileReceived(err, text, response) {
 

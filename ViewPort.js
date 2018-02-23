@@ -10,7 +10,7 @@ function newViewPort() {
     let viewPort = {
         visibleArea: undefined,
         eventHandler: undefined,
-        zoomLevel: 0,   
+        zoomLevel: INITIAL_ZOOM_LEVEL,   
         mousePosition: undefined,
         applyZoom: applyZoom,
         zoomFontSize: zoomFontSize,
@@ -25,7 +25,7 @@ function newViewPort() {
         initialize: initialize
     };
 
-    targetLevel = 0;
+    zoomTargetLevel = INITIAL_ZOOM_LEVEL;
 
     let increment = 0.035;
 
@@ -66,17 +66,17 @@ function newViewPort() {
 
    function animate() {
 
-       if (viewPort.zoomLevel < targetLevel) {
-           if (targetLevel - viewPort.zoomLevel < ANIMATION_INCREMENT) {
-               ANIMATION_INCREMENT = Math.abs(targetLevel - viewPort.zoomLevel);
+       if (viewPort.zoomLevel < zoomTargetLevel) {
+           if (zoomTargetLevel - viewPort.zoomLevel < ANIMATION_INCREMENT) {
+               ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - viewPort.zoomLevel);
            }
            viewPort.zoomLevel = viewPort.zoomLevel + ANIMATION_INCREMENT;
            changeZoom(viewPort.zoomLevel - ANIMATION_INCREMENT, viewPort.zoomLevel);
        }
 
-       if (viewPort.zoomLevel > targetLevel) {
-           if (viewPort.zoomLevel - targetLevel < ANIMATION_INCREMENT) {
-               ANIMATION_INCREMENT = Math.abs(targetLevel - viewPort.zoomLevel);
+       if (viewPort.zoomLevel > zoomTargetLevel) {
+           if (viewPort.zoomLevel - zoomTargetLevel < ANIMATION_INCREMENT) {
+               ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - viewPort.zoomLevel);
            } 
            viewPort.zoomLevel = viewPort.zoomLevel - ANIMATION_INCREMENT;
            changeZoom(viewPort.zoomLevel + ANIMATION_INCREMENT, viewPort.zoomLevel);
@@ -97,6 +97,9 @@ function newViewPort() {
 
            if (Math.trunc(Math.abs(targetOffset.y - offset.y) * 1000) >= Math.trunc(Math.abs(offsetIncrement.y) * 1000)) {
                offset.y = offset.y + offsetIncrement.y;
+
+               //console.log("offset.y changed to " + offset.y)
+
            } else {
                offsetIncrement.y = 0;
            }
@@ -116,6 +119,8 @@ function newViewPort() {
 
        viewPort.eventHandler.raiseEvent("Offset Changed", event);
 
+       //console.log("displace produced new Offset x = " + offset.x + " y = " + offset.y);
+
    }
 
    function displaceTarget(displaceVector) {
@@ -129,67 +134,68 @@ function newViewPort() {
            x: (targetOffset.x - offset.x) / 10,
            y: (targetOffset.y - offset.y) / 10
        };
-       
+
+       //console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
 
    }
 
     function applyZoom(amount) {
 
-    
+        //console.log("applyZoom amount: " + amount);
 
         if (amount > 0) {
              
 
-            if (targetLevel > -5) {
+            if (zoomTargetLevel > -5) {
                 amount = amount * 2;
             }
 
-            if (targetLevel > 10) {
+            if (zoomTargetLevel > 10) {
                 amount = amount * 3;
             }
 
-            if (targetLevel > 15) {
+            if (zoomTargetLevel > 15) {
                 amount = amount * 4;
             } 
         }
 
         if (amount < 0) {
 
-            if (targetLevel > -4) {
+            if (zoomTargetLevel > -4) {
                 amount = amount * 2;
             }
 
-            if (targetLevel > 13) {
+            if (zoomTargetLevel > 13) {
                 amount = amount * 3;
             }
 
-            if (targetLevel > 19) {
+            if (zoomTargetLevel > 19) {
                 amount = amount * 4;
             }
         }
 
-        if (targetLevel + amount > 1000) {
+        if (zoomTargetLevel + amount > 1000) {
             return false;
         }
 
-        if (targetLevel <= -27 && amount < 0) {
+        if (zoomTargetLevel <= -27 && amount < 0) {
             amount = amount / 4;
         }
 
-        if (targetLevel < -27 && amount > 0) {
+        if (zoomTargetLevel < -27 && amount > 0) {
             amount = amount / 4;
         }
 
-        if (targetLevel + amount < -28.25) {
+        if (zoomTargetLevel + amount < -28.25) {
             return false;
         }
 
-        targetLevel = targetLevel + amount;
+        zoomTargetLevel = zoomTargetLevel + amount;
 
-        ANIMATION_INCREMENT = Math.abs(targetLevel - viewPort.zoomLevel) / 3;
+        ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - viewPort.zoomLevel) / 3;
 
         let event = {
-            newLevel: targetLevel,
+            newLevel: zoomTargetLevel,
             newOffset: offset,
             type: undefined
         };
@@ -200,7 +206,7 @@ function newViewPort() {
             event.type = "Zoom Out";
         }
 
-        console.log("Zoom Changed > " + event.newLevel);
+        //console.log("Zoom Changed > " + event.newLevel);
 
         viewPort.eventHandler.raiseEvent("Zoom Changed", event);
         return true;
@@ -214,6 +220,8 @@ function newViewPort() {
 
         offset.x = offset.x - newMouse.x + viewPort.mousePosition.x;
         offset.y = offset.y - newMouse.y + viewPort.mousePosition.y;
+
+        //console.log("changeZoom produced new Offset x = " + offset.x + " y = " + offset.y);
 
         targetOffset.x = offset.x
         targetOffset.y = offset.y ;

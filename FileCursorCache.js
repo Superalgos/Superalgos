@@ -4,6 +4,7 @@ function newFileCursorCache() {
     let fileCursorCache = {
         getFileCursor: getFileCursor,
         setDatetime: setDatetime,
+        setTimePeriod: setTimePeriod,
         initialize: initialize
     }
 
@@ -53,7 +54,7 @@ function newFileCursorCache() {
             if (layer.validPeriods.includes(periodName) === true) {
 
                 let fileCursor = newFileCursor();
-                fileCursor.initialize(fileCloud, product, exchange, pMarket, periodName, pDatetime, pTimePeriod, onFileReceived);
+                fileCursor.initialize(fileCloud, product, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, onFileReceived);
 
                 fileCursors.set(periodTime, fileCursor);
 

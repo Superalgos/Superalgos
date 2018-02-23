@@ -104,7 +104,6 @@
                         layerStatus = pLayerStatus;
 
                         recalculate();
-                        postitionViewPort();
 
                         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
                         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
@@ -200,32 +199,6 @@
 
             }
         } 
-    }
-
-    function postitionViewPort() {
-
-        try {
-
-            let targetPoint = {
-                x: candles[Math.round(candles.length / 2)].begin,
-                y: candles[Math.round(candles.length / 2)].min + (candles[Math.round(candles.length / 2)].max - candles[Math.round(candles.length / 2)].min)
-            };
-
-            targetPoint = plotArea.inverseTransform(targetPoint, thisObject.container.frame.height);
-            targetPoint = transformThisPoint(targetPoint, thisObject.container);
-
-            let displaceVector = {
-                x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2 - targetPoint.x,
-                y: (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 2 - targetPoint.y
-            };
-
-            viewPort.displace(displaceVector);
-
-        } catch (err) {
-
-            // if there data is missing of the days it must position in then an exception is raised.
-        }
-
     }
 
     function positionAtDatetime(newDatetime) {

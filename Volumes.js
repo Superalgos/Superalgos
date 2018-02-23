@@ -418,7 +418,7 @@
 
             for (var i = 0; i < marketFile.length; i++) {
 
-                let currentMax = marketFile[i][0] + marketFile[i][1];
+                let currentMax = (marketFile[i][0] + marketFile[i][1]) * 4;
 
                 if (maxValue < currentMax) {
                     maxValue = currentMax;

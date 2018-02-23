@@ -15,10 +15,10 @@
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
-    const CANDLES_ONE_MIN = "One-Min";
+    const CANDLE_STAIRS_FOLDER_NAME = "Candle-Stairs";
 
     const VOLUMES_FOLDER_NAME = "Volumes";
-    const VOLUMES_ONE_MIN = "One-Min";
+    const VOLUME_STAIRS_FOLDER_NAME = "Volume-Stairs";
 
     const GO_RANDOM = false;
     const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. *
@@ -123,14 +123,35 @@
             day, we must remember where the last stairs of each type endded, so as not to create overlapping stairs in the current day. These next
             3 variables are stored at the status report and they are to remember where the last staris ended. */
 
-            let lastCandleStairEnd;
-            let lastVolumeBuyEnd;
-            let lastVolumeSellEnd;
+            let lastEndValues = [];
 
-            let currentCandleStairEnd;
-            let currentVolumeBuyEnd;
-            let currentVolumeSellEnd;
+            for (let i = 0; i < outputPeriods.length; i++) {
 
+                let lastEndValuesItem = {
+                    timePeriod: outputPeriods[i][1],
+                    candleStairEnd: undefined,
+                    volumeBuyEnd: undefined,
+                    volumeSellEnd: undefined
+                };
+
+                lastEndValues.push(lastEndValuesItem);
+            }
+
+            let currentEndValues = [];
+
+            for (let i = 0; i < outputPeriods.length; i++) {
+
+                let currentEndValuesItem = {
+                    timePeriod: outputPeriods[i][1],
+                    candleStairEnd: undefined,
+                    volumeBuyEnd: undefined,
+                    volumeSellEnd: undefined
+                };
+
+                currentEndValues.push(currentEndValuesItem);
+            }
+
+            let lastOliviaFiles;      // Remembers the last date that olivia wrote files.
             marketsLoop();
 
             /*
@@ -221,7 +242,7 @@
 
                     if (market.status === markets.ENABLED) {
 
-                        buildStairs();
+                        getStatusReport();
 
                     } else {
 
@@ -267,6 +288,7 @@
 
                     let reportFilePath;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
+                    let firstTradeFile;
 
                     getHistoricTrades();
 
@@ -292,7 +314,7 @@
 
                                 firstTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
 
-                                getThisProcessReport();
+                                getOliviaStatusReport();
 
                             } catch (err) {
 
@@ -304,13 +326,49 @@
                         }
                     }
 
+                    function getOliviaStatusReport() {
+
+                        /* We need to discover the maxCandle file, which is the last file with candles we can use as input. */
+
+                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Multi-Period-Daily";
+
+                        oliviaAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+
+                        function onStatusReportReceived(text) {
+
+                            let statusReport;
+
+                            try {
+
+                                statusReport = JSON.parse(text);
+
+                                lastOliviaFiles = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
+
+                                getThisProcessReport();
+
+                            } catch (err) {
+
+                                /*
+
+                                It might happen that the file content is corrupt or it does not exist. In either case we will point our lastCandleFile
+                                to the current one.
+
+                                */
+
+                                lastOliviaFiles = new Date();
+                                getThisProcessReport();
+
+                            }
+                        }
+                    }
+
                     function getThisProcessReport() {
 
                         /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
+                        reportFilePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
 
-                        oliviaAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                        tomAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
                         function onStatusReportReceived(text) {
 
@@ -323,11 +381,9 @@
 
                                 lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
 
-                                let lastCandleStairEnd;
-                                let lastVolumeBuyEnd;
-                                let lastVolumeSellEnd;
+                                lastEndValues = statusReport.lastEndValues;
 
-                                buildCandles(lastCandleFile);
+                                buildStairs(lastCandleFile);
 
                             } catch (err) {
 
@@ -339,8 +395,9 @@
                                 */
 
                                 lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                                lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                                buildCandles(lastCandleFile);
+                                buildStairs(lastCandleFile);
 
                             }
                         }
@@ -360,6 +417,8 @@
                 let currentDay = lastCandleFile;
                 let nextDay;
 
+
+
                 advanceTime();
 
                 function advanceTime() {
@@ -373,7 +432,7 @@
 
                     /* Validation that we are not going past the head of the market. */
 
-                    if (currentDay.valueOf() > maxCandleFile.valueOf()) {
+                    if (currentDay.valueOf() > lastOliviaFiles.valueOf()) {
 
                         nextIntervalExecution = true;  // we request a new interval execution.
 
@@ -407,7 +466,6 @@
 
                 function loopBody() {
 
-                    const outputPeriod = outputPeriods[n][0];
                     const folderName = outputPeriods[n][1];
 
                     processCandles();
@@ -418,6 +476,8 @@
                         let stairsArray = [];
                         let currentDayFile;
                         let nextDayFile;
+
+                        getCurrentDayFile();
 
                         function getCurrentDayFile() {
 
@@ -466,7 +526,7 @@
 
                                 } catch (err) {
 
-                                    if (nextDay.valueOf() > maxCandleFile.valueOf()) {
+                                    if (nextDay.valueOf() > lastOliviaFiles.valueOf()) {
 
                                         nextDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
                                         buildCandles();
@@ -489,209 +549,263 @@
 
                         function buildCandles() {
 
-                            pushCandles(currentDayFile);
-                            pushCandles(nextDayFile);
-                            findCandleStairs();
+                            try {
 
-                            function pushCandles(candlesFile) {
+                                pushCandles(currentDayFile);
+                                pushCandles(nextDayFile);
+                                findCandleStairs();
 
-                                for (let i = 0; i < candlesFile.length; i++) {
+                                function pushCandles(candlesFile) {
 
-                                    let candle = {
-                                        open: undefined,
-                                        close: undefined,
-                                        min: 10000000000000,
-                                        max: 0,
-                                        begin: undefined,
-                                        end: undefined,
-                                        direction: undefined
-                                    };
+                                    for (let i = 0; i < candlesFile.length; i++) {
 
-                                    candle.min = candlesFile[i][0];
-                                    candle.max = candlesFile[i][1];
-
-                                    candle.open = candlesFile[i][2];
-                                    candle.close = candlesFile[i][3];
-
-                                    candle.begin = candlesFile[i][4];
-                                    candle.end = candlesFile[i][5];
-
-                                    if (candle.open > candle.close) { candle.direction = 'down'; }
-                                    if (candle.open < candle.close) { candle.direction = 'up'; }
-                                    if (candle.open === candle.close) { candle.direction = 'side'; }
-
-                                    candles.push(candle);
-                                }
-                            }
-
-                        }
-
-                        function findCandleStairs() {
-
-                            /* Finding stairs */
-
-                            let stairs;
-
-                            for (let i = 0; i < candles.length - 1; i++) {
-
-                                let currentCandle = candles[i];
-                                let nextCandle = candles[i + 1];
-
-                                if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'side') {
-
-                                    if (stairs === undefined) {
-
-                                        stairs = {
+                                        let candle = {
                                             open: undefined,
                                             close: undefined,
                                             min: 10000000000000,
                                             max: 0,
                                             begin: undefined,
                                             end: undefined,
-                                            direction: undefined,
-                                            candleCount: 0,
-                                            firstMin: 0,
-                                            firstMax: 0,
-                                            lastMin: 0,
-                                            lastMax: 0
+                                            direction: undefined
                                         };
 
-                                        stairs.direction = currentCandle.direction;
-                                        stairs.candleCount = 2;
+                                        candle.min = candlesFile[i][0];
+                                        candle.max = candlesFile[i][1];
 
-                                        stairs.begin = currentCandle.begin;
-                                        stairs.end = nextCandle.end;
+                                        candle.open = candlesFile[i][2];
+                                        candle.close = candlesFile[i][3];
 
-                                        stairs.open = currentCandle.open;
-                                        stairs.close = nextCandle.close;
+                                        candle.begin = candlesFile[i][4];
+                                        candle.end = candlesFile[i][5];
 
-                                        if (currentCandle.min < nextCandle.min) { stairs.min = currentCandle.min; } else { stairs.min = nextCandle.min; }
-                                        if (currentCandle.max > nextCandle.max) { stairs.max = currentCandle.max; } else { stairs.max = nextCandle.max; }
+                                        if (candle.open > candle.close) { candle.direction = 'down'; }
+                                        if (candle.open < candle.close) { candle.direction = 'up'; }
+                                        if (candle.open === candle.close) { candle.direction = 'side'; }
 
-                                        if (stairs.direction === 'up') {
+                                        candles.push(candle);
+                                    }
+                                }
 
-                                            stairs.firstMin = currentCandle.open;
-                                            stairs.firstMax = currentCandle.close;
+                            } catch (err) {
 
-                                            stairs.lastMin = nextCandle.open;
-                                            stairs.lastMax = nextCandle.close;
+                                const logText = "[ERR] 'buildCandles' - Message: " + err.message;
+                                logger.write(logText);
+
+                                closeAndOpenMarket();
+
+                                nextIntervalExecution = true;  // we request a new interval execution.
+                                nextIntervalLapse = 30000;
+
+                                return;
+
+                            }
+                        }
+
+                        function findCandleStairs() {
+
+                            try {
+
+                                /* Finding stairs */
+
+                                let stairs;
+
+                                for (let i = 0; i < candles.length - 1; i++) {
+
+                                    let currentCandle = candles[i];
+                                    let nextCandle = candles[i + 1];
+
+                                    if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'side') {
+
+                                        if (stairs === undefined) {
+
+                                            stairs = {
+                                                open: undefined,
+                                                close: undefined,
+                                                min: 10000000000000,
+                                                max: 0,
+                                                begin: undefined,
+                                                end: undefined,
+                                                direction: undefined,
+                                                candleCount: 0,
+                                                firstMin: 0,
+                                                firstMax: 0,
+                                                lastMin: 0,
+                                                lastMax: 0
+                                            };
+
+                                            stairs.direction = currentCandle.direction;
+                                            stairs.candleCount = 2;
+
+                                            stairs.begin = currentCandle.begin;
+                                            stairs.end = nextCandle.end;
+
+                                            stairs.open = currentCandle.open;
+                                            stairs.close = nextCandle.close;
+
+                                            if (currentCandle.min < nextCandle.min) { stairs.min = currentCandle.min; } else { stairs.min = nextCandle.min; }
+                                            if (currentCandle.max > nextCandle.max) { stairs.max = currentCandle.max; } else { stairs.max = nextCandle.max; }
+
+                                            if (stairs.direction === 'up') {
+
+                                                stairs.firstMin = currentCandle.open;
+                                                stairs.firstMax = currentCandle.close;
+
+                                                stairs.lastMin = nextCandle.open;
+                                                stairs.lastMax = nextCandle.close;
+
+                                            } else {
+
+                                                stairs.firstMin = currentCandle.close;
+                                                stairs.firstMax = currentCandle.open;
+
+                                                stairs.lastMin = nextCandle.close;
+                                                stairs.lastMax = nextCandle.open;
+
+                                            }
+
 
                                         } else {
 
-                                            stairs.firstMin = currentCandle.close;
-                                            stairs.firstMax = currentCandle.open;
+                                            stairs.candleCount++;
+                                            stairs.end = nextCandle.end;
+                                            stairs.close = nextCandle.close;
 
-                                            stairs.lastMin = nextCandle.close;
-                                            stairs.lastMax = nextCandle.open;
+                                            if (stairs.min < nextCandle.min) { stairs.min = currentCandle.min; }
+                                            if (stairs.max > nextCandle.max) { stairs.max = currentCandle.max; }
+
+                                            if (stairs.direction === 'up') {
+
+                                                stairs.lastMin = nextCandle.open;
+                                                stairs.lastMax = nextCandle.close;
+
+                                            } else {
+
+                                                stairs.lastMin = nextCandle.close;
+                                                stairs.lastMax = nextCandle.open;
+
+                                            }
 
                                         }
-
 
                                     } else {
 
-                                        stairs.candleCount++;
-                                        stairs.end = nextCandle.end;
-                                        stairs.close = nextCandle.close;
+                                        if (stairs !== undefined) {
 
-                                        if (stairs.min < nextCandle.min) { stairs.min = currentCandle.min; }
-                                        if (stairs.max > nextCandle.max) { stairs.max = currentCandle.max; }
+                                            /* As we are using two consecutives days of candles, we do want to include stairs that spans from the first
+                                            day to the second, but we do not want to include stairs that begins on the second day, since thos are to be
+                                            included when time advances one day. */
 
-                                        if (stairs.direction === 'up') {
+                                            if (stairs.begin < nextDay.valueOf()) {
 
-                                            stairs.lastMin = nextCandle.open;
-                                            stairs.lastMax = nextCandle.close;
+                                                /* Also, we dont want to include stairs that started in the previous day. To detect that we use the date
+                                                that we recorded on the Status Report with the end of the last stair of the previous day. */
 
-                                        } else {
+                                                if (lastEndValues[n].candleStairEnd !== undefined) {
 
-                                            stairs.lastMin = nextCandle.close;
-                                            stairs.lastMax = nextCandle.open;
+                                                    if (stairs.begin > lastEndValues[n].candleStairEnd) {
 
-                                        }
+                                                        stairsArray.push(stairs);
+                                                        currentEndValues[n].candleStairEnd = stairs.end;
+                                                        stairs = undefined;
 
-                                    }
+                                                    }
+                                                } else {
 
-                                } else {
+                                                    stairsArray.push(stairs);
+                                                    currentEndValues[n].candleStairEnd = stairs.end;
+                                                    stairs = undefined;
 
-                                    if (stairs !== undefined) {
-
-                                        /* As we are using two consecutives days of candles, we do want to include stairs that spans from the first
-                                        day to the second, but we do not want to include stairs that begins on the second day, since thos are to be
-                                        included when time advances one day. */
-
-                                        if (stairs.begin < nexDay.valueOf()) {
-
-                                            /* Also, we dont want to include stairs that started in the previous day. To detect that we use the date
-                                            that we recorded on the Status Report with the end of the last stair of the previous day. */
-
-                                            if (stairs.begin > lastCandleStairEnd.valueOf()) {
-
-                                                stairsArray.push(stairs);
-                                                currentCandleStairEnd = stairs.end;
-                                                stairs = undefined;
-
+                                                }
                                             }
                                         }
                                     }
                                 }
-                            }
 
-                            writeCandleStairsFile();
+                                writeCandleStairsFile();
+
+                            } catch (err) {
+
+                                const logText = "[ERR] 'findCandleStairs' - Message: " + err.message;
+                                logger.write(logText);
+
+                                closeAndOpenMarket();
+
+                                nextIntervalExecution = true;  // we request a new interval execution.
+                                nextIntervalLapse = 30000;
+
+                                return;
+
+                            }
                         }
 
                         function writeCandleStairsFile() {
 
-                            let separator = "";
-                            let fileRecordCounter = 0;
+                            try {
 
-                            let fileContent = "";
+                                let separator = "";
+                                let fileRecordCounter = 0;
 
-                            for (i = 0; i < stairsArray.length; i++) {
+                                let fileContent = "";
 
-                                let stairs = stairsArray[i];
+                                for (i = 0; i < stairsArray.length; i++) {
 
-                                fileContent = fileContent + separator + '[' +
-                                    stairs.open + "," +
-                                    stairs.close + "," +
-                                    stairs.min + "," +
-                                    stairs.max + "," +
-                                    stairs.begin + "," +
-                                    stairs.end + "," +
-                                    '"' + stairs.direction + '"' + "," +
-                                    stairs.candleCount + "," +
-                                    stairs.firstMin + "," +
-                                    stairs.firstMax + "," +
-                                    stairs.lastMin + "," +
-                                    stairs.lastMax + "]";
+                                    let stairs = stairsArray[i];
 
-                                if (separator === "") { separator = ","; }
+                                    fileContent = fileContent + separator + '[' +
+                                        stairs.open + "," +
+                                        stairs.close + "," +
+                                        stairs.min + "," +
+                                        stairs.max + "," +
+                                        stairs.begin + "," +
+                                        stairs.end + "," +
+                                        '"' + stairs.direction + '"' + "," +
+                                        stairs.candleCount + "," +
+                                        stairs.firstMin + "," +
+                                        stairs.firstMax + "," +
+                                        stairs.lastMin + "," +
+                                        stairs.lastMax + "]";
 
-                                fileRecordCounter++;
+                                    if (separator === "") { separator = ","; }
 
-                            }
+                                    fileRecordCounter++;
 
-                            fileContent = "[" + fileContent + "]";
-
-                            let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                            let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/"  + dateForPath;
-
-                            utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
-
-                            function onFolderCreated() {
-
-                                tomAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                function onFileCreated() {
-
-                                    const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                    console.log(logText);
-                                    logger.write(logText);
-
-                                    processVolumes();
                                 }
+
+                                fileContent = "[" + fileContent + "]";
+
+                                let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                                let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
+
+                                utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
+
+                                function onFolderCreated() {
+
+                                    tomAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated() {
+
+                                        const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                        console.log(logText);
+                                        logger.write(logText);
+
+                                        processVolumes();
+                                    }
+                                }
+                            } catch (err) {
+
+                                const logText = "[ERR] 'writeCandleStairsFile' - Message: " + err.message;
+                                logger.write(logText);
+
+                                closeAndOpenMarket();
+
+                                nextIntervalExecution = true;  // we request a new interval execution.
+                                nextIntervalLapse = 30000;
+
+                                return;
+
                             }
                         }
-
                     }
 
                     function processVolumes() {
@@ -700,6 +814,8 @@
                         let stairsArray = [];
                         let currentDayFile;
                         let nextDayFile;
+
+                        getCurrentDayFile();
 
                         function getCurrentDayFile() {
 
@@ -748,7 +864,7 @@
 
                                 } catch (err) {
 
-                                    if (nextDay.valueOf() > maxCandleFile.valueOf()) {
+                                    if (nextDay.valueOf() > lastOliviaFiles.valueOf()) {
 
                                         nextDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
                                         buildVolumes();
@@ -771,330 +887,385 @@
 
                         function buildVolumes() {
 
-                            pushVolumes(currentDayFile);
-                            pushVolumes(nextDayFile);
-                            findVolumesStairs();
+                            try {
 
-                            function pushVolumes(volumesFile) {
+                                pushVolumes(currentDayFile);
+                                pushVolumes(nextDayFile);
+                                findVolumesStairs();
 
-                                for (let i = 0; i < currentDay.length; i++) {
+                                function pushVolumes(volumesFile) {
 
-                                    let volume = {
-                                        amountBuy: 0,
-                                        amountSell: 0,
-                                        begin: undefined,
-                                        end: undefined
-                                    };
+                                    for (let i = 0; i < volumesFile.length; i++) {
 
-                                    volume.amountBuy = currentDay[i][0];
-                                    volume.amountSell = currentDay[i][1];
+                                        let volume = {
+                                            amountBuy: 0,
+                                            amountSell: 0,
+                                            begin: undefined,
+                                            end: undefined
+                                        };
 
-                                    volume.begin = currentDay[i][2];
-                                    volume.end = currentDay[i][3];
+                                        volume.amountBuy = volumesFile[i][0];
+                                        volume.amountSell = volumesFile[i][1];
 
-                                    volumes.push(volume);
+                                        volume.begin = volumesFile[i][2];
+                                        volume.end = volumesFile[i][3];
 
+                                        volumes.push(volume);
+
+                                    }
                                 }
+                            } catch (err) {
+
+                                const logText = "[ERR] 'buildVolumes' - Message: " + err.message;
+                                logger.write(logText);
+
+                                closeAndOpenMarket();
+
+                                nextIntervalExecution = true;  // we request a new interval execution.
+                                nextIntervalLapse = 30000;
+
+                                return;
+
                             }
                         }
 
                         function findVolumesStairs() {
 
-                            /* Finding stairs */
-
-                            let buyUpStairs;
-                            let buyDownStairs;
-
-                            let sellUpStairs;
-                            let sellDownStairs;
-
-                            for (let i = 0; i < volumes.length - 1; i++) {
-
-                                let currentVolume = volumes[i];
-                                let nextVolume = volumes[i + 1];
+                            try {
 
 
-                                /* buy volume going up */
+                                /* Finding stairs */
 
-                                if (currentVolume.amountBuy < nextVolume.amountBuy) {
+                                let buyUpStairs;
+                                let buyDownStairs;
 
-                                    if (buyUpStairs === undefined) {
+                                let sellUpStairs;
+                                let sellDownStairs;
 
-                                        buyUpStairs = {
-                                            type: undefined,
-                                            begin: undefined,
-                                            end: undefined,
-                                            direction: undefined,
-                                            barsCount: 0,
-                                            firstAmount: 0,
-                                            lastAmount: 0
-                                        };
+                                for (let i = 0; i < volumes.length - 1; i++) {
 
-                                        buyUpStairs.type = 'buy';
-                                        buyUpStairs.direction = 'up';
-                                        buyUpStairs.barsCount = 2;
+                                    let currentVolume = volumes[i];
+                                    let nextVolume = volumes[i + 1];
 
-                                        buyUpStairs.begin = currentVolume.begin;
-                                        buyUpStairs.end = nextVolume.end;
 
-                                        buyUpStairs.firstAmount = currentVolume.amountBuy;
-                                        buyUpStairs.lastAmount = nextVolume.amountBuy;
+                                    /* buy volume going up */
+
+                                    if (currentVolume.amountBuy < nextVolume.amountBuy) {
+
+                                        if (buyUpStairs === undefined) {
+
+                                            buyUpStairs = {
+                                                type: undefined,
+                                                begin: undefined,
+                                                end: undefined,
+                                                direction: undefined,
+                                                barsCount: 0,
+                                                firstAmount: 0,
+                                                lastAmount: 0
+                                            };
+
+                                            buyUpStairs.type = 'buy';
+                                            buyUpStairs.direction = 'up';
+                                            buyUpStairs.barsCount = 2;
+
+                                            buyUpStairs.begin = currentVolume.begin;
+                                            buyUpStairs.end = nextVolume.end;
+
+                                            buyUpStairs.firstAmount = currentVolume.amountBuy;
+                                            buyUpStairs.lastAmount = nextVolume.amountBuy;
+
+                                        } else {
+
+                                            buyUpStairs.barsCount++;
+                                            buyUpStairs.end = nextVolume.end;
+                                            buyUpStairs.lastAmount = nextVolume.amountBuy;
+
+                                        }
 
                                     } else {
 
-                                        buyUpStairs.barsCount++;
-                                        buyUpStairs.end = nextVolume.end;
-                                        buyUpStairs.lastAmount = nextVolume.amountBuy;
+                                        if (buyUpStairs !== undefined) {
 
-                                    }
+                                            if (buyUpStairs.barsCount > 2) {
 
-                                } else {
+                                                pushToArray(buyUpStairs);
+                                            }
 
-                                    if (buyUpStairs !== undefined) {
-
-                                        if (buyUpStairs.barsCount > 2) {
-
-                                            pushToArray(buyUpStairs);
+                                            buyUpStairs = undefined;
                                         }
-
-                                        buyUpStairs = undefined;
                                     }
-                                }
 
-                                /* buy volume going down */
+                                    /* buy volume going down */
 
-                                if (currentVolume.amountBuy > nextVolume.amountBuy) {
+                                    if (currentVolume.amountBuy > nextVolume.amountBuy) {
 
-                                    if (buyDownStairs === undefined) {
+                                        if (buyDownStairs === undefined) {
 
-                                        buyDownStairs = {
-                                            type: undefined,
-                                            begin: undefined,
-                                            end: undefined,
-                                            direction: undefined,
-                                            barsCount: 0,
-                                            firstAmount: 0,
-                                            lastAmount: 0
-                                        };
+                                            buyDownStairs = {
+                                                type: undefined,
+                                                begin: undefined,
+                                                end: undefined,
+                                                direction: undefined,
+                                                barsCount: 0,
+                                                firstAmount: 0,
+                                                lastAmount: 0
+                                            };
 
-                                        buyDownStairs.type = 'buy';
-                                        buyDownStairs.direction = 'down';
-                                        buyDownStairs.barsCount = 2;
+                                            buyDownStairs.type = 'buy';
+                                            buyDownStairs.direction = 'down';
+                                            buyDownStairs.barsCount = 2;
 
-                                        buyDownStairs.begin = currentVolume.begin;
-                                        buyDownStairs.end = nextVolume.end;
+                                            buyDownStairs.begin = currentVolume.begin;
+                                            buyDownStairs.end = nextVolume.end;
 
-                                        buyDownStairs.firstAmount = currentVolume.amountBuy;
-                                        buyDownStairs.lastAmount = nextVolume.amountBuy;
+                                            buyDownStairs.firstAmount = currentVolume.amountBuy;
+                                            buyDownStairs.lastAmount = nextVolume.amountBuy;
+
+                                        } else {
+
+                                            buyDownStairs.barsCount++;
+                                            buyDownStairs.end = nextVolume.end;
+                                            buyDownStairs.lastAmount = nextVolume.amountBuy;
+
+                                        }
 
                                     } else {
 
-                                        buyDownStairs.barsCount++;
-                                        buyDownStairs.end = nextVolume.end;
-                                        buyDownStairs.lastAmount = nextVolume.amountBuy;
+                                        if (buyDownStairs !== undefined) {
 
-                                    }
+                                            if (buyDownStairs.barsCount > 2) {
 
-                                } else {
+                                                pushToArray(buyDownStairs);
+                                            }
 
-                                    if (buyDownStairs !== undefined) {
-
-                                        if (buyDownStairs.barsCount > 2) {
-
-                                            pushToArray(buyDownStairs);
+                                            buyDownStairs = undefined;
                                         }
-
-                                        buyDownStairs = undefined;
                                     }
-                                }
 
-                                /* sell volume going up */
+                                    /* sell volume going up */
 
-                                if (currentVolume.amountSell < nextVolume.amountSell) {
+                                    if (currentVolume.amountSell < nextVolume.amountSell) {
 
-                                    if (sellUpStairs === undefined) {
+                                        if (sellUpStairs === undefined) {
 
-                                        sellUpStairs = {
-                                            type: undefined,
-                                            begin: undefined,
-                                            end: undefined,
-                                            direction: undefined,
-                                            barsCount: 0,
-                                            firstAmount: 0,
-                                            lastAmount: 0
-                                        };
+                                            sellUpStairs = {
+                                                type: undefined,
+                                                begin: undefined,
+                                                end: undefined,
+                                                direction: undefined,
+                                                barsCount: 0,
+                                                firstAmount: 0,
+                                                lastAmount: 0
+                                            };
 
-                                        sellUpStairs.type = 'sell';
-                                        sellUpStairs.direction = 'up';
-                                        sellUpStairs.barsCount = 2;
+                                            sellUpStairs.type = 'sell';
+                                            sellUpStairs.direction = 'up';
+                                            sellUpStairs.barsCount = 2;
 
-                                        sellUpStairs.begin = currentVolume.begin;
-                                        sellUpStairs.end = nextVolume.end;
+                                            sellUpStairs.begin = currentVolume.begin;
+                                            sellUpStairs.end = nextVolume.end;
 
-                                        sellUpStairs.firstAmount = currentVolume.amountSell;
-                                        sellUpStairs.lastAmount = nextVolume.amountSell;
+                                            sellUpStairs.firstAmount = currentVolume.amountSell;
+                                            sellUpStairs.lastAmount = nextVolume.amountSell;
+
+                                        } else {
+
+                                            sellUpStairs.barsCount++;
+                                            sellUpStairs.end = nextVolume.end;
+                                            sellUpStairs.lastAmount = nextVolume.amountSell;
+
+                                        }
 
                                     } else {
 
-                                        sellUpStairs.barsCount++;
-                                        sellUpStairs.end = nextVolume.end;
-                                        sellUpStairs.lastAmount = nextVolume.amountSell;
+                                        if (sellUpStairs !== undefined) {
 
-                                    }
+                                            if (sellUpStairs.barsCount > 2) {
 
-                                } else {
+                                                pushToArray(sellUpStairs);
+                                            }
 
-                                    if (sellUpStairs !== undefined) {
-
-                                        if (sellUpStairs.barsCount > 2) {
-
-                                            pushToArray(sellUpStairs);
+                                            sellUpStairs = undefined;
                                         }
-
-                                        sellUpStairs = undefined;
                                     }
-                                }
 
-                                /* sell volume going down */
+                                    /* sell volume going down */
 
-                                if (currentVolume.amountSell > nextVolume.amountSell) {
+                                    if (currentVolume.amountSell > nextVolume.amountSell) {
 
-                                    if (sellDownStairs === undefined) {
+                                        if (sellDownStairs === undefined) {
 
-                                        sellDownStairs = {
-                                            type: undefined,
-                                            begin: undefined,
-                                            end: undefined,
-                                            direction: undefined,
-                                            barsCount: 0,
-                                            firstAmount: 0,
-                                            lastAmount: 0
-                                        };
+                                            sellDownStairs = {
+                                                type: undefined,
+                                                begin: undefined,
+                                                end: undefined,
+                                                direction: undefined,
+                                                barsCount: 0,
+                                                firstAmount: 0,
+                                                lastAmount: 0
+                                            };
 
-                                        sellDownStairs.type = 'sell';
-                                        sellDownStairs.direction = 'down';
-                                        sellDownStairs.barsCount = 2;
+                                            sellDownStairs.type = 'sell';
+                                            sellDownStairs.direction = 'down';
+                                            sellDownStairs.barsCount = 2;
 
-                                        sellDownStairs.begin = currentVolume.begin;
-                                        sellDownStairs.end = nextVolume.end;
+                                            sellDownStairs.begin = currentVolume.begin;
+                                            sellDownStairs.end = nextVolume.end;
 
-                                        sellDownStairs.firstAmount = currentVolume.amountSell;
-                                        sellDownStairs.lastAmount = nextVolume.amountSell;
+                                            sellDownStairs.firstAmount = currentVolume.amountSell;
+                                            sellDownStairs.lastAmount = nextVolume.amountSell;
+
+                                        } else {
+
+                                            sellDownStairs.barsCount++;
+                                            sellDownStairs.end = nextVolume.end;
+                                            sellDownStairs.lastAmount = nextVolume.amountSell;
+
+                                        }
 
                                     } else {
 
-                                        sellDownStairs.barsCount++;
-                                        sellDownStairs.end = nextVolume.end;
-                                        sellDownStairs.lastAmount = nextVolume.amountSell;
+                                        if (sellDownStairs !== undefined) {
 
-                                    }
+                                            if (sellDownStairs.barsCount > 2) {
 
-                                } else {
+                                                pushToArray(sellDownStairs);
+                                            }
 
-                                    if (sellDownStairs !== undefined) {
-
-                                        if (sellDownStairs.barsCount > 2) {
-
-                                            pushToArray(sellDownStairs);
+                                            sellDownStairs = undefined;
                                         }
-
-                                        sellDownStairs = undefined;
                                     }
-                                }
 
-                                function pushToArray(stairs) {
+                                    function pushToArray(stairs) {
 
-                                    if (stairs !== undefined) {
+                                        if (stairs !== undefined) {
 
-                                        /* As we are using two consecutives days of candles, we do want to include stairs that spans from the first
-                                        day to the second, but we do not want to include stairs that begins on the second day, since those are to be
-                                        included when time advances one day. */
+                                            /* As we are using two consecutives days of candles, we do want to include stairs that spans from the first
+                                            day to the second, but we do not want to include stairs that begins on the second day, since those are to be
+                                            included when time advances one day. */
 
-                                        if (stairs.begin < nexDay.valueOf()) {
+                                            if (stairs.begin < nextDay.valueOf()) {
 
-                                            /* Also, we dont want to include stairs that started in the previous day. To detect that we use the date
-                                            that we recorded on the Status Report with the end of the last stair of the previous day. */
+                                                /* Also, we dont want to include stairs that started in the previous day. To detect that we use the date
+                                                that we recorded on the Status Report with the end of the last stair of the previous day. */
 
-                                            /* Additional to that, there are two types of stais: buy and sell. */
+                                                /* Additional to that, there are two types of stais: buy and sell. */
 
-                                            if (stairs.type === 'sell') {
+                                                if (stairs.type === 'sell') {
 
-                                                if (stairs.begin > lastVolumeSellEnd.valueOf()) {
+                                                    if (lastEndValues[n].volumeSellEnd !== undefined) {
 
-                                                    stairsArray.push(stairs);
-                                                    currentVolumeSellEnd = stairs.end;
-                                                }
+                                                        if (stairs.begin > lastEndValues[n].volumeSellEnd) {
 
-                                            } else {
+                                                            stairsArray.push(stairs);
+                                                            currentEndValues[n].volumeSellEnd = stairs.end;
+                                                        }
+                                                    } else {
 
-                                                if (stairs.begin > lastVolumeBuyEnd.valueOf()) {
+                                                        stairsArray.push(stairs);
+                                                        currentEndValues[n].volumeSellEnd = stairs.end;
+                                                    }
 
-                                                    stairsArray.push(stairs);
-                                                    currentVolumeBuyEnd = stairs.end;
+                                                } else {
+
+                                                    if (lastEndValues[n].volumeBuyEnd !== undefined) {
+
+                                                        if (stairs.begin > lastEndValues[n].volumeBuyEnd) {
+
+                                                            stairsArray.push(stairs);
+                                                            currentEndValues[n].volumeBuyEnd = stairs.end;
+                                                        }
+                                                    } else {
+
+                                                        stairsArray.push(stairs);
+                                                        currentEndValues[n].volumeBuyEnd = stairs.end;
+                                                    }
                                                 }
                                             }
                                         }
                                     }
                                 }
-                            }
+                                
+                                writeVolumeStairsFile();
 
-                            writeVolumeStairsFile();
+                            } catch (err) {
+
+                                const logText = "[ERR] 'findVolumesStairs' - Message: " + err.message;
+                                logger.write(logText);
+
+                                closeAndOpenMarket();
+
+                                nextIntervalExecution = true;  // we request a new interval execution.
+                                nextIntervalLapse = 30000;
+
+                                return;
+
+                            }
                         }
 
                         function writeVolumeStairsFile() {
 
-                            let separator = "";
-                            let fileRecordCounter = 0;
+                            try {
 
-                            let fileContent = "";
+                                let separator = "";
+                                let fileRecordCounter = 0;
 
-                            for (i = 0; i < stairsArray.length; i++) {
+                                let fileContent = "";
 
-                                let stairs = stairsArray[i];
+                                for (i = 0; i < stairsArray.length; i++) {
 
-                                fileContent = fileContent + separator + '[' +
-                                    '"' + stairs.type + '"' + "," +
-                                    stairs.begin + "," +
-                                    stairs.end + "," +
-                                    '"' + stairs.direction + '"' + "," +
-                                    stairs.barsCount + "," +
-                                    stairs.firstAmount + "," +
-                                    stairs.lastAmount + "]";
+                                    let stairs = stairsArray[i];
 
-                                if (separator === "") { separator = ","; }
+                                    fileContent = fileContent + separator + '[' +
+                                        '"' + stairs.type + '"' + "," +
+                                        stairs.begin + "," +
+                                        stairs.end + "," +
+                                        '"' + stairs.direction + '"' + "," +
+                                        stairs.barsCount + "," +
+                                        stairs.firstAmount + "," +
+                                        stairs.lastAmount + "]";
 
-                                fileRecordCounter++;
+                                    if (separator === "") { separator = ","; }
 
-                            }
+                                    fileRecordCounter++;
 
-                            fileContent = "[" + fileContent + "]";
-
-                            let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                            let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
-
-                            utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
-
-                            function onFolderCreated() {
-
-                                tomAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                function onFileCreated() {
-
-                                    const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                    console.log(logText);
-                                    logger.write(logText);
-
-                                    reportThisDay();
                                 }
+
+                                fileContent = "[" + fileContent + "]";
+
+                                let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                                let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
+
+                                utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
+
+                                function onFolderCreated() {
+
+                                    tomAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated() {
+
+                                        const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                        console.log(logText);
+                                        logger.write(logText);
+
+                                        controlLoop();
+                                    }
+                                }
+                            } catch (err) {
+
+                                const logText = "[ERR] 'writeVolumeStairsFile' - Message: " + err.message;
+                                logger.write(logText);
+
+                                closeAndOpenMarket();
+
+                                nextIntervalExecution = true;  // we request a new interval execution.
+                                nextIntervalLapse = 30000;
+
+                                return;
+
                             }
                         }
-                    }
-
-                    function reportThisDay() {
-
-                        writeStatusReport(currentDay, controlLoop)
-
                     }
                 }
 
@@ -1109,11 +1280,16 @@
                     } else {
 
                         n = 0;
-                        advanceTime();
+                        writeStatusReport(currentDay, switchEndValues);
 
+                        function switchEndValues() {
+
+                            lastEndValues = currentEndValues;
+                            advanceTime();
+
+                        }
                     }
                 }
-
             }
 
             function writeStatusReport(currentDay, callBackFunction) {
@@ -1142,9 +1318,7 @@
                                     month: (currentDay.getUTCMonth() + 1),
                                     days: currentDay.getUTCDate()
                                 },
-                                lastCandleStairEnd: currentCandleStairEnd,
-                                lastVolumeBuyEnd: currentVolumeBuyEnd,
-                                lastVolumeSellEnd: currentVolumeSellEnd
+                                lastEndValues: currentEndValues
                             };
 
                             let fileContent = JSON.stringify(report);

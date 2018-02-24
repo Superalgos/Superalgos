@@ -15,10 +15,10 @@
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
-    const CANDLES_ONE_MIN = "One-Min";
+    const CANDLE_STAIRS_FOLDER_NAME = "Candle-Stairs";
 
     const VOLUMES_FOLDER_NAME = "Volumes";
-    const VOLUMES_ONE_MIN = "One-Min";
+    const VOLUME_STAIRS_FOLDER_NAME = "Volume-Stairs";
 
     const GO_RANDOM = false;
     const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. *
@@ -473,7 +473,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                 
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                                 utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
 
@@ -791,7 +791,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/"+ VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                                 utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
 

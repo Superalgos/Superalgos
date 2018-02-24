@@ -15,7 +15,7 @@
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
-    const CANDLE_STAIRS_FOLDER_NAME = "CandleStairs";
+    const CANDLE_STAIRS_FOLDER_NAME = "Candle-Stairs";
 
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUME_STAIRS_FOLDER_NAME = "Volume-Stairs";

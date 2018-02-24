@@ -1,0 +1,35 @@
+{
+  "bot": {
+    "name": "Mariam",
+    "type": "Indicator",
+    "version": "1.0.0",
+    "devTeam": "AA Masters",
+    "dataSetVersion": "dataSet.V1"
+  },
+  "processes": [
+    {
+      "name": "Trading-With-Stairs",
+      "description": "Trading strategy based on candle and volume stairs patterns.",
+      "startMode": {
+        "allMonths": {
+          "run": "false",
+          "minYear": "",
+          "maxYear": ""
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "",
+          "month": ""
+        },
+        "noTime": {
+          "run": "true"
+        }
+      },
+      "intervalLapse": 60000,
+      "intervalMaxLoops": -1
+    }
+  ]
+}
+
+
+

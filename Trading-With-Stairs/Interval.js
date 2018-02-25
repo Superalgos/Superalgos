@@ -108,7 +108,20 @@
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
             let nextIntervalLapse = 10 * 1000; // If something fails and we need to retry after a few seconds, we will use this amount of time to request a new execution. 
 
-            let periods =
+            let marketFilesPeriods =
+                '[' +
+                '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
+                '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
+                '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
+                '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
+                '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
+                '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
+                '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
+                '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
+
+            marketFilesPeriods = JSON.parse(marketFilesPeriods);
+
+            let dailyFilePeriods =
                 '[' +
                 '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
                 '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
@@ -122,7 +135,7 @@
                 '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
                 '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
 
-            const outputPeriods = JSON.parse(periods);
+            dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
             const market = {
                 assetA: "USDT",
@@ -258,7 +271,7 @@
                                     amountA: exchangeResponse[i].total,
                                     amountB: exchangeResponse[i].amount,
                                     date: (new Date(exchangeResponse[i].date)).valueOf()
-                                }
+                                };
 
                                 exchangePositions.push(openPosition);
                             }
@@ -441,7 +454,24 @@
                 Also, the position might still be there but it might have been partially executed. To detect that we need to compare the
                 position amounts we have on file to the one we are receiving from the exchange.
 
+                Before we begin, we have to remove all the orders that have been already closed at the last execution of the bot.
+
                 */
+
+                let openPositions = [];
+
+                for (let a = 0; j < executionContext.positions.length; a++) {
+
+                    if (executionContext.positions[i].status === "open") {
+
+                        openPositions.push(executionContext.positions[i]);
+
+                    }
+                }
+
+                executionContext.positions = openPositions;
+
+                /* Now we can start checking what happened at the exchange. */
 
                 let i = 0;
 
@@ -582,9 +612,11 @@
 
                         /*
 
-                        Confirmed that order was executed. Next thing to do is to remember the trades.
+                        Confirmed that order was executed. Next thing to do is to remember the trades and change its status.
 
                         */
+
+                        executionContext.positions[i].status = "closed";
 
                         for (k = 0; k < trades.length; k++) {
 
@@ -734,35 +766,230 @@
                 }
             }
 
-
             function getPatterns() {
 
                 /*
 
-                We will read several files with pattern calculations for today. We will use these files as an input to make trading decitions later.
+                We will read several files with pattern calculations for the current day. We will use these files as an input
+                to make trading decitions later.
 
                 */
 
+                let stairsFiles = new Map;
+
+                function getMarketFiles() {
+
+                    /* Now we will get the market files */
+
+                    for (i = 0; i < marketFilesPeriods.length; i++) {
+
+                        let periodTime = marketFilesPeriods[i][0];
+                        let periodName = marketFilesPeriods[i][1];
+
+                        if (layer.validPeriods.includes(periodName) === true) {
+
+                            getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period", periodName, undefined, onFileReceived);
+
+                            function onFileReceived(file) {
+
+                                stairsFiles.set(periodName, file);
+
+                                if (files.size === marketFilesPeriods.length) {
+
+                                    getDailyFiles();
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getDailyFiles() {
+
+                    for (i = 0; i < dailyFilePeriods.length; i++) {
+
+                        let periodTime = dailyFilePeriods[i][0];
+                        let periodName = dailyFilePeriods[i][1];
+
+                        if (layer.validPeriods.includes(periodName) === true) {
+
+                            let datetime = new Date();
+
+                            getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, datetime, onFileReceived);
+
+                            function onFileReceived(file) {
+
+                                stairsFiles.set(periodName, file);
+
+                                if (files.size === dailyFilePeriods.length + marketFilesPeriods.length) {
+
+                                    getStairsWeAreIn();
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getStairsWeAreIn() {
+
+                    let stairsMap = new Map;
+                    let datetime = new Date();
+                    let counter = 0;
+
+                    stairsFiles.forEach(getCurrentStairs);
+
+                    function getCurrentStairs(pStairsFile, pPeriodName, map) {
+
+                        for (i = 0; i < pStairsFile.length; i++) {
+
+                            let stairs = {
+                                type: undefined,
+                                begin: undefined,
+                                end: undefined,
+                                direction: undefined,
+                                barsCount: 0,
+                                firstAmount: 0,
+                                lastAmount: 0
+                            };
+
+                            stairs.type = pStairsFile[i][0];
+
+                            stairs.begin = pStairsFile[i][1];
+                            stairs.end = pStairsFile[i][2];
+
+                            stairs.direction = pStairsFile[i][3];
+                            stairs.barsCount = pStairsFile[i][4];
+                            stairs.firstAmount = pStairsFile[i][5];
+                            stairs.lastAmount = pStairsFile[i][6];
+
+                            if (datetime.valueOf() >= stairs.begin && datetime.valueOf() <= stairs.end) {
+
+                                stairsMap.set(pPeriodName, stairs);
+
+                            }
+                        }
+
+                        counter++;
+
+                        if (counter === stairsFiles.size) {
+
+                            businessLogic(stairsMap);
+
+                        }
+                    }
+                }
             }
 
-            function forecast() {
+            function getFile(pFileService, pFileName, pFilePath, pPeriodName, pDatetime, callBackFunction) {
+
+                pFileName = pFileName.replace("@AssetA", market.assetA);
+                pFileName = pFileName.replace("@AssetB", market.assetB);
+
+                pFilePath = pFilePath.replace("@Exchange", EXCHANGE_NAME);
+                pFilePath = pFilePath.replace("@Period", pPeriodName);
+
+                if (pDatetime !== undefined) {
+
+                    pFilePath = pFilePath.replace("@Year", pDatetime.getUTCFullYear());
+                    pFilePath = pFilePath.replace("@Month", pad(pDatetime.getUTCMonth() + 1, 2));
+                    pFilePath = pFilePath.replace("@Day", pad(pDatetime.getUTCDate(), 2));
+
+                }
+
+                pFileService.getFileToText('data', pFilePath, pFileName, undefined, onFileReceived);
+
+                function onFileReceived(err, text, response) {
+
+                    let data;
+
+                    if (err) {
+
+                        data = JSON.parse("[]");
+
+                    } else {
+
+                        try {
+
+                            data = JSON.parse(text);
+
+                        } catch (err) {
+
+                            data = JSON.parse("[]");
+
+                        }
+                    }
+
+                    callBackFunction(data);
+
+                }
+            }
+
+            function businessLogic(pStairsMap) {
 
                 /*
 
-                We will make a forecast using the input data. The forcast is then going to be used to make trading decitions.
+                This bot will trade at the 10 min Time Period, receive an investment in BTC and will try to produce profits in BTC as well.
+                So we will produce the best posible strategy using only stairs pattern so as to have a working example. To simplify this
+                first bot, we will also use all the available balance at once. That means that we will have at most one open position at the same
+                time.
+
+                First thing we need to know is to see where we are:
+
+                Do we have open positions?
+
+                If not, shall we create one?
+                If yes, shall we move them?
 
                 */
 
+                if (executionContext.positions > 0) {
+
+                    if (executionContext.positions[0].type === "buy") {
+
+                        validateBuyPosition();
+
+                    } else {
+
+                        validateSellPosition();
+
+                    }
+
+                } else {
+
+                    /*
+
+                    This bot is expected to always have an open position, either buy or sell. If it does not have one, that means that it is
+                    running for the first time. In which case, we will create one sell position at a very high price. Later, once the bot executes
+                    again, it will take it and move it to a reasonable place and monitore it during each execution round.
+
+                    */
+
+
+
+                }
             }
 
-            function decideWhatToDo() {
+            function putPositionAtExchange(pType, pRate, pAmountA, pAmountB) {
 
 
-            }
-
-            function putPositionsAtExchange() {
 
 
+
+
+
+
+
+                let position = {
+                    id: exchangeResponse[i].orderNumber,
+                    type: pType,
+                    rate: pRate,
+                    amountA: pAmountA,
+                    amountB: pAmountB,
+                    date: (new Date().valueOf()
+                };
+
+                executionContext.positions.push(position);
             }
 
             function writeBotPositions() {

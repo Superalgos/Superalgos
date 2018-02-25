@@ -30,7 +30,8 @@ function onContent (error, result) {
 return;
 */
 
-
+let debugMode = false;
+let githubPages = new Map;
 
 //'use strict';
 var http = require('http');
@@ -48,32 +49,47 @@ function onRequestReceivedFromBrowser(request, response) {
 
         case "AAMasters":
             {
-                /*
-                const octokit = require('@octokit/rest')()
-                global.atob = require("atob");
 
-                let owner = requestParameters[1];
-                let repo = requestParameters[2] + "-Plotter";
-                let branch = "master";
-                let page = 1;
-                let per_page = 100;
-                let ref = "master";
-                let path = requestParameters[3];
+                if (debugMode === true) {
 
-                octokit.repos.getContent({ owner, repo, path, ref }, onContent);
+                    respondWithFile('../' + requestParameters[2] + "-Plotter" + '/' + requestParameters[3], response);
 
-                function onContent(error, result) {
+                } else {
 
-                    let decoded = atob(result.data.content);
+                    let cacheVersion = githubPages.get(requestParameters[1] + requestParameters[2] + requestParameters[3])
 
-                    respondWithContent(decoded.substring(3), response);  // Eliminate first 2 bytes of noise.
+                    if (cacheVersion !== undefined) {
 
+                        respondWithContent(cacheVersion, response);
+
+                    } else {
+
+                        const octokit = require('@octokit/rest')()
+                        global.atob = require("atob");
+
+                        let owner = requestParameters[1];
+                        let repo = requestParameters[2] + "-Plotter";
+                        let branch = "master";
+                        let page = 1;
+                        let per_page = 100;
+                        let ref = "master";
+                        let path = requestParameters[3];
+
+                        octokit.repos.getContent({ owner, repo, path, ref }, onContent);
+
+                        function onContent(error, result) {
+
+                            let decoded = atob(result.data.content);
+
+                            let cleanString = decoded.substring(3); // Eliminate first 2 bytes of noise.
+
+                            respondWithContent(cleanString, response);
+
+                            githubPages.set(requestParameters[1] + requestParameters[2] + requestParameters[3], cleanString);
+
+                        }
+                    }
                 }
-                */
-
-
-                respondWithFile('../' + requestParameters[2] + "-Plotter" + '/' + requestParameters[3], response);
-
             }
             break; 
 

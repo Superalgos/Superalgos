@@ -212,7 +212,7 @@ function newEcosystem() {
                                     displayName: "Market Candle-Stairs per Period",
                                     description: "A set of files per period that contains all candle-stairs of one whole market.",
                                     storageAccount: "aatom",
-                                    filePath: "@Exchange/Tom/dataSet.V1/Output/CandleStairs/Multi-Period-Market/@Period",
+                                    filePath: "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period",
                                     fileName: "@AssetA_@AssetB.json",
                                     exchangeList: {
                                         exchange: [{
@@ -272,7 +272,7 @@ function newEcosystem() {
                                         displayName: "Daily Candle-Stairs per Period",
                                         description: "A set of files per period that contains all candle-stairs of one whole market.",
                                         storageAccount: "aatom",
-                                        filePath: "@Exchange/Tom/dataSet.V1/Output/CandleStairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                                        filePath: "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
                                         fileName: "@AssetA_@AssetB.json",
                                         exchangeList: {
                                             exchange: [{

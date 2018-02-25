@@ -5,5 +5,9 @@
   "main": "server.js",
   "author": {
     "name": "Luis"
+  },
+  "dependencies": {
+    "atob": "^2.0.3",
+    "octokit": "^0.10.4"
   }
 }

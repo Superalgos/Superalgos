@@ -64,7 +64,7 @@ function onRequestReceivedFromBrowser(request, response) {
 
                     } else {
 
-                        const octokit = require('@octokit/rest')()
+                        const octokit = require('octokit/rest')()
                         global.atob = require("atob");
 
                         let owner = requestParameters[1];

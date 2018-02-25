@@ -7,6 +7,7 @@
     "name": "Luis"
   },
   "dependencies": {
+    "@octokit/rest": "^14.0.9",
     "atob": "^2.0.3",
     "octokit": "^0.10.4"
   }

@@ -109,12 +109,6 @@ function newDailyFilesCursor() {
 
                     callBackFunction();
 
-                    if (marketId === INITIAL_DEFAULT_MARKET) {  // This is when we dont need a splash screen anymore!
-
-                        splashScreenNeeded = false;
-
-                    } 
-
                 }
 
             }

@@ -62,8 +62,8 @@ function newSplashScreen() {
 
         splashScreen.container.frame.draw(false, false);
 
-        let label = '' + stepsInitializationCounter  + ' %';
-        stepsInitializationCounter++;
+        let label = '' + Math.trunc(stepsInitializationCounter)  + ' %';
+        stepsInitializationCounter = stepsInitializationCounter + 0.3;
 
         if (stepsInitializationCounter > 99) { stepsInitializationCounter = 99;}
 

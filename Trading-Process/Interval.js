@@ -163,6 +163,7 @@
             let executionContext;                       // Here is the information of the last execution of this bot process.
 
             let processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
+            processDatetime = new Date(processDatetime.valueOf() - 30 * 24 * 60 * 60 * 1000); // we go 30 days back in time since candles are currently not up to date.
 
             /*
 
@@ -182,8 +183,8 @@
             let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
             let openPositions = [];         // These are the open positions the bot knows it made by itself. 
 
-            let candlesMap;                 // This bot will look only at the last 10 candles for each Time Period and they will be stored here.
-            let stairsMap;                  // This bot will use this pattern. Here we will store the pattern we are in for each Time Period.
+            let candlesMap = new Map;       // This bot will look only at the last 10 candles for each Time Period and they will be stored here.
+            let stairsMap = new Map;        // This bot will use this pattern. Here we will store the pattern we are in for each Time Period.
 
 
             let apiKey = readApiKey();
@@ -454,7 +455,7 @@
                     transactions: []
                 };
 
-                getPatterns();
+                getCandles();
 
             }
 
@@ -797,6 +798,8 @@
 
                 let candlesFiles = new Map;
 
+                getMarketFiles();
+
                 function getMarketFiles() {
 
                     /* Now we will get the market files */
@@ -812,7 +815,7 @@
 
                             candlesFiles.set(periodName, file);
 
-                            if (files.size === marketFilesPeriods.length) {
+                            if (candlesFiles.size === marketFilesPeriods.length) {
 
                                 getDailyFiles();
 
@@ -834,7 +837,7 @@
 
                             candlesFiles.set(periodName, file);
 
-                            if (files.size === dailyFilePeriods.length + marketFilesPeriods.length) {
+                            if (candlesFiles.size === dailyFilePeriods.length + marketFilesPeriods.length) {
 
                                 getCandlesWeAreIn();
 
@@ -847,13 +850,13 @@
 
                     let counter = 0;
 
-                    candlesFiles.forEach(getCurrentStairs);
+                    candlesFiles.forEach(getCurrentCandles);
 
-                    function getCurrentStairs(pStairsFile, pPeriodName, map) {
+                    function getCurrentCandles(pCandlesFile, pPeriodName, map) {
 
                         let candlesArray = [];
 
-                        for (i = 0; i < pStairsFile.length; i++) {
+                        for (i = 0; i < pCandlesFile.length; i++) {
 
                             let candle = {
                                 open: undefined,
@@ -865,14 +868,14 @@
                                 direction: undefined
                             };
 
-                            candle.min = dailyFile[i][0];
-                            candle.max = dailyFile[i][1];
+                            candle.min = pCandlesFile[i][0];
+                            candle.max = pCandlesFile[i][1];
 
-                            candle.open = dailyFile[i][2];
-                            candle.close = dailyFile[i][3];
+                            candle.open = pCandlesFile[i][2];
+                            candle.close = pCandlesFile[i][3];
 
-                            candle.begin = dailyFile[i][4];
-                            candle.end = dailyFile[i][5];
+                            candle.begin = pCandlesFile[i][4];
+                            candle.end = pCandlesFile[i][5];
 
                             if (candle.open > candle.close) { candle.direction = 'down'; }
                             if (candle.open < candle.close) { candle.direction = 'up'; }
@@ -880,9 +883,9 @@
 
                             /* We are going to store the last 10 candles per period, which will give the bot a good sense of where it is. */
 
-                            let periodTime = stairs.end - stairs.ebeginnd + 1; // In miliseconds. (remember each candle spans a period minus one milisecond)
+                            let timePeriod = candle.end - candle.begin + 1; // In miliseconds. (remember each candle spans a period minus one milisecond)
 
-                            if (processDatetime.valueOf() >= stairs.begin - periodTime * 10 && processDatetime.valueOf() <= stairs.end) {
+                            if (candle.begin >= processDatetime.valueOf() - timePeriod * 10 && candle.end <= processDatetime.valueOf()) {
 
                                 candlesArray.push(candle);
 
@@ -913,6 +916,8 @@
 
                 let stairsFiles = new Map;
 
+                getMarketFiles();
+
                 function getMarketFiles() {
 
                     /* Now we will get the market files */
@@ -930,7 +935,7 @@
 
                                 stairsFiles.set(periodName, file);
 
-                                if (files.size === marketFilesPeriods.length) {
+                                if (stairsFiles.size === marketFilesPeriods.length) {
 
                                     getDailyFiles();
 
@@ -953,7 +958,7 @@
 
                             stairsFiles.set(periodName, file);
 
-                            if (files.size === dailyFilePeriods.length + marketFilesPeriods.length) {
+                            if (stairsFiles.size === dailyFilePeriods.length + marketFilesPeriods.length) {
 
                                 getStairsWeAreIn();
 
@@ -1022,32 +1027,25 @@
                 if (pDatetime !== undefined) {
 
                     pFilePath = pFilePath.replace("@Year", pDatetime.getUTCFullYear());
-                    pFilePath = pFilePath.replace("@Month", pad(pDatetime.getUTCMonth() + 1, 2));
-                    pFilePath = pFilePath.replace("@Day", pad(pDatetime.getUTCDate(), 2));
+                    pFilePath = pFilePath.replace("@Month", utilities.pad(pDatetime.getUTCMonth() + 1, 2));
+                    pFilePath = pFilePath.replace("@Day", utilities.pad(pDatetime.getUTCDate(), 2));
 
                 }
 
-                pFileService.getFileToText('data', pFilePath, pFileName, undefined, onFileReceived);
+                pFileService.getTextFile(pFilePath, pFileName, onFileReceived);
 
-                function onFileReceived(err, text, response) {
+                function onFileReceived(text) {
 
                     let data;
 
-                    if (err) {
+                    try {
+
+                        data = JSON.parse(text);
+
+                    } catch (err) {
 
                         data = JSON.parse("[]");
 
-                    } else {
-
-                        try {
-
-                            data = JSON.parse(text);
-
-                        } catch (err) {
-
-                            data = JSON.parse("[]");
-
-                        }
                     }
 
                     callBackFunction(data);

@@ -1,15 +1,15 @@
 {
   "bot": {
     "name": "Mariam",
-    "type": "Indicator",
+    "type": "Trading",
     "version": "1.0.0",
     "devTeam": "AA Masters",
     "dataSetVersion": "dataSet.V1"
   },
   "processes": [
     {
-      "name": "Trading-With-Stairs",
-      "description": "Trading strategy based on candle and volume stairs patterns.",
+      "name": "Trading-Process",
+      "description": "Simple trading strategy to be used as a template.",
       "startMode": {
         "allMonths": {
           "run": "false",

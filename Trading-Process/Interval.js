@@ -401,8 +401,6 @@
 
                     function onFileReceived(text) {
 
-                        let statusReport;
-
                         try {
 
                             executionContext = JSON.parse(text);
@@ -1286,10 +1284,10 @@
                     try {
 
                         let fileName = "Execution.Context.json"
-                        let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes, 2);
+                        let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes(), 2);
                         let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
-                        utilities.createFolderIfNeeded(reportFilePath, mariamAzureFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, mariamAzureFileStorage, onFolderCreated);
 
                         function onFolderCreated() {
 
@@ -1297,7 +1295,7 @@
 
                                 let fileContent = JSON.stringify(executionContext);
 
-                                oliviaAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+                                mariamAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                                 function onFileCreated() {
 
@@ -1332,7 +1330,7 @@
                         let fileName = "Execution.History.json"
                         let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
 
-                        utilities.createFolderIfNeeded(reportFilePath, mariamAzureFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, mariamAzureFileStorage, onFolderCreated);
 
                         function onFolderCreated() {
 
@@ -1342,7 +1340,7 @@
 
                                 let fileContent = JSON.stringify(executionHistory);
 
-                                oliviaAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+                                mariamAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                                 function onFileCreated() {
 
@@ -1377,7 +1375,7 @@
                         let fileName = "Status.Report.json"
                         let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
 
-                        utilities.createFolderIfNeeded(reportFilePath, mariamAzureFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, mariamAzureFileStorage, onFolderCreated);
 
                         function onFolderCreated() {
 
@@ -1387,7 +1385,7 @@
 
                                 let fileContent = JSON.stringify(statusReport);
 
-                                oliviaAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+                                mariamAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                                 function onFileCreated() {
 

@@ -395,7 +395,7 @@
                 function getExecutionContext() {
 
                     let fileName = "Execution.Context.json"
-                    let dateForPath = statusReport.lastExecution.year + '/' + utilities.pad(statusReport.lastExecution.month, 2) + '/' + utilities.pad(statusReport.lastExecution.day, 2) + '/' + utilities.pad(statusReport.lastExecution.hours, 2) + '/' + utilities.pad(statusReport.lastExecution.minutes, 2));
+                    let dateForPath = statusReport.lastExecution.year + '/' + utilities.pad(statusReport.lastExecution.month, 2) + '/' + utilities.pad(statusReport.lastExecution.day, 2) + '/' + utilities.pad(statusReport.lastExecution.hours, 2) + '/' + utilities.pad(statusReport.lastExecution.minutes, 2);
                     let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
                     mariamAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
@@ -1280,7 +1280,7 @@
                     try {
 
                         let fileName = "Execution.Context.json"
-                        let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes, 2));
+                        let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes, 2);
                         let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
                         utilities.createFolderIfNeeded(reportFilePath, mariamAzureFileStorage, onFolderCreated);

@@ -329,8 +329,6 @@
 
                     function onFileReceived(text) {
 
-                        let statusReport;
-
                         try {
 
                             statusReport = JSON.parse(text);
@@ -371,8 +369,6 @@
 
                     function onFileReceived(text) {
 
-                        let statusReport;
-
                         try {
 
                             executionHistory = JSON.parse(text);
@@ -410,7 +406,7 @@
                         try {
 
                             executionContext = JSON.parse(text);
-                            onsistencyCheck();
+                            ordersExecutionCheck();
 
                         } catch (err) {
 
@@ -831,7 +827,7 @@
                         let periodTime = dailyFilePeriods[i][0];
                         let periodName = dailyFilePeriods[i][1];
 
-                        getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, processDatetime, onFileReceived);
+                        getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, processDatetime, onFileReceived);
 
                         function onFileReceived(file) {
 
@@ -927,19 +923,16 @@
                         let periodTime = marketFilesPeriods[i][0];
                         let periodName = marketFilesPeriods[i][1];
 
-                        if (layer.validPeriods.includes(periodName) === true) {
+                        getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period", periodName, undefined, onFileReceived);
 
-                            getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period", periodName, undefined, onFileReceived);
+                        function onFileReceived(file) {
 
-                            function onFileReceived(file) {
+                            stairsFiles.set(periodName, file);
 
-                                stairsFiles.set(periodName, file);
+                            if (stairsFiles.size === marketFilesPeriods.length) {
 
-                                if (stairsFiles.size === marketFilesPeriods.length) {
+                                getDailyFiles();
 
-                                    getDailyFiles();
-
-                                }
                             }
                         }
                     }
@@ -978,24 +971,37 @@
                         for (i = 0; i < pStairsFile.length; i++) {
 
                             let stairs = {
-                                type: undefined,
+                                open: undefined,
+                                close: undefined,
+                                min: 10000000000000,
+                                max: 0,
                                 begin: undefined,
                                 end: undefined,
                                 direction: undefined,
-                                barsCount: 0,
-                                firstAmount: 0,
-                                lastAmount: 0
+                                candleCount: 0,
+                                firstMin: 0,
+                                firstMax: 0,
+                                lastMin: 0,
+                                lastMax: 0
                             };
 
-                            stairs.type = pStairsFile[i][0];
+                            stairs.open = pStairsFile[i][0];
+                            stairs.close = pStairsFile[i][1];
 
-                            stairs.begin = pStairsFile[i][1];
-                            stairs.end = pStairsFile[i][2];
+                            stairs.min = pStairsFile[i][2];
+                            stairs.max = pStairsFile[i][3];
 
-                            stairs.direction = pStairsFile[i][3];
-                            stairs.barsCount = pStairsFile[i][4];
-                            stairs.firstAmount = pStairsFile[i][5];
-                            stairs.lastAmount = pStairsFile[i][6];
+                            stairs.begin = pStairsFile[i][4];
+                            stairs.end = pStairsFile[i][5];
+
+                            stairs.direction = pStairsFile[i][6];
+                            stairs.candleCount = pStairsFile[i][7];
+
+                            stairs.firstMin = pStairsFile[i][8];
+                            stairs.firstMax = pStairsFile[i][9];
+
+                            stairs.lastMin = pStairsFile[i][10];
+                            stairs.lastMax = pStairsFile[i][11];
 
                             if (processDatetime.valueOf() >= stairs.begin && processDatetime.valueOf() <= stairs.end) {
 
@@ -1071,7 +1077,7 @@
 
                 */
 
-                if (executionContext.positions > 0) {
+                if (executionContext.positions.length > 0) {
 
                     if (executionContext.positions[0].type === "buy") {
 

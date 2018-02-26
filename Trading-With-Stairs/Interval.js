@@ -158,16 +158,32 @@
 
             */
 
-            let statusReport;           // 
-            let executionHistory;       // This is 
-            let executionContext;       // Here is the information of the last execution of this bot process.
+            let statusReport;                           // This is the typical Status Report that defines which was the last sucessfull execution and a few other pieces of info.
+            let executionHistory;                       // This is 
+            let executionContext;                       // Here is the information of the last execution of this bot process.
 
+            let processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
-            let exchangePositions = [];
-            let openPositions = [];
+            /*
 
-            let candlesMap;              // This bot will look only at the last 10 candles for each Time Period and they will be stored here.
-            let stairsMap;              // This bot will use this pattern. Here we will store the pattern we are in for each Time Period.
+            During the process we will create a new History Record. This will go to the Context History file which essentially mantains an
+            index of all the bots executions. This file will later be plotted by the bot s plotter on the timeline, allowing end users to
+            know where there is information related to the actions taken by the bot.
+
+            */
+
+            let newHistoryRecord = {
+                date: processDatetime,
+                rate: undefined,            // This will be used to know where to plot this information in the time line. 
+                newPositions: 0,
+                newTrades: 0
+            };
+
+            let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
+            let openPositions = [];         // These are the open positions the bot knows it made by itself. 
+
+            let candlesMap;                 // This bot will look only at the last 10 candles for each Time Period and they will be stored here.
+            let stairsMap;                  // This bot will use this pattern. Here we will store the pattern we are in for each Time Period.
 
 
             let apiKey = readApiKey();
@@ -236,7 +252,6 @@
 
                                         const logText = "[ERROR] onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
                                         logger.write(logText);
-                                        closeMarket();
                                         return;
                                     }
                                 }
@@ -280,7 +295,7 @@
                                 exchangePositions.push(openPosition);
                             }
 
-                            getCloudFiles();
+                            readStatusAndContext();
                         }
                     }
                     catch (err) {
@@ -291,7 +306,7 @@
                 }
             }
 
-            function getCloudFiles() {
+            function readStatusAndContext() {
 
                 /*
 
@@ -319,7 +334,7 @@
 
                             if (statusReport.lastExecution === undefined) {
 
-                                createCloudFiles();
+                                createConext();
 
                             } else {
 
@@ -404,7 +419,7 @@
 
                             */
 
-                            const logText = "[ERROR] 'getStatusReport' - Bot cannot execute without a status report. ERROR : " + err.message;
+                            const logText = "[ERROR] 'getExecutionContext' - Bot cannot execute without the Execution Context. ERROR : " + err.message;
                             logger.write(logText);
 
                         }
@@ -413,7 +428,7 @@
 
             }
 
-            function createCloudFiles() {
+            function createConext() {
 
                 /*
 
@@ -706,7 +721,6 @@
 
                                         const logText = "[ERROR] onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
                                         logger.write(logText);
-                                        closeMarket();
                                         return;
                                     }
                                 }
@@ -790,19 +804,16 @@
                         let periodTime = marketFilesPeriods[i][0];
                         let periodName = marketFilesPeriods[i][1];
 
-                        if (layer.validPeriods.includes(periodName) === true) {
+                        getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Market/@Period", periodName, undefined, onFileReceived);
 
-                            getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Market/@Period", periodName, undefined, onFileReceived);
+                        function onFileReceived(file) {
 
-                            function onFileReceived(file) {
+                            candlesFiles.set(periodName, file);
 
-                                candlesFiles.set(periodName, file);
+                            if (files.size === marketFilesPeriods.length) {
 
-                                if (files.size === marketFilesPeriods.length) {
+                                getDailyFiles();
 
-                                    getDailyFiles();
-
-                                }
                             }
                         }
                     }
@@ -815,21 +826,16 @@
                         let periodTime = dailyFilePeriods[i][0];
                         let periodName = dailyFilePeriods[i][1];
 
-                        if (layer.validPeriods.includes(periodName) === true) {
+                        getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, processDatetime, onFileReceived);
 
-                            let datetime = new Date();
+                        function onFileReceived(file) {
 
-                            getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, datetime, onFileReceived);
+                            candlesFiles.set(periodName, file);
 
-                            function onFileReceived(file) {
+                            if (files.size === dailyFilePeriods.length + marketFilesPeriods.length) {
 
-                                candlesFiles.set(periodName, file);
+                                getCandlesWeAreIn();
 
-                                if (files.size === dailyFilePeriods.length + marketFilesPeriods.length) {
-
-                                    getCandlesWeAreIn();
-
-                                }
                             }
                         }
                     }
@@ -837,7 +843,6 @@
 
                 function getCandlesWeAreIn() {
 
-                    let datetime = new Date();
                     let counter = 0;
 
                     candlesFiles.forEach(getCurrentStairs);
@@ -848,31 +853,34 @@
 
                         for (i = 0; i < pStairsFile.length; i++) {
 
-                            let stairs = {
-                                type: undefined,
+                            let candle = {
+                                open: undefined,
+                                close: undefined,
+                                min: 10000000000000,
+                                max: 0,
                                 begin: undefined,
                                 end: undefined,
-                                direction: undefined,
-                                barsCount: 0,
-                                firstAmount: 0,
-                                lastAmount: 0
+                                direction: undefined
                             };
 
-                            stairs.type = pStairsFile[i][0];
+                            candle.min = dailyFile[i][0];
+                            candle.max = dailyFile[i][1];
 
-                            stairs.begin = pStairsFile[i][1];
-                            stairs.end = pStairsFile[i][2];
+                            candle.open = dailyFile[i][2];
+                            candle.close = dailyFile[i][3];
 
-                            stairs.direction = pStairsFile[i][3];
-                            stairs.barsCount = pStairsFile[i][4];
-                            stairs.firstAmount = pStairsFile[i][5];
-                            stairs.lastAmount = pStairsFile[i][6];
+                            candle.begin = dailyFile[i][4];
+                            candle.end = dailyFile[i][5];
+
+                            if (candle.open > candle.close) { candle.direction = 'down'; }
+                            if (candle.open < candle.close) { candle.direction = 'up'; }
+                            if (candle.open === candle.close) { candle.direction = 'side'; }
 
                             /* We are going to store the last 10 candles per period, which will give the bot a good sense of where it is. */
 
                             let periodTime = stairs.end - stairs.ebeginnd + 1; // In miliseconds. (remember each candle spans a period minus one milisecond)
 
-                            if (datetime.valueOf() >= stairs.begin - periodTime * 10  && datetime.valueOf() <= stairs.end) {
+                            if (processDatetime.valueOf() >= stairs.begin - periodTime * 10 && processDatetime.valueOf() <= stairs.end) {
 
                                 candlesArray.push(candle);
 
@@ -937,21 +945,16 @@
                         let periodTime = dailyFilePeriods[i][0];
                         let periodName = dailyFilePeriods[i][1];
 
-                        if (layer.validPeriods.includes(periodName) === true) {
+                        getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, processDatetime, onFileReceived);
 
-                            let datetime = new Date();
+                        function onFileReceived(file) {
 
-                            getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, datetime, onFileReceived);
+                            stairsFiles.set(periodName, file);
 
-                            function onFileReceived(file) {
+                            if (files.size === dailyFilePeriods.length + marketFilesPeriods.length) {
 
-                                stairsFiles.set(periodName, file);
+                                getStairsWeAreIn();
 
-                                if (files.size === dailyFilePeriods.length + marketFilesPeriods.length) {
-
-                                    getStairsWeAreIn();
-
-                                }
                             }
                         }
                     }
@@ -959,7 +962,6 @@
 
                 function getStairsWeAreIn() {
 
-                    let datetime = new Date();
                     let counter = 0;
 
                     stairsFiles.forEach(getCurrentStairs);
@@ -988,7 +990,7 @@
                             stairs.firstAmount = pStairsFile[i][5];
                             stairs.lastAmount = pStairsFile[i][6];
 
-                            if (datetime.valueOf() >= stairs.begin && datetime.valueOf() <= stairs.end) {
+                            if (processDatetime.valueOf() >= stairs.begin && processDatetime.valueOf() <= stairs.end) {
 
                                 stairsMap.set(pPeriodName, stairs);
 
@@ -1051,7 +1053,7 @@
                 }
             }
 
-            function businessLogic(pStairsMap) {
+            function businessLogic() {
 
                 /*
 
@@ -1087,43 +1089,324 @@
 
                     This bot is expected to always have an open position, either buy or sell. If it does not have one, that means that it is
                     running for the first time. In which case, we will create one sell position at a very high price. Later, once the bot executes
-                    again, it will take it and move it to a reasonable place and monitore it during each execution round.
+                    again, it will take it and move it to a reasonable place and monitor it during each execution round.
+
+                    Lets see first which is the current price.
 
                     */
 
+                    let candleArray = candlesMap.get("01-min");
+                    let candle = candleArray[candleArray.length - 1]; // The last candle of the 10 candles array for the 1 min Time Period.
+
+                    let currentRate = candle.close;
+
+                    /* Now we verify that this candle is not too old. Lets say no more than 5 minutes old. */
+
+                    if (candle.begin < processDatetime.valueOf() - 5 * 60 * 1000) {
+
+                        const logText = "[WARN] businessLogic - Last one min candle more than 5 minutes old. Bot cannot operate with this delay. Retrying later." ;
+                        logger.write(logText);
+
+                        /* We abort the process and request a new execution at the configured amount of time. */
+
+                        callBackFunction(true, nextIntervalLapse);
+                        return;
+
+                    }
+
+                    /*
+
+                    As we just want to create the first order now and we do not want this order to get executed, we will put it at
+                    the +50% of current exchange rate. Next Bot execution will move it strategically.
+
+                    */
+
+                    let rate = candle.close * 1.50;
+
+                    /*
+
+                    The Status Report contains the main parameters for the bot, which are:
+
+                    Which is the amount of each Asset the bot is authorized to start with. If the bots gets profits, it might use the profits
+                    to trade as well.
+
+                    Which asset is the one which profits should be accumulated. That is the base Asset, where the bot is standing while not
+                    trading. In the case of this simple bot, its base asset will be BTC.
+
+                    */
+
+                    let AmountA = statusReport.initialBalance.amountA;
+                    let AmountB = statusReport.initialBalance.amountB;
+
+                    /* We are going to sell all AmountB */
+
+                    AmountA = AmountB * rate;
+
+                    putPositionAtExchange("sell", rate, AmountA, AmountB, writeStatusAndContext);
+
+                }
+
+                function validateBuyPosition() {
 
 
                 }
+
+                function validateSellPosition() {
+
+
+                }
+
             }
 
-            function putPositionAtExchange(pType, pRate, pAmountA, pAmountB) {
+            function putPositionAtExchange(pType, pRate, pAmountA, pAmountB, callBackFunction) {
+
+                if (pType === "buy") {
+
+                    poloniexApiClient.buy(market.assetA, market.assetB, pRate, pAmountB, onExchangeCallReturned);
+
+                } else {
+
+                    poloniexApiClient.sell(market.assetA, market.assetB, pRate, pAmountB, onExchangeCallReturned);
+
+                }
+
+                function onExchangeCallReturned(err, exchangeResponse) {
+
+                    try {
+
+                        if (err || exchangeResponse.error !== undefined) {
+                            try {
+
+                                if (err.message.indexOf("ETIMEDOUT") > 0) {
+
+                                    const logText = "[WARN] onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
+                                    logger.write(logText);
+
+                                    /* We abort the process and request a new execution at the configured amount of time. */
+
+                                    callBackFunction(true, nextIntervalLapse);
+                                    return;
+
+                                } else {
+
+                                    if (err.message.indexOf("ECONNRESET") > 0) {
+
+                                        const logText = "[WARN] onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
+                                        logger.write(logText);
+
+                                        /* We abort the process and request a new execution at the configured amount of time. */
+
+                                        callBackFunction(true, nextIntervalLapse);
+                                        return;
+
+                                    } else {
 
 
+                                        const logText = "[ERROR] onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
+                                        logger.write(logText);
+                                        return;
+                                    }
+                                }
 
+                            } catch (err) {
+                                const logText = "[ERROR] onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
+                                logger.write(logText);
+                                return;
+                            }
 
+                            return;
 
+                        } else {
 
+                            /*
 
+                            This is what we can receive from the exchange. We will ignore the trades list for now, and analize
+                            what happened at the next bot execution. 
 
+                            {
+                            "orderNumber":31226040,
+                            "resultingTrades":
+                                [{
+                                    "amount":"338.8732",
+                                    "date":"2014-10-18 23:03:21",
+                                    "rate":"0.00000173",
+                                    "total":"0.00058625",
+                                    "tradeID":"16164",
+                                    "type":"buy"
+                                }]
+                            }
 
-                let position = {
-                    id: exchangeResponse[i].orderNumber,
-                    type: pType,
-                    rate: pRate,
-                    amountA: pAmountA,
-                    amountB: pAmountB,
-                    date: (new Date().valueOf()
-                };
+                            */
 
-                executionContext.positions.push(position);
+                            /*
+
+                            We will add this new position to the executionContext.
+
+                            */
+
+                            let position = {
+                                id: exchangeResponse.orderNumber,
+                                type: pType,
+                                rate: pRate,
+                                amountA: pAmountA,
+                                amountB: pAmountB,
+                                date: (processDatetime.valueOf())
+                                };
+
+                            executionContext.positions.push(position);
+
+                            callBackFunction();
+                        }
+                    }
+                    catch (err) {
+                        const logText = "[ERROR] 'onExchangeCallReturned' - ERROR : " + err.message;
+                        logger.write(logText);
+
+                    }
+                }
+
             }
 
-            function writeBotPositions() {
+            function writeStatusAndContext() {
 
+                writeExecutionContext();
 
+                function writeExecutionContext() {
+
+                    if (LOG_INFO === true) {
+                        logger.write("[INFO] Entering function 'writeExecutionContext'");
+                    }
+
+                    try {
+
+                        let fileName = "Execution.Context.json"
+                        let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes, 2));
+                        let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
+
+                        utilities.createFolderIfNeeded(reportFilePath, mariamAzureFileStorage, onFolderCreated);
+
+                        function onFolderCreated() {
+
+                            try {
+
+                                let fileContent = JSON.stringify(executionContext);
+
+                                oliviaAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+
+                                function onFileCreated() {
+
+                                    if (LOG_INFO === true) {
+                                        logger.write("[INFO] 'writeExecutionContext' - Content written: " + fileContent);
+                                    }
+
+                                    writeExucutionHistory();
+                                }
+                            }
+                            catch (err) {
+                                const logText = "[ERROR] 'writeExecutionContext - onFolderCreated' - ERROR : " + err.message;
+                                logger.write(logText);
+                            }
+                        }
+
+                    }
+                    catch (err) {
+                        const logText = "[ERROR] 'writeExecutionContext' - ERROR : " + err.message;
+                        logger.write(logText);
+                    }
+                }
+
+                function writeExucutionHistory() {
+
+                    if (LOG_INFO === true) {
+                        logger.write("[INFO] Entering function 'writeExucutionHistory'");
+                    }
+
+                    try {
+
+                        let fileName = "Execution.History.json"
+                        let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
+
+                        utilities.createFolderIfNeeded(reportFilePath, mariamAzureFileStorage, onFolderCreated);
+
+                        function onFolderCreated() {
+
+                            try {
+
+                                executionHistory.push(newHistoryRecord);
+
+                                let fileContent = JSON.stringify(executionHistory);
+
+                                oliviaAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+
+                                function onFileCreated() {
+
+                                    if (LOG_INFO === true) {
+                                        logger.write("[INFO] 'writeExucutionHistory' - Content written: " + fileContent);
+                                    }
+
+                                    writeStatusReport();
+                                }
+                            }
+                            catch (err) {
+                                const logText = "[ERROR] 'writeExucutionHistory - onFolderCreated' - ERROR : " + err.message;
+                                logger.write(logText);
+                            }
+                        }
+
+                    }
+                    catch (err) {
+                        const logText = "[ERROR] 'writeExucutionHistory' - ERROR : " + err.message;
+                        logger.write(logText);
+                    }
+                }
+
+                function writeStatusReport() {
+
+                    if (LOG_INFO === true) {
+                        logger.write("[INFO] Entering function 'writeStatusReport'");
+                    }
+
+                    try {
+
+                        let fileName = "Status.Report.json"
+                        let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
+
+                        utilities.createFolderIfNeeded(reportFilePath, mariamAzureFileStorage, onFolderCreated);
+
+                        function onFolderCreated() {
+
+                            try {
+
+                                statusReport.lastExecution = processDatetime;
+
+                                let fileContent = JSON.stringify(statusReport);
+
+                                oliviaAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+
+                                function onFileCreated() {
+
+                                    if (LOG_INFO === true) {
+                                        logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
+                                    }
+
+                                    callBackFunction(true); // We tell the AA Platform that we request a regular execution and finish the bot s process.
+                                    return;
+                                }
+                            }
+                            catch (err) {
+                                const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
+                                logger.write(logText);
+                            }
+                        }
+
+                    }
+                    catch (err) {
+                        const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
+                        logger.write(logText);
+                    }
+                }
 
             } 
-
         }
         catch (err) {
             const logText = "[ERROR] 'Start' - ERROR : " + err.message;

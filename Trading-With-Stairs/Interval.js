@@ -166,6 +166,10 @@
             let exchangePositions = [];
             let openPositions = [];
 
+            let candlesMap;              // This bot will look only at the last 10 candles for each Time Period and they will be stored here.
+            let stairsMap;              // This bot will use this pattern. Here we will store the pattern we are in for each Time Period.
+
+
             let apiKey = readApiKey();
 
             let poloniexApiClient = new POLONIEX_CLIENT_MODULE(apiKey.Key, apiKey.Secret);
@@ -766,6 +770,128 @@
                 }
             }
 
+            function getCandles() {
+
+                /*
+
+                We will read several files with candles for the current day. We will use these files as an input
+                to make trading decitions later.
+
+                */
+
+                let candlesFiles = new Map;
+
+                function getMarketFiles() {
+
+                    /* Now we will get the market files */
+
+                    for (i = 0; i < marketFilesPeriods.length; i++) {
+
+                        let periodTime = marketFilesPeriods[i][0];
+                        let periodName = marketFilesPeriods[i][1];
+
+                        if (layer.validPeriods.includes(periodName) === true) {
+
+                            getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Market/@Period", periodName, undefined, onFileReceived);
+
+                            function onFileReceived(file) {
+
+                                candlesFiles.set(periodName, file);
+
+                                if (files.size === marketFilesPeriods.length) {
+
+                                    getDailyFiles();
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getDailyFiles() {
+
+                    for (i = 0; i < dailyFilePeriods.length; i++) {
+
+                        let periodTime = dailyFilePeriods[i][0];
+                        let periodName = dailyFilePeriods[i][1];
+
+                        if (layer.validPeriods.includes(periodName) === true) {
+
+                            let datetime = new Date();
+
+                            getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, datetime, onFileReceived);
+
+                            function onFileReceived(file) {
+
+                                candlesFiles.set(periodName, file);
+
+                                if (files.size === dailyFilePeriods.length + marketFilesPeriods.length) {
+
+                                    getCandlesWeAreIn();
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getCandlesWeAreIn() {
+
+                    let datetime = new Date();
+                    let counter = 0;
+
+                    candlesFiles.forEach(getCurrentStairs);
+
+                    function getCurrentStairs(pStairsFile, pPeriodName, map) {
+
+                        let candlesArray = [];
+
+                        for (i = 0; i < pStairsFile.length; i++) {
+
+                            let stairs = {
+                                type: undefined,
+                                begin: undefined,
+                                end: undefined,
+                                direction: undefined,
+                                barsCount: 0,
+                                firstAmount: 0,
+                                lastAmount: 0
+                            };
+
+                            stairs.type = pStairsFile[i][0];
+
+                            stairs.begin = pStairsFile[i][1];
+                            stairs.end = pStairsFile[i][2];
+
+                            stairs.direction = pStairsFile[i][3];
+                            stairs.barsCount = pStairsFile[i][4];
+                            stairs.firstAmount = pStairsFile[i][5];
+                            stairs.lastAmount = pStairsFile[i][6];
+
+                            /* We are going to store the last 10 candles per period, which will give the bot a good sense of where it is. */
+
+                            let periodTime = stairs.end - stairs.ebeginnd + 1; // In miliseconds. (remember each candle spans a period minus one milisecond)
+
+                            if (datetime.valueOf() >= stairs.begin - periodTime * 10  && datetime.valueOf() <= stairs.end) {
+
+                                candlesArray.push(candle);
+
+                            }
+                        }
+
+                        candlesMap.set(pPeriodName, candlesArray);
+
+                        counter++;
+
+                        if (counter === candlesFiles.size) {
+
+                            getPatterns();
+
+                        }
+                    }
+                }
+            }
+
             function getPatterns() {
 
                 /*
@@ -833,7 +959,6 @@
 
                 function getStairsWeAreIn() {
 
-                    let stairsMap = new Map;
                     let datetime = new Date();
                     let counter = 0;
 
@@ -874,11 +999,12 @@
 
                         if (counter === stairsFiles.size) {
 
-                            businessLogic(stairsMap);
+                            businessLogic();
 
                         }
                     }
                 }
+
             }
 
             function getFile(pFileService, pFileName, pFilePath, pPeriodName, pDatetime, callBackFunction) {

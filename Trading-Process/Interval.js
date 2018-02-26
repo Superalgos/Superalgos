@@ -315,6 +315,8 @@
 
                 */
 
+                getStatusReport();
+
                 function getStatusReport() {
 
                     /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
@@ -395,7 +397,7 @@
                 function getExecutionContext() {
 
                     let fileName = "Execution.Context.json"
-                    let dateForPath = statusReport.lastExecution.year + '/' + utilities.pad(statusReport.lastExecution.month, 2) + '/' + utilities.pad(statusReport.lastExecution.day, 2) + '/' + utilities.pad(statusReport.lastExecution.hours, 2) + '/' + utilities.pad(statusReport.lastExecution.minutes, 2);
+                    let dateForPath = statusReport.lastExecution.getUTCFullYear() + '/' + utilities.pad(statusReport.lastExecution.getUTCMonth(), 2) + '/' + utilities.pad(statusReport.lastExecution.getUTCDate(), 2) + '/' + utilities.pad(statusReport.lastExecution.getUTCHours(), 2) + '/' + utilities.pad(statusReport.lastExecution.getUTCMinutes(), 2);
                     let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
                     mariamAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);

@@ -16,4 +16,5 @@ Both the AAPlatform and AA Bots are programed in JavaScript.
 
 If you are interested in coding your own crypto trading bots and eventually participate in our competitions, this is how you can get started:
 
-* [Getting Started Guide](https://github.com/AdvancedAlgos/Documentation/wiki)
+* [Introduction](https://github.com/AdvancedAlgos/Documentation/wiki)
+* [Getting Started Guide](https://github.com/AdvancedAlgos/Documentation/wiki/Overview)

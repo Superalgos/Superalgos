@@ -191,7 +191,7 @@ function newTimelineChart() {
             layerAAMastersAATomCandleStairs.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAATomCandleStairs.container.frame.width / 2;
             layerAAMastersAATomCandleStairs.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAATomCandleStairs.container.frame.height / 2;
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
+            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.TOM_CANDLE_STAIRS);
 
             layerAAMastersAATomCandleStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onOliviaCandlesInitialized);
 
@@ -223,7 +223,7 @@ function newTimelineChart() {
             layerAAMastersAATomVolumeStairs.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAATomVolumeStairs.container.frame.width / 2;
             layerAAMastersAATomVolumeStairs.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAATomVolumeStairs.container.frame.height / 2;
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_VOLUMES);
+            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.TOM_VOLUME_STAIRS);
 
             layerAAMastersAATomVolumeStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onOliviaVolumeStairsInitialized);
 
@@ -236,6 +236,38 @@ function newTimelineChart() {
 
         }
 
+
+
+        /* AAMasters AAMariam Trading History */
+
+        let layerAAMastersAAMariamTradingHistory = newAAMastersAAMariamTradingHistory();
+
+        function loadVolumeStairs() {
+
+            layerAAMastersAAMariamTradingHistory.container.displacement.parentDisplacement = timelineChart.container.displacement;
+            layerAAMastersAAMariamTradingHistory.container.zoom.parentZoom = timelineChart.container.zoom;
+            layerAAMastersAAMariamTradingHistory.container.frame.parentFrame = timelineChart.container.frame;
+
+            layerAAMastersAAMariamTradingHistory.container.parentContainer = timelineChart.container;
+
+            layerAAMastersAAMariamTradingHistory.container.frame.width = timelineChart.container.frame.width * 1;
+            layerAAMastersAAMariamTradingHistory.container.frame.height = timelineChart.container.frame.height * 1;
+
+            layerAAMastersAAMariamTradingHistory.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAAMariamTradingHistory.container.frame.width / 2;
+            layerAAMastersAAMariamTradingHistory.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAAMariamTradingHistory.container.frame.height / 2;
+
+            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.MARIAM_TRADE_HISTORY);
+
+            layerAAMastersAAMariamTradingHistory.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onOliviaVolumeStairsInitialized);
+
+            function onOliviaVolumeStairsInitialized() {
+
+                addLayers();
+                splashScreenNeeded = false; // This is when we dont need a splash screen anymore!
+
+            }
+
+        }
 
 
 

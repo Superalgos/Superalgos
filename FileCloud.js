@@ -34,6 +34,8 @@ function newFileCloud() {
             filePath = filePath.replace("@Year", pDatetime.getUTCFullYear());
             filePath = filePath.replace("@Month", pad(pDatetime.getUTCMonth() + 1, 2));
             filePath = filePath.replace("@Day", pad(pDatetime.getUTCDate(), 2));
+            filePath = filePath.replace("@Hour", pad(pDatetime.getUTCHours(), 2));
+            filePath = filePath.replace("@Minute", pad(pDatetime.getUTCMinutes(), 2));
 
         }
 

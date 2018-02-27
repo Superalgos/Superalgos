@@ -355,6 +355,104 @@ function newEcosystem() {
                                 sas: '?sv=2017-04-17&ss=f&srt=sco&sp=r&se=2018-12-31T19:28:33Z&st=2018-02-22T11:28:33Z&spr=https&sig=YaprSp9zO%2Fsz0nPPWwPMqPACxZTnYhSWKApfun%2Bfez4%3D',
                                 fileUri: 'https://' + 'aatom' + '.file.core.windows.net'
                             }
+                        },
+                        {
+                            codeName: "AAMariam",
+                            displayName: "Mariam",
+                            type: "Trading",
+                            version: {
+                                number: "1.0.0",
+                                status: "Mantained", // Discontinued
+                            },
+                            products: {
+                                product: [{
+                                    codeName: "Trading History",
+                                    displayName: "Mariam Trading History",
+                                    description: "General information about Mariam trading history.",
+                                    storageAccount: "aamariam",
+                                    filePath: "@Exchange/Mariam/dataSet.V1/Output/Trading-Process",
+                                    fileName: "Execution.History.json",
+                                    exchangeList: {
+                                        exchange: [{
+                                            name: "Poloniex",
+                                            datetimeRange: {
+                                                minDatetime: "2017-02-19 19:15:00.000 GMT+0000",
+                                                maxDatetime: "2018-02-13 10:10:00.000 GMT+0000"
+                                            }
+                                        }]
+                                    },
+                                    layers: {
+                                        layer: [{
+                                            codeName: "Trading History",
+                                            displayName: "Mariam Trading History",
+                                            exchangeList: ["Poloniex"],
+                                            validPeriods: ["24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs"],
+                                            plotter: {
+                                                devTeam: "AAMasters",
+                                                repo: "AAMariam-Plotter",
+                                                moduleName: "History",
+                                                target: "Timeline"
+                                            }
+                                        }]
+                                    }
+                                }, {
+                                    codeName: "Trading Details",
+                                    displayName: "Mariam Trading Details",
+                                    description: "Detailed information about Mariam execution.",
+                                    storageAccount: "aamariam",
+                                    filePath: "@Exchange/Mariam/dataSet.V1/Output/Trading-Process//@Year/@Month/@Day/@Hour/@Minute",
+                                    fileName: "Execution.Context.json",
+                                    exchangeList: {
+                                        exchange: [{
+                                            name: "Poloniex",
+                                            datetimeRange: {
+                                                minDatetime: "2017-02-19 19:15:00.000 GMT+0000",
+                                                maxDatetime: "2018-02-13 10:10:00.000 GMT+0000"
+                                            }
+                                        }]
+                                    },
+                                    layers: {
+                                        layer: [{
+                                            codeName: "Trading Details",
+                                            displayName: "Mariam Trading Details",
+                                            exchangeList: ["Poloniex"],
+                                            validPeriods: ["24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs"],
+                                            plotter: {
+                                                devTeam: "AAMasters",
+                                                repo: "AAMariam-Plotter",
+                                                moduleName: "Details",
+                                                target: "Timeline"
+                                            }
+                                        }]
+                                    }
+                                }]
+                            },
+                            processes:
+                            {
+                                process: [{
+                                    name: "Trading-Process",
+                                    description: "Read trades files and generates one minute candles and volumes files for each day."
+                                }]
+                            },
+                            directDependencies: [],
+                            directDependents: [],
+                            collaboratorsList: [],
+                            github: {
+                                org: "AAMasters",
+                                repos: {
+                                    repo: [{
+                                        name: "AABruce",
+                                        description: "Produces two data-sets with candles and volumes for all markets at all exchanges.",
+                                        openIssues: 0,
+                                        openPullRequests: 0,
+                                        contributors: 1
+                                    }]
+                                }
+                            },
+                            storage: {
+                                sas: '?sv=2017-07-29&ss=f&srt=sco&sp=r&se=2018-12-30T23:44:52Z&st=2018-02-25T15:44:52Z&spr=https&sig=0pzOTcVAAOkgH7C4KmA1Rbs15kyjvVC1XFCsLQYjXKU%3D',
+                                fileUri: 'https://' + 'aamariam' + '.file.core.windows.net'
+                            }
                         }
                     ]
                 }

@@ -14,6 +14,8 @@ function newChartLayersPanel() {
         OLIVIA_VOLUMES: 'Olivia Volumes',
         TOM_CANDLE_STAIRS: 'Tom Candle-Stairs',
         TOM_VOLUME_STAIRS: 'Tom Volume-Stairs',
+        MARIAM_TRADE_HISTORY: 'Mariam Trades History',
+        MARIAM_TRADES_DETAILS: 'Mariam Trades Details',
         ATH: 'All-time Highs and Lows',
         HIGH_LOWS: 'High and Lows',
         FORECAST: 'Forecast',
@@ -63,7 +65,22 @@ function newChartLayersPanel() {
 
         var buttonPosition;
 
-        var buttonNames = [LAYER_NAMES.OLIVIA_CANDLES, LAYER_NAMES.OLIVIA_VOLUMES, LAYER_NAMES.TOM_CANDLE_STAIRS, LAYER_NAMES.TOM_VOLUME_STAIRS, LAYER_NAMES.ATH, LAYER_NAMES.HIGH_LOWS, LAYER_NAMES.FORECAST, LAYER_NAMES.ORDER_BOOKS, LAYER_NAMES.CANDLE_STAIRS, LAYER_NAMES.VOLUME_STAIRS, LAYER_NAMES.BUY_SELL_BALANCE, LAYER_NAMES.LINEAR_REGRESION_CURVE];
+        var buttonNames = [
+            LAYER_NAMES.OLIVIA_CANDLES,
+            LAYER_NAMES.OLIVIA_VOLUMES,
+            LAYER_NAMES.TOM_CANDLE_STAIRS,
+            LAYER_NAMES.MARIAM_TRADES_DETAILS,
+            LAYER_NAMES.MARIAM_TRADE_HISTORY,
+            LAYER_NAMES.MARIAM_TRADE_HISTORY,
+            LAYER_NAMES.ATH,
+            LAYER_NAMES.HIGH_LOWS,
+            LAYER_NAMES.FORECAST,
+            LAYER_NAMES.ORDER_BOOKS,
+            LAYER_NAMES.CANDLE_STAIRS,
+            LAYER_NAMES.VOLUME_STAIRS,
+            LAYER_NAMES.BUY_SELL_BALANCE,
+            LAYER_NAMES.LINEAR_REGRESION_CURVE
+        ];
         var lastY = 5;
         buttons = [];
 

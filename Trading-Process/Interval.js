@@ -1337,6 +1337,7 @@
                             executionContext.transactions.push(newTransaction);
 
                             newHistoryRecord.newPositions++;
+                            newHistoryRecord.rate = pRate;
 
                             callBackFunction();
                         }
@@ -1470,6 +1471,7 @@
                             executionContext.transactions.push(newTransaction);
 
                             newHistoryRecord.movedPositions++;
+                            newHistoryRecord.rate = pNewRate;
 
                             callBackFunction();
                         }

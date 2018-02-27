@@ -737,7 +737,7 @@
 
     function onLayerStatusChanged(eventData) {
 
-        if (eventData.layer === 'Olivia Volumes') {
+        if (eventData.layer === 'Mariam Trades Details') {
             layerStatus = eventData.status;
         }
 

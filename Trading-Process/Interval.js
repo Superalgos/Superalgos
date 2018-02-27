@@ -175,9 +175,10 @@
 
             let newHistoryRecord = {
                 date: processDatetime,
-                rate: undefined,            // This will be used to know where to plot this information in the time line. 
+                rate: 0,                    // This will be used to know where to plot this information in the time line. 
                 newPositions: 0,
-                newTrades: 0
+                newTrades: 0,
+                movedPositions: 0
             };
 
             let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
@@ -393,8 +394,10 @@
 
                 function getExecutionContext() {
 
+                    let date = new Date(statusReport.lastExecution);
+
                     let fileName = "Execution.Context.json"
-                    let dateForPath = statusReport.lastExecution.getUTCFullYear() + '/' + utilities.pad(statusReport.lastExecution.getUTCMonth(), 2) + '/' + utilities.pad(statusReport.lastExecution.getUTCDate(), 2) + '/' + utilities.pad(statusReport.lastExecution.getUTCHours(), 2) + '/' + utilities.pad(statusReport.lastExecution.getUTCMinutes(), 2);
+                    let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
                     mariamAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
@@ -476,11 +479,11 @@
 
                 let openPositions = [];
 
-                for (let a = 0; j < executionContext.positions.length; a++) {
+                for (let a = 0; a < executionContext.positions.length; a++) {
 
-                    if (executionContext.positions[i].status === "open") {
+                    if (executionContext.positions[a].status === "open") {
 
-                        openPositions.push(executionContext.positions[i]);
+                        openPositions.push(executionContext.positions[a]);
 
                     }
                 }
@@ -507,9 +510,7 @@
 
                             */
 
-                            if (
-                                executionContext.positions[i].amountA === exchangePositions[j].amountA &&
-                                executionContext.positions[i].amountB === exchangePositions[j].amountB) {
+                            if (executionContext.positions[i].amountB === parseFloat(exchangePositions[j].amountB)) {
 
                                 /* Position is still there, untouched. Nothing to do here. */
 
@@ -575,6 +576,8 @@
 
                                         executionContext.positions[i].trades.push(trades[k]);
 
+                                        newHistoryRecord.newTrades++;
+
                                     }
 
                                     /* All done. */
@@ -638,6 +641,8 @@
 
                             executionContext.positions[i].trades.push(trades[k]);
 
+                            newHistoryRecord.newTrades++;
+
                         }
 
                         /* All done. */
@@ -651,6 +656,7 @@
                 function next() {
 
                     i++;
+                    controlLoop();
 
                 }
 
@@ -669,7 +675,7 @@
 
                 function final() {
 
-                    getPatterns();
+                    getCandles();
 
                 }
             }
@@ -693,7 +699,7 @@
 
                                 if (err.message.indexOf("ETIMEDOUT") > 0) {
 
-                                    const logText = "[WARN] onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
+                                    const logText = "[WARN] getOrderTradesAtExchange - onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
                                     logger.write(logText);
 
                                     /* We abort the process and request a new execution at the configured amount of time. */
@@ -705,7 +711,7 @@
 
                                     if (err.message.indexOf("ECONNRESET") > 0) {
 
-                                        const logText = "[WARN] onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
+                                        const logText = "[WARN] getOrderTradesAtExchange - onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
                                         logger.write(logText);
 
                                         /* We abort the process and request a new execution at the configured amount of time. */
@@ -716,14 +722,14 @@
                                     } else {
 
 
-                                        const logText = "[ERROR] onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
+                                        const logText = "[ERROR] getOrderTradesAtExchange - onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
                                         logger.write(logText);
                                         return;
                                     }
                                 }
 
                             } catch (err) {
-                                const logText = "[ERROR] onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
+                                const logText = "[ERROR] getOrderTradesAtExchange -onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
                                 logger.write(logText);
                                 return;
                             }
@@ -774,7 +780,7 @@
                         }
                     }
                     catch (err) {
-                        const logText = "[ERROR] 'onExchangeCallReturned' - ERROR : " + err.message;
+                        const logText = "[ERROR] 'getOrderTradesAtExchange - onExchangeCallReturned' - ERROR : " + err.message;
                         logger.write(logText);
 
                     }
@@ -1079,11 +1085,11 @@
 
                     if (executionContext.positions[0].type === "buy") {
 
-                        validateBuyPosition();
+                        validateBuyPosition(executionContext.positions[0]);
 
                     } else {
 
-                        validateSellPosition();
+                        validateSellPosition(executionContext.positions[0]);
 
                     }
 
@@ -1150,16 +1156,61 @@
 
                 }
 
-                function validateBuyPosition() {
+                function validateBuyPosition(pPosition) {
 
+                    /* For simplicity of this example bot, we will do the same than when we are selling. */
 
-                }
-
-                function validateSellPosition() {
-
+                    validateSellPosition(pPosition);
 
                 }
 
+                function validateSellPosition(pPosition) {
+
+                    let candleArray;
+                    let candle;
+                    let weight;
+
+                    /*
+
+                    Keeping in mind this is an example of traing bot, we are going to put some logic here that in the end will move the current position
+                    up or down. It will move it down if the bot feels it is time to sell, and up if it feels that selling is not a good idea.
+
+                    To achieve a final rate to move the current position at the exchange, we are going to go through the available candles and patterns
+                    and each one is going to make a micro-move, and at the end we will have a final rate to send a move command to the exchange.
+
+                    We will use a weight to give more or less importance to different Time Periods.
+
+                    */
+
+                    let diff;
+                    let variationPercentage;
+                    let timePeriodName;
+
+                    let targetRate = pPosition.rate;
+
+                    let weightArray = [1 / (24 * 60), 1 / (12 * 60), 1 / (8 * 60), 1 / (6 * 60), 1 / (4 * 60), 1 / (3 * 60), 1 / (2 * 60), 1 / (1 * 60)];
+
+                    for (i = 0; i < marketFilesPeriods.length; i++) {
+
+                        weight = weightArray[i];
+
+                        timePeriodName = marketFilesPeriods[i][1];
+
+                        candleArray = candlesMap.get(timePeriodName);
+                        candle = candleArray[candleArray.length - 1];           // The last candle of the 10 candles array.
+
+                        diff = candle.close - candle.open;
+                        variationPercentage = diff * 100 / candle.open;         // This is the % of how much the rate increased or decreced from open to close.
+
+                        targetRate = targetRate + targetRate * variationPercentage / 100 * weight;
+
+                    }
+
+                    /* Finally we move the order position to where we have just estimated is a better place. */
+
+                    movePositionAtExchange(pPosition, targetRate, writeStatusAndContext);
+
+                }
             }
 
             function putPositionAtExchange(pType, pRate, pAmountA, pAmountB, callBackFunction) {
@@ -1183,7 +1234,7 @@
 
                                 if (err.message.indexOf("ETIMEDOUT") > 0) {
 
-                                    const logText = "[WARN] onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
+                                    const logText = "[WARN] putPositionAtExchange - onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
                                     logger.write(logText);
 
                                     /* We abort the process and request a new execution at the configured amount of time. */
@@ -1195,7 +1246,7 @@
 
                                     if (err.message.indexOf("ECONNRESET") > 0) {
 
-                                        const logText = "[WARN] onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
+                                        const logText = "[WARN] putPositionAtExchange - onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
                                         logger.write(logText);
 
                                         /* We abort the process and request a new execution at the configured amount of time. */
@@ -1206,14 +1257,14 @@
                                     } else {
 
 
-                                        const logText = "[ERROR] onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
+                                        const logText = "[ERROR] putPositionAtExchange -onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
                                         logger.write(logText);
                                         return;
                                     }
                                 }
 
                             } catch (err) {
-                                const logText = "[ERROR] onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
+                                const logText = "[ERROR] putPositionAtExchange - onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
                                 logger.write(logText);
                                 return;
                             }
@@ -1254,16 +1305,153 @@
                                 rate: pRate,
                                 amountA: pAmountA,
                                 amountB: pAmountB,
-                                date: (processDatetime.valueOf())
+                                date: (processDatetime.valueOf()),
+                                status: "open",
+                                trades: []
                                 };
 
                             executionContext.positions.push(position);
+
+                            newHistoryRecord.newPositions++;
 
                             callBackFunction();
                         }
                     }
                     catch (err) {
-                        const logText = "[ERROR] 'onExchangeCallReturned' - ERROR : " + err.message;
+                        const logText = "[ERROR] 'putPositionAtExchange - onExchangeCallReturned' - ERROR : " + err.message;
+                        logger.write(logText);
+
+                    }
+                }
+
+            }
+
+            function movePositionAtExchange(pPosition, pNewRate, callBackFunction) {
+
+                poloniexApiClient.moveOrder(pPosition.id, pNewRate, pPosition.AmountB, onExchangeCallReturned);
+
+                function onExchangeCallReturned(err, exchangeResponse) {
+
+                    try {
+
+                        if (err || exchangeResponse.error !== undefined) {
+                            try {
+
+                                if (err.message.indexOf("ETIMEDOUT") > 0) {
+
+                                    const logText = "[WARN] movePositionAtExchange - onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
+                                    logger.write(logText);
+
+                                    /* We abort the process and request a new execution at the configured amount of time. */
+
+                                    callBackFunction(true, nextIntervalLapse);
+                                    return;
+
+                                } else {
+
+                                    if (err.message.indexOf("ECONNRESET") > 0) {
+
+                                        const logText = "[WARN] movePositionAtExchange - onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
+                                        logger.write(logText);
+
+                                        /* We abort the process and request a new execution at the configured amount of time. */
+
+                                        callBackFunction(true, nextIntervalLapse);
+                                        return;
+
+                                    } else {
+
+
+                                        const logText = "[ERROR] movePositionAtExchange -onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
+                                        logger.write(logText);
+                                        return;
+                                    }
+                                }
+
+                            } catch (err) {
+                                const logText = "[ERROR] movePositionAtExchange - onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
+                                logger.write(logText);
+                                return;
+                            }
+
+                            return;
+
+                        } else {
+
+                            /*
+
+                            This is what we can receive from the exchange. We will ignore the trades list for now, and analize
+                            what happened at the next bot execution. 
+
+                            {
+                            "orderNumber":31226040,
+                            "resultingTrades":
+                                [{
+                                    "amount":"338.8732",
+                                    "date":"2014-10-18 23:03:21",
+                                    "rate":"0.00000173",
+                                    "total":"0.00058625",
+                                    "tradeID":"16164",
+                                    "type":"buy"
+                                }]
+                            }
+
+                            */
+
+                            /*
+
+                            We will add this new position to the executionContext.
+
+                            */
+
+                            if (exchangeResponse.success !== 1) {
+
+                                const logText = "[ERROR] movePositionAtExchange -onExchangeCallReturned - Exchange said operation was not successful. Since we do not know what this means we will halt this bot process. : ERROR = " + err.message;
+                                logger.write(logText);
+                                return;
+
+                            }
+
+                            let newPosition = {
+                                id: exchangeResponse.orderNumber,
+                                type: pType,
+                                rate: pRate,
+                                amountA: pAmountB * pRate,
+                                amountB: pAmountB,
+                                date: (processDatetime.valueOf()),
+                                status: "open",
+                                trades: []
+                            };
+
+                            let oldPosition = JSON.parse(JSON.stringify(pPosition));
+
+                            /* We need to update the position we have on file. */
+
+                            for (let i = 0; i < executionContext.positions.length; i++) {
+
+                                if (executionContext.positions[i].id === pOrderId) {
+
+                                    executionContext.positions[i] = newPosition;
+
+                                    break;
+                                }
+                            }
+
+                            let newTransaction = {
+                                type: "movePosition",
+                                oldPosition: oldPosition,
+                                newPosition: newPosition
+                            };
+
+                            executionContext.transactions.push(newTransaction);
+
+                            newHistoryRecord.movedPositions++;
+
+                            callBackFunction();
+                        }
+                    }
+                    catch (err) {
+                        const logText = "[ERROR] 'movePositionAtExchange -onExchangeCallReturned' - ERROR : " + err.message;
                         logger.write(logText);
 
                     }
@@ -1336,7 +1524,15 @@
 
                             try {
 
-                                executionHistory.push(newHistoryRecord);
+                                let newRecord = [
+                                    newHistoryRecord.date.valueOf(),
+                                    newHistoryRecord.rate,
+                                    newHistoryRecord.newPositions,
+                                    newHistoryRecord.newTrades,
+                                    newHistoryRecord.movedPositions
+                                ];
+
+                                executionHistory.push(newRecord);
 
                                 let fileContent = JSON.stringify(executionHistory);
 
@@ -1412,6 +1608,7 @@
 
             } 
         }
+
         catch (err) {
             const logText = "[ERROR] 'Start' - ERROR : " + err.message;
             logger.write(logText);

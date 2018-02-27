@@ -1,0 +1,3 @@
+C:\Users\Luis\source\repos\AAOlivia-Plotter\obj\Debug\AAOlivia-Plotter.njsprojResolveAssemblyReference.cache
+C:\Users\Luis\source\repos\AAOlivia-Plotter\obj\Debug\AAOlivia-Plotter.njsproj.CoreCompileInputs.cache
+C:\Users\Luis\source\repos\AAOlivia-Plotter\bin\Microsoft.NodejsTools.WebRole.dll

@@ -407,6 +407,9 @@
                         try {
 
                             executionContext = JSON.parse(text);
+
+                            executionContext.transactions = []; // We record here the transactions that happened duting this execution.
+
                             ordersExecutionCheck();
 
                         } catch (err) {
@@ -580,6 +583,13 @@
 
                                     }
 
+                                    let newTransaction = {
+                                        type: executionContext.positions[i].type + "  partially executed",
+                                        position: executionContext.positions[i]
+                                    };
+
+                                    executionContext.transactions.push(newTransaction);
+
                                     /* All done. */
 
                                     next();
@@ -635,7 +645,7 @@
 
                         */
 
-                        executionContext.positions[i].status = "closed";
+                        executionContext.positions[i].status = "executed";
 
                         for (k = 0; k < trades.length; k++) {
 
@@ -644,6 +654,13 @@
                             newHistoryRecord.newTrades++;
 
                         }
+
+                        let newTransaction = {
+                            type: executionContext.positions[i].type + "  executed",
+                            position: executionContext.positions[i]
+                        };
+
+                        executionContext.transactions.push(newTransaction);
 
                         /* All done. */
 
@@ -1312,6 +1329,13 @@
 
                             executionContext.positions.push(position);
 
+                            let newTransaction = {
+                                type: "newPosition",
+                                position: position
+                            };
+
+                            executionContext.transactions.push(newTransaction);
+
                             newHistoryRecord.newPositions++;
 
                             callBackFunction();
@@ -1328,7 +1352,7 @@
 
             function movePositionAtExchange(pPosition, pNewRate, callBackFunction) {
 
-                poloniexApiClient.moveOrder(pPosition.id, pNewRate, pPosition.AmountB, onExchangeCallReturned);
+                poloniexApiClient.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
 
                 function onExchangeCallReturned(err, exchangeResponse) {
 
@@ -1414,10 +1438,10 @@
 
                             let newPosition = {
                                 id: exchangeResponse.orderNumber,
-                                type: pType,
-                                rate: pRate,
-                                amountA: pAmountB * pRate,
-                                amountB: pAmountB,
+                                type: pPosition.type,
+                                rate: pNewRate,
+                                amountA: pPosition.amountB * pNewRate,
+                                amountB: pPosition.amountB,
                                 date: (processDatetime.valueOf()),
                                 status: "open",
                                 trades: []
@@ -1429,7 +1453,7 @@
 
                             for (let i = 0; i < executionContext.positions.length; i++) {
 
-                                if (executionContext.positions[i].id === pOrderId) {
+                                if (executionContext.positions[i].id === pPosition.id) {
 
                                     executionContext.positions[i] = newPosition;
 
@@ -1541,7 +1565,7 @@
                                 function onFileCreated() {
 
                                     if (LOG_INFO === true) {
-                                        logger.write("[INFO] 'writeExucutionHistory' - Content written: " + fileContent);
+                                        logger.write("[INFO] 'writeExucutionHistory'");
                                     }
 
                                     writeStatusReport();

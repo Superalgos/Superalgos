@@ -67,6 +67,7 @@
             const logText = "[ERROR] initialize - ' ERROR : " + err.message;
             console.log(logText);
             logger.write(logText);
+            logger.write(err.stack);
 
         }
     }

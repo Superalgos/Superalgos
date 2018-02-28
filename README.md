@@ -12,12 +12,12 @@ Fundamental dataset for building candles and calculating volumes, along with man
 |----------|----------|----------|----------|
 | Charly |Extraction | 1.0 | Jan 2018 |
 
-#### Current Dataset Scope
+### Current Dataset Scope
 * **Exchanges**: Poloniex
 * **Markets**: USDT-BTC
 * **Range**: Market Start Date – Current Time (±1 minute)
 
-#### Current Dataset Structure
+### Current Dataset Structure
 * **Frequency**: 1 minute
 * **Folder Structure Tree**: YEAR > MONTH > DAY > HOUR > MINUTE
 * **Record Structure**: 
@@ -31,11 +31,11 @@ Fundamental dataset for building candles and calculating volumes, along with man
   * [4166904,"sell",2194.18745910,0.00998355,0.00000455,1]
 
 
-#### Plotter Output
+### Plotter Output
 No plotter.
 
-#### Dependencies
+### Dependencies
 None.
 
-#### Current Fees
+### Current Fees
 No fees.

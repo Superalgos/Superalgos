@@ -26,7 +26,7 @@ function newChartLayersPanel() {
         LINEAR_REGRESION_CURVE: 'Linear Regression Curve'
     };
 
-    var chartLayersPanel = {
+    var panel = {
         container: undefined,
         buttons: undefined,
         getLayerStatus: getLayerStatus,
@@ -40,16 +40,15 @@ function newChartLayersPanel() {
     container.initialize();
     container.isDraggeable = true;
     container.isZoomeable = false;
-    chartLayersPanel.container = container;
-    chartLayersPanel.container.frame.containerName = "Chart Layers Panel";
+    panel.container = container;
+    panel.container.frame.containerName = "Chart Layers Panel";
 
     let isInitialized = false;
     let buttons;
 
-    return chartLayersPanel;
+    let layers = new Map();
 
-
-
+    return panel;
 
     function initialize() {
 
@@ -62,6 +61,11 @@ function newChartLayersPanel() {
         };
 
         this.container.frame.position = position;
+
+        /* First thing is to build the layers Map */
+
+
+
 
         var buttonPosition;
 
@@ -101,7 +105,7 @@ function newChartLayersPanel() {
 
             buttonPosition = {  // The first textButton 
                 x: 10,
-                y: chartLayersPanel.container.frame.height - chartLayersPanel.container.frame.getBodyHeight()
+                y: panel.container.frame.height - panel.container.frame.getBodyHeight()
             };
             textButton.container.frame.position.x = buttonPosition.x;
             textButton.container.frame.position.y = buttonPosition.y + lastY;
@@ -131,15 +135,14 @@ function newChartLayersPanel() {
                 status: textButton.status
             }
 
-            chartLayersPanel.container.eventHandler.raiseEvent('Layer Status Changed', eventData);
+            panel.container.eventHandler.raiseEvent('Layer Status Changed', eventData);
         }
 
-        chartLayersPanel.buttons = buttons;
+        panel.buttons = buttons;
 
         isInitialized = true;
 
     }
-
 
     function getLayerStatus(layerName) {
 
@@ -157,7 +160,6 @@ function newChartLayersPanel() {
 
         return BUTTONS_STATES.OFF;
     }
-
 
     function getContainer(point) {
 
@@ -197,55 +199,46 @@ function newChartLayersPanel() {
 
     }
 
-
-
-
     function buttonPressed(event, buttonPressedIndex) {
 
-        switch (chartLayersPanel.buttons[buttonPressedIndex].status) {
+        switch (panel.buttons[buttonPressedIndex].status) {
 
             case BUTTONS_STATES.ON:
-                chartLayersPanel.buttons[buttonPressedIndex].status = BUTTONS_STATES.INVISIBLE;
+                panel.buttons[buttonPressedIndex].status = BUTTONS_STATES.INVISIBLE;
                 break;
 
             case BUTTONS_STATES.INVISIBLE:
-                chartLayersPanel.buttons[buttonPressedIndex].status = BUTTONS_STATES.OFF;
+                panel.buttons[buttonPressedIndex].status = BUTTONS_STATES.OFF;
                 break;
 
             case BUTTONS_STATES.OFF:
-                chartLayersPanel.buttons[buttonPressedIndex].status = BUTTONS_STATES.ON;
+                panel.buttons[buttonPressedIndex].status = BUTTONS_STATES.ON;
                 break;
 
         }
 
 
         let eventData = {
-            layer: chartLayersPanel.buttons[buttonPressedIndex].type,
-            status: chartLayersPanel.buttons[buttonPressedIndex].status
+            layer: panel.buttons[buttonPressedIndex].type,
+            status: panel.buttons[buttonPressedIndex].status
         }
 
-        chartLayersPanel.container.eventHandler.raiseEvent('Layer Status Changed', eventData);
+        panel.container.eventHandler.raiseEvent('Layer Status Changed', eventData);
 
-        window.localStorage.setItem(chartLayersPanel.buttons[buttonPressedIndex].type, chartLayersPanel.buttons[buttonPressedIndex].status);
+        window.localStorage.setItem(panel.buttons[buttonPressedIndex].type, panel.buttons[buttonPressedIndex].status);
 
     }
-
-
 
     function draw() {
 
         if (isInitialized === false) {return;}
 
-        chartLayersPanel.container.frame.draw(false, false, true);
+        panel.container.frame.draw(false, false, true);
 
-        for (var i = 0; i < chartLayersPanel.buttons.length; i++) {
-            chartLayersPanel.buttons[i].draw();
+        for (var i = 0; i < panel.buttons.length; i++) {
+            panel.buttons[i].draw();
         }
 
     }
-
-
-
-
 
 }

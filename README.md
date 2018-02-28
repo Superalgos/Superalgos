@@ -1,7 +1,7 @@
 # I'm Charly, an AA e-Bot!
 
-### Specialty
-I get trades data for all markets, both historic and live, assuring consistency using recursive processes, and store it in a highly fragmented and usable dataset.
+### My Product
+I get trades data for all markets --both historic and live-- assuring consistency using recursive processes, and store it in a highly fragmented and usable dataset.
 
 ### Ideal for
 Fundamental dataset for building candles and calculating volumes, along with many other indicators based on actual trade information.

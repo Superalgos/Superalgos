@@ -39,6 +39,9 @@
     <Compile Include="Ecosystem.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="File.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FileCloud.js">
       <SubType>Code</SubType>
     </Compile>

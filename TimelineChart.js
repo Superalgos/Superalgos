@@ -131,9 +131,11 @@ function newTimelineChart() {
 
             layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
 
-            layerAAMastersAAOliviaCandlesticks.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onOliviaCandlesInitialized);
+            layerAAMastersAAOliviaCandlesticks.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
-            function onOliviaCandlesInitialized() {
+            function onInizialized() {
+
+                console.log("loadCandles");
 
                 layerAAMastersAAOliviaCandlesticks.positionAtDatetime(INITIAL_DATE);
                 loadVolumes();
@@ -162,10 +164,11 @@ function newTimelineChart() {
 
             layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_VOLUMES);
 
-            layerAAMastersAAOliviaVolumes.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onOliviaVolumesInitialized);
+            layerAAMastersAAOliviaVolumes.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
-            function onOliviaVolumesInitialized() {
+            function onInizialized() {
 
+                console.log("loadVolumes");
                 loadCandleStairs();
 
             }
@@ -193,10 +196,11 @@ function newTimelineChart() {
 
             layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.TOM_CANDLE_STAIRS);
 
-            layerAAMastersAATomCandleStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onOliviaCandlesInitialized);
+            layerAAMastersAATomCandleStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
-            function onOliviaCandlesInitialized() {
+            function onInizialized() {
 
+                console.log("loadCandleStairs");
                 loadVolumeStairs();
 
             }
@@ -225,12 +229,12 @@ function newTimelineChart() {
 
             layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.TOM_VOLUME_STAIRS);
 
-            layerAAMastersAATomVolumeStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onOliviaVolumeStairsInitialized);
+            layerAAMastersAATomVolumeStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
-            function onOliviaVolumeStairsInitialized() {
+            function onInizialized() {
 
-                addLayers();
-                splashScreenNeeded = false; // This is when we dont need a splash screen anymore!
+                console.log("loadVolumeStairs");
+                loadMariamHistory();
 
             }
 
@@ -242,7 +246,7 @@ function newTimelineChart() {
 
         let layerAAMastersAAMariamTradingHistory = newAAMastersAAMariamTradingHistory();
 
-        function loadVolumeStairs() {
+        function loadMariamHistory() {
 
             layerAAMastersAAMariamTradingHistory.container.displacement.parentDisplacement = timelineChart.container.displacement;
             layerAAMastersAAMariamTradingHistory.container.zoom.parentZoom = timelineChart.container.zoom;
@@ -258,10 +262,11 @@ function newTimelineChart() {
 
             layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.MARIAM_TRADE_HISTORY);
 
-            layerAAMastersAAMariamTradingHistory.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onOliviaVolumeStairsInitialized);
+            layerAAMastersAAMariamTradingHistory.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
-            function onOliviaVolumeStairsInitialized() {
+            function onInizialized() {
 
+                console.log("loadMariamHistory");
                 addLayers();
                 splashScreenNeeded = false; // This is when we dont need a splash screen anymore!
 
@@ -461,6 +466,8 @@ function newTimelineChart() {
             timelineChart.layers.push(layerAAMastersAAOliviaCandlesticks);
             timelineChart.layers.push(layerAAMastersAAOliviaVolumes);
 
+            timelineChart.layers.push(layerAAMastersAAMariamTradingHistory);
+
             /* Connecting all layers to the panel that provides a user interface to turn them on - visible - off */
 
             chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAOliviaCandlesticks.onLayerStatusChanged);
@@ -469,6 +476,7 @@ function newTimelineChart() {
             chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAATomCandleStairs.onLayerStatusChanged);
             chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAATomVolumeStairs.onLayerStatusChanged);
 
+            chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAMariamTradingHistory.onLayerStatusChanged);
         }
 
         /* Add all layers to the internal array */

@@ -14,7 +14,6 @@
         // Secondary functions and properties.
 
         currentCandle: undefined,
-        positionAtDatetime: positionAtDatetime,
         onLayerStatusChanged: onLayerStatusChanged
     };
 
@@ -49,6 +48,9 @@
         function onFileReady() {
 
             file = File.getFile();
+            recalculate();
+            recalculateScale();
+            callBackFunction();
 
         }
     }
@@ -94,9 +96,7 @@
 
     }
 
-    function recalculate() {
-
-        if (layerStatus === 'off') { return; }
+    function recalculate() {    
 
         for (let i = 0; i < file.length; i++) {
 
@@ -145,7 +145,7 @@
 
             for (let i = 0; i < file.length; i++) {
 
-                let currentMax = marketFile[i][1];   // 1 = rates.
+                let currentMax = file[i][1];   // 1 = rates.
 
                 if (maxValue < currentMax) {
                     maxValue = currentMax;
@@ -165,8 +165,8 @@
             record = history[i];
 
             let point = {
-                x: record.begin + timePeriod / 7 * 1.5,
-                y: record.open
+                x: record.date,
+                y: record.rate
             };
 
             point = plotArea.inverseTransform(point, thisObject.container.frame.height);
@@ -210,7 +210,10 @@
 
             }
 
-            browserCanvasContext.arc(point.x, point.y, radius1, 0, Math.PI * 2, true);
+            browserCanvasContext.arc(point.x, point.y, radius3, 0, Math.PI * 2, true);
+
+            //browserCanvasContext.closePath();
+            //browserCanvasContext.beginPath();
 
             if (isCurrentRecord === false) {
 
@@ -221,6 +224,9 @@
 
             browserCanvasContext.arc(point.x, point.y, radius2, 0, Math.PI * 2, true);
 
+            //browserCanvasContext.closePath();
+            //browserCanvasContext.beginPath();
+
             if (isCurrentRecord === false) {
 
                 browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, 1)';
@@ -228,10 +234,9 @@
 
             }
 
-            browserCanvasContext.arc(point.x, point.y, radius3, 0, Math.PI * 2, true);
+            browserCanvasContext.arc(point.x, point.y, radius1, 0, Math.PI * 2, true);
 
             browserCanvasContext.closePath();
-
 
             if (
                 point.x < viewPort.visibleArea.topLeft.x + 50

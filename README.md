@@ -1,4 +1,4 @@
-# I'm Charly!
+# I'm Charly, an AA e-Bot!
 
 ### Specialty
 I get trades data for all markets, both historic and live, assuring consistency using recursive processes, and store it in a highly fragmented and usable dataset.

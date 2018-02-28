@@ -1,4 +1,4 @@
-# This is Charly!
+# I'm Charly!
 
 ### Specialty
 I get trades data for all markets, both historic and live, assuring consistency using recursive processes, and store it in a highly fragmented and usable dataset.
@@ -8,24 +8,24 @@ Fundamental dataset for building candles and calculating volumes, along with man
 
 ### Details
 
-##### Name
+#### Name
 Charly
 
-##### Version
+#### Version
 1.0
 
-##### Type
+#### Type
 Extraction
 
-##### Plotter Output
+#### Plotter Output
 No plotter.
 
-##### Current Dataset Scope
+#### Current Dataset Scope
 * **Exchanges**: Poloniex
 * **Markets**: USDT-BTC
 * **Range**: Market Start Date – Current Time (±1 minute)
 
-##### Current Dataset Structure
+#### Current Dataset Structure
 * **Frequency**: 1 minute
 * **Folder Structure Tree**: YEAR > MONTH > DAY > HOUR > MINUTE
 * **Record Structure**: 
@@ -38,8 +38,8 @@ No plotter.
 * **Record Example**: 
   * [4166904,"sell",2194.18745910,0.00998355,0.00000455,1]
 
-##### Dependencies
+#### Dependencies
 None.
 
-##### Current Fees
+#### Current Fees
 No fees.

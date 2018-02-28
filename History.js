@@ -160,75 +160,94 @@
 
     function plotChart() {
 
-         for (let i = 0; i < history.length; i++) {
+        for (let i = 0; i < history.length; i++) {
 
-                record = history[i];
+            record = history[i];
 
-                let point = {
-                    x: record.begin + timePeriod / 7 * 1.5,
-                    y: record.open
-                };
+            let point = {
+                x: record.begin + timePeriod / 7 * 1.5,
+                y: record.open
+            };
 
-                point = plotArea.inverseTransform(point, thisObject.container.frame.height);
+            point = plotArea.inverseTransform(point, thisObject.container.frame.height);
 
-                point = transformThisPoint(point, thisObject.container);
+            point = transformThisPoint(point, thisObject.container);
 
-                if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) {
-                    continue;
-                }
+            if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) {
+                continue;
+            }
 
-                point = viewPort.fitIntoVisibleArea(point);
+            point = viewPort.fitIntoVisibleArea(point);
 
-                browserCanvasContext.beginPath();
+            let isCurrentRecord = false;
 
-                browserCanvasContext.moveTo(point.x, point.y);
+            if (datetime !== undefined) {
 
-                browserCanvasContext.closePath();
+                let dateValue = datetime.valueOf();
 
-                if (record.direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, 1)'; }
-                if (record.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, 1)'; }
-                if (record.direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, 1)'; }
+                if (dateValue >= record.date - 30000  && dateValue + 30000 - 1 <= record.date) {
 
-                if (datetime !== undefined) {
+                    /* highlight the current record */
 
-                    let dateValue = datetime.valueOf();
+                    browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 1)'; // Current record accroding to time
+                    isCurrentRecord = true;
 
-                    if (dateValue >= record.begin && dateValue <= record.end) {
+                } 
+            } 
 
-                        /* highlight the current record */
+            let radiusFactor = 3;
 
-                        browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 1)'; // Current record accroding to time
+            let radius1 = record.newPositions * radiusFactor;
+            let radius2 = radius1 + record.movedPositions * radiusFactor;
+            let radius3 = radius2 + record.newTrades * radiusFactor;
 
-                    } else {
+            browserCanvasContext.beginPath();
 
-                        if (record.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 1)'; }
-                        if (record.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(219, 18, 18, 1)'; }
-                        if (record.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(64, 26, 217, 1)'; }
-                    }
+            if (isCurrentRecord === false) {
 
-                } else {
-
-                    if (record.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 1)'; }
-                    if (record.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(219, 18, 18, 1)'; }
-                    if (record.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(64, 26, 217, 1)'; }
-
-                }
-
-                if (
-                    point.x < viewPort.visibleArea.topLeft.x + 50
-                    ||
-                    point.x > viewPort.visibleArea.bottomRight.x - 50
-                ) {
-                    // we leave this history without fill.
-                } else {
-                    browserCanvasContext.fill();
-                }
-
-                browserCanvasContext.lineWidth = 1;
-                browserCanvasContext.stroke();
-
+                browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, 1)';
+                browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 1)';
 
             }
+
+            browserCanvasContext.arc(point.x, point.y, radius1, 0, Math.PI * 2, true);
+
+            if (isCurrentRecord === false) {
+
+                browserCanvasContext.strokeStyle = 'rgba(105, 27, 7, 1)';
+                browserCanvasContext.fillStyle = 'rgba(217, 64, 26, 1)';
+
+            }
+
+            browserCanvasContext.arc(point.x, point.y, radius2, 0, Math.PI * 2, true);
+
+            if (isCurrentRecord === false) {
+
+                browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, 1)';
+                browserCanvasContext.fillStyle = 'rgba(64, 26, 217, 1)';
+
+            }
+
+            browserCanvasContext.arc(point.x, point.y, radius3, 0, Math.PI * 2, true);
+
+            browserCanvasContext.closePath();
+
+
+            if (
+                point.x < viewPort.visibleArea.topLeft.x + 50
+                ||
+                point.x > viewPort.visibleArea.bottomRight.x - 50
+            ) {
+                // we leave this history without fill.
+            } else {
+                browserCanvasContext.fill();
+            }
+
+            browserCanvasContext.lineWidth = 1;
+            browserCanvasContext.stroke();
+
+
+        }
 
     }
 

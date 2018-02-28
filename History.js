@@ -215,6 +215,8 @@
             let radius2 = radius1 + record.movedPositions * radiusFactor;
             let radius3 = radius2 + record.newTrades * radiusFactor;
 
+            browserCanvasContext.lineWidth = 1;
+
             /* Outer Circle */
 
             browserCanvasContext.beginPath();
@@ -234,7 +236,11 @@
             browserCanvasContext.arc(point.x, point.y, radius3, 0, Math.PI * 2, true);
 
             browserCanvasContext.closePath();
-            browserCanvasContext.fill();
+
+            if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                browserCanvasContext.fill();
+            }
+            browserCanvasContext.stroke();
 
             /* Middle Circle */
 
@@ -255,7 +261,11 @@
             browserCanvasContext.arc(point.x, point.y, radius2, 0, Math.PI * 2, true);
 
             browserCanvasContext.closePath();
-            browserCanvasContext.fill();
+
+            if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                browserCanvasContext.fill();
+            }
+            browserCanvasContext.stroke();
 
             /* Inner Circle */
 
@@ -276,25 +286,13 @@
             browserCanvasContext.arc(point.x, point.y, radius1, 0, Math.PI * 2, true);
 
             browserCanvasContext.closePath();
-            browserCanvasContext.fill();
 
-
-            if (
-                point.x < viewPort.visibleArea.topLeft.x + 50
-                ||
-                point.x > viewPort.visibleArea.bottomRight.x - 50
-            ) {
-                // we leave this history without fill.
-            } else {
+            if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
                 browserCanvasContext.fill();
             }
-
-            browserCanvasContext.lineWidth = 1;
             browserCanvasContext.stroke();
 
-
         }
-
     }
 
     function onLayerStatusChanged(eventData) {

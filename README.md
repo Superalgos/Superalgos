@@ -8,9 +8,9 @@ Fundamental dataset for building candles and calculating volumes, along with man
 
 ### Details
 
-| **Name**     | **Version**     | **Type**           |
-|-------------------------------------|-------------------------------|-----------------------------------|
-| Charly | 1.0 | Extraction |
+| **Name** | **Type** | **Version** | **Release Date** |
+|----------|----------|----------|----------|
+| Charly |Extraction | 1.0 | Jan 2018 |
 
 #### Current Dataset Scope
 * **Exchanges**: Poloniex

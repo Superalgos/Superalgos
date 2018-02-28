@@ -8,17 +8,9 @@ Fundamental dataset for building candles and calculating volumes, along with man
 
 ### Details
 
-#### Name
-Charly
-
-#### Version
-1.0
-
-#### Type
-Extraction
-
-#### Plotter Output
-No plotter.
+| **Name**     | **Version**     | **Type**           |
+|-------------------------------------|-------------------------------|-----------------------------------|
+| Charly | 1.0 | Extraction |
 
 #### Current Dataset Scope
 * **Exchanges**: Poloniex
@@ -37,6 +29,10 @@ No plotter.
   * Trade Seconds, numeric, 0 to 59
 * **Record Example**: 
   * [4166904,"sell",2194.18745910,0.00998355,0.00000455,1]
+
+
+#### Plotter Output
+No plotter.
 
 #### Dependencies
 None.

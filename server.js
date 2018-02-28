@@ -30,7 +30,7 @@ function onContent (error, result) {
 return;
 */
 
-let debugMode = true;
+let debugMode = false;
 let githubPages = new Map;
 
 //'use strict';

@@ -80,6 +80,8 @@
 
         timePeriod = pTimePeriod;
 
+        recalculate();
+
     }
 
     function setDatetime(newDatetime) {
@@ -98,7 +100,21 @@
 
     function recalculate() {    
 
-        for (let i = 0; i < file.length; i++) {
+        if (file === undefined) { return; }
+
+        /*
+
+        We are going to filter the records depending on the Time Period. We want that for a 1 min time peroid all the records appears on screen,
+        but for higher periods, we will filter out some records, so that they do not overlap ever. 
+
+        */
+
+        history = [];
+
+        let oneMin = 60000;
+        let step = timePeriod / oneMin;
+
+        for (let i = 0; i < file.length; i = i + step) {
 
             let newHistoryRecord = {
 
@@ -185,58 +201,83 @@
 
                 let dateValue = datetime.valueOf();
 
-                if (dateValue >= record.date - 30000  && dateValue + 30000 - 1 <= record.date) {
+                if (dateValue >= record.date - timePeriod / 2 && dateValue <= record.date + timePeriod / 2 - 1) {
 
-                    /* highlight the current record */
-
-                    browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 1)'; // Current record accroding to time
                     isCurrentRecord = true;
 
                 } 
             } 
 
             let radiusFactor = 3;
+            let opacity = '0.2';
 
             let radius1 = record.newPositions * radiusFactor;
             let radius2 = radius1 + record.movedPositions * radiusFactor;
             let radius3 = radius2 + record.newTrades * radiusFactor;
 
+            /* Outer Circle */
+
             browserCanvasContext.beginPath();
+
+            browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
 
             if (isCurrentRecord === false) {
 
-                browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, 1)';
-                browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 1)';
+                browserCanvasContext.fillStyle = 'rgba(64, 217, 26, ' + opacity + ')';
+
+            } else {
+
+                browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
 
             }
 
             browserCanvasContext.arc(point.x, point.y, radius3, 0, Math.PI * 2, true);
 
-            //browserCanvasContext.closePath();
-            //browserCanvasContext.beginPath();
+            browserCanvasContext.closePath();
+            browserCanvasContext.fill();
+
+            /* Middle Circle */
+
+            browserCanvasContext.beginPath();
+
+            browserCanvasContext.strokeStyle = 'rgba(44, 61, 89, ' + opacity + ')';
 
             if (isCurrentRecord === false) {
 
-                browserCanvasContext.strokeStyle = 'rgba(105, 27, 7, 1)';
-                browserCanvasContext.fillStyle = 'rgba(217, 64, 26, 1)';
+                browserCanvasContext.fillStyle = 'rgba(50, 108, 201, ' + opacity + ')';
+
+            } else {
+
+                browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
 
             }
 
             browserCanvasContext.arc(point.x, point.y, radius2, 0, Math.PI * 2, true);
 
-            //browserCanvasContext.closePath();
-            //browserCanvasContext.beginPath();
+            browserCanvasContext.closePath();
+            browserCanvasContext.fill();
+
+            /* Inner Circle */
+
+            browserCanvasContext.beginPath();
+
+            browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, ' + opacity + ')';
 
             if (isCurrentRecord === false) {
 
-                browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, 1)';
-                browserCanvasContext.fillStyle = 'rgba(64, 26, 217, 1)';
+                browserCanvasContext.fillStyle = 'rgba(64, 26, 217, ' + opacity + ')';
+
+            } else {
+
+                browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
 
             }
 
             browserCanvasContext.arc(point.x, point.y, radius1, 0, Math.PI * 2, true);
 
             browserCanvasContext.closePath();
+            browserCanvasContext.fill();
+
 
             if (
                 point.x < viewPort.visibleArea.topLeft.x + 50

@@ -1,0 +1,3 @@
+C:\Users\Luis\source\repos\AAMariam-Plotter\obj\Debug\AAMariam-Plotter.njsprojResolveAssemblyReference.cache
+C:\Users\Luis\source\repos\AAMariam-Plotter\obj\Debug\AAMariam-Plotter.njsproj.CoreCompileInputs.cache
+C:\Users\Luis\source\repos\AAMariam-Plotter\bin\Microsoft.NodejsTools.WebRole.dll

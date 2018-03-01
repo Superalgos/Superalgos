@@ -1,4 +1,4 @@
-﻿function newAAMastersAAMariamTradingHistory() {
+﻿function newAAMastersPlottersTradingHistory() {
 
     let thisObject = {
 

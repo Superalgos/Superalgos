@@ -1,4 +1,4 @@
-﻿function newAAMastersAAOliviaVolumes() {
+﻿function newAAMastersPlottersTradingDetails() {
 
     let thisObject = {
 

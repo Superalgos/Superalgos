@@ -107,7 +107,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
   * [[33271.902671610005,13940.15380426,1514764800000,1514764859999],[15312.391007760001,18734.01756361,1514764860000,1514764919999], ... ,[16261.87486184,2788.53802902,1514764920000,1514764979999],[513.24710259,9896.328325810004,1514764980000,1514765039999]]
 
 ### Compatible Plotters
-[Plotters-Candles-Volumes](https://github.com/AAMasters/Plotters-Candles-Volumes)
+[AAMasters Plotters-Candles-Volumes](https://github.com/AAMasters/Plotters-Candles-Volumes)
 
 ### Dependencies
 [AAMasters Charly](https://github.com/AAMasters/AACharly-Extraction-Bot)

@@ -36,7 +36,7 @@
         timePeriod = pTimePeriod;
 
         let File = newFile();
-        File.initialize("AAMasters", "AAMariam", "Trading History", "Trading History", pExchange, pMarket, onFileReady)
+        File.initialize("AAMasters", "AAMariam", "Trading History", "Trading History File", pExchange, pMarket, onFileReady)
 
         function onFileReady() {
 

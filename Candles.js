@@ -14,8 +14,7 @@
         // Secondary functions and properties.
 
         currentCandle: undefined,
-        positionAtDatetime: positionAtDatetime,
-        onLayerStatusChanged: onLayerStatusChanged
+        positionAtDatetime: positionAtDatetime
     };
 
     /* this is part of the module template */
@@ -23,8 +22,6 @@
     let container = newContainer();     // Do not touch this 3 lines, they are just needed.
     container.initialize();
     thisObject.container = container;
-
-    let layerStatus = 'off';            // Since the moduleis a layer, it must handle the different possible layer status.
 
     let plotArea = newPlotArea();       // Needed to be able to plot on the timeline, otherwise not.
 
@@ -45,7 +42,7 @@
 
     return thisObject;
 
-    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, pLayerStatus, callBackFunction) {
+    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
         let cursorCacheInProgress = false;
         let finaleStepsInProgress = false;
@@ -103,8 +100,6 @@
 
                         recalculateScale(); // With any of the market files we can calculate the scale. 
 
-                        layerStatus = pLayerStatus;
-
                         recalculate();
 
                         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
@@ -121,8 +116,6 @@
     }
 
     function getContainer(point) {
-
-        if (layerStatus !== 'on') { return; }
 
         let container;
 
@@ -267,8 +260,6 @@
 
     function draw() {
 
-        if (layerStatus !== 'on') { return; }
-
         this.container.frame.draw();
 
         if (timePeriod < _1_HOUR_IN_MILISECONDS) {
@@ -285,8 +276,6 @@
     }
 
     function recalculate() {
-
-        if (layerStatus === 'off') { return; }
 
         if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
@@ -671,14 +660,6 @@
 
             }
         }
-    }
-
-    function onLayerStatusChanged(eventData) {
-
-        if (eventData.layer === LAYER_CODE_NAME) {
-            layerStatus = eventData.status;
-        }
-
     }
 
     function onZoomChanged(event) {

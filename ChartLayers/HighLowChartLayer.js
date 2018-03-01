@@ -41,7 +41,7 @@ function newHighLowChartLayer() {
 
     return highLowChartLayer;
 
-    function initialize(exchange, market, index, dailyFiles, chartLayersPanel) {
+    function initialize(exchange, market, index, dailyFiles, botsPanel) {
 
         marketId = market;
         exchangeId = exchange;
@@ -51,8 +51,8 @@ function newHighLowChartLayer() {
 
         recalculateScale();
 
-        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.HIGH_LOWS);
-        parentLayerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.CANDLESTICKS); 
+        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.HIGH_LOWS);
+        parentLayerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLESTICKS); 
 
     }
 

@@ -41,7 +41,7 @@ function newForecastChartLayer() {
 
     return forecastChartLayer;
 
-    function initialize(exchange, market, index, dailyFiles, chartLayersPanel) {
+    function initialize(exchange, market, index, dailyFiles, botsPanel) {
 
         marketId = market;
         exchangeId = exchange;
@@ -54,8 +54,8 @@ function newForecastChartLayer() {
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.FORECAST);
-        parentLayerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.CANDLESTICKS); 
+        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.FORECAST);
+        parentLayerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLESTICKS); 
 
     }
 

@@ -24,7 +24,7 @@ function newTimeMachine() {
 
     let currentCandlePanel;
     let currentVolumePanel;
-    let chartLayersPanel;
+    let botsPanel;
     let orderBookPanel;
 
     return timeMachine;
@@ -46,11 +46,8 @@ function newTimeMachine() {
         orderBookPanel = newOrderBookPanel();
         orderBookPanel.initialize();
 
-        chartLayersPanel = newChartLayersPanel();
-        chartLayersPanel.initialize();
-
-        botsLayersPanel = newBotsLayersPanel();
-        botsLayersPanel.initialize();
+        botsPanel = newBotsPanel();
+        botsPanel.initialize();
 
         let iteration = 0;
 
@@ -70,7 +67,7 @@ function newTimeMachine() {
         timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
         timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, currentCandlePanel, currentVolumePanel, chartLayersPanel, botsLayersPanel, orderBookPanel, onDefaultMarketInitialized);
+        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, currentCandlePanel, currentVolumePanel, botsPanel, orderBookPanel, onDefaultMarketInitialized);
 
         iteration++;
 
@@ -111,7 +108,7 @@ function newTimeMachine() {
                 timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
                 timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-                timelineChart.initialize(1, key, currentCandlePanel, currentVolumePanel, chartLayersPanel, botsLayersPanel, orderBookPanel, finalSteps);
+                timelineChart.initialize(1, key, currentCandlePanel, currentVolumePanel, botsPanel, orderBookPanel, finalSteps);
 
                 iteration++;
 
@@ -259,9 +256,7 @@ function newTimeMachine() {
 
         currentVolumePanel.draw();
 
-        chartLayersPanel.draw();
-
-        botsLayersPanel.draw();
+        botsPanel.draw();
 
         orderBookPanel.draw();
 
@@ -304,16 +299,7 @@ function newTimeMachine() {
                 return container;
             }
 
-            container = chartLayersPanel.getContainer(point);
-
-            if (container !== undefined) {
-
-                /* We found an inner container which has the point. We return it. */
-
-                return container;
-            }
-
-            container = botsLayersPanel.getContainer(point);
+            container = botsPanel.getContainer(point);
 
             if (container !== undefined) {
 

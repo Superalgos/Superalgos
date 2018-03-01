@@ -39,7 +39,7 @@ function newCandleStickChartLayer() {
 
     return candleStickChartLayer;
 
-    function initialize(exchange, market, index, dailyFiles, chartLayersPanel) {
+    function initialize(exchange, market, index, dailyFiles, botsPanel) {
 
         marketId = market;
         exchangeId = exchange;
@@ -61,7 +61,7 @@ function newCandleStickChartLayer() {
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.CANDLESTICKS);
+        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLESTICKS);
 
     }
 

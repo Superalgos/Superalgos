@@ -44,7 +44,7 @@ function newAllTimeChartLayer() {
 
     return allTimeChartLayer;
 
-    function initialize(exchange, market, index, chartLayersPanel) {
+    function initialize(exchange, market, index, botsPanel) {
 
         marketId = market;
         exchangeId = exchange;
@@ -74,7 +74,7 @@ function newAllTimeChartLayer() {
 
             }
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.ATH);
+            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.ATH);
 
         }
 

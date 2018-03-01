@@ -41,7 +41,7 @@ function newCandleTechnicalAnalisysChartLayer() {
 
     return candleTechnicalAnalisysChartLayer;
 
-    function initialize(exchange, market, index, dailyFiles, chartLayersPanel) {
+    function initialize(exchange, market, index, dailyFiles, botsPanel) {
 
         marketId = market;
         exchangeId = exchange;
@@ -51,8 +51,8 @@ function newCandleTechnicalAnalisysChartLayer() {
 
         recalculateScale();
 
-        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.CANDLE_STAIRS); 
-        parentLayerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.CANDLESTICKS); 
+        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLE_STAIRS); 
+        parentLayerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLESTICKS); 
     }
 
 

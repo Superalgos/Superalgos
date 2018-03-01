@@ -37,7 +37,7 @@ function newSupportResistanceChartLayer() {
 
     return supportResistanceChartLayer;
 
-    function initialize(exchange, market, index, dailyFiles, chartLayersPanel) {
+    function initialize(exchange, market, index, dailyFiles, botsPanel) {
 
         marketId = market;
         exchangeId = exchange;
@@ -47,7 +47,7 @@ function newSupportResistanceChartLayer() {
 
         recalculateScale();
 
-        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.CANDLESTICKS); // TODO : Put the right layer name here when it exists.
+        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLESTICKS); // TODO : Put the right layer name here when it exists.
 
     }
 

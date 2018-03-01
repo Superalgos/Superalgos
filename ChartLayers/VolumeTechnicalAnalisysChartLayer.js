@@ -42,7 +42,7 @@ function newVolumeTechnicalAnalisysChartLayer() {
 
     return volumeTechnicalAnalisysChartLayer;
 
-    function initialize(exchange, market, index, dailyFiles, chartLayersPanel) {
+    function initialize(exchange, market, index, dailyFiles, botsPanel) {
 
         marketId = market;
         exchangeId = exchange;
@@ -50,8 +50,8 @@ function newVolumeTechnicalAnalisysChartLayer() {
         marketIndex = index;
         dailyFilesCursor = dailyFiles;
 
-        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.VOLUME_STAIRS);
-        parentLayerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.VOLUME); 
+        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.VOLUME_STAIRS);
+        parentLayerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.VOLUME); 
     }
 
 

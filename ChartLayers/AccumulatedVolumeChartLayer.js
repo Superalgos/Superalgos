@@ -43,7 +43,7 @@ function newAccumulatedVolumeChartLayer() {
 
     return accumulatedVolumeChartLayer;
 
-    function initialize(exchange, market, index, dailyFiles, chartLayersPanel) {
+    function initialize(exchange, market, index, dailyFiles, botsPanel) {
 
         marketId = market;
         exchangeId = exchange;
@@ -58,8 +58,8 @@ function newAccumulatedVolumeChartLayer() {
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.BUY_SELL_BALANCE);
-        parentLayerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.VOLUME); 
+        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.BUY_SELL_BALANCE);
+        parentLayerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.VOLUME); 
 
     }
 

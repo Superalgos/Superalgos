@@ -43,18 +43,16 @@ function newTimelineChart() {
 
     let currentCandlePanel;
     let currentVolumePanel;
-    let chartLayersPanel;
-    let botsLayersPanel;
+    let botsPanel;
     let orderBookPanel;
 
     return timelineChart;
 
-    function initialize(exchange, market, currentCandlePanelToUse, currentVolumePanelToUse, chartLayersPanelToUse, botsLayersPanelToUse, orderBookPanelToUse, callBackFunction) {
+    function initialize(exchange, market, currentCandlePanelToUse, currentVolumePanelToUse, botsPanelToUse, orderBookPanelToUse, callBackFunction) {
 
         currentCandlePanel = currentCandlePanelToUse;
         currentVolumePanel = currentVolumePanelToUse;
-        chartLayersPanel = chartLayersPanelToUse;
-        botsLayersPanel = botsLayersPanelToUse;
+        botsPanel = botsPanelToUse;
         orderBookPanel = orderBookPanelToUse;
 
         marketId = market;
@@ -106,8 +104,16 @@ function newTimelineChart() {
 
         viewPort.displace(displaceVector);
 
-
         let layerStatus;
+
+        for (let i = 0; i < botsPanel.cards.length; i++) {
+
+            let plotter = newPlotter();
+
+
+        }
+
+
 
         /* AAMasters AAOlivia Candlesticks */
 
@@ -129,7 +135,7 @@ function newTimelineChart() {
             layerAAMastersAAOliviaCandlesticks.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAAOliviaCandlesticks.container.frame.width / 2;
             layerAAMastersAAOliviaCandlesticks.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAAOliviaCandlesticks.container.frame.height / 2;
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_CANDLES);
+            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.OLIVIA_CANDLES);
 
             layerAAMastersAAOliviaCandlesticks.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
@@ -162,7 +168,7 @@ function newTimelineChart() {
             layerAAMastersAAOliviaVolumes.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAAOliviaVolumes.container.frame.width / 2;
             layerAAMastersAAOliviaVolumes.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAAOliviaVolumes.container.frame.height / 2;
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.OLIVIA_VOLUMES);
+            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.OLIVIA_VOLUMES);
 
             layerAAMastersAAOliviaVolumes.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
@@ -194,7 +200,7 @@ function newTimelineChart() {
             layerAAMastersAATomCandleStairs.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAATomCandleStairs.container.frame.width / 2;
             layerAAMastersAATomCandleStairs.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAATomCandleStairs.container.frame.height / 2;
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.TOM_CANDLE_STAIRS);
+            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.TOM_CANDLE_STAIRS);
 
             layerAAMastersAATomCandleStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
@@ -227,7 +233,7 @@ function newTimelineChart() {
             layerAAMastersAATomVolumeStairs.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAATomVolumeStairs.container.frame.width / 2;
             layerAAMastersAATomVolumeStairs.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAATomVolumeStairs.container.frame.height / 2;
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.TOM_VOLUME_STAIRS);
+            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.TOM_VOLUME_STAIRS);
 
             layerAAMastersAATomVolumeStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
@@ -260,7 +266,7 @@ function newTimelineChart() {
             layerAAMastersAAMariamTradingHistory.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAAMariamTradingHistory.container.frame.width / 2;
             layerAAMastersAAMariamTradingHistory.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAAMariamTradingHistory.container.frame.height / 2;
 
-            layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.MARIAM_TRADE_HISTORY);
+            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.MARIAM_TRADE_HISTORY);
 
             layerAAMastersAAMariamTradingHistory.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
 
@@ -275,189 +281,6 @@ function newTimelineChart() {
         }
 
 
-
-        /* All Time Layer */
-        /*
-        var allTimeChartLayer = newAllTimeChartLayer();
-
-        allTimeChartLayer.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        allTimeChartLayer.container.zoom.parentZoom = timelineChart.container.zoom;
-        allTimeChartLayer.container.frame.parentFrame = timelineChart.container.frame;
-
-        allTimeChartLayer.container.parentContainer = timelineChart.container;
-
-        allTimeChartLayer.container.frame.width = timelineChart.container.frame.width * 1;
-        allTimeChartLayer.container.frame.height = timelineChart.container.frame.height * 1;
-
-        allTimeChartLayer.container.frame.position.x = timelineChart.container.frame.width / 2 - allTimeChartLayer.container.frame.width / 2;
-        allTimeChartLayer.container.frame.position.y = timelineChart.container.frame.height / 2 - allTimeChartLayer.container.frame.height / 2;
-
-        allTimeChartLayer.initialize(exchangeId, marketId, marketIndex, chartLayersPanel);
-
-        /* Orderbook Resistances Layer */
-        /*
-        var orderBooksChartLayer = newOrderBooksChartLayer();
-
-        orderBooksChartLayer.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        orderBooksChartLayer.container.zoom.parentZoom = timelineChart.container.zoom;
-        orderBooksChartLayer.container.frame.parentFrame = timelineChart.container.frame;
-
-        orderBooksChartLayer.container.parentContainer = timelineChart.container;
-
-        orderBooksChartLayer.container.frame.width = timelineChart.container.frame.width * 1;
-        orderBooksChartLayer.container.frame.height = timelineChart.container.frame.height * 1;
-
-        orderBooksChartLayer.container.frame.position.x = timelineChart.container.frame.width / 2 - orderBooksChartLayer.container.frame.width / 2;
-        orderBooksChartLayer.container.frame.position.y = timelineChart.container.frame.height / 2 - orderBooksChartLayer.container.frame.height / 2;
-
-        orderBooksChartLayer.initialize(exchangeId, marketId, marketIndex, chartLayersPanel);
-
-
-        /* Candle Technical Analisys Layer */
-        /*
-        var candleTechnicalAnalisysChartLayer = newCandleTechnicalAnalisysChartLayer();
-
-        candleTechnicalAnalisysChartLayer.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        candleTechnicalAnalisysChartLayer.container.zoom.parentZoom = timelineChart.container.zoom;
-        candleTechnicalAnalisysChartLayer.container.frame.parentFrame = timelineChart.container.frame;
-
-        candleTechnicalAnalisysChartLayer.container.parentContainer = timelineChart.container;
-
-        candleTechnicalAnalisysChartLayer.container.frame.width = timelineChart.container.frame.width * 1;
-        candleTechnicalAnalisysChartLayer.container.frame.height = timelineChart.container.frame.height * 1;
-
-        candleTechnicalAnalisysChartLayer.container.frame.position.x = timelineChart.container.frame.width / 2 - candleTechnicalAnalisysChartLayer.container.frame.width / 2;
-        candleTechnicalAnalisysChartLayer.container.frame.position.y = timelineChart.container.frame.height / 2 - candleTechnicalAnalisysChartLayer.container.frame.height / 2;
-
-        candleTechnicalAnalisysChartLayer.initialize(exchangeId, marketId, marketIndex, dailyFilesCursor, chartLayersPanel);
-
-
-        /* Volume Technical Analisys Layer */
-        /*
-        var volumeTechnicalAnalisysChartLayer = newVolumeTechnicalAnalisysChartLayer();
-
-        volumeTechnicalAnalisysChartLayer.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        volumeTechnicalAnalisysChartLayer.container.zoom.parentZoom = timelineChart.container.zoom;
-        volumeTechnicalAnalisysChartLayer.container.frame.parentFrame = timelineChart.container.frame;
-
-        volumeTechnicalAnalisysChartLayer.container.parentContainer = timelineChart.container;
-
-        volumeTechnicalAnalisysChartLayer.container.frame.width = timelineChart.container.frame.width * 1;
-        volumeTechnicalAnalisysChartLayer.container.frame.height = timelineChart.container.frame.height * 1;
-
-        volumeTechnicalAnalisysChartLayer.container.frame.position.x = timelineChart.container.frame.width / 2 - volumeTechnicalAnalisysChartLayer.container.frame.width / 2;
-        volumeTechnicalAnalisysChartLayer.container.frame.position.y = timelineChart.container.frame.height / 2 - volumeTechnicalAnalisysChartLayer.container.frame.height / 2;
-
-        volumeTechnicalAnalisysChartLayer.initialize(exchangeId, marketId, marketIndex, dailyFilesCursor, chartLayersPanel);
-
-
-        /* Sopport Resistance Layer */
-        /*
-        var supportResistanceChartLayer = newSupportResistanceChartLayer();
-
-        supportResistanceChartLayer.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        supportResistanceChartLayer.container.zoom.parentZoom = timelineChart.container.zoom;
-        supportResistanceChartLayer.container.frame.parentFrame = timelineChart.container.frame;
-
-        supportResistanceChartLayer.container.parentContainer = timelineChart.container;
-
-        supportResistanceChartLayer.container.frame.width = timelineChart.container.frame.width * 1;
-        supportResistanceChartLayer.container.frame.height = timelineChart.container.frame.height * 1;
-
-        supportResistanceChartLayer.container.frame.position.x = timelineChart.container.frame.width / 2 - supportResistanceChartLayer.container.frame.width / 2;
-        supportResistanceChartLayer.container.frame.position.y = timelineChart.container.frame.height / 2 - supportResistanceChartLayer.container.frame.height / 2;
-
-        supportResistanceChartLayer.initialize(exchangeId, marketId, marketIndex, dailyFilesCursor, chartLayersPanel);
-
-
-        /* High Low Layer */
-        /*
-        var highLowChartLayer = newHighLowChartLayer();
-
-        highLowChartLayer.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        highLowChartLayer.container.zoom.parentZoom = timelineChart.container.zoom;
-        highLowChartLayer.container.frame.parentFrame = timelineChart.container.frame;
-
-        highLowChartLayer.container.parentContainer = timelineChart.container;
-
-        highLowChartLayer.container.frame.width = timelineChart.container.frame.width * 1;
-        highLowChartLayer.container.frame.height = timelineChart.container.frame.height * 1;
-
-        highLowChartLayer.container.frame.position.x = timelineChart.container.frame.width / 2 - highLowChartLayer.container.frame.width / 2;
-        highLowChartLayer.container.frame.position.y = timelineChart.container.frame.height / 2 - highLowChartLayer.container.frame.height / 2;
-
-        highLowChartLayer.initialize(exchangeId, marketId, marketIndex, dailyFilesCursor, chartLayersPanel);
-
-
-
-
-
-
-
-
-        /* Accumulated Volume Volume Layer */
-        /*
-        var accumulatedVolumeChartLayer = newAccumulatedVolumeChartLayer();
-
-        accumulatedVolumeChartLayer.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        accumulatedVolumeChartLayer.container.zoom.parentZoom = timelineChart.container.zoom;
-        accumulatedVolumeChartLayer.container.frame.parentFrame = timelineChart.container.frame;
-
-        accumulatedVolumeChartLayer.container.parentContainer = timelineChart.container;
-
-        accumulatedVolumeChartLayer.container.frame.width = timelineChart.container.frame.width * 1;
-        accumulatedVolumeChartLayer.container.frame.height = timelineChart.container.frame.height * 1;
-
-        accumulatedVolumeChartLayer.container.frame.position.x = timelineChart.container.frame.width / 2 - accumulatedVolumeChartLayer.container.frame.width / 2;
-        accumulatedVolumeChartLayer.container.frame.position.y = timelineChart.container.frame.height / 2 - accumulatedVolumeChartLayer.container.frame.height / 2;
-
-        accumulatedVolumeChartLayer.initialize(exchangeId, marketId, marketIndex, dailyFilesCursor, chartLayersPanel);
-
-
-
-        /* Forecast Layer */
-        /*
-        var forecastChartLayer = newForecastChartLayer();
-
-        forecastChartLayer.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        forecastChartLayer.container.zoom.parentZoom = timelineChart.container.zoom;
-        forecastChartLayer.container.frame.parentFrame = timelineChart.container.frame;
-
-        forecastChartLayer.container.parentContainer = timelineChart.container;
-
-        forecastChartLayer.container.frame.width = timelineChart.container.frame.width * 1;
-        forecastChartLayer.container.frame.height = timelineChart.container.frame.height * 1;
-
-        forecastChartLayer.container.frame.position.x = timelineChart.container.frame.width / 2 - forecastChartLayer.container.frame.width / 2;
-        forecastChartLayer.container.frame.position.y = timelineChart.container.frame.height / 2 - forecastChartLayer.container.frame.height / 2;
-
-        forecastChartLayer.initialize(exchangeId, marketId, marketIndex, dailyFilesCursor, chartLayersPanel);
-
-       // candleStickChartLayer.container.eventHandler.listenToEvent("Current Candle Changed", forecastChartLayer.setCurrentCandle);
-       // forecastChartLayer.setCurrentCandle(candleStickChartLayer.currentCandle);
-
-
-
-        /* Linear Regression Curve Layer */
-        /*
-        var linearRegressionCurveChartLayer = newLinearRegressionCurve();
-
-        linearRegressionCurveChartLayer.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        linearRegressionCurveChartLayer.container.zoom.parentZoom = timelineChart.container.zoom;
-        linearRegressionCurveChartLayer.container.frame.parentFrame = timelineChart.container.frame;
-
-        linearRegressionCurveChartLayer.container.parentContainer = timelineChart.container;
-
-        linearRegressionCurveChartLayer.container.frame.width = timelineChart.container.frame.width * 1;
-        linearRegressionCurveChartLayer.container.frame.height = timelineChart.container.frame.height * 1;
-
-        linearRegressionCurveChartLayer.container.frame.position.x = timelineChart.container.frame.width / 2 - candleTechnicalAnalisysChartLayer.container.frame.width / 2;
-        linearRegressionCurveChartLayer.container.frame.position.y = timelineChart.container.frame.height / 2 - candleTechnicalAnalisysChartLayer.container.frame.height / 2;
-
-        linearRegressionCurveChartLayer.initialize(exchangeId, marketId, marketIndex, dailyFilesCursor, chartLayersPanel);
-        */        
-
-
         function addLayers() {
 
             timelineChart.layers.push(layerAAMastersAATomCandleStairs);  // This looks better if it goes below the candles layer.
@@ -470,13 +293,13 @@ function newTimelineChart() {
 
             /* Connecting all layers to the panel that provides a user interface to turn them on - visible - off */
 
-            chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAOliviaCandlesticks.onLayerStatusChanged);
-            chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAOliviaVolumes.onLayerStatusChanged);
+            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAOliviaCandlesticks.onLayerStatusChanged);
+            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAOliviaVolumes.onLayerStatusChanged);
 
-            chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAATomCandleStairs.onLayerStatusChanged);
-            chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAATomVolumeStairs.onLayerStatusChanged);
+            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAATomCandleStairs.onLayerStatusChanged);
+            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAATomVolumeStairs.onLayerStatusChanged);
 
-            chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAMariamTradingHistory.onLayerStatusChanged);
+            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAMariamTradingHistory.onLayerStatusChanged);
         }
 
         /* Add all layers to the internal array */
@@ -507,16 +330,16 @@ function newTimelineChart() {
 
 
         /*
-        chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", accumulatedVolumeChartLayer.onLayerStatusChanged);
+        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", accumulatedVolumeChartLayer.onLayerStatusChanged);
 
-        chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", candleTechnicalAnalisysChartLayer.onLayerStatusChanged);
-        chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", highLowChartLayer.onLayerStatusChanged);
+        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", candleTechnicalAnalisysChartLayer.onLayerStatusChanged);
+        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", highLowChartLayer.onLayerStatusChanged);
 
-        chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", volumeTechnicalAnalisysChartLayer.onLayerStatusChanged);
-        chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", allTimeChartLayer.onLayerStatusChanged);
-        chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", forecastChartLayer.onLayerStatusChanged);
-        chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", orderBooksChartLayer.onLayerStatusChanged);
-        chartLayersPanel.container.eventHandler.listenToEvent("Layer Status Changed", linearRegressionCurveChartLayer.onLayerStatusChanged);
+        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", volumeTechnicalAnalisysChartLayer.onLayerStatusChanged);
+        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", allTimeChartLayer.onLayerStatusChanged);
+        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", forecastChartLayer.onLayerStatusChanged);
+        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", orderBooksChartLayer.onLayerStatusChanged);
+        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", linearRegressionCurveChartLayer.onLayerStatusChanged);
         */
     } 
 

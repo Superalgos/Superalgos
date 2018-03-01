@@ -53,7 +53,7 @@ function newOrderBooksChartLayer() {
     return orderBooksChartLayer;
 
 
-    function initialize(exchange, market, index, chartLayersPanel) {
+    function initialize(exchange, market, index, botsPanel) {
 
         marketId = market;
         exchangeId = exchange;
@@ -68,7 +68,7 @@ function newOrderBooksChartLayer() {
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
         canvas.eventHandler.listenToEvent("Dragging", onDragging);
 
-        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.ORDER_BOOKS);
+        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.ORDER_BOOKS);
     }
 
 

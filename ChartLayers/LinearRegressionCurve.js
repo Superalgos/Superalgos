@@ -40,7 +40,7 @@ function newLinearRegressionCurve() {
 
     return linearRegressionCurveChartLayer;
 
-    function initialize(exchange, market, index, dailyFiles, chartLayersPanel) {
+    function initialize(exchange, market, index, dailyFiles, botsPanel) {
         marketId = market;
         exchangeId = exchange;
 
@@ -49,7 +49,7 @@ function newLinearRegressionCurve() {
 
         recalculateScale();
 
-        layerStatus = chartLayersPanel.getLayerStatus(chartLayersPanel.layerNames.LINEAR_REGRESION_CURVE);
+        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.LINEAR_REGRESION_CURVE);
     }
 
     function getContainer(point) {

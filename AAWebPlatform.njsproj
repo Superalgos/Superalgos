@@ -36,6 +36,9 @@
     <Compile Include="Azure\azure-storage.file.js" />
     <Compile Include="Ball.js" />
     <Compile Include="Balls.js" />
+    <Compile Include="BotCard.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Ecosystem.js">
       <SubType>Code</SubType>
     </Compile>
@@ -49,9 +52,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FileCursorCache.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Panels\BotsLayersPanel.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Button.js" />
@@ -81,6 +81,9 @@
     <Compile Include="FileCache.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Plotters.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="server.js" />
     <Compile Include="Displace.js" />
     <Compile Include="EventHandler.js" />
@@ -96,7 +99,7 @@
     <Compile Include="OrderBookDepthChart.js" />
     <Compile Include="OrderBookFilesCursor.js" />
     <Compile Include="OrderBookSnapShot.js" />
-    <Compile Include="Panels\ChartLayersPanel.js" />
+    <Compile Include="Panels\BotsPanel.js" />
     <Compile Include="Panels\ControlPanel.js" />
     <Compile Include="Panels\CurrentCandlePanel.js" />
     <Compile Include="Panels\CurrentVolumePanel.js" />
@@ -124,6 +127,9 @@
     <Compile Include="VolumeBar.js" />
     <Compile Include="VolumeTechnicalAnalisys\Stairs.js" />
     <Compile Include="Zoom.js" />
+    <Content Include="ecosystem.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="index.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />

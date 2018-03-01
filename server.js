@@ -2,44 +2,59 @@
 const MODULE_NAME = "Node Server";
 const START_BROWSER_APP = true;
 
-
-/*
-const octokit = require('@octokit/rest')()
-global.atob = require("atob");
-
-let owner = "AAMasters";
-let repo = "AABruce-Indicator-Bot";
-let branch = "master";
-let page = 1;
-let per_page = 100;
-let ref = "master";
-let path = "One-Min-Daily-Candles-Volumes/Interval.js";
-
-octokit.repos.getContent({ owner, repo, path, ref }, onContent);
-
-function onContent (error, result) {
-
-    let decoded = atob(result.data.content);
-
-    console.log(decoded.substring(3));
-
-    console.log(result);
-
-}
-
-return;
-*/
-
-let debugMode = true;
+let debugMode = true;           // This forces the server to read Plotters from the local drive.
 let githubPages = new Map;
+let ecosystem;
+let ecosystemObject;
 
 //'use strict';
 var http = require('http');
 var port = process.env.PORT || 1337;
 
-startHtttpServer();
+initialize();
 
-function onRequestReceivedFromBrowser(request, response) {
+function initialize() {
+
+    let fs = require('fs');
+    try {
+        let fileName = 'ecosystem.json';
+        fs.readFile(fileName, onFileRead);
+
+        function onFileRead(err, file) {
+
+            try {
+                ecosystem = file.toString();
+                ecosystem = ecosystem.trim(); // remove first byte with some encoding.
+
+                ecosystemObject = JSON.parse(ecosystem);
+                startHtttpServer();
+            }
+            catch (err) {
+                console.log("File Not Found: " + fileName + " or Error = " + err);
+            }
+
+        }
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+function startHtttpServer() {
+
+    if (START_BROWSER_APP === true) {
+
+        try {
+
+            gWebServer = http.createServer(onBrowserRequest).listen(port);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+}
+
+function onBrowserRequest(request, response) {
 
     var htmlResponse;
     var requestParameters = request.url.split("/");
@@ -47,16 +62,115 @@ function onRequestReceivedFromBrowser(request, response) {
 
     switch (requestParameters[1]) {
 
-        case "AAMasters":
+        case "Plotters.js":
+            {
+                let fs = require('fs');
+                try {
+                    let fileName = 'Plotters.js';
+                    fs.readFile(fileName, onFileRead);
+
+                    function onFileRead(err, file) {
+
+                        try {
+
+                            let fileContent = file.toString();
+
+                            /* This is the string we will use to insert into the Plotters.js script. */
+
+                            let caseString = '' +
+                                '        case "@newFunctionName@":' + '\n' +
+                                '        {' + '\n' +
+                                '            plotter = newPlotterName();' + '\n' +
+                                '        }' + '\n' +
+                                '        break;' + '\n' + '\n' 
+
+                            let devTeams = ecosystemObject.devTeams;
+
+                            for (let i = 0; i < devTeams.length; i++) {
+
+                                let devTeam = devTeams[i];
+
+                                for (let j = 0; j < devTeam.plotters.length; j++) {
+
+                                    let plotter = devTeam.plotters[j];
+
+                                    /* Now each of these layers has a plotter that we need to define on the Plotter.js file. */
+
+                                    let caseStringCopy = caseString;
+
+                                    let newFunctionName = devTeam.codeName + plotter.repo + plotter.moduleName; 
+                                    newFunctionName = newFunctionName.replace(/-/g, "");
+
+                                    let stringToInsert;
+                                    stringToInsert = caseStringCopy.replace('@newFunctionName@', newFunctionName);
+                                    stringToInsert = stringToInsert.replace('newPlotterName', 'new' + newFunctionName);
+
+                                    let firstPart = fileContent.substring(0,fileContent.indexOf('// Cases'));
+                                    let secondPart = fileContent.substring(fileContent.indexOf('// Cases'));
+
+                                    fileContent = firstPart + stringToInsert + secondPart;
+                                    
+                                }
+                            }
+
+                            respondWithContent(fileContent, response);
+
+                        }
+                        catch (err) {
+                            console.log("File Not Found: " + fileName + " or Error = " + err);
+                        }
+
+                    }
+                }
+                catch (err) {
+                    console.log(err);
+                }
+
+            }
+            break;
+
+        case "Ecosystem.js":
+            {
+                let fs = require('fs');
+                try {
+                    let fileName = 'Ecosystem.js';
+                    fs.readFile(fileName, onFileRead);
+
+                    function onFileRead(err, file) {
+
+                        try {
+
+                            let fileContent = file.toString();
+                            let trimmedEcosystem = ecosystem.trim(); 
+
+                            fileContent = fileContent.replace('"@ecosystem.json@"', trimmedEcosystem); 
+
+                            respondWithContent(fileContent, response);
+
+                        }
+                        catch (err) {
+                            console.log("File Not Found: " + fileName);
+                        }
+
+                    }
+                }
+                catch (err) {
+                    console.log(err);
+                }
+
+            }
+            break;
+
+        case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
 
                 if (debugMode === true) {
 
-                    respondWithFile('../' + requestParameters[2] + "-Plotter" + '/' + requestParameters[3], response);
+                    respondWithFile('../Plotters/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response);
 
                 } else {
 
-                    let cacheVersion = githubPages.get(requestParameters[1] + requestParameters[2] + requestParameters[3])
+                    let cacheVersion = githubPages.get(requestParameters[2] + requestParameters[3] + requestParameters[4])
 
                     if (cacheVersion !== undefined) {
 
@@ -67,13 +181,13 @@ function onRequestReceivedFromBrowser(request, response) {
                         const octokit = require('@octokit/rest')()
                         global.atob = require("atob");
 
-                        let owner = requestParameters[1];
-                        let repo = requestParameters[2] + "-Plotter";
+                        let owner = requestParameters[2];
+                        let repo = requestParameters[3];
                         let branch = "master";
                         let page = 1;
                         let per_page = 100;
                         let ref = "master";
-                        let path = requestParameters[3];
+                        let path = requestParameters[4];
 
                         octokit.repos.getContent({ owner, repo, path, ref }, onContent);
 
@@ -85,7 +199,7 @@ function onRequestReceivedFromBrowser(request, response) {
 
                             respondWithContent(cleanString, response);
 
-                            githubPages.set(requestParameters[1] + requestParameters[2] + requestParameters[3], cleanString);
+                            githubPages.set(requestParameters[2] + requestParameters[3] + requestParameters[4], cleanString);
 
                         }
                     }
@@ -129,162 +243,71 @@ function onRequestReceivedFromBrowser(request, response) {
             }
             break;
 
-        case "lastTrades":
-            {
-                const marketId = requestParameters[2];
-                const exchangeId = requestParameters[3];
-
-                const sqlQuery = "SELECT TOP 100000 "
-                    + " InternalExchangeTradeId AS Id, "
-                    + " Type, "
-                    + " Rate, "
-                    + " AmountAssetA AS AmountA, "
-                    + " AmountAssetB AS AmountB, "
-                    + " Timestamp "
-                    + " FROM Trades "
-                    + " WHERE "
-                    + " IdMarket = " + marketId + " "
-                    + " AND "
-                    + " IdExchange = " + exchangeId + " "
-                    + " ORDER BY IdExchange ASC, IdMarket ASC, InternalExchangeTradeId DESC"
-                    ;
-
-                ////console.log("About to execute: " + sqlQuery);
-
-
-                /* Then we execute the query */
-
-                database.executeSQL(sqlQuery, function (err, resultSet) {
-
-                    //console.log("Query executed: " + sqlQuery);
-
-                    var myJsonString = JSON.stringify(resultSet);
-
-                    ////console.log(myJsonString);
-
-                    response.writeHead(200, { 'Content-Type': 'text/plain' });
-                    response.write(myJsonString);
-                    response.end("\n");
-                }
-                );
-
-            }
-            break;
-
-
-        case "trades":
-            {
-                const marketId = requestParameters[2];
-                const exchangeId = requestParameters[3];
-                const idBegin = unescape(requestParameters[4]);
-                const idEnd = unescape(requestParameters[5]);
-
-                const sqlQuery = "SELECT "
-                    + " InternalExchangeTradeId AS Id, "
-                    + " Type, "
-                    + " Rate, "
-                    + " AmountAssetA AS AmountA, "
-                    + " AmountAssetB AS AmountB, "
-                    + " Timestamp "
-                    + " FROM Trades "
-                    + " WHERE "
-                    + " IdExchange = " + exchangeId + " "
-                    + " AND "
-                    + " IdMarket = " + marketId + " "
-                    + " AND "
-                    + " InternalExchangeTradeId >= " + idBegin + " "
-                    + " AND "
-                    + " InternalExchangeTradeId <= " + idEnd + " "
-                    + " ORDER BY IdExchange, IdMarket, InternalExchangeTradeId "
-                    ;
-
-                let records = idEnd - idBegin;
-                console.log("Records Requested: " + records + " idBegin = " + idBegin + " idEnd = " + idEnd);
-
-
-                /* Then we execute the query */
-
-                database.executeSQL(sqlQuery, function (err, resultSet) {
-
-                    //console.log("Query executed: " + sqlQuery);
-
-                    var myJsonString = JSON.stringify(resultSet);
-
-                    ////console.log(myJsonString);
-
-                    response.writeHead(200, { 'Content-Type': 'text/plain' });
-                    response.write(myJsonString);
-                    response.end("\n");
-                }
-                );
-
-            }
-            break;
-
-
-        case "orderbook":
-
-            {
-                const marketId = requestParameters[2];
-                const datetimeBegin = unescape(requestParameters[3]);
-                const datetimeEnd = unescape(requestParameters[4]);
-
-                var sqlQuery = "SELECT "
-                    + " Id, "
-                    + " Rate, "
-                    + " Amount * Rate AS AmountA, "
-                    + " Amount AS AmountB, "
-                    + " Type AS Type, "
-                    + " DatetimeIn AS DatetimeIn, "
-                    + " ISNULL(DatetimeOut, '3000-01-01') AS DatetimeOut "
-                    + " FROM OrderBooks "
-                    + " WHERE "
-                    + " ( "
-                    + " IdMarket = " + marketId + " "
-                    + " ) "
-                    + " AND "
-                    + " ( "
-                    + " DatetimeIn <= '" + datetimeEnd + "' "
-                    + " ) "
-                    + " AND "
-                    + " ( "
-                    + " ISNULL(DatetimeOut, '3000-01-01') > '" + datetimeBegin + "' "
-                    + " ) "
-                    ;
-
-
-                //console.log(sqlQuery);
-
-
-                /* Then we execute the query */
-
-                database.executeSQL(sqlQuery, function (err, resultSet) {
-
-                    var myJsonString = JSON.stringify(resultSet);
-
-                    //console.log(myJsonString);
-
-                    response.writeHead(200, { 'Content-Type': 'text/plain' });
-                    response.write(myJsonString);
-                    response.end("\n");
-                }
-                );
-            }
-            break;
-
-
-
-
 
         default:
-            ////console.log("Unknown request received from the browser: " + request.url);
 
             if (requestParameters[1] === "") {
-                requestParameters[1] = "index.html";
+
+                let fs = require('fs');
+                try {
+                    let fileName = 'index.html';
+                    fs.readFile(fileName, onFileRead);
+
+                    function onFileRead(err, file) {
+
+                        try {
+
+                            let fileContent = file.toString();
+
+                            /* This is the string we will use to insert into the Plotters.js script. */
+
+                            let htmlLine = '' + '\n' +
+                                '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
+
+                            let devTeams = ecosystemObject.devTeams;
+
+                            for (let i = 0; i < devTeams.length; i++) {
+
+                                let devTeam = devTeams[i];
+
+                                for (let j = 0; j < devTeam.plotters.length; j++) {
+
+                                    let plotter = devTeam.plotters[j];
+
+                                    /* Now each of these layers has a plotter that we need to define on the Plotter.js file. */
+
+                                    let htmlLineCopy = htmlLine;
+
+                                    let stringToInsert;
+                                    stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                    stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                    stringToInsert = stringToInsert.replace('@module@', plotter.moduleName);
+
+                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Plotters-->') + 15);
+                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Plotters-->') + 15);
+
+                                    fileContent = firstPart + stringToInsert + secondPart;
+
+                                }
+                            }
+
+                            respondWithContent(fileContent, response);
+
+                        }
+                        catch (err) {
+                            console.log("File Not Found: " + fileName + " or Error = " + err);
+                        }
+
+                    }
+                }
+                catch (err) {
+                    console.log(err);
+                }
+            } else {
+
+                respondWithFile("" + requestParameters[1], response);
+
             }
-
-            respondWithFile("" + requestParameters[1], response);
-
     }
 
     function sendResponseToBrowser(htmlResponse) {
@@ -294,7 +317,6 @@ function onRequestReceivedFromBrowser(request, response) {
         response.end("\n");
     }
 }
-
 
 function respondWithContent(content, response) {
 
@@ -308,15 +330,13 @@ function respondWithContent(content, response) {
         response.writeHead(200, { 'Content-Type': 'text/html' });
         response.write(content);
         response.end("\n");
-        console.log("Content Sent: " + content);
+        //console.log("Content Sent: " + content);
 
     }
     catch (err) {
         returnEmptyArray();
     }
 }
-
-
 
 function respondWithFile(fileName, response) {
 
@@ -338,7 +358,7 @@ function respondWithFile(fileName, response) {
                 response.writeHead(200, { 'Content-Type': 'text/html' });
                 response.write(htmlResponse);
                 response.end("\n");
-                console.log("File Sent: " + fileName);
+                //console.log("File Sent: " + fileName);
                 //
             }
             catch (err) {
@@ -365,18 +385,6 @@ function respondWithFile(fileName, response) {
     }
 }
 
-function startHtttpServer() {
 
-    if (START_BROWSER_APP === true) {
-
-        try {
-
-            gWebServer = http.createServer(onRequestReceivedFromBrowser).listen(port);
-        }
-        catch (err) {
-            console.log(err);
-        }
-    }
-}
 
 

@@ -41,7 +41,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 * **In-File Record Example**: 
   * [[10194.64038378,10308.25665115,10261.25665108,10236.90000135,1517443200000,1517443799999],[10236.90000135,10300.680924,10236.90000229,10288.10043292,1517443800000,1517444399999], ... ,[10288.10043292,10367.78412393,10288.10043293,10309.00000025,1517444400000,1517444999999],[10201.97490283,10367.78412393,10309.00000025,10201.97490283,1517445000000,1517445599999]]
 
-## Dataset 2: All-time, Market-long Candles in Resolutions Between 1 Hour and 24 Hours
+## Dataset 2: All-time, Market-long Candles in Resolutions Between 1 and 24 Hours
 
 ### Current Dataset Scope
 * **Exchanges**: Poloniex
@@ -85,7 +85,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 * **In-File Record Example**: 
   * [[33271.902671610005,13940.15380426,1514764800000,1514764859999],[15312.391007760001,18734.01756361,1514764860000,1514764919999], ... ,[16261.87486184,2788.53802902,1514764920000,1514764979999],[513.24710259,9896.328325810004,1514764980000,1514765039999]]
 
-## Dataset 4: All-time, Market-long Volumes in Resolutions Between 1 Hour and 24 Hours
+## Dataset 4: All-time, Market-long Volumes in Resolutions Between 1 and 24 Hours
 
 ### Current Dataset Scope
 * **Exchanges**: Poloniex

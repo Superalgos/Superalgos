@@ -74,7 +74,7 @@ function newAllTimeChartLayer() {
 
             }
 
-            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.ATH);
+            layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.ATH);
 
         }
 

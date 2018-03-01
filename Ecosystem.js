@@ -6,8 +6,6 @@ function newEcosystem() {
         getTeams: getTeams,
         getBot: getBot,
         getProduct: getProduct,
-        getLayer: getLayer,
-        getLayers: getLayers,
         getExchange: getExchange, 
         initialize: initialize
     }
@@ -62,17 +60,6 @@ function newEcosystem() {
         }
     }
 
-    function getLayer(pProduct, pLayerCodeName) {
-
-        for (let i = 0; i < pProduct.layers.length; i++) {
-
-            if (pProduct.layers[i].codeName === pLayerCodeName) {
-
-                return pProduct.layers[i];
-            }
-        }
-    }
-
     function getExchange(pProduct, pName) {
 
         for (let i = 0; i < pProduct.exchangeList.exchange.length; i++) {
@@ -82,35 +69,6 @@ function newEcosystem() {
                 return pProduct.exchangeList.exchange[i];
             }
         }
-    }
-
-    function getLayers() {
-
-        let allLayers = [];
-
-        for (let i = 0; i < ECOSYSTEM.devTeams.length; i++) {
-
-            let devTeam = ecosystem.devTeams[i];
-
-            for (let j = 0; j < devTeam.bots.length; j++) {
-
-                let bot = devTeam.bots[j];
-
-                for (let k = 0; k < bot.products.length; k++) {
-
-                    let product = bot.products[k];
-
-                    for (let l = 0; l < product.layers.length; l++) {
-
-                        let layer = product.layers[l];
-
-                        allLayers.push(layer);
-                    }
-                }
-            }
-        }
-
-        return allLayers;
     }
 }
 

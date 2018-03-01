@@ -49,7 +49,7 @@ function newLinearRegressionCurve() {
 
         recalculateScale();
 
-        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.LINEAR_REGRESION_CURVE);
+        layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.LINEAR_REGRESION_CURVE);
     }
 
     function getContainer(point) {

@@ -50,8 +50,8 @@ function newVolumeTechnicalAnalisysChartLayer() {
         marketIndex = index;
         dailyFilesCursor = dailyFiles;
 
-        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.VOLUME_STAIRS);
-        parentLayerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.VOLUME); 
+        layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.VOLUME_STAIRS);
+        parentLayerStatus = botsPanel.getProductStatus(botsPanel.layerNames.VOLUME); 
     }
 
 

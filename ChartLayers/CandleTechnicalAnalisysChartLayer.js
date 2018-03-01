@@ -51,8 +51,8 @@ function newCandleTechnicalAnalisysChartLayer() {
 
         recalculateScale();
 
-        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLE_STAIRS); 
-        parentLayerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLESTICKS); 
+        layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.CANDLE_STAIRS); 
+        parentLayerStatus = botsPanel.getProductStatus(botsPanel.layerNames.CANDLESTICKS); 
     }
 
 

@@ -61,7 +61,7 @@ function newCandleStickChartLayer() {
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLESTICKS);
+        layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.CANDLESTICKS);
 
     }
 

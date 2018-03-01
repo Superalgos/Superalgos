@@ -10,8 +10,8 @@ function newProductsPanel() {
 
     var thisObject = {
         container: undefined,
-        gerOnProducts: gerOnProducts,
-        getLayerStatus: getLayerStatus,
+        getOnProducts: getOnProducts,
+        getProductStatus: getProductStatus,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
@@ -27,8 +27,6 @@ function newProductsPanel() {
     let isInitialized = false;
     let products;
 
-    let layers = [];
-
     return thisObject;
 
     function initialize() {
@@ -43,7 +41,11 @@ function newProductsPanel() {
 
         this.container.frame.position = position;
 
-        /* First thing is to build the layers array */
+        /* Needed Variables */
+
+        var lastY = 5;
+
+        /* First thing is to build the products array */
 
         let devTeams = ecosystem.getTeams();
 
@@ -59,89 +61,69 @@ function newProductsPanel() {
 
                     let product = bot.products[k];
 
-                    for (let l = 0; l < product.layers.length; l++) {
+                    /* Now we create Product objects */
 
-                        let layer = product.layers[l];
+                    var product = newProduct();
 
-                        let panelLayer = {
-                            devTeam: devTeam,
-                            bot: bot,
-                            product: product,
-                            layer: layer
-                        };
+                    product.devTeam = devTeam;
+                    product.bot = bot;
+                    product.product = product;
 
-                        layers.push(panelLayer);
+                    product.code = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName;
+
+                    /* Container Stuff */
+
+                    product.container.displacement.parentDisplacement = this.container.displacement;
+                    product.container.zoom.parentZoom = this.container.zoom;
+                    product.container.frame.parentFrame = this.container.frame;
+                    product.container.parentContainer = this.container;
+
+                    /* Initialize it */
+
+                    product.initialize();
+
+                    /* Positioning within this Panel */
+
+                    let position = { 
+                        x: 10,
+                        y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+                    };
+                    product.container.frame.position.x = position.x;
+                    product.container.frame.position.y = position.y + lastY;
+
+                    lastY = lastY + product.container.frame.height;
+
+                    /*  We start listening to the products click event, so as to know when one was pressed. */
+
+                    product.container.eventHandler.listenToEvent('onMouseClick', buttonPressed, i);
+
+                    /* We retrieve the locally stored status of the Product */
+
+                    let storedValue = window.localStorage.getItem(product.code);
+
+                    if (storedValue !== null) {
+
+                        product.status = storedValue;
+
+                    } else {
+
+                        product.status = PRODUCT_STATUS.ON;
+
                     }
+
+                    /* Add to the Product Array */
+
+                    products.push(product);
+
                 }
             }
-        }
-
-        var cardPosition;
-
-        var lastY = 5;
-        products = [];
-
-        for (var i = 0; i < layers.length; i++) {
-
-            let fullCodeName = layers[i].devTeam.codeName + '-' + layers[i].bot.codeName + '-' + layers[i].product.codeName + '-' + layers[i].layer.codeName;
-
-            /* Products are going to be one at the right of the other. */
-
-            var card = newProduct();
-            card.devTeam = layers[i].devTeam.displayName;
-            card.bot = layers[i].bot.displayName;
-            card.product = layers[i].product.displayName;
-            card.layer = layers[i].layer.displayName;
-            card.code = fullCodeName;
-
-            card.container.displacement.parentDisplacement = this.container.displacement;
-            card.container.zoom.parentZoom = this.container.zoom;
-            card.container.frame.parentFrame = this.container.frame;
-
-            card.container.parentContainer = this.container;
-
-            card.initialize();
-
-            cardPosition = {  // The first card 
-                x: 10,
-                y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
-            };
-            card.container.frame.position.x = cardPosition.x;
-            card.container.frame.position.y = cardPosition.y + lastY;
-
-            lastY = lastY + card.container.frame.height;
-
-            /*  We start listening to the products click event, so as to know when one was pressed. */
-
-            card.container.eventHandler.listenToEvent('onMouseClick', buttonPressed, i);
-
-            let storedValue = window.localStorage.getItem(card.code);
-
-            if (storedValue !== null) {
-
-                card.status = storedValue; 
-
-            } else {
-
-                card.status = PRODUCT_STATUS.ON; 
-
-            }
-
-            products.push(card);
-
-            let eventData = {
-                layer: card.code,
-                status: card.status
-            }
-
-            thisObject.container.eventHandler.raiseEvent('Layer Status Changed', eventData);
         }
 
         isInitialized = true;
 
     }
 
-    function gerOnProducts() {
+    function getOnProducts() {
 
         /* Returns all products which status is ON */
 
@@ -158,14 +140,13 @@ function newProductsPanel() {
         return onProducts;
     }
 
-
-    function getLayerStatus(layerName) {
+    function getProductStatus(pProductCode) {
 
         for (let i = 0; i < products.length; i++) {
 
             let button = products[i];
 
-            if (button.code === layerName) {
+            if (button.code === pProductCode) {
 
                 return button.status;
 
@@ -226,13 +207,12 @@ function newProductsPanel() {
 
         }
 
-
         let eventData = {
-            layer: products[index].code,
+            productCode: products[index].code,
             status: products[index].status
         }
 
-        thisObject.container.eventHandler.raiseEvent('Layer Status Changed', eventData);
+        thisObject.container.eventHandler.raiseEvent('Product Status Changed', eventData);
 
         window.localStorage.setItem(products[index].code, products[index].status);
 
@@ -244,7 +224,7 @@ function newProductsPanel() {
 
         thisObject.container.frame.draw(false, false, true);
 
-        for (var i = 0; i < products.length; i++) {
+        for (let i = 0; i < products.length; i++) {
             products[i].draw();
         }
 

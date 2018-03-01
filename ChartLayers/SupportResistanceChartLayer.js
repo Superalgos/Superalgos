@@ -47,7 +47,7 @@ function newSupportResistanceChartLayer() {
 
         recalculateScale();
 
-        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLESTICKS); // TODO : Put the right layer name here when it exists.
+        layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.CANDLESTICKS); // TODO : Put the right layer name here when it exists.
 
     }
 

@@ -68,7 +68,7 @@ function newOrderBooksChartLayer() {
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
         canvas.eventHandler.listenToEvent("Dragging", onDragging);
 
-        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.ORDER_BOOKS);
+        layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.ORDER_BOOKS);
     }
 
 

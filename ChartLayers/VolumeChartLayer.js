@@ -56,7 +56,7 @@ function newVolumeChartLayer() {
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.VOLUME);
+        layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.VOLUME);
 
     }
 

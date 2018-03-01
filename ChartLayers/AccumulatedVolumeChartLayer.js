@@ -58,8 +58,8 @@ function newAccumulatedVolumeChartLayer() {
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.BUY_SELL_BALANCE);
-        parentLayerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.VOLUME); 
+        layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.BUY_SELL_BALANCE);
+        parentLayerStatus = botsPanel.getProductStatus(botsPanel.layerNames.VOLUME); 
 
     }
 

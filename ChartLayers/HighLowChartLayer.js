@@ -51,8 +51,8 @@ function newHighLowChartLayer() {
 
         recalculateScale();
 
-        layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.HIGH_LOWS);
-        parentLayerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.CANDLESTICKS); 
+        layerStatus = botsPanel.getProductStatus(botsPanel.layerNames.HIGH_LOWS);
+        parentLayerStatus = botsPanel.getProductStatus(botsPanel.layerNames.CANDLESTICKS); 
 
     }
 

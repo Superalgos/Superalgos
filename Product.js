@@ -35,9 +35,6 @@
         this.container.frame.width = 280;
         this.container.frame.height = 28;
 
-        /* Now we start listening to the onClick event from the mouse, so that we can allow users operate this thisObject. */
-
-
     }
 
     function getContainer(point) {

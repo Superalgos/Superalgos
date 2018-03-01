@@ -100,13 +100,13 @@ function newTimelineChart() {
 
         /* Lets get all the cards that are turned on. */
 
-        let onCards = botsPanel.gerOnCards();
+        let onProducts = botsPanel.getOnProducts();
 
-        for (let i = 0; i < onCards.length; i++) {
+        for (let i = 0; i < onProducts.length; i++) {
 
             /* For each one, we will initialize the associated plotter. */
 
-            let onCard = onCards[i];
+            let onCard = onProducts[i];
 
             let plotter = getNewPlotter(onCard.plotter.devTeam, onCard.plotter.repo, onCard.plotter.moduleName);
 

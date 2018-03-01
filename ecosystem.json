@@ -16,11 +16,7 @@
           "member": {
             "displayName": "Luis Molina",
             "githubUsername": "Luis-Fernando-Molina",
-            "profilePicture": "Luis.jpg",
-            "tokens": {
-              "percentDistribution": 100,
-              "totalCollected": 121.45
-            }
+            "profilePicture": "Luis.jpg"
           }
         }
       ],
@@ -37,157 +33,64 @@
             {
               "codeName": "Market Candles",
               "displayName": "Market Candles per Period",
-              "description": "A set of files per period that contains all candles of one whole market.",
+              "description": "Two sets of files per period that contains candles.",
               "storageAccount": "aaolivia",
-              "filePath": "@Exchange/Output/Candles/Multi-Period-Market/@Period",
-              "fileName": "@AssetA_@AssetB.json",
+              "sets": [
+                {
+                  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+                  "filePath": "@Exchange/Output/Candles/Multi-Period-Market/@Period",
+                  "fileName": "@AssetA_@AssetB.json"
+                },
+                {
+                  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+                  "filePath": "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                  "fileName": "@AssetA_@AssetB.json"
+                }
+              ],
               "exchangeList": {
                 "exchange": [
                   {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
+                    "name": "Poloniex"
                   }
                 ]
               },
-              "layers": [
-                {
-                  "codeName": "Market Candlesticks",
-                  "displayName": "Candlesticks",
-                  "exchangeList": [ "Poloniex" ],
-                  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Candles-Volumes",
-                    "moduleName": "Candles"
-                  }
-                }
-              ]
+              "plotter": {
+                "devTeam": "AAMasters",
+                "repo": "Plotters-Candles-Volumes",
+                "moduleName": "Candles"
+              }
             },
             {
               "codeName": "Market Volumes",
               "displayName": "Market Volumes per Period",
-              "description": "A set of files per period that contains all volumes of one whole market.",
+              "description": "Two sets of files per period that contains buy and sell volumes.",
               "storageAccount": "aaolivia",
-              "filePath": "@Exchange/Output/Volumes/Multi-Period-Market/@Period",
-              "fileName": "@AssetA_@AssetB.json",
-              "exchangeList": {
-                "exchange": [
-                  {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
-                  }
-                ]
-              },
-              "layers": [
+              "sets": [
                 {
-                  "codeName": "Market Volumes",
-                  "displayName": "Volumes",
-                  "exchangeList": [ "Poloniex" ],
                   "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Candles-Volumes",
-                    "moduleName": "Volumes"
-                  }
+                  "filePath": "@Exchange/Output/Volumes/Multi-Period-Market/@Period",
+                  "fileName": "@AssetA_@AssetB.json"
+                },
+                {
+                  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+                  "filePath": "@Exchange/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                  "fileName": "@AssetA_@AssetB.json"
                 }
-              ]
-            },
-            {
-              "codeName": "Daily Candles",
-              "displayName": "Daily Candles per Period",
-              "description": "A set of files per period that contains all candles of one whole market.",
-              "storageAccount": "aaolivia",
-              "filePath": "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
-              "fileName": "@AssetA_@AssetB.json",
+              ],
               "exchangeList": {
                 "exchange": [
                   {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
+                    "name": "Poloniex"
                   }
                 ]
               },
-              "layers": [
-                {
-                  "codeName": "Daily Candlesticks",
-                  "displayName": "Candlesticks",
-                  "exchangeList": [ "Poloniex" ],
-                  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Candles-Volumes",
-                    "moduleName": "Candlesticks"
-                  }
-                }
-              ]
-            },
-            {
-              "codeName": "Daily Volumes",
-              "displayName": "Daily Volumes per Period",
-              "description": "A set of files per period that contains all volumes of one whole market.",
-              "storageAccount": "aaolivia",
-              "filePath": "@Exchange/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
-              "fileName": "@AssetA_@AssetB.json",
-              "exchangeList": {
-                "exchange": [
-                  {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
-                  }
-                ]
-              },
-              "layers": [
-                {
-                  "codeName": "Daily Volumes",
-                  "displayName": "Volumes",
-                  "exchangeList": [ "Poloniex" ],
-                  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Candles-Volumes",
-                    "moduleName": "Volumes"
-                  }
-                }
-              ]
+              "plotter": {
+                "devTeam": "AAMasters",
+                "repo": "Plotters-Candles-Volumes",
+                "moduleName": "Volumes"
+              }
             }
           ],
-          "processes": {
-            "process": [
-              {
-                "name": "One-Min-Daily-Candles-Volumes",
-                "description": "Read trades files and generates one minute candles and volumes files for each day."
-              }
-            ]
-          },
-          "directDependencies": [],
-          "directDependents": [],
-          "collaboratorsList": [],
-          "github": {
-            "org": "AAMasters",
-            "repos": {
-              "repo": [
-                {
-                  "name": "AABruce",
-                  "description": "Produces two data-sets with candles and volumes for all markets at all exchanges.",
-                  "openIssues": 0,
-                  "openPullRequests": 0,
-                  "contributors": 1
-                }
-              ]
-            }
-          },
           "storage": {
             "sas": "?sv=2017-04-17&ss=f&srt=sco&sp=rl&se=2018-12-31T02:34:32Z&st=2018-02-01T18:34:32Z&spr=https,http&sig=24UJjGDVpPrHjhBoZtt3iKj4sxgenfSV4VTJD2v0q1U%3D",
             "fileUri": "https://aaolivia.file.core.windows.net"
@@ -207,155 +110,62 @@
               "displayName": "Market Candle-Stairs per Period",
               "description": "A set of files per period that contains all candle-stairs of one whole market.",
               "storageAccount": "aatom",
-              "filePath": "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period",
-              "fileName": "@AssetA_@AssetB.json",
+              "sets": [
+                {
+                  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+                  "filePath": "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period",
+                  "fileName": "@AssetA_@AssetB.json"
+                },
+                {
+                  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+                  "filePath": "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                  "fileName": "@AssetA_@AssetB.json"
+                }
+              ],
               "exchangeList": {
                 "exchange": [
                   {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
+                    "name": "Poloniex"
                   }
                 ]
               },
-              "layers": [
-                {
-                  "codeName": "Market Candle-Stairs",
-                  "displayName": "Candle-Stairs",
-                  "exchangeList": [ "Poloniex" ],
-                  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Stairs-Patterns",
-                    "moduleName": "CandleStairs"
-                  }
-                }
-              ]
+              "plotter": {
+                "devTeam": "AAMasters",
+                "repo": "Plotters-Stairs-Patterns",
+                "moduleName": "CandleStairs"
+              }
             },
             {
               "codeName": "Market Volume-Stairs",
               "displayName": "Market Volume-Stairs per Period",
-              "description": "A set of files per period that contains all volume-stairs of one whole market.",
-              "storageAccount": "aaolivia",
-              "filePath": "@Exchange/Tom/dataSet.V1/Output/Volume-Stairs/Multi-Period-Market/@Period",
-              "fileName": "@AssetA_@AssetB.json",
-              "exchangeList": {
-                "exchange": [
-                  {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
-                  }
-                ]
-              },
-              "layers": [
-                {
-                  "codeName": "Market Volume-Stairs",
-                  "displayName": "Volume-Stairs",
-                  "exchangeList": [ "Poloniex" ],
-                  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Stairs-Patterns",
-                    "moduleName": "VolumeStairs"
-                  }
-                }
-              ]
-            },
-            {
-              "codeName": "Daily Candle-Stairs",
-              "displayName": "Daily Candle-Stairs per Period",
-              "description": "A set of files per period that contains all candle-stairs of one whole market.",
+              "description": "Two sets of files per period that contains volume-stairs.",
               "storageAccount": "aatom",
-              "filePath": "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
-              "fileName": "@AssetA_@AssetB.json",
+              "sets": [
+                {
+                  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+                  "filePath": "@Exchange/Tom/dataSet.V1/Output/Volume-Stairs/Multi-Period-Market/@Period",
+                  "fileName": "@AssetA_@AssetB.json"
+                },
+                {
+                  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+                  "filePath": "@Exchange/Tom/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                  "fileName": "@AssetA_@AssetB.json"
+                }
+              ],
               "exchangeList": {
                 "exchange": [
                   {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
+                    "name": "Poloniex"
                   }
                 ]
               },
-              "layers": [
-                {
-                  "codeName": "Daily Candle-Stairs",
-                  "displayName": "Candle-Stairs",
-                  "exchangeList": [ "Poloniex" ],
-                  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Stairs-Patterns",
-                    "moduleName": "CandleStairs"
-                  }
-                }
-              ]
-            },
-            {
-              "codeName": "Daily Volume-Stairs",
-              "displayName": "Daily Volume-Stairs per Period",
-              "description": "A set of files per period that contains all volume-stairs of one whole market.",
-              "storageAccount": "aaotom",
-              "filePath": "@Exchange/Tom/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
-              "fileName": "@AssetA_@AssetB.json",
-              "exchangeList": {
-                "exchange": [
-                  {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
-                  }
-                ]
-              },
-              "layers": [
-                {
-                  "codeName": "Daily Volume-Stairs",
-                  "displayName": "Volume-Stairs",
-                  "exchangeList": [ "Poloniex" ],
-                  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Stairs-Patterns",
-                    "moduleName": "VolumeStairs"
-                  }
-                }
-              ]
+              "plotter": {
+                "devTeam": "AAMasters",
+                "repo": "Plotters-Stairs-Patterns",
+                "moduleName": "VolumeStairs"
+              }
             }
           ],
-          "processes": {
-            "process": [
-              {
-                "name": "One-Min-Daily-Candles-Volumes",
-                "description": "Read trades files and generates one minute candles and volumes files for each day."
-              }
-            ]
-          },
-          "directDependencies": [],
-          "directDependents": [],
-          "collaboratorsList": [],
-          "github": {
-            "org": "AAMasters",
-            "repos": {
-              "repo": [
-                {
-                  "name": "AABruce",
-                  "description": "Produces two data-sets with candles and volumes for all markets at all exchanges.",
-                  "openIssues": 0,
-                  "openPullRequests": 0,
-                  "contributors": 1
-                }
-              ]
-            }
-          },
           "storage": {
             "sas": "?sv=2017-04-17&ss=f&srt=sco&sp=r&se=2018-12-31T19:28:33Z&st=2018-02-22T11:28:33Z&spr=https&sig=YaprSp9zO%2Fsz0nPPWwPMqPACxZTnYhSWKApfun%2Bfez4%3D",
             "fileUri": "https://aatom.file.core.windows.net"
@@ -375,91 +185,27 @@
               "displayName": "Mariam Trading History",
               "description": "General information about Mariam trading history.",
               "storageAccount": "aamariam",
-              "filePath": "@Exchange/Mariam/dataSet.V1/Output/Trading-Process",
-              "fileName": "Execution.History.json",
+              "sets": [
+                {
+                  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+                  "filePath": "@Exchange/Mariam/dataSet.V1/Output/Trading-Process",
+                  "fileName": "Execution.History.json"
+                }
+              ],
               "exchangeList": {
                 "exchange": [
                   {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
+                    "name": "Poloniex"
                   }
                 ]
               },
-              "layers": [
-                {
-                  "codeName": "Trading History",
-                  "displayName": "Mariam Trading History",
-                  "exchangeList": [ "Poloniex" ],
-                  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Trading",
-                    "moduleName": "History"
-                  }
-                }
-              ]
-            },
-            {
-              "codeName": "Trading Details",
-              "displayName": "Mariam Trading Details",
-              "description": "Detailed information about Mariam execution.",
-              "storageAccount": "aamariam",
-              "filePath": "@Exchange/Mariam/dataSet.V1/Output/Trading-Process//@Year/@Month/@Day/@Hour/@Minute",
-              "fileName": "Execution.Context.json",
-              "exchangeList": {
-                "exchange": [
-                  {
-                    "name": "Poloniex",
-                    "datetimeRange": {
-                      "minDatetime": "2017-02-19 19:15:00.000 GMT+0000",
-                      "maxDatetime": "2018-02-13 10:10:00.000 GMT+0000"
-                    }
-                  }
-                ]
-              },
-              "layers": [
-                {
-                  "codeName": "Trading Details",
-                  "displayName": "Mariam Trading Details",
-                  "exchangeList": [ "Poloniex" ],
-                  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-                  "plotter": {
-                    "devTeam": "AAMasters",
-                    "repo": "Plotters-Trading",
-                    "moduleName": "Details"
-                  }
-                }
-              ]
+              "plotter": {
+                "devTeam": "AAMasters",
+                "repo": "Plotters-Trading",
+                "moduleName": "History"
+              }
             }
           ],
-          "processes": {
-            "process": [
-              {
-                "name": "Trading-Process",
-                "description": "Read trades files and generates one minute candles and volumes files for each day."
-              }
-            ]
-          },
-          "directDependencies": [],
-          "directDependents": [],
-          "collaboratorsList": [],
-          "github": {
-            "org": "AAMasters",
-            "repos": {
-              "repo": [
-                {
-                  "name": "AABruce",
-                  "description": "Produces two data-sets with candles and volumes for all markets at all exchanges.",
-                  "openIssues": 0,
-                  "openPullRequests": 0,
-                  "contributors": 1
-                }
-              ]
-            }
-          },
           "storage": {
             "sas": "?sv=2017-07-29&ss=f&srt=sco&sp=r&se=2018-12-30T23:44:52Z&st=2018-02-25T15:44:52Z&spr=https&sig=0pzOTcVAAOkgH7C4KmA1Rbs15kyjvVC1XFCsLQYjXKU%3D",
             "fileUri": "https://aamariam.file.core.windows.net"

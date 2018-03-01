@@ -1,4 +1,4 @@
-﻿function newAAMastersAAOliviaCandles() {
+﻿function newAAMastersPlottersCandlesVolumesCandles() {
 
     let thisObject = {
 

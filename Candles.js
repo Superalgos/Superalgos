@@ -37,6 +37,8 @@
     let fileCache;                      // This object will provide the different Market Files at different Time Periods.
     let fileCursorCache;                // This object will provide the different File Cursors at different Time Periods.
 
+    const LAYER_CODE_NAME = "Market Candlesticks";
+
     /* these are module specific variables: */
 
     let candles = [];                   // Here we keep the candles to be ploted every time the Draw() function is called by the AAWebPlatform.
@@ -52,7 +54,7 @@
         timePeriod = pTimePeriod;
 
         fileCache = newFileCache();
-        fileCache.initialize("AAMasters", "AAOlivia", "Market Candles", "Market Candlesticks", pExchange, pMarket, onFileReady);
+        fileCache.initialize("AAMasters", "AAOlivia", "Market Candles", LAYER_CODE_NAME, pExchange, pMarket, onFileReady);
 
         function onFileReady() {
 
@@ -673,7 +675,7 @@
 
     function onLayerStatusChanged(eventData) {
 
-        if (eventData.layer === 'Olivia Candlesticks') {
+        if (eventData.layer === LAYER_CODE_NAME) {
             layerStatus = eventData.status;
         }
 

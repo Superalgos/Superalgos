@@ -1,16 +1,16 @@
 ﻿
 
 
-function newBotsPanel() {
+function newProductsPanel() {
 
-    const CARD_STATES = {
+    const PRODUCT_STATUS = {
         ON: 'on',
         OFF: 'off'
     };
 
     var thisObject = {
         container: undefined,
-        cards: undefined,
+        gerOnProducts: gerOnProducts,
         getLayerStatus: getLayerStatus,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -25,7 +25,7 @@ function newBotsPanel() {
     thisObject.container.frame.containerName = "Chart Layers Panel";
 
     let isInitialized = false;
-    let cards;
+    let products;
 
     let layers = [];
 
@@ -79,15 +79,15 @@ function newBotsPanel() {
         var cardPosition;
 
         var lastY = 5;
-        cards = [];
+        products = [];
 
         for (var i = 0; i < layers.length; i++) {
 
             let fullCodeName = layers[i].devTeam.codeName + '-' + layers[i].bot.codeName + '-' + layers[i].product.codeName + '-' + layers[i].layer.codeName;
 
-            /* Buttons are going to be one at the right of the other. */
+            /* Products are going to be one at the right of the other. */
 
-            var card = newBotCard();
+            var card = newProduct();
             card.devTeam = layers[i].devTeam.displayName;
             card.bot = layers[i].bot.displayName;
             card.product = layers[i].product.displayName;
@@ -111,7 +111,7 @@ function newBotsPanel() {
 
             lastY = lastY + card.container.frame.height;
 
-            /*  We start listening to the cards click event, so as to know when one was pressed. */
+            /*  We start listening to the products click event, so as to know when one was pressed. */
 
             card.container.eventHandler.listenToEvent('onMouseClick', buttonPressed, i);
 
@@ -123,11 +123,11 @@ function newBotsPanel() {
 
             } else {
 
-                card.status = CARD_STATES.ON; 
+                card.status = PRODUCT_STATUS.ON; 
 
             }
 
-            cards.push(card);
+            products.push(card);
 
             let eventData = {
                 layer: card.code,
@@ -137,17 +137,33 @@ function newBotsPanel() {
             thisObject.container.eventHandler.raiseEvent('Layer Status Changed', eventData);
         }
 
-        thisObject.cards = cards;
-
         isInitialized = true;
 
     }
 
+    function gerOnProducts() {
+
+        /* Returns all products which status is ON */
+
+        let onProducts = [];
+
+        for (let i = 0; i < products.length; i++) {
+
+            if (products[i].status = PRODUCT_STATUS.ON) {
+
+                onProducts.push(products[i]);
+            }
+        }
+
+        return onProducts;
+    }
+
+
     function getLayerStatus(layerName) {
 
-        for (let i = 0; i < cards.length; i++) {
+        for (let i = 0; i < products.length; i++) {
 
-            let button = cards[i];
+            let button = products[i];
 
             if (button.code === layerName) {
 
@@ -157,7 +173,7 @@ function newBotsPanel() {
 
         }
 
-        return CARD_STATES.OFF;
+        return PRODUCT_STATUS.OFF;
     }
 
     function getContainer(point) {
@@ -171,9 +187,9 @@ function newBotsPanel() {
             /* Now we see which is the inner most container that has it */
 
 
-            for (var i = 0; i < this.cards.length; i++) {
+            for (var i = 0; i < products.length; i++) {
 
-                container = this.cards[i].getContainer(point);
+                container = products[i].getContainer(point);
 
                 if (container !== undefined) {
 
@@ -198,27 +214,27 @@ function newBotsPanel() {
 
     function buttonPressed(event, index) {
 
-        switch (thisObject.cards[index].status) {
+        switch (products[index].status) {
 
-            case CARD_STATES.ON:
-                thisObject.cards[index].status = CARD_STATES.OFF;
+            case PRODUCT_STATUS.ON:
+                products[index].status = PRODUCT_STATUS.OFF;
                 break;
 
-            case CARD_STATES.OFF:
-                thisObject.cards[index].status = CARD_STATES.ON;
+            case PRODUCT_STATUS.OFF:
+                products[index].status = PRODUCT_STATUS.ON;
                 break;
 
         }
 
 
         let eventData = {
-            layer: thisObject.cards[index].code,
-            status: thisObject.cards[index].status
+            layer: products[index].code,
+            status: products[index].status
         }
 
         thisObject.container.eventHandler.raiseEvent('Layer Status Changed', eventData);
 
-        window.localStorage.setItem(thisObject.cards[index].code, thisObject.cards[index].status);
+        window.localStorage.setItem(products[index].code, products[index].status);
 
     }
 
@@ -228,8 +244,8 @@ function newBotsPanel() {
 
         thisObject.container.frame.draw(false, false, true);
 
-        for (var i = 0; i < thisObject.cards.length; i++) {
-            thisObject.cards[i].draw();
+        for (var i = 0; i < products.length; i++) {
+            products[i].draw();
         }
 
     }

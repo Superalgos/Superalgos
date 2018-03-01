@@ -36,7 +36,7 @@
     <Compile Include="Azure\azure-storage.file.js" />
     <Compile Include="Ball.js" />
     <Compile Include="Balls.js" />
-    <Compile Include="BotCard.js">
+    <Compile Include="Product.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Ecosystem.js">
@@ -99,7 +99,7 @@
     <Compile Include="OrderBookDepthChart.js" />
     <Compile Include="OrderBookFilesCursor.js" />
     <Compile Include="OrderBookSnapShot.js" />
-    <Compile Include="Panels\BotsPanel.js" />
+    <Compile Include="Panels\ProductsPanel.js" />
     <Compile Include="Panels\ControlPanel.js" />
     <Compile Include="Panels\CurrentCandlePanel.js" />
     <Compile Include="Panels\CurrentVolumePanel.js" />

@@ -46,7 +46,7 @@ function newTimeMachine() {
         orderBookPanel = newOrderBookPanel();
         orderBookPanel.initialize();
 
-        botsPanel = newBotsPanel();
+        botsPanel = newProductsPanel();
         botsPanel.initialize();
 
         let iteration = 0;

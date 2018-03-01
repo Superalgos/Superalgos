@@ -1,4 +1,4 @@
-﻿function newBotCard() {
+﻿function newProduct() {
 
     var thisObject = {
         container: undefined,

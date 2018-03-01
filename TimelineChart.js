@@ -42,17 +42,21 @@ function newTimelineChart() {
 
     let currentCandlePanel;
     let currentVolumePanel;
-    let botsPanel;
+    let productsPanel;
     let orderBookPanel;
 
     return timelineChart;
 
-    function initialize(exchange, market, currentCandlePanelToUse, currentVolumePanelToUse, botsPanelToUse, orderBookPanelToUse, callBackFunction) {
+    function initialize(exchange, market, currentCandlePanelToUse, currentVolumePanelToUse, pProductsPanel, orderBookPanelToUse, callBackFunction) {
 
         currentCandlePanel = currentCandlePanelToUse;
         currentVolumePanel = currentVolumePanelToUse;
-        botsPanel = botsPanelToUse;
         orderBookPanel = orderBookPanelToUse;
+
+
+        productsPanel = pProductsPanel;
+
+        productsPanel.eventHandler.listenToEvent("Product Card Status Changed", onProductStatusChanged);
 
         marketId = market;
         exchangeId = exchange;
@@ -100,15 +104,15 @@ function newTimelineChart() {
 
         /* Lets get all the cards that are turned on. */
 
-        let onProducts = botsPanel.getOnProducts();
+        let onProductCards = productsPanel.getOnProductCards();
 
-        for (let i = 0; i < onProducts.length; i++) {
+        for (let i = 0; i < onProductCards.length; i++) {
 
             /* For each one, we will initialize the associated plotter. */
 
-            let onCard = onProducts[i];
+            let onProductCard = onProductCards[i];
 
-            let plotter = getNewPlotter(onCard.plotter.devTeam, onCard.plotter.repo, onCard.plotter.moduleName);
+            let plotter = getNewPlotter(onProductCard.product.plotter.devTeam, onProductCard.product.plotter.repo, onProductCard.product.plotter.moduleName);
 
             plotter.container.displacement.parentDisplacement = timelineChart.container.displacement;
             plotter.container.zoom.parentZoom = timelineChart.container.zoom;
@@ -126,7 +130,7 @@ function newTimelineChart() {
 
             function onInizialized() {
 
-                console.log(onCard.plotter.devTeam + '->' + onCard.plotter.repo + '->' + onCard.plotter.moduleName + " Initialized. ");
+                console.log(onProductCard.product.plotter.devTeam + '->' + onProductCard.product.plotter.repo + '->' + onProductCard.product.plotter.moduleName + " Initialized. ");
 
                 try {
                     plotter.positionAtDatetime(INITIAL_DATE);  
@@ -135,7 +139,7 @@ function newTimelineChart() {
                 }
 
                 let layer = {
-                    onCard: onCard,
+                    onProductCard: onProductCard,
                     plotter: plotter
                 };
 
@@ -144,6 +148,12 @@ function newTimelineChart() {
             }
         }
     } 
+
+    function onProductStatusChanged(pProductCard) {
+
+
+
+    }
 
     function onZoomChanged(event) {
 
@@ -201,7 +211,6 @@ function newTimelineChart() {
 
     }
 
-
     function recalculateCurrentDatetime() {
 
         let center = {
@@ -227,9 +236,6 @@ function newTimelineChart() {
         timelineChart.container.eventHandler.raiseEvent("Datetime Changed", datetime);
   
     }
-
-
-
 
     function getContainer(point) {
 
@@ -266,8 +272,6 @@ function newTimelineChart() {
             }
         }
     }
-
-
 
     function draw() {
 
@@ -322,7 +326,6 @@ function newTimelineChart() {
         }
 
     }
-
 
     function tooSmall() {
 

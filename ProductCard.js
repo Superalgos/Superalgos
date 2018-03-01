@@ -1,4 +1,4 @@
-﻿function newProduct() {
+﻿function newProductCard() {
 
     var thisObject = {
         container: undefined,
@@ -56,14 +56,11 @@
 
     }
 
-
-
     function draw() {
 
         drawIcon();
 
     }
-
 
     function drawIcon() {
 
@@ -97,7 +94,6 @@
 
         }
 
-
         browserCanvasContext.fill();
 
         browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)';
@@ -105,7 +101,6 @@
         browserCanvasContext.stroke();
 
         browserCanvasContext.closePath();
-
 
         /* print the text */
 
@@ -178,9 +173,5 @@
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
-
     }
-
-
-
 }

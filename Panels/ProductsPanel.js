@@ -10,7 +10,7 @@ function newProductsPanel() {
 
     var thisObject = {
         container: undefined,
-        getOnProducts: getOnProducts,
+        getOnProductCards: getOnProductCards,
         getProductStatus: getProductStatus,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -25,7 +25,7 @@ function newProductsPanel() {
     thisObject.container.frame.containerName = "Chart Layers Panel";
 
     let isInitialized = false;
-    let products;
+    let productCards;
 
     return thisObject;
 
@@ -45,7 +45,7 @@ function newProductsPanel() {
 
         var lastY = 5;
 
-        /* First thing is to build the products array */
+        /* First thing is to build the productCards array */
 
         let devTeams = ecosystem.getTeams();
 
@@ -63,24 +63,24 @@ function newProductsPanel() {
 
                     /* Now we create Product objects */
 
-                    var product = newProduct();
+                    let productCard = newProductCard();
 
-                    product.devTeam = devTeam;
-                    product.bot = bot;
-                    product.product = product;
+                    productCard.devTeam = devTeam;
+                    productCard.bot = bot;
+                    productCard.product = product;
 
-                    product.code = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName;
+                    productCard.code = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName;
 
                     /* Container Stuff */
 
-                    product.container.displacement.parentDisplacement = this.container.displacement;
-                    product.container.zoom.parentZoom = this.container.zoom;
-                    product.container.frame.parentFrame = this.container.frame;
-                    product.container.parentContainer = this.container;
+                    productCard.container.displacement.parentDisplacement = this.container.displacement;
+                    productCard.container.zoom.parentZoom = this.container.zoom;
+                    productCard.container.frame.parentFrame = this.container.frame;
+                    productCard.container.parentContainer = this.container;
 
                     /* Initialize it */
 
-                    product.initialize();
+                    productCard.initialize();
 
                     /* Positioning within this Panel */
 
@@ -88,32 +88,32 @@ function newProductsPanel() {
                         x: 10,
                         y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
                     };
-                    product.container.frame.position.x = position.x;
-                    product.container.frame.position.y = position.y + lastY;
+                    productCard.container.frame.position.x = position.x;
+                    productCard.container.frame.position.y = position.y + lastY;
 
-                    lastY = lastY + product.container.frame.height;
+                    lastY = lastY + productCard.container.frame.height;
 
-                    /*  We start listening to the products click event, so as to know when one was pressed. */
+                    /*  We start listening to the productCard click event, so as to know when one was pressed. */
 
-                    product.container.eventHandler.listenToEvent('onMouseClick', buttonPressed, i);
+                    productCard.container.eventHandler.listenToEvent('onMouseClick', buttonPressed, i);
 
                     /* We retrieve the locally stored status of the Product */
 
-                    let storedValue = window.localStorage.getItem(product.code);
+                    let storedValue = window.localStorage.getItem(productCard.code);
 
                     if (storedValue !== null) {
 
-                        product.status = storedValue;
+                        productCard.status = storedValue;
 
                     } else {
 
-                        product.status = PRODUCT_STATUS.ON;
+                        productCard.status = PRODUCT_STATUS.ON;
 
                     }
 
                     /* Add to the Product Array */
 
-                    products.push(product);
+                    productCards.push(productCard);
 
                 }
             }
@@ -123,17 +123,17 @@ function newProductsPanel() {
 
     }
 
-    function getOnProducts() {
+    function getOnProductCards() {
 
-        /* Returns all products which status is ON */
+        /* Returns all productCards which status is ON */
 
         let onProducts = [];
 
-        for (let i = 0; i < products.length; i++) {
+        for (let i = 0; i < productCards.length; i++) {
 
-            if (products[i].status = PRODUCT_STATUS.ON) {
+            if (productCards[i].status = PRODUCT_STATUS.ON) {
 
-                onProducts.push(products[i]);
+                onProducts.push(productCards[i]);
             }
         }
 
@@ -142,9 +142,9 @@ function newProductsPanel() {
 
     function getProductStatus(pProductCode) {
 
-        for (let i = 0; i < products.length; i++) {
+        for (let i = 0; i < productCards.length; i++) {
 
-            let button = products[i];
+            let button = productCards[i];
 
             if (button.code === pProductCode) {
 
@@ -168,9 +168,9 @@ function newProductsPanel() {
             /* Now we see which is the inner most container that has it */
 
 
-            for (var i = 0; i < products.length; i++) {
+            for (var i = 0; i < productCards.length; i++) {
 
-                container = products[i].getContainer(point);
+                container = productCards[i].getContainer(point);
 
                 if (container !== undefined) {
 
@@ -195,26 +195,23 @@ function newProductsPanel() {
 
     function buttonPressed(event, index) {
 
-        switch (products[index].status) {
+        switch (productCards[index].status) {
 
             case PRODUCT_STATUS.ON:
-                products[index].status = PRODUCT_STATUS.OFF;
+                productCards[index].status = PRODUCT_STATUS.OFF;
                 break;
 
             case PRODUCT_STATUS.OFF:
-                products[index].status = PRODUCT_STATUS.ON;
+                productCards[index].status = PRODUCT_STATUS.ON;
                 break;
 
         }
 
-        let eventData = {
-            productCode: products[index].code,
-            status: products[index].status
-        }
+        let eventData = productCards[index];    
 
-        thisObject.container.eventHandler.raiseEvent('Product Status Changed', eventData);
+        thisObject.container.eventHandler.raiseEvent('Product Card Status Changed', eventData);
 
-        window.localStorage.setItem(products[index].code, products[index].status);
+        window.localStorage.setItem(productCards[index].code, productCards[index].status);
 
     }
 
@@ -224,8 +221,8 @@ function newProductsPanel() {
 
         thisObject.container.frame.draw(false, false, true);
 
-        for (let i = 0; i < products.length; i++) {
-            products[i].draw();
+        for (let i = 0; i < productCards.length; i++) {
+            productCards[i].draw();
         }
 
     }

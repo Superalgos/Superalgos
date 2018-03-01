@@ -36,8 +36,8 @@ My dataset is fundamental for building candles and calculating volumes, along wi
   * [[19057863,"buy",7350.00000000,15.09998700,0.00205442,0],[19057864,"sell",7349.27989360,1.49682783,0.00020367,2], ... ,[19057865,"sell",7346.00000000,146.92000000,0.02000000,2],[19057869,"buy",7342.00000000,73.42000000,0.01000000,4]]
 
 
-### Plotter Output
-No plotter.
+### Compatible Plotters
+Not applicable.
 
 ### Dependencies
 None.

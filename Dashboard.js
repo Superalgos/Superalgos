@@ -104,7 +104,10 @@ var viewPort = newViewPort();
 
 
 
-
+const PRODUCT_CARD_STATUS = {
+    ON: 'on',
+    OFF: 'off'
+};
 
 /* Here we list the valid Time Periods: */
 

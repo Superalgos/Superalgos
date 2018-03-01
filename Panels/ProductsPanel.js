@@ -3,11 +3,6 @@
 
 function newProductsPanel() {
 
-    const PRODUCT_STATUS = {
-        ON: 'on',
-        OFF: 'off'
-    };
-
     var thisObject = {
         container: undefined,
         getOnProductCards: getOnProductCards,
@@ -107,7 +102,7 @@ function newProductsPanel() {
 
                     } else {
 
-                        productCard.status = PRODUCT_STATUS.ON;
+                        productCard.status = PRODUCT_CARD_STATUS.ON;
 
                     }
 
@@ -131,7 +126,7 @@ function newProductsPanel() {
 
         for (let i = 0; i < productCards.length; i++) {
 
-            if (productCards[i].status = PRODUCT_STATUS.ON) {
+            if (productCards[i].status = PRODUCT_CARD_STATUS.ON) {
 
                 onProducts.push(productCards[i]);
             }
@@ -154,7 +149,7 @@ function newProductsPanel() {
 
         }
 
-        return PRODUCT_STATUS.OFF;
+        return PRODUCT_CARD_STATUS.OFF;
     }
 
     function getContainer(point) {
@@ -197,12 +192,12 @@ function newProductsPanel() {
 
         switch (productCards[index].status) {
 
-            case PRODUCT_STATUS.ON:
-                productCards[index].status = PRODUCT_STATUS.OFF;
+            case PRODUCT_CARD_STATUS.ON:
+                productCards[index].status = PRODUCT_CARD_STATUS.OFF;
                 break;
 
-            case PRODUCT_STATUS.OFF:
-                productCards[index].status = PRODUCT_STATUS.ON;
+            case PRODUCT_CARD_STATUS.OFF:
+                productCards[index].status = PRODUCT_CARD_STATUS.ON;
                 break;
 
         }

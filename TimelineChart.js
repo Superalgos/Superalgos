@@ -1,15 +1,14 @@
 ﻿
 function newTimelineChart() {
 
-    let layers = [];
+    let activePlotters = [];
 
     let plotArea = newPlotArea();
-    let timePeriod = INITIAL_TIME_PERIOD;
 
-    var datetime;
+    let timePeriod = INITIAL_TIME_PERIOD;
+    let datetime = INITIAL_DATE;
 
     var timelineChart = {
-        layers: layers,
         setDatetime: setDatetime,
         container: undefined,
         draw: draw,
@@ -34,10 +33,6 @@ function newTimelineChart() {
 
     let chartGrid;
 
-    let targetLabelFontSize = 150;
-    let fontSizeIncrement = 12.5;
-    let currentFontSize = 150;
-
     let initializationReady = false;
 
     let currentCandlePanel;
@@ -53,10 +48,9 @@ function newTimelineChart() {
         currentVolumePanel = currentVolumePanelToUse;
         orderBookPanel = orderBookPanelToUse;
 
-
         productsPanel = pProductsPanel;
 
-        productsPanel.eventHandler.listenToEvent("Product Card Status Changed", onProductStatusChanged);
+        productsPanel.eventHandler.listenToEvent("Product Card Status Changed", onProductCardStatusChanged);
 
         marketId = market;
         exchangeId = exchange;
@@ -70,22 +64,21 @@ function newTimelineChart() {
 
             recalculateScale();
 
-            /* Event Subscriptions - we need this events to be fired first here and then in layers. */
+            /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 
             viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
             viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
             canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-            initializeLayers();
+            initializePlotters();
 
             callBackFunction();
 
             initializationReady = true;
-
         }
     }
 
-    function initializeLayers() {
+    function initializePlotters() {
 
         /* Here we need to move the viewPort to the default date. */
 
@@ -100,8 +93,6 @@ function newTimelineChart() {
 
         viewPort.displace(displaceVector);
 
-        let layerStatus;
-
         /* Lets get all the cards that are turned on. */
 
         let onProductCards = productsPanel.getOnProductCards();
@@ -110,49 +101,86 @@ function newTimelineChart() {
 
             /* For each one, we will initialize the associated plotter. */
 
-            let onProductCard = onProductCards[i];
+            initializePlotter(onProductCards[i]);
 
-            let plotter = getNewPlotter(onProductCard.product.plotter.devTeam, onProductCard.product.plotter.repo, onProductCard.product.plotter.moduleName);
-
-            plotter.container.displacement.parentDisplacement = timelineChart.container.displacement;
-            plotter.container.zoom.parentZoom = timelineChart.container.zoom;
-            plotter.container.frame.parentFrame = timelineChart.container.frame;
-
-            plotter.container.parentContainer = timelineChart.container;
-
-            plotter.container.frame.width = timelineChart.container.frame.width * 1;
-            plotter.container.frame.height = timelineChart.container.frame.height * 1;
-
-            plotter.container.frame.position.x = timelineChart.container.frame.width / 2 - plotter.container.frame.width / 2;
-            plotter.container.frame.position.y = timelineChart.container.frame.height / 2 - plotter.container.frame.height / 2;
-
-            plotter.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, onInizialized);
-
-            function onInizialized() {
-
-                console.log(onProductCard.product.plotter.devTeam + '->' + onProductCard.product.plotter.repo + '->' + onProductCard.product.plotter.moduleName + " Initialized. ");
-
-                try {
-                    plotter.positionAtDatetime(INITIAL_DATE);  
-                } catch (err) {
-                    // If the plotter does not implement this function its ok.
-                }
-
-                let layer = {
-                    onProductCard: onProductCard,
-                    plotter: plotter
-                };
-
-                timelineChart.layers.push(layer);
-
-            }
         }
     } 
 
-    function onProductStatusChanged(pProductCard) {
+    function initializePlotter(pProductCard) {
 
+        let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.repo, pProductCard.product.plotter.moduleName);
 
+        plotter.container.displacement.parentDisplacement = timelineChart.container.displacement;
+        plotter.container.zoom.parentZoom = timelineChart.container.zoom;
+        plotter.container.frame.parentFrame = timelineChart.container.frame;
 
+        plotter.container.parentContainer = timelineChart.container;
+
+        plotter.container.frame.width = timelineChart.container.frame.width * 1;
+        plotter.container.frame.height = timelineChart.container.frame.height * 1;
+
+        plotter.container.frame.position.x = timelineChart.container.frame.width / 2 - plotter.container.frame.width / 2;
+        plotter.container.frame.position.y = timelineChart.container.frame.height / 2 - plotter.container.frame.height / 2;
+
+        plotter.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onInizialized);
+
+        function onInizialized() {
+
+            console.log(pProductCard.product.plotter.devTeam + '->' + pProductCard.product.plotter.repo + '->' + pProductCard.product.plotter.moduleName + " Initialized. ");
+
+            try {
+                plotter.positionAtDatetime(INITIAL_DATE);
+            } catch (err) {
+                // If the plotter does not implement this function its ok.
+            }
+
+            let activePlotter = {
+                productCard: pProductCard,
+                plotter: plotter
+            };
+
+            activePlotters.push(activePlotter);
+
+        }
+    }
+
+    function onProductCardStatusChanged(pProductCard) {
+
+        if (pProductCard.status === PRODUCT_CARD_STATUS.ON) {
+
+            /* Lets see if we can find the Plotter of this card on our Active Plotters list, other wise we will initialize it */
+
+            let found = false;
+
+            for (let i = 0; i < activePlotters.length; i++) {
+
+                if (activePlotters[i].productCard.code === pProductCard.code) {
+
+                    found = true;
+
+                }
+
+            }
+
+            if (found === false) {
+
+                initializePlotter(pProductCard);
+
+            }
+
+        } else {
+
+            /* If the plotter of this card is on our Active Plotters list, then we remove it. */
+
+            for (let i = 0; i < activePlotters.length; i++) {
+
+                if (activePlotters[i].productCard.code === pProductCard.code) {
+
+                    activePlotters.splice(i, 1); // Delete item from array.
+
+                }
+            }
+        }
     }
 
     function onZoomChanged(event) {
@@ -167,10 +195,10 @@ function newTimelineChart() {
 
             if (timePeriod !== currentTimePeriod) {
 
-                for (var i = 0; i < timelineChart.layers.length; i++) {
+                for (var i = 0; i < activePlotters.length; i++) {
 
-                    let layer = timelineChart.layers[i];
-                    layer.plotter.setTimePeriod(timePeriod);
+                    let activePlotter = activePlotters[i];
+                    activePlotter.plotter.setTimePeriod(timePeriod);
 
                 }
             }
@@ -226,10 +254,10 @@ function newTimelineChart() {
 
         datetime = newDate;
 
-        for (var i = 0; i < timelineChart.layers.length; i++) {
+        for (var i = 0; i < activePlotters.length; i++) {
 
-            let layer = timelineChart.layers[i];
-            layer.plotter.setDatetime(datetime);
+            let activePlotter = activePlotters[i];
+            activePlotter.plotter.setDatetime(datetime);
 
         }
 
@@ -256,17 +284,19 @@ function newTimelineChart() {
 
     }
 
-    function setDatetime(newDatetime) {
+    function setDatetime(pDatetime) {
+
+        datetime = pDatetime;
 
         if (timelineChart.container.frame.isInViewPort()) {
 
-            for (var i = 0; i < timelineChart.layers.length; i++) {
+            for (var i = 0; i < activePlotters.length; i++) {
 
-                let layer = timelineChart.layers[i];
-                layer.plotter.setDatetime(newDatetime);
+                let activePlotter = activePlotters[i];
+                activePlotter.plotter.setDatetime(pDatetime);
 
-                if (layer.plotter.positionAtDatetime !== undefined) {
-                    layer.plotter.positionAtDatetime(newDatetime);
+                if (activePlotter.plotter.positionAtDatetime !== undefined) {
+                    activePlotter.plotter.positionAtDatetime(pDatetime);
                 }
 
             }
@@ -283,15 +313,12 @@ function newTimelineChart() {
 
             chartGrid.draw(timelineChart.container, plotArea);
 
-            for (var i = 0; i < this.layers.length; i++) {
+            for (var i = 0; i < this.activePlotters.length; i++) {
 
-                let layer = this.layers[i];
-                layer.plotter.draw();
+                let activePlotter = this.activePlotters[i];
+                activePlotter.plotter.draw();
 
             }
-
-
-
         }
     }
 
@@ -338,6 +365,10 @@ function newTimelineChart() {
     }
 
     function drawBackground() {
+
+        let targetLabelFontSize = 150;
+        let fontSizeIncrement = 12.5;
+        let currentFontSize = 150;
 
         var market = markets.get(marketId);
         var label = market.assetA + " " + market.assetB;

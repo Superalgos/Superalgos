@@ -29,7 +29,6 @@ function newTimelineChart() {
     let exchangeId;
 
     let marketIndex;
-    let dailyFilesCursor;
 
     let level;
 
@@ -67,25 +66,18 @@ function newTimelineChart() {
 
             recalculateScale();
 
-            dailyFilesCursor = newDailyFilesCursor();
-            dailyFilesCursor.initialize(exchangeId, marketId, finalSteps);
+            /* Event Subscriptions - we need this events to be fired first here and then in layers. */
 
-            function finalSteps() {
+            viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
+            viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+            canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-                /* Event Subscriptions - we need this events to be fired first here and then in layers. */
+            initializeLayers();
 
-                viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
-                viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-                canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+            callBackFunction();
 
-                initializeLayers();
+            initializationReady = true;
 
-                callBackFunction();
-
-                initializationReady = true;
-
-                marketInitializationCounter++;
-            }
         }
     }
 
@@ -106,243 +98,52 @@ function newTimelineChart() {
 
         let layerStatus;
 
-        for (let i = 0; i < botsPanel.cards.length; i++) {
+        /* Lets get all the cards that are turned on. */
 
-            let plotter = newPlotter();
+        let onCards = botsPanel.gerOnCards();
 
+        for (let i = 0; i < onCards.length; i++) {
 
-        }
+            /* For each one, we will initialize the associated plotter. */
 
+            let onCard = onCards[i];
 
+            let plotter = getNewPlotter(onCard.plotter.devTeam, onCard.plotter.repo, onCard.plotter.moduleName);
 
-        /* AAMasters AAOlivia Candlesticks */
+            plotter.container.displacement.parentDisplacement = timelineChart.container.displacement;
+            plotter.container.zoom.parentZoom = timelineChart.container.zoom;
+            plotter.container.frame.parentFrame = timelineChart.container.frame;
 
-        let layerAAMastersAAOliviaCandlesticks = newAAMastersAAOliviaCandles();
+            plotter.container.parentContainer = timelineChart.container;
 
-        loadCandles();
+            plotter.container.frame.width = timelineChart.container.frame.width * 1;
+            plotter.container.frame.height = timelineChart.container.frame.height * 1;
 
-        function loadCandles() {
+            plotter.container.frame.position.x = timelineChart.container.frame.width / 2 - plotter.container.frame.width / 2;
+            plotter.container.frame.position.y = timelineChart.container.frame.height / 2 - plotter.container.frame.height / 2;
 
-            layerAAMastersAAOliviaCandlesticks.container.displacement.parentDisplacement = timelineChart.container.displacement;
-            layerAAMastersAAOliviaCandlesticks.container.zoom.parentZoom = timelineChart.container.zoom;
-            layerAAMastersAAOliviaCandlesticks.container.frame.parentFrame = timelineChart.container.frame;
-
-            layerAAMastersAAOliviaCandlesticks.container.parentContainer = timelineChart.container;
-
-            layerAAMastersAAOliviaCandlesticks.container.frame.width = timelineChart.container.frame.width * 1;
-            layerAAMastersAAOliviaCandlesticks.container.frame.height = timelineChart.container.frame.height * 1;
-
-            layerAAMastersAAOliviaCandlesticks.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAAOliviaCandlesticks.container.frame.width / 2;
-            layerAAMastersAAOliviaCandlesticks.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAAOliviaCandlesticks.container.frame.height / 2;
-
-            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.OLIVIA_CANDLES);
-
-            layerAAMastersAAOliviaCandlesticks.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
+            plotter.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, onInizialized);
 
             function onInizialized() {
 
-                console.log("loadCandles");
+                console.log(onCard.plotter.devTeam + '->' + onCard.plotter.repo + '->' + onCard.plotter.moduleName + " Initialized. ");
 
-                layerAAMastersAAOliviaCandlesticks.positionAtDatetime(INITIAL_DATE);
-                loadVolumes();
+                try {
+                    plotter.positionAtDatetime(INITIAL_DATE);  
+                } catch (err) {
+                    // If the plotter does not implement this function its ok.
+                }
 
-            }
+                let layer = {
+                    onCard: onCard,
+                    plotter: plotter
+                };
 
-        }
-
-        /* AAMasters AAOlivia Volumes */
-
-        let layerAAMastersAAOliviaVolumes = newAAMastersAAOliviaVolumes();
-
-        function loadVolumes() {
-
-            layerAAMastersAAOliviaVolumes.container.displacement.parentDisplacement = timelineChart.container.displacement;
-            layerAAMastersAAOliviaVolumes.container.zoom.parentZoom = timelineChart.container.zoom;
-            layerAAMastersAAOliviaVolumes.container.frame.parentFrame = timelineChart.container.frame;
-
-            layerAAMastersAAOliviaVolumes.container.parentContainer = timelineChart.container;
-
-            layerAAMastersAAOliviaVolumes.container.frame.width = timelineChart.container.frame.width * 1;
-            layerAAMastersAAOliviaVolumes.container.frame.height = timelineChart.container.frame.height * 1;
-
-            layerAAMastersAAOliviaVolumes.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAAOliviaVolumes.container.frame.width / 2;
-            layerAAMastersAAOliviaVolumes.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAAOliviaVolumes.container.frame.height / 2;
-
-            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.OLIVIA_VOLUMES);
-
-            layerAAMastersAAOliviaVolumes.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
-
-            function onInizialized() {
-
-                console.log("loadVolumes");
-                loadCandleStairs();
+                timelineChart.layers.push(layer);
 
             }
-
         }
-
-
-        /* AAMasters AATom CandleStairs */
-
-        let layerAAMastersAATomCandleStairs = newAAMastersAATomCandleStairs();
-
-        function loadCandleStairs() {
-
-            layerAAMastersAATomCandleStairs.container.displacement.parentDisplacement = timelineChart.container.displacement;
-            layerAAMastersAATomCandleStairs.container.zoom.parentZoom = timelineChart.container.zoom;
-            layerAAMastersAATomCandleStairs.container.frame.parentFrame = timelineChart.container.frame;
-
-            layerAAMastersAATomCandleStairs.container.parentContainer = timelineChart.container;
-
-            layerAAMastersAATomCandleStairs.container.frame.width = timelineChart.container.frame.width * 1;
-            layerAAMastersAATomCandleStairs.container.frame.height = timelineChart.container.frame.height * 1;
-
-            layerAAMastersAATomCandleStairs.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAATomCandleStairs.container.frame.width / 2;
-            layerAAMastersAATomCandleStairs.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAATomCandleStairs.container.frame.height / 2;
-
-            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.TOM_CANDLE_STAIRS);
-
-            layerAAMastersAATomCandleStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
-
-            function onInizialized() {
-
-                console.log("loadCandleStairs");
-                loadVolumeStairs();
-
-            }
-
-        }
-
-
-
-        /* AAMasters AATom VolumeStairs */
-
-        let layerAAMastersAATomVolumeStairs = newAAMastersAATomVolumeStairs();
-
-        function loadVolumeStairs() {
-
-            layerAAMastersAATomVolumeStairs.container.displacement.parentDisplacement = timelineChart.container.displacement;
-            layerAAMastersAATomVolumeStairs.container.zoom.parentZoom = timelineChart.container.zoom;
-            layerAAMastersAATomVolumeStairs.container.frame.parentFrame = timelineChart.container.frame;
-
-            layerAAMastersAATomVolumeStairs.container.parentContainer = timelineChart.container;
-
-            layerAAMastersAATomVolumeStairs.container.frame.width = timelineChart.container.frame.width * 1;
-            layerAAMastersAATomVolumeStairs.container.frame.height = timelineChart.container.frame.height * 1;
-
-            layerAAMastersAATomVolumeStairs.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAATomVolumeStairs.container.frame.width / 2;
-            layerAAMastersAATomVolumeStairs.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAATomVolumeStairs.container.frame.height / 2;
-
-            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.TOM_VOLUME_STAIRS);
-
-            layerAAMastersAATomVolumeStairs.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
-
-            function onInizialized() {
-
-                console.log("loadVolumeStairs");
-                loadMariamHistory();
-
-            }
-
-        }
-
-
-
-        /* AAMasters AAMariam Trading History */
-
-        let layerAAMastersAAMariamTradingHistory = newAAMastersAAMariamTradingHistory();
-
-        function loadMariamHistory() {
-
-            layerAAMastersAAMariamTradingHistory.container.displacement.parentDisplacement = timelineChart.container.displacement;
-            layerAAMastersAAMariamTradingHistory.container.zoom.parentZoom = timelineChart.container.zoom;
-            layerAAMastersAAMariamTradingHistory.container.frame.parentFrame = timelineChart.container.frame;
-
-            layerAAMastersAAMariamTradingHistory.container.parentContainer = timelineChart.container;
-
-            layerAAMastersAAMariamTradingHistory.container.frame.width = timelineChart.container.frame.width * 1;
-            layerAAMastersAAMariamTradingHistory.container.frame.height = timelineChart.container.frame.height * 1;
-
-            layerAAMastersAAMariamTradingHistory.container.frame.position.x = timelineChart.container.frame.width / 2 - layerAAMastersAAMariamTradingHistory.container.frame.width / 2;
-            layerAAMastersAAMariamTradingHistory.container.frame.position.y = timelineChart.container.frame.height / 2 - layerAAMastersAAMariamTradingHistory.container.frame.height / 2;
-
-            layerStatus = botsPanel.getLayerStatus(botsPanel.layerNames.MARIAM_TRADE_HISTORY);
-
-            layerAAMastersAAMariamTradingHistory.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, INITIAL_DATE, INITIAL_TIME_PERIOD, layerStatus, onInizialized);
-
-            function onInizialized() {
-
-                console.log("loadMariamHistory");
-                addLayers();
-                splashScreenNeeded = false; // This is when we dont need a splash screen anymore!
-
-            }
-
-        }
-
-
-        function addLayers() {
-
-            timelineChart.layers.push(layerAAMastersAATomCandleStairs);  // This looks better if it goes below the candles layer.
-            timelineChart.layers.push(layerAAMastersAATomVolumeStairs);
-
-            timelineChart.layers.push(layerAAMastersAAOliviaCandlesticks);
-            timelineChart.layers.push(layerAAMastersAAOliviaVolumes);
-
-            timelineChart.layers.push(layerAAMastersAAMariamTradingHistory);
-
-            /* Connecting all layers to the panel that provides a user interface to turn them on - visible - off */
-
-            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAOliviaCandlesticks.onLayerStatusChanged);
-            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAOliviaVolumes.onLayerStatusChanged);
-
-            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAATomCandleStairs.onLayerStatusChanged);
-            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAATomVolumeStairs.onLayerStatusChanged);
-
-            botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", layerAAMastersAAMariamTradingHistory.onLayerStatusChanged);
-        }
-
-        /* Add all layers to the internal array */
-
-
-
-
-        /*
-        timelineChart.layers.push(allTimeChartLayer);
-        timelineChart.layers.push(orderBooksChartLayer);
-        timelineChart.layers.push(forecastChartLayer);
-        //timelineChart.layers.push(supportResistanceChartLayer);
-        timelineChart.layers.push(highLowChartLayer);
-        timelineChart.layers.push(candleTechnicalAnalisysChartLayer); 
-        timelineChart.layers.push(volumeTechnicalAnalisysChartLayer);
-
-        timelineChart.layers.push(accumulatedVolumeChartLayer);
-        timelineChart.layers.push(linearRegressionCurveChartLayer);
-        
-
-        /* Wiring some charts with others using events */
-
-
-
-
-        //orderBooksChartLayer.container.eventHandler.listenToEvent("Current Order Book Changed", orderBookPanel.onCurrentOrderBookChanged);
-
-
-
-        /*
-        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", accumulatedVolumeChartLayer.onLayerStatusChanged);
-
-        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", candleTechnicalAnalisysChartLayer.onLayerStatusChanged);
-        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", highLowChartLayer.onLayerStatusChanged);
-
-        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", volumeTechnicalAnalisysChartLayer.onLayerStatusChanged);
-        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", allTimeChartLayer.onLayerStatusChanged);
-        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", forecastChartLayer.onLayerStatusChanged);
-        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", orderBooksChartLayer.onLayerStatusChanged);
-        botsPanel.container.eventHandler.listenToEvent("Layer Status Changed", linearRegressionCurveChartLayer.onLayerStatusChanged);
-        */
     } 
-
 
     function onZoomChanged(event) {
 
@@ -359,7 +160,7 @@ function newTimelineChart() {
                 for (var i = 0; i < timelineChart.layers.length; i++) {
 
                     let layer = timelineChart.layers[i];
-                    layer.setTimePeriod(timePeriod);
+                    layer.plotter.setTimePeriod(timePeriod);
 
                 }
             }
@@ -368,7 +169,7 @@ function newTimelineChart() {
 
             if (timelineChart.container.frame.isInViewPort() && tooSmall() === false) {
 
-                dailyFilesCursor.setDatetime(datetime);
+
 
             }
         }
@@ -381,7 +182,7 @@ function newTimelineChart() {
 
             if (timelineChart.container.frame.isInViewPort() && tooSmall() === false) {
 
-                dailyFilesCursor.setDatetime(datetime);
+
 
             }
         }
@@ -419,7 +220,7 @@ function newTimelineChart() {
         for (var i = 0; i < timelineChart.layers.length; i++) {
 
             let layer = timelineChart.layers[i];
-            layer.setDatetime(datetime);
+            layer.plotter.setDatetime(datetime);
 
         }
 
@@ -456,10 +257,10 @@ function newTimelineChart() {
             for (var i = 0; i < timelineChart.layers.length; i++) {
 
                 let layer = timelineChart.layers[i];
-                layer.setDatetime(newDatetime);
+                layer.plotter.setDatetime(newDatetime);
 
-                if (layer.positionAtDatetime !== undefined) {
-                    layer.positionAtDatetime(newDatetime);
+                if (layer.plotter.positionAtDatetime !== undefined) {
+                    layer.plotter.positionAtDatetime(newDatetime);
                 }
 
             }
@@ -481,7 +282,7 @@ function newTimelineChart() {
             for (var i = 0; i < this.layers.length; i++) {
 
                 let layer = this.layers[i];
-                layer.draw();
+                layer.plotter.draw();
 
             }
 

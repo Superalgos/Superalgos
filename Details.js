@@ -9,11 +9,7 @@
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
-        draw: draw,
-
-        // Secondary functions and properties.
-
-        onLayerStatusChanged: onLayerStatusChanged
+        draw: draw
     };
 
     /* this is part of the module template */
@@ -21,8 +17,6 @@
     let container = newContainer();     // Do not touch this 3 lines, they are just needed.
     container.initialize();
     thisObject.container = container;
-
-    let layerStatus = 'off';            // Since the moduleis a layer, it must handle the different possible layer status.
 
     let plotArea = newPlotArea();       // Needed to be able to plot on the timeline, otherwise not.
     let plotAreaFrame = newPlotArea();  // This chart uses this extra object.
@@ -42,7 +36,7 @@
 
     return thisObject;
 
-    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, pLayerStatus, callBackFunction) {
+    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
         let cursorCacheInProgress = false;
         let finaleStepsInProgress = false;
@@ -98,8 +92,6 @@
 
                         fileCursor = newFileCursor;
 
-                        layerStatus = pLayerStatus;
-
                         recalculateScaleX();
                         recalculate();
                         recalculateScaleY();
@@ -118,8 +110,6 @@
     }
 
     function getContainer(point) {
-
-        if (layerStatus !== 'on') { return; }
 
         let container;
 
@@ -202,8 +192,6 @@
 
     function draw() {
 
-        if (layerStatus !== 'on') { return; }
-
         this.container.frame.draw();
 
         if (timePeriod < _1_HOUR_IN_MILISECONDS) {
@@ -222,8 +210,6 @@
     }
 
     function recalculate() {
-
-        if (layerStatus === 'off') { return; }
 
         if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
@@ -733,14 +719,6 @@
                 }
             }
         }
-    }
-
-    function onLayerStatusChanged(eventData) {
-
-        if (eventData.layer === 'Mariam Trades Details') {
-            layerStatus = eventData.status;
-        }
-
     }
 
     function onZoomChanged(event) {

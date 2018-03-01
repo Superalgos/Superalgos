@@ -9,12 +9,7 @@
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
-        draw: draw,
-
-        // Secondary functions and properties.
-
-        currentCandle: undefined,
-        onLayerStatusChanged: onLayerStatusChanged
+        draw: draw
     };
 
     /* this is part of the module template */
@@ -22,8 +17,6 @@
     let container = newContainer();     // Do not touch this 3 lines, they are just needed.
     container.initialize();
     thisObject.container = container;
-
-    let layerStatus = 'off';            // Since the moduleis a layer, it must handle the different possible layer status.
 
     let plotArea = newPlotArea();       // Needed to be able to plot on the timeline, otherwise not.
 
@@ -57,8 +50,6 @@
 
     function getContainer(point) {
 
-        if (layerStatus !== 'on') { return; }
-
         let container;
 
         /* First we check if this point is inside this space. */
@@ -91,8 +82,6 @@
     }
 
     function draw() {
-
-        if (layerStatus !== 'on') { return; }
 
         plotChart();
 
@@ -293,14 +282,6 @@
             browserCanvasContext.stroke();
 
         }
-    }
-
-    function onLayerStatusChanged(eventData) {
-
-        if (eventData.layer === 'Mariam Trades History') {
-            layerStatus = eventData.status;
-        }
-
     }
 
     function onZoomChanged(event) {

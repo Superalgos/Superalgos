@@ -14,10 +14,6 @@ if (CONSOLE_LOG === true && debugMode === true) {
 
 }
 
-const MODULE_NAME = "Node Server";
-const START_BROWSER_APP = false;
-
-
 let githubPages = new Map;
 let ecosystem;
 let ecosystemObject;
@@ -29,6 +25,12 @@ var port = process.env.PORT || 1337;
 initialize();
 
 function initialize() {
+
+    if (CONSOLE_LOG === true) {
+
+        console.log("I am entering the Initialize function. So far so good.");
+
+    }
 
     let fs = require('fs');
     try {
@@ -57,15 +59,18 @@ function initialize() {
 
 function startHtttpServer() {
 
-    if (START_BROWSER_APP === true) {
+    if (CONSOLE_LOG === true) {
 
-        try {
+        console.log("I am entering the startHtttpServer function. So far so good.");
 
-            gWebServer = http.createServer(onBrowserRequest).listen(port);
-        }
-        catch (err) {
-            console.log(err);
-        }
+    }
+
+    try {
+
+        gWebServer = http.createServer(onBrowserRequest).listen(port);
+    }
+    catch (err) {
+        console.log(err);
     }
 }
 
@@ -73,7 +78,6 @@ function onBrowserRequest(request, response) {
 
     var htmlResponse;
     var requestParameters = request.url.split("/");
-
 
     switch (requestParameters[1]) {
 

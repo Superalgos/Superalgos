@@ -1,8 +1,23 @@
+const CONSOLE_LOG = true;
+
+if (CONSOLE_LOG === true) {
+
+    console.log("Node Server Starting. Be happy, everything is going to be allright. :-)");
+
+}
+
+let debugMode = true;           // This forces the server to read Plotters from the local drive.
+
+if (CONSOLE_LOG === true && debugMode === true) {
+
+    console.log("Hey! if you expect this to run on production I have bad news for you son, debugMode is true, that means the server wont find your local files. ");
+
+}
 
 const MODULE_NAME = "Node Server";
 const START_BROWSER_APP = false;
 
-let debugMode = true;           // This forces the server to read Plotters from the local drive.
+
 let githubPages = new Map;
 let ecosystem;
 let ecosystemObject;

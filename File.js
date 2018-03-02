@@ -11,7 +11,7 @@ function newFile() {
 
     return fileObject;
 
-    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pLayerCodeName, pExchange, pMarket, callBackFunction) {
+    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pSetCodeName, pExchange, pMarket, callBackFunction) {
 
         let product = ecosystem.getProduct(ecosystem.getBot(ecosystem.getTeam(pTeamCodeName), pBotCodeName), pProductCodeName);
 
@@ -29,11 +29,11 @@ function newFile() {
 
         }
 
-        let layer = ecosystem.getLayer(product, pLayerCodeName);
+        let productSet = ecosystem.getSet(product, pSetCodeName);
 
-        if (layer === undefined) {
+        if (productSet === undefined) {
 
-            throw "Layer not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pLayerCodeName = " + pLayerCodeName;
+            throw "Set not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pSetCodeName = " + pSetCodeName;
 
         }
 
@@ -42,7 +42,7 @@ function newFile() {
 
         /* Now we will get the file */
 
-        fileCloud.getFile(product, exchange, pMarket, undefined, undefined, onFileReceived);
+        fileCloud.getFile(productSet, exchange, pMarket, undefined, undefined, onFileReceived);
 
         function onFileReceived(pFile) {
 

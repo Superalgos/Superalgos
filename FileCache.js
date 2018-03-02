@@ -14,7 +14,7 @@ function newFileCache() {
     
     return fileCache;
 
-    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pLayerCodeName, pExchange, pMarket, callBackFunction) {
+    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pSetCodeName, pExchange, pMarket, callBackFunction) {
 
         let product = ecosystem.getProduct(ecosystem.getBot(ecosystem.getTeam(pTeamCodeName), pBotCodeName), pProductCodeName);
 
@@ -32,11 +32,11 @@ function newFileCache() {
 
         }
 
-        let layer = ecosystem.getLayer(product, pLayerCodeName);
+        let productSet = ecosystem.getSet(product, pSetCodeName);
 
-        if (layer === undefined) {
+        if (productSet === undefined) {
 
-            throw "Layer not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pLayerCodeName = " + pLayerCodeName;
+            throw "Set not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pSetCodeName = " + pSetCodeName;
 
         }
 
@@ -50,9 +50,9 @@ function newFileCache() {
             let periodTime = marketFilesPeriods[i][0];
             let periodName = marketFilesPeriods[i][1];
 
-            if (layer.validPeriods.includes(periodName) === true) {
+            if (productSet.validPeriods.includes(periodName) === true) {
 
-                fileCloud.getFile(product, exchange, pMarket, periodName, undefined, onFileReceived);
+                fileCloud.getFile(productSet, exchange, pMarket, periodName, undefined, onFileReceived);
 
                 function onFileReceived(file) {
 

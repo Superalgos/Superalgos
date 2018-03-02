@@ -6,6 +6,7 @@ function newEcosystem() {
         getTeams: getTeams,
         getBot: getBot,
         getProduct: getProduct,
+        getSet: getSet,
         getExchange: getExchange, 
         initialize: initialize
     }
@@ -60,15 +61,30 @@ function newEcosystem() {
         }
     }
 
-    function getExchange(pProduct, pName) {
+    function getSet(pProduct, pSetCodeName) {
 
-        for (let i = 0; i < pProduct.exchangeList.exchange.length; i++) {
+        for (let i = 0; i < pProduct.sets.length; i++) {
 
-            if (pProduct.exchangeList.exchange[i].name === pName) {
+            if (pProduct.sets[i].codeName === pSetCodeName) {
 
-                return pProduct.exchangeList.exchange[i];
+                return pProduct.sets[i];
             }
         }
     }
+
+    function getExchange(pProduct, pName) {
+
+        for (let i = 0; i < pProduct.exchangeList.length; i++) {
+
+            if (pProduct.exchangeList[i].name === pName) {
+
+                return pProduct.exchangeList[i];
+            }
+        }
+    }
+
+
+
+    return false;
 }
 

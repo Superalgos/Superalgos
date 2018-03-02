@@ -4,6 +4,7 @@ function getNewPlotter(pDevTeam, pRepo, pModule) {
 
     let plotter;
     let fullCode = pDevTeam + pRepo + pModule;
+    fullCode = fullCode.replace(/-/g, "");
 
     switch (fullCode) {
 

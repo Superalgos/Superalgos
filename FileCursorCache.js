@@ -15,7 +15,7 @@ function newFileCursorCache() {
 
     return fileCursorCache;
 
-    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pLayerCodeName, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pSetCodeName, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
         let product = ecosystem.getProduct(ecosystem.getBot(ecosystem.getTeam(pTeamCodeName), pBotCodeName), pProductCodeName);
 
@@ -33,11 +33,11 @@ function newFileCursorCache() {
 
         }
 
-        let layer = ecosystem.getLayer(product, pLayerCodeName);
+        let productSet = ecosystem.getSet(product, pSetCodeName);
 
-        if (layer === undefined) {
+        if (productSet === undefined) {
 
-            throw "Layer not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pLayerCodeName = " + pLayerCodeName;
+            throw "Set not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pSetCodeName = " + pSetCodeName;
 
         }
 
@@ -51,10 +51,10 @@ function newFileCursorCache() {
             let periodTime = dailyFilePeriods[i][0];
             let periodName = dailyFilePeriods[i][1];
 
-            if (layer.validPeriods.includes(periodName) === true) {
+            if (productSet.validPeriods.includes(periodName) === true) {
 
                 let fileCursor = newFileCursor();
-                fileCursor.initialize(fileCloud, product, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, onFileReceived);
+                fileCursor.initialize(fileCloud, productSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, onFileReceived);
 
                 fileCursors.set(periodTime, fileCursor);
 

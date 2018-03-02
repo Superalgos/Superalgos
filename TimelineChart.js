@@ -50,8 +50,6 @@ function newTimelineChart() {
 
         productsPanel = pProductsPanel;
 
-        productsPanel.eventHandler.listenToEvent("Product Card Status Changed", onProductCardStatusChanged);
-
         marketId = market;
         exchangeId = exchange;
 
@@ -138,6 +136,12 @@ function newTimelineChart() {
                 productCard: pProductCard,
                 plotter: plotter
             };
+
+            /* Listen to the event of change of status */
+
+            pProductCard.container.eventHandler.listenToEvent("Status Changed", onProductCardStatusChanged);
+
+            /* Add the new Active Protter to the Array */
 
             activePlotters.push(activePlotter);
 
@@ -305,6 +309,8 @@ function newTimelineChart() {
 
     function draw() {
 
+        if (activePlotters === undefined) { return; } // We need to wait
+
         if (timelineChart.container.frame.isInViewPort()) {
 
             this.container.frame.draw();
@@ -313,9 +319,9 @@ function newTimelineChart() {
 
             chartGrid.draw(timelineChart.container, plotArea);
 
-            for (var i = 0; i < this.activePlotters.length; i++) {
+            for (var i = 0; i < activePlotters.length; i++) {
 
-                let activePlotter = this.activePlotters[i];
+                let activePlotter = activePlotters[i];
                 activePlotter.plotter.draw();
 
             }

@@ -1,7 +1,7 @@
 ﻿
 function newEventHandler() {
 
-    var eventHandler = {
+    let eventHandler = {
         containerName: "",                  // This is for debugging purposes only.
         parentEventHandler: undefined,             // Here we store the parent cointainer zoom object. 
         listenToEvent: listenToEvent,
@@ -38,9 +38,6 @@ function newEventHandler() {
                 handler(event, extraData);
 
             }
-
         }
-
     }
-
 }

@@ -6,7 +6,6 @@ function newProductsPanel() {
     var thisObject = {
         container: undefined,
         getOnProductCards: getOnProductCards,
-        getProductStatus: getProductStatus,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
@@ -17,17 +16,17 @@ function newProductsPanel() {
     container.isDraggeable = true;
     container.isZoomeable = false;
     thisObject.container = container;
-    thisObject.container.frame.containerName = "Chart Layers Panel";
+    thisObject.container.frame.containerName = "Bot's Products";
 
     let isInitialized = false;
-    let productCards;
+    let productCards = [];
 
     return thisObject;
 
     function initialize() {
 
-        this.container.frame.width = 200;
-        this.container.frame.height = 200;
+        this.container.frame.width = 300;
+        this.container.frame.height = 500;
 
         var position = {
             x: viewPort.visibleArea.topRight.x - this.container.frame.width,
@@ -86,25 +85,7 @@ function newProductsPanel() {
                     productCard.container.frame.position.x = position.x;
                     productCard.container.frame.position.y = position.y + lastY;
 
-                    lastY = lastY + productCard.container.frame.height;
-
-                    /*  We start listening to the productCard click event, so as to know when one was pressed. */
-
-                    productCard.container.eventHandler.listenToEvent('onMouseClick', buttonPressed, i);
-
-                    /* We retrieve the locally stored status of the Product */
-
-                    let storedValue = window.localStorage.getItem(productCard.code);
-
-                    if (storedValue !== null) {
-
-                        productCard.status = storedValue;
-
-                    } else {
-
-                        productCard.status = PRODUCT_CARD_STATUS.ON;
-
-                    }
+                    lastY = lastY + productCard.container.frame.height * 1.25;
 
                     /* Add to the Product Array */
 
@@ -126,30 +107,13 @@ function newProductsPanel() {
 
         for (let i = 0; i < productCards.length; i++) {
 
-            if (productCards[i].status = PRODUCT_CARD_STATUS.ON) {
+            if (productCards[i].status === PRODUCT_CARD_STATUS.ON) {
 
                 onProducts.push(productCards[i]);
             }
         }
 
         return onProducts;
-    }
-
-    function getProductStatus(pProductCode) {
-
-        for (let i = 0; i < productCards.length; i++) {
-
-            let button = productCards[i];
-
-            if (button.code === pProductCode) {
-
-                return button.status;
-
-            }
-
-        }
-
-        return PRODUCT_CARD_STATUS.OFF;
     }
 
     function getContainer(point) {
@@ -188,27 +152,6 @@ function newProductsPanel() {
 
     }
 
-    function buttonPressed(event, index) {
-
-        switch (productCards[index].status) {
-
-            case PRODUCT_CARD_STATUS.ON:
-                productCards[index].status = PRODUCT_CARD_STATUS.OFF;
-                break;
-
-            case PRODUCT_CARD_STATUS.OFF:
-                productCards[index].status = PRODUCT_CARD_STATUS.ON;
-                break;
-
-        }
-
-        let eventData = productCards[index];    
-
-        thisObject.container.eventHandler.raiseEvent('Product Card Status Changed', eventData);
-
-        window.localStorage.setItem(productCards[index].code, productCards[index].status);
-
-    }
 
     function draw() {
 

@@ -8,7 +8,6 @@
         bot: undefined,
         product: undefined,
         code: undefined,
-        layer: undefined,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
     };
@@ -33,7 +32,29 @@
 
         this.container.frame.position = position;
         this.container.frame.width = 280;
-        this.container.frame.height = 28;
+        this.container.frame.height = 45;
+
+        /* We retrieve the locally stored status of the Product */
+
+        let storedValue = window.localStorage.getItem(thisObject.code);
+
+        if (storedValue !== null) {
+
+            thisObject.status = storedValue;
+
+        } else {
+
+            thisObject.status = PRODUCT_CARD_STATUS.ON;
+
+            /* Save the value for future use */
+
+            window.localStorage.setItem(thisObject.code, thisObject.status);
+
+        }
+
+        /* Lets listen to our own events to react when we have a Mouse Click */
+
+        thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed);
 
     }
 
@@ -53,6 +74,28 @@
 
             return undefined;
         }
+
+    }
+
+    function buttonPressed(event) {
+
+        switch (thisObject.status) {
+
+            case PRODUCT_CARD_STATUS.ON:
+                thisObject.status = PRODUCT_CARD_STATUS.OFF;
+                break;
+
+            case PRODUCT_CARD_STATUS.OFF:
+                thisObject.status = PRODUCT_CARD_STATUS.ON;
+                break;
+
+        }
+
+        let eventData = thisObject;
+
+        thisObject.container.eventHandler.raiseEvent('Status Changed', eventData);
+
+        window.localStorage.setItem(thisObject.code, thisObject.status);
 
     }
 
@@ -84,11 +127,11 @@
 
         switch (thisObject.status) {
 
-            case 'on':
+            case PRODUCT_CARD_STATUS.ON:
                 browserCanvasContext.fillStyle = onFillStyle;
                 break;
 
-            case 'off':
+            case PRODUCT_CARD_STATUS.OFF:
                 browserCanvasContext.fillStyle = offFillStyle;
                 break;
 
@@ -116,14 +159,14 @@
 
         /* devTeam */
 
-        label = thisObject.devTeam;
+        label = "Dev Team: " + thisObject.devTeam.displayName;
 
         xOffset = 0;
         yOffset = 0;
 
         labelPoint = {
             x: 20,
-            y: thisObject.container.frame.height - 5
+            y: thisObject.container.frame.height - 35
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
@@ -133,11 +176,11 @@
 
         /* bot */
 
-        label = thisObject.bot;
+        label = "Bot: " + thisObject.bot.displayName;
 
         labelPoint = {
-            x: 40,
-            y: thisObject.container.frame.height - 5
+            x: 20,
+            y: thisObject.container.frame.height - 20
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
@@ -147,24 +190,10 @@
 
         /* product */
 
-        label = thisObject.product;
+        label = "Product: " + thisObject.product.displayName;
 
         labelPoint = {
-            x: 60,
-            y: thisObject.container.frame.height - 5
-        };
-
-        labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
-
-        browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
-        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
-
-        /* layer */
-
-        label = thisObject.layer;
-
-        labelPoint = {
-            x: 80,
+            x: 20,
             y: thisObject.container.frame.height - 5
         };
 

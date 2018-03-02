@@ -46,6 +46,8 @@ function newSplashScreen() {
 
     function draw() {
 
+        splashScreenNeeded = false;
+
         if (splashScreenNeeded === false) {
 
             stepsInitializationCounter = 100;
@@ -65,7 +67,11 @@ function newSplashScreen() {
         let label = '' + Math.trunc(stepsInitializationCounter)  + ' %';
         stepsInitializationCounter = stepsInitializationCounter + 0.2;
 
-        if (stepsInitializationCounter > 99) { stepsInitializationCounter = 99;}
+        if (stepsInitializationCounter > 99) {
+
+            splashScreenNeeded = false;
+            stepsInitializationCounter = 99;
+        }
 
         let fontSize = 50;
 

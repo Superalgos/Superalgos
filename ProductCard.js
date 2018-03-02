@@ -15,8 +15,8 @@
 
     let progressBar = {
         value: 100,
-        fillStyle = 'rgba(226, 226, 226, 1)',
-        strokeStyle = 'rgba(86, 86, 86, 1)'
+        fillStyle: 'rgba(226, 226, 226, 1)',
+        strokeStyle: 'rgba(86, 86, 86, 1)'
     };
 
     return thisObject;
@@ -93,16 +93,16 @@
 
             progressBar = {
                 value: 100,
-                fillStyle = 'rgba((56, 209, 6, 1)',
-                strokeStyle = 'rgba(40, 99, 21, 1)'
+                fillStyle: 'rgba((56, 209, 6, 1)',
+                strokeStyle: 'rgba(40, 99, 21, 1)'
             };
 
         } else {
 
             progressBar = {
                 value: event.totalValue * 100 / event.totalValue,
-                fillStyle = 'rgba(234, 143, 23, 1)',
-                strokeStyle = 'rgba(122, 79, 23, 1)'
+                fillStyle: 'rgba(234, 143, 23, 1)',
+                strokeStyle: 'rgba(122, 79, 23, 1)'
             };
 
         }

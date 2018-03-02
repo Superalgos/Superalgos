@@ -129,7 +129,7 @@ function newTimelineChart() {
 
         storage.eventHandler.listenToEvent('Storage File Loaded', pProductCard.onFileLoaded);
 
-        storage.initialize(pProductCard.devTeam, pProductCard..bot, pProductCard.product, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onStorageInitialized) ;
+        storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.product, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onStorageInitialized) ;
 
         function onStorageInitialized() {
 
@@ -149,7 +149,7 @@ function newTimelineChart() {
             plotter.container.frame.position.x = timelineChart.container.frame.width / 2 - plotter.container.frame.width / 2;
             plotter.container.frame.position.y = timelineChart.container.frame.height / 2 - plotter.container.frame.height / 2;
 
-            plotter.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onPlotterInizialized);
+            plotter.initialize(storage, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onPlotterInizialized);
 
             function onPlotterInizialized() {
 

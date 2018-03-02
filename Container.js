@@ -11,6 +11,7 @@ function newContainer() {
         isDraggeable: true,
         isZoomeable: true,
         isClickeable: false,
+        name: undefined,
         initialize: initialize
     };
 
@@ -25,6 +26,7 @@ function newContainer() {
 
         var eventHandler = newEventHandler();
         eventHandler.initialize();
+        eventHandler.name = container.name;
         this.eventHandler = eventHandler;
 
         var displacement = newDisplacement();

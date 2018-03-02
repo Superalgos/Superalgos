@@ -12,16 +12,19 @@
         initialize: initialize
     };
 
-    var container = newContainer();
-    container.initialize();
-    container.isDraggeable = false;
-    container.isZoomeable = false;
-    container.isClickeable = true;
-    thisObject.container = container;
-
     return thisObject;
 
     function initialize() {
+
+        /* Create this objects continer */
+
+        var container = newContainer();
+        container.name = "Product Card " + thisObject.code;
+        container.initialize();
+        container.isDraggeable = false;
+        container.isZoomeable = false;
+        container.isClickeable = true;
+        thisObject.container = container;
 
         /* Lets set the basic dimensions of this thisObject. */
 

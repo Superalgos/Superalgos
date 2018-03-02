@@ -11,10 +11,16 @@ function newProductsPanel() {
         initialize: initialize
     };
 
+    /* Cointainer stuff */
+
     var container = newContainer();
+
+    container.name = "Bots Product Panel";
     container.initialize();
+
     container.isDraggeable = true;
     container.isZoomeable = false;
+
     thisObject.container = container;
     thisObject.container.frame.containerName = "Bot's Products";
 
@@ -65,16 +71,17 @@ function newProductsPanel() {
 
                     productCard.code = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName;
 
+                    /* Initialize it */
+
+                    productCard.initialize();
+
+
                     /* Container Stuff */
 
                     productCard.container.displacement.parentDisplacement = this.container.displacement;
                     productCard.container.zoom.parentZoom = this.container.zoom;
                     productCard.container.frame.parentFrame = this.container.frame;
                     productCard.container.parentContainer = this.container;
-
-                    /* Initialize it */
-
-                    productCard.initialize();
 
                     /* Positioning within this Panel */
 
@@ -91,11 +98,21 @@ function newProductsPanel() {
 
                     productCards.push(productCard);
 
+                    /* Listen to Status Changes Events */
+
+                    productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
+
                 }
             }
         }
 
         isInitialized = true;
+
+    }
+
+    function onProductCardStatusChanged(pProductCard) {
+
+        thisObject.container.eventHandler.raiseEvent('Product Card Status Changed', pProductCard);
 
     }
 

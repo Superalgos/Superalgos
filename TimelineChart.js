@@ -44,11 +44,19 @@ function newTimelineChart() {
 
     function initialize(exchange, market, currentCandlePanelToUse, currentVolumePanelToUse, pProductsPanel, orderBookPanelToUse, callBackFunction) {
 
+        /* Remember the Products Panel */
+
+        productsPanel = pProductsPanel;
+
+        /* Listen to the event of change of status */
+
+        productsPanel.container.eventHandler.listenToEvent("Product Card Status Changed", onProductCardStatusChanged);
+
+        /* Legacy code to clean */
+
         currentCandlePanel = currentCandlePanelToUse;
         currentVolumePanel = currentVolumePanelToUse;
         orderBookPanel = orderBookPanelToUse;
-
-        productsPanel = pProductsPanel;
 
         marketId = market;
         exchangeId = exchange;
@@ -136,10 +144,6 @@ function newTimelineChart() {
                 productCard: pProductCard,
                 plotter: plotter
             };
-
-            /* Listen to the event of change of status */
-
-            pProductCard.container.eventHandler.listenToEvent("Status Changed", onProductCardStatusChanged);
 
             /* Add the new Active Protter to the Array */
 

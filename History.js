@@ -30,7 +30,7 @@
 
     return thisObject;
 
-    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, pLayerStatus, callBackFunction) {
+    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
         datetime = pDatetime;
         timePeriod = pTimePeriod;

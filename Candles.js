@@ -40,76 +40,34 @@
 
     return thisObject;
 
-    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+    function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
-        let cursorCacheInProgress = false;
-        let finaleStepsInProgress = false;
+        /* Store the information received. */
+
+        fileCache = pStorage.fileCache;
+        fileCursorCache = pStorage.fileCursorCache;
 
         datetime = pDatetime;
         timePeriod = pTimePeriod;
 
-        fileCache = newFileCache();
-        fileCache.initialize("AAMasters", "AAOlivia", "Candles", "Market Files", pExchange, pMarket, onFileReady);
+        /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
-        function onFileReady() {
+        marketFile = fileCache.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
 
-            let newMarketFile = fileCache.getFile(ONE_DAY_IN_MILISECONDS);
+        recalculateScale();
+        recalculate();
 
-            if (newMarketFile !== undefined) { 
+        /* Now we set the right files according to current Period. */
 
-                marketFile = newMarketFile;
+        marketFile = fileCache.getFile(pTimePeriod);
+        fileCursor = fileCursorCache.getFileCursor(pTimePeriod);
 
-                initializeFileCursorCache();
+        /* Listen to the necesary events. */
 
-            }
-        }
+        viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-        function initializeFileCursorCache() {
-
-            if (cursorCacheInProgress === false) {
-
-                cursorCacheInProgress = true;
-
-                fileCursorCache = newFileCursorCache();
-                fileCursorCache.initialize("AAMasters", "AAOlivia", "Candles", "Daily Files", pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
-
-            }
-        }
-
-        function onFileCursorReady() {
-
-            recalculate();
-
-            let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
-
-            if (newFileCursor !== undefined) { // if the file ready is the one we need then it and we dont have it yet, then we will continue here.
-
-                let stringDate = datetime.getUTCFullYear() + '-' + pad(datetime.getUTCMonth() + 1, 2) + '-' + pad(datetime.getUTCDate(), 2);
-
-                let dailyFile = newFileCursor.files.get(stringDate);
-
-                if (dailyFile !== undefined) {
-
-                    if (finaleStepsInProgress === false) {
-
-                        finaleStepsInProgress = true;
-
-                        fileCursor = newFileCursor;
-
-                        recalculateScale(); // With any of the market files we can calculate the scale. 
-
-                        recalculate();
-
-                        viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-                        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
-
-                        callBackFunction();
-
-                    }
-                }
-            }
-
-        }
+        callBackFunction();
 
     }
 

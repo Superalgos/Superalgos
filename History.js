@@ -30,22 +30,17 @@
 
     return thisObject;
 
-    function initialize(pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+    function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
         datetime = pDatetime;
         timePeriod = pTimePeriod;
 
-        let File = newFile();
-        File.initialize("AAMasters", "AAMariam", "Trading History", "Trading History File", pExchange, pMarket, onFileReady)
+        file = pStorage.file.getFile();
 
-        function onFileReady() {
+        recalculate();
+        recalculateScale();
+        callBackFunction();
 
-            file = File.getFile();
-            recalculate();
-            recalculateScale();
-            callBackFunction();
-
-        }
     }
 
     function getContainer(point) {

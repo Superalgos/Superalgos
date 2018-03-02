@@ -1,7 +1,7 @@
 ﻿
 function newEventHandler() {
 
-    const CONSOLE_LOG = true;
+    const CONSOLE_LOG = false;
 
     let thisObject = {
         name: undefined,                            // This is for debugging purposes only.
@@ -36,7 +36,7 @@ function newEventHandler() {
 
         if (thisObject.name !== undefined && CONSOLE_LOG === true) {
 
-            console.log("Event Handler named " + thisObject.name + " received a request to raiseEvent " + eventType + " with this date " + (event.toString()).substring(0, 50));
+            console.log("Event Handler named " + thisObject.name + " received a request to raiseEvent " + eventType + " with this data " + (event.toString()).substring(0, 50));
 
         }
 

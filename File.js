@@ -1,5 +1,5 @@
 ﻿
-function newFile() {
+function newFile() {  
 
     let fileObject = {
         getFile: getFile,
@@ -11,38 +11,22 @@ function newFile() {
 
     return fileObject;
 
-    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pSetCodeName, pExchange, pMarket, callBackFunction) {
+    function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
 
-        let product = ecosystem.getProduct(ecosystem.getBot(ecosystem.getTeam(pTeamCodeName), pBotCodeName), pProductCodeName);
-
-        if (product === undefined) {
-
-            throw "Product not found at this bot of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName;
-
-        }
-
-        let exchange = ecosystem.getExchange(product, pExchange);
+        let exchange = ecosystem.getExchange(pProduct, pExchange);
 
         if (exchange === undefined) {
 
-            throw "Exchange not supoorted by this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pExchange = " + pExchange;
-
-        }
-
-        let productSet = ecosystem.getSet(product, pSetCodeName);
-
-        if (productSet === undefined) {
-
-            throw "Set not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pSetCodeName = " + pSetCodeName;
+            throw "Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = " + pDevTeam.codeName + ", pBot.codeName = " + pBot.codeName + ", pProduct.codeName = " + pProduct.codeName + ", pExchange = " + pExchange;
 
         }
 
         fileCloud = newFileCloud();
-        fileCloud.initialize(pTeamCodeName, pBotCodeName);
+        fileCloud.initialize(pBot);
 
         /* Now we will get the file */
 
-        fileCloud.getFile(productSet, exchange, pMarket, undefined, undefined, onFileReceived);
+        fileCloud.getFile(pSet, exchange, pMarket, undefined, undefined, onFileReceived);
 
         function onFileReceived(pFile) {
 

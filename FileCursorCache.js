@@ -5,8 +5,13 @@ function newFileCursorCache() {
         getFileCursor: getFileCursor,
         setDatetime: setDatetime,
         setTimePeriod: setTimePeriod,
+        getExpectedFiles: getExpectedFiles,
+        getFilesLoaded: getFilesLoaded,
         initialize: initialize
     }
+
+    let filesLoaded = 0;
+    let expectedFiles = 0;
 
     let fileCloud;
 
@@ -15,34 +20,18 @@ function newFileCursorCache() {
 
     return fileCursorCache;
 
-    function initialize(pTeamCodeName, pBotCodeName, pProductCodeName, pSetCodeName, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+    function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
-        let product = ecosystem.getProduct(ecosystem.getBot(ecosystem.getTeam(pTeamCodeName), pBotCodeName), pProductCodeName);
-
-        if (product === undefined) {
-
-            throw "Product not found at this bot of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName;
-
-        }
-
-        let exchange = ecosystem.getExchange(product, pExchange);
+        let exchange = ecosystem.getExchange(pProduct, pExchange);
 
         if (exchange === undefined) {
 
-            throw "Exchange not supoorted by this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pExchange = " + pExchange;
-
-        }
-
-        let productSet = ecosystem.getSet(product, pSetCodeName);
-
-        if (productSet === undefined) {
-
-            throw "Set not found at this product of the ecosystem! - pTeamCodeName = " + pTeamCodeName + ", pBotCodeName = " + pBotCodeName + ", pProductCodeName = " + pProductCodeName + ", pSetCodeName = " + pSetCodeName;
+            throw "Exchange not supoorted by this product of the ecosystem! - pDevTeam.codeName = " + pDevTeam.codeName + ", pBot.codeName = " + pBot.codeName + ", pProduct.codeName = " + pProduct.codeName + ", pExchange = " + pExchange;
 
         }
 
         fileCloud = newFileCloud();
-        fileCloud.initialize(pTeamCodeName, pBotCodeName);
+        fileCloud.initialize(pBot);
 
         /* Now we will get the daily files */
 
@@ -51,15 +40,18 @@ function newFileCursorCache() {
             let periodTime = dailyFilePeriods[i][0];
             let periodName = dailyFilePeriods[i][1];
 
-            if (productSet.validPeriods.includes(periodName) === true) {
+            if (pSet.validPeriods.includes(periodName) === true) {
 
                 let fileCursor = newFileCursor();
-                fileCursor.initialize(fileCloud, productSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, onFileReceived);
+                fileCursor.initialize(fileCloud, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, onFileReceived);
 
                 fileCursors.set(periodTime, fileCursor);
 
+                expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
+
                 function onFileReceived() {
 
+                    filesLoaded++;
                     callBackFunction(); // Note that the call back is called for every file loaded at each cursor.
 
                 }
@@ -93,5 +85,17 @@ function newFileCursorCache() {
             value.setTimePeriod(pTimePeriod);
 
         }
+    }
+
+    function getExpectedFiles() {
+
+        return expectedFiles;
+
+    }
+
+    function getFilesLoaded() {
+
+        return filesLoaded;
+
     }
 }

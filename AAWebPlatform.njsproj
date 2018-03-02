@@ -113,6 +113,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SpreadChart.js" />
+    <Compile Include="Storage.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="temp.js" />
     <Compile Include="TempExosystem.js">
       <SubType>Code</SubType>

@@ -10,11 +10,9 @@ function newFileCloud() {
 
     return fileCloud;
 
-    function initialize(pTeamCodeName, pBotCodeName) {
+    function initialize(pBot) {
 
-        let bot = ecosystem.getBot(ecosystem.getTeam(pTeamCodeName), pBotCodeName);
-
-        fileService = AzureStorage.createFileServiceWithSas(bot.storage.fileUri, bot.storage.sas).withFilter(new AzureStorage.ExponentialRetryPolicyFilter());
+        fileService = AzureStorage.createFileServiceWithSas(pBot.storage.fileUri, pBot.storage.sas).withFilter(new AzureStorage.ExponentialRetryPolicyFilter());
 
     }
 
@@ -79,10 +77,4 @@ function newFileCloud() {
 
         }
     }
-
-
 }
-
-
-
-

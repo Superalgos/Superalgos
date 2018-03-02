@@ -290,6 +290,8 @@
 
     function recalculateUsingDailyFiles() {
 
+        if (fileCursor === undefined) { return; } // We need to wait
+
         if (fileCursor.files.size === 0) { return;} // We need to wait until there are files in the cursor
 
         let daysOnSides = getSideDays(timePeriod);

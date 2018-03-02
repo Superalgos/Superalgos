@@ -1,6 +1,6 @@
 
 const MODULE_NAME = "Node Server";
-const START_BROWSER_APP = true;
+const START_BROWSER_APP = false;
 
 let debugMode = true;           // This forces the server to read Plotters from the local drive.
 let githubPages = new Map;

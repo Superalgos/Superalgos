@@ -118,16 +118,43 @@ function newTimelineChart() {
 
         /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
 
-        let storage = newStorage();
+        let objName = pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName;
+        let storage = newStorage(objName);
 
         /*
 
         Before Initializing the Storage, we will put put the Product Card to listen to the events the storage will raise every time a file is loaded,
-        so that the UI can somehow show this.
+        so that the UI can somehow show this. There are different types of events. 
 
         */
 
-        storage.eventHandler.listenToEvent('Storage File Loaded', pProductCard.onFileLoaded);
+        for (let i = 0; i < pProductCard.product.sets.length; i++) {
+
+            let thisSet = pProductCard.product.sets[i];
+
+            switch (thisSet.type) {
+                case 'Market Files': {
+
+                    storage.eventHandler.listenToEvent('Market File Loaded', pProductCard.onMarketFileLoaded);
+
+                }
+                    break;
+
+                case 'Daily Files': {
+
+                    storage.eventHandler.listenToEvent('Daily File Loaded', pProductCard.onDailyFileLoaded);
+
+                }
+                    break;
+
+                case 'Single File': {
+
+                    storage.eventHandler.listenToEvent('Single File Loaded', pProductCard.onSingleFileLoaded);;
+
+                }
+                    break;
+            }
+        }
 
         storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.product, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onStorageInitialized) ;
 

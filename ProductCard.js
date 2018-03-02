@@ -1,5 +1,7 @@
 ﻿function newProductCard() {
 
+    const CONSOLE_LOG = true;
+
     var thisObject = {
         container: undefined,
         draw: draw,
@@ -8,15 +10,37 @@
         bot: undefined,
         product: undefined,
         code: undefined,
-        onFileLoaded: onFileLoaded, 
+        onMarketFileLoaded: onMarketFileLoaded, 
+        onDailyFileLoaded: onDailyFileLoaded, 
+        onSingleFileLoaded: onSingleFileLoaded, 
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
     };
 
-    let progressBar = {
+    let LOADING_FILL_STYLE = 'rgba(234, 143, 23, 0.5)';
+    let LOADED_FILL_STYLE = 'rgba(45, 232, 28, 0.5)';
+    let UNLOADED_FILL_STYLE = 'rgba(226, 226, 226, 0.5)';
+
+    let LOADING_STROKE_STYLE = 'rgba(234, 143, 23, 0.5)';
+    let LOADED_STROKE_STYLE = 'rgba(150, 150, 150, 0.5)';
+    let UNLOADED_STROKE_STYLE = 'rgba(226, 226, 226, 0.5)';
+
+    let marketFileProgressBar = {
         value: 100,
-        fillStyle: 'rgba(226, 226, 226, 1)',
-        strokeStyle: 'rgba(86, 86, 86, 1)'
+        fillStyle: UNLOADED_FILL_STYLE,
+        strokeStyle: UNLOADED_STROKE_STYLE
+    };
+
+    let dailyFileProgressBar = {
+        value: 100,
+        fillStyle: UNLOADED_FILL_STYLE,
+        strokeStyle: UNLOADED_STROKE_STYLE
+    };
+
+    let singleFileProgressBar = {
+        value: 100,
+        fillStyle: UNLOADED_FILL_STYLE,
+        strokeStyle: UNLOADED_STROKE_STYLE
     };
 
     return thisObject;
@@ -42,7 +66,7 @@
 
         this.container.frame.position = position;
         this.container.frame.width = 280;
-        this.container.frame.height = 45;
+        this.container.frame.height = 60;
 
         /* We retrieve the locally stored status of the Product */
 
@@ -87,26 +111,85 @@
 
     }
 
-    function onFileLoaded(event) {
+    function onMarketFileLoaded(event) {
 
-        if (event.totalValue === event.totalValue) {
+        if (event.currentValue === event.totalValue) {
 
-            progressBar = {
+            marketFileProgressBar = {
                 value: 100,
-                fillStyle: 'rgba((56, 209, 6, 1)',
-                strokeStyle: 'rgba(40, 99, 21, 1)'
+                fillStyle: LOADED_FILL_STYLE,
+                strokeStyle: LOADED_STROKE_STYLE
             };
 
         } else {
 
-            progressBar = {
-                value: event.totalValue * 100 / event.totalValue,
-                fillStyle: 'rgba(234, 143, 23, 1)',
-                strokeStyle: 'rgba(122, 79, 23, 1)'
+            marketFileProgressBar = {
+                value: Math.trunc(event.currentValue * 100 / event.totalValue),
+                fillStyle: LOADING_FILL_STYLE,
+                strokeStyle: LOADING_STROKE_STYLE
             };
 
         }
 
+        if (CONSOLE_LOG === true) {
+
+            console.log("ProductCard onMarketFileLoaded Value = " + marketFileProgressBar.value + "% for " + thisObject.code);
+
+        }
+    }
+
+    function onDailyFileLoaded(event) {
+
+        if (event.currentValue === event.totalValue) {
+
+            dailyFileProgressBar = {
+                value: 100,
+                fillStyle: LOADED_FILL_STYLE,
+                strokeStyle: LOADED_STROKE_STYLE
+            };
+
+        } else {
+
+            dailyFileProgressBar = {
+                value: Math.trunc(event.currentValue * 100 / event.totalValue),
+                fillStyle: LOADING_FILL_STYLE,
+                strokeStyle: LOADING_STROKE_STYLE
+            };
+
+        }
+
+        if (CONSOLE_LOG === true) {
+
+            console.log("ProductCard onDailyFileLoaded Value = " + dailyFileProgressBar.value + "% for " + thisObject.code);
+
+        }
+    }
+
+    function onSingleFileLoaded(event) {
+
+        if (event.currentValue === event.totalValue) {
+
+            singleFileProgressBar = {
+                value: 100,
+                fillStyle: LOADED_FILL_STYLE,
+                strokeStyle: LOADED_STROKE_STYLE
+            };
+
+        } else {
+
+            singleFileProgressBar = {
+                value: Math.trunc(event.currentValue * 100 / event.totalValue),
+                fillStyle: LOADING_FILL_STYLE,
+                strokeStyle: LOADING_STROKE_STYLE
+            };
+
+        }
+
+        if (CONSOLE_LOG === true) {
+
+            console.log("ProductCard onSingleFileLoaded Value = " + singleFileProgressBar.value + "% for " + thisObject.code);
+
+        }
     }
 
     function buttonPressed(event) {
@@ -198,7 +281,7 @@
 
         labelPoint = {
             x: 20,
-            y: thisObject.container.frame.height - 35
+            y: thisObject.container.frame.height - 45
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
@@ -212,7 +295,7 @@
 
         labelPoint = {
             x: 20,
-            y: thisObject.container.frame.height - 20
+            y: thisObject.container.frame.height - 30
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
@@ -226,7 +309,7 @@
 
         labelPoint = {
             x: 20,
-            y: thisObject.container.frame.height - 5
+            y: thisObject.container.frame.height - 15
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
@@ -234,7 +317,12 @@
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
-        /* We draw here the progress bar. */
+        let point1;
+        let point2;
+        let point3;
+        let point4;
+
+        /* We draw here the Market Progress Bar. */
 
         point1 = {
             x: 0,
@@ -242,18 +330,18 @@
         };
 
         point2 = {
-            x: thisObject.container.frame.width * progressBar.value / 100,
+            x: thisObject.container.frame.width * marketFileProgressBar.value / 100,
             y: thisObject.container.frame.height - 1
         };
 
         point3 = {
-            x: thisObject.container.frame.width * progressBar.value / 100,
-            y: thisObject.container.frame.height - 5
+            x: thisObject.container.frame.width * marketFileProgressBar.value / 100,
+            y: thisObject.container.frame.height - 3
         };
 
         point4 = {
             x: 0,
-            y: thisObject.container.frame.height - 5
+            y: thisObject.container.frame.height - 3
         };
 
         /* Now the transformations. */
@@ -265,17 +353,102 @@
 
         browserCanvasContext.beginPath();
         browserCanvasContext.moveTo(point1.x, point1.y);
-        browserCanvasContext.moveTo(point2.x, point2.y);
-        browserCanvasContext.moveTo(point3.x, point3.y);
-        browserCanvasContext.moveTo(point4.x, point4.y);
+        browserCanvasContext.lineTo(point2.x, point2.y);
+        browserCanvasContext.lineTo(point3.x, point3.y);
+        browserCanvasContext.lineTo(point4.x, point4.y);
         browserCanvasContext.closePath();
 
-        browserCanvasContext.fillStyle = progressBar.fillStyle;
-        browserCanvasContext.strokeStyle = progressBar.strokeStyle;
+        browserCanvasContext.fillStyle = marketFileProgressBar.fillStyle;
+        browserCanvasContext.strokeStyle = marketFileProgressBar.strokeStyle;
 
         browserCanvasContext.fill();
-        browserCanvasContext.lineWidth = 1;
+        browserCanvasContext.lineWidth = 0.1;
         browserCanvasContext.stroke();
 
+        /* We draw here the Daily Progress Bar. */
+
+        point1 = {
+            x: 0,
+            y: thisObject.container.frame.height - 4
+        };
+
+        point2 = {
+            x: thisObject.container.frame.width * dailyFileProgressBar.value / 100,
+            y: thisObject.container.frame.height - 4
+        };
+
+        point3 = {
+            x: thisObject.container.frame.width * dailyFileProgressBar.value / 100,
+            y: thisObject.container.frame.height - 6
+        };
+
+        point4 = {
+            x: 0,
+            y: thisObject.container.frame.height - 6
+        };
+
+        /* Now the transformations. */
+
+        point1 = thisObject.container.frame.frameThisPoint(point1);
+        point2 = thisObject.container.frame.frameThisPoint(point2);
+        point3 = thisObject.container.frame.frameThisPoint(point3);
+        point4 = thisObject.container.frame.frameThisPoint(point4);
+
+        browserCanvasContext.beginPath();
+        browserCanvasContext.moveTo(point1.x, point1.y);
+        browserCanvasContext.lineTo(point2.x, point2.y);
+        browserCanvasContext.lineTo(point3.x, point3.y);
+        browserCanvasContext.lineTo(point4.x, point4.y);
+        browserCanvasContext.closePath();
+
+        browserCanvasContext.fillStyle = dailyFileProgressBar.fillStyle;
+        browserCanvasContext.strokeStyle = dailyFileProgressBar.strokeStyle;
+
+        browserCanvasContext.fill();
+        browserCanvasContext.lineWidth = 0.1;
+        browserCanvasContext.stroke();
+
+        /* We draw here the Single File Progress Bar. */
+
+        point1 = {
+            x: 0,
+            y: thisObject.container.frame.height - 7
+        };
+
+        point2 = {
+            x: thisObject.container.frame.width * singleFileProgressBar.value / 100,
+            y: thisObject.container.frame.height - 7
+        };
+
+        point3 = {
+            x: thisObject.container.frame.width * singleFileProgressBar.value / 100,
+            y: thisObject.container.frame.height - 9
+        };
+
+        point4 = {
+            x: 0,
+            y: thisObject.container.frame.height - 9
+        };
+
+        /* Now the transformations. */
+
+        point1 = thisObject.container.frame.frameThisPoint(point1);
+        point2 = thisObject.container.frame.frameThisPoint(point2);
+        point3 = thisObject.container.frame.frameThisPoint(point3);
+        point4 = thisObject.container.frame.frameThisPoint(point4);
+
+        browserCanvasContext.beginPath();
+        browserCanvasContext.moveTo(point1.x, point1.y);
+        browserCanvasContext.lineTo(point2.x, point2.y);
+        browserCanvasContext.lineTo(point3.x, point3.y);
+        browserCanvasContext.lineTo(point4.x, point4.y);
+        browserCanvasContext.closePath();
+
+        browserCanvasContext.fillStyle = singleFileProgressBar.fillStyle;
+        browserCanvasContext.strokeStyle = singleFileProgressBar.strokeStyle;
+
+        browserCanvasContext.fill();
+        browserCanvasContext.lineWidth = 0.1;
+        browserCanvasContext.stroke();
     }
 }

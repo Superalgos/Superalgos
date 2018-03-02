@@ -1,5 +1,5 @@
 ﻿
-function newStorage() {
+function newStorage(pName) {
 
     const CONSOLE_LOG = false;
 
@@ -24,14 +24,14 @@ function newStorage() {
     }
 
     thisObject.eventHandler = newEventHandler();
-            
+
+    /* We name the event Handler to easy debugging. */
+
+    thisObject.eventHandler.name = "Storage-" + pName;
+
     return thisObject;
 
     function initialize(pDevTeam, pBot, pProduct, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
-
-        /* We name the event Handler to easy debugging. */
-
-        thisObject.eventHandler.name = "Storage-" + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName
 
         if (CONSOLE_LOG === true) {
 
@@ -104,7 +104,7 @@ function newStorage() {
                     currentValue: thisObject.fileCache.getFilesLoaded()
                 }
 
-                thisObject.eventHandler.raiseEvent('Storage File Loaded', event);
+                thisObject.eventHandler.raiseEvent('Market File Loaded', event);
 
                 if (event.currentValue === event.totalValue) {
 
@@ -127,7 +127,7 @@ function newStorage() {
                     currentValue: thisObject.fileCursorCache.getFilesLoaded()
                 }
 
-                thisObject.eventHandler.raiseEvent('Storage File Loaded', event);
+                thisObject.eventHandler.raiseEvent('Daily File Loaded', event);
 
                 if (event.currentValue === event.totalValue) {
 
@@ -150,7 +150,7 @@ function newStorage() {
                     currentValue: 1
                 }
 
-                thisObject.eventHandler.raiseEvent('Storage File Loaded', event);
+                thisObject.eventHandler.raiseEvent('Single File Loaded', event);
 
                 if (event.currentValue === event.totalValue) {
 

@@ -8,8 +8,15 @@
         bot: undefined,
         product: undefined,
         code: undefined,
+        onFileLoaded: onFileLoaded, 
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
+    };
+
+    let progressBar = {
+        value: 100,
+        fillStyle = 'rgba(226, 226, 226, 1)',
+        strokeStyle = 'rgba(86, 86, 86, 1)'
     };
 
     return thisObject;
@@ -80,6 +87,28 @@
 
     }
 
+    function onFileLoaded(event) {
+
+        if (event.totalValue === event.totalValue) {
+
+            progressBar = {
+                value: 100,
+                fillStyle = 'rgba((56, 209, 6, 1)',
+                strokeStyle = 'rgba(40, 99, 21, 1)'
+            };
+
+        } else {
+
+            progressBar = {
+                value: event.totalValue * 100 / event.totalValue,
+                fillStyle = 'rgba(234, 143, 23, 1)',
+                strokeStyle = 'rgba(122, 79, 23, 1)'
+            };
+
+        }
+
+    }
+
     function buttonPressed(event) {
 
         switch (thisObject.status) {
@@ -104,11 +133,11 @@
 
     function draw() {
 
-        drawIcon();
+        drawProductCard();
 
     }
 
-    function drawIcon() {
+    function drawProductCard() {
 
         centerPoint = {
             x: 7,
@@ -204,6 +233,49 @@
 
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
+
+        /* We draw here the progress bar. */
+
+        point1 = {
+            x: 0,
+            y: thisObject.container.frame.height - 1
+        };
+
+        point2 = {
+            x: thisObject.container.frame.width * progressBar.value / 100,
+            y: thisObject.container.frame.height - 1
+        };
+
+        point3 = {
+            x: thisObject.container.frame.width * progressBar.value / 100,
+            y: thisObject.container.frame.height - 5
+        };
+
+        point4 = {
+            x: 0,
+            y: thisObject.container.frame.height - 5
+        };
+
+        /* Now the transformations. */
+
+        point1 = thisObject.container.frame.frameThisPoint(point1);
+        point2 = thisObject.container.frame.frameThisPoint(point2);
+        point3 = thisObject.container.frame.frameThisPoint(point3);
+        point4 = thisObject.container.frame.frameThisPoint(point4);
+
+        browserCanvasContext.beginPath();
+        browserCanvasContext.moveTo(point1.x, point1.y);
+        browserCanvasContext.moveTo(point2.x, point2.y);
+        browserCanvasContext.moveTo(point3.x, point3.y);
+        browserCanvasContext.moveTo(point4.x, point4.y);
+        browserCanvasContext.closePath();
+
+        browserCanvasContext.fillStyle = progressBar.fillStyle;
+        browserCanvasContext.strokeStyle = progressBar.strokeStyle;
+
+        browserCanvasContext.fill();
+        browserCanvasContext.lineWidth = 1;
+        browserCanvasContext.stroke();
 
     }
 }

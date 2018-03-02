@@ -78,7 +78,7 @@ function initialize(pDevTeam, pBot, pProduct, pExchange, pMarket, pDatetime, pTi
             currentValue: thisObject.fileCache.getFilesLoaded()
         }
 
-        thisObject.eventHandler.raiseEvent('Storage File Ready', event);
+        thisObject.eventHandler.raiseEvent('Storage File Loaded', event);
 
         if (event.currentValue === event.totalValue) {
 
@@ -95,7 +95,7 @@ function initialize(pDevTeam, pBot, pProduct, pExchange, pMarket, pDatetime, pTi
             currentValue: thisObject.fileCursorCache.getFilesLoaded()
         }
 
-        thisObject.eventHandler.raiseEvent('Storage File Ready', event);
+        thisObject.eventHandler.raiseEvent('Storage File Loaded', event);
 
         if (event.currentValue === event.totalValue) {
 
@@ -112,7 +112,7 @@ function initialize(pDevTeam, pBot, pProduct, pExchange, pMarket, pDatetime, pTi
             currentValue: 1
         }
 
-        thisObject.eventHandler.raiseEvent('Storage File Ready', event);
+        thisObject.eventHandler.raiseEvent('Storage File Loaded', event);
 
         if (event.currentValue === event.totalValue) {
 

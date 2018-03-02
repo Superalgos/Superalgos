@@ -1,6 +1,8 @@
 ﻿
 function newTimelineChart() {
 
+    const CONSOLE_LOG = false;
+
     let activePlotters = [];
 
     let plotArea = newPlotArea();
@@ -114,41 +116,65 @@ function newTimelineChart() {
 
     function initializePlotter(pProductCard) {
 
-        let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.repo, pProductCard.product.plotter.moduleName);
+        /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
 
-        plotter.container.displacement.parentDisplacement = timelineChart.container.displacement;
-        plotter.container.zoom.parentZoom = timelineChart.container.zoom;
-        plotter.container.frame.parentFrame = timelineChart.container.frame;
+        let storage = newStorage();
 
-        plotter.container.parentContainer = timelineChart.container;
+        /*
 
-        plotter.container.frame.width = timelineChart.container.frame.width * 1;
-        plotter.container.frame.height = timelineChart.container.frame.height * 1;
+        Before Initializing the Storage, we will put put the Product Card to listen to the events the storage will raise every time a file is loaded,
+        so that the UI can somehow show this.
 
-        plotter.container.frame.position.x = timelineChart.container.frame.width / 2 - plotter.container.frame.width / 2;
-        plotter.container.frame.position.y = timelineChart.container.frame.height / 2 - plotter.container.frame.height / 2;
+        */
 
-        plotter.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onInizialized);
+        storage.eventHandler.listenToEvent('Storage File Loaded', pProductCard.onFileLoaded);
 
-        function onInizialized() {
+        storage.initialize(pProductCard.devTeam, pProductCard..bot, pProductCard.product, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onStorageInitialized) ;
 
-            console.log(pProductCard.product.plotter.devTeam + '->' + pProductCard.product.plotter.repo + '->' + pProductCard.product.plotter.moduleName + " Initialized. ");
+        function onStorageInitialized() {
 
-            try {
-                plotter.positionAtDatetime(INITIAL_DATE);
-            } catch (err) {
-                // If the plotter does not implement this function its ok.
+            /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
+
+            let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.repo, pProductCard.product.plotter.moduleName);
+
+            plotter.container.displacement.parentDisplacement = timelineChart.container.displacement;
+            plotter.container.zoom.parentZoom = timelineChart.container.zoom;
+            plotter.container.frame.parentFrame = timelineChart.container.frame;
+
+            plotter.container.parentContainer = timelineChart.container;
+
+            plotter.container.frame.width = timelineChart.container.frame.width * 1;
+            plotter.container.frame.height = timelineChart.container.frame.height * 1;
+
+            plotter.container.frame.position.x = timelineChart.container.frame.width / 2 - plotter.container.frame.width / 2;
+            plotter.container.frame.position.y = timelineChart.container.frame.height / 2 - plotter.container.frame.height / 2;
+
+            plotter.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onPlotterInizialized);
+
+            function onPlotterInizialized() {
+
+                if (CONSOLE_LOG === true) {
+
+                    console.log(pProductCard.product.plotter.devTeam + '->' + pProductCard.product.plotter.repo + '->' + pProductCard.product.plotter.moduleName + " Initialized. ");
+
+                }
+
+                try {
+                    plotter.positionAtDatetime(INITIAL_DATE);
+                } catch (err) {
+                    // If the plotter does not implement this function its ok.
+                }
+
+                let activePlotter = {
+                    productCard: pProductCard,
+                    plotter: plotter
+                };
+
+                /* Add the new Active Protter to the Array */
+
+                activePlotters.push(activePlotter);
+
             }
-
-            let activePlotter = {
-                productCard: pProductCard,
-                plotter: plotter
-            };
-
-            /* Add the new Active Protter to the Array */
-
-            activePlotters.push(activePlotter);
-
         }
     }
 

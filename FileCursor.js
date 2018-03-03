@@ -93,67 +93,67 @@ function newFileCursor() {
 
                 case _45_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 30;
                     }
                     break;
                 case _40_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 20;
                     }
                     break;
                 case _30_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 15;
                     }
                     break;
                 case _20_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 15;
                     }
                     break;
                 case _15_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 15;
                     }
                     break;
                 case _10_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 15;
                     }
                     break;
                 case _5_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 15;
                     }
                     break;
                 case _4_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 15;
                     }
                     break;
                 case _3_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 15;
                     }
                     break;
                 case _2_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 15;
                     }
                     break;
                 case _1_MINUTE_IN_MILISECONDS:
                     {
-                        minCursorSize = 1;
+                        minCursorSize = 3;
                         maxCursorSize = 15;
                     }
                     break;
@@ -167,67 +167,67 @@ function newFileCursor() {
 
                 case _45_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 13;
+                        minCursorSize = 15;
                         maxCursorSize = 30;
                     }
                     break;
                 case _40_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 11;
+                        minCursorSize = 13;
                         maxCursorSize = 20;
                     }
                     break;
                 case _30_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 9;
+                        minCursorSize = 11;
                         maxCursorSize = 15;
                     }
                     break;
                 case _20_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 7;
+                        minCursorSize = 9;
                         maxCursorSize = 15;
                     }
                     break;
                 case _15_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 5;
+                        minCursorSize = 7;
                         maxCursorSize = 15;
                     }
                     break;
                 case _10_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 5;
+                        minCursorSize = 7;
                         maxCursorSize = 15;
                     }
                     break;
                 case _5_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 3;
+                        minCursorSize = 5;
                         maxCursorSize = 15;
                     }
                     break;
                 case _4_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 3;
+                        minCursorSize = 5;
                         maxCursorSize = 15;
                     }
                     break;
                 case _3_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 3;
+                        minCursorSize = 5;
                         maxCursorSize = 15;
                     }
                     break;
                 case _2_MINUTES_IN_MILISECONDS:
                     {
-                        minCursorSize = 3;
+                        minCursorSize = 5;
                         maxCursorSize = 15;
                     }
                     break;
                 case _1_MINUTE_IN_MILISECONDS:
                     {
-                        minCursorSize = 3;
+                        minCursorSize = 5;
                         maxCursorSize = 15;
                     }
                     break;

@@ -46,8 +46,6 @@ function newSplashScreen() {
 
     function draw() {
 
-        splashScreenNeeded = false;
-
         if (splashScreenNeeded === false) {
 
             stepsInitializationCounter = 100;
@@ -65,7 +63,7 @@ function newSplashScreen() {
         splashScreen.container.frame.draw(false, false);
 
         let label = '' + Math.trunc(stepsInitializationCounter)  + ' %';
-        stepsInitializationCounter = stepsInitializationCounter + 0.2;
+        stepsInitializationCounter = stepsInitializationCounter + 1;
 
         if (stepsInitializationCounter > 99) {
 
@@ -77,7 +75,7 @@ function newSplashScreen() {
 
         let labelPoint = {
             x: splashScreen.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO  -30,
-            y: splashScreen.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1
+            y: splashScreen.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 200
         };
 
         browserCanvasContext.beginPath();
@@ -95,6 +93,9 @@ function newSplashScreen() {
 
         let title;
         let titlePoint;
+
+        /* Advanced Algos Title */
+
         fontSize = 100;
         
         title = "Advanced"
@@ -129,6 +130,22 @@ function newSplashScreen() {
         browserCanvasContext.fillStyle = 'rgba(255, 0, 0,  ' + opacity + ')';
         browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y);
 
+        /* Trading Bots Competitions Sub Title */
+
+        fontSize = 50;
+
+        title = "Trading Bots Competitions"
+
+        titlePoint = {
+            x: splashScreen.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 0,
+            y: splashScreen.container.frame.height / 2 - fontSize * 2 + 150
+        };
+
+        browserCanvasContext.font = fontSize + 'px Verdana';
+        browserCanvasContext.fillStyle = 'rgba(0, 0, 0,  ' + opacity + ')';
+        browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y);
+
+        
     }
 
 

@@ -10,7 +10,7 @@ function newTimelineChart() {
     let timePeriod = INITIAL_TIME_PERIOD;
     let datetime = INITIAL_DATE;
 
-    var timelineChart = {
+    var thisObject = {
         setDatetime: setDatetime,
         container: undefined,
         draw: draw,
@@ -20,7 +20,7 @@ function newTimelineChart() {
 
     var container = newContainer();
     container.initialize();
-    timelineChart.container = container;
+    thisObject.container = container;
 
     container.displacement.containerName = "Time Period Chart";
     container.zoom.containerName = "Time Period Chart";
@@ -42,7 +42,7 @@ function newTimelineChart() {
     let productsPanel;
     let orderBookPanel;
 
-    return timelineChart;
+    return thisObject;
 
     function initialize(exchange, market, currentCandlePanelToUse, currentVolumePanelToUse, pProductsPanel, orderBookPanelToUse, callBackFunction) {
 
@@ -71,6 +71,7 @@ function newTimelineChart() {
         function continueInitialization() {
 
             recalculateScale();
+            moveViewPortToCurrentDatetime();
 
             /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 
@@ -87,19 +88,6 @@ function newTimelineChart() {
     }
 
     function initializePlotters() {
-
-        /* Here we need to move the viewPort to the default date. */
-
-        //-869208.2550614576 y = 40845.822907407215
-
-        
-
-        let displaceVector = {
-            x: -869208.2550614576,
-            y: 40845.822907407215
-        };
-
-        viewPort.displace(displaceVector);
 
         /* Lets get all the cards that needs to be loaded. */
 
@@ -164,17 +152,17 @@ function newTimelineChart() {
 
             let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.repo, pProductCard.product.plotter.moduleName);
 
-            plotter.container.displacement.parentDisplacement = timelineChart.container.displacement;
-            plotter.container.zoom.parentZoom = timelineChart.container.zoom;
-            plotter.container.frame.parentFrame = timelineChart.container.frame;
+            plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
+            plotter.container.zoom.parentZoom = thisObject.container.zoom;
+            plotter.container.frame.parentFrame = thisObject.container.frame;
 
-            plotter.container.parentContainer = timelineChart.container;
+            plotter.container.parentContainer = thisObject.container;
 
-            plotter.container.frame.width = timelineChart.container.frame.width * 1;
-            plotter.container.frame.height = timelineChart.container.frame.height * 1;
+            plotter.container.frame.width = thisObject.container.frame.width * 1;
+            plotter.container.frame.height = thisObject.container.frame.height * 1;
 
-            plotter.container.frame.position.x = timelineChart.container.frame.width / 2 - plotter.container.frame.width / 2;
-            plotter.container.frame.position.y = timelineChart.container.frame.height / 2 - plotter.container.frame.height / 2;
+            plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2;
+            plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2;
 
             plotter.initialize(storage, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onPlotterInizialized);
 
@@ -268,7 +256,7 @@ function newTimelineChart() {
 
             recalculateCurrentDatetime();
 
-            if (timelineChart.container.frame.isInViewPort() && tooSmall() === false) {
+            if (thisObject.container.frame.isInViewPort() && tooSmall() === false) {
 
 
 
@@ -281,7 +269,7 @@ function newTimelineChart() {
 
         if (initializationReady === true) {
 
-            if (timelineChart.container.frame.isInViewPort() && tooSmall() === false) {
+            if (thisObject.container.frame.isInViewPort() && tooSmall() === false) {
 
 
 
@@ -293,7 +281,7 @@ function newTimelineChart() {
 
         if (initializationReady === true) {
 
-            if (timelineChart.container.frame.isInViewPort()) {
+            if (thisObject.container.frame.isInViewPort()) {
 
                 recalculateCurrentDatetime();
 
@@ -309,8 +297,8 @@ function newTimelineChart() {
             y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
         };
 
-        center = unTransformThisPoint(center, timelineChart.container);
-        center = timeLineCoordinateSystem.unInverseTransform(center, timelineChart.container.frame.height);
+        center = unTransformThisPoint(center, thisObject.container);
+        center = timeLineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height);
 
         let newDate = new Date(0);
         newDate.setUTCSeconds(center.x / 1000);
@@ -324,7 +312,7 @@ function newTimelineChart() {
 
         }
 
-        timelineChart.container.eventHandler.raiseEvent("Datetime Changed", datetime);
+        thisObject.container.eventHandler.raiseEvent("Datetime Changed", datetime);
   
     }
 
@@ -351,7 +339,7 @@ function newTimelineChart() {
 
         datetime = pDatetime;
 
-        if (timelineChart.container.frame.isInViewPort()) {
+        if (thisObject.container.frame.isInViewPort()) {
 
             for (var i = 0; i < activePlotters.length; i++) {
 
@@ -370,13 +358,13 @@ function newTimelineChart() {
 
         if (activePlotters === undefined) { return; } // We need to wait
 
-        if (timelineChart.container.frame.isInViewPort()) {
+        if (thisObject.container.frame.isInViewPort()) {
 
             this.container.frame.draw();
 
             drawBackground();
 
-            chartGrid.draw(timelineChart.container, timeLineCoordinateSystem);
+            chartGrid.draw(thisObject.container, timeLineCoordinateSystem);
 
             for (var i = 0; i < activePlotters.length; i++) {
 
@@ -403,8 +391,8 @@ function newTimelineChart() {
         timeLineCoordinateSystem.initialize(
             minValue,
             maxValue,
-            timelineChart.container.frame.width,
-            timelineChart.container.frame.height
+            thisObject.container.frame.width,
+            thisObject.container.frame.height
         );
 
     }
@@ -451,11 +439,11 @@ function newTimelineChart() {
 
         let bottomPoint = {
             x: 0,
-            y: timelineChart.container.frame.height
+            y: thisObject.container.frame.height
         };
 
-        topPoint = transformThisPoint(topPoint, timelineChart.container);
-        bottomPoint = transformThisPoint(bottomPoint, timelineChart.container);
+        topPoint = transformThisPoint(topPoint, thisObject.container);
+        bottomPoint = transformThisPoint(bottomPoint, thisObject.container);
 
         /* We want the label of the market to be always centered in the middle of the screen, unless the upper or lower border of the frame is visible on the screen */
 
@@ -475,10 +463,10 @@ function newTimelineChart() {
 
             point = {
                 x: 0,
-                y: timelineChart.container.frame.height / 2
+                y: thisObject.container.frame.height / 2
             };
 
-            point = transformThisPoint(point, timelineChart.container);
+            point = transformThisPoint(point, thisObject.container);
 
             point = {
                 x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * 0.60,
@@ -500,6 +488,35 @@ function newTimelineChart() {
         browserCanvasContext.fillStyle = 'rgba(75, 86, 235, 0.07)';
         browserCanvasContext.fillText(label, point.x, point.y);
 
+    }
+
+    function moveViewPortToCurrentDatetime() {
+
+        let targetPoint = {
+            x: datetime.valueOf(),
+            y: 0  // we wont touch the y axis here.
+        };
+
+        /* Lets put this point in the coordinate system of the viewPort */
+
+        targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint);
+        targetPoint = transformThisPoint(targetPoint, thisObject.container);
+
+        /* Lets get the point on the viewPort coordinate system of the center of the visible screen */
+
+        let center = {
+            x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
+            y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
+        };
+
+        /* Lets calculate the displace vector, from the point we want at the center, to the current center. */
+
+        let displaceVector = {
+            x: center.x - targetPoint.x,
+            y: 0
+        };
+
+        viewPort.displace(displaceVector);
     }
 }
 

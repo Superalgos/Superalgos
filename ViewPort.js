@@ -22,7 +22,6 @@ function newViewPort() {
         fitIntoVisibleArea: fitIntoVisibleArea,
         displace: displace,
         displaceTarget: displaceTarget,
-        displaceToDatetime: displaceToDatetime,
         animate: animate,
         draw: draw,
         initialize: initialize
@@ -141,24 +140,6 @@ function newViewPort() {
        //console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
 
    }
-
-   function displaceToDatetime(datetime, timeLineCoordinateSystem) {
-
-
-       targetOffset.x = targetOffset.x + displaceVector.x;
-
-       offsetIncrement = {
-           x: (targetOffset.x - offset.x) / 10,
-           y: (targetOffset.y - offset.y) / 10
-       };
-
-       if (CONSOLE_LOG === true) {
-
-           console.log("viewPort -> displaceToDatetime x = " + targetOffset.x + " datetime = " + datetime);
-
-       }
-   }
-
    
 
     function applyZoom(amount) {

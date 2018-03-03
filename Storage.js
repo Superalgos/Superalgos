@@ -18,6 +18,9 @@ function newStorage(pName) {
         fileCursorCache: undefined,
         file: undefined,
 
+        setDatetime: setDatetime,
+        setTimePeriod: setTimePeriod,
+
         eventHandler: undefined,
         initialize: initialize
 
@@ -29,9 +32,15 @@ function newStorage(pName) {
 
     thisObject.eventHandler.name = "Storage-" + pName;
 
+    let datetime;
+    let timePeriod;
+
     return thisObject;
 
     function initialize(pDevTeam, pBot, pProduct, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+
+        datetime = pDatetime;
+        timePeriod = pTimePeriod;
 
         if (CONSOLE_LOG === true) {
 
@@ -172,6 +181,43 @@ function newStorage(pName) {
 
                     callBackFunction();
 
+                }
+            }
+        }
+    }
+
+    function setDatetime(pDatetime) {
+
+        /* If there is a change in the day, then we take some actions, otherwise, we dont. */
+
+        let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS);
+        let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS);
+
+        datetime = pDatetime;
+
+        if (currentDate !== newDate) {
+
+            if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+
+                thisObject.fileCursorCache.setDatetime(pDatetime);
+
+            }
+        }
+    }
+
+    function setTimePeriod(pTimePeriod) {
+
+        /* We are going to filter out the cases in which the timePeriod received is the same that the one we already know. */
+
+        if (timePeriod !== pTimePeriod) {
+
+            timePeriod = pTimePeriod;
+
+            if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+
+                if (thisObject.fileCursorCache !== undefined) {
+
+                    thisObject.fileCursorCache.setTimePeriod(pTimePeriod, datetime);
                 }
             }
         }

@@ -182,7 +182,8 @@ function newTimelineChart() {
 
                 let activePlotter = {
                     productCard: pProductCard,
-                    plotter: plotter
+                    plotter: plotter,
+                    storage: storage
                 };
 
                 /* Add the new Active Protter to the Array */
@@ -244,33 +245,24 @@ function newTimelineChart() {
 
             timePeriod = recalculatePeriod(event.newLevel);
 
+            /* If the period changes, we need to spread the word in cascade towards all the depending objects. */
+
             if (timePeriod !== currentTimePeriod) {
 
-                for (var i = 0; i < activePlotters.length; i++) {
+                for (let i = 0; i < activePlotters.length; i++) {
 
                     let activePlotter = activePlotters[i];
+
+                    activePlotter.productCard.setTimePeriod(timePeriod);
+                    activePlotter.storage.setTimePeriod(timePeriod);
                     activePlotter.plotter.setTimePeriod(timePeriod);
-
-                    if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
-
-                        for (var i = 0; i < activePlotters.length; i++) {
-
-                            activePlotter.productCard.onTimePeriodChanged();
-
-                        }
-                    }
+                    
                 }
             }
 
             recalculateCurrentDatetime();
 
-            if (thisObject.container.frame.isInViewPort() && tooSmall() === false) {
-
-
-
-            }
         }
-
     }
 
     function onDragFinished() {
@@ -300,6 +292,13 @@ function newTimelineChart() {
 
     function recalculateCurrentDatetime() {
 
+        /*
+
+        The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that me
+        must calculate.
+
+        */
+
         let center = {
             x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
             y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
@@ -311,15 +310,16 @@ function newTimelineChart() {
         let newDate = new Date(0);
         newDate.setUTCSeconds(center.x / 1000);
 
-        tellProductCardsWhenDayChanges(newDate);
-
         datetime = newDate;
 
         for (var i = 0; i < activePlotters.length; i++) {
 
             let activePlotter = activePlotters[i];
-            activePlotter.plotter.setDatetime(datetime);
 
+            activePlotter.productCard.setDatetime(datetime);
+            activePlotter.storage.setDatetime(datetime);
+            activePlotter.plotter.setDatetime(datetime);
+           
         }
 
         thisObject.container.eventHandler.raiseEvent("Datetime Changed", datetime);
@@ -345,32 +345,9 @@ function newTimelineChart() {
 
     }
 
-    function tellProductCardsWhenDayChanges(pDatetime) {
-
-        /* If there is a change in the day, then we tell it to the Product Card so that it can represent the activity of the daily cursors on the UI. */
-
-        let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS);
-        let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS);
-
-        if (currentDate !== newDate) {
-
-            if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
-
-                for (var i = 0; i < activePlotters.length; i++) {
-
-                    let activePlotter = activePlotters[i];
-                    activePlotter.productCard.onDayChanged();
-
-                }
-            }
-        } 
-    }
-
-
     function setDatetime(pDatetime) {
 
-        tellProductCardsWhenDayChanges(pDatetime);
-
+        /* This function is used when the time is changed through the user interface, but without zooming or panning. */
         /* No matter if the day changed or not, we need to inform all visible Plotters. */
 
         if (thisObject.container.frame.isInViewPort()) {
@@ -378,7 +355,12 @@ function newTimelineChart() {
             for (var i = 0; i < activePlotters.length; i++) {
 
                 let activePlotter = activePlotters[i];
+
+                activePlotter.productCard.setDatetime(pDatetime);
+                activePlotter.storage.setDatetime(pDatetime);
                 activePlotter.plotter.setDatetime(pDatetime);
+
+                /* The time has changed, but the viewPort is still on the same place, so we request any of the plotters to reposition it. */
 
                 if (activePlotter.plotter.positionAtDatetime !== undefined) {
                     activePlotter.plotter.positionAtDatetime(pDatetime);

@@ -1,6 +1,8 @@
 ﻿
 function newFileCloud() {
 
+    const CONSOLE_LOG = true;
+
     var fileCloud = {
         getFile: getFile,
         initialize: initialize
@@ -50,7 +52,11 @@ function newFileCloud() {
 
         fileService.getFileToText('data', filePath, fileName, undefined, onFileReceived);
 
-        //console.log("File Requested > " + filePath);
+        if (CONSOLE_LOG === true) {
+
+            console.log("FileCloud -> File Requested -> " + filePath + "/" + fileName);
+
+        }
 
         function onFileReceived(err, text, response) {
 

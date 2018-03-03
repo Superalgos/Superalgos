@@ -1,6 +1,6 @@
 ﻿function newProductCard() {
 
-    const CONSOLE_LOG = true;
+    const CONSOLE_LOG = false;
 
     var thisObject = {
         container: undefined,
@@ -10,11 +10,14 @@
         bot: undefined,
         product: undefined,
         code: undefined,
+
+        setDatetime: setDatetime,
+        setTimePeriod: setTimePeriod,
+
         onMarketFileLoaded: onMarketFileLoaded, 
         onDailyFileLoaded: onDailyFileLoaded, 
         onSingleFileLoaded: onSingleFileLoaded, 
-        onDayChanged: onDayChanged,
-        onTimePeriodChanged: onTimePeriodChanged,
+
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
     };
@@ -47,6 +50,9 @@
         fillStyle: UNLOADED_FILL_STYLE,
         strokeStyle: UNLOADED_STROKE_STYLE
     };
+
+    let timePeriod = INITIAL_TIME_PERIOD;
+    let datetime = INITIAL_DATE;
 
     return thisObject;
 
@@ -118,7 +124,7 @@
 
     }
 
-    function onDayChanged() {
+    function setDatetime(pDatetime) {
 
         /*
 
@@ -127,17 +133,27 @@
 
         */
 
-        dailyFileProgressBar.animatedValue = 0;
+        let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS);
+        let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS);
 
-        if (CONSOLE_LOG === true) {
+        datetime = pDatetime;
 
-            console.log("ProductCard -> onDayChanged -> dailyFileProgressBar.animatedValue = " + dailyFileProgressBar.animatedValue);
+        if (currentDate !== newDate) {
 
+            if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+
+                dailyFileProgressBar.animatedValue = 0;
+
+                if (CONSOLE_LOG === true) {
+
+                    console.log("ProductCard -> onDayChanged -> dailyFileProgressBar.animatedValue = " + dailyFileProgressBar.animatedValue);
+
+                }
+            }
         }
-
     }
 
-    function onTimePeriodChanged() {
+    function setTimePeriod(pTimePeriod) {
 
         /*
 
@@ -146,75 +162,58 @@
 
         */
 
-        dailyFileProgressBar.animatedValue = 0;
+        if (timePeriod !== pTimePeriod) {
 
-        if (CONSOLE_LOG === true) {
+            timePeriod = pTimePeriod;
 
-            console.log("ProductCard -> onTimePeriodChanged -> dailyFileProgressBar.animatedValue = " + dailyFileProgressBar.animatedValue);
+            if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
 
+                dailyFileProgressBar.animatedValue = 0;
+
+                if (CONSOLE_LOG === true) {
+
+                    console.log("ProductCard -> onTimePeriodChanged -> dailyFileProgressBar.animatedValue = " + dailyFileProgressBar.animatedValue);
+
+                }
+            }
         }
-
     }
 
     function onMarketFileLoaded(event) {
 
-        if (event.currentValue === event.totalValue) {
-
-            marketFileProgressBar.value= 100;
-
-        } else {
-
-            marketFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
-            marketFileProgressBar.fillStyle = LOADING_FILL_STYLE;
-            marketFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
-
-        }
+        marketFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
+        marketFileProgressBar.fillStyle = LOADING_FILL_STYLE;
+        marketFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
 
         if (CONSOLE_LOG === true) {
 
-            console.log("ProductCard onMarketFileLoaded Value = " + marketFileProgressBar.value + "% for " + thisObject.code);
+            console.log("ProductCard onMarketFileLoaded Value = " + marketFileProgressBar.value + "% for " + thisObject.code + ". Event = " + JSON.stringify(event));
 
         }
     }
 
     function onDailyFileLoaded(event) {
 
-        if (event.currentValue === event.totalValue) {
-
-            dailyFileProgressBar.value = 100;
-
-        } else {
-
-            dailyFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
-            dailyFileProgressBar.fillStyle = LOADING_FILL_STYLE;
-            dailyFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
-
-        }
+        dailyFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
+        dailyFileProgressBar.fillStyle = LOADING_FILL_STYLE;
+        dailyFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
 
         if (CONSOLE_LOG === true) {
 
-            console.log("ProductCard onDailyFileLoaded Value = " + dailyFileProgressBar.value + "% for " + thisObject.code);
+            console.log("ProductCard onDailyFileLoaded Value = " + dailyFileProgressBar.value + "% for " + thisObject.code + ". Event = " + JSON.stringify(event));
 
         }
     }
 
     function onSingleFileLoaded(event) {
 
-        if (event.currentValue === event.totalValue) {
-
-            singleFileProgressBar.value = 100;
-
-        } else {
-
-            singleFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
-            singleFileProgressBar.fillStyle = LOADING_FILL_STYLE;
-            singleFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
-
-        }
+        singleFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
+        singleFileProgressBar.fillStyle = LOADING_FILL_STYLE;
+        singleFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
 
         if (CONSOLE_LOG === true) {
 
-            console.log("ProductCard onSingleFileLoaded Value = " + singleFileProgressBar.value + "% for " + thisObject.code);
+            console.log("ProductCard onSingleFileLoaded Value = " + singleFileProgressBar.value + "% for " + thisObject.code + ". Event = " + JSON.stringify(event));
 
         }
     }

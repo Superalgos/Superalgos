@@ -36,11 +36,11 @@ function newFileCursor() {
         cursorDate = pCursorDate;
         timePeriod = pTimePeriod;
 
-        setTimePeriod(pCurrentTimePeriod, callBackFunction);
+        setTimePeriod(pCurrentTimePeriod, pCursorDate, callBackFunction);
 
     }
 
-    function setTimePeriod(pTimePeriod, callBackFunction) {
+    function setTimePeriod(pTimePeriod, pDatetime, callBackFunction) {
 
         /*
 
@@ -52,6 +52,8 @@ function newFileCursor() {
         If these periods are consecutive, it means that the cursor should exit saving mode and load its full size.
 
         */
+
+        cursorDate = pDatetime; // Adjust the cursor date to the one received.
 
         let positionA;
 
@@ -239,11 +241,11 @@ function newFileCursor() {
 
 
 
-    function setDatetime(datetime, callBackFunction) {
+    function setDatetime(pDatetime, callBackFunction) {
 
-        if (datetime === undefined) { return; }
+        if (pDatetime === undefined) { return; }
 
-        cursorDate = datetime;
+        cursorDate = pDatetime;
 
         getFiles(callBackFunction);
 

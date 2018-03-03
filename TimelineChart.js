@@ -337,7 +337,28 @@ function newTimelineChart() {
 
     function setDatetime(pDatetime) {
 
+        /* If there is a change in the day, then we tell it to the Product Card so that it can represent the activity of the daily cursors on the UI. */
+
+        let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS);
+        let newDate = Math.trunc(newDatetime.valueOf() / ONE_DAY_IN_MILISECONDS);
+
         datetime = pDatetime;
+
+        if (currentDate !== pDatetime) {
+
+            if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+
+                for (var i = 0; i < activePlotters.length; i++) {
+
+                    let activePlotter = activePlotters[i];
+                    activePlotter.productCard.onDayChanged();
+
+                }
+
+            }
+        } 
+
+        /* No matter if the day changed or not, we need to inform all visible Plotters. */
 
         if (thisObject.container.frame.isInViewPort()) {
 

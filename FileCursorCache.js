@@ -18,9 +18,13 @@ function newFileCursorCache() {
     let marketFiles = new Map;
     let fileCursors = new Map;
 
+    let callBackWhenFileReceived;
+
     return fileCursorCache;
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+
+        callBackWhenFileReceived = callBackFunction;
 
         let exchange = ecosystem.getExchange(pProduct, pExchange);
 
@@ -49,14 +53,17 @@ function newFileCursorCache() {
 
                 expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
 
-                function onFileReceived() {
-
-                    filesLoaded++;
-                    callBackFunction(); // Note that the call back is called for every file loaded at each cursor.
-
-                }
             }
         }
+    }
+
+    function onFileReceived() {
+
+        console.log("FileCursorCache -> onFileReceived")
+
+        filesLoaded++;
+        callBackWhenFileReceived(); // Note that the call back is called for every file loaded at each cursor.
+
     }
 
     function getFileCursor(pPeriod) {
@@ -67,13 +74,19 @@ function newFileCursorCache() {
 
     function setDatetime(pDatetime) {
 
+        filesLoaded = 0;
+        expectedFiles = 0;
+
         fileCursors.forEach(setDatetimeToEach)
 
-        function setDatetimeToEach(value, key, map) {
+        function setDatetimeToEach(fileCursor, key, map) {
 
-            value.setDatetime(pDatetime);
+            fileCursor.setDatetime(pDatetime, onFileReceived);
+            expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
 
         }
+
+        console.log("FileCursorCache -> setDatetime -> expectedFiles = " + expectedFiles)
     }
 
     function setTimePeriod(pTimePeriod) {

@@ -1,6 +1,6 @@
 ﻿function newProductCard() {
 
-    const CONSOLE_LOG = false;
+    const CONSOLE_LOG = true;
 
     var thisObject = {
         container: undefined,
@@ -13,6 +13,7 @@
         onMarketFileLoaded: onMarketFileLoaded, 
         onDailyFileLoaded: onDailyFileLoaded, 
         onSingleFileLoaded: onSingleFileLoaded, 
+        onDayChanged: onDayChanged,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
     };
@@ -112,6 +113,18 @@
             /* This point does not belong to this space. */
 
             return undefined;
+        }
+
+    }
+
+    function onDayChanged() {
+
+        dailyFileProgressBar.animatedValue = 0;
+
+        if (CONSOLE_LOG === true) {
+
+            console.log("ProductCard -> onDayChanged");
+
         }
 
     }

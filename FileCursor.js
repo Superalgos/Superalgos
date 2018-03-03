@@ -240,13 +240,13 @@ function newFileCursor() {
 
 
 
-    function setDatetime(datetime) {
+    function setDatetime(datetime, callBackFunction) {
 
         if (datetime === undefined) { return; }
 
         cursorDate = datetime;
 
-        getFiles();
+        getFiles(callBackFunction);
 
         collectGarbage();
     }

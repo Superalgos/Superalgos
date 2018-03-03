@@ -1,6 +1,8 @@
 ﻿
 function newFileCursorCache() {
 
+    const CONSOLE_LOG = true;
+
     let fileCursorCache = {
         getFileCursor: getFileCursor,
         setDatetime: setDatetime,
@@ -86,16 +88,30 @@ function newFileCursorCache() {
 
         }
 
-        console.log("FileCursorCache -> setDatetime -> expectedFiles = " + expectedFiles)
+        if (CONSOLE_LOG === true) {
+
+            console.log("FileCursorCache -> setDatetime -> expectedFiles = " + expectedFiles);
+
+        }
     }
 
     function setTimePeriod(pTimePeriod) {
 
+        filesLoaded = 0;
+        expectedFiles = 0;
+
         fileCursors.forEach(setTimePeriodToEach)
 
-        function setTimePeriodToEach(value, key, map) {
+        function setTimePeriodToEach(fileCursor, key, map) {
 
-            value.setTimePeriod(pTimePeriod);
+            fileCursor.setTimePeriod(pTimePeriod, onFileReceived);
+            expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
+
+        }
+
+        if (CONSOLE_LOG === true) {
+
+            console.log("FileCursorCache -> setTimePeriod -> expectedFiles = " + expectedFiles);
 
         }
     }

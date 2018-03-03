@@ -14,6 +14,7 @@
         onDailyFileLoaded: onDailyFileLoaded, 
         onSingleFileLoaded: onSingleFileLoaded, 
         onDayChanged: onDayChanged,
+        onTimePeriodChanged: onTimePeriodChanged,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
     };
@@ -119,11 +120,37 @@
 
     function onDayChanged() {
 
+        /*
+
+        When the datetime changes from one day to another, this forces cursors to potentially load more files, thus we reset this counter and
+        get ready to receive events on files loaded.
+
+        */
+
         dailyFileProgressBar.animatedValue = 0;
 
         if (CONSOLE_LOG === true) {
 
-            console.log("ProductCard -> onDayChanged");
+            console.log("ProductCard -> onDayChanged -> dailyFileProgressBar.animatedValue = " + dailyFileProgressBar.animatedValue);
+
+        }
+
+    }
+
+    function onTimePeriodChanged() {
+
+        /*
+
+        When the time period below or equal to 1 hour changes, this forces cursors to potentially load more files, thus we reset this counter and
+        get ready to receive events on files loaded.
+
+        */
+
+        dailyFileProgressBar.animatedValue = 0;
+
+        if (CONSOLE_LOG === true) {
+
+            console.log("ProductCard -> onTimePeriodChanged -> dailyFileProgressBar.animatedValue = " + dailyFileProgressBar.animatedValue);
 
         }
 
@@ -351,7 +378,7 @@
 
         /* ------------------- Progress Bars -------------------------- */
 
-        const ANIMATED_INCREMENT = 3;
+        const ANIMATED_INCREMENT = 5;
 
         let point1;
         let point2;
@@ -369,6 +396,8 @@
         }
 
         if (marketFileProgressBar.animatedValue >= 100) {
+
+            marketFileProgressBar.animatedValue = 100;
 
             marketFileProgressBar.fillStyle = LOADED_FILL_STYLE;
             marketFileProgressBar.strokeStyle = LOADED_STROKE_STYLE;
@@ -429,6 +458,8 @@
 
         if (dailyFileProgressBar.animatedValue >= 100) {
 
+            dailyFileProgressBar.animatedValue = 100;
+
             dailyFileProgressBar.fillStyle = LOADED_FILL_STYLE;
             dailyFileProgressBar.strokeStyle = LOADED_STROKE_STYLE;
 
@@ -487,6 +518,8 @@
         }
 
         if (singleFileProgressBar.animatedValue >= 100) {
+
+            singleFileProgressBar.animatedValue = 100;
 
             singleFileProgressBar.fillStyle = LOADED_FILL_STYLE;
             singleFileProgressBar.strokeStyle = LOADED_STROKE_STYLE;

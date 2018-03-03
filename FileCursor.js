@@ -36,13 +36,11 @@ function newFileCursor() {
         cursorDate = pCursorDate;
         timePeriod = pTimePeriod;
 
-        setTimePeriod(pCurrentTimePeriod);
-
-        getFiles(callBackFunction);
+        setTimePeriod(pCurrentTimePeriod, callBackFunction);
 
     }
 
-    function setTimePeriod(pTimePeriod) {
+    function setTimePeriod(pTimePeriod, callBackFunction) {
 
         /*
 
@@ -86,6 +84,9 @@ function newFileCursor() {
 
         }
 
+        getFiles(callBackFunction);
+
+        collectGarbage();
 
         function enterSavingMode() {
 
@@ -234,8 +235,6 @@ function newFileCursor() {
                 default:
             }
         }
-
-
     }
 
 

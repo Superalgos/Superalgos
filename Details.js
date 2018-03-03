@@ -18,8 +18,8 @@
     container.initialize();
     thisObject.container = container;
 
-    let plotArea = newPlotArea();       // Needed to be able to plot on the timeline, otherwise not.
-    let plotAreaFrame = newPlotArea();  // This chart uses this extra object.
+    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let timeLineCoordinateSystemFrame = newTimeLineCoordinateSystem();  // This chart uses this extra object.
 
     let timePeriod;                     // This will hold the current Time Period the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -230,8 +230,8 @@
 
         let daysOnSides = getSideDays(timePeriod);
 
-        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, plotArea);
-        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, plotArea);
+        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
+        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
 
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -307,8 +307,8 @@
 
         let daysOnSides = getSideDays(timePeriod);
 
-        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, plotArea);
-        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, plotArea);
+        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
+        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
 
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -358,13 +358,13 @@
             x: MAX_PLOTABLE_DATE.valueOf()
         };
 
-        plotArea.initializeX(
+        timeLineCoordinateSystem.initializeX(
             minValue,
             maxValue,
             thisObject.container.frame.width
         );
 
-        plotAreaFrame.initializeX(
+        timeLineCoordinateSystemFrame.initializeX(
             minValue,
             maxValue,
             thisObject.container.frame.width
@@ -386,13 +386,13 @@
 
         maxValue.y = getMaxVolume() / (timePeriodRatio / 10);
 
-        plotArea.initializeY(
+        timeLineCoordinateSystem.initializeY(
             minValue,
             maxValue,
             viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y
         );
 
-        plotAreaFrame.initializeY(
+        timeLineCoordinateSystemFrame.initializeY(
             minValue,
             maxValue,
             thisObject.container.frame.height
@@ -499,17 +499,17 @@
 
                     }
 
-                    if (calculateBuys(plotAreaFrame, thisObject.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
+                    if (calculateBuys(timeLineCoordinateSystemFrame, thisObject.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
 
                     if (volumePointA1.y > viewPort.visibleArea.bottomLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
-                        if (calculateBuys(plotArea, visibleHeight) === false) { continue; }  // We snap t to the view port.
+                        if (calculateBuys(timeLineCoordinateSystem, visibleHeight) === false) { continue; }  // We snap t to the view port.
 
                         /* Now we set the real value of y. */
 
                         volumePointA1.y = viewPort.visibleArea.bottomRight.y;
-                        volumePointA2.y = viewPort.visibleArea.bottomRight.y - volume.amountBuy * plotArea.scale.y;
-                        volumePointA3.y = viewPort.visibleArea.bottomRight.y - volume.amountBuy * plotArea.scale.y;
+                        volumePointA2.y = viewPort.visibleArea.bottomRight.y - volume.amountBuy * timeLineCoordinateSystem.scale.y;
+                        volumePointA3.y = viewPort.visibleArea.bottomRight.y - volume.amountBuy * timeLineCoordinateSystem.scale.y;
                         volumePointA4.y = viewPort.visibleArea.bottomRight.y;
 
                     }
@@ -553,17 +553,17 @@
 
                     }
 
-                    calculateSells(plotAreaFrame, thisObject.container.frame.height); // We try to see if it fits in the visible area.
+                    calculateSells(timeLineCoordinateSystemFrame, thisObject.container.frame.height); // We try to see if it fits in the visible area.
 
                     if (volumePointB1.y < viewPort.visibleArea.topLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
-                        calculateSells(plotArea, visibleHeight); // We snap it to the view port.
+                        calculateSells(timeLineCoordinateSystem, visibleHeight); // We snap it to the view port.
 
                         /* Now we set the real value of y. */
 
                         volumePointB1.y = viewPort.visibleArea.topLeft.y;
-                        volumePointB2.y = viewPort.visibleArea.topLeft.y + volume.amountSell * plotArea.scale.y;
-                        volumePointB3.y = viewPort.visibleArea.topLeft.y + volume.amountSell * plotArea.scale.y;
+                        volumePointB2.y = viewPort.visibleArea.topLeft.y + volume.amountSell * timeLineCoordinateSystem.scale.y;
+                        volumePointB3.y = viewPort.visibleArea.topLeft.y + volume.amountSell * timeLineCoordinateSystem.scale.y;
                         volumePointB4.y = viewPort.visibleArea.topLeft.y;
 
                     }

@@ -18,7 +18,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let plotArea = newPlotArea();       // Needed to be able to plot on the timeline, otherwise not.
+    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
     let timePeriod;                     // This will hold the current Time Period the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -119,7 +119,7 @@
 
         if (file === undefined) { return; } // We need the market file to be loaded to make the calculation.
 
-        if (plotArea.maxValue > 0) { return; } // Already calculated.
+        if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
 
         let minValue = {
             x: EARLIEST_DATE.valueOf(),
@@ -132,7 +132,7 @@
         };
 
 
-        plotArea.initialize(
+        timeLineCoordinateSystem.initialize(
             minValue,
             maxValue,
             thisObject.container.frame.width,
@@ -169,7 +169,7 @@
                 y: record.rate
             };
 
-            point = plotArea.inverseTransform(point, thisObject.container.frame.height);
+            point = timeLineCoordinateSystem.inverseTransform(point, thisObject.container.frame.height);
 
             point = transformThisPoint(point, thisObject.container);
 

@@ -26,19 +26,22 @@
     let UNLOADED_STROKE_STYLE = 'rgba(226, 226, 226, 0.5)';
 
     let marketFileProgressBar = {
-        value: 100,
+        value: 0,
+        animatedValue: 0,
         fillStyle: UNLOADED_FILL_STYLE,
         strokeStyle: UNLOADED_STROKE_STYLE
     };
 
     let dailyFileProgressBar = {
-        value: 100,
+        value: 0,
+        animatedValue: 0,
         fillStyle: UNLOADED_FILL_STYLE,
         strokeStyle: UNLOADED_STROKE_STYLE
     };
 
     let singleFileProgressBar = {
-        value: 100,
+        value: 0,
+        animatedValue: 0,
         fillStyle: UNLOADED_FILL_STYLE,
         strokeStyle: UNLOADED_STROKE_STYLE
     };
@@ -76,13 +79,15 @@
 
             thisObject.status = storedValue;
 
+            if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
+
+                changeStatusTo(PRODUCT_CARD_STATUS.LOADING); 
+
+            }
+
         } else {
 
-            thisObject.status = PRODUCT_CARD_STATUS.ON;
-
-            /* Save the value for future use */
-
-            window.localStorage.setItem(thisObject.code, thisObject.status);
+            changeStatusTo(PRODUCT_CARD_STATUS.LOADING);  // This happens the first time the app is run on a new browser.
 
         }
 
@@ -115,19 +120,13 @@
 
         if (event.currentValue === event.totalValue) {
 
-            marketFileProgressBar = {
-                value: 100,
-                fillStyle: LOADED_FILL_STYLE,
-                strokeStyle: LOADED_STROKE_STYLE
-            };
+            marketFileProgressBar.value= 100;
 
         } else {
 
-            marketFileProgressBar = {
-                value: Math.trunc(event.currentValue * 100 / event.totalValue),
-                fillStyle: LOADING_FILL_STYLE,
-                strokeStyle: LOADING_STROKE_STYLE
-            };
+            marketFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
+            marketFileProgressBar.fillStyle = LOADING_FILL_STYLE;
+            marketFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
 
         }
 
@@ -142,19 +141,13 @@
 
         if (event.currentValue === event.totalValue) {
 
-            dailyFileProgressBar = {
-                value: 100,
-                fillStyle: LOADED_FILL_STYLE,
-                strokeStyle: LOADED_STROKE_STYLE
-            };
+            dailyFileProgressBar.value = 100;
 
         } else {
 
-            dailyFileProgressBar = {
-                value: Math.trunc(event.currentValue * 100 / event.totalValue),
-                fillStyle: LOADING_FILL_STYLE,
-                strokeStyle: LOADING_STROKE_STYLE
-            };
+            dailyFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
+            dailyFileProgressBar.fillStyle = LOADING_FILL_STYLE;
+            dailyFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
 
         }
 
@@ -169,19 +162,13 @@
 
         if (event.currentValue === event.totalValue) {
 
-            singleFileProgressBar = {
-                value: 100,
-                fillStyle: LOADED_FILL_STYLE,
-                strokeStyle: LOADED_STROKE_STYLE
-            };
+            singleFileProgressBar.value = 100;
 
         } else {
 
-            singleFileProgressBar = {
-                value: Math.trunc(event.currentValue * 100 / event.totalValue),
-                fillStyle: LOADING_FILL_STYLE,
-                strokeStyle: LOADING_STROKE_STYLE
-            };
+            singleFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
+            singleFileProgressBar.fillStyle = LOADING_FILL_STYLE;
+            singleFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
 
         }
 
@@ -197,21 +184,48 @@
         switch (thisObject.status) {
 
             case PRODUCT_CARD_STATUS.ON:
-                thisObject.status = PRODUCT_CARD_STATUS.OFF;
+
+                changeStatusTo(PRODUCT_CARD_STATUS.OFF);
+
+                marketFileProgressBar.animatedValue = 0;
+                marketFileProgressBar.value = 0;
+                marketFileProgressBar.fillStyle = UNLOADED_FILL_STYLE;
+                marketFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE;
+
+                dailyFileProgressBar.animatedValue = 0;
+                dailyFileProgressBar.value = 0;
+                dailyFileProgressBar.fillStyle = UNLOADED_FILL_STYLE;
+                dailyFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE;
+
+                singleFileProgressBar.animatedValue = 0;
+                singleFileProgressBar.value = 0;
+                singleFileProgressBar.fillStyle = UNLOADED_FILL_STYLE;
+                singleFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE;
+
                 break;
 
             case PRODUCT_CARD_STATUS.OFF:
-                thisObject.status = PRODUCT_CARD_STATUS.ON;
+
+                changeStatusTo(PRODUCT_CARD_STATUS.LOADING);
+
                 break;
 
         }
+    }
 
-        let eventData = thisObject;
+    function changeStatusTo(pNewStatus) {
 
-        thisObject.container.eventHandler.raiseEvent('Status Changed', eventData);
+        if (thisObject.status !== pNewStatus) {
 
-        window.localStorage.setItem(thisObject.code, thisObject.status);
+            thisObject.status = pNewStatus;
 
+            let eventData = thisObject;
+
+            thisObject.container.eventHandler.raiseEvent('Status Changed', eventData);
+
+            window.localStorage.setItem(thisObject.code, thisObject.status);
+
+        }
     }
 
     function draw() {
@@ -237,8 +251,9 @@
         browserCanvasContext.arc(centerPoint.x, centerPoint.y, 3, 0, 2 * Math.PI);
         browserCanvasContext.closePath();
 
-        let offFillStyle = 'rgba(232, 28, 28, 1)';
-        let onFillStyle = 'rgba(45, 232, 28, 1)';
+        let offFillStyle = 'rgba(232, 28, 28, 0.75)';
+        let onFillStyle = 'rgba(45, 232, 28, 0.75)';
+        let loadingFillStyle = 'rgba(237, 227, 47, 0.75)';
 
         switch (thisObject.status) {
 
@@ -248,6 +263,10 @@
 
             case PRODUCT_CARD_STATUS.OFF:
                 browserCanvasContext.fillStyle = offFillStyle;
+                break;
+
+            case PRODUCT_CARD_STATUS.LOADING:
+                browserCanvasContext.fillStyle = loadingFillStyle;
                 break;
 
         }
@@ -317,6 +336,10 @@
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
+        /* ------------------- Progress Bars -------------------------- */
+
+        const ANIMATED_INCREMENT = 3;
+
         let point1;
         let point2;
         let point3;
@@ -324,18 +347,34 @@
 
         /* We draw here the Market Progress Bar. */
 
+        /* Animate */
+
+        if (marketFileProgressBar.animatedValue < marketFileProgressBar.value) {
+
+            marketFileProgressBar.animatedValue = marketFileProgressBar.animatedValue + ANIMATED_INCREMENT;
+
+        }
+
+        if (marketFileProgressBar.animatedValue >= 100) {
+
+            marketFileProgressBar.fillStyle = LOADED_FILL_STYLE;
+            marketFileProgressBar.strokeStyle = LOADED_STROKE_STYLE;
+
+            changeStatusTo(PRODUCT_CARD_STATUS.ON);
+        }
+
         point1 = {
             x: 0,
             y: thisObject.container.frame.height - 1
         };
 
         point2 = {
-            x: thisObject.container.frame.width * marketFileProgressBar.value / 100,
+            x: thisObject.container.frame.width * marketFileProgressBar.animatedValue / 100,
             y: thisObject.container.frame.height - 1
         };
 
         point3 = {
-            x: thisObject.container.frame.width * marketFileProgressBar.value / 100,
+            x: thisObject.container.frame.width * marketFileProgressBar.animatedValue / 100,
             y: thisObject.container.frame.height - 3
         };
 
@@ -367,18 +406,34 @@
 
         /* We draw here the Daily Progress Bar. */
 
+        /* Animate */
+
+        if (dailyFileProgressBar.animatedValue < dailyFileProgressBar.value) {
+
+            dailyFileProgressBar.animatedValue = dailyFileProgressBar.animatedValue + ANIMATED_INCREMENT;
+
+        }
+
+        if (dailyFileProgressBar.animatedValue >= 100) {
+
+            dailyFileProgressBar.fillStyle = LOADED_FILL_STYLE;
+            dailyFileProgressBar.strokeStyle = LOADED_STROKE_STYLE;
+
+            changeStatusTo(PRODUCT_CARD_STATUS.ON);
+        }
+
         point1 = {
             x: 0,
             y: thisObject.container.frame.height - 4
         };
 
         point2 = {
-            x: thisObject.container.frame.width * dailyFileProgressBar.value / 100,
+            x: thisObject.container.frame.width * dailyFileProgressBar.animatedValue / 100,
             y: thisObject.container.frame.height - 4
         };
 
         point3 = {
-            x: thisObject.container.frame.width * dailyFileProgressBar.value / 100,
+            x: thisObject.container.frame.width * dailyFileProgressBar.animatedValue / 100,
             y: thisObject.container.frame.height - 6
         };
 
@@ -410,18 +465,35 @@
 
         /* We draw here the Single File Progress Bar. */
 
+        /* Animate */
+
+        if (singleFileProgressBar.animatedValue < singleFileProgressBar.value) {
+
+            singleFileProgressBar.animatedValue = singleFileProgressBar.animatedValue + ANIMATED_INCREMENT;
+
+        }
+
+        if (singleFileProgressBar.animatedValue >= 100) {
+
+            singleFileProgressBar.fillStyle = LOADED_FILL_STYLE;
+            singleFileProgressBar.strokeStyle = LOADED_STROKE_STYLE;
+
+            changeStatusTo(PRODUCT_CARD_STATUS.ON);
+
+        }
+
         point1 = {
             x: 0,
             y: thisObject.container.frame.height - 7
         };
 
         point2 = {
-            x: thisObject.container.frame.width * singleFileProgressBar.value / 100,
+            x: thisObject.container.frame.width * singleFileProgressBar.animatedValue / 100,
             y: thisObject.container.frame.height - 7
         };
 
         point3 = {
-            x: thisObject.container.frame.width * singleFileProgressBar.value / 100,
+            x: thisObject.container.frame.width * singleFileProgressBar.animatedValue / 100,
             y: thisObject.container.frame.height - 9
         };
 

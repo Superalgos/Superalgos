@@ -107,6 +107,7 @@ var viewPort = newViewPort();
 
 const PRODUCT_CARD_STATUS = {
     ON: 'on',
+    LOADING: 'loading',
     OFF: 'off'
 };
 

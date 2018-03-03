@@ -5,7 +5,7 @@ function newProductsPanel() {
 
     var thisObject = {
         container: undefined,
-        getOnProductCards: getOnProductCards,
+        getLoadingProductCards: getLoadingProductCards,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
@@ -116,7 +116,7 @@ function newProductsPanel() {
 
     }
 
-    function getOnProductCards() {
+    function getLoadingProductCards() {
 
         /* Returns all productCards which status is ON */
 
@@ -124,7 +124,7 @@ function newProductsPanel() {
 
         for (let i = 0; i < productCards.length; i++) {
 
-            if (productCards[i].status === PRODUCT_CARD_STATUS.ON) {
+            if (productCards[i].status === PRODUCT_CARD_STATUS.LOADING) {
 
                 onProducts.push(productCards[i]);
             }

@@ -101,15 +101,15 @@ function newTimelineChart() {
 
         viewPort.displace(displaceVector);
 
-        /* Lets get all the cards that are turned on. */
+        /* Lets get all the cards that needs to be loaded. */
 
-        let onProductCards = productsPanel.getOnProductCards();
+        let loadingProductCards = productsPanel.getLoadingProductCards();
 
-        for (let i = 0; i < onProductCards.length; i++) {
+        for (let i = 0; i < loadingProductCards.length; i++) {
 
             /* For each one, we will initialize the associated plotter. */
 
-            initializePlotter(onProductCards[i]);
+            initializePlotter(loadingProductCards[i]);
 
         }
     } 
@@ -207,7 +207,7 @@ function newTimelineChart() {
 
     function onProductCardStatusChanged(pProductCard) {
 
-        if (pProductCard.status === PRODUCT_CARD_STATUS.ON) {
+        if (pProductCard.status === PRODUCT_CARD_STATUS.LOADING) {
 
             /* Lets see if we can find the Plotter of this card on our Active Plotters list, other wise we will initialize it */
 
@@ -229,7 +229,9 @@ function newTimelineChart() {
 
             }
 
-        } else {
+        }
+
+        if (pProductCard.status === PRODUCT_CARD_STATUS.OFF) {
 
             /* If the plotter of this card is on our Active Plotters list, then we remove it. */
 

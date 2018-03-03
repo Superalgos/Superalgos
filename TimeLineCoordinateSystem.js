@@ -13,8 +13,8 @@ function newTimeLineCoordinateSystem() {
         min: undefined,                     
         max: undefined,                     
         scale: undefined, 
-        inverseTransform: inverseTransform,
-        inverseTransform2: inverseTransform2,
+        transformThisPoint: transformThisPoint,
+        transformThisPoint2: transformThisPoint2,
         unInverseTransform: unInverseTransform,
         inverseTransformUncappedY: inverseTransformUncappedY,
         initializeX: initializeX,
@@ -41,9 +41,11 @@ function newTimeLineCoordinateSystem() {
     thisObject.max = max;
     thisObject.scale = scale;
 
+    let maxHeight;
+
     return thisObject;
 
-    function initialize(minValue, maxValue, maxWidth, maxHeight) {
+    function initialize(minValue, maxValue, maxWidth, pMaxHeight) {
 
         /* Defines the min and max value of rate that we are going to transport to the available screen at the center position. */
 
@@ -56,7 +58,9 @@ function newTimeLineCoordinateSystem() {
         /* Defines the initial Zoom level at center position. */
 
         thisObject.scale.x = maxWidth / (thisObject.max.x - thisObject.min.x);
-        thisObject.scale.y = maxHeight / (thisObject.max.y - thisObject.min.y);
+        thisObject.scale.y = pMaxHeight / (thisObject.max.y - thisObject.min.y);
+
+        maxHeight = pMaxHeight;
 
     }
 
@@ -69,32 +73,33 @@ function newTimeLineCoordinateSystem() {
 
     }
 
-    function initializeY(minValue, maxValue, maxHeight) {
+    function initializeY(minValue, maxValue, pMaxHeight) {
 
         thisObject.min.y = minValue.y; // * 0.999; // 0.1% less
         thisObject.max.y = maxValue.y; // * 1.001; // 0.1% more
 
-        thisObject.scale.y = maxHeight / (thisObject.max.y - thisObject.min.y);
+        thisObject.scale.y = pMaxHeight / (thisObject.max.y - thisObject.min.y);
 
+        maxHeight = pMaxHeight;
     }
 
 
-    function inverseTransform(point, inverseY) {
+    function transformThisPoint(point) {
 
         point = {
             x: (point.x - this.min.x) * this.scale.x,
-            y: inverseY - (point.y - this.min.y) * this.scale.y
+            y: maxHeight - (point.y - this.min.y) * this.scale.y
         };
 
         return point;
     }
 
 
-    function inverseTransform2(point, inverseY) {
+    function transformThisPoint2(point) {
 
         point = {
             x: (point.x - this.min.x) * this.scale.x,
-            y: (inverseY - point.y - this.min.y) * this.scale.y
+            y: (maxHeight- point.y - this.min.y) * this.scale.y
         };
 
         return point;

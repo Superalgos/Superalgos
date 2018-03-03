@@ -1,6 +1,6 @@
 ﻿function newProductCard() {
 
-    const CONSOLE_LOG = true;
+    const CONSOLE_LOG = false;
 
     var thisObject = {
         container: undefined,

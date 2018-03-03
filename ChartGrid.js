@@ -476,8 +476,8 @@
                         y: j
                     };
 
-                    point1 = timeLineCoordinateSystem.inverseTransform(point1, container.frame.height);
-                    point2 = timeLineCoordinateSystem.inverseTransform(point2, container.frame.height);
+                    point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                    point2 = timeLineCoordinateSystem.transformThisPoint(point2);
 
                     point1 = transformThisPoint(point1, container);
                     point2 = transformThisPoint(point2, container);
@@ -540,8 +540,8 @@
                     y: timeLineCoordinateSystem.max.y
                 };
 
-                point3 = timeLineCoordinateSystem.inverseTransform(point3, container.frame.height);
-                point4 = timeLineCoordinateSystem.inverseTransform(point4, container.frame.height);
+                point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                point4 = timeLineCoordinateSystem.transformThisPoint(point4);
 
                 point3 = transformThisPoint(point3, container);
                 point4 = transformThisPoint(point4, container);

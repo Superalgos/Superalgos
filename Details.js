@@ -171,23 +171,10 @@
 
     }
 
-    function setDatetime(newDatetime) {
+    function setDatetime(pDatetime) {
 
-        /* If there is a change in the day, then we take some actions, otherwise, we dont. */
+        datetime = pDatetime;
 
-        let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS);
-        let newDate = Math.trunc(newDatetime.valueOf() / ONE_DAY_IN_MILISECONDS);
-
-        datetime = newDatetime;
-
-        if (currentDate !== newDate) {
-
-            if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
-
-                fileCursorCache.setDatetime(newDatetime);
-
-            }
-        }
     }
 
     function draw() {

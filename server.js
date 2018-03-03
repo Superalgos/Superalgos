@@ -6,7 +6,7 @@ if (CONSOLE_LOG === true) {
 
 }
 
-let debugMode = false;           // This forces the server to read Plotters from the local drive.
+let debugMode = true;           // This forces the server to read Plotters from the local drive.
 
 if (CONSOLE_LOG === true && debugMode === true) {
 

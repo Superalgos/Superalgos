@@ -56,23 +56,8 @@
     </Compile>
     <Compile Include="Button.js" />
     <Compile Include="Candle.js" />
-    <Compile Include="CandleTechnicalAnalisys\HighLowFlag.js" />
-    <Compile Include="CandleTechnicalAnalisys\Resistance.js" />
-    <Compile Include="CandleTechnicalAnalisys\Stairs.js" />
-    <Compile Include="CandleTechnicalAnalisys\Support.js" />
     <Compile Include="Canvas.js" />
     <Compile Include="ChartGrid.js" />
-    <Compile Include="ChartLayers\AccumulatedVolumeChartLayer.js" />
-    <Compile Include="ChartLayers\AllTimeChartlayer.js" />
-    <Compile Include="ChartLayers\CandeStickChartLayer.js" />
-    <Compile Include="ChartLayers\CandleTechnicalAnalisysChartLayer.js" />
-    <Compile Include="ChartLayers\ForecastChartLayer.js" />
-    <Compile Include="ChartLayers\HighLowChartLayer.js" />
-    <Compile Include="ChartLayers\LinearRegressionCurve.js" />
-    <Compile Include="ChartLayers\OrderBooksChartLayer.js" />
-    <Compile Include="ChartLayers\SupportResistanceChartLayer.js" />
-    <Compile Include="ChartLayers\VolumeChartLayer.js" />
-    <Compile Include="ChartLayers\VolumeTechnicalAnalisysChartLayer.js" />
     <Compile Include="ChartSpace.js" />
     <Compile Include="ChartUtilities.js" />
     <Compile Include="Container.js" />
@@ -89,7 +74,6 @@
     <Compile Include="EventHandler.js" />
     <Compile Include="FloatingSpace.js" />
     <Compile Include="Frame.js" />
-    <Compile Include="Indicators\LRC.js" />
     <Compile Include="MarketIndex.js" />
     <Compile Include="Markets.js" />
     <Compile Include="MarketTrades.js" />
@@ -128,7 +112,6 @@
     <Compile Include="Utilities.js" />
     <Compile Include="ViewPort.js" />
     <Compile Include="VolumeBar.js" />
-    <Compile Include="VolumeTechnicalAnalisys\Stairs.js" />
     <Compile Include="Zoom.js" />
     <Content Include="ecosystem.json">
       <SubType>Code</SubType>
@@ -139,11 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />
-    <Folder Include="CandleTechnicalAnalisys\" />
-    <Folder Include="ChartLayers\" />
-    <Folder Include="Indicators\" />
     <Folder Include="Panels\" />
-    <Folder Include="VolumeTechnicalAnalisys\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

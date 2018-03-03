@@ -132,15 +132,10 @@
 
     function onDailyFileLoaded(event) {
 
-        if (event.currentValue === event.totalValue) {
+        recalculateScaleX();
+        recalculate();
+        recalculateScaleY();
 
-            /* This happens only when all of the files in the cursor have been loaded. */
-
-            recalculateScaleX();
-            recalculate();
-            recalculateScaleY();
-
-        }
     }
 
     function draw() {

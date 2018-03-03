@@ -186,6 +186,10 @@ function newTimelineChart() {
                     storage: storage
                 };
 
+                /* Let the Plotter listen to the event of Cursor Files loaded, so that it can reack recalculating if needed. */
+
+                storage.eventHandler.listenToEvent('Daily File Loaded', plotter.onDailyFileLoaded);
+
                 /* Add the new Active Protter to the Array */
 
                 activePlotters.push(activePlotter);

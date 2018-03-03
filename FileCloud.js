@@ -1,7 +1,7 @@
 ﻿
 function newFileCloud() {
 
-    const CONSOLE_LOG = true;
+    const CONSOLE_LOG = false;
 
     var fileCloud = {
         getFile: getFile,

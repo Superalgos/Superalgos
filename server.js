@@ -81,6 +81,14 @@ function onBrowserRequest(request, response) {
 
     switch (requestParameters[1]) {
 
+        case "clear-cache": {
+
+            githubPages = new Map;
+
+            respondWithContent("command acepted", response);
+
+        }
+            break;
         case "Plotters.js":
             {
                 let fs = require('fs');

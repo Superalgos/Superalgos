@@ -150,7 +150,7 @@ function recalculatePeriod(zoomLevel) {
 }
 
 
-function checkIfMoreTradesAreNeeded(trades, container, plotArea, marketTrades, callBackFunction) {
+function checkIfMoreTradesAreNeeded(trades, container, timeLineCoordinateSystem, marketTrades, callBackFunction) {
 
     /* 
 
@@ -174,10 +174,10 @@ function checkIfMoreTradesAreNeeded(trades, container, plotArea, marketTrades, c
         y: 0
     };
 
-    firstTradePoint = plotArea.inverseTransform(firstTradePoint, container.frame.height);
+    firstTradePoint = timeLineCoordinateSystem.inverseTransform(firstTradePoint, container.frame.height);
     firstTradePoint = transformThisPoint(firstTradePoint, container);
 
-    lastTradePoint = plotArea.inverseTransform(lastTradePoint, container.frame.height);
+    lastTradePoint = timeLineCoordinateSystem.inverseTransform(lastTradePoint, container.frame.height);
     lastTradePoint = transformThisPoint(lastTradePoint, container);
 
     let totalDistance = lastTradePoint.x - firstTradePoint.x;  // Is the screen distance between the first and last trade.

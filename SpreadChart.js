@@ -5,7 +5,7 @@ function newSpreadChart() {
     var sells = [];
     var buys = [];
 
-    var plotArea = newPlotArea();
+    var timeLineCoordinateSystem = newTimeLineCoordinateSystem();
 
     var datetime;
     var datetimeRange;
@@ -137,7 +137,7 @@ function newSpreadChart() {
 
         }
 
-        plotArea.initialize(
+        timeLineCoordinateSystem.initialize(
             minValue,
             maxValue,
             spreadChart.container.frame.width,
@@ -170,14 +170,14 @@ function newSpreadChart() {
             let point;
 
             let firstPoint = {
-                x: (sells[0].datetime.valueOf() - plotArea.min.x) * plotArea.scale.x,
-                y: spreadChart.container.frame.height - (sells[0].rate - plotArea.min.y) * plotArea.scale.y
+                x: (sells[0].datetime.valueOf() - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                y: spreadChart.container.frame.height - (sells[0].rate - timeLineCoordinateSystem.min.y) * timeLineCoordinateSystem.scale.y
             };
 
             firstPoint = transformThisPoint(firstPoint, spreadChart.container);
 
             let seconddPoint = {
-                x: (sells[0].datetime.valueOf() - plotArea.min.x) * plotArea.scale.x,
+                x: (sells[0].datetime.valueOf() - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
                 y: spreadChart.container.frame.height
             };
 
@@ -196,8 +196,8 @@ function newSpreadChart() {
                 let sell = sells[i];
 
                 point = {
-                    x: (sell.datetime.valueOf() - plotArea.min.x) * plotArea.scale.x,
-                    y: spreadChart.container.frame.height - (sell.rate - plotArea.min.y) * plotArea.scale.y
+                    x: (sell.datetime.valueOf() - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                    y: spreadChart.container.frame.height - (sell.rate - timeLineCoordinateSystem.min.y) * timeLineCoordinateSystem.scale.y
                 };
 
                 thirdPoint = {
@@ -227,14 +227,14 @@ function newSpreadChart() {
         if (buys.length > 0) {
 
             let firstPoint = {
-                x: (buys[0].datetime.valueOf() - plotArea.min.x) * plotArea.scale.x,
-                y: spreadChart.container.frame.height - (buys[0].rate - plotArea.min.y) * plotArea.scale.y
+                x: (buys[0].datetime.valueOf() - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                y: spreadChart.container.frame.height - (buys[0].rate - timeLineCoordinateSystem.min.y) * timeLineCoordinateSystem.scale.y
             };
 
             firstPoint = transformThisPoint(firstPoint, spreadChart.container);
 
             let seconddPoint = {
-                x: (buys[0].datetime.valueOf() - plotArea.min.x) * plotArea.scale.x,
+                x: (buys[0].datetime.valueOf() - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
                 y: 0
             };
 
@@ -254,8 +254,8 @@ function newSpreadChart() {
                 let buy = buys[i];
 
                 point = {
-                    x: (buy.datetime.valueOf() - plotArea.min.x) * plotArea.scale.x,
-                    y: spreadChart.container.frame.height - (buy.rate - plotArea.min.y) * plotArea.scale.y
+                    x: (buy.datetime.valueOf() - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                    y: spreadChart.container.frame.height - (buy.rate - timeLineCoordinateSystem.min.y) * timeLineCoordinateSystem.scale.y
                 };
 
                 thirdPoint = {

@@ -1,13 +1,15 @@
 ﻿/*
 
-The Plot Area object is responsible for defining the area of a data set that is going to be plotted and
-to the scales that actual values must be multiplied by in order to fit into a certain space.
+This Object object is responsible for defining the coordinate system in a TimeLine.
+
+The scale on the X axis depends on the time.
+The scale on the Y axis depends on the data that wants to be plotted. Usually we need the Max amount on that data to generate a proper scale.
 
 */
 
-function newPlotArea() {
+function newTimeLineCoordinateSystem() {
 
-    var plotArea = {
+    var thisObject = {
         min: undefined,                     
         max: undefined,                     
         scale: undefined, 
@@ -35,44 +37,44 @@ function newPlotArea() {
         y: 0
     };
 
-    plotArea.min = min;
-    plotArea.max = max;
-    plotArea.scale = scale;
+    thisObject.min = min;
+    thisObject.max = max;
+    thisObject.scale = scale;
 
-    return plotArea;
+    return thisObject;
 
     function initialize(minValue, maxValue, maxWidth, maxHeight) {
 
         /* Defines the min and max value of rate that we are going to transport to the available screen at the center position. */
 
-        plotArea.min.x = minValue.x; // * 0.999; // 0.1% less
-        plotArea.max.x = maxValue.x; // * 1.001; // 0.1% more
+        thisObject.min.x = minValue.x; // * 0.999; // 0.1% less
+        thisObject.max.x = maxValue.x; // * 1.001; // 0.1% more
 
-        plotArea.min.y = minValue.y; // * 0.999; // 0.1% less
-        plotArea.max.y = maxValue.y; // * 1.001; // 0.1% more
+        thisObject.min.y = minValue.y; // * 0.999; // 0.1% less
+        thisObject.max.y = maxValue.y; // * 1.001; // 0.1% more
 
         /* Defines the initial Zoom level at center position. */
 
-        plotArea.scale.x = maxWidth / (plotArea.max.x - plotArea.min.x);
-        plotArea.scale.y = maxHeight / (plotArea.max.y - plotArea.min.y);
+        thisObject.scale.x = maxWidth / (thisObject.max.x - thisObject.min.x);
+        thisObject.scale.y = maxHeight / (thisObject.max.y - thisObject.min.y);
 
     }
 
     function initializeX(minValue, maxValue, maxWidth) {
 
-        plotArea.min.x = minValue.x; // * 0.999; // 0.1% less
-        plotArea.max.x = maxValue.x; // * 1.001; // 0.1% more
+        thisObject.min.x = minValue.x; // * 0.999; // 0.1% less
+        thisObject.max.x = maxValue.x; // * 1.001; // 0.1% more
 
-        plotArea.scale.x = maxWidth / (plotArea.max.x - plotArea.min.x);
+        thisObject.scale.x = maxWidth / (thisObject.max.x - thisObject.min.x);
 
     }
 
     function initializeY(minValue, maxValue, maxHeight) {
 
-        plotArea.min.y = minValue.y; // * 0.999; // 0.1% less
-        plotArea.max.y = maxValue.y; // * 1.001; // 0.1% more
+        thisObject.min.y = minValue.y; // * 0.999; // 0.1% less
+        thisObject.max.y = maxValue.y; // * 1.001; // 0.1% more
 
-        plotArea.scale.y = maxHeight / (plotArea.max.y - plotArea.min.y);
+        thisObject.scale.y = maxHeight / (thisObject.max.y - thisObject.min.y);
 
     }
 

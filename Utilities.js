@@ -45,10 +45,10 @@ function pad(str, max) {
     return str.length < max ? pad("0" + str, max) : str;
 }
 
-function getDateFromPoint(point, container, plotArea) {
+function getDateFromPoint(point, container, timeLineCoordinateSystem) {
 
     point = unTransformThisPoint(point, container);
-    point = plotArea.unInverseTransform(point, container.frame.height);
+    point = timeLineCoordinateSystem.unInverseTransform(point, container.frame.height);
 
     let date = new Date(point.x);
 
@@ -56,19 +56,19 @@ function getDateFromPoint(point, container, plotArea) {
 }
 
 
-function getRateFromPoint(point, container, plotArea) {
+function getRateFromPoint(point, container, timeLineCoordinateSystem) {
 
     point = unTransformThisPoint(point, container);
-    point = plotArea.unInverseTransform(point, container.frame.height);
+    point = timeLineCoordinateSystem.unInverseTransform(point, container.frame.height);
 
     return point.y;
 }
 
 
-function getMilisecondsFromPoint(point, container, plotArea) {
+function getMilisecondsFromPoint(point, container, timeLineCoordinateSystem) {
 
     point = unTransformThisPoint(point, container);
-    point = plotArea.unInverseTransform(point, container.frame.height);
+    point = timeLineCoordinateSystem.unInverseTransform(point, container.frame.height);
 
     return point.x;
 }

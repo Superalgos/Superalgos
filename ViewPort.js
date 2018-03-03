@@ -142,7 +142,7 @@ function newViewPort() {
 
    }
 
-   function displaceToDatetime(datetime, plotArea) {
+   function displaceToDatetime(datetime, timeLineCoordinateSystem) {
 
 
        targetOffset.x = targetOffset.x + displaceVector.x;

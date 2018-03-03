@@ -89,7 +89,7 @@
     <Compile Include="Panels\CurrentVolumePanel.js" />
     <Compile Include="Panels\OrderBookPanel.js" />
     <Compile Include="Physics.js" />
-    <Compile Include="PlotArea.js" />
+    <Compile Include="TimeLineCoordinateSystem.js" />
     <Compile Include="PriceChart.js" />
     <Compile Include="Resistance.js" />
     <Compile Include="FileServer.js" />

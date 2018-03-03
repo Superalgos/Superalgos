@@ -7,7 +7,7 @@ function newOrderBookDephChart() {
 
     */
 
-    var plotArea = newPlotArea();
+    var timeLineCoordinateSystem = newTimeLineCoordinateSystem();
 
     var orderBookDephChart = {
         addOrder: addOrder,
@@ -182,7 +182,7 @@ function newOrderBookDephChart() {
             };
 
             var minBasePoint = {
-                x: (bidPoints[0].rate - plotArea.min.x) * plotArea.scale.x,  // We take the first Order Rate on the array for this.
+                x: (bidPoints[0].rate - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,  // We take the first Order Rate on the array for this.
                 y: orderBookDephChart.container.frame.height * 5 / 7
             };
 
@@ -200,13 +200,13 @@ function newOrderBookDephChart() {
 
             for (var i = 0; i < bidPoints.length; i++) {
 
-                if (bidPoints[i].rate >= plotArea.min.x && bidPoints[i].rate <= plotArea.max.x) {
+                if (bidPoints[i].rate >= timeLineCoordinateSystem.min.x && bidPoints[i].rate <= timeLineCoordinateSystem.max.x) {
 
                     progressiveSum = progressiveSum + bidPoints[i].amountSum;
 
                     point = {
-                        x: (bidPoints[i].rate - plotArea.min.x) * plotArea.scale.x,
-                        y: orderBookDephChart.container.frame.height * 5 / 7 - progressiveSum * plotArea.scale.y
+                        x: (bidPoints[i].rate - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                        y: orderBookDephChart.container.frame.height * 5 / 7 - progressiveSum * timeLineCoordinateSystem.scale.y
                     };
 
                     var rawPosition = {
@@ -243,12 +243,12 @@ function newOrderBookDephChart() {
             /* We calculate the first point of the chart */
 
             var maxBasePoint = {
-                x: (plotArea.max.x - plotArea.min.x) * plotArea.scale.x, 
+                x: (timeLineCoordinateSystem.max.x - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x, 
                 y: orderBookDephChart.container.frame.height * 5 / 7
             };
 
             var minBasePoint = {
-                x: (askPoints[0].rate - plotArea.min.x) * plotArea.scale.x,  // We take the first Order Rate on the array for this.
+                x: (askPoints[0].rate - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,  // We take the first Order Rate on the array for this.
                 y: orderBookDephChart.container.frame.height * 5 / 7
             };
 
@@ -265,13 +265,13 @@ function newOrderBookDephChart() {
 
             for (var i = 0; i < askPoints.length; i++) {
 
-                if (askPoints[i].rate >= plotArea.min.x && askPoints[i].rate <= plotArea.max.x) {
+                if (askPoints[i].rate >= timeLineCoordinateSystem.min.x && askPoints[i].rate <= timeLineCoordinateSystem.max.x) {
 
                     progressiveSum = progressiveSum + askPoints[i].amountSum;
 
                     point = {
-                        x: (askPoints[i].rate - plotArea.min.x) * plotArea.scale.x,
-                        y: orderBookDephChart.container.frame.height * 5 / 7 - progressiveSum * plotArea.scale.y
+                        x: (askPoints[i].rate - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                        y: orderBookDephChart.container.frame.height * 5 / 7 - progressiveSum * timeLineCoordinateSystem.scale.y
                     };
 
                     point = transformThisPoint(point, orderBookDephChart.container);
@@ -300,15 +300,15 @@ function newOrderBookDephChart() {
 
     function drawAxis() {
 
-        var step = (plotArea.max.x - plotArea.min.x) / 10;
+        var step = (timeLineCoordinateSystem.max.x - timeLineCoordinateSystem.min.x) / 10;
 
         var decimals;
 
-        /* Lets identify how many decimals are needed to be displayed. To do that we will chekck when is the first time that two consecutives points in the plotArea are different. */
+        /* Lets identify how many decimals are needed to be displayed. To do that we will chekck when is the first time that two consecutives points in the timeLineCoordinateSystem are different. */
 
         for (var j = 0; j < 10; j++) {
 
-            var diff = (plotArea.min.x + step * 2).toFixed(j) - (plotArea.min.x + step * 1).toFixed(j);
+            var diff = (timeLineCoordinateSystem.min.x + step * 2).toFixed(j) - (timeLineCoordinateSystem.min.x + step * 1).toFixed(j);
 
             if (diff !== 0 && decimals === undefined) {
                 decimals = j;
@@ -318,7 +318,7 @@ function newOrderBookDephChart() {
         for (var i = 1; i < 10 ; i++) {
 
             var point = {
-                x: plotArea.min.x + step * i,
+                x: timeLineCoordinateSystem.min.x + step * i,
                 y: orderBookDephChart.container.frame.height * 6 / 7
             };
 
@@ -335,7 +335,7 @@ function newOrderBookDephChart() {
 
             /* Now we transform x on the actual coordinate on the canvas. */
 
-            point.x = (point.x - plotArea.min.x) * plotArea.scale.x;  // Now x represent a coordinate on the canvas.
+            point.x = (point.x - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x;  // Now x represent a coordinate on the canvas.
 
             point = orderBookDephChart.container.frame.frameThisPoint(point);
             point = orderBookDephChart.container.displacement.displaceThisPoint(point);
@@ -349,7 +349,7 @@ function newOrderBookDephChart() {
 
     function recalculateScale() {
 
-        /* Since the range of the data might change, we must calculate the plotArea everytime new data arrives. */
+        /* Since the range of the data might change, we must calculate the timeLineCoordinateSystem everytime new data arrives. */
 
         var minBidRate = bidPoints[bidPoints.length - 1];
         var maxBidRate = bidPoints[0];
@@ -452,7 +452,7 @@ function newOrderBookDephChart() {
 
         } 
 
-        plotArea.initialize(
+        timeLineCoordinateSystem.initialize(
             minValue,
             maxValue,
             orderBookDephChart.container.frame.width,

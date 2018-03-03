@@ -5,7 +5,7 @@ function newTimelineChart() {
 
     let activePlotters = [];
 
-    let plotArea = newPlotArea();
+    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();
 
     let timePeriod = INITIAL_TIME_PERIOD;
     let datetime = INITIAL_DATE;
@@ -310,7 +310,7 @@ function newTimelineChart() {
         };
 
         center = unTransformThisPoint(center, timelineChart.container);
-        center = plotArea.unInverseTransform(center, timelineChart.container.frame.height);
+        center = timeLineCoordinateSystem.unInverseTransform(center, timelineChart.container.frame.height);
 
         let newDate = new Date(0);
         newDate.setUTCSeconds(center.x / 1000);
@@ -376,7 +376,7 @@ function newTimelineChart() {
 
             drawBackground();
 
-            chartGrid.draw(timelineChart.container, plotArea);
+            chartGrid.draw(timelineChart.container, timeLineCoordinateSystem);
 
             for (var i = 0; i < activePlotters.length; i++) {
 
@@ -400,7 +400,7 @@ function newTimelineChart() {
         };
 
 
-        plotArea.initialize(
+        timeLineCoordinateSystem.initialize(
             minValue,
             maxValue,
             timelineChart.container.frame.width,

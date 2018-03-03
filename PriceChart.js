@@ -3,7 +3,7 @@ function newPriceChart() {
 
     var trades = [];
 
-    var plotArea = newPlotArea();
+    var timeLineCoordinateSystem = newTimeLineCoordinateSystem();
 
     var datetime;
     var datetimeRange;
@@ -134,7 +134,7 @@ function newPriceChart() {
 
         }
 
-        plotArea.initialize(
+        timeLineCoordinateSystem.initialize(
             minValue,
             maxValue,
             priceChart.container.frame.width,
@@ -149,8 +149,8 @@ function newPriceChart() {
         if (trades.length > 0) {
 
             var firstPoint = {
-                x: (trades[0].datetime.valueOf() - plotArea.min.x) * plotArea.scale.x,
-                y: priceChart.container.frame.height - (trades[0].rate - plotArea.min.y) * plotArea.scale.y
+                x: (trades[0].datetime.valueOf() - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                y: priceChart.container.frame.height - (trades[0].rate - timeLineCoordinateSystem.min.y) * timeLineCoordinateSystem.scale.y
             };
 
             firstPoint = transformThisPoint(firstPoint, priceChart.container);
@@ -162,8 +162,8 @@ function newPriceChart() {
                 var trade = trades[i];
 
                 point = {
-                    x: (trade.datetime.valueOf() - plotArea.min.x) * plotArea.scale.x,
-                    y: priceChart.container.frame.height - (trade.rate - plotArea.min.y) * plotArea.scale.y
+                    x: (trade.datetime.valueOf() - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                    y: priceChart.container.frame.height - (trade.rate - timeLineCoordinateSystem.min.y) * timeLineCoordinateSystem.scale.y
                 };
 
                 point = transformThisPoint(point, priceChart.container);

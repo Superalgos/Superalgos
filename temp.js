@@ -17,7 +17,7 @@ function newOrderBookChart() {
         setDatetime: setDatetime,
         isInitialized: false,
         container: undefined,
-        plotArea: undefined,
+        timeLineCoordinateSystem: undefined,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
@@ -119,12 +119,12 @@ function newOrderBookChart() {
 
         */
 
-        /* Since the range of the data might change, we must calculate the plotArea everytime new data arrives. */
+        /* Since the range of the data might change, we must calculate the timeLineCoordinateSystem everytime new data arrives. */
 
-        var plotArea = newPlotArea();
-        orderBookChart.plotArea = plotArea;
+        var timeLineCoordinateSystem = newTimeLineCoordinateSystem();
+        orderBookChart.timeLineCoordinateSystem = timeLineCoordinateSystem;
 
-        orderBookChart.plotArea.initialize(
+        orderBookChart.timeLineCoordinateSystem.initialize(
             orderBookChart.orderBook.server.orderBookStatistics.resultSet["row 1"].MIN_Rate,
             orderBookChart.orderBook.server.orderBookStatistics.resultSet["row 2"].MAX_Rate,
             orderBookChart.container.frame.width
@@ -194,12 +194,12 @@ function newOrderBookChart() {
             /* We calculate the first points of the chart. These are not points representing orders, but the lower part of the hill plotted. */
 
             var maxBasePoint = {
-                x: (orderBookBidsChartPoints[orderBookBidsChartPoints.length - 1][0] - orderBookChart.plotArea.min.x) * orderBookChart.plotArea.plotArea.x,  // We take the first Order Rate on the array for this.
+                x: (orderBookBidsChartPoints[orderBookBidsChartPoints.length - 1][0] - orderBookChart.timeLineCoordinateSystem.min.x) * orderBookChart.timeLineCoordinateSystem.timeLineCoordinateSystem.x,  // We take the first Order Rate on the array for this.
                 y: orderBookChart.container.frame.height * 5 / 7
             };
 
             var minBasePoint = {
-                x: (orderBookBidsChartPoints[0][0] - orderBookChart.plotArea.min.x) * orderBookChart.plotArea.x,  // We take the first Order Rate on the array for this.
+                x: (orderBookBidsChartPoints[0][0] - orderBookChart.timeLineCoordinateSystem.min.x) * orderBookChart.timeLineCoordinateSystem.x,  // We take the first Order Rate on the array for this.
                 y: orderBookChart.container.frame.height * 5 / 7
             };
 
@@ -230,7 +230,7 @@ function newOrderBookChart() {
                 sumY = sumY + orderBookBidsChartPoints[i][1];
 
                 var point = {
-                    x: (orderBookBidsChartPoints[i][0] - orderBookChart.plotArea.min.x) * orderBookChart.plotArea.plotArea.x,
+                    x: (orderBookBidsChartPoints[i][0] - orderBookChart.timeLineCoordinateSystem.min.x) * orderBookChart.timeLineCoordinateSystem.timeLineCoordinateSystem.x,
                     y: orderBookChart.container.frame.height * 5 / 7 - sumY
                 };
 
@@ -279,12 +279,12 @@ function newOrderBookChart() {
             /* We calculate the first point of the chart */
 
             var maxBasePoint = {
-                x: (orderBookAsksChartPoints[orderBookAsksChartPoints.length - 1][0] - orderBookChart.plotArea.min.x) * orderBookChart.plotArea.plotArea.x,  // We take the first Order Rate on the array for this.
+                x: (orderBookAsksChartPoints[orderBookAsksChartPoints.length - 1][0] - orderBookChart.timeLineCoordinateSystem.min.x) * orderBookChart.timeLineCoordinateSystem.timeLineCoordinateSystem.x,  // We take the first Order Rate on the array for this.
                 y: orderBookChart.container.frame.height * 5 / 7
             };
 
             var minBasePoint = {
-                x: (orderBookAsksChartPoints[0][0] - orderBookChart.plotArea.min.x) * orderBookChart.plotArea.plotArea.x,  // We take the first Order Rate on the array for this.
+                x: (orderBookAsksChartPoints[0][0] - orderBookChart.timeLineCoordinateSystem.min.x) * orderBookChart.timeLineCoordinateSystem.timeLineCoordinateSystem.x,  // We take the first Order Rate on the array for this.
                 y: orderBookChart.container.frame.height * 5 / 7
             };
 
@@ -315,7 +315,7 @@ function newOrderBookChart() {
                 sumY = sumY + orderBookAsksChartPoints[i][1];
 
                 var point = {
-                    x: (orderBookAsksChartPoints[i][0] - orderBookChart.plotArea.min.x) * orderBookChart.plotArea.plotArea.x,
+                    x: (orderBookAsksChartPoints[i][0] - orderBookChart.timeLineCoordinateSystem.min.x) * orderBookChart.timeLineCoordinateSystem.timeLineCoordinateSystem.x,
                     y: orderBookChart.container.frame.height * 5 / 7 - sumY
                 };
 
@@ -352,15 +352,15 @@ function newOrderBookChart() {
 
     function drawXAxis() {
 
-        var step = (orderBookChart.plotArea.max.x - orderBookChart.plotArea.min.x) / 20;
+        var step = (orderBookChart.timeLineCoordinateSystem.max.x - orderBookChart.timeLineCoordinateSystem.min.x) / 20;
 
         var decimals;
 
-        /* Lets identify how many decimals are needed to be displayed. To do that we will chekck when is the first time that two consecutives points in the plotArea are different. */
+        /* Lets identify how many decimals are needed to be displayed. To do that we will chekck when is the first time that two consecutives points in the timeLineCoordinateSystem are different. */
 
         for (var j = 0; j < 10; j++) {
 
-            var diff = (orderBookChart.plotArea.min.x + step * 2).toFixed(j) - (orderBookChart.plotArea.min.x + step * 1).toFixed(j);
+            var diff = (orderBookChart.timeLineCoordinateSystem.min.x + step * 2).toFixed(j) - (orderBookChart.timeLineCoordinateSystem.min.x + step * 1).toFixed(j);
 
             if (diff !== 0 && decimals === undefined) {
                 decimals = j;
@@ -370,7 +370,7 @@ function newOrderBookChart() {
         for (var i = 1; i < 20; i++) {
 
             var point = {
-                x: orderBookChart.plotArea.min.x + step * i,
+                x: orderBookChart.timeLineCoordinateSystem.min.x + step * i,
                 y: orderBookChart.container.frame.height * 6 / 7
             };
 
@@ -387,7 +387,7 @@ function newOrderBookChart() {
 
             /* Now we transform x on the actual coordinate on the canvas. */
 
-            point.x = (point.x - orderBookChart.plotArea.min.x) * orderBookChart.plotArea.scale.x;  // Now x represent a coordinate on the canvas.
+            point.x = (point.x - orderBookChart.timeLineCoordinateSystem.min.x) * orderBookChart.timeLineCoordinateSystem.scale.x;  // Now x represent a coordinate on the canvas.
 
             point = orderBookChart.container.frame.frameThisPoint(point);
             point = orderBookChart.container.displacement.displaceThisPoint(point);
@@ -672,7 +672,7 @@ function newOrderBookChart() {
             /* Position of the ball without displacement or zoon. */
 
             var rawPosition = {
-                x: (order.rate - orderBookChart.plotArea.min.x) * orderBookChart.plotArea.scale.x,
+                x: (order.rate - orderBookChart.timeLineCoordinateSystem.min.x) * orderBookChart.timeLineCoordinateSystem.scale.x,
                 y: orderBookChart.container.frame.height * 5 / 7
             };
 
@@ -729,7 +729,7 @@ function newOrderBookChart() {
         /* This function is used to create new balls, representing labels of each point on the chart. */
 
         var rawPosition = {
-            x: (rate - orderBookChart.plotArea.min.x) * orderBookChart.plotArea.scale.x,
+            x: (rate - orderBookChart.timeLineCoordinateSystem.min.x) * orderBookChart.timeLineCoordinateSystem.scale.x,
             y: orderBookChart.container.frame.height * 5 / 7
         };
 

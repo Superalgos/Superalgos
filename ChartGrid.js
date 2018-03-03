@@ -9,7 +9,7 @@
     return chartGrid;
 
 
-    function draw(container, plotArea) {
+    function draw(container, timeLineCoordinateSystem) {
 
         let periods = [];
         let boxes = [];
@@ -17,7 +17,7 @@
 
         const basePeriod = {
             x: 8 * 60 * 60 * 1000,
-            y: plotArea.max.y / 1000 / CHART_ASPECT_RATIO
+            y: timeLineCoordinateSystem.max.y / 1000 / CHART_ASPECT_RATIO
         };
 
         let period = {
@@ -75,7 +75,7 @@
             let currentValue = box.topLeft;
 
             currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = plotArea.unInverseTransform(currentValue, container.frame.height);
+            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
 
             /* We must compare the current value on the current period, against the next period, to know which cell we are in. */
 
@@ -139,7 +139,7 @@
             let currentValue = box.topLeft;
 
             currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = plotArea.unInverseTransform(currentValue, container.frame.height);
+            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
 
             /* We must compare the current value on the current period, against the next period, to know which cell we are in. */
 
@@ -310,7 +310,7 @@
             let currentValue = box.topLeft;
 
             currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = plotArea.unInverseTransform(currentValue, container.frame.height);
+            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
 
             /* We must compare the current value on the current period, against the next period, to know which cell we are in. */
 
@@ -357,7 +357,7 @@
             let currentValue = box.topLeft;
 
             currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = plotArea.unInverseTransform(currentValue, container.frame.height);
+            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
 
             let date = new Date(currentValue.x);
 
@@ -385,7 +385,7 @@
             let currentValue = box.topLeft;
 
             currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = plotArea.unInverseTransform(currentValue, container.frame.height);
+            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
 
             let date = new Date(currentValue.x);
 
@@ -411,7 +411,7 @@
             };
 
             visiblePoint1 = unTransformThisPoint(visiblePoint1, container);
-            visiblePoint1 = plotArea.unInverseTransform(visiblePoint1, container.frame.height);
+            visiblePoint1 = timeLineCoordinateSystem.unInverseTransform(visiblePoint1, container.frame.height);
 
             let visiblePoint2 = {
                 x: viewPort.visibleArea.bottomRight.x,
@@ -419,7 +419,7 @@
             };
 
             visiblePoint2 = unTransformThisPoint(visiblePoint2, container);
-            visiblePoint2 = plotArea.unInverseTransform(visiblePoint2, container.frame.height);
+            visiblePoint2 = timeLineCoordinateSystem.unInverseTransform(visiblePoint2, container.frame.height);
 
             startingPoint = {
                 x: Math.trunc(visiblePoint1.x / periodWidth) * periodWidth,
@@ -464,7 +464,7 @@
 
             for (var j = startingPoint.y; j <= endingPoint.y + periodHeight; j = j + periodHeight) {
 
-                if (j >= 0 && j <= plotArea.max.y) {
+                if (j >= 0 && j <= timeLineCoordinateSystem.max.y) {
 
                     let point1 = {
                         x: visiblePoint1.x,
@@ -476,8 +476,8 @@
                         y: j
                     };
 
-                    point1 = plotArea.inverseTransform(point1, container.frame.height);
-                    point2 = plotArea.inverseTransform(point2, container.frame.height);
+                    point1 = timeLineCoordinateSystem.inverseTransform(point1, container.frame.height);
+                    point2 = timeLineCoordinateSystem.inverseTransform(point2, container.frame.height);
 
                     point1 = transformThisPoint(point1, container);
                     point2 = transformThisPoint(point2, container);
@@ -537,11 +537,11 @@
 
                 let point4 = {
                     x: i,
-                    y: plotArea.max.y
+                    y: timeLineCoordinateSystem.max.y
                 };
 
-                point3 = plotArea.inverseTransform(point3, container.frame.height);
-                point4 = plotArea.inverseTransform(point4, container.frame.height);
+                point3 = timeLineCoordinateSystem.inverseTransform(point3, container.frame.height);
+                point4 = timeLineCoordinateSystem.inverseTransform(point4, container.frame.height);
 
                 point3 = transformThisPoint(point3, container);
                 point4 = transformThisPoint(point4, container);

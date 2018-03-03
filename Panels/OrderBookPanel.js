@@ -20,7 +20,7 @@ function newOrderBookPanel() {
     let currentOrderBook;
     let server;
 
-    var plotArea = newPlotArea();
+    var timeLineCoordinateSystem = newTimeLineCoordinateSystem();
 
     return orderBookPanel;
 
@@ -142,7 +142,7 @@ function newOrderBookPanel() {
         let askPoints = currentOrderBook[0];
         let position;
 
-        /* Since the range of the data might change, we must calculate the plotArea everytime new data arrives. */
+        /* Since the range of the data might change, we must calculate the timeLineCoordinateSystem everytime new data arrives. */
 
         var minBidRate = bidPoints[bidPoints.length - 1];
         var maxBidRate = bidPoints[0];
@@ -272,7 +272,7 @@ function newOrderBookPanel() {
 
         }
 
-        plotArea.initialize(
+        timeLineCoordinateSystem.initialize(
             minValue,
             maxValue,
             orderBookPanel.container.frame.width,
@@ -308,7 +308,7 @@ function newOrderBookPanel() {
             };
 
             var minBasePoint = {
-                x: (position.rate - plotArea.min.x) * plotArea.scale.x,  // We take the first Order Rate on the array for this.
+                x: (position.rate - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,  // We take the first Order Rate on the array for this.
                 y: orderBookPanel.container.frame.height * 5 / 7
             };
 
@@ -331,13 +331,13 @@ function newOrderBookPanel() {
                     amount: bidPoints[i][1]
                 };
 
-                if (position.rate >= plotArea.min.x && position.rate <= plotArea.max.x) {
+                if (position.rate >= timeLineCoordinateSystem.min.x && position.rate <= timeLineCoordinateSystem.max.x) {
 
                     progressiveSum = progressiveSum + position.amount;
 
                     point = {
-                        x: (position.rate - plotArea.min.x) * plotArea.scale.x,
-                        y: orderBookPanel.container.frame.height * 5 / 7 - progressiveSum * plotArea.scale.y
+                        x: (position.rate - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                        y: orderBookPanel.container.frame.height * 5 / 7 - progressiveSum * timeLineCoordinateSystem.scale.y
                     };
 
                     point = orderBookPanel.container.frame.frameThisPoint(point);
@@ -372,12 +372,12 @@ function newOrderBookPanel() {
             /* We calculate the first point of the chart */
 
             var maxBasePoint = {
-                x: (plotArea.max.x - plotArea.min.x) * plotArea.scale.x,
+                x: (timeLineCoordinateSystem.max.x - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
                 y: orderBookPanel.container.frame.height * 5 / 7
             };
 
             var minBasePoint = {
-                x: (position.rate - plotArea.min.x) * plotArea.scale.x,  // We take the first Order Rate on the array for this.
+                x: (position.rate - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,  // We take the first Order Rate on the array for this.
                 y: orderBookPanel.container.frame.height * 5 / 7
             };
 
@@ -399,13 +399,13 @@ function newOrderBookPanel() {
                     amount: askPoints[i][1]
                 };
 
-                if (position.rate >= plotArea.min.x && position.rate <= plotArea.max.x) {
+                if (position.rate >= timeLineCoordinateSystem.min.x && position.rate <= timeLineCoordinateSystem.max.x) {
 
                     progressiveSum = progressiveSum + position.amount;
 
                     point = {
-                        x: (position.rate - plotArea.min.x) * plotArea.scale.x,
-                        y: orderBookPanel.container.frame.height * 5 / 7 - progressiveSum * plotArea.scale.y
+                        x: (position.rate - timeLineCoordinateSystem.min.x) * timeLineCoordinateSystem.scale.x,
+                        y: orderBookPanel.container.frame.height * 5 / 7 - progressiveSum * timeLineCoordinateSystem.scale.y
                     };
 
                     point = orderBookPanel.container.frame.frameThisPoint(point);

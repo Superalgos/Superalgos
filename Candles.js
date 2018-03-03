@@ -11,6 +11,10 @@
         setDatetime: setDatetime,
         draw: draw,
 
+        /* Events declared outside the plotter. */
+
+        onDailyFileLoaded: onDailyFileLoaded, 
+
         // Secondary functions and properties.
 
         currentCandle: undefined,
@@ -95,64 +99,37 @@
 
     function setTimePeriod(pTimePeriod) {
 
-        timePeriod = pTimePeriod;
+        if (timePeriod !== pTimePeriod) {
 
-        if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
+            timePeriod = pTimePeriod;
 
-            let newMarketFile = fileCache.getFile(pTimePeriod);
+            if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-            if (newMarketFile !== undefined) {
+                let newMarketFile = fileCache.getFile(pTimePeriod);
 
-                marketFile = newMarketFile;
+                if (newMarketFile !== undefined) {
 
-                recalculate();
+                    marketFile = newMarketFile;
+                    recalculate();
+                }
 
-            }
+            } else {
 
-        } else {
+                let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
 
-            fileCursorCache.setTimePeriod(pTimePeriod);
+                if (newFileCursor !== undefined) {
 
-            fileCursorCache.setDatetime(datetime);
-
-            let newFileCursor = fileCursorCache.getFileCursor(pTimePeriod);
-
-            if (newFileCursor !== undefined) {
-
-                fileCursor = newFileCursor;
-
-                recalculate();
-
+                    fileCursor = newFileCursor;
+                    recalculate();
+                }
             }
         }
-
-        if (timePeriod === _1_HOUR_IN_MILISECONDS) {
-
-            fileCursorCache.setTimePeriod(pTimePeriod);
-
-            fileCursorCache.setDatetime(datetime); 
-
-        }
-
     }
 
-    function setDatetime(newDatetime) {
+    function setDatetime(pDatetime) {
 
-        /* If there is a change in the day, then we take some actions, otherwise, we dont. */
+        datetime = pDatetime;
 
-        let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS);
-        let newDate = Math.trunc(newDatetime.valueOf() / ONE_DAY_IN_MILISECONDS);
-
-        datetime = newDatetime;
-
-        if (currentDate !== newDate) {
-
-            if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
-
-                fileCursorCache.setDatetime(newDatetime);
-
-            }
-        } 
     }
 
     function positionAtDatetime(newDatetime) {
@@ -217,18 +194,20 @@
         }
     }
 
+    function onDailyFileLoaded(event) {
+
+        if (event.currentValue === event.totalValue) {
+
+            /* This happens only when all of the files in the cursor have been loaded. */
+
+            recalculate()
+
+        }
+    }
+
     function draw() {
 
         this.container.frame.draw();
-
-        if (timePeriod < _1_HOUR_IN_MILISECONDS) {
-
-            if (Math.random() * 1000 > 995) {
-
-                recalculate();
-
-            }
-        }
 
         plotChart();
 

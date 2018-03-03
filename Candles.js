@@ -170,7 +170,7 @@
                     y: candles[i].open
                 };
 
-                targetPoint = timeLineCoordinateSystem.inverseTransform(targetPoint, thisObject.container.frame.height);
+                targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint);
                 targetPoint = transformThisPoint(targetPoint, thisObject.container);
 
                 let targetMax = {
@@ -178,7 +178,7 @@
                     y: candles[i].max
                 };
 
-                targetMax = timeLineCoordinateSystem.inverseTransform(targetMax, thisObject.container.frame.height);
+                targetMax = timeLineCoordinateSystem.transformThisPoint(targetMax);
                 targetMax = transformThisPoint(targetMax, thisObject.container);
 
                 let targetMin = {
@@ -186,7 +186,7 @@
                     y: candles[i].min
                 };
 
-                targetMin = timeLineCoordinateSystem.inverseTransform(targetMin, thisObject.container.frame.height);
+                targetMin = timeLineCoordinateSystem.transformThisPoint(targetMin);
                 targetMin = transformThisPoint(targetMin, thisObject.container);
 
                 let center = {
@@ -469,10 +469,10 @@
                     y: candle.close
                 };
 
-                candlePoint1 = timeLineCoordinateSystem.inverseTransform(candlePoint1, thisObject.container.frame.height);
-                candlePoint2 = timeLineCoordinateSystem.inverseTransform(candlePoint2, thisObject.container.frame.height);
-                candlePoint3 = timeLineCoordinateSystem.inverseTransform(candlePoint3, thisObject.container.frame.height);
-                candlePoint4 = timeLineCoordinateSystem.inverseTransform(candlePoint4, thisObject.container.frame.height);
+                candlePoint1 = timeLineCoordinateSystem.transformThisPoint(candlePoint1);
+                candlePoint2 = timeLineCoordinateSystem.transformThisPoint(candlePoint2);
+                candlePoint3 = timeLineCoordinateSystem.transformThisPoint(candlePoint3);
+                candlePoint4 = timeLineCoordinateSystem.transformThisPoint(candlePoint4);
 
                 candlePoint1 = transformThisPoint(candlePoint1, thisObject.container);
                 candlePoint2 = transformThisPoint(candlePoint2, thisObject.container);
@@ -508,10 +508,10 @@
                     y: candle.min
                 };
 
-                stickPoint1 = timeLineCoordinateSystem.inverseTransform(stickPoint1, thisObject.container.frame.height);
-                stickPoint2 = timeLineCoordinateSystem.inverseTransform(stickPoint2, thisObject.container.frame.height);
-                stickPoint3 = timeLineCoordinateSystem.inverseTransform(stickPoint3, thisObject.container.frame.height);
-                stickPoint4 = timeLineCoordinateSystem.inverseTransform(stickPoint4, thisObject.container.frame.height);
+                stickPoint1 = timeLineCoordinateSystem.transformThisPoint(stickPoint1);
+                stickPoint2 = timeLineCoordinateSystem.transformThisPoint(stickPoint2);
+                stickPoint3 = timeLineCoordinateSystem.transformThisPoint(stickPoint3);
+                stickPoint4 = timeLineCoordinateSystem.transformThisPoint(stickPoint4);
 
                 stickPoint1 = transformThisPoint(stickPoint1, thisObject.container);
                 stickPoint2 = transformThisPoint(stickPoint2, thisObject.container);

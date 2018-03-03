@@ -12,7 +12,7 @@ function transformThisPoint(point, container) {
 
     /* We apply the zoom factor. */
 
-    point = container.zoom.zoomThisPoint(point);
+    //point = container.zoom.zoomThisPoint(point);
 
     /* We viewport Transformation. */
 

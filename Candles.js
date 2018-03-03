@@ -23,7 +23,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let plotArea = newPlotArea();       // Needed to be able to plot on the timeline, otherwise not.
+    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
     let timePeriod;                     // This will hold the current Time Period the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -55,7 +55,6 @@
         marketFile = fileCache.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
 
         recalculateScale();
-        recalculate();
 
         /* Now we set the right files according to current Period. */
 
@@ -66,6 +65,10 @@
 
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+
+        /* Get ready for plotting. */
+
+        recalculate();
 
         callBackFunction();
 
@@ -167,7 +170,7 @@
                     y: candles[i].open
                 };
 
-                targetPoint = plotArea.inverseTransform(targetPoint, thisObject.container.frame.height);
+                targetPoint = timeLineCoordinateSystem.inverseTransform(targetPoint, thisObject.container.frame.height);
                 targetPoint = transformThisPoint(targetPoint, thisObject.container);
 
                 let targetMax = {
@@ -175,7 +178,7 @@
                     y: candles[i].max
                 };
 
-                targetMax = plotArea.inverseTransform(targetMax, thisObject.container.frame.height);
+                targetMax = timeLineCoordinateSystem.inverseTransform(targetMax, thisObject.container.frame.height);
                 targetMax = transformThisPoint(targetMax, thisObject.container);
 
                 let targetMin = {
@@ -183,7 +186,7 @@
                     y: candles[i].min
                 };
 
-                targetMin = plotArea.inverseTransform(targetMin, thisObject.container.frame.height);
+                targetMin = timeLineCoordinateSystem.inverseTransform(targetMin, thisObject.container.frame.height);
                 targetMin = transformThisPoint(targetMin, thisObject.container);
 
                 let center = {
@@ -254,8 +257,8 @@
 
         let daysOnSides = getSideDays(timePeriod);
 
-        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, plotArea);
-        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, plotArea);
+        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
+        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
 
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -342,8 +345,8 @@
 
         let daysOnSides = getSideDays(timePeriod);
 
-        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, plotArea);
-        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, plotArea);
+        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
+        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
 
         let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -397,7 +400,7 @@
 
         if (marketFile === undefined) { return; } // We need the market file to be loaded to make the calculation.
 
-        if (plotArea.maxValue > 0) { return; } // Already calculated.
+        if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
 
         let minValue = {
             x: EARLIEST_DATE.valueOf(),
@@ -410,7 +413,7 @@
         };
 
 
-        plotArea.initialize(
+        timeLineCoordinateSystem.initialize(
             minValue,
             maxValue,
             thisObject.container.frame.width,
@@ -466,10 +469,10 @@
                     y: candle.close
                 };
 
-                candlePoint1 = plotArea.inverseTransform(candlePoint1, thisObject.container.frame.height);
-                candlePoint2 = plotArea.inverseTransform(candlePoint2, thisObject.container.frame.height);
-                candlePoint3 = plotArea.inverseTransform(candlePoint3, thisObject.container.frame.height);
-                candlePoint4 = plotArea.inverseTransform(candlePoint4, thisObject.container.frame.height);
+                candlePoint1 = timeLineCoordinateSystem.inverseTransform(candlePoint1, thisObject.container.frame.height);
+                candlePoint2 = timeLineCoordinateSystem.inverseTransform(candlePoint2, thisObject.container.frame.height);
+                candlePoint3 = timeLineCoordinateSystem.inverseTransform(candlePoint3, thisObject.container.frame.height);
+                candlePoint4 = timeLineCoordinateSystem.inverseTransform(candlePoint4, thisObject.container.frame.height);
 
                 candlePoint1 = transformThisPoint(candlePoint1, thisObject.container);
                 candlePoint2 = transformThisPoint(candlePoint2, thisObject.container);
@@ -505,10 +508,10 @@
                     y: candle.min
                 };
 
-                stickPoint1 = plotArea.inverseTransform(stickPoint1, thisObject.container.frame.height);
-                stickPoint2 = plotArea.inverseTransform(stickPoint2, thisObject.container.frame.height);
-                stickPoint3 = plotArea.inverseTransform(stickPoint3, thisObject.container.frame.height);
-                stickPoint4 = plotArea.inverseTransform(stickPoint4, thisObject.container.frame.height);
+                stickPoint1 = timeLineCoordinateSystem.inverseTransform(stickPoint1, thisObject.container.frame.height);
+                stickPoint2 = timeLineCoordinateSystem.inverseTransform(stickPoint2, thisObject.container.frame.height);
+                stickPoint3 = timeLineCoordinateSystem.inverseTransform(stickPoint3, thisObject.container.frame.height);
+                stickPoint4 = timeLineCoordinateSystem.inverseTransform(stickPoint4, thisObject.container.frame.height);
 
                 stickPoint1 = transformThisPoint(stickPoint1, thisObject.container);
                 stickPoint2 = transformThisPoint(stickPoint2, thisObject.container);

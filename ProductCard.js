@@ -22,33 +22,36 @@
         initialize: initialize
     };
 
-    let LOADING_FILL_STYLE = 'rgba(234, 143, 23, 0.5)';
-    let LOADED_FILL_STYLE = 'rgba(45, 232, 28, 0.5)';
-    let UNLOADED_FILL_STYLE = 'rgba(226, 226, 226, 0.5)';
+    let LOADING_FILL_STYLE = 'rgba(234, 143, 23, @Opacity)';
+    let LOADED_FILL_STYLE = 'rgba(45, 232, 28, @Opacity)';
+    let UNLOADED_FILL_STYLE = 'rgba(226, 226, 226, @Opacity)';
 
-    let LOADING_STROKE_STYLE = 'rgba(234, 143, 23, 0.5)';
-    let LOADED_STROKE_STYLE = 'rgba(150, 150, 150, 0.5)';
-    let UNLOADED_STROKE_STYLE = 'rgba(226, 226, 226, 0.5)';
+    let LOADING_STROKE_STYLE = 'rgba(234, 143, 23, @Opacity)';
+    let LOADED_STROKE_STYLE = 'rgba(150, 150, 150, @Opacity)';
+    let UNLOADED_STROKE_STYLE = 'rgba(226, 226, 226, @Opacity)';
 
     let marketFileProgressBar = {
         value: 0,
         animatedValue: 0,
         fillStyle: UNLOADED_FILL_STYLE,
-        strokeStyle: UNLOADED_STROKE_STYLE
+        strokeStyle: UNLOADED_STROKE_STYLE,
+        opacity: 0.00
     };
 
     let dailyFileProgressBar = {
         value: 0,
         animatedValue: 0,
         fillStyle: UNLOADED_FILL_STYLE,
-        strokeStyle: UNLOADED_STROKE_STYLE
+        strokeStyle: UNLOADED_STROKE_STYLE,
+        opacity: 0.00
     };
 
     let singleFileProgressBar = {
         value: 0,
         animatedValue: 0,
         fillStyle: UNLOADED_FILL_STYLE,
-        strokeStyle: UNLOADED_STROKE_STYLE
+        strokeStyle: UNLOADED_STROKE_STYLE,
+        opacity: 0.00
     };
 
     let timePeriod = INITIAL_TIME_PERIOD;
@@ -185,6 +188,8 @@
         marketFileProgressBar.fillStyle = LOADING_FILL_STYLE;
         marketFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
 
+        if (marketFileProgressBar.value > 100) { marketFileProgressBar.value = 100; } 
+
         if (CONSOLE_LOG === true) {
 
             console.log("ProductCard onMarketFileLoaded Value = " + marketFileProgressBar.value + "% for " + thisObject.code + ". Event = " + JSON.stringify(event));
@@ -198,6 +203,8 @@
         dailyFileProgressBar.fillStyle = LOADING_FILL_STYLE;
         dailyFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
 
+        if (dailyFileProgressBar.value > 100) { dailyFileProgressBar.value = 100;} 
+
         if (CONSOLE_LOG === true) {
 
             console.log("ProductCard onDailyFileLoaded Value = " + dailyFileProgressBar.value + "% for " + thisObject.code + ". Event = " + JSON.stringify(event));
@@ -210,6 +217,8 @@
         singleFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
         singleFileProgressBar.fillStyle = LOADING_FILL_STYLE;
         singleFileProgressBar.strokeStyle = LOADING_STROKE_STYLE;
+
+        if (singleFileProgressBar.value > 100) { singleFileProgressBar.value = 100; } 
 
         if (CONSOLE_LOG === true) {
 
@@ -378,6 +387,8 @@
         /* ------------------- Progress Bars -------------------------- */
 
         const ANIMATED_INCREMENT = 5;
+        const OPACITY_INCREMENT = 0.05;
+        const OPACITY_MIN = 0.1;
 
         let point1;
         let point2;
@@ -391,6 +402,7 @@
         if (marketFileProgressBar.animatedValue < marketFileProgressBar.value) {
 
             marketFileProgressBar.animatedValue = marketFileProgressBar.animatedValue + ANIMATED_INCREMENT;
+            marketFileProgressBar.opacity = marketFileProgressBar.opacity + OPACITY_INCREMENT;
 
         }
 
@@ -398,8 +410,11 @@
 
             marketFileProgressBar.animatedValue = 100;
 
-            marketFileProgressBar.fillStyle = LOADED_FILL_STYLE;
-            marketFileProgressBar.strokeStyle = LOADED_STROKE_STYLE;
+            marketFileProgressBar.opacity = marketFileProgressBar.opacity - OPACITY_INCREMENT;
+            if (marketFileProgressBar.opacity < OPACITY_MIN) { marketFileProgressBar.opacity = OPACITY_MIN;}
+
+            marketFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', marketFileProgressBar.opacity.toString());
+            marketFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', marketFileProgressBar.opacity.toString());
 
             changeStatusTo(PRODUCT_CARD_STATUS.ON);
         }
@@ -438,8 +453,8 @@
         browserCanvasContext.lineTo(point4.x, point4.y);
         browserCanvasContext.closePath();
 
-        browserCanvasContext.fillStyle = marketFileProgressBar.fillStyle;
-        browserCanvasContext.strokeStyle = marketFileProgressBar.strokeStyle;
+        browserCanvasContext.fillStyle = marketFileProgressBar.fillStyle.replace('@Opacity', marketFileProgressBar.opacity.toString());
+        browserCanvasContext.strokeStyle = marketFileProgressBar.strokeStyle.replace('@Opacity', marketFileProgressBar.opacity.toString());
 
         browserCanvasContext.fill();
         browserCanvasContext.lineWidth = 0.1;
@@ -452,6 +467,7 @@
         if (dailyFileProgressBar.animatedValue < dailyFileProgressBar.value) {
 
             dailyFileProgressBar.animatedValue = dailyFileProgressBar.animatedValue + ANIMATED_INCREMENT;
+            dailyFileProgressBar.opacity = dailyFileProgressBar.opacity + OPACITY_INCREMENT;
 
         }
 
@@ -459,8 +475,11 @@
 
             dailyFileProgressBar.animatedValue = 100;
 
-            dailyFileProgressBar.fillStyle = LOADED_FILL_STYLE;
-            dailyFileProgressBar.strokeStyle = LOADED_STROKE_STYLE;
+            dailyFileProgressBar.opacity = dailyFileProgressBar.opacity - OPACITY_INCREMENT;
+            if (dailyFileProgressBar.opacity < OPACITY_MIN) { dailyFileProgressBar.opacity = OPACITY_MIN; }
+
+            dailyFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', dailyFileProgressBar.opacity.toString());
+            dailyFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', dailyFileProgressBar.opacity.toString());
 
             changeStatusTo(PRODUCT_CARD_STATUS.ON);
         }
@@ -499,8 +518,8 @@
         browserCanvasContext.lineTo(point4.x, point4.y);
         browserCanvasContext.closePath();
 
-        browserCanvasContext.fillStyle = dailyFileProgressBar.fillStyle;
-        browserCanvasContext.strokeStyle = dailyFileProgressBar.strokeStyle;
+        browserCanvasContext.fillStyle = dailyFileProgressBar.fillStyle.replace('@Opacity', dailyFileProgressBar.opacity.toString());
+        browserCanvasContext.strokeStyle = dailyFileProgressBar.strokeStyle.replace('@Opacity', dailyFileProgressBar.opacity.toString());
 
         browserCanvasContext.fill();
         browserCanvasContext.lineWidth = 0.1;
@@ -513,6 +532,7 @@
         if (singleFileProgressBar.animatedValue < singleFileProgressBar.value) {
 
             singleFileProgressBar.animatedValue = singleFileProgressBar.animatedValue + ANIMATED_INCREMENT;
+            singleFileProgressBar.opacity = singleFileProgressBar.opacity + OPACITY_INCREMENT;
 
         }
 
@@ -520,8 +540,11 @@
 
             singleFileProgressBar.animatedValue = 100;
 
-            singleFileProgressBar.fillStyle = LOADED_FILL_STYLE;
-            singleFileProgressBar.strokeStyle = LOADED_STROKE_STYLE;
+            singleFileProgressBar.opacity = singleFileProgressBar.opacity - OPACITY_INCREMENT;
+            if (singleFileProgressBar.opacity < OPACITY_MIN) { singleFileProgressBar.opacity = OPACITY_MIN; }
+
+            singleFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', singleFileProgressBar.opacity.toString());
+            singleFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', singleFileProgressBar.opacity.toString());
 
             changeStatusTo(PRODUCT_CARD_STATUS.ON);
 
@@ -561,8 +584,8 @@
         browserCanvasContext.lineTo(point4.x, point4.y);
         browserCanvasContext.closePath();
 
-        browserCanvasContext.fillStyle = singleFileProgressBar.fillStyle;
-        browserCanvasContext.strokeStyle = singleFileProgressBar.strokeStyle;
+        browserCanvasContext.fillStyle = singleFileProgressBar.fillStyle.replace('@Opacity', singleFileProgressBar.opacity.toString());
+        browserCanvasContext.strokeStyle = singleFileProgressBar.strokeStyle.replace('@Opacity', singleFileProgressBar.opacity.toString());
 
         browserCanvasContext.fill();
         browserCanvasContext.lineWidth = 0.1;

@@ -26,8 +26,8 @@ function newCurrentCandlePanel() {
         currentCandlePanel.container.frame.width = 250;
         currentCandlePanel.container.frame.height = 300;
 
-        currentCandlePanel.container.frame.position.x = 0;
-        currentCandlePanel.container.frame.position.y = viewPort.visibleArea.topLeft.y;
+        currentCandlePanel.container.frame.position.x = viewPort.visibleArea.topRight.x - currentCandlePanel.container.frame.width - 180;
+        currentCandlePanel.container.frame.position.y = 0;
 
 
     }

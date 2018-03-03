@@ -32,11 +32,11 @@ function newProductsPanel() {
     function initialize() {
 
         this.container.frame.width = 300;
-        this.container.frame.height = 500;
+        this.container.frame.height = viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y + 15;
 
         var position = {
-            x: viewPort.visibleArea.topRight.x - this.container.frame.width,
-            y: viewPort.visibleArea.bottomRight.y - this.container.frame.height
+            x: viewPort.visibleArea.topLeft.x,
+            y: 0
         };
 
         this.container.frame.position = position;

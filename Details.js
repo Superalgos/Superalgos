@@ -476,10 +476,10 @@
                             y: 0
                         };
 
-                        volumePointA1 = plot.inverseTransform(volumePointA1, height);
-                        volumePointA2 = plot.inverseTransform(volumePointA2, height);
-                        volumePointA3 = plot.inverseTransform(volumePointA3, height);
-                        volumePointA4 = plot.inverseTransform(volumePointA4, height);
+                        volumePointA1 = plot.transformThisPoint(volumePointA1);
+                        volumePointA2 = plot.transformThisPoint(volumePointA2);
+                        volumePointA3 = plot.transformThisPoint(volumePointA3);
+                        volumePointA4 = plot.transformThisPoint(volumePointA4);
 
                         volumePointA1 = transformThisPoint(volumePointA1, thisObject.container);
                         volumePointA2 = transformThisPoint(volumePointA2, thisObject.container);
@@ -541,10 +541,10 @@
                             y: height
                         };
 
-                        volumePointB1 = plot.inverseTransform2(volumePointB1, height);
-                        volumePointB2 = plot.inverseTransform2(volumePointB2, height);
-                        volumePointB3 = plot.inverseTransform2(volumePointB3, height);
-                        volumePointB4 = plot.inverseTransform2(volumePointB4, height);
+                        volumePointB1 = plot.transformThisPoint2(volumePointB1);
+                        volumePointB2 = plot.transformThisPoint2(volumePointB2);
+                        volumePointB3 = plot.transformThisPoint2(volumePointB3);
+                        volumePointB4 = plot.transformThisPoint2(volumePointB4);
 
                         volumePointB1 = transformThisPoint(volumePointB1, thisObject.container);
                         volumePointB2 = transformThisPoint(volumePointB2, thisObject.container);

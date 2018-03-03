@@ -169,7 +169,7 @@
                 y: record.rate
             };
 
-            point = timeLineCoordinateSystem.inverseTransform(point, thisObject.container.frame.height);
+            point = timeLineCoordinateSystem.transformThisPoint(point);
 
             point = transformThisPoint(point, thisObject.container);
 

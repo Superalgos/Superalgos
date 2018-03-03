@@ -1,6 +1,8 @@
 
 exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
+    const FULL_LOG = true;
+
     let bot = BOT;
     const ROOT_DIR = './';
 
@@ -109,22 +111,37 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
         if (fileService === undefined) {
 
-            const logText = "[ERROR] initialize function not executed or failed. Can not process this request. Sorry.";
-            logger.write(logText);
+            logger.write("[ERROR] initialize function not executed or failed. Can not process this request. Sorry.");
             return;
         }
 
         try {
 
+            if (FULL_LOG === true) {
+
+                logger.write("[INFO] createTextFile about to createFileFromText here:");
+                logger.write("[INFO] SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName);
+
+            }
+
             fileService.createFileFromText(shareName, folderPath, fileName, fileContent, onFileCreated);
 
             function onFileCreated(err, result, response) {
 
+                if (FULL_LOG === true) {
+
+                    logger.write("[INFO] SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName);
+                    logger.write("[INFO] createTextFile - onFileCreated: err = " + JSON.stringify(err));
+                    logger.write("[INFO] createTextFile - onFileCreated: result = " + JSON.stringify(result));
+                    logger.write("[INFO] createTextFile - onFileCreated: response = " + JSON.stringify(response));
+
+                }
+
                 if (err) {
 
-                    const logText = "[WARN] createTextFile - onFileCreated ' ERROR = " + err.message + " SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName;
-                    console.log(logText);
-                    logger.write(logText);
+                    logger.write("[ERR] createTextFile - onFileCreated: err = " + JSON.stringify(err));
+                    logger.write("[ERR] createTextFile - onFileCreated: result = " + JSON.stringify(result));
+                    logger.write("[ERR] createTextFile - onFileCreated: response = " + JSON.stringify(response));
 
                     if (err.message.indexOf("The server is busy") > 0) {
 
@@ -134,28 +151,28 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
                             if (err) {
 
-                                const logText = "[ERROR] createTextFile - onFileCreated - onFileCreatedSecondTry : File not created. Giving Up.' ERROR = " + err.message + " SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName;
-                                console.log(logText);
-                                logger.write(logText);
+                                logger.write("[ERR] createTextFile - onFileCreated - onFileCreatedSecondTry : File not created. Giving Up. ");
 
                             } else {
 
-                                const logText = "[INFO] createTextFile - onFileCreated - onFileCreatedSecondTry ' : File succesfully created on second try. SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName;
-                                console.log(logText);
-                                logger.write(logText);
+                                logger.write("[INFO] createTextFile - onFileCreated - onFileCreatedSecondTry : File succesfully created on second try. ");
+                                logger.write("[INFO] SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName);
 
                             }
                         }
                     }
+
+                    callBackFunction(false);
+
+                } else {
+
+                    callBackFunction(true);
+
                 }
-
-                callBackFunction();
             }
-
         }
         catch (err) {
-            const logText = "[ERROR] 'createTextFile' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write("[ERROR] 'createTextFile' - ERROR : " + JSON.stringify(err));
         }
 
     }

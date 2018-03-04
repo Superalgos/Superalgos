@@ -6,11 +6,11 @@ if (CONSOLE_LOG === true) {
 
 }
 
-let debugMode = true;           // This forces the server to read Plotters from the local drive.
+const DEBUG_MODE = true;           // This forces the server to read Plotters from the local drive.
 
-if (CONSOLE_LOG === true && debugMode === true) {
+if (CONSOLE_LOG === true && DEBUG_MODE === true) {
 
-    console.log("Hey! if you expect this to run on production I have bad news for you son, debugMode is true, that means the server wont find your local files. ");
+    console.log("Hey! if you expect this to run on production I have bad news for you son, DEBUG_MODE is true, that means the server wont find your local files. ");
 
 }
 
@@ -32,15 +32,40 @@ function initialize() {
 
     }
 
-    let fs = require('fs');
-    try {
-        let fileName = '../AAPlatform/ecosystem.json';
-        fs.readFile(fileName, onFileRead);
+    if (DEBUG_MODE === true) {
 
-        function onFileRead(err, file) {
+        let fs = require('fs');
+        try {
+            let fileName = '../AAPlatform/ecosystem.json';
+            fs.readFile(fileName, onFileRead);
+
+            function onFileRead(err, file) {
+
+                try {
+                    ecosystem = file.toString();
+                    ecosystem = ecosystem.trim(); // remove first byte with some encoding.
+
+                    ecosystemObject = JSON.parse(ecosystem);
+                    startHtttpServer();
+                }
+                catch (err) {
+                    console.log("File Not Found: " + fileName + " or Error = " + err);
+                }
+
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
+
+    } else {
+
+        getGithubData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived)
+
+        function onDataArrived(pData) {
 
             try {
-                ecosystem = file.toString();
+                ecosystem = pData.toString();
                 ecosystem = ecosystem.trim(); // remove first byte with some encoding.
 
                 ecosystemObject = JSON.parse(ecosystem);
@@ -52,9 +77,8 @@ function initialize() {
 
         }
     }
-    catch (err) {
-        console.log(err);
-    }
+
+ 
 }
 
 function startHtttpServer() {
@@ -213,58 +237,20 @@ function onBrowserRequest(request, response) {
 
                 */
 
-                if (debugMode === true) {
+                if (DEBUG_MODE === true) {
 
                     respondWithFile('../Plotters/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response);
 
                 } else {
 
-                    let cacheVersion = githubData.get(requestParameters[2] + requestParameters[3] + requestParameters[4])
+                    getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived)
 
-                    if (cacheVersion !== undefined) {
+                    function onDataArrived(pData) {
 
-                        respondWithContent(cacheVersion, response);
+                        respondWithContent(pData, response);
 
-                    } else {
-
-                        const octokit = require('@octokit/rest')()
-                        global.atob = require("atob");
-
-                        let owner = requestParameters[2];
-                        let repo = requestParameters[3];
-                        let branch = "master";
-                        let page = 1;
-                        let per_page = 100;
-                        let ref = "master";
-                        let path = requestParameters[4];
-
-                        octokit.repos.getContent({ owner, repo, path, ref }, onContent);
-
-                        function onContent(error, result) {
-
-                            let decoded = atob(result.data.content);
-
-                            let cleanString = decoded.substring(3); // Eliminate first 2 bytes of noise.
-
-                            respondWithContent(cleanString, response);
-
-                            githubData.set(requestParameters[2] + requestParameters[3] + requestParameters[4], cleanString);
-
-                        }
                     }
                 }
-            }
-            break; 
-
-        case "CandleTechnicalAnalisys":
-            {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
-            }
-            break; 
-
-        case "VolumeTechnicalAnalisys":
-            {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break; 
 
@@ -275,12 +261,6 @@ function onBrowserRequest(request, response) {
             break;
 
         case "ChartLayers":
-            {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
-            }
-            break;
-
-        case "Indicators":
             {
                 respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
             }
@@ -434,6 +414,40 @@ function respondWithFile(fileName, response) {
     }
 }
 
+function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
+    let cacheVersion = githubData.get(pOrg + '.' + pRepo + '.' + pPath)
 
+    if (cacheVersion !== undefined) {
+
+        callBackFunction(cacheVersion);
+
+    } else {
+
+        const octokit = require('@octokit/rest')()
+        global.atob = require("atob");
+
+        let owner = pOrg;
+        let repo = pRepo;
+        let branch = "master";
+        let page = 1;
+        let per_page = 100;
+        let ref = "master";
+        let path = pPath;
+
+        octokit.repos.getContent({ owner, repo, path, ref }, onContent);
+
+        function onContent(error, result) {
+
+            let decoded = atob(result.data.content);
+
+            let cleanString = decoded.substring(3); // Eliminate first 2 bytes of ecoding info.
+
+            githubData.set(pOrg + '.' + pRepo + '.' + pPath, cleanString);
+
+            callBackFunction(cleanString);
+
+        }
+    }
+}
 

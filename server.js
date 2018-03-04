@@ -6,11 +6,11 @@ if (CONSOLE_LOG === true) {
 
 }
 
-const DEBUG_MODE = true;           // This forces the server to read Plotters from the local drive.
+const DEBUG_MODE = false;           // This forces the server to read Plotters from the local drive.
 
 if (CONSOLE_LOG === true && DEBUG_MODE === true) {
 
-    console.log("Hey! if you expect this to run on production I have bad news for you son, DEBUG_MODE is true, that means the server wont find your local files. ");
+    console.log("Hey! if you expect this to run on production I have some bad news for you son, DEBUG_MODE is true, that means the server wont find your local files. ");
 
 }
 

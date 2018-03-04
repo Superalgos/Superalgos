@@ -284,9 +284,46 @@
 
     function drawProductCard() {
 
+        /*
+
+        Put image on the card.
+
+        */
+
+        let teamImagePoint = {
+            x: 10,
+            y: 5
+        };
+
+        teamImagePoint = thisObject.container.frame.frameThisPoint(teamImagePoint);
+
+        let teamImage = document.getElementById("AAMasters");
+        browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, 45, 45);
+
         centerPoint = {
-            x: 7,
-            y: 7
+            x: thisObject.container.frame.width - 10,
+            y: thisObject.container.frame.height / 2
+        };
+
+        if (thisObject.bot.codeName === "AAOlivia") {
+
+            let botImagePoint = {
+                x: thisObject.container.frame.width - 10 - 50,
+                y: 5
+            };
+
+            botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint);
+
+            let botImage = document.getElementById("AAOlivia");
+            browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, 45, 45);
+
+        }
+
+        /* Now the small circle */
+
+        centerPoint = {
+            x: thisObject.container.frame.width - 10,
+            y: thisObject.container.frame.height / 2
         };
 
         /* Now the transformations. */
@@ -336,18 +373,12 @@
 
         let label;
 
-        let xOffset;
-        let yOffset;
-
         /* devTeam */
 
         label = "Dev Team: " + thisObject.devTeam.displayName;
 
-        xOffset = 0;
-        yOffset = 0;
-
         labelPoint = {
-            x: 20,
+            x: 65,
             y: thisObject.container.frame.height - 45
         };
 
@@ -361,7 +392,7 @@
         label = "Bot: " + thisObject.bot.displayName;
 
         labelPoint = {
-            x: 20,
+            x: 65,
             y: thisObject.container.frame.height - 30
         };
 
@@ -375,7 +406,7 @@
         label = "Product: " + thisObject.product.displayName;
 
         labelPoint = {
-            x: 20,
+            x: 65,
             y: thisObject.container.frame.height - 15
         };
 

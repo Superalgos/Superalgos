@@ -66,18 +66,15 @@ function newAnimation() {
 
         });
 
-        /* We also draw this array of circles, that is used for debugging purposes. */
-
-        drawSmallBall();
-
-        /* We request the next frame to be drawn, and stablishing a loop */
-
-        animationLoopHandle = window.requestAnimationFrame(animationLoop);
 
         /* We animate the zoom of the viewPort */
 
         viewPort.animate();
         viewPort.draw();
+
+        /* We request the next frame to be drawn, and stablishing a loop */
+
+        animationLoopHandle = window.requestAnimationFrame(animationLoop);
 
     }
 }

@@ -113,9 +113,6 @@
     <Compile Include="ViewPort.js" />
     <Compile Include="VolumeBar.js" />
     <Compile Include="Zoom.js" />
-    <Content Include="ecosystem.json">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="index.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />

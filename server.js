@@ -6,7 +6,7 @@ if (CONSOLE_LOG === true) {
 
 }
 
-let debugMode = false;           // This forces the server to read Plotters from the local drive.
+let debugMode = true;           // This forces the server to read Plotters from the local drive.
 
 if (CONSOLE_LOG === true && debugMode === true) {
 
@@ -14,7 +14,7 @@ if (CONSOLE_LOG === true && debugMode === true) {
 
 }
 
-let githubPages = new Map;
+let githubData = new Map;
 let ecosystem;
 let ecosystemObject;
 
@@ -34,7 +34,7 @@ function initialize() {
 
     let fs = require('fs');
     try {
-        let fileName = 'ecosystem.json';
+        let fileName = '../AAPlatform/ecosystem.json';
         fs.readFile(fileName, onFileRead);
 
         function onFileRead(err, file) {
@@ -83,7 +83,7 @@ function onBrowserRequest(request, response) {
 
         case "clear-cache": {
 
-            githubPages = new Map;
+            githubData = new Map;
 
             respondWithContent("command acepted", response);
 
@@ -91,6 +91,14 @@ function onBrowserRequest(request, response) {
             break;
         case "Plotters.js":
             {
+                /*
+
+                This file is build dinamically because it has the code to instantiate the different configured Plotters. The instantiation code
+                will be generated using a pre-defined string with replacement points. We will go through the configuration file to learn
+                about all the possible plotters the system can load.
+
+                */
+
                 let fs = require('fs');
                 try {
                     let fileName = 'Plotters.js';
@@ -120,8 +128,6 @@ function onBrowserRequest(request, response) {
                                 for (let j = 0; j < devTeam.plotters.length; j++) {
 
                                     let plotter = devTeam.plotters[j];
-
-                                    /* Now each of these layers has a plotter that we need to define on the Plotter.js file. */
 
                                     let caseStringCopy = caseString;
 
@@ -158,6 +164,13 @@ function onBrowserRequest(request, response) {
 
         case "Ecosystem.js":
             {
+                /*
+
+                At this page we need to insert the configuration file for the whole system that we assamble before at the begining of this module
+                execution. So what we do is to load a template file with an insertion point where the configuration json is injected in. 
+
+                */
+
                 let fs = require('fs');
                 try {
                     let fileName = 'Ecosystem.js';
@@ -190,6 +203,15 @@ function onBrowserRequest(request, response) {
 
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
+                /*
+
+                There are 3 different sources for plotters:
+
+                1.If we are in debug mode, from the filesystem.
+                2.If we are in production from a cache we keep in memory at the node server.
+                3.If the cache does not have the file, then we get it from github.com, put in on the cache and serve it.
+
+                */
 
                 if (debugMode === true) {
 
@@ -197,7 +219,7 @@ function onBrowserRequest(request, response) {
 
                 } else {
 
-                    let cacheVersion = githubPages.get(requestParameters[2] + requestParameters[3] + requestParameters[4])
+                    let cacheVersion = githubData.get(requestParameters[2] + requestParameters[3] + requestParameters[4])
 
                     if (cacheVersion !== undefined) {
 
@@ -226,7 +248,7 @@ function onBrowserRequest(request, response) {
 
                             respondWithContent(cleanString, response);
 
-                            githubPages.set(requestParameters[2] + requestParameters[3] + requestParameters[4], cleanString);
+                            githubData.set(requestParameters[2] + requestParameters[3] + requestParameters[4], cleanString);
 
                         }
                     }

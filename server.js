@@ -32,53 +32,160 @@ function initialize() {
 
     }
 
-    if (DEBUG_MODE === true) {
+    readEcosystemConfig();
 
-        let fs = require('fs');
-        try {
-            let fileName = '../AAPlatform/ecosystem.json';
-            fs.readFile(fileName, onFileRead);
+    function readEcosystemConfig() {
 
-            function onFileRead(err, file) {
+        /*
+
+        This configuration file is the backbone of the system. The first file we are going to get is a template where other configurations are
+        injected and the files ends up inflated with all these configs in one single JSON object that in turn is later injected into a
+        javascript module with an object that is going to instantiate it at run-time.
+
+        */
+
+        if (DEBUG_MODE === true) {
+
+            let fs = require('fs');
+            try {
+                let fileName = '../AAPlatform/ecosystem.json';
+                fs.readFile(fileName, onFileRead);
+
+                function onFileRead(err, file) {
+
+                    try {
+                        ecosystem = file.toString();
+                        ecosystem = ecosystem.trim(); // remove first byte with some encoding.
+
+                        ecosystemObject = JSON.parse(ecosystem);
+                        readCompetitionsConfig();
+                    }
+                    catch (err) {
+                        console.log("File Not Found: " + fileName + " or Error = " + err);
+                    }
+
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+
+        } else {
+
+            getGithubData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived)
+
+            function onDataArrived(pData) {
 
                 try {
-                    ecosystem = file.toString();
+                    ecosystem = pData.toString();
                     ecosystem = ecosystem.trim(); // remove first byte with some encoding.
 
                     ecosystemObject = JSON.parse(ecosystem);
-                    startHtttpServer();
+                    readCompetitionsConfig();
                 }
                 catch (err) {
-                    console.log("File Not Found: " + fileName + " or Error = " + err);
+                    console.log("File Not Found:  Error = " + err);
                 }
 
             }
-        }
-        catch (err) {
-            console.log(err);
-        }
-
-    } else {
-
-        getGithubData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived)
-
-        function onDataArrived(pData) {
-
-            try {
-                ecosystem = pData.toString();
-                ecosystem = ecosystem.trim(); // remove first byte with some encoding.
-
-                ecosystemObject = JSON.parse(ecosystem);
-                startHtttpServer();
-            }
-            catch (err) {
-                console.log("File Not Found: " + fileName + " or Error = " + err);
-            }
-
         }
     }
 
- 
+    function readCompetitionsConfig() {
+
+        /*
+
+        The file previously read contains the reference to all competiotion hosts and their competitions. We use these references to load the specific
+        configurations and inject them to the first file.
+
+        Lets remember that these files can come from 3 different sources, and this patter is later repeated many times down this module:
+
+            1.If we are in debug mode, from the filesystem.
+            2.If we are in production from a cache we keep in memory at the node server.
+            3.If the cache does not have the file, then we get it from github.com, put in on the cache and serve it.
+
+        2 and 3 are done by the getGithubData function.
+
+        */
+
+        let requestsSent = 0;
+        let responsesReceived = 0;
+
+        for (let i = 0; i < ecosystemObject.competitionHosts.length; i++) {
+
+            let host = ecosystemObject.competitionHosts[i];
+
+            for (let j = 0; j < host.competitions.length; j++) {
+
+                let competition = host.competitions[j];
+
+                requestsSent++;
+
+                if (DEBUG_MODE === true) {
+
+                    let fs = require('fs');
+                    try {
+                        let fileName = '../Competitions/' + competition.host + '/' + competition.repo + '/' + competition.configFile;
+                        fs.readFile(fileName, onFileRead);
+
+                        function onFileRead(err, pData) {
+
+                            try {
+                                responsesReceived++;
+
+                                pData = pData.toString();
+                                pData = pData.trim(); // remove first byte with some encoding.
+
+                                let configObj = JSON.parse(pData);
+                                competition.configObj = configObj;
+
+                                if (requestsSent === responsesReceived) {
+
+                                    startHtttpServer();
+
+                                }
+                            }
+                            catch (err) {
+                                console.log("File Not Found: " + fileName + " or Error = " + err);
+                            }
+
+                        }
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+
+                } else {
+
+                    getGithubData(competition.host, competition.repo, competition.configFile, onDataArrived)
+
+                    function onDataArrived(pData) {
+
+                        try {
+
+                            responsesReceived++;
+
+                            pData = pData.toString();
+                            pData = pData.trim(); // remove first byte with some encoding.
+
+                            let configObj = JSON.parse(pData);
+                            competition.configObj = configObj;
+
+                            if (requestsSent === responsesReceived) {
+
+                                startHtttpServer();
+
+                            }
+
+                        }
+                        catch (err) {
+                            console.log("readCompetitionsConfig Error = " + err);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 function startHtttpServer() {
@@ -205,9 +312,9 @@ function onBrowserRequest(request, response) {
                         try {
 
                             let fileContent = file.toString();
-                            let trimmedEcosystem = ecosystem.trim(); 
+                            let insertContent = JSON.stringify(ecosystemObject); 
 
-                            fileContent = fileContent.replace('"@ecosystem.json@"', trimmedEcosystem); 
+                            fileContent = fileContent.replace('"@ecosystem.json@"', insertContent); 
 
                             respondWithContent(fileContent, response);
 
@@ -227,15 +334,6 @@ function onBrowserRequest(request, response) {
 
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
-                /*
-
-                There are 3 different sources for plotters:
-
-                1.If we are in debug mode, from the filesystem.
-                2.If we are in production from a cache we keep in memory at the node server.
-                3.If the cache does not have the file, then we get it from github.com, put in on the cache and serve it.
-
-                */
 
                 if (DEBUG_MODE === true) {
 
@@ -438,6 +536,8 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
         octokit.repos.getContent({ owner, repo, path, ref }, onContent);
 
         function onContent(error, result) {
+
+            if (error !== undefined) { console.log(error);}
 
             let decoded = atob(result.data.content);
 

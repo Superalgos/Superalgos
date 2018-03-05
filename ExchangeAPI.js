@@ -4,7 +4,6 @@
 
     This module allows trading bots to connect to the exchange and do trding operations on it. So far it can only work with Poloniex.
 
-
     */
 
     const MODULE_NAME = "Exchange API";
@@ -320,10 +319,82 @@
         }
     }
 
-    function movePosition() {
+    function movePosition(pPosition, pNewRate) {
 
         try {
 
+            poloniexApiClient.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
+
+            function onExchangeCallReturned(err, exchangeResponse) {
+
+                try {
+
+                    if (err || exchangeResponse.error !== undefined) {
+                        try {
+
+                            if (err.message.indexOf("ETIMEDOUT") > 0) {
+
+                                logger.write("[WARN] movePosition -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
+                                callBackFunction("Retry Later.");
+                                return;
+
+                            } else {
+
+                                if (err.message.indexOf("ECONNRESET") > 0) {
+
+                                    logger.write("[WARN] movePosition -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
+                                    callBackFunction("Retry Later.");
+                                    return;
+
+                                } else {
+                                    logger.write("[ERROR] movePosition -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
+                                    callBackFunction("Operation Failed.");
+                                    return;
+                                }
+                            }
+
+                        } catch (err) {
+                            logger.write("[ERROR] movePosition -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
+                            callBackFunction("Operation Failed.");
+                            return;
+                        }
+
+                        return;
+
+                    } else {
+
+                        if (exchangeResponse.success !== 1) {
+                            logger.write("[ERROR] movePosition -> onExchangeCallReturned -> exchangeResponse.success = " + exchangeResponse.success);
+                            callBackFunction("Operation Failed.");
+                            return;
+                        }
+                        /*
+
+                       This is what we can receive from the exchange.
+
+                       {
+                       "orderNumber":31226040,
+                       "resultingTrades":
+                           [{
+                               "amount":"338.8732",
+                               "date":"2014-10-18 23:03:21",
+                               "rate":"0.00000173",
+                               "total":"0.00058625",
+                               "tradeID":"16164",
+                               "type":"buy"
+                           }]
+                       }
+
+                       */
+
+                        callBackFunction(null, exchangeResponse.orderNumber);
+                    }
+                }
+                catch (err) {
+                    logger.write("[ERROR] movePosition -> onExchangeCallReturned -> Error = " + err.message);
+                    callBackFunction("Operation Failed.");
+                }
+            }
 
         } catch (err) {
             logger.write("[ERROR] movePosition -> err = " + err);

@@ -22,6 +22,9 @@
   <ItemGroup>
     <Compile Include="Azure File Storage.js" />
     <Compile Include="Azure Web Job Shutdown.js" />
+    <Compile Include="Context.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Debug Log.js" />
     <Compile Include="ExchangeAPI.js">
       <SubType>Code</SubType>

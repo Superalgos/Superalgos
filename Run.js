@@ -31,7 +31,14 @@ catch (err) {
     return;
 }
 
-let bot = botConfig.bot;
+let bot = {
+    "name": botConfig.bot.displayName,
+    "type": botConfig.bot.type,
+    "version": botConfig.bot.version,
+    "devTeam": botConfig.bot.devTeam
+};
+
+botConfig.bot;
 
 /* Now we will run according to what we see at the config file. */
 

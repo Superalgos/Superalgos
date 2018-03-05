@@ -683,7 +683,7 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
             let decoded = atob(result.data.content);
 
-            let cleanString = decoded.substring(3); // Eliminate first 2 bytes of ecoding info.
+            let cleanString = decoded.trim(); // Eliminate ecoding info.
 
             githubData.set(pOrg + '.' + pRepo + '.' + pPath, cleanString);
 

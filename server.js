@@ -61,7 +61,7 @@ function initialize() {
                         readCompetitionsConfig();
                     }
                     catch (err) {
-                        console.log("File Not Found: " + fileName + " or Error = " + err);
+                        console.log("readEcosystemConfig -> onFileRead -> File = " + fileName + " Error = " + err);
                     }
 
                 }
@@ -84,7 +84,7 @@ function initialize() {
                     readCompetitionsConfig();
                 }
                 catch (err) {
-                    console.log("File Not Found:  Error = " + err);
+                    console.log("readEcosystemConfig -> onDataArrived -> Error = " + err);
                 }
 
             }
@@ -152,7 +152,7 @@ function initialize() {
                                 }
                             }
                             catch (err) {
-                                console.log("File Not Found: " + fileName + " or Error = " + err);
+                                console.log("readCompetitionsConfig -> onFileRead -> File = " + fileName + " Error = " + err);
                             }
 
                         }
@@ -191,7 +191,7 @@ function initialize() {
 
                         }
                         catch (err) {
-                            console.log("readCompetitionsConfig Error = " + err + " pData = " + pData);
+                            console.log("readCompetitionsConfig -> onDataArrived -> Error = " + err);
                         }
                     }
                 }
@@ -258,7 +258,7 @@ function initialize() {
                                 }
                             }
                             catch (err) {
-                                console.log("File Not Found: " + fileName + " or Error = " + err);
+                                console.log("readBotsConfig -> onFileRead -> File = " + fileName + " Error = " + err);
                             }
 
                         }
@@ -303,7 +303,7 @@ function initialize() {
 
                         }
                         catch (err) {
-                            console.log("readBotsConfig Error = " + err + " pData = " + pData);
+                            console.log("readBotsConfig -> onDataArrived -> Error = " + err);
                         }
                     }
                 }
@@ -683,7 +683,7 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
             let decoded = atob(result.data.content);
 
-            let cleanString = decoded.trim(); // Eliminate ecoding info.
+            let cleanString = decoded.substring(2); // Eliminate first 2 bytes of ecoding info.
 
             githubData.set(pOrg + '.' + pRepo + '.' + pPath, cleanString);
 

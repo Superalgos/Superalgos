@@ -1066,94 +1066,17 @@
                 }
             }
 
-            function putPositionAtExchange(pType, pRate, pAmountA, pAmountB, callBackFunction) {
+            function putPositionAtExchange(pType, pRate, pAmountA, pAmountB, callBack) {
 
-                if (pType === "buy") {
+                exchangeAPI.putPosition(market, pType, pRate, pAmountA, pAmountB,onResponse);
 
-                    poloniexApiClient.buy(market.assetA, market.assetB, pRate, pAmountB, onExchangeCallReturned);
+                function onResponse(err, pPositionId) {
 
-                } else {
-
-                    poloniexApiClient.sell(market.assetA, market.assetB, pRate, pAmountB, onExchangeCallReturned);
-
-                }
-
-                function onExchangeCallReturned(err, exchangeResponse) {
-
-                    try {
-
-                        if (err || exchangeResponse.error !== undefined) {
-                            try {
-
-                                if (err.message.indexOf("ETIMEDOUT") > 0) {
-
-                                    const logText = "[WARN] putPositionAtExchange - onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
-                                    logger.write(logText);
-
-                                    /* We abort the process and request a new execution at the configured amount of time. */
-
-                                    callBackFunction(true, nextIntervalLapse);
-                                    return;
-
-                                } else {
-
-                                    if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                        const logText = "[WARN] putPositionAtExchange - onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
-                                        logger.write(logText);
-
-                                        /* We abort the process and request a new execution at the configured amount of time. */
-
-                                        callBackFunction(true, nextIntervalLapse);
-                                        return;
-
-                                    } else {
-
-
-                                        const logText = "[ERROR] putPositionAtExchange -onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
-                                        logger.write(logText);
-                                        return;
-                                    }
-                                }
-
-                            } catch (err) {
-                                const logText = "[ERROR] putPositionAtExchange - onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
-                                logger.write(logText);
-                                return;
-                            }
-
-                            return;
-
-                        } else {
-
-                            /*
-
-                            This is what we can receive from the exchange. We will ignore the trades list for now, and analize
-                            what happened at the next bot execution. 
-
-                            {
-                            "orderNumber":31226040,
-                            "resultingTrades":
-                                [{
-                                    "amount":"338.8732",
-                                    "date":"2014-10-18 23:03:21",
-                                    "rate":"0.00000173",
-                                    "total":"0.00058625",
-                                    "tradeID":"16164",
-                                    "type":"buy"
-                                }]
-                            }
-
-                            */
-
-                            /*
-
-                            We will add this new position to the executionContext.
-
-                            */
+                    switch (err) {
+                        case null: {            // Everything went well, we have the information requested.
 
                             let position = {
-                                id: exchangeResponse.orderNumber,
+                                id: pPositionId,
                                 type: pType,
                                 rate: pRate,
                                 amountA: pAmountA,
@@ -1161,7 +1084,7 @@
                                 date: (processDatetime.valueOf()),
                                 status: "open",
                                 trades: []
-                                };
+                            };
 
                             executionContext.positions.push(position);
 
@@ -1175,16 +1098,22 @@
                             newHistoryRecord.newPositions++;
                             newHistoryRecord.rate = pRate;
 
-                            callBackFunction();
+                            callBack();
                         }
-                    }
-                    catch (err) {
-                        const logText = "[ERROR] 'putPositionAtExchange - onExchangeCallReturned' - ERROR : " + err.message;
-                        logger.write(logText);
-
+                            break;
+                        case 'Retry Later.': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Interval Retry.");
+                            callBackFunction(true, nextIntervalLapse);
+                            return;
+                        }
+                            break;
+                        case 'Operation Failed.': { // This is an unexpected exception that we do not know how to handle.
+                            logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                            return;
+                        }
+                            break;
                     }
                 }
-
             }
 
             function movePositionAtExchange(pPosition, pNewRate, callBackFunction) {

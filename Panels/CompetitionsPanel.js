@@ -1,11 +1,11 @@
 ﻿
 
 
-function newProductsPanel() {
+function newCompetitionsPanel() {
 
     var thisObject = {
         container: undefined,
-        getLoadingProductCards: getLoadingProductCards,
+        getLoadingCompetitions: getLoadingCompetitions,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
@@ -15,14 +15,14 @@ function newProductsPanel() {
 
     var container = newContainer();
 
-    container.name = "Bots Product Panel";
+    container.name = "Competitions Product Panel";
     container.initialize();
 
     container.isDraggeable = true;
     container.isZoomeable = false;
 
     thisObject.container = container;
-    thisObject.container.frame.containerName = "Bot's Products";
+    thisObject.container.frame.containerName = "Competitions";
 
     let isInitialized = false;
     let productCards = [];
@@ -35,7 +35,7 @@ function newProductsPanel() {
         thisObject.container.frame.height = viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y + 15;
 
         var position = {
-            x: viewPort.visibleArea.topLeft.x,
+            x: viewPort.visibleArea.bottomRight.x - thisObject.container.frame.width,
             y: 0
         };
 
@@ -85,7 +85,7 @@ function newProductsPanel() {
 
                     /* Positioning within thisObject Panel */
 
-                    let position = { 
+                    let position = {
                         x: 10,
                         y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
                     };
@@ -116,7 +116,7 @@ function newProductsPanel() {
 
     }
 
-    function getLoadingProductCards() {
+    function getLoadingCompetitions() {
 
         /* Returns all productCards which status is ON */
 
@@ -172,7 +172,7 @@ function newProductsPanel() {
 
     function draw() {
 
-        if (isInitialized === false) {return;}
+        if (isInitialized === false) { return; }
 
         thisObject.container.frame.draw(false, false, true);
 

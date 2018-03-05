@@ -118,7 +118,7 @@ function newProductsPanel() {
 
     function getLoadingProductCards() {
 
-        /* Returns all productCards which status is ON */
+        /* Returns all productCards which status is LOADING */
 
         let onProducts = [];
 

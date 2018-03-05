@@ -34,8 +34,6 @@
 
     let fs = require('fs');
 
-    let markets;
-
     let charlyAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
     let oliviaAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
     let tomAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
@@ -65,9 +63,6 @@
             oliviaAzureFileStorage.initialize("Olivia");
             tomAzureFileStorage.initialize("Tom");
             mariamAzureFileStorage.initialize("Mariam");
-
-            markets = MARKETS_MODULE.newMarkets(bot);
-            markets.initialize(callBackFunction);
 
 
         } catch (err) {

@@ -675,7 +675,7 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
             if (CONSOLE_LOG === true) {
 
-                console.log("getGithubData - Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString.substring(0,100);
+                console.log("getGithubData - Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString().substring(0,100));
 
             }
 

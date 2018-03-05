@@ -1,12 +1,10 @@
 {
-  "bot": {
-    "displayName": "Mariam",
-    "codeName": "AAMariam",
-    "type": "Trading",
-    "version": "1.0.0",
-    "devTeam": "AAMasters",
-    "dataSetVersion": "dataSet.V1"
-  },
+  "displayName": "Mariam",
+  "codeName": "AAMariam",
+  "type": "Trading",
+  "version": "1.0.0",
+  "devTeam": "AAMasters",
+  "dataSetVersion": "dataSet.V1",
   "processes": [
     {
       "name": "Trading-Process",

@@ -708,7 +708,7 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
                         try {
                             jsonTest = JSON.parse(cleanString);
                         } catch (err) {
-                            console.log("getGithubData -> onContent -> Could not clean the data received -> Data = " + decoded);
+                            console.log("getGithubData -> onContent -> Could not clean the data received -> Data = " + decoded.substring(0, 50));
                         }
                     }
                 }

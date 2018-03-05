@@ -713,9 +713,7 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
                     }
                 }
             }
-            
-            let cleanString = decoded.substring(2); // Eliminate first 2 bytes of ecoding info.
-
+           
             githubData.set(pOrg + '.' + pRepo + '.' + pPath, cleanString);
 
             callBackFunction(cleanString);

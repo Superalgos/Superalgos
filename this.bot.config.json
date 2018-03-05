@@ -1,12 +1,10 @@
 {
-  "bot": {
-    "displayName": "Tom",
-    "codeName": "AATom",
-    "type": "Indicator",
-    "version": "1.0.0",
-    "devTeam": "AAMasters",
-    "dataSetVersion": "dataSet.V1"
-  },
+  "displayName": "Tom",
+  "codeName": "AATom",
+  "type": "Indicator",
+  "version": "1.0.0",
+  "devTeam": "AAMasters",
+  "dataSetVersion": "dataSet.V1",
   "processes": [
     {
       "name": "Multi-Period-Market",

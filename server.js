@@ -6,7 +6,7 @@ if (CONSOLE_LOG === true) {
 
 }
 
-const DEBUG_MODE = false;           // This forces the server to read Plotters from the local drive.
+const DEBUG_MODE = true;           // This forces the server to read Plotters from the local drive.
 
 if (CONSOLE_LOG === true && DEBUG_MODE === true) {
 
@@ -125,7 +125,7 @@ function initialize() {
 
                     let fs = require('fs');
                     try {
-                        let fileName = '../Competitions/' + competition.host + '/' + competition.repo + '/' + competition.configFile;
+                        let fileName = '../Competitions/' + host.codeName + '/' + competition.repo + '/' + competition.configFile;
                         fs.readFile(fileName, onFileRead);
 
                         function onFileRead(err, pData) {
@@ -157,7 +157,7 @@ function initialize() {
 
                 } else {
 
-                    getGithubData(competition.host, competition.repo, competition.configFile, onDataArrived)
+                    getGithubData(host.codeName, competition.repo, competition.configFile, onDataArrived)
 
                     function onDataArrived(pData) {
 

@@ -6,7 +6,7 @@ if (CONSOLE_LOG === true) {
 
 }
 
-const DEBUG_MODE = true;           // This forces the server to read Plotters from the local drive.
+const DEBUG_MODE = false;           // This forces the server to read Plotters from the local drive.
 
 if (CONSOLE_LOG === true && DEBUG_MODE === true) {
 
@@ -141,7 +141,7 @@ function initialize() {
 
                                 if (requestsSent === responsesReceived) {
 
-                                    startHtttpServer();
+                                    readBotsConfig();
 
                                 }
                             }
@@ -170,6 +170,107 @@ function initialize() {
 
                             let configObj = JSON.parse(pData);
                             competition.configObj = configObj;
+
+                            if (requestsSent === responsesReceived) {
+
+                                readBotsConfig();
+
+                            }
+
+                        }
+                        catch (err) {
+                            console.log("readCompetitionsConfig Error = " + err);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function readBotsConfig() {
+
+        /*
+
+        Each bot has its configuration at its own repo since each team must be able to change it at will.
+        So what we do here is to use the master config at the AAPlatform repo that we already have on
+        memory and inject into it the config of each bot. 
+
+        */
+
+        let requestsSent = 0;
+        let responsesReceived = 0;
+
+        for (let i = 0; i < ecosystemObject.devTeams.length; i++) {
+
+            let devTeam = ecosystemObject.devTeams[i];
+
+            for (let j = 0; j < devTeam.bots.length; j++) {
+
+                let bot = devTeam.bots[j];
+
+                requestsSent++;
+
+                if (DEBUG_MODE === true) {
+
+                    let fs = require('fs');
+                    try {
+                        let fileName = '../Bots/' + devTeam.codeName + '/' + bot.repo + '/' + bot.configFile;
+                        fs.readFile(fileName, onFileRead);
+
+                        function onFileRead(err, pData) {
+
+                            try {
+                                responsesReceived++;
+
+                                pData = pData.toString();
+                                pData = pData.trim(); // remove first byte with some encoding.
+
+                                let configObj = JSON.parse(pData);
+
+                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                                configObj.repo = bot.repo;
+                                configObj.configFile = bot.configFile;
+
+                                devTeam.bots[j] = configObj;
+
+                                if (requestsSent === responsesReceived) {
+
+                                    startHtttpServer();
+
+                                }
+                            }
+                            catch (err) {
+                                console.log("File Not Found: " + fileName + " or Error = " + err);
+                            }
+
+                        }
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+
+                } else {
+
+                    getGithubData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived)
+
+                    function onDataArrived(pData) {
+
+                        try {
+
+                            responsesReceived++;
+
+                            pData = pData.toString();
+                            pData = pData.trim(); // remove first byte with some encoding.
+
+                            let configObj = JSON.parse(pData);
+
+                            /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                            configObj.repo = bot.repo;
+                            configObj.configFile = bot.configFile;
+
+                            devTeam.bots[j] = configObj;
 
                             if (requestsSent === responsesReceived) {
 

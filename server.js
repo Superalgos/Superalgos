@@ -683,6 +683,37 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
             let decoded = atob(result.data.content);
 
+            /*
+
+            This method usually brings up to 3 characters of encoding info at the begining of the JSON string which destroys the JSON format.
+            We will run the following code with the intention to eliminate this problem. 
+
+            */
+
+            let cleanString = decoded;
+            let jsonTest;
+
+            try {
+                jsonTest = JSON.parse(cleanString);
+            } catch (err) {
+                cleanString = decoded.substring(1);
+                try {
+                    jsonTest = JSON.parse(cleanString);
+                } catch (err) {
+                    cleanString = decoded.substring(2);
+                    try {
+                        jsonTest = JSON.parse(cleanString);
+                    } catch (err) {
+                        cleanString = decoded.substring(3);
+                        try {
+                            jsonTest = JSON.parse(cleanString);
+                        } catch (err) {
+                            console.log("getGithubData -> onContent -> Could not clean the data received -> Data = " + decoded);
+                        }
+                    }
+                }
+            }
+            
             let cleanString = decoded.substring(2); // Eliminate first 2 bytes of ecoding info.
 
             githubData.set(pOrg + '.' + pRepo + '.' + pPath, cleanString);

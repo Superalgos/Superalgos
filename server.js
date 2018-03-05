@@ -169,6 +169,12 @@ function initialize() {
 
                         try {
 
+                            if (CONSOLE_LOG === true) {
+
+                                console.log("readCompetitionsConfig -> onDataArrived -> pData = " + pData);
+
+                            }
+
                             responsesReceived++;
 
                             pData = pData.toString();
@@ -268,6 +274,12 @@ function initialize() {
                     function onDataArrived(pData) {
 
                         try {
+
+                            if (CONSOLE_LOG === true) {
+
+                                console.log("readBotsConfig -> onDataArrived -> pData = " + pData);
+
+                            }
 
                             responsesReceived++;
 
@@ -663,7 +675,7 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
             if (CONSOLE_LOG === true) {
 
-                console.log("getGithubData - Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result);
+                console.log("getGithubData - Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString.substring(0,100);
 
             }
 

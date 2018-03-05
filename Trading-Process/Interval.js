@@ -1,4 +1,4 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, exchangeAPI) {
+﻿exports.newInterval = function newInterval(BOT, UTILITIES, FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, exchangeAPI) {
 
     let bot = BOT;
 
@@ -34,10 +34,10 @@
 
     let fs = require('fs');
 
-    let charlyAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let oliviaAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let tomAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let mariamAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
+    let charlyAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let oliviaAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let tomAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let mariamAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -1118,92 +1118,15 @@
 
             function movePositionAtExchange(pPosition, pNewRate, callBackFunction) {
 
-                poloniexApiClient.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
+                exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
 
-                function onExchangeCallReturned(err, exchangeResponse) {
+                function onResponse(err, pPositionId) {
 
-                    try {
-
-                        if (err || exchangeResponse.error !== undefined) {
-                            try {
-
-                                if (err.message.indexOf("ETIMEDOUT") > 0 || err.message.indexOf("Order execution timed out") > 0) {
-
-                                    const logText = "[WARN] movePositionAtExchange - onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
-                                    logger.write(logText);
-
-                                    /* We abort the process and request a new execution at the configured amount of time. */
-
-                                    callBackFunction(true, nextIntervalLapse);
-                                    return;
-
-                                } else {
-
-                                    if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                        const logText = "[WARN] movePositionAtExchange - onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
-                                        logger.write(logText);
-
-                                        /* We abort the process and request a new execution at the configured amount of time. */
-
-                                        callBackFunction(true, nextIntervalLapse);
-                                        return;
-
-                                    } else {
-
-
-                                        const logText = "[ERROR] movePositionAtExchange -onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
-                                        logger.write(logText);
-                                        return;
-                                    }
-                                }
-
-                            } catch (err) {
-                                const logText = "[ERROR] movePositionAtExchange - onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
-                                logger.write(logText);
-                                return;
-                            }
-
-                            return;
-
-                        } else {
-
-                            /*
-
-                            This is what we can receive from the exchange. We will ignore the trades list for now, and analize
-                            what happened at the next bot execution. 
-
-                            {
-                            "orderNumber":31226040,
-                            "resultingTrades":
-                                [{
-                                    "amount":"338.8732",
-                                    "date":"2014-10-18 23:03:21",
-                                    "rate":"0.00000173",
-                                    "total":"0.00058625",
-                                    "tradeID":"16164",
-                                    "type":"buy"
-                                }]
-                            }
-
-                            */
-
-                            /*
-
-                            We will add this new position to the executionContext.
-
-                            */
-
-                            if (exchangeResponse.success !== 1) {
-
-                                const logText = "[ERROR] movePositionAtExchange -onExchangeCallReturned - Exchange said operation was not successful. Since we do not know what this means we will halt this bot process. : ERROR = " + err.message;
-                                logger.write(logText);
-                                return;
-
-                            }
+                    switch (err) {
+                        case null: {            // Everything went well, we have the information requested.
 
                             let newPosition = {
-                                id: exchangeResponse.orderNumber,
+                                id: pPositionId,
                                 type: pPosition.type,
                                 rate: pNewRate,
                                 amountA: pPosition.amountB * pNewRate,
@@ -1238,16 +1161,22 @@
                             newHistoryRecord.movedPositions++;
                             newHistoryRecord.rate = pNewRate;
 
-                            callBackFunction();
+                            callBack();
                         }
-                    }
-                    catch (err) {
-                        const logText = "[ERROR] 'movePositionAtExchange -onExchangeCallReturned' - ERROR : " + err.message;
-                        logger.write(logText);
-
+                            break;
+                        case 'Retry Later.': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Interval Retry.");
+                            callBackFunction(true, nextIntervalLapse);
+                            return;
+                        }
+                            break;
+                        case 'Operation Failed.': { // This is an unexpected exception that we do not know how to handle.
+                            logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                            return;
+                        }
+                            break;
                     }
                 }
-
             }
 
             function writeStatusAndContext() {

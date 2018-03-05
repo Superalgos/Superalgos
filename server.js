@@ -93,6 +93,12 @@ function initialize() {
 
     function readCompetitionsConfig() {
 
+        if (CONSOLE_LOG === true) {
+
+            console.log("I am entering the readCompetitionsConfig function.");
+
+        }
+
         /*
 
         The file previously read contains the reference to all competiotion hosts and their competitions. We use these references to load the specific
@@ -179,7 +185,7 @@ function initialize() {
 
                         }
                         catch (err) {
-                            console.log("readCompetitionsConfig Error = " + err);
+                            console.log("readCompetitionsConfig Error = " + err + " pData = " + pData);
                         }
                     }
                 }
@@ -189,6 +195,11 @@ function initialize() {
 
     function readBotsConfig() {
 
+        if (CONSOLE_LOG === true) {
+
+            console.log("I am entering the readBotsConfig function.");
+
+        }
         /*
 
         Each bot has its configuration at its own repo since each team must be able to change it at will.
@@ -280,7 +291,7 @@ function initialize() {
 
                         }
                         catch (err) {
-                            console.log("readCompetitionsConfig Error = " + err);
+                            console.log("readBotsConfig Error = " + err + " pData = " + pData);
                         }
                     }
                 }
@@ -619,9 +630,21 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
     if (cacheVersion !== undefined) {
 
+        if (CONSOLE_LOG === true) {
+
+            console.log("getGithubData - " + pOrg + '.' + pRepo + '.' + pPath + " found at cache.  :-) ");
+
+        }
+
         callBackFunction(cacheVersion);
 
     } else {
+
+        if (CONSOLE_LOG === true) {
+
+            console.log("getGithubData - " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache.  :-( ");
+
+        }
 
         const octokit = require('@octokit/rest')()
         global.atob = require("atob");
@@ -638,7 +661,13 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
         function onContent(error, result) {
 
-            if (error !== undefined) { console.log(error);}
+            if (CONSOLE_LOG === true) {
+
+                console.log("getGithubData - Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result);
+
+            }
+
+            if (error !== null) { console.log("getGithubData -> onContent -> " + error);}
 
             let decoded = atob(result.data.content);
 

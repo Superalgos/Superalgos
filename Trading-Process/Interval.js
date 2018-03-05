@@ -1362,7 +1362,7 @@
                         if (err || exchangeResponse.error !== undefined) {
                             try {
 
-                                if (err.message.indexOf("ETIMEDOUT") > 0) {
+                                if (err.message.indexOf("ETIMEDOUT") > 0 || err.message.indexOf("Order execution timed out") > 0) {
 
                                     const logText = "[WARN] movePositionAtExchange - onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
                                     logger.write(logText);

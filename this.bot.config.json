@@ -1,9 +1,10 @@
 {
   "bot": {
-    "name": "Mariam",
+    "displayName": "Mariam",
+    "codeName": "AAMariam",
     "type": "Trading",
     "version": "1.0.0",
-    "devTeam": "AA Masters",
+    "devTeam": "AAMasters",
     "dataSetVersion": "dataSet.V1"
   },
   "processes": [
@@ -28,7 +29,37 @@
       "intervalLapse": 60000,
       "intervalMaxLoops": -1
     }
-  ]
+  ],
+  "products": [
+    {
+      "codeName": "Trading History",
+      "displayName": "Mariam Trading History",
+      "description": "General information about Mariam trading history.",
+      "storageAccount": "aamariam",
+      "sets": [
+        {
+          "type": "Single File",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "@Exchange/Mariam/dataSet.V1/Output/Trading-Process",
+          "fileName": "Execution.History.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "repo": "Plotters-Trading",
+        "moduleName": "History"
+      }
+    }
+  ],
+  "storage": {
+    "sas": "?sv=2017-07-29&ss=f&srt=sco&sp=r&se=2018-12-30T23:44:52Z&st=2018-02-25T15:44:52Z&spr=https&sig=0pzOTcVAAOkgH7C4KmA1Rbs15kyjvVC1XFCsLQYjXKU%3D",
+    "fileUri": "https://aamariam.file.core.windows.net"
+  }
 }
 
 

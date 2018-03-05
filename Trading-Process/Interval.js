@@ -1,4 +1,4 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, exchangeAPI) {
 
     let bot = BOT;
 
@@ -182,26 +182,7 @@
             let candlesMap = new Map;       // This bot will look only at the last 10 candles for each Time Period and they will be stored here.
             let stairsMap = new Map;        // This bot will use this pattern. Here we will store the pattern we are in for each Time Period.
 
-
-            let apiKey = readApiKey();
-
-            let poloniexApiClient = new POLONIEX_CLIENT_MODULE(apiKey.Key, apiKey.Secret);
-
             getPositionsAtExchange();
-
-            function readApiKey() {
-
-                try {
-
-                    return JSON.parse(fs.readFileSync('../' + 'API-Keys' + '/' + EXCHANGE_NAME + '.json', 'utf8'));
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'readApiKey' - ERROR : " + err.message;
-                    logger.write(logText);
-                }
-
-            }
 
             function getPositionsAtExchange() {
 
@@ -209,96 +190,31 @@
 
                 Here we grab all the positions at the exchange for the account we are using for trading. We will not asume all the positions
                 were made by this bot, but we need them all to later check if all the ones made by the bot are still there, were executed or
-                manually cancelled by the account owner.
+                manually cancelled by the exchange account owner.
 
                 */
 
-                poloniexApiClient.returnOpenOrders(market.assetA, market.assetB, onExchangeCallReturned);
+                exchangeAPI.getOpenPositions(market, onResponse);
 
-                function onExchangeCallReturned(err, exchangeResponse) {
+                function onResponse(err, pExchangePositions) {
 
-                    try {
-
-                        if (err || exchangeResponse.error !== undefined) {
-                            try {
-
-                                if (err.message.indexOf("ETIMEDOUT") > 0) {
-
-                                    const logText = "[WARN] onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
-                                    logger.write(logText);
-
-                                    /* We abort the process and request a new execution at the configured amount of time. */
-
-                                    callBackFunction(true, nextIntervalLapse);
-                                    return;
-
-                                } else {
-
-                                    if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                        const logText = "[WARN] onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
-                                        logger.write(logText);
-
-                                        /* We abort the process and request a new execution at the configured amount of time. */
-
-                                        callBackFunction(true, nextIntervalLapse);
-                                        return;
-
-                                    } else {
-
-
-                                        const logText = "[ERROR] onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
-                                        logger.write(logText);
-                                        return;
-                                    }
-                                }
-
-                            } catch (err) {
-                                const logText = "[ERROR] onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
-                                logger.write(logText);
-                                return;
-                            }
-
-                            return;
-
-                        } else {
-
-                            /*
-
-                            This is what we receive from the exchange. We will convert this to our standard format for later use.
-
-                            [ { orderNumber: '151918418632',
-                                type: 'sell',
-                                rate: '20000.00000000',
-                                startingAmount: '0.00010000',
-                                amount: '0.00010000',
-                                total: '2.00000000',
-                                date: '2018-02-24 11:14:17',
-                                margin: 0 } ]
-
-                            */
-
-                            for (let i = 0; i < exchangeResponse.length; i++) {
-
-                                let openPosition = {
-                                    id: exchangeResponse[i].orderNumber,
-                                    type: exchangeResponse[i].type,
-                                    rate: exchangeResponse[i].rate,
-                                    amountA: exchangeResponse[i].total,
-                                    amountB: exchangeResponse[i].amount,
-                                    date: (new Date(exchangeResponse[i].date)).valueOf()
-                                };
-
-                                exchangePositions.push(openPosition);
-                            }
-
+                    switch (err) {
+                        case null: {            // Everything went well, we have the information requested.
+                            exchangePositions = pExchangePositions;
                             readStatusAndContext();
                         }
-                    }
-                    catch (err) {
-                        const logText = "[ERROR] 'onExchangeCallReturned' - ERROR : " + err.message;
-                        logger.write(logText);
-
+                            break;
+                        case 'Retry Later.': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Interval Retry.");
+                            callBackFunction(true, nextIntervalLapse);
+                            return;
+                        }
+                            break;
+                        case 'Operation Failed.': { // This is an unexpected exception that we do not know how to handle.
+                            logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                            return;
+                        }
+                            break;
                     }
                 }
             }
@@ -517,7 +433,7 @@
 
                             } else {
 
-                                getOrderTradesAtExchange(executionContext.positions[i].id, confirmOrderWasPartiallyExecuted);
+                                getPositionTradesAtExchange(executionContext.positions[i].id, confirmOrderWasPartiallyExecuted);
                                 return;
 
                                 function confirmOrderWasPartiallyExecuted(trades) {
@@ -597,7 +513,7 @@
 
                     /* Position not found: we need to know if the order was executed. */
 
-                    getOrderTradesAtExchange(executionContext.positions[i].id, confirmOrderWasExecuted);
+                    getPositionTradesAtExchange(executionContext.positions[i].id, confirmOrderWasExecuted);
 
                     function confirmOrderWasExecuted(trades) {
 
@@ -692,109 +608,34 @@
                 }
             }
 
-            function getOrderTradesAtExchange(orderId, callBackFunction) {
+            function getPositionTradesAtExchange(pPositionId, callBack) {
 
                 /*
 
-                Given one order, we request all the associated trades to it.
+                Given one position, we request all the associated trades to it.
 
                 */
 
-                poloniexApiClient.returnOrderTrades(orderId, onExchangeCallReturned);
+                exchangeAPI.getExecutedTrades(pPositionId, onResponse);
 
-                function onExchangeCallReturned(err, exchangeResponse) {
+                function onResponse(err, pTrades) {
 
-                    try {
-
-                        if (err || exchangeResponse.error !== undefined) {
-                            try {
-
-                                if (err.message.indexOf("ETIMEDOUT") > 0) {
-
-                                    const logText = "[WARN] getOrderTradesAtExchange - onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message;
-                                    logger.write(logText);
-
-                                    /* We abort the process and request a new execution at the configured amount of time. */
-
-                                    callBackFunction(true, nextIntervalLapse);
-                                    return;
-
-                                } else {
-
-                                    if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                        const logText = "[WARN] getOrderTradesAtExchange - onExchangeCallReturned - The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message;
-                                        logger.write(logText);
-
-                                        /* We abort the process and request a new execution at the configured amount of time. */
-
-                                        callBackFunction(true, nextIntervalLapse);
-                                        return;
-
-                                    } else {
-
-
-                                        const logText = "[ERROR] getOrderTradesAtExchange - onExchangeCallReturned - Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message;
-                                        logger.write(logText);
-                                        return;
-                                    }
-                                }
-
-                            } catch (err) {
-                                const logText = "[ERROR] getOrderTradesAtExchange -onExchangeCallReturned : ERROR : exchangeResponse.error = " + exchangeResponse.error;
-                                logger.write(logText);
-                                return;
-                            }
-
-                            return;
-
-                        } else {
-
-                            /*
-
-                            This is what we receive from the exchange. We will convert this to our standard format for later use.
-
-                            [
-                            {
-                            "globalTradeID": 20825863,
-                            "tradeID": 147142,
-                            "currencyPair":
-                            "BTC_XVC",
-                            "type": "buy",
-                            "rate": "0.00018500",
-                            "amount": "455.34206390",
-                            "total": "0.08423828",
-                            "fee": "0.00200000",
-                            "date": "2016-03-14 01:04:36"
-                            },
-                            ...]
-
-                            */
-
-                            let trades = [];
-
-                            for (let i = 0; i < exchangeResponse.length; i++) {
-
-                                let trade = {
-                                    id: exchangeResponse[i].tradeID,
-                                    type: exchangeResponse[i].type,
-                                    rate: exchangeResponse[i].rate,
-                                    amountA: exchangeResponse[i].total,
-                                    amountB: exchangeResponse[i].amount,
-                                    fee: exchangeResponse[i].fee,
-                                    date: (new Date(exchangeResponse[i].date)).valueOf()
-                                }
-
-                                trades.push(trade);
-                            }
-
-                            callBackFunction(trades);
+                    switch (err) {
+                        case null: {            // Everything went well, we have the information requested.
+                            callBack(pTrades);
                         }
-                    }
-                    catch (err) {
-                        const logText = "[ERROR] 'getOrderTradesAtExchange - onExchangeCallReturned' - ERROR : " + err.message;
-                        logger.write(logText);
-
+                            break;
+                        case 'Retry Later.': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Interval Retry.");
+                            callBackFunction(true, nextIntervalLapse);
+                            return;
+                        }
+                            break;
+                        case 'Operation Failed.': { // This is an unexpected exception that we do not know how to handle.
+                            logger.write("[ERROR] getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                            return;
+                        }
+                            break;
                     }
                 }
             }

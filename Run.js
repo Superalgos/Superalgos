@@ -32,10 +32,10 @@ catch (err) {
 }
 
 let bot = {
-    "name": botConfig.bot.displayName,
-    "type": botConfig.bot.type,
-    "version": botConfig.bot.version,
-    "devTeam": botConfig.bot.devTeam
+    "name": botConfig.displayName,
+    "type": botConfig.type,
+    "version": botConfig.version,
+    "devTeam": botConfig.devTeam
 };
 
 botConfig.bot;

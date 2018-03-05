@@ -1,8 +1,4 @@
-﻿
-
-
-exports.newDebugLog = function newDebugLog() {
-
+﻿exports.newDebugLog = function newDebugLog() {
 
     const MODULE_NAME = "Debug Log";
     const fileSystem = require('fs');
@@ -16,38 +12,35 @@ exports.newDebugLog = function newDebugLog() {
     let firstCall = true;
     let folderPath;
 
-    debugLog = {
+    thisObject = {
         bot: undefined,
         fileName: undefined,
         write: write
     };
 
-
-
-    return debugLog;
-
+    return thisObject;
 
     function createFolders() {
 
         try {
 
-            folderPath = debugLog.bot.devTeam;
+            folderPath = thisObject.bot.devTeam;
 
             createFolderSync(folderPath);
 
-            folderPath = debugLog.bot.devTeam + "/" + debugLog.bot.type;
+            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type;
 
             createFolderSync(folderPath);
 
-            folderPath = debugLog.bot.devTeam + "/" + debugLog.bot.type + "/" + debugLog.bot.name;
+            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.name;
 
             createFolderSync(folderPath);
 
-            folderPath = debugLog.bot.devTeam + "/" + debugLog.bot.type + "/" + debugLog.bot.name + "/" + debugLog.bot.version;
+            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.name + "/" + thisObject.bot.version;
 
             createFolderSync(folderPath);
 
-            folderPath = debugLog.bot.devTeam + "/" + debugLog.bot.type + "/" + debugLog.bot.name + "/" + debugLog.bot.version + "/" + debugLog.bot.process;
+            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.name + "/" + thisObject.bot.version + "/" + thisObject.bot.process;
 
             createFolderSync(folderPath);
 
@@ -60,7 +53,6 @@ exports.newDebugLog = function newDebugLog() {
 
 
     }
-
 
     function write(Message) {
 
@@ -86,7 +78,6 @@ exports.newDebugLog = function newDebugLog() {
             console.log("Error trying to log info into a file. File: " + filePath + " Error:" + err);
         }
     }
-
 
     function createFolderSync(name) {
         try {

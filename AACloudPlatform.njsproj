@@ -23,6 +23,9 @@
     <Compile Include="Azure File Storage.js" />
     <Compile Include="Azure Web Job Shutdown.js" />
     <Compile Include="Debug Log.js" />
+    <Compile Include="ExchangeAPI.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Interval Executor.js" />
     <Compile Include="Markets.js" />
     <Compile Include="Poloniex API Client.js" />

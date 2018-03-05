@@ -1,9 +1,10 @@
 {
   "bot": {
-    "name": "Tom",
+    "displayName": "Tom",
+    "codeName": "AATom",
     "type": "Indicator",
     "version": "1.0.0",
-    "devTeam": "AA Masters",
+    "devTeam": "AAMasters",
     "dataSetVersion": "dataSet.V1"
   },
   "processes": [
@@ -49,7 +50,73 @@
       "intervalLapse": 60000,
       "intervalMaxLoops": -1
     }
-  ]
+  ],
+  "products": [
+    {
+      "codeName": "Candle-Stairs",
+      "displayName": "Candle-Stairs Patters",
+      "description": "Two sets of files per period that contains candle-stairs patterns.",
+      "storageAccount": "aatom",
+      "sets": [
+        {
+          "type": "Market Files",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "filePath": "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period",
+          "fileName": "@AssetA_@AssetB.json"
+        },
+        {
+          "type": "Daily Files",
+          "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "fileName": "@AssetA_@AssetB.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "repo": "Plotters-Stairs-Patterns",
+        "moduleName": "CandleStairs"
+      }
+    },
+    {
+      "codeName": "Volume-Stairs",
+      "displayName": "Volume-Stairs Patters",
+      "description": "Two sets of files per period that contains volume-stairs patterns.",
+      "storageAccount": "aatom",
+      "sets": [
+        {
+          "type": "Market Files",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "filePath": "@Exchange/Tom/dataSet.V1/Output/Volume-Stairs/Multi-Period-Market/@Period",
+          "fileName": "@AssetA_@AssetB.json"
+        },
+        {
+          "type": "Daily Files",
+          "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "@Exchange/Tom/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "fileName": "@AssetA_@AssetB.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "repo": "Plotters-Stairs-Patterns",
+        "moduleName": "VolumeStairs"
+      }
+    }
+  ],
+  "storage": {
+    "sas": "?sv=2017-04-17&ss=f&srt=sco&sp=r&se=2018-12-31T19:28:33Z&st=2018-02-22T11:28:33Z&spr=https&sig=YaprSp9zO%2Fsz0nPPWwPMqPACxZTnYhSWKApfun%2Bfez4%3D",
+    "fileUri": "https://aatom.file.core.windows.net"
+  }
 }
 
 

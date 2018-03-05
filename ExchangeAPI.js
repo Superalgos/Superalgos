@@ -13,8 +13,7 @@
         initialize: initialize,
         getOpenPositions: getOpenPositions,
         getExecutedTrades: getExecutedTrades,
-        putBuyPosition: putBuyPosition,
-        putSellPosition: putSellPosition,
+        putPosition: putPosition,
         movePosition: movePosition
     };
 
@@ -239,24 +238,84 @@
         }
     }
 
-    function putBuyPosition() {
+    function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
 
         try {
 
+            if (pType === "buy") {
+                poloniexApiClient.buy(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
+            } else {
+                poloniexApiClient.sell(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
+            }
+
+            function onExchangeCallReturned(err, exchangeResponse) {
+
+                try {
+
+                    if (err || exchangeResponse.error !== undefined) {
+                        try {
+
+                            if (err.message.indexOf("ETIMEDOUT") > 0) {
+
+                                logger.write("[WARN] putPosition -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
+                                callBackFunction("Retry Later.");
+                                return;
+
+                            } else {
+
+                                if (err.message.indexOf("ECONNRESET") > 0) {
+
+                                    logger.write("[WARN] putPosition -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
+                                    callBackFunction("Retry Later.");
+                                    return;
+
+                                } else {
+                                    logger.write("[ERROR] putPosition -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
+                                    callBackFunction("Operation Failed.");
+                                    return;
+                                }
+                            }
+
+                        } catch (err) {
+                            logger.write("[ERROR] putPosition -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
+                            callBackFunction("Operation Failed.");
+                            return;
+                        }
+
+                        return;
+
+                    } else {
+
+                        /*
+
+                       This is what we can receive from the exchange.
+
+                       {
+                       "orderNumber":31226040,
+                       "resultingTrades":
+                           [{
+                               "amount":"338.8732",
+                               "date":"2014-10-18 23:03:21",
+                               "rate":"0.00000173",
+                               "total":"0.00058625",
+                               "tradeID":"16164",
+                               "type":"buy"
+                           }]
+                       }
+
+                       */
+
+                        callBackFunction(null, exchangeResponse.orderNumber);
+                    }
+                }
+                catch (err) {
+                    logger.write("[ERROR] putPosition -> onExchangeCallReturned -> Error = " + err.message);
+                    callBackFunction("Operation Failed.");
+                }
+            }
 
         } catch (err) {
-            logger.write("[ERROR] putBuyPosition -> err = " + err);
-            callBackFunction("Operation Failed.");
-        }
-    }
-
-    function putSellPosition() {
-
-        try {
-
-
-        } catch (err) {
-            logger.write("[ERROR] putSellPosition -> err = " + err);
+            logger.write("[ERROR] putPosition -> err = " + err);
             callBackFunction("Operation Failed.");
         }
     }

@@ -1,11 +1,9 @@
 {
-  "bot": {
-    "displayName": "Olivia",
-    "codeName": "AAOlivia",
-    "type": "Indicator",
-    "version": "1.0.0",
-    "devTeam": "AAMasters"
-  },
+  "displayName": "Olivia",
+  "codeName": "AAOlivia",
+  "type": "Indicator",
+  "version": "1.0.0",
+  "devTeam": "AAMasters",
   "processes": [
     {
       "name": "Multi-Period-Market",

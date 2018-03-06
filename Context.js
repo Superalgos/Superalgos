@@ -1,4 +1,4 @@
-﻿exports.newContext = function newContext(BOT) {
+﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, FILE_STORAGE) {
 
     /* 
 
@@ -31,7 +31,7 @@
 
     thisObject = {
         statusReport: undefined,            // Here is the information that defines which was the last sucessfull execution and some other details.
-        executionHistory: undefined,        // This is the record of bot execution.
+        executionHistory: [],               // This is the record of bot execution.
         executionContext: undefined,        // Here is the business information of the last execution of this bot process.
         newHistoryRecord : {
             date: processDatetime,
@@ -52,19 +52,18 @@
 
     */
 
-    const EXCHANGE_NAME = "Poloniex";
     let bot = BOT;
 
-    const DEBUG_MODULE = require('./Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
 
     /* Storage account to be used here. */
 
-    const FILE_STORAGE = require('./Azure File Storage');
     let cloudStorage = FILE_STORAGE.newAzureFileStorage(bot);
 
     let processDatetime;
+
+    const EXCHANGE_NAME = "Poloniex";
 
     return thisObject;
 
@@ -83,145 +82,193 @@
             thisObject.newHistoryRecord.date = pProcessDatetime;
             processDatetime = pProcessDatetime; 
 
-            getStatusReport();
+            getStatusReport(onDone);
 
-            function getStatusReport() {
+            function onDone(err) {
+                try {
 
-                /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
-
-                let fileName = "Status.Report.json"
-                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
-
-                cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                function onFileReceived(text) {
-
-                    try {
-
-                        thisObject.statusReport = JSON.parse(text);
-
-                        if (thisObject.statusReport.lastExecution === undefined) {
-
-                            createConext();
-
-                        } else {
-
-                            getExecutionHistory();
-
+                    switch (err) {
+                        case null: {
+                            callBackFunction(null);
                         }
-
-                    } catch (err) {
-
-                        /*
-
-                        It might happen that the file content is corrupt or it does not exist. The bot can not run without a Status Report,
-                        since it is risky to ignore its own history, so even for first time execution, a status report with the right format
-                        is needed.
-
-                        */
-
-                        logger.write("[ERROR] initialize -> getStatusReport -> Bot cannot execute without the Status report. -> Err = " + err.message);
-
+                            break;
+                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
+                        case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
+                            logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
                     }
+
+                } catch (err) {
+                    logger.write("[ERROR] initialize -> onDone -> err = " + err);
+                    callBackFunction("Operation Failed");
                 }
             }
 
-            function getExecutionHistory() {
+            function getStatusReport(callBack) {
 
-                let fileName = "Execution.History.json"
-                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
+                try {
+                    /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
 
-                cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                    let fileName = "Status.Report.json"
+                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
 
-                function onFileReceived(text) {
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                    try {
+                    function onFileReceived(text) {
 
-                        thisObject.executionHistory = JSON.parse(text);
-                        getExecutionContext();
+                        try {
 
-                    } catch (err) {
+                            thisObject.statusReport = JSON.parse(text);
 
-                        /*
+                            if (thisObject.statusReport.lastExecution === undefined) {
 
-                        It might happen that the file content is corrupt or it does not exist. The bot can not run without a Status Report,
-                        since it is risky to ignore its own history, so even for first time execution, a status report with the right format
-                        is needed.
+                                createConext(callBack);
 
-                        */
+                            } else {
 
-                        logger.write("[ERROR] initialize -> getExecutionHistory -> Bot cannot execute without the Execution History. -> Err = " + err.message);
+                                getExecutionHistory(callBack);
 
+                            }
+
+                        } catch (err) {
+
+                            /*
+
+                            It might happen that the file content is corrupt or it does not exist. The bot can not run without an Execution Context,
+                            since it is risky to ignore its own context, so even for first time execution, a file with the right format
+                            is needed.
+
+                            */
+
+                            logger.write("[ERROR] initialize -> getStatusReport -> Bot cannot execute without the Status report. -> Err = " + err.message);
+                            callBack("Operation Failed");
+                        }
                     }
+                } catch (err) {
+                    logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err);
+                    callBack("Operation Failed");
                 }
             }
 
-            function getExecutionContext() {
+            function getExecutionHistory(callBack) {
 
-                let date = new Date(thisObject.statusReport.lastExecution);
+                try {
+                    let fileName = "Execution.History.json"
+                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
 
-                let fileName = "Execution.Context.json"
-                let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                    function onFileReceived(text) {
 
-                function onFileReceived(text) {
+                        try {
 
-                    try {
+                            thisObject.executionHistory = JSON.parse(text);
+                            getExecutionContext(callBack);
 
-                        thisObject.executionContext = JSON.parse(text);
+                        } catch (err) {
 
-                        thisObject.executionContext.transactions = []; // We record here the transactions that happened duting this execution.
+                            /*
 
-                        ordersExecutionCheck();
+                            It might happen that the file content is corrupt or it does not exist. The bot can not run without an Execution Hitory,
+                            since it is risky to ignore its own history, so even for first time execution, a file with the right format
+                            is needed.
 
-                    } catch (err) {
+                            */
 
-                        /*
-
-                        It might happen that the file content is corrupt or it does not exist. The bot can not run without a Status Report,
-                        since it is risky to ignore its own history, so even for first time execution, a status report with the right format
-                        is needed.
-
-                        */
-
-                        logger.write("[ERROR] initialize -> getExecutionContext -> Bot cannot execute without the Execution Context. -> Err = " + err.message);
-
+                            logger.write("[ERROR] initialize -> getExecutionHistory -> Bot cannot execute without the Execution History. -> Err = " + err.message);
+                            callBack("Operation Failed");
+                        }
                     }
+                } catch (err) {
+                    logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err);
+                    callBack("Operation Failed");
                 }
             }
 
-            function createConext() {
+            function getExecutionContext(callBack) {
 
-                /*
+                try {
+                    let date = new Date(thisObject.statusReport.lastExecution);
+
+                    let fileName = "Execution.Context.json"
+                    let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
+                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
+
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                    function onFileReceived(text) {
+
+                        try {
+
+                            thisObject.executionContext = JSON.parse(text);
+
+                            thisObject.executionContext.transactions = []; // We record here the transactions that happened duting this execution.
+
+                            callBack(null);
+
+                        } catch (err) {
+
+                            /*
+
+                            It might happen that the file content is corrupt or it does not exist. The bot can not run without a Status Report,
+                            since it is risky to ignore its own history, so even for first time execution, a status report with the right format
+                            is needed.
+
+                            */
+
+                            logger.write("[ERROR] initialize -> getExecutionContext -> Bot cannot execute without the Execution Context. -> Err = " + err.message);
+                            callBack("Operation Failed");
+                        }
+                    }
+
+                } catch (err) {
+                    logger.write("[ERROR] initialize -> getExecutionContext -> err = " + err);
+                    callBack("Operation Failed");
+                }
+            }
+
+            function createConext(callBack) {
+
+                try {
+                    /*
     
-                When the bot is executed for the very first time, there are a few files that do not exist and need to be created, and that
-                is what we are going to do now.
+                    When the bot is executed for the very first time, there are a few files that do not exist and need to be created, and that
+                    is what we are going to do now.
     
-                */
+                    */
 
-                thisObject.executionHistory = [];
+                    thisObject.executionHistory = [];
 
-                thisObject.executionContext = {
-                    investment: {
-                        assetA: 0,
-                        assetB: 0
-                    },
-                    availableBalance: {
-                        assetA: 0,
-                        assetB: 0
-                    },
-                    positions: [],
-                    transactions: []
-                };
+                    thisObject.executionContext = {
+                        investment: {
+                            assetA: 0,
+                            assetB: 0
+                        },
+                        availableBalance: {
+                            assetA: 0,
+                            assetB: 0
+                        },
+                        positions: [],
+                        transactions: []
+                    };
 
-                callBackFunction();
+                    callBack(null);
 
+                } catch (err) {
+                    logger.write("[ERROR] initialize -> createConext -> err = " + err);
+                    callBack("Operation Failed");
+                }
             }
 
         } catch (err) {
-
             logger.write("[ERROR] initialize -> err = " + err);
             callBackFunction("Operation Failed");
         }

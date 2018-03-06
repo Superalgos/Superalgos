@@ -203,5 +203,7 @@
     }
 };
 
-
-
+/*
+let processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
+processDatetime = new Date(processDatetime.valueOf() - 30 * 24 * 60 * 60 * 1000); // we go 30 days back in time since candles are currently not up to date.
+*/

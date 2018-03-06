@@ -13,24 +13,62 @@
 
     const MODULE_NAME = "Context";
 
+    /*
+
+    Here we will keep the last status report, to be available during the whole process. The Status Report is a file the bot process
+    reads and saves again after each execution. Its main purpose is to know when the last execution was in order to locate the execution
+    context. When the bot runs for the first time it takes some vital parameters from there and it checks them through its lifecycle to see
+    if they changed. The Status Report file can eventually be manipulated by the bot operators / developers in order to change those parameters
+    or to point the last execution to a different date. Humans are not supose to manipulate the Execution Histroy or the execution Context files.
+
+    The Execution History is basically an index with dates of all the executions the bot did across its history. It allows the bot plotter
+    to know which datetimes have informacion about the bots execution in order to display it.
+
+    The Execution Context file records all the context information of the bot at the moment of execution and the final state of all of its
+    positions on the market.
+
+    */
+
     thisObject = {
+        statusReport: undefined,            // Here is the information that defines which was the last sucessfull execution and some other details.
+        executionHistory: undefined,        // This is the record of bot execution.
+        executionContext: undefined,        // Here is the business information of the last execution of this bot process.
+        newHistoryRecord : {
+            date: processDatetime,
+            rate: 0,                        // This will be used to know where to plot this information in the time line. 
+            newPositions: 0,
+            newTrades: 0,
+            movedPositions: 0
+        },
         initialize: initialize,
         saveAll: saveAll
     };
 
+    /*
+
+    During the process we will create a new History Record. This will go to the Context History file which essentially mantains an
+    index of all the bots executions. This file will later be plotted by the bot s plotter on the timeline, allowing end users to
+    know where there is information related to the actions taken by the bot.
+
+    */
+
+    const EXCHANGE_NAME = "Poloniex";
     let bot = BOT;
 
     const DEBUG_MODULE = require('./Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
 
-    let statusReport;                           // This is the typical Status Report that defines which was the last sucessfull execution and a few other pieces of info.
-    let executionHistory;                       // This is 
-    let executionContext;                       // Here is the information of the last execution of this bot process.
+    /* Storage account to be used here. */
+
+    const FILE_STORAGE = require('./Azure File Storage');
+    let cloudStorage = FILE_STORAGE.newAzureFileStorage(bot);
+
+    let processDatetime;
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(pProcessDatetime, callBackFunction) {
 
         try {
             /*
@@ -39,6 +77,11 @@
             of the process.
 
             */
+
+            cloudStorage.initialize(bot.name);
+
+            thisObject.newHistoryRecord.date = pProcessDatetime;
+            processDatetime = pProcessDatetime; 
 
             getStatusReport();
 
@@ -49,15 +92,15 @@
                 let fileName = "Status.Report.json"
                 let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
 
-                mariamAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                 function onFileReceived(text) {
 
                     try {
 
-                        statusReport = JSON.parse(text);
+                        thisObject.statusReport = JSON.parse(text);
 
-                        if (statusReport.lastExecution === undefined) {
+                        if (thisObject.statusReport.lastExecution === undefined) {
 
                             createConext();
 
@@ -77,8 +120,7 @@
 
                         */
 
-                        const logText = "[ERROR] 'getStatusReport' - Bot cannot execute without a status report. ERROR : " + err.message;
-                        logger.write(logText);
+                        logger.write("[ERROR] initialize -> getStatusReport -> Bot cannot execute without the Status report. -> Err = " + err.message);
 
                     }
                 }
@@ -89,13 +131,13 @@
                 let fileName = "Execution.History.json"
                 let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
 
-                mariamAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                 function onFileReceived(text) {
 
                     try {
 
-                        executionHistory = JSON.parse(text);
+                        thisObject.executionHistory = JSON.parse(text);
                         getExecutionContext();
 
                     } catch (err) {
@@ -108,8 +150,7 @@
 
                         */
 
-                        const logText = "[ERROR] 'getExecutionHistory' - Bot cannot execute without the Execution History. ERROR : " + err.message;
-                        logger.write(logText);
+                        logger.write("[ERROR] initialize -> getExecutionHistory -> Bot cannot execute without the Execution History. -> Err = " + err.message);
 
                     }
                 }
@@ -117,21 +158,21 @@
 
             function getExecutionContext() {
 
-                let date = new Date(statusReport.lastExecution);
+                let date = new Date(thisObject.statusReport.lastExecution);
 
                 let fileName = "Execution.Context.json"
                 let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                 let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
-                mariamAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                 function onFileReceived(text) {
 
                     try {
 
-                        executionContext = JSON.parse(text);
+                        thisObject.executionContext = JSON.parse(text);
 
-                        executionContext.transactions = []; // We record here the transactions that happened duting this execution.
+                        thisObject.executionContext.transactions = []; // We record here the transactions that happened duting this execution.
 
                         ordersExecutionCheck();
 
@@ -145,8 +186,7 @@
 
                         */
 
-                        const logText = "[ERROR] 'getExecutionContext' - Bot cannot execute without the Execution Context. ERROR : " + err.message;
-                        logger.write(logText);
+                        logger.write("[ERROR] initialize -> getExecutionContext -> Bot cannot execute without the Execution Context. -> Err = " + err.message);
 
                     }
                 }
@@ -161,9 +201,9 @@
     
                 */
 
-                executionHistory = [];
+                thisObject.executionHistory = [];
 
-                executionContext = {
+                thisObject.executionContext = {
                     investment: {
                         assetA: 0,
                         assetB: 0
@@ -176,7 +216,7 @@
                     transactions: []
                 };
 
-                getCandles();
+                callBackFunction();
 
             }
 
@@ -205,15 +245,15 @@
                     let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes(), 2);
                     let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
-                    utilities.createFolderIfNeeded(filePath, mariamAzureFileStorage, onFolderCreated);
+                    utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
                     function onFolderCreated() {
 
                         try {
 
-                            let fileContent = JSON.stringify(executionContext);
+                            let fileContent = JSON.stringify(thisObject.executionContext);
 
-                            mariamAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
@@ -248,7 +288,7 @@
                     let fileName = "Execution.History.json"
                     let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
 
-                    utilities.createFolderIfNeeded(filePath, mariamAzureFileStorage, onFolderCreated);
+                    utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
                     function onFolderCreated() {
 
@@ -262,11 +302,11 @@
                                 newHistoryRecord.movedPositions
                             ];
 
-                            executionHistory.push(newRecord);
+                            thisObject.executionHistory.push(newRecord);
 
-                            let fileContent = JSON.stringify(executionHistory);
+                            let fileContent = JSON.stringify(thisObject.executionHistory);
 
-                            mariamAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
@@ -301,17 +341,17 @@
                     let fileName = "Status.Report.json"
                     let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
 
-                    utilities.createFolderIfNeeded(filePath, mariamAzureFileStorage, onFolderCreated);
+                    utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
                     function onFolderCreated() {
 
                         try {
 
-                            statusReport.lastExecution = processDatetime;
+                            thisObject.statusReport.lastExecution = processDatetime;
 
-                            let fileContent = JSON.stringify(statusReport);
+                            let fileContent = JSON.stringify(thisObject.statusReport);
 
-                            mariamAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 

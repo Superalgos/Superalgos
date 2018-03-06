@@ -43,21 +43,23 @@
 
     let botContext;
     let processDatetime;
+    let datasource;
 
     return interval;
 
-    function initialize(pBotContext, pProcessDatetime, callBackFunction) {
+    function initialize(pBotContext, pProcessDatetime, pDatasource, callBackFunction) {
 
         try {
 
             logger.fileName = MODULE_NAME;
 
+            /* Store local values. */
+
             botContext = pBotContext;
             processDatetime = pProcessDatetime;
+            datasource = pDatasource;
 
-            const logText = "[INFO] initialize - Entering function 'initialize' ";
-            console.log(logText);
-            logger.write(logText);
+            logger.write("[INFO] initialize - Entering function 'initialize' ");
 
             charlyAzureFileStorage.initialize("Charly");
             oliviaAzureFileStorage.initialize("Olivia");
@@ -140,9 +142,6 @@
 
             let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
             let openPositions = [];         // These are the open positions the bot knows it made by itself. 
-
-            let candlesMap = new Map;       // This bot will look only at the last 10 candles for each Time Period and they will be stored here.
-            let stairsMap = new Map;        // This bot will use this pattern. Here we will store the pattern we are in for each Time Period.
 
             getPositionsAtExchange();
 
@@ -451,282 +450,6 @@
                 }
             }
 
-            function getCandles() {
-
-                /*
-
-                We will read several files with candles for the current day. We will use these files as an input
-                to make trading decitions later.
-
-                */
-
-                let candlesFiles = new Map;
-
-                getMarketFiles();
-
-                function getMarketFiles() {
-
-                    /* Now we will get the market files */
-
-                    for (i = 0; i < marketFilesPeriods.length; i++) {
-
-                        let periodTime = marketFilesPeriods[i][0];
-                        let periodName = marketFilesPeriods[i][1];
-
-                        getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Market/@Period", periodName, undefined, onFileReceived);
-
-                        function onFileReceived(file) {
-
-                            candlesFiles.set(periodName, file);
-
-                            if (candlesFiles.size === marketFilesPeriods.length) {
-
-                                getDailyFiles();
-
-                            }
-                        }
-                    }
-                }
-
-                function getDailyFiles() {
-
-                    for (i = 0; i < dailyFilePeriods.length; i++) {
-
-                        let periodTime = dailyFilePeriods[i][0];
-                        let periodName = dailyFilePeriods[i][1];
-
-                        getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, processDatetime, onFileReceived);
-
-                        function onFileReceived(file) {
-
-                            candlesFiles.set(periodName, file);
-
-                            if (candlesFiles.size === dailyFilePeriods.length + marketFilesPeriods.length) {
-
-                                getCandlesWeAreIn();
-
-                            }
-                        }
-                    }
-                }
-
-                function getCandlesWeAreIn() {
-
-                    let counter = 0;
-
-                    candlesFiles.forEach(getCurrentCandles);
-
-                    function getCurrentCandles(pCandlesFile, pPeriodName, map) {
-
-                        let candlesArray = [];
-
-                        for (i = 0; i < pCandlesFile.length; i++) {
-
-                            let candle = {
-                                open: undefined,
-                                close: undefined,
-                                min: 10000000000000,
-                                max: 0,
-                                begin: undefined,
-                                end: undefined,
-                                direction: undefined
-                            };
-
-                            candle.min = pCandlesFile[i][0];
-                            candle.max = pCandlesFile[i][1];
-
-                            candle.open = pCandlesFile[i][2];
-                            candle.close = pCandlesFile[i][3];
-
-                            candle.begin = pCandlesFile[i][4];
-                            candle.end = pCandlesFile[i][5];
-
-                            if (candle.open > candle.close) { candle.direction = 'down'; }
-                            if (candle.open < candle.close) { candle.direction = 'up'; }
-                            if (candle.open === candle.close) { candle.direction = 'side'; }
-
-                            /* We are going to store the last 10 candles per period, which will give the bot a good sense of where it is. */
-
-                            let timePeriod = candle.end - candle.begin + 1; // In miliseconds. (remember each candle spans a period minus one milisecond)
-
-                            if (candle.begin >= processDatetime.valueOf() - timePeriod * 10 && candle.end <= processDatetime.valueOf()) {
-
-                                candlesArray.push(candle);
-
-                            }
-                        }
-
-                        candlesMap.set(pPeriodName, candlesArray);
-
-                        counter++;
-
-                        if (counter === candlesFiles.size) {
-
-                            getPatterns();
-
-                        }
-                    }
-                }
-            }
-
-            function getPatterns() {
-
-                /*
-
-                We will read several files with pattern calculations for the current day. We will use these files as an input
-                to make trading decitions later.
-
-                */
-
-                let stairsFiles = new Map;
-
-                getMarketFiles();
-
-                function getMarketFiles() {
-
-                    /* Now we will get the market files */
-
-                    for (i = 0; i < marketFilesPeriods.length; i++) {
-
-                        let periodTime = marketFilesPeriods[i][0];
-                        let periodName = marketFilesPeriods[i][1];
-
-                        getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period", periodName, undefined, onFileReceived);
-
-                        function onFileReceived(file) {
-
-                            stairsFiles.set(periodName, file);
-
-                            if (stairsFiles.size === marketFilesPeriods.length) {
-
-                                getDailyFiles();
-
-                            }
-                        }
-                    }
-                }
-
-                function getDailyFiles() {
-
-                    for (i = 0; i < dailyFilePeriods.length; i++) {
-
-                        let periodTime = dailyFilePeriods[i][0];
-                        let periodName = dailyFilePeriods[i][1];
-
-                        getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, processDatetime, onFileReceived);
-
-                        function onFileReceived(file) {
-
-                            stairsFiles.set(periodName, file);
-
-                            if (stairsFiles.size === dailyFilePeriods.length + marketFilesPeriods.length) {
-
-                                getStairsWeAreIn();
-
-                            }
-                        }
-                    }
-                }
-
-                function getStairsWeAreIn() {
-
-                    let counter = 0;
-
-                    stairsFiles.forEach(getCurrentStairs);
-
-                    function getCurrentStairs(pStairsFile, pPeriodName, map) {
-
-                        for (i = 0; i < pStairsFile.length; i++) {
-
-                            let stairs = {
-                                open: undefined,
-                                close: undefined,
-                                min: 10000000000000,
-                                max: 0,
-                                begin: undefined,
-                                end: undefined,
-                                direction: undefined,
-                                candleCount: 0,
-                                firstMin: 0,
-                                firstMax: 0,
-                                lastMin: 0,
-                                lastMax: 0
-                            };
-
-                            stairs.open = pStairsFile[i][0];
-                            stairs.close = pStairsFile[i][1];
-
-                            stairs.min = pStairsFile[i][2];
-                            stairs.max = pStairsFile[i][3];
-
-                            stairs.begin = pStairsFile[i][4];
-                            stairs.end = pStairsFile[i][5];
-
-                            stairs.direction = pStairsFile[i][6];
-                            stairs.candleCount = pStairsFile[i][7];
-
-                            stairs.firstMin = pStairsFile[i][8];
-                            stairs.firstMax = pStairsFile[i][9];
-
-                            stairs.lastMin = pStairsFile[i][10];
-                            stairs.lastMax = pStairsFile[i][11];
-
-                            if (processDatetime.valueOf() >= stairs.begin && processDatetime.valueOf() <= stairs.end) {
-
-                                stairsMap.set(pPeriodName, stairs);
-
-                            }
-                        }
-
-                        counter++;
-
-                        if (counter === stairsFiles.size) {
-
-                            businessLogic();
-
-                        }
-                    }
-                }
-
-            }
-
-            function getFile(pFileService, pFileName, pFilePath, pPeriodName, pDatetime, callBackFunction) {
-
-                pFileName = pFileName.replace("@AssetA", market.assetA);
-                pFileName = pFileName.replace("@AssetB", market.assetB);
-
-                pFilePath = pFilePath.replace("@Exchange", EXCHANGE_NAME);
-                pFilePath = pFilePath.replace("@Period", pPeriodName);
-
-                if (pDatetime !== undefined) {
-
-                    pFilePath = pFilePath.replace("@Year", pDatetime.getUTCFullYear());
-                    pFilePath = pFilePath.replace("@Month", utilities.pad(pDatetime.getUTCMonth() + 1, 2));
-                    pFilePath = pFilePath.replace("@Day", utilities.pad(pDatetime.getUTCDate(), 2));
-
-                }
-
-                pFileService.getTextFile(pFilePath, pFileName, onFileReceived);
-
-                function onFileReceived(text) {
-
-                    let data;
-
-                    try {
-
-                        data = JSON.parse(text);
-
-                    } catch (err) {
-
-                        data = JSON.parse("[]");
-
-                    }
-
-                    callBackFunction(data);
-
-                }
-            }
-
             function businessLogic() {
 
                 /*
@@ -769,7 +492,7 @@
 
                     */
 
-                    let candleArray = candlesMap.get("01-min");
+                    let candleArray = datasource.candlesMap.get("01-min");
                     let candle = candleArray[candleArray.length - 1]; // The last candle of the 10 candles array for the 1 min Time Period.
 
                     let currentRate = candle.close;
@@ -860,7 +583,7 @@
 
                         timePeriodName = marketFilesPeriods[i][1];
 
-                        candleArray = candlesMap.get(timePeriodName);
+                        candleArray = datasource.candlesMap.get(timePeriodName);
                         candle = candleArray[candleArray.length - 1];           // The last candle of the 10 candles array.
 
                         diff = candle.close - candle.open;

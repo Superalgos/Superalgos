@@ -41,7 +41,7 @@
             movedPositions: 0
         },
         initialize: initialize,
-        saveAll: saveAll
+        saveThemAll: saveThemAll
     };
 
     /*
@@ -274,16 +274,44 @@
         }
     }
 
-    function saveAll(callBackFunction) {
+    function saveThemAll(callBackFunction) {
 
         try {
 
-            writeExecutionContext();
+            writeExecutionContext(onDone);
 
-            function writeExecutionContext() {
+            function onDone(err) {
+                try {
+
+                    switch (err) {
+                        case null: {
+                            callBackFunction(null);
+                        }
+                            break;
+                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] saveThemAll -> onDone -> Retry Later. Requesting Execution Retry.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
+                        case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
+                            logger.write("[ERROR] saveThemAll -> onDone -> Operation Failed. Aborting the process.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
+                    }
+
+                } catch (err) {
+                    logger.write("[ERROR] saveThemAll -> onDone -> err = " + err);
+                    callBackFunction("Operation Failed");
+                }
+            }
+
+            function writeExecutionContext(callBack) {
 
                 if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'writeExecutionContext'");
+                    logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function.");
                 }
 
                 try {
@@ -305,29 +333,29 @@
                             function onFileCreated() {
 
                                 if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'writeExecutionContext' - Content written: " + fileContent);
+                                    logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated ->  Content written = " + fileContent);
                                 }
 
-                                writeExucutionHistory();
+                                writeExucutionHistory(callBack);
                             }
                         }
                         catch (err) {
-                            const logText = "[ERROR] 'writeExecutionContext - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(logText);
+                            logger.write("[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> err = " + err.message);
+                            callBackFunction("Operation Failed");
                         }
                     }
 
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'writeExecutionContext' - ERROR : " + err.message;
-                    logger.write(logText);
+                    logger.write("[ERROR] saveThemAll -> writeExecutionContext -> err = " + err.message);
+                    callBackFunction("Operation Failed");
                 }
             }
 
-            function writeExucutionHistory() {
+            function writeExucutionHistory(callBack) {
 
                 if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'writeExucutionHistory'");
+                    logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function.");
                 }
 
                 try {
@@ -357,30 +385,26 @@
 
                             function onFileCreated() {
 
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'writeExucutionHistory'");
-                                }
-
-                                writeStatusReport();
+                                writeStatusReport(callBack);
                             }
                         }
                         catch (err) {
-                            const logText = "[ERROR] 'writeExucutionHistory - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(logText);
+                            logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> err = " + err.message);
+                            callBackFunction("Operation Failed");
                         }
                     }
 
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'writeExucutionHistory' - ERROR : " + err.message;
-                    logger.write(logText);
+                    logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> err = " + err.message);
+                    callBackFunction("Operation Failed");
                 }
             }
 
-            function writeStatusReport() {
+            function writeStatusReport(callBack) {
 
                 if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'writeStatusReport'");
+                    logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function.");
                 }
 
                 try {
@@ -403,28 +427,28 @@
                             function onFileCreated() {
 
                                 if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
+                                    logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated ->  Content written = " + fileContent);
                                 }
 
-                                callBackFunction(true); // We tell the AA Platform that we request a regular execution and finish the bot s process.
+                                callBack(null); 
                                 return;
                             }
                         }
                         catch (err) {
-                            const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(logText);
+                            logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> err = " + err.message);
+                            callBackFunction("Operation Failed");
                         }
                     }
 
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
+                    logger.write("[ERROR] saveThemAll -> writeStatusReport -> err = " + err.message);
+                    callBackFunction("Operation Failed");
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] saveAll -> Error = " + err.message);
+            logger.write("[ERROR] saveThemAll -> Error = " + err.message);
             callBackFunction("Operation Failed");
         }
     }

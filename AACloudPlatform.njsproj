@@ -25,6 +25,9 @@
     <Compile Include="Context.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Datasource.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Debug Log.js" />
     <Compile Include="ExchangeAPI.js">
       <SubType>Code</SubType>

@@ -376,7 +376,6 @@
                 }
             }
 
-
         } catch (err) {
             logger.write("[ERROR] saveAll -> Error = " + err.message);
             callBackFunction("Operation Failed.");

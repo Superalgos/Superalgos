@@ -1,4 +1,4 @@
-﻿exports.newDatasource = function newDatasource(BOT) {
+﻿exports.newDatasource = function newDatasource(BOT, DEBUG_MODULE, FILE_STORAGE) {
 
     /* 
 
@@ -18,15 +18,20 @@
 
     let bot = BOT;
 
-    const DEBUG_MODULE = require('./Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
+
+    let oliviaAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let tomAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
 
     return thisObject;
 
     function initialize(callBackFunction) {
 
         try {
+
+            oliviaAzureFileStorage.initialize("Olivia");
+            tomAzureFileStorage.initialize("Tom");
 
             getCandles(onCandlesReady);
 

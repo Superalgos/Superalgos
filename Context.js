@@ -87,20 +87,21 @@
             function onDone(err) {
                 try {
 
-                    switch (err) {
-                        case null: {
-                            callBackFunction(null);
-                        }
-                            break;
-                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(err.message);
+                    switch (err.result) {
+                        case DEFAULT_OK_RESPONSE.result: {
+                            callBackFunction(DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
+                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
+                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err.message);
+                            callBackFunction(err);
                             return;
                         }
                             break;
@@ -108,7 +109,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -149,12 +150,12 @@
                             */
 
                             logger.write("[ERROR] initialize -> getStatusReport -> Bot cannot execute without the Status report. -> Err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 } catch (err) {
                     logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
-                    callBack("Operation Failed");
+                    callBack(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -184,12 +185,12 @@
                             */
 
                             logger.write("[ERROR] initialize -> getExecutionHistory -> Bot cannot execute without the Execution History. -> Err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 } catch (err) {
                     logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
-                    callBack("Operation Failed");
+                    callBack(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -212,7 +213,7 @@
 
                             thisObject.executionContext.transactions = []; // We record here the transactions that happened duting this execution.
 
-                            callBack(null);
+                            callBack(DEFAULT_OK_RESPONSE);
 
                         } catch (err) {
 
@@ -225,13 +226,13 @@
                             */
 
                             logger.write("[ERROR] initialize -> getExecutionContext -> Bot cannot execute without the Execution Context. -> Err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> getExecutionContext -> err = " + err.message);
-                    callBack("Operation Failed");
+                    callBack(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -260,17 +261,17 @@
                         transactions: []
                     };
 
-                    callBack(null);
+                    callBack(DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> createConext -> err = " + err.message);
-                    callBack("Operation Failed");
+                    callBack(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -283,20 +284,21 @@
             function onDone(err) {
                 try {
 
-                    switch (err) {
-                        case null: {
-                            callBackFunction(null);
-                        }
-                            break;
-                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] saveThemAll -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(err.message);
+                    switch (err.result) {
+                        case DEFAULT_OK_RESPONSE.result: {
+                            callBackFunction(DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
+                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] saveThemAll -> onDone -> Retry Later. Requesting Execution Retry.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
+                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] saveThemAll -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err.message);
+                            callBackFunction(err);
                             return;
                         }
                             break;
@@ -304,7 +306,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] saveThemAll -> onDone -> err = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -341,14 +343,14 @@
                         }
                         catch (err) {
                             logger.write("[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> err = " + err.message);
-                            callBackFunction("Operation Failed");
+                            callBackFunction(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeExecutionContext -> err = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -390,14 +392,14 @@
                         }
                         catch (err) {
                             logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> err = " + err.message);
-                            callBackFunction("Operation Failed");
+                            callBackFunction(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> err = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -430,26 +432,26 @@
                                     logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated ->  Content written = " + fileContent);
                                 }
 
-                                callBack(null); 
+                                callBack(DEFAULT_OK_RESPONSE); 
                                 return;
                             }
                         }
                         catch (err) {
                             logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> err = " + err.message);
-                            callBackFunction("Operation Failed");
+                            callBackFunction(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeStatusReport -> err = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] saveThemAll -> Error = " + err.message);
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
         }
     }
 

@@ -50,20 +50,21 @@
             function onDone(err) {
                 try {
 
-                    switch (err) {
-                        case null: {
-                            callBackFunction(null);
-                        }
-                            break;
-                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(err.message);
+                    switch (err.result) {
+                        case DEFAULT_OK_RESPONSE.result: {
+                            callBackFunction(DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
+                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
+                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err.message);
+                            callBackFunction(err);
                             return;
                         }
                             break;
@@ -71,14 +72,14 @@
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -98,21 +99,22 @@
 
             function onResponse(err, pExchangePositions) {
 
-                switch (err) {
-                    case null: {            // Everything went well, we have the information requested.
+                switch (err.result) {
+                    case DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
                         exchangePositions = pExchangePositions;
                         ordersExecutionCheck(callBack);
-                    }
-                        break;
-                    case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                        logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                        callBack(err.message);
                         return;
                     }
                         break;
-                    case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
+                    case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
+                        callBack(err);
+                        return;
+                    }
+                        break;
+                    case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                         logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                        callBack(err.message);
+                        callBack(err);
                         return;
                     }
                         break;
@@ -120,10 +122,10 @@
             }
         } catch (err) {
             logger.write("[ERROR] getPositionsAtExchange -> err = " + err.message);
-            callBack("Operation Failed");
+            callBack(DEFAULT_FAIL_RESPONSE);
         }
     }
-
+    
     function ordersExecutionCheck(callBack) {
 
         try {
@@ -227,7 +229,7 @@
                                             botContext.executionContext.positions[i].amountB !== sumAssetB
                                         ) {
                                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
-                                            callBack("Operation Failed");
+                                            callBack(DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
 
@@ -262,7 +264,7 @@
 
                                     } catch (err) {
                                         logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = " + err.message);
-                                        callBack("Operation Failed");
+                                        callBack(DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
                                 }
@@ -304,7 +306,7 @@
                                 botContext.executionContext.positions[i].amountB !== sumAssetB
                             ) {
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
-                                callBack("Operation Failed");
+                                callBack(DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
 
@@ -337,7 +339,7 @@
 
                         } catch (err) {
                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
@@ -356,38 +358,38 @@
                             function onResponse(err, pTrades) {
 
                                 try {
-                                    switch (err) {
-                                        case null: {            // Everything went well, we have the information requested.
+                                    switch (err.result) {
+                                        case DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
                                             innerCallBack(pTrades);
                                         }
                                             break;
-                                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                                            callBack('Retry Later');
+                                            callBack(DEFAULT_RETRY_RESPONSE);
                                             return;
                                         }
                                             break;
-                                        case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
+                                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                                            callBack('Operation Failed');
+                                            callBack(DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
                                             break;
                                     }
                                 } catch (err) {
                                     logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.message);
-                                    callBack("Operation Failed");
+                                    callBack(DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         } catch (err) {
                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
                     logger.write("[ERROR] ordersExecutionCheck -> loopBody -> err = " + err.message);
-                    callBack("Operation Failed");
+                    callBack(DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
@@ -414,12 +416,12 @@
 
             function final() {
 
-                callBack(null);
+                callBack(DEFAULT_OK_RESPONSE);
 
             }
         } catch (err) {
             logger.write("[ERROR] ordersExecutionCheck -> err = " + err.message);
-            callBack("Operation Failed");
+            callBack(DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -431,8 +433,8 @@
             function onResponse(err, pPositionId) {
 
                 try {
-                    switch (err) {
-                        case null: {            // Everything went well, we have the information requested.
+                    switch (err.result) {
+                        case DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
 
                             let position = {
                                 id: pPositionId,
@@ -457,30 +459,31 @@
                             botContext.newHistoryRecord.newPositions++;
                             botContext.newHistoryRecord.rate = pRate;
 
-                            callBack(null);
-                        }
-                            break;
-                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] putPositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBack('Retry Later');
+                            callBack(DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
+                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] putPositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
+                            callBack(DEFAULT_RETRY_RESPONSE);
+                            return;
+                        }
+                            break;
+                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] putPositionAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                            callBack('Operation Failed');
+                            callBack(DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
                     logger.write("[ERROR] putPositionAtExchange -> onResponse -> err = " + err.message);
-                    callBack("Operation Failed");
+                    callBack(DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
             logger.write("[ERROR] putPositionAtExchange -> err = " + err.message);
-            callBack("Operation Failed");
+            callBack(DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -492,8 +495,8 @@
             function onResponse(err, pPositionId) {
 
                 try {
-                    switch (err) {
-                        case null: {            // Everything went well, we have the information requested.
+                    switch (err.result) {
+                        case DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
 
                             let newPosition = {
                                 id: pPositionId,
@@ -531,30 +534,30 @@
                             botContext.newHistoryRecord.movedPositions++;
                             botContext.newHistoryRecord.rate = pNewRate;
 
-                            callBack(null);
+                            callBack(DEFAULT_OK_RESPONSE);
                         }
                             break;
-                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] movePositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBack('Retry Later');
+                            callBack(DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
-                        case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
+                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] movePositionAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                            callBack('Operation Failed');
+                            callBack(DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
                     logger.write("[ERROR] movePositionAtExchange -> onResponse -> err = " + err.message);
-                    callBack("Operation Failed");
+                    callBack(DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
             logger.write("[ERROR] movePositionAtExchange -> err = " + err.message);
-            callBack("Operation Failed");
+            callBack(DEFAULT_FAIL_RESPONSE);
         }
     }
 };

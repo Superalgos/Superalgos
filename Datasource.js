@@ -68,20 +68,21 @@
             function onDone(err) {
                 try {
 
-                    switch (err) {
-                        case null: {
-                            callBackFunction(null);
-                        }
-                            break;
-                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(err.message);
+                    switch (err.result) {
+                        case DEFAULT_OK_RESPONSE.result: {
+                            callBackFunction(DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
+                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
+                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err.message);
+                            callBackFunction(err);
                             return;
                         }
                             break;
@@ -89,7 +90,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -131,7 +132,7 @@
                             }
                         } catch (err) {
                             logger.write("[ERROR] getCandles -> getMarketFiles -> err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -158,7 +159,7 @@
                             }
                         } catch (err) {
                             logger.write("[ERROR] getCandles -> getDailyFiles -> err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -221,13 +222,13 @@
                             }
                         } catch (err) {
                             logger.write("[ERROR] getCandles -> getCandlesWeAreIn -> err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
                     logger.write("[ERROR] getCandles -> err = " + err.message);
-                    callBack("Operation Failed");
+                    callBack(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -268,7 +269,7 @@
                             }
                         } catch (err) {
                             logger.write("[ERROR] getPatterns -> getMarketFiles -> err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -295,7 +296,7 @@
                             }
                         } catch (err) {
                             logger.write("[ERROR] getPatterns -> getDailyFiles -> err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -354,19 +355,19 @@
 
                                 if (counter === thisObject.stairsFiles.size) {
 
-                                    callBack(null);
+                                    callBack(DEFAULT_OK_RESPONSE);
 
                                 }
                             }
                         } catch (err) {
                             logger.write("[ERROR] getPatterns -> getStairsWeAreIn -> err = " + err.message);
-                            callBack("Operation Failed");
+                            callBack(DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
                     logger.write("[ERROR] getPatterns -> err = " + err.message);
-                    callBack("Operation Failed");
+                    callBack(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -415,7 +416,7 @@
         } catch (err) {
 
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
         }
     }
 };

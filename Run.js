@@ -43,13 +43,7 @@ botConfig.bot;
 /* Now we will run according to what we see at the config file. */
 
 const ROOT_DIR = './';
-
 const MODULE_NAME = "Run";
-
-const START_ALL_MONTHS = false;
-const START_ONE_MONTH = true;
-
-const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
 
 const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
 const logger = DEBUG_MODULE.newDebugLog();
@@ -69,6 +63,60 @@ process.on('unhandledRejection', (reason, p) => {
 process.on('exit', function (code) {
     logger.write('About to exit with code:' + code);
 });
+
+const DEFAULT_OK_RESPONSE = {
+    result: "Ok",
+    message: "Operation Succeeded"
+};
+
+const DEFAULT_FAIL_RESPONSE = {
+    result: "Fail",
+    message: "Operation Failed"
+};
+
+const DEFAULT_RETRY_RESPONSE = {
+    result: "Retry",
+    message: "Retry Later"
+}; 
+
+if (bot.type === "trading") {
+
+    let tradingBot = newTradingBot(bot, botConfig);
+    tradingBot.initialize(onInitializeReady);
+
+    function onInitializeReady(err) {
+
+        if (err === null) {
+
+            tradingBot.start(whenStartFinishes);
+
+            function whenStartFinishes() {
+
+                if (err === null) {
+
+                    logger.write("[INFO] trading bot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+
+                } else {
+
+                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
+                }
+            }
+
+        } else {
+            logger.write("[ERR] trading bot -> onInitializeReady -> err = " + err.message);
+            logger.write("[ERR] trading bot -> onInitializeReady -> Bot will not be started. " );
+        }
+
+    }
+    return;
+}
+
+const START_ALL_MONTHS = false;
+const START_ONE_MONTH = true;
+
+const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
 
 /* Now we will see which are the script Arguments. We expect the name of the process to run, since that is what it should be defined at the Task Scheduller. */
 

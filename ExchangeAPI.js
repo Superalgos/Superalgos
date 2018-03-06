@@ -32,7 +32,7 @@
             let apiKey = readApiKey();
             poloniexApiClient = new POLONIEX_CLIENT_MODULE(apiKey.Key, apiKey.Secret);
 
-            callBackFunction(null);
+            callBackFunction(DEFAULT_OK_RESPONSE);
 
             function readApiKey() {
 
@@ -47,14 +47,14 @@
                     logger.write("[HINT] The file must have the keys to access your poloniex account, in this format -> " + '{ "Key" : "4FB9TMEB-234VH2W1-BYJIXHGM-GL15DSA1", "Secret" : "1a24298skdjdf734uuyhbdagdasdtyut276587256hdsdas765asdasdasd76asdasda765asdasfas6asfda57657asd5a76sd5a7s65d7a6sd57as65d7as65d"}');
                     logger.write("[HINT] You get this key logging in to your Poloniex web account, enabling API keys and getting a new one. ");
                     logger.write("[HINT] Be sure not to allow withdrawls with this Key. When asked at the exchange key page, say no. ");
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -74,7 +74,7 @@
                             if (err.message.indexOf("ETIMEDOUT") > 0) {
 
                                 logger.write("[WARN] getOpenPositions -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
-                                callBackFunction("Retry Later");
+                                callBackFunction(DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             } else {
@@ -82,19 +82,19 @@
                                 if (err.message.indexOf("ECONNRESET") > 0) {
 
                                     logger.write("[WARN] getOpenPositions -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
-                                    callBackFunction("Retry Later");
+                                    callBackFunction(DEFAULT_RETRY_RESPONSE);
                                     return;
 
                                 } else {
                                     logger.write("[ERROR] getOpenPositions -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
-                                    callBackFunction("Operation Failed");
+                                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] getOpenPositions -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
-                            callBackFunction("Operation Failed");
+                            callBackFunction(DEFAULT_FAIL_RESPONSE);
                             return;
                         }
 
@@ -136,12 +136,12 @@
                 }
                 catch (err) {
                     logger.write("[ERROR] getOpenPositions -> onExchangeCallReturned -> Error = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
             logger.write("[ERROR] getOpenPositions -> Error = " + err.message);
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -161,7 +161,7 @@
                             if (err.message.indexOf("ETIMEDOUT") > 0) {
 
                                 logger.write("[WARN] getExecutedTrades -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
-                                callBackFunction("Retry Later");
+                                callBackFunction(DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             } else {
@@ -169,19 +169,19 @@
                                 if (err.message.indexOf("ECONNRESET") > 0) {
 
                                     logger.write("[WARN] getExecutedTrades -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
-                                    callBackFunction("Retry Later");
+                                    callBackFunction(DEFAULT_RETRY_RESPONSE);
                                     return;
 
                                 } else {
                                     logger.write("[ERROR] getExecutedTrades -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
-                                    callBackFunction("Operation Failed");
+                                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
-                            callBackFunction("Operation Failed");
+                            callBackFunction(DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     } else {
@@ -229,12 +229,12 @@
                 }
                 catch (err) {
                     logger.write("[ERROR] getExecutedTrades -> onExchangeCallReturned -> Error = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
             logger.write("[ERROR] getExecutedTrades -> Error = " + err.message);
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -253,7 +253,7 @@
             }
 
             logger.write("[ERROR] putPosition -> pType must be either 'buy' or 'sell'.");
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
             return;
 
             function onExchangeCallReturned(err, exchangeResponse) {
@@ -266,7 +266,7 @@
                             if (err.message.indexOf("ETIMEDOUT") > 0) {
 
                                 logger.write("[WARN] putPosition -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
-                                callBackFunction("Retry Later");
+                                callBackFunction(DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             } else {
@@ -274,19 +274,19 @@
                                 if (err.message.indexOf("ECONNRESET") > 0) {
 
                                     logger.write("[WARN] putPosition -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
-                                    callBackFunction("Retry Later");
+                                    callBackFunction(DEFAULT_RETRY_RESPONSE);
                                     return;
 
                                 } else {
                                     logger.write("[ERROR] putPosition -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
-                                    callBackFunction("Operation Failed");
+                                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] putPosition -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
-                            callBackFunction("Operation Failed");
+                            callBackFunction(DEFAULT_FAIL_RESPONSE);
                             return;
                         }
 
@@ -316,13 +316,13 @@
                 }
                 catch (err) {
                     logger.write("[ERROR] putPosition -> onExchangeCallReturned -> Error = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] putPosition -> err = " + err.message);
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -342,7 +342,7 @@
                             if (err.message.indexOf("ETIMEDOUT") > 0) {
 
                                 logger.write("[WARN] movePosition -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
-                                callBackFunction("Retry Later");
+                                callBackFunction(DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             } else {
@@ -350,19 +350,19 @@
                                 if (err.message.indexOf("ECONNRESET") > 0) {
 
                                     logger.write("[WARN] movePosition -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
-                                    callBackFunction("Retry Later");
+                                    callBackFunction(DEFAULT_RETRY_RESPONSE);
                                     return;
 
                                 } else {
                                     logger.write("[ERROR] movePosition -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
-                                    callBackFunction("Operation Failed");
+                                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] movePosition -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
-                            callBackFunction("Operation Failed");
+                            callBackFunction(DEFAULT_FAIL_RESPONSE);
                             return;
                         }
 
@@ -370,7 +370,7 @@
 
                         if (exchangeResponse.success !== 1) {
                             logger.write("[ERROR] movePosition -> onExchangeCallReturned -> exchangeResponse.success = " + exchangeResponse.success);
-                            callBackFunction("Operation Failed");
+                            callBackFunction(DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                         /*
@@ -397,13 +397,13 @@
                 }
                 catch (err) {
                     logger.write("[ERROR] movePosition -> onExchangeCallReturned -> Error = " + err.message);
-                    callBackFunction("Operation Failed");
+                    callBackFunction(DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] movePosition -> err = " + err.message);
-            callBackFunction("Operation Failed");
+            callBackFunction(DEFAULT_FAIL_RESPONSE);
         }
     }
 };

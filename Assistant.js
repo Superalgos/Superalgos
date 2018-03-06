@@ -9,7 +9,9 @@
     const MODULE_NAME = "Assistant";
 
     thisObject = {
-        initialize: initialize
+        initialize: initialize,
+        putPositionAtExchange: putPositionAtExchange,
+        movePositionAtExchange: movePositionAtExchange
     };
 
     let bot = BOT;
@@ -49,14 +51,24 @@
     let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
     let openPositions = [];         // These are the open positions the bot knows it made by itself. 
 
+    let botContext;
+    let processDatetime;
+    let exchangeAPI;
+
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(pBotContext, pProcessDatetime, pExchangeAPI, callBackFunction) {
 
         try {
 
             let nextIntervalExecution = false; // This tell the AAPlatform if it must execute the bot code again or not. 
             let nextIntervalLapse = 10 * 1000; // If something fails and we need to retry after a few seconds, we will use this amount of time to request a new execution of this bot code.
+
+            /* Store local values. */
+
+            botContext = pBotContext;
+            processDatetime = pProcessDatetime;
+            exchangeAPI = pExchangeAPI;
 
             /* The bot trades only at one market: USDT_BTC. */
 
@@ -98,7 +110,7 @@
                     }
                         break;
                     case 'Retry Later.': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                        logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Interval Retry.");
+                        logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
                         callBackFunction(true, nextIntervalLapse);
                         return;
                     }
@@ -392,7 +404,7 @@
                         }
                             break;
                         case 'Retry Later.': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Interval Retry.");
+                            logger.write("[ERROR] getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(true, nextIntervalLapse);
                             return;
                         }
@@ -452,7 +464,7 @@
                         }
                             break;
                         case 'Retry Later.': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] putPositionAtExchange -> onResponse -> Retry Later. Requesting Interval Retry.");
+                            logger.write("[ERROR] putPositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(true, nextIntervalLapse);
                             return;
                         }
@@ -525,7 +537,7 @@
                         }
                             break;
                         case 'Retry Later.': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] movePositionAtExchange -> onResponse -> Retry Later. Requesting Interval Retry.");
+                            logger.write("[ERROR] movePositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(true, nextIntervalLapse);
                             return;
                         }

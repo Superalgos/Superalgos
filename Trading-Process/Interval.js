@@ -41,19 +41,19 @@
 
     let utilities = UTILITIES.newUtilities(bot);
 
+    let botContext;
+    let processDatetime;
+
     return interval;
 
-    function initialize(yearAssigend, monthAssigned, callBackFunction) {
+    function initialize(pBotContext, pProcessDatetime, callBackFunction) {
 
         try {
 
-            /* IMPORTANT NOTE:
-
-            We are ignoring in this Interval the received Year and Month. This interval is not depending on Year Month since it procecess the whole market at once.
-
-            */
-
             logger.fileName = MODULE_NAME;
+
+            botContext = pBotContext;
+            processDatetime = pProcessDatetime;
 
             const logText = "[INFO] initialize - Entering function 'initialize' ";
             console.log(logText);
@@ -62,7 +62,7 @@
             charlyAzureFileStorage.initialize("Charly");
             oliviaAzureFileStorage.initialize("Olivia");
             tomAzureFileStorage.initialize("Tom");
-            mariamAzureFileStorage.initialize("Mariam");
+            mariamAzureFileStorage.initialize(bot.name);
 
 
         } catch (err) {
@@ -137,44 +137,6 @@
                 assetB: "BTC",
             };
 
-            /*
-
-            Here we will keep the last status report, to be available during the whole process. The Status Report is a file the bot process
-            reads and saves again after each execution. Its main purpose is to know when the last execution was in order to locate the execution
-            context. When the bot runs for the first time it takes some vital parameters from there and it checks them through its lifecycle to see
-            if they changed. The Status Report file can eventually be manipulated by the bot operators / developers in order to change those parameters
-            or to point the last execution to a different date. Humans are not supose to manipulate the Execution Histroy or the execution Context files.
-
-            The Execution History is basically an index with dates of all the executions the bot did across its history. It allows the bot plotter
-            to know which datetimes have informacion about the bots execution in order to display it.
-
-            The Execution Context file records all the context information of the bot at the moment of execution and the final state of all of its
-            positions on the market.
-
-            */
-
-            let statusReport;                           // This is the typical Status Report that defines which was the last sucessfull execution and a few other pieces of info.
-            let executionHistory;                       // This is 
-            let executionContext;                       // Here is the information of the last execution of this bot process.
-
-            let processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
-            processDatetime = new Date(processDatetime.valueOf() - 30 * 24 * 60 * 60 * 1000); // we go 30 days back in time since candles are currently not up to date.
-
-            /*
-
-            During the process we will create a new History Record. This will go to the Context History file which essentially mantains an
-            index of all the bots executions. This file will later be plotted by the bot s plotter on the timeline, allowing end users to
-            know where there is information related to the actions taken by the bot.
-
-            */
-
-            let newHistoryRecord = {
-                date: processDatetime,
-                rate: 0,                    // This will be used to know where to plot this information in the time line. 
-                newPositions: 0,
-                newTrades: 0,
-                movedPositions: 0
-            };
 
             let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
             let openPositions = [];         // These are the open positions the bot knows it made by itself. 
@@ -219,157 +181,6 @@
                 }
             }
 
-            function readStatusAndContext() {
-
-                /*
-
-                Here we get the positions the bot did and that are recorded at the bot storage account. We will use them through out the rest
-                of the process.
-
-                */
-
-                getStatusReport();
-
-                function getStatusReport() {
-
-                    /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
-
-                    let fileName = "Status.Report.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
-
-                    mariamAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                    function onFileReceived(text) {
-
-                        try {
-
-                            statusReport = JSON.parse(text);
-
-                            if (statusReport.lastExecution === undefined) {
-
-                                createConext();
-
-                            } else {
-
-                                getExecutionHistory();
-
-                            }
-
-                        } catch (err) {
-
-                            /*
-
-                            It might happen that the file content is corrupt or it does not exist. The bot can not run without a Status Report,
-                            since it is risky to ignore its own history, so even for first time execution, a status report with the right format
-                            is needed.
-
-                            */
-
-                            const logText = "[ERROR] 'getStatusReport' - Bot cannot execute without a status report. ERROR : " + err.message;
-                            logger.write(logText);
-
-                        }
-                    }
-                }
-
-                function getExecutionHistory() {
-
-                    let fileName = "Execution.History.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
-
-                    mariamAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                    function onFileReceived(text) {
-
-                        try {
-
-                            executionHistory = JSON.parse(text);
-                            getExecutionContext();
-
-                        } catch (err) {
-
-                            /*
-
-                            It might happen that the file content is corrupt or it does not exist. The bot can not run without a Status Report,
-                            since it is risky to ignore its own history, so even for first time execution, a status report with the right format
-                            is needed.
-
-                            */
-
-                            const logText = "[ERROR] 'getExecutionHistory' - Bot cannot execute without the Execution History. ERROR : " + err.message;
-                            logger.write(logText);
-
-                        }
-                    }
-                }
-
-                function getExecutionContext() {
-
-                    let date = new Date(statusReport.lastExecution);
-
-                    let fileName = "Execution.Context.json"
-                    let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
-
-                    mariamAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                    function onFileReceived(text) {
-
-                        try {
-
-                            executionContext = JSON.parse(text);
-
-                            executionContext.transactions = []; // We record here the transactions that happened duting this execution.
-
-                            ordersExecutionCheck();
-
-                        } catch (err) {
-
-                            /*
-
-                            It might happen that the file content is corrupt or it does not exist. The bot can not run without a Status Report,
-                            since it is risky to ignore its own history, so even for first time execution, a status report with the right format
-                            is needed.
-
-                            */
-
-                            const logText = "[ERROR] 'getExecutionContext' - Bot cannot execute without the Execution Context. ERROR : " + err.message;
-                            logger.write(logText);
-
-                        }
-                    }
-                }
-
-            }
-
-            function createConext() {
-
-                /*
-
-                When the bot is executed for the very first time, there are a few files that do not exist and need to be created, and that
-                is what we are going to do now.
-
-                */
-
-                executionHistory = [];
-
-                executionContext = {
-                    investment: {
-                        assetA: 0,
-                        assetB: 0
-                    },
-                    availableBalance: {
-                        assetA: 0,
-                        assetB: 0
-                    },
-                    positions: [],
-                    transactions: []
-                };
-
-                getCandles();
-
-            }
-
             function ordersExecutionCheck() {
 
                 /*
@@ -393,16 +204,16 @@
 
                 let openPositions = [];
 
-                for (let a = 0; a < executionContext.positions.length; a++) {
+                for (let a = 0; a < botContext.executionContext.positions.length; a++) {
 
-                    if (executionContext.positions[a].status === "open") {
+                    if (botContext.executionContext.positions[a].status === "open") {
 
-                        openPositions.push(executionContext.positions[a]);
+                        openPositions.push(botContext.executionContext.positions[a]);
 
                     }
                 }
 
-                executionContext.positions = openPositions;
+                botContext.executionContext.positions = openPositions;
 
                 /* Now we can start checking what happened at the exchange. */
 
@@ -414,7 +225,7 @@
 
                     for (let j = 0; j < exchangePositions.length; j++) {
 
-                        if (executionContext.positions[i].id === exchangePositions[j].id) {
+                        if (botContext.executionContext.positions[i].id === exchangePositions[j].id) {
 
                             /*
 
@@ -424,7 +235,7 @@
 
                             */
 
-                            if (executionContext.positions[i].amountB === parseFloat(exchangePositions[j].amountB)) {
+                            if (botContext.executionContext.positions[i].amountB === parseFloat(exchangePositions[j].amountB)) {
 
                                 /* Position is still there, untouched. Nothing to do here. */
 
@@ -433,7 +244,7 @@
 
                             } else {
 
-                                getPositionTradesAtExchange(executionContext.positions[i].id, confirmOrderWasPartiallyExecuted);
+                                getPositionTradesAtExchange(botContext.executionContext.positions[i].id, confirmOrderWasPartiallyExecuted);
                                 return;
 
                                 function confirmOrderWasPartiallyExecuted(trades) {
@@ -466,8 +277,8 @@
                                     sumAssetA = sumAssetA + exchangePositions[j].fee;
 
                                     if (
-                                        executionContext.positions[i].amountA !== sumAssetA ||
-                                        executionContext.positions[i].amountB !== sumAssetB
+                                        botContext.executionContext.positions[i].amountA !== sumAssetA ||
+                                        botContext.executionContext.positions[i].amountB !== sumAssetB
                                         ) {
 
                                         const logText = "[ERROR] 'confirmOrderWasPartiallyExecuted' - Cannot be confirmed that a partially execution was done well. Bot stopping execution. ";
@@ -482,24 +293,24 @@
 
                                     */
 
-                                    executionContext.positions[i].amountA = exchangePositions[j].amountA;
-                                    executionContext.positions[i].amountB = exchangePositions[j].amountB;
-                                    executionContext.positions[i].date = (new Date(exchangePositions[j].date)).valueOf();
+                                    botContext.executionContext.positions[i].amountA = exchangePositions[j].amountA;
+                                    botContext.executionContext.positions[i].amountB = exchangePositions[j].amountB;
+                                    botContext.executionContext.positions[i].date = (new Date(exchangePositions[j].date)).valueOf();
                                     
                                     for (k = 0; k < trades.length; k++) {
 
-                                        executionContext.positions[i].trades.push(trades[k]);
+                                        botContext.executionContext.positions[i].trades.push(trades[k]);
 
-                                        newHistoryRecord.newTrades++;
+                                        botContext.newHistoryRecord.newTrades++;
 
                                     }
 
                                     let newTransaction = {
-                                        type: executionContext.positions[i].type + "  partially executed",
-                                        position: executionContext.positions[i]
+                                        type: botContext.executionContext.positions[i].type + "  partially executed",
+                                        position: botContext.executionContext.positions[i]
                                     };
 
-                                    executionContext.transactions.push(newTransaction);
+                                    botContext.executionContext.transactions.push(newTransaction);
 
                                     /* All done. */
 
@@ -513,7 +324,7 @@
 
                     /* Position not found: we need to know if the order was executed. */
 
-                    getPositionTradesAtExchange(executionContext.positions[i].id, confirmOrderWasExecuted);
+                    getPositionTradesAtExchange(botContext.executionContext.positions[i].id, confirmOrderWasExecuted);
 
                     function confirmOrderWasExecuted(trades) {
 
@@ -540,8 +351,8 @@
                         sumAssetA = sumAssetA + exchangePositions[j].fee;
 
                         if (
-                            executionContext.positions[i].amountA !== sumAssetA ||
-                            executionContext.positions[i].amountB !== sumAssetB
+                            botContext.executionContext.positions[i].amountA !== sumAssetA ||
+                            botContext.executionContext.positions[i].amountB !== sumAssetB
                         ) {
 
                             const logText = "[ERROR] 'confirmOrderWasExecuted' - Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself. Bot stopping execution. ";
@@ -556,22 +367,22 @@
 
                         */
 
-                        executionContext.positions[i].status = "executed";
+                        botContext.executionContext.positions[i].status = "executed";
 
                         for (k = 0; k < trades.length; k++) {
 
-                            executionContext.positions[i].trades.push(trades[k]);
+                            botContext.executionContext.positions[i].trades.push(trades[k]);
 
-                            newHistoryRecord.newTrades++;
+                            botContext.newHistoryRecord.newTrades++;
 
                         }
 
                         let newTransaction = {
-                            type: executionContext.positions[i].type + "  executed",
-                            position: executionContext.positions[i]
+                            type: botContext.executionContext.positions[i].type + "  executed",
+                            position: botContext.executionContext.positions[i]
                         };
 
-                        executionContext.transactions.push(newTransaction);
+                        botContext.executionContext.transactions.push(newTransaction);
 
                         /* All done. */
 
@@ -590,7 +401,7 @@
 
                 function controlLoop() {
 
-                    if (i < executionContext.positions.length) {
+                    if (i < botContext.executionContext.positions.length) {
 
                         loopBody();
 
@@ -934,15 +745,15 @@
 
                 */
 
-                if (executionContext.positions.length > 0) {
+                if (botContext.executionContext.positions.length > 0) {
 
-                    if (executionContext.positions[0].type === "buy") {
+                    if (botContext.executionContext.positions[0].type === "buy") {
 
-                        validateBuyPosition(executionContext.positions[0]);
+                        validateBuyPosition(botContext.executionContext.positions[0]);
 
                     } else {
 
-                        validateSellPosition(executionContext.positions[0]);
+                        validateSellPosition(botContext.executionContext.positions[0]);
 
                     }
 
@@ -998,8 +809,8 @@
 
                     */
 
-                    let AmountA = statusReport.initialBalance.amountA;
-                    let AmountB = statusReport.initialBalance.amountB;
+                    let AmountA = botContext.statusReport.initialBalance.amountA;
+                    let AmountB = botContext.statusReport.initialBalance.amountB;
 
                     /* We are going to sell all AmountB */
 
@@ -1086,17 +897,17 @@
                                 trades: []
                             };
 
-                            executionContext.positions.push(position);
+                            botContext.executionContext.positions.push(position);
 
                             let newTransaction = {
                                 type: "newPosition",
                                 position: position
                             };
 
-                            executionContext.transactions.push(newTransaction);
+                            botContext.executionContext.transactions.push(newTransaction);
 
-                            newHistoryRecord.newPositions++;
-                            newHistoryRecord.rate = pRate;
+                            botContext.newHistoryRecord.newPositions++;
+                            botContext.newHistoryRecord.rate = pRate;
 
                             callBack();
                         }
@@ -1140,11 +951,11 @@
 
                             /* We need to update the position we have on file. */
 
-                            for (let i = 0; i < executionContext.positions.length; i++) {
+                            for (let i = 0; i < botContext.executionContext.positions.length; i++) {
 
-                                if (executionContext.positions[i].id === pPosition.id) {
+                                if (botContext.executionContext.positions[i].id === pPosition.id) {
 
-                                    executionContext.positions[i] = newPosition;
+                                    botContext.executionContext.positions[i] = newPosition;
 
                                     break;
                                 }
@@ -1156,10 +967,10 @@
                                 newPosition: newPosition
                             };
 
-                            executionContext.transactions.push(newTransaction);
+                            botContext.executionContext.transactions.push(newTransaction);
 
-                            newHistoryRecord.movedPositions++;
-                            newHistoryRecord.rate = pNewRate;
+                            botContext.newHistoryRecord.movedPositions++;
+                            botContext.newHistoryRecord.rate = pNewRate;
 
                             callBack();
                         }
@@ -1178,155 +989,6 @@
                     }
                 }
             }
-
-            function writeStatusAndContext() {
-
-                writeExecutionContext();
-
-                function writeExecutionContext() {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'writeExecutionContext'");
-                    }
-
-                    try {
-
-                        let fileName = "Execution.Context.json"
-                        let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes(), 2);
-                        let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
-
-                        utilities.createFolderIfNeeded(filePath, mariamAzureFileStorage, onFolderCreated);
-
-                        function onFolderCreated() {
-
-                            try {
-
-                                let fileContent = JSON.stringify(executionContext);
-
-                                mariamAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                function onFileCreated() {
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] 'writeExecutionContext' - Content written: " + fileContent);
-                                    }
-
-                                    writeExucutionHistory();
-                                }
-                            }
-                            catch (err) {
-                                const logText = "[ERROR] 'writeExecutionContext - onFolderCreated' - ERROR : " + err.message;
-                                logger.write(logText);
-                            }
-                        }
-
-                    }
-                    catch (err) {
-                        const logText = "[ERROR] 'writeExecutionContext' - ERROR : " + err.message;
-                        logger.write(logText);
-                    }
-                }
-
-                function writeExucutionHistory() {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'writeExucutionHistory'");
-                    }
-
-                    try {
-
-                        let fileName = "Execution.History.json"
-                        let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
-
-                        utilities.createFolderIfNeeded(filePath, mariamAzureFileStorage, onFolderCreated);
-
-                        function onFolderCreated() {
-
-                            try {
-
-                                let newRecord = [
-                                    newHistoryRecord.date.valueOf(),
-                                    newHistoryRecord.rate,
-                                    newHistoryRecord.newPositions,
-                                    newHistoryRecord.newTrades,
-                                    newHistoryRecord.movedPositions
-                                ];
-
-                                executionHistory.push(newRecord);
-
-                                let fileContent = JSON.stringify(executionHistory);
-
-                                mariamAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                function onFileCreated() {
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] 'writeExucutionHistory'");
-                                    }
-
-                                    writeStatusReport();
-                                }
-                            }
-                            catch (err) {
-                                const logText = "[ERROR] 'writeExucutionHistory - onFolderCreated' - ERROR : " + err.message;
-                                logger.write(logText);
-                            }
-                        }
-
-                    }
-                    catch (err) {
-                        const logText = "[ERROR] 'writeExucutionHistory' - ERROR : " + err.message;
-                        logger.write(logText);
-                    }
-                }
-
-                function writeStatusReport() {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'writeStatusReport'");
-                    }
-
-                    try {
-
-                        let fileName = "Status.Report.json"
-                        let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
-
-                        utilities.createFolderIfNeeded(filePath, mariamAzureFileStorage, onFolderCreated);
-
-                        function onFolderCreated() {
-
-                            try {
-
-                                statusReport.lastExecution = processDatetime;
-
-                                let fileContent = JSON.stringify(statusReport);
-
-                                mariamAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                function onFileCreated() {
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
-                                    }
-
-                                    callBackFunction(true); // We tell the AA Platform that we request a regular execution and finish the bot s process.
-                                    return;
-                                }
-                            }
-                            catch (err) {
-                                const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
-                                logger.write(logText);
-                            }
-                        }
-
-                    }
-                    catch (err) {
-                        const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                        logger.write(logText);
-                    }
-                }
-
-            } 
         }
 
         catch (err) {

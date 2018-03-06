@@ -10,10 +10,10 @@
 
     thisObject = {
         initialize: initialize,
-        candlesFiles: new Map,
-        candlesMap: new Map,
-        stairsFiles: new Map,
-        stairsMap: new Map
+        candlesFiles: new Map,      // Complete sets of candles for different Time Periods. For Time Periods < 1hs sets are of current day only, otherwise whole market.
+        candlesMap: new Map,        // The last 10 candles for each Time Period will be stored here.
+        stairsFiles: new Map,       // Complete sets of patterns for different Time Periods. For Time Periods < 1hs sets are of current day only, otherwise whole market.
+        stairsMap: new Map          // The patterns we are currently in will be stored here.
     };
 
     let bot = BOT;

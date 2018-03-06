@@ -39,7 +39,7 @@
 
         } catch (err) {
             logger.write("[ERROR] initialize -> onDone -> err = " + err);
-            callBackFunction("Operation Failed.");
+            callBackFunction("Operation Failed");
         }
     }
 
@@ -66,18 +66,18 @@
 
                     switch (err) {
                         case null: { 
-                            callBackFunction(true);
+                            callBackFunction(null);
                         }
                             break;
                         case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] start -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(true, nextIntervalLapse);
+                            callBackFunction(err);
                             return;
                         }
                             break;
-                        case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
+                        case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] start -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(false);
+                            callBackFunction(err);
                             return;
                         }
                             break;
@@ -85,7 +85,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] start -> onDone -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
@@ -173,7 +173,7 @@
                     }
                 } catch (err) {
                     logger.write("[ERROR] start -> businessLogic -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
@@ -187,7 +187,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] start -> decideAboutBuyPosition -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
@@ -257,13 +257,13 @@
 
                 } catch (err) {
                     logger.write("[ERROR] start -> decideAboutSellPosition -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] start -> err = " + err);
-            callBack("Operation Failed.");
+            callBack("Operation Failed");
         }
     }
 };

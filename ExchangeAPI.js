@@ -1,4 +1,4 @@
-﻿exports.newExchangeAPI = function newExchangeAPI(BOT) {
+﻿exports.newExchangeAPI = function newExchangeAPI(BOT, DEBUG_MODULE, POLONIEX_CLIENT_MODULE) {
 
     /* 
 
@@ -18,11 +18,9 @@
 
     let bot = BOT;
 
-    const DEBUG_MODULE = require('./Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
 
-    const POLONIEX_CLIENT_MODULE = require('./Poloniex API Client');
     let poloniexApiClient;
 
     return thisObject;
@@ -34,6 +32,8 @@
             let apiKey = readApiKey();
             poloniexApiClient = new POLONIEX_CLIENT_MODULE(apiKey.Key, apiKey.Secret);
 
+            callBackFunction(null);
+
             function readApiKey() {
 
                 try {
@@ -42,7 +42,7 @@
                     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
                 }
                 catch (err) {
-                    logger.write("[ERROR] initialize -> readApiKey -> err = " + err);
+                    logger.write("[ERROR] initialize -> readApiKey -> err = " + err.message);
                     logger.write("[HINT] You need to have a file at this path -> " + filePath);
                     logger.write("[HINT] The file must have the keys to access your poloniex account, in this format -> " + '{ "Key" : "4FB9TMEB-234VH2W1-BYJIXHGM-GL15DSA1", "Secret" : "1a24298skdjdf734uuyhbdagdasdtyut276587256hdsdas765asdasdasd76asdasda765asdasfas6asfda57657asd5a76sd5a7s65d7a6sd57as65d7as65d"}');
                     logger.write("[HINT] You get this key logging in to your Poloniex web account, enabling API keys and getting a new one. ");
@@ -53,7 +53,7 @@
 
         } catch (err) {
 
-            logger.write("[ERROR] initialize -> err = " + err);
+            logger.write("[ERROR] initialize -> err = " + err.message);
             callBackFunction("Operation Failed");
         }
     }
@@ -98,8 +98,6 @@
                             return;
                         }
 
-                        return;
-
                     } else {
 
                         /*
@@ -142,7 +140,7 @@
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] getOpenPositions -> onExchangeCallReturned -> Error = " + err.message);
+            logger.write("[ERROR] getOpenPositions -> Error = " + err.message);
             callBackFunction("Operation Failed");
         }
     }
@@ -186,9 +184,6 @@
                             callBackFunction("Operation Failed");
                             return;
                         }
-
-                        return;
-
                     } else {
 
                         /*
@@ -238,7 +233,7 @@
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] getExecutedTrades -> onExchangeCallReturned -> Error = " + err.message);
+            logger.write("[ERROR] getExecutedTrades -> Error = " + err.message);
             callBackFunction("Operation Failed");
         }
     }
@@ -249,9 +244,17 @@
 
             if (pType === "buy") {
                 poloniexApiClient.buy(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
-            } else {
+                return;
+            } 
+
+            if (pType === "sell") {
                 poloniexApiClient.sell(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
+                return;
             }
+
+            logger.write("[ERROR] putPosition -> pType must be either 'buy' or 'sell'.");
+            callBackFunction("Operation Failed");
+            return;
 
             function onExchangeCallReturned(err, exchangeResponse) {
 
@@ -287,8 +290,6 @@
                             return;
                         }
 
-                        return;
-
                     } else {
 
                         /*
@@ -320,7 +321,7 @@
             }
 
         } catch (err) {
-            logger.write("[ERROR] putPosition -> err = " + err);
+            logger.write("[ERROR] putPosition -> err = " + err.message);
             callBackFunction("Operation Failed");
         }
     }
@@ -365,8 +366,6 @@
                             return;
                         }
 
-                        return;
-
                     } else {
 
                         if (exchangeResponse.success !== 1) {
@@ -403,7 +402,7 @@
             }
 
         } catch (err) {
-            logger.write("[ERROR] movePosition -> err = " + err);
+            logger.write("[ERROR] movePosition -> err = " + err.message);
             callBackFunction("Operation Failed");
         }
     }

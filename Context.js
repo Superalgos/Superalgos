@@ -94,20 +94,20 @@
                             break;
                         case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(err);
+                            callBackFunction(err.message);
                             return;
                         }
                             break;
                         case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err);
+                            callBackFunction(err.message);
                             return;
                         }
                             break;
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> onDone -> err = " + err);
+                    logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
                     callBackFunction("Operation Failed");
                 }
             }
@@ -153,7 +153,7 @@
                         }
                     }
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err);
+                    logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
                     callBack("Operation Failed");
                 }
             }
@@ -188,7 +188,7 @@
                         }
                     }
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err);
+                    logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
                     callBack("Operation Failed");
                 }
             }
@@ -230,7 +230,7 @@
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> getExecutionContext -> err = " + err);
+                    logger.write("[ERROR] initialize -> getExecutionContext -> err = " + err.message);
                     callBack("Operation Failed");
                 }
             }
@@ -263,13 +263,13 @@
                     callBack(null);
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> createConext -> err = " + err);
+                    logger.write("[ERROR] initialize -> createConext -> err = " + err.message);
                     callBack("Operation Failed");
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] initialize -> err = " + err);
+            logger.write("[ERROR] initialize -> err = " + err.message);
             callBackFunction("Operation Failed");
         }
     }
@@ -290,20 +290,20 @@
                             break;
                         case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] saveThemAll -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(err);
+                            callBackFunction(err.message);
                             return;
                         }
                             break;
                         case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] saveThemAll -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err);
+                            callBackFunction(err.message);
                             return;
                         }
                             break;
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] saveThemAll -> onDone -> err = " + err);
+                    logger.write("[ERROR] saveThemAll -> onDone -> err = " + err.message);
                     callBackFunction("Operation Failed");
                 }
             }

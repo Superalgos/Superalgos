@@ -48,7 +48,7 @@
 
         }
         catch (err) {
-            console.log("Error trying to create the folders needed.  Error: " + err);
+            console.log("Error trying to create the folders needed.  Error: " + err.message);
         }
 
 
@@ -75,7 +75,7 @@
 
         }
         catch (err) {
-            console.log("Error trying to log info into a file. File: " + filePath + " Error:" + err);
+            console.log("Error trying to log info into a file. File: " + filePath + " Error:" + err.message);
         }
     }
 

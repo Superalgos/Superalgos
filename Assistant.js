@@ -57,27 +57,27 @@
                             break;
                         case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(err);
+                            callBackFunction(err.message);
                             return;
                         }
                             break;
                         case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err);
+                            callBackFunction(err.message);
                             return;
                         }
                             break;
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> onDone -> err = " + err);
+                    logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
                     callBackFunction("Operation Failed");
                 }
             }
 
         } catch (err) {
 
-            logger.write("[ERROR] initialize -> err = " + err);
+            logger.write("[ERROR] initialize -> err = " + err.message);
             callBackFunction("Operation Failed");
         }
     }
@@ -106,20 +106,20 @@
                         break;
                     case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
                         logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                        callBack(err);
+                        callBack(err.message);
                         return;
                     }
                         break;
                     case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
                         logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                        callBack(err);
+                        callBack(err.message);
                         return;
                     }
                         break;
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] getPositionsAtExchange -> err = " + err);
+            logger.write("[ERROR] getPositionsAtExchange -> err = " + err.message);
             callBack("Operation Failed");
         }
     }
@@ -261,7 +261,7 @@
                                         next();
 
                                     } catch (err) {
-                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = " + err);
+                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = " + err.message);
                                         callBack("Operation Failed");
                                         return;
                                     }
@@ -336,7 +336,7 @@
                             next();
 
                         } catch (err) {
-                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err);
+                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
                             callBack("Operation Failed");
                             return;
                         }
@@ -375,18 +375,18 @@
                                             break;
                                     }
                                 } catch (err) {
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err);
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.message);
                                     callBack("Operation Failed");
                                 }
                             }
                         } catch (err) {
-                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err);
+                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
                             callBack("Operation Failed");
                         }
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> err = " + err);
+                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> err = " + err.message);
                     callBack("Operation Failed");
                     return;
                 }
@@ -418,7 +418,7 @@
 
             }
         } catch (err) {
-            logger.write("[ERROR] ordersExecutionCheck -> err = " + err);
+            logger.write("[ERROR] ordersExecutionCheck -> err = " + err.message);
             callBack("Operation Failed");
         }
     }
@@ -474,12 +474,12 @@
                             break;
                     }
                 } catch (err) {
-                    logger.write("[ERROR] putPositionAtExchange -> onResponse -> err = " + err);
+                    logger.write("[ERROR] putPositionAtExchange -> onResponse -> err = " + err.message);
                     callBack("Operation Failed");
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] putPositionAtExchange -> err = " + err);
+            logger.write("[ERROR] putPositionAtExchange -> err = " + err.message);
             callBack("Operation Failed");
         }
     }
@@ -548,12 +548,12 @@
                             break;
                     }
                 } catch (err) {
-                    logger.write("[ERROR] movePositionAtExchange -> onResponse -> err = " + err);
+                    logger.write("[ERROR] movePositionAtExchange -> onResponse -> err = " + err.message);
                     callBack("Operation Failed");
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] movePositionAtExchange -> err = " + err);
+            logger.write("[ERROR] movePositionAtExchange -> err = " + err.message);
             callBack("Operation Failed");
         }
     }

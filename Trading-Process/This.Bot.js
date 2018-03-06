@@ -85,7 +85,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] start -> onDone -> err = " + err);
-                    callBack("Operation Failed");
+                    callBackFunction("Operation Failed");
                 }
             }
 
@@ -263,7 +263,7 @@
 
         } catch (err) {
             logger.write("[ERROR] start -> err = " + err);
-            callBack("Operation Failed");
+            callBackFunction("Operation Failed");
         }
     }
 };

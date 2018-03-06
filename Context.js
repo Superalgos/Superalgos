@@ -223,7 +223,7 @@
         } catch (err) {
 
             logger.write("[ERROR] initialize -> err = " + err);
-            callBackFunction("Operation Failed.");
+            callBackFunction("Operation Failed");
         }
     }
 
@@ -378,7 +378,7 @@
 
         } catch (err) {
             logger.write("[ERROR] saveAll -> Error = " + err.message);
-            callBackFunction("Operation Failed.");
+            callBackFunction("Operation Failed");
         }
     }
 

@@ -42,7 +42,7 @@
         } catch (err) {
 
             logger.write("[ERROR] initialize -> err = " + err);
-            callBackFunction("Operation Failed.");
+            callBackFunction("Operation Failed");
         }
     }
 
@@ -84,7 +84,7 @@
                     }
                 } catch (err) {
                     logger.write("[ERROR] getCandles -> getMarketFiles -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
@@ -111,7 +111,7 @@
                     }
                 } catch (err) {
                     logger.write("[ERROR] getCandles -> getDailyFiles -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
@@ -174,13 +174,13 @@
                     }
                 } catch (err) {
                     logger.write("[ERROR] getCandles -> getCandlesWeAreIn -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] getCandles -> err = " + err);
-            callBack("Operation Failed.");
+            callBack("Operation Failed");
         }
     }
 
@@ -221,7 +221,7 @@
                     }
                 } catch (err) {
                     logger.write("[ERROR] getPatterns -> getMarketFiles -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
@@ -248,7 +248,7 @@
                     }
                 } catch (err) {
                     logger.write("[ERROR] getPatterns -> getDailyFiles -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
@@ -313,13 +313,13 @@
                     }
                 } catch (err) {
                     logger.write("[ERROR] getPatterns -> getStairsWeAreIn -> err = " + err);
-                    callBack("Operation Failed.");
+                    callBack("Operation Failed");
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] getPatterns -> err = " + err);
-            callBack("Operation Failed.");
+            callBack("Operation Failed");
         }
     }
 
@@ -361,7 +361,7 @@
 
         } catch (err) {
             logger.write("[ERROR] getPatterns -> err = " + err);
-            callBack("Operation Failed.");
+            callBack("Operation Failed");
         }
     }
 };

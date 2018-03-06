@@ -69,13 +69,13 @@
                             callBackFunction(true);
                         }
                             break;
-                        case 'Retry Later.': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] start -> onDone -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(true, nextIntervalLapse);
                             return;
                         }
                             break;
-                        case 'Operation Failed.': { // This is an unexpected exception that we do not know how to handle.
+                        case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] start -> onDone -> Operation Failed. Aborting the process.");
                             callBackFunction(false);
                             return;
@@ -141,7 +141,7 @@
 
                             const logText = ;
                             logger.write("[WARN] start -> businessLogic -> Last one min candle more than 5 minutes old. Bot cannot operate with this delay. Retrying later.");
-                            callBack('Retry Later.');
+                            callBack('Retry Later');
                             return;
                         }
 

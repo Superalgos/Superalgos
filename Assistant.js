@@ -71,7 +71,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> onDone -> err = " + err);
-                    callBack("Operation Failed");
+                    callBackFunction("Operation Failed");
                 }
             }
 

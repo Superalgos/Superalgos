@@ -1,29 +1,10 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, exchangeAPI) {
+﻿exports.newInterval = function newInterval(BOT, DEBUG_MODULE) {
 
     let bot = BOT;
-
-    const GMT_SECONDS = ':00.000 GMT+0000';
-    const GMT_MILI_SECONDS = '.000 GMT+0000';
-    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
     const MODULE_NAME = "Interval";
     const LOG_INFO = true;
 
-    const EXCHANGE_NAME = "Poloniex";
-    const EXCHANGE_ID = 1;
-
-    const TRADES_FOLDER_NAME = "Trades";
-
-    const CANDLES_FOLDER_NAME = "Candles";
-    const CANDLE_STAIRS_FOLDER_NAME = "Candle-Stairs";
-
-    const VOLUMES_FOLDER_NAME = "Volumes";
-    const VOLUME_STAIRS_FOLDER_NAME = "Volume-Stairs";
-
-    const GO_RANDOM = false;
-    const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. *
-
-    const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
@@ -32,22 +13,14 @@
         start: start
     };
 
-    let fs = require('fs');
-
-    let charlyAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
-    let oliviaAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
-    let tomAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
-    let mariamAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
-
-    let utilities = UTILITIES.newUtilities(bot);
-
     let botContext;
     let processDatetime;
     let datasource;
+    let exchangeAPI;
 
     return interval;
 
-    function initialize(pBotContext, pProcessDatetime, pDatasource, callBackFunction) {
+    function initialize(pBotContext, pProcessDatetime, pDatasource, pExchangeAPI, callBackFunction) {
 
         try {
 
@@ -58,14 +31,11 @@
             botContext = pBotContext;
             processDatetime = pProcessDatetime;
             datasource = pDatasource;
+            exchangeAPI = pExchangeAPI;
 
             logger.write("[INFO] initialize - Entering function 'initialize' ");
 
-            charlyAzureFileStorage.initialize("Charly");
-            oliviaAzureFileStorage.initialize("Olivia");
-            tomAzureFileStorage.initialize("Tom");
-            mariamAzureFileStorage.initialize(bot.name);
-
+            callBackFunction();
 
         } catch (err) {
 
@@ -75,14 +45,6 @@
 
         }
     }
-
-    /*
-    
-    This process is going to do the following:
-    
-    Read the candles and volumes from Olivia and produce for each market two files with candles stairs and volumes stairs respectively.
-    
-    */
 
     function start(callBackFunction) {
 
@@ -97,13 +59,10 @@
             This bot will trade with a pseudo strategy based on candle and volumes stairs patterns. Essentially it will look at the patterns
             it is in at different time periods and try to make a guess if it is a good time to buy, sell, put or remove positions.
 
-            The bot trades only at one market: USDT_BTC.
-
             */
 
-
-            let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
-            let nextIntervalLapse = 10 * 1000; // If something fails and we need to retry after a few seconds, we will use this amount of time to request a new execution. 
+            let nextIntervalExecution = false; // This tell the AAPlatform if it must execute the bot code again or not. 
+            let nextIntervalLapse = 10 * 1000; // If something fails and we need to retry after a few seconds, we will use this amount of time to request a new execution of this bot code.
 
             let marketFilesPeriods =
                 '[' +
@@ -133,6 +92,8 @@
                 '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
 
             dailyFilePeriods = JSON.parse(dailyFilePeriods);
+
+            /* The bot trades only at one market: USDT_BTC. */
 
             const market = {
                 assetA: "USDT",

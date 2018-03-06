@@ -19,35 +19,6 @@
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
 
-    let marketFilesPeriods =
-        '[' +
-        '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
-        '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
-        '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
-        '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
-        '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
-        '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
-        '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
-        '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
-
-    marketFilesPeriods = JSON.parse(marketFilesPeriods);
-
-    let dailyFilePeriods =
-        '[' +
-        '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
-        '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
-        '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
-        '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
-        '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
-        '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
-        '[' + 05 * 60 * 1000 + ',' + '"05-min"' + ']' + ',' +
-        '[' + 04 * 60 * 1000 + ',' + '"04-min"' + ']' + ',' +
-        '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
-        '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
-        '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
-
-    dailyFilePeriods = JSON.parse(dailyFilePeriods);
-
     let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
     let openPositions = [];         // These are the open positions the bot knows it made by itself. 
 
@@ -55,14 +26,18 @@
     let processDatetime;
     let exchangeAPI;
 
+    /* The current bots trades only at one market: USDT_BTC. */
+
+    const MARKET = {
+        assetA: "USDT",
+        assetB: "BTC",
+    };
+
     return thisObject;
 
     function initialize(pBotContext, pProcessDatetime, pExchangeAPI, callBackFunction) {
 
         try {
-
-            let nextIntervalExecution = false; // This tell the AAPlatform if it must execute the bot code again or not. 
-            let nextIntervalLapse = 10 * 1000; // If something fails and we need to retry after a few seconds, we will use this amount of time to request a new execution of this bot code.
 
             /* Store local values. */
 
@@ -70,16 +45,35 @@
             processDatetime = pProcessDatetime;
             exchangeAPI = pExchangeAPI;
 
-            /* The bot trades only at one market: USDT_BTC. */
+            getPositionsAtExchange(onDone);
 
-            const market = {
-                assetA: "USDT",
-                assetB: "BTC",
-            };
+            function onDone(err) {
+                try {
 
+                    switch (err) {
+                        case null: {
+                            callBackFunction(null);
+                        }
+                            break;
+                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
+                        case 'Retry Later': { // This is an unexpected exception that we do not know how to handle.
+                            logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
+                            callBackFunction(err);
+                            return;
+                        }
+                            break;
+                    }
 
-
-            getPositionsAtExchange();
+                } catch (err) {
+                    logger.write("[ERROR] initialize -> onDone -> err = " + err);
+                    callBack("Operation Failed");
+                }
+            }
 
         } catch (err) {
 
@@ -91,6 +85,7 @@
     function getPositionsAtExchange(callBack) {
 
         try {
+
             /*
 
             Here we grab all the positions at the exchange for the account we are using for trading. We will not asume all the positions
@@ -99,24 +94,25 @@
 
             */
 
-            exchangeAPI.getOpenPositions(market, onResponse);
+            exchangeAPI.getOpenPositions(MARKET, onResponse);
 
             function onResponse(err, pExchangePositions) {
 
                 switch (err) {
                     case null: {            // Everything went well, we have the information requested.
                         exchangePositions = pExchangePositions;
-                        readStatusAndContext();
+                        ordersExecutionCheck(callBack);
                     }
                         break;
                     case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
                         logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                        callBackFunction(true, nextIntervalLapse);
+                        callBack(err);
                         return;
                     }
                         break;
                     case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
                         logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                        callBack(err);
                         return;
                     }
                         break;
@@ -196,7 +192,7 @@
                                 getPositionTradesAtExchange(botContext.executionContext.positions[i].id, confirmOrderWasPartiallyExecuted);
                                 return;
 
-                                function confirmOrderWasPartiallyExecuted(trades) {
+                                function confirmOrderWasPartiallyExecuted(pTrades) {
 
                                     try {
                                         /*
@@ -210,10 +206,10 @@
                                         let sumAssetA = 0;
                                         let sumAssetB = 0;
 
-                                        for (k = 0; k < trades.length; k++) {
+                                        for (k = 0; k < pTrades.length; k++) {
 
-                                            sumAssetA = sumAssetA + trades[k].amountA;
-                                            sumAssetB = sumAssetB + trades[k].amountB;
+                                            sumAssetA = sumAssetA + pTrades[k].amountA;
+                                            sumAssetB = sumAssetB + pTrades[k].amountB;
 
                                         }
 
@@ -245,9 +241,9 @@
                                         botContext.executionContext.positions[i].amountB = exchangePositions[j].amountB;
                                         botContext.executionContext.positions[i].date = (new Date(exchangePositions[j].date)).valueOf();
 
-                                        for (k = 0; k < trades.length; k++) {
+                                        for (k = 0; k < pTrades.length; k++) {
 
-                                            botContext.executionContext.positions[i].trades.push(trades[k]);
+                                            botContext.executionContext.positions[i].pTrades.push(pTrades[k]);
 
                                             botContext.newHistoryRecord.newTrades++;
 
@@ -278,7 +274,7 @@
 
                     getPositionTradesAtExchange(botContext.executionContext.positions[i].id, confirmOrderWasExecuted);
 
-                    function confirmOrderWasExecuted(trades) {
+                    function confirmOrderWasExecuted(pTrades) {
 
                         try {
                             /*
@@ -292,10 +288,10 @@
                             let sumAssetA = 0;
                             let sumAssetB = 0;
 
-                            for (k = 0; k < trades.length; k++) {
+                            for (k = 0; k < pTrades.length; k++) {
 
-                                sumAssetA = sumAssetA + trades[k].amountA;
-                                sumAssetB = sumAssetB + trades[k].amountB;
+                                sumAssetA = sumAssetA + pTrades[k].amountA;
+                                sumAssetB = sumAssetB + pTrades[k].amountB;
 
                             }
 
@@ -320,9 +316,9 @@
 
                             botContext.executionContext.positions[i].status = "executed";
 
-                            for (k = 0; k < trades.length; k++) {
+                            for (k = 0; k < pTrades.length; k++) {
 
-                                botContext.executionContext.positions[i].trades.push(trades[k]);
+                                botContext.executionContext.positions[i].pTrades.push(pTrades[k]);
 
                                 botContext.newHistoryRecord.newTrades++;
 
@@ -343,6 +339,49 @@
                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err);
                             callBack("Operation Failed");
                             return;
+                        }
+                    }
+
+                    function getPositionTradesAtExchange(pPositionId, innerCallBack) {
+
+                        try {
+                            /*
+                
+                            Given one position, we request all the associated trades to it.
+                
+                            */
+
+                            exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+
+                            function onResponse(err, pTrades) {
+
+                                try {
+                                    switch (err) {
+                                        case null: {            // Everything went well, we have the information requested.
+                                            innerCallBack(pTrades);
+                                        }
+                                            break;
+                                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
+                                            callBack('Retry Later');
+                                            return;
+                                        }
+                                            break;
+                                        case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                                            callBack('Operation Failed');
+                                            return;
+                                        }
+                                            break;
+                                    }
+                                } catch (err) {
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err);
+                                    callBack("Operation Failed");
+                                }
+                            }
+                        } catch (err) {
+                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err);
+                            callBack("Operation Failed");
                         }
                     }
 
@@ -375,7 +414,7 @@
 
             function final() {
 
-                getCandles();
+                callBack(null);
 
             }
         } catch (err) {
@@ -384,52 +423,10 @@
         }
     }
 
-    function getPositionTradesAtExchange(pPositionId, callBack) {
-
-        try {
-            /*
-
-            Given one position, we request all the associated trades to it.
-
-            */
-
-            exchangeAPI.getExecutedTrades(pPositionId, onResponse);
-
-            function onResponse(err, pTrades) {
-
-                try {
-                    switch (err) {
-                        case null: {            // Everything went well, we have the information requested.
-                            callBack(pTrades);
-                        }
-                            break;
-                        case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(true, nextIntervalLapse);
-                            return;
-                        }
-                            break;
-                        case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
-                            logger.write("[ERROR] getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                            return;
-                        }
-                            break;
-                    }
-                } catch (err) {
-                    logger.write("[ERROR] getPositionTradesAtExchange -> onResponse -> err = " + err);
-                    callBack("Operation Failed");
-                }
-            }
-        } catch (err) {
-            logger.write("[ERROR] getPositionTradesAtExchange -> err = " + err);
-            callBack("Operation Failed");
-        }
-    }
-
     function putPositionAtExchange(pType, pRate, pAmountA, pAmountB, callBack) {
 
         try {
-            exchangeAPI.putPosition(market, pType, pRate, pAmountA, pAmountB, onResponse);
+            exchangeAPI.putPosition(MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
 
             function onResponse(err, pPositionId) {
 
@@ -460,17 +457,18 @@
                             botContext.newHistoryRecord.newPositions++;
                             botContext.newHistoryRecord.rate = pRate;
 
-                            callBack();
+                            callBack(null);
                         }
                             break;
                         case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] putPositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(true, nextIntervalLapse);
+                            callBack('Retry Later');
                             return;
                         }
                             break;
                         case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] putPositionAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                            callBack('Operation Failed');
                             return;
                         }
                             break;
@@ -533,17 +531,18 @@
                             botContext.newHistoryRecord.movedPositions++;
                             botContext.newHistoryRecord.rate = pNewRate;
 
-                            callBack();
+                            callBack(null);
                         }
                             break;
                         case 'Retry Later': {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] movePositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(true, nextIntervalLapse);
+                            callBack('Retry Later');
                             return;
                         }
                             break;
                         case 'Operation Failed': { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] movePositionAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                            callBack('Operation Failed');
                             return;
                         }
                             break;

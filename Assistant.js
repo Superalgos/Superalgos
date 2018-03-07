@@ -35,7 +35,7 @@
 
     return thisObject;
 
-    function initialize(pBotContext, pProcessDatetime, pExchangeAPI, callBackFunction) {
+    function initialize(pProcessDatetime, pBotContext, pExchangeAPI, callBackFunction) {
 
         try {
 

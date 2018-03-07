@@ -79,44 +79,13 @@ const DEFAULT_RETRY_RESPONSE = {
     message: "Retry Later"
 }; 
 
-if (bot.type === "trading") {
 
-    let tradingBot = newTradingBot(bot, botConfig);
-    tradingBot.initialize(onInitializeReady);
-
-    function onInitializeReady(err) {
-
-        if (err === null) {
-
-            tradingBot.start(whenStartFinishes);
-
-            function whenStartFinishes() {
-
-                if (err === null) {
-
-                    logger.write("[INFO] trading bot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
-
-                } else {
-
-                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
-                }
-            }
-
-        } else {
-            logger.write("[ERR] trading bot -> onInitializeReady -> err = " + err.message);
-            logger.write("[ERR] trading bot -> onInitializeReady -> Bot will not be started. " );
-        }
-
-    }
-    return;
-}
 
 const START_ALL_MONTHS = false;
 const START_ONE_MONTH = true;
 
 const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
+const TRADING_BOT_MODULE = require('./TradingBot');
 
 /* Now we will see which are the script Arguments. We expect the name of the process to run, since that is what it should be defined at the Task Scheduller. */
 
@@ -190,6 +159,13 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 
                 function startProcess() {
 
+                    if (bot.type === "trading") {
+
+                        runTradingBot();
+
+                        return;
+                    }
+
                     const newIntervalExecutor = INTERVAL_EXECUTOR_MODULE.newIntervalExecutor(bot);
 
                     newIntervalExecutor.initialize(vmConfig.bot.path, processConfig, undefined, undefined, onInitializeReady);
@@ -211,3 +187,34 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 }
 
 
+function runTradingBot() {
+
+    let tradingBot = TRADING_BOT_MODULE.newTradingBot(bot);
+    tradingBot.initialize(vmConfig.bot.path, processConfig, onInitializeReady);
+
+    function onInitializeReady(err) {
+
+        if (err.result !== DEFAULT_OK_RESPONSE.result) {
+
+            tradingBot.start(whenStartFinishes);
+
+            function whenStartFinishes() {
+
+                if (err.result !== DEFAULT_OK_RESPONSE.result) {
+
+                    logger.write("[INFO] trading bot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+
+                } else {
+
+                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
+                }
+            }
+
+        } else {
+            logger.write("[ERR] trading bot -> onInitializeReady -> err = " + err.message);
+            logger.write("[ERR] trading bot -> onInitializeReady -> Bot will not be started. ");
+        }
+    }
+}

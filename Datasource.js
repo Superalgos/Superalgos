@@ -418,26 +418,28 @@
 
                     pFileService.getTextFile(pFilePath, pFileName, onFileReceived);
 
-                    function onFileReceived(text) {
+                    function onFileReceived(err, text) {
 
-                        let data;
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] initialize -> getFile -> onFileReceived -> err = " + err.message);
+                            outerCallBack(err);
+                            return;
+                        }
 
                         try {
 
-                            data = JSON.parse(text);
+                            let data = JSON.parse(text);
+                            innerCallBack(data);
 
                         } catch (err) {
-
-                            data = JSON.parse("[]");
-
+                            logger.write("[ERROR] initialize -> getFile -> onFileReceived -> Parsing JSON -> err = " + err.message);
+                            outerCallBack(err);
+                            return;
                         }
-
-                        innerCallBack(data);
-
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] getPatterns -> err = " + err.message);
+                    logger.write("[ERROR] initialize -> getFile -> err = " + err.message);
                     outerCallBack("Operation Failed");
                 }
             }

@@ -134,27 +134,36 @@
             function getStatusReport(callBack) {
 
                 try {
+
+                    if (LOG_INFO === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
+
                     /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
 
                     let fileName = "Status.Report.json"
                     let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
 
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
-                    function onFileReceived(text) {
+                    function onFileReceived(err, text) {
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] initialize -> getStatusReport -> onFileReceived -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        if (LOG_INFO === true) {
+                            logger.write("[INFO] initialize -> getStatusReport -> onFileReceived -> Content received = " + text);
+                        }
 
                         try {
 
                             thisObject.statusReport = JSON.parse(text);
 
                             if (thisObject.statusReport.lastExecution === undefined) {
-
                                 createConext(callBack);
-
                             } else {
-
                                 getExecutionHistory(callBack);
-
                             }
 
                         } catch (err) {
@@ -167,10 +176,11 @@
 
                             */
 
-                            logger.write("[ERROR] initialize -> getStatusReport -> Bot cannot execute without the Status report. -> Err = " + err.message);
+                            logger.write("[ERROR] initialize -> getStatusReport -> onFileReceived -> Bot cannot execute without the Status report. -> Err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
+
                 } catch (err) {
                     logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -180,12 +190,24 @@
             function getExecutionHistory(callBack) {
 
                 try {
+                    if (LOG_INFO === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
+
                     let fileName = "Execution.History.json"
                     let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process;
 
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
-                    function onFileReceived(text) {
+                    function onFileReceived(err, text) {
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] initialize -> getExecutionHistory -> onFileReceived -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        if (LOG_INFO === true) {
+                            logger.write("[INFO] initialize -> getExecutionHistory -> onFileReceived -> Content received = " + text);
+                        }
 
                         try {
 
@@ -202,10 +224,11 @@
 
                             */
 
-                            logger.write("[ERROR] initialize -> getExecutionHistory -> Bot cannot execute without the Execution History. -> Err = " + err.message);
+                            logger.write("[ERROR] initialize -> getExecutionHistory -> onFileReceived -> Bot cannot execute without the Execution History. -> Err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
+
                 } catch (err) {
                     logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -215,22 +238,32 @@
             function getExecutionContext(callBack) {
 
                 try {
+                    if (LOG_INFO === true) { logger.write("[INFO] initialize -> getExecutionContext -> Entering function."); }
+
                     let date = new Date(thisObject.statusReport.lastExecution);
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
-                    function onFileReceived(text) {
+                    function onFileReceived(err, text) {
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] initialize -> getExecutionContext -> onFileReceived -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        if (LOG_INFO === true) {
+                            logger.write("[INFO] initialize -> getExecutionContext -> onFileReceived -> Content received = " + text);
+                        }
 
                         try {
 
                             thisObject.executionContext = JSON.parse(text);
-
                             thisObject.executionContext.transactions = []; // We record here the transactions that happened duting this execution.
-
                             callBack(global.DEFAULT_OK_RESPONSE);
 
                         } catch (err) {
@@ -243,7 +276,7 @@
 
                             */
 
-                            logger.write("[ERROR] initialize -> getExecutionContext -> Bot cannot execute without the Execution Context. -> Err = " + err.message);
+                            logger.write("[ERROR] initialize -> getExecutionContext -> onFileReceived -> Bot cannot execute without the Execution Context. -> Err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -257,6 +290,7 @@
             function createConext(callBack) {
 
                 try {
+                    if (LOG_INFO === true) { logger.write("[INFO] initialize -> createConext -> Entering function."); }
                     /*
     
                     When the bot is executed for the very first time, there are a few files that do not exist and need to be created, and that

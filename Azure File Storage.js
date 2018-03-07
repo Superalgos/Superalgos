@@ -15,7 +15,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     const DEBUG_MODULE = require('./Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
+    logger.pFileName = MODULE_NAME;
     logger.bot = bot;
 
     const shareName = 'data';
@@ -70,112 +70,113 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
         }
     }
 
-    function createFolder(folderPath, callBackFunction) {
+    function createFolder(pFolderPath, callBackFunction) {
+
+        if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
 
         if (fileService === undefined) {
 
-            const logText = "[ERROR] initialize function not executed or failed. Can not process this request. Sorry.";
-            logger.write(logText);
+            logger.write("[ERROR] createFolder -> initialize function not executed or failed. Can not process this request. Sorry.");
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }
 
         try {
 
-            fileService.createDirectoryIfNotExists(shareName, folderPath, onFolderCreated);
+            fileService.createDirectoryIfNotExists(shareName, pFolderPath, onFolderCreated);
 
             function onFolderCreated(err) {
 
                 if (err) {
-
-                    const logText = "[ERROR] createFolder - onFolderCreated ' ERROR = " + err.message + " SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath;
-                    console.log(logText);
-                    logger.write(logText);
-
+                    logger.write("[ERROR] createFolder -> onFolderCreated -> err = " + err.message);
+                    logger.write("[ERROR] createFolder -> onFolderCreated -> shareName = " + shareName);
+                    logger.write("[ERROR] createFolder -> onFolderCreated -> pFolderPath = " + pFolderPath);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
                 }
-
-                callBackFunction();
-
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
             }
-
         }
         catch (err) {
-            const logText = "[ERROR] 'createFolder' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write("[ERROR] createFolder -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
-
     }
 
-    function createTextFile(folderPath, fileName, fileContent, callBackFunction) {
+    function createTextFile(pFolderPath, pFileName, pFileContent, callBackFunction) {
 
         if (fileService === undefined) {
 
-            logger.write("[ERROR] initialize function not executed or failed. Can not process this request. Sorry.");
+            logger.write("[ERROR] createFolder -> initialize function not executed or failed. Can not process this request. Sorry.");
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }
 
         try {
 
             if (FULL_LOG === true) {
-
-                logger.write("[INFO] createTextFile about to createFileFromText here:");
-                logger.write("[INFO] SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName);
-
+                logger.write("[INFO] createTextFile -> About to create a text file.");
+                logger.write("[INFO] createTextFile -> shareName = " + shareName);
+                logger.write("[INFO] createTextFile -> pFolderPath = " + pFolderPath);
+                logger.write("[INFO] createTextFile -> pFileName = " + pFileName);
             }
 
-            fileService.createFileFromText(shareName, folderPath, fileName, fileContent, onFileCreated);
+            fileService.createFileFromText(shareName, pFolderPath, pFileName, pFileContent, onFileCreated);
 
             function onFileCreated(err, result, response) {
 
                 if (FULL_LOG === true) {
-
-                    logger.write("[INFO] SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName);
-                    logger.write("[INFO] createTextFile - onFileCreated: err = " + JSON.stringify(err));
-                    logger.write("[INFO] createTextFile - onFileCreated: result = " + JSON.stringify(result));
-                    logger.write("[INFO] createTextFile - onFileCreated: response = " + JSON.stringify(response));
-
+                    logger.write("[INFO] createTextFile -> onFileCreated -> Response from Azure received.");
+                    logger.write("[INFO] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
+                    logger.write("[INFO] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
+                    logger.write("[INFO] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
                 }
 
                 if (err) {
 
-                    logger.write("[ERR] createTextFile - onFileCreated: err = " + JSON.stringify(err));
-                    logger.write("[ERR] createTextFile - onFileCreated: result = " + JSON.stringify(result));
-                    logger.write("[ERR] createTextFile - onFileCreated: response = " + JSON.stringify(response));
+                    logger.write("[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
+                    logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
+                    logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
 
                     if (err.message.indexOf("The server is busy") > 0) {
 
-                        fileService.createFileFromText(shareName, folderPath, fileName, fileContent, onFileCreatedSecondTry);
+                        setTimeout(secondTry, 1000);
 
-                        function onFileCreatedSecondTry(err) {
+                        function secondTry() {
 
-                            if (err) {
+                            logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
 
-                                logger.write("[ERR] createTextFile - onFileCreated - onFileCreatedSecondTry : File not created. Giving Up. ");
+                            fileService.createFileFromText(shareName, pFolderPath, pFileName, pFileContent, onFileCreatedSecondTry);
 
-                            } else {
+                            function onFileCreatedSecondTry(err) {
 
-                                logger.write("[INFO] createTextFile - onFileCreated - onFileCreatedSecondTry : File succesfully created on second try. ");
-                                logger.write("[INFO] SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName);
-
+                                if (err) {
+                                    logger.write("[ERROR] createTextFile -> onFileCreated -> secondTry -> File not created. Giving Up.");
+                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                } else {
+                                    logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> File succesfully created on second try.");
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                }
                             }
                         }
                     }
 
-                    callBackFunction(false);
+                    logger.write("[ERROR] createTextFile -> onFileCreated -> Dont know what to do here. Cancelling operation. ");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                 } else {
-
-                    callBackFunction(true);
-
+                    if (LOG_INFO === true) { logger.write("[INFO] createTextFile -> onFileCreated -> File Created."); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }
             }
         }
         catch (err) {
             logger.write("[ERROR] 'createTextFile' - ERROR : " + JSON.stringify(err));
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
-
     }
 
-    function getTextFile(folderPath, fileName, callBackFunction, ignoreNotFound) {
+    function getTextFile(pFolderPath, pFileName, callBackFunction, ignoreNotFound) {
 
         if (fileService === undefined) {
 
@@ -186,7 +187,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
         try {
 
-            fileService.getFileToText(shareName, folderPath, fileName, undefined, onFileReceived);
+            fileService.getFileToText(shareName, pFolderPath, pFileName, undefined, onFileReceived);
 
             function onFileReceived(err, text, response) {
 
@@ -194,7 +195,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
                     if (ignoreNotFound === undefined) {
 
-                        const logText = "[ERROR] getTextFile - onFileReceived ' ERROR = " + err.message + " SHARE NAME = " + shareName + " FOLDER PATH = " + folderPath + " FILE NAME = " + fileName;
+                        const logText = "[ERROR] getTextFile - onFileReceived ' ERROR = " + err.message + " SHARE NAME = " + shareName + " FOLDER PATH = " + pFolderPath + " FILE NAME = " + pFileName;
                         console.log(logText);
                         logger.write(logText);
 
@@ -215,7 +216,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     }
 
-    function listFilesAndFolders(folderPath, callBackFunction) {
+    function listFilesAndFolders(pFolderPath, callBackFunction) {
 
         if (fileService === undefined) {
 
@@ -249,7 +250,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                 maxResults: 500
             };
 
-            fileService.listFilesAndDirectoriesSegmented(shareName, folderPath, null, options, onFilesAndFoldersReceived);
+            fileService.listFilesAndDirectoriesSegmented(shareName, pFolderPath, null, options, onFilesAndFoldersReceived);
 
 
             function onFilesAndFoldersReceived(error, result) {
@@ -273,6 +274,8 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                     }
 
                 }
+
+
                 catch (err) {
                     const logText = "[ERROR] 'listFilesAndFolders - onFilesAndFoldersReceived' - ERROR : " + err.message;
                     logger.write(logText);

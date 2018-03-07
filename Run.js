@@ -211,15 +211,15 @@ function runTradingBot(pProcessConfig) {
 
                     } else {
 
-                        logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                        logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                        logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
+                        logger.write("[ERROR] trading bot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                        logger.write("[ERROR] trading bot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                        logger.write("[ERROR] trading bot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
                     }
                 }
 
             } else {
-                logger.write("[ERR] trading bot -> onInitializeReady -> err = " + err.message);
-                logger.write("[ERR] trading bot -> onInitializeReady -> Bot will not be started. ");
+                logger.write("[ERROR] trading bot -> onInitializeReady -> err = " + err.message);
+                logger.write("[ERROR] trading bot -> onInitializeReady -> Bot will not be started. ");
             }
         }
     }

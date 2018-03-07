@@ -22,7 +22,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
     const shareName = 'data';
     let dataOwner;
 
-    let azureFileStorage = {
+    let thisObject = {
         initialize: initialize,
         createFolder: createFolder,
         createTextFile: createTextFile,
@@ -32,29 +32,27 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     let fileService;
 
-    return azureFileStorage;
+    return thisObject;
 
 
-    function initialize(dataOwnerBotName) {
+    function initialize(pDataOwnerBotCodeName, callBackFunction) {
 
         try {
+            if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            if (dataOwnerBotName === undefined) {
-
+            if (pDataOwnerBotCodeName === undefined) {
                 dataOwner = bot.codeName;
-
             } else {
-
-                dataOwner = dataOwnerBotName;
-
+                dataOwner = pDataOwnerBotCodeName;
             }
 
             fileService = storage.createFileService(readConfig().connectionString);
 
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
         }
         catch (err) {
-            const logText = "[ERROR] 'initialize' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write("[ERROR] initialize -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

@@ -64,11 +64,36 @@
 
             if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            oliviaAzureFileStorage.initialize("Olivia");
-            tomAzureFileStorage.initialize("Tom");
+            initializeOliviaStorage();
 
-            getCandles(onDone);
+            function initializeOliviaStorage() {
 
+                oliviaAzureFileStorage.initialize("Olivia", onInizialized);
+
+                function onInizialized(err) {
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                        initializeTomStorage();
+                    } else {
+                        logger.write("[ERROR] initialize -> initializeOliviaStorage -> err = " + err.message);
+                        callBackFunction(err);
+                    }
+                }
+            }
+
+            function initializeTomStorage() {
+
+                tomAzureFileStorage.initialize("Tom", onInizialized);
+
+                function onInizialized(err) {
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                        getCandles(onDone);
+                    } else {
+                        logger.write("[ERROR] initialize -> initializeTomStorage -> err = " + err.message);
+                        callBackFunction(err);
+                    }
+                }
+            }
+            
             function onDone(err) {
                 try {
 

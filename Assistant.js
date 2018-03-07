@@ -81,7 +81,6 @@
             }
 
         } catch (err) {
-
             logger.write("[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }

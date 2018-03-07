@@ -82,12 +82,25 @@
 
             */
 
-            cloudStorage.initialize(bot.codeName);
+            function initializeStorage() {
 
-            thisObject.newHistoryRecord.date = pProcessDatetime;
-            processDatetime = pProcessDatetime; 
+                cloudStorage.initialize(bot.codeName, onInizialized);
 
-            getStatusReport(onDone);
+                function onInizialized(err) {
+
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                        thisObject.newHistoryRecord.date = pProcessDatetime;
+                        processDatetime = pProcessDatetime;
+
+                        getStatusReport(onDone);
+
+                    } else {
+                        logger.write("[ERROR] initialize -> initializeStorage -> err = " + err.message);
+                        callBackFunction(err);
+                    }
+                }
+            }
 
             function onDone(err) {
                 try {

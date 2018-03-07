@@ -1,4 +1,4 @@
-﻿exports.newThisBot = function newThisBot(BOT, DEBUG_MODULE) {
+﻿exports.newUserBot = function newUserBot(BOT, DEBUG_MODULE) {
 
     let bot = BOT;
 
@@ -8,30 +8,56 @@
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    interval = {
+    thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let botContext;
-    let processDatetime;
-    let datasource;
-    let assistant;
+    let platform;                           // You will receive a reference to the platform at your initialize function. 
 
-    return interval;
+    /*
 
-    function initialize(pBotContext, pProcessDatetime, pDatasource, pAssistant, callBackFunction) {
+    The Platform object represents what the AA Platform provides you to help you with your bot. Inside it you can access to these inner objects:
+
+    platform = {
+        context: context,                   // This one will allow you to get historical information of what your bot did on previous executions and learn about which is your current status every time your bot runs.
+        datasource: datasource,             // This one will provide you with pre-loaded data ready for you to consume. In this version candlesticks and stari patterns.
+        assistant: assistant,               // This one will help you to to create, and move positions at the exchange.
+        processDatetime: processDatetime    // This is the current oficial execution time that will be recorded in logs, and used to retrieve stored data.
+                };
+
+    More details about these objects:
+
+    context = {
+        statusReport: undefined,            // Here is the information that defines which was the last sucessfull execution and some other details.
+        executionHistory: [],               // This is the record of bot execution.
+        executionContext: undefined,        // Here is the business information of the last execution of this bot process.
+    };
+
+    datasource = {
+        candlesFiles: new Map,              // Complete sets of candles for different Time Periods. For Time Periods < 1hs sets are of current day only, otherwise whole market.
+        candlesMap: new Map,                // The last 10 candles for each Time Period will be stored here.
+        stairsFiles: new Map,               // Complete sets of patterns for different Time Periods. For Time Periods < 1hs sets are of current day only, otherwise whole market.
+        stairsMap: new Map                  // The patterns we are currently in will be stored here.
+    };
+
+    assistant = {
+        putPositionAtExchange: putPositionAtExchange,
+        movePositionAtExchange: movePositionAtExchange
+    };
+
+    */
+
+    return thisObject;
+
+    function initialize(pProcessDatetime, pPlatform, callBackFunction) {
 
         try {
 
             logger.fileName = MODULE_NAME;
 
             /* Store local values. */
-
-            botContext = pBotContext;
-            processDatetime = pProcessDatetime;
-            datasource = pDatasource;
-            assistant = pAssistant;
+            platform = pPlatform;
 
             logger.write("[INFO] initialize -> Entering function 'initialize' ");
 
@@ -107,12 +133,12 @@
 
                     */
 
-                    if (botContext.executionContext.positions.length > 0) {
+                    if (platform.context.executionContext.positions.length > 0) {
 
-                        if (botContext.executionContext.positions[0].type === "buy") {
-                            decideAboutBuyPosition(botContext.executionContext.positions[0], callBack);
+                        if (platform.context.executionContext.positions[0].type === "buy") {
+                            decideAboutBuyPosition(platform.context.executionContext.positions[0], callBack);
                         } else {
-                            decideAboutSellPosition(botContext.executionContext.positions[0], callBack);
+                            decideAboutSellPosition(platform.context.executionContext.positions[0], callBack);
                         }
                         
                     } else {
@@ -128,7 +154,7 @@
 
                         */
 
-                        let candleArray = datasource.candlesMap.get("01-min");  // In this version of the platform, this array will contain the las 10 candles.
+                        let candleArray = platform.datasource.candlesMap.get("01-min");  // In this version of the platform, this array will contain the las 10 candles.
                         let candle = candleArray[candleArray.length - 1];       // The last candle of the 10 candles array for the 1 min Time Period.
 
                         let currentRate = candle.close;
@@ -138,7 +164,7 @@
                         any reason stops being updated.
                         */
 
-                        if (candle.begin < processDatetime.valueOf() - 5 * 60 * 1000) {
+                        if (candle.begin < platform.processDatetime.valueOf() - 5 * 60 * 1000) {
 
                             const logText = ;
                             logger.write("[WARN] start -> businessLogic -> Last one min candle more than 5 minutes old. Bot cannot operate with this delay. Retrying later.");
@@ -160,8 +186,8 @@
                         const INITIAL_BALANCE_A = 0.0000;
                         const INITIAL_BALANCE_B = 0.0001;
 
-                        let AmountA = botContext.statusReport.initialBalance.amountA;
-                        let AmountB = botContext.statusReport.initialBalance.amountB;
+                        let AmountA = platform.context.statusReport.initialBalance.amountA;
+                        let AmountB = platform.context.statusReport.initialBalance.amountB;
 
                         /* 
                         Here is this bot example, we are going to sell all AmountB at once. You can do this or whatever you think is better.
@@ -169,7 +195,7 @@
 
                         AmountA = AmountB * rate;
 
-                        assistant.putPositionAtExchange("sell", rate, AmountA, AmountB, writeStatusAndContext, callBack);
+                        platform.assistant.putPositionAtExchange("sell", rate, AmountA, AmountB, writeStatusAndContext, callBack);
 
                     }
                 } catch (err) {
@@ -242,7 +268,7 @@
 
                         timePeriodName = marketFilesPeriods[i][1];
 
-                        candleArray = datasource.candlesMap.get(timePeriodName);
+                        candleArray = platform.datasource.candlesMap.get(timePeriodName);
                         candle = candleArray[candleArray.length - 1];           // The last candle of the 10 candles array.
 
                         diff = candle.close - candle.open;
@@ -254,7 +280,7 @@
 
                     /* Finally we move the order position to where we have just estimated is a better place. */
 
-                    assistant.movePositionAtExchange(pPosition, targetRate, writeStatusAndContext, callBack);
+                    platform.assistant.movePositionAtExchange(pPosition, targetRate, writeStatusAndContext, callBack);
 
                 } catch (err) {
                     logger.write("[ERROR] start -> decideAboutSellPosition -> err = " + err.message);

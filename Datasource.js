@@ -22,7 +22,7 @@
 
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
-
+    logger.bot = bot;
 
     let marketFilesPeriods =
         '[' +

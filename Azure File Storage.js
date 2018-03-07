@@ -15,7 +15,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     const DEBUG_MODULE = require('./Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
-    logger.pFileName = MODULE_NAME;
+    logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
     const shareName = 'data';
@@ -45,28 +45,50 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                 dataOwner = pDataOwnerBotCodeName;
             }
 
-            fileService = storage.createFileService(readConfig().connectionString);
+            readConnectionStringConfigFile(onConnectionStringReady);
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            function onConnectionStringReady(err, pConnObj) {
+
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    logger.write("[ERROR] initialize -> onConnectionStringReady -> err = " + err.message);
+                    callBackFunction(err);
+                    return;
+                }
+
+                try {
+                    fileService = storage.createFileService(pConnObj.connectionString);
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } catch (err) {
+
+                    logger.write("[ERROR] initialize -> onConnectionStringReady -> createFileService -> err = " + err.message);
+                    callBackFunction(err);
+                    return;
+                }
+            }
+
+            function readConnectionStringConfigFile(callBack) {
+
+                let filePath;
+
+                try {
+                    let fs = require('fs');
+                    filePath = '../' + 'Connection-Strings' + '/' + global.RUNNING_MODE + '/' + dataOwner + '.azure.storage.connstring';
+                    let connObj = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+                    callBack(global.DEFAULT_OK_RESPONSE, connObj);
+                }
+                catch (err) {
+                    logger.write("[ERROR] readConnectionStringConfigFile -> err = " + err.message);
+                    logger.write("[HINT] readConnectionStringConfigFile -> You need to have a file at this path -> " + filePath);
+                    logger.write("[HINT] readConnectionStringConfigFile -> The file must have the connection string to the Azure Storage Account. Request the file to an AA Team Member if you dont have it.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
         }
         catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function readConfig() {
-
-        try {
-            let fs = require('fs');
-            let filePath = '../' + 'Connection-Strings' + '/' + global.RUNNING_MODE + '/' +  dataOwner + '.azure.storage.connstring' + '.json';
-            return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        }
-        catch (err) {
-            logger.write("[ERROR] readConfig -> err = " + err.message);
-            logger.write("[HINT] You need to have a file at this path -> " + filePath);
-            logger.write("[HINT] The file must have the connection string to the Azure Storage Account. Request the file to an AA Team Member if you dont have it.");
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

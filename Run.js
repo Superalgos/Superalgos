@@ -201,9 +201,9 @@ function runTradingBot(pProcessConfig) {
 
             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                tradingBot.start(whenStartFinishes);
+                tradingBot.run(whenRunFinishes);
 
-                function whenStartFinishes(err) {
+                function whenRunFinishes(err) {
 
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 

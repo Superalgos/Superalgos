@@ -15,7 +15,7 @@
 
     thisObject = {
         initialize: initialize,
-        start: start
+        run: run
     };
 
     let processConfig;
@@ -38,17 +38,17 @@
         }
     }
 
-    function start(callBackFunction) {
+    function run(callBackFunction) {
 
         try {
-            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] run -> Entering function."); }
 
             loop();
 
             function loop() {
 
                 try {
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> loop -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Entering function."); }
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
@@ -88,7 +88,7 @@
                             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 initializeDatasource();
                             } else {
-                                logger.write("[ERROR] start -> loop -> initializeContext -> err = " + err.message);
+                                logger.write("[ERROR] run -> loop -> initializeContext -> err = " + err.message);
                                 callBackFunction(err);
                             }
                         }
@@ -104,7 +104,7 @@
                             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 initializeExchangeAPI();
                             } else {
-                                logger.write("[ERROR] start -> loop -> initializeDatasource -> err = " + err.message);
+                                logger.write("[ERROR] run -> loop -> initializeDatasource -> err = " + err.message);
                                 callBackFunction(err);
                             }
                         }
@@ -120,7 +120,7 @@
                             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 initializeAssistant();
                             } else {
-                                logger.write("[ERROR] start -> loop -> initializeExchangeAPI -> err = " + err.message);
+                                logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> err = " + err.message);
                                 callBackFunction(err);
                             }
                         }
@@ -136,7 +136,7 @@
                             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 initializeUserBot();
                             } else {
-                                logger.write("[ERROR] start -> loop -> initializeAssistant -> err = " + err.message);
+                                logger.write("[ERROR] run -> loop -> initializeAssistant -> err = " + err.message);
                                 callBackFunction(err);
                             }
                         }
@@ -160,7 +160,7 @@
                             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 startUserBot();
                             } else {
-                                logger.write("[ERROR] start -> loop -> initializeUserBot -> err = " + err.message);
+                                logger.write("[ERROR] run -> loop -> initializeUserBot -> err = " + err.message);
                                 callBackFunction(err);
                             }
                         }
@@ -168,7 +168,7 @@
 
                     function startUserBot() {
 
-                        usertBot.start(platform, onFinished);
+                        usertBot.run(platform, onFinished);
 
                         function onFinished(err) {
 
@@ -186,7 +186,7 @@
                                 }
                                     break;
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] start -> loop -> startUserBot -> Operation Failed. Aborting the process.");
+                                    logger.write("[ERROR] run -> loop -> startUserBot -> Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }
@@ -204,14 +204,14 @@
                             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 loopControl(nextWaitTime);
                             } else {
-                                logger.write("[ERROR] start -> loop -> saveContext -> err = " + err.message);
+                                logger.write("[ERROR] run -> loop -> saveContext -> err = " + err.message);
                                 callBackFunction(err);
                             }
                         }
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> loop -> err = " + err.message);
+                    logger.write("[ERROR] run -> loop -> err = " + err.message);
                     callBackFunction(err);
                 }
             }
@@ -222,12 +222,12 @@
 
                 switch (nextWaitTime) {
                     case 'Normal': {
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> loopControl -> Restarting Loop in " + (processConfig.executionWaitTime / 1000) + " seconds."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.executionWaitTime / 1000) + " seconds."); }
                         setTimeout(loop, processConfig.executionWaitTime);
                     }
                         break;
                     case 'Retry': {
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
                         setTimeout(loop, processConfig.retryWaitTime);
                     }
                         break;
@@ -236,7 +236,7 @@
         }
 
         catch (err) {
-            logger.write("[ERROR] start -> err = " + err.message);
+            logger.write("[ERROR] run -> err = " + err.message);
         }
     }
 };

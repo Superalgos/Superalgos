@@ -36,7 +36,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Interval Executor.js" />
-    <Compile Include="Markets.js" />
     <Compile Include="Poloniex API Client.js" />
     <Compile Include="Run.js" />
     <Compile Include="TradingBot.js">

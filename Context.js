@@ -356,13 +356,20 @@
 
                             cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                            function onFileCreated() {
+                            function onFileCreated(err) {
+
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                    callBack(err);
+                                    return;
+                                }
 
                                 if (LOG_INFO === true) {
-                                    logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated ->  Content written = " + fileContent);
+                                    logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 
                                 writeExucutionHistory(callBack);
+                                return;
                             }
                         }
                         catch (err) {
@@ -370,7 +377,6 @@
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
-
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeExecutionContext -> err = " + err.message);
@@ -415,9 +421,20 @@
 
                             cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                            function onFileCreated() {
+                            function onFileCreated(err) {
+
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                    callBack(err);
+                                    return;
+                                }
+
+                                if (LOG_INFO === true) {
+                                    logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
+                                }
 
                                 writeStatusReport(callBack);
+                                return;
                             }
                         }
                         catch (err) {
@@ -425,7 +442,6 @@
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
-
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> err = " + err.message);
@@ -462,10 +478,16 @@
 
                             cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                            function onFileCreated() {
+                            function onFileCreated(err) {
+
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                    callBack(err);
+                                    return;
+                                }
 
                                 if (LOG_INFO === true) {
-                                    logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated ->  Content written = " + fileContent);
+                                    logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 
                                 callBack(global.DEFAULT_OK_RESPONSE); 
@@ -477,7 +499,6 @@
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
-
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeStatusReport -> err = " + err.message);

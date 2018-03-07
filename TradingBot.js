@@ -4,7 +4,7 @@
     const ROOT_DIR = './';
 
     const MODULE_NAME = "Trading Bot";
-    const LOG_INFO = true;
+    const FULL_LOG = true;
 
     let USER_BOT_MODULE;
 
@@ -25,7 +25,7 @@
     function initialize(pBotPath, pProcessConfig, callBackFunction) {
 
         try {
-            if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
             processConfig = pProcessConfig;
 
             USER_BOT_MODULE = require(pBotPath + "/" + pProcessConfig.name + "/" + 'User.Bot');
@@ -41,20 +41,19 @@
     function start(callBackFunction) {
 
         try {
-            if (LOG_INFO === true) { logger.write("[INFO] start -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
 
             loop();
 
             function loop() {
 
                 try {
-                    if (LOG_INFO === true) { logger.write("[INFO] start -> loop -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> loop -> Entering function."); }
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
                     const AZURE_FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
-                    const MARKETS_MODULE = require(ROOT_DIR + 'Markets');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
                     const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
@@ -223,12 +222,12 @@
 
                 switch (nextWaitTime) {
                     case 'Normal': {
-                        if (LOG_INFO === true) { logger.write("[INFO] start -> loopControl -> Restarting Loop in " + (processConfig.executionWaitTime / 1000) + " seconds."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> loopControl -> Restarting Loop in " + (processConfig.executionWaitTime / 1000) + " seconds."); }
                         setTimeout(loop, processConfig.executionWaitTime);
                     }
                         break;
                     case 'Retry': {
-                        if (LOG_INFO === true) { logger.write("[INFO] start -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
                         setTimeout(loop, processConfig.retryWaitTime);
                     }
                         break;

@@ -4,7 +4,7 @@
     const ROOT_DIR = './';
 
     const MODULE_NAME = "Interval Executor";
-    const LOG_INFO = true;
+    const FULL_LOG = true;
 
     let INTERVAL_MODULE;
 
@@ -79,13 +79,13 @@
 
             if (year !== undefined) {
 
-                if (LOG_INFO === true) {
+                if (FULL_LOG === true) {
                     logger.write("[INFO] Entering function 'start', with year = " + year + " and month = " + month);
                 }
 
             } else {
 
-                if (LOG_INFO === true) {
+                if (FULL_LOG === true) {
                     logger.write("[INFO] Entering function 'start'.");
                 }
 
@@ -109,7 +109,7 @@
 
                 try {
 
-                    if (LOG_INFO === true) {
+                    if (FULL_LOG === true) {
 
                         if (processConfig.intervalMaxLoops !== 0) {
 

@@ -31,7 +31,7 @@
 
         try {
 
-            if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             let apiKey = readApiKey();
             poloniexApiClient = new POLONIEX_CLIENT_MODULE(apiKey.Key, apiKey.Secret);

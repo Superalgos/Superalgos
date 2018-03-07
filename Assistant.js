@@ -41,7 +41,7 @@
 
         try {
 
-            if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             /* Store local values. */
 

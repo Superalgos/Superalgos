@@ -1,5 +1,5 @@
 ﻿
-const LOG_INFO = true;
+const FULL_LOG = true;
 
 /* The following global variable tells the system if it is running on test mode or production. */
 
@@ -192,7 +192,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 function runTradingBot(pProcessConfig) {
 
     try {
-        if (LOG_INFO === true) { logger.write("[INFO] runTradingBot -> Entering function."); }
+        if (FULL_LOG === true) { logger.write("[INFO] runTradingBot -> Entering function."); }
 
         let tradingBot = TRADING_BOT_MODULE.newTradingBot(botConfig);
         tradingBot.initialize(vmConfig.bot.path, pProcessConfig, onInitializeReady);
@@ -203,9 +203,9 @@ function runTradingBot(pProcessConfig) {
 
                 tradingBot.start(whenStartFinishes);
 
-                function whenStartFinishes() {
+                function whenStartFinishes(err) {
 
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                         logger.write("[INFO] trading bot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
 

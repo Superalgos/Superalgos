@@ -37,7 +37,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
     function initialize(pDataOwnerBotCodeName, callBackFunction) {
 
         try {
-            if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             if (pDataOwnerBotCodeName === undefined) {
                 dataOwner = bot.codeName;
@@ -72,7 +72,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     function createFolder(pFolderPath, callBackFunction) {
 
-        if (LOG_INFO === true) { logger.write("[INFO] createFolder -> Entering function."); }
+        if (FULL_LOG === true) { logger.write("[INFO] createFolder -> Entering function."); }
 
         if (fileService === undefined) {
 
@@ -165,7 +165,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                 } else {
-                    if (LOG_INFO === true) { logger.write("[INFO] createTextFile -> onFileCreated -> File Created."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] createTextFile -> onFileCreated -> File Created."); }
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }
             }
@@ -234,7 +234,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                 } else {
-                    if (LOG_INFO === true) { logger.write("[INFO] getTextFile -> onFileReceived -> File retrieved."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> onFileReceived -> File retrieved."); }
                     callBackFunction(global.DEFAULT_OK_RESPONSE, text);
                 }
             }

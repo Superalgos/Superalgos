@@ -73,7 +73,7 @@
 
         try {
 
-            if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             /*
 
@@ -81,6 +81,7 @@
             of the process.
 
             */
+            initializeStorage();
 
             function initializeStorage() {
 
@@ -135,7 +136,7 @@
 
                 try {
 
-                    if (LOG_INFO === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
 
                     /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
 
@@ -152,7 +153,7 @@
                             return;
                         }
 
-                        if (LOG_INFO === true) {
+                        if (FULL_LOG === true) {
                             logger.write("[INFO] initialize -> getStatusReport -> onFileReceived -> Content received = " + text);
                         }
 
@@ -190,7 +191,7 @@
             function getExecutionHistory(callBack) {
 
                 try {
-                    if (LOG_INFO === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
                     let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process;
@@ -205,7 +206,7 @@
                             return;
                         }
 
-                        if (LOG_INFO === true) {
+                        if (FULL_LOG === true) {
                             logger.write("[INFO] initialize -> getExecutionHistory -> onFileReceived -> Content received = " + text);
                         }
 
@@ -238,7 +239,7 @@
             function getExecutionContext(callBack) {
 
                 try {
-                    if (LOG_INFO === true) { logger.write("[INFO] initialize -> getExecutionContext -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> Entering function."); }
 
                     let date = new Date(thisObject.statusReport.lastExecution);
 
@@ -256,7 +257,7 @@
                             return;
                         }
 
-                        if (LOG_INFO === true) {
+                        if (FULL_LOG === true) {
                             logger.write("[INFO] initialize -> getExecutionContext -> onFileReceived -> Content received = " + text);
                         }
 
@@ -290,7 +291,7 @@
             function createConext(callBack) {
 
                 try {
-                    if (LOG_INFO === true) { logger.write("[INFO] initialize -> createConext -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> createConext -> Entering function."); }
                     /*
     
                     When the bot is executed for the very first time, there are a few files that do not exist and need to be created, and that
@@ -364,7 +365,7 @@
 
             function writeExecutionContext(callBack) {
 
-                if (LOG_INFO === true) {
+                if (FULL_LOG === true) {
                     logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function.");
                 }
 
@@ -398,7 +399,7 @@
                                     return;
                                 }
 
-                                if (LOG_INFO === true) {
+                                if (FULL_LOG === true) {
                                     logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 
@@ -420,7 +421,7 @@
 
             function writeExucutionHistory(callBack) {
 
-                if (LOG_INFO === true) {
+                if (FULL_LOG === true) {
                     logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function.");
                 }
 
@@ -463,7 +464,7 @@
                                     return;
                                 }
 
-                                if (LOG_INFO === true) {
+                                if (FULL_LOG === true) {
                                     logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 
@@ -485,7 +486,7 @@
 
             function writeStatusReport(callBack) {
 
-                if (LOG_INFO === true) {
+                if (FULL_LOG === true) {
                     logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function.");
                 }
 
@@ -520,7 +521,7 @@
                                     return;
                                 }
 
-                                if (LOG_INFO === true) {
+                                if (FULL_LOG === true) {
                                     logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 

@@ -1,5 +1,7 @@
 ﻿exports.newUserBot = function newUserBot(BOT, DEBUG_MODULE) {
 
+    const FULL_LOG = true;
+
     let bot = BOT;
 
     const MODULE_NAME = "This.Bot";
@@ -54,6 +56,8 @@
 
         try {
 
+            if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
+
             logger.fileName = MODULE_NAME;
 
             /* Store local values. */
@@ -61,11 +65,11 @@
 
             logger.write("[INFO] initialize -> Entering function 'initialize' ");
 
-            callBackFunction(DEFAULT_OK_RESPONSE);
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
-            callBackFunction(DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -91,18 +95,18 @@
                 try {
 
                     switch (err.result) {
-                        case DEFAULT_OK_RESPONSE.result: { 
-                            callBackFunction(DEFAULT_OK_RESPONSE);
+                        case global.DEFAULT_OK_RESPONSE.result: { 
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] start -> onDone -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(err.message);
                             return;
                         }
                             break;
-                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] start -> onDone -> Operation Failed. Aborting the process.");
                             callBackFunction(err.message);
                             return;
@@ -112,7 +116,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] start -> onDone -> err = " + err.message);
-                    callBackFunction(DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -166,7 +170,6 @@
 
                         if (candle.begin < platform.processDatetime.valueOf() - 5 * 60 * 1000) {
 
-                            const logText = ;
                             logger.write("[WARN] start -> businessLogic -> Last one min candle more than 5 minutes old. Bot cannot operate with this delay. Retrying later.");
                             callBack('Retry Later');
                             return;
@@ -200,7 +203,7 @@
                     }
                 } catch (err) {
                     logger.write("[ERROR] start -> businessLogic -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -214,7 +217,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] start -> decideAboutBuyPosition -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -284,13 +287,13 @@
 
                 } catch (err) {
                     logger.write("[ERROR] start -> decideAboutSellPosition -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] start -> err = " + err.message);
-            callBackFunction(DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

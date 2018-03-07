@@ -24,8 +24,8 @@
           "run": "true"
         }
       },
-      "intervalLapse": 60000,
-      "intervalMaxLoops": -1
+      "executionWaitTime": 60000,
+      "retryWaitTime": 10000
     }
   ],
   "products": [

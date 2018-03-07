@@ -342,9 +342,15 @@
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
-                    function onFolderCreated() {
+                    function onFolderCreated(err) {
 
                         try {
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write("[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> err = " + err.message);
+                                callBack(err);
+                                return;
+                            }
 
                             let fileContent = JSON.stringify(thisObject.executionContext);
 
@@ -385,9 +391,15 @@
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
-                    function onFolderCreated() {
+                    function onFolderCreated(err) {
 
                         try {
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> err = " + err.message);
+                                callBack(err);
+                                return;
+                            }
 
                             let newRecord = [
                                 newHistoryRecord.date.valueOf(),
@@ -434,9 +446,15 @@
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
-                    function onFolderCreated() {
+                    function onFolderCreated(err) {
 
                         try {
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> err = " + err.message);
+                                callBack(err);
+                                return;
+                            }
 
                             thisObject.statusReport.lastExecution = processDatetime;
 

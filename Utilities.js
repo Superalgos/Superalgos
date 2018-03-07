@@ -32,7 +32,6 @@ exports.newUtilities = function newUtilities(BOT) {
         let partialPath = '';
         let separator = "";
 
-
         let i = 0;
         loop();
 
@@ -45,7 +44,13 @@ exports.newUtilities = function newUtilities(BOT) {
 
             azureFileStorage.createFolder(partialPath, checkLoop);
 
-            function checkLoop() {
+            function checkLoop(err) {
+
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    logger.write("[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.message);
+                    callBackFunction(err);
+                    return;
+                }
 
                 if (i === splittedPath.length) {
 
@@ -56,12 +61,8 @@ exports.newUtilities = function newUtilities(BOT) {
                     loop();
 
                 }
-
-
             }
-
         }
-
     }
 
 

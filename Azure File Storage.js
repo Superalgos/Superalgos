@@ -72,7 +72,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     function createFolder(pFolderPath, callBackFunction) {
 
-        if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (LOG_INFO === true) { logger.write("[INFO] createFolder -> Entering function."); }
 
         if (fileService === undefined) {
 

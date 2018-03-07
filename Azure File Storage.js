@@ -107,7 +107,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
         if (fileService === undefined) {
 
-            logger.write("[ERROR] createFolder -> initialize function not executed or failed. Can not process this request. Sorry.");
+            logger.write("[ERROR] createTextFile -> initialize function not executed or failed. Can not process this request. Sorry.");
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }
@@ -146,9 +146,9 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
                             logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
 
-                            fileService.createFileFromText(shareName, pFolderPath, pFileName, pFileContent, onFileCreatedSecondTry);
+                            fileService.createFileFromText(shareName, pFolderPath, pFileName, pFileContent, onSecondTry);
 
-                            function onFileCreatedSecondTry(err) {
+                            function onSecondTry(err) {
 
                                 if (err) {
                                     logger.write("[ERROR] createTextFile -> onFileCreated -> secondTry -> File not created. Giving Up.");
@@ -171,57 +171,86 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
             }
         }
         catch (err) {
-            logger.write("[ERROR] 'createTextFile' - ERROR : " + JSON.stringify(err));
+            logger.write("[ERROR] 'createTextFile' -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function getTextFile(pFolderPath, pFileName, callBackFunction, ignoreNotFound) {
+    function getTextFile(pFolderPath, pFileName, callBackFunction) {
 
         if (fileService === undefined) {
 
-            const logText = "[ERROR] initialize function not executed or failed. Can not process this request. Sorry.";
-            logger.write(logText);
+            logger.write("[ERROR] getTextFile -> initialize function not executed or failed. Can not process this request. Sorry.");
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }
 
         try {
 
+            if (FULL_LOG === true) {
+                logger.write("[INFO] getTextFile -> About to get a text file.");
+                logger.write("[INFO] getTextFile -> shareName = " + shareName);
+                logger.write("[INFO] getTextFile -> pFolderPath = " + pFolderPath);
+                logger.write("[INFO] getTextFile -> pFileName = " + pFileName);
+            }
+
             fileService.getFileToText(shareName, pFolderPath, pFileName, undefined, onFileReceived);
 
             function onFileReceived(err, text, response) {
 
-                if (err) {
-
-                    if (ignoreNotFound === undefined) {
-
-                        const logText = "[ERROR] getTextFile - onFileReceived ' ERROR = " + err.message + " SHARE NAME = " + shareName + " FOLDER PATH = " + pFolderPath + " FILE NAME = " + pFileName;
-                        console.log(logText);
-                        logger.write(logText);
-
-                    }
-
-                    text = undefined;
-
+                if (FULL_LOG === true) {
+                    logger.write("[INFO] getTextFile -> onFileReceived -> Response from Azure received.");
+                    logger.write("[INFO] getTextFile -> onFileReceived -> err = " + JSON.stringify(err));
+                    logger.write("[INFO] getTextFile -> onFileReceived -> text = " + text);
+                    logger.write("[INFO] getTextFile -> onFileReceived -> response = " + JSON.stringify(response));
                 }
 
-                callBackFunction(text);
-            }
+                if (err) {
+                
+                    if (err.message.indexOf("The server is busy") > 0) {
 
+                        setTimeout(secondTry, 1000);
+
+                        function secondTry() {
+
+                            logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
+
+                            fileService.getFileToText(shareName, pFolderPath, pFileName, undefined, onSecondTry);
+
+                            function onSecondTry(err) {
+
+                                if (err) {
+                                    logger.write("[ERROR] getTextFile -> onFileReceived -> secondTry -> File not retrieved. Giving Up.");
+                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                } else {
+                                    logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> File succesfully retrieved on second try.");
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                }
+                            }
+                        }
+                    }
+
+                    logger.write("[ERROR] getTextFile -> onFileReceived -> Dont know what to do here. Cancelling operation. ");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                } else {
+                    if (LOG_INFO === true) { logger.write("[INFO] getTextFile -> onFileReceived -> File retrieved."); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE, text);
+                }
+            }
         }
         catch (err) {
-            const logText = "[ERROR] 'getTextFile' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write("[ERROR] 'getTextFile' -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
-
     }
 
     function listFilesAndFolders(pFolderPath, callBackFunction) {
 
         if (fileService === undefined) {
 
-            const logText = "[ERROR] initialize function not executed or failed. Can not process this request. Sorry.";
-            logger.write(logText);
+            logger.write("[ERROR] listFilesAndFolders -> initialize function not executed or failed. Can not process this request. Sorry.");
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }
 
@@ -233,6 +262,8 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
             };
 
             /*
+            * AZURE HELP:
+            *
             * @param { object } [options]                        The request options.
             * @param { int } [options.maxResults]                Specifies the maximum number of folders to return per call to Azure ServiceClient. 
             *                                                    This does NOT affect list size returned by this function. (maximum: 5000)
@@ -250,44 +281,46 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                 maxResults: 500
             };
 
+            if (FULL_LOG === true) {
+                logger.write("[INFO] listFilesAndFolders -> About to get the list of files and folders.");
+                logger.write("[INFO] listFilesAndFolders -> shareName = " + shareName);
+                logger.write("[INFO] listFilesAndFolders -> pFolderPath = " + pFolderPath);
+            }
+
             fileService.listFilesAndDirectoriesSegmented(shareName, pFolderPath, null, options, onFilesAndFoldersReceived);
 
-
-            function onFilesAndFoldersReceived(error, result) {
+            function onFilesAndFoldersReceived(err, result) {
 
                 try {
+                    if (FULL_LOG === true) {
+                        logger.write("[INFO] listFilesAndFolders -> onFileReceived -> Response from Azure received.");
+                        logger.write("[INFO] listFilesAndFolders -> onFileReceived -> shareName = " + shareName);
+                        logger.write("[INFO] listFilesAndFolders -> onFileReceived -> pFolderPath = " + pFolderPath);
+                    }
 
-                    if (error) {
+                    if (err) {
 
-                        const logText = "[ERROR] 'listFilesAndFolders - onFilesAndFoldersReceived' - ERROR RECEIVED : " + error;
-                        logger.write(logText);
-
-                        callBackFunction(items);
+                        logger.write("[ERROR] 'listFilesAndFolders' -> onFilesAndFoldersReceived -> err = " + err);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
 
                     } else {
 
                         items.files.push.apply(items.files, result.entries.files);
                         items.folders.push.apply(items.folders, result.entries.directories);
 
-                        callBackFunction(items);
-
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, items);
                     }
-
                 }
-
-
                 catch (err) {
                     const logText = "[ERROR] 'listFilesAndFolders - onFilesAndFoldersReceived' - ERROR : " + err.message;
                     logger.write(logText);
                 }
-
             }
-
         }
         catch (err) {
-            const logText = "[ERROR] 'listFilesAndFolders' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write("[ERROR] 'listFilesAndFolders' -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
-
 };

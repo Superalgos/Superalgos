@@ -1,5 +1,7 @@
 ﻿exports.newAssistant = function newAssistant(BOT, DEBUG_MODULE) {
 
+    const FULL_LOG = true;
+
     /* 
 
     This module allows trading bots to execute actions on the exchange, and also on its current recorded state.
@@ -39,6 +41,8 @@
 
         try {
 
+            if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
+
             /* Store local values. */
 
             botContext = pBotContext;
@@ -51,18 +55,18 @@
                 try {
 
                     switch (err.result) {
-                        case DEFAULT_OK_RESPONSE.result: {
-                            callBackFunction(DEFAULT_OK_RESPONSE);
+                        case global.DEFAULT_OK_RESPONSE.result: {
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(err);
                             return;
                         }
                             break;
-                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
                             callBackFunction(err);
                             return;
@@ -72,14 +76,14 @@
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
-                    callBackFunction(DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBackFunction(DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -100,19 +104,19 @@
             function onResponse(err, pExchangePositions) {
 
                 switch (err.result) {
-                    case DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
+                    case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
                         exchangePositions = pExchangePositions;
                         ordersExecutionCheck(callBack);
                         return;
                     }
                         break;
-                    case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                    case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                         logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
                         callBack(err);
                         return;
                     }
                         break;
-                    case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                    case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                         logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Operation Failed. Aborting the process.");
                         callBack(err);
                         return;
@@ -122,7 +126,7 @@
             }
         } catch (err) {
             logger.write("[ERROR] getPositionsAtExchange -> err = " + err.message);
-            callBack(DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
     
@@ -229,7 +233,7 @@
                                             botContext.executionContext.positions[i].amountB !== sumAssetB
                                         ) {
                                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
-                                            callBack(DEFAULT_FAIL_RESPONSE);
+                                            callBack(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
 
@@ -264,7 +268,7 @@
 
                                     } catch (err) {
                                         logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = " + err.message);
-                                        callBack(DEFAULT_FAIL_RESPONSE);
+                                        callBack(global.DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
                                 }
@@ -306,7 +310,7 @@
                                 botContext.executionContext.positions[i].amountB !== sumAssetB
                             ) {
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
-                                callBack(DEFAULT_FAIL_RESPONSE);
+                                callBack(global.DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
 
@@ -339,7 +343,7 @@
 
                         } catch (err) {
                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
-                            callBack(DEFAULT_FAIL_RESPONSE);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
@@ -359,37 +363,37 @@
 
                                 try {
                                     switch (err.result) {
-                                        case DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
+                                        case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
                                             innerCallBack(pTrades);
                                         }
                                             break;
-                                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                                            callBack(DEFAULT_RETRY_RESPONSE);
+                                            callBack(global.DEFAULT_RETRY_RESPONSE);
                                             return;
                                         }
                                             break;
-                                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                                            callBack(DEFAULT_FAIL_RESPONSE);
+                                            callBack(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
                                             break;
                                     }
                                 } catch (err) {
                                     logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.message);
-                                    callBack(DEFAULT_FAIL_RESPONSE);
+                                    callBack(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         } catch (err) {
                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
-                            callBack(DEFAULT_FAIL_RESPONSE);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
                     logger.write("[ERROR] ordersExecutionCheck -> loopBody -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
@@ -416,12 +420,12 @@
 
             function final() {
 
-                callBack(DEFAULT_OK_RESPONSE);
+                callBack(global.DEFAULT_OK_RESPONSE);
 
             }
         } catch (err) {
             logger.write("[ERROR] ordersExecutionCheck -> err = " + err.message);
-            callBack(DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -434,7 +438,7 @@
 
                 try {
                     switch (err.result) {
-                        case DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
+                        case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
 
                             let position = {
                                 id: pPositionId,
@@ -459,31 +463,31 @@
                             botContext.newHistoryRecord.newPositions++;
                             botContext.newHistoryRecord.rate = pRate;
 
-                            callBack(DEFAULT_OK_RESPONSE);
+                            callBack(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] putPositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBack(DEFAULT_RETRY_RESPONSE);
+                            callBack(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
-                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] putPositionAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                            callBack(DEFAULT_FAIL_RESPONSE);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
                     logger.write("[ERROR] putPositionAtExchange -> onResponse -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
             logger.write("[ERROR] putPositionAtExchange -> err = " + err.message);
-            callBack(DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -496,7 +500,7 @@
 
                 try {
                     switch (err.result) {
-                        case DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
+                        case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
 
                             let newPosition = {
                                 id: pPositionId,
@@ -534,30 +538,30 @@
                             botContext.newHistoryRecord.movedPositions++;
                             botContext.newHistoryRecord.rate = pNewRate;
 
-                            callBack(DEFAULT_OK_RESPONSE);
+                            callBack(global.DEFAULT_OK_RESPONSE);
                         }
                             break;
-                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] movePositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBack(DEFAULT_RETRY_RESPONSE);
+                            callBack(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
-                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] movePositionAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                            callBack(DEFAULT_FAIL_RESPONSE);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
                     logger.write("[ERROR] movePositionAtExchange -> onResponse -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
             logger.write("[ERROR] movePositionAtExchange -> err = " + err.message);
-            callBack(DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

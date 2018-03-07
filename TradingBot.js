@@ -30,11 +30,11 @@
 
             USER_BOT_MODULE = require(pBotPath + "/" + pProcessConfig.name + "/" + 'User.Bot');
 
-            callBackFunction(DEFAULT_OK_RESPONSE);
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBackFunction(DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -77,6 +77,8 @@
 
                     let nextWaitTime;
 
+                    initializeContext();
+
                     function initializeContext() {
 
                         context = CONTEXT.newContext(bot, DEBUG_MODULE, AZURE_FILE_STORAGE);
@@ -84,7 +86,7 @@
 
                         function onInizialized(err) {
 
-                            if (err.result === DEFAULT_OK_RESPONSE.result) {
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 initializeDatasource();
                             } else {
                                 logger.write("[ERROR] start -> loop -> initializeContext -> err = " + err.message);
@@ -100,7 +102,7 @@
 
                         function onInizialized(err) {
 
-                            if (err.result === DEFAULT_OK_RESPONSE.result) {
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 initializeExchangeAPI();
                             } else {
                                 logger.write("[ERROR] start -> loop -> initializeDatasource -> err = " + err.message);
@@ -116,7 +118,7 @@
 
                         function onInizialized(err) {
 
-                            if (err.result === DEFAULT_OK_RESPONSE.result) {
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 initializeAssistant();
                             } else {
                                 logger.write("[ERROR] start -> loop -> initializeExchangeAPI -> err = " + err.message);
@@ -132,7 +134,7 @@
 
                         function onInizialized(err) {
 
-                            if (err.result === DEFAULT_OK_RESPONSE.result) {
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 initializeUserBot();
                             } else {
                                 logger.write("[ERROR] start -> loop -> initializeAssistant -> err = " + err.message);
@@ -156,7 +158,7 @@
 
                         function onInizialized(err) {
 
-                            if (err.result === DEFAULT_OK_RESPONSE.result) {
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 startUserBot();
                             } else {
                                 logger.write("[ERROR] start -> loop -> initializeUserBot -> err = " + err.message);
@@ -172,19 +174,19 @@
                         function onFinished(err) {
 
                             switch (err.result) {
-                                case DEFAULT_OK_RESPONSE.result: {
+                                case global.DEFAULT_OK_RESPONSE.result: {
                                     nextWaitTime = 'Normal';
                                     saveContext();
                                     return;
                                 }
                                     break;
-                                case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                                     nextWaitTime = 'Retry';
                                     loopControl(nextWaitTime);          // Note that we do not save the context, since the processing was aborted.
                                     return;
                                 }
                                     break;
-                                case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] start -> loop -> startUserBot -> Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
@@ -200,7 +202,7 @@
 
                         function onFinished(err) {
 
-                            if (err.result === DEFAULT_OK_RESPONSE.result) {
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 loopControl(nextWaitTime);
                             } else {
                                 logger.write("[ERROR] start -> loop -> saveContext -> err = " + err.message);
@@ -236,7 +238,6 @@
 
         catch (err) {
             logger.write("[ERROR] start -> err = " + err.message);
-            logger.write(logText);
         }
     }
 };

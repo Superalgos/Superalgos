@@ -12,7 +12,7 @@
     let firstCall = true;
     let folderPath;
 
-    thisObject = {
+    let thisObject = {
         bot: undefined,
         fileName: undefined,
         write: write
@@ -32,15 +32,15 @@
 
             createFolderSync(folderPath);
 
-            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.name;
+            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName;
 
             createFolderSync(folderPath);
 
-            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.name + "/" + thisObject.bot.version;
+            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "/" + thisObject.bot.version;
 
             createFolderSync(folderPath);
 
-            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.name + "/" + thisObject.bot.version + "/" + thisObject.bot.process;
+            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "/" + thisObject.bot.version + "/" + thisObject.bot.process;
 
             createFolderSync(folderPath);
 

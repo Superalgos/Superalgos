@@ -1,4 +1,7 @@
-﻿/* First thing to do is to read the config and guess which bot we will be running. */
+﻿
+const LOG_INFO = true;
+
+/* First thing to do is to read the config and guess which bot we will be running. */
 
 var fs = require('fs');
 let vmConfig;
@@ -22,23 +25,18 @@ let botConfig;
 try {
 
     botConfig = JSON.parse(fs.readFileSync(vmConfig.bot.path + '/this.bot.config.json', 'utf8'));
-
 }
 catch (err) {
-    const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;
-    console.log.write(logText);
-
+    console.log("[ERROR] 'readConfig' - ERROR : " + err.message);
     return;
 }
 
-let bot = {
+let bot = { // TODO > REPLACE THIS FOR THE ENTIRE BOT CONFIGURATION. NOTE THAT NAME NOW IS CODENAME
     "name": botConfig.displayName,
     "type": botConfig.type,
     "version": botConfig.version,
     "devTeam": botConfig.devTeam
 };
-
-botConfig.bot;
 
 /* Now we will run according to what we see at the config file. */
 
@@ -48,7 +46,7 @@ const MODULE_NAME = "Run";
 const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
 const logger = DEBUG_MODULE.newDebugLog();
 logger.fileName = MODULE_NAME;
-logger.bot = bot;
+logger.bot = botConfig;
 
 process.on('uncaughtException', function (err) {
     logger.write('uncaughtException - ' + err.message);
@@ -64,17 +62,17 @@ process.on('exit', function (code) {
     logger.write('About to exit with code:' + code);
 });
 
-const DEFAULT_OK_RESPONSE = {
+global.DEFAULT_OK_RESPONSE = {
     result: "Ok",
     message: "Operation Succeeded"
 };
 
-const DEFAULT_FAIL_RESPONSE = {
+global.global.DEFAULT_FAIL_RESPONSE = {
     result: "Fail",
     message: "Operation Failed"
 };
 
-const DEFAULT_RETRY_RESPONSE = {
+global.global.DEFAULT_RETRY_RESPONSE = {
     result: "Retry",
     message: "Retry Later"
 }; 
@@ -97,7 +95,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 
         let processConfig = botConfig.processes[i];
 
-        bot.process = processConfig.name;
+        botConfig.process = processConfig.name;
 
         try {
 
@@ -159,9 +157,9 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 
                 function startProcess() {
 
-                    if (bot.type === "trading") {
+                    if (bot.type === "Trading") {
 
-                        runTradingBot();
+                        runTradingBot(processConfig);
 
                         return;
                     }
@@ -187,34 +185,41 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 }
 
 
-function runTradingBot() {
+function runTradingBot(pProcessConfig) {
 
-    let tradingBot = TRADING_BOT_MODULE.newTradingBot(bot);
-    tradingBot.initialize(vmConfig.bot.path, processConfig, onInitializeReady);
+    try {
+        if (LOG_INFO === true) { logger.write("[INFO] runTradingBot -> Entering function."); }
 
-    function onInitializeReady(err) {
+        let tradingBot = TRADING_BOT_MODULE.newTradingBot(botConfig);
+        tradingBot.initialize(vmConfig.bot.path, pProcessConfig, onInitializeReady);
 
-        if (err.result !== DEFAULT_OK_RESPONSE.result) {
+        function onInitializeReady(err) {
 
-            tradingBot.start(whenStartFinishes);
+            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-            function whenStartFinishes() {
+                tradingBot.start(whenStartFinishes);
 
-                if (err.result !== DEFAULT_OK_RESPONSE.result) {
+                function whenStartFinishes() {
 
-                    logger.write("[INFO] trading bot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                } else {
+                        logger.write("[INFO] trading bot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
 
-                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                    logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
+                    } else {
+
+                        logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                        logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                        logger.write("[ERR] trading bot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
+                    }
                 }
-            }
 
-        } else {
-            logger.write("[ERR] trading bot -> onInitializeReady -> err = " + err.message);
-            logger.write("[ERR] trading bot -> onInitializeReady -> Bot will not be started. ");
+            } else {
+                logger.write("[ERR] trading bot -> onInitializeReady -> err = " + err.message);
+                logger.write("[ERR] trading bot -> onInitializeReady -> Bot will not be started. ");
+            }
         }
+    }
+    catch (err) {
+        logger.write("[ERROR] runTradingBot -> err = " + err.message);
     }
 }

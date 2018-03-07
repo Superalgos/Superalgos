@@ -41,7 +41,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
             if (dataOwnerBotName === undefined) {
 
-                dataOwner = bot.name;
+                dataOwner = bot.codeName;
 
             } else {
 

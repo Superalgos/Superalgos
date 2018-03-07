@@ -1,5 +1,7 @@
 ﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, FILE_STORAGE) {
 
+    const FULL_LOG = true;
+
     /* 
 
     This module allows trading bots to connect to the exchange and do trding operations on it. So far it can only work with Poloniex.
@@ -34,7 +36,7 @@
         executionHistory: [],               // This is the record of bot execution.
         executionContext: undefined,        // Here is the business information of the last execution of this bot process.
         newHistoryRecord : {
-            date: processDatetime,
+            date: undefined,
             rate: 0,                        // This will be used to know where to plot this information in the time line. 
             newPositions: 0,
             newTrades: 0,
@@ -70,6 +72,9 @@
     function initialize(pProcessDatetime, callBackFunction) {
 
         try {
+
+            if (LOG_INFO === true) { logger.write("[INFO] initialize -> Entering function."); }
+
             /*
 
             Here we get the positions the bot did and that are recorded at the bot storage account. We will use them through out the rest
@@ -77,7 +82,7 @@
 
             */
 
-            cloudStorage.initialize(bot.name);
+            cloudStorage.initialize(bot.codeName);
 
             thisObject.newHistoryRecord.date = pProcessDatetime;
             processDatetime = pProcessDatetime; 
@@ -88,18 +93,18 @@
                 try {
 
                     switch (err.result) {
-                        case DEFAULT_OK_RESPONSE.result: {
-                            callBackFunction(DEFAULT_OK_RESPONSE);
+                        case global.DEFAULT_OK_RESPONSE.result: {
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(err);
                             return;
                         }
                             break;
-                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
                             callBackFunction(err);
                             return;
@@ -109,7 +114,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
-                    callBackFunction(DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -119,7 +124,7 @@
                     /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
 
                     let fileName = "Status.Report.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
+                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -150,12 +155,12 @@
                             */
 
                             logger.write("[ERROR] initialize -> getStatusReport -> Bot cannot execute without the Status report. -> Err = " + err.message);
-                            callBack(DEFAULT_FAIL_RESPONSE);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 } catch (err) {
                     logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -163,7 +168,7 @@
 
                 try {
                     let fileName = "Execution.History.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
+                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -185,12 +190,12 @@
                             */
 
                             logger.write("[ERROR] initialize -> getExecutionHistory -> Bot cannot execute without the Execution History. -> Err = " + err.message);
-                            callBack(DEFAULT_FAIL_RESPONSE);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 } catch (err) {
                     logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -201,7 +206,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
+                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -213,7 +218,7 @@
 
                             thisObject.executionContext.transactions = []; // We record here the transactions that happened duting this execution.
 
-                            callBack(DEFAULT_OK_RESPONSE);
+                            callBack(global.DEFAULT_OK_RESPONSE);
 
                         } catch (err) {
 
@@ -226,13 +231,13 @@
                             */
 
                             logger.write("[ERROR] initialize -> getExecutionContext -> Bot cannot execute without the Execution Context. -> Err = " + err.message);
-                            callBack(DEFAULT_FAIL_RESPONSE);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> getExecutionContext -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -261,17 +266,17 @@
                         transactions: []
                     };
 
-                    callBack(DEFAULT_OK_RESPONSE);
+                    callBack(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> createConext -> err = " + err.message);
-                    callBack(DEFAULT_FAIL_RESPONSE);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBackFunction(DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -285,18 +290,18 @@
                 try {
 
                     switch (err.result) {
-                        case DEFAULT_OK_RESPONSE.result: {
-                            callBackFunction(DEFAULT_OK_RESPONSE);
+                        case global.DEFAULT_OK_RESPONSE.result: {
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
-                        case DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] saveThemAll -> onDone -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(err);
                             return;
                         }
                             break;
-                        case DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] saveThemAll -> onDone -> Operation Failed. Aborting the process.");
                             callBackFunction(err);
                             return;
@@ -306,7 +311,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] saveThemAll -> onDone -> err = " + err.message);
-                    callBackFunction(DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -320,7 +325,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes(), 2);
-                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
+                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -343,14 +348,14 @@
                         }
                         catch (err) {
                             logger.write("[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> err = " + err.message);
-                            callBackFunction(DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeExecutionContext -> err = " + err.message);
-                    callBackFunction(DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -363,7 +368,7 @@
                 try {
 
                     let fileName = "Execution.History.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + bot.process;
+                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -392,14 +397,14 @@
                         }
                         catch (err) {
                             logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> err = " + err.message);
-                            callBackFunction(DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> err = " + err.message);
-                    callBackFunction(DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -412,7 +417,7 @@
                 try {
 
                     let fileName = "Status.Report.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
+                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -432,26 +437,26 @@
                                     logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated ->  Content written = " + fileContent);
                                 }
 
-                                callBack(DEFAULT_OK_RESPONSE); 
+                                callBack(global.DEFAULT_OK_RESPONSE); 
                                 return;
                             }
                         }
                         catch (err) {
                             logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> err = " + err.message);
-                            callBackFunction(DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeStatusReport -> err = " + err.message);
-                    callBackFunction(DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] saveThemAll -> Error = " + err.message);
-            callBackFunction(DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

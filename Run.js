@@ -1,6 +1,10 @@
 ﻿
 const LOG_INFO = true;
 
+/* The following global variable tells the system if it is running on test mode or production. */
+
+global.RUNNING_MODE = 'Testnet';  // or 'Production'
+
 /* First thing to do is to read the config and guess which bot we will be running. */
 
 var fs = require('fs');

@@ -8,7 +8,6 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     const MODULE_NAME = "Azure File Storage";
 
-    var fs = require('fs');
     var util = require('util');
     var guid = require('node-uuid');
     var crypto = require('crypto');
@@ -59,15 +58,16 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
     function readConfig() {
 
         try {
-
-            return JSON.parse(fs.readFileSync(ROOT_DIR + dataOwner + '.azure.storage.connstring', 'utf8'));
-
+            let fs = require('fs');
+            let filePath = '../' + 'Connection-Strings' + '/' + global.RUNNING_MODE + '/' +  dataOwner + '.azure.storage.connstring' + '.json';
+            return JSON.parse(fs.readFileSync(filePath, 'utf8'));
         }
         catch (err) {
-            const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write("[ERROR] readConfig -> err = " + err.message);
+            logger.write("[HINT] You need to have a file at this path -> " + filePath);
+            logger.write("[HINT] The file must have the connection string to the Azure Storage Account. Request the file to an AA Team Member if you dont have it.");
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
-
     }
 
     function createFolder(folderPath, callBackFunction) {

@@ -42,7 +42,7 @@
 
                 try {
                     let fs = require('fs');
-                    let filePath = '../' + 'API-Keys' + '/' + EXCHANGE_NAME + '.json';
+                    let filePath = '../' + 'API-Keys' + '/' + bot.codeName  + '.'  + EXCHANGE_NAME + '.json';
                     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
                 }
                 catch (err) {

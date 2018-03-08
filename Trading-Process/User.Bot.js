@@ -7,6 +7,7 @@
     const MODULE_NAME = "This.Bot";
     const LOG_INFO = true;
 
+    const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
@@ -52,7 +53,7 @@
 
     return thisObject;
 
-    function initialize(pProcessDatetime, pPlatform, callBackFunction) {
+    function initialize(pPlatform, callBackFunction) {
 
         try {
 
@@ -96,6 +97,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: { 
+                            logger.write("[INFO] start -> onDone -> Execution finished well. :-)");
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
@@ -168,7 +170,7 @@
                         any reason stops being updated.
                         */
 
-                        if (candle.begin < platform.processDatetime.valueOf() - 5 * 60 * 1000) {
+                        if (candle.begin < global.processDatetime.valueOf() - 5 * 60 * 1000) {
 
                             logger.write("[WARN] start -> businessLogic -> Last one min candle more than 5 minutes old. Bot cannot operate with this delay. Retrying later.");
                             callBack('Retry Later');
@@ -198,7 +200,7 @@
 
                         AmountA = AmountB * rate;
 
-                        platform.assistant.putPositionAtExchange("sell", rate, AmountA, AmountB, writeStatusAndContext, callBack);
+                        platform.assistant.putPositionAtExchange("sell", rate, AmountA, AmountB, callBack);
 
                     }
                 } catch (err) {
@@ -283,7 +285,7 @@
 
                     /* Finally we move the order position to where we have just estimated is a better place. */
 
-                    platform.assistant.movePositionAtExchange(pPosition, targetRate, writeStatusAndContext, callBack);
+                    platform.assistant.movePositionAtExchange(pPosition, targetRate, callBack);
 
                 } catch (err) {
                     logger.write("[ERROR] start -> decideAboutSellPosition -> err = " + err.message);

@@ -13,7 +13,7 @@
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         run: run
     };
@@ -254,7 +254,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> startUserBot ->  Entering function."); }
 
-                        usertBot.run(platform, onFinished);
+                        usertBot.start(onFinished);
 
                         function onFinished(err) {
 

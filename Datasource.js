@@ -10,7 +10,7 @@
 
     const MODULE_NAME = "Datasource";
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         candlesFiles: new Map,      // Complete sets of candles for different Time Periods. For Time Periods < 1hs sets are of current day only, otherwise whole market.
         candlesMap: new Map,        // The last 10 candles for each Time Period will be stored here.
@@ -23,35 +23,6 @@
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
-
-    let marketFilesPeriods =
-        '[' +
-        '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
-        '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
-        '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
-        '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
-        '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
-        '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
-        '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
-        '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
-
-    marketFilesPeriods = JSON.parse(marketFilesPeriods);
-
-    let dailyFilePeriods =
-        '[' +
-        '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
-        '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
-        '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
-        '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
-        '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
-        '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
-        '[' + 05 * 60 * 1000 + ',' + '"05-min"' + ']' + ',' +
-        '[' + 04 * 60 * 1000 + ',' + '"04-min"' + ']' + ',' +
-        '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
-        '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
-        '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
-
-    dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
     let oliviaAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
     let tomAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
@@ -148,10 +119,10 @@
                             let filesOk = 0;
                             let filesNotOk = 0;
 
-                            for (i = 0; i < marketFilesPeriods.length; i++) {
+                            for (i = 0; i < global.marketFilesPeriods.length; i++) {
 
-                                let periodTime = marketFilesPeriods[i][0];
-                                let periodName = marketFilesPeriods[i][1];
+                                let periodTime = global.marketFilesPeriods[i][0];
+                                let periodName = global.marketFilesPeriods[i][1];
 
                                 getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Market/@Period", periodName, undefined, onFileReceived, callBack);
 
@@ -164,9 +135,9 @@
                                         filesNotOk++;
                                     }
 
-                                    if (filesOk + filesNotOk === marketFilesPeriods.length) {
+                                    if (filesOk + filesNotOk === global.marketFilesPeriods.length) {
 
-                                        if (filesOk === marketFilesPeriods.length) {
+                                        if (filesOk === global.marketFilesPeriods.length) {
 
                                             getDailyFiles();
 
@@ -192,10 +163,10 @@
                             let filesOk = 0;
                             let filesNotOk = 0;
 
-                            for (i = 0; i < dailyFilePeriods.length; i++) {
+                            for (i = 0; i < global.dailyFilePeriods.length; i++) {
 
-                                let periodTime = dailyFilePeriods[i][0];
-                                let periodName = dailyFilePeriods[i][1];
+                                let periodTime = global.dailyFilePeriods[i][0];
+                                let periodName = global.dailyFilePeriods[i][1];
 
                                 getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, global.processDatetime, onFileReceived, callBack);
 
@@ -208,9 +179,9 @@
                                         filesNotOk++;
                                     }
 
-                                    if (filesOk + filesNotOk === dailyFilePeriods.length) {
+                                    if (filesOk + filesNotOk === global.dailyFilePeriods.length) {
 
-                                        if (filesOk === dailyFilePeriods.length) {
+                                        if (filesOk === global.dailyFilePeriods.length) {
 
                                             getCandlesWeAreIn();
 
@@ -317,10 +288,10 @@
                             let filesOk = 0;
                             let filesNotOk = 0;
 
-                            for (i = 0; i < marketFilesPeriods.length; i++) {
+                            for (i = 0; i < global.marketFilesPeriods.length; i++) {
 
-                                let periodTime = marketFilesPeriods[i][0];
-                                let periodName = marketFilesPeriods[i][1];
+                                let periodTime = global.marketFilesPeriods[i][0];
+                                let periodName = global.marketFilesPeriods[i][1];
 
                                 getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period", periodName, undefined, onFileReceived, callBack);
 
@@ -333,9 +304,9 @@
                                         filesNotOk++;
                                     }
 
-                                    if (filesOk + filesNotOk === marketFilesPeriods.length) {
+                                    if (filesOk + filesNotOk === global.marketFilesPeriods.length) {
 
-                                        if (filesOk === marketFilesPeriods.length) {
+                                        if (filesOk === global.marketFilesPeriods.length) {
 
                                             getDailyFiles();
 
@@ -361,10 +332,10 @@
                             let filesOk = 0;
                             let filesNotOk = 0;
 
-                            for (i = 0; i < dailyFilePeriods.length; i++) {
+                            for (i = 0; i < global.dailyFilePeriods.length; i++) {
 
-                                let periodTime = dailyFilePeriods[i][0];
-                                let periodName = dailyFilePeriods[i][1];
+                                let periodTime = global.dailyFilePeriods[i][0];
+                                let periodName = global.dailyFilePeriods[i][1];
 
                                 getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, global.processDatetime, onFileReceived, callBack);
 
@@ -377,9 +348,9 @@
                                         filesNotOk++;
                                     }
 
-                                    if (filesOk + filesNotOk === dailyFilePeriods.length) {
+                                    if (filesOk + filesNotOk === global.dailyFilePeriods.length) {
 
-                                        if (filesOk === dailyFilePeriods.length) {
+                                        if (filesOk === global.dailyFilePeriods.length) {
 
                                             getStairsWeAreIn();
 

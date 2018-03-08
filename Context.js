@@ -31,7 +31,7 @@
 
     */
 
-    thisObject = {
+    let thisObject = {
         statusReport: undefined,            // Here is the information that defines which was the last sucessfull execution and some other details.
         executionHistory: [],               // This is the record of bot execution.
         executionContext: undefined,        // Here is the business information of the last execution of this bot process.
@@ -140,7 +140,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
 
                     let fileName = "Status.Report.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" +  global.EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" +  global.EXCHANGE_NAME;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -194,7 +194,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -245,7 +245,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -298,6 +298,8 @@
                     is what we are going to do now.
     
                     */
+
+                    thisObject.statusReport = {};
 
                     thisObject.executionHistory = [];
 
@@ -374,7 +376,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = global.processDatetime.getUTCFullYear() + '/' + utilities.pad(global.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(global.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(global.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(global.processDatetime.getUTCMinutes(), 2);
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -429,7 +431,7 @@
                 try {
 
                     let fileName = "Execution.History.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -444,11 +446,11 @@
                             }
 
                             let newRecord = [
-                                newHistoryRecord.date.valueOf(),
-                                newHistoryRecord.rate,
-                                newHistoryRecord.newPositions,
-                                newHistoryRecord.newTrades,
-                                newHistoryRecord.movedPositions
+                                thisObject.newHistoryRecord.date.valueOf(),
+                                thisObject.newHistoryRecord.rate,
+                                thisObject.newHistoryRecord.newPositions,
+                                thisObject.newHistoryRecord.newTrades,
+                                thisObject.newHistoryRecord.movedPositions
                             ];
 
                             thisObject.executionHistory.push(newRecord);
@@ -494,7 +496,7 @@
                 try {
 
                     let fileName = "Status.Report.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.EXCHANGE_NAME;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 

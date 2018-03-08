@@ -10,7 +10,7 @@
 
     const MODULE_NAME = "Exchange API";
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         getOpenPositions: getOpenPositions,
         getExecutedTrades: getExecutedTrades,
@@ -136,7 +136,7 @@
                             exchangePositions.push(openPosition);
                         }
 
-                        callBackFunction(null, exchangePositions);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, exchangePositions);
                     }
                 }
                 catch (err) {
@@ -229,7 +229,7 @@
                             trades.push(trade);
                         }
 
-                        callBackFunction(null, trades);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, trades);
                     }
                 }
                 catch (err) {
@@ -316,7 +316,7 @@
 
                        */
 
-                        callBackFunction(null, exchangeResponse.orderNumber);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, exchangeResponse.orderNumber);
                     }
                 }
                 catch (err) {
@@ -331,7 +331,7 @@
         }
     }
 
-    function movePosition(pPosition, pNewRate) {
+    function movePosition(pPosition, pNewRate, callBackFunction) {
 
         try {
 
@@ -397,7 +397,7 @@
 
                        */
 
-                        callBackFunction(null, exchangeResponse.orderNumber);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, exchangeResponse.orderNumber);
                     }
                 }
                 catch (err) {

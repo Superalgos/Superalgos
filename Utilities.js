@@ -54,7 +54,7 @@ exports.newUtilities = function newUtilities(BOT) {
 
                 if (i === splittedPath.length) {
 
-                    callBackFunction();
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } else {
 

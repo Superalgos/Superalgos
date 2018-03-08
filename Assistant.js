@@ -10,7 +10,7 @@
 
     const MODULE_NAME = "Assistant";
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         putPositionAtExchange: putPositionAtExchange,
         movePositionAtExchange: movePositionAtExchange
@@ -30,7 +30,7 @@
 
     return thisObject;
 
-    function initialize(pProcessDatetime, pBotContext, pExchangeAPI, callBackFunction) {
+    function initialize(pBotContext, pExchangeAPI, callBackFunction) {
 
         try {
 

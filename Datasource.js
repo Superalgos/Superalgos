@@ -99,6 +99,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
+                            logger.write("[INFO] initialize -> onDone -> Execution finished well. :-)");
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
@@ -400,12 +401,19 @@
                 }
             }
 
-            function getFile(pFileService, pFileName, pFilePath, pPeriodName, pDatetime, innerCallBack, outerCallBack) {
-                try {
-                    pFileName = pFileName.replace("@AssetA", market.assetA);
-                    pFileName = pFileName.replace("@AssetB", market.assetB);
+            function getFile(pFileStorage, pFileName, pFilePath, pPeriodName, pDatetime, innerCallBack, outerCallBack) {
 
-                    pFilePath = pFilePath.replace("@Exchange", EXCHANGE_NAME);
+                try {
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> pFileName = " + pFileName); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> pFilePath = " + pFilePath); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> pPeriodName = " + pPeriodName); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> pDatetime = " + pDatetime); }
+
+                    pFileName = pFileName.replace("@AssetA", MARKET.assetA);
+                    pFileName = pFileName.replace("@AssetB", MARKET.assetB);
+
+                    pFilePath = pFilePath.replace("@Exchange", global.EXCHANGE_NAME);
                     pFilePath = pFilePath.replace("@Period", pPeriodName);
 
                     if (pDatetime !== undefined) {
@@ -416,7 +424,7 @@
 
                     }
 
-                    pFileService.getTextFile(pFilePath, pFileName, onFileReceived);
+                    pFileStorage.getTextFile(pFilePath, pFileName, onFileReceived);
 
                     function onFileReceived(err, text) {
 

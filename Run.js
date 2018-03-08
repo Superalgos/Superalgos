@@ -66,20 +66,33 @@ process.on('exit', function (code) {
     logger.write('About to exit with code:' + code);
 });
 
+/* Global constants definitions. */
+
+/* Callbacks default responses. */
+
 global.DEFAULT_OK_RESPONSE = {
     result: "Ok",
     message: "Operation Succeeded"
 };
 
-global.global.DEFAULT_FAIL_RESPONSE = {
+global.DEFAULT_FAIL_RESPONSE = {
     result: "Fail",
     message: "Operation Failed"
 };
 
-global.global.DEFAULT_RETRY_RESPONSE = {
+global.DEFAULT_RETRY_RESPONSE = {
     result: "Retry",
     message: "Retry Later"
 }; 
+
+/* Current state of the art fixed parameters */
+
+global.MARKET = {
+    assetA: "USDT",
+    assetB: "BTC",
+};
+
+global.EXCHANGE_NAME = "Poloniex";
 
 
 

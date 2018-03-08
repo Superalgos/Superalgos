@@ -66,8 +66,6 @@
 
     let processDatetime;
 
-    const EXCHANGE_NAME = "Poloniex";
-
     return thisObject;
 
     function initialize(pProcessDatetime, callBackFunction) {
@@ -109,6 +107,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
+                            logger.write("[INFO] initialize -> onDone -> Execution finished well. :-)");
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
@@ -140,7 +139,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
 
                     let fileName = "Status.Report.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" +  EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" +  global.EXCHANGE_NAME;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -194,7 +193,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -245,7 +244,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + EXCHANGE_NAME + "/" + dateForPath;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -339,6 +338,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
+                            logger.write("[INFO] initialize -> onDone -> Execution finished well. :-)");
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
@@ -373,7 +373,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes(), 2);
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + EXCHANGE_NAME + "/" + dateForPath;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -428,7 +428,7 @@
                 try {
 
                     let fileName = "Execution.History.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -493,7 +493,7 @@
                 try {
 
                     let fileName = "Status.Report.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.EXCHANGE_NAME;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 

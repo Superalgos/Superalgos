@@ -29,13 +29,6 @@
     let processDatetime;
     let exchangeAPI;
 
-    /* The current bots trades only at one market: USDT_BTC. */
-
-    const MARKET = {
-        assetA: "USDT",
-        assetB: "BTC",
-    };
-
     return thisObject;
 
     function initialize(pProcessDatetime, pBotContext, pExchangeAPI, callBackFunction) {
@@ -99,7 +92,7 @@
 
             */
 
-            exchangeAPI.getOpenPositions(MARKET, onResponse);
+            exchangeAPI.getOpenPositions(global.MARKET, onResponse);
 
             function onResponse(err, pExchangePositions) {
 
@@ -432,7 +425,7 @@
     function putPositionAtExchange(pType, pRate, pAmountA, pAmountB, callBack) {
 
         try {
-            exchangeAPI.putPosition(MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
+            exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
 
             function onResponse(err, pPositionId) {
 

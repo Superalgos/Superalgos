@@ -189,8 +189,8 @@
                         const INITIAL_BALANCE_A = 0.0000;
                         const INITIAL_BALANCE_B = 0.0001;
 
-                        let AmountA = platform.context.statusReport.initialBalance.amountA;
-                        let AmountB = platform.context.statusReport.initialBalance.amountB;
+                        let AmountA = INITIAL_BALANCE_A;
+                        let AmountB = INITIAL_BALANCE_B;
 
                         /* 
                         Here is this bot example, we are going to sell all AmountB at once. You can do this or whatever you think is better.

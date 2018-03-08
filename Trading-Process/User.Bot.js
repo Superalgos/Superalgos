@@ -11,7 +11,7 @@
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         start: start
     };
@@ -267,11 +267,11 @@
 
                     let weightArray = [1 / (24 * 60), 1 / (12 * 60), 1 / (8 * 60), 1 / (6 * 60), 1 / (4 * 60), 1 / (3 * 60), 1 / (2 * 60), 1 / (1 * 60)];
 
-                    for (i = 0; i < marketFilesPeriods.length; i++) {
+                    for (i = 0; i < global.marketFilesPeriods.length; i++) {
 
                         weight = weightArray[i];
 
-                        timePeriodName = marketFilesPeriods[i][1];
+                        timePeriodName = global.marketFilesPeriods[i][1];
 
                         candleArray = platform.datasource.candlesMap.get(timePeriodName);
                         candle = candleArray[candleArray.length - 1];           // The last candle of the 10 candles array.

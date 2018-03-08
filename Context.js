@@ -64,11 +64,9 @@
 
     let cloudStorage = FILE_STORAGE.newAzureFileStorage(bot);
 
-    let processDatetime;
-
     return thisObject;
 
-    function initialize(pProcessDatetime, callBackFunction) {
+    function initialize(callBackFunction) {
 
         try {
 
@@ -90,8 +88,7 @@
 
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                        thisObject.newHistoryRecord.date = pProcessDatetime;
-                        processDatetime = pProcessDatetime;
+                        thisObject.newHistoryRecord.date = global.processDatetime;
 
                         getStatusReport(onDone);
 
@@ -372,7 +369,7 @@
                 try {
 
                     let fileName = "Execution.Context.json"
-                    let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes(), 2);
+                    let dateForPath = global.processDatetime.getUTCFullYear() + '/' + utilities.pad(global.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(global.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(global.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(global.processDatetime.getUTCMinutes(), 2);
                     let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
@@ -507,7 +504,7 @@
                                 return;
                             }
 
-                            thisObject.statusReport.lastExecution = processDatetime;
+                            thisObject.statusReport.lastExecution = global.processDatetime;
 
                             let fileContent = JSON.stringify(thisObject.statusReport);
 

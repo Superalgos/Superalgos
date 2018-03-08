@@ -26,7 +26,6 @@
     let openPositions = [];         // These are the open positions the bot knows it made by itself. 
 
     let botContext;
-    let processDatetime;
     let exchangeAPI;
 
     return thisObject;
@@ -40,7 +39,6 @@
             /* Store local values. */
 
             botContext = pBotContext;
-            processDatetime = pProcessDatetime;
             exchangeAPI = pExchangeAPI;
 
             getPositionsAtExchange(onDone);
@@ -439,7 +437,7 @@
                                 rate: pRate,
                                 amountA: pAmountA,
                                 amountB: pAmountB,
-                                date: (processDatetime.valueOf()),
+                                date: (global.processDatetime.valueOf()),
                                 status: "open",
                                 trades: []
                             };
@@ -501,7 +499,7 @@
                                 rate: pNewRate,
                                 amountA: pPosition.amountB * pNewRate,
                                 amountB: pPosition.amountB,
-                                date: (processDatetime.valueOf()),
+                                date: (global.processDatetime.valueOf()),
                                 status: "open",
                                 trades: []
                             };

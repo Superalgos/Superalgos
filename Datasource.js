@@ -140,7 +140,9 @@
                     function getMarketFiles() {
 
                         try {
-                            /* Now we will get the market files */
+
+                            let filesOk = 0;
+                            let filesNotOk = 0;
 
                             for (i = 0; i < marketFilesPeriods.length; i++) {
 
@@ -149,14 +151,27 @@
 
                                 getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Market/@Period", periodName, undefined, onFileReceived, callBack);
 
-                                function onFileReceived(file) {
+                                function onFileReceived(err, file) {
 
-                                    thisObject.candlesFiles.set(periodName, file);
+                                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                        filesOk++;
+                                        thisObject.candlesFiles.set(periodName, file);
+                                    } else {
+                                        filesNotOk++;
+                                    }
 
-                                    if (thisObject.candlesFiles.size === marketFilesPeriods.length) {
+                                    if (filesOk + filesNotOk === marketFilesPeriods.length) {
 
-                                        getDailyFiles();
+                                        if (filesOk === marketFilesPeriods.length) {
 
+                                            getDailyFiles();
+
+                                        } else {
+                                            logger.write("[ERROR] getCandles -> getMarketFiles -> onFileReceived -> Some files are missing -> filesNotOk = " + filesNotOk);
+                                            logger.write("[ERROR] getCandles -> getMarketFiles -> onFileReceived -> Will abort the process and request a retry.");
+                                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                                            return;
+                                        }  
                                     }
                                 }
                             }
@@ -169,21 +184,38 @@
                     function getDailyFiles() {
 
                         try {
+
+                            let filesOk = 0;
+                            let filesNotOk = 0;
+
                             for (i = 0; i < dailyFilePeriods.length; i++) {
 
                                 let periodTime = dailyFilePeriods[i][0];
                                 let periodName = dailyFilePeriods[i][1];
 
-                                getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, processDatetime, onFileReceived, callBack);
+                                getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, global.processDatetime, onFileReceived, callBack);
 
-                                function onFileReceived(file) {
+                                function onFileReceived(err, file) {
 
-                                    thisObject.candlesFiles.set(periodName, file);
+                                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                        filesOk++;
+                                        thisObject.candlesFiles.set(periodName, file);
+                                    } else {
+                                        filesNotOk++;
+                                    }
 
-                                    if (thisObject.candlesFiles.size === dailyFilePeriods.length + marketFilesPeriods.length) {
+                                    if (filesOk + filesNotOk === dailyFilePeriods.length) {
 
-                                        getCandlesWeAreIn();
+                                        if (filesOk === dailyFilePeriods.length) {
 
+                                            getCandlesWeAreIn();
+
+                                        } else {
+                                            logger.write("[ERROR] getCandles -> getDailyFiles -> onFileReceived -> Some files are missing -> filesNotOk = " + filesNotOk);
+                                            logger.write("[ERROR] getCandles -> getDailyFiles -> onFileReceived -> Will abort the process and request a retry.");
+                                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                                            return;
+                                        }
                                     }
                                 }
                             }
@@ -233,7 +265,7 @@
 
                                     let timePeriod = candle.end - candle.begin + 1; // In miliseconds. (remember each candle spans a period minus one milisecond)
 
-                                    if (candle.begin >= processDatetime.valueOf() - timePeriod * 10 && candle.end <= processDatetime.valueOf()) {
+                                    if (candle.begin >= global.processDatetime.valueOf() - timePeriod * 10 && candle.end <= global.processDatetime.valueOf()) {
 
                                         candlesArray.push(candle);
 
@@ -277,7 +309,9 @@
                     function getMarketFiles() {
 
                         try {
-                            /* Now we will get the market files */
+
+                            let filesOk = 0;
+                            let filesNotOk = 0;
 
                             for (i = 0; i < marketFilesPeriods.length; i++) {
 
@@ -286,14 +320,27 @@
 
                                 getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period", periodName, undefined, onFileReceived, callBack);
 
-                                function onFileReceived(file) {
+                                function onFileReceived(err, file) {
 
-                                    thisObject.stairsFiles.set(periodName, file);
+                                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                        filesOk++;
+                                        thisObject.stairsFiles.set(periodName, file);
+                                    } else {
+                                        filesNotOk++;
+                                    }
 
-                                    if (thisObject.stairsFiles.size === marketFilesPeriods.length) {
+                                    if (filesOk + filesNotOk === marketFilesPeriods.length) {
 
-                                        getDailyFiles();
+                                        if (filesOk === marketFilesPeriods.length) {
 
+                                            getDailyFiles();
+
+                                        } else {
+                                            logger.write("[ERROR] getPatterns -> getMarketFiles -> onFileReceived -> Some files are missing -> filesNotOk = " + filesNotOk);
+                                            logger.write("[ERROR] getPatterns -> getMarketFiles -> onFileReceived -> Will abort the process and request a retry.");
+                                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                                            return;
+                                        }
                                     }
                                 }
                             }
@@ -306,21 +353,38 @@
                     function getDailyFiles() {
 
                         try {
+
+                            let filesOk = 0;
+                            let filesNotOk = 0;
+
                             for (i = 0; i < dailyFilePeriods.length; i++) {
 
                                 let periodTime = dailyFilePeriods[i][0];
                                 let periodName = dailyFilePeriods[i][1];
 
-                                getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, processDatetime, onFileReceived, callBack);
+                                getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, global.processDatetime, onFileReceived, callBack);
 
-                                function onFileReceived(file) {
+                                function onFileReceived(err, file) {
 
-                                    thisObject.stairsFiles.set(periodName, file);
+                                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                        filesOk++;
+                                        thisObject.stairsFiles.set(periodName, file);
+                                    } else {
+                                        filesNotOk++;
+                                    }
 
-                                    if (thisObject.stairsFiles.size === dailyFilePeriods.length + marketFilesPeriods.length) {
+                                    if (filesOk + filesNotOk === dailyFilePeriods.length) {
 
-                                        getStairsWeAreIn();
+                                        if (filesOk === dailyFilePeriods.length) {
 
+                                            getStairsWeAreIn();
+
+                                        } else {
+                                            logger.write("[ERROR] getPatterns -> getDailyFiles -> onFileReceived -> Some files are missing -> filesNotOk = " + filesNotOk);
+                                            logger.write("[ERROR] getPatterns -> getDailyFiles -> onFileReceived -> Will abort the process and request a retry.");
+                                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                                            return;
+                                        }
                                     }
                                 }
                             }
@@ -374,7 +438,7 @@
                                     stairs.lastMin = pStairsFile[i][10];
                                     stairs.lastMax = pStairsFile[i][11];
 
-                                    if (processDatetime.valueOf() >= stairs.begin && processDatetime.valueOf() <= stairs.end) {
+                                    if (global.processDatetime.valueOf() >= stairs.begin && global.processDatetime.valueOf() <= stairs.end) {
 
                                         thisObject.stairsMap.set(pPeriodName, stairs);
 
@@ -424,24 +488,30 @@
 
                     }
 
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> final pFilePath = " + pFilePath); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> final pFileName = " + pFileName); }
+
                     pFileStorage.getTextFile(pFilePath, pFileName, onFileReceived);
 
                     function onFileReceived(err, text) {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> onFileReceived -> pFilePath = " + pFilePath); }
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> onFileReceived -> pFileName = " + pFileName); }
+
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             logger.write("[ERROR] initialize -> getFile -> onFileReceived -> err = " + err.message);
-                            outerCallBack(err);
+                            innerCallBack(err);
                             return;
                         }
 
                         try {
 
                             let data = JSON.parse(text);
-                            innerCallBack(data);
+                            innerCallBack(global.DEFAULT_OK_RESPONSE, data);
 
                         } catch (err) {
                             logger.write("[ERROR] initialize -> getFile -> onFileReceived -> Parsing JSON -> err = " + err.message);
-                            outerCallBack(err);
+                            innerCallBack(err);
                             return;
                         }
                     }

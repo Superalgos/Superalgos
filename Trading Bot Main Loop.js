@@ -3,7 +3,7 @@
     let bot = BOT;
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Trading Bot";
+    const MODULE_NAME = "Trading Bot Main Loop";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
@@ -63,8 +63,8 @@
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
-                    let processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
-                    processDatetime = new Date(processDatetime.valueOf() - 30 * 24 * 60 * 60 * 1000); // we go 30 days back in time since candles are currently not up to date.
+                    global.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
+                    global.processDatetime = new Date(global.processDatetime.valueOf() - 30 * 24 * 60 * 60 * 1000); // we go 30 days back in time since candles are currently not up to date.
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
@@ -83,7 +83,7 @@
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
                         context = CONTEXT.newContext(bot, DEBUG_MODULE, AZURE_FILE_STORAGE);
-                        context.initialize(processDatetime, onInizialized);
+                        context.initialize(onInizialized);
 
                         function onInizialized(err) {
 
@@ -91,7 +91,13 @@
                                 initializeDatasource();
                             } else {
                                 logger.write("[ERROR] run -> loop -> initializeContext -> err = " + err.message);
-                                callBackFunction(err);
+                                if (err.result === global.DEFAULT_RETRY_RESPONSE.result) {
+                                    nextWaitTime = 'Retry';
+                                    loopControl(nextWaitTime);
+                                }
+                                else {
+                                    callBackFunction(err);
+                                }
                             }
                         }
                     }
@@ -104,11 +110,12 @@
                         datasource.initialize(onInizialized);
 
                         function onInizialized(err) {
-
-                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                                initializeExchangeAPI();
-                            } else {
-                                logger.write("[ERROR] run -> loop -> initializeDatasource -> err = " + err.message);
+                            logger.write("[ERROR] run -> loop -> initializeDatasource -> err = " + err.message);
+                            if (err.result === global.DEFAULT_RETRY_RESPONSE.result) {
+                                nextWaitTime = 'Retry';
+                                loopControl(nextWaitTime);
+                            }
+                            else {
                                 callBackFunction(err);
                             }
                         }
@@ -137,7 +144,7 @@
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeAssistant ->  Entering function."); }
 
                         assistant = ASSISTANT.newAssistant(bot, DEBUG_MODULE);
-                        assistant.initialize(processDatetime, context, exchangeAPI, onInizialized);
+                        assistant.initialize(context, exchangeAPI, onInizialized);
 
                         function onInizialized(err) {
 
@@ -159,8 +166,7 @@
                         let platform = {
                             context: context,
                             datasource: datasource,
-                            assistant: assistant,
-                            processDatetime: processDatetime
+                            assistant: assistant
                         };
 
                         usertBot.initialize(platform, onInizialized);

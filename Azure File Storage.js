@@ -45,6 +45,8 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                 dataOwner = pDataOwnerBotCodeName;
             }
 
+            logger.fileName = MODULE_NAME + '.' + dataOwner;
+
             readConnectionStringConfigFile(onConnectionStringReady);
 
             function onConnectionStringReady(err, pConnObj) {

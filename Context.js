@@ -1,4 +1,4 @@
-﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, FILE_STORAGE) {
+﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES) {
 
     const FULL_LOG = true;
 
@@ -59,6 +59,10 @@
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
+
+    /* Utilities needed. */
+
+    let utilities = UTILITIES.newUtilities(bot);
 
     /* Storage account to be used here. */
 

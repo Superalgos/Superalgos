@@ -82,7 +82,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
-                        context = CONTEXT.newContext(bot, DEBUG_MODULE, AZURE_FILE_STORAGE);
+                        context = CONTEXT.newContext(bot, DEBUG_MODULE, AZURE_FILE_STORAGE, UTILITIES);
                         context.initialize(onInizialized);
 
                         function onInizialized(err) {
@@ -115,7 +115,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDatasource ->  Entering function."); }
 
-                        datasource = DATASOURCE.newDatasource(bot, DEBUG_MODULE, AZURE_FILE_STORAGE);
+                        datasource = DATASOURCE.newDatasource(bot, DEBUG_MODULE, AZURE_FILE_STORAGE, UTILITIES);
                         datasource.initialize(onInizialized);
 
                         function onInizialized(err) {
@@ -186,11 +186,26 @@
 
                         function onInizialized(err) {
 
-                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                                initializeUserBot();
-                            } else {
-                                logger.write("[ERROR] run -> loop -> initializeAssistant -> err = " + err.message);
-                                callBackFunction(err);
+                            switch (err.result) {
+                                case global.DEFAULT_OK_RESPONSE.result: {
+                                    logger.write("[INFO] run -> loop -> initializeAssistant -> onInizialized > Execution finished well. :-)");
+                                    initializeUserBot();
+                                    return;
+                                }
+                                    break;
+                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Retry Later. Requesting Execution Retry.");
+                                    nextWaitTime = 'Retry';
+                                    loopControl(nextWaitTime);
+                                    return;
+                                }
+                                    break;
+                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Operation Failed. Aborting the process.");
+                                    callBackFunction(err);
+                                    return;
+                                }
+                                    break;
                             }
                         }
                     }

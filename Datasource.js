@@ -1,4 +1,4 @@
-﻿exports.newDatasource = function newDatasource(BOT, DEBUG_MODULE, FILE_STORAGE) {
+﻿exports.newDatasource = function newDatasource(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES) {
 
     const FULL_LOG = true;
 
@@ -55,6 +55,10 @@
 
     let oliviaAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
     let tomAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+
+    /* Utilities needed. */
+
+    let utilities = UTILITIES.newUtilities(bot);
 
     return thisObject;
 

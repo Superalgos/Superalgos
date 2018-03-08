@@ -25,7 +25,7 @@
         context: context,                   // This one will allow you to get historical information of what your bot did on previous executions and learn about which is your current status every time your bot runs.
         datasource: datasource,             // This one will provide you with pre-loaded data ready for you to consume. In this version candlesticks and stari patterns.
         assistant: assistant,               // This one will help you to to create, and move positions at the exchange.
-        processDatetime: processDatetime    // This is the current oficial execution time that will be recorded in logs, and used to retrieve stored data.
+
                 };
 
     More details about these objects:
@@ -186,8 +186,8 @@
                         The rules of the this first competition states that the bot will have the following initial balance in USDT and BTC to trade with.
                         */
 
-                        const INITIAL_BALANCE_A = 0.0000;
-                        const INITIAL_BALANCE_B = 0.0001;
+                        const INITIAL_BALANCE_A = 0.000;
+                        const INITIAL_BALANCE_B = 0.001;
 
                         let AmountA = INITIAL_BALANCE_A;
                         let AmountB = INITIAL_BALANCE_B;

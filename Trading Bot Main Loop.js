@@ -1,4 +1,4 @@
-﻿exports.newTradingBot = function newTradingBot(BOT) {
+﻿exports.newTradingBotMainLoop = function newTradingBotMainLoop(BOT) {
 
     let bot = BOT;
     const ROOT_DIR = './';
@@ -80,6 +80,8 @@
 
                     function initializeContext() {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
+
                         context = CONTEXT.newContext(bot, DEBUG_MODULE, AZURE_FILE_STORAGE);
                         context.initialize(processDatetime, onInizialized);
 
@@ -95,6 +97,8 @@
                     }
 
                     function initializeDatasource() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDatasource ->  Entering function."); }
 
                         datasource = DATASOURCE.newDatasource(bot, DEBUG_MODULE, AZURE_FILE_STORAGE);
                         datasource.initialize(onInizialized);
@@ -112,6 +116,8 @@
 
                     function initializeExchangeAPI() {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
+
                         exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, DEBUG_MODULE, POLONIEX_CLIENT_MODULE);
                         exchangeAPI.initialize(onInizialized);
 
@@ -128,6 +134,8 @@
 
                     function initializeAssistant() {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeAssistant ->  Entering function."); }
+
                         assistant = ASSISTANT.newAssistant(bot, DEBUG_MODULE);
                         assistant.initialize(processDatetime, context, exchangeAPI, onInizialized);
 
@@ -143,6 +151,8 @@
                     }
 
                     function initializeUserBot() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
                         usertBot = USER_BOT_MODULE.newUserBot(bot, DEBUG_MODULE);
 
@@ -167,6 +177,8 @@
                     }
 
                     function startUserBot() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> startUserBot ->  Entering function."); }
 
                         usertBot.run(platform, onFinished);
 
@@ -197,6 +209,8 @@
 
                     function saveContext() {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> saveContext ->  Entering function."); }
+
                         context.saveThemAll(onFinished);
 
                         function onFinished(err) {
@@ -217,6 +231,8 @@
             }
 
             function loopControl(nextWaitTime) {
+
+                if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
                 /* Trading bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
 

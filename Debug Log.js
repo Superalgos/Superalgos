@@ -24,23 +24,27 @@
 
         try {
 
-            folderPath = thisObject.bot.devTeam;
+            folderPath = '../../Logs';
 
             createFolderSync(folderPath);
 
-            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type;
+            folderPath = '../../Logs/' + thisObject.bot.devTeam;
 
             createFolderSync(folderPath);
 
-            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName;
+            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type;
 
             createFolderSync(folderPath);
 
-            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "/" + thisObject.bot.version;
+            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName;
 
             createFolderSync(folderPath);
 
-            folderPath = thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "/" + thisObject.bot.version + "/" + thisObject.bot.process;
+            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "/" + thisObject.bot.version;
+
+            createFolderSync(folderPath);
+
+            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "/" + thisObject.bot.version + "/" + thisObject.bot.process;
 
             createFolderSync(folderPath);
 

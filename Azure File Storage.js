@@ -252,6 +252,23 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                         }
                     }
 
+                    if (err.code = "ParentNotFound") {
+
+                        /* This is how Azure tell us the folder where the file was supposed to be does not exist. We map this to our own response. */
+
+                        let customResponse = {
+                            result: global.DEFAULT_FAIL_RESPONSE.result,
+                            message: "Folder does not exist."
+                        };
+
+                        logger.write("[ERROR] getTextFile -> onFileReceived -> Custom Response -> message = " + customResponse.message);
+
+                        callBackFunction(customResponse);
+                        return;
+
+                    }
+
+
                     logger.write("[ERROR] getTextFile -> onFileReceived -> Dont know what to do here. Cancelling operation. ");
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 

@@ -139,14 +139,21 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
 
-                    /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
-
                     let fileName = "Status.Report.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" +  EXCHANGE_NAME;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
                     function onFileReceived(err, text) {
+
+                        if (err.result === global.DEFAULT_FAIL_RESPONSE.result && err.message === 'Folder does not exist.') {
+                            logger.write("[INFO] initialize -> getStatusReport -> onFileReceived -> err = " + err.message);
+
+                            /* In this case we can assume that this is the first execution ever of this bot.*/
+
+                            createConext(callBack);
+                            return;
+                        }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             logger.write("[ERROR] initialize -> getStatusReport -> onFileReceived -> err = " + err.message);
@@ -161,25 +168,17 @@
                         try {
 
                             thisObject.statusReport = JSON.parse(text);
-
-                            if (thisObject.statusReport.lastExecution === undefined) {
-                                createConext(callBack);
-                            } else {
-                                getExecutionHistory(callBack);
-                            }
+                            getExecutionHistory(callBack);
 
                         } catch (err) {
 
                             /*
-
-                            It might happen that the file content is corrupt or it does not exist. The bot can not run without an Execution Context,
-                            since it is risky to ignore its own context, so even for first time execution, a file with the right format
-                            is needed.
-
+                            It might happen that the file content is corrupt. We will consider this as a temporary situation, since sometimes the file
+                            is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
                             */
 
-                            logger.write("[ERROR] initialize -> getStatusReport -> onFileReceived -> Bot cannot execute without the Status report. -> Err = " + err.message);
-                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                            logger.write("[ERROR] initialize -> getStatusReport -> onFileReceived -> Bot cannot execute without a valid Status report. -> Err = " + err.message);
+                            callBack(global.DEFAULT_RETRY_RESPONSE);
                         }
                     }
 
@@ -195,7 +194,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + EXCHANGE_NAME;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -246,7 +245,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + EXCHANGE_NAME + "/" + dateForPath;
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -374,7 +373,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = processDatetime.getUTCFullYear() + '/' + utilities.pad(processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDatetime.getUTCDate(), 2) + '/' + utilities.pad(processDatetime.getUTCHours(), 2) + '/' + utilities.pad(processDatetime.getUTCMinutes(), 2);
-                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + dateForPath;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + EXCHANGE_NAME + "/" + dateForPath;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -429,7 +428,7 @@
                 try {
 
                     let fileName = "Execution.History.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + EXCHANGE_NAME;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -494,7 +493,7 @@
                 try {
 
                     let fileName = "Status.Report.json"
-                    let filePath = EXCHANGE_NAME + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.version + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + EXCHANGE_NAME;
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 

@@ -87,7 +87,7 @@ const START_ALL_MONTHS = false;
 const START_ONE_MONTH = true;
 
 const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
-const TRADING_BOT_MODULE = require('./TradingBot');
+const TRADING_BOT_MAIN_LOOP_MODULE = require('./Trading Bot Main Loop');
 
 /* Now we will see which are the script Arguments. We expect the name of the process to run, since that is what it should be defined at the Task Scheduller. */
 
@@ -194,14 +194,14 @@ function runTradingBot(pProcessConfig) {
     try {
         if (FULL_LOG === true) { logger.write("[INFO] runTradingBot -> Entering function."); }
 
-        let tradingBot = TRADING_BOT_MODULE.newTradingBot(botConfig);
-        tradingBot.initialize(vmConfig.bot.path, pProcessConfig, onInitializeReady);
+        let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotMainLoop(botConfig);
+        tradingBotMainLoop.initialize(vmConfig.bot.path, pProcessConfig, onInitializeReady);
 
         function onInitializeReady(err) {
 
             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                tradingBot.run(whenRunFinishes);
+                tradingBotMainLoop.run(whenRunFinishes);
 
                 function whenRunFinishes(err) {
 

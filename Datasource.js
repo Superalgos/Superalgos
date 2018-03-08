@@ -68,7 +68,7 @@
 
             function initializeOliviaStorage() {
 
-                oliviaAzureFileStorage.initialize("Olivia", onInizialized);
+                oliviaAzureFileStorage.initialize("AAOlivia", onInizialized);
 
                 function onInizialized(err) {
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -82,7 +82,7 @@
 
             function initializeTomStorage() {
 
-                tomAzureFileStorage.initialize("Tom", onInizialized);
+                tomAzureFileStorage.initialize("AATom", onInizialized);
 
                 function onInizialized(err) {
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {

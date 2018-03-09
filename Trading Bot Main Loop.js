@@ -330,6 +330,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time! :-)"); }
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
+                    return;
 
                 }
 
@@ -357,7 +358,7 @@
                 try {
 
                     vmConfig = JSON.parse(fs.readFileSync('this.vm.config.json', 'utf8'));
-                    return vmConfig.stopGrafully;
+                    return JSON.parse(vmConfig.stopGrafully);
                 }
                 catch (err) {
                     const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;

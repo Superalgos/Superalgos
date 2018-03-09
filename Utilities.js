@@ -1,6 +1,8 @@
 ﻿
 exports.newUtilities = function newUtilities(BOT) {
 
+    const FULL_LOG = true;
+
     let bot = BOT;
     const ROOT_DIR = '../';
 
@@ -20,54 +22,58 @@ exports.newUtilities = function newUtilities(BOT) {
 
     return utilities;
 
-    function pad(str, max) {
-        str = str.toString();
-        return str.length < max ? pad("0" + str, max) : str;
-    }
-
     function createFolderIfNeeded(path, azureFileStorage, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> Entering function."); }
+        try {
 
-        let splittedPath = path.split("/");
+            if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> path = " + path); }
 
-        let partialPath = '';
-        let separator = "";
+            let splittedPath = path.split("/");
 
-        let i = 0;
-        loop();
+            let partialPath = '';
+            let separator = "";
 
-        function loop() {
+            let i = 0;
+            loop();
 
-            if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> loop -> Entering function."); }
+            function loop() {
 
-            partialPath = partialPath + separator + splittedPath[i];
-            separator = "/";
+                if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> path = " + path); }
 
-            i++;
+                partialPath = partialPath + separator + splittedPath[i];
+                separator = "/";
 
-            azureFileStorage.createFolder(partialPath, checkLoop);
+                i++;
 
-            function checkLoop(err) {
+                if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> partialPath = " + partialPath); }
 
-                if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> loop -> checkLoop -> Entering function."); }
+                azureFileStorage.createFolder(partialPath, checkLoop);
 
-                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write("[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.message);
-                    callBackFunction(err);
-                    return;
-                }
+                function checkLoop(err) {
 
-                if (i === splittedPath.length) {
+                    if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> loop -> checkLoop -> Entering function."); }
 
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        logger.write("[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.message);
+                        callBackFunction(err);
+                        return;
+                    }
 
-                } else {
+                    if (i === splittedPath.length) {
 
-                    loop();
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
 
+                    } else {
+
+                        loop();
+
+                    }
                 }
             }
+        } catch (err) {
+            logger.write("[ERROR] createFolderIfNeeded -> Error = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -81,7 +87,8 @@ exports.newUtilities = function newUtilities(BOT) {
         }
     }
 
-
-
-
+    function pad(str, max) {
+        str = str.toString();
+        return str.length < max ? pad("0" + str, max) : str;
+    }
 }

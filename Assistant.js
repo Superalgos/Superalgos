@@ -98,7 +98,7 @@
             function onResponse(err, pExchangePositions) {
 
                 if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange ->  onResponse -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange ->  onResponse -> pExchangePositions = " + pExchangePositions); }
+                if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange ->  onResponse -> pExchangePositions = " + JSON.stringify(pExchangePositions)); }
 
                 switch (err.result) {
                     case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
@@ -506,7 +506,7 @@
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> pPosition = " + pPosition); }
+            if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> pPosition = " + JSON.stringify(pPosition)); }
             if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> pNewRate = " + pNewRate); }
 
             exchangeAPI.movePosition(pPosition, pNewRate, onResponse);

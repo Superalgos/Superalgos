@@ -292,20 +292,20 @@
 
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> startUserBot -> onFinished > Execution finished well. :-)");
+                                    logger.write("[INFO] run -> loop -> saveContext -> onFinished > Execution finished well. :-)");
                                     nextWaitTime = 'Normal';
                                     loopControl(nextWaitTime);
                                     return;
                                 }
                                     break;
                                 case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Can not retry at this point.");
+                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Can not retry at this point.");
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                                     break;
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Operation Failed. Aborting the process.");
+                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }

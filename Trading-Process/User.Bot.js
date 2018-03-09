@@ -78,9 +78,7 @@
 
         try {
 
-            if (LOG_INFO === true) {
-                logger.write("[INFO] Entering function 'start'");
-            }
+            if (LOG_INFO === true) { logger.write("[INFO] start -> Entering function."); }
 
             /*
 
@@ -125,6 +123,9 @@
             function businessLogic(callBack) {
 
                 try {
+
+                    if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> Entering function."); }
+
                     /*
 
                     First thing we need to know is to see where we are:
@@ -213,6 +214,8 @@
 
                 try {
 
+                    if (LOG_INFO === true) { logger.write("[INFO] start -> decideAboutBuyPosition -> Entering function."); }
+
                 /* For simplicity of this example bot, we will use here the same logic than when we are selling. */
 
                     decideAboutSellPosition(pPosition, callBack);
@@ -226,6 +229,9 @@
             function decideAboutSellPosition(pPosition, callBack) {
 
                 try {
+
+                    if (LOG_INFO === true) { logger.write("[INFO] start -> decideAboutSellPosition -> Entering function."); }
+
                     /*
     
                     Here is where you decide what to do with your current sell position. Option are:

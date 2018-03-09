@@ -80,10 +80,10 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    if (err || exchangeResponse.error !== undefined) {
+                    if (err || exchangeResponse.error !== undefined || exchangeResponse.indexOf("Connection timed out") > 0) {
                         try {
 
-                            if (err.message.indexOf("ETIMEDOUT") > 0) {
+                            if (err.message.indexOf("ETIMEDOUT") > 0 || exchangeResponse.indexOf("Connection timed out") > 0) {
 
                                 logger.write("[WARN] getOpenPositions -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
@@ -174,10 +174,10 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    if (err || exchangeResponse.error !== undefined) {
+                    if (err || exchangeResponse.error !== undefined || exchangeResponse.indexOf("Connection timed out") > 0) {
                         try {
 
-                            if (err.message.indexOf("ETIMEDOUT") > 0) {
+                            if (err.message.indexOf("ETIMEDOUT") > 0 || exchangeResponse.indexOf("Connection timed out") > 0) {
 
                                 logger.write("[WARN] getExecutedTrades -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
@@ -290,10 +290,10 @@
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    if (err || exchangeResponse.error !== undefined) {
+                    if (err || exchangeResponse.error !== undefined || exchangeResponse.indexOf("Connection timed out") > 0) {
                         try {
 
-                            if (err.message.indexOf("ETIMEDOUT") > 0) {
+                            if (err.message.indexOf("ETIMEDOUT") > 0 || exchangeResponse.indexOf("Connection timed out") > 0) {
 
                                 logger.write("[WARN] putPosition -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
@@ -374,10 +374,10 @@
 
                 try {
 
-                    if (err || exchangeResponse.error !== undefined) {
+                    if (err || exchangeResponse.error !== undefined || exchangeResponse.indexOf("Connection timed out") > 0) {
                         try {
 
-                            if (err.message.indexOf("ETIMEDOUT") > 0) {
+                            if (err.message.indexOf("ETIMEDOUT") > 0 || exchangeResponse.indexOf("Connection timed out") > 0) {
 
                                 logger.write("[WARN] movePosition -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);

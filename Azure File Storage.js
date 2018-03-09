@@ -38,7 +38,6 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
     function initialize(pDataOwnerBotCodeName, callBackFunction) {
 
         try {
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             if (pDataOwnerBotCodeName === undefined) {
                 dataOwner = bot.codeName;
@@ -47,6 +46,8 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
             }
 
             logger.fileName = MODULE_NAME + '.' + dataOwner;
+
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             readConnectionStringConfigFile(onConnectionStringReady);
 

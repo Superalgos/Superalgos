@@ -2,5 +2,5 @@
   "bot": {
     "path": "../Bots/AAMasters/AAMariam-Trading-Bot"
   },
-  "stopGrafully": "true"
+  "stopGrafully": "false"
 }

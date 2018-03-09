@@ -68,7 +68,7 @@
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> pMarket = " + pMarket); }
+            if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
 
             poloniexApiClient.returnOpenOrders(pMarket.assetA, pMarket.assetB, onExchangeCallReturned);
 
@@ -78,7 +78,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> Entering function."); }
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
-                    if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + exchangeResponse); }
+                    if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                     if (err || exchangeResponse.error !== undefined) {
                         try {
@@ -172,7 +172,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> Entering function."); }
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
-                    if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + exchangeResponse); }
+                    if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                     if (err || exchangeResponse.error !== undefined) {
                         try {
@@ -262,7 +262,7 @@
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pMarket = " + pMarket); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pMarket = " + JSON.stringify(pMarket)); }
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pType = " + pType); }
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pRate = " + pRate); }
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pAmountA = " + pAmountA); }
@@ -288,7 +288,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> Entering function."); }
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
-                    if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + exchangeResponse); }
+                    if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                     if (err || exchangeResponse.error !== undefined) {
                         try {
@@ -361,7 +361,7 @@
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pPosition = " + pPosition); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pNewRate = " + pNewRate); }
 
             poloniexApiClient.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
@@ -370,7 +370,7 @@
 
                 if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
                 if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
-                if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + exchangeResponse); }
+                if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                 try {
 

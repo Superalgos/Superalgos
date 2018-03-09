@@ -217,7 +217,6 @@
                         usertBot = USER_BOT_MODULE.newUserBot(bot, DEBUG_MODULE);
 
                         let platform = {
-                            context: context,
                             datasource: datasource,
                             assistant: assistant
                         };
@@ -358,7 +357,7 @@
                 try {
 
                     vmConfig = JSON.parse(fs.readFileSync('this.vm.config.json', 'utf8'));
-                    return JSON.parse(vmConfig.stopGrafully);
+                    return JSON.parse(vmConfig.stopGracefully);
                 }
                 catch (err) {
                     const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;

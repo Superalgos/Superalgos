@@ -254,6 +254,7 @@ function runTradingBot(pProcessConfig) {
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                         logger.write("[INFO] trading bot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+                        console.log("Bot execution finished sucessfully. :-)");
 
                     } else {
 

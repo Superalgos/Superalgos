@@ -12,8 +12,9 @@
 
     let thisObject = {
         initialize: initialize,
-        putPositionAtExchange: putPositionAtExchange,
-        movePositionAtExchange: movePositionAtExchange
+        putPosition: putPosition,
+        movePosition: movePosition,
+        getPositions: getPositions
     };
 
     let bot = BOT;
@@ -25,12 +26,14 @@
     let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
     let openPositions = [];         // These are the open positions the bot knows it made by itself. 
 
-    let botContext;
+    let context;
     let exchangeAPI;
+
+    const INITIAL_INVESTMENT = 0.001;
 
     return thisObject;
 
-    function initialize(pBotContext, pExchangeAPI, callBackFunction) {
+    function initialize(pContext, pExchangeAPI, callBackFunction) {
 
         try {
 
@@ -38,7 +41,7 @@
 
             /* Store local values. */
 
-            botContext = pBotContext;
+            context = pContext;
             exchangeAPI = pExchangeAPI;
 
             getPositionsAtExchange(onDone);
@@ -155,16 +158,16 @@
 
             let openPositions = [];
 
-            for (let a = 0; a < botContext.executionContext.positions.length; a++) {
+            for (let a = 0; a < context.executionContext.positions.length; a++) {
 
-                if (botContext.executionContext.positions[a].status === "open") {
+                if (context.executionContext.positions[a].status === "open") {
 
-                    openPositions.push(botContext.executionContext.positions[a]);
+                    openPositions.push(context.executionContext.positions[a]);
 
                 }
             }
 
-            botContext.executionContext.positions = openPositions;
+            context.executionContext.positions = openPositions;
 
             /* Now we can start checking what happened at the exchange. */
 
@@ -177,7 +180,7 @@
                 try {
                     for (let j = 0; j < exchangePositions.length; j++) {
 
-                        if (botContext.executionContext.positions[i].id === exchangePositions[j].id) {
+                        if (context.executionContext.positions[i].id === exchangePositions[j].id) {
 
                             /*
 
@@ -187,7 +190,7 @@
 
                             */
 
-                            if (botContext.executionContext.positions[i].amountB === parseFloat(exchangePositions[j].amountB)) {
+                            if (context.executionContext.positions[i].amountB === parseFloat(exchangePositions[j].amountB)) {
 
                                 /* Position is still there, untouched. Nothing to do here. */
 
@@ -196,7 +199,7 @@
 
                             } else {
 
-                                getPositionTradesAtExchange(botContext.executionContext.positions[i].id, confirmOrderWasPartiallyExecuted);
+                                getPositionTradesAtExchange(context.executionContext.positions[i].id, confirmOrderWasPartiallyExecuted);
                                 return;
 
                                 function confirmOrderWasPartiallyExecuted(pTrades) {
@@ -230,8 +233,8 @@
                                         sumAssetA = sumAssetA + exchangePositions[j].fee;
 
                                         if (
-                                            botContext.executionContext.positions[i].amountA !== sumAssetA ||
-                                            botContext.executionContext.positions[i].amountB !== sumAssetB
+                                            context.executionContext.positions[i].amountA !== sumAssetA ||
+                                            context.executionContext.positions[i].amountB !== sumAssetB
                                         ) {
                                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
                                             callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -244,24 +247,24 @@
 
                                         */
 
-                                        botContext.executionContext.positions[i].amountA = exchangePositions[j].amountA;
-                                        botContext.executionContext.positions[i].amountB = exchangePositions[j].amountB;
-                                        botContext.executionContext.positions[i].date = (new Date(exchangePositions[j].date)).valueOf();
+                                        context.executionContext.positions[i].amountA = exchangePositions[j].amountA;
+                                        context.executionContext.positions[i].amountB = exchangePositions[j].amountB;
+                                        context.executionContext.positions[i].date = (new Date(exchangePositions[j].date)).valueOf();
 
                                         for (k = 0; k < pTrades.length; k++) {
 
-                                            botContext.executionContext.positions[i].pTrades.push(pTrades[k]);
+                                            context.executionContext.positions[i].pTrades.push(pTrades[k]);
 
-                                            botContext.newHistoryRecord.newTrades++;
+                                            context.newHistoryRecord.newTrades++;
 
                                         }
 
                                         let newTransaction = {
-                                            type: botContext.executionContext.positions[i].type + "  partially executed",
-                                            position: botContext.executionContext.positions[i]
+                                            type: context.executionContext.positions[i].type + "  partially executed",
+                                            position: context.executionContext.positions[i]
                                         };
 
-                                        botContext.executionContext.transactions.push(newTransaction);
+                                        context.executionContext.transactions.push(newTransaction);
 
                                         /* All done. */
 
@@ -279,7 +282,7 @@
 
                     /* Position not found: we need to know if the order was executed. */
 
-                    getPositionTradesAtExchange(botContext.executionContext.positions[i].id, confirmOrderWasExecuted);
+                    getPositionTradesAtExchange(context.executionContext.positions[i].id, confirmOrderWasExecuted);
 
                     function getPositionTradesAtExchange(pPositionId, innerCallBack) {
 
@@ -359,8 +362,8 @@
                             sumAssetA = sumAssetA + exchangePositions[j].fee;
 
                             if (
-                                botContext.executionContext.positions[i].amountA !== sumAssetA ||
-                                botContext.executionContext.positions[i].amountB !== sumAssetB
+                                context.executionContext.positions[i].amountA !== sumAssetA ||
+                                context.executionContext.positions[i].amountB !== sumAssetB
                             ) {
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
                                 callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -373,22 +376,22 @@
 
                             */
 
-                            botContext.executionContext.positions[i].status = "executed";
+                            context.executionContext.positions[i].status = "executed";
 
                             for (k = 0; k < pTrades.length; k++) {
 
-                                botContext.executionContext.positions[i].pTrades.push(pTrades[k]);
+                                context.executionContext.positions[i].pTrades.push(pTrades[k]);
 
-                                botContext.newHistoryRecord.newTrades++;
+                                context.newHistoryRecord.newTrades++;
 
                             }
 
                             let newTransaction = {
-                                type: botContext.executionContext.positions[i].type + " executed",
-                                position: botContext.executionContext.positions[i]
+                                type: context.executionContext.positions[i].type + " executed",
+                                position: context.executionContext.positions[i]
                             };
 
-                            botContext.executionContext.transactions.push(newTransaction);
+                            context.executionContext.transactions.push(newTransaction);
 
                             /* All done. */
 
@@ -417,7 +420,7 @@
 
             function controlLoop() {
 
-                if (i < botContext.executionContext.positions.length) {
+                if (i < context.executionContext.positions.length) {
 
                     loopBody();
 
@@ -439,26 +442,26 @@
         }
     }
 
-    function putPositionAtExchange(pType, pRate, pAmountA, pAmountB, callBack) {
+    function putPosition(pType, pRate, pAmountA, pAmountB, callBack) {
 
         try {
-            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> pType = " + pType); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> pRate = " + pRate); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> pAmountA = " + pAmountA); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> pAmountB = " + pAmountB); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pType = " + pType); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pRate = " + pRate); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pAmountA = " + pAmountA); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
 
             function onResponse(err, pPositionId) {
 
                 try {
-                    if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange ->  onResponse -> Entering function."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange ->  onResponse -> pPositionId = " + pPositionId); }
+                    if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  onResponse -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  onResponse -> pPositionId = " + pPositionId); }
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                            logger.write("[INFO] putPositionAtExchange -> onResponse -> Execution finished well. :-)");
+                            logger.write("[INFO] putPosition -> onResponse -> Execution finished well. :-)");
 
                             let position = {
                                 id: pPositionId,
@@ -471,64 +474,64 @@
                                 trades: []
                             };
 
-                            botContext.executionContext.positions.push(position);
+                            context.executionContext.positions.push(position);
 
                             let newTransaction = {
                                 type: "newPosition",
                                 position: position
                             };
 
-                            botContext.executionContext.transactions.push(newTransaction);
+                            context.executionContext.transactions.push(newTransaction);
 
-                            botContext.newHistoryRecord.newPositions++;
-                            botContext.newHistoryRecord.rate = pRate;
+                            context.newHistoryRecord.newPositions++;
+                            context.newHistoryRecord.rate = pRate;
 
                             callBack(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] putPositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
+                            logger.write("[ERROR] putPosition -> onResponse -> Retry Later. Requesting Execution Retry.");
                             callBack(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write("[ERROR] putPositionAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                            logger.write("[ERROR] putPosition -> onResponse -> Operation Failed. Aborting the process.");
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
-                    logger.write("[ERROR] putPositionAtExchange -> onResponse -> err = " + err.message);
+                    logger.write("[ERROR] putPosition -> onResponse -> err = " + err.message);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] putPositionAtExchange -> err = " + err.message);
+            logger.write("[ERROR] putPosition -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function movePositionAtExchange(pPosition, pNewRate, callBack) {
+    function movePosition(pPosition, pNewRate, callBack) {
 
         try {
-            if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> pPosition = " + JSON.stringify(pPosition)); }
-            if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> pNewRate = " + pNewRate); }
+            if (FULL_LOG === true) { logger.write("[INFO] movePosition -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
+            if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
 
             exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
 
             function onResponse(err, pPositionId) {
 
                 try {
-                    if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> onResponse -> Entering function."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> onResponse -> pPositionId = " + pPositionId); }
+                    if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onResponse -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onResponse -> pPositionId = " + pPositionId); }
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                            logger.write("[INFO] movePositionAtExchange -> onResponse -> Execution finished well. :-)");
+                            logger.write("[INFO] movePosition -> onResponse -> Execution finished well. :-)");
 
                             let newPosition = {
                                 id: pPositionId,
@@ -545,11 +548,11 @@
 
                             /* We need to update the position we have on file. */
 
-                            for (let i = 0; i < botContext.executionContext.positions.length; i++) {
+                            for (let i = 0; i < context.executionContext.positions.length; i++) {
 
-                                if (botContext.executionContext.positions[i].id === pPosition.id) {
+                                if (context.executionContext.positions[i].id === pPosition.id) {
 
-                                    botContext.executionContext.positions[i] = newPosition;
+                                    context.executionContext.positions[i] = newPosition;
 
                                     break;
                                 }
@@ -561,35 +564,39 @@
                                 newPosition: newPosition
                             };
 
-                            botContext.executionContext.transactions.push(newTransaction);
+                            context.executionContext.transactions.push(newTransaction);
 
-                            botContext.newHistoryRecord.movedPositions++;
-                            botContext.newHistoryRecord.rate = pNewRate;
+                            context.newHistoryRecord.movedPositions++;
+                            context.newHistoryRecord.rate = pNewRate;
 
                             callBack(global.DEFAULT_OK_RESPONSE);
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] movePositionAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
+                            logger.write("[ERROR] movePosition -> onResponse -> Retry Later. Requesting Execution Retry.");
                             callBack(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write("[ERROR] movePositionAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                            logger.write("[ERROR] movePosition -> onResponse -> Operation Failed. Aborting the process.");
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
-                    logger.write("[ERROR] movePositionAtExchange -> onResponse -> err = " + err.message);
+                    logger.write("[ERROR] movePosition -> onResponse -> err = " + err.message);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] movePositionAtExchange -> err = " + err.message);
+            logger.write("[ERROR] movePosition -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function getPositions() {
+        return JSON.parse(JSON.stringify(context.executionContext.positions));
     }
 };

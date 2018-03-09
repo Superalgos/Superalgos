@@ -1,6 +1,7 @@
 ﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES) {
 
     const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
 
     /* 
 
@@ -213,7 +214,7 @@
                             return;
                         }
 
-                        if (FULL_LOG === true) {
+                        if (LOG_FILE_CONTENT === true) {
                             logger.write("[INFO] initialize -> getExecutionHistory -> onFileReceived -> Content received = " + text);
                         }
 
@@ -480,7 +481,7 @@
                                     return;
                                 }
 
-                                if (FULL_LOG === true) {
+                                if (LOG_FILE_CONTENT === true) {
                                     logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 

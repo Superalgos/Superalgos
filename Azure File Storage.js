@@ -2,6 +2,7 @@
 exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
     const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
 
     let bot = BOT;
     const ROOT_DIR = './';
@@ -225,8 +226,11 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                 if (FULL_LOG === true) {
                     logger.write("[INFO] getTextFile -> onFileReceived -> Response from Azure received.");
                     logger.write("[INFO] getTextFile -> onFileReceived -> err = " + JSON.stringify(err));
-                    logger.write("[INFO] getTextFile -> onFileReceived -> text = " + text);
                     logger.write("[INFO] getTextFile -> onFileReceived -> response = " + JSON.stringify(response));
+                }
+
+                if (LOG_FILE_CONTENT === true) {
+                    logger.write("[INFO] getTextFile -> onFileReceived -> text = " + text);
                 }
 
                 if (err) {

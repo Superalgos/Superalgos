@@ -23,19 +23,12 @@
     The Platform object represents what the AA Platform provides you to help you with your bot. Inside it you can access to these inner objects:
 
     platform = {
-        context: context,                   // This one will allow you to get historical information of what your bot did on previous executions and learn about which is your current status every time your bot runs.
         datasource: datasource,             // This one will provide you with pre-loaded data ready for you to consume. In this version candlesticks and stari patterns.
         assistant: assistant,               // This one will help you to to create, and move positions at the exchange.
-
+        getPositions: getPositions          // Returns an array with the positions the bot have on the order book.
                 };
 
     More details about these objects:
-
-    context = {
-        statusReport: undefined,            // Here is the information that defines which was the last sucessfull execution and some other details.
-        executionHistory: [],               // This is the record of bot execution.
-        executionContext: undefined,        // Here is the business information of the last execution of this bot process.
-    };
 
     datasource = {
         candlesFiles: new Map,              // Complete sets of candles for different Time Periods. For Time Periods < 1hs sets are of current day only, otherwise whole market.
@@ -45,8 +38,8 @@
     };
 
     assistant = {
-        putPositionAtExchange: putPositionAtExchange,
-        movePositionAtExchange: movePositionAtExchange
+        putPosition: putPosition,
+        movePosition: movePosition
     };
 
     */
@@ -140,12 +133,14 @@
 
                     */
 
-                    if (platform.context.executionContext.positions.length > 0) {
+                    let positions = platform.assistant.getPositions();
 
-                        if (platform.context.executionContext.positions[0].type === "buy") {
-                            decideAboutBuyPosition(platform.context.executionContext.positions[0], callBack);
+                    if (positions.length > 0) {
+
+                        if (positions[0].type === "buy") {
+                            decideAboutBuyPosition(positions[0], callBack);
                         } else {
-                            decideAboutSellPosition(platform.context.executionContext.positions[0], callBack);
+                            decideAboutSellPosition(positions[0], callBack);
                         }
                         
                     } else {
@@ -201,7 +196,7 @@
 
                         AmountA = AmountB * rate;
 
-                        platform.assistant.putPositionAtExchange("sell", rate, AmountA, AmountB, callBack);
+                        platform.assistant.putPosition("sell", rate, AmountA, AmountB, callBack);
 
                     }
                 } catch (err) {
@@ -291,7 +286,7 @@
 
                     /* Finally we move the order position to where we have just estimated is a better place. */
 
-                    platform.assistant.movePositionAtExchange(pPosition, targetRate, callBack);
+                    platform.assistant.movePosition(pPosition, targetRate, callBack);
 
                 } catch (err) {
                     logger.write("[ERROR] start -> decideAboutSellPosition -> err = " + err.message);

@@ -324,6 +324,15 @@
 
                 if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
+                /* Here we check if we must stop the loop gracefully. */
+
+                if (shallWeStop() === true) {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time! :-)"); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                }
+
                 /* Trading bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
 
                 switch (nextWaitTime) {
@@ -338,6 +347,24 @@
                     }
                         break;
                 } 
+            }
+
+            function shallWeStop() {
+
+                var fs = require('fs');
+                let vmConfig;
+
+                try {
+
+                    vmConfig = JSON.parse(fs.readFileSync('this.vm.config.json', 'utf8'));
+                    return vmConfig.stopGrafully;
+                }
+                catch (err) {
+                    const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;
+                    console.log(logText);
+
+                    return;
+                }
             }
         }
 

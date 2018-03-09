@@ -80,35 +80,9 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    if (err || exchangeResponse.error !== undefined || exchangeResponse.indexOf("Connection timed out") > 0) {
-                        try {
+                    if (err || exchangeResponse.error !== undefined || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
 
-                            if (err.message.indexOf("ETIMEDOUT") > 0 || exchangeResponse.indexOf("Connection timed out") > 0) {
-
-                                logger.write("[WARN] getOpenPositions -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-
-                            } else {
-
-                                if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                    logger.write("[WARN] getOpenPositions -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                    return;
-
-                                } else {
-                                    logger.write("[ERROR] getOpenPositions -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-                            }
-
-                        } catch (err) {
-                            logger.write("[ERROR] getOpenPositions -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
+                        somethingWentWrong(err, exchangeResponse, callBackFunction);
 
                     } else {
 
@@ -174,35 +148,10 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    if (err || exchangeResponse.error !== undefined || exchangeResponse.indexOf("Connection timed out") > 0) {
-                        try {
+                    if (err || exchangeResponse.error !== undefined || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
 
-                            if (err.message.indexOf("ETIMEDOUT") > 0 || exchangeResponse.indexOf("Connection timed out") > 0) {
+                        somethingWentWrong(err, exchangeResponse, callBackFunction);
 
-                                logger.write("[WARN] getExecutedTrades -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-
-                            } else {
-
-                                if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                    logger.write("[WARN] getExecutedTrades -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                    return;
-
-                                } else {
-                                    logger.write("[ERROR] getExecutedTrades -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-                            }
-
-                        } catch (err) {
-                            logger.write("[ERROR] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
                     } else {
 
                         /*
@@ -290,35 +239,9 @@
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    if (err || exchangeResponse.error !== undefined || exchangeResponse.indexOf("Connection timed out") > 0) {
-                        try {
+                    if (err || exchangeResponse.error !== undefined || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
 
-                            if (err.message.indexOf("ETIMEDOUT") > 0 || exchangeResponse.indexOf("Connection timed out") > 0) {
-
-                                logger.write("[WARN] putPosition -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-
-                            } else {
-
-                                if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                    logger.write("[WARN] putPosition -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                    return;
-
-                                } else {
-                                    logger.write("[ERROR] putPosition -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-                            }
-
-                        } catch (err) {
-                            logger.write("[ERROR] putPosition -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
+                        somethingWentWrong(err, exchangeResponse, callBackFunction);
 
                     } else {
 
@@ -374,35 +297,9 @@
 
                 try {
 
-                    if (err || exchangeResponse.error !== undefined || exchangeResponse.indexOf("Connection timed out") > 0) {
-                        try {
+                    if (err || exchangeResponse.error !== undefined || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
 
-                            if (err.message.indexOf("ETIMEDOUT") > 0 || exchangeResponse.indexOf("Connection timed out") > 0) {
-
-                                logger.write("[WARN] movePosition -> onExchangeCallReturned -> Timeout reached while trying to access the Exchange API. Requesting new execution later. : ERROR = " + err.message);
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-
-                            } else {
-
-                                if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                    logger.write("[WARN] movePosition -> onExchangeCallReturned -> The exchange reseted the connection. Requesting new execution later. : ERROR = " + err.message);
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                    return;
-
-                                } else {
-                                    logger.write("[ERROR] movePosition -> onExchangeCallReturned -> Unexpected error trying to contact the Exchange. This will halt this bot process. : ERROR = " + err.message);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-                            }
-
-                        } catch (err) {
-                            logger.write("[ERROR] movePosition -> onExchangeCallReturned -> exchangeResponse.error = " + exchangeResponse.error);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
+                        somethingWentWrong(err, exchangeResponse, callBackFunction);
 
                     } else {
 
@@ -442,6 +339,41 @@
         } catch (err) {
             logger.write("[ERROR] movePosition -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function somethingWentWrong(err, exchangeResponse, callBackFunction) {
+
+        try {
+
+            logger.write("[WARN] somethingWentWrong -> err = " + JSON.stringify(err));
+            logger.write("[WARN] somethingWentWrong -> exchangeResponse = " + JSON.stringify(exchangeResponse));
+
+            if (JSON.stringify(err).indexOf("ETIMEDOUT") > 0 || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
+
+                logger.write("[WARN] somethingWentWrong -> Timeout reached while trying to access the Exchange API. Requesting new execution later.");
+                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                return;
+
+            } else {
+
+                if (JSON.stringify(err).indexOf("ECONNRESET") > 0) {
+
+                    logger.write("[WARN] somethingWentWrong -> The exchange reseted the connection. Requesting new execution later.");
+                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                    return;
+
+                } else {
+                    logger.write("[ERROR] somethingWentWrong -> Unexpected error trying to contact the Exchange. This will halt this bot process.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+            }
+
+        } catch (err) {
+            logger.write("[ERROR] somethingWentWrong -> err.message = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            return;
         }
     }
 };

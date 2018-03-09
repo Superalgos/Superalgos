@@ -20,17 +20,21 @@ function newFileCursor() {
     let market;
     let exchange;
     let fileCloud;
+    let devTeam;
+    let bot;
     let thisSet;
     let periodName;
     let timePeriod;
 
     return fileCursor;
 
-    function initialize(pFileCloud, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, callBackFunction) {
+    function initialize(pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, callBackFunction) {
 
         market = pMarket;
         exchange = pExchange;
         fileCloud = pFileCloud;
+        devTeam = pDevTeam;
+        bot = pBot;
         thisSet = pSet;
         periodName = pPeriodName;
         cursorDate = pCursorDate;
@@ -291,7 +295,7 @@ function newFileCursor() {
 
                 if (fileCursor.files.get(dateString) === undefined) { // We dont reload files we already have. 
 
-                    fileCloud.getFile(thisSet, exchange, market, periodName, targetDate, onFileReceived);
+                    fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, onFileReceived);
 
                 } else {
 

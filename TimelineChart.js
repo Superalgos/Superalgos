@@ -100,6 +100,11 @@ function newTimelineChart() {
             initializePlotter(loadingProductCards[i]);
 
         }
+
+        /* Finally we initialize the Competition Plotter. */
+
+
+
     } 
 
     function initializePlotter(pProductCard) {
@@ -111,7 +116,7 @@ function newTimelineChart() {
 
         /*
 
-        Before Initializing the Storage, we will put put the Product Card to listen to the events the storage will raise every time a file is loaded,
+        Before Initializing the Storage, we will put the Product Card to listen to the events the storage will raise every time a file is loaded,
         so that the UI can somehow show this. There are different types of events. 
 
         */

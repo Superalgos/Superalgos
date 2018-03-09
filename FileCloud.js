@@ -18,7 +18,7 @@ function newFileCloud() {
 
     }
 
-    function getFile(pSet, pExchange, pMarket, pPeriodName, pDatetime, callBackFunction) {
+    function getFile(pSet, pDevTeam, pBot, pExchange, pMarket, pPeriodName, pDatetime, callBackFunction) {
 
         let fileName = pSet.fileName;
         let filePath = pSet.filePath;
@@ -37,6 +37,8 @@ function newFileCloud() {
         fileName = fileName.replace("@AssetA", pMarket.assetA);
         fileName = fileName.replace("@AssetB", pMarket.assetB);
 
+        filePath = filePath.replace("@DevTeam", pDevTeam.codeName);
+        filePath = filePath.replace("@Bot", pBot.codeName);
         filePath = filePath.replace("@Exchange", pExchange.name);
         filePath = filePath.replace("@Period", pPeriodName);
 

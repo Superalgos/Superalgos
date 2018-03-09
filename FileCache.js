@@ -40,7 +40,7 @@ function newFileCache() {
 
             if (pSet.validPeriods.includes(periodName) === true) {
 
-                fileCloud.getFile(pSet, exchange, pMarket, periodName, undefined, onFileReceived);
+                fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, periodName, undefined, onFileReceived);
 
                 function onFileReceived(file) {
 

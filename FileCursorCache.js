@@ -49,7 +49,7 @@ function newFileCursorCache() {
             if (pSet.validPeriods.includes(periodName) === true) {
 
                 let fileCursor = newFileCursor();
-                fileCursor.initialize(fileCloud, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, onFileReceived);
+                fileCursor.initialize(fileCloud, pDevTeam, pBot, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, onFileReceived);
 
                 fileCursors.set(periodTime, fileCursor);
 

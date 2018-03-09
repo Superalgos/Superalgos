@@ -281,9 +281,61 @@
 
                     getPositionTradesAtExchange(botContext.executionContext.positions[i].id, confirmOrderWasExecuted);
 
+                    function getPositionTradesAtExchange(pPositionId, innerCallBack) {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> pPositionId = " + pPositionId); }
+
+                            /*
+                
+                            Given one position, we request all the associated trades to it.
+                
+                            */
+
+                            exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+
+                            function onResponse(err, pTrades) {
+
+                                try {
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
+                                            logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well. :-)");
+                                            innerCallBack(pTrades);
+                                        }
+                                            break;
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
+                                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                                            return;
+                                        }
+                                            break;
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                            break;
+                                    }
+                                } catch (err) {
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.message);
+                                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+                        } catch (err) {
+                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+
                     function confirmOrderWasExecuted(pTrades) {
 
                         try {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
+
                             /*
 
                             To confirm everything is ok, we will add all the amounts on trades asociated to the order and
@@ -346,49 +398,6 @@
                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
-                        }
-                    }
-
-                    function getPositionTradesAtExchange(pPositionId, innerCallBack) {
-
-                        try {
-                            /*
-                
-                            Given one position, we request all the associated trades to it.
-                
-                            */
-
-                            exchangeAPI.getExecutedTrades(pPositionId, onResponse);
-
-                            function onResponse(err, pTrades) {
-
-                                try {
-                                    switch (err.result) {
-                                        case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                                            innerCallBack(pTrades);
-                                        }
-                                            break;
-                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                                            callBack(global.DEFAULT_RETRY_RESPONSE);
-                                            return;
-                                        }
-                                            break;
-                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                                            callBack(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
-                                        }
-                                            break;
-                                    }
-                                } catch (err) {
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.message);
-                                    callBack(global.DEFAULT_FAIL_RESPONSE);
-                                }
-                            }
-                        } catch (err) {
-                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
-                            callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 

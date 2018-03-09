@@ -27,6 +27,8 @@ exports.newUtilities = function newUtilities(BOT) {
 
     function createFolderIfNeeded(path, azureFileStorage, callBackFunction) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> Entering function."); }
+
         let splittedPath = path.split("/");
 
         let partialPath = '';
@@ -37,6 +39,8 @@ exports.newUtilities = function newUtilities(BOT) {
 
         function loop() {
 
+            if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> loop -> Entering function."); }
+
             partialPath = partialPath + separator + splittedPath[i];
             separator = "/";
 
@@ -45,6 +49,8 @@ exports.newUtilities = function newUtilities(BOT) {
             azureFileStorage.createFolder(partialPath, checkLoop);
 
             function checkLoop(err) {
+
+                if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> loop -> checkLoop -> Entering function."); }
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                     logger.write("[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.message);

@@ -361,8 +361,8 @@
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pPosition = " + JSON.stringify(pPosition)); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pNewRate = " + pNewRate); }
+            if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
+            if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
 
             poloniexApiClient.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
 

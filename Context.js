@@ -397,6 +397,8 @@
 
                         try {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> Entering function."); }
+
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                 logger.write("[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> err = " + err.message);
                                 callBack(err);
@@ -408,6 +410,8 @@
                             cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated(err) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated -> Entering function."); }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     logger.write("[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated -> err = " + err.message);
@@ -453,6 +457,8 @@
 
                         try {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> Entering function."); }
+
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                 logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> err = " + err.message);
                                 callBack(err);
@@ -474,6 +480,8 @@
                             cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated(err) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> Entering function."); }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> err = " + err.message);
@@ -519,6 +527,8 @@
 
                         try {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated -> Entering function."); }
+
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                 logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> err = " + err.message);
                                 callBack(err);
@@ -532,6 +542,8 @@
                             cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated(err) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated -> onFileCreated -> Entering function."); }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> onFileCreated -> err = " + err.message);

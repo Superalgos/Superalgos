@@ -48,6 +48,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
+                            logger.write("[INFO] initialize -> onDone -> Execution finished well. :-)");
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
@@ -82,6 +83,8 @@
 
         try {
 
+            if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange -> Entering function."); }
+
             /*
 
             Here we grab all the positions at the exchange for the account we are using for trading. We will not asume all the positions
@@ -94,8 +97,12 @@
 
             function onResponse(err, pExchangePositions) {
 
+                if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange ->  onResponse -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange ->  onResponse -> pExchangePositions = " + pExchangePositions); }
+
                 switch (err.result) {
                     case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
+                        logger.write("[INFO] getPositionsAtExchange -> onResponse -> Execution finished well. :-)");
                         exchangePositions = pExchangePositions;
                         ordersExecutionCheck(callBack);
                         return;
@@ -124,6 +131,9 @@
     function ordersExecutionCheck(callBack) {
 
         try {
+
+            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> Entering function."); }
+
             /*
 
             Here we check that all the positions we know we have are still at the exchange. If they are not, we will try to take appropiate
@@ -423,13 +433,23 @@
     function putPositionAtExchange(pType, pRate, pAmountA, pAmountB, callBack) {
 
         try {
+            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> pType = " + pType); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> pRate = " + pRate); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> pAmountA = " + pAmountA); }
+            if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange -> pAmountB = " + pAmountB); }
+
             exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
 
             function onResponse(err, pPositionId) {
 
                 try {
+                    if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange ->  onResponse -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] putPositionAtExchange ->  onResponse -> pPositionId = " + pPositionId); }
+
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
+                            logger.write("[INFO] putPositionAtExchange -> onResponse -> Execution finished well. :-)");
 
                             let position = {
                                 id: pPositionId,
@@ -485,13 +505,21 @@
     function movePositionAtExchange(pPosition, pNewRate, callBack) {
 
         try {
+            if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> pPosition = " + pPosition); }
+            if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> pNewRate = " + pNewRate); }
+
             exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
 
             function onResponse(err, pPositionId) {
 
                 try {
+                    if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> onResponse -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] movePositionAtExchange -> onResponse -> pPositionId = " + pPositionId); }
+
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
+                            logger.write("[INFO] movePositionAtExchange -> onResponse -> Execution finished well. :-)");
 
                             let newPosition = {
                                 id: pPositionId,

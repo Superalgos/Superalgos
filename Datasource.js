@@ -43,6 +43,8 @@
 
             function initializeOliviaStorage() {
 
+                if (FULL_LOG === true) { logger.write("[INFO] initializeOliviaStorage -> Entering function."); }
+
                 oliviaAzureFileStorage.initialize("AAOlivia", onInizialized);
 
                 function onInizialized(err) {
@@ -56,6 +58,8 @@
             }
 
             function initializeTomStorage() {
+
+                if (FULL_LOG === true) { logger.write("[INFO] initializeTomStorage -> Entering function."); }
 
                 tomAzureFileStorage.initialize("AATom", onInizialized);
 
@@ -103,6 +107,8 @@
 
                 try {
 
+                    if (FULL_LOG === true) { logger.write("[INFO] getCandles -> Entering function."); }
+
                     /*
         
                     We will read several files with candles for the current day. We will use these files as an input
@@ -115,6 +121,8 @@
                     function getMarketFiles() {
 
                         try {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] getCandles -> getMarketFiles -> Entering function."); }
 
                             let filesOk = 0;
                             let filesNotOk = 0;
@@ -160,6 +168,8 @@
 
                         try {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] getCandles -> getDailyFiles -> Entering function."); }
+
                             let filesOk = 0;
                             let filesNotOk = 0;
 
@@ -203,6 +213,9 @@
                     function getCandlesWeAreIn() {
 
                         try {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] getCandles -> getCandlesWeAreIn -> Entering function."); }
+
                             let counter = 0;
 
                             thisObject.candlesFiles.forEach(getCurrentCandles);
@@ -272,6 +285,9 @@
             function getPatterns(callBack) {
 
                 try {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] getPatterns -> Entering function."); }
+
                     /*
         
                     We will read several files with pattern calculations for the current day. We will use these files as an input
@@ -284,6 +300,8 @@
                     function getMarketFiles() {
 
                         try {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] getPatterns -> getMarketFiles -> Entering function."); }
 
                             let filesOk = 0;
                             let filesNotOk = 0;
@@ -329,6 +347,8 @@
 
                         try {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] getPatterns -> getDailyFiles -> Entering function."); }
+
                             let filesOk = 0;
                             let filesNotOk = 0;
 
@@ -372,6 +392,9 @@
                     function getStairsWeAreIn() {
 
                         try {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] getPatterns -> getStairsWeAreIn -> Entering function."); }
+
                             let counter = 0;
 
                             thisObject.stairsFiles.forEach(getCurrentStairs);

@@ -97,7 +97,7 @@
                         getStatusReport(onDone);
 
                     } else {
-                        logger.write("[ERROR] initialize -> initializeStorage -> err = " + err.message);
+                        logger.write("[ERROR] initialize -> initializeStorage -> onInizialized -> err = " + err.message);
                         callBackFunction(err);
                     }
                 }
@@ -142,6 +142,9 @@
                     let fileName = "Status.Report.json"
                     let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" +  global.EXCHANGE_NAME;
 
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> fileName = " + fileName); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> filePath = " + filePath); }
+
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
                     function onFileReceived(err, text) {
@@ -183,7 +186,7 @@
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> getExecutionHistory -> err = " + err.message);
+                    logger.write("[ERROR] initialize -> getStatusReport -> err = " + err.message);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -191,10 +194,14 @@
             function getExecutionHistory(callBack) {
 
                 try {
+
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
                     let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> filePath = " + filePath); }
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -239,6 +246,7 @@
             function getExecutionContext(callBack) {
 
                 try {
+
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> Entering function."); }
 
                     let date = new Date(thisObject.statusReport.lastExecution);
@@ -246,6 +254,9 @@
                     let fileName = "Execution.Context.json"
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> fileName = " + fileName); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> filePath = " + filePath); }
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -341,7 +352,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
-                            logger.write("[INFO] initialize -> onDone -> Execution finished well. :-)");
+                            logger.write("[INFO] saveThemAll -> onDone -> Execution finished well. :-)");
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
@@ -368,15 +379,16 @@
 
             function writeExecutionContext(callBack) {
 
-                if (FULL_LOG === true) {
-                    logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function.");
-                }
-
                 try {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function."); }
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = global.processDatetime.getUTCFullYear() + '/' + utilities.pad(global.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(global.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(global.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(global.processDatetime.getUTCMinutes(), 2);
                     let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
+
+                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }
+                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> filePath = " + filePath); }
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -397,13 +409,13 @@
                             function onFileCreated(err) {
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                    logger.write("[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated -> err = " + err.message);
                                     callBack(err);
                                     return;
                                 }
 
                                 if (FULL_LOG === true) {
-                                    logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
+                                    logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 
                                 writeExucutionHistory(callBack);
@@ -424,14 +436,15 @@
 
             function writeExucutionHistory(callBack) {
 
-                if (FULL_LOG === true) {
-                    logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function.");
-                }
-
                 try {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
                     let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
+
+                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
+                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> filePath = " + filePath); }
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -489,14 +502,15 @@
 
             function writeStatusReport(callBack) {
 
-                if (FULL_LOG === true) {
-                    logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function.");
-                }
-
                 try {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function."); }
 
                     let fileName = "Status.Report.json"
                     let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.EXCHANGE_NAME;
+
+                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> fileName = " + fileName); }
+                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> filePath = " + filePath); }
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 

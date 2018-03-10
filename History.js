@@ -103,10 +103,16 @@
             let newHistoryRecord = {
 
                 date: Math.trunc(file[i][0] / 60000) * 60000 + 30000,
-                rate: file[i][1],                    
-                newPositions: file[i][2],
-                newTrades: file[i][3],
-                movedPositions: file[i][4]
+                buyAvgRate: file[i][1],    
+                sellAvgRate: file[i][2], 
+                marketRate: file[i][3],
+                newPositions: file[i][4],
+                newTrades: file[i][5],
+                movedPositions: file[i][6],
+                profitsAssetA: file[i][7],
+                profitsAssetB: file[i][8],
+                combinedProfitsA: file[i][9],
+                combinedProfitsB: file[i][10]
             };
 
             history.push(newHistoryRecord);
@@ -145,7 +151,7 @@
 
             for (let i = 0; i < file.length; i++) {
 
-                let currentMax = file[i][1];   // 1 = rates.
+                let currentMax = file[i][1] + file[i][2];   // 1 = rates.
 
                 if (maxValue < currentMax) {
                     maxValue = currentMax;
@@ -166,29 +172,22 @@
 
             let point = {
                 x: record.date,
-                y: record.rate
+                y: record.sellAvgRate
             };
 
             point = timeLineCoordinateSystem.transformThisPoint(point);
-
             point = transformThisPoint(point, thisObject.container);
 
-            if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) {
-                continue;
-            }
+            if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) { continue;}
 
             point = viewPort.fitIntoVisibleArea(point);
 
             let isCurrentRecord = false;
 
             if (datetime !== undefined) {
-
                 let dateValue = datetime.valueOf();
-
                 if (dateValue >= record.date - timePeriod / 2 && dateValue <= record.date + timePeriod / 2 - 1) {
-
                     isCurrentRecord = true;
-
                 } 
             } 
 
@@ -208,42 +207,32 @@
             browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
 
             if (isCurrentRecord === false) {
-
                 browserCanvasContext.fillStyle = 'rgba(64, 217, 26, ' + opacity + ')';
-
             } else {
-
                 browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
-
             }
 
             browserCanvasContext.arc(point.x, point.y, radius3, 0, Math.PI * 2, true);
-
             browserCanvasContext.closePath();
 
             if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
                 browserCanvasContext.fill();
             }
+
             browserCanvasContext.stroke();
 
             /* Middle Circle */
 
             browserCanvasContext.beginPath();
-
             browserCanvasContext.strokeStyle = 'rgba(44, 61, 89, ' + opacity + ')';
 
             if (isCurrentRecord === false) {
-
                 browserCanvasContext.fillStyle = 'rgba(50, 108, 201, ' + opacity + ')';
-
             } else {
-
                 browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
-
             }
 
             browserCanvasContext.arc(point.x, point.y, radius2, 0, Math.PI * 2, true);
-
             browserCanvasContext.closePath();
 
             if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
@@ -254,28 +243,21 @@
             /* Inner Circle */
 
             browserCanvasContext.beginPath();
-
             browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, ' + opacity + ')';
 
             if (isCurrentRecord === false) {
-
                 browserCanvasContext.fillStyle = 'rgba(64, 26, 217, ' + opacity + ')';
-
             } else {
-
                 browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
-
             }
 
             browserCanvasContext.arc(point.x, point.y, radius1, 0, Math.PI * 2, true);
-
             browserCanvasContext.closePath();
 
             if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
                 browserCanvasContext.fill();
             }
             browserCanvasContext.stroke();
-
         }
     }
 

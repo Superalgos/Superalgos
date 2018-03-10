@@ -95,13 +95,13 @@
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] start -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(err.message);
+                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] start -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
@@ -169,8 +169,8 @@
                         The rules of the this first competition states that the bot will have the following initial balance in USDT and BTC to trade with.
                         */
 
-                        const INITIAL_BALANCE_A = 0.000;
-                        const INITIAL_BALANCE_B = 0.001;
+                        const INITIAL_BALANCE_A = 0.0000;
+                        const INITIAL_BALANCE_B = 0.0001;
 
                         let AmountA = INITIAL_BALANCE_A;
                         let AmountB = INITIAL_BALANCE_B;

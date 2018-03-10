@@ -127,14 +127,6 @@ global.dailyFilePeriods =
 
 global.dailyFilePeriods = JSON.parse(global.dailyFilePeriods);
 
-/*
-In the current release, the platform is going to be used for the first competition, so we have a few parameters just for that. They will be removed later
-once we advance into multiple competitions scheme.
-*/
-
-global.INITIAL_INVESTMENT = 0.0001;
-global.PROFIT_BASE_ASSET = 'BTC';
-
 /* Some LAGACY code starts here. Pending for clean up. */
 
 

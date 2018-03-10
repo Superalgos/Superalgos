@@ -40,13 +40,14 @@
             date: undefined,
             buyAvgRate: 0,
             sellAvgRate: 0,  
+            marketRate: 0,
             newPositions: 0,
             newTrades: 0,
             movedPositions: 0,
             profitsAssetA: 0,
             profitsAssetB: 0,
-            profitsCombinedInA: 0,
-            profitsCombinedInB: 0
+            combinedProfitsA: 0,
+            combinedProfitsB: 0
         },
         initialize: initialize,
         saveThemAll: saveThemAll
@@ -226,6 +227,12 @@
                         try {
 
                             thisObject.executionHistory = JSON.parse(text);
+
+                            /* Move some values to the new record, in case there are no transactions that re-calculate them. */
+
+                            thisObject.newHistoryRecord.buyAvgRate = thisObject.executionHistory[1];
+                            thisObject.newHistoryRecord.sellAvgRate = thisObject.executionHistory[2];
+
                             getExecutionContext(callBack);
 
                         } catch (err) {
@@ -282,6 +289,15 @@
 
                             thisObject.executionContext = JSON.parse(text);
                             thisObject.executionContext.transactions = []; // We record here the transactions that happened duting this execution.
+
+                            /* Update the new History Record, in case there are no trades during this execution that updates it. */
+
+                            thisObject.newHistoryRecord.profitsAssetA = thisObject.executionContext.profits.assetA;
+                            thisObject.newHistoryRecord.profitsAssetB = thisObject.executionContext.profits.assetB;
+
+                            thisObject.newHistoryRecord.combinedProfitsA = thisObject.executionContext.combinedProfits.assetA;
+                            thisObject.newHistoryRecord.combinedProfitsB = thisObject.executionContext.combinedProfits.assetB;
+
                             callBack(global.DEFAULT_OK_RESPONSE);
 
                         } catch (err) {
@@ -312,7 +328,7 @@
                     /*
     
                     When the bot is executed for the very first time, there are a few files that do not exist and need to be created, and that
-                    is what we are going to do now.
+                    content is what we are going to set up now.
     
                     */
 
@@ -320,21 +336,31 @@
 
                     thisObject.executionHistory = [];
 
+                    /*
+                    In the current release, the platform is going to be used for the first competition, so we have a few parameters just for that. They will be removed later
+                    once we advance into multiple competitions scheme.
+                    */
+
+                    const INITIAL_INVESTMENT = 0.0001;              // This is just for this release of the platform.
+
                     thisObject.executionContext = {
                         investment: {                               // This is used to calculate profits. 
                             assetA: 0,
-                            assetB: global.INITIAL_INVESTMENT
+                            assetB: INITIAL_INVESTMENT
                         },
                         balance: {                                  // This is the total balance that includes positions at the order book + funds available to be traded. 
                             assetA: 0,
-                            assetB: global.INITIAL_INVESTMENT       // It starts with the initial investment.
+                            assetB: INITIAL_INVESTMENT              // It starts with the initial investment.
                         },
                         availableBalance: {                         // This is the balance the bot has at any moment in time available to be traded (not in positions at the order book). 
                             assetA: 0,
-                            assetB: global.INITIAL_INVESTMENT       // It starts with the initial investment.
+                            assetB: INITIAL_INVESTMENT              // It starts with the initial investment.
                         },
-                        profitsAsset: global.PROFIT_BASE_ASSET,
                         profits: {
+                            assetA: 0,
+                            assetB: 0
+                        },
+                        combinedProfits: {
                             assetA: 0,
                             assetB: 0
                         },
@@ -489,8 +515,8 @@
                                 thisObject.newHistoryRecord.movedPositions,
                                 thisObject.newHistoryRecord.profitsAssetA,
                                 thisObject.newHistoryRecord.profitsAssetB,
-                                thisObject.newHistoryRecord.profitsCombinedInA,
-                                thisObject.newHistoryRecord.profitsCombinedInB
+                                thisObject.newHistoryRecord.combinedProfitsA,
+                                thisObject.newHistoryRecord.combinedProfitsB
                             ];
 
                             thisObject.executionHistory.push(newRecord);

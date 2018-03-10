@@ -18,7 +18,8 @@
         getBalance: getBalance,
         getAvailableBalance: getAvailableBalance,
         getInvestment: getInvestment,
-        getProfits: getProfits
+        getProfits: getProfits,
+        getMarketRate: getMarketRate 
     };
 
     let bot = BOT;
@@ -32,10 +33,13 @@
 
     let context;
     let exchangeAPI;
+    let datasource; 
+
+    let marketRate; 
 
     return thisObject;
 
-    function initialize(pContext, pExchangeAPI, callBackFunction) {
+    function initialize(pContext, pExchangeAPI, pDatasource, callBackFunction) {
 
         try {
 
@@ -45,6 +49,28 @@
 
             context = pContext;
             exchangeAPI = pExchangeAPI;
+            datasource = pDatasource;
+
+            /* Procedure to get the current market rate. */
+
+            let candleArray = datasource.candlesMap.get("01-min");              // In this version of the platform, this array will contain the las 10 candles.
+            let candle = candleArray[candleArray.length - 1];                   // The last candle of the 10 candles array for the 1 min Time Period.
+
+            let marketRate = candle.close;
+
+            /*
+            Now we verify that this candle is not too old. Lets say no more than 2 minutes old. This could happen if the datasets for
+            any reason stops being updated.
+            */
+
+            if (candle.begin < global.processDatetime.valueOf() - 2 * 60 * 1000) {
+
+                logger.write("[ERROR] initialize -> Candles more than two minutes old. Retrying later.");
+                callBack(global.DEFAULT_RETRY_RESPONSE);
+                return;
+            }
+
+            /* Procedure to validate we are in sync with the exchange. */
 
             getPositionsAtExchange(onDone);
 
@@ -432,6 +458,8 @@
 
             function applyTradesToContext(pTrades) {
 
+                /* Here we apply the trades that already happened at the exchange to the balance and available balance of the bot. We also calculate its profits. */
+
                 for (k = 0; k < pTrades.length; k++) {
 
                     position.pTrades.push(pTrades[k]);
@@ -468,6 +496,28 @@
 
                     context.executionContext.profits.assetB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
                 }
+
+                context.newHistoryRecord.profitsAssetA = context.executionContext.profits.assetA;
+                context.newHistoryRecord.profitsAssetB = context.executionContext.profits.assetB;
+
+                /* Calculate Combined Profits */
+
+                if (context.executionContext.investment.assetA > 0) {
+
+                    let convertedAssetsB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / marketRate;
+
+                    context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA + convertedAssetsB - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
+                }
+
+                if (context.executionContext.investment.assetB > 0) {
+
+                    let convertedAssetsA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) * marketRate;
+
+                    context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB + convertedAssetsA - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
+                }
+
+                context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;
+                context.newHistoryRecord.combinedProfitsB = context.executionContext.combinedProfits.assetB;
             }
 
         } catch (err) {
@@ -753,5 +803,9 @@
 
     function getProfits() {
         return JSON.parse(JSON.stringify(context.executionContext.profits));
+    }
+
+    function getMarketRate() {
+        return thisObject.marketRate;
     }
 };

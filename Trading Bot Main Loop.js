@@ -182,7 +182,7 @@
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeAssistant ->  Entering function."); }
 
                         assistant = ASSISTANT.newAssistant(bot, DEBUG_MODULE);
-                        assistant.initialize(context, exchangeAPI, onInizialized);
+                        assistant.initialize(context, exchangeAPI, datasource, onInizialized);
 
                         function onInizialized(err) {
 

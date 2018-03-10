@@ -2,7 +2,11 @@
   "displayName": "Mariam",
   "codeName": "AAMariam",
   "type": "Trading",
-  "version": "1.0.0",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
   "devTeam": "AAMasters",
   "dataSetVersion": "dataSet.V1",
   "processes": [

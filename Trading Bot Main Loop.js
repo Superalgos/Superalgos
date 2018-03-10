@@ -352,12 +352,11 @@
             function shallWeStop() {
 
                 var fs = require('fs');
-                let vmConfig;
 
                 try {
 
-                    vmConfig = JSON.parse(fs.readFileSync('this.vm.config.json', 'utf8'));
-                    return JSON.parse(vmConfig.stopGracefully);
+                    global.PLATFORM_CONFIG = JSON.parse(fs.readFileSync('platform.config.json', 'utf8'));
+                    return JSON.parse(global.PLATFORM_CONFIG.stopGracefully);
                 }
                 catch (err) {
                     const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;

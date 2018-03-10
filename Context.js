@@ -147,7 +147,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
 
                     let fileName = "Status.Report.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" +  global.EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor;
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> filePath = " + filePath); }
@@ -205,7 +205,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor;
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> filePath = " + filePath); }
@@ -266,7 +266,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + dateForPath;
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> filePath = " + filePath); }
@@ -426,7 +426,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = global.processDatetime.getUTCFullYear() + '/' + utilities.pad(global.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(global.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(global.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(global.processDatetime.getUTCMinutes(), 2);
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME + "/" + dateForPath;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + dateForPath;
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> filePath = " + filePath); }
@@ -486,7 +486,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + bot.dataSetVersion + "/Output/" + bot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor;
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> filePath = " + filePath); }
@@ -562,7 +562,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function."); }
 
                     let fileName = "Status.Report.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.EXCHANGE_NAME;
+                    let filePath = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor;
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> filePath = " + filePath); }

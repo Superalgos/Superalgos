@@ -1,4 +1,10 @@
 {
+  "codeName": "AACloudPlatform",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
   "bot": {
     "path": "../Bots/AAMasters/AAMariam-Trading-Bot"
   },

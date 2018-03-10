@@ -40,11 +40,11 @@
 
             createFolderSync(folderPath);
 
-            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "/" + thisObject.bot.version;
+            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor;
 
             createFolderSync(folderPath);
 
-            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "/" + thisObject.bot.version + "/" + thisObject.bot.process;
+            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process;
 
             createFolderSync(folderPath);
 

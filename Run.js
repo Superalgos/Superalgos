@@ -8,11 +8,10 @@ global.RUNNING_MODE = 'Production';  // 'Testnet' or 'Production'
 /* First thing to do is to read the config and guess which bot we will be running. */
 
 var fs = require('fs');
-let vmConfig;
 
 try {
 
-    vmConfig = JSON.parse(fs.readFileSync('this.vm.config.json', 'utf8'));
+    global.PLATFORM_CONFIG = JSON.parse(fs.readFileSync('platform.config.json', 'utf8'));
 
 }
 catch (err) {
@@ -28,7 +27,7 @@ let botConfig;
 
 try {
 
-    botConfig = JSON.parse(fs.readFileSync(vmConfig.bot.path + '/this.bot.config.json', 'utf8'));
+    botConfig = JSON.parse(fs.readFileSync(global.PLATFORM_CONFIG.bot.path + '/this.bot.config.json', 'utf8'));
 }
 catch (err) {
     console.log("[ERROR] 'readConfig' - ERROR : " + err.message);
@@ -167,7 +166,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 
                             const newIntervalExecutor = INTERVAL_EXECUTOR_MODULE.newIntervalExecutor(bot);
 
-                            newIntervalExecutor.initialize(vmConfig.bot.path, processConfig, year, month, onInitializeReady);
+                            newIntervalExecutor.initialize(global.PLATFORM_CONFIG.bot.path, processConfig, year, month, onInitializeReady);
 
                             function onInitializeReady() {
 
@@ -192,7 +191,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 
                     const newIntervalExecutor = INTERVAL_EXECUTOR_MODULE.newIntervalExecutor(bot);
 
-                    newIntervalExecutor.initialize(vmConfig.bot.path, processConfig, processConfig.startMode.oneMonth.year, processConfig.startMode.oneMonth.month, onInitializeReady);
+                    newIntervalExecutor.initialize(global.PLATFORM_CONFIG.bot.path, processConfig, processConfig.startMode.oneMonth.year, processConfig.startMode.oneMonth.month, onInitializeReady);
 
                     function onInitializeReady() {
 
@@ -218,7 +217,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 
                     const newIntervalExecutor = INTERVAL_EXECUTOR_MODULE.newIntervalExecutor(bot);
 
-                    newIntervalExecutor.initialize(vmConfig.bot.path, processConfig, undefined, undefined, onInitializeReady);
+                    newIntervalExecutor.initialize(global.PLATFORM_CONFIG.bot.path, processConfig, undefined, undefined, onInitializeReady);
 
                     function onInitializeReady() {
 
@@ -243,7 +242,7 @@ function runTradingBot(pProcessConfig) {
         if (FULL_LOG === true) { logger.write("[INFO] runTradingBot -> Entering function."); }
 
         let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotMainLoop(botConfig);
-        tradingBotMainLoop.initialize(vmConfig.bot.path, pProcessConfig, onInitializeReady);
+        tradingBotMainLoop.initialize(global.PLATFORM_CONFIG.bot.path, pProcessConfig, onInitializeReady);
 
         function onInitializeReady(err) {
 

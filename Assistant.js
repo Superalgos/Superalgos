@@ -56,7 +56,7 @@
             let candleArray = datasource.candlesMap.get("01-min");              // In this version of the platform, this array will contain the las 10 candles.
             let candle = candleArray[candleArray.length - 1];                   // The last candle of the 10 candles array for the 1 min Time Period.
 
-            let marketRate = candle.close;
+            marketRate = candle.close;
 
             /*
             Now we verify that this candle is not too old. Lets say no more than 2 minutes old. This could happen if the datasets for
@@ -546,7 +546,7 @@
                     logger.write("[ERROR] putPosition -> Input Validations -> Available Balance = " + context.executionContext.availableBalance.assetA);
 
                     let err = {
-                        result: global.DEFAULT_FAIL_RESPONSE.result;
+                        result: global.DEFAULT_FAIL_RESPONSE.result,
                         message: 'pAmountA is grater than the Available Balance.'
                     };
 
@@ -564,7 +564,7 @@
                     logger.write("[ERROR] putPosition -> Input Validations -> Available Balance = " + context.executionContext.availableBalance.assetB);
 
                     let err = {
-                        result: global.DEFAULT_FAIL_RESPONSE.result;
+                        result: global.DEFAULT_FAIL_RESPONSE.result,
                         message: 'pAmountB is grater than the Available Balance.'
                     };
 
@@ -576,12 +576,12 @@
             if (pAmountB * pRate !== pAmountA) {
 
                 logger.write("[ERROR] putPosition -> Input Validations -> pAmountB * pRate !== pAmountA.");
-                logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountA);
+                logger.write("[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
                 logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pRate);
+                logger.write("[ERROR] putPosition -> Input Validations -> pRate = " + pRate);
 
                 let err = {
-                    result: global.DEFAULT_FAIL_RESPONSE.result;
+                    result: global.DEFAULT_FAIL_RESPONSE.result,
                     message: 'pAmountB * pRate !== pAmountA'
                 };
 
@@ -631,12 +631,12 @@
 
                             if (position.type === 'buy') {
 
-                                context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA - trade.amountA;
+                                context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA - pAmountA;
                             }
 
                             if (position.type === 'sell') {
 
-                                context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB - trade.amountB;
+                                context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB - pAmountB;
                             }
 
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -703,9 +703,9 @@
 
                             for (let i = 0; i < context.executionContext.positions.length; i++) {
 
-                                if (position.id === pPosition.id) {
+                                if (context.executionContext.positions[i].id === pPosition.id) {
 
-                                    position = newPosition;
+                                    context.executionContext.positions[i] = newPosition;
 
                                     break;
                                 }
@@ -780,8 +780,8 @@
 
         }
 
-        context.newHistoryRecord.buyAvgRate = sumBuyWeightedRates / sumBuyWeights;
-        context.newHistoryRecord.sellAvgRate = sumSellWeightedRates / sumSellWeights;
+        context.newHistoryRecord.buyAvgRate = (sumBuyWeightedRates / sumBuyWeights || 0);
+        context.newHistoryRecord.sellAvgRate = (sumSellWeightedRates / sumSellWeights || 0);
     }
 
 
@@ -806,6 +806,6 @@
     }
 
     function getMarketRate() {
-        return thisObject.marketRate;
+        return marketRate;
     }
 };

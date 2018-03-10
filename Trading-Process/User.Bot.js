@@ -152,33 +152,18 @@
                         sell position at a very high price. Later, once the bot executes again, it will take it and move it to a reasonable
                         place and monitor it during each execution round.
 
-                        Lets see first which is the current price.
+                        Lets see first which is the current market rate.
 
                         */
 
-                        let candleArray = platform.datasource.candlesMap.get("01-min");  // In this version of the platform, this array will contain the las 10 candles.
-                        let candle = candleArray[candleArray.length - 1];       // The last candle of the 10 candles array for the 1 min Time Period.
-
-                        let currentRate = candle.close;
-
-                        /*
-                        Now we verify that this candle is not too old. Lets say no more than 5 minutes old. This could happen if the datasets for
-                        any reason stops being updated.
-                        */
-
-                        if (candle.begin < global.processDatetime.valueOf() - 5 * 60 * 1000) {
-
-                            logger.write("[WARN] start -> businessLogic -> Last one min candle more than 5 minutes old. Bot cannot operate with this delay. Retrying later.");
-                            callBack('Retry Later');
-                            return;
-                        }
+                        let currentRate = platform.assistant.getMarketRate();
 
                         /*
                         As we just want to create the first order now and we do not want this order to get executed, we will put it at
                         the +50% of current exchange rate. Next Bot execution will move it strategically.
                         */
 
-                        let rate = candle.close * 1.50;
+                        let rate = currentRate * 1.50;
 
                         /*
                         The rules of the this first competition states that the bot will have the following initial balance in USDT and BTC to trade with.

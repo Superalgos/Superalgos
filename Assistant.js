@@ -14,7 +14,11 @@
         initialize: initialize,
         putPosition: putPosition,
         movePosition: movePosition,
-        getPositions: getPositions
+        getPositions: getPositions,
+        getBalance: getBalance,
+        getAvailableBalance: getAvailableBalance,
+        getInvestment: getInvestment,
+        getProfits: getProfits
     };
 
     let bot = BOT;
@@ -28,8 +32,6 @@
 
     let context;
     let exchangeAPI;
-
-    const INITIAL_INVESTMENT = 0.001;
 
     return thisObject;
 
@@ -178,9 +180,12 @@
             function loopBody() {
 
                 try {
+
+                    let position = context.executionContext.positions[i];
+
                     for (let j = 0; j < exchangePositions.length; j++) {
 
-                        if (context.executionContext.positions[i].id === exchangePositions[j].id) {
+                        if (position.id === exchangePositions[j].id) {
 
                             /*
 
@@ -190,7 +195,7 @@
 
                             */
 
-                            if (context.executionContext.positions[i].amountB === parseFloat(exchangePositions[j].amountB)) {
+                            if (position.amountB === parseFloat(exchangePositions[j].amountB)) {
 
                                 /* Position is still there, untouched. Nothing to do here. */
 
@@ -199,7 +204,7 @@
 
                             } else {
 
-                                getPositionTradesAtExchange(context.executionContext.positions[i].id, confirmOrderWasPartiallyExecuted);
+                                getPositionTradesAtExchange(position.id, confirmOrderWasPartiallyExecuted);
                                 return;
 
                                 function confirmOrderWasPartiallyExecuted(pTrades) {
@@ -233,8 +238,8 @@
                                         sumAssetA = sumAssetA + exchangePositions[j].fee;
 
                                         if (
-                                            context.executionContext.positions[i].amountA !== sumAssetA ||
-                                            context.executionContext.positions[i].amountB !== sumAssetB
+                                            position.amountA !== sumAssetA ||
+                                            position.amountB !== sumAssetB
                                         ) {
                                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
                                             callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -247,21 +252,15 @@
 
                                         */
 
-                                        context.executionContext.positions[i].amountA = exchangePositions[j].amountA;
-                                        context.executionContext.positions[i].amountB = exchangePositions[j].amountB;
-                                        context.executionContext.positions[i].date = (new Date(exchangePositions[j].date)).valueOf();
+                                        position.amountA = exchangePositions[j].amountA;
+                                        position.amountB = exchangePositions[j].amountB;
+                                        position.date = (new Date(exchangePositions[j].date)).valueOf();
 
-                                        for (k = 0; k < pTrades.length; k++) {
-
-                                            context.executionContext.positions[i].pTrades.push(pTrades[k]);
-
-                                            context.newHistoryRecord.newTrades++;
-
-                                        }
+                                        applyTradesToContext(pTrades);
 
                                         let newTransaction = {
-                                            type: context.executionContext.positions[i].type + "  partially executed",
-                                            position: context.executionContext.positions[i]
+                                            type: position.type + "  partially executed",
+                                            position: position
                                         };
 
                                         context.executionContext.transactions.push(newTransaction);
@@ -282,7 +281,7 @@
 
                     /* Position not found: we need to know if the order was executed. */
 
-                    getPositionTradesAtExchange(context.executionContext.positions[i].id, confirmOrderWasExecuted);
+                    getPositionTradesAtExchange(position.id, confirmOrderWasExecuted);
 
                     function getPositionTradesAtExchange(pPositionId, innerCallBack) {
 
@@ -362,8 +361,8 @@
                             sumAssetA = sumAssetA + exchangePositions[j].fee;
 
                             if (
-                                context.executionContext.positions[i].amountA !== sumAssetA ||
-                                context.executionContext.positions[i].amountB !== sumAssetB
+                                position.amountA !== sumAssetA ||
+                                position.amountB !== sumAssetB
                             ) {
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
                                 callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -376,19 +375,13 @@
 
                             */
 
-                            context.executionContext.positions[i].status = "executed";
+                            position.status = "executed";
 
-                            for (k = 0; k < pTrades.length; k++) {
-
-                                context.executionContext.positions[i].pTrades.push(pTrades[k]);
-
-                                context.newHistoryRecord.newTrades++;
-
-                            }
+                            applyTradesToContext(pTrades);
 
                             let newTransaction = {
-                                type: context.executionContext.positions[i].type + " executed",
-                                position: context.executionContext.positions[i]
+                                type: position.type + " executed",
+                                position: position
                             };
 
                             context.executionContext.transactions.push(newTransaction);
@@ -436,13 +429,54 @@
                 callBack(global.DEFAULT_OK_RESPONSE);
 
             }
+
+            function applyTradesToContext(pTrades) {
+
+                for (k = 0; k < pTrades.length; k++) {
+
+                    position.pTrades.push(pTrades[k]);
+
+                    context.newHistoryRecord.newTrades++;
+
+                    /* Calculate Balances */
+
+                    if (trade.type === 'buy') {
+
+                        context.executionContext.balance.assetA = context.executionContext.balance.assetA - trade.amountA;
+                        context.executionContext.balance.assetB = context.executionContext.balance.assetB + trade.amountB;
+
+                        context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB + trade.amountB;
+                    }
+
+                    if (trade.type === 'sell') {
+
+                        context.executionContext.balance.assetA = context.executionContext.balance.assetA + trade.amountA;
+                        context.executionContext.balance.assetB = context.executionContext.balance.assetB - trade.amountB;
+
+                        context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA + trade.amountA;
+                    }
+                }
+
+                /* Calculate Profits */
+
+                if (context.executionContext.investment.assetA > 0) {
+
+                    context.executionContext.profits.assetA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
+                }
+
+                if (context.executionContext.investment.assetB > 0) {
+
+                    context.executionContext.profits.assetB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
+                }
+            }
+
         } catch (err) {
             logger.write("[ERROR] ordersExecutionCheck -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function putPosition(pType, pRate, pAmountA, pAmountB, callBack) {
+    function putPosition(pType, pRate, pAmountA, pAmountB, callBackFunction) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> Entering function."); }
@@ -450,6 +484,62 @@
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pRate = " + pRate); }
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pAmountA = " + pAmountA); }
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pAmountB = " + pAmountB); }
+
+            /* Validations that the limits are not surpassed. */
+
+            if (pType === 'buy') {
+
+                if (pAmountA > context.executionContext.availableBalance.assetA) {
+
+                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountA is grater than the Available Balance.");
+                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
+                    logger.write("[ERROR] putPosition -> Input Validations -> Available Balance = " + context.executionContext.availableBalance.assetA);
+
+                    let err = {
+                        result: global.DEFAULT_FAIL_RESPONSE.result;
+                        message: 'pAmountA is grater than the Available Balance.'
+                    };
+
+                    callBackFunction(err);
+                    return;
+                }
+            }
+
+            if (pType === 'sell') {
+
+                if (pAmountB > context.executionContext.availableBalance.assetB) {
+
+                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountB is grater than the Available Balance.");
+                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
+                    logger.write("[ERROR] putPosition -> Input Validations -> Available Balance = " + context.executionContext.availableBalance.assetB);
+
+                    let err = {
+                        result: global.DEFAULT_FAIL_RESPONSE.result;
+                        message: 'pAmountB is grater than the Available Balance.'
+                    };
+
+                    callBackFunction(err);
+                    return;
+                }
+            }
+
+            if (pAmountB * pRate !== pAmountA) {
+
+                logger.write("[ERROR] putPosition -> Input Validations -> pAmountB * pRate !== pAmountA.");
+                logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountA);
+                logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
+                logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pRate);
+
+                let err = {
+                    result: global.DEFAULT_FAIL_RESPONSE.result;
+                    message: 'pAmountB * pRate !== pAmountA'
+                };
+
+                callBackFunction(err);
+                return;
+            }
+
+            /* All validations passed, we proceed. */
 
             exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
 
@@ -484,37 +574,50 @@
                             context.executionContext.transactions.push(newTransaction);
 
                             context.newHistoryRecord.newPositions++;
-                            context.newHistoryRecord.rate = pRate;
 
-                            callBack(global.DEFAULT_OK_RESPONSE);
+                            recalculateRateAverages(); 
+
+                            /* Recalculate Available Balances */
+
+                            if (position.type === 'buy') {
+
+                                context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA - trade.amountA;
+                            }
+
+                            if (position.type === 'sell') {
+
+                                context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB - trade.amountB;
+                            }
+
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] putPosition -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] putPosition -> onResponse -> Operation Failed. Aborting the process.");
-                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
                     logger.write("[ERROR] putPosition -> onResponse -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
             logger.write("[ERROR] putPosition -> err = " + err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function movePosition(pPosition, pNewRate, callBack) {
+    function movePosition(pPosition, pNewRate, callBackFunction) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> Entering function."); }
@@ -550,9 +653,9 @@
 
                             for (let i = 0; i < context.executionContext.positions.length; i++) {
 
-                                if (context.executionContext.positions[i].id === pPosition.id) {
+                                if (position.id === pPosition.id) {
 
-                                    context.executionContext.positions[i] = newPosition;
+                                    position = newPosition;
 
                                     break;
                                 }
@@ -567,36 +670,88 @@
                             context.executionContext.transactions.push(newTransaction);
 
                             context.newHistoryRecord.movedPositions++;
-                            context.newHistoryRecord.rate = pNewRate;
 
-                            callBack(global.DEFAULT_OK_RESPONSE);
+                            recalculateRateAverages(); 
+
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] movePosition -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] movePosition -> onResponse -> Operation Failed. Aborting the process.");
-                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
                     logger.write("[ERROR] movePosition -> onResponse -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
             logger.write("[ERROR] movePosition -> err = " + err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
+    function recalculateRateAverages() {
+
+        /* This function calculates the weighted rates of buy and sell positions. This is a way to summarize with only one rate, where the positions are. */
+
+        let sumBuyWeightedRates = 0;
+        let sumSellWeightedRates = 0;
+
+        let sumBuyWeights = 0;
+        let sumSellWeights = 0;
+
+        for (let i = 0; i < context.executionContext.positions.length; i++) {
+
+            let position = context.executionContext.positions[i];
+
+            if (position.type === 'buy') {
+
+                sumBuyWeightedRates = sumBuyWeightedRates + position.rate * position.amountB
+                sumBuyWeights = sumBuyWeights + position.amountB;
+
+            }
+
+            if (position.type === 'sell') {
+
+                sumSellWeightedRates = sumSellWeightedRates + position.rate * position.amountB
+                sumSellWeights = sumSellWeights + position.amountB;
+
+            }
+
+        }
+
+        context.newHistoryRecord.buyAvgRate = sumBuyWeightedRates / sumBuyWeights;
+        context.newHistoryRecord.sellAvgRate = sumSellWeightedRates / sumSellWeights;
+    }
+
+
     function getPositions() {
         return JSON.parse(JSON.stringify(context.executionContext.positions));
+    }
+
+    function getBalance() {
+        return JSON.parse(JSON.stringify(context.executionContext.balance));
+    }
+
+    function getAvailableBalance() {
+        return JSON.parse(JSON.stringify(context.executionContext.availableBalance));
+    }
+
+    function getInvestment() {
+        return JSON.parse(JSON.stringify(context.executionContext.investment));
+    }
+
+    function getProfits() {
+        return JSON.parse(JSON.stringify(context.executionContext.profits));
     }
 };

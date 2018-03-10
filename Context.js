@@ -38,10 +38,15 @@
         executionContext: undefined,        // Here is the business information of the last execution of this bot process.
         newHistoryRecord : {
             date: undefined,
-            rate: 0,                        // This will be used to know where to plot this information in the time line. 
+            buyAvgRate: 0,
+            sellAvgRate: 0,  
             newPositions: 0,
             newTrades: 0,
-            movedPositions: 0
+            movedPositions: 0,
+            profitsAssetA: 0,
+            profitsAssetB: 0,
+            profitsCombinedInA: 0,
+            profitsCombinedInB: 0
         },
         initialize: initialize,
         saveThemAll: saveThemAll
@@ -316,11 +321,20 @@
                     thisObject.executionHistory = [];
 
                     thisObject.executionContext = {
-                        investment: {
+                        investment: {                               // This is used to calculate profits. 
                             assetA: 0,
-                            assetB: 0
+                            assetB: global.INITIAL_INVESTMENT
                         },
-                        availableBalance: {
+                        balance: {                                  // This is the total balance that includes positions at the order book + funds available to be traded. 
+                            assetA: 0,
+                            assetB: global.INITIAL_INVESTMENT       // It starts with the initial investment.
+                        },
+                        availableBalance: {                         // This is the balance the bot has at any moment in time available to be traded (not in positions at the order book). 
+                            assetA: 0,
+                            assetB: global.INITIAL_INVESTMENT       // It starts with the initial investment.
+                        },
+                        profitsAsset: global.PROFIT_BASE_ASSET,
+                        profits: {
                             assetA: 0,
                             assetB: 0
                         },
@@ -467,10 +481,16 @@
 
                             let newRecord = [
                                 thisObject.newHistoryRecord.date.valueOf(),
-                                thisObject.newHistoryRecord.rate,
+                                thisObject.newHistoryRecord.buyAvgRate,
+                                thisObject.newHistoryRecord.sellAvgRate,
+                                thisObject.newHistoryRecord.marketRate,
                                 thisObject.newHistoryRecord.newPositions,
                                 thisObject.newHistoryRecord.newTrades,
-                                thisObject.newHistoryRecord.movedPositions
+                                thisObject.newHistoryRecord.movedPositions,
+                                thisObject.newHistoryRecord.profitsAssetA,
+                                thisObject.newHistoryRecord.profitsAssetB,
+                                thisObject.newHistoryRecord.profitsCombinedInA,
+                                thisObject.newHistoryRecord.profitsCombinedInB
                             ];
 
                             thisObject.executionHistory.push(newRecord);

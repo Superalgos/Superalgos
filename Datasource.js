@@ -253,7 +253,7 @@
 
                                     let timePeriod = candle.end - candle.begin + 1; // In miliseconds. (remember each candle spans a period minus one milisecond)
 
-                                    if (candle.begin >= global.processDatetime.valueOf() - timePeriod * 10 && candle.end <= global.processDatetime.valueOf()) {
+                                    if (candle.begin >= global.processDatetime.valueOf() - timePeriod * 10 && candle.begin <= global.processDatetime.valueOf()) {
 
                                         candlesArray.push(candle);
 

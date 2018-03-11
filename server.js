@@ -375,29 +375,36 @@ function onBrowserRequest(request, response) {
                                 '        break;' + '\n' + '\n' 
 
                             let devTeams = ecosystemObject.devTeams;
+                            let competitionHosts = ecosystemObject.competitionHosts;
 
-                            for (let i = 0; i < devTeams.length; i++) {
+                            addToFileContent(devTeams);
+                            addToFileContent(competitionHosts);
 
-                                let devTeam = devTeams[i];
+                            function addToFileContent(pDevTeamsOrCompetitionHosts) {
 
-                                for (let j = 0; j < devTeam.plotters.length; j++) {
+                                for (let i = 0; i < pDevTeamsOrCompetitionHosts.length; i++) {
 
-                                    let plotter = devTeam.plotters[j];
+                                    let devTeam = pDevTeamsOrCompetitionHosts[i];
 
-                                    let caseStringCopy = caseString;
+                                    for (let j = 0; j < devTeam.plotters.length; j++) {
 
-                                    let newFunctionName = devTeam.codeName + plotter.repo + plotter.moduleName; 
-                                    newFunctionName = newFunctionName.replace(/-/g, "");
+                                        let plotter = devTeam.plotters[j];
 
-                                    let stringToInsert;
-                                    stringToInsert = caseStringCopy.replace('@newFunctionName@', newFunctionName);
-                                    stringToInsert = stringToInsert.replace('newPlotterName', 'new' + newFunctionName);
+                                        let caseStringCopy = caseString;
 
-                                    let firstPart = fileContent.substring(0,fileContent.indexOf('// Cases'));
-                                    let secondPart = fileContent.substring(fileContent.indexOf('// Cases'));
+                                        let newFunctionName = devTeam.codeName + plotter.repo + plotter.moduleName;
+                                        newFunctionName = newFunctionName.replace(/-/g, "");
 
-                                    fileContent = firstPart + stringToInsert + secondPart;
-                                    
+                                        let stringToInsert;
+                                        stringToInsert = caseStringCopy.replace('@newFunctionName@', newFunctionName);
+                                        stringToInsert = stringToInsert.replace('newPlotterName', 'new' + newFunctionName);
+
+                                        let firstPart = fileContent.substring(0, fileContent.indexOf('// Cases'));
+                                        let secondPart = fileContent.substring(fileContent.indexOf('// Cases'));
+
+                                        fileContent = firstPart + stringToInsert + secondPart;
+
+                                    }
                                 }
                             }
 
@@ -516,29 +523,36 @@ function onBrowserRequest(request, response) {
                                 '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
 
                             let devTeams = ecosystemObject.devTeams;
+                            let competitionHosts = ecosystemObject.competitionHosts;
 
-                            for (let i = 0; i < devTeams.length; i++) {
+                            addScript(devTeams);
+                            addScript(competitionHosts);
 
-                                let devTeam = devTeams[i];
+                            function addScript(pDevTeamsOrCompetitionHosts) {
 
-                                for (let j = 0; j < devTeam.plotters.length; j++) {
+                                for (let i = 0; i < pDevTeamsOrCompetitionHosts.length; i++) {
 
-                                    let plotter = devTeam.plotters[j];
+                                    let devTeam = pDevTeamsOrCompetitionHosts[i];
 
-                                    /* Now each of these layers has a plotter that we need to define on the Plotter.js file. */
+                                    for (let j = 0; j < devTeam.plotters.length; j++) {
 
-                                    let htmlLineCopy = htmlLine;
+                                        let plotter = devTeam.plotters[j];
 
-                                    let stringToInsert;
-                                    stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                    stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                    stringToInsert = stringToInsert.replace('@module@', plotter.moduleName);
+                                        /* Now each of these layers has a plotter that we need to define on the Plotter.js file. */
 
-                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Plotters-->') + 15);
-                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Plotters-->') + 15);
+                                        let htmlLineCopy = htmlLine;
 
-                                    fileContent = firstPart + stringToInsert + secondPart;
+                                        let stringToInsert;
+                                        stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                        stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                        stringToInsert = stringToInsert.replace('@module@', plotter.moduleName);
 
+                                        let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Plotters-->') + 15);
+                                        let secondPart = fileContent.substring(fileContent.indexOf('<!--Plotters-->') + 15);
+
+                                        fileContent = firstPart + stringToInsert + secondPart;
+
+                                    }
                                 }
                             }
 

@@ -18,14 +18,16 @@ function newFileCloud() {
 
     }
 
-    function getFile(pSet, pDevTeam, pBot, pExchange, pMarket, pPeriodName, pDatetime, callBackFunction) {
+    function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, callBackFunction) {
 
         let fileName = pSet.fileName;
         let filePath = pSet.filePath;
 
         if (fileName === undefined) {
 
-            console.log("Inconsistant data. Check the following. ");
+            console.log("Inconsistant data. Check the following: ");
+            console.log(JSON.stringify(pDevTeam));
+            console.log(JSON.stringify(pBot));
             console.log(JSON.stringify(pSet));
             console.log(JSON.stringify(pExchange));
             console.log(JSON.stringify(pMarket));

@@ -97,7 +97,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SpreadChart.js" />
-    <Compile Include="Storage.js">
+    <Compile Include="ProductStorage.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="temp.js" />

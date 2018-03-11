@@ -1,5 +1,5 @@
 ﻿
-function newStorage(pName) {
+function newProductStorage(pName) {
 
     const CONSOLE_LOG = false;
 

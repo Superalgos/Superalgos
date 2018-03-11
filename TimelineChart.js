@@ -112,7 +112,7 @@ function newTimelineChart() {
         /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
 
         let objName = pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName;
-        let storage = newStorage(objName);
+        let storage = newProductStorage(objName);
 
         /*
 

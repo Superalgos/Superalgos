@@ -458,7 +458,7 @@ Array of records with this information:
 
                     // We add this extra record signaling that this file is still incomplete.
 
-                    fileContent = fileContent + separator + '[' + '0' + ',"' + 'inc' + '",' + '0' + ',' + '0' + ',' + '0' + ',' + '0' + ']';
+                    //fileContent = fileContent + separator + '[' + '0' + ',"' + 'inc' + '",' + '0' + ',' + '0' + ',' + '0' + ',' + '0' + ']';
 
                     fileContent = fileContent + ']';
 

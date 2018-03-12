@@ -25,379 +25,368 @@
             y: basePeriod.y
         };
 
-        periods.push(period);  // 0
-
-        period = {
-            x: basePeriod.x / 8,
-            y: basePeriod.y / 10
-        };
-
-        periods.push(period);  // 1
-
-        period = {
-            x: basePeriod.x / 8 / 6,
-            y: basePeriod.y / 100
-        };
-
-        periods.push(period);  // 2
-
-        period = {
-            x: basePeriod.x * 3,
-            y: basePeriod.y * 10
-        };
-
-        periods.push(period);  // 3
-
-        period = {
-            x: basePeriod.x * 3 * 7,
-            y: basePeriod.y * 100
-        };
-
-        periods.push(period);  // 4
-
-
-
-
-
-        /* Period #2 Plotting */
-
-        boxes = [];
-        plotGrid(periods[2]);
-        labels = [];
-
-        /* Label Calculation */
-
-        for (let i = 0; i < boxes.length; i++) {
-
-            const UPPER_PERIOD = 1;
-
-            let box = boxes[i];
-            let currentValue = box.topLeft;
-
-            currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
-
-            /* We must compare the current value on the current period, against the next period, to know which cell we are in. */
-
-            let distanceToNextPeriod = Math.trunc((currentValue.x / periods[UPPER_PERIOD].x - Math.trunc(currentValue.x / periods[UPPER_PERIOD].x)) * 1000);
-
-            switch (distanceToNextPeriod) {
-                case 0: {
-                    labels.push("0");
-                    break;
-                }
-                case Math.trunc(1 / 6 * 1000): {
-
-                }
-                    labels.push("10");
-                    break;
-                case Math.trunc(2 / 6 * 1000): {
-
-                }
-                    labels.push("20");
-                    break;
-
-                case Math.trunc(3 / 6 * 1000): {
-
-                }
-                    labels.push("30");
-                    break;
-
-                case Math.trunc(4 / 6 * 1000): {
-
-                }
-                    labels.push("40");
-                    break;
-
-                case Math.trunc(5 / 6 * 1000): {
-
-                }
-                    labels.push("50");
-                    break;
-
-            }
-
-        }
-
-        printLabels(1, 150);
-
-
-
-        /* Period #1 Plotting */
-
-        boxes = [];
-        plotGrid(periods[1]);
-        labels = [];
-
-        /* Label Calculation */
-
-        for (let i = 0; i < boxes.length; i++) {
-
-            const UPPER_PERIOD = 3;
-
-            let box = boxes[i];
-            let currentValue = box.topLeft;
-
-            currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
-
-            /* We must compare the current value on the current period, against the next period, to know which cell we are in. */
-
-            let distanceToNextPeriod = Math.trunc((currentValue.x / periods[UPPER_PERIOD].x - Math.trunc(currentValue.x / periods[UPPER_PERIOD].x)) * 1000);
-
-            switch (distanceToNextPeriod) {
-                case 0: {
-                    labels.push("0 Hs");
-                    break;
-                }
-                case Math.trunc(1 / 24 * 1000): {
-
-                }
-                    labels.push("1 Hs");
-                    break;
-                case Math.trunc(2 / 24 * 1000): {
-
-                }
-                    labels.push("2 Hs");
-                    break;
-
-                case Math.trunc(3 / 24 * 1000): {
-
-                }
-                    labels.push("3 Hs");
-                    break;
-
-                case Math.trunc(4 / 24 * 1000): {
-
-                }
-                    labels.push("4 Hs");
-                    break;
-
-                case Math.trunc(5 / 24 * 1000): {
-
-                }
-                    labels.push("5 Hs");
-                    break;
-
-                case Math.trunc(6 / 24 * 1000): {
-
-                }
-                    labels.push("6 Hs");
-                    break;
-
-                case Math.trunc(7 / 24 * 1000): {
-
-                }
-                    labels.push("7 Hs");
-                    break;
-
-                case Math.trunc(8 / 24 * 1000): {
-
-                }
-                    labels.push("8 Hs");
-                    break;
-
-                case Math.trunc(9 / 24 * 1000): {
-
-                }
-                    labels.push("9 Hs");
-                    break;
-
-                case Math.trunc(10 / 24 * 1000): {
-
-                }
-                    labels.push("10 Hs");
-                    break;
-
-                case Math.trunc(11 / 24 * 1000): {
-
-                }
-                    labels.push("11 Hs");
-                    break;
-
-                case Math.trunc(12 / 24 * 1000): {
-
-                }
-                    labels.push("12 Hs");
-                    break;
-
-                case Math.trunc(13 / 24 * 1000): {
-
-                }
-                    labels.push("13 Hs");
-                    break;
-
-                case Math.trunc(14 / 24 * 1000): {
-
-                }
-                    labels.push("14 Hs");
-                    break;
-
-                case Math.trunc(15 / 24 * 1000): {
-
-                }
-                    labels.push("15 Hs");
-                    break;
-
-                case Math.trunc(16 / 24 * 1000): {
-
-                }
-                    labels.push("16 Hs");
-                    break;
-
-                case Math.trunc(17 / 24 * 1000): {
-
-                }
-                    labels.push("17 Hs");
-                    break;
-
-                case Math.trunc(18 / 24 * 1000): {
-
-                }
-                    labels.push("18 Hs");
-                    break;
-
-                case Math.trunc(19 / 24 * 1000): {
-
-                }
-                    labels.push("19 Hs");
-                    break;
-
-                case Math.trunc(20 / 24 * 1000): {
-
-                }
-                    labels.push("20 Hs");
-                    break;
-
-                case Math.trunc(21 / 24 * 1000): {
-
-                }
-                    labels.push("21 Hs");
-                    break;
-
-                case Math.trunc(22 / 24 * 1000): {
-
-                }
-                    labels.push("22 Hs");
-                    break;
-
-                case Math.trunc(23 / 24 * 1000): {
-
-                }
-                    labels.push("23 Hs");
-                    break;
-            }
-
-        }
-
-        printLabels(5, 250);
-
-
-
-        /* Period #0 Plotting */
-
-        boxes = [];
-        plotGrid(periods[0]);
-        labels = [];
-
-        /* Label Calculation */
-
-        for (let i = 0; i < boxes.length; i++) {
-
-            const UPPER_PERIOD = 3;
-
-            let box = boxes[i];
-            let currentValue = box.topLeft;
-
-            currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
-
-            /* We must compare the current value on the current period, against the next period, to know which cell we are in. */
-
-            let distanceToNextPeriod = Math.trunc((currentValue.x / periods[UPPER_PERIOD].x - Math.trunc(currentValue.x / periods[UPPER_PERIOD].x)) * 1000);
-
-            switch (distanceToNextPeriod) {
-                case 0: {
-                    labels.push("Morning");
-                    break;
-                }
-                case Math.trunc(1 / 3 * 1000): {
-
-                }
-                    labels.push("Afternoon");
-                    break;
-                case Math.trunc(2 / 3 * 1000): {
-
-                }
-                    labels.push("Evening");
-                    break;
-            }
-
-        }
-
-        printLabels(15, 50);
-
-
-
-
-
-        /* Period #3 Plotting */
-
-        boxes = [];
-        plotGrid(periods[3]);
-        labels = [];
-
-        /* Label Calculation */
-
-        for (let i = 0; i < boxes.length; i++) {
-
-            const UPPER_PERIOD = 1;
-
-            let box = boxes[i];
-            let currentValue = box.topLeft;
-
-            currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
-
-            let date = new Date(currentValue.x);
-
-            labels.push(date.toDateString());
-
-        }
-
-        printLabels(100, 2250);
-
-
-
-        /* Period #4 Plotting */
-
-        boxes = [];
-        plotGrid(periods[4]);
-        labels = [];
-
-        /* Label Calculation */
-
-        for (let i = 0; i < boxes.length; i++) {
-
-            const UPPER_PERIOD = 1;
-
-            let box = boxes[i];
-            let currentValue = box.topLeft;
-
-            currentValue = unTransformThisPoint(currentValue, container);
-            currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
-
-            let date = new Date(currentValue.x);
-
-            var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-            labels.push(monthNames[date.getMonth()] + ' ' + date.getFullYear());
-
-        }
-
+        calculateTimeLabels();
         printLabels(1000, 10000);
 
+        function calculateTimeLabels() {
 
+            periods.push(period);  // 0
+
+            period = {
+                x: basePeriod.x / 8,
+                y: basePeriod.y / 10
+            };
+
+            periods.push(period);  // 1
+
+            period = {
+                x: basePeriod.x / 8 / 6,
+                y: basePeriod.y / 100
+            };
+
+            periods.push(period);  // 2
+
+            period = {
+                x: basePeriod.x * 3,
+                y: basePeriod.y * 10
+            };
+
+            periods.push(period);  // 3
+
+            period = {
+                x: basePeriod.x * 3 * 7,
+                y: basePeriod.y * 100
+            };
+
+            periods.push(period);  // 4
+
+            /* Period #2 Plotting */
+
+            boxes = [];
+            plotGrid(periods[2]);
+            labels = [];
+
+            /* Label Calculation */
+
+            for (let i = 0; i < boxes.length; i++) {
+
+                const UPPER_PERIOD = 1;
+
+                let box = boxes[i];
+                let currentValue = box.topLeft;
+
+                currentValue = unTransformThisPoint(currentValue, container);
+                currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
+
+                /* We must compare the current value on the current period, against the next period, to know which cell we are in. */
+
+                let distanceToNextPeriod = Math.trunc((currentValue.x / periods[UPPER_PERIOD].x - Math.trunc(currentValue.x / periods[UPPER_PERIOD].x)) * 1000);
+
+                switch (distanceToNextPeriod) {
+                    case 0: {
+                        labels.push("0");
+                        break;
+                    }
+                    case Math.trunc(1 / 6 * 1000): {
+
+                    }
+                        labels.push("10");
+                        break;
+                    case Math.trunc(2 / 6 * 1000): {
+
+                    }
+                        labels.push("20");
+                        break;
+
+                    case Math.trunc(3 / 6 * 1000): {
+
+                    }
+                        labels.push("30");
+                        break;
+
+                    case Math.trunc(4 / 6 * 1000): {
+
+                    }
+                        labels.push("40");
+                        break;
+
+                    case Math.trunc(5 / 6 * 1000): {
+
+                    }
+                        labels.push("50");
+                        break;
+
+                }
+
+            }
+
+            printLabels(1, 150);
+
+            /* Period #1 Plotting */
+
+            boxes = [];
+            plotGrid(periods[1]);
+            labels = [];
+
+            /* Label Calculation */
+
+            for (let i = 0; i < boxes.length; i++) {
+
+                const UPPER_PERIOD = 3;
+
+                let box = boxes[i];
+                let currentValue = box.topLeft;
+
+                currentValue = unTransformThisPoint(currentValue, container);
+                currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
+
+                /* We must compare the current value on the current period, against the next period, to know which cell we are in. */
+
+                let distanceToNextPeriod = Math.trunc((currentValue.x / periods[UPPER_PERIOD].x - Math.trunc(currentValue.x / periods[UPPER_PERIOD].x)) * 1000);
+
+                switch (distanceToNextPeriod) {
+                    case 0: {
+                        labels.push("0 Hs");
+                        break;
+                    }
+                    case Math.trunc(1 / 24 * 1000): {
+
+                    }
+                        labels.push("1 Hs");
+                        break;
+                    case Math.trunc(2 / 24 * 1000): {
+
+                    }
+                        labels.push("2 Hs");
+                        break;
+
+                    case Math.trunc(3 / 24 * 1000): {
+
+                    }
+                        labels.push("3 Hs");
+                        break;
+
+                    case Math.trunc(4 / 24 * 1000): {
+
+                    }
+                        labels.push("4 Hs");
+                        break;
+
+                    case Math.trunc(5 / 24 * 1000): {
+
+                    }
+                        labels.push("5 Hs");
+                        break;
+
+                    case Math.trunc(6 / 24 * 1000): {
+
+                    }
+                        labels.push("6 Hs");
+                        break;
+
+                    case Math.trunc(7 / 24 * 1000): {
+
+                    }
+                        labels.push("7 Hs");
+                        break;
+
+                    case Math.trunc(8 / 24 * 1000): {
+
+                    }
+                        labels.push("8 Hs");
+                        break;
+
+                    case Math.trunc(9 / 24 * 1000): {
+
+                    }
+                        labels.push("9 Hs");
+                        break;
+
+                    case Math.trunc(10 / 24 * 1000): {
+
+                    }
+                        labels.push("10 Hs");
+                        break;
+
+                    case Math.trunc(11 / 24 * 1000): {
+
+                    }
+                        labels.push("11 Hs");
+                        break;
+
+                    case Math.trunc(12 / 24 * 1000): {
+
+                    }
+                        labels.push("12 Hs");
+                        break;
+
+                    case Math.trunc(13 / 24 * 1000): {
+
+                    }
+                        labels.push("13 Hs");
+                        break;
+
+                    case Math.trunc(14 / 24 * 1000): {
+
+                    }
+                        labels.push("14 Hs");
+                        break;
+
+                    case Math.trunc(15 / 24 * 1000): {
+
+                    }
+                        labels.push("15 Hs");
+                        break;
+
+                    case Math.trunc(16 / 24 * 1000): {
+
+                    }
+                        labels.push("16 Hs");
+                        break;
+
+                    case Math.trunc(17 / 24 * 1000): {
+
+                    }
+                        labels.push("17 Hs");
+                        break;
+
+                    case Math.trunc(18 / 24 * 1000): {
+
+                    }
+                        labels.push("18 Hs");
+                        break;
+
+                    case Math.trunc(19 / 24 * 1000): {
+
+                    }
+                        labels.push("19 Hs");
+                        break;
+
+                    case Math.trunc(20 / 24 * 1000): {
+
+                    }
+                        labels.push("20 Hs");
+                        break;
+
+                    case Math.trunc(21 / 24 * 1000): {
+
+                    }
+                        labels.push("21 Hs");
+                        break;
+
+                    case Math.trunc(22 / 24 * 1000): {
+
+                    }
+                        labels.push("22 Hs");
+                        break;
+
+                    case Math.trunc(23 / 24 * 1000): {
+
+                    }
+                        labels.push("23 Hs");
+                        break;
+                }
+
+            }
+
+            printLabels(5, 250);
+
+            /* Period #0 Plotting */
+
+            boxes = [];
+            plotGrid(periods[0]);
+            labels = [];
+
+            /* Label Calculation */
+
+            for (let i = 0; i < boxes.length; i++) {
+
+                const UPPER_PERIOD = 3;
+
+                let box = boxes[i];
+                let currentValue = box.topLeft;
+
+                currentValue = unTransformThisPoint(currentValue, container);
+                currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
+
+                /* We must compare the current value on the current period, against the next period, to know which cell we are in. */
+
+                let distanceToNextPeriod = Math.trunc((currentValue.x / periods[UPPER_PERIOD].x - Math.trunc(currentValue.x / periods[UPPER_PERIOD].x)) * 1000);
+
+                switch (distanceToNextPeriod) {
+                    case 0: {
+                        labels.push("Morning");
+                        break;
+                    }
+                    case Math.trunc(1 / 3 * 1000): {
+
+                    }
+                        labels.push("Afternoon");
+                        break;
+                    case Math.trunc(2 / 3 * 1000): {
+
+                    }
+                        labels.push("Evening");
+                        break;
+                }
+
+            }
+
+            printLabels(15, 50);
+
+            /* Period #3 Plotting */
+
+            boxes = [];
+            plotGrid(periods[3]);
+            labels = [];
+
+            /* Label Calculation */
+
+            for (let i = 0; i < boxes.length; i++) {
+
+                const UPPER_PERIOD = 1;
+
+                let box = boxes[i];
+                let currentValue = box.topLeft;
+
+                currentValue = unTransformThisPoint(currentValue, container);
+                currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
+
+                let date = new Date(currentValue.x);
+
+                labels.push(date.toDateString());
+
+            }
+
+            printLabels(100, 2250);
+
+            /* Period #4 Plotting */
+
+            boxes = [];
+            plotGrid(periods[4]);
+            labels = [];
+
+            /* Label Calculation */
+
+            for (let i = 0; i < boxes.length; i++) {
+
+                const UPPER_PERIOD = 1;
+
+                let box = boxes[i];
+                let currentValue = box.topLeft;
+
+                currentValue = unTransformThisPoint(currentValue, container);
+                currentValue = timeLineCoordinateSystem.unInverseTransform(currentValue, container.frame.height);
+
+                let date = new Date(currentValue.x);
+
+                var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+                labels.push(monthNames[date.getMonth()] + ' ' + date.getFullYear());
+
+            }
+
+        }
 
         function plotGrid(period) {
 
@@ -457,7 +446,12 @@
             let y1;
             let y2;
 
-            let lastLabelPosition = {
+            let lastRightLabelPosition = {
+                x: 0,
+                y: 0
+            }; 
+
+            let lastLeftLabelPosition = {
                 x: 0,
                 y: 0
             };
@@ -499,29 +493,72 @@
 
                     /* Now we put the scale on the right side of the chart */
 
-                    let fontSize = 10;
+                    rightScale();
+                    leftScale();
 
-                    let label = ' ' + Math.round(j * 1000000) / 1000000;
+                    function rightScale() {
 
-                    let labelPoint = {
-                        x: viewPort.visibleArea.bottomRight.x + 1,
-                        y: point1.y + fontSize / 2 * FONT_ASPECT_RATIO
-                    };
+                        let fontSize = 10;
 
-                    if (Math.abs(lastLabelPosition.y - labelPoint.y > fontSize || lastLabelPosition.y === 0)) {
+                        let label = ' ' + Math.round(j * 1000000) / 1000000;
 
-                        if (labelPoint.y > viewPort.visibleArea.topLeft.y + fontSize && labelPoint.y < viewPort.visibleArea.bottomRight.y - fontSize) {
+                        let labelPoint = {
+                            x: viewPort.visibleArea.bottomRight.x + 1,
+                            y: point1.y + fontSize / 2 * FONT_ASPECT_RATIO
+                        };
 
-                            browserCanvasContext.font = fontSize + 'px Courier New';
-                            browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
-                            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
+                        if (Math.abs(lastRightLabelPosition.y - labelPoint.y > fontSize || lastRightLabelPosition.y === 0)) {
 
+                            if (labelPoint.y > viewPort.visibleArea.topLeft.y + fontSize && labelPoint.y < viewPort.visibleArea.bottomRight.y - fontSize) {
+
+                                browserCanvasContext.font = fontSize + 'px Courier New';
+                                browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
+                                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
+
+                            }
                         }
+
+                        lastRightLabelPosition.x = labelPoint.x;
+                        lastRightLabelPosition.y = labelPoint.y;
+
                     }
 
+                    function leftScale() {
 
-                    lastLabelPosition.x = labelPoint.x;
-                    lastLabelPosition.y = labelPoint.y;
+                        let fontSize = 10;
+
+                        /* 
+                        j is a value between 0 and the max y on the scale of the products.
+                        If we want to convert j to the scale of profits we need to apply the following formula:
+                        */
+
+                        let labelValue = (j - timeLineCoordinateSystem.max.y / 2) * 200 / timeLineCoordinateSystem.max.y; 
+                        labelValue = Math.round(labelValue * 1000000) / 1000000;
+                        if (labelValue > 0) { labelValue = '+' + labelValue; }
+                        if (parseInt(labelValue) > -10 && parseInt(labelValue) < 10) { labelValue = ' ' + labelValue; }
+                        if (parseInt(labelValue) === 0) { labelValue = ' ' + labelValue; }
+                        let label = ' ' + pad(labelValue, 3) + '%';
+
+                        let labelPoint = {
+                            x: -2,
+                            y: point1.y + fontSize / 2 * FONT_ASPECT_RATIO
+                        };
+
+                        if (Math.abs(lastLeftLabelPosition.y - labelPoint.y > fontSize || lastLeftLabelPosition.y === 0)) {
+
+                            if (labelPoint.y > viewPort.visibleArea.topLeft.y + fontSize && labelPoint.y < viewPort.visibleArea.bottomRight.y - fontSize) {
+
+                                browserCanvasContext.font = fontSize + 'px Courier New';
+                                browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
+                                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
+
+                            }
+                        }
+
+                        lastLeftLabelPosition.x = labelPoint.x;
+                        lastLeftLabelPosition.y = labelPoint.y;
+
+                    }
                 }
             }
 
@@ -592,7 +629,6 @@
 
         }
 
-
         function printLabels(baseZoomFilter, maxZoom) {
 
             let zoomFilter = viewPort.zoomFontSize(baseZoomFilter);
@@ -639,6 +675,4 @@
             browserCanvasContext.fill();
         }
     }
-
-
 }

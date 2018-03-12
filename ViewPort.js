@@ -6,7 +6,7 @@ function newViewPort() {
     let ANIMATION_INCREMENT = 0.25;
     const TOP_MARGIN = 15;
     const BOTTOM_MARGIN = 0;
-    const LEFT_MARGIN = 0;
+    const LEFT_MARGIN = 50;
     const RIGHT_MARGIN = 50;
 
     let viewPort = {

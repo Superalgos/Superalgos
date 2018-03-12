@@ -6,7 +6,7 @@ if (CONSOLE_LOG === true) {
 
 }
 
-const DEBUG_MODE = true;           // This forces the server to read Plotters from the local drive.
+const DEBUG_MODE = false;           // This forces the server to read Plotters from the local drive.
 
 if (CONSOLE_LOG === true && DEBUG_MODE === true) {
 
@@ -143,7 +143,13 @@ function initialize() {
                                 pData = pData.trim(); // remove first byte with some encoding.
 
                                 let configObj = JSON.parse(pData);
-                                competition.configObj = configObj;
+
+                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                                configObj.repo = competition.repo;
+                                configObj.configFile = competition.configFile;
+
+                                host.competitions[j] = configObj;
 
                                 if (requestsSent === responsesReceived) {
 
@@ -181,7 +187,13 @@ function initialize() {
                             pData = pData.trim(); // remove first byte with some encoding.
 
                             let configObj = JSON.parse(pData);
-                            competition.configObj = configObj;
+
+                            /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                            configObj.repo = competition.repo;
+                            configObj.configFile = competition.configFile;
+
+                            host.competitions[j] = configObj;
 
                             if (requestsSent === responsesReceived) {
 

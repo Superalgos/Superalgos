@@ -3,7 +3,8 @@ function newTimelineChart() {
 
     const CONSOLE_LOG = false;
 
-    let activePlotters = [];
+    let productPlotters = [];
+    let competitionPlotters = [];
 
     let timeLineCoordinateSystem = newTimeLineCoordinateSystem();
 
@@ -121,7 +122,7 @@ function newTimelineChart() {
             plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2;
             plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2;
 
-            plotter.initialize(storage, datetime, timePeriod, onPlotterInizialized);
+            plotter.initialize(competition, storage, datetime, timePeriod, onPlotterInizialized);
 
             function onPlotterInizialized() {
 
@@ -131,15 +132,14 @@ function newTimelineChart() {
 
                 }
 
-                let activePlotter = {
-                    productCard: undefined,
+                let competitionPlotter = {
                     plotter: plotter,
                     storage: storage
                 };
 
                 /* Add the new Active Protter to the Array */
 
-                activePlotters.push(activePlotter);
+                competitionPlotters.push(competitionPlotter);
 
             }
         }
@@ -238,7 +238,7 @@ function newTimelineChart() {
                     // If the plotter does not implement this function its ok.
                 }
 
-                let activePlotter = {
+                let productPlotter = {
                     productCard: pProductCard,
                     plotter: plotter,
                     storage: storage
@@ -250,7 +250,7 @@ function newTimelineChart() {
 
                 /* Add the new Active Protter to the Array */
 
-                activePlotters.push(activePlotter);
+                productPlotters.push(productPlotter);
 
             }
         }
@@ -264,9 +264,9 @@ function newTimelineChart() {
 
             let found = false;
 
-            for (let i = 0; i < activePlotters.length; i++) {
+            for (let i = 0; i < productPlotters.length; i++) {
 
-                if (activePlotters[i].productCard.code === pProductCard.code) {
+                if (productPlotters[i].productCard.code === pProductCard.code) {
 
                     found = true;
 
@@ -286,11 +286,11 @@ function newTimelineChart() {
 
             /* If the plotter of this card is on our Active Plotters list, then we remove it. */
 
-            for (let i = 0; i < activePlotters.length; i++) {
+            for (let i = 0; i < productPlotters.length; i++) {
 
-                if (activePlotters[i].productCard.code === pProductCard.code) {
+                if (productPlotters[i].productCard.code === pProductCard.code) {
 
-                    activePlotters.splice(i, 1); // Delete item from array.
+                    productPlotters.splice(i, 1); // Delete item from array.
 
                 }
             }
@@ -311,14 +311,22 @@ function newTimelineChart() {
 
             if (timePeriod !== currentTimePeriod) {
 
-                for (let i = 0; i < activePlotters.length; i++) {
+                for (let i = 0; i < productPlotters.length; i++) {
 
-                    let activePlotter = activePlotters[i];
+                    let productPlotter = productPlotters[i];
 
-                    activePlotter.productCard.setTimePeriod(timePeriod);
-                    activePlotter.storage.setTimePeriod(timePeriod);
-                    activePlotter.plotter.setTimePeriod(timePeriod);
+                    productPlotter.productCard.setTimePeriod(timePeriod);
+                    productPlotter.storage.setTimePeriod(timePeriod);
+                    productPlotter.plotter.setTimePeriod(timePeriod);
                     
+                }
+
+                for (let i = 0; i < competitionPlotters.length; i++) {
+
+                    let competitionPlotter = competitionPlotters[i];
+
+                    competitionPlotter.plotter.setTimePeriod(timePeriod);
+
                 }
             }
 
@@ -374,14 +382,22 @@ function newTimelineChart() {
 
         datetime = newDate;
 
-        for (var i = 0; i < activePlotters.length; i++) {
+        for (var i = 0; i < productPlotters.length; i++) {
 
-            let activePlotter = activePlotters[i];
+            let productPlotter = productPlotters[i];
 
-            activePlotter.productCard.setDatetime(datetime);
-            activePlotter.storage.setDatetime(datetime);
-            activePlotter.plotter.setDatetime(datetime);
+            productPlotter.productCard.setDatetime(datetime);
+            productPlotter.storage.setDatetime(datetime);
+            productPlotter.plotter.setDatetime(datetime);
            
+        }
+
+        for (let i = 0; i < competitionPlotters.length; i++) {
+
+            let competitionPlotter = competitionPlotters[i];
+
+            competitionPlotter.plotter.setDatetime(datetime);
+
         }
 
         thisObject.container.eventHandler.raiseEvent("Datetime Changed", datetime);
@@ -414,19 +430,27 @@ function newTimelineChart() {
 
         if (thisObject.container.frame.isInViewPort()) {
 
-            for (var i = 0; i < activePlotters.length; i++) {
+            for (var i = 0; i < productPlotters.length; i++) {
 
-                let activePlotter = activePlotters[i];
+                let productPlotter = productPlotters[i];
 
-                activePlotter.productCard.setDatetime(pDatetime);
-                activePlotter.storage.setDatetime(pDatetime);
-                activePlotter.plotter.setDatetime(pDatetime);
+                productPlotter.productCard.setDatetime(pDatetime);
+                productPlotter.storage.setDatetime(pDatetime);
+                productPlotter.plotter.setDatetime(pDatetime);
 
                 /* The time has changed, but the viewPort is still on the same place, so we request any of the plotters to reposition it. */
 
-                if (activePlotter.plotter.positionAtDatetime !== undefined) {
-                    activePlotter.plotter.positionAtDatetime(pDatetime);
+                if (productPlotter.plotter.positionAtDatetime !== undefined) {
+                    productPlotter.plotter.positionAtDatetime(pDatetime);
                 }
+
+            }
+
+            for (let i = 0; i < competitionPlotters.length; i++) {
+
+                let competitionPlotter = competitionPlotters[i];
+
+                competitionPlotter.plotter.setDatetime(datetime);
 
             }
         }
@@ -434,7 +458,7 @@ function newTimelineChart() {
 
     function draw() {
 
-        if (activePlotters === undefined) { return; } // We need to wait
+        if (productPlotters === undefined) { return; } // We need to wait
 
         if (thisObject.container.frame.isInViewPort()) {
 
@@ -444,10 +468,18 @@ function newTimelineChart() {
 
             chartGrid.draw(thisObject.container, timeLineCoordinateSystem);
 
-            for (var i = 0; i < activePlotters.length; i++) {
+            for (var i = 0; i < productPlotters.length; i++) {
 
-                let activePlotter = activePlotters[i];
-                activePlotter.plotter.draw();
+                let productPlotter = productPlotters[i];
+                productPlotter.plotter.draw();
+
+            }
+
+            for (let i = 0; i < competitionPlotters.length; i++) {
+
+                let competitionPlotter = competitionPlotters[i];
+
+                competitionPlotter.plotter.draw();
 
             }
         }

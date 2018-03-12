@@ -2,6 +2,8 @@
 function newEcosystem() {
 
     let ecosystem = {
+        getHost: getHost,
+        getCompetition: getCompetition,
         getTeam: getTeam,
         getTeams: getTeams,
         getBot: getBot,

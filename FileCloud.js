@@ -36,12 +36,27 @@ function newFileCloud() {
             throw ("Inconsistant data received.");
         }
 
-        fileName = fileName.replace("@AssetA", pMarket.assetA);
-        fileName = fileName.replace("@AssetB", pMarket.assetB);
+        if (pMarket !== undefined) {
 
-        filePath = filePath.replace("@DevTeam", pDevTeam.codeName);
-        filePath = filePath.replace("@Bot", pBot.codeName);
-        filePath = filePath.replace("@Exchange", pExchange.name);
+            fileName = fileName.replace("@AssetA", pMarket.assetA);
+            fileName = fileName.replace("@AssetB", pMarket.assetB);
+        }
+
+        if (pDevTeam !== undefined) {
+
+            filePath = filePath.replace("@DevTeam", pDevTeam.codeName);
+        }
+
+        if (pBot !== undefined) {
+
+            filePath = filePath.replace("@Bot", pBot.codeName);
+        }
+
+        if (pExchange !== undefined) {
+
+            filePath = filePath.replace("@Exchange", pExchange.name);
+        }
+
         filePath = filePath.replace("@Period", pPeriodName);
 
         if (pDatetime !== undefined) {

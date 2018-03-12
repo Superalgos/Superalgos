@@ -55,7 +55,7 @@ function newCompetitionStorage(pName) {
 
                         let file = newFile();
                         file.initialize(devTeam, bot, product, thisSet, undefined, undefined, onSingleFileReady);
-                        thisObject.files.set(devTeam.codeName+ "-" + bot.codeName, file);
+                        thisObject.files.set(pCompetition.participants[i].devTeam + "-" + pCompetition.participants[i].bot, file);
                         dataSetsToLoad++;
 
                         if (CONSOLE_LOG === true) {

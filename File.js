@@ -15,7 +15,7 @@ function newFile() {
 
         let exchange = ecosystem.getExchange(pProduct, pExchange);
 
-        if (exchange === undefined) {
+        if (pExchange !== undefined && exchange === undefined) { // We support no exchange as a parameter, but if provided, then it must be at the list of exchanges of that product.
 
             throw "Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = " + pDevTeam.codeName + ", pBot.codeName = " + pBot.codeName + ", pProduct.codeName = " + pProduct.codeName + ", pExchange = " + pExchange;
 

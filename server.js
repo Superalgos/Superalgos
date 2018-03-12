@@ -6,7 +6,7 @@ if (CONSOLE_LOG === true) {
 
 }
 
-const DEBUG_MODE = true;           // This forces the server to read Plotters from the local drive.
+const DEBUG_MODE = false;           // This forces the server to read Plotters from the local drive.
 
 if (CONSOLE_LOG === true && DEBUG_MODE === true) {
 

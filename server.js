@@ -117,9 +117,9 @@ function initialize() {
         let requestsSent = 0;
         let responsesReceived = 0;
 
-        for (let i = 0; i < ecosystemObject.competitionHosts.length; i++) {
+        for (let i = 0; i < ecosystemObject.hosts.length; i++) {
 
-            let host = ecosystemObject.competitionHosts[i];
+            let host = ecosystemObject.hosts[i];
 
             for (let j = 0; j < host.competitions.length; j++) {
 
@@ -375,16 +375,16 @@ function onBrowserRequest(request, response) {
                                 '        break;' + '\n' + '\n' 
 
                             let devTeams = ecosystemObject.devTeams;
-                            let competitionHosts = ecosystemObject.competitionHosts;
+                            let hosts = ecosystemObject.hosts;
 
                             addToFileContent(devTeams);
-                            addToFileContent(competitionHosts);
+                            addToFileContent(hosts);
 
-                            function addToFileContent(pDevTeamsOrCompetitionHosts) {
+                            function addToFileContent(pDevTeamsOrHosts) {
 
-                                for (let i = 0; i < pDevTeamsOrCompetitionHosts.length; i++) {
+                                for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
-                                    let devTeam = pDevTeamsOrCompetitionHosts[i];
+                                    let devTeam = pDevTeamsOrHosts[i];
 
                                     for (let j = 0; j < devTeam.plotters.length; j++) {
 
@@ -523,16 +523,16 @@ function onBrowserRequest(request, response) {
                                 '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
 
                             let devTeams = ecosystemObject.devTeams;
-                            let competitionHosts = ecosystemObject.competitionHosts;
+                            let hosts = ecosystemObject.hosts;
 
                             addScript(devTeams);
-                            addScript(competitionHosts);
+                            addScript(hosts);
 
-                            function addScript(pDevTeamsOrCompetitionHosts) {
+                            function addScript(pDevTeamsOrHosts) {
 
-                                for (let i = 0; i < pDevTeamsOrCompetitionHosts.length; i++) {
+                                for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
-                                    let devTeam = pDevTeamsOrCompetitionHosts[i];
+                                    let devTeam = pDevTeamsOrHosts[i];
 
                                     for (let j = 0; j < devTeam.plotters.length; j++) {
 

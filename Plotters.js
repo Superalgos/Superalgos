@@ -1,9 +1,9 @@
 ﻿
 
-function getNewPlotter(pDevTeam, pRepo, pModule) {
+function getNewPlotter(pDevTeamOrHost, pRepo, pModule) {
 
     let plotter;
-    let fullCode = pDevTeam + pRepo + pModule;
+    let fullCode = pDevTeamOrHost + pRepo + pModule;
     fullCode = fullCode.replace(/-/g, "");
 
     switch (fullCode) {

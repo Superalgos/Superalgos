@@ -44,7 +44,7 @@ function newProductStorage(pName) {
 
         if (CONSOLE_LOG === true) {
 
-            console.log("Storage initialize for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+            console.log("Product storage initialize for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
 
         }
 
@@ -64,7 +64,7 @@ function newProductStorage(pName) {
 
                     if (CONSOLE_LOG === true) {
 
-                        console.log("Storage initialize Market Files for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+                        console.log("Product storage initialize Market Files for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
 
                     }
                 }
@@ -78,7 +78,7 @@ function newProductStorage(pName) {
 
                     if (CONSOLE_LOG === true) {
 
-                        console.log("Storage initialize Daily Files for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+                        console.log("Product storage initialize Daily Files for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
 
                     }
                 }
@@ -92,7 +92,7 @@ function newProductStorage(pName) {
 
                     if (CONSOLE_LOG === true) {
 
-                        console.log("Storage initialize Single File for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+                        console.log("Product storage initialize Single File for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
 
                     }
                 }
@@ -104,7 +104,7 @@ function newProductStorage(pName) {
 
                 if (CONSOLE_LOG === true) {
 
-                    console.log("Storage initialize onCacheFileReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+                    console.log("Product storage initialize onCacheFileReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
 
                 }
 
@@ -127,7 +127,7 @@ function newProductStorage(pName) {
 
                 if (CONSOLE_LOG === true) {
 
-                    console.log("Storage initialize onFileCursorReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+                    console.log("Product storage initialize onFileCursorReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
 
                 }
 
@@ -150,7 +150,7 @@ function newProductStorage(pName) {
 
                 if (CONSOLE_LOG === true) {
 
-                    console.log("Storage initialize onSingleFileReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+                    console.log("Product storage initialize onSingleFileReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
 
                 }
 
@@ -173,7 +173,7 @@ function newProductStorage(pName) {
 
                 if (CONSOLE_LOG === true) {
 
-                    console.log("Storage initialize checkInitializeComplete for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+                    console.log("Product storage initialize checkInitializeComplete for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
 
                 }
 

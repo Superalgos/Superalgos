@@ -79,7 +79,8 @@ function newTimelineChart() {
             viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
             canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-            initializePlotters();
+            initializeProductPlotters();
+            initializeCompetitionPlotters();
 
             callBackFunction();
 
@@ -87,7 +88,64 @@ function newTimelineChart() {
         }
     }
 
-    function initializePlotters() {
+    function initializeCompetitionPlotters() {
+
+        /* At this current version of the platform, we will support only one competition with only one plotter. */
+
+        const COMPETITION_HOST = "AAArena";
+        const COMPETITION = "First-Closed-Door";
+
+        let objName = COMPETITION_HOST + "-" + COMPETITION;
+        let storage = newCompetitionStorage(objName);
+
+        let host = ecosystem.getHost(COMPETITION_HOST);
+        let competition = ecosystem.getCompetition(host, COMPETITION);
+
+        storage.initialize(host, competition, onStorageInitialized);
+
+        function onStorageInitialized() {
+
+            /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
+
+            let plotter = getNewPlotter(competition.plotter.host, competition.plotter.repo, competition.plotter.moduleName);
+
+            plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
+            plotter.container.zoom.parentZoom = thisObject.container.zoom;
+            plotter.container.frame.parentFrame = thisObject.container.frame;
+
+            plotter.container.parentContainer = thisObject.container;
+
+            plotter.container.frame.width = thisObject.container.frame.width * 1;
+            plotter.container.frame.height = thisObject.container.frame.height * 1;
+
+            plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2;
+            plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2;
+
+            plotter.initialize(storage, datetime, timePeriod, onPlotterInizialized);
+
+            function onPlotterInizialized() {
+
+                if (CONSOLE_LOG === true) {
+
+                    console.log(competition.plotter.host, competition.plotter.repo, competition.plotter.moduleName + " Initialized. ");
+
+                }
+
+                let activePlotter = {
+                    productCard: undefined,
+                    plotter: plotter,
+                    storage: storage
+                };
+
+                /* Add the new Active Protter to the Array */
+
+                activePlotters.push(activePlotter);
+
+            }
+        }
+    }
+
+    function initializeProductPlotters() {
 
         /* Lets get all the cards that needs to be loaded. */
 
@@ -97,17 +155,12 @@ function newTimelineChart() {
 
             /* For each one, we will initialize the associated plotter. */
 
-            initializePlotter(loadingProductCards[i]);
+            initializeProductPlotter(loadingProductCards[i]);
 
         }
-
-        /* Finally we initialize the Competition Plotter. */
-
-
-
     } 
 
-    function initializePlotter(pProductCard) {
+    function initializeProductPlotter(pProductCard) {
 
         /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
 
@@ -223,7 +276,7 @@ function newTimelineChart() {
 
             if (found === false) {
 
-                initializePlotter(pProductCard);
+                initializeProductPlotter(pProductCard);
 
             }
 

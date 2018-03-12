@@ -36,6 +36,9 @@
     <Compile Include="Azure\azure-storage.file.js" />
     <Compile Include="Ball.js" />
     <Compile Include="Balls.js" />
+    <Compile Include="CompetitionStorage.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ProductCard.js">
       <SubType>Code</SubType>
     </Compile>

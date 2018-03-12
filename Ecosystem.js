@@ -21,6 +21,27 @@ function newEcosystem() {
 
     }
 
+    function getHost(pHostCodeName) {
+
+        for (let i = 0; i < ECOSYSTEM.hosts.length; i++) {
+
+            if (ECOSYSTEM.hosts[i].codeName === pHostCodeName) {
+
+                return ECOSYSTEM.hosts[i];
+            }
+        }
+    }
+
+    function getCompetition(pHost, pCompetitionCodeName) {
+
+        for (let i = 0; i < pHost.competitions.length; i++) {
+
+            if (pHost.competitions[i].codeName === pCompetitionCodeName) {
+
+                return pHost.competitions[i];
+            }
+        }
+    }
 
     function getTeams() {
 

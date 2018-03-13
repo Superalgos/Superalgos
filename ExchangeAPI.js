@@ -4,7 +4,7 @@
 
     /* 
 
-    This module allows trading bots to connect to the exchange and do trding operations on it. So far it can only work with Poloniex.
+    This module allows trading bots to connect to the exchange and do trading operations on it. So far it can only work with Poloniex.
 
     */
 
@@ -80,11 +80,9 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    if (err || exchangeResponse.error !== undefined || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
+                    analizeResponse(err, exchangeResponse, callBackFunction, onResponseOk);
 
-                        somethingWentWrong(err, exchangeResponse, callBackFunction);
-
-                    } else {
+                    function onResponseOk() {
 
                         /*
 
@@ -148,11 +146,9 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    if (err || exchangeResponse.error !== undefined || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
+                    analizeResponse(err, exchangeResponse, callBackFunction, onResponseOk);
 
-                        somethingWentWrong(err, exchangeResponse, callBackFunction);
-
-                    } else {
+                    function onResponseOk() {
 
                         /*
 
@@ -239,11 +235,9 @@
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    if (err || exchangeResponse.error !== undefined || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
+                    analizeResponse(err, exchangeResponse, callBackFunction, onResponseOk);
 
-                        somethingWentWrong(err, exchangeResponse, callBackFunction);
-
-                    } else {
+                    function onResponseOk() {
 
                         /*
 
@@ -297,11 +291,9 @@
 
                 try {
 
-                    if (err || exchangeResponse.error !== undefined || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
+                    analizeResponse(err, exchangeResponse, callBackFunction, onResponseOk);
 
-                        somethingWentWrong(err, exchangeResponse, callBackFunction);
-
-                    } else {
+                    function onResponseOk() {
 
                         if (exchangeResponse.success !== 1) {
                             logger.write("[ERROR] movePosition -> onExchangeCallReturned -> exchangeResponse.success = " + exchangeResponse.success);
@@ -342,36 +334,42 @@
         }
     }
 
-    function somethingWentWrong(err, exchangeResponse, callBackFunction) {
+    function analizeResponse(err, exchangeResponse, callBackFunction, innerCallBack) {
 
         try {
 
-            logger.write("[WARN] somethingWentWrong -> err = " + JSON.stringify(err));
-            logger.write("[WARN] somethingWentWrong -> exchangeResponse = " + JSON.stringify(exchangeResponse));
+            logger.write("[INFO] analizeResponse -> err = " + JSON.stringify(err));
+            logger.write("[INFO] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeResponse));
 
-            if (JSON.stringify(err).indexOf("ETIMEDOUT") > 0 || JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0) {
+            if (
+                JSON.stringify(err).indexOf("ETIMEDOUT") > 0 ||
+                JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0 ||
+                JSON.stringify(exchangeResponse).indexOf("Connection Error") > 0 ||
+                JSON.stringify(err).indexOf("ECONNRESET") > 0)
+            {
 
-                logger.write("[WARN] somethingWentWrong -> Timeout reached while trying to access the Exchange API. Requesting new execution later.");
+                logger.write("[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                 return;
 
             } else {
 
-                if (JSON.stringify(err).indexOf("ECONNRESET") > 0) {
+                if (err) {
 
-                    logger.write("[WARN] somethingWentWrong -> The exchange reseted the connection. Requesting new execution later.");
-                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                    logger.write("[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange. This will halt this bot process.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
 
                 } else {
-                    logger.write("[ERROR] somethingWentWrong -> Unexpected error trying to contact the Exchange. This will halt this bot process.");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                    logger.write("[INFO] analizeResponse -> No problem found.");
+                    innerCallBack();
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] somethingWentWrong -> err.message = " + err.message);
+            logger.write("[ERROR] analizeResponse -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }

@@ -5,7 +5,7 @@
 
     /* 
 
-    This module allows trading bots to connect to the exchange and do trding operations on it. So far it can only work with Poloniex.
+    This module allows deals with keeping the context between different executions of the bot. 
     It deals with these 3 different files that helps the bot process remember where it is standing:
 
     1. The Status Report.

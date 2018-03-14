@@ -58,12 +58,11 @@
             bruceAzureFileStorage.initialize("Bruce");
             oliviaAzureFileStorage.initialize("Olivia");
 
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
+
         } catch (err) {
-
-            const logText = "[ERROR] initialize - ' ERROR : " + err.message;
-            console.log(logText);
-            logger.write(logText);
-
+            logger.write("[ERROR] initialize -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -71,7 +70,7 @@
 
 This process is going to do the following:
 
-Read the candles and volumes from Bruce and produce a single Index File for each market with daily candles and volumes. 
+Read the candles and volumes from Bruce and produce a single Index File for Market Period. 
 
 */
 
@@ -81,14 +80,14 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
             if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
 
-            let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
-            let nextIntervalLapse;             // With this we can request the next execution wait time. 
+            let nextIntervalExecution = false;  // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
+            let nextIntervalLapse;              // With this we can request the next execution wait time. 
 
             let market = global.MARKET;
 
-            let lastCandleFile;         // Datetime of the last file included on the Index File.
-            let firstTradeFile;         // Datetime of the first trade file in the whole market history.
-            let maxCandleFile;          // Datetime of the last file available to be included in the Index File.
+            let lastCandleFile;                 // Datetime of the last file included on the Index File.
+            let firstTradeFile;                 // Datetime of the first trade file in the whole market history.
+            let maxCandleFile;                  // Datetime of the last file available to be included in the Index File.
 
             getStatusReport();
 
@@ -419,10 +418,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                             const logText = "[INFO] 'buildCandles' - Head of the market found @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + ".";
                             logger.write(logText);
 
-                            
-
+                            callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
                             return;
-
                         }
 
                         periodsLoop();
@@ -915,8 +912,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
         }
         catch (err) {
-            const logText = "[ERROR] 'Start' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write("[ERROR] start -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

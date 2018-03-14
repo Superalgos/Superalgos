@@ -38,6 +38,9 @@
     <Compile Include="Interval Executor.js" />
     <Compile Include="Poloniex API Client.js" />
     <Compile Include="Run.js" />
+    <Compile Include="Status Report.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Trading Bot Main Loop.js">
       <SubType>Code</SubType>
     </Compile>

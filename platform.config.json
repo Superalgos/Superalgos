@@ -1,12 +1,12 @@
 {
-  "codeName": "AACloudPlatform",
+  "codeName": "AACloud",
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 0
+    "patch": 1
   },
   "bot": {
-    "path": "../Bots/AAMasters/AAMariam-Trading-Bot"
+    "path": "../Bots/AAMasters/AAOlivia-Indicator-Bot"
   },
   "stopGracefully": "false"
 }

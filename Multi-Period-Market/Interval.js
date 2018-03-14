@@ -105,6 +105,8 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     let reportFilePath;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
 
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> fileName = " + fileName); }
+
                     getHistoricTrades();
 
                     function getHistoricTrades() {
@@ -119,29 +121,33 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Historic-Trades";
 
-                        charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getHistoricTrades -> reportFilePath = " + reportFilePath); }
 
-                        function onFileReceived(text) {
+                        charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived);
+
+                        function onFileReceived(err, text) {
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> Entering function."); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> text = " + text); }
 
-                            let statusReport;
+                            let thisReport;
+ 
+                            if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                                try {
+                                    thisReport = JSON.parse(text);
 
-                            try {
+                                    firstTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
 
-                                statusReport = JSON.parse(text);
+                                    getOneMinDailyCandlesVolumes();
 
-                                firstTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
-
-                                getOneMinDailyCandlesVolumes();
-
-                            } catch (err) {
-
-                                const logText = "[INFO] 'getContextVariables' - Failed to read main Historic Trades Status Report for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                logger.write(logText);
-
-                                
+                                } catch (err) {
+                                    logger.write("[ERROR] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> err = " + err.message);
+                                    logger.write("[ERROR] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                }
+                            } else {
+                                logger.write("[ERROR] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> err = " + err.message);
+                                callBackFunction(err);
                             }
                         }
                     }
@@ -158,35 +164,33 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         reportFilePath = EXCHANGE_NAME + "/Processes/" + "One-Min-Daily-Candles-Volumes" + "/" + currentYear + "/" + currentMonth;
 
-                        bruceAzureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> reportFilePath = " + reportFilePath); }
 
-                        function onFileReceived(text) {
+                        bruceAzureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived);
+
+                        function onFileReceived(err, text) {
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> onFileReceived -> Entering function."); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> onFileReceived -> text = " + text); }
 
-                            let statusReport;
+                            let thisReport;
 
-                            try {
+                            if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                                try {
+                                    thisReport = JSON.parse(text);
 
-                                statusReport = JSON.parse(text);
+                                    maxCandleFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
 
-                                maxCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
+                                    getThisProcessReport();
 
-                                getThisProcessReport();
-
-                            } catch (err) {
-
-                                /*
-
-                                It might happen that the file content is corrupt or it does not exist. In either case we will point our lastCandleFile
-                                to the last day of the previous month.
-
-                                */
-
-                                maxCandleFile = new Date(date.valueOf() - ONE_DAY_IN_MILISECONDS);
-                                getThisProcessReport();
-
+                                } catch (err) {
+                                    logger.write("[ERROR] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> onFileReceived -> err = " + err.message);
+                                    logger.write("[ERROR] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                }
+                            } else {
+                                logger.write("[ERROR] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> err = " + err.message);
+                                callBackFunction(err);
                             }
                         }
                     }
@@ -209,10 +213,8 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                     lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
 
                                     /*
-    
                                     Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
                                     For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
-    
                                     */
 
                                     lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
@@ -232,14 +234,14 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         buildCandles();
 
                                     } else {
-                                        callBack(err);              // we cant handle this here.
+                                        callBackFunction(err);              // we cant handle this here.
                                     }
                                     return;
                                 }
                                 default:
                                     {
                                         logger.write("[ERROR] initialize -> getStatusReport -> Operation Failed.");
-                                        callBack(err);
+                                        callBackFunction(err);
                                         return;
                                     }
                             }

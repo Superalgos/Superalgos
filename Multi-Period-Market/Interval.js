@@ -105,19 +105,6 @@ Read the candles and volumes from Bruce and produce a single Index File for each
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
             let maxCandleFile;          // Datetime of the last file available to be included in the Index File.
 
-            let periods =
-                '[' +
-                '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
-                '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
-                '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
-                '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
-                '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
-                '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
-                '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
-                '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
-
-            const outputPeriods = JSON.parse(periods);
-
             marketsLoop(); 
 
             /*
@@ -403,7 +390,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     function loopBody() {
 
-                        let folderName = outputPeriods[n][1];
+                        let folderName = global.marketFilesPeriods[n][1];
 
                         let previousCandles;
                         let previousVolumes;
@@ -479,7 +466,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         n++;
 
-                        if (n < outputPeriods.length) {
+                        if (n < global.marketFilesPeriods.length) {
 
                             loopBody();
 
@@ -511,7 +498,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                     let outputCandles = [];
                     let outputVolumes = [];
 
-                    for (n = 0; n < outputPeriods.length; n++) {
+                    for (n = 0; n < global.marketFilesPeriods.length; n++) {
 
                         const emptyArray1 = [];
                         const emptyArray2 = [];
@@ -574,8 +561,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             }
 
-                            const outputPeriod = outputPeriods[n][0];
-                            const folderName = outputPeriods[n][1];
+                            const outputPeriod = global.marketFilesPeriods[n][0];
+                            const folderName = global.marketFilesPeriods[n][1];
 
                             /* Lest see if we are adding previous candles. */
 
@@ -827,7 +814,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             n++;
 
-                            if (n < outputPeriods.length) {
+                            if (n < global.marketFilesPeriods.length) {
 
                                 loopBody();
 

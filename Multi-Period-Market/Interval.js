@@ -36,7 +36,8 @@
 
     let utilities = UTILITIES.newUtilities(bot);
 
-    let statusReportFile;
+    let statusReport;
+    let statusReportModule;
 
     return interval;
 
@@ -194,8 +195,8 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getThisProcessReport -> Entering function."); }
 
-                        statusReportFile = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
-                        statusReportFile.initialize(bot, onInitilized);
+                        statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
+                        statusReportModule.initialize(bot, onInitilized);
 
                         function onInitilized(err) {
 
@@ -203,9 +204,9 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                 case global.DEFAULT_OK_RESPONSE.result: {
                                     logger.write("[INFO] initialize -> getStatusReport -> Execution finished well. :-)");
 
-                                    statusReportFile = statusReportFile.file;
+                                    statusReport = statusReportModule.file;
 
-                                    lastCandleFile = new Date(statusReportFile.lastFile.year + "-" + statusReportFile.lastFile.month + "-" + statusReportFile.lastFile.days + " " + "00:00" + GMT_SECONDS);
+                                    lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
 
                                     /*
     
@@ -866,8 +867,8 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                 try {
 
-                    statusReportFile.lastExecution = global.processDatetime;
-                    statusReportFile.save(callBack);
+                    statusReport.lastExecution = global.processDatetime;
+                    statusReportModule.save(callBack);
 
                 }
                 catch (err) {

@@ -62,7 +62,7 @@
     */
 
     let bot = BOT;
-    let statusReportFile;
+    let statusReportModule;
 
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -147,15 +147,15 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
 
-                    statusReportFile = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
-                    statusReportFile.initialize(bot, onInitilized);
+                    statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
+                    statusReportModule.initialize(bot, onInitilized);
 
                     function onInitilized(err) {
 
                         switch (err.result) {
                             case global.DEFAULT_OK_RESPONSE.result: {
                                 logger.write("[INFO] initialize -> getStatusReport -> Execution finished well. :-)");
-                                thisObject.statusReport = statusReportFile.file;
+                                thisObject.statusReport = statusReportModule.file;
                                 getExecutionHistory(callBack);
                                 return;
                             }
@@ -548,7 +548,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function."); }
 
                     thisObject.statusReport.lastExecution = global.processDatetime;
-                    statusReportFile.save(callBack);
+                    statusReportModule.save(callBack);
 
                 }
                 catch (err) {

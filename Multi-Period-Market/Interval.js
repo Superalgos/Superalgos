@@ -1,4 +1,4 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, POLONIEX_CLIENT_MODULE) {
 
     let bot = BOT;
 
@@ -20,9 +20,6 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUMES_ONE_MIN = "One-Min";
 
-    const GO_RANDOM = false;
-    const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. *
-
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
@@ -31,8 +28,6 @@
         initialize: initialize,
         start: start
     };
-
-    let markets;
 
     let charlyAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
     let bruceAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
@@ -62,10 +57,6 @@
             bruceAzureFileStorage.initialize("Bruce");
             oliviaAzureFileStorage.initialize("Olivia");
 
-            markets = MARKETS_MODULE.newMarkets(bot);
-            markets.initialize(callBackFunction);
-
-
         } catch (err) {
 
             const logText = "[ERROR] initialize - ' ERROR : " + err.message;
@@ -94,148 +85,13 @@ Read the candles and volumes from Bruce and produce a single Index File for each
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
             let nextIntervalLapse;             // With this we can request the next execution wait time. 
 
-            let marketQueue;            // This is the queue of all markets to be procesesd at each interval.
-            let market = {              // This is the current market being processed after removing it from the queue.
-                id: 0,
-                assetA: "",
-                assetB: ""
-            };
+            let market = global.MARKET;
 
             let lastCandleFile;         // Datetime of the last file included on the Index File.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
             let maxCandleFile;          // Datetime of the last file available to be included in the Index File.
 
-            marketsLoop(); 
-
-            /*
-    
-            At every run, the process needs to loop through all the markets at this exchange.
-            The following functions marketsLoop(), openMarket(), closeMarket() and closeAndOpenMarket() controls the serialization of this processing.
-
-            */
-
-            function marketsLoop() {
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'marketsLoop'");
-                    }
-
-                    markets.getMarketsByExchange(EXCHANGE_ID, onMarketsReady);
-
-                    function onMarketsReady(marketsArray) {
-
-                        marketQueue = JSON.parse(marketsArray);
-
-                        openMarket(); // First execution and entering into the real loop.
-
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'marketsLoop' - ERROR : " + err.message;
-                    logger.write(logText);
-                }
-            }
-
-            function openMarket() {
-
-                // To open a Market means picking a new market from the queue.
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'openMarket'");
-                    }
-
-
-                    if (marketQueue.length === 0) {
-
-                        if (LOG_INFO === true) {
-                            logger.write("[INFO] 'openMarket' - marketQueue.length === 0");
-                        }
-
-                        const logText = "[WARN] We processed all the markets.";
-                        logger.write(logText);
-
-                        callBackFunction(nextIntervalExecution, nextIntervalLapse);
-
-                        return;
-                    }
-
-                    if (GO_RANDOM === true) {
-                        const index = parseInt(Math.random() * (marketQueue.length - 1));
-
-                        market.id = marketQueue[index][0];
-                        market.assetA = marketQueue[index][1];
-                        market.assetB = marketQueue[index][2];
-                        market.status = marketQueue[index][3];
-
-                        marketQueue.splice(index, 1);
-                    } else {
-                        let marketRecord = marketQueue.shift();
-
-                        market.id = marketRecord[0];
-                        market.assetA = marketRecord[1];
-                        market.assetB = marketRecord[2];
-                        market.status = marketRecord[3];
-
-                        if (FORCE_MARKET > 0) {
-                            if (FORCE_MARKET !== market.id) {
-                                closeAndOpenMarket();
-                                return;
-                            }
-                        }
-                    }
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
-                        logger.write("[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
-                    }
-
-                    if (market.status === markets.ENABLED) {
-
-                        getStatusReport();
-
-                    } else {
-
-                        logger.write("[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
-                        closeAndOpenMarket();
-                        return;
-
-                    }
-
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'openMarket' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-            function closeMarket() {
-
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeMarket'");
-                }
-
-            }
-
-            function closeAndOpenMarket() {
-
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeAndOpenMarket'");
-                }
-
-                openMarket();
-            }
-
-            /*
-
-            The following code executes for each market.
-
-            */
+            getStatusReport();
 
             function getStatusReport() {
 
@@ -275,7 +131,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 const logText = "[INFO] 'getStatusReport' - Failed to read main Historic Trades Status Report for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
                                 logger.write(logText);
 
-                                closeAndOpenMarket();
+                                
                             }
                         }
                     }
@@ -372,7 +228,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                 catch (err) {
                     const logText = "[ERROR] 'getStatusReport' - ERROR : " + err.message;
                     logger.write(logText);
-                    closeMarket();
+                    
                 }
             }
 
@@ -422,7 +278,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                     const logText = "[ERR] 'findPreviousContent' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                     logger.write(logText);
 
-                                    closeAndOpenMarket();
+                                    
                                 }
                             }
                         }
@@ -455,7 +311,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                     const logText = "[ERR] 'findPreviousContent' - Empty or corrupt volume file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                     logger.write(logText);
 
-                                    closeAndOpenMarket();
+                                    
                                 }
                             }
                         } 
@@ -480,7 +336,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                 catch (err) {
                 const logText = "[ERROR] 'findPreviousContent' - ERROR : " + err.message;
                 logger.write(logText);
-                closeMarket();
+                
                 }
 
             }
@@ -527,7 +383,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                             const logText = "[INFO] 'buildCandles' - Head of the market found @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + ".";
                             logger.write(logText);
 
-                            closeAndOpenMarket();
+                            
 
                             return;
 
@@ -647,7 +503,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                         const logText = "[ERR] 'buildCandles' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                         logger.write(logText);
 
-                                        closeAndOpenMarket();
+                                        
 
                                         nextIntervalExecution = true;  // we request a new interval execution.
                                         nextIntervalLapse = 30000;      
@@ -751,7 +607,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                         const logText = "[ERR] 'buildCandles' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                         logger.write(logText);
 
-                                        closeAndOpenMarket();
+                                        
 
                                         return;
                                     }
@@ -830,7 +686,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                 catch (err) {
                     const logText = "[ERROR] 'buildCandles' - ERROR : " + err.message;
                     logger.write(logText);
-                    closeMarket();
+                    
                 }
 
             }
@@ -936,7 +792,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                 catch (err) {
                     const logText = "[ERROR] 'writeFiles' - ERROR : " + err.message;
                 logger.write(logText);
-                closeMarket();
+                
                 }
             }
 
@@ -982,7 +838,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                         catch (err) {
                             const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
                             logger.write(logText);
-                            closeMarket();
+                            
                         }
                     }
 
@@ -990,7 +846,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                 catch (err) {
                     const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
                     logger.write(logText);
-                    closeMarket();
+                    
                 }
 
             }

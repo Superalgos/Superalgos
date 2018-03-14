@@ -155,7 +155,7 @@
                         switch (err.result) {
                             case global.DEFAULT_OK_RESPONSE.result: {
                                 logger.write("[INFO] initialize -> getStatusReport -> Execution finished well. :-)");
-                                thisObject.statusReport = statusReportFile.getFile();
+                                thisObject.statusReport = statusReportFile.file;
                                 getExecutionHistory(callBack);
                                 return;
                             }

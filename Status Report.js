@@ -129,7 +129,12 @@
 
                             /* In this case we can assume that this is the first execution ever of this bot.*/
 
-                            createConext(callBack);
+                            let customErr = {
+                                result: global.CUSTOM_FAIL_RESPONSE.result,
+                                message: "Status Report was never created."
+                            }
+                            logger.write("[ERROR] save -> err = " + err.message);
+                            callBackFunction(customErr);
                             return;
                         }
 
@@ -146,7 +151,7 @@
                         try {
 
                             thisObject.statusReport = JSON.parse(text);
-                            getExecutionHistory(callBack);
+                            callBack(global.DEFAULT_OK_RESPONSE);
 
                         } catch (err) {
 
@@ -183,12 +188,13 @@
 
             if (ownerId !== botId) {
 
-                let err = {
-                    result: global.DEFAULT_FAIL_RESPONSE.result,
+                let customErr = {
+                    result: global.CUSTOM_FAIL_RESPONSE.result,
                     message: "Only bots owners of a Status Report can save them."
                 }
                 logger.write("[ERROR] save -> err = " + err.message);
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(customErr);
+                return;
             }
 
             let fileName = "Status.Report.json"

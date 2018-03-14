@@ -60,6 +60,7 @@
                     const CONTEXT = require(ROOT_DIR + 'Context');
                     const DATASOURCE = require(ROOT_DIR + 'Datasource');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
+                    const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
@@ -82,7 +83,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
-                        context = CONTEXT.newContext(bot, DEBUG_MODULE, AZURE_FILE_STORAGE, UTILITIES);
+                        context = CONTEXT.newContext(bot, DEBUG_MODULE, AZURE_FILE_STORAGE, UTILITIES, STATUS_REPORT);
                         context.initialize(onInizialized);
 
                         function onInizialized(err) {

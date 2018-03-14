@@ -84,6 +84,11 @@ global.DEFAULT_RETRY_RESPONSE = {
     message: "Retry Later"
 }; 
 
+global.CUSTOM_FAIL_RESPONSE = {
+    result: "Fail Because",
+    message: "Custom Message"
+}; 
+
 /* Current state of the art fixed parameters */
 
 global.MARKET = {

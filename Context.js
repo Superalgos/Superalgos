@@ -1,4 +1,4 @@
-﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES) {
+﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES, STATUS_REPORT) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -62,6 +62,7 @@
     */
 
     let bot = BOT;
+    let statusReportFile;
 
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -146,49 +147,34 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
 
-                    let fileName = "Status.Report.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor;
+                    statusReportFile = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
+                    statusReportFile.initialize(bot, onInitilized);
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> filePath = " + filePath); }
+                    function onInitilized(err) {
 
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+                        switch (err.result) {
+                            case global.DEFAULT_OK_RESPONSE.result: {
+                                logger.write("[INFO] initialize -> getStatusReport -> Execution finished well. :-)");
+                                thisObject.statusReport = statusReportFile.getFile();
+                                getExecutionHistory(callBack);
+                                return;
+                            }
+                            case global.CUSTOM_FAIL_RESPONSE.result: {  // We need to see if we can handle this.
+                                logger.write("[ERROR] initialize -> getStatusReport -> err.message = " + err.message);
 
-                    function onFileReceived(err, text) {
-
-                        if (err.result === global.DEFAULT_FAIL_RESPONSE.result && err.message === 'Folder does not exist.') {
-                            logger.write("[INFO] initialize -> getStatusReport -> onFileReceived -> err = " + err.message);
-
-                            /* In this case we can assume that this is the first execution ever of this bot.*/
-
-                            createConext(callBack);
-                            return;
-                        }
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] initialize -> getStatusReport -> onFileReceived -> err = " + err.message);
-                            callBack(err);
-                            return;
-                        }
-
-                        if (FULL_LOG === true) {
-                            logger.write("[INFO] initialize -> getStatusReport -> onFileReceived -> Content received = " + text);
-                        }
-
-                        try {
-
-                            thisObject.statusReport = JSON.parse(text);
-                            getExecutionHistory(callBack);
-
-                        } catch (err) {
-
-                            /*
-                            It might happen that the file content is corrupt. We will consider this as a temporary situation, since sometimes the file
-                            is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
-                            */
-
-                            logger.write("[ERROR] initialize -> getStatusReport -> onFileReceived -> Bot cannot execute without a valid Status report. -> Err = " + err.message);
-                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                                if (err.message === "Status Report was never created.") {
+                                    createConext(callBack);
+                                } else {
+                                    callBackFunction(err);              // we cant handle this here.
+                                }
+                                return;
+                            }
+                            default:
+                            {
+                                logger.write("[ERROR] initialize -> getStatusReport -> Operation Failed.");
+                                callBackFunction(err);
+                                return;
+                            }
                         }
                     }
 
@@ -561,55 +547,9 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function."); }
 
-                    let fileName = "Status.Report.json"
-                    let filePath = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor;
+                    thisObject.statusReport.lastExecution = global.processDatetime;
+                    statusReportFile.save(callBack);
 
-                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> filePath = " + filePath); }
-
-                    utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
-
-                    function onFolderCreated(err) {
-
-                        try {
-
-                            if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated -> Entering function."); }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> err = " + err.message);
-                                callBack(err);
-                                return;
-                            }
-
-                            thisObject.statusReport.lastExecution = global.processDatetime;
-
-                            let fileContent = JSON.stringify(thisObject.statusReport);
-
-                            cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated(err) {
-
-                                if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                    callBack(err);
-                                    return;
-                                }
-
-                                if (FULL_LOG === true) {
-                                    logger.write("[INFO] saveThemAll -> writeStatusReport -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
-                                }
-
-                                callBack(global.DEFAULT_OK_RESPONSE); 
-                                return;
-                            }
-                        }
-                        catch (err) {
-                            logger.write("[ERROR] saveThemAll -> writeStatusReport -> onFolderCreated -> err = " + err.message);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        }
-                    }
                 }
                 catch (err) {
                     logger.write("[ERROR] saveThemAll -> writeStatusReport -> err = " + err.message);

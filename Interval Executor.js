@@ -91,8 +91,6 @@
 
             }
 
-
-
             let intervalId;
 
             if (processConfig.intervalMaxLoops === 0) {
@@ -122,7 +120,6 @@
                         }
 
                     }
-
 
                     if (shutdownEvent.isShuttingDown() === false) {
 
@@ -192,9 +189,7 @@
                     logger.write("[WARN] Received the signal from last Interval execution to not call it anymore. Stopping execution. ");
 
                 }
-
             }
-
         }
         catch (err) {
             const logText = "[ERROR] 'Start' - ERROR : " + err.message;

@@ -133,13 +133,9 @@ global.dailyFilePeriods = JSON.parse(global.dailyFilePeriods);
 
 /* Some LAGACY code starts here. Pending for clean up. */
 
-
-
-const START_ALL_MONTHS = false;
-const START_ONE_MONTH = true;
-
 const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
 const TRADING_BOT_MAIN_LOOP_MODULE = require('./Trading Bot Main Loop');
+const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./Indicator Bot Main Loop');
 
 /* Now we will see which are the script Arguments. We expect the name of the process to run, since that is what it should be defined at the Task Scheduller. */
 
@@ -164,7 +160,6 @@ for (let i = 0; i < botConfig.processes.length; i++) {
                     for (let month = 12; month > 0; month--) {
 
                         let timeDelay = Math.random() * 10 * 1000; // We introduce a short delay so as to not overload the machine.
-
                         setTimeout(startProcess, timeDelay);
 
                         function startProcess() {
@@ -176,15 +171,10 @@ for (let i = 0; i < botConfig.processes.length; i++) {
                             function onInitializeReady() {
 
                                 newIntervalExecutor.start();
-
                             }
-
                         }
-
                     }
-
                 }
-
             }
 
 
@@ -199,9 +189,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
                     newIntervalExecutor.initialize(global.PLATFORM_CONFIG.bot.path, processConfig, processConfig.startMode.oneMonth.year, processConfig.startMode.oneMonth.month, onInitializeReady);
 
                     function onInitializeReady() {
-
                         newIntervalExecutor.start();
-
                     }
                 }
             }
@@ -214,9 +202,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
                 function startProcess() {
 
                     if (bot.type === "Trading") {
-
                         runTradingBot(processConfig);
-
                         return;
                     }
 
@@ -225,9 +211,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
                     newIntervalExecutor.initialize(global.PLATFORM_CONFIG.bot.path, processConfig, undefined, undefined, onInitializeReady);
 
                     function onInitializeReady() {
-
                         newIntervalExecutor.start();
-
                     }
                 }
             }
@@ -237,6 +221,48 @@ for (let i = 0; i < botConfig.processes.length; i++) {
             console.log(err.message);
             logger.write(err.message);
         }
+    }
+}
+
+
+
+function runIndicatorBot(pProcessConfig) {
+
+    try {
+        if (FULL_LOG === true) { logger.write("[INFO] runIndicatorBot -> Entering function."); }
+
+        let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotMainLoop(botConfig);
+        indicatorBotMainLoop.initialize(global.PLATFORM_CONFIG.bot.path, pProcessConfig, onInitializeReady);
+
+        function onInitializeReady(err) {
+
+            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                indicatorBotMainLoop.run(whenRunFinishes);
+
+                function whenRunFinishes(err) {
+
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                        logger.write("[INFO] runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+                        console.log("Bot execution finished sucessfully. :-)");
+
+                    } else {
+
+                        logger.write("[ERROR] runIndicatorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                        logger.write("[ERROR] runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                        logger.write("[ERROR] runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
+                    }
+                }
+
+            } else {
+                logger.write("[ERROR] runIndicatorBot -> onInitializeReady -> err = " + err.message);
+                logger.write("[ERROR] runIndicatorBot -> onInitializeReady -> Bot will not be started. ");
+            }
+        }
+    }
+    catch (err) {
+        logger.write("[ERROR] runIndicatorBot -> err = " + err.message);
     }
 }
 
@@ -259,20 +285,20 @@ function runTradingBot(pProcessConfig) {
 
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                        logger.write("[INFO] trading bot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+                        logger.write("[INFO] runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
                         console.log("Bot execution finished sucessfully. :-)");
 
                     } else {
 
-                        logger.write("[ERROR] trading bot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                        logger.write("[ERROR] trading bot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                        logger.write("[ERROR] trading bot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
+                        logger.write("[ERROR] runTradingBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                        logger.write("[ERROR] runTradingBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                        logger.write("[ERROR] runTradingBot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
                     }
                 }
 
             } else {
-                logger.write("[ERROR] trading bot -> onInitializeReady -> err = " + err.message);
-                logger.write("[ERROR] trading bot -> onInitializeReady -> Bot will not be started. ");
+                logger.write("[ERROR] runTradingBot -> onInitializeReady -> err = " + err.message);
+                logger.write("[ERROR] runTradingBot -> onInitializeReady -> Bot will not be started. ");
             }
         }
     }

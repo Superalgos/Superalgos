@@ -35,6 +35,9 @@
     <Compile Include="ExchangeAPI.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Indicator Bot Main Loop.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Interval Executor.js" />
     <Compile Include="Poloniex API Client.js" />
     <Compile Include="Run.js" />

@@ -1,5 +1,7 @@
 ﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, POLONIEX_CLIENT_MODULE) {
 
+    const FULL_LOG = true;
+
     let bot = BOT;
 
     const GMT_SECONDS = ':00.000 GMT+0000';
@@ -7,7 +9,6 @@
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
     const MODULE_NAME = "Interval";
-    const LOG_INFO = true;
 
     const EXCHANGE_NAME = "Poloniex";
     const EXCHANGE_ID = 1;
@@ -49,9 +50,9 @@
 
             logger.fileName = MODULE_NAME;
 
-            const logText = "[INFO] initialize - Entering function 'initialize' ";
-            console.log(logText);
-            logger.write(logText);
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + yearAssigend); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + monthAssigned); }
 
             charlyAzureFileStorage.initialize("Charly");
             bruceAzureFileStorage.initialize("Bruce");
@@ -78,9 +79,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
         try {
 
-            if (LOG_INFO === true) {
-                logger.write("[INFO] Entering function 'start'");
-            }
+            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
 
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
             let nextIntervalLapse;             // With this we can request the next execution wait time. 
@@ -97,12 +96,16 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                 try {
 
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> Entering function."); }
+
                     let reportFilePath;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
 
                     getHistoricTrades();
 
                     function getHistoricTrades() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getHistoricTrades -> Entering function."); }
 
                         /*
 
@@ -115,6 +118,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                         charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
                         function onStatusReportReceived(text) {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getHistoricTrades -> onStatusReportReceived -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getHistoricTrades -> onStatusReportReceived -> text = " + text); }
 
                             let statusReport;
 
@@ -138,6 +144,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     function getOneMinDailyCandlesVolumes() {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getOneMinDailyCandlesVolumes -> Entering function."); }
+
                         /* We need to discover the maxCandle file, which is the last file with candles we can use as input. */
 
                         let date = new Date();
@@ -149,6 +157,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                         bruceAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
                         function onStatusReportReceived(text) {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getOneMinDailyCandlesVolumes -> onStatusReportReceived -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getOneMinDailyCandlesVolumes -> onStatusReportReceived -> text = " + text); }
 
                             let statusReport;
 
@@ -178,6 +189,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     function getThisProcessReport() {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getThisProcessReport -> Entering function."); }
+
                         /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
 
                         reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
@@ -185,6 +198,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                         oliviaAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
                         function onStatusReportReceived(text) {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getThisProcessReport -> onStatusReportReceived -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getThisProcessReport -> onStatusReportReceived -> text = " + text); }
 
                             let statusReport;
 
@@ -236,6 +252,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                 try {
 
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Entering function."); }
+
                     let n = 0   // loop Variable representing each possible period as defined at the periods array.
 
                     let allPreviousCandles = [];
@@ -246,6 +264,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     function loopBody() {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> Entering function."); }
+
                         let folderName = global.marketFilesPeriods[n][1];
 
                         let previousCandles;
@@ -255,6 +275,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         function getCandles() {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> Entering function."); }
+
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                             let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
@@ -262,6 +284,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                             oliviaAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                             function onFileReceived(text) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Entering function."); }
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> text = " + text); }
 
                                 let candlesFile;
 
@@ -285,6 +310,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         function getVolumes() {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> Entering function."); }
+
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                             let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
@@ -292,6 +319,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                             oliviaAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                             function onFileReceived(text) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Entering function."); }
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> text = " + text); }
 
                                 let volumesFile;
 
@@ -320,6 +350,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     function controlLoop() {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> controlLoop -> Entering function."); }
+
                         n++;
 
                         if (n < global.marketFilesPeriods.length) {
@@ -345,6 +377,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                 try {
 
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> Entering function."); }
+
                     /*
 
                     Firstly we prepere the arrays that will accumulate all the information for each output file.
@@ -367,6 +401,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                     advanceTime();
 
                     function advanceTime() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> Entering function."); }
 
                         lastCandleFile = new Date(lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
@@ -395,6 +431,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     function periodsLoop() {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> Entering function."); }
+
                         /*
         
                         We will iterate through all posible periods.
@@ -406,6 +444,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                         loopBody();
 
                         function loopBody() {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Entering function."); }
 
                             let previousCandles;
                             let previousVolumes;
@@ -484,6 +524,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             function nextCandleFile() {
 
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> Entering function."); }
+
                                 let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
                                 let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
@@ -491,6 +533,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 bruceAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                                 function onFileReceived(text) {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
 
                                     let candlesFile;
 
@@ -588,6 +633,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             function nextVolumeFile() {
 
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
+
                                 let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
                                 let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
@@ -595,6 +642,9 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 bruceAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                                 function onFileReceived(text) {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> text = " + text); }
 
                                     let volumesFile;
 
@@ -668,6 +718,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         function controlLoop() {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> controlLoop -> Entering function."); }
+
                             n++;
 
                             if (n < global.marketFilesPeriods.length) {
@@ -693,6 +745,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
             function writeFiles(candles, volumes, folderName, callBack) {
 
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> Entering function."); }
+
                 /*
 
                 Here we will write the contents of the Candles and Volumens files.
@@ -704,6 +758,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                     writeCandles();
 
                     function writeCandles() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> Entering function."); }
 
                         let separator = "";
                         let fileRecordCounter = 0;
@@ -732,13 +788,15 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         function onFolderCreated() {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> Entering function."); }
+
                             oliviaAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
-                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                console.log(logText);
-                                logger.write(logText);
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> Entering function."); }
+
+                                logger.write("[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName );
 
                                 writeVolumes();
                             }
@@ -747,6 +805,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                     }
 
                     function writeVolumes() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> Entering function."); }
 
                         let separator = "";
                         let fileRecordCounter = 0;
@@ -775,13 +835,15 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         function onFolderCreated() {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> Entering function."); }
+
                             oliviaAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
-                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                console.log(logText);
-                                logger.write(logText);
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> Entering function."); }
+
+                                logger.write("[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
 
                                 callBack();
                             }
@@ -798,9 +860,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
             function writeStatusReport(lastFileDate, callBack) {
 
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'writeStatusReport'");
-                }
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
 
                 try {
 
@@ -811,6 +872,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                     function onFolderCreated() {
 
                         try {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onFolderCreated -> Entering function."); }
 
                             let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
@@ -828,9 +891,8 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             function onFileCreated() {
 
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
-                                }
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onFolderCreated -> onFileCreated -> Entering function."); }
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onFolderCreated -> onFileCreated -> fileContent = " + fileContent); }
 
                                 callBack();
                             }

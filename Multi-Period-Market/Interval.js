@@ -265,7 +265,6 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     let allPreviousCandles = [];
                     let allPreviousVolumes = [];
 
-
                     loopBody();
 
                     function loopBody() {
@@ -287,29 +286,34 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> fileName = " + fileName); }
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> filePath = " + filePath); }
+
                             oliviaAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                            function onFileReceived(text) {
+                            function onFileReceived(err, text) {
 
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Entering function."); }
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> text = " + text); }
 
                                 let candlesFile;
 
-                                try {
+                                if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                                    try {
+                                        candlesFile = JSON.parse(text);
 
-                                    candlesFile = JSON.parse(text);
+                                        previousCandles = candlesFile;
 
-                                    previousCandles = candlesFile;
+                                        getVolumes();
 
-                                    getVolumes();
-
-                                } catch (err) {
-
-                                    const logText = "[ERR] 'findPreviousContent' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
-
-                                    
+                                    } catch (err) {
+                                        logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.message);
+                                        logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                    }
+                                } else {
+                                    logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.message);
+                                    callBackFunction(err);
                                 }
                             }
                         }
@@ -322,32 +326,37 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> fileName = " + fileName); }
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
+
                             oliviaAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                            function onFileReceived(text) {
+                            function onFileReceived(err, text) {
 
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Entering function."); }
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> text = " + text); }
 
                                 let volumesFile;
 
-                                try {
+                                if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                                    try {
+                                        volumesFile = JSON.parse(text);
 
-                                    volumesFile = JSON.parse(text);
+                                        previousVolumes = volumesFile;
 
-                                    previousVolumes = volumesFile;
+                                        allPreviousCandles.push(previousCandles);
+                                        allPreviousVolumes.push(previousVolumes);
 
-                                    allPreviousCandles.push(previousCandles);
-                                    allPreviousVolumes.push(previousVolumes);
+                                        controlLoop();
 
-                                    controlLoop();
-
-                                } catch (err) {
-
-                                    const logText = "[ERR] 'findPreviousContent' - Empty or corrupt volume file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
-
-                                    
+                                    } catch (err) {
+                                        logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.message);
+                                        logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                    }
+                                } else {
+                                    logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.message);
+                                    callBackFunction(err);
                                 }
                             }
                         } 
@@ -372,11 +381,9 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     }
                 }
                 catch (err) {
-                const logText = "[ERROR] 'findPreviousContent' - ERROR : " + err.message;
-                logger.write(logText);
-                
+                logger.write("[ERROR] start -> findPreviousContent -> err = " + err.message);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
-
             }
 
             function buildCandles(allPreviousCandles, allPreviousVolumes) {
@@ -738,13 +745,10 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         }
                     }
                 }
-
                 catch (err) {
-                    const logText = "[ERROR] 'buildCandles' - ERROR : " + err.message;
-                    logger.write(logText);
-                    
+                    logger.write("[ERROR] start -> buildCandles -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
-
             }
 
             function writeFiles(candles, volumes, folderName, callBack) {
@@ -853,12 +857,10 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                             }
                         }
                     }
-                }
-                     
+                }           
                 catch (err) {
-                    const logText = "[ERROR] 'writeFiles' - ERROR : " + err.message;
-                logger.write(logText);
-                
+                logger.write("[ERROR] start -> writeFiles -> err = " + err.message);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -874,11 +876,9 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    
+                    logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
-
             }
 
         }

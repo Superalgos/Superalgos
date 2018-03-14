@@ -1,6 +1,7 @@
 ﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, POLONIEX_CLIENT_MODULE, FILE_STORAGE, STATUS_REPORT) {
 
     const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
 
     let bot = BOT;
 
@@ -294,7 +295,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                             function onFileReceived(err, text) {
 
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Entering function."); }
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> text = " + text); }
+                                if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> text = " + text); }
 
                                 let candlesFile;
 
@@ -334,7 +335,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                             function onFileReceived(err, text) {
 
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Entering function."); }
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> text = " + text); }
+                                if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> text = " + text); }
 
                                 let volumesFile;
 
@@ -419,9 +420,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         lastCandleFile = new Date(lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
-                        const logText = "[INFO] New processing time @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + ".";
-                        console.log(logText);
-                        logger.write(logText);
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + "."); }
 
                         /* Validation that we are not going past the head of the market. */
 
@@ -429,8 +428,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             nextIntervalExecution = true;  // we request a new interval execution.
 
-                            const logText = "[INFO] 'buildCandles' - Head of the market found @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + ".";
-                            logger.write(logText);
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + "."); }
 
                             callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
                             return;
@@ -491,15 +489,10 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         outputCandles[n].push(candle);
 
                                     } else {
-
-                                        const logText = "[WARN] 'buildCandles' - Candle # " + i + " @ " + folderName + " discarded for closing past the current process time.";
-                                        logger.write(logText);
-
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Candle # " + i + " @ " + folderName + " discarded for closing past the current process time."); }
                                     }
                                 }
-
                                 allPreviousCandles[n] = []; // erasing these so as not to duplicate them.
-
                             }
 
                             if (previousVolumes !== undefined) {
@@ -518,17 +511,10 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         outputVolumes[n].push(volume);
 
                                     } else {
-
-                                        const logText = "[WARN] 'buildCandles' - Volume # " + i + " @ " + folderName + " discarded for closing past the current process time.";
-                                        logger.write(logText);
-
+                                        if (FULL_LOG === true) {logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Volume # " + i + " @ " + folderName + " discarded for closing past the current process time."); }
                                     }
-
-
                                 }
-
                                 allPreviousVolumes[n] = []; // erasing these so as not to duplicate them.
-
                             }
 
                             nextCandleFile();
@@ -541,30 +527,30 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
                                 let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> fileName = " + fileName); }
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> filePath = " + filePath); }
+
                                 bruceAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                                function onFileReceived(text) {
+                                function onFileReceived(err, text) {
 
                                     if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
+                                    if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
 
                                     let candlesFile;
 
-                                    try {
+                                    if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                                        try {
+                                            candlesFile = JSON.parse(text);
 
-                                        candlesFile = JSON.parse(text);
-
-                                    } catch (err) {
-
-                                        const logText = "[ERR] 'buildCandles' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                        logger.write(logText);
-
-                                        
-
-                                        nextIntervalExecution = true;  // we request a new interval execution.
-                                        nextIntervalLapse = 30000;      
-
-                                        return;
+                                        } catch (err) {
+                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                        }
+                                    } else {
+                                        logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                        callBackFunction(err);
                                     }
 
                                     const inputCandlesPerdiod = 60 * 1000;              // 1 min

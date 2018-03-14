@@ -200,22 +200,18 @@ for (let i = 0; i < botConfig.processes.length; i++) {
                 startProcess();
 
                 function startProcess() {
-
-                    if (bot.type === "Trading") {
-                        runTradingBot(processConfig);
-                        return;
-                    }
-
-                    const newIntervalExecutor = INTERVAL_EXECUTOR_MODULE.newIntervalExecutor(bot);
-
-                    newIntervalExecutor.initialize(global.PLATFORM_CONFIG.bot.path, processConfig, undefined, undefined, onInitializeReady);
-
-                    function onInitializeReady() {
-                        newIntervalExecutor.start();
+                    switch (bot.type) {
+                        case 'Trading': {
+                            runTradingBot(processConfig);
+                            return;
+                        }
+                        case 'Indicator': {
+                            runIndicatorBot(processConfig);
+                            return;
+                        }
                     }
                 }
             }
-
 
         } catch (err) {
             console.log(err.message);

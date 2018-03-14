@@ -55,154 +55,46 @@
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
                     const AZURE_FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
-                    const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
-                    const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
-                    const CONTEXT = require(ROOT_DIR + 'Context');
-                    const DATASOURCE = require(ROOT_DIR + 'Datasource');
-                    const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
                     global.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
-                    global.processDatetime = new Date(global.processDatetime.valueOf() - 30 * 24 * 60 * 60 * 1000); // we go 30 days back in time since candles are currently not up to date.
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
-                    let context;
-                    let datasource;
-                    let exchangeAPI;
-                    let assistant;
+                    let statusReport;
                     let userBot;
 
                     let nextWaitTime;
 
-                    initializeContext();
+                    initializeStatusReport();
 
-                    function initializeContext() {
+                    function initializeStatusReport() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusReport ->  Entering function."); }
 
-                        context = CONTEXT.newContext(bot, DEBUG_MODULE, AZURE_FILE_STORAGE, UTILITIES, STATUS_REPORT);
-                        context.initialize(onInizialized);
-
-                        function onInizialized(err) {
-
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeContext -> onInizialized > Execution finished well. :-)");
-                                    initializeDatasource();
-                                    return;
-                                }
-                                    break;
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                    break;
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized > Operation Failed. Aborting the process.");
-                                    callBackFunction(err);
-                                    return;
-                                }
-                                    break;
-                            }
-                        }
-                    }
-
-                    function initializeDatasource() {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDatasource ->  Entering function."); }
-
-                        datasource = DATASOURCE.newDatasource(bot, DEBUG_MODULE, AZURE_FILE_STORAGE, UTILITIES);
-                        datasource.initialize(onInizialized);
+                        statusReport = STATUS_REPORT.newContext(bot, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
+                        statusReport.initialize(onInizialized);
 
                         function onInizialized(err) {
 
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeDatasource -> onInizialized > Execution finished well. :-)");
-                                    initializeExchangeAPI();
-                                    return;
-                                }
-                                    break;
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeDatasource -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                    break;
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeDatasource -> onInizialized > Operation Failed. Aborting the process.");
-                                    callBackFunction(err);
-                                    return;
-                                }
-                                    break;
-                            }
-                        }
-                    }
-
-                    function initializeExchangeAPI() {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
-
-                        exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, DEBUG_MODULE, POLONIEX_CLIENT_MODULE);
-                        exchangeAPI.initialize(onInizialized);
-
-                        function onInizialized(err) {
-
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeExchangeAPI -> onInizialized > Execution finished well. :-)");
-                                    initializeAssistant();
-                                    return;
-                                }
-                                    break;
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                    break;
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized > Operation Failed. Aborting the process.");
-                                    callBackFunction(err);
-                                    return;
-                                }
-                                    break;
-                            }
-                        }
-                    }
-
-                    function initializeAssistant() {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeAssistant ->  Entering function."); }
-
-                        assistant = ASSISTANT.newAssistant(bot, DEBUG_MODULE);
-                        assistant.initialize(context, exchangeAPI, datasource, onInizialized);
-
-                        function onInizialized(err) {
-
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeAssistant -> onInizialized > Execution finished well. :-)");
+                                    logger.write("[INFO] run -> loop -> initializeStatusReport -> onInizialized > Execution finished well. :-)");
                                     initializeUserBot();
                                     return;
                                 }
                                     break;
                                 case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Retry Later. Requesting Execution Retry.");
+                                    logger.write("[ERROR] run -> loop -> initializeStatusReport -> onInizialized > Retry Later. Requesting Execution Retry.");
                                     nextWaitTime = 'Retry';
                                     loopControl(nextWaitTime);
                                     return;
                                 }
                                     break;
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Operation Failed. Aborting the process.");
+                                    logger.write("[ERROR] run -> loop -> initializeStatusReport -> onInizialized > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }
@@ -215,14 +107,9 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
-                        usertBot = USER_BOT_MODULE.newUserBot(bot, DEBUG_MODULE);
+                        usertBot = USER_BOT_MODULE.newUserBot(bot, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT);
 
-                        let platform = {
-                            datasource: datasource,
-                            assistant: assistant
-                        };
-
-                        usertBot.initialize(platform, onInizialized);
+                        usertBot.initialize(undefined, undefined, onInizialized);
 
                         function onInizialized(err) {
 
@@ -261,7 +148,8 @@
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
                                     logger.write("[INFO] run -> loop -> startUserBot -> onFinished > Execution finished well. :-)");
-                                    saveContext();
+                                    nextWaitTime = 'Normal';
+                                    loopControl(nextWaitTime);
                                     return;
                                 }
                                     break;
@@ -274,38 +162,6 @@
                                     break;
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Operation Failed. Aborting the process.");
-                                    callBackFunction(err);
-                                    return;
-                                }
-                                    break;
-                            }
-                        }
-                    }
-
-                    function saveContext() {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> saveContext ->  Entering function."); }
-
-                        context.saveThemAll(onFinished);
-
-                        function onFinished(err) {
-
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> saveContext -> onFinished > Execution finished well. :-)");
-                                    nextWaitTime = 'Normal';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                    break;
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Can not retry at this point.");
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-                                    break;
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }

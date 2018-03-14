@@ -1,4 +1,4 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, POLONIEX_CLIENT_MODULE, FILE_STORAGE, STATUS_REPORT) {
+﻿exports.newUserBot = function newUserBot(BOT, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -9,7 +9,7 @@
     const GMT_MILI_SECONDS = '.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-    const MODULE_NAME = "Interval";
+    const MODULE_NAME = "UserBot";
 
     const EXCHANGE_NAME = "Poloniex";
     const EXCHANGE_ID = 1;
@@ -31,9 +31,9 @@
         start: start
     };
 
-    let charlyAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let bruceAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let oliviaAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
+    let charlyAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let bruceAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let oliviaAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -48,7 +48,7 @@
 
             /* IMPORTANT NOTE:
 
-            We are ignoring in this Interval the received Year and Month. This interval is not depending on Year Month since it procecess the whole market at once.
+            We are ignoring in this UserBot the received Year and Month. This interval is not depending on Year Month since it procecess the whole market at once.
 
             */
 
@@ -83,9 +83,6 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
-
-            let nextIntervalExecution = false;  // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
-            let nextIntervalLapse;              // With this we can request the next execution wait time. 
 
             let market = global.MARKET;
 
@@ -425,8 +422,6 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         /* Validation that we are not going past the head of the market. */
 
                         if (lastCandleFile.valueOf() > maxCandleFile.valueOf()) {
-
-                            nextIntervalExecution = true;  // we request a new interval execution.
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + "."); }
 
@@ -899,7 +894,6 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
-
         }
         catch (err) {
             logger.write("[ERROR] start -> err = " + err.message);

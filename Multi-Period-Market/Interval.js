@@ -619,12 +619,10 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         if (saveCandle === true) {      // then we have a valid candle, otherwise it means there were no candles to fill this one in its time range.
 
                                             outputCandles[n].push(outputCandle);
-
                                         }
                                     }
 
                                     nextVolumeFile();
-
                                 }
                             }
 
@@ -636,27 +634,30 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
                                 let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> fileName = " + fileName); }
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
+
                                 bruceAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                                function onFileReceived(text) {
+                                function onFileReceived(err, text) {
 
                                     if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function."); }
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> text = " + text); }
+                                    if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> text = " + text); }
 
                                     let volumesFile;
 
-                                    try {
+                                    if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                                        try {
+                                            volumesFile = JSON.parse(text);
 
-                                        volumesFile = JSON.parse(text);
-
-                                    } catch (err) {
-
-                                        const logText = "[ERR] 'buildCandles' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                        logger.write(logText);
-
-                                        
-
-                                        return;
+                                        } catch (err) {
+                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
+                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                        }
+                                    } else {
+                                        logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                        callBackFunction(err);
                                     }
 
                                     const inputVolumesPerdiod = 60 * 1000;              // 1 min
@@ -703,12 +704,10 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         if (saveVolume === true) {
 
                                             outputVolumes[n].push(outputVolume);
-
                                         }
                                     }
 
                                     writeFiles(outputCandles[n], outputVolumes[n], folderName, controlLoop);
-
                                 }
                             }
                         }
@@ -757,7 +756,6 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         let separator = "";
                         let fileRecordCounter = 0;
-
                         let fileContent = "";
 
                         for (i = 0; i < candles.length; i++) {
@@ -775,22 +773,40 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
                         let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
 
                         utilities.createFolderIfNeeded(filePath, oliviaAzureFileStorage, onFolderCreated);
 
-                        function onFolderCreated() {
+                        function onFolderCreated(err) {
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> Entering function."); }
 
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> err = " + err.message);
+                                callBackFunction(err);
+                                return;
+                            }
+
                             oliviaAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                            function onFileCreated() {
+                            function onFileCreated(err) {
 
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> Entering function."); }
 
-                                logger.write("[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName );
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                    callBackFunction(err);
+                                    return;
+                                }
+
+                                if (LOG_FILE_CONTENT === true) {
+                                    logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
+                                }
+
+                                logger.write("[WARN] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName );
 
                                 writeVolumes();
                             }
@@ -804,7 +820,6 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         let separator = "";
                         let fileRecordCounter = 0;
-
                         let fileContent = "";
 
                         for (i = 0; i < volumes.length; i++) {
@@ -822,22 +837,40 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
                         let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
 
                         utilities.createFolderIfNeeded(filePath, oliviaAzureFileStorage, onFolderCreated);
 
-                        function onFolderCreated() {
+                        function onFolderCreated(err) {
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> Entering function."); }
 
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> err = " + err.message);
+                                callBackFunction(err);
+                                return;
+                            }
+
                             oliviaAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                            function onFileCreated() {
+                            function onFileCreated(err) {
 
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> Entering function."); }
 
-                                logger.write("[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                    callBackFunction(err);
+                                    return;
+                                }
+
+                                if (LOG_FILE_CONTENT === true) {
+                                    logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
+                                }
+
+                                logger.write("[WARN] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
 
                                 callBack();
                             }

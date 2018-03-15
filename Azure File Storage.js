@@ -268,7 +268,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                             message: "Folder does not exist."
                         };
 
-                        logger.write("[ERROR] getTextFile -> onFileReceived -> Custom Response -> message = " + customResponse.message);
+                        logger.write("[ERROR] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
 
                         callBackFunction(customErr);
                         return;

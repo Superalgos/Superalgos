@@ -87,19 +87,21 @@
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
-                            break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(err);
                             return;
                         }
-                            break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
                             callBackFunction(err);
                             return;
                         }
-                            break;
+                        case global.CUSTOM_FAIL_RESPONSE.result: {
+                            logger.write("[INFO] initialize -> onDone -> Execution finished with some expected issue.");
+                            callBackFunction(err);
+                            return;
+                        }
                     }
 
                 } catch (err) {
@@ -129,12 +131,14 @@
 
                             /* In this case we can assume that this is the first execution ever of this bot.*/
 
+                            thisObject.statusReport = JSON.parse('{}');
+
                             let customErr = {
                                 result: global.CUSTOM_FAIL_RESPONSE.result,
                                 message: "Status Report was never created."
                             }
                             logger.write("[ERROR] save -> err = " + err.message);
-                            callBackFunction(customErr);
+                            callBack(customErr);
                             return;
                         }
 
@@ -173,7 +177,7 @@
 
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

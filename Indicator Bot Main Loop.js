@@ -53,7 +53,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
-                    const AZURE_FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
+                    const FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
 
@@ -74,8 +74,8 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusReport ->  Entering function."); }
 
-                        statusReport = STATUS_REPORT.newContext(bot, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
-                        statusReport.initialize(onInizialized);
+                        statusReport = STATUS_REPORT.newStatusReport(bot, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
+                        statusReport.initialize(bot, onInizialized);
 
                         function onInizialized(err) {
 
@@ -85,20 +85,22 @@
                                     initializeUserBot();
                                     return;
                                 }
-                                    break;
                                 case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                                     logger.write("[ERROR] run -> loop -> initializeStatusReport -> onInizialized > Retry Later. Requesting Execution Retry.");
                                     nextWaitTime = 'Retry';
                                     loopControl(nextWaitTime);
                                     return;
                                 }
-                                    break;
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] run -> loop -> initializeStatusReport -> onInizialized > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }
-                                    break;
+                                case global.CUSTOM_FAIL_RESPONSE.result: {
+                                    logger.write("[INFO] run -> loop -> initializeStatusReport -> onInizialized > Execution finished with some expected issue.");
+                                    initializeUserBot();
+                                    return;
+                                }
                             }
                         }
                     }

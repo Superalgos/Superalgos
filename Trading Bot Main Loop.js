@@ -53,7 +53,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
-                    const AZURE_FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
+                    const FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
                     const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
@@ -83,7 +83,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
-                        context = CONTEXT.newContext(bot, DEBUG_MODULE, AZURE_FILE_STORAGE, UTILITIES, STATUS_REPORT);
+                        context = CONTEXT.newContext(bot, DEBUG_MODULE, FILE_STORAGE, UTILITIES, STATUS_REPORT);
                         context.initialize(onInizialized);
 
                         function onInizialized(err) {
@@ -116,7 +116,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDatasource ->  Entering function."); }
 
-                        datasource = DATASOURCE.newDatasource(bot, DEBUG_MODULE, AZURE_FILE_STORAGE, UTILITIES);
+                        datasource = DATASOURCE.newDatasource(bot, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
                         datasource.initialize(onInizialized);
 
                         function onInizialized(err) {

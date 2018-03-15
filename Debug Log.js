@@ -36,10 +36,6 @@
 
             createFolderSync(folderPath);
 
-            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName;
-
-            createFolderSync(folderPath);
-
             folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor;
 
             createFolderSync(folderPath);

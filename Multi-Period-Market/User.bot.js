@@ -177,7 +177,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let thisReport;
  
-                            if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 try {
                                     thisReport = JSON.parse(text);
 
@@ -220,7 +220,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let thisReport;
 
-                            if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                 try {
                                     thisReport = JSON.parse(text);
 
@@ -249,46 +249,55 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         function onInitilized(err) {
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] initialize -> getStatusReport -> Execution finished well. :-)");
+                            try {
 
-                                    statusReport = statusReportModule.file;
+                                switch (err.result) {
+                                    case global.DEFAULT_OK_RESPONSE.result: {
+                                        logger.write("[INFO] start -> getContextVariables -> getThisProcessReport -> onInitilized -> Execution finished well. :-)");
 
-                                    lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
+                                        statusReport = statusReportModule.file;
 
-                                    /*
-                                    Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
-                                    For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
-                                    */
+                                        lastCandleFile = new Date(statusReport.lastFile);
 
-                                    lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
+                                        /*
+                                        Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
+                                        For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
+                                        */
 
-                                    findPreviousContent();
-                                    return;
-                                }
-                                case global.CUSTOM_FAIL_RESPONSE.result: {  // We need to see if we can handle this.
-                                    logger.write("[ERROR] initialize -> getStatusReport -> err.message = " + err.message);
+                                        lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                                    if (err.message === "Status Report was never created.") {
-
-                                        lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
-
-                                        lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
-
-                                        buildCandles();
-
-                                    } else {
-                                        callBackFunction(err);              // we cant handle this here.
-                                    }
-                                    return;
-                                }
-                                default:
-                                    {
-                                        logger.write("[ERROR] initialize -> getStatusReport -> Operation Failed.");
-                                        callBackFunction(err);
+                                        findPreviousContent();
                                         return;
                                     }
+                                    case global.CUSTOM_FAIL_RESPONSE.result: {  // We need to see if we can handle this.
+                                        logger.write("[ERROR] start -> getContextVariables -> getThisProcessReport -> onInitilized -> err.message = " + err.message);
+
+                                        if (err.message === "Status Report was never created.") {
+
+                                            statusReport = statusReportModule.file;
+
+                                            lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+
+                                            lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
+
+                                            buildCandles();
+
+                                        } else {
+                                            callBackFunction(err);              // we cant handle this here.
+                                        }
+                                        return;
+                                    }
+                                    default:
+                                        {
+                                            logger.write("[ERROR] start -> getContextVariables -> getThisProcessReport -> onInitilized -> Operation Failed.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                }
+                            }
+                            catch (err) {
+                                logger.write("[ERROR] start -> getContextVariables -> getThisProcessReport -> onInitilized -> err = " + err.message);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             }
                         }
                     }
@@ -329,7 +338,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                            let filePath = global.FILE_PATH_ROOT + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> filePath = " + filePath); }
@@ -343,7 +352,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                                 let candlesFile;
 
-                                if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                     try {
                                         candlesFile = JSON.parse(text);
 
@@ -369,7 +378,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                            let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                            let filePath = global.FILE_PATH_ROOT + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
@@ -383,7 +392,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                                 let volumesFile;
 
-                                if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                                     try {
                                         volumesFile = JSON.parse(text);
 
@@ -576,180 +585,193 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                                 function onFileReceived(err, text) {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
-                                    if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
+                                    try {
 
-                                    let candlesFile;
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
+                                        if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
 
-                                    if (err.result === global.CUSTOM_OK_RESPONSE.result) {
-                                        try {
-                                            candlesFile = JSON.parse(text);
+                                        let candlesFile;
 
-                                        } catch (err) {
+                                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                            try {
+                                                candlesFile = JSON.parse(text);
+
+                                            } catch (err) {
+                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            }
+                                        } else {
                                             logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
-                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            callBackFunction(err);
                                         }
-                                    } else {
-                                        logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
-                                        callBackFunction(err);
-                                    }
 
-                                    const inputCandlesPerdiod = 60 * 1000;              // 1 min
-                                    const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
+                                        const inputCandlesPerdiod = 60 * 1000;              // 1 min
+                                        const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
-                                    let totalOutputCandles = inputFilePeriod / outputPeriod; // this should be 2 in this case.
-                                    let beginingOutputTime = lastCandleFile.valueOf();
+                                        let totalOutputCandles = inputFilePeriod / outputPeriod; // this should be 2 in this case.
+                                        let beginingOutputTime = lastCandleFile.valueOf();
 
-                                    for (let i = 0; i < totalOutputCandles; i++) {
+                                        for (let i = 0; i < totalOutputCandles; i++) {
 
-                                        let outputCandle = {
-                                            open: 0,
-                                            close: 0,
-                                            min: 0,
-                                            max: 0,
-                                            begin: 0,
-                                            end: 0
-                                        };
-
-                                        let saveCandle = false;
-
-                                        outputCandle.begin = beginingOutputTime + i * outputPeriod;
-                                        outputCandle.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
-
-                                        for (let j = 0; j < candlesFile.length; j++) {
-
-                                            let candle = {
-                                                open: candlesFile[j][2],
-                                                close: candlesFile[j][3],
-                                                min: candlesFile[j][0],
-                                                max: candlesFile[j][1],
-                                                begin: candlesFile[j][4],
-                                                end: candlesFile[j][5]
+                                            let outputCandle = {
+                                                open: 0,
+                                                close: 0,
+                                                min: 0,
+                                                max: 0,
+                                                begin: 0,
+                                                end: 0
                                             };
 
-                                            /* Here we discard all the candles out of range.  */
+                                            let saveCandle = false;
 
-                                            if (candle.begin >= outputCandle.begin && candle.end <= outputCandle.end) {
+                                            outputCandle.begin = beginingOutputTime + i * outputPeriod;
+                                            outputCandle.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
 
-                                                if (saveCandle === false) { // this will set the value only once.
+                                            for (let j = 0; j < candlesFile.length; j++) {
 
-                                                    outputCandle.open = candle.open;
-                                                    outputCandle.min = candle.min;
-                                                    outputCandle.max = candle.max;
+                                                let candle = {
+                                                    open: candlesFile[j][2],
+                                                    close: candlesFile[j][3],
+                                                    min: candlesFile[j][0],
+                                                    max: candlesFile[j][1],
+                                                    begin: candlesFile[j][4],
+                                                    end: candlesFile[j][5]
+                                                };
 
+                                                /* Here we discard all the candles out of range.  */
+
+                                                if (candle.begin >= outputCandle.begin && candle.end <= outputCandle.end) {
+
+                                                    if (saveCandle === false) { // this will set the value only once.
+
+                                                        outputCandle.open = candle.open;
+                                                        outputCandle.min = candle.min;
+                                                        outputCandle.max = candle.max;
+
+                                                    }
+
+                                                    saveCandle = true;
+
+                                                    outputCandle.close = candle.close;      // only the last one will be saved
+
+                                                    if (candle.min < outputCandle.min) {
+
+                                                        outputCandle.min = candle.min;
+
+                                                    }
+
+                                                    if (candle.max > outputCandle.max) {
+
+                                                        outputCandle.max = candle.max;
+
+                                                    }
                                                 }
+                                            }
 
-                                                saveCandle = true;
+                                            if (saveCandle === true) {      // then we have a valid candle, otherwise it means there were no candles to fill this one in its time range.
 
-                                                outputCandle.close = candle.close;      // only the last one will be saved
-
-                                                if (candle.min < outputCandle.min) {
-
-                                                    outputCandle.min = candle.min;
-
-                                                }
-
-                                                if (candle.max > outputCandle.max) {
-
-                                                    outputCandle.max = candle.max;
-
-                                                }
+                                                outputCandles[n].push(outputCandle);
                                             }
                                         }
 
-                                        if (saveCandle === true) {      // then we have a valid candle, otherwise it means there were no candles to fill this one in its time range.
+                                        nextVolumeFile();
 
-                                            outputCandles[n].push(outputCandle);
-                                        }
+                                    } catch (err) {
+                                        logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
-
-                                    nextVolumeFile();
                                 }
                             }
 
                             function nextVolumeFile() {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
+                                try {
 
-                                let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
-                                let fileName = market.assetA + '_' + market.assetB + ".json"
-                                let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> fileName = " + fileName); }
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
+                                    let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+                                    let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
-                                bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> fileName = " + fileName); }
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
 
-                                function onFileReceived(err, text) {
+                                    bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function."); }
-                                    if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> text = " + text); }
+                                    function onFileReceived(err, text) {
 
-                                    let volumesFile;
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function."); }
+                                        if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> text = " + text); }
 
-                                    if (err.result === global.CUSTOM_OK_RESPONSE.result) {
-                                        try {
-                                            volumesFile = JSON.parse(text);
+                                        let volumesFile;
 
-                                        } catch (err) {
+                                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                            try {
+                                                volumesFile = JSON.parse(text);
+
+                                            } catch (err) {
+                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
+                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            }
+                                        } else {
                                             logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
-                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            callBackFunction(err);
                                         }
-                                    } else {
-                                        logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
-                                        callBackFunction(err);
-                                    }
 
-                                    const inputVolumesPerdiod = 60 * 1000;              // 1 min
-                                    const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
+                                        const inputVolumesPerdiod = 60 * 1000;              // 1 min
+                                        const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
-                                    let totalOutputVolumes = inputFilePeriod / outputPeriod; // this should be 2 in this case.
-                                    let beginingOutputTime = lastCandleFile.valueOf();
+                                        let totalOutputVolumes = inputFilePeriod / outputPeriod; // this should be 2 in this case.
+                                        let beginingOutputTime = lastCandleFile.valueOf();
 
-                                    for (let i = 0; i < totalOutputVolumes; i++) {
+                                        for (let i = 0; i < totalOutputVolumes; i++) {
 
-                                        let outputVolume = {
-                                            buy: 0,
-                                            sell: 0,
-                                            begin: 0,
-                                            end: 0
-                                        };
-
-                                        let saveVolume = false;
-
-                                        outputVolume.begin = beginingOutputTime + i * outputPeriod;
-                                        outputVolume.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
-
-                                        for (let j = 0; j < volumesFile.length; j++) {
-
-                                            let volume = {
-                                                buy: volumesFile[j][0],
-                                                sell: volumesFile[j][1],
-                                                begin: volumesFile[j][2],
-                                                end: volumesFile[j][3]
+                                            let outputVolume = {
+                                                buy: 0,
+                                                sell: 0,
+                                                begin: 0,
+                                                end: 0
                                             };
 
-                                            /* Here we discard all the Volumes out of range.  */
+                                            let saveVolume = false;
 
-                                            if (volume.begin >= outputVolume.begin && volume.end <= outputVolume.end) {
+                                            outputVolume.begin = beginingOutputTime + i * outputPeriod;
+                                            outputVolume.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
 
-                                                saveVolume = true;
+                                            for (let j = 0; j < volumesFile.length; j++) {
 
-                                                outputVolume.buy = outputVolume.buy + volume.buy;
-                                                outputVolume.sell = outputVolume.sell + volume.sell;
+                                                let volume = {
+                                                    buy: volumesFile[j][0],
+                                                    sell: volumesFile[j][1],
+                                                    begin: volumesFile[j][2],
+                                                    end: volumesFile[j][3]
+                                                };
 
+                                                /* Here we discard all the Volumes out of range.  */
+
+                                                if (volume.begin >= outputVolume.begin && volume.end <= outputVolume.end) {
+
+                                                    saveVolume = true;
+
+                                                    outputVolume.buy = outputVolume.buy + volume.buy;
+                                                    outputVolume.sell = outputVolume.sell + volume.sell;
+
+                                                }
+                                            }
+
+                                            if (saveVolume === true) {
+
+                                                outputVolumes[n].push(outputVolume);
                                             }
                                         }
 
-                                        if (saveVolume === true) {
-
-                                            outputVolumes[n].push(outputVolume);
-                                        }
+                                        writeFiles(outputCandles[n], outputVolumes[n], folderName, controlLoop);
                                     }
-
-                                    writeFiles(outputCandles[n], outputVolumes[n], folderName, controlLoop);
+                                } catch (err) {
+                                    logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
@@ -815,8 +837,8 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
-
+                        let filePath = global.FILE_PATH_ROOT + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+ 
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
 
@@ -879,7 +901,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                        let filePath = global.FILE_PATH_ROOT + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
@@ -933,6 +955,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                 try {
 
                     statusReport.lastExecution = global.processDatetime;
+                    statusReport.lastFile = lastFileDate;
                     statusReportModule.save(callBack);
 
                 }

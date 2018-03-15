@@ -5,13 +5,17 @@ const FULL_LOG = true;
 
 global.RUNNING_MODE = 'Production';  // 'Testnet' or 'Production'
 
+/* You do not have funds at the exchange and still want run your bot? No problem activate the exchange simulation mode: */
+
+global.EXCHANGE_SIMULATION_MODE = false;
+
 /* First thing to do is to read the config and guess which bot we will be running. */
 
 var fs = require('fs');
 
 try {
 
-    global.PLATFORM_CONFIG = JSON.parse(fs.readFileSync('platform.config.json', 'utf8'));
+    global.PLATFORM_CONFIG = JSON.parse(fs.readFileSync('this.config.json', 'utf8'));
 
 }
 catch (err) {

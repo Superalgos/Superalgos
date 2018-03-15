@@ -178,7 +178,7 @@
 
                 try {
 
-                    global.PLATFORM_CONFIG = JSON.parse(fs.readFileSync('platform.config.json', 'utf8'));
+                    global.PLATFORM_CONFIG = JSON.parse(fs.readFileSync('this.config.json', 'utf8'));
                     return JSON.parse(global.PLATFORM_CONFIG.stopGracefully);
                 }
                 catch (err) {

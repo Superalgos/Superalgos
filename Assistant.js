@@ -70,6 +70,15 @@
                 return;
             }
 
+            /* If we are in Exchange Simulation Mode then there is not much to do here. */
+
+            if (global.EXCHANGE_SIMULATION_MODE === true) {
+
+                logger.write("[WARN] initialize -> Exchange Simulation Mode detected. -> Skipping all validations.");
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return;
+            } 
+
             /* Procedure to validate we are in sync with the exchange. */
 
             getPositionsAtExchange(onDone);
@@ -591,7 +600,16 @@
 
             /* All validations passed, we proceed. */
 
-            exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
+            if (global.EXCHANGE_SIMULATION_MODE === false) {
+
+                exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
+
+            } else {
+
+                let positionId = Math.trunc(Math.random(1) * 1000000);
+                if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
+                onResponse(global.DEFAULT_OK_RESPONSE, positionId);
+            }
 
             function onResponse(err, pPositionId) {
 
@@ -674,7 +692,16 @@
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
 
-            exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
+            if (global.EXCHANGE_SIMULATION_MODE === false) {
+
+                exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
+
+            } else {
+
+                let positionId = Math.trunc(Math.random(1) * 1000000);
+                if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
+                onResponse(global.DEFAULT_OK_RESPONSE, positionId);
+            }
 
             function onResponse(err, pPositionId) {
 

@@ -9,7 +9,7 @@
     const GMT_MILI_SECONDS = '.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-    const MODULE_NAME = "UserBot";
+    const MODULE_NAME = "User Bot";
 
     const EXCHANGE_NAME = "Poloniex";
 
@@ -422,13 +422,15 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                                 candlesFile = JSON.parse(text);
 
                                             } catch (err) {
-                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.message);
                                                 logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                return;
                                             }
                                         } else {
-                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
                                             callBackFunction(err);
+                                            return;
                                         }
 
                                         const inputCandlesPerdiod = 60 * 1000;              // 1 min
@@ -473,7 +475,6 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                                         outputCandle.open = candle.open;
                                                         outputCandle.min = candle.min;
                                                         outputCandle.max = candle.max;
-
                                                     }
 
                                                     saveCandle = true;
@@ -483,13 +484,11 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                                     if (candle.min < outputCandle.min) {
 
                                                         outputCandle.min = candle.min;
-
                                                     }
 
                                                     if (candle.max > outputCandle.max) {
 
                                                         outputCandle.max = candle.max;
-
                                                     }
                                                 }
                                             }
@@ -536,13 +535,15 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                                 volumesFile = JSON.parse(text);
 
                                             } catch (err) {
-                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
+                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.message);
                                                 logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                return;
                                             }
                                         } else {
-                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
+                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Received -> err = " + err.message);
                                             callBackFunction(err);
+                                            return;
                                         }
 
                                         const inputVolumesPerdiod = 60 * 1000;              // 1 min
@@ -614,7 +615,6 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                             } else {
 
                                 writeStatusReport(contextVariables.lastCandleFile, advanceTime);
-
                             }
                         }
                     }
@@ -700,7 +700,6 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                 writeVolumes();
                             }
                         }
-
                     }
 
                     function writeVolumes() {

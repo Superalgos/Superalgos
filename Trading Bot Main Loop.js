@@ -7,6 +7,7 @@
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
+    let COMMONS_MODULE;
 
     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
@@ -29,6 +30,12 @@
             processConfig = pProcessConfig;
 
             USER_BOT_MODULE = require(pBotPath + "/" + pProcessConfig.name + "/" + 'User.Bot');
+
+            try {
+                COMMONS_MODULE = require(pBotPath + "/" + 'Commons');
+            } catch (err) {
+                // Nothing happens since COMMONS modules are optional.
+            }
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -215,7 +222,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
-                        usertBot = USER_BOT_MODULE.newUserBot(bot, DEBUG_MODULE);
+                        usertBot = USER_BOT_MODULE.newUserBot(bot, DEBUG_MODULE, COMMONS_MODULE);
 
                         let platform = {
                             datasource: datasource,

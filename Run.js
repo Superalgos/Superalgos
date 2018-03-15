@@ -3,7 +3,7 @@ const FULL_LOG = true;
 
 /* The following global variable tells the system if it is running on test mode or production. */
 
-global.RUNNING_MODE = 'Production';  // 'Testnet' or 'Production'
+global.RUNNING_MODE = 'Mixed';  // 'Testnet' or 'Production'
 
 /* You do not have funds at the exchange and still want run your bot? No problem activate the exchange simulation mode: */
 
@@ -86,6 +86,11 @@ global.DEFAULT_FAIL_RESPONSE = {
 global.DEFAULT_RETRY_RESPONSE = {
     result: "Retry",
     message: "Retry Later"
+}; 
+
+global.CUSTOM_OK_RESPONSE = {
+    result: "Ok, but check Message",
+    message: "Custom Message"
 }; 
 
 global.CUSTOM_FAIL_RESPONSE = {

@@ -24,23 +24,23 @@
 
         try {
 
-            folderPath = '../../Logs';
+            folderPath = '../Logs';
 
             createFolderSync(folderPath);
 
-            folderPath = '../../Logs/' + thisObject.bot.devTeam;
+            folderPath = '../Logs/' + thisObject.bot.devTeam;
 
             createFolderSync(folderPath);
 
-            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type;
+            folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type;
 
             createFolderSync(folderPath);
 
-            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor;
+            folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor;
 
             createFolderSync(folderPath);
 
-            folderPath = '../../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process;
+            folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process;
 
             createFolderSync(folderPath);
 
@@ -81,7 +81,7 @@
 
     function createFolderSync(name) {
         try {
-            fileSystem.mkdirSync( './logs/' + name)
+            fileSystem.mkdirSync(  name)
         } catch (err) {
             if (err.code !== 'EEXIST') throw err
         }
@@ -96,7 +96,7 @@
         try {
             for (i = 1; i < 1000000; i++) {
 
-                filePath = './logs/' + relativePath + i + "." + fileName + '.log';
+                filePath =  relativePath + i + "." + fileName + '.log';
                 stats = fileSystem.statSync(filePath);
             }
         }
@@ -104,14 +104,14 @@
 
             if (i > 1) {
 
-                filePath = './logs/' + relativePath + (i - 1) + "." + fileName + '.log';
+                filePath =  relativePath + (i - 1) + "." + fileName + '.log';
 
                 stats = fileSystem.statSync(filePath);
                 const fileSizeInBytes = stats.size;
 
                 if (fileSizeInBytes > 10240000) {
 
-                    filePath = './logs/' + relativePath + i + "." + fileName + '.log';
+                    filePath =  relativePath + i + "." + fileName + '.log';
                 }
 
                 return filePath;

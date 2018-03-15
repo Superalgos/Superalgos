@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(BOT, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT) {
+﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -12,7 +12,6 @@
     const MODULE_NAME = "UserBot";
 
     const EXCHANGE_NAME = "Poloniex";
-    const EXCHANGE_ID = 1;
 
     const TRADES_FOLDER_NAME = "Trades";
 
@@ -26,7 +25,9 @@
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    interval = {
+    const commons = COMMONS.newCommons(bot, DEBUG_MODULE, UTILITIES);
+
+    thisObject = {
         initialize: initialize,
         start: start
     };
@@ -37,10 +38,9 @@
 
     let utilities = UTILITIES.newUtilities(bot);
 
-    let statusReport;
-    let statusReportModule;
+    let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
 
-    return interval;
+    return thisObject;
 
     function initialize(yearAssigend, monthAssigned, callBackFunction) {
 
@@ -48,7 +48,7 @@
 
             /* IMPORTANT NOTE:
 
-            We are ignoring in this UserBot the received Year and Month. This interval is not depending on Year Month since it procecess the whole market at once.
+            We are ignoring in this UserBot the received Year and Month. thisObject is not depending on Year Month since it procecess the whole market at once.
 
             */
 
@@ -58,58 +58,7 @@
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + yearAssigend); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + monthAssigned); }
 
-            initializeCharlyStorage();
-
-            function initializeCharlyStorage() {
-
-                charlyFileStorage.initialize("AACharly", onCharlyInizialized);
-
-                function onCharlyInizialized(err) {
-
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                        initializeBruceStorage();
-
-                    } else {
-                        logger.write("[ERROR] initialize -> initializeCharlyStorage -> onCharlyInizialized -> err = " + err.message);
-                        callBackFunction(err);
-                    }
-                }
-            }
-
-            function initializeBruceStorage() {
-
-                bruceFileStorage.initialize("AABruce", onBruceInizialized);
-
-                function onBruceInizialized(err) {
-
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                        initializeOliviaStorage();
-
-                    } else {
-                        logger.write("[ERROR] initialize -> initializeBruceStorage -> onBruceInizialized -> err = " + err.message);
-                        callBackFunction(err);
-                    }
-                }
-            }
-
-            function initializeOliviaStorage() {
-
-                oliviaFileStorage.initialize("AAOlivia", onOliviaInizialized);
-
-                function onOliviaInizialized(err) {
-
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                    } else {
-                        logger.write("[ERROR] initialize -> initializeOliviaStorage -> onOliviaInizialized -> err = " + err.message);
-                        callBackFunction(err);
-                    }
-                }
-            }
+            commons.initializeStorage(charlyFileStorage, bruceFileStorage, oliviaFileStorage, callBackFunction);
 
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
@@ -135,176 +84,52 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
             /* Context Variables */
 
-            let lastCandleFile;                 // Datetime of the last file included on the Index Files.
-            let firstTradeFile;                 // Datetime of the first trade file in the whole market history.
-            let maxCandleFile;                  // Datetime of the last file available to be included in the Index File.
+            contextVariables = {
+                lastCandleFile: undefined,          // Datetime of the last file included on the Index Files.
+                firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
+                maxCandleFile: undefined            // Datetime of the last file available to be included in the Index File.
+            };
 
-            getContextVariables();
+            commons.getContextVariables(charlyFileStorage, bruceFileStorage, oliviaFileStorage, contextVariables, statusReportModule, onVariablesReady);
 
-            function getContextVariables() {
+            function onVariablesReady(err) {
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> onVariablesReady -> Entering function."); }
 
-                    let reportFilePath;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
+                    if (err.result === global.CUSTOM_OK_RESPONSE.result) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> fileName = " + fileName); }
+                        switch (err.message) {
+                            case 'Status Report did exist.': {
+                                logger.write("[INFO] start -> onVariablesReady -> Status Report did exist.");
 
-                    getHistoricTrades();
-
-                    function getHistoricTrades() {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getHistoricTrades -> Entering function."); }
-
-                        /*
-
-                        We need to know where is the begining of the market, since that will help us know where the Index Files should start. 
-
-                        */
-
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Historic-Trades";
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getHistoricTrades -> reportFilePath = " + reportFilePath); }
-
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived);
-
-                        function onFileReceived(err, text) {
-
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> Entering function."); }
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> text = " + text); }
-
-                            let thisReport;
- 
-                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                                try {
-                                    thisReport = JSON.parse(text);
-
-                                    firstTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
-
-                                    getOneMinDailyCandlesVolumes();
-
-                                } catch (err) {
-                                    logger.write("[ERROR] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> err = " + err.message);
-                                    logger.write("[ERROR] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                }
-                            } else {
-                                logger.write("[ERROR] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> err = " + err.message);
-                                callBackFunction(err);
+                                findPreviousContent();
+                                return;
                             }
+                            case 'Status Report did not exist.': {  
+                                logger.write("[ERROR] start -> onVariablesReady -> Status Report did not exist.");
+
+                                buildCandles();
+                                return;
+                            }
+                            default:
+                                {
+                                    logger.write("[ERROR] start -> onVariablesReady -> Operation Failed.");
+                                    callBackFunction(err);
+                                    return;
+                                }
                         }
+
+                    } else {
+                        logger.write("[ERROR] start -> onVariablesReady -> Operation Failed.");
+                        callBackFunction(err);
+                        return;
                     }
 
-                    function getOneMinDailyCandlesVolumes() {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> Entering function."); }
-
-                        /* We need to discover the maxCandle file, which is the last file with candles we can use as input. */
-
-                        let date = new Date();
-                        let currentYear = date.getUTCFullYear();
-                        let currentMonth = utilities.pad(date.getUTCMonth() + 1,2);
-
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "One-Min-Daily-Candles-Volumes" + "/" + currentYear + "/" + currentMonth;
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> reportFilePath = " + reportFilePath); }
-
-                        bruceFileStorage.getTextFile(reportFilePath, fileName, onFileReceived);
-
-                        function onFileReceived(err, text) {
-
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> onFileReceived -> Entering function."); }
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> onFileReceived -> text = " + text); }
-
-                            let thisReport;
-
-                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                                try {
-                                    thisReport = JSON.parse(text);
-
-                                    maxCandleFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-
-                                    getThisProcessReport();
-
-                                } catch (err) {
-                                    logger.write("[ERROR] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> onFileReceived -> err = " + err.message);
-                                    logger.write("[ERROR] start -> getContextVariables -> getOneMinDailyCandlesVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                }
-                            } else {
-                                logger.write("[ERROR] start -> getContextVariables -> getHistoricTrades -> onFileReceived -> err = " + err.message);
-                                callBackFunction(err);
-                            }
-                        }
-                    }
-
-                    function getThisProcessReport() {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> getThisProcessReport -> Entering function."); }
-
-                        statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
-                        statusReportModule.initialize(bot, onInitilized);
-
-                        function onInitilized(err) {
-
-                            try {
-
-                                switch (err.result) {
-                                    case global.DEFAULT_OK_RESPONSE.result: {
-                                        logger.write("[INFO] start -> getContextVariables -> getThisProcessReport -> onInitilized -> Execution finished well. :-)");
-
-                                        statusReport = statusReportModule.file;
-
-                                        lastCandleFile = new Date(statusReport.lastFile);
-
-                                        /*
-                                        Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
-                                        For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
-                                        */
-
-                                        lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
-
-                                        findPreviousContent();
-                                        return;
-                                    }
-                                    case global.CUSTOM_FAIL_RESPONSE.result: {  // We need to see if we can handle this.
-                                        logger.write("[ERROR] start -> getContextVariables -> getThisProcessReport -> onInitilized -> err.message = " + err.message);
-
-                                        if (err.message === "Status Report was never created.") {
-
-                                            statusReport = statusReportModule.file;
-
-                                            lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
-
-                                            lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
-
-                                            buildCandles();
-
-                                        } else {
-                                            callBackFunction(err);              // we cant handle this here.
-                                        }
-                                        return;
-                                    }
-                                    default:
-                                        {
-                                            logger.write("[ERROR] start -> getContextVariables -> getThisProcessReport -> onInitilized -> Operation Failed.");
-                                            callBackFunction(err);
-                                            return;
-                                        }
-                                }
-                            }
-                            catch (err) {
-                                logger.write("[ERROR] start -> getContextVariables -> getThisProcessReport -> onInitilized -> err = " + err.message);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                }
-                catch (err) {
-                    logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                } catch (err) {
+                    logger.write("[ERROR] start -> onVariablesReady -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -471,15 +296,15 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> Entering function."); }
 
-                        lastCandleFile = new Date(lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
+                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + "."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + "."); }
 
                         /* Validation that we are not going past the head of the market. */
 
-                        if (lastCandleFile.valueOf() > maxCandleFile.valueOf()) {
+                        if (contextVariables.lastCandleFile.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + "."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + "."); }
 
                             callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
                             return;
@@ -535,7 +360,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         end: previousCandles[i][5]
                                     };
 
-                                    if (candle.end < lastCandleFile.valueOf()) {
+                                    if (candle.end < contextVariables.lastCandleFile.valueOf()) {
 
                                         outputCandles[n].push(candle);
 
@@ -557,7 +382,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         sell: previousVolumes[i][1]
                                     };
 
-                                    if (volume.end < lastCandleFile.valueOf()) {
+                                    if (volume.end < contextVariables.lastCandleFile.valueOf()) {
 
                                         outputVolumes[n].push(volume);
 
@@ -574,7 +399,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> Entering function."); }
 
-                                let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+                                let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
                                 let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
@@ -610,7 +435,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
                                         let totalOutputCandles = inputFilePeriod / outputPeriod; // this should be 2 in this case.
-                                        let beginingOutputTime = lastCandleFile.valueOf();
+                                        let beginingOutputTime = contextVariables.lastCandleFile.valueOf();
 
                                         for (let i = 0; i < totalOutputCandles; i++) {
 
@@ -690,7 +515,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                                     if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
 
-                                    let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+                                    let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
                                     let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
@@ -724,7 +549,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
                                         let totalOutputVolumes = inputFilePeriod / outputPeriod; // this should be 2 in this case.
-                                        let beginingOutputTime = lastCandleFile.valueOf();
+                                        let beginingOutputTime = contextVariables.lastCandleFile.valueOf();
 
                                         for (let i = 0; i < totalOutputVolumes; i++) {
 
@@ -788,7 +613,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             } else {
 
-                                writeStatusReport(lastCandleFile, advanceTime);
+                                writeStatusReport(contextVariables.lastCandleFile, advanceTime);
 
                             }
                         }
@@ -954,8 +779,8 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                 try {
 
-                    statusReport.lastExecution = global.processDatetime;
-                    statusReport.lastFile = lastFileDate;
+                    statusReportModule.file.lastExecution = global.processDatetime;
+                    statusReportModule.file.lastFile = lastFileDate;
                     statusReportModule.save(callBack);
 
                 }

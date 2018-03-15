@@ -21,7 +21,10 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Compile Include="Multi-Period-Daily\Interval.js" />
+    <Compile Include="Commons.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Multi-Period-Daily\User.bot.js" />
     <Compile Include="Multi-Period-Market\User.bot.js" />
     <Content Include="logs\Dummy File.txt" />
     <Content Include="obj\Debug\AABruce.njsproj.FileListAbsolute.txt" />

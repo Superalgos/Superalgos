@@ -28,8 +28,8 @@
           "run": "true"
         }
       },
-      "intervalLapse": 3600000,
-      "intervalMaxLoops": -1
+      "executionWaitTime": 3600000,
+      "retryWaitTime": 10000
     },
     {
       "name": "Multi-Period-Daily",
@@ -49,8 +49,8 @@
           "run": "true"
         }
       },
-      "intervalLapse": 60000,
-      "intervalMaxLoops": -1
+      "executionWaitTime": 60000,
+      "retryWaitTime": 10000
     }
   ],
   "products": [

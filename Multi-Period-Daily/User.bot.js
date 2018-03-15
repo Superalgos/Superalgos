@@ -1,4 +1,7 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT) {
+
+    const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
 
     let bot = BOT;
 
@@ -6,11 +9,9 @@
     const GMT_MILI_SECONDS = '.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-    const MODULE_NAME = "Interval";
-    const LOG_INFO = true;
+    const MODULE_NAME = "UserBot";
 
     const EXCHANGE_NAME = "Poloniex";
-    const EXCHANGE_ID = 1;
 
     const TRADES_FOLDER_NAME = "Trades";
 
@@ -20,27 +21,27 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUMES_ONE_MIN = "One-Min";
 
-    const GO_RANDOM = false;
-    const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. 
-
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    interval = {
+    const commons = COMMONS.newCommons(bot, DEBUG_MODULE);
+
+    thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let markets;
-
-    let charlyAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let bruceAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let oliviaAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
+    let charlyFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let bruceFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let oliviaFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
-    return interval;
+    let statusReport;
+    let statusReportModule;
+
+    return thisObject;
 
     function initialize(yearAssigend, monthAssigned, callBackFunction) {
 
@@ -48,30 +49,72 @@
 
             /* IMPORTANT NOTE:
 
-            We are ignoring in this Interval the received Year and Month. This interval is not depending on Year Month since it procecess the whole market at once.
+            We are ignoring in this UserBot the received Year and Month. thisObject is not depending on Year Month since it procecess the whole market at once.
 
             */
 
             logger.fileName = MODULE_NAME;
 
-            const logText = "[INFO] initialize - Entering function 'initialize' ";
-            console.log(logText);
-            logger.write(logText);
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + yearAssigend); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + monthAssigned); }
 
-            charlyAzureFileStorage.initialize("Charly");
-            bruceAzureFileStorage.initialize("Bruce");
-            oliviaAzureFileStorage.initialize("Olivia");
+            initializeCharlyStorage();
 
-            markets = MARKETS_MODULE.newMarkets(bot);
-            markets.initialize(callBackFunction);
+            function initializeCharlyStorage() {
 
+                charlyFileStorage.initialize("AACharly", onCharlyInizialized);
+
+                function onCharlyInizialized(err) {
+
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                        initializeBruceStorage();
+
+                    } else {
+                        logger.write("[ERROR] initialize -> initializeCharlyStorage -> onCharlyInizialized -> err = " + err.message);
+                        callBackFunction(err);
+                    }
+                }
+            }
+
+            function initializeBruceStorage() {
+
+                bruceFileStorage.initialize("AABruce", onBruceInizialized);
+
+                function onBruceInizialized(err) {
+
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                        initializeOliviaStorage();
+
+                    } else {
+                        logger.write("[ERROR] initialize -> initializeBruceStorage -> onBruceInizialized -> err = " + err.message);
+                        callBackFunction(err);
+                    }
+                }
+            }
+
+            function initializeOliviaStorage() {
+
+                oliviaFileStorage.initialize("AAOlivia", onOliviaInizialized);
+
+                function onOliviaInizialized(err) {
+
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                    } else {
+                        logger.write("[ERROR] initialize -> initializeOliviaStorage -> onOliviaInizialized -> err = " + err.message);
+                        callBackFunction(err);
+                    }
+                }
+            }
 
         } catch (err) {
-
-            const logText = "[ERROR] initialize - ' ERROR : " + err.message;
-            console.log(logText);
-            logger.write(logText);
-
+            logger.write("[ERROR] initialize -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -79,7 +122,7 @@
 
 This process is going to do the following:
 
-Read the candles and volumes from Bruce and produce a single Index File for each market with daily candles and volumes. 
+Read the candles and volumes from Bruce and produce a file for each day and for each period with candles and volumes. 
 
 */
 
@@ -87,171 +130,18 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
         try {
 
-            if (LOG_INFO === true) {
-                logger.write("[INFO] Entering function 'start'");
-            }
+            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
 
-            let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
-            let nextIntervalLapse;             // With this we can request the next execution wait time. 
+            let market = global.MARKET;
 
-            let marketQueue;            // This is the queue of all markets to be procesesd at each interval.
-            let market = {              // This is the current market being processed after removing it from the queue.
-                id: 0,
-                assetA: "",
-                assetB: ""
-            };
+        
 
             let lastCandleFile;         // Datetime of the last file included on the Index File.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
             let maxCandleFile;          // Datetime of the last file available to be included in the Index File.
 
-            let periods =
-                '[' +
-                '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
-                '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
-                '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
-                '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
-                '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
-                '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
-                '[' + 05 * 60 * 1000 + ',' + '"05-min"' + ']' + ',' +
-                '[' + 04 * 60 * 1000 + ',' + '"04-min"' + ']' + ',' +
-                '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
-                '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
-                '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
-
-            const outputPeriods = JSON.parse(periods);
-
-            marketsLoop(); 
-
-            /*
-    
-            At every run, the process needs to loop through all the markets at this exchange.
-            The following functions marketsLoop(), openMarket(), closeMarket() and closeAndOpenMarket() controls the serialization of this processing.
-
-            */
-
-            function marketsLoop() {
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'marketsLoop'");
-                    }
-
-                    markets.getMarketsByExchange(EXCHANGE_ID, onMarketsReady);
-
-                    function onMarketsReady(marketsArray) {
-
-                        marketQueue = JSON.parse(marketsArray);
-
-                        openMarket(); // First execution and entering into the real loop.
-
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'marketsLoop' - ERROR : " + err.message;
-                    logger.write(logText);
-                }
-            }
-
-            function openMarket() {
-
-                // To open a Market means picking a new market from the queue.
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'openMarket'");
-                    }
 
 
-                    if (marketQueue.length === 0) {
-
-                        if (LOG_INFO === true) {
-                            logger.write("[INFO] 'openMarket' - marketQueue.length === 0");
-                        }
-
-                        const logText = "[WARN] We processed all the markets.";
-                        logger.write(logText);
-
-                        callBackFunction(nextIntervalExecution, nextIntervalLapse);
-
-                        return;
-                    }
-
-                    if (GO_RANDOM === true) {
-                        const index = parseInt(Math.random() * (marketQueue.length - 1));
-
-                        market.id = marketQueue[index][0];
-                        market.assetA = marketQueue[index][1];
-                        market.assetB = marketQueue[index][2];
-                        market.status = marketQueue[index][3];
-
-                        marketQueue.splice(index, 1);
-                    } else {
-                        let marketRecord = marketQueue.shift();
-
-                        market.id = marketRecord[0];
-                        market.assetA = marketRecord[1];
-                        market.assetB = marketRecord[2];
-                        market.status = marketRecord[3];
-
-                        if (FORCE_MARKET > 0) {
-                            if (FORCE_MARKET !== market.id) {
-                                closeAndOpenMarket();
-                                return;
-                            }
-                        }
-                    }
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
-                        logger.write("[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
-                    }
-
-                    if (market.status === markets.ENABLED) {
-
-                        getStatusReport();
-
-                    } else {
-
-                        logger.write("[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
-                        closeAndOpenMarket();
-                        return;
-
-                    }
-
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'openMarket' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-            function closeMarket() {
-
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeMarket'");
-                }
-
-            }
-
-            function closeAndOpenMarket() {
-
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeAndOpenMarket'");
-                }
-
-                openMarket();
-            }
-
-            /*
-
-            The following code executes for each market.
-
-            */
 
             function getStatusReport() {
 
@@ -272,7 +162,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Historic-Trades";
 
-                        charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                        charlyFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
                         function onStatusReportReceived(text) {
 
@@ -306,7 +196,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         reportFilePath = EXCHANGE_NAME + "/Processes/" + "One-Min-Daily-Candles-Volumes" + "/" + currentYear + "/" + currentMonth;
 
-                        bruceAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                        bruceFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
                         function onStatusReportReceived(text) {
 
@@ -342,7 +232,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
 
-                        oliviaAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                        oliviaFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
 
                         function onStatusReportReceived(text) {
 
@@ -404,7 +294,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         if (lastCandleFile.valueOf() > maxCandleFile.valueOf()) {
 
-                            nextIntervalExecution = true;  // we request a new interval execution.
+                            nextIntervalExecution = true;  // we request a new thisObject execution.
 
                             const logText = "[INFO] 'buildCandles' - Head of the market found @ " + lastCandleFile.getUTCFullYear() + "/" + (lastCandleFile.getUTCMonth() + 1) + "/" + lastCandleFile.getUTCDate() + ".";
                             logger.write(logText);
@@ -463,7 +353,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
                                 let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                                bruceAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                                 function onFileReceived(text) {
 
@@ -480,7 +370,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                                         closeAndOpenMarket();
 
-                                        nextIntervalExecution = true;  // we request a new interval execution.
+                                        nextIntervalExecution = true;  // we request a new thisObject execution.
                                         nextIntervalLapse = 30000;      
 
                                         return;
@@ -567,7 +457,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
                                 let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
-                                bruceAzureFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                                 function onFileReceived(text) {
 
@@ -705,11 +595,11 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
 
-                        utilities.createFolderIfNeeded(filePath, oliviaAzureFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, oliviaFileStorage, onFolderCreated);
 
                         function onFolderCreated() {
 
-                            oliviaAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            oliviaFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
@@ -750,11 +640,11 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                         let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
 
-                        utilities.createFolderIfNeeded(filePath, oliviaAzureFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, oliviaFileStorage, onFolderCreated);
 
                         function onFolderCreated() {
 
-                            oliviaAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            oliviaFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
@@ -785,7 +675,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
 
-                    utilities.createFolderIfNeeded(reportFilePath, oliviaAzureFileStorage, onFolderCreated);
+                    utilities.createFolderIfNeeded(reportFilePath, oliviaFileStorage, onFolderCreated);
 
                     function onFolderCreated() {
 
@@ -803,7 +693,7 @@ Read the candles and volumes from Bruce and produce a single Index File for each
 
                             let fileContent = JSON.stringify(report); 
 
-                            oliviaAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+                            oliviaFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 

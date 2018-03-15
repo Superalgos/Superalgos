@@ -97,7 +97,7 @@
                             callBackFunction(err);
                             return;
                         }
-                        case global.CUSTOM_FAIL_RESPONSE.result: {
+                        case global.CUSTOM_OK_RESPONSE.result: {
                             logger.write("[INFO] initialize -> onDone -> Execution finished with some expected issue.");
                             callBackFunction(err);
                             return;
@@ -133,12 +133,12 @@
 
                             thisObject.file = JSON.parse('{}');
 
-                            let customErr = {
-                                result: global.CUSTOM_FAIL_RESPONSE.result,
+                            let customOK = {
+                                result: global.CUSTOM_OK_RESPONSE.result,
                                 message: "Status Report was never created."
                             }
-                            logger.write("[ERROR] save -> err = " + err.message);
-                            callBack(customErr);
+                            logger.write("[WARN] initialize -> getFile -> onFileReceived -> customOK = " + err.message);
+                            callBack(customOK);
                             return;
                         }
 
@@ -196,7 +196,7 @@
                     result: global.CUSTOM_FAIL_RESPONSE.result,
                     message: "Only bots owners of a Status Report can save them."
                 }
-                logger.write("[ERROR] save -> err = " + err.message);
+                logger.write("[ERROR] save -> customErr = " + err.message);
                 callBackFunction(customErr);
                 return;
             }

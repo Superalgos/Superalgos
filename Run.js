@@ -131,6 +131,10 @@ global.dailyFilePeriods =
 
 global.dailyFilePeriods = JSON.parse(global.dailyFilePeriods);
 
+/* File Path Root */
+
+global.FILE_PATH_ROOT = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+
 /* Some LAGACY code starts here. Pending for clean up. */
 
 const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');

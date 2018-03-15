@@ -63,47 +63,11 @@
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
-                    let statusReport;
                     let userBot;
 
                     let nextWaitTime;
 
-                    initializeStatusReport();
-
-                    function initializeStatusReport() {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusReport ->  Entering function."); }
-
-                        statusReport = STATUS_REPORT.newStatusReport(bot, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
-                        statusReport.initialize(bot, onInizialized);
-
-                        function onInizialized(err) {
-
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeStatusReport -> onInizialized > Execution finished well. :-)");
-                                    initializeUserBot();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeStatusReport -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeStatusReport -> onInizialized > Operation Failed. Aborting the process.");
-                                    callBackFunction(err);
-                                    return;
-                                }
-                                case global.CUSTOM_FAIL_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeStatusReport -> onInizialized > Execution finished with some expected issue.");
-                                    initializeUserBot();
-                                    return;
-                                }
-                            }
-                        }
-                    }
+                    initializeUserBot();
 
                     function initializeUserBot() {
 

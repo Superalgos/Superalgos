@@ -164,7 +164,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                     logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
                     logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
 
-                    if (err.message.indexOf("The server is busy") > 0) {
+                    if (err.message.indexOf("The server is busy") > 0 || err.code === 'ECONNRESET') {
 
                         setTimeout(secondTry, 1000);
 
@@ -236,7 +236,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
 
                 if (err) {
                 
-                    if (err.message.indexOf("The server is busy") > 0) {
+                    if (err.message.indexOf("The server is busy") > 0 || err.code === 'ECONNRESET') {
 
                         setTimeout(secondTry, 1000);
 
@@ -259,7 +259,23 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                         }
                     }
 
-                    if (err.code = "ParentNotFound") {
+                    if (err.code === "ResourceNotFound") {
+
+                        /* This is how Azure tell us the file does not exist. */
+
+                        let customErr = {
+                            result: global.CUSTOM_FAIL_RESPONSE.result,
+                            message: "File does not exist."
+                        };
+
+                        logger.write("[ERROR] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
+
+                        callBackFunction(customErr);
+                        return;
+
+                    }
+
+                    if (err.code === "ParentNotFound") {
 
                         /* This is how Azure tell us the folder where the file was supposed to be does not exist. We map this to our own response. */
 
@@ -274,7 +290,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
                         return;
 
                     }
-
+                    
 
                     logger.write("[ERROR] getTextFile -> onFileReceived -> Dont know what to do here. Cancelling operation. ");
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);

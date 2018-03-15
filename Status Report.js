@@ -117,7 +117,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> Entering function."); }
 
                     let fileName = "Status.Report.json"
-                    let filePath = ownerBot.devTeam + "/" + ownerBot.codeName + "." + ownerBot.version.major + "." + ownerBot.version.minor + "/" + ownerBot.dataSetVersion + "/Processes/" + ownerBot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor;
+                    let filePath = global.FILE_PATH_ROOT + "/Reports/" + bot.process;
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> filePath = " + filePath); }
@@ -131,7 +131,7 @@
 
                             /* In this case we can assume that this is the first execution ever of this bot.*/
 
-                            thisObject.statusReport = JSON.parse('{}');
+                            thisObject.file = JSON.parse('{}');
 
                             let customErr = {
                                 result: global.CUSTOM_FAIL_RESPONSE.result,
@@ -154,7 +154,7 @@
 
                         try {
 
-                            thisObject.statusReport = JSON.parse(text);
+                            thisObject.file = JSON.parse(text);
                             callBack(global.DEFAULT_OK_RESPONSE);
 
                         } catch (err) {
@@ -202,7 +202,7 @@
             }
 
             let fileName = "Status.Report.json"
-            let filePath = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + bot.dataSetVersion + "/Processes/" + bot.process + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor;
+            let filePath = global.FILE_PATH_ROOT + "/Reports/" + bot.process;
 
             if (FULL_LOG === true) { logger.write("[INFO] save -> fileName = " + fileName); }
             if (FULL_LOG === true) { logger.write("[INFO] save -> filePath = " + filePath); }
@@ -221,7 +221,7 @@
                         return;
                     }
 
-                    let fileContent = JSON.stringify(thisObject.statusReport);
+                    let fileContent = JSON.stringify(thisObject.file);
 
                     cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 

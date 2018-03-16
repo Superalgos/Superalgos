@@ -1,4 +1,4 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿exports.newInterval = function newInterval(BOT, UTILITIES, FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
 
     let bot = BOT;
     const ROOT_DIR = './';
@@ -27,7 +27,7 @@
 
     let markets;
 
-    let azureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
+    let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -51,7 +51,7 @@
             console.log(logText);
             logger.write(logText);
 
-            azureFileStorage.initialize();
+            charlyFileStorage.initialize();
 
             markets = MARKETS_MODULE.newMarkets(bot);
             markets.initialize(callBackFunction);
@@ -277,7 +277,7 @@ This process complements the Live Trades process and write historical trades fil
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                    azureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
 
                     function onFileReceived(text) {
 
@@ -333,7 +333,7 @@ This process complements the Live Trades process and write historical trades fil
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                    azureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
 
                     function onFileReceived(text) {
 
@@ -726,11 +726,11 @@ This process complements the Live Trades process and write historical trades fil
 
                         filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                        utilities.createFolderIfNeeded(filePath, azureFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, charlyFileStorage, onFolderCreated);
 
                         function onFolderCreated() {
 
-                            azureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            charlyFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
@@ -848,7 +848,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
 
-                    utilities.createFolderIfNeeded(reportFilePath, azureFileStorage, onFolderCreated);
+                    utilities.createFolderIfNeeded(reportFilePath, charlyFileStorage, onFolderCreated);
 
                     function onFolderCreated() {
 
@@ -867,7 +867,7 @@ This process complements the Live Trades process and write historical trades fil
 
                         let fileContent = JSON.stringify(report); 
 
-                        azureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+                        charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
 
                         function onFileCreated() {
 
@@ -879,7 +879,7 @@ This process complements the Live Trades process and write historical trades fil
 
                                 reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
 
-                                utilities.createFolderIfNeeded(reportFilePath, azureFileStorage, onFolderCreated);
+                                utilities.createFolderIfNeeded(reportFilePath, charlyFileStorage, onFolderCreated);
 
                                 function onFolderCreated() {
 
@@ -898,7 +898,7 @@ This process complements the Live Trades process and write historical trades fil
 
                                     let fileContent = JSON.stringify(report);
 
-                                    azureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
+                                    charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
 
                                     function onMasterFileCreated() {
 
@@ -965,7 +965,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     /* Lets read the main status report */
 
-                    azureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
 
                     function onFileReceived(text) {
 
@@ -1001,7 +1001,7 @@ This process complements the Live Trades process and write historical trades fil
                         let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + initialYear + "/" + paddedInitialMonth;
                         let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                        azureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived, true);
+                        charlyFileStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived, true);
 
                         function onStatusReportFileReceived(text) {
 
@@ -1067,7 +1067,7 @@ This process complements the Live Trades process and write historical trades fil
                         let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
                         let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                        azureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                        charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
 
                         function onFileReceived(text) {
 
@@ -1077,7 +1077,7 @@ This process complements the Live Trades process and write historical trades fil
 
                             let fileContent = JSON.stringify(statusReport);
 
-                            azureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
+                            charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
 
                             function onMasterFileCreated() {
 

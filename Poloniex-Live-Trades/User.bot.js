@@ -1,59 +1,68 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE) {
+
+    const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
 
     let bot = BOT;
-    const ROOT_DIR = './';
+
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
 
-    const MODULE_NAME = "Interval";
-    const LOG_INFO = true;
+    const MODULE_NAME = "User Bot";
 
     const EXCHANGE_NAME = "Poloniex";
-    const EXCHANGE_ID = 1;
 
     const TRADES_FOLDER_NAME = "Trades";
-
-    const GO_RANDOM = false;
-    const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. 
-    const FORCED_INITIAL_TIME = undefined; //"2018-01-19 12:15:00.000 GMT+0000"
 
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    interval = {
+    thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let markets;
-
-    let azureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
+    let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
     return interval;
 
-    function initialize(pYear, pMonth, callBackFunction) { // Year and Month ignored at this process.
+    function initialize(yearAssigend, monthAssigned, callBackFunction) {
 
         try {
 
-            const logText = "[INFO] initialize - Entering function 'initialize' ";
-            console.log(logText);
-            logger.write(logText);
+            /* IMPORTANT NOTE:
 
-            azureFileStorage.initialize();
+            We are ignoring in this UserBot the received Year and Month. thisObject is not depending on Year / Month.
 
-            markets = MARKETS_MODULE.newMarkets(bot);
-            markets.initialize(callBackFunction);
+            */
 
+            logger.fileName = MODULE_NAME;
+
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + yearAssigend); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + monthAssigned); }
+
+            charlyFileStorage.initialize("AACharly", onCharlyInizialized);
+
+            function onCharlyInizialized(err) {
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCharlyInizialized -> Initialization Succeed."); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } else {
+                    logger.write("[ERROR] initialize -> onCharlyInizialized -> err = " + err.message);
+                    callBackFunction(err);
+                }
+            }
 
         } catch (err) {
-
-            const logText = "[ERROR] initialize - ' ERROR : " + err.message;
-            console.log(logText);
-            logger.write(logText);
-
+            logger.write("[ERROR] initialize -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -64,11 +73,9 @@ We are going to generate 2 files:
 A. The first one will contain all the trades of the current minute and will be store in a folder that we will create for this if it does not exist.
 This file will be incomplete, since we are at the current minute and some trades will happen after we retrieve the information from the exchange,
 but this is not a problem, since the second file is going to fix this. This file is only usefull for viewing a partial candle as it is being built
-at the end of the chart.
+at the head of the market.
 
-B. The second file will contain all the trades of the previous minute. It will be the definitive file the system will use.
-
-Besides that, we are going to delete the A file of the previous minute, since it is not needed anymore after the B file is there.
+B. The second file will contain all the trades of the previous minute. This will override the incomplete file written a minute before.
 
 FILE FORMAT
 -----------
@@ -156,15 +163,15 @@ Array of records with this information:
                         filePathA = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathA;
                         filePathB = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathB;
 
-                        utilities.createFolderIfNeeded(filePathA, azureFileStorage, onFolderACreated);
+                        utilities.createFolderIfNeeded(filePathA, charlyFileStorage, onFolderACreated);
 
                         function onFolderACreated() {
 
-                            utilities.createFolderIfNeeded(filePathB, azureFileStorage, onFolderBCreated);
+                            utilities.createFolderIfNeeded(filePathB, charlyFileStorage, onFolderBCreated);
 
                             function onFolderBCreated() {
 
-                                utilities.createFolderIfNeeded(reportFilePath, azureFileStorage, onFolderCreated);
+                                utilities.createFolderIfNeeded(reportFilePath, charlyFileStorage, onFolderCreated);
 
                                 function onFolderCreated() {
 
@@ -462,7 +469,7 @@ Array of records with this information:
 
                     fileContent = fileContent + ']';
 
-                    azureFileStorage.createTextFile(filePathA, fileNameA, fileContent + '\n', onFirstFileACreated);
+                    charlyFileStorage.createTextFile(filePathA, fileNameA, fileContent + '\n', onFirstFileACreated);
 
                     function onFirstFileACreated() {
 
@@ -517,7 +524,7 @@ Array of records with this information:
 
                         fileContent = fileContent + ']';
 
-                        azureFileStorage.createTextFile(filePathB, fileNameB, fileContent + '\n', onFileBCreated);
+                        charlyFileStorage.createTextFile(filePathB, fileNameB, fileContent + '\n', onFileBCreated);
 
                         function onFileBCreated() {
 
@@ -569,7 +576,7 @@ Array of records with this information:
 
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
 
-                    azureFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
 
                     function onFileReceived(text) {
 
@@ -633,7 +640,7 @@ Array of records with this information:
 
                             let fileContent = JSON.stringify(report); 
 
-                            azureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onReportFileCreated);
+                            charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onReportFileCreated);
 
                             function onReportFileCreated() {
 

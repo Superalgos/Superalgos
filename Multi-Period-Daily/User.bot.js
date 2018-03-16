@@ -32,9 +32,9 @@
         start: start
     };
 
-    let charlyFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
-    let bruceFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
-    let oliviaFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let bruceFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let oliviaFileStorage = FILE_STORAGE.newFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -58,7 +58,20 @@
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + yearAssigend); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + monthAssigned); }
 
-            commons.initializeStorage(charlyFileStorage, bruceFileStorage, oliviaFileStorage, callBackFunction);
+            commons.initializeStorage(charlyFileStorage, bruceFileStorage, oliviaFileStorage, onInizialized);
+
+            function onInizialized(err) {
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onInizialized -> Initialization Succeed."); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } else {
+                    logger.write("[ERROR] initialize -> onInizialized -> err = " + err.message);
+                    callBackFunction(err);
+                }
+            }
 
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);

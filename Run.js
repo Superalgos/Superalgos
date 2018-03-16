@@ -3,7 +3,7 @@ const FULL_LOG = true;
 
 /* The following global variable tells the system if it is running on test mode or production. */
 
-global.RUNNING_MODE = 'Mixed';  // 'Testnet' or 'Production'
+global.RUNNING_MODE = 'Production';  // 'Testnet', 'Mixed' or 'Production'
 
 /* You do not have funds at the exchange and still want run your bot? No problem activate the exchange simulation mode: */
 

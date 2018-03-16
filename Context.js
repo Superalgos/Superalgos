@@ -160,7 +160,7 @@
                                 getExecutionHistory(callBack);
                                 return;
                             }
-                            case global.CUSTOM_FAIL_RESPONSE.result: {  // We need to see if we can handle this.
+                            case global.CUSTOM_OK_RESPONSE.result: {  // We need to see if we can handle this.
                                 logger.write("[ERROR] initialize -> getStatusReport -> err.message = " + err.message);
 
                                 if (err.message === "Status Report was never created.") {

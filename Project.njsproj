@@ -13,7 +13,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>Project</Name>
-    <ScriptArguments>Multi-Period-Daily</ScriptArguments>
+    <ScriptArguments>Trading-Process</ScriptArguments>
     <NodeExePath>C:\Program Files\nodejs\node.exe</NodeExePath>
     <StartWebBrowser>False</StartWebBrowser>
   </PropertyGroup>

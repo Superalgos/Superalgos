@@ -389,8 +389,49 @@
 
         toggleAutoRenew: function (orderNumber, callback) {
             return this._private('toggleAutoRenew', { orderNumber: orderNumber }, callback);
-        }
+        },
 
+        analizeResponse: function (logger, exchangeErr, exchangeResponse, notOkCallBack, okCallBack) {
+
+            /* This function analizes the different situations we might encounter trying to access Poloniex and returns appropiate standard errors. */
+
+            try {
+
+                logger.write("[INFO] analizeResponse -> exchangeErr = " + JSON.stringify(exchangeErr));
+                logger.write("[INFO] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeResponse));
+
+                if (
+                    JSON.stringify(exchangeErr).indexOf("ETIMEDOUT") > 0 ||
+                    JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0 ||
+                    JSON.stringify(exchangeResponse).indexOf("Connection Error") > 0 ||
+                    JSON.stringify(exchangeErr).indexOf("ECONNRESET") > 0) {
+
+                    logger.write("[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
+                    notOkCallBack(global.DEFAULT_RETRY_RESPONSE);
+                    return;
+
+                } else {
+
+                    if (exchangeErr) {
+
+                        logger.write("[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange.");
+                        notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+
+                    } else {
+
+                        logger.write("[INFO] analizeResponse -> No problem found.");
+                        okCallBack();
+                        return;
+                    }
+                }
+
+            } catch (err) {
+                logger.write("[ERROR] analizeResponse -> err.message = " + err.message);
+                notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
+                return;
+            }
+        }
     };
 
     // Backwards Compatibility
@@ -404,3 +445,6 @@
 
     return Poloniex;
 })();
+
+
+

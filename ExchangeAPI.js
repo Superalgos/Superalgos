@@ -80,7 +80,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    analizeResponse(err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 
@@ -146,7 +146,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    analizeResponse(err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 
@@ -235,7 +235,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    analizeResponse(err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 
@@ -291,7 +291,7 @@
 
                 try {
 
-                    analizeResponse(err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 
@@ -334,44 +334,4 @@
         }
     }
 
-    function analizeResponse(err, exchangeResponse, callBackFunction, innerCallBack) {
-
-        try {
-
-            logger.write("[INFO] analizeResponse -> err = " + JSON.stringify(err));
-            logger.write("[INFO] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeResponse));
-
-            if (
-                JSON.stringify(err).indexOf("ETIMEDOUT") > 0 ||
-                JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0 ||
-                JSON.stringify(exchangeResponse).indexOf("Connection Error") > 0 ||
-                JSON.stringify(err).indexOf("ECONNRESET") > 0)
-            {
-
-                logger.write("[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
-                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                return;
-
-            } else {
-
-                if (err) {
-
-                    logger.write("[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange. This will halt this bot process.");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-
-                } else {
-
-                    logger.write("[INFO] analizeResponse -> No problem found.");
-                    innerCallBack();
-                    return;
-                }
-            }
-
-        } catch (err) {
-            logger.write("[ERROR] analizeResponse -> err.message = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            return;
-        }
-    }
 };

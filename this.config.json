@@ -6,7 +6,7 @@
     "patch": 0
   },
   "bot": {
-    "path": "../Bots/AAMasters/AAOlivia-Indicator-Bot"
+    "path": "../Bots/AAMasters/AAMariam-Trading-Bot"
   },
   "stopGracefully": "false"
 }

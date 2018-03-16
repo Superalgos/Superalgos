@@ -153,15 +153,26 @@
 
                     function onInitilized(err) {
 
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] initialize -> getStatusReport -> onInitilized -> err = " + err.message);
+                            callBackFunction(err);
+                            return;
+                        }
+
+                        statusReportModule.load(onLoad);
+                    }
+
+                    function onLoad(err) {
+
                         switch (err.result) {
                             case global.DEFAULT_OK_RESPONSE.result: {
-                                logger.write("[INFO] initialize -> getStatusReport -> Execution finished well. :-)");
+                                logger.write("[INFO] initialize -> getStatusReport -> onLoad -> Execution finished well. :-)");
                                 thisObject.statusReport = statusReportModule.file;
                                 getExecutionHistory(callBack);
                                 return;
                             }
                             case global.CUSTOM_OK_RESPONSE.result: {  // We need to see if we can handle this.
-                                logger.write("[ERROR] initialize -> getStatusReport -> err.message = " + err.message);
+                                logger.write("[ERROR] initialize -> getStatusReport -> onLoad -> err.message = " + err.message);
 
                                 if (err.message === "Status Report was never created.") {
                                     createConext(callBack);
@@ -172,7 +183,7 @@
                             }
                             default:
                             {
-                                logger.write("[ERROR] initialize -> getStatusReport -> Operation Failed.");
+                                logger.write("[ERROR] initialize -> getStatusReport -> onLoad -> Operation Failed.");
                                 callBackFunction(err);
                                 return;
                             }

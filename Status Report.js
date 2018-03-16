@@ -16,6 +16,7 @@
     let thisObject = {
         file: undefined,                    // Here we have the JSON object representing the file content.
         initialize: initialize,
+        load: load,
         save: save
     };
 
@@ -69,7 +70,8 @@
 
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                        getFile(onDone);
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> initializeStorage -> onInizialized -> Entering function."); }
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                     } else {
                         logger.write("[ERROR] initialize -> initializeStorage -> onInizialized -> err = " + err.message);
@@ -77,107 +79,74 @@
                     }
                 }
             }
+        } catch (err) {
+            logger.write("[ERROR] initialize -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
 
-            function onDone(err) {
-                try {
+    function load(callBackFunction) {
 
-                    switch (err.result) {
-                        case global.DEFAULT_OK_RESPONSE.result: {
-                            logger.write("[INFO] initialize -> onDone -> Execution finished well. :-)");
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
-                            return;
-                        }
-                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(err);
-                            return;
-                        }
-                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err);
-                            return;
-                        }
-                        case global.CUSTOM_OK_RESPONSE.result: {
-                            logger.write("[INFO] initialize -> onDone -> Execution finished with some expected issue.");
-                            callBackFunction(err);
-                            return;
-                        }
+        try {
+
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> Entering function."); }
+
+            let fileName = "Status.Report.json"
+            let filePath = global.FILE_PATH_ROOT + "/Reports/" + bot.process;
+
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> fileName = " + fileName); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> filePath = " + filePath); }
+
+            cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+
+            function onFileReceived(err, text) {
+
+                if (err.result === global.CUSTOM_FAIL_RESPONSE.result && err.message === 'Folder does not exist.') {
+                    logger.write("[INFO] initialize -> load -> onFileReceived -> err = " + err.message);
+
+                    /* In this case we can assume that this is the first execution ever of this bot.*/
+
+                    thisObject.file = JSON.parse('{}');
+
+                    let customOK = {
+                        result: global.CUSTOM_OK_RESPONSE.result,
+                        message: "Status Report was never created."
                     }
-
-                } catch (err) {
-                    logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    logger.write("[WARN] initialize -> load -> onFileReceived -> customOK = " + err.message);
+                    callBackFunction(customOK);
+                    return;
                 }
-            }
 
-            function getFile(callBack) {
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    logger.write("[ERROR] initialize -> load -> onFileReceived -> err = " + err.message);
+                    callBackFunction(err);
+                    return;
+                }
+
+                if (FULL_LOG === true) {
+                    logger.write("[INFO] initialize -> load -> onFileReceived -> Content received = " + text);
+                }
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> Entering function."); }
-
-                    let fileName = "Status.Report.json"
-                    let filePath = global.FILE_PATH_ROOT + "/Reports/" + bot.process;
-
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getFile -> filePath = " + filePath); }
-
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
-
-                    function onFileReceived(err, text) {
-
-                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result && err.message === 'Folder does not exist.') {
-                            logger.write("[INFO] initialize -> getFile -> onFileReceived -> err = " + err.message);
-
-                            /* In this case we can assume that this is the first execution ever of this bot.*/
-
-                            thisObject.file = JSON.parse('{}');
-
-                            let customOK = {
-                                result: global.CUSTOM_OK_RESPONSE.result,
-                                message: "Status Report was never created."
-                            }
-                            logger.write("[WARN] initialize -> getFile -> onFileReceived -> customOK = " + err.message);
-                            callBack(customOK);
-                            return;
-                        }
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] initialize -> getFile -> onFileReceived -> err = " + err.message);
-                            callBack(err);
-                            return;
-                        }
-
-                        if (FULL_LOG === true) {
-                            logger.write("[INFO] initialize -> getFile -> onFileReceived -> Content received = " + text);
-                        }
-
-                        try {
-
-                            thisObject.file = JSON.parse(text);
-                            callBack(global.DEFAULT_OK_RESPONSE);
-
-                        } catch (err) {
-
-                            /*
-                            It might happen that the file content is corrupt. We will consider this as a temporary situation, since sometimes the file
-                            is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
-                            */
-
-                            logger.write("[ERROR] initialize -> getFile -> onFileReceived -> Bot cannot execute without a valid Status report. -> Err = " + err.message);
-                            callBack(global.DEFAULT_RETRY_RESPONSE);
-                        }
-                    }
+                    thisObject.file = JSON.parse(text);
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> getFile -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+
+                    /*
+                    It might happen that the file content is corrupt. We will consider this as a temporary situation, since sometimes the file
+                    is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
+                    */
+
+                    logger.write("[ERROR] initialize -> load -> onFileReceived -> Bot cannot execute without a valid Status report. -> Err = " + err.message);
+                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] initialize -> err = " + err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
+            logger.write("[ERROR] initialize -> load -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

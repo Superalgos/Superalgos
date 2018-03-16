@@ -210,6 +210,17 @@
 
                     function onInitilized(err) {
 
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] getContextVariables -> getThisProcessReport -> err = " + err.message);
+                            callBackFunction(err);
+                            return;
+                        }
+
+                        statusReportModule.load(onLoad);
+                    }
+
+                    function onLoad(err) {
+
                         try {
 
                             switch (err.result) {

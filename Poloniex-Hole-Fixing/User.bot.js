@@ -45,22 +45,28 @@
 
             logger.fileName = MODULE_NAME + "-" + year + "-" + month;
 
-            const logText = "[INFO] initialize - Entering function 'initialize' " + " @ " + year + "-" + month;
-            console.log(logText);
-            logger.write(logText);
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + yearAssigend); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + monthAssigned); }
 
-            charlyFileStorage.initialize();
+            charlyFileStorage.initialize("AACharly", onCharlyInizialized);
 
-            markets = MARKETS_MODULE.newMarkets(bot);
-            markets.initialize(callBackFunction);
+            function onCharlyInizialized(err) {
 
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCharlyInizialized -> Initialization Succeed."); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } else {
+                    logger.write("[ERROR] initialize -> onCharlyInizialized -> err = " + err.message);
+                    callBackFunction(err);
+                }
+            }
 
         } catch (err) {
-
-            const logText = "[ERROR] initialize - ' ERROR : " + err.message;
-            console.log(logText);
-            logger.write(logText);
-
+            logger.write("[ERROR] initialize -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

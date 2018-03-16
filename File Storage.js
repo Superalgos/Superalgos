@@ -1,5 +1,5 @@
 
-exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
+exports.newFileStorage = function newFileStorage(BOT) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -7,7 +7,7 @@ exports.newAzureFileStorage = function newAzureFileStorage(BOT) {
     let bot = BOT;
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Azure File Storage";
+    const MODULE_NAME = "File Storage";
 
     var util = require('util');
     var guid = require('node-uuid');

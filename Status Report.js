@@ -40,7 +40,7 @@
 
     /* Storage account to be used here. */
 
-    let cloudStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let cloudStorage = FILE_STORAGE.newFileStorage(bot);
 
     return thisObject;
 

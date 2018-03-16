@@ -124,7 +124,7 @@
                     if (shutdownEvent.isShuttingDown() === false) {
 
                         const UTILITIES = require(ROOT_DIR + 'Utilities');
-                        const FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
+                        const FILE_STORAGE = require(ROOT_DIR + 'File Storage');
                         const MARKETS_MODULE = require(ROOT_DIR + 'Markets');
                         const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                         const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');

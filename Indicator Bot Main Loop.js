@@ -60,7 +60,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
-                    const FILE_STORAGE = require(ROOT_DIR + 'Azure File Storage');
+                    const FILE_STORAGE = require(ROOT_DIR + 'File Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
 

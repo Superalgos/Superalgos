@@ -24,8 +24,8 @@
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    let oliviaAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
-    let tomAzureFileStorage = FILE_STORAGE.newAzureFileStorage(bot);
+    let oliviaAzureFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let tomAzureFileStorage = FILE_STORAGE.newFileStorage(bot);
 
     /* Utilities needed. */
 

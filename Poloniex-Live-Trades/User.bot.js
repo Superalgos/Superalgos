@@ -29,7 +29,7 @@
     let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
     let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
 
-    return interval;
+    return thisObject;
 
     function initialize(yearAssigend, monthAssigned, callBackFunction) {
 
@@ -93,7 +93,7 @@ Array of records with this information:
 
 */
 
-    function start() {
+    function start(callBackFunction) {
 
         try {
 
@@ -123,15 +123,15 @@ Array of records with this information:
 
                     if (FULL_LOG === true) { logger.write("[INFO] start -> createFolders -> Entering function."); }
 
-                    currentDate = new Date();
+                    currentDate = global.processDatetime;
                     
                     previousMinute = new Date(currentDate.valueOf() - 60000);
 
                     dateForPathA = currentDate.getUTCFullYear() + '/' + utilities.pad(currentDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDate.getUTCDate(), 2) + '/' + utilities.pad(currentDate.getUTCHours(), 2) + '/' + utilities.pad(currentDate.getUTCMinutes(), 2);
                     dateForPathB = previousMinute.getUTCFullYear() + '/' + utilities.pad(previousMinute.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousMinute.getUTCDate(), 2) + '/' + utilities.pad(previousMinute.getUTCHours(), 2) + '/' + utilities.pad(previousMinute.getUTCMinutes(), 2);
 
-                    filePathA = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathA;
-                    filePathB = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathB;
+                    filePathA = global.FILE_PATH_ROOT + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathA;
+                    filePathB = global.FILE_PATH_ROOT + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathB;
 
                     utilities.createFolderIfNeeded(filePathA, charlyFileStorage, onFolderACreated);
 
@@ -175,7 +175,7 @@ Array of records with this information:
 
                 } catch (err) {
                     logger.write("[ERROR] start -> createFolders -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -201,11 +201,11 @@ Array of records with this information:
 
                 } catch (err) {
                     logger.write("[ERROR] start -> getTheTrades -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
-            function onExchangeCallReturned(err, tradesRequested) {
+            function onExchangeCallReturned(err, exchangeResponse) {
 
                 try {
 
@@ -222,16 +222,16 @@ Array of records with this information:
 
                     function onResponseOk() {
 
-                        tradesReadyToBeSaved(tradesRequested);
+                        tradesReadyToBeSaved(exchangeResponse);
                     }
 
                 } catch (err) {
                     logger.write("[ERROR] start -> onExchangeCallReturned -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
-            function tradesReadyToBeSaved(tradesRequested) {
+            function tradesReadyToBeSaved(exchangeResponse) {
 
                 try {
 
@@ -254,9 +254,9 @@ Array of records with this information:
 
                     fileContent = fileContent + '[';
 
-                    for (i = 0; i < tradesRequested.length; i++) {
+                    for (i = 0; i < exchangeResponse.length; i++) {
 
-                        let record = tradesRequested[tradesRequested.length - 1 - i]; // In Poloniex the order of the records is by date DESC so we change it to ASC
+                        let record = exchangeResponse[exchangeResponse.length - 1 - i]; // In Poloniex the order of the records is by date DESC so we change it to ASC
 
                         const trade = {
                             tradeIdAtExchange: record.tradeID,
@@ -319,9 +319,9 @@ Array of records with this information:
 
                         fileContent = fileContent + '[';
 
-                        for (i = 0; i < tradesRequested.length; i++) {
+                        for (i = 0; i < exchangeResponse.length; i++) {
 
-                            let record = tradesRequested[tradesRequested.length - 1 - i]; // In Poloniex the order of the records is by date DESC so we change it to ASC
+                            let record = exchangeResponse[exchangeResponse.length - 1 - i]; // In Poloniex the order of the records is by date DESC so we change it to ASC
 
                             const trade = {
                                 tradeIdAtExchange: record.tradeID,
@@ -377,7 +377,7 @@ Array of records with this information:
                     }
                 } catch (err) {
                     logger.write("[ERROR] start -> tradesReadyToBeSaved -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -430,24 +430,24 @@ Array of records with this information:
                                     return;
                                 }
 
-                                callBack(global.DEFAULT_OK_RESPONSE);
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] start -> writeStatusReport -> onInitilized -> err = " + err.message);
-                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
                     logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
             logger.write("[ERROR] start -> err = " + err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

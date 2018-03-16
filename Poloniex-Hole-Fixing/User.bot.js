@@ -74,7 +74,7 @@
 
 This process is going to do the following:
 
-It will iterate through all the markets and will try to find "holes" on the transaction history and fix them by retrieving the missing transactions from the exchange.
+It will try to find "holes" on the transaction history and fix them by retrieving the missing transactions from the exchange.
 
 What are holes?
 
@@ -97,15 +97,14 @@ How does the process work?
     3) The exchange returns an unexpected error: The process will retry up to 3 times later under this condition.
     4) The exchange returns neighboring transactions but not the missing ones. The process will retry 3 more times and mark the hole as permanent if the exchange refuses to send the missing trades.
 
-Since the process is run in an infinite loop but can be restarted any time, the status of is running is recorded in the Process.Status file.
+Since the process is run in an infinite loop but can be restarted any time, the status of its running is recorded in the Status Report file.
 
 What is the lastFile pointer?
 
     It is the Datetime since the begining of the hitory of a market that is considered without holes (or only with permanent ones, unfixables). In other words, the process
     starts from the begining of the history of a market, and only when its history is signaled as "Complete" by the "Historic Trades" process. From there, the process is advancing
     in time, validating the history and fixing holes, and moving the lastFile pointer forward as it gets sure that all the previous trades files are with no holes or unfixable ones.
-    This pointer will later be used by Indicators bots that depends of these trades, to calculate their final version of indicators up to the lastFile pointer datetime.
-
+    This pointer will later be used by Indicators bots that depends of these trades, and it will be considered the head of the market.
 
 */
 
@@ -113,72 +112,62 @@ What is the lastFile pointer?
 
         try {
 
-            if (LOG_INFO === true) {
-                logger.write("[INFO] Entering function 'start', with year = " + year + " and month = " + month);
-            }
+            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
 
             let processDate = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-
             let lastMinuteOfMonth = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
 
-            lastMinuteOfMonth.setUTCMonth(lastMinuteOfMonth.getUTCMonth() + 1);          // First we go 1 month into the future.
-            lastMinuteOfMonth.setUTCSeconds(lastMinuteOfMonth.getUTCSeconds() - 30);    // Then we go back 30 seconds, or to the last minute of the original month.
+            lastMinuteOfMonth.setUTCMonth(lastMinuteOfMonth.getUTCMonth() + 1);             // First we go 1 month into the future.
+            lastMinuteOfMonth.setUTCSeconds(lastMinuteOfMonth.getUTCSeconds() - 30);        // Then we go back 30 seconds, or to the last minute of the original month.
 
             let thisDatetime = new Date();
 
             if ((year === thisDatetime.getUTCFullYear() && month > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
 
-                logger.write("[INFO] We are too far in the future. Interval will not execute. Sorry.");
+                logger.write("[ERROR] start -> writeStatusReport -> We are too far in the future. Bot will not execute. Sorry.");
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return;
-
             }
 
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
 
-            let currentDate;            // This will hold the current datetime of each execution.
-            let cursorDatetime;         // This holds the datetime we are using to request records from, backwards.
+            let currentDate;                    // This will hold the current datetime of each execution.
+            let cursorDatetime;                 // This holds the datetime we are using to request records from, backwards.
 
-            let marketQueue;            // This is the queue of all markets to be procesesd at each interval.
-            let market = {              // This is the current market being processed after removing it from the queue.
-                id: 0,
-                assetA: "",
-                assetB: ""
-            };
+            let marketQueue;                    // This is the queue of all markets to be procesesd at each interval.
+            let market = global.MARKET;
 
             let dateForPath;
-
             let filePath;
-
             let exchangeCallTime;
 
             const MAX_EXCHANGE_CALL_RETRIES = 3;
-            let exchangeCallRetries = 0;
-
             const MAX_HOLE_FIXING_RETRIES = 3;
-
             const FIRST_TRADE_RECORD_ID = -1;
             const UNKNOWN_TRADE_RECORD_ID = -2;
 
-            let tradesWithHole = [];         // File content of the file where a hole was discovered.
+            let exchangeCallRetries = 0;
 
-            let currentTradeId;         // This points to the last Trade Id that is ok.
-            let currentDatetime;        // This points to the last Trade datetime that is ok.
+            let tradesWithHole = [];            // File content of the file where a hole was discovered.
+
+            let currentTradeId;                 // This points to the last Trade Id that is ok.
+            let currentDatetime;                // This points to the last Trade datetime that is ok.
 
             /* The next 3 variables hold the information read from varios Status Reports. */
 
-            let lastLiveTradeFile;      // Datetime of the last complete trades file written by the Live Trades process.
-            let lastHistoricTradeFile;  // Datatime of the last trades file written by the Historic Trades process.
-            let lastHoleFixingFile;     // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
+            let lastLiveTradeFile;              // Datetime of the last complete trades file written by the Live Trades process.
+            let lastHistoricTradeFile;          // Datatime of the last trades file written by the Historic Trades process.
+            let lastHoleFixingFile;             // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
 
             /* The next 4 variables hold the results of the search of the next hole. */
 
-            let holeInitialId;          // This is the Id just before the hole.
-            let holeInitialDatetime;    // This is the Datetime just before the hole.
+            let holeInitialId;                  // This is the Id just before the hole.
+            let holeInitialDatetime;            // This is the Datetime just before the hole.
 
-            let holeFinalId;            // This is the Id just after the hole.
-            let holeFinalDatetime;      // This is the Datetime just after the hole.
+            let holeFinalId;                    // This is the Id just after the hole.
+            let holeFinalDatetime;              // This is the Datetime just after the hole.
 
-            let holeFixingStatusReport; // Current hole Fixing Status Report.
+            let holeFixingStatusReport;         // Current hole Fixing Status Report.
 
             marketsLoop(); 
 
@@ -190,134 +179,6 @@ What is the lastFile pointer?
             The following functions marketsLoop(), openMarket(), closeMarket() and closeAndOpenMarket() controls the serialization of this processing.
 
             */
-
-            function marketsLoop() {
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'marketsLoop'");
-                    }
-
-                    currentDate = new Date();
-                    markets.getMarketsByExchange(EXCHANGE_ID, onMarketsReady);
-
-                    function onMarketsReady(marketsArray) {
-
-                        marketQueue = JSON.parse(marketsArray);
-
-                        openMarket(); // First execution and entering into the real loop.
-
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'marketsLoop' - ERROR : " + err.message;
-                    logger.write(logText);
-                }
-            }
-
-            function openMarket() {
-
-                // To open a Market means picking a new market from the queue.
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'openMarket'");
-                    }
-
-
-                    if (marketQueue.length === 0) {
-
-                        if (LOG_INFO === true) {
-                            logger.write("[INFO] 'openMarket' - marketQueue.length === 0");
-                        }
-
-                        const logText = "[WARN] We processed all the markets.";
-                        logger.write(logText);
-
-                        callBackFunction(nextIntervalExecution);
-
-                        return;
-                    }
-
-                    if (GO_RANDOM === true) {
-                        const index = parseInt(Math.random() * (marketQueue.length - 1));
-
-                        market.id = marketQueue[index][0];
-                        market.assetA = marketQueue[index][1];
-                        market.assetB = marketQueue[index][2];
-                        market.status = marketQueue[index][3];
-
-                        marketQueue.splice(index, 1);
-                    } else {
-                        let marketRecord = marketQueue.shift();
-
-                        market.id = marketRecord[0];
-                        market.assetA = marketRecord[1];
-                        market.assetB = marketRecord[2];
-                        market.status = marketRecord[3];
-
-                        if (FORCE_MARKET > 0) {
-                            if (FORCE_MARKET !== market.id) {
-                                closeAndOpenMarket();
-                                return;
-                            }
-                        }
-                    }
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
-                        logger.write("[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
-                    }
-
-                    if (market.status === markets.ENABLED) {
-
-                        exchangeCallRetries = 0; // For each market we will count the retries, so we need to reset this here.
-
-                        getStatusReport();
-
-                    } else {
-
-                        logger.write("[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
-                        closeAndOpenMarket();
-                        return;
-
-                    }
-
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'openMarket' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-            function closeMarket() {
-
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeMarket'");
-                }
-
-            }
-
-            function closeAndOpenMarket() {
-
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeAndOpenMarket'");
-                }
-
-                openMarket();
-            }
-
-
-            /*
-
-            The following code executes for each market, trying to fix the hole in trades history.
-
-            */
-
 
             function getStatusReport() {
 
@@ -1552,7 +1413,6 @@ What is the lastFile pointer?
                 }
             }
 
-
             function verifyMarketComplete(isMonthComplete, callBack) {
 
                 if (isMonthComplete === true) {
@@ -1733,13 +1593,9 @@ What is the lastFile pointer?
 
             }
 
-
-
-
-        }
-        catch (err) {
-            const logText = "[ERROR] 'Start' - ERROR : " + err.message;
-            logger.write(logText);
+        } catch (err) {
+            logger.write("[ERROR] start -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

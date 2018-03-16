@@ -27,6 +27,7 @@
 
     let utilities = UTILITIES.newUtilities(bot);
     let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
+    let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
 
     return interval;
 
@@ -234,10 +235,7 @@ Array of records with this information:
 
                 try {
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'tradesReadyToBeSaved'");
-                    }
-
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> Entering function."); }
 
                     let fileRecordCounterA = 0;
                     let fileRecordCounterB = 0;
@@ -286,30 +284,35 @@ Array of records with this information:
                             fileContent = fileContent + separator + '[' + trade.tradeIdAtExchange + ',"' + trade.type + '",' + trade.rate + ',' + trade.amountA + ',' + trade.amountB + ',' + trade.seconds + ']';
 
                             fileRecordCounterA++;
-
                         }
-
                     }
-
-                    // We add this extra record signaling that this file is still incomplete.
-
-                    //fileContent = fileContent + separator + '[' + '0' + ',"' + 'inc' + '",' + '0' + ',' + '0' + ',' + '0' + ',' + '0' + ']';
 
                     fileContent = fileContent + ']';
 
                     charlyFileStorage.createTextFile(filePathA, fileNameA, fileContent + '\n', onFirstFileACreated);
 
-                    function onFirstFileACreated() {
+                    function onFirstFileACreated(err) {
 
-                        const logText = "[WARN] Finished with File A @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounterA + " records inserted into " + filePathA + "/" + fileNameA + "";
-                        console.log(logText);
-                        logger.write(logText);
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] start -> tradesReadyToBeSaved -> onFirstFileACreated -> err = " + err.message);
+                            callBackFunction(err);
+                            return;
+                        }
+
+                        if (LOG_FILE_CONTENT === true) {
+                            logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
+                        }
+
+                        logger.write("[WARN] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Finished with File A @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounterA + " records inserted into " + filePathA + "/" + fileNameA + ""); 
 
                         generateFileB();
-
                     }
 
                     function generateFileB() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> generateFileB -> Entering function."); }
 
                         fileContent = "";
                         needSeparator = false;
@@ -346,7 +349,6 @@ Array of records with this information:
                                 fileContent = fileContent + separator + '[' + trade.tradeIdAtExchange + ',"' + trade.type + '",' + trade.rate + ',' + trade.amountA + ',' + trade.amountB + ',' + trade.seconds + ']';
 
                                 fileRecordCounterB++;
-
                             }
                         }
 
@@ -354,110 +356,60 @@ Array of records with this information:
 
                         charlyFileStorage.createTextFile(filePathB, fileNameB, fileContent + '\n', onFileBCreated);
 
-                        function onFileBCreated() {
+                        function onFileBCreated(err) {
 
-                            const logText = "[WARN] Finished with File B @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounterB + " records inserted into " + filePathB + "/" + fileNameB + "";
-                            console.log(logText);
-                            logger.write(logText);
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write("[ERROR] start -> tradesReadyToBeSaved -> onFileBCreated -> err = " + err.message);
+                                callBackFunction(err);
+                                return;
+                            }
+
+                            if (LOG_FILE_CONTENT === true) {
+                                logger.write("[INFO] start -> tradesReadyToBeSaved -> onFileBCreated ->  Content written = " + fileContent);
+                            }
+
+                            logger.write("[WARN] start -> tradesReadyToBeSaved -> onFileBCreated -> Finished with File B @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounterB + " records inserted into " + filePathB + "/" + fileNameB + ""); 
 
                             writeStatusReport();
-
                         }
                     }
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Leaving function 'tradesReadyToBeSaved'");
-                    }
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'tradesReadyToBeSaved' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                } catch (err) {
+                    logger.write("[ERROR] start -> tradesReadyToBeSaved -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function writeStatusReport() {
 
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'writeStatusReport'");
-                }
-
-                /*
-
-                The report is a file that records important information to be used by a) another instance of the same process, b) another process or by c) another bot.
-
-                The first thing to do is to read the current report file content, if it exists.
-
-                There are 2 fields recorded in this file:
-
-                1) The firstFile: which stores the datetime of the first file ever created by this process. This information is usefull for the Historic Trades process.
-                2) The lastFile: which sotres the datetime of the last complete trades file created. 
-
-                If the file does not exist, then we created.
-
-                */
-
                 try {
 
-                    let firstFileDatetime;
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
 
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
+                    statusReportModule.initialize(bot, onInitilized);
 
-                    charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    function onInitilized(err) {
 
-                    function onFileReceived(text) {
+                        try {
 
-                        if (text === undefined) {
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onInitilized -> Entering function."); }
 
-                            /* If the file does not exist that means that this is the first time this process run at this market, so we must create the file now. */
-
-                            firstFileDatetime = previousMinute;
-
-                            writeReportFile();
-
-                        } else {
-
-                            /* Here we just need to confirm that it has the information. */
-
-                            try {
-
-                                let statusReport = JSON.parse(text);
-
-                                /* We get from the file the datetime of the first file created. */
-
-                                firstFileDatetime = new Date(statusReport.firstFile.year + "-" + statusReport.firstFile.month + "-" + statusReport.firstFile.days + " " + statusReport.firstFile.hours + ":" + statusReport.firstFile.minutes + GMT_SECONDS);
-
-                                writeReportFile();
-
-                            } catch (err) {
-
-                                /* For some reason the file exists but the content is not there. We will create them well now. */
-
-                                firstFileDatetime = previousMinute;
-
-                                writeReportFile();
-
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
+                                callBackFunction(err);
+                                return;
                             }
 
-                        }
-
-                        function writeReportFile() {
-
-                            if (LOG_INFO === true) {
-                                logger.write("[INFO] Entering function 'writeStatusReport - writeReportFile'");
-                            }
-
-
-                            let report = {
-                                firstFile: {
-                                    year: firstFileDatetime.getUTCFullYear(),
-                                    month: (firstFileDatetime.getUTCMonth() + 1),
-                                    days: firstFileDatetime.getUTCDate(),
-                                    hours: firstFileDatetime.getUTCHours(),
-                                    minutes: firstFileDatetime.getUTCMinutes()
+                            statusReportModule.file = {
+                                firstFile: {                                        // This file might be incomplete.
+                                    year: currentDate.getUTCFullYear(),
+                                    month: (currentDate.getUTCMonth() + 1),
+                                    days: currentDate.getUTCDate(),
+                                    hours: currentDate.getUTCHours(),
+                                    minutes: currentDate.getUTCMinutes()
                                 },
-                                lastFile: {
+                                lastFile: {                                         // This will point to the last file written with is complete. That means it has all the trades in it.
                                     year: previousMinute.getUTCFullYear(),
                                     month: (previousMinute.getUTCMonth() + 1),
                                     days: previousMinute.getUTCDate(),
@@ -466,31 +418,31 @@ Array of records with this information:
                                 }
                             };
 
-                            let fileContent = JSON.stringify(report); 
+                            statusReportModule.save(onSaved);
 
-                            charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onReportFileCreated);
+                            function onSaved(err) {
 
-                            function onReportFileCreated() {
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
 
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
+                                    callBackFunction(err);
+                                    return;
                                 }
 
-                                closeAndOpenMarket();
-
+                                callBack(global.DEFAULT_OK_RESPONSE);
                             }
 
+                        } catch (err) {
+                            logger.write("[ERROR] start -> writeStatusReport -> onInitilized -> err = " + err.message);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
-
                     }
 
+                } catch (err) {
+                    logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
-                catch (err) {
-                    const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-
             }
 
         } catch (err) {

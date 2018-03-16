@@ -3,7 +3,7 @@ const FULL_LOG = true;
 
 /* The following global variable tells the system if it is running on test mode or production. */
 
-global.RUNNING_MODE = 'Production';  // 'Testnet', 'Mixed' or 'Production'
+global.RUNNING_MODE = 'Testnet';  // 'Testnet', 'Mixed' or 'Production'
 
 /* You do not have funds at the exchange and still want run your bot? No problem activate the exchange simulation mode: */
 
@@ -149,6 +149,7 @@ global.FILE_PATH_ROOT = botConfig.devTeam + "/" + botConfig.codeName + "." + bot
 const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
 const TRADING_BOT_MAIN_LOOP_MODULE = require('./Trading Bot Main Loop');
 const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./Indicator Bot Main Loop');
+const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./Extraction Bot Main Loop');
 
 /* Now we will see which are the script Arguments. We expect the name of the process to run, since that is what it should be defined at the Task Scheduller. */
 
@@ -214,12 +215,16 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 
                 function startProcess() {
                     switch (bot.type) {
-                        case 'Trading': {
-                            runTradingBot(processConfig);
+                        case 'Extraction': {
+                            runExtractionBot(processConfig);
                             return;
                         }
                         case 'Indicator': {
                             runIndicatorBot(processConfig);
+                            return;
+                        }
+                        case 'Trading': {
+                            runTradingBot(processConfig);
                             return;
                         }
                     }
@@ -233,7 +238,45 @@ for (let i = 0; i < botConfig.processes.length; i++) {
     }
 }
 
+function runExtractionBot(pProcessConfig) {
 
+    try {
+        if (FULL_LOG === true) { logger.write("[INFO] runExtractionBot -> Entering function."); }
+
+        let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotMainLoop(botConfig);
+        extractionBotMainLoop.initialize(global.PLATFORM_CONFIG.bot.path, pProcessConfig, onInitializeReady);
+
+        function onInitializeReady(err) {
+
+            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                extractionBotMainLoop.run(whenRunFinishes);
+
+                function whenRunFinishes(err) {
+
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                        logger.write("[INFO] runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+                        console.log("Bot execution finished sucessfully. :-)");
+
+                    } else {
+
+                        logger.write("[ERROR] runExtractionBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                        logger.write("[ERROR] runExtractionBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                        logger.write("[ERROR] runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
+                    }
+                }
+
+            } else {
+                logger.write("[ERROR] runExtractionBot -> onInitializeReady -> err = " + err.message);
+                logger.write("[ERROR] runExtractionBot -> onInitializeReady -> Bot will not be started. ");
+            }
+        }
+    }
+    catch (err) {
+        logger.write("[ERROR] runExtractionBot -> err = " + err.message);
+    }
+}
 
 function runIndicatorBot(pProcessConfig) {
 
@@ -274,7 +317,6 @@ function runIndicatorBot(pProcessConfig) {
         logger.write("[ERROR] runIndicatorBot -> err = " + err.message);
     }
 }
-
 
 function runTradingBot(pProcessConfig) {
 

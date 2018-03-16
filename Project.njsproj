@@ -13,7 +13,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>Project</Name>
-    <ScriptArguments>Trading-Process</ScriptArguments>
+    <ScriptArguments>Poloniex-Live-Trades</ScriptArguments>
     <NodeExePath>C:\Program Files\nodejs\node.exe</NodeExePath>
     <StartWebBrowser>False</StartWebBrowser>
   </PropertyGroup>
@@ -21,6 +21,9 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Compile Include="Assistant.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extraction Bot Main Loop.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="File Storage.js" />

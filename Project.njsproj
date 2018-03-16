@@ -20,7 +20,7 @@
   <ItemGroup>
     <Content Include="README.md" />
     <Compile Include="Poloniex-Historic-Trades\Interval.js" />
-    <Compile Include="Poloniex-Hole-Fixing\Interval.js" />
+    <Compile Include="Poloniex-Hole-Fixing\User.bot.js" />
     <Compile Include="Poloniex-Live-Trades\User.bot.js" />
     <Content Include="this.bot.config.json" />
   </ItemGroup>

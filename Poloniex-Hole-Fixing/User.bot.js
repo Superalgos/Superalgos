@@ -1,40 +1,38 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE) {
+
+    const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
 
     let bot = BOT;
-    const ROOT_DIR = '../';
+
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
 
-    const MODULE_NAME = "Interval";
-    const LOG_INFO = true;
+    const MODULE_NAME = "User Bot";
 
     const EXCHANGE_NAME = "Poloniex";
-    const EXCHANGE_ID = 1;
 
     const TRADES_FOLDER_NAME = "Trades";
-
-    const GO_RANDOM = false;
-    const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. 
 
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    interval = {
+    thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let markets;
-
     let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
+    let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
+    let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
 
     let year;
     let month;
 
-    return interval;
+    return thisObject;
 
     function initialize(yearAssigend, monthAssigned, callBackFunction) {
 

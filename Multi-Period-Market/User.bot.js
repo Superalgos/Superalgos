@@ -132,7 +132,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
-                    if (thisReport.lastFile === undefined) {
+                    if (thisReport.lastFile !== undefined) {
 
                         contextVariables.lastCandleFile = new Date(thisReport.lastFile);
 

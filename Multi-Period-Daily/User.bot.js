@@ -132,7 +132,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                     reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
-                    if (thisReport.lastFile === undefined) {
+                    if (thisReport.lastFile !== undefined) {
 
                         contextVariables.lastCandleFile = new Date(thisReport.lastFile);
 

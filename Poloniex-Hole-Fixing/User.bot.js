@@ -32,9 +32,11 @@
     let year;
     let month;
 
+    let dependencies;
+
     return thisObject;
 
-    function initialize(yearAssigend, monthAssigned, callBackFunction) {
+    function initialize(pDependencies, callBackFunction, yearAssigend, monthAssigned) {
 
         try {
 
@@ -169,7 +171,7 @@ What is the lastFile pointer?
 
             let holeFixingStatusReport;         // Current hole Fixing Status Report.
 
-            marketsLoop(); 
+            getStatusReport(); 
 
             /*
     
@@ -194,58 +196,84 @@ What is the lastFile pointer?
 
                 try {
 
-                    let reportFilePath;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
-
                     getLivesTrades();
 
                     function getLivesTrades() {
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Live-Trades";
+                        try {
 
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getLivesTrades -> Entering function."); }
 
-                        function onStatusReportReceived(text) {
+                            let reportOwner = {
+                                codeName: "Charly",
+                                devTeam: "AAMasters",
+                                process: "Poloniex Live Trades"
+                            };
 
-                            if (text === undefined) {
+                            statusReportModule.initialize(reportOwner, onInitilized);
 
-                                /* The file does not exist, so this means it is too early to run this process.  */
+                            function onInitilized(err) {
 
-                                const logText = "[INFO] 'getStatusReport' - Market " + market.assetA + '_' + market.assetB + " is too early too prcess it, since there are no Live Trades reports about it yet. Skipping it. ";
-                                logger.write(logText);
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onInitilized -> err = " + err.message);
+                                    callBackFunction(err);
+                                    return;
+                                }
 
-                                closeAndOpenMarket();
+                                statusReportModule.load(onLoad);
+                            }
 
-                            } else {
-
-                                let statusReport;
+                            function onLoad(err) {
 
                                 try {
 
-                                    statusReport = JSON.parse(text);
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] start -> getStatusReport -> getLivesTrades -> onLoad -> Execution finished well. :-)");
 
-                                    lastLiveTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
+                                            lastLiveTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
+                                            getHistoricTrades();
 
-                                } catch (err) {
+                                            return;
+                                        }
+                                        case global.CUSTOM_OK_RESPONSE.result: {  // We need to see if we can handle this.
+                                            logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onLoad -> err.message = " + err.message);
 
-                                    /*
+                                            if (err.message === "Status Report was never created.") {
 
-                                    It might happen the the file contect is corrupt if it is read exactly at the moment the other process is writting it.
-                                    In this situation we just assume the current datetime is a good engough value.
+                                                logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onLoad -> Can not run this process if Live Trades process never ran sucessfully.");
+                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                return;
+                                            } else {
 
-                                    */
-
-                                    lastLiveTradeFile = new Date();
-
+                                                logger.write("[WARN] start -> getStatusReport -> getLivesTrades -> onLoad -> Response not understood.");
+                                                callBackFunction(err);
+                                                return;
+                                            }
+                                            
+                                        }
+                                        default:
+                                            {
+                                                logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onLoad -> Operation Failed.");
+                                                callBackFunction(err);
+                                                return;
+                                            }
+                                    }
                                 }
-
-                                /* We get from the file the datetime of the last file created. */
-
-                                getHistoricTrades();
-
+                                catch (err) {
+                                    logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onLoad -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
                             }
                         }
+                        catch (err) {
+                            logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
                     }
+
+
+
                     
                     function getHistoricTrades() {
 
@@ -309,6 +337,9 @@ What is the lastFile pointer?
                             }
                         }
                     }
+
+
+
 
                     function getHoleFixing() {
 

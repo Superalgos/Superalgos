@@ -29,23 +29,19 @@
     let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
     let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
 
+    let dependencies;
+
     return thisObject;
 
-    function initialize(yearAssigend, monthAssigned, callBackFunction) {
+    function initialize(pDependencies, callBackFunction) {
 
         try {
-
-            /* IMPORTANT NOTE:
-
-            We are ignoring in this UserBot the received Year and Month. thisObject is not depending on Year / Month.
-
-            */
 
             logger.fileName = MODULE_NAME;
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + yearAssigend); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + monthAssigned); }
+
+            dependencies = pDependencies;
 
             charlyFileStorage.initialize("AACharly", onCharlyInizialized);
 
@@ -387,56 +383,40 @@ Array of records with this information:
 
                     if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
 
-                    statusReportModule.initialize(bot, onInitilized);
+                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
-                    function onInitilized(err) {
+                    let statusReport = dependencies.statusReports.get(key);
 
-                        try {
-
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onInitilized -> Entering function."); }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
-                                callBackFunction(err);
-                                return;
-                            }
-
-                            statusReportModule.file = {
-                                firstFile: {                                        // This file might be incomplete.
-                                    year: currentDate.getUTCFullYear(),
-                                    month: (currentDate.getUTCMonth() + 1),
-                                    days: currentDate.getUTCDate(),
-                                    hours: currentDate.getUTCHours(),
-                                    minutes: currentDate.getUTCMinutes()
-                                },
-                                lastFile: {                                         // This will point to the last file written with is complete. That means it has all the trades in it.
-                                    year: previousMinute.getUTCFullYear(),
-                                    month: (previousMinute.getUTCMonth() + 1),
-                                    days: previousMinute.getUTCDate(),
-                                    hours: previousMinute.getUTCHours(),
-                                    minutes: previousMinute.getUTCMinutes()
-                                }
-                            };
-
-                            statusReportModule.save(onSaved);
-
-                            function onSaved(err) {
-
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write("[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
-                                    callBackFunction(err);
-                                    return;
-                                }
-
-                                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                            }
-
-                        } catch (err) {
-                            logger.write("[ERROR] start -> writeStatusReport -> onInitilized -> err = " + err.message);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    statusReport.file = {
+                        firstFile: {                                        // This date points to the file that might be incomplete.
+                            year: currentDate.getUTCFullYear(),
+                            month: (currentDate.getUTCMonth() + 1),
+                            days: currentDate.getUTCDate(),
+                            hours: currentDate.getUTCHours(),
+                            minutes: currentDate.getUTCMinutes()
+                        },
+                        lastFile: {                                         // This will point to the last file written with is complete. That means it has all the trades in it.
+                            year: previousMinute.getUTCFullYear(),
+                            month: (previousMinute.getUTCMonth() + 1),
+                            days: previousMinute.getUTCDate(),
+                            hours: previousMinute.getUTCHours(),
+                            minutes: previousMinute.getUTCMinutes()
                         }
+                    };
+
+                    statusReport.save(onSaved);
+
+                    function onSaved(err) {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
+                            callBackFunction(err);
+                            return;
+                        }
+
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
                     }
 
                 } catch (err) {

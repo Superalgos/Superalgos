@@ -29,7 +29,19 @@
         }
       },
       "executionWaitTime": 60000,
-      "retryWaitTime": 10000
+      "retryWaitTime": 10000,
+      "dependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Poloniex-Live-Trades",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ]
     },
     {
       "name": "Poloniex-Historic-Trades",
@@ -50,7 +62,29 @@
         }
       },
       "executionWaitTime": 30000,
-      "retryWaitTime": 10000
+      "retryWaitTime": 10000,
+      "dependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Poloniex-Live-Trades",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Poloniex-Historic-Trades",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ]
     },
     {
       "name": "Poloniex-Hole-Fixing",
@@ -71,7 +105,39 @@
         }
       },
       "executionWaitTime": 60000,
-      "retryWaitTime": 10000
+      "retryWaitTime": 10000,
+      "dependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Poloniex-Live-Trades",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Poloniex-Historic-Trades",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Poloniex-Hole-Fixing",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ]
     }
   ]
 }

@@ -33,7 +33,7 @@
 
     return thisObject;
 
-    function initialize(pDependencies, callBackFunction) {
+    function initialize(pDependencies, pMonth, pYear, callBackFunction) {
 
         try {
 

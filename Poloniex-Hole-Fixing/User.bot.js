@@ -36,20 +36,20 @@
 
     return thisObject;
 
-    function initialize(pDependencies, callBackFunction, yearAssigend, monthAssigned) {
+    function initialize(pDependencies, pMonth, pYear, callBackFunction) {
 
         try {
 
-            year = yearAssigend;
-            month = monthAssigned;
+            year = pYear;
+            month = pMonth;
 
             month = utilities.pad(month, 2); // Adding a left zero when needed.
 
             logger.fileName = MODULE_NAME + "-" + year + "-" + month;
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + yearAssigend); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + monthAssigned); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + year); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + month); }
 
             charlyFileStorage.initialize("AACharly", onCharlyInizialized);
 

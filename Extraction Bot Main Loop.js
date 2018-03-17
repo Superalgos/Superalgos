@@ -45,7 +45,7 @@
         }
     }
 
-    function run(callBackFunction) {
+    function run(pMonth, pYear, callBackFunction) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] run -> Entering function."); }
@@ -87,7 +87,7 @@
 
                         dependencies = DEPENDENCIES.newDependencies(bot, DEBUG_MODULE, STATUS_REPORT, FILE_STORAGE, UTILITIES);
 
-                        dependencies.initialize(processConfig.dependencies, onInizialized);
+                        dependencies.initialize(processConfig.dependencies, pMonth, pYear, onInizialized);
 
                         function onInizialized(err) {
 
@@ -118,7 +118,7 @@
 
                         usertBot = USER_BOT_MODULE.newUserBot(bot, COMMONS_MODULE, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE);
 
-                        usertBot.initialize(dependencies, onInizialized, undefined, undefined);
+                        usertBot.initialize(dependencies, pMonth, pYear, onInizialized);
 
                         function onInizialized(err) {
 

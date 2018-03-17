@@ -148,6 +148,13 @@ global.FILE_PATH_ROOT = botConfig.devTeam + "/" + botConfig.codeName + "." + bot
 
 global.loopCointer = 0;
 
+/* Small Function to fix numbers into strings in a cool way. */
+
+function pad(str, max) {
+    str = str.toString();
+    return str.length < max ? pad("0" + str, max) : str;
+}
+
 /* Some LAGACY code starts here. Pending for clean up. */
 
 const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
@@ -215,24 +222,25 @@ for (let i = 0; i < botConfig.processes.length; i++) {
 
             if (processConfig.startMode.noTime.run === "true") {
 
-                startProcess();
 
-                function startProcess() {
-                    switch (bot.type) {
-                        case 'Extraction': {
-                            runExtractionBot(processConfig);
-                            return;
-                        }
-                        case 'Indicator': {
-                            runIndicatorBot(processConfig);
-                            return;
-                        }
-                        case 'Trading': {
-                            runTradingBot(processConfig);
-                            return;
-                        }
+                let month = pad((new Date()).getUTCMonth() + 1, 2);
+                let year = (new Date()).getUTCFullYear();
+                
+                switch (bot.type) {
+                    case 'Extraction': {
+                        runExtractionBot(processConfig, month, year);
+                        return;
+                    }
+                    case 'Indicator': {
+                        runIndicatorBot(processConfig, month, year);
+                        return;
+                    }
+                    case 'Trading': {
+                        runTradingBot(processConfig);
+                        return;
                     }
                 }
+
             }
 
         } catch (err) {
@@ -242,7 +250,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
     }
 }
 
-function runExtractionBot(pProcessConfig) {
+function runExtractionBot(pProcessConfig, pMonth, pYear) {
 
     try {
         if (FULL_LOG === true) { logger.write("[INFO] runExtractionBot -> Entering function."); }
@@ -254,7 +262,7 @@ function runExtractionBot(pProcessConfig) {
 
             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                extractionBotMainLoop.run(whenRunFinishes);
+                extractionBotMainLoop.run(pMonth, pYear, whenRunFinishes);
 
                 function whenRunFinishes(err) {
 
@@ -282,7 +290,7 @@ function runExtractionBot(pProcessConfig) {
     }
 }
 
-function runIndicatorBot(pProcessConfig) {
+function runIndicatorBot(pProcessConfig, pMonth, pYear) {
 
     try {
         if (FULL_LOG === true) { logger.write("[INFO] runIndicatorBot -> Entering function."); }
@@ -294,7 +302,7 @@ function runIndicatorBot(pProcessConfig) {
 
             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                indicatorBotMainLoop.run(whenRunFinishes);
+                indicatorBotMainLoop.run(pMonth, pYear, whenRunFinishes);
 
                 function whenRunFinishes(err) {
 

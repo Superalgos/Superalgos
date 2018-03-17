@@ -27,7 +27,7 @@
 
     return thisObject;
 
-    function initialize(pDependenciesConfig, callBackFunction) {
+    function initialize(pDependenciesConfig, pMonth, pYear, callBackFunction) {
 
         try {
 
@@ -45,7 +45,7 @@
 
                 let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
 
-                statusReportModule.initialize(pDependenciesConfig[i], onInitilized);
+                statusReportModule.initialize(pDependenciesConfig[i], pMonth, pYear, onInitilized);
 
                 function onInitilized(err) {
 
@@ -69,7 +69,7 @@
 
                         switch (err.result) {
                             case global.DEFAULT_OK_RESPONSE.result: {
-                                logger.write("[INFO] initialize -> onLoad -> Execution finished well. :-)");
+                                logger.write("[INFO] initialize -> onLoad -> Execution finished well -> bot = " + pDependenciesConfig[i].bot);
 
                                 addReport();
                                 return;
@@ -80,7 +80,7 @@
                                 if (err.message === "Status Report was never created.") {
 
                                     logger.write("[ERROR] initialize -> onLoad -> err.message = " + err.message); 
-                                    logger.write("[ERROR] initialize -> onLoad -> pDependenciesConfig[i] = " + JSON.stringify(pDependenciesConfig[i])); 
+                                    logger.write("[ERROR] initialize -> onLoad -> Report Not Found. -> bot = " + pDependenciesConfig[i].bot);
                                     addReport();
                                     return;
                                 } else {

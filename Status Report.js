@@ -35,17 +35,31 @@
 
     let cloudStorage = FILE_STORAGE.newFileStorage(bot);
 
+    let month;
+    let year;
+    let timePath = '';
+
     return thisObject;
 
-    function initialize(pOwner, callBackFunction) {
+    function initialize(pOwner, pMonth, pYear, callBackFunction) {
 
         try {
 
             logger.fileName = MODULE_NAME + "." + pOwner.bot;
 
+            owner = pOwner;
+            month = pMonth;
+            year = pYear;
+
+            if (owner.dataSetSection === "Month") {
+
+                logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + year + "." + month;
+
+                timePath = "/" + year + "/" + month; 
+            }
+
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            owner = pOwner;
 
             initializeStorage();
 
@@ -80,7 +94,7 @@
 
             let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
             let fileName = "Status.Report.json"
-            let filePath = rootPath + "/Reports/" + owner.process;
+            let filePath = rootPath + "/Reports/" + owner.process + timePath;
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> fileName = " + fileName); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> filePath = " + filePath); }
@@ -159,7 +173,7 @@
             }
 
             let fileName = "Status.Report.json"
-            let filePath = global.FILE_PATH_ROOT + "/Reports/" + owner.process;
+            let filePath = global.FILE_PATH_ROOT + "/Reports/" + owner.process + timePath;
 
             if (FULL_LOG === true) { logger.write("[INFO] save -> fileName = " + fileName); }
             if (FULL_LOG === true) { logger.write("[INFO] save -> filePath = " + filePath); }

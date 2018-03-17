@@ -11,6 +11,7 @@
     let messageId = 0;
     let firstCall = true;
     let folderPath;
+    let loopCounter;
 
     let thisObject = {
         bot: undefined,
@@ -50,16 +51,30 @@
         catch (err) {
             console.log("Error trying to create the folders needed.  Error: " + err.message);
         }
+    }
 
+    function createLoopFolder() {
 
+        try {
+
+            folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter;
+
+            createFolderSync(folderPath);
+
+        }
+        catch (err) {
+            console.log("Error trying to create the loop folder needed.  Error: " + err.message);
+        }
     }
 
     function write(Message) {
 
-        if (firstCall === true) {
+        if (firstCall === true) { createFolders();}
 
-            createFolders();
+        if (global.loopCointer !== loopCounter) {
 
+            loopCounter = global.loopCointer;
+            createLoopFolder();
         }
 
         let filePath = getCurrentLogFile(folderPath + "/" + dateString + "---" + randomId + "---", this.fileName);

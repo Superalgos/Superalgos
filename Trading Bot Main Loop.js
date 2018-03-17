@@ -55,6 +55,8 @@
             function loop() {
 
                 try {
+                    global.loopCointer++;
+
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Entering function."); }
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */

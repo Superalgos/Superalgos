@@ -55,6 +55,8 @@
             function loop() {
 
                 try {
+                    global.loopCointer++;
+
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Entering function."); }
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
@@ -64,6 +66,7 @@
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
                     const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
+                    const DEPENDENCIES = require(ROOT_DIR + 'Dependencies');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
@@ -71,11 +74,43 @@
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
+                    let dependencies;
                     let userBot;
 
                     let nextWaitTime;
 
-                    initializeUserBot();
+                    initializeDependencies();
+
+                    function initializeDependencies() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDependencies ->  Entering function."); }
+
+                        dependencies = DEPENDENCIES.newDependencies(bot, DEBUG_MODULE, STATUS_REPORT, FILE_STORAGE, UTILITIES);
+
+                        dependencies.initialize(processConfig.dependencies, onInizialized);
+
+                        function onInizialized(err) {
+
+                            switch (err.result) {
+                                case global.DEFAULT_OK_RESPONSE.result: {
+                                    logger.write("[INFO] run -> loop -> initializeDependencies -> onInizialized > Execution finished well. :-)");
+                                    initializeUserBot();
+                                    return;
+                                }
+                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                    logger.write("[ERROR] run -> loop -> initializeDependencies -> onInizialized > Retry Later. Requesting Execution Retry.");
+                                    nextWaitTime = 'Retry';
+                                    loopControl(nextWaitTime);
+                                    return;
+                                }
+                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                    logger.write("[ERROR] run -> loop -> initializeDependencies -> onInizialized > Operation Failed. Aborting the process.");
+                                    callBackFunction(err);
+                                    return;
+                                }
+                            }
+                        }
+                    }
 
                     function initializeUserBot() {
 
@@ -83,7 +118,7 @@
 
                         usertBot = USER_BOT_MODULE.newUserBot(bot, COMMONS_MODULE, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE);
 
-                        usertBot.initialize(undefined, undefined, onInizialized);
+                        usertBot.initialize(dependencies, onInizialized, undefined, undefined);
 
                         function onInizialized(err) {
 
@@ -93,20 +128,17 @@
                                     startUserBot();
                                     return;
                                 }
-                                    break;
                                 case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                                     logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Retry Later. Requesting Execution Retry.");
                                     nextWaitTime = 'Retry';
                                     loopControl(nextWaitTime);
                                     return;
                                 }
-                                    break;
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }
-                                    break;
                             }
                         }
                     }

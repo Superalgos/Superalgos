@@ -1,14 +1,6 @@
 ﻿
 const FULL_LOG = true;
 
-/* The following global variable tells the system if it is running on test mode or production. */
-
-global.RUNNING_MODE = 'Testnet';  // 'Testnet', 'Mixed' or 'Production'
-
-/* You do not have funds at the exchange and still want run your bot? No problem activate the exchange simulation mode: */
-
-global.EXCHANGE_SIMULATION_MODE = false;
-
 /* First thing to do is to read the config and guess which bot we will be running. */
 
 var fs = require('fs');
@@ -24,6 +16,14 @@ catch (err) {
 
     return;
 }
+
+/* You do not have funds at the exchange and still want run your bot? No problem activate the exchange simulation mode: */
+
+global.EXCHANGE_SIMULATION_MODE = JSON.parse(global.PLATFORM_CONFIG.exchangeSimulationMode);
+
+/* The following global variable tells the system if it is running on test mode or production. */
+
+global.STORAGE_CONN_STRING_FOLDER = global.PLATFORM_CONFIG.storageConnStringFolder;  // 'Testnet', 'Mixed' or 'Production', or whatever folder name the conn strings files are into.
 
 /* Now we will read the config of the bot from the path we obtained on the VM config. */
 
@@ -143,6 +143,10 @@ global.dailyFilePeriods = JSON.parse(global.dailyFilePeriods);
 /* File Path Root */
 
 global.FILE_PATH_ROOT = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+
+/* Loop Counter */
+
+global.loopCointer = 0;
 
 /* Some LAGACY code starts here. Pending for clean up. */
 

@@ -20,16 +20,8 @@
         save: save
     };
 
-    /*
-
-    During the process we will create a new History Record. This will go to the Context History file which essentially mantains an
-    index of all the bots executions. This file will later be plotted by the bot s plotter on the timeline, allowing end users to
-    know where there is information related to the actions taken by the bot.
-
-    */
-
     let bot = BOT;
-    let ownerBot;                       // This is the bot owner of the Status Report. Only owners can save the report and override the existing content.
+    let owner;                       // This is the bot owner of the Status Report. Only owners can save the report and override the existing content.
 
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -45,26 +37,21 @@
 
     return thisObject;
 
-    function initialize(pOwnerBot, callBackFunction) {
+    function initialize(pOwner, callBackFunction) {
 
         try {
 
+            logger.fileName = MODULE_NAME + "." + pOwner.bot;
+
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            /*
-
-            Here we get the positions the bot did and that are recorded at the bot storage account. We will use them through out the rest
-            of the process.
-
-            */
-
-            ownerBot = pOwnerBot;
+            owner = pOwner;
 
             initializeStorage();
 
             function initializeStorage() {
 
-                cloudStorage.initialize(bot.codeName, onInizialized);
+                cloudStorage.initialize(owner.bot, onInizialized);
 
                 function onInizialized(err) {
 
@@ -91,8 +78,9 @@
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> Entering function."); }
 
+            let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
             let fileName = "Status.Report.json"
-            let filePath = global.FILE_PATH_ROOT + "/Reports/" + bot.process;
+            let filePath = rootPath + "/Reports/" + owner.process;
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> fileName = " + fileName); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> filePath = " + filePath); }
@@ -156,8 +144,8 @@
 
             if (FULL_LOG === true) { logger.write("[INFO] save -> Entering function."); }
 
-            let ownerId = ownerBot.devTeam + "-" + ownerBot.codeName;
-            let botId = bot.devTeam + "-" + bot.codeName;
+            let ownerId = owner.devTeam + "-" + owner.bot + "-" + owner.botVersion.major + "-" + owner.botVersion.minor + "-" + owner.process + "-" + owner.dataSetVersion;
+            let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId) {
 
@@ -165,13 +153,13 @@
                     result: global.CUSTOM_FAIL_RESPONSE.result,
                     message: "Only bots owners of a Status Report can save them."
                 }
-                logger.write("[ERROR] save -> customErr = " + err.message);
+                logger.write("[ERROR] save -> customErr = " + customErr.message);
                 callBackFunction(customErr);
                 return;
             }
 
             let fileName = "Status.Report.json"
-            let filePath = global.FILE_PATH_ROOT + "/Reports/" + bot.process;
+            let filePath = global.FILE_PATH_ROOT + "/Reports/" + owner.process;
 
             if (FULL_LOG === true) { logger.write("[INFO] save -> fileName = " + fileName); }
             if (FULL_LOG === true) { logger.write("[INFO] save -> filePath = " + filePath); }

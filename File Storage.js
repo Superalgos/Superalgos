@@ -77,7 +77,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
                 try {
                     let fs = require('fs');
-                    filePath = '../' + 'Connection-Strings' + '/' + global.RUNNING_MODE + '/' + dataOwner + '.azure.storage.connstring';
+                    filePath = '../' + 'Connection-Strings' + '/' + global.STORAGE_CONN_STRING_FOLDER + '/' + dataOwner + '.azure.storage.connstring';
                     let connObj = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
                     callBack(global.DEFAULT_OK_RESPONSE, connObj);

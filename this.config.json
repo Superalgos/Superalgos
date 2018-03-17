@@ -6,9 +6,10 @@
     "patch": 0
   },
   "bot": {
-    "path": "../Bots/AAMasters/AAOlivia-Indicator-Bot"
+    "path": "../Bots/AAMasters/AACharly-Extraction-Bot"
   },
   "stopGracefully": "false",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Mixed"
+  "storageConnStringFolder": "Mixed",
+  "maxLogLoops": 10
 }

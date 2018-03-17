@@ -57,13 +57,28 @@
 
         try {
 
+            var rimraf = require('rimraf');
+
+            let folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter + 1).toString();
+
+            /* We remove the folder in case it exister from before, so that all its content is gone. */
+
+            rimraf.sync(folderToRemove);
+
+            /* We create the new one. */
+
             folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter;
 
             createFolderSync(folderPath);
 
+            /* We also remove old folders according to the configuration value of global.PLATFORM_CONFIG.maxLogLoops. */
+
+            folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
+
+            rimraf.sync(folderToRemove);
         }
         catch (err) {
-            console.log("Error trying to create the loop folder needed.  Error: " + err.message);
+            console.log("Error trying to create the loop folder needed or deleting old ones.  Error: " + err.message);
         }
     }
 

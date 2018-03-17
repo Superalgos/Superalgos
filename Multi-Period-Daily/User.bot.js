@@ -33,6 +33,7 @@
     };
 
     let oliviaFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let bruceFileStorage = FILE_STORAGE.newFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -40,7 +41,7 @@
 
     return thisObject;
 
-    function initialize(pDependencies, callBackFunction) {
+    function initialize(pDependencies, pMonth, pYear, callBackFunction) {
 
         try {
 
@@ -50,7 +51,7 @@
 
             dependencies = pDependencies;
 
-            commons.initializeStorage(oliviaFileStorage, onInizialized);
+            commons.initializeStorage(oliviaFileStorage, bruceFileStorage, onInizialized);
 
             function onInizialized(err) {
 
@@ -619,7 +620,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                 try {
 
                     let reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
-                    let thisReport = dependencies.statusReports.get(key);
+                    let thisReport = dependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = global.processDatetime;
                     thisReport.file.lastFile = lastFileDate;

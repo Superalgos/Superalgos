@@ -22,15 +22,32 @@
 
     return thisObject;
 
-    function initializeStorage(oliviaFileStorage, callBackFunction) {
+    function initializeStorage(oliviaFileStorage, bruceFileStorage, callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] initializeStorage -> Entering function."); }
 
-            initializeCharlyStorage();
+            initializeBruceStorage();
 
-            function initializeCharlyStorage() {
+            function initializeBruceStorage() {
+
+                bruceFileStorage.initialize("AABruce", onBruceInizialized);
+
+                function onBruceInizialized(err) {
+
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                        initializeOliviaStorage();
+
+                    } else {
+                        logger.write("[ERROR] initializeStorage -> initializeBruceStorage -> onBruceInizialized -> err = " + err.message);
+                        callBackFunction(err);
+                    }
+                }
+            }
+
+            function initializeOliviaStorage() {
 
                 oliviaFileStorage.initialize("AAOlivia", onOliviaInizialized);
 

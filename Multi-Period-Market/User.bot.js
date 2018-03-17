@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT) {
+﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -32,33 +32,25 @@
         start: start
     };
 
-    let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
-    let bruceFileStorage = FILE_STORAGE.newFileStorage(bot);
     let oliviaFileStorage = FILE_STORAGE.newFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
-    let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
+    let dependencies;
 
     return thisObject;
 
-    function initialize(yearAssigend, monthAssigned, callBackFunction) {
+    function initialize(pDependencies, callBackFunction) {
 
         try {
-
-            /* IMPORTANT NOTE:
-
-            We are ignoring in this UserBot the received Year and Month. thisObject is not depending on Year Month since it procecess the whole market at once.
-
-            */
 
             logger.fileName = MODULE_NAME;
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + yearAssigend); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + monthAssigned); }
 
-            commons.initializeStorage(charlyFileStorage, bruceFileStorage, oliviaFileStorage, onInizialized);
+            dependencies = pDependencies;
+
+            commons.initializeStorage(oliviaFileStorage, onInizialized);
 
             function onInizialized(err) {
 
@@ -98,51 +90,73 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
             /* Context Variables */
 
             contextVariables = {
-                lastCandleFile: undefined,          // Datetime of the last file included on the Index Files.
+                lastCandleFile: undefined,          // Datetime of the last file files sucessfully produced by this process.
                 firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
-                maxCandleFile: undefined            // Datetime of the last file available to be included in the Index File.
+                maxCandleFile: undefined            // Datetime of the last file available to be used as an input of this process.
             };
 
-            commons.getContextVariables(charlyFileStorage, bruceFileStorage, oliviaFileStorage, contextVariables, statusReportModule, onVariablesReady);
+            getContextVariables();
 
-            function onVariablesReady(err) {
+            function getContextVariables() {
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> onVariablesReady -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> Entering function."); }
 
-                    if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                    let thisReport;
+                    let reportKey;
 
-                        switch (err.message) {
-                            case 'Status Report did exist.': {
-                                logger.write("[INFO] start -> onVariablesReady -> Status Report did exist.");
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    thisReport = dependencies.statusReports.get(reportKey).file;
 
-                                findPreviousContent();
-                                return;
-                            }
-                            case 'Status Report did not exist.': {  
-                                logger.write("[ERROR] start -> onVariablesReady -> Status Report did not exist.");
+                    if (thisReport.lastFile === undefined) {
+                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
 
-                                buildCandles();
-                                return;
-                            }
-                            default:
-                                {
-                                    logger.write("[ERROR] start -> onVariablesReady -> Operation Failed.");
-                                    callBackFunction(err);
-                                    return;
-                                }
-                        }
+                    contextVariables.firstTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+
+                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1";
+                    thisReport = dependencies.statusReports.get(reportKey).file;
+
+                    if (thisReport.lastFile === undefined) {
+                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    contextVariables.maxCandleFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+
+                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    thisReport = dependencies.statusReports.get(reportKey).file;
+
+                    if (thisReport.lastFile === undefined) {
+
+                        contextVariables.lastCandleFile = new Date(thisReport.lastFile);
+
+                        /*
+                        Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
+                        For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
+                        */
+
+                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
+
+                        findPreviousContent();
+                        return;
 
                     } else {
-                        logger.write("[ERROR] start -> onVariablesReady -> Operation Failed.");
-                        callBackFunction(err);
+
+                        contextVariables.lastCandleFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
+
+                        buildCandles();
                         return;
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> onVariablesReady -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -791,9 +805,12 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                 try {
 
-                    statusReportModule.file.lastExecution = global.processDatetime;
-                    statusReportModule.file.lastFile = lastFileDate;
-                    statusReportModule.save(callBack);
+                    let reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    let thisReport = dependencies.statusReports.get(key);
+
+                    thisReport.file.lastExecution = global.processDatetime;
+                    thisReport.file.lastFile = lastFileDate;
+                    thisReport.save(callBack);
 
                 }
                 catch (err) {

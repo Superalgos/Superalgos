@@ -126,8 +126,8 @@ Array of records with this information:
                     dateForPathA = currentDate.getUTCFullYear() + '/' + utilities.pad(currentDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDate.getUTCDate(), 2) + '/' + utilities.pad(currentDate.getUTCHours(), 2) + '/' + utilities.pad(currentDate.getUTCMinutes(), 2);
                     dateForPathB = previousMinute.getUTCFullYear() + '/' + utilities.pad(previousMinute.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousMinute.getUTCDate(), 2) + '/' + utilities.pad(previousMinute.getUTCHours(), 2) + '/' + utilities.pad(previousMinute.getUTCMinutes(), 2);
 
-                    filePathA = global.FILE_PATH_ROOT + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathA;
-                    filePathB = global.FILE_PATH_ROOT + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathB;
+                    filePathA = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathA;
+                    filePathB = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathB;
 
                     utilities.createFolderIfNeeded(filePathA, charlyFileStorage, onFolderACreated);
 

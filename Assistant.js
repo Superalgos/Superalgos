@@ -348,6 +348,8 @@
                                 ) {
                                     logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
                                     logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Verify also that you were not running under a Exchange Simulation and you turned it off without deleting the Status Report file.");
+                                    logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> If the process was abruptally cancelled and then restarted, it is possible that now is not sincronized with the exchange.");
+                                    logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> In any case, to continue, you must delete the Status Report file so as to start over. Also, you must manually delete the orders at the exchange.");
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }

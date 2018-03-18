@@ -5,17 +5,18 @@
     "minor": 1,
     "patch": 0
   },
-  "bot": {
-    "path": "../Bots/AAMasters/AAMariam-Trading-Bot"
-  },
   "executionList": [
     {
       "botPath": "../Bots/AAMasters/AAMariam-Trading-Bot",
       "process": "Trading-Process"
+    },
+    {
+      "botPath": "../Bots/AAMasters/AAOlivia-Indicator-Bot",
+      "process": "Multi-Period-Market"
     }
   ],
-  "stopGracefully": "false",
+  "stopGracefully": "true",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Production",
+  "storageConnStringFolder": "Mixed",
   "maxLogLoops": 10
 }

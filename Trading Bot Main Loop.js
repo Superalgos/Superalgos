@@ -13,6 +13,7 @@
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
+    logger.forceLoopSplit = true;
 
     let thisObject = {
         initialize: initialize,
@@ -55,7 +56,7 @@
             function loop() {
 
                 try {
-                    global.loopCointer++;
+                    bot.loopCounter++;
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Entering function."); }
 
@@ -84,6 +85,7 @@
                     let exchangeAPI;
                     let assistant;
                     let userBot;
+                    let dependencies;
 
                     let nextWaitTime;
 

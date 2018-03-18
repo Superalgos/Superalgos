@@ -12,10 +12,12 @@
     let firstCall = true;
     let folderPath;
     let loopCounter;
+    let loopIncremented = false;
 
     let thisObject = {
         bot: undefined,
         fileName: undefined,
+        forceLoopSplit: false,          // When set to 'true' this will force that the logs of the current module are split in many different Loop folders.
         write: write
     };
 
@@ -86,10 +88,25 @@
 
         if (firstCall === true) { createFolders(); }
 
-        if (global.loopCointer !== loopCounter) {
+        if (thisObject.bot.loopCounter !== loopCounter) {
 
-            loopCounter = global.loopCointer;
-            createLoopFolder();
+            if (thisObject.forceLoopSplit === false) {
+
+                if (loopIncremented === false) {
+
+                    loopIncremented = true;
+
+                    loopCounter = thisObject.bot.loopCounter;
+                    createLoopFolder();
+                }
+            } else {
+
+                loopIncremented = true;
+
+                loopCounter = thisObject.bot.loopCounter;
+                createLoopFolder();
+
+            }
         }
 
         let filePath = getCurrentLogFile(folderPath + "/" + dateString + "---" + randomId + "---", this.fileName);

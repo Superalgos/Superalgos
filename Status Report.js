@@ -103,7 +103,10 @@
 
             function onFileReceived(err, text) {
 
-                if (err.result === global.CUSTOM_FAIL_RESPONSE.result && err.message === 'Folder does not exist.') {
+                if (
+                    err.result === global.CUSTOM_FAIL_RESPONSE.result &&
+                    (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
+                ) {
                     logger.write("[INFO] initialize -> load -> onFileReceived -> err = " + err.message);
 
                     /* In this case we can assume that this is the first execution ever of this bot.*/

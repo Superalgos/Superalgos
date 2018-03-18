@@ -29,7 +29,19 @@
         }
       },
       "executionWaitTime": 60000,
-      "retryWaitTime": 10000
+      "retryWaitTime": 10000,
+      "dependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAMariam",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Trading-Process",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ]
     }
   ],
   "products": [

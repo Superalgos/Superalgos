@@ -117,7 +117,7 @@
                         result: global.CUSTOM_OK_RESPONSE.result,
                         message: "Status Report was never created."
                     }
-                    logger.write("[WARN] initialize -> load -> onFileReceived -> customOK = " + err.message);
+                    logger.write("[WARN] initialize -> load -> onFileReceived -> customOK = " + customOK.message);
                     callBackFunction(customOK);
                     return;
                 }

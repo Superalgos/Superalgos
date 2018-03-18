@@ -159,20 +159,54 @@
                                     loopControl(nextWaitTime);
                                     return;
                                 }
-                                    break;
                                 case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                                     logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Retry Later. Requesting Execution Retry.");
                                     nextWaitTime = 'Retry';
                                     loopControl(nextWaitTime);
                                     return;
                                 }
-                                    break;
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }
-                                    break;
+                                case global.CUSTOM_OK_RESPONSE.result: { 
+
+                                    switch (err.message) {
+                                        case "Dependency does not exist.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Dependency does not exist. This Loop will go to sleep.");
+                                            nextWaitTime = 'Sleep';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case "Dependency not ready.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Dependency not ready. This Loop will go to sleep.");
+                                            nextWaitTime = 'Sleep';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case "Month before it is needed.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Month before it is needed. This Loop will be terminated.");
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                            return;
+                                        }
+                                        case "Month fully processed.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Month fully processed. This Loop will be terminated.");
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                            return;
+                                        }
+                                        case "End of the month reached.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > End of the month reached. This Loop will be terminated.");
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled custom response received. -> err.message = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -202,12 +236,17 @@
                 switch (nextWaitTime) {
                     case 'Normal': {
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.executionWaitTime / 1000) + " seconds."); }
-                        setTimeout(loop, processConfig.executionWaitTime);
+                        setTimeout(loop, processConfig.normalWaitTime);
                     }
                         break;
                     case 'Retry': {
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
                         setTimeout(loop, processConfig.retryWaitTime);
+                    }
+                        break;
+                    case 'Sleep': {
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 60000) + " minutes."); }
+                        setTimeout(loop, processConfig.sleepWaitTime);
                     }
                         break;
                 }

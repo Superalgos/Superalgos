@@ -368,6 +368,11 @@
                         setTimeout(loop, processConfig.retryWaitTime);
                     }
                         break;
+                    case 'Sleep': {
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 60000) + " minutes."); }
+                        setTimeout(loop, processConfig.sleepWaitTime);
+                    }
+                        break;
                 } 
             }
 

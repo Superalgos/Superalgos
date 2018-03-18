@@ -118,7 +118,13 @@
 
                     loadCount++;
 
-                    let key = pDependenciesConfig[i].devTeam + "-" + pDependenciesConfig[i].bot + "-" + pDependenciesConfig[i].process + "-" + pDependenciesConfig[i].dataSetVersion;
+                    let key;
+
+                    if (pDependenciesConfig[i].dataSetSection === "Month") {
+                        key = pDependenciesConfig[i].devTeam + "-" + pDependenciesConfig[i].bot + "-" + pDependenciesConfig[i].process + "-" + pDependenciesConfig[i].dataSetVersion + "-" + pYear + "-" + pMonth;
+                    } else {
+                        key = pDependenciesConfig[i].devTeam + "-" + pDependenciesConfig[i].bot + "-" + pDependenciesConfig[i].process + "-" + pDependenciesConfig[i].dataSetVersion;
+                    }
 
                     thisObject.statusReports.set(key, statusReportModule);
 

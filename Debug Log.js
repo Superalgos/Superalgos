@@ -84,7 +84,7 @@
 
     function write(Message) {
 
-        if (firstCall === true) { createFolders();}
+        if (firstCall === true) { createFolders(); }
 
         if (global.loopCointer !== loopCounter) {
 

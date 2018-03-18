@@ -76,14 +76,17 @@
 
     let cloudStorage = FILE_STORAGE.newFileStorage(bot);
 
+    let dependencies;
+
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(pDependencies, callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
+            dependencies = pDependencies;
             /*
 
             Here we get the positions the bot did and that are recorded at the bot storage account. We will use them through out the rest
@@ -148,46 +151,18 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
 
-                    statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
-                    statusReportModule.initialize(bot, onInitilized);
+                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
-                    function onInitilized(err) {
+                    statusReportModule = dependencies.statusReports.get(key);
+                    thisObject.statusReport = statusReportModule.file;
 
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] initialize -> getStatusReport -> onInitilized -> err = " + err.message);
-                            callBackFunction(err);
-                            return;
-                        }
+                    if (thisObject.statusReport.lastExecution !== undefined) {
 
-                        statusReportModule.load(onLoad);
-                    }
+                        getExecutionHistory(callBack);  // Happens when the Status Report exists. 
 
-                    function onLoad(err) {
+                    } else {
 
-                        switch (err.result) {
-                            case global.DEFAULT_OK_RESPONSE.result: {
-                                logger.write("[INFO] initialize -> getStatusReport -> onLoad -> Execution finished well. :-)");
-                                thisObject.statusReport = statusReportModule.file;
-                                getExecutionHistory(callBack);
-                                return;
-                            }
-                            case global.CUSTOM_OK_RESPONSE.result: {  // We need to see if we can handle this.
-                                logger.write("[ERROR] initialize -> getStatusReport -> onLoad -> err.message = " + err.message);
-
-                                if (err.message === "Status Report was never created.") {
-                                    createConext(callBack);
-                                } else {
-                                    callBackFunction(err);              // we cant handle this here.
-                                }
-                                return;
-                            }
-                            default:
-                            {
-                                logger.write("[ERROR] initialize -> getStatusReport -> onLoad -> Operation Failed.");
-                                callBackFunction(err);
-                                return;
-                            }
-                        }
+                        createConext(callBack);         // Happens when the Status Report does NOT exists. 
                     }
 
                 } catch (err) {

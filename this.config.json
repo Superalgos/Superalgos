@@ -6,10 +6,10 @@
     "patch": 0
   },
   "bot": {
-    "path": "../Bots/AAMasters/AACharly-Extraction-Bot"
+    "path": "../Bots/AAMasters/AAMariam-Trading-Bot"
   },
   "stopGracefully": "false",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Mixed",
+  "storageConnStringFolder": "Production",
   "maxLogLoops": 10
 }

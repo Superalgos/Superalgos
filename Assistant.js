@@ -256,7 +256,7 @@
                                         let sumAssetA = 0;
                                         let sumAssetB = 0;
 
-                                        for (k = 0; k < pTrades.length; k++) {
+                                        for (let k = 0; k < pTrades.length; k++) {
 
                                             sumAssetA = sumAssetA + pTrades[k].amountA;
                                             sumAssetB = sumAssetB + pTrades[k].amountB;
@@ -310,6 +310,73 @@
                                         return;
                                     }
                                 }
+                            }
+                        }
+
+                        function confirmOrderWasExecuted(pTrades) {
+
+                            try {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
+                                if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
+
+                                /*
+    
+                                To confirm everything is ok, we will add all the amounts on trades asociated to the order and
+                                they must be equal to the one on file. Otherwise something very strange could have happened,
+                                in which case we will halt the bot execution.
+    
+                                */
+
+                                let sumAssetA = 0;
+                                let sumAssetB = 0;
+
+                                for (let k = 0; k < pTrades.length; k++) {
+
+                                    sumAssetA = sumAssetA + pTrades[k].amountA;
+                                    sumAssetB = sumAssetB + pTrades[k].amountB;
+
+                                }
+
+                                /* We add the fees */
+
+                                sumAssetA = sumAssetA + exchangePositions[j].fee;
+
+                                if (
+                                    position.amountA !== sumAssetA ||
+                                    position.amountB !== sumAssetB
+                                ) {
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
+                                    logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Verify also that you were not running under a Exchange Simulation and you turned it off without deleting the Status Report file.");
+                                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+
+                                /*
+    
+                                Confirmed that order was executed. Next thing to do is to remember the trades and change its status.
+    
+                                */
+
+                                position.status = "executed";
+
+                                applyTradesToContext(pTrades);
+
+                                let newTransaction = {
+                                    type: position.type + " executed",
+                                    position: position
+                                };
+
+                                context.executionContext.transactions.push(newTransaction);
+
+                                /* All done. */
+
+                                next();
+
+                            } catch (err) {
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
+                                callBack(global.DEFAULT_FAIL_RESPONSE);
+                                return;
                             }
                         }
                     }
@@ -366,71 +433,7 @@
                         }
                     }
 
-                    function confirmOrderWasExecuted(pTrades) {
 
-                        try {
-
-                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
-                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
-
-                            /*
-
-                            To confirm everything is ok, we will add all the amounts on trades asociated to the order and
-                            they must be equal to the one on file. Otherwise something very strange could have happened,
-                            in which case we will halt the bot execution.
-
-                            */
-
-                            let sumAssetA = 0;
-                            let sumAssetB = 0;
-
-                            for (k = 0; k < pTrades.length; k++) {
-
-                                sumAssetA = sumAssetA + pTrades[k].amountA;
-                                sumAssetB = sumAssetB + pTrades[k].amountB;
-
-                            }
-
-                            /* We add the fees */
-
-                            sumAssetA = sumAssetA + exchangePositions[j].fee;
-
-                            if (
-                                position.amountA !== sumAssetA ||
-                                position.amountB !== sumAssetB
-                            ) {
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
-                                callBack(global.DEFAULT_FAIL_RESPONSE);
-                                return;
-                            }
-
-                            /*
-
-                            Confirmed that order was executed. Next thing to do is to remember the trades and change its status.
-
-                            */
-
-                            position.status = "executed";
-
-                            applyTradesToContext(pTrades);
-
-                            let newTransaction = {
-                                type: position.type + " executed",
-                                position: position
-                            };
-
-                            context.executionContext.transactions.push(newTransaction);
-
-                            /* All done. */
-
-                            next();
-
-                        } catch (err) {
-                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
-                            callBack(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-                    }
 
                 } catch (err) {
                     logger.write("[ERROR] ordersExecutionCheck -> loopBody -> err = " + err.message);

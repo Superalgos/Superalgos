@@ -248,7 +248,7 @@ What is the lastFile pointer?
                         return;
                     }
                     
-                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month;
                     holeFixingStatusReport = dependencies.statusReports.get(reportKey).file;
 
                     if (holeFixingStatusReport.lastFile === undefined) {
@@ -1100,201 +1100,161 @@ What is the lastFile pointer?
 
             function writeStatusReport(lastTradeDatetime, lastTradeId, monthChecked, atHeadOfMarket, callBack) {
 
-                /*
-
-                If no parameters are provided, that means that last good information is the begining of the hole. If they are provided is because no hole was detected until the
-                forward end of the market.
-
-                */
-
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'writeStatusReport'");
-                }
-
-                if (lastTradeId === undefined) {
-
-                    lastTradeId = holeInitialId;
-                    lastTradeDatetime = holeInitialDatetime;
-
-                }
-
-                let lastFileWithoutHoles = new Date(lastTradeDatetime.valueOf() - 60 * 1000); // It is the previous file where the last verified trade is.
-
                 try {
 
-                    let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
 
-                    utilities.createFolderIfNeeded(reportFilePath, charlyFileStorage, onFolderCreated);
+                    /*
+                    If no parameters are provided, that means that last good information is the begining of the hole. If they are provided is because no hole was detected until the
+                    forward end of the market.
+                    */
 
-                    function onFolderCreated() {
+                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion + "-" + year + "-" + month;
 
-                        try {
+                    let statusReport = dependencies.statusReports.get(key);
 
-                            /*
+                    if (lastTradeId === undefined) {
 
-                            Here we will calculate the "counter". The counter keeps track of how many times the process tried to fix the same hole. This allows
-                            the process to know when a hole is not fixable. To do that we need to compre the current status report with the information we ve got
-                            about the hole. If it is the same, we add to the counter.
+                        lastTradeId = holeInitialId;
+                        lastTradeDatetime = holeInitialDatetime;
+                    }
 
-                            */
+                    let lastFileWithoutHoles = new Date(lastTradeDatetime.valueOf() - 60 * 1000); // It is the previous file where the last verified trade is.
 
-                            let counter = 0;
+                    /*
+                    Here we will calculate the "counter". The counter keeps track of how many times the process tried to fix the same hole. This allows
+                    the process to know when a hole is not fixable. To do that we need to compare the current status report with the information we ve got
+                    about the hole. If it is the same, we add to the counter.
+                    */
 
-                            try {
+                    let counter = 0;
 
-                                if (holeFixingStatusReport.lastTrade.id === lastTradeId) {
+                    try {
 
-                                    counter = holeFixingStatusReport.lastTrade.counter;
+                        if (holeFixingStatusReport.lastTrade.id === lastTradeId) {
 
-                                    if (counter === undefined) { counter = 0; }
-                                    counter++;
+                            counter = holeFixingStatusReport.lastTrade.counter;
 
-                                }
-
-                            } catch (err) { // we are here when the status report did not exist.
-
-                                counter = 0;
-
-                            }
-
-                            let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                            let report = {
-                                lastFile: {
-                                    year: lastFileWithoutHoles.getUTCFullYear(),
-                                    month: (lastFileWithoutHoles.getUTCMonth() + 1),
-                                    days: lastFileWithoutHoles.getUTCDate(),
-                                    hours: lastFileWithoutHoles.getUTCHours(),
-                                    minutes: lastFileWithoutHoles.getUTCMinutes()
-                                },
-                                lastTrade: {
-                                    year: lastTradeDatetime.getUTCFullYear(),
-                                    month: (lastTradeDatetime.getUTCMonth() + 1),
-                                    days: lastTradeDatetime.getUTCDate(),
-                                    hours: lastTradeDatetime.getUTCHours(),
-                                    minutes: lastTradeDatetime.getUTCMinutes(),
-                                    seconds: lastTradeDatetime.getUTCSeconds(),
-                                    id: lastTradeId,
-                                    counter: counter
-                                },
-                                monthChecked: monthChecked,
-                                atHeadOfMarket: atHeadOfMarket
-                            };
-
-                            let fileContent = JSON.stringify(report); 
-
-                            charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileBCreated);
-
-                            function onFileBCreated() {
-
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
-                                }
-
-                                /* 
-
-                                If we are at the same month of the begining of the market, we need to create the main status report file.
-                                We will re-create it even every time the month status report is created. When this month check finished, other months later
-                                will update it.
-
-                                */
-
-                                if (processDate.getUTCMonth() === lastHistoricTradeFile.getUTCMonth() && processDate.getUTCFullYear() === lastHistoricTradeFile.getUTCFullYear()) {
-
-                                    createMainStatusReport(lastTradeDatetime, lastTradeId, onMainReportCreated);
-
-                                    function onMainReportCreated () {
-
-                                        verifyMarketComplete(monthChecked, callBack);
-
-                                    }
-
-                                } else {
-
-                                    verifyMarketComplete(monthChecked, callBack);
-
-                                }
-
-                            }
-
+                            if (counter === undefined) { counter = 0; }
+                            counter++;
                         }
-                        catch (err) {
-                            const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(logText);
-                            closeMarket();
+
+                    } catch (err) { // we are here when the status report did not exist.
+                        counter = 0;
+                    }
+
+                    statusReport.file = {
+                        lastFile: {
+                            year: lastFileWithoutHoles.getUTCFullYear(),
+                            month: (lastFileWithoutHoles.getUTCMonth() + 1),
+                            days: lastFileWithoutHoles.getUTCDate(),
+                            hours: lastFileWithoutHoles.getUTCHours(),
+                            minutes: lastFileWithoutHoles.getUTCMinutes()
+                        },
+                        lastTrade: {
+                            year: lastTradeDatetime.getUTCFullYear(),
+                            month: (lastTradeDatetime.getUTCMonth() + 1),
+                            days: lastTradeDatetime.getUTCDate(),
+                            hours: lastTradeDatetime.getUTCHours(),
+                            minutes: lastTradeDatetime.getUTCMinutes(),
+                            seconds: lastTradeDatetime.getUTCSeconds(),
+                            id: lastTradeId,
+                            counter: counter
+                        },
+                        monthChecked: monthChecked,
+                        atHeadOfMarket: atHeadOfMarket
+                    };
+
+                    statusReport.save(onSaved);
+
+                    function onSaved(err) {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
+                            callBackFunction(err);
+                            return;
+                        }
+
+                        /* 
+                        If we are at the same month of the begining of the market, we need to create the main status report file.
+                        We will re-create it even every time the month status report is created. When this month check finished, other months later
+                        will update it.
+                        */
+
+                        if (processDate.getUTCMonth() === lastHistoricTradeFile.getUTCMonth() && processDate.getUTCFullYear() === lastHistoricTradeFile.getUTCFullYear()) {
+
+                            createMainStatusReport(lastTradeDatetime, lastTradeId, onMainReportCreated);
+
+                            function onMainReportCreated() {
+
+                                verifyMarketComplete(monthChecked, callBack);
+                            }
+
+                        } else {
+
+                            verifyMarketComplete(monthChecked, callBack);
                         }
                     }
 
+                } catch (err) {
+                    logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
                 }
-                catch (err) {
-                    const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-
             }
 
-            function createMainStatusReport(lastTradeDatetime, lastTradeId,callBack) {
+            function createMainStatusReport(lastTradeDatetime, lastTradeId, callBack) {
+
                 try {
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> createMainStatusReport -> Entering function."); }
 
-                    let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
+                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
-                    utilities.createFolderIfNeeded(reportFilePath, charlyFileStorage, onFolderCreated);
+                    let statusReport = dependencies.statusReports.get(key);
 
-                    function onFolderCreated() {
+                    let lastFileWithoutHoles = new Date(lastTradeDatetime.valueOf() - 60 * 1000); // It is the previous file where the last verified trade is.
 
-                        try {
-
-                            let lastFileWithoutHoles = new Date(lastTradeDatetime.valueOf() - 60 * 1000); // It is the previous file where the last verified trade is.
-
-                            let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                            let report = {
-                                lastFile: {
-                                    year: lastFileWithoutHoles.getUTCFullYear(),
-                                    month: (lastFileWithoutHoles.getUTCMonth() + 1),
-                                    days: lastFileWithoutHoles.getUTCDate(),
-                                    hours: lastFileWithoutHoles.getUTCHours(),
-                                    minutes: lastFileWithoutHoles.getUTCMinutes()
-                                },
-                                lastTrade: {
-                                    year: lastTradeDatetime.getUTCFullYear(),
-                                    month: (lastTradeDatetime.getUTCMonth() + 1),
-                                    days: lastTradeDatetime.getUTCDate(),
-                                    hours: lastTradeDatetime.getUTCHours(),
-                                    minutes: lastTradeDatetime.getUTCMinutes(),
-                                    seconds: lastTradeDatetime.getUTCSeconds(),
-                                    id: lastTradeId
-                                }
-                            };
-
-                            let fileContent = JSON.stringify(report);
-
-                            charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileBCreated);
-
-                            function onFileBCreated() {
-
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'createMainStatusReport' - Content written: " + fileContent);
-                                }
-
-                                callBack();
-
-                            }
-
+                    statusReport.file = {
+                        lastFile: {
+                            year: lastFileWithoutHoles.getUTCFullYear(),
+                            month: (lastFileWithoutHoles.getUTCMonth() + 1),
+                            days: lastFileWithoutHoles.getUTCDate(),
+                            hours: lastFileWithoutHoles.getUTCHours(),
+                            minutes: lastFileWithoutHoles.getUTCMinutes()
+                        },
+                        lastTrade: {
+                            year: lastTradeDatetime.getUTCFullYear(),
+                            month: (lastTradeDatetime.getUTCMonth() + 1),
+                            days: lastTradeDatetime.getUTCDate(),
+                            hours: lastTradeDatetime.getUTCHours(),
+                            minutes: lastTradeDatetime.getUTCMinutes(),
+                            seconds: lastTradeDatetime.getUTCSeconds(),
+                            id: lastTradeId
                         }
-                        catch (err) {
-                            const logText = "[ERROR] 'createMainStatusReport - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(logText);
-                            closeMarket();
+                    };
+
+                    statusReport.save(onSaved);
+
+                    function onSaved(err) {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> createMainStatusReport -> onSaved -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] start -> createMainStatusReport -> onSaved -> err = " + err.message);
+                            callBackFunction(err);
+                            return;
                         }
+
+                        callBack();
+                        return;
                     }
-
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'createMainStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                    logger.write("[ERROR] start -> createMainStatusReport -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
                 }
             }
 
@@ -1481,6 +1441,7 @@ What is the lastFile pointer?
         } catch (err) {
             logger.write("[ERROR] start -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            return;
         }
     }
 };

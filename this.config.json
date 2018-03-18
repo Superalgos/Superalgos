@@ -8,6 +8,12 @@
   "bot": {
     "path": "../Bots/AAMasters/AAMariam-Trading-Bot"
   },
+  "executionList": [
+    {
+      "botPath": "../Bots/AAMasters/AAMariam-Trading-Bot",
+      "process": "Trading-Process"
+    }
+  ],
   "stopGracefully": "false",
   "exchangeSimulationMode": "false",
   "storageConnStringFolder": "Production",

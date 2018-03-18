@@ -178,7 +178,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
-                    let filePath = global.FILE_PATH_ROOT + "/Output/" + bot.process;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> filePath = " + filePath); }
@@ -239,7 +239,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                    let filePath = global.FILE_PATH_ROOT + "/Output/" + bot.process + '/' + dateForPath;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> filePath = " + filePath); }
@@ -399,7 +399,7 @@
 
                     let fileName = "Execution.Context.json"
                     let dateForPath = global.processDatetime.getUTCFullYear() + '/' + utilities.pad(global.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(global.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(global.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(global.processDatetime.getUTCMinutes(), 2);
-                    let filePath = global.FILE_PATH_ROOT + "/Output/" + bot.process + '/' + dateForPath;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> filePath = " + filePath); }
@@ -459,7 +459,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History.json"
-                    let filePath = global.FILE_PATH_ROOT + "/Output/" + bot.process;
+                    let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> filePath = " + filePath); }

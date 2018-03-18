@@ -25,35 +25,12 @@ global.EXCHANGE_SIMULATION_MODE = JSON.parse(global.PLATFORM_CONFIG.exchangeSimu
 
 global.STORAGE_CONN_STRING_FOLDER = global.PLATFORM_CONFIG.storageConnStringFolder;  // 'Testnet', 'Mixed' or 'Production', or whatever folder name the conn strings files are into.
 
-/* Now we will read the config of the bot from the path we obtained on the VM config. */
-
-let botConfig;
-
-try {
-
-    botConfig = JSON.parse(fs.readFileSync(global.PLATFORM_CONFIG.bot.path + '/this.bot.config.json', 'utf8'));
-}
-catch (err) {
-    console.log("[ERROR] 'readConfig' - ERROR : " + err.message);
-    return;
-}
-
-let bot = { // TODO > REPLACE THIS FOR THE ENTIRE BOT CONFIGURATION. NOTE THAT NAME NOW IS CODENAME
-    "name": botConfig.displayName,
-    "type": botConfig.type,
-    "version": botConfig.version,
-    "devTeam": botConfig.devTeam
-};
-
 /* Now we will run according to what we see at the config file. */
 
 const ROOT_DIR = './';
 const MODULE_NAME = "Run";
 
 const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
-const logger = DEBUG_MODULE.newDebugLog();
-logger.fileName = MODULE_NAME;
-logger.bot = botConfig;
 
 process.on('uncaughtException', function (err) {
     logger.write('uncaughtException - ' + err.message);
@@ -140,9 +117,6 @@ global.dailyFilePeriods =
 
 global.dailyFilePeriods = JSON.parse(global.dailyFilePeriods);
 
-/* File Path Root */
-
-global.FILE_PATH_ROOT = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
 /* Loop Counter */
 
@@ -161,6 +135,40 @@ const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
 const TRADING_BOT_MAIN_LOOP_MODULE = require('./Trading Bot Main Loop');
 const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./Indicator Bot Main Loop');
 const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./Extraction Bot Main Loop');
+
+/* Loop through all the processes configured to be run by this Node.js Instance. */
+
+let logger;
+
+for (let p = 0; p < global.PLATFORM_CONFIG.executionList; p++) {
+
+    let listItem = PLATFORM_CONFIG.executionList[p];
+
+    /* Now we will read the config of the bot from the path we obtained at the AACloud config. */
+
+    let botConfig;
+
+    try {
+
+        botConfig = JSON.parse(fs.readFileSync(global.PLATFORM_CONFIG.bot.path + '/this.bot.config.json', 'utf8'));
+    }
+    catch (err) {
+        console.log("[ERROR] 'readConfig' - ERROR : " + err.message);
+        return;
+    }
+
+    logger = DEBUG_MODULE.newDebugLog();
+    logger.fileName = MODULE_NAME;
+    logger.bot = botConfig;
+
+    /* File Path Root */
+
+    bot.filePathRoot
+    botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+
+
+}
+
 
 /* Now we will see which are the script Arguments. We expect the name of the process to run, since that is what it should be defined at the Task Scheduller. */
 
@@ -226,7 +234,7 @@ for (let i = 0; i < botConfig.processes.length; i++) {
                 let month = pad((new Date()).getUTCMonth() + 1, 2);
                 let year = (new Date()).getUTCFullYear();
                 
-                switch (bot.type) {
+                switch (botConfig.type) {
                     case 'Extraction': {
                         runExtractionBot(processConfig, month, year);
                         return;

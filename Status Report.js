@@ -173,7 +173,7 @@
             }
 
             let fileName = "Status.Report.json"
-            let filePath = global.FILE_PATH_ROOT + "/Reports/" + owner.process + timePath;
+            let filePath = bot.filePathRoot + "/Reports/" + owner.process + timePath;
 
             if (FULL_LOG === true) { logger.write("[INFO] save -> fileName = " + fileName); }
             if (FULL_LOG === true) { logger.write("[INFO] save -> filePath = " + filePath); }

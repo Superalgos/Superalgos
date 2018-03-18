@@ -809,7 +809,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     let reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     let thisReport = dependencies.statusReports.get(reportKey);
 
-                    thisReport.file.lastExecution = global.processDatetime;
+                    thisReport.file.lastExecution = bot.processDatetime;
                     thisReport.file.lastFile = lastFileDate;
                     thisReport.save(callBack);
 

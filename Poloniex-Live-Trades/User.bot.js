@@ -119,7 +119,7 @@ Array of records with this information:
 
                     if (FULL_LOG === true) { logger.write("[INFO] start -> createFolders -> Entering function."); }
 
-                    currentDate = global.processDatetime;
+                    currentDate = bot.processDatetime;
                     
                     previousMinute = new Date(currentDate.valueOf() - 60000);
 

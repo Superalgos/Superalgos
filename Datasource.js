@@ -178,7 +178,7 @@
                                 let periodTime = global.dailyFilePeriods[i][0];
                                 let periodName = global.dailyFilePeriods[i][1];
 
-                                getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, global.processDatetime, onFileReceived, callBack);
+                                getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, bot.processDatetime, onFileReceived, callBack);
 
                                 function onFileReceived(err, file) {
 
@@ -253,7 +253,7 @@
 
                                     let timePeriod = candle.end - candle.begin + 1; // In miliseconds. (remember each candle spans a period minus one milisecond)
 
-                                    if (candle.begin >= global.processDatetime.valueOf() - timePeriod * 10 && candle.begin <= global.processDatetime.valueOf()) {
+                                    if (candle.begin >= bot.processDatetime.valueOf() - timePeriod * 10 && candle.begin <= bot.processDatetime.valueOf()) {
 
                                         candlesArray.push(candle);
 
@@ -357,7 +357,7 @@
                                 let periodTime = global.dailyFilePeriods[i][0];
                                 let periodName = global.dailyFilePeriods[i][1];
 
-                                getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, global.processDatetime, onFileReceived, callBack);
+                                getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, bot.processDatetime, onFileReceived, callBack);
 
                                 function onFileReceived(err, file) {
 
@@ -436,7 +436,7 @@
                                     stairs.lastMin = pStairsFile[i][10];
                                     stairs.lastMax = pStairsFile[i][11];
 
-                                    if (global.processDatetime.valueOf() >= stairs.begin && global.processDatetime.valueOf() <= stairs.end) {
+                                    if (bot.processDatetime.valueOf() >= stairs.begin && bot.processDatetime.valueOf() <= stairs.end) {
 
                                         thisObject.stairsMap.set(pPeriodName, stairs);
 

@@ -63,7 +63,7 @@
             any reason stops being updated.
             */
 
-            if (candle.begin < global.processDatetime.valueOf() - 2 * 60 * 1000) {
+            if (candle.begin < bot.processDatetime.valueOf() - 2 * 60 * 1000) {
 
                 logger.write("[ERROR] initialize -> Candles more than two minutes old. Retrying later.");
                 callBack(global.DEFAULT_RETRY_RESPONSE);
@@ -632,7 +632,7 @@
                                 rate: pRate,
                                 amountA: pAmountA,
                                 amountB: pAmountB,
-                                date: (global.processDatetime.valueOf()),
+                                date: (bot.processDatetime.valueOf()),
                                 status: "open",
                                 trades: []
                             };
@@ -724,7 +724,7 @@
                                 rate: pNewRate,
                                 amountA: pPosition.amountB * pNewRate,
                                 amountB: pPosition.amountB,
-                                date: (global.processDatetime.valueOf()),
+                                date: (bot.processDatetime.valueOf()),
                                 status: "open",
                                 trades: []
                             };

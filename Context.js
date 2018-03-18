@@ -103,7 +103,7 @@
 
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                        thisObject.newHistoryRecord.date = global.processDatetime;
+                        thisObject.newHistoryRecord.date = bot.processDatetime;
 
                         getStatusReport(onDone);
 
@@ -398,7 +398,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function."); }
 
                     let fileName = "Execution.Context.json"
-                    let dateForPath = global.processDatetime.getUTCFullYear() + '/' + utilities.pad(global.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(global.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(global.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(global.processDatetime.getUTCMinutes(), 2);
+                    let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }
@@ -534,7 +534,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function."); }
 
-                    statusReportModule.file.lastExecution = global.processDatetime;
+                    statusReportModule.file.lastExecution = bot.processDatetime;
                     statusReportModule.save(callBack);
 
                 }

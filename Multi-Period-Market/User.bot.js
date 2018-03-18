@@ -191,7 +191,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                            let filePath = global.FILE_PATH_ROOT + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> filePath = " + filePath); }
@@ -231,7 +231,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                            let filePath = global.FILE_PATH_ROOT + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
@@ -690,7 +690,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                        let filePath = global.FILE_PATH_ROOT + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
  
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
@@ -753,7 +753,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                        let filePath = global.FILE_PATH_ROOT + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                        let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }

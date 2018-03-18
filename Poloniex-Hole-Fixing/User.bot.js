@@ -171,262 +171,155 @@ What is the lastFile pointer?
 
             let holeFixingStatusReport;         // Current hole Fixing Status Report.
 
-            getStatusReport(); 
+            getContextVariables();
 
-            /*
-    
-            At every run, the process needs to loop through all the markets at this exchange.
-            The problem is that we can not fire all the requests at once to the exchange or we would get banned.
-            For that reason we create a queue with the markets to process and we do one at the time.
-            The following functions marketsLoop(), openMarket(), closeMarket() and closeAndOpenMarket() controls the serialization of this processing.
-
-            */
-
-            function getStatusReport() {
-
-                /*
-
-                In order to know where to start the process (which datetime) we need to read the StatusReport of the process. This file will tell
-                us where we left after the last execution. If this file does not exist, this could mean that this process was never sucessfuly ran
-                for this market. This is normal when the market does not have the "complete" flag at the Trades History status report.
-
-                We will also get the status report from the Live Trade process, to know which is highest possible datetime the process can work on.
-
-                */
+            function getContextVariables() {
 
                 try {
 
-                    getLivesTrades();
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> Entering function."); }
 
-                    function getLivesTrades() {
+                    let thisReport;
+                    let reportKey;
 
-                        try {
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex Live Trades" + "-" + "dataSet.V1";
+                    thisReport = dependencies.statusReports.get(reportKey).file;
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> getStatusReport -> getLivesTrades -> Entering function."); }
+                    if (thisReport.lastFile === undefined) {
+                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
 
-                            let reportOwner = {
-                                codeName: "Charly",
-                                devTeam: "AAMasters",
-                                process: "Poloniex Live Trades"
-                            };
-
-                            statusReportModule.initialize(reportOwner, onInitilized);
-
-                            function onInitilized(err) {
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onInitilized -> err = " + err.message);
-                                    callBackFunction(err);
-                                    return;
-                                }
-
-                                statusReportModule.load(onLoad);
-                            }
-
-                            function onLoad(err) {
-
-                                try {
-
-                                    switch (err.result) {
-                                        case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] start -> getStatusReport -> getLivesTrades -> onLoad -> Execution finished well. :-)");
-
-                                            lastLiveTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
-                                            getHistoricTrades();
-
-                                            return;
-                                        }
-                                        case global.CUSTOM_OK_RESPONSE.result: {  // We need to see if we can handle this.
-                                            logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onLoad -> err.message = " + err.message);
-
-                                            if (err.message === "Status Report was never created.") {
-
-                                                logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onLoad -> Can not run this process if Live Trades process never ran sucessfully.");
-                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                return;
-                                            } else {
-
-                                                logger.write("[WARN] start -> getStatusReport -> getLivesTrades -> onLoad -> Response not understood.");
-                                                callBackFunction(err);
-                                                return;
-                                            }
-                                            
-                                        }
-                                        default:
-                                            {
-                                                logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onLoad -> Operation Failed.");
-                                                callBackFunction(err);
-                                                return;
-                                            }
-                                    }
-                                }
-                                catch (err) {
-                                    logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> onLoad -> err = " + err.message);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                }
-                            }
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency does not exist."
                         }
-                        catch (err) {
-                            logger.write("[ERROR] start -> getStatusReport -> getLivesTrades -> err = " + err.message);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        }
+                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
                     }
 
+                    lastLiveTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
 
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    thisReport = dependencies.statusReports.get(reportKey).file;
 
+                    if (thisReport.lastFile === undefined) {
+                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write("[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency does not exist."
+                        }
+                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
+
+                    if (thisReport.completeHistory === true) {  // We get from the file to know if this markets history is complete or not. 
+
+                        lastHistoricTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+
+                        /* Before processing this month we need to check if it is not too far in the past.*/
+
+                        if (
+                            processDate.getUTCFullYear() < lastHistoricTradeFile.getUTCFullYear()
+                            ||
+                            (processDate.getUTCFullYear() === lastHistoricTradeFile.getUTCFullYear() && processDate.getUTCMonth() < lastHistoricTradeFile.getUTCMonth())
+                        ) {
+                            logger.write("[WARN] start -> getContextVariables -> The current year / month is before the start of the market history for market.");
+                            let customOK = {
+                                result: global.CUSTOM_OK_RESPONSE.result,
+                                message: "Month before it is needed."
+                            }
+                            logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            callBackFunction(customOK);
+                            return;
+                        } 
+
+                    } else {
+                        logger.write("[WARN] start -> getContextVariables -> Trade History is not complete.");
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency not ready."
+                        }
+                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
                     
-                    function getHistoricTrades() {
+                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1";
+                    holeFixingStatusReport = dependencies.statusReports.get(reportKey).file;
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Historic-Trades";
+                    if (holeFixingStatusReport.lastFile === undefined) {
 
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                        /* 
 
-                        function onStatusReportReceived(text) {
+                        The file does not exist, so this means this is the first time we are running this process.
+                        Then, we might me under two different possible situations:
 
-                            if (text === undefined) {
+                        1. We are at the first month of the market. In this case, the starting date is not the begining of the month but the first date of
+                           the history of the market.
 
-                                /* The file does not exist, so this means it is too early to run this process.  */
+                        2. We are at some other month different than the first one. In this case, the starting date is the first minute of the market.
 
-                                const logText = "[INFO] 'getStatusReport' - Market " + market.assetA + '_' + market.assetB + " is too early too prcess it, since there are no Historic Trades reports about it yet. Skipping it. ";
-                                logger.write(logText);
+                        */
 
-                                closeAndOpenMarket();
+                        if (processDate.valueOf() < lastHistoricTradeFile.valueOf()) {
 
-                            } else {
+                            lastHoleFixingFile = new Date(lastHistoricTradeFile.valueOf() - 60 * 1000); // One minute less that the begining of market history.
 
-                                let statusReport = JSON.parse(text);
+                            currentTradeId = FIRST_TRADE_RECORD_ID;
+                            currentDatetime = new Date(lastHistoricTradeFile.valueOf());
 
-                                /* We get from the file to know if this markets history is complete or not. */
+                        } else {
 
-                                if (statusReport.completeHistory === true) {
+                            lastHoleFixingFile = new Date(processDate.valueOf() - 60 * 1000); // One minute less that the begining of the month.
 
-                                    lastHistoricTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
+                            currentTradeId = UNKNOWN_TRADE_RECORD_ID;
+                            currentDatetime = new Date(processDate.valueOf());
 
-                                    /*
+                        }
 
-                                    Before processing this month we need to check if it is not too far in the past.
+                        findNextHole();
 
-                                    */
+                    } else {
 
-                                    if (
-                                        processDate.getUTCFullYear() < lastHistoricTradeFile.getUTCFullYear()
-                                        ||
-                                        (processDate.getUTCFullYear() === lastHistoricTradeFile.getUTCFullYear() && processDate.getUTCMonth() < lastHistoricTradeFile.getUTCMonth())
-                                        ) {
+                        if (holeFixingStatusReport.monthChecked === true) {
 
-                                        const logText = "[INFO] 'getStatusReport' - The current year / month is before the start of the market history for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                        logger.write(logText);
+                            logger.write("[WARN] start -> getContextVariables -> The current year / month was already fully checked for market.");
 
-                                        closeAndOpenMarket();
-
-                                    } else {
-
-                                        getHoleFixing();
-
-                                    }
-
-                                } else {
-
-                                    const logText = "[INFO] 'getStatusReport' - Market " + market.assetA + '_' + market.assetB + " is history is not complete. Skipping it. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-
-                                }
-
+                            let customOK = {
+                                result: global.CUSTOM_OK_RESPONSE.result,
+                                message: "Month fully processed."
                             }
+                            logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            callBackFunction(customOK);
+                            return;
+
+                        } else {
+
+                            /* We get from the file the datetime of the last file without holes. */
+
+                            lastHoleFixingFile = new Date(holeFixingStatusReport.lastFile.year + "-" + holeFixingStatusReport.lastFile.month + "-" + holeFixingStatusReport.lastFile.days + " " + holeFixingStatusReport.lastFile.hours + ":" + holeFixingStatusReport.lastFile.minutes + GMT_SECONDS);
+
+                            currentTradeId = holeFixingStatusReport.lastTrade.id;
+                            currentDatetime = new Date(holeFixingStatusReport.lastTrade.year + "-" + holeFixingStatusReport.lastTrade.month + "-" + holeFixingStatusReport.lastTrade.days + " " + holeFixingStatusReport.lastTrade.hours + ":" + holeFixingStatusReport.lastTrade.minutes + ":" + holeFixingStatusReport.lastTrade.seconds + GMT_MILI_SECONDS);
+
+                            findNextHole();
                         }
                     }
-
-
-
-
-                    function getHoleFixing() {
-
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Hole-Fixing" + "/" + year + "/" + month;
-
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
-
-                        function onStatusReportReceived(text) {
-
-                            try {
-                                holeFixingStatusReport = JSON.parse(text);
-                            } 
-                            catch (err) {
-                                text = undefined; // If the content of the file is corrupt, this equals as if the file did not exist.
-                            }
-
-                            if (text === undefined) {
-
-                                /* 
-
-                                The file does not exist, so this means this is the first time we are running this process.
-                                Then, we might me under two different possible situations:
-
-                                1. We are at the first month of the market. In this case, the starting date is not the begining of the month but the first date of
-                                   the history of the market.
-
-                                2. We are at some other month different than the first one. In this case, the starting date is the first minute of the market.
-
-                                */
-
-                                if (processDate.valueOf() < lastHistoricTradeFile.valueOf()) {
-
-                                    lastHoleFixingFile = new Date(lastHistoricTradeFile.valueOf() - 60 * 1000); // One minute less that the begining of market history.
-
-                                    currentTradeId = FIRST_TRADE_RECORD_ID;
-                                    currentDatetime = new Date(lastHistoricTradeFile.valueOf());
-
-                                } else {
-
-                                    lastHoleFixingFile = new Date(processDate.valueOf() - 60 * 1000); // One minute less that the begining of the month.
-
-                                    currentTradeId = UNKNOWN_TRADE_RECORD_ID;
-                                    currentDatetime = new Date(processDate.valueOf());
-
-                                }
-
-                                findNextHole();
-
-                            } else {
-
-                                if (holeFixingStatusReport.monthChecked === true) {
-
-                                    const logText = "[INFO] 'getStatusReport' - The current year / month was already fully checked for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-
-                                } else {
-
-                                    /* We get from the file the datetime of the last file without holes. */
-
-                                    lastHoleFixingFile = new Date(holeFixingStatusReport.lastFile.year + "-" + holeFixingStatusReport.lastFile.month + "-" + holeFixingStatusReport.lastFile.days + " " + holeFixingStatusReport.lastFile.hours + ":" + holeFixingStatusReport.lastFile.minutes + GMT_SECONDS);
-
-                                    currentTradeId = holeFixingStatusReport.lastTrade.id;
-                                    currentDatetime = new Date(holeFixingStatusReport.lastTrade.year + "-" + holeFixingStatusReport.lastTrade.month + "-" + holeFixingStatusReport.lastTrade.days + " " + holeFixingStatusReport.lastTrade.hours + ":" + holeFixingStatusReport.lastTrade.minutes + ":" + holeFixingStatusReport.lastTrade.seconds + GMT_MILI_SECONDS);
-
-                                    findNextHole();
-
-                                }
-                            }
-                        }
-                    }
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'getStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                } catch (err) {
+                    logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function findNextHole() {
+
                 try {
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'findNextHole'");
-                    }
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> Entering function."); }
 
                     /*
 
@@ -447,388 +340,409 @@ What is the lastFile pointer?
 
                     function readNextFile() {
 
-                        date = new Date(date.valueOf() + 60 * 1000);
+                        try {
 
-                        if (LOG_INFO === true) {
-                            const logText = "[INFO] Entering function 'readNextFile' with date = " + date.toUTCString();
-                            logger.write(logText);
-                        }
+                            date = new Date(date.valueOf() + 60 * 1000);
 
-                        if (date.valueOf() > lastLiveTradeFile.valueOf()) {
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> date = " + date.toUTCString()); }
 
-                            /* This mean we reached the forward end of the market */
+                            if (date.valueOf() > lastLiveTradeFile.valueOf()) {
 
-                            if (LOG_INFO === true) {
-                                logger.write("[INFO] readNextFile - End of the market reached at date = " + date.toUTCString());
-                            }
+                                /* This mean we reached the forward end of the market */
 
-                            nextIntervalExecution = true; // Even if we didn-t find a hole, we need to continue the execution of this month interval.
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> Head of the market reached at date = " + date.toUTCString()); }
 
-                            writeStatusReport(currentDatetime, currentTradeId, false, true, onStatusReportWritten);
+                                writeStatusReport(currentDatetime, currentTradeId, false, true, onStatusReportWritten);
 
-                            function onStatusReportWritten() {
+                                function onStatusReportWritten() {
 
-                                closeAndOpenMarket();
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> onStatusReportWritten -> Entering function."); }
 
-                            }
-
-                            return;
-
-                        }
-
-                        /* Lets check if we have reached the end of the month. */ 
-
-                        if (date.valueOf() > lastMinuteOfMonth.valueOf()) {
-
-                            /* This mean we reached the forward end of the market */
-
-                            if (LOG_INFO === true) {
-                                logger.write("[INFO] readNextFile - End of the month reached at date = " + date.toUTCString());
-                            }
-
-                            writeStatusReport(currentDatetime, currentTradeId, true, false, onStatusReportWritten);
-
-                            function onStatusReportWritten() {
-
-                                closeAndOpenMarket();
-
-                            }
-
-                            return;
-
-                        }
-
-                        dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-
-                        filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
-
-                        charlyFileStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
-
-                        function onNextFileReceived(text) {
-
-                            if (text === undefined) {
-
-                                /* The file does not exist, so this means there is a hole!!!  */
-
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] Hole by missing file detected. Date = " + date.toUTCString());
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
                                 }
+                                return;
+                            }
 
-                                holeInitialId = currentTradeId;
-                                holeInitialDatetime = new Date(currentDatetime.valueOf());  // Field #5 contains the seconds.
+                            /* Lets check if we have reached the end of the month. */ 
 
-                                findEndOfHole();
+                            if (date.valueOf() > lastMinuteOfMonth.valueOf()) {
 
-                            } else {
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> End of the month reached at date = " + date.toUTCString()); }
+
+                                writeStatusReport(currentDatetime, currentTradeId, true, false, onStatusReportWritten);
+
+                                function onStatusReportWritten() {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> onStatusReportWritten -> Entering function."); }
+
+                                    let customOK = {
+                                        result: global.CUSTOM_OK_RESPONSE.result,
+                                        message: "End of the month reached."
+                                    }
+                                    logger.write("[WARN] start -> findNextHole -> readNextFile -> onStatusReportWritten -> customOK = " + customOK.message);
+                                    callBackFunction(customOK);
+                                    return;
+                                }
+                                return;
+                            }
+
+                            dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
+
+                            filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+
+                            charlyFileStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
+
+                            function onNextFileReceived(err, text) {
 
                                 try {
 
-                                    let tradesTest = JSON.parse(text);
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> onNextFileReceived -> Entering function."); }
 
-                                } catch (err) {
-
-                                    /*
-
-                                    If the file is corrupt, then we are in a similar situation as if it does not exist.
-
-                                    */
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] Hole by corrupt file detected. Date = " + date.toUTCString());
+                                    if (err.result === global.DEFAULT_FAIL_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
                                     }
 
-                                    holeInitialId = currentTradeId;
-                                    holeInitialDatetime = new Date(currentDatetime.valueOf());  // Field #5 contains the seconds.
+                                    if (
+                                        err.result === global.CUSTOM_FAIL_RESPONSE.result &&
+                                        (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
+                                    ) {
+                                        logger.write("[INFO] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.message);
 
-                                    findEndOfHole();
+                                        /* The file does not exist, so this means there is a hole!!!  */
 
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> onNextFileReceived -> onNextFileReceived -> Hole by missing file detected. Date = " + date.toUTCString()); }
+
+                                        holeInitialId = currentTradeId;
+                                        holeInitialDatetime = new Date(currentDatetime.valueOf());  // Field #5 contains the seconds.
+
+                                        findEndOfHole();
+                                        return;
+                                    } 
+
+                                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                        try {
+
+                                            let tradesTest = JSON.parse(text);
+
+                                        } catch (err) {
+
+                                            /* If the file is corrupt, then we are in a similar situation as if it does not exist. */
+
+                                            if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> onNextFileReceived -> onNextFileReceived -> Hole by corrupt file detected. Date = " + date.toUTCString()); }
+
+                                            holeInitialId = currentTradeId;
+                                            holeInitialDatetime = new Date(currentDatetime.valueOf());  // Field #5 contains the seconds.
+
+                                            findEndOfHole();
+                                            return;
+                                        }
+                                        checkHolesInFile(text);
+                                        return;
+                                    }
+
+                                    logger.write("[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> onNextFileReceived -> Unhandled response received. err = " + err.message);
+                                    callBackFunction(err);
+                                    return;
+
+                                } catch (err) {
+                                    logger.write("[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
-
-                                checkHolesInFile(text);
-
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] start -> findNextHole -> readNextFile -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
                         }
                     }
 
                     function checkHolesInFile(text) {
 
-                        let trades = JSON.parse(text);
+                        try {
 
-                        /*
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> checkHolesInFile -> Entering function."); }
 
-                        tradesWithHole variable:
-
-                        Until verified, this trades in this file becomes potentially the last set of trades with hole. If it is not, then this variable will be overwritten later
-                        by the one.
-
-
-                        We will need these trades at the end of the process.
-
-                        */
-
-                        tradesWithHole = trades; 
-
-                        if (LOG_INFO === true) {
-                            const logText = "[INFO] Entering function 'checkHolesInFile' to check File '" + fileName + "' @ " + filePath + " - " + trades.length + " records in it.";
-                            logger.write(logText);
-                            console.log(logText);
-                        }
-
-                        if (currentTradeId === FIRST_TRADE_RECORD_ID || currentTradeId === UNKNOWN_TRADE_RECORD_ID) { 
+                            let trades = JSON.parse(text);
 
                             /*
+                            tradesWithHole variable:
 
-                            Here we dont know the currentTradeId, so we might take it directly from the file. There will be a problem though if the market starts
-                            with some empty files. In those cases, we need to jump to the next file until we find one with some records.
+                            Until verified, this trades in this file becomes potentially the last set of trades with hole. If it is not, then this variable will be overwritten later
+                            by the one.
 
+                            We will need these trades at the end of the process.
                             */
 
-                            if (trades.length > 0) {
+                            tradesWithHole = trades; 
 
-                                currentTradeId = trades[0][0] - 1;
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> checkHolesInFile -> Checking File '" + fileName + "' @ " + filePath + " - " + trades.length + " records in it."); }
 
-                            } else {
-
-                                readNextFile();
-                                return;
-
-                            }
-
-                        }
-
-                        for (let i = 0; i < trades.length; i++) {
-
-                            let fileTradeId = trades[i][0]; // First position in each record.
-
-                            if (currentTradeId + 1 > fileTradeId) {
+                            if (currentTradeId === FIRST_TRADE_RECORD_ID || currentTradeId === UNKNOWN_TRADE_RECORD_ID) { 
 
                                 /*
-
-                                This happens when the process resumes execution, reads the first file and the first trades have lowers ids that the ones the process already
-                                checked during the last execution.
-
-                                It also happens when we find a non valid id, as the one used in an empty record signaling that the file is incomplete. (zero).
-
+                                Here we dont know the currentTradeId, so we might take it directly from the file. There will be a problem though if the market starts
+                                with some empty files. In those cases, we need to jump to the next file until we find one with some records.
                                 */
 
-                                continue; // we simply jump to the next trade.
+                                if (trades.length > 0) {
 
-                            }
-
-                            if (currentTradeId + 1 < fileTradeId) {
-
-                                /*
-
-                                We should usually try to fix the hole, but there is an exception. If the we tried this 3 times already, we must declare the problem
-                                unsolvable and move forward. 
-
-                                */
-
-                                let lastRecordedTradeId = 0;
-                                let lastRecordedCounter = 0;
-
-                                if (holeFixingStatusReport !== undefined) { // The whole could have benn found before the monthly report was created.
-
-                                    lastRecordedTradeId = holeFixingStatusReport.lastTrade.id;
-                                    lastRecordedCounter = holeFixingStatusReport.lastTrade.counter;
-
-                                }
-
-                                if (currentTradeId === lastRecordedTradeId && lastRecordedCounter >= MAX_HOLE_FIXING_RETRIES) {
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] Hole by non consecutive ID detected. MAX_HOLE_FIXING_RETRIES reched, giving up with this validation. Date = " + date.toUTCString());
-                                    }
-
-                                    /* We advance anyway to the next Id since there is no other solution. */
-
-                                    currentTradeId = fileTradeId;
-                                    currentDatetime = new Date(date.valueOf() + trades[i][5] * 1000);
-
+                                    currentTradeId = trades[0][0] - 1;
 
                                 } else {
 
-                                    /* Here we have a hole that needs to be fixed !!! */
+                                    readNextFile();
+                                    return;
+                                }
+                            }
 
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] Hole by non consecutive ID detected. Date = " + date.toUTCString());
-                                    }
+                            for (let i = 0; i < trades.length; i++) {
 
-                                    holeInitialId = currentTradeId;
-                                    holeInitialDatetime = new Date(currentDatetime.valueOf());
+                                let fileTradeId = trades[i][0]; // First position in each record.
 
-                                    holeFinalId = fileTradeId;
-                                    holeFinalDatetime = new Date(date.valueOf() + trades[i][5] * 1000);  // Field #5 contains the seconds.
+                                if (currentTradeId + 1 > fileTradeId) {
 
-                                    getTheTrades();
+                                    /*
+                                    This happens when the process resumes execution, reads the first file and the first trades have lowers ids that the ones the process already
+                                    checked during the last execution.
 
-                                    break;
-
+                                    It also happens when we find a non valid id, as the one used in an empty record signaling that the file is incomplete. (zero).
+                                    */
+                                    continue; // we simply jump to the next trade.
                                 }
 
+                                if (currentTradeId + 1 < fileTradeId) {
 
-                            } else {
+                                    /*
+                                    We should usually try to fix the hole, but there is an exception. If the we tried this 3 times already, we must declare the problem
+                                    unsolvable and move forward. 
+                                    */
 
-                                /* We keep here the last Trade Id and Datetime that are allright. */
+                                    let lastRecordedTradeId = 0;
+                                    let lastRecordedCounter = 0;
 
-                                currentTradeId = fileTradeId;
-                                currentDatetime = new Date(date.valueOf() + trades[i][5] * 1000);
+                                    if (holeFixingStatusReport !== undefined) { // The whole could have benn found before the monthly report was created.
 
+                                        lastRecordedTradeId = holeFixingStatusReport.lastTrade.id;
+                                        lastRecordedCounter = holeFixingStatusReport.lastTrade.counter;
+                                    }
+
+                                    if (currentTradeId === lastRecordedTradeId && lastRecordedCounter >= MAX_HOLE_FIXING_RETRIES) {
+
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> checkHolesInFile -> Hole by non consecutive ID detected. MAX_HOLE_FIXING_RETRIES reched, giving up with this validation. Date = " + date.toUTCString()); }
+
+                                        /* We advance anyway to the next Id since there is no other solution. */
+
+                                        currentTradeId = fileTradeId;
+                                        currentDatetime = new Date(date.valueOf() + trades[i][5] * 1000);
+
+                                    } else {
+
+                                        /* Here we have a hole that needs to be fixed !!! */
+
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> checkHolesInFile -> Hole by non consecutive ID detected. Date = " + date.toUTCString()); }
+
+                                        holeInitialId = currentTradeId;
+                                        holeInitialDatetime = new Date(currentDatetime.valueOf());
+
+                                        holeFinalId = fileTradeId;
+                                        holeFinalDatetime = new Date(date.valueOf() + trades[i][5] * 1000);  // Field #5 contains the seconds.
+
+                                        getTheTrades();
+
+                                        break;
+                                    }
+
+                                } else {
+
+                                    /* We keep here the last Trade Id and Datetime that are allright. */
+
+                                    currentTradeId = fileTradeId;
+                                    currentDatetime = new Date(date.valueOf() + trades[i][5] * 1000);
+                                }
                             }
+
+                            if (holeInitialId === undefined) {
+
+                                fileCheckedCounter++;
+
+                                if (fileCheckedCounter === 60) { // Every hour checked we write a Status Report so that if the process is terminated, it can resume later from there.
+
+                                    writeStatusReport(currentDatetime, currentTradeId, false, false, onStatusReportWritten);
+
+                                    function onStatusReportWritten() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> Entering function."); }
+
+                                            fileCheckedCounter = 0;
+                                            readNextFile();
+
+                                        } catch (err) {
+                                            logger.write("[ERROR] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+                                
+                                } else {
+
+                                    readNextFile();
+                                }
+                            }
+
+                        } catch (err) {
+                            logger.write("[ERROR] start -> findNextHole -> checkHolesInFile -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
                         }
+                    }
 
-                        if (holeInitialId === undefined) {
+                    function findEndOfHole() {
 
-                            fileCheckedCounter++;
+                        try {
 
-                            if (fileCheckedCounter === 60) { // Every hour checked we write a Status Report so that if the process is terminated, it can resume later from there.
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> findEndOfHole -> Entering function."); }
+
+                            /* Here we will enter a loop where will try to find the next available file recorded and extract from it the Id and Datetime from the first record. */
+
+                            date = new Date(date.valueOf() + 60 * 1000);
+
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> findEndOfHole -> Date = " + date.toUTCString()); }
+
+                            if (date.valueOf() > lastLiveTradeFile.valueOf()) {
+
+                                /*
+                                In this case we have an open hole produced by a missing file, and because live trades files contains zero records or are missing, we reached the
+                                forward side of the market. The situation in unsolvable for now, we will leave it of future execution.
+                                */
+
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> findEndOfHole -> Head of the market reached -> Date = " + date.toUTCString()); }
+
+                                nextIntervalExecution = true; // Even if we didn-t find the end of the hole, we need to continue the execution of this month interval.
 
                                 writeStatusReport(currentDatetime, currentTradeId, false, false, onStatusReportWritten);
 
                                 function onStatusReportWritten() {
 
-                                    fileCheckedCounter = 0;
-                                    readNextFile();
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> Entering function."); }
+
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE); 
+                                    return;
                                 }
-                                
-                            } else {
-
-                                readNextFile();
-
-                            }
-                        }
-                    }
-
-
-                    function findEndOfHole() {
-
-                        /* Here we will enter a loop where will try to find the next available file recorded and extract from it the Id and Datetime from the first record. */
-
-                        date = new Date(date.valueOf() + 60 * 1000);
-
-                        if (LOG_INFO === true) {
-                            logger.write("[INFO] Entering function 'findEndOfHole' with date = " + date.toUTCString());
-                        }
-
-                        if (date.valueOf() > lastLiveTradeFile.valueOf()) {
-
-                            /*
-
-                            In this case we have an open hole produced by a missing file, and because live trades files contains zero records or are missing, we reached the
-                            forward side of the market. The situation in unsolvable for now, we will leave it of future execution.
-
-                            */
-
-                            if (LOG_INFO === true) {
-                                logger.write("[INFO] findEndOfHole - End of the market reached at date = " + date.toUTCString());
-                            }
-
-                            nextIntervalExecution = true; // Even if we didn-t find the end of the hole, we need to continue the execution of this month interval.
-
-                            writeStatusReport(currentDatetime, currentTradeId, false, false, onStatusReportWritten);
-
-                            function onStatusReportWritten() {
-
-                                closeAndOpenMarket();
-
-                            }
-
-                            return;
-
-                        }
-
-                        dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-
-                        filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
-
-                        charlyFileStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
-
-                        function onNextFileReceived(text) {
-
-                            if (text === undefined) {
-
-                                /* The file does not exist, so this means we need to move forward  */
-
-                                findEndOfHole();
-
                                 return;
+                            }
 
-                            } else {
+                            dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
 
-                                let trades;
+                            filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+
+                            charlyFileStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
+
+                            function onNextFileReceived(err, text) {
 
                                 try {
 
-                                    trades = JSON.parse(text);
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> Entering function."); }
 
-                                } catch(err) {
-                                    /*
-
-                                    If the file is corrupt, then we are in a similar situation as if it does not exist.
-
-                                    */
-
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] findEndOfHole - Corrupt file with no records found at date = " + date.toUTCString());
+                                    if (err.result === global.DEFAULT_FAIL_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
                                     }
 
-                                    findEndOfHole();
+                                    if (
+                                        err.result === global.CUSTOM_FAIL_RESPONSE.result &&
+                                        (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
+                                    ) {
+                                        logger.write("[INFO] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> err = " + err.message);
 
-                                    return;
+                                        /* The file does not exist, so this means we need to move forward  */
 
-                                } 
+                                        findEndOfHole();
+                                        return;
+                                    } 
 
-                                if (trades.length === 0) {
+                                    if (err.result === global.DEFAULT_OK_RESPONSE.result)
+                                    {
+                                        let trades;
 
-                                    /* This is the same situation that if there is no file, move forward */
+                                        try {
 
-                                    if (LOG_INFO === true) {
-                                        logger.write("[INFO] findEndOfHole - File with no records found at date = " + date.toUTCString());
+                                            trades = JSON.parse(text);
+
+                                        } catch (err) {
+
+                                            /* If the file is corrupt, then we are in a similar situation as if it does not exist. */
+
+                                            logger.write("[INFO] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> Corrupt file with no records. -> Date = " + date.toUTCString());
+
+                                            findEndOfHole();
+                                            return;
+                                        } 
+
+                                        if (trades.length === 0) {
+
+                                            /* This is the same situation that if there is no file, move forward */
+
+                                            logger.write("[INFO] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> File with no records. -> Date = " + date.toUTCString());
+
+                                            findEndOfHole();
+                                            return;
+                                        }
+
+                                        logger.write("[INFO] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> Next available record found at date = " + date.toUTCString());
+
+                                        let fileTradeId = trades[0][0]; // First position in each record.
+
+                                        holeFinalId = fileTradeId;
+                                        holeFinalDatetime = new Date(date.valueOf() + trades[0][5] * 1000);  // Field #5 contains the seconds.
+
+                                        getTheTrades();
+                                        return;
                                     }
 
-                                    findEndOfHole();
-
+                                    logger.write("[ERROR] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> Unhandled response received. err = " + err.message);
+                                    callBackFunction(err);
                                     return;
 
+                                } catch (err) {
+                                    logger.write("[ERROR] start -> findNextHole -> findEndOfHole -> onNextFileReceived -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
                                 }
-
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] findEndOfHole - Next available record found at date = " + date.toUTCString());
-                                }
-
-                                let fileTradeId = trades[0][0]; // First position in each record.
-
-                                holeFinalId = fileTradeId;
-                                holeFinalDatetime = new Date(date.valueOf() + trades[0][5] * 1000);  // Field #5 contains the seconds.
-
-                                getTheTrades();
-
-                                return;
-
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] start -> findNextHole -> findEndOfHole -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
                         }
                     }
 
+                } catch (err) {
+                    logger.write("[ERROR] start -> findNextHole -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
                 }
-                catch (err) {
-                    const logText = "[ERROR] 'findNextHole' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-
             }
 
             function getTheTrades() {
 
                 try {
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'getTheTrades' with input variables: holeInitialDatetime = " + holeInitialDatetime.toUTCString() + ", holeInitialId = " + holeInitialId + ", holeFinalDatetime = " + holeFinalDatetime.toUTCString() + ", holeFinalId = " + holeFinalId );
-                    }
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getTheTrades -> Entering function."); }
 
-                    /* We request to the Exchange API some more records than needed, anyway we will discard records out of the range we need. To do this we substract some seconds and add some others
-                    seconds to the already calculated UNIX timestamps. */
+                    /*
+                    We request to the Exchange API some more records than needed, anyway we will discard records out of the range we need.
+                    To do this we substract 120 seconds and add 10 seconds to the already calculated current date.
+                    */
 
                     const startTime = parseInt(holeInitialDatetime.valueOf() / 1000 - 65);
                     const endTime = parseInt(holeFinalDatetime.valueOf() / 1000 + 65);
@@ -839,141 +753,49 @@ What is the lastFile pointer?
 
                     poloniexApiClient.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
 
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'getTheTrades' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                } catch (err) {
+                    logger.write("[ERROR] start -> getTheTrades -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
                 }
             }
 
-            function onExchangeCallReturned(err, tradesRequested) {
+            function onExchangeCallReturned(err, exchangeResponse) {
 
                 try {
 
-                    if (LOG_INFO === true) {
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> onExchangeCallReturned -> Entering function."); }
+
+                    if (FULL_LOG === true) {
 
                         let exchangeResponseTime = new Date();
                         let timeDifference = (exchangeResponseTime.valueOf() - exchangeCallTime.valueOf()) / 1000;
-                        logger.write("[INFO] Entering function 'onExchangeCallReturned' - Call time recorded = " + timeDifference + " seconds.");
+                        logger.write("[INFO] start -> onExchangeCallReturned -> Call time recorded = " + timeDifference + " seconds.");
                     }
 
-                    if (err || tradesRequested.error !== undefined) {
-                        try {
+                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
-                            if (err.message.indexOf("ETIMEDOUT") > 0) {
+                    function onResponseOk() {
 
-                                exchangeCallRetries++;
-
-                                if (exchangeCallRetries > MAX_EXCHANGE_CALL_RETRIES) {
-
-                                    const logText = "[WARN] onExchangeCallReturned - Timeout reached while trying to access the Exchange API. MAX_EXCHANGE_CALL_RETRIES reached. Giving up. : ERROR = " + err.message;
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-                                    return;
-
-                                } else {
-
-                                    const logText = "[WARN] onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Trying again. : ERROR = " + err.message;
-                                    logger.write(logText);
-
-                                    /* We try to reconnect to the exchange and fetch the data again. */
-
-                                    getTheTrades();
-                                    return;
-
-                                }
-
-                            } else {
-
-                                if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                    exchangeCallRetries++;
-
-                                    if (exchangeCallRetries > MAX_EXCHANGE_CALL_RETRIES) {
-
-                                        const logText = "[WARN] onExchangeCallReturned - The exchange reseted the connection. MAX_EXCHANGE_CALL_RETRIES reached. Giving up. : ERROR = " + err.message;
-                                        logger.write(logText);
-
-                                        closeAndOpenMarket();
-                                        return;
-
-                                    } else {
-
-                                        const logText = "[WARN] onExchangeCallReturned - The exchange reseted the connection. Trying again. : ERROR = " + err.message;
-                                        logger.write(logText);
-
-                                        /* We try to reconnect to the exchange and fetch the data again. */
-
-                                        getTheTrades();
-                                        return;
-
-                                    }
-
-                                } else {
-
-                                    const logText = "[ERROR] onExchangeCallReturned - Unexpected error trying to contact the Exchange. Giving up. : ERROR = " + err.message;
-                                    logger.write(logText);
-                                    closeMarket();
-                                    return;
-                                }
-                            }
-
-                        } catch (err) {
-                            const logText = "[ERROR] onExchangeCallReturned : ERROR : tradesRequested.error = " + tradesRequested.error;
-                            logger.write(logText);
-
-                            if (tradesRequested.error === "Invalid currency pair.") {
-
-                                markets.disableMarket(EXCHANGE_ID, market.id, onMarketDeactivated)
-
-                                function onMarketDeactivated() {
-
-                                    logger.write("[INFO] Market " + market.assetA + "_" + market.assetB + " deactivated. Id = " + market.id);
-
-                                    closeAndOpenMarket();
-                                    return;
-
-                                }
-
-                            }
-
-                            closeMarket();
-                            return;
-                        }
-
-                        closeMarket();
-                        return;
-
-                    } else {
-
-                        tradesReadyToBeSaved(tradesRequested);
+                        tradesReadyToBeSaved(exchangeResponse);
                     }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'onExchangeCallReturned' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
 
+                } catch (err) {
+                    logger.write("[ERROR] start -> onExchangeCallReturned -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
             }
 
             function tradesReadyToBeSaved(tradesRequested) {
 
                 try {
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'tradesReadyToBeSaved'");
-                    }
-
-                    nextIntervalExecution = true; // When there is at least one hole, we activate this flag to get an extra Interval execution when this one ends.
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> Entering function."); }
 
                     /*
-
                     We have learnt that the records from the exchange dont always come in the right order, sorted by TradeId. That means the we need to sort them
                     by ourselves if we want that our verification of holes work. 
-
                     */
 
                     let iterations = tradesRequested.length;
@@ -985,30 +807,20 @@ What is the lastFile pointer?
                             if (tradesRequested[j].tradeID < tradesRequested[j + 1].tradeID) {
 
                                 let trade = tradesRequested[j + 1];
-
                                 tradesRequested.splice(j + 1, 1); // Remove that trade from the array.
-
                                 tradesRequested.splice(j, 0, trade); // Insert the trade removed.
-
-
                             }
-
                         }
-
                     }
-
                     /*
-
                     The trades received from the exchange might or might not be enough to fix the hole. We wont worry about that at this point. We will simple record the trades received
                     in the range where records where missing.
 
                     We only have to take into account that the lowest id we have is already on a file that exist and it is partially verified, so we have to be carefull to overwrite this file
                     without introducing new holes. 
-
                     */
 
                     let fileRecordCounter = 0;
-
                     let needSeparator;
                     let separator;
 
@@ -1052,11 +864,9 @@ What is the lastFile pointer?
                         if (currentRecordMinute < currentProcessMinute) {
 
                             /* 
-
                             The information is older that the current time.
                             We must store the current info and reset the pointer to the current time to match the one on the information currently being processd.
                             We know this can lead to a 'hole' or some empty files being skipped, but we solve that problem with the next loop.
-
                             */
 
                             let blackMinutes = currentProcessMinute - currentRecordMinute;
@@ -1065,7 +875,6 @@ What is the lastFile pointer?
 
                                 storeFileContent();
                                 currentProcessMinute--;
-
                             }
                         }
 
@@ -1087,7 +896,6 @@ What is the lastFile pointer?
                                 fileContent = '[' + trade.tradeIdAtExchange + ',"' + trade.type + '",' + trade.rate + ',' + trade.amountA + ',' + trade.amountB + ',' + trade.seconds + ']' + separator + fileContent;
 
                                 fileRecordCounter++;
-
                             }
                         }
                     }
@@ -1095,87 +903,81 @@ What is the lastFile pointer?
                     if (fileContent !== "") {
 
                         /* 
-
                         Usually the last file Content must be discarded since it could belong to an incomplete file. But there is one exception: it a hole is found at a file and the previous minute is empty
                         then this will produce the exception in which the fileContent needs to saved. To figure out if we are in this situation we do the following:
-
                         */
 
                         if (currentProcessMinute === holeStartsMinute) {
 
                             storeFileContent();
-
                         }
-
-
                     }
 
                     function storeFileContent() {
 
-                        let existingFileContent = "";
-                        let separator = "";
+                        try {
 
-                        if (currentProcessMinute === holeStartsMinute) {
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> storeFileContent -> Entering function."); }
 
-                            /*
+                            let existingFileContent = "";
+                            let separator = "";
 
-                            Here we are at the situation that the content already generated has to be added to the content already existing on the file where the hole was found.
+                            if (currentProcessMinute === holeStartsMinute) {
 
-                            */
+                                /*
+                                Here we are at the situation that the content already generated has to be added to the content already existing on the file where the hole was found.
+                                */
 
-                            for (let i = 0; i < tradesWithHole.length; i++) {
+                                for (let i = 0; i < tradesWithHole.length; i++) {
 
-                                if (tradesWithHole[i][0] <= holeInitialId && tradesWithHole[i][0] !== 0) { // 0 because of the empty trade record signaling an incomplete file.
+                                    if (tradesWithHole[i][0] <= holeInitialId && tradesWithHole[i][0] !== 0) { // 0 because of the empty trade record signaling an incomplete file.
 
-                                    /* We only add trades with ids smallers that the last id verified without holes. */
+                                        /* We only add trades with ids smallers that the last id verified without holes. */
 
-                                    existingFileContent = existingFileContent + separator + '[' + tradesWithHole[i][0] + ',"' + tradesWithHole[i][1] + '",' + tradesWithHole[i][2] + ',' + tradesWithHole[i][3] + ',' + tradesWithHole[i][4] + ',' + tradesWithHole[i][5] + ']';
+                                        existingFileContent = existingFileContent + separator + '[' + tradesWithHole[i][0] + ',"' + tradesWithHole[i][1] + '",' + tradesWithHole[i][2] + ',' + tradesWithHole[i][3] + ',' + tradesWithHole[i][4] + ',' + tradesWithHole[i][5] + ']';
+                                        fileRecordCounter++;
 
-                                    fileRecordCounter++;
+                                        if (separator === "") {
 
-                                    if (separator === "") {
-
-                                        separator = ",";
-
+                                            separator = ",";
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        if (existingFileContent === "") {
+                            if (existingFileContent === "") {
 
-                            fileContent = '[' + fileContent + ']';
-
-                        } else {
-
-                            if (fileContent === "") {
-
-                                fileContent = '[' + existingFileContent + ']';
+                                fileContent = '[' + fileContent + ']';
 
                             } else {
 
-                                fileContent = '[' + existingFileContent + "," + fileContent + ']';
+                                if (fileContent === "") {
+                                    fileContent = '[' + existingFileContent + ']';
+                                } else {
+                                    fileContent = '[' + existingFileContent + "," + fileContent + ']';
+                                }
                             }
+
+                            let fileRecord = {
+                                datetime: currentProcessMinute,
+                                content: fileContent,
+                                records: fileRecordCounter
+                            };
+
+                            filesToSave.push(fileRecord);
+
+                            fileRecordCounter = 0;
+                            needSeparator = false;
+                            fileContent = "";
+
+                        } catch (err) {
+                            logger.write("[ERROR] start -> tradesReadyToBeSaved -> storeFileContent -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
                         }
-
-                        let fileRecord = {
-                            datetime: currentProcessMinute,
-                            content: fileContent,
-                            records: fileRecordCounter
-                        };
-
-                        filesToSave.push(fileRecord);
-
-                        fileRecordCounter = 0;
-                        needSeparator = false;
-                        fileContent = "";
                     }
 
-                    /*
-
-                    Now it is time to process all the information we stored at filesToSave.
-
-                    */
+                    /* Now it is time to process all the information we stored at filesToSave. */
 
                     let i = 0;
                     let date;
@@ -1184,63 +986,115 @@ What is the lastFile pointer?
 
                     function nextRecord() {
 
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        try {
 
-                        date = new Date(filesToSave[i].datetime * 60 * 1000);
-                        fileRecordCounter = filesToSave[i].records;
-                        fileContent = filesToSave[i].content;
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> Entering function."); }
 
-                        dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
+                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+                            date = new Date(filesToSave[i].datetime * 60 * 1000);
+                            fileRecordCounter = filesToSave[i].records;
+                            fileContent = filesToSave[i].content;
 
-                        utilities.createFolderIfNeeded(filePath, charlyFileStorage, onFolderCreated);
+                            dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
 
-                        function onFolderCreated() {
+                            filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                            charlyFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            utilities.createFolderIfNeeded(filePath, charlyFileStorage, onFolderCreated);
 
-                            function onFileCreated() {
+                            function onFolderCreated(err) {
 
-                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                console.log(logText);
-                                logger.write(logText);
+                                try {
 
-                                controlLoop();
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
+                                    }
+
+                                    charlyFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated(err) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+
+                                            if (LOG_FILE_CONTENT === true) {
+                                                logger.write("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
+                                            }
+
+                                            logger.write("[WARN] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + ""); 
+
+                                            controlLoop();
+
+                                        } catch (err) {
+                                            logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
                         }
                     }
 
-                    
                     function controlLoop() {
 
-                        i++;
+                        try {
 
-                        if (i < filesToSave.length) {
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> controlLoop -> Entering function."); }
 
-                            nextRecord();
+                            i++;
 
-                        } else {
+                            if (i < filesToSave.length) {
 
-                            if (LOG_INFO === true) {
-                                logger.write("[INFO] Leaving function 'tradesReadyToBeSaved'");
+                                nextRecord();
+
+                            } else {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> controlLoop -> Leaving function 'tradesReadyToBeSaved'."); }
+
+                                writeStatusReport(undefined, undefined, false, false, onStatusReportWritten);
+
+                                function onStatusReportWritten() {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> controlLoop -> onStatusReportWritten -> Entering function."); }
+
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
+                                }
                             }
 
-                            writeStatusReport(undefined, undefined, false, false, onStatusReportWritten);
-
-                            function onStatusReportWritten() {
-
-                                closeAndOpenMarket();
-
-                            }
-
+                        } catch (err) {
+                            logger.write("[ERROR] start -> tradesReadyToBeSaved -> controlLoop -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
                         }
                     }
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'tradesReadyToBeSaved' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                    logger.write("[ERROR] start -> tradesReadyToBeSaved -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
                 }
             }
 

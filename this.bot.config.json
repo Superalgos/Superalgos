@@ -28,8 +28,9 @@
           "run": "true"
         }
       },
-      "executionWaitTime": 60000,
+      "normalWaitTime": 60000,
       "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
       "dependencies": [
         {
           "devTeam": "AAMasters",
@@ -61,8 +62,9 @@
           "run": "false"
         }
       },
-      "executionWaitTime": 30000,
+      "normalWaitTime": 60000,
       "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
       "dependencies": [
         {
           "devTeam": "AAMasters",
@@ -104,8 +106,9 @@
           "run": "false"
         }
       },
-      "executionWaitTime": 60000,
+      "normalWaitTime": 60000,
       "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
       "dependencies": [
         {
           "devTeam": "AAMasters",

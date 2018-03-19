@@ -355,12 +355,24 @@ What is the lastFile pointer?
 
                                 writeStatusReport(currentDatetime, currentTradeId, false, true, onStatusReportWritten);
 
-                                function onStatusReportWritten() {
+                                function onStatusReportWritten(err) {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> onStatusReportWritten -> Entering function."); }
+                                    try {
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> onStatusReportWritten -> Entering function."); }
 
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                    return;
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            logger.write("[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
+
+                                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                        return;
+                                    } catch (err) {
+                                        logger.write("[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.message);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
                                 }
                                 return;
                             }
@@ -373,17 +385,30 @@ What is the lastFile pointer?
 
                                 writeStatusReport(currentDatetime, currentTradeId, true, false, onStatusReportWritten);
 
-                                function onStatusReportWritten() {
+                                function onStatusReportWritten(err) {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> onStatusReportWritten -> Entering function."); }
+                                    try {
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> onStatusReportWritten -> Entering function."); }
 
-                                    let customOK = {
-                                        result: global.CUSTOM_OK_RESPONSE.result,
-                                        message: "End of the month reached."
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            logger.write("[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
+
+                                        let customOK = {
+                                            result: global.CUSTOM_OK_RESPONSE.result,
+                                            message: "End of the month reached."
+                                        }
+                                        logger.write("[WARN] start -> findNextHole -> readNextFile -> onStatusReportWritten -> customOK = " + customOK.message);
+                                        callBackFunction(customOK);
+
+                                        return;
+                                    } catch (err) {
+                                        logger.write("[ERROR] start -> findNextHole -> readNextFile -> onStatusReportWritten -> err = " + err.message);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
                                     }
-                                    logger.write("[WARN] start -> findNextHole -> readNextFile -> onStatusReportWritten -> customOK = " + customOK.message);
-                                    callBackFunction(customOK);
-                                    return;
                                 }
                                 return;
                             }
@@ -575,22 +600,27 @@ What is the lastFile pointer?
 
                                     writeStatusReport(currentDatetime, currentTradeId, false, false, onStatusReportWritten);
 
-                                    function onStatusReportWritten() {
+                                    function onStatusReportWritten(err) {
 
                                         try {
-
                                             if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write("[ERROR] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
 
                                             fileCheckedCounter = 0;
                                             readNextFile();
 
+                                            return;
                                         } catch (err) {
                                             logger.write("[ERROR] start -> findNextHole -> checkHolesInFile -> onStatusReportWritten -> err = " + err.message);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
                                     }
-                                
                                 } else {
 
                                     readNextFile();
@@ -629,12 +659,24 @@ What is the lastFile pointer?
 
                                 writeStatusReport(currentDatetime, currentTradeId, false, false, onStatusReportWritten);
 
-                                function onStatusReportWritten() {
+                                function onStatusReportWritten(err) {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> Entering function."); }
+                                    try {
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> Entering function."); }
 
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE); 
-                                    return;
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            logger.write("[ERROR] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> err = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
+
+                                        callBackFunction(global.DEFAULT_OK_RESPONSE); 
+                                        return;
+                                    } catch (err) {
+                                        logger.write("[ERROR] start -> findNextHole -> findEndOfHole -> onStatusReportWritten -> err = " + err.message);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
                                 }
                                 return;
                             }
@@ -1189,12 +1231,32 @@ What is the lastFile pointer?
 
                             function onMainReportCreated() {
 
-                                verifyMarketComplete(monthChecked, callBack);
+                                if (monthChecked === true) {
+
+                                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
+                                    let statusReport = dependencies.statusReports.get(key);
+                                    statusReport.verifyMarketComplete(callBack);
+                                    return;
+
+                                } else {
+                                    callBack(global.DEFAULT_OK_RESPONSE);
+                                    return;
+                                }
                             }
 
                         } else {
 
-                            verifyMarketComplete(monthChecked, callBack);
+                            if (monthChecked === true) {
+
+                                let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
+                                let statusReport = dependencies.statusReports.get(key);
+                                statusReport.verifyMarketComplete(callBack);
+                                return;
+
+                            } else {
+                                callBack(global.DEFAULT_OK_RESPONSE);
+                                return;
+                            }
                         }
                     }
 
@@ -1247,7 +1309,7 @@ What is the lastFile pointer?
                             return;
                         }
 
-                        callBack();
+                        callBack(global.DEFAULT_OK_RESPONSE);
                         return;
                     }
                 }
@@ -1256,186 +1318,6 @@ What is the lastFile pointer?
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
-            }
-
-            function verifyMarketComplete(isMonthComplete, callBack) {
-
-                if (isMonthComplete === true) {
-
-                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Month Completed !!! ");
-
-                    /*
- 
-                    The mission of this function is to update the main status report. This report contains the date of the last file sucessfully checked
-                    but in a consecutive way.
-
-                    For example: if the market starts in March, and March, April and June are checked, then the file will be the last of June even if September is also checked.
- 
-                    */
-
-                    let initialYear;
-                    let initialMonth;
-
-                    let finalYear = (new Date()).getUTCFullYear();
-                    let finalMonth = (new Date()).getUTCMonth() + 1;
-
-                    let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                    /* Lets read the main status report */
-
-                    charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
-
-                    function onFileReceived(text) {
-
-                        if (text === undefined) {
-
-                            /* The first month of the market didnt create this file yet. Aborting verification. */
-
-                            logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the main status report does not exist. ");
-
-                            callBack();
-
-                        } else {
-
-                            let statusReport = JSON.parse(text);
-
-                            initialYear = statusReport.lastFile.year;
-                            initialMonth = statusReport.lastFile.month;
-
-                            loopCycle();
-                        }
-
-                    }
-
-                    function loopCycle() {
-
-                        /*
-
-                        Here we read the status report file of each month / year to verify if it is complete or not.
-
-                        */
-                        let paddedInitialMonth = utilities.pad(initialMonth, 2);
-
-                        let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + initialYear + "/" + paddedInitialMonth;
-                        let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived, true);
-
-                        function onStatusReportFileReceived(text) {
-
-                            if (text === undefined) {
-
-                                /* If any of the files do not exist, it means that the continuity has ben broken and this checking procedure must be aborted */
-
-                                logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED  since the status report for year  " + initialYear + " and month " + initialMonth + " did not exist. ");
-
-                                callBack();
-
-                            } else {
-
-                                let statusReport = JSON.parse(text);
-
-                                if (statusReport.monthChecked === true) {
-
-                                    readAndWriteNewReport(statusReport);
-
-                                } else {
-
-                                    /* If any of the files says that month is not checked then it is enough to know the market continuity is broken. */
-
-                                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the status report for year  " + initialYear + " and month " + initialMonth + " is not hole checked. ");
-
-                                    callBack();
-
-                                }
-                            }
-                        }
-                    }
-
-
-
-                    function readAndWriteNewReport(monthlyStatusReport) {
-
-                        /* We will read the current file to preserve its data, and save it again with the new lastFile */
-
-                        let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
-                        let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
-
-                        function onFileReceived(text) {
-
-                            let statusReport = JSON.parse(text);
-
-                            /*
-
-                            Only if the last trade ID of the month being evaluated is bigger the trade Id at the status report we do replace it, otherwise not.
-
-                            */
-
-                            if (monthlyStatusReport.lastTrade.id > statusReport.lastTrade.id) {
-
-                                statusReport.lastFile = monthlyStatusReport.lastFile;
-                                statusReport.lastTrade = monthlyStatusReport.lastTrade;
-                                statusReport.lastTrade.counter = undefined;
-
-                                let fileContent = JSON.stringify(statusReport);
-
-                                charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
-
-                                function onMasterFileCreated() {
-
-                                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Main Status Report Updated - Content written: " + fileContent);
-
-                                    loop();  // Lets see the next month.
-
-                                }
-
-                            } else {
-
-                                logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Main Status Report Not Updated since current Trade Id (" + monthlyStatusReport.lastTrade.id + ") is <= than Id at main status report file. (" + statusReport.lastTrade.id + ")" );
-
-                                loop();  // Lets see the next month.
-
-                            } 
-                        }
-                    }
-
-
-                    function loop() {
-
-                        initialMonth++;
-
-                        if (initialMonth > 12) {
-
-                            initialMonth = 1;
-                            initialYear++;
-
-                        }
-
-                        if ((initialYear === finalYear && initialMonth > finalMonth) || (initialYear > finalYear)) {
-
-                            /* We arrived to the point where we have checked all the status reports of every month and they are all complete. */
-
-                            logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification Finished. ");
-
-                            callBack();
-
-                            return;
-                        }
-
-                        loopCycle();
-
-                    }
-
-                } else {
-
-                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED: Month is not checked. ");
-                    callBack();
-
-                }
-
             }
 
         } catch (err) {

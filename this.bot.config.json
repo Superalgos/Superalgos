@@ -93,14 +93,14 @@
       "description": "Scans the trades saved by the Live Trades and Historic Trades processes searching for missing records. Once a hole is found on the data set, it patches it by retrieving the missing records from the exchange.",
       "startMode": {
         "allMonths": {
-          "run": "true",
+          "run": "false",
           "minYear": "2014",
           "maxYear": "2018"
         },
         "oneMonth": {
-          "run": "false",
-          "year": "",
-          "month": ""
+          "run": "true",
+          "year": "2018",
+          "month": "03"
         },
         "noTime": {
           "run": "false"

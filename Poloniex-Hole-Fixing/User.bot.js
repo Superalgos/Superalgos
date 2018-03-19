@@ -42,8 +42,8 @@
 
             year = pYear;
             month = pMonth;
-
             month = utilities.pad(month, 2); // Adding a left zero when needed.
+            dependencies = pDependencies;
 
             logger.fileName = MODULE_NAME + "-" + year + "-" + month;
 
@@ -182,11 +182,11 @@ What is the lastFile pointer?
                     let thisReport;
                     let reportKey;
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex Live Trades" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Live-Trades" + "-" + "dataSet.V1";
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,
@@ -203,7 +203,7 @@ What is the lastFile pointer?
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
                         logger.write("[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
 
                         let customOK = {
@@ -248,7 +248,7 @@ What is the lastFile pointer?
                         return;
                     }
                     
-                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month;
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month;
                     holeFixingStatusReport = dependencies.statusReports.get(reportKey).file;
 
                     if (holeFixingStatusReport.lastFile === undefined) {
@@ -352,6 +352,7 @@ What is the lastFile pointer?
                                 /* This mean we reached the forward end of the market */
 
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> Head of the market reached at date = " + date.toUTCString()); }
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> findNextHole -> readNextFile -> lastLiveTradeFile = " + lastLiveTradeFile.toUTCString()); }
 
                                 writeStatusReport(currentDatetime, currentTradeId, false, true, onStatusReportWritten);
 

@@ -78,6 +78,21 @@
             folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
 
             rimraf.sync(folderToRemove);
+
+            if (thisObject.bot.debug.year !== undefined) {
+
+                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter + "/" + thisObject.bot.debug.year; 
+
+                createFolderSync(folderPath);
+
+                if (thisObject.bot.debug.month !== undefined) {
+
+                    folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
+
+                    createFolderSync(folderPath);
+
+                }
+            }
         }
         catch (err) {
             console.log("Error trying to create the loop folder needed or deleting old ones.  Error: " + err.message);

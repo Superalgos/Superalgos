@@ -159,6 +159,7 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
     }
 
     botConfig.process = listItem.process;
+    botConfig.debug = {};
 
     logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -200,9 +201,14 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> allMonths start mode detected. "); }
 
-                    for (let year = processConfig.startMode.allMonths.maxYear; year > processConfig.startMode.allMonths.minYear; year--) {
+                    for (let year = processConfig.startMode.allMonths.maxYear; year >= processConfig.startMode.allMonths.minYear; year--) {
 
                         for (let month = 12; month > 0; month--) {
+
+                            botConfig.debug = {
+                                month: pad(month, 2),
+                                year: pad(year, 4)
+                            };
 
                             let timeDelay = Math.random() * 10 * 1000; // We introduce a short delay so as to not overload the machine.
                             setTimeout(startProcess, timeDelay);
@@ -241,6 +247,11 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
                         let month = pad(processConfig.startMode.oneMonth.month, 2);
                         let year = processConfig.startMode.oneMonth.year;
+
+                        botConfig.debug = {
+                            month: pad(month, 2),
+                            year: pad(year, 4)
+                        };
 
                         switch (botConfig.type) {
                             case 'Extraction': {

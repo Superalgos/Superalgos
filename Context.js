@@ -177,7 +177,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History.json"
+                    let fileName = "Execution.History.json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
@@ -237,7 +237,7 @@
 
                     let date = new Date(thisObject.statusReport.lastExecution);
 
-                    let fileName = "Execution.Context.json"
+                    let fileName = "Execution.Context.json";
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
@@ -397,7 +397,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function."); }
 
-                    let fileName = "Execution.Context.json"
+                    let fileName = "Execution.Context.json";
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
@@ -458,7 +458,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History.json"
+                    let fileName = "Execution.History.json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }

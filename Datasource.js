@@ -82,19 +82,16 @@
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
-                            break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                             logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(err);
                             return;
                         }
-                            break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                             logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
                             callBackFunction(err);
                             return;
                         }
-                            break;
                     }
 
                 } catch (err) {

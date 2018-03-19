@@ -111,7 +111,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
@@ -122,7 +122,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
                     }

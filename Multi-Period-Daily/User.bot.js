@@ -229,8 +229,8 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                             if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Entering function."); }
 
-                            const outputPeriod = global.marketFilesPeriods[n][0];
-                            const folderName = global.marketFilesPeriods[n][1];
+                            const outputPeriod = global.dailyFilePeriods[n][0];
+                            const folderName = global.dailyFilePeriods[n][1];
 
                             nextCandleFile();
 

@@ -25,7 +25,6 @@
     let owner;                       // This is the bot owner of the Status Report. Only owners can save the report and override the existing content.
 
     const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
     /* Utilities needed. */
@@ -46,7 +45,7 @@
 
         try {
 
-            logger.fileName = MODULE_NAME + "." + pOwner.bot;
+            logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + pOwner.process;
 
             owner = pOwner;
             month = pMonth;
@@ -54,7 +53,7 @@
 
             if (owner.dataSetSection === "Month") {
 
-                logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + year + "." + month;
+                logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + pOwner.process + "." + year + "." + month;
 
                 timePath = "/" + year + "/" + month; 
             }

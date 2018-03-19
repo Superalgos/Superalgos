@@ -7,16 +7,23 @@
   },
   "executionList": [
     {
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AAMariam-Trading-Bot",
       "process": "Trading-Process"
     },
     {
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AAOlivia-Indicator-Bot",
       "process": "Multi-Period-Market"
+    },
+    {
+      "enabled": "true",
+      "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
+      "process": "Poloniex-Hole-Fixing"
     }
   ],
   "stopGracefully": "true",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Mixed",
+  "storageConnStringFolder": "Testnet",
   "maxLogLoops": 10
 }

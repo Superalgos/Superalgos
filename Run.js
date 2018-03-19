@@ -139,6 +139,12 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
     let listItem = PLATFORM_CONFIG.executionList[p];
 
+    if (listItem.enabled !== "true") {
+
+        console.log("[INFO] Skipping process " + listItem.process + " for being disabled. ");
+        continue;
+    }
+
     /* Now we will read the config of the bot from the path we obtained at the AACloud config. */
 
     let botConfig;

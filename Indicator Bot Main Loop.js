@@ -169,6 +169,49 @@
                                     callBackFunction(err);
                                     return;
                                 }
+                                case global.CUSTOM_OK_RESPONSE.result: {
+
+                                    switch (err.message) {
+                                        case "Dependency does not exist.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Dependency does not exist. This Loop will go to sleep.");
+                                            nextWaitTime = 'Sleep';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case "Dependency not ready.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Dependency not ready. This Loop will go to sleep.");
+                                            nextWaitTime = 'Sleep';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case "Month before it is needed.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Month before it is needed. This Loop will be terminated.");
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                            return;
+                                        }
+                                        case "Month fully processed.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Month fully processed. This Loop will be terminated.");
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                            return;
+                                        }
+                                        case "End of the month reached.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > End of the month reached. This Loop will be terminated.");
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                            return;
+                                        }
+                                        case "Too far in the future.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Too far in the future. This Loop will enter in coma.");
+                                            nextWaitTime = 'Coma';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled custom response received. -> err.message = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

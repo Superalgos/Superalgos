@@ -25,6 +25,8 @@
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
+    const commons = COMMONS.newCommons(bot, DEBUG_MODULE, UTILITIES);
+
     thisObject = {
         initialize: initialize,
         start: start
@@ -42,44 +44,48 @@
 
     return thisObject;
 
-    function initialize(yearAssigend, monthAssigned, callBackFunction) {
+    function initialize(pDependencies, pMonth, pYear, callBackFunction) {
 
         try {
 
-            year = yearAssigend;
-            month = monthAssigned;
-
+            year = pYear;
+            month = pMonth;
             month = utilities.pad(month, 2); // Adding a left zero when needed.
+            dependencies = pDependencies;
 
             logger.fileName = MODULE_NAME + "-" + year + "-" + month;
 
-            const logText = "[INFO] initialize - Entering function 'initialize' " + " @ " + year + "-" + month;
-            console.log(logText);
-            logger.write(logText);
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> pYear = " + year); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> pMonth = " + month); }
 
-            charlyFileStorage.initialize("Charly");
-            bruceFileStorage.initialize("Bruce");
+            dependencies = pDependencies;
 
-            markets = MARKETS_MODULE.newMarkets(bot);
-            markets.initialize(callBackFunction);
+            commons.initializeStorage(charlyFileStorage, bruceFileStorage, onInizialized);
 
+            function onInizialized(err) {
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onInizialized -> Initialization Succeed."); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } else {
+                    logger.write("[ERROR] initialize -> onInizialized -> err = " + err.message);
+                    callBackFunction(err);
+                }
+            }
 
         } catch (err) {
-
-            const logText = "[ERROR] initialize - ' ERROR : " + err.message;
-            console.log(logText);
-            logger.write(logText);
-
+            logger.write("[ERROR] initialize -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-/*
-
-This process is going to do the following:
-
-Read the trades from Charly's Output and pack them into daily files with candles of one minute.
-
-*/
+    /*
+    This process is going to do the following:
+    Read the trades from Charly's Output and pack them into daily files with candles of one minute.
+    */
 
     function start(callBackFunction) {
 

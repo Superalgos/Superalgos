@@ -21,7 +21,10 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Compile Include="One-Min-Daily-Candles-Volumes\Interval.js" />
+    <Compile Include="Commons.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="One-Min-Daily-Candles-Volumes\User.bot.js" />
     <Content Include="logs\Dummy File.txt" />
     <Content Include="obj\Debug\AACarol.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACharly.njsproj.FileListAbsolute.txt" />

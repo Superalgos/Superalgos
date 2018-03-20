@@ -61,7 +61,8 @@
             "minor": 0
           },
           "process": "One-Min-Daily-Candles-Volumes",
-          "dataSetVersion": "dataSet.V1"
+          "dataSetVersion": "dataSet.V1",
+          "dataSetSection": "Month"
         }
       ]
     }

@@ -1,10 +1,14 @@
 {
-  "bot": {
-    "name": "Bruce",
-    "type": "Indicator",
-    "version": "1.0.0",
-    "devTeam": "AA Masters"
+  "displayName": "Bruce",
+  "codeName": "AABruce",
+  "type": "Indicator",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
   },
+  "devTeam": "AAMasters",
+  "dataSetVersion": "dataSet.V1",
   "processes": [
     {
       "name": "One-Min-Daily-Candles-Volumes",
@@ -24,8 +28,42 @@
           "run": "false"
         }
       },
-      "intervalLapse": 10000,
-      "intervalMaxLoops": -1
+      "normalWaitTime": 60000,
+      "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
+      "dependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Poloniex-Historic-Trades",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Poloniex-Hole-Fixing",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AABruce",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "One-Min-Daily-Candles-Volumes",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ]
     }
   ]
 }

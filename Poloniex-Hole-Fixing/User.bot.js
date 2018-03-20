@@ -126,8 +126,14 @@ What is the lastFile pointer?
 
             if ((year === thisDatetime.getUTCFullYear() && month > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
 
-                logger.write("[ERROR] start -> writeStatusReport -> We are too far in the future. Bot will not execute. Sorry.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                logger.write("[ERROR] start -> writeStatusReport -> We are too far in the future. Bot will not execute now.");
+
+                let customOK = {
+                    result: global.CUSTOM_OK_RESPONSE.result,
+                    message: "Too far in the future."
+                }
+                logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                callBackFunction(customOK);
                 return;
             }
 
@@ -183,6 +189,7 @@ What is the lastFile pointer?
                     let reportKey;
 
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Live-Trades" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
@@ -200,6 +207,7 @@ What is the lastFile pointer?
                     lastLiveTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
 
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
@@ -249,6 +257,7 @@ What is the lastFile pointer?
                     }
                     
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month;
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
                     holeFixingStatusReport = dependencies.statusReports.get(reportKey).file;
 
                     if (holeFixingStatusReport.lastFile === undefined) {
@@ -311,6 +320,10 @@ What is the lastFile pointer?
                     }
                 } catch (err) {
                     logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
+                    if (err.message === "Cannot read property 'file' of undefined") {
+                        logger.write("[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its dependencies declarations are correct. ");
+                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(dependencies.keys));
+                    }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

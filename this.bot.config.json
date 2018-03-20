@@ -31,6 +31,7 @@
       "normalWaitTime": 60000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
       "dependencies": [
         {
           "devTeam": "AAMasters",
@@ -65,6 +66,7 @@
       "normalWaitTime": 60000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
       "dependencies": [
         {
           "devTeam": "AAMasters",
@@ -93,12 +95,12 @@
       "description": "Scans the trades saved by the Live Trades and Historic Trades processes searching for missing records. Once a hole is found on the data set, it patches it by retrieving the missing records from the exchange.",
       "startMode": {
         "allMonths": {
-          "run": "false",
-          "minYear": "2014",
+          "run": "true",
+          "minYear": "2018",
           "maxYear": "2018"
         },
         "oneMonth": {
-          "run": "true",
+          "run": "false",
           "year": "2018",
           "month": "03"
         },
@@ -109,6 +111,7 @@
       "normalWaitTime": 60000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
       "dependencies": [
         {
           "devTeam": "AAMasters",

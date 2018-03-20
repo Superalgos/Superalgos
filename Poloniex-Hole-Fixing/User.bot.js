@@ -140,9 +140,7 @@ What is the lastFile pointer?
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
 
             let currentDate;                    // This will hold the current datetime of each execution.
-            let cursorDatetime;                 // This holds the datetime we are using to request records from, backwards.
 
-            let marketQueue;                    // This is the queue of all markets to be procesesd at each interval.
             let market = global.MARKET;
 
             let dateForPath;
@@ -1166,7 +1164,6 @@ What is the lastFile pointer?
                     */
 
                     let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion + "-" + year + "-" + month;
-
                     let statusReport = dependencies.statusReports.get(key);
 
                     if (lastTradeId === undefined) {

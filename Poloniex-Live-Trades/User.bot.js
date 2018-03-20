@@ -27,7 +27,6 @@
 
     let utilities = UTILITIES.newUtilities(bot);
     let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
-    let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
 
     let dependencies;
 

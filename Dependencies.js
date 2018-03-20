@@ -8,7 +8,7 @@
     let thisObject = {
         statusReports: new Map(),              
         initialize: initialize,
-        key: []
+        keys: []
     };
 
     /*
@@ -125,7 +125,7 @@
                         key = pDependenciesConfig[i].devTeam + "-" + pDependenciesConfig[i].bot + "-" + pDependenciesConfig[i].process + "-" + pDependenciesConfig[i].dataSetVersion;
                     }
 
-                    thisObject.key.push(key);
+                    thisObject.keys.push(key);
                     thisObject.statusReports.set(key, statusReportModule);
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> addReport -> Report added to Map. -> key = " + key); }

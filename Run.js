@@ -176,8 +176,6 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
     botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
-    let botId = botConfig.devTeam + "." + botConfig.codeName + "." + botConfig.process;
-
     if (FULL_LOG === true) { logger.write("[INFO] run -> listItem.process = " + listItem.process); }
 
     /* Now we loop throug all the configured processes at each bots configuration until we find the one we are supposed to run at this Node.js process. */
@@ -210,6 +208,10 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                                 year: pad(year, 4)
                             };
 
+                            let padMonth = pad(month,2)
+
+                            let newInstanceBotConfig = JSON.parse(JSON.stringify(botConfig));
+
                             let timeDelay = Math.random() * 10 * 1000; // We introduce a short delay so as to not overload the machine.
                             setTimeout(startProcess, timeDelay);
 
@@ -219,11 +221,11 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
                                 switch (botConfig.type) {
                                     case 'Extraction': {
-                                        runExtractionBot(processConfig, month, year);
+                                        runExtractionBot(newInstanceBotConfig, processConfig, padMonth, year);
                                         break;
                                     }
                                     case 'Indicator': {
-                                        runIndicatorBot(processConfig, month, year);
+                                        runIndicatorBot(newInstanceBotConfig, processConfig, padMonth, year);
                                         break;
                                     }
                                     default: {
@@ -255,11 +257,11 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
                         switch (botConfig.type) {
                             case 'Extraction': {
-                                runExtractionBot(processConfig, month, year);
+                                runExtractionBot(botConfig, processConfig, month, year);
                                 break;
                             }
                             case 'Indicator': {
-                                runIndicatorBot(processConfig, month, year);
+                                runIndicatorBot(botConfig, processConfig, month, year);
                                 break;
                             }
                             default: {
@@ -276,15 +278,15 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
                     switch (botConfig.type) {
                         case 'Extraction': {
-                            runExtractionBot(processConfig, month, year);
+                            runExtractionBot(botConfig, processConfig, month, year);
                             break;
                         }
                         case 'Indicator': {
-                            runIndicatorBot(processConfig, month, year);
+                            runIndicatorBot(botConfig, processConfig, month, year);
                             break;
                         }
                         case 'Trading': {
-                            runTradingBot(processConfig);
+                            runTradingBot(botConfig, processConfig);
                             break;
                         }
                     }
@@ -301,14 +303,14 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
         logger.write("[ERROR] run -> Process listed at the configuration file of AACloud not found at the configuration file of the bot. -> listItem.process = " + listItem.process);
     }
 
-    function runExtractionBot(pProcessConfig, pMonth, pYear) {
+    function runExtractionBot(pBotConfig, pProcessConfig, pMonth, pYear) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] runExtractionBot -> Entering function."); }
             if (FULL_LOG === true) { logger.write("[INFO] runExtractionBot -> pMonth = " + pMonth); }
             if (FULL_LOG === true) { logger.write("[INFO] runExtractionBot -> pYear = " + pYear); }
 
-            let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotMainLoop(botConfig);
+            let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotMainLoop(pBotConfig);
             extractionBotMainLoop.initialize(listItem.botPath, pProcessConfig, onInitializeReady);
 
             function onInitializeReady(err) {
@@ -318,6 +320,13 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                     extractionBotMainLoop.run(pMonth, pYear, whenRunFinishes);
 
                     function whenRunFinishes(err) {
+
+                        let botId;
+                        if (pYear !== undefined) {
+                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
+                        } else {
+                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
+                        }
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
@@ -346,14 +355,14 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
         }
     }
 
-    function runIndicatorBot(pProcessConfig, pMonth, pYear) {
+    function runIndicatorBot(pBotConfig, pProcessConfig, pMonth, pYear) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] runIndicatorBot -> Entering function."); }
             if (FULL_LOG === true) { logger.write("[INFO] runIndicatorBot -> pMonth = " + pMonth); }
             if (FULL_LOG === true) { logger.write("[INFO] runIndicatorBot -> pYear = " + pYear); }
 
-            let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotMainLoop(botConfig);
+            let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotMainLoop(pBotConfig);
             indicatorBotMainLoop.initialize(listItem.botPath, pProcessConfig, onInitializeReady);
 
             function onInitializeReady(err) {
@@ -363,6 +372,13 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                     indicatorBotMainLoop.run(pMonth, pYear, whenRunFinishes);
 
                     function whenRunFinishes(err) {
+
+                        let botId;
+                        if (pYear !== undefined) {
+                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
+                        } else {
+                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
+                        }
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
@@ -391,12 +407,12 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
         }
     }
 
-    function runTradingBot(pProcessConfig) {
+    function runTradingBot(pBotConfig, pProcessConfig) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] runTradingBot -> Entering function."); }
 
-            let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotMainLoop(botConfig);
+            let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotMainLoop(pBotConfig);
             tradingBotMainLoop.initialize(listItem.botPath, pProcessConfig, onInitializeReady);
 
             function onInitializeReady(err) {
@@ -406,6 +422,13 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                     tradingBotMainLoop.run(whenRunFinishes);
 
                     function whenRunFinishes(err) {
+
+                        let botId;
+                        if (pYear !== undefined) {
+                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
+                        } else {
+                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
+                        }
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 

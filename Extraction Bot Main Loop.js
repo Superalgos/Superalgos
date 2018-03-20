@@ -200,6 +200,12 @@
                                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                                             return;
                                         }
+                                        case "Too far in the future.": {
+                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Too far in the future. This Loop will enter in coma.");
+                                            nextWaitTime = 'Coma';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
                                         default: {
                                             logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled custom response received. -> err.message = " + err.message);
                                             callBackFunction(err);
@@ -247,6 +253,11 @@
                     case 'Sleep': {
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 60000) + " minutes."); }
                         setTimeout(loop, processConfig.sleepWaitTime);
+                    }
+                        break;
+                    case 'Coma': {
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 3600000) + " hours."); }
+                        setTimeout(loop, processConfig.comaWaitTime);
                     }
                         break;
                 }

@@ -65,7 +65,7 @@
 
             /* We remove the folder in case it exister from before, so that all its content is gone. */
 
-            rimraf.sync(folderToRemove);
+            //rimraf.sync(folderToRemove);
 
             /* We create the new one. */
 
@@ -137,7 +137,9 @@
 
         }
         catch (err) {
-            console.log("Error trying to log info into a file. File: " + filePath + " Error:" + err.message);
+            console.log("Error trying to log info into a file.");
+            console.log("File: " + filePath );
+            console.log("Error: " + err.message);
         }
     }
 

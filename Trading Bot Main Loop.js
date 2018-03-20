@@ -373,6 +373,11 @@
                         setTimeout(loop, processConfig.sleepWaitTime);
                     }
                         break;
+                    case 'Coma': {
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 3600000) + " hours."); }
+                        setTimeout(loop, processConfig.comaWaitTime);
+                    }
+                        break;
                 } 
             }
 

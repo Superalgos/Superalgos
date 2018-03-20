@@ -91,46 +91,39 @@
 
         try {
 
-            if (LOG_INFO === true) {
-                logger.write("[INFO] Entering function 'start', with year = " + year + " and month = " + month);
-            }
+            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
 
             let processDate = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-
             let lastMinuteOfMonth = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
 
-            lastMinuteOfMonth.setUTCMonth(lastMinuteOfMonth.getUTCMonth() + 1);          // First we go 1 month into the future.
-            lastMinuteOfMonth.setUTCSeconds(lastMinuteOfMonth.getUTCSeconds() - 30);    // Then we go back 30 seconds, or to the last minute of the original month.
+            lastMinuteOfMonth.setUTCMonth(lastMinuteOfMonth.getUTCMonth() + 1);             // First we go 1 month into the future.
+            lastMinuteOfMonth.setUTCSeconds(lastMinuteOfMonth.getUTCSeconds() - 30);        // Then we go back 30 seconds, or to the last minute of the original month.
 
             let thisDatetime = new Date();
 
-            if ((year === thisDatetime.getUTCFullYear() && parseInt(month) > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
+            if ((year === thisDatetime.getUTCFullYear() && month > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
 
-                logger.write("[INFO] We are too far in the future. Interval will not execute. Sorry.");
+                logger.write("[ERROR] start -> writeStatusReport -> We are too far in the future. Bot will not execute now.");
+
+                let customOK = {
+                    result: global.CUSTOM_OK_RESPONSE.result,
+                    message: "Too far in the future."
+                }
+                logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                callBackFunction(customOK);
                 return;
-
             }
 
             let atHeadOfMarket;         // This tell us if we are at the month which includes the head of the market according to current datetime.
-
             if ((parseInt(year) === thisDatetime.getUTCFullYear() && parseInt(month) === thisDatetime.getUTCMonth() + 1)) {
-
                 atHeadOfMarket = true;
-
             } else {
-
                 atHeadOfMarket = false;
-
             }
 
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
 
-            let marketQueue;            // This is the queue of all markets to be procesesd at each interval.
-            let market = {              // This is the current market being processed after removing it from the queue.
-                id: 0,
-                assetA: "",
-                assetB: ""
-            };
+            let market = global.MARKET;
 
             let lastCandleFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
@@ -138,189 +131,166 @@
             let lastCandleClose;        // Value of the last candle close.
             let lastTradeFile;          // Datetime pointing to the last Trade File sucessfuly processed and included in the last file.
 
-            marketsLoop(); 
+            getContextVariables();
 
-            function getStatusReport() {
+            function getContextVariables() {
 
                 try {
 
-                    let reportFilePath;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> Entering function."); }
 
-                    getHistoricTrades();
+                    let thisReport;
+                    let reportKey;
 
-                    function getHistoricTrades() {
+                    /* First Status Report */
+
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    thisReport = dependencies.statusReports.get(reportKey).file;
+
+                    if (thisReport.lastFile === undefined) {
+                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write("[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency does not exist."
+                        }
+                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
+
+                    if (thisReport.completeHistory === true) {  // We get from the file to know if this markets history is complete or not. 
+
+                        firstTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+
+                        /* Before processing this month we need to check if it is not too far in the past.*/
+
+                        if (
+                            processDate.getUTCFullYear() < firstTradeFile.getUTCFullYear()
+                            ||
+                            (processDate.getUTCFullYear() === firstTradeFile.getUTCFullYear() && processDate.getUTCMonth() < firstTradeFile.getUTCMonth())
+                        ) {
+                            logger.write("[WARN] start -> getContextVariables -> The current year / month is before the start of the market history for market.");
+                            let customOK = {
+                                result: global.CUSTOM_OK_RESPONSE.result,
+                                message: "Month before it is needed."
+                            }
+                            logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            callBackFunction(customOK);
+                            return;
+                        }
+
+                    } else {
+                        logger.write("[WARN] start -> getContextVariables -> Trade History is not complete.");
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency not ready."
+                        }
+                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
+
+                    /* Next Status Report */
+
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month;; 
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    thisReport = dependencies.statusReports.get(reportKey).file;
+
+                    if (thisReport.lastFile === undefined) {
+                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write("[HINT] start -> getContextVariables -> It is too early too run this process since the hole fixing process has not started yet for this month.");
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency does not exist."
+                        }
+                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
+
+                    if (statusReport.monthChecked === true) {
+
+                        lastFileWithoutHoles = new Date();  // We need this with a valid value.
+
+                    } else {
 
                         /*
-
-                        We need to know where is the begining of the market, since that will help us know how to estimate the value of the last close.
-                        If we are at the begining of the market, the last close should be zero. 
-
+                        If the hole report is incomplete, we are only interested if we are at the head of the market.
+                        Otherwise, we are not going to calculate the candles of a month which was not fully checked for holes.
                         */
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Historic-Trades";
+                        if (atHeadOfMarket === true) {
 
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                            lastFileWithoutHoles = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
+                            getOneMinDailyCandlesVolumes();
 
-                        function onStatusReportReceived(text) {
+                        } else {
 
-                            let statusReport;
-
-                            try {
-
-                                statusReport = JSON.parse(text);
-
-                                firstTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
-
-                                if ((year === firstTradeFile.getUTCFullYear() && parseInt(month) < firstTradeFile.getUTCMonth() + 1) || year < firstTradeFile.getUTCFullYear()) {
-
-                                    const logText = "[INFO] 'getStatusReport' - the requested month / year are before the begining of this market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-
-                                } else {
-
-                                    getHoleFixing();
-
-                                }
-
-                            } catch (err) {
-
-                                const logText = "[INFO] 'getStatusReport' - Failed to read main Historic Trades Status Report for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
+                            let customOK = {
+                                result: global.CUSTOM_OK_RESPONSE.result,
+                                message: "Dependency not ready."
                             }
+                            logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            callBackFunction(customOK);
+                            return;
                         }
                     }
 
-                    function getHoleFixing() {
+                     /* Final Status Report */
 
-                        /*
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" + year + "-" + month;
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    holeFixingStatusReport = dependencies.statusReports.get(reportKey).file;
 
-                        The limit in the future as of which candles to include is determined by the Hole Fixing process. We wont include
-                        trades not certified to be without hole.
+                    if (thisReport.lastFile === undefined) {
+                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write("[HINT] start -> getContextVariables -> If the status report does not exist we will point the lasCandleFile to the last day of the previous month.");
 
-                        */
+                        lastCandleFile = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
+                        findLastCandleCloseValue();
+                        return;
+                    }
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Hole-Fixing" + "/" + year + "/" + month;
+                    if (statusReport.monthCompleted === true) {
 
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                        logger.write("[WARN] start -> getContextVariables -> The current year / month was already fully processed.");
 
-                        function onStatusReportReceived(text) {
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Month fully processed."
+                        }
+                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
 
-                            let statusReport;
+                    } else {
 
-                            try {
-                                statusReport = JSON.parse(text);
-                            } 
-                            catch (err) {
-                                text = undefined; // If the content of the file is corrupt, this equals as if the file did not exist.
-                            }
+                        lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
+                        lastCandleClose = statusReport.candleClose;
 
-                            if (text === undefined) {
+                        if (statusReport.fileComplete === true) {
 
-                                const logText = "[INFO] 'getStatusReport' - The current year / month was not yet hole-fixed for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                logger.write(logText);
+                            buildCandles();
 
-                                closeAndOpenMarket();
+                        } else {
 
-                            } else {
-
-                                if (statusReport.monthChecked === true) {
-
-                                    lastFileWithoutHoles = new Date();  // We need this with a valid value.
-                                    getOneMinDailyCandlesVolumes();
-
-                                } else {
-
-                                    /*
-
-                                    If the hole report is incomplete, we are only interested if we are at the head of the market.
-                                    Otherwise, we are not going to calculate the candles of a month which was not fully checked for holes.
-
-                                    */
-
-                                    if (atHeadOfMarket === true) {
-
-                                        lastFileWithoutHoles = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
-                                        getOneMinDailyCandlesVolumes();
-
-                                    } else {
-
-                                        const logText = "[INFO] 'getStatusReport' - The current year / month was not completely hole-fixed for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                        logger.write(logText);
-
-                                        closeAndOpenMarket();
-
-                                    }
-                                }
-                            }
+                            lastTradeFile = new Date(statusReport.lastTradeFile.year + "-" + statusReport.lastTradeFile.month + "-" + statusReport.lastTradeFile.days + " " + statusReport.lastTradeFile.hours + ":" + statusReport.lastTradeFile.minutes + GMT_SECONDS);
+                            findPreviousContent();
                         }
                     }
 
-                    function getOneMinDailyCandlesVolumes() {
-
-                        /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
-
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "One-Min-Daily-Candles-Volumes" + "/" + year + "/" + month;
-
-                        bruceFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
-
-                        function onStatusReportReceived(text) {
-
-                            let statusReport;
-
-                            try {
-
-                                statusReport = JSON.parse(text);
-
-                                if (statusReport.monthCompleted === true) {
-
-                                    const logText = "[INFO] 'getStatusReport' - The current year / month is already complete for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
-
-                                } else {
-
-                                    lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-                                    lastCandleClose = statusReport.candleClose;
-
-                                    if (statusReport.fileComplete === true) {
-
-                                        buildCandles();
-
-                                    } else {
-
-                                        lastTradeFile = new Date(statusReport.lastTradeFile.year + "-" + statusReport.lastTradeFile.month + "-" + statusReport.lastTradeFile.days + " " + statusReport.lastTradeFile.hours + ":" + statusReport.lastTradeFile.minutes + GMT_SECONDS);
-                                        findPreviousContent();
-
-                                    }
-                                }
-
-                            } catch (err) {
-
-                                /*
-
-                                It might happen that the file content is corrupt or it does not exist. In either case we will point our lastCandleFile
-                                to the last day of the previous month.
-
-                                */
-
-                                lastCandleFile = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
-                                findLastCandleCloseValue();
-
-                            }
-                        }
+                } catch (err) {
+                    logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
+                    if (err.message === "Cannot read property 'file' of undefined") {
+                        logger.write("[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its dependencies declarations are correct. ");
+                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(dependencies.keys));
                     }
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'getStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -878,74 +848,57 @@
 
             function writeStatusReport(lastFileDate, lastTradeFile, candleClose, isFileComplete, isMonthComplete, callBack) {
 
-
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'writeStatusReport'");
-                }
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
 
                 try {
 
-                    let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
+                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion + "-" + year + "-" + month;
+                    let statusReport = dependencies.statusReports.get(key);
 
-                    utilities.createFolderIfNeeded(reportFilePath, bruceFileStorage, onFolderCreated);
+                    statusReport.file = {
+                        lastFile: {
+                            year: lastFileDate.getUTCFullYear(),
+                            month: (lastFileDate.getUTCMonth() + 1),
+                            days: lastFileDate.getUTCDate()
+                        },
+                        lastTradeFile: {
+                            year: lastTradeFile.getUTCFullYear(),
+                            month: (lastTradeFile.getUTCMonth() + 1),
+                            days: lastTradeFile.getUTCDate(),
+                            hours: lastTradeFile.getUTCHours(),
+                            minutes: lastTradeFile.getUTCMinutes()
+                        },
+                        candleClose: candleClose,
+                        monthCompleted: isMonthComplete,
+                        fileComplete: isFileComplete
+                    };
 
-                    function onFolderCreated() {
+                    let fileContent = JSON.stringify(report); 
 
-                        try {
+                    statusReport.save(onSaved);
 
-                            let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
+                    function onSaved(err) {
 
-                            let report = {
-                                lastFile: {
-                                    year: lastFileDate.getUTCFullYear(),
-                                    month: (lastFileDate.getUTCMonth() + 1),
-                                    days: lastFileDate.getUTCDate()
-                                },
-                                lastTradeFile: {
-                                    year: lastTradeFile.getUTCFullYear(),
-                                    month: (lastTradeFile.getUTCMonth() + 1),
-                                    days: lastTradeFile.getUTCDate(),
-                                    hours: lastTradeFile.getUTCHours(),
-                                    minutes: lastTradeFile.getUTCMinutes()
-                                },
-                                candleClose: candleClose,
-                                monthCompleted: isMonthComplete,
-                                fileComplete: isFileComplete
-                            };
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
 
-                            let fileContent = JSON.stringify(report); 
-
-                            bruceFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated() {
-
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
-                                }
-
-                                callBack();
-                            }
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
+                            callBackFunction(err);
+                            return;
                         }
-                        catch (err) {
-                            const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(logText);
-                            closeMarket();
-                        }
+
+                        callBack(global.DEFAULT_OK_RESPONSE);
                     }
-
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                    logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
-
             }
-
         }
         catch (err) {
-            const logText = "[ERROR] 'Start' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write("[ERROR] start -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

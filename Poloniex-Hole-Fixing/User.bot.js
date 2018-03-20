@@ -48,8 +48,8 @@
             logger.fileName = MODULE_NAME + "-" + year + "-" + month;
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> yearAssigend = " + year); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> monthAssigned = " + month); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> pYear = " + year); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> pMonth = " + month); }
 
             charlyFileStorage.initialize("AACharly", onCharlyInizialized);
 

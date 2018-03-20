@@ -31,6 +31,7 @@
       "normalWaitTime": 60000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
       "dependencies": [
         {
           "devTeam": "AAMasters",
@@ -86,6 +87,7 @@
       "normalWaitTime": 60000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
       "dependencies": [
         {
           "devTeam": "AAMasters",

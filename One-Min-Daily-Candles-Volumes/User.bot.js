@@ -298,6 +298,8 @@
 
                 try {
 
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Entering function."); }
+
                     let previousCandles;
                     let previousVolumes;
 
@@ -305,87 +307,117 @@
 
                     function getCandles() {
 
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        try {
 
-                        let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getCandles -> Entering function."); }
 
-                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                            let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                        bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                            bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                        function onFileReceived(text) {
+                            function onFileReceived(err, text) {
 
-                            let candlesFile;
+                                let candlesFile;
 
-                            try {
+                                try {
 
-                                candlesFile = JSON.parse(text);
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getCandles -> onFileReceived -> Entering function."); }
 
-                                previousCandles = candlesFile;
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
+                                    }
 
-                                getVolumes();
+                                    if (LOG_FILE_CONTENT === true) {
+                                        logger.write("[INFO] start -> findPreviousContent -> getCandles -> onFileReceived ->  text = " + text);
+                                    }
 
-                            } catch (err) {
+                                    candlesFile = JSON.parse(text);
+                                    previousCandles = candlesFile;
+                                    getVolumes();
 
-                                const logText = "[ERR] 'findPreviousContent' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(logText);
+                                } catch (err) {
 
-                                closeAndOpenMarket();
+                                    logger.write("[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.message);
+                                    logger.write("[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> filePath = " + filePath);
+                                    logger.write("[HINT] start -> findPreviousContent -> getCandles -> onFileReceived -> Empty or corrupt volume file found.");
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
+                        } catch (err) {
+                            logger.write("[ERROR] start -> findPreviousContent -> getCandles -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                     function getVolumes() {
 
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        try {
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getVolumes -> Entering function."); }
 
-                        let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                            let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                            bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                        bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                            function onFileReceived(err, text) {
 
-                        function onFileReceived(text) {
+                                let volumesFile;
 
-                            let volumesFile;
+                                try {
 
-                            try {
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getVolumes -> onFileReceived -> Entering function."); }
 
-                                volumesFile = JSON.parse(text);
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
+                                    }
 
-                                previousVolumes = volumesFile;
+                                    if (LOG_FILE_CONTENT === true) {
+                                        logger.write("[INFO] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
+                                    }
 
-                                lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
+                                    volumesFile = JSON.parse(text);
+                                    previousVolumes = volumesFile;
+                                    lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
+                                    buildCandles(previousCandles, previousVolumes);
 
-                                buildCandles(previousCandles, previousVolumes);
+                                } catch (err) {
 
-                            } catch (err) {
-
-                                const logText = "[ERR] 'findPreviousContent' - Empty or corrupt volume file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
+                                    logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
+                                    logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> filePath = " + filePath);
+                                    logger.write("[HINT] start -> findPreviousContent -> getVolumes -> onFileReceived -> Empty or corrupt volume file found.");
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
+                        } catch (err) {
+                            logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     } 
-                }
-                catch (err) {
-                const logText = "[ERROR] 'findPreviousContent' - ERROR : " + err.message;
-                logger.write(logText);
-                closeMarket();
-                }
 
+                } catch (err) {
+                    logger.write("[ERROR] start -> findPreviousContent -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
             }
 
             function findLastCandleCloseValue() {
 
                 try {
 
-                    /* 
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Entering function."); }
 
+                    /* 
                     We will search and find for the last trade before the begining of the current candle and that will give us the last close value.
                     Before going backwards, we need to be sure we are not at the begining of the market.
-
                     */
 
                     if ((year === firstTradeFile.getUTCFullYear() && parseInt(month) === firstTradeFile.getUTCMonth() + 1)) {
@@ -429,11 +461,23 @@
 
                             charlyFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                            function onFileReceived(text) {
+                            function onFileReceived(err, text) {
 
                                 let tradesFile;
 
                                 try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
+                                    }
+
+                                    if (LOG_FILE_CONTENT === true) {
+                                        logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
+                                    }
 
                                     tradesFile = JSON.parse(text);
 
@@ -441,54 +485,48 @@
 
                                         lastCandleClose = tradesFile[tradesFile.length - 1][2]; // Position 2 is the rate at which the trade was executed.
 
-                                        const logText = "[INFO] 'findLastCandleCloseValue' - Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . lastCandleClose = " + lastCandleClose;
-                                        logger.write(logText);
-                                        console.log(logText);
+                                        logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
+                                        logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> lastCandleClose = " + lastCandleClose);
 
                                         buildCandles();
 
                                     } else {
 
-                                        const logText = "[INFO] 'findLastCandleCloseValue' - No trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " .";
-                                        logger.write(logText);
-                                        console.log(logText);
+                                        logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> NO Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
 
                                         loopStart();
-
                                     }
 
                                 } catch (err) {
 
-                                    const logText = "[ERR] 'findLastCandleCloseValue' - Empty or corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
+                                    logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
+                                    logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> filePath = " + filePath);
+                                    logger.write("[HINT] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Empty or corrupt volume file found.");
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
                                 }
                             }
                         }
                     }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'findLastCandleCloseValue' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                } catch (err) {
+                    logger.write("[ERROR] start -> findLastCandleCloseValue -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function buildCandles(previousCandles, previousVolumes) {
 
-                /*
+                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> Entering function."); }
 
+                /*
                 Here we are going to scan the trades files packing them in candles files every one day.
                 We need for this the last close value, bacause all candles that are empty of trades at the begining, they need to
                 have a valid open and close value. This was previously calculated before arriving to this function.
-
                 */
 
                 let canAddPrevious = true;
 
                 try {
-
 
                     nextCandleFile();
 
@@ -575,19 +613,38 @@
 
                             if (date.getUTCMonth() + 1 !== parseInt(month)) {
 
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> nextDate -> End of the month reached at date = " + date.toUTCString()); }
+
                                 lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
                                 writeStatusReport(lastCandleFile, lastTradeFile, lastCandleClose, true, true, onStatusReportWritten);
 
                                 return;
 
-                                function onStatusReportWritten() {
+                                function onStatusReportWritten(err) {
 
-                                    const logText = "[ERR] 'buildCandles' - Finishing processing the whole month for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
+                                    try {
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> nextDate -> onStatusReportWritten -> Entering function."); }
 
-                                    closeAndOpenMarket();
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
 
+                                        let customOK = {
+                                            result: global.CUSTOM_OK_RESPONSE.result,
+                                            message: "End of the month reached."
+                                        }
+                                        logger.write("[WARN] start -> buildCandles -> nextCandleFile -> nextDate -> onStatusReportWritten -> customOK = " + customOK.message);
+                                        callBackFunction(customOK);
+
+                                        return;
+                                    } catch (err) {
+                                        logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
                                 }
                             }
 
@@ -624,11 +681,23 @@
 
                             charlyFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                            function onFileReceived(text) {
+                            function onFileReceived(err, text) {
 
                                 let tradesFile;
 
                                 try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
+                                    }
+
+                                    if (LOG_FILE_CONTENT === true) {
+                                        logger.write("[INFO] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived ->  text = " + text);
+                                    }
 
                                     let candle = {
                                         open: lastCandleClose,
@@ -650,9 +719,7 @@
 
                                     let tradesCount = utilities.pad(tradesFile.length, 5);
 
-                                    const logText = "[INFO] 'buildCandles' - " + tradesCount +" trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ". ";
-                                    logger.write(logText);
-                                    console.log(logText);
+                                    logger.write("[INFO] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> " + tradesCount + " trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ". ");
 
                                     if (tradesFile.length > 0) {
 
@@ -708,30 +775,28 @@
 
                                 } catch (err) {
 
-                                    const logText = "[ERR] 'buildCandles' - Empty or corrupt trade file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
-
-                                    closeAndOpenMarket();
+                                    logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> err = " + err.message);
+                                    logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> filePath = " + filePath);
+                                    logger.write("[HINT] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> Empty or corrupt volume file found.");
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
                                 }
                             }
                         }
                     }
-                } 
-                     
-                catch (err) {
-                    const logText = "[ERROR] 'buildCandles' - ERROR : " + err.message;
-                logger.write(logText);
-                closeMarket();
-                }
 
+                } catch (err) {
+                    logger.write("[ERROR] start -> buildCandles -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
             }
 
             function writeFiles(date, candles, volumes, isFileComplete, callBack) {
 
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> Entering function."); }
+
                 /*
-
                 Here we will write the contents of the Candles and Volumens files. If the File is declared as complete, we will also write the status report.
-
                 */
 
                 try {
@@ -767,20 +832,51 @@
 
                         utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
 
-                        function onFolderCreated() {
+                        function onFolderCreated(err) {
 
-                            bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            try {
 
-                            function onFileCreated() {
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> Entering function."); }
 
-                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                console.log(logText);
-                                logger.write(logText);
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> err = " + err.message);
+                                    callBackFunction(err);
+                                    return;
+                                }
 
-                                writeVolumes();
+                                bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                function onFileCreated(err) {
+
+                                    try {
+
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> Entering function."); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
+
+                                        if (LOG_FILE_CONTENT === true) {
+                                            logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> fileContent = " + fileContent);
+                                        }
+
+                                        logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
+
+                                        writeVolumes();
+
+                                    } catch (err) {
+                                        logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    }
+                                }
+
+                            } catch (err) {
+                                logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> err = " + err.message);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             }
                         }
-
                     }
 
                     function writeVolumes() {
@@ -812,17 +908,49 @@
 
                         utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
 
-                        function onFolderCreated() {
+                        function onFolderCreated(err) {
 
-                            bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            try {
 
-                            function onFileCreated() {
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> Entering function."); }
 
-                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                console.log(logText);
-                                logger.write(logText);
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> err = " + err.message);
+                                    callBackFunction(err);
+                                    return;
+                                }
 
-                                writeReport();
+                                bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                function onFileCreated(err) {
+
+                                    try {
+
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> Entering function."); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
+
+                                        if (LOG_FILE_CONTENT === true) {
+                                            logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> fileContent = " + fileContent);
+                                        }
+
+                                        logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
+
+                                        writeReport();
+
+                                    } catch (err) {
+                                        logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    }
+                                }
+
+                            } catch (err) {
+                                logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> err = " + err.message);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             }
                         }
                     }
@@ -837,12 +965,10 @@
 
                         }
                     }
-                }
-                     
-                catch (err) {
-                    const logText = "[ERROR] 'writeFiles' - ERROR : " + err.message;
-                logger.write(logText);
-                closeMarket();
+
+                } catch (err) {
+                    logger.write("[ERROR] start -> writeFiles -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 

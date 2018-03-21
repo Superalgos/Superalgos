@@ -530,7 +530,6 @@
                 let canAddPrevious = true;
 
                 try {
-
                     nextCandleFile();
 
                     function nextCandleFile() {
@@ -692,7 +691,6 @@
                                         let tradesFile;
 
                                         try {
-
                                             if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> Entering function."); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -811,164 +809,184 @@
 
                     function writeCandles() {
 
-                        let separator = "";
-                        let fileRecordCounter = 0;
+                        try {
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> Entering function."); }
 
-                        let fileContent = "";
+                            let separator = "";
+                            let fileRecordCounter = 0;
 
-                        for (i = 0; i < candles.length; i++) {
+                            let fileContent = "";
 
-                            let candle = candles[i];
+                            for (i = 0; i < candles.length; i++) {
 
-                            fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                        let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
-
-                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
-
-                        utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
-
-                        function onFolderCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> Entering function."); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> err = " + err.message);
-                                    callBackFunction(err);
-                                    return;
-                                }
-
-                                bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                function onFileCreated(err) {
-
-                                    try {
-
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-
-                                        if (LOG_FILE_CONTENT === true) {
-                                            logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> fileContent = " + fileContent);
-                                        }
-
-                                        logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
-
-                                        writeVolumes();
-
-                                    } catch (err) {
-                                        logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    }
-                                }
-
-                            } catch (err) {
-                                logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> err = " + err.message);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                let candle = candles[i];
+                                fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
+                                if (separator === "") { separator = ","; }
+                                fileRecordCounter++;
                             }
+
+                            fileContent = "[" + fileContent + "]";
+
+                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                            let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
+                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+
+                            utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
+
+                            function onFolderCreated(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
+                                    }
+
+                                    bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated(err) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+
+                                            if (LOG_FILE_CONTENT === true) {
+                                                logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> fileContent = " + fileContent);
+                                            }
+
+                                            logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
+
+                                            writeVolumes();
+
+                                        } catch (err) {
+                                            logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+                        } catch (err) {
+                                logger.write("[ERROR] start -> writeFiles -> writeCandles -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                     function writeVolumes() {
 
-                        let separator = "";
-                        let fileRecordCounter = 0;
+                        try {
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> Entering function."); }
 
-                        let fileContent = "";
+                            let separator = "";
+                            let fileRecordCounter = 0;
 
-                        for (i = 0; i < volumes.length; i++) {
+                            let fileContent = "";
 
-                            let candle = volumes[i];
+                            for (i = 0; i < volumes.length; i++) {
 
-                            fileContent = fileContent + separator + '[' + volumes[i].buy + "," + volumes[i].sell + "," + volumes[i].begin + "," + volumes[i].end + "]";
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                        let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
-
-                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
-
-                        utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
-
-                        function onFolderCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> Entering function."); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> err = " + err.message);
-                                    callBackFunction(err);
-                                    return;
-                                }
-
-                                bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                function onFileCreated(err) {
-
-                                    try {
-
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-
-                                        if (LOG_FILE_CONTENT === true) {
-                                            logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> fileContent = " + fileContent);
-                                        }
-
-                                        logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
-
-                                        writeReport();
-
-                                    } catch (err) {
-                                        logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    }
-                                }
-
-                            } catch (err) {
-                                logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> err = " + err.message);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                let candle = volumes[i];
+                                fileContent = fileContent + separator + '[' + volumes[i].buy + "," + volumes[i].sell + "," + volumes[i].begin + "," + volumes[i].end + "]";
+                                if (separator === "") { separator = ","; }
+                                fileRecordCounter++;
                             }
+
+                            fileContent = "[" + fileContent + "]";
+
+                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                            let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
+                            let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+                            utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
+
+                            function onFolderCreated(err) {
+
+                                try {
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
+                                    }
+
+                                    bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated(err) {
+
+                                        try {
+                                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+
+                                            if (LOG_FILE_CONTENT === true) {
+                                                logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> fileContent = " + fileContent);
+                                            }
+
+                                            logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
+
+                                            writeReport();
+
+                                        } catch (err) {
+                                            logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+                        } catch (err) {
+                            logger.write("[ERROR] start -> writeFiles -> writeVolumes -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                     function writeReport() {
 
-                        writeStatusReport(date, lastTradeFile, lastCandleClose, isFileComplete, false, onStatusReportWritten);
+                        try {
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeReport -> Entering function."); }
 
-                        function onStatusReportWritten() {
+                            writeStatusReport(date, lastTradeFile, lastCandleClose, isFileComplete, false, onStatusReportWritten);
 
-                            callBack();
+                            function onStatusReportWritten(err) {
 
+                                try {
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> onStatusReportWritten -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] start -> writeFiles -> onStatusReportWritten -> err = " + err.message);
+                                        callBackFunction(err);
+                                        return;
+                                    }
+
+                                    callBack();
+                                    return;
+                                } catch (err) {
+                                    logger.write("[ERROR] start -> writeFiles -> onStatusReportWritten -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+                            }
+                        } catch (err) {
+                            logger.write("[ERROR] start -> writeFiles -> writeReport -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 

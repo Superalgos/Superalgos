@@ -315,7 +315,7 @@
                             let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
                             let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                            bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                            bruceFileStorage.getTextFile(filePath, fileName, onFileReceived);
 
                             function onFileReceived(err, text) {
 
@@ -363,7 +363,7 @@
                             let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
                             let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                            bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                            bruceFileStorage.getTextFile(filePath, fileName, onFileReceived);
 
                             function onFileReceived(err, text) {
 
@@ -423,28 +423,23 @@
                     if ((year === firstTradeFile.getUTCFullYear() && parseInt(month) === firstTradeFile.getUTCMonth() + 1)) {
 
                         /*
-
                         We are at the begining of the market, so we will set everyting to build the first candle.
-
                         */
 
-                        const logText = "[INFO] 'findLastCandleCloseValue' - Begining of the market detected for market " + market.assetA + '_' + market.assetB + " . lastCandleClose = " + lastCandleClose;
-                        logger.write(logText);
-                        console.log(logText);
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Begining of the market detected."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Entering market = " + JSON.stringify(market)); }
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> lastCandleClose = " + lastCandleClose); }
 
                         lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00"  + GMT_SECONDS);
                         lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
                         lastCandleClose = 0;
-
                         buildCandles();
 
                     } else {
 
                         /*
-
                         We are not at the begining of the market, so we need scan backwards the trade files until we find a non empty one and get the last trade.
-
                         */
 
                         let date = new Date(processDate.valueOf());
@@ -453,58 +448,66 @@
 
                         function loopStart() {
 
-                            date = new Date(date.valueOf() - 60 * 1000);
+                            try {
 
-                            let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                            let fileName = market.assetA + '_' + market.assetB + ".json"
-                            let filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopStart -> Entering function."); }
 
-                            charlyFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                date = new Date(date.valueOf() - 60 * 1000);
 
-                            function onFileReceived(err, text) {
+                                let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
+                                let fileName = market.assetA + '_' + market.assetB + ".json"
+                                let filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                                let tradesFile;
+                                charlyFileStorage.getTextFile(filePath, fileName, onFileReceived);
 
-                                try {
+                                function onFileReceived(err, text) {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Entering function."); }
+                                    let tradesFile;
 
-                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    try {
+
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Entering function."); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
+
+                                        if (LOG_FILE_CONTENT === true) {
+                                            logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
+                                        }
+
+                                        tradesFile = JSON.parse(text);
+
+                                        if (tradesFile.length > 0) {
+
+                                            lastCandleClose = tradesFile[tradesFile.length - 1][2]; // Position 2 is the rate at which the trade was executed.
+
+                                            logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
+                                            logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> lastCandleClose = " + lastCandleClose);
+
+                                            buildCandles();
+
+                                        } else {
+
+                                            logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> NO Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
+
+                                            loopStart();
+                                        }
+
+                                    } catch (err) {
+
                                         logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
-                                        callBackFunction(err);
+                                        logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> filePath = " + filePath);
+                                        logger.write("[HINT] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Empty or corrupt volume file found.");
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
-
-                                    if (LOG_FILE_CONTENT === true) {
-                                        logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
-                                    }
-
-                                    tradesFile = JSON.parse(text);
-
-                                    if (tradesFile.length > 0) {
-
-                                        lastCandleClose = tradesFile[tradesFile.length - 1][2]; // Position 2 is the rate at which the trade was executed.
-
-                                        logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
-                                        logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> lastCandleClose = " + lastCandleClose);
-
-                                        buildCandles();
-
-                                    } else {
-
-                                        logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> NO Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
-
-                                        loopStart();
-                                    }
-
-                                } catch (err) {
-
-                                    logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
-                                    logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> filePath = " + filePath);
-                                    logger.write("[HINT] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Empty or corrupt volume file found.");
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
+                            } catch (err) {
+                                logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> err = " + err.message);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             }
                         }
                     }
@@ -679,7 +682,7 @@
                             let fileName = market.assetA + '_' + market.assetB + ".json"
                             let filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                            charlyFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                            charlyFileStorage.getTextFile(filePath, fileName, onFileReceived);
 
                             function onFileReceived(err, text) {
 

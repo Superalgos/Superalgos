@@ -93,7 +93,7 @@
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> Entering function."); }
 
             let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
-            let fileName = "Status.Report.json";
+            let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath = rootPath + "/Reports/" + owner.process + timePath;
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> fileName = " + fileName); }
@@ -175,7 +175,7 @@
                 return;
             }
 
-            let fileName = "Status.Report.json";
+            let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath = bot.filePathRoot + "/Reports/" + owner.process + timePath;
 
             if (FULL_LOG === true) { logger.write("[INFO] save -> fileName = " + fileName); }

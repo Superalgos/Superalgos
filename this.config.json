@@ -17,13 +17,18 @@
       "process": "Multi-Period-Market"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
       "process": "Poloniex-Hole-Fixing"
+    },
+    {
+      "enabled": "true",
+      "botPath": "../Bots/AAMasters/AABruce-Indicator-Bot",
+      "process": "One-Min-Daily-Candles-Volumes"
     }
   ],
   "stopGracefully": "true",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Testnet",
+  "storageConnStringFolder": "Mixed",
   "maxLogLoops": 10
 }

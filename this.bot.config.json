@@ -15,12 +15,12 @@
       "description": "Produces two data-sets with candles and volumes for all markets at Poloniex.",
       "startMode": {
         "allMonths": {
-          "run": "true",
+          "run": "false",
           "minYear": "2014",
           "maxYear": "2018"
         },
         "oneMonth": {
-          "run": "false",
+          "run": "true",
           "year": "2018",
           "month": "2"
         },
@@ -51,7 +51,8 @@
             "minor": 0
           },
           "process": "Poloniex-Hole-Fixing",
-          "dataSetVersion": "dataSet.V1"
+          "dataSetVersion": "dataSet.V1",
+          "dataSetSection": "Month"
         },
         {
           "devTeam": "AAMasters",

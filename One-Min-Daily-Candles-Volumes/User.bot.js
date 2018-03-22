@@ -32,8 +32,8 @@
         start: start
     };
 
-    let charlyFileStorage = AZURE_FILE_STORAGE.newFileStorage(bot);
-    let bruceFileStorage = AZURE_FILE_STORAGE.newFileStorage(bot);
+    let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let bruceFileStorage = FILE_STORAGE.newFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -196,7 +196,7 @@
 
                     /* Next Status Report */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month;; 
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month; 
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
@@ -213,7 +213,7 @@
                         return;
                     }
 
-                    if (statusReport.monthChecked === true) {
+                    if (thisReport.monthChecked === true) {
 
                         lastFileWithoutHoles = new Date();  // We need this with a valid value.
 
@@ -226,7 +226,7 @@
 
                         if (atHeadOfMarket === true) {
 
-                            lastFileWithoutHoles = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
+                            lastFileWithoutHoles = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
                             getOneMinDailyCandlesVolumes();
 
                         } else {
@@ -243,9 +243,9 @@
 
                      /* Final Status Report */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" + year + "-" + month;
+                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" + year + "-" + month;
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-                    holeFixingStatusReport = dependencies.statusReports.get(reportKey).file;
+                    thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
                         logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
@@ -256,7 +256,7 @@
                         return;
                     }
 
-                    if (statusReport.monthCompleted === true) {
+                    if (thisReport.monthCompleted === true) {
 
                         logger.write("[WARN] start -> getContextVariables -> The current year / month was already fully processed.");
 
@@ -270,16 +270,16 @@
 
                     } else {
 
-                        lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-                        lastCandleClose = statusReport.candleClose;
+                        lastCandleFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
+                        lastCandleClose = thisReport.candleClose;
 
-                        if (statusReport.fileComplete === true) {
+                        if (thisReport.fileComplete === true) {
 
                             buildCandles();
 
                         } else {
 
-                            lastTradeFile = new Date(statusReport.lastTradeFile.year + "-" + statusReport.lastTradeFile.month + "-" + statusReport.lastTradeFile.days + " " + statusReport.lastTradeFile.hours + ":" + statusReport.lastTradeFile.minutes + GMT_SECONDS);
+                            lastTradeFile = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + thisReport.lastTradeFile.hours + ":" + thisReport.lastTradeFile.minutes + GMT_SECONDS);
                             findPreviousContent();
                         }
                     }

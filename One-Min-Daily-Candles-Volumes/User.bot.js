@@ -313,7 +313,7 @@
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
-                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                            let filePath = bot.filePathRoot +  "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
                             bruceFileStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -361,7 +361,7 @@
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
-                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
                             bruceFileStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -829,7 +829,7 @@
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
-                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
                             utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
 

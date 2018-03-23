@@ -167,6 +167,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
                     if (err.message.indexOf("The server is busy") > 0 || err.code === 'ECONNRESET') {
 
                         setTimeout(secondTry, 1000);
+                        return;
 
                         function secondTry() {
 
@@ -239,6 +240,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
                     if (err.message.indexOf("The server is busy") > 0 || err.code === 'ECONNRESET') {
 
                         setTimeout(secondTry, 1000);
+                        return;
 
                         function secondTry() {
 

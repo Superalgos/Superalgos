@@ -164,7 +164,9 @@ exports.newFileStorage = function newFileStorage(BOT) {
                     logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
                     logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
 
-                    if (err.message.indexOf("The server is busy") > 0 || err.code === 'ECONNRESET') {
+                    if (err.message.indexOf("The server is busy") > 0
+                        || err.code === 'ECONNRESET'
+                        || err.code === 'ENOTFOUND') {
 
                         setTimeout(secondTry, 1000);
                         return;
@@ -237,8 +239,10 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
                 if (err) {
                 
-                    if (err.message.indexOf("The server is busy") > 0 || err.code === 'ECONNRESET') {
-
+                    if (err.message.indexOf("The server is busy") > 0
+                        || err.code === 'ECONNRESET'
+                        || err.code === 'ENOTFOUND') {
+                            
                         setTimeout(secondTry, 1000);
                         return;
 

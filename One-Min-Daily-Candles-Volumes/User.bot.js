@@ -103,7 +103,7 @@
 
             if ((year === thisDatetime.getUTCFullYear() && month > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
 
-                logger.write("[ERROR] start -> writeStatusReport -> We are too far in the future. Bot will not execute now.");
+                logger.write("[ERROR] start -> We are too far in the future. Bot will not execute now.");
 
                 let customOK = {
                     result: global.CUSTOM_OK_RESPONSE.result,
@@ -375,6 +375,7 @@
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                         logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
+                                        logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
                                         callBackFunction(err);
                                         return;
                                     }
@@ -392,6 +393,7 @@
 
                                     logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
                                     logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> filePath = " + filePath);
+                                    logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
                                     logger.write("[HINT] start -> findPreviousContent -> getVolumes -> onFileReceived -> Empty or corrupt volume file found.");
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
@@ -470,6 +472,7 @@
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                             logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
+                                            logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -500,6 +503,7 @@
 
                                         logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
                                         logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> filePath = " + filePath);
+                                        logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
                                         logger.write("[HINT] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Empty or corrupt volume file found.");
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return;
@@ -695,6 +699,7 @@
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                                 logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> err = " + err.message);
+                                                logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived ->  text = " + text);
                                                 callBackFunction(err);
                                                 return;
                                             }
@@ -772,7 +777,9 @@
 
                                             logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> err = " + err.message);
                                             logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> filePath = " + filePath);
+                                            logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived ->  text = " + text);
                                             logger.write("[HINT] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> Empty or corrupt volume file found.");
+                                            
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -968,7 +975,7 @@
                             function onStatusReportWritten(err) {
 
                                 try {
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> onStatusReportWritten -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeReport -> onStatusReportWritten -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                         logger.write("[ERROR] start -> writeFiles -> onStatusReportWritten -> err = " + err.message);
@@ -979,7 +986,7 @@
                                     callBack();
                                     return;
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> writeFiles -> onStatusReportWritten -> err = " + err.message);
+                                    logger.write("[ERROR] start -> writeFiles -> writeReport -> onStatusReportWritten -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
@@ -1023,7 +1030,7 @@
                         fileComplete: isFileComplete
                     };
 
-                    let fileContent = JSON.stringify(report); 
+                    let fileContent = JSON.stringify(statusReport); 
 
                     statusReport.save(onSaved);
 

@@ -401,9 +401,11 @@
                 logger.write("[INFO] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeResponse));
 
                 if (
-                    JSON.stringify(exchangeErr).indexOf("ETIMEDOUT") > 0 ||
                     JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0 ||
                     JSON.stringify(exchangeResponse).indexOf("Connection Error") > 0 ||
+                    JSON.stringify(exchangeErr).indexOf("ETIMEDOUT") > 0 ||
+                    JSON.stringify(exchangeErr).indexOf("ENOTFOUND") > 0 ||
+                    JSON.stringify(exchangeErr).indexOf("ESOCKETTIMEDOUT") > 0 ||
                     JSON.stringify(exchangeErr).indexOf("ECONNRESET") > 0) {
 
                     logger.write("[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");

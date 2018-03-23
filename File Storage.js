@@ -166,7 +166,8 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
                     if (err.message.indexOf("The server is busy") > 0
                         || err.code === 'ECONNRESET'
-                        || err.code === 'ENOTFOUND') {
+                        || err.code === 'ENOTFOUND'
+                        || err.code === 'ESOCKETTIMEDOUT') {
 
                         setTimeout(secondTry, 1000);
                         return;
@@ -241,7 +242,8 @@ exports.newFileStorage = function newFileStorage(BOT) {
                 
                     if (err.message.indexOf("The server is busy") > 0
                         || err.code === 'ECONNRESET'
-                        || err.code === 'ENOTFOUND') {
+                        || err.code === 'ENOTFOUND'
+                        || err.code === 'ESOCKETTIMEDOUT') {
                             
                         setTimeout(secondTry, 1000);
                         return;

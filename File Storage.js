@@ -174,7 +174,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
                             fileService.createFileFromText(shareName, pFolderPath, pFileName, pFileContent, onSecondTry);
 
-                            function onSecondTry(err) {
+                            function onSecondTry(err, result, response) {
 
                                 if (err) {
                                     logger.write("[ERROR] createTextFile -> onFileCreated -> secondTry -> File not created. Giving Up.");
@@ -246,14 +246,14 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
                             fileService.getFileToText(shareName, pFolderPath, pFileName, undefined, onSecondTry);
 
-                            function onSecondTry(err) {
+                            function onSecondTry(err, text, response) {
 
                                 if (err) {
                                     logger.write("[ERROR] getTextFile -> onFileReceived -> secondTry -> File not retrieved. Giving Up.");
                                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 } else {
                                     logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> File succesfully retrieved on second try.");
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE, text);
                                 }
                             }
                         }

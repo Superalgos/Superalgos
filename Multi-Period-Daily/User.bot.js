@@ -160,6 +160,10 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                 } catch (err) {
                     logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
+                    if (err.message === "Cannot read property 'file' of undefined") {
+                        logger.write("[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its dependencies declarations are correct. ");
+                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(dependencies.keys));
+                    }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

@@ -369,12 +369,12 @@
                     }
                         break;
                     case 'Sleep': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 60000) + " minutes."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
                         setTimeout(loop, processConfig.sleepWaitTime);
                     }
                         break;
                     case 'Coma': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 3600000) + " hours."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
                         setTimeout(loop, processConfig.comaWaitTime);
                     }
                         break;

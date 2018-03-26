@@ -112,8 +112,15 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write("[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency does not exist."
+                        }
+                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
                         return;
                     }
 
@@ -125,7 +132,13 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     if (thisReport.lastFile === undefined) {
                         logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency not ready."
+                        }
+                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
                         return;
                     }
 

@@ -227,7 +227,6 @@
                         if (atHeadOfMarket === true) {
 
                             lastFileWithoutHoles = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
-                            getOneMinDailyCandlesVolumes();
 
                         } else {
 

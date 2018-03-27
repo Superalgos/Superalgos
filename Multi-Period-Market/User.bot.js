@@ -176,6 +176,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     if (err.message === "Cannot read property 'file' of undefined") {
                         logger.write("[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its dependencies declarations are correct. ");
                         logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(dependencies.keys));
+                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.");
                     }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }

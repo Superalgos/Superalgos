@@ -90,7 +90,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
             /* Context Variables */
 
-            contextVariables = {
+            let contextVariables = {
                 lastCandleFile: undefined,          // Datetime of the last file files sucessfully produced by this process.
                 firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
                 maxCandleFile: undefined            // Datetime of the last file available to be used as an input of this process.

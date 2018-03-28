@@ -111,16 +111,49 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
             fileService.createDirectoryIfNotExists(shareName, pFolderPath, onFolderCreated);
 
-            function onFolderCreated(err) {
+            function onFolderCreated(err, result, response) {
 
                 if (err) {
-                    logger.write("[ERROR] createFolder -> onFolderCreated -> err = " + err.message);
-                    logger.write("[ERROR] createFolder -> onFolderCreated -> shareName = " + shareName);
-                    logger.write("[ERROR] createFolder -> onFolderCreated -> pFolderPath = " + pFolderPath);
+
+                    logger.write("[ERROR] createFolder -> onFolderCreated -> err = " + JSON.stringify(err));
+                    logger.write("[ERROR] createFolder -> onFolderCreated -> result = " + JSON.stringify(result));
+                    logger.write("[ERROR] createFolder -> onFolderCreated -> response = " + JSON.stringify(response));
+
+                    if (err.message.indexOf("The server is busy") > 0
+                        || err.code === 'ECONNRESET'
+                        || err.code === 'ENOTFOUND'
+                        || err.code === 'ESOCKETTIMEDOUT'
+                        || err.code === 'ETIMEDOUT') {
+
+                        setTimeout(secondTry, 1000);
+                        return;
+
+                        function secondTry() {
+
+                            logger.write("[INFO] createFolder -> onFolderCreated -> secondTry -> Retrying to create the folder.");
+
+                            fileService.createDirectoryIfNotExists(shareName, pFolderPath, onSecondTry);
+
+                            function onSecondTry(err, result, response) {
+
+                                if (err) {
+                                    logger.write("[ERROR] createFolder -> onFolderCreated -> secondTry -> Folder not created. Giving Up.");
+                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                } else {
+                                    logger.write("[INFO] createFolder -> onFolderCreated -> secondTry -> Folder succesfully created on second try.");
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                }
+                            }
+                        }
+                    }
+
+                    logger.write("[ERROR] createFolder -> onFolderCreated -> Dont know what to do here. Cancelling operation. ");
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
+
+                } else {
+                    if (FULL_LOG === true) { logger.write("[INFO] createFolder -> onFolderCreated -> File Created."); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
             }
         }
         catch (err) {

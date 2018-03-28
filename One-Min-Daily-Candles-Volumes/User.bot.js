@@ -660,19 +660,18 @@
 
                                         function onFilesWritten() {
 
-                                            nextIntervalExecution = true;
+                                            if (FULL_LOG === true) {
+                                                logger.write("[INFO] start -> buildCandles -> nextCandleFile -> nextDate -> Head of the market reached for market " + market.assetA + '_' + market.assetB + "."); }
 
-                                            const logText = "[ERR] 'buildCandles' - Head of the market reached for market " + market.assetA + '_' + market.assetB + " . ";
-                                            logger.write(logText);
-
-                                            closeAndOpenMarket();
+                                            allBackFunction(global.DEFAULT_OK_RESPONSE);
+                                            return;
                                         }
                                     }
 
                                     readTrades();
 
                                 } catch (err) {
-                                        logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> nextDate -> err = " + err.message);
+                                    logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> nextDate -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }

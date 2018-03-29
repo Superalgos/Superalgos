@@ -405,6 +405,7 @@
                     JSON.stringify(exchangeResponse).indexOf("Connection Error") > 0 ||
                     JSON.stringify(exchangeErr).indexOf("ETIMEDOUT") > 0 ||
                     JSON.stringify(exchangeErr).indexOf("ENOTFOUND") > 0 ||
+                    JSON.stringify(exchangeErr).indexOf("ECONNREFUSED") > 0 ||
                     JSON.stringify(exchangeErr).indexOf("ESOCKETTIMEDOUT") > 0 ||
                     JSON.stringify(exchangeErr).indexOf("ECONNRESET") > 0) {
 

@@ -123,7 +123,8 @@ exports.newFileStorage = function newFileStorage(BOT) {
                         || err.code === 'ECONNRESET'
                         || err.code === 'ENOTFOUND'
                         || err.code === 'ESOCKETTIMEDOUT'
-                        || err.code === 'ETIMEDOUT') {
+                        || err.code === 'ETIMEDOUT'
+                        || err.code === 'ECONNREFUSED') {
 
                         setTimeout(secondTry, 1000);
                         return;
@@ -201,7 +202,8 @@ exports.newFileStorage = function newFileStorage(BOT) {
                         || err.code === 'ECONNRESET'
                         || err.code === 'ENOTFOUND'
                         || err.code === 'ESOCKETTIMEDOUT'
-                        || err.code === 'ETIMEDOUT') {
+                        || err.code === 'ETIMEDOUT'
+                        || err.code === 'ECONNREFUSED') {
 
                         setTimeout(secondTry, 1000);
                         return;
@@ -278,7 +280,8 @@ exports.newFileStorage = function newFileStorage(BOT) {
                         || err.code === 'ECONNRESET'
                         || err.code === 'ENOTFOUND'
                         || err.code === 'ESOCKETTIMEDOUT'
-                        || err.code === 'ETIMEDOUT') {
+                        || err.code === 'ETIMEDOUT'
+                        || err.code === 'ECONNREFUSED') {
                             
                         setTimeout(secondTry, 1000);
                         return;

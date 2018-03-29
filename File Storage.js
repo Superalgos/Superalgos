@@ -119,7 +119,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
                     logger.write("[ERROR] createFolder -> onFolderCreated -> result = " + JSON.stringify(result));
                     logger.write("[ERROR] createFolder -> onFolderCreated -> response = " + JSON.stringify(response));
 
-                    if (err.message.indexOf("The server is busy") > 0
+                    if (err.code === 'ServerBusy'
                         || err.code === 'ECONNRESET'
                         || err.code === 'ENOTFOUND'
                         || err.code === 'ESOCKETTIMEDOUT'
@@ -197,7 +197,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
                     logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
                     logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
 
-                    if (err.message.indexOf("The server is busy") > 0
+                    if (err.code === 'ServerBusy'
                         || err.code === 'ECONNRESET'
                         || err.code === 'ENOTFOUND'
                         || err.code === 'ESOCKETTIMEDOUT'
@@ -274,7 +274,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
                 if (err) {
                 
-                    if (err.message.indexOf("The server is busy") > 0
+                    if (err.code === 'ServerBusy'
                         || err.code === 'ECONNRESET'
                         || err.code === 'ENOTFOUND'
                         || err.code === 'ESOCKETTIMEDOUT'
@@ -334,7 +334,6 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
                     }
                     
-
                     logger.write("[ERROR] getTextFile -> onFileReceived -> Dont know what to do here. Cancelling operation. ");
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 

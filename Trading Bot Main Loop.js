@@ -359,8 +359,8 @@
 
                 switch (nextWaitTime) {
                     case 'Normal': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.executionWaitTime / 1000) + " seconds."); }
-                        setTimeout(loop, processConfig.executionWaitTime);
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                        setTimeout(loop, processConfig.normalWaitTime);
                     }
                         break;
                     case 'Retry': {

@@ -684,7 +684,7 @@
                                             if (FULL_LOG === true) {
                                                 logger.write("[INFO] start -> buildCandles -> nextCandleFile -> nextDate -> Head of the market reached for market " + market.assetA + '_' + market.assetB + "."); }
 
-                                            allBackFunction(global.DEFAULT_OK_RESPONSE);
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                                             return;
                                         }
                                     }

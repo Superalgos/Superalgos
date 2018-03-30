@@ -22,13 +22,18 @@
       "process": "Poloniex-Hole-Fixing"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AABruce-Indicator-Bot",
       "process": "One-Min-Daily-Candles-Volumes"
+    },
+    {
+      "enabled": "true",
+      "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
+      "process": "Poloniex-Hole-Fixing"
     }
   ],
   "stopGracefully": "true",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Mixed",
+  "storageConnStringFolder": "Production",
   "maxLogLoops": 10
 }

@@ -18,6 +18,7 @@
         initialize: initialize,
         load: load,
         save: save,
+        status: undefined,
         verifyMarketComplete: verifyMarketComplete
     };
 
@@ -144,8 +145,15 @@
                     is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
                     */
 
-                    logger.write("[ERROR] initialize -> load -> onFileReceived -> Bot cannot execute without a valid Status report. -> Err = " + err.message);
-                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                    logger.write("[ERROR] initialize -> load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message);
+
+                    let customFail = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        message: "Status Report is corrupt."
+                    };
+                    logger.write("[WARN] initialize -> load -> onFileReceived -> customFail = " + customFail.message);
+                    callBackFunction(customFail);
+                    return;
                 }
             }
 

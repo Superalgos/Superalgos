@@ -63,35 +63,32 @@
 
                     try {
 
-                        switch (err.result) {
-                            case global.DEFAULT_OK_RESPONSE.result: {
+                        statusReportModule.status = err.message;
+
+                        switch (err.message) {
+                            case global.DEFAULT_OK_RESPONSE.message: {
                                 logger.write("[INFO] initialize -> onLoad -> Execution finished well. -> bot = " + pDependenciesConfig[i].bot);
                                 logger.write("[INFO] initialize -> onLoad -> Execution finished well. -> process = " + pDependenciesConfig[i].process);
 
                                 addReport();
                                 return;
                             }
-                            case global.CUSTOM_OK_RESPONSE.result: {  // We need to see if we can handle this.
+                            case "Status Report was never created.": {
 
-                                if (err.message === "Status Report was never created.") {
+                                logger.write("[WARN] initialize -> onLoad -> err.message = " + err.message);
+                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pDependenciesConfig[i].bot);
+                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pDependenciesConfig[i].process);
+                                addReport();
+                                return;
+                            }
 
-                                    logger.write("[WARN] initialize -> onLoad -> err.message = " + err.message); 
-                                    logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pDependenciesConfig[i].bot);
-                                    logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pDependenciesConfig[i].process);
-                                    addReport();
-                                    return;
-                                } else {
+                            case "Status Report is corrupt.": {
 
-                                    logger.write("[ERROR] initialize -> onLoad -> Response not understood. -> err.message = " + err.message);
-                                    logger.write("[ERROR] initialize -> onLoad -> Response not understood. -> bot = " + pDependenciesConfig[i].bot);
-                                    logger.write("[ERROR] initialize -> onLoad -> Response not understood. -> process = " + pDependenciesConfig[i].process);
-
-                                    if (alreadyCalledBack === false) {
-                                        alreadyCalledBack = true;
-                                        callBackFunction(err);
-                                    } 
-                                    return;
-                                }
+                                logger.write("[WARN] initialize -> onLoad -> err.message = " + err.message);
+                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pDependenciesConfig[i].bot);
+                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pDependenciesConfig[i].process);
+                                addReport();
+                                return;
                             }
                             default:
                                 {

@@ -188,6 +188,13 @@ What is the lastFile pointer?
 
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Live-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    if (dependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
@@ -206,6 +213,13 @@ What is the lastFile pointer?
 
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    if (dependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
@@ -256,6 +270,13 @@ What is the lastFile pointer?
                     
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month;
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    if (dependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
                     holeFixingStatusReport = dependencies.statusReports.get(reportKey).file;
 
                     if (holeFixingStatusReport.lastFile === undefined) {

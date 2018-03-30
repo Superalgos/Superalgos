@@ -59,13 +59,7 @@
 
         try {
 
-            var rimraf = require('rimraf');
-
             let folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter + 1).toString();
-
-            /* We remove the folder in case it exister from before, so that all its content is gone. */
-
-            //rimraf.sync(folderToRemove);
 
             /* We create the new one. */
 
@@ -77,7 +71,7 @@
 
             folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
 
-            rimraf.sync(folderToRemove);
+            deleteLoopFolder(folderToRemove);
 
             if (thisObject.bot.debug.year !== undefined) {
 
@@ -195,5 +189,60 @@
         return str.length < max ? pad("0" + str, max) : str;
     }
 
+    function deleteLoopFolder(pFolderPath) {
+
+        let rimraf = require('rimraf');
+        let fs = require('fs');
+        let errosFound = false;
+
+        try {
+
+            let fileCount;
+            let filesChecked = 0;
+
+            fs.readdir(pFolderPath, onfileCount);
+
+            function onfileCount(err, files) {
+
+                if (err) { return;}
+
+                fileCount = files.length;
+
+                fs.readdirSync(pFolderPath).forEach(fileName => {
+
+                    fs.readFile(pFolderPath + "/" + fileName, onFileRead);
+
+                    function onFileRead(err, file) {
+
+                        try {
+
+                            filesChecked++;
+
+                            if (file.indexOf("[ERROR]") > 0) {
+
+                                errosFound = true;
+
+                            }
+
+                            if (filesChecked === fileCount) {
+
+                                if (errosFound === false) {
+
+                                    rimraf.sync(pFolderPath);
+
+                                }
+                            }
+                        }
+                        catch (err) {
+                            console.log("Error trying to delete Loop Folder " + pFolderPath + ".Reading file " + fileName + ". err.message = " + err.message);
+                        }
+                    }
+                })
+            } 
+        }
+        catch (err) {
+            return;
+        } 
+    }
 };
 

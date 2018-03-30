@@ -27,13 +27,18 @@
       "process": "One-Min-Daily-Candles-Volumes"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
       "process": "Poloniex-Hole-Fixing"
+    },
+    {
+      "enabled": "true",
+      "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
+      "process": "Poloniex-Live-Trades"
     }
   ],
-  "stopGracefully": "true",
+  "stopGracefully": "false",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Production",
-  "maxLogLoops": 10
+  "storageConnStringFolder": "Testnet",
+  "maxLogLoops": 5
 }

@@ -109,6 +109,13 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    if (dependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
@@ -128,6 +135,13 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                     reportKey = "AAMasters" + "-" + "AABruce" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" +  bot.processDatetime.getUTCFullYear() + "-" + utilities.pad(bot.processDatetime.getUTCMonth() + 1,2);
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    if (dependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
@@ -146,6 +160,13 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                     reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    if (dependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
                     thisReport = dependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile !== undefined) {

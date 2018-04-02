@@ -32,5 +32,5 @@ I start out trying to sell BTC at the highest possible price, but, in all honest
 [AAMasters Bruce](https://github.com/AAMasters/AABruce-Indicator-Bot)
 [AAMasters Olivia](https://github.com/AAMasters/AAOlivia-Indicator-Bot)
 
-### Data as a Service (DaaS) Fees
+### Trading as a Service (TaaS) Fees
 No fees.

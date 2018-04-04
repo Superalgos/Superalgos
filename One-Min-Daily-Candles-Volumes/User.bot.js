@@ -1027,6 +1027,11 @@
             function writeStatusReport(lastFileDate, lastTradeFile, candleClose, isFileComplete, isMonthComplete, callBack) {
 
                 if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> lastTradeFile = " + lastTradeFile); }
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> candleClose = " + candleClose); }
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> isFileComplete = " + isFileComplete); }
+                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> isMonthComplete = " + isMonthComplete); }
 
                 try {
 

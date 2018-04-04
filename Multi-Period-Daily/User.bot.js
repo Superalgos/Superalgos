@@ -240,7 +240,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                         outputCandles = [];
                         outputVolumes = [];
 
-                        for (n = 0; n < global.marketFilesPeriods.length; n++) {
+                        for (n = 0; n < global.dailyFilePeriods.length; n++) {
 
                             const emptyArray1 = [];
                             const emptyArray2 = [];
@@ -490,7 +490,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                             n++;
 
-                            if (n < global.marketFilesPeriods.length) {
+                            if (n < global.dailyFilePeriods.length) {
 
                                 loopBody();
 

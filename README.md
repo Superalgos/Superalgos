@@ -28,7 +28,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ### Current Dataset
 * **Version:** dataSet.V1
 * **Update Frequency**: 1 minute
-* **Cloud Output Location:** AAMasters > AACloud.1.1 > ExchangeName > dataSet.V1
+* **Cloud Output Location:** AAMasters > AAOlivia.1.0 > AACloud.1.1 > ExchangeName > dataSet.V1
 * **Folder Structure Tree**: Output > Candles > Multi-Period-Daily > (01-min | 02-min | 03-min | 04-min | 05-min | 10-min | 15-min | 20-min | 30-min | 45-min) > Year > Month > Day > Hour > Minute
 * **Files Structure**: One .json file stored at the Minute level of the Folder Tree Structure
 * **In-File Record Structure**:
@@ -51,7 +51,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ### Current Dataset
 * **Version:** dataSet.V1
 * **Update Frequency**: 1 hour
-* **Cloud Output Location:** AAMasters > AACloud.1.1 > ExchangeName > dataSet.V1
+* **Cloud Output Location:** AAMasters > AAOlivia.1.0 > AACloud.1.1 > ExchangeName > dataSet.V1
 * **Folder Structure Tree**: Output > Candles > Multi-Period-Market > (01-hs| 02-hs | 03-hs | 04-hs | 06-hs | 08-hs | 12-hs | 24-hs)
 * **Files Structure**: One .json file stored at the deepest level of the Folder Tree Structure
 * **In-File Record Structure**:
@@ -74,7 +74,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ### Current Dataset
 * **Version:** dataSet.V1
 * **Update Frequency**: 1 minute
-* **Cloud Output Location:** AAMasters > AACloud.1.1 > ExchangeName > dataSet.V1
+* **Cloud Output Location:** AAMasters > AAOlivia.1.0 > AACloud.1.1 > ExchangeName > dataSet.V1
 * **Folder Structure Tree**: Output > Volumes > Multi-Period-Daily >  (01-min | 02-min | 03-min | 04-min | 05-min | 10-min | 15-min | 20-min | 30-min | 45-min) > Year > Month > Day > Hour > Minute
 * **Files Structure**: One .json file stored at the Minute level of the Folder Tree Structure
 * **In-File Record Structure**:
@@ -95,7 +95,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ### Current Dataset
 * **Version:** dataSet.V1
 * **Update Frequency**: 1 hour
-* **Cloud Output Location:** AAMasters > AACloud.1.1 > ExchangeName > dataSet.V1
+* **Cloud Output Location:** AAMasters > AAOlivia.1.0 > AACloud.1.1 > ExchangeName > dataSet.V1
 * **Folder Structure Tree**: Output > Volumes > Multi-Period-Market > (01-hs| 02-hs | 03-hs | 04-hs | 06-hs | 08-hs | 12-hs | 24-hs) >
 * **Files Structure**: One .json file stored at the deepest level of the Folder Tree Structure
 * **In-File Record Structure**:

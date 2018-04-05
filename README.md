@@ -28,8 +28,8 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ### Current Dataset
 * **Version:** dataSet.V1
 * **Update Frequency**: 1 minute
-* **Cloud Output Location:** Olivia > dataSet.V1
-* **Folder Structure Tree**: Output > Candles > Multi-Period-Daily > ExchangeName > (01-min | 02-min | 03-min | 04-min | 05-min | 10-min | 15-min | 20-min | 30-min | 45-min) > Year > Month > Day > Hour > Minute
+* **Cloud Output Location:** AAMasters > AACloud.1.1 > ExchangeName > dataSet.V1
+* **Folder Structure Tree**: Output > Candles > Multi-Period-Daily > (01-min | 02-min | 03-min | 04-min | 05-min | 10-min | 15-min | 20-min | 30-min | 45-min) > Year > Month > Day > Hour > Minute
 * **Files Structure**: One .json file stored at the Minute level of the Folder Tree Structure
 * **In-File Record Structure**:
   * Minimum, decimal;
@@ -51,8 +51,8 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ### Current Dataset
 * **Version:** dataSet.V1
 * **Update Frequency**: 1 hour
-* **Cloud Output Location:** Olivia > dataSet.V1
-* **Folder Structure Tree**: Output > Candles > Multi-Period-Market > ExchangeName > (01-hs| 02-hs | 03-hs | 04-hs | 06-hs | 08-hs | 12-hs | 24-hs) >
+* **Cloud Output Location:** AAMasters > AACloud.1.1 > ExchangeName > dataSet.V1
+* **Folder Structure Tree**: Output > Candles > Multi-Period-Market > (01-hs| 02-hs | 03-hs | 04-hs | 06-hs | 08-hs | 12-hs | 24-hs)
 * **Files Structure**: One .json file stored at the deepest level of the Folder Tree Structure
 * **In-File Record Structure**:
   * Minimum, decimal;
@@ -74,8 +74,8 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ### Current Dataset
 * **Version:** dataSet.V1
 * **Update Frequency**: 1 minute
-* **Cloud Output Location:** Olivia > dataSet.V1
-* **Folder Structure Tree**: Output > Volumes > Multi-Period-Daily > ExchangeName > (01-min | 02-min | 03-min | 04-min | 05-min | 10-min | 15-min | 20-min | 30-min | 45-min) > Year > Month > Day > Hour > Minute
+* **Cloud Output Location:** AAMasters > AACloud.1.1 > ExchangeName > dataSet.V1
+* **Folder Structure Tree**: Output > Volumes > Multi-Period-Daily >  (01-min | 02-min | 03-min | 04-min | 05-min | 10-min | 15-min | 20-min | 30-min | 45-min) > Year > Month > Day > Hour > Minute
 * **Files Structure**: One .json file stored at the Minute level of the Folder Tree Structure
 * **In-File Record Structure**:
   * Buy Volume, decimal;
@@ -95,8 +95,8 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 ### Current Dataset
 * **Version:** dataSet.V1
 * **Update Frequency**: 1 hour
-* **Cloud Output Location:** Olivia > dataSet.V1
-* **Folder Structure Tree**: Output > Volumes > Multi-Period-Market > ExchangeName > (01-hs| 02-hs | 03-hs | 04-hs | 06-hs | 08-hs | 12-hs | 24-hs) >
+* **Cloud Output Location:** AAMasters > AACloud.1.1 > ExchangeName > dataSet.V1
+* **Folder Structure Tree**: Output > Volumes > Multi-Period-Market > (01-hs| 02-hs | 03-hs | 04-hs | 06-hs | 08-hs | 12-hs | 24-hs) >
 * **Files Structure**: One .json file stored at the deepest level of the Folder Tree Structure
 * **In-File Record Structure**:
   * Buy Volume, decimal;
@@ -111,6 +111,7 @@ My datasets are ideal for analysing candle shapes and types, candle patterns, vo
 
 ### Dependencies
 [AAMasters Charly](https://github.com/AAMasters/AACharly-Extraction-Bot)
+[AAMasters Bruce](https://github.com/AAMasters/AABruce-Indicator-Bot)
 
 ### Data as a Service (DaaS) Fees
 No fees.

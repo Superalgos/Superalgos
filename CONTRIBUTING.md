@@ -1,0 +1,1 @@
+Advanced Algos is a startup, currently at a very early stage. Although AACloud is not open source software yet, we do welcome contributions from the community. Contributions are compensated on a case by case basis with ALGO tokens. Contributions are deemed _work for hire_ and contributors agree to provide an express grant of patent rights for their contributions.

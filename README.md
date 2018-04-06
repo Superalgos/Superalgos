@@ -6,7 +6,7 @@ I produce two datasets:
 * One with volumes at 1 minute resolution.
 
 ### Ideal for
-My datasets are ideal analysing candle shapes and types, candle patterns, volume fluctuations and for producing all kinds of studies based in those two (candles & volumes) Technical Analysis fundamentals, and serve as the basis for producing candles and volumes at other resolution levels. 
+My datasets are ideal for analysing candle shapes and types, candle patterns, volume fluctuations and for producing all kinds of studies based in those two (candles & volumes) Technical Analysis fundamentals, and serve as the basis for producing candles and volumes in other resolution levels. 
 
 ### Details
 

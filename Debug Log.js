@@ -59,33 +59,48 @@
 
         try {
 
-            let folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter + 1).toString();
-
-            /* We create the new one. */
-
-            folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter;
-
-            createFolderSync(folderPath);
-
-            /* We also remove old folders according to the configuration value of global.PLATFORM_CONFIG.maxLogLoops. */
-
-            folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
-
-            deleteLoopFolder(folderToRemove);
-
             if (thisObject.bot.debug.year !== undefined) {
 
-                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter + "/" + thisObject.bot.debug.year; 
+                /* When there are YEARS and MONTHS involved */
+
+                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year;
 
                 createFolderSync(folderPath);
 
-                if (thisObject.bot.debug.month !== undefined) {
+                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
 
-                    folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
+                createFolderSync(folderPath);
 
-                    createFolderSync(folderPath);
+                /* Loop folder creation and mantainance. */
 
-                }
+                /* We create the new one. */
+
+                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month + "/Loop." + loopCounter;
+
+                createFolderSync(folderPath);
+
+                /* We also remove old folders according to the configuration value of global.PLATFORM_CONFIG.maxLogLoops. */
+
+                let folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
+
+                deleteLoopFolder(folderToRemove);
+
+
+            } else {
+
+                /* When there are no YEARS or MONTHS involved */
+
+                /* We create the new one. */
+
+                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter;
+
+                createFolderSync(folderPath);
+
+                /* We also remove old folders according to the configuration value of global.PLATFORM_CONFIG.maxLogLoops. */
+
+                let folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
+
+                deleteLoopFolder(folderToRemove);
             }
         }
         catch (err) {

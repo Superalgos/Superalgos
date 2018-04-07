@@ -934,7 +934,8 @@
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
-                            let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
+
                             utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
 
                             function onFolderCreated(err) {

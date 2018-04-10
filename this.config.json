@@ -17,12 +17,12 @@
       "process": "Multi-Period-Market"
     },
     {
-      "enabled": "false",
-      "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
-      "process": "Poloniex-Hole-Fixing"
+      "enabled": "true",
+      "botPath": "../Bots/AAMasters/AAOlivia-Indicator-Bot",
+      "process": "Multi-Period-Daily"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AABruce-Indicator-Bot",
       "process": "One-Min-Daily-Candles-Volumes"
     },
@@ -39,6 +39,6 @@
   ],
   "stopGracefully": "false",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Mixed",
+  "storageConnStringFolder": "Production",
   "maxLogLoops": 5
 }

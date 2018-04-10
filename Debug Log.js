@@ -7,6 +7,7 @@
     const dateString = currentDate.getUTCFullYear() + '-' + pad(currentDate.getUTCMonth() + 1, 2) + '-' + pad(currentDate.getUTCDate(), 2) + '-' + pad(currentDate.getUTCHours(), 2) + '-' + pad(currentDate.getUTCMinutes(), 2);
     const randomId = parseInt(Math.random() * 1000000); 
 
+    let executionPath = global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCHours(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCMinutes(), 2);
     let fileNumber = 1;
     let messageId = 0;
     let firstCall = true;
@@ -31,19 +32,39 @@
 
             createFolderSync(folderPath);
 
-            folderPath = '../Logs/' + thisObject.bot.devTeam;
+            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear();
 
             createFolderSync(folderPath);
 
-            folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type;
+            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2);
 
             createFolderSync(folderPath);
 
-            folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor;
+            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2);
 
             createFolderSync(folderPath);
 
-            folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process;
+            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCHours(), 2);
+
+            createFolderSync(folderPath);
+
+            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCHours(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCMinutes(), 2);
+
+            createFolderSync(folderPath);
+
+            folderPath = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam;
+
+            createFolderSync(folderPath);
+
+            folderPath = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam + "/" + thisObject.bot.type;
+
+            createFolderSync(folderPath);
+
+            folderPath = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor;
+
+            createFolderSync(folderPath);
+
+            folderPath = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process;
 
             createFolderSync(folderPath);
 
@@ -63,11 +84,11 @@
 
                 /* When there are YEARS and MONTHS involved */
 
-                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year;
+                folderPath = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year;
 
                 createFolderSync(folderPath);
 
-                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
+                folderPath = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
 
                 createFolderSync(folderPath);
 
@@ -75,13 +96,13 @@
 
                 /* We create the new one. */
 
-                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month + "/Loop." + loopCounter;
+                folderPath = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month + "/Loop." + loopCounter;
 
                 createFolderSync(folderPath);
 
                 /* We also remove old folders according to the configuration value of global.PLATFORM_CONFIG.maxLogLoops. */
 
-                let folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
+                let folderToRemove = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
 
                 deleteLoopFolder(folderToRemove);
 
@@ -92,13 +113,13 @@
 
                 /* We create the new one. */
 
-                folderPath = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter;
+                folderPath = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + loopCounter;
 
                 createFolderSync(folderPath);
 
                 /* We also remove old folders according to the configuration value of global.PLATFORM_CONFIG.maxLogLoops. */
 
-                let folderToRemove = '../Logs/' + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
+                let folderToRemove = '../Logs/' + executionPath + "/" + thisObject.bot.devTeam + "/" + thisObject.bot.type + "/" + thisObject.bot.codeName + "." + thisObject.bot.version.major + "." + thisObject.bot.version.minor + "/" + thisObject.bot.process + "/Loop." + (loopCounter - global.PLATFORM_CONFIG.maxLogLoops).toString();
 
                 deleteLoopFolder(folderToRemove);
             }

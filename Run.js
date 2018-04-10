@@ -86,6 +86,10 @@ global.MARKET = {
 
 global.EXCHANGE_NAME = "Poloniex";
 
+/* This is the Execution Datetime */
+
+global.EXECUTION_DATETIME = new Date();
+
 /* Time Periods Definitions. */
 
 global.marketFilesPeriods =

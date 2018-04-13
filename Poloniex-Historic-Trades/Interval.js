@@ -27,7 +27,7 @@
 
     let markets;
 
-    let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let charlyStorage = FILE_STORAGE.newFileStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -51,7 +51,7 @@
             console.log(logText);
             logger.write(logText);
 
-            charlyFileStorage.initialize();
+            charlyStorage.initialize();
 
             markets = MARKETS_MODULE.newMarkets(bot);
             markets.initialize(callBackFunction);
@@ -277,7 +277,7 @@ This process complements the Live Trades process and write historical trades fil
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                    charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
 
                     function onFileReceived(text) {
 
@@ -333,7 +333,7 @@ This process complements the Live Trades process and write historical trades fil
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                    charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
 
                     function onFileReceived(text) {
 
@@ -726,11 +726,11 @@ This process complements the Live Trades process and write historical trades fil
 
                         filePath = EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                        utilities.createFolderIfNeeded(filePath, charlyFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, charlyStorage, onFolderCreated);
 
                         function onFolderCreated() {
 
-                            charlyFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            charlyStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated() {
 
@@ -848,7 +848,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
 
-                    utilities.createFolderIfNeeded(reportFilePath, charlyFileStorage, onFolderCreated);
+                    utilities.createFolderIfNeeded(reportFilePath, charlyStorage, onFolderCreated);
 
                     function onFolderCreated() {
 
@@ -867,7 +867,7 @@ This process complements the Live Trades process and write historical trades fil
 
                         let fileContent = JSON.stringify(report); 
 
-                        charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
+                        charlyStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
 
                         function onFileCreated() {
 
@@ -879,7 +879,7 @@ This process complements the Live Trades process and write historical trades fil
 
                                 reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
 
-                                utilities.createFolderIfNeeded(reportFilePath, charlyFileStorage, onFolderCreated);
+                                utilities.createFolderIfNeeded(reportFilePath, charlyStorage, onFolderCreated);
 
                                 function onFolderCreated() {
 
@@ -898,7 +898,7 @@ This process complements the Live Trades process and write historical trades fil
 
                                     let fileContent = JSON.stringify(report);
 
-                                    charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
+                                    charlyStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
 
                                     function onMasterFileCreated() {
 
@@ -965,7 +965,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     /* Lets read the main status report */
 
-                    charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
 
                     function onFileReceived(text) {
 
@@ -1001,7 +1001,7 @@ This process complements the Live Trades process and write historical trades fil
                         let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + initialYear + "/" + paddedInitialMonth;
                         let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived, true);
+                        charlyStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived, true);
 
                         function onStatusReportFileReceived(text) {
 
@@ -1067,7 +1067,7 @@ This process complements the Live Trades process and write historical trades fil
                         let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
                         let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
-                        charlyFileStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
+                        charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived, true);
 
                         function onFileReceived(text) {
 
@@ -1077,7 +1077,7 @@ This process complements the Live Trades process and write historical trades fil
 
                             let fileContent = JSON.stringify(statusReport);
 
-                            charlyFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
+                            charlyStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
 
                             function onMasterFileCreated() {
 

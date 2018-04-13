@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE) {
+﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -23,7 +23,7 @@
         start: start
     };
 
-    let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let charlyStorage = BLOB_STORAGE.newBlobStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
     let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
@@ -42,7 +42,7 @@
 
             dependencies = pDependencies;
 
-            charlyFileStorage.initialize("AACharly", onCharlyInizialized);
+            charlyStorage.initialize({ bot: "AACharly", devTeam: "AAMasters" }, onCharlyInizialized);
 
             function onCharlyInizialized(err) {
 
@@ -128,7 +128,7 @@ Array of records with this information:
                     filePathA = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathA;
                     filePathB = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathB;
 
-                    utilities.createFolderIfNeeded(filePathA, charlyFileStorage, onFolderACreated);
+                    utilities.createFolderIfNeeded(filePathA, charlyStorage, onFolderACreated);
 
                     function onFolderACreated(err) {
 
@@ -140,7 +140,7 @@ Array of records with this information:
                             return;
                         }
 
-                        utilities.createFolderIfNeeded(filePathB, charlyFileStorage, onFolderBCreated);
+                        utilities.createFolderIfNeeded(filePathB, charlyStorage, onFolderBCreated);
                     }
 
                     function onFolderBCreated(err) {
@@ -153,7 +153,7 @@ Array of records with this information:
                             return;
                         }
 
-                        utilities.createFolderIfNeeded(reportFilePath, charlyFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(reportFilePath, charlyStorage, onFolderCreated);
                     }
 
                     function onFolderCreated(err) {
@@ -284,7 +284,7 @@ Array of records with this information:
 
                     fileContent = fileContent + ']';
 
-                    charlyFileStorage.createTextFile(filePathA, fileNameA, fileContent + '\n', onFirstFileACreated);
+                    charlyStorage.createTextFile(filePathA, fileNameA, fileContent + '\n', onFirstFileACreated);
 
                     function onFirstFileACreated(err) {
 
@@ -349,7 +349,7 @@ Array of records with this information:
 
                         fileContent = fileContent + ']';
 
-                        charlyFileStorage.createTextFile(filePathB, fileNameB, fileContent + '\n', onFileBCreated);
+                        charlyStorage.createTextFile(filePathB, fileNameB, fileContent + '\n', onFileBCreated);
 
                         function onFileBCreated(err) {
 

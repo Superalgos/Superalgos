@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE) {
+﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -23,11 +23,11 @@
         start: start
     };
 
-    let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let charlyStorage = BLOB_STORAGE.newBlobStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
     let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
-    let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
+    let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, BLOB_STORAGE, UTILITIES);
 
     let year;
     let month;
@@ -51,7 +51,7 @@
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> pYear = " + year); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> pMonth = " + month); }
 
-            charlyFileStorage.initialize("AACharly", onCharlyInizialized);
+            charlyStorage.initialize({ bot: "AACharly", devTeam: "AAMasters" }, onCharlyInizialized);
 
             function onCharlyInizialized(err) {
 
@@ -450,7 +450,7 @@ What is the lastFile pointer?
                             
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                            charlyFileStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
+                            charlyStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
 
                             function onNextFileReceived(err, text) {
 
@@ -718,7 +718,7 @@ What is the lastFile pointer?
 
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                            charlyFileStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
+                            charlyStorage.getTextFile(filePath, fileName, onNextFileReceived, true);
 
                             function onNextFileReceived(err, text) {
 
@@ -1075,7 +1075,7 @@ What is the lastFile pointer?
 
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                            utilities.createFolderIfNeeded(filePath, charlyFileStorage, onFolderCreated);
+                            utilities.createFolderIfNeeded(filePath, charlyStorage, onFolderCreated);
 
                             function onFolderCreated(err) {
 
@@ -1089,7 +1089,7 @@ What is the lastFile pointer?
                                         return;
                                     }
 
-                                    charlyFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                    charlyStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                                     function onFileCreated(err) {
 

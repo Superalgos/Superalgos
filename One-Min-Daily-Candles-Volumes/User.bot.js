@@ -121,8 +121,6 @@
                 atHeadOfMarket = false;
             }
 
-            let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
-
             let market = global.MARKET;
 
             let lastCandleFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.

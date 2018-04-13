@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE, BLOB_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -32,8 +32,8 @@
         start: start
     };
 
-    let oliviaFileStorage = FILE_STORAGE.newFileStorage(bot);
-    let bruceFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot);
+    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -51,7 +51,7 @@
 
             dependencies = pDependencies;
 
-            commons.initializeStorage(oliviaFileStorage, bruceFileStorage, onInizialized);
+            commons.initializeStorage(oliviaStorage, bruceStorage, onInizialized);
 
             function onInizialized(err) {
 
@@ -238,7 +238,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> filePath = " + filePath); }
 
-                            oliviaFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                            oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                             function onFileReceived(err, text) {
 
@@ -278,7 +278,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
 
-                            oliviaFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                            oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                             function onFileReceived(err, text) {
 
@@ -477,7 +477,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> fileName = " + fileName); }
                                 if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> filePath = " + filePath); }
 
-                                bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                                 function onFileReceived(err, text) {
 
@@ -593,7 +593,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                     if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> fileName = " + fileName); }
                                     if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
 
-                                    bruceFileStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                                    bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                                     function onFileReceived(err, text) {
 
@@ -739,7 +739,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
 
-                        utilities.createFolderIfNeeded(filePath, oliviaFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, oliviaStorage, onFolderCreated);
 
                         function onFolderCreated(err) {
 
@@ -751,7 +751,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                 return;
                             }
 
-                            oliviaFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated(err) {
 
@@ -802,7 +802,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
 
-                        utilities.createFolderIfNeeded(filePath, oliviaFileStorage, onFolderCreated);
+                        utilities.createFolderIfNeeded(filePath, oliviaStorage, onFolderCreated);
 
                         function onFolderCreated(err) {
 
@@ -814,7 +814,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                 return;
                             }
 
-                            oliviaFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated(err) {
 

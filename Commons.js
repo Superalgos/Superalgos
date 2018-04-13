@@ -22,7 +22,7 @@
 
     return thisObject;
 
-    function initializeStorage(oliviaFileStorage, bruceFileStorage, callBackFunction) {
+    function initializeStorage(oliviaStorage, bruceStorage, callBackFunction) {
 
         try {
 
@@ -32,7 +32,7 @@
 
             function initializeBruceStorage() {
 
-                bruceFileStorage.initialize("AABruce", onBruceInizialized);
+                bruceStorage.initialize({ bot: "AABruce", devTeam: "AAMasters" }, onBruceInizialized);
 
                 function onBruceInizialized(err) {
 
@@ -49,7 +49,7 @@
 
             function initializeOliviaStorage() {
 
-                oliviaFileStorage.initialize("AAOlivia", onOliviaInizialized);
+                oliviaStorage.initialize({ bot: "AAOlivia", devTeam: "AAMasters" }, onOliviaInizialized);
 
                 function onOliviaInizialized(err) {
 

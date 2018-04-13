@@ -26,11 +26,10 @@ exports.newFileStorage = function newFileStorage(BOT) {
         initialize: initialize,
         createFolder: createFolder,
         createTextFile: createTextFile,
-        getTextFile: getTextFile,
-        listFilesAndFolders: listFilesAndFolders
+        getTextFile: getTextFile
     };
 
-    let fileService;
+    let blobService;
 
     return thisObject;
 
@@ -60,7 +59,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
                 }
 
                 try {
-                    fileService = storage.createBlobService(pConnObj.connectionString);
+                    blobService = storage.createBlobService(pConnObj.connectionString);
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
@@ -100,7 +99,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
         if (FULL_LOG === true) { logger.write("[INFO] createFolder -> Entering function."); }
 
-        if (fileService === undefined) {
+        if (blobService === undefined) {
 
             logger.write("[ERROR] createFolder -> initialize function not executed or failed. Can not process this request. Sorry.");
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -123,7 +122,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
     function createTextFile(pFolderPath, pFileName, pFileContent, callBackFunction) {
 
-        if (fileService === undefined) {
+        if (blobService === undefined) {
 
             logger.write("[ERROR] createTextFile -> initialize function not executed or failed. Can not process this request. Sorry.");
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -139,7 +138,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
                 logger.write("[INFO] createTextFile -> pFileName = " + pFileName);
             }
 
-            fileService.createBlockBlobFromText(shareName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
+            blobService.createBlockBlobFromText(shareName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
 
             function onFileCreated(err, result, response) {
 
@@ -170,7 +169,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
                             logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
 
-                            fileService.createFileFromText(shareName, pFolderPath, pFileName, pFileContent, onSecondTry);
+                            blobService.createBlockBlobFromText(shareName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
 
                             function onSecondTry(err, result, response) {
 
@@ -202,7 +201,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
     function getTextFile(pFolderPath, pFileName, callBackFunction) {
 
-        if (fileService === undefined) {
+        if (blobService === undefined) {
 
             logger.write("[ERROR] getTextFile -> initialize function not executed or failed. Can not process this request. Sorry.");
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -218,7 +217,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
                 logger.write("[INFO] getTextFile -> pFileName = " + pFileName);
             }
 
-            fileService.getBlobToText(shareName, pFolderPath + "/" + pFileName, onFileReceived);
+            blobService.getBlobToText(shareName, pFolderPath + "/" + pFileName, onFileReceived);
 
             function onFileReceived(err, text, response) {
 
@@ -248,7 +247,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
 
                             logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
 
-                            fileService.getFileToText(shareName, pFolderPath, pFileName, undefined, onSecondTry);
+                            blobService.getBlobToText(shareName, pFolderPath + "/" + pFileName, onSecondTry);
 
                             function onSecondTry(err, text, response) {
 
@@ -310,82 +309,4 @@ exports.newFileStorage = function newFileStorage(BOT) {
         }
     }
 
-    function listFilesAndFolders(pFolderPath, callBackFunction) {
-
-        if (fileService === undefined) {
-
-            logger.write("[ERROR] listFilesAndFolders -> initialize function not executed or failed. Can not process this request. Sorry.");
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            return;
-        }
-
-        try {
-
-            let items = {
-                files: [],
-                folders: []
-            };
-
-            /*
-            * AZURE HELP:
-            *
-            * @param { object } [options]                        The request options.
-            * @param { int } [options.maxResults]                Specifies the maximum number of folders to return per call to Azure ServiceClient. 
-            *                                                    This does NOT affect list size returned by this function. (maximum: 5000)
-            * @param { LocationMode } [options.locationMode]     Specifies the location mode used to decide which location the request should be sent to. 
-            *                                                    Please see StorageUtilities.LocationMode for the possible values.
-            * @param { int } [options.timeoutIntervalInMs]       The server timeout interval, in milliseconds, to use for the request.
-            * @param { int } [options.maximumExecutionTimeInMs]  The maximum execution time, in milliseconds, across all potential retries, to use when making this request.
-            *                                                    The maximum execution time interval begins at the time that the client begins building the request.The maximum
-            *                                                    execution time is checked intermittently while performing requests, and before executing retries.
-            * @param { string } [options.clientRequestId]        A string that represents the client request ID with a 1KB character limit.
-            * @param { bool } [options.useNagleAlgorithm]        Determines whether the Nagle al
-            */
-
-            let options = {
-                maxResults: 500
-            };
-
-            if (FULL_LOG === true) {
-                logger.write("[INFO] listFilesAndFolders -> About to get the list of files and folders.");
-                logger.write("[INFO] listFilesAndFolders -> shareName = " + shareName);
-                logger.write("[INFO] listFilesAndFolders -> pFolderPath = " + pFolderPath);
-            }
-
-            fileService.listFilesAndDirectoriesSegmented(shareName, pFolderPath, null, options, onFilesAndFoldersReceived);
-
-            function onFilesAndFoldersReceived(err, result) {
-
-                try {
-                    if (FULL_LOG === true) {
-                        logger.write("[INFO] listFilesAndFolders -> onFileReceived -> Response from Azure received.");
-                        logger.write("[INFO] listFilesAndFolders -> onFileReceived -> shareName = " + shareName);
-                        logger.write("[INFO] listFilesAndFolders -> onFileReceived -> pFolderPath = " + pFolderPath);
-                    }
-
-                    if (err) {
-
-                        logger.write("[ERROR] 'listFilesAndFolders' -> onFilesAndFoldersReceived -> err = " + err);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        return;
-
-                    } else {
-
-                        items.files.push.apply(items.files, result.entries.files);
-                        items.folders.push.apply(items.folders, result.entries.directories);
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE, items);
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'listFilesAndFolders - onFilesAndFoldersReceived' - ERROR : " + err.message;
-                    logger.write(logText);
-                }
-            }
-        }
-        catch (err) {
-            logger.write("[ERROR] 'listFilesAndFolders' -> err = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
 };

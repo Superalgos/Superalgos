@@ -17,7 +17,7 @@
       "process": "Multi-Period-Market"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AAOlivia-Indicator-Bot",
       "process": "Multi-Period-Daily"
     },
@@ -32,13 +32,13 @@
       "process": "Poloniex-Hole-Fixing"
     },
     {
-      "enabled": "false",
+      "enabled": "true",
       "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
       "process": "Poloniex-Live-Trades"
     }
   ],
   "stopGracefully": "false",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Production",
+  "storageConnStringFolder": "Testnet",
   "maxLogLoops": 5
 }

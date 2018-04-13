@@ -22,7 +22,7 @@
 
     return thisObject;
 
-    function initializeStorage(charlyFileStorage, bruceFileStorage, callBackFunction) {
+    function initializeStorage(charlyStorage, bruceStorage, callBackFunction) {
 
         try {
 
@@ -32,7 +32,7 @@
 
             function initializeBruceStorage() {
 
-                bruceFileStorage.initialize("AABruce", onBruceInizialized);
+                bruceStorage.initialize({ bot: "AABruce", devTeam: "AAMasters" }, onBruceInizialized);
 
                 function onBruceInizialized(err) {
 
@@ -49,7 +49,7 @@
 
             function initializeCharlyStorage() {
 
-                charlyFileStorage.initialize("AACharly", onCharlyInizialized);
+                charlyStorage.initialize({ bot: "AACharly", devTeam: "AAMasters" }, onCharlyInizialized);
 
                 function onCharlyInizialized(err) {
 

@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, FILE_STORAGE, BLOB_STORAGE) {
+﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -32,8 +32,8 @@
         start: start
     };
 
-    let charlyFileStorage = FILE_STORAGE.newFileStorage(bot);
-    let bruceFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let charlyStorage = BLOB_STORAGE.newBlobStorage(bot);
+    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 
@@ -61,7 +61,7 @@
 
             dependencies = pDependencies;
 
-            commons.initializeStorage(charlyFileStorage, bruceFileStorage, onInizialized);
+            commons.initializeStorage(charlyStorage, bruceStorage, onInizialized);
 
             function onInizialized(err) {
 
@@ -333,7 +333,7 @@
                             let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
                             let filePath = bot.filePathRoot +  "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                            bruceFileStorage.getTextFile(filePath, fileName, onFileReceived);
+                            bruceStorage.getTextFile(filePath, fileName, onFileReceived);
 
                             function onFileReceived(err, text) {
 
@@ -381,7 +381,7 @@
                             let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                            bruceFileStorage.getTextFile(filePath, fileName, onFileReceived);
+                            bruceStorage.getTextFile(filePath, fileName, onFileReceived);
 
                             function onFileReceived(err, text) {
 
@@ -479,7 +479,7 @@
                                 let filePathRoot = bot.devTeam + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                 let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                                charlyFileStorage.getTextFile(filePath, fileName, onFileReceived);
+                                charlyStorage.getTextFile(filePath, fileName, onFileReceived);
 
                                 function onFileReceived(err, text) {
 
@@ -707,7 +707,7 @@
                                     let filePathRoot = bot.devTeam + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                                    charlyFileStorage.getTextFile(filePath, fileName, onFileReceived);
+                                    charlyStorage.getTextFile(filePath, fileName, onFileReceived);
 
                                     function onFileReceived(err, text) {
 
@@ -857,7 +857,7 @@
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                            utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
+                            utilities.createFolderIfNeeded(filePath, bruceStorage, onFolderCreated);
 
                             function onFolderCreated(err) {
 
@@ -871,7 +871,7 @@
                                         return;
                                     }
 
-                                    bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                    bruceStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                                     function onFileCreated(err) {
 
@@ -934,7 +934,7 @@
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
-                            utilities.createFolderIfNeeded(filePath, bruceFileStorage, onFolderCreated);
+                            utilities.createFolderIfNeeded(filePath, bruceStorage, onFolderCreated);
 
                             function onFolderCreated(err) {
 
@@ -947,7 +947,7 @@
                                         return;
                                     }
 
-                                    bruceFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                    bruceStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                                     function onFileCreated(err) {
 

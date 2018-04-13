@@ -63,7 +63,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
-                    const FILE_STORAGE = require(ROOT_DIR + 'File Storage');
+                    const BLOB_STORAGE = require(ROOT_DIR + 'Blob Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
                     const DEPENDENCIES = require(ROOT_DIR + 'Dependencies');
@@ -85,7 +85,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDependencies ->  Entering function."); }
 
-                        dependencies = DEPENDENCIES.newDependencies(bot, DEBUG_MODULE, STATUS_REPORT, FILE_STORAGE, UTILITIES);
+                        dependencies = DEPENDENCIES.newDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
 
                         dependencies.initialize(processConfig.dependencies, pMonth, pYear, onInizialized);
 
@@ -116,7 +116,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
-                        usertBot = USER_BOT_MODULE.newUserBot(bot, COMMONS_MODULE, UTILITIES, DEBUG_MODULE, FILE_STORAGE);
+                        usertBot = USER_BOT_MODULE.newUserBot(bot, COMMONS_MODULE, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, BLOB_STORAGE);
 
                         usertBot.initialize(dependencies, pMonth, pYear, onInizialized);
 

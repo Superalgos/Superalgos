@@ -1,5 +1,5 @@
 ﻿
-exports.newFileStorage = function newFileStorage(BOT) {
+exports.newBlobStorage = function newBlobStorage(BOT) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -34,17 +34,17 @@ exports.newFileStorage = function newFileStorage(BOT) {
     return thisObject;
 
 
-    function initialize(pDataOwnerBotCodeName, callBackFunction) {
+    function initialize(pDataOwner, callBackFunction) {
 
         try {
 
-            if (pDataOwnerBotCodeName === undefined) {
-                dataOwner = bot.codeName;
+            if (pDataOwner === undefined) {
+                dataOwner = bot.devTeam;
+                logger.fileName = MODULE_NAME + '.' + bot.devTeam + '.' + bot.codeName;
             } else {
-                dataOwner = pDataOwnerBotCodeName;
+                dataOwner = pDataOwner.devTeam;
+                logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot;
             }
-
-            logger.fileName = MODULE_NAME + '.' + dataOwner;
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 

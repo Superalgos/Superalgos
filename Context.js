@@ -1,4 +1,4 @@
-﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES, STATUS_REPORT) {
+﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, BLOB_STORAGE, UTILITIES, STATUS_REPORT) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -74,7 +74,7 @@
 
     /* Storage account to be used here. */
 
-    let cloudStorage = FILE_STORAGE.newFileStorage(bot);
+    let cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 
     let dependencies;
 
@@ -97,7 +97,7 @@
 
             function initializeStorage() {
 
-                cloudStorage.initialize(bot.codeName, onInizialized);
+                cloudStorage.initialize(bot, onInizialized);
 
                 function onInizialized(err) {
 

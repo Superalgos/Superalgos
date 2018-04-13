@@ -35,10 +35,15 @@
       "enabled": "true",
       "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
       "process": "Poloniex-Live-Trades"
+    },
+    {
+      "enabled": "false",
+      "botPath": "../Bots/AAMasters/AAMiguel-Indicator-Bot",
+      "process": "Trades-Files-To-Blobs"
     }
   ],
   "stopGracefully": "false",
   "exchangeSimulationMode": "false",
-  "storageConnStringFolder": "Testnet",
+  "storageConnStringFolder": "Production",
   "maxLogLoops": 5
 }

@@ -1,4 +1,4 @@
-﻿exports.newDependencies = function newDependencies(BOT, DEBUG_MODULE, STATUS_REPORT, FILE_STORAGE, UTILITIES) {
+﻿exports.newDependencies = function newDependencies(BOT, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -42,7 +42,7 @@
 
             for (let i = 0; i < pDependenciesConfig.length; i++) {
 
-                let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
+                let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, BLOB_STORAGE, UTILITIES);
 
                 statusReportModule.initialize(pDependenciesConfig[i], pMonth, pYear, onInitilized);
 

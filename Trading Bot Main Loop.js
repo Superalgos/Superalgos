@@ -63,7 +63,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
-                    const FILE_STORAGE = require(ROOT_DIR + 'File Storage');
+                    const BLOB_STORAGE = require(ROOT_DIR + 'Blob Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
                     const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
@@ -94,7 +94,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDependencies ->  Entering function."); }
 
-                        dependencies = DEPENDENCIES.newDependencies(bot, DEBUG_MODULE, STATUS_REPORT, FILE_STORAGE, UTILITIES);
+                        dependencies = DEPENDENCIES.newDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
 
                         dependencies.initialize(processConfig.dependencies, undefined, undefined, onInizialized);
 
@@ -125,7 +125,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
-                        context = CONTEXT.newContext(bot, DEBUG_MODULE, FILE_STORAGE, UTILITIES, STATUS_REPORT);
+                        context = CONTEXT.newContext(bot, DEBUG_MODULE, BLOB_STORAGE, UTILITIES, STATUS_REPORT);
                         context.initialize(dependencies, onInizialized);
 
                         function onInizialized(err) {
@@ -155,7 +155,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDatasource ->  Entering function."); }
 
-                        datasource = DATASOURCE.newDatasource(bot, DEBUG_MODULE, FILE_STORAGE, UTILITIES);
+                        datasource = DATASOURCE.newDatasource(bot, DEBUG_MODULE, BLOB_STORAGE, UTILITIES);
                         datasource.initialize(onInizialized);
 
                         function onInizialized(err) {

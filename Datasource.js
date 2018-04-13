@@ -1,4 +1,4 @@
-﻿exports.newDatasource = function newDatasource(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES) {
+﻿exports.newDatasource = function newDatasource(BOT, DEBUG_MODULE, BLOB_STORAGE, UTILITIES) {
 
     const FULL_LOG = true;
 
@@ -24,8 +24,8 @@
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    let oliviaAzureFileStorage = FILE_STORAGE.newFileStorage(bot);
-    let tomAzureFileStorage = FILE_STORAGE.newFileStorage(bot);
+    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot);
+    let tomStorage = BLOB_STORAGE.newBlobStorage(bot);
 
     /* Utilities needed. */
 
@@ -45,7 +45,7 @@
 
                 if (FULL_LOG === true) { logger.write("[INFO] initializeOliviaStorage -> Entering function."); }
 
-                oliviaAzureFileStorage.initialize("AAOlivia", onInizialized);
+                oliviaStorage.initialize({ bot: "AAOlivia", devTeam: "AAMasters" }, onInizialized);
 
                 function onInizialized(err) {
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -61,7 +61,7 @@
 
                 if (FULL_LOG === true) { logger.write("[INFO] initializeTomStorage -> Entering function."); }
 
-                tomAzureFileStorage.initialize("AATom", onInizialized);
+                tomStorage.initialize({ bot: "AATom", devTeam: "AAMasters" }, onInizialized);
 
                 function onInizialized(err) {
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -129,7 +129,7 @@
                                 let periodTime = global.marketFilesPeriods[i][0];
                                 let periodName = global.marketFilesPeriods[i][1];
 
-                                getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Market/@Period", periodName, undefined, onFileReceived, callBack);
+                                getFile(oliviaStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Market/@Period", periodName, undefined, onFileReceived, callBack);
 
                                 function onFileReceived(err, file) {
 
@@ -175,7 +175,7 @@
                                 let periodTime = global.dailyFilePeriods[i][0];
                                 let periodName = global.dailyFilePeriods[i][1];
 
-                                getFile(oliviaAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, bot.processDatetime, onFileReceived, callBack);
+                                getFile(oliviaStorage, "@AssetA_@AssetB.json", "@Exchange/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, bot.processDatetime, onFileReceived, callBack);
 
                                 function onFileReceived(err, file) {
 
@@ -308,7 +308,7 @@
                                 let periodTime = global.marketFilesPeriods[i][0];
                                 let periodName = global.marketFilesPeriods[i][1];
 
-                                getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period", periodName, undefined, onFileReceived, callBack);
+                                getFile(tomStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period", periodName, undefined, onFileReceived, callBack);
 
                                 function onFileReceived(err, file) {
 
@@ -354,7 +354,7 @@
                                 let periodTime = global.dailyFilePeriods[i][0];
                                 let periodName = global.dailyFilePeriods[i][1];
 
-                                getFile(tomAzureFileStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, bot.processDatetime, onFileReceived, callBack);
+                                getFile(tomStorage, "@AssetA_@AssetB.json", "@Exchange/Tom/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day", periodName, bot.processDatetime, onFileReceived, callBack);
 
                                 function onFileReceived(err, file) {
 

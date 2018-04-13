@@ -1,4 +1,4 @@
-﻿exports.newStatusReport = function newStatusReport(BOT, DEBUG_MODULE, FILE_STORAGE, UTILITIES) {
+﻿exports.newStatusReport = function newStatusReport(BOT, DEBUG_MODULE, BLOB_STORAGE, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -34,7 +34,7 @@
 
     /* Storage account to be used here. */
 
-    let cloudStorage = FILE_STORAGE.newFileStorage(bot);
+    let cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 
     let month;
     let year;
@@ -66,7 +66,7 @@
 
             function initializeStorage() {
 
-                cloudStorage.initialize(owner.bot, onInizialized);
+                cloudStorage.initialize(owner, onInizialized);
 
                 function onInizialized(err) {
 

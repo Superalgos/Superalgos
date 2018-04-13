@@ -64,6 +64,7 @@
 
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
                     const BLOB_STORAGE = require(ROOT_DIR + 'Blob Storage');
+                    const FILE_STORAGE = require(ROOT_DIR + 'File Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
                     const DEPENDENCIES = require(ROOT_DIR + 'Dependencies');
@@ -116,7 +117,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
-                        usertBot = USER_BOT_MODULE.newUserBot(bot, COMMONS_MODULE, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, BLOB_STORAGE);
+                        usertBot = USER_BOT_MODULE.newUserBot(bot, COMMONS_MODULE, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, FILE_STORAGE);
 
                         usertBot.initialize(dependencies, pMonth, pYear, onInizialized);
 

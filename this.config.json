@@ -32,12 +32,12 @@
       "process": "Poloniex-Hole-Fixing"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
       "process": "Poloniex-Live-Trades"
     },
     {
-      "enabled": "false",
+      "enabled": "true",
       "botPath": "../Bots/AAMasters/AAMiguel-Indicator-Bot",
       "process": "Trades-Files-To-Blobs"
     }

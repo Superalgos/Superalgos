@@ -71,7 +71,7 @@
                     const DATASOURCE = require(ROOT_DIR + 'Datasource');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
-                    const DEPENDENCIES = require(ROOT_DIR + 'Dependencies');
+                    const DEPENDENCIES = require(ROOT_DIR + 'Status Dependencies');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
@@ -96,7 +96,7 @@
 
                         dependencies = DEPENDENCIES.newDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
 
-                        dependencies.initialize(processConfig.dependencies, undefined, undefined, onInizialized);
+                        dependencies.initialize(processConfig.statusDependencies, undefined, undefined, onInizialized);
 
                         function onInizialized(err) {
 

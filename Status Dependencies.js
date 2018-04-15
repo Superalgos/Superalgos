@@ -11,12 +11,6 @@
         keys: []
     };
 
-    /*
-    During the process we will create a new History Record. This will go to the Context History file which essentially mantains an
-    index of all the bots executions. This file will later be plotted by the bot s plotter on the timeline, allowing end users to
-    know where there is information related to the actions taken by the bot.
-    */
-
     let bot = BOT;
     let ownerBot;                       // This is the bot owner of the Status Report. Only owners can save the report and override the existing content.
 

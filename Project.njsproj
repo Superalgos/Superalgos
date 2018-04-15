@@ -26,7 +26,7 @@
     <Compile Include="Blob Storage.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Dependencies.js">
+    <Compile Include="Status Dependencies.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Extraction Bot Main Loop.js">
@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="this.config.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->

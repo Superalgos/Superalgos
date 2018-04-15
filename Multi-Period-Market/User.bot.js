@@ -37,11 +37,11 @@
 
     let utilities = UTILITIES.newUtilities(bot);
 
-    let dependencies;
+    let statusDependencies;
 
     return thisObject;
 
-    function initialize(pDependencies, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
 
         try {
 
@@ -49,7 +49,7 @@
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            dependencies = pDependencies;
+            statusDependencies = pStatusDependencies;
 
             commons.initializeStorage(oliviaStorage, bruceStorage, onInizialized);
 
@@ -110,13 +110,13 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-                    if (dependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                    if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
                         logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
-                    thisReport = dependencies.statusReports.get(reportKey).file;
+                    thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
                         logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
@@ -136,13 +136,13 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     reportKey = "AAMasters" + "-" + "AABruce" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" +  bot.processDatetime.getUTCFullYear() + "-" + utilities.pad(bot.processDatetime.getUTCMonth() + 1,2);
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-                    if (dependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                    if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
                         logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
-                    thisReport = dependencies.statusReports.get(reportKey).file;
+                    thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
                         logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
@@ -161,13 +161,13 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-                    if (dependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                    if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
                         logger.write("[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
 
-                    thisReport = dependencies.statusReports.get(reportKey).file;
+                    thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile !== undefined) {
 
@@ -195,8 +195,8 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                 } catch (err) {
                     logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
                     if (err.message === "Cannot read property 'file' of undefined") {
-                        logger.write("[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its dependencies declarations are correct. ");
-                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(dependencies.keys));
+                        logger.write("[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                         logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.");
                     }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -851,7 +851,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                 try {
 
                     let reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
-                    let thisReport = dependencies.statusReports.get(reportKey);
+                    let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;
                     thisReport.file.lastFile = lastFileDate;

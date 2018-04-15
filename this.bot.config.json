@@ -32,7 +32,7 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
-      "dependencies": [
+      "statusDependencies": [
         {
           "devTeam": "AAMasters",
           "bot": "AACharly",
@@ -67,7 +67,7 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
-      "dependencies": [
+      "statusDependencies": [
         {
           "devTeam": "AAMasters",
           "bot": "AACharly",
@@ -112,7 +112,7 @@
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,
-      "dependencies": [
+      "statusDependencies": [
         {
           "devTeam": "AAMasters",
           "bot": "AACharly",

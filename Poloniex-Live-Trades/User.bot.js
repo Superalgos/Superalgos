@@ -28,11 +28,11 @@
     let utilities = UTILITIES.newUtilities(bot);
     let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
 
-    let dependencies;
+    let statusDependencies;
 
     return thisObject;
 
-    function initialize(pDependencies, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
 
         try {
 
@@ -40,7 +40,7 @@
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            dependencies = pDependencies;
+            statusDependencies = pStatusDependencies;
 
             charlyStorage.initialize({ bot: "AACharly", devTeam: "AAMasters" }, onCharlyInizialized);
 
@@ -384,7 +384,7 @@ Array of records with this information:
 
                     let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
-                    let statusReport = dependencies.statusReports.get(key);
+                    let statusReport = statusDependencies.statusReports.get(key);
 
                     statusReport.file = {
                         firstFile: {                                        // This date points to the file that might be incomplete.

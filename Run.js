@@ -131,9 +131,9 @@ function pad(str, max) {
 /* Some LAGACY code starts here. Pending for clean up. */
 
 const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
-const TRADING_BOT_MAIN_LOOP_MODULE = require('./Trading Bot Main Loop');
-const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./Indicator Bot Main Loop');
-const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./Extraction Bot Main Loop');
+const TRADING_BOT_MAIN_LOOP_MODULE = require('./Trading Bot Process Main Loop');
+const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./Indicator Bot Process Main Loop');
+const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./Extraction Bot Process Main Loop');
 
 /* Loop through all the processes configured to be run by this Node.js Instance. */
 

@@ -29,7 +29,7 @@
     <Compile Include="Status Dependencies.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extraction Bot Main Loop.js">
+    <Compile Include="Extraction Bot Process Main Loop.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="File Storage.js" />
@@ -43,7 +43,7 @@
     <Compile Include="ExchangeAPI.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Indicator Bot Main Loop.js">
+    <Compile Include="Indicator Bot Process Main Loop.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Poloniex API Client.js" />
@@ -51,7 +51,7 @@
     <Compile Include="Status Report.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Trading Bot Main Loop.js">
+    <Compile Include="Trading Bot Process Main Loop.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities.js" />

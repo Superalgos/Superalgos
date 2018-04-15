@@ -18,15 +18,11 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
-    <Content Include="package-lock.json" />
-    <Content Include="package.json" />
-    <Content Include="README.md" />
     <Compile Include="Commons.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Multi-Period-Daily\User.bot.js" />
     <Compile Include="Multi-Period-Market\User.bot.js" />
-    <Content Include="logs\Dummy File.txt" />
     <Content Include="obj\Debug\AABruce.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACarol.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACharly.njsproj.FileListAbsolute.txt" />
@@ -36,13 +32,6 @@
     <Folder Include="Multi-Period-Daily\" />
     <Folder Include="Multi-Period-Market\" />
     <Folder Include="bin" />
-    <Folder Include="logs" />
-    <Folder Include="logs\AA Masters" />
-    <Folder Include="logs\AA Masters\Indicator" />
-    <Folder Include="logs\AA Masters\Indicator\Bruce" />
-    <Folder Include="logs\AA Masters\Indicator\Bruce\1.0.0" />
-    <Folder Include="logs\AA Masters\Indicator\Bruce\1.0.0\Multi-Period-Daily-Candles-Volumes" />
-    <Folder Include="logs\AA Masters\Indicator\Bruce\1.0.0\One-Min-Daily-Candles-Volumes" />
     <Folder Include="obj" />
     <Folder Include="obj\Debug" />
   </ItemGroup>

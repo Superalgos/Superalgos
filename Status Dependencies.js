@@ -1,4 +1,4 @@
-﻿exports.newDependencies = function newDependencies(BOT, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES) {
+﻿exports.newStatusDependencies = function newStatusDependencies(BOT, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;

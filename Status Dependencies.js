@@ -3,7 +3,7 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
-    const MODULE_NAME = "Dependencies";
+    const MODULE_NAME = "Status Dependencies";
 
     let thisObject = {
         statusReports: new Map(),              
@@ -20,7 +20,7 @@
 
     return thisObject;
 
-    function initialize(pDependenciesConfig, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependenciesConfig, pMonth, pYear, callBackFunction) {
 
         try {
 
@@ -34,11 +34,11 @@
             let alreadyCalledBack = false;
             let loadCount = 0;
 
-            for (let i = 0; i < pDependenciesConfig.length; i++) {
+            for (let i = 0; i < pStatusDependenciesConfig.length; i++) {
 
                 let statusReportModule = STATUS_REPORT.newStatusReport(BOT, DEBUG_MODULE, BLOB_STORAGE, UTILITIES);
 
-                statusReportModule.initialize(pDependenciesConfig[i], pMonth, pYear, onInitilized);
+                statusReportModule.initialize(pStatusDependenciesConfig[i], pMonth, pYear, onInitilized);
 
                 function onInitilized(err) {
 
@@ -61,8 +61,8 @@
 
                         switch (err.message) {
                             case global.DEFAULT_OK_RESPONSE.message: {
-                                logger.write("[INFO] initialize -> onLoad -> Execution finished well. -> bot = " + pDependenciesConfig[i].bot);
-                                logger.write("[INFO] initialize -> onLoad -> Execution finished well. -> process = " + pDependenciesConfig[i].process);
+                                logger.write("[INFO] initialize -> onLoad -> Execution finished well. -> bot = " + pStatusDependenciesConfig[i].bot);
+                                logger.write("[INFO] initialize -> onLoad -> Execution finished well. -> process = " + pStatusDependenciesConfig[i].process);
 
                                 addReport();
                                 return;
@@ -70,8 +70,8 @@
                             case "Status Report was never created.": {
 
                                 logger.write("[WARN] initialize -> onLoad -> err.message = " + err.message);
-                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pDependenciesConfig[i].bot);
-                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pDependenciesConfig[i].process);
+                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pStatusDependenciesConfig[i].bot);
+                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pStatusDependenciesConfig[i].process);
                                 addReport();
                                 return;
                             }
@@ -79,8 +79,8 @@
                             case "Status Report is corrupt.": {
 
                                 logger.write("[WARN] initialize -> onLoad -> err.message = " + err.message);
-                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pDependenciesConfig[i].bot);
-                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pDependenciesConfig[i].process);
+                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> bot = " + pStatusDependenciesConfig[i].bot);
+                                logger.write("[WARN] initialize -> onLoad -> Report Not Found. -> process = " + pStatusDependenciesConfig[i].process);
                                 addReport();
                                 return;
                             }
@@ -110,10 +110,10 @@
 
                     let key;
 
-                    if (pDependenciesConfig[i].dataSetSection === "Month") {
-                        key = pDependenciesConfig[i].devTeam + "-" + pDependenciesConfig[i].bot + "-" + pDependenciesConfig[i].process + "-" + pDependenciesConfig[i].dataSetVersion + "-" + pYear + "-" + pMonth;
+                    if (pStatusDependenciesConfig[i].dataSetSection === "Month") {
+                        key = pStatusDependenciesConfig[i].devTeam + "-" + pStatusDependenciesConfig[i].bot + "-" + pStatusDependenciesConfig[i].process + "-" + pStatusDependenciesConfig[i].dataSetVersion + "-" + pYear + "-" + pMonth;
                     } else {
-                        key = pDependenciesConfig[i].devTeam + "-" + pDependenciesConfig[i].bot + "-" + pDependenciesConfig[i].process + "-" + pDependenciesConfig[i].dataSetVersion;
+                        key = pStatusDependenciesConfig[i].devTeam + "-" + pStatusDependenciesConfig[i].bot + "-" + pStatusDependenciesConfig[i].process + "-" + pStatusDependenciesConfig[i].dataSetVersion;
                     }
 
                     thisObject.keys.push(key);
@@ -121,7 +121,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> addReport -> Report added to Map. -> key = " + key); }
 
-                    if (loadCount === pDependenciesConfig.length) {
+                    if (loadCount === pStatusDependenciesConfig.length) {
                         if (alreadyCalledBack === false) {
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;

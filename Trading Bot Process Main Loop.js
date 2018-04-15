@@ -71,7 +71,8 @@
                     const DATASOURCE = require(ROOT_DIR + 'Datasource');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
-                    const DEPENDENCIES = require(ROOT_DIR + 'Status Dependencies');
+                    const STATUS_DEPENDENCIES = require(ROOT_DIR + 'Status Dependencies');
+                    const DATA_DEPENDENCIES = require(ROOT_DIR + 'Data Dependencies');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
@@ -84,36 +85,68 @@
                     let exchangeAPI;
                     let assistant;
                     let userBot;
-                    let dependencies;
+                    let statusDependencies;
+                    let dataDependencies;
 
                     let nextWaitTime;
 
-                    initializeDependencies();
+                    initializeStatusDependencies();
 
-                    function initializeDependencies() {
+                    function initializeStatusDependencies() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDependencies ->  Entering function."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusDependencies ->  Entering function."); }
 
-                        dependencies = DEPENDENCIES.newStatusDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
+                        statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
 
-                        dependencies.initialize(processConfig.statusDependencies, undefined, undefined, onInizialized);
+                        statusDependencies.initialize(processConfig.statusDependencies, undefined, undefined, onInizialized);
 
                         function onInizialized(err) {
 
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeDependencies -> onInizialized > Execution finished well. :-)");
-                                    initializeContext();
+                                    logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized > Execution finished well. :-)");
+                                    initializeDataDependencies();
                                     return;
                                 }
                                 case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeDependencies -> onInizialized > Retry Later. Requesting Execution Retry.");
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Retry Later. Requesting Execution Retry.");
                                     nextWaitTime = 'Retry';
                                     loopControl(nextWaitTime);
                                     return;
                                 }
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeDependencies -> onInizialized > Operation Failed. Aborting the process.");
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Operation Failed. Aborting the process.");
+                                    callBackFunction(err);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+
+                    function initializeDataDependencies() {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDataDependencies ->  Entering function."); }
+
+                        dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
+
+                        dataDependencies.initialize(processConfig.dataDependencies, undefined, undefined, onInizialized);
+
+                        function onInizialized(err) {
+
+                            switch (err.result) {
+                                case global.DEFAULT_OK_RESPONSE.result: {
+                                    logger.write("[INFO] run -> loop -> initializeDataDependencies -> onInizialized > Execution finished well. :-)");
+                                    initializeContext();
+                                    return;
+                                }
+                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                    logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized > Retry Later. Requesting Execution Retry.");
+                                    nextWaitTime = 'Retry';
+                                    loopControl(nextWaitTime);
+                                    return;
+                                }
+                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                    logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }
@@ -126,7 +159,7 @@
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
                         context = CONTEXT.newContext(bot, DEBUG_MODULE, BLOB_STORAGE, UTILITIES, STATUS_REPORT);
-                        context.initialize(dependencies, onInizialized);
+                        context.initialize(statusDependencies, onInizialized);
 
                         function onInizialized(err) {
 

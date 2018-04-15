@@ -67,7 +67,7 @@
                     const FILE_STORAGE = require(ROOT_DIR + 'File Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
-                    const DEPENDENCIES = require(ROOT_DIR + 'Status Dependencies');
+                    const STATUS_DEPENDENCIES = require(ROOT_DIR + 'Status Dependencies');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
@@ -76,36 +76,36 @@
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
                     let userBot;
-                    let dependencies;
+                    let statusDependencies;
 
                     let nextWaitTime;
 
-                    initializeDependencies();
+                    initializeStatusDependencies();
 
-                    function initializeDependencies() {
+                    function initializeStatusDependencies() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDependencies ->  Entering function."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusDependencies ->  Entering function."); }
 
-                        dependencies = DEPENDENCIES.newStatusDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
+                        statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
 
-                        dependencies.initialize(processConfig.statusDependencies, pMonth, pYear, onInizialized);
+                        statusDependencies.initialize(processConfig.statusDependencies, pMonth, pYear, onInizialized);
 
                         function onInizialized(err) {
 
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeDependencies -> onInizialized > Execution finished well. :-)");
+                                    logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized > Execution finished well. :-)");
                                     initializeUserBot();
                                     return;
                                 }
                                 case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeDependencies -> onInizialized > Retry Later. Requesting Execution Retry.");
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Retry Later. Requesting Execution Retry.");
                                     nextWaitTime = 'Retry';
                                     loopControl(nextWaitTime);
                                     return;
                                 }
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeDependencies -> onInizialized > Operation Failed. Aborting the process.");
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }
@@ -119,7 +119,7 @@
 
                         usertBot = USER_BOT_MODULE.newUserBot(bot, COMMONS_MODULE, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, FILE_STORAGE);
 
-                        usertBot.initialize(dependencies, pMonth, pYear, onInizialized);
+                        usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);
 
                         function onInizialized(err) {
 

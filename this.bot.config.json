@@ -55,7 +55,7 @@
       "displayName": "Candle-Stairs Patters",
       "description": "Two sets of files per period that contains candle-stairs patterns.",
       "storageAccount": "aatom",
-      "sets": [
+      "dataSets": [
         {
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
@@ -85,7 +85,7 @@
       "displayName": "Volume-Stairs Patters",
       "description": "Two sets of files per period that contains volume-stairs patterns.",
       "storageAccount": "aatom",
-      "sets": [
+      "dataSets": [
         {
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],

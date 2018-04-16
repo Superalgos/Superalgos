@@ -1,6 +1,7 @@
 ﻿exports.newAssistant = function newAssistant(BOT, DEBUG_MODULE) {
 
     const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
 
     /* 
 
@@ -11,6 +12,7 @@
     const MODULE_NAME = "Assistant";
 
     let thisObject = {
+        dataDependencies: undefined,
         initialize: initialize,
         putPosition: putPosition,
         movePosition: movePosition,
@@ -33,13 +35,12 @@
 
     let context;
     let exchangeAPI;
-    let datasource; 
 
     let marketRate; 
 
     return thisObject;
 
-    function initialize(pContext, pExchangeAPI, pDatasource, callBackFunction) {
+    function initialize(pContext, pExchangeAPI, pDataDependencies, callBackFunction) {
 
         try {
 
@@ -49,62 +50,139 @@
 
             context = pContext;
             exchangeAPI = pExchangeAPI;
-            datasource = pDatasource;
+            thisObject.dataDependencies = pDataDependencies;
 
-            /* Procedure to get the current market rate. */
+            getMarketRate();
 
-            let candleArray = datasource.candlesMap.get("01-min");              // In this version of the platform, this array will contain the las 10 candles.
-            let candle = candleArray[candleArray.length - 1];                   // The last candle of the 10 candles array for the 1 min Time Period.
+            function getMarketRate() {
 
-            marketRate = candle.close;
-
-            /*
-            Now we verify that this candle is not too old. Lets say no more than 2 minutes old. This could happen if the datasets for
-            any reason stops being updated.
-            */
-
-            if (candle.begin < bot.processDatetime.valueOf() - 2 * 60 * 1000) {
-
-                logger.write("[ERROR] initialize -> Candles more than two minutes old. Retrying later.");
-                callBack(global.DEFAULT_RETRY_RESPONSE);
-                return;
-            }
-
-            /* If we are in Exchange Simulation Mode then there is not much to do here. */
-
-            if (global.EXCHANGE_SIMULATION_MODE === true) {
-
-                logger.write("[WARN] initialize -> Exchange Simulation Mode detected. -> Skipping all validations.");
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                return;
-            } 
-
-            /* Procedure to validate we are in sync with the exchange. */
-
-            getPositionsAtExchange(onDone);
-
-            function onDone(err) {
                 try {
 
-                    switch (err.result) {
-                        case global.DEFAULT_OK_RESPONSE.result: {
-                            logger.write("[INFO] initialize -> onDone -> Execution finished well. :-)");
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
-                            return;
-                        }
-                            break;
-                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] initialize -> onDone -> Retry Later. Requesting Execution Retry.");
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> Entering function."); }
+
+                    /* Procedure to get the current market rate. */
+
+                    let key =
+                        global.PLATFORM_CONFIG.marketRateProvider.devTeam + "-" +
+                        global.PLATFORM_CONFIG.marketRateProvider.bot + "-" +
+                        global.PLATFORM_CONFIG.marketRateProvider.product + "-" +
+                        global.PLATFORM_CONFIG.marketRateProvider.dataSet + "-" +
+                        global.PLATFORM_CONFIG.marketRateProvider.dataSetVersion;
+
+                    let dataSet = thisObject.dataDependencies.dataSets.get(key);
+
+                    let timePeriod = "01-min";
+                    let fileName = '' + global.MARKET.assetA + '_' + global.MARKET.assetB + '.json';
+                    let filePath = bot.filePathRoot + "/Output/" + global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + timePeriod;
+
+                    dataSet.getTextFile(filePath, fileName, onFileReceived, true);
+
+                    function onFileReceived(err, text) {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Entering function."); }
+                        if (LOG_FILE_CONTENT === true) { logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> text = " + text); }
+
+                        let candleArray;
+
+                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                            try {
+                                candleArray = JSON.parse(text);
+
+                                let lastCandleRecord = candleArray[candleArray.length - 1];                   // The last candle contains at its close value the market rate.
+
+                                let candle = {
+                                    open: lastCandleRecord[2],
+                                    close: lastCandleRecord[3],
+                                    min: lastCandleRecord[0],
+                                    max: lastCandleRecord[1],
+                                    begin: lastCandleRecord[4],
+                                    end: lastCandleRecord[5]
+                                };
+
+                                marketRate = candle.close;
+
+                                /*
+                                Now we verify that this candle is not too old. Lets say no more than 2 minutes old. This could happen if the datasets for
+                                any reason stops being updated.
+                                */
+
+                                if (candle.begin < bot.processDatetime.valueOf() - 2 * 60 * 1000) {
+
+                                    logger.write("[ERROR] initialize -> Candles more than two minutes old. Retrying later.");
+                                    callBack(global.DEFAULT_RETRY_RESPONSE);
+                                    return;
+                                }
+
+                                /* If we are in Exchange Simulation Mode then there is not much to do here. */
+
+                                if (global.EXCHANGE_SIMULATION_MODE === true) {
+
+                                    logger.write("[WARN] initialize -> Exchange Simulation Mode detected. -> Skipping all validations.");
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
+
+                                } else {
+
+                                    validateExchangeSyncronicity();
+                                    return;
+                                }
+
+
+                            } catch (err) {
+                                logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> err = " + err.message);
+                                logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                            }
+                        } else {
+                            logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> err = " + err.message);
                             callBackFunction(err);
-                            return;
                         }
-                            break;
-                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write("[ERROR] initialize -> onDone -> Operation Failed. Aborting the process.");
-                            callBackFunction(err);
-                            return;
+                    }
+
+                } catch (err) {
+                    logger.write("[ERROR] initialize -> getMarketRate -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function validateExchangeSyncronicity() {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> validateExchangeSyncronicity -> Entering function."); }
+
+                    /* Procedure to validate we are in sync with the exchange. */
+
+                    getPositionsAtExchange(onDone);
+
+                    function onDone(err) {
+                        try {
+
+                            switch (err.result) {
+                                case global.DEFAULT_OK_RESPONSE.result: {
+                                    logger.write("[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Execution finished well. :-)");
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
+                                }
+                                    break;
+                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                    logger.write("[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> Retry Later. Requesting Execution Retry.");
+                                    callBackFunction(err);
+                                    return;
+                                }
+                                    break;
+                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                    logger.write("[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> Operation Failed. Aborting the process.");
+                                    callBackFunction(err);
+                                    return;
+                                }
+                                    break;
+                            }
+
+                        } catch (err) {
+                            logger.write("[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
-                            break;
                     }
 
                 } catch (err) {

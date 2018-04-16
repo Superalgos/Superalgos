@@ -76,17 +76,18 @@
 
     let cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 
-    let dependencies;
+    let statusDependencies;
 
     return thisObject;
 
-    function initialize(pDependencies, callBackFunction) {
+    function initialize(pStatusDependencies, callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            dependencies = pDependencies;
+            statusDependencies = pStatusDependencies;
+
             /*
 
             Here we get the positions the bot did and that are recorded at the bot storage account. We will use them through out the rest
@@ -153,7 +154,7 @@
 
                     let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
-                    statusReportModule = dependencies.statusReports.get(key);
+                    statusReportModule = statusDependencies.statusReports.get(key);
                     thisObject.statusReport = statusReportModule.file;
 
                     if (thisObject.statusReport.lastExecution !== undefined) {

@@ -45,5 +45,16 @@
   "stopGracefully": "false",
   "exchangeSimulationMode": "false",
   "storageConnStringFolder": "Production",
-  "maxLogLoops": 5
+  "maxLogLoops": 5,
+  "marketRateProvider": {
+    "devTeam": "AAMasters",
+    "bot": "AAOlivia",
+    "botVersion": {
+      "major": 1,
+      "minor": 0
+    },
+    "product": "Candles",
+    "dataSet": "Multi-Period-Daily",
+    "dataSetVersion": "dataSet.V1"
+  }
 }

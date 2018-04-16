@@ -71,6 +71,7 @@
                     const DATASOURCE = require(ROOT_DIR + 'Datasource');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
+                    const DATA_SET = require(ROOT_DIR + 'Data Set');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'Status Dependencies');
                     const DATA_DEPENDENCIES = require(ROOT_DIR + 'Data Dependencies');
 
@@ -81,7 +82,6 @@
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
                     let context;
-                    let datasource;
                     let exchangeAPI;
                     let assistant;
                     let userBot;
@@ -127,9 +127,9 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDataDependencies ->  Entering function."); }
 
-                        dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
+                        dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, DEBUG_MODULE, DATA_SET, BLOB_STORAGE, UTILITIES);
 
-                        dataDependencies.initialize(processConfig.dataDependencies, undefined, undefined, onInizialized);
+                        dataDependencies.initialize(processConfig.dataDependencies, onInizialized);
 
                         function onInizialized(err) {
 
@@ -166,7 +166,7 @@
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
                                     logger.write("[INFO] run -> loop -> initializeContext -> onInizialized > Execution finished well. :-)");
-                                    initializeDatasource();
+                                    initializeExchangeAPI();
                                     return;
                                 }
                                 case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -177,36 +177,6 @@
                                 }
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized > Operation Failed. Aborting the process.");
-                                    callBackFunction(err);
-                                    return;
-                                }
-                            }
-                        }
-                    }
-
-                    function initializeDatasource() {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDatasource ->  Entering function."); }
-
-                        datasource = DATASOURCE.newDatasource(bot, DEBUG_MODULE, BLOB_STORAGE, UTILITIES);
-                        datasource.initialize(onInizialized);
-
-                        function onInizialized(err) {
-
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeDatasource -> onInizialized > Execution finished well. :-)");
-                                    initializeExchangeAPI();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeDatasource -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeDatasource -> onInizialized > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }
@@ -249,7 +219,7 @@
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeAssistant ->  Entering function."); }
 
                         assistant = ASSISTANT.newAssistant(bot, DEBUG_MODULE);
-                        assistant.initialize(context, exchangeAPI, datasource, onInizialized);
+                        assistant.initialize(context, exchangeAPI, dataDependencies, onInizialized);
 
                         function onInizialized(err) {
 
@@ -280,12 +250,7 @@
 
                         usertBot = USER_BOT_MODULE.newUserBot(bot, DEBUG_MODULE, COMMONS_MODULE);
 
-                        let platform = {
-                            datasource: datasource,
-                            assistant: assistant
-                        };
-
-                        usertBot.initialize(platform, onInizialized);
+                        usertBot.initialize(assistant, onInizialized);
 
                         function onInizialized(err) {
 

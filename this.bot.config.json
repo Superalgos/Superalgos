@@ -129,7 +129,7 @@
       "displayName": "Market Candles per Period",
       "description": "Two sets of files per period that contains candles.",
       "storageAccount": "aaolivia",
-      "sets": [
+      "dataSets": [
         {
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
@@ -159,7 +159,7 @@
       "displayName": "Buy and Sell Volumes",
       "description": "Two sets of files per period that contains buy and sell volumes.",
       "storageAccount": "aaolivia",
-      "sets": [
+      "dataSets": [
         {
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],

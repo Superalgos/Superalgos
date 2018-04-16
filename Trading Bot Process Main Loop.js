@@ -119,6 +119,13 @@
                                     callBackFunction(err);
                                     return;
                                 }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -148,6 +155,13 @@
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
+                                    return;
+                                }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
@@ -180,6 +194,13 @@
                                     callBackFunction(err);
                                     return;
                                 }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -210,6 +231,13 @@
                                     callBackFunction(err);
                                     return;
                                 }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -238,6 +266,13 @@
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
+                                    return;
+                                }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
@@ -271,6 +306,13 @@
                                     callBackFunction(err);
                                     return;
                                 }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -300,6 +342,13 @@
                                     callBackFunction(err);
                                     return;
                                 }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -327,6 +376,13 @@
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
+                                    return;
+                                }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }

@@ -109,6 +109,13 @@
                                     callBackFunction(err);
                                     return;
                                 }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -138,6 +145,13 @@
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                     logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Operation Failed. Aborting the process.");
                                     callBackFunction(err);
+                                    return;
+                                }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
@@ -212,6 +226,13 @@
                                             return;
                                         }
                                     }
+                                }
+                                default: {
+                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
+                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.message = " + err.message);
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
                                 }
                             }
                         }

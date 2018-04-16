@@ -73,7 +73,7 @@
 
                     let timePeriod = "01-min";
                     let fileName = '' + global.MARKET.assetA + '_' + global.MARKET.assetB + '.json';
-                    let filePath = bot.filePathRoot + "/Output/" + global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + timePeriod;
+                    let filePath = global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + timePeriod;
 
                     dataSet.getTextFile(filePath, fileName, onFileReceived, true);
 

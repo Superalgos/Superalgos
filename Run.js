@@ -128,9 +128,8 @@ function pad(str, max) {
     return str.length < max ? pad("0" + str, max) : str;
 }
 
-/* Some LAGACY code starts here. Pending for clean up. */
+/* Process Loops Declarations. */
 
-const INTERVAL_EXECUTOR_MODULE = require('./Interval Executor');
 const TRADING_BOT_MAIN_LOOP_MODULE = require('./Trading Bot Process Main Loop');
 const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./Indicator Bot Process Main Loop');
 const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./Extraction Bot Process Main Loop');
@@ -428,11 +427,8 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                     function whenRunFinishes(err) {
 
                         let botId;
-                        if (pYear !== undefined) {
-                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
-                        } else {
-                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
-                        }
+
+                        botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 

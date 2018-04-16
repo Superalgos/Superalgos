@@ -71,7 +71,10 @@
             if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> pFolderPath = " + pFolderPath); }
             if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> pFileName = " + pFileName); }
 
-            cloudStorage.getTextFile(pFolderPath, pFileName, onFileReceived);
+            let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
+            let filePath = filePathRoot + "/Output/" + pFolderPath;
+
+            cloudStorage.getTextFile(filePath, pFileName, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -109,7 +112,10 @@
                 return;
             }
 
-            cloudStorage.createTextFile(pFolderPath, pFileName, pFileContent, onFileCreated);
+            let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
+            let filePath = filePathRoot + "/Output/" + pFolderPath;
+
+            cloudStorage.createTextFile(filePath, pFileName, pFileContent, onFileCreated);
 
             function onFileCreated(err) {
 

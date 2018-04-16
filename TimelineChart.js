@@ -174,9 +174,9 @@ function newTimelineChart() {
 
         */
 
-        for (let i = 0; i < pProductCard.product.sets.length; i++) {
+        for (let i = 0; i < pProductCard.product.dataSets.length; i++) {
 
-            let thisSet = pProductCard.product.sets[i];
+            let thisSet = pProductCard.product.dataSets[i];
 
             switch (thisSet.type) {
                 case 'Market Files': {

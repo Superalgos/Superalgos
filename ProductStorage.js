@@ -51,9 +51,9 @@ function newProductStorage(pName) {
         let dataSetsToLoad = 0;
         let dataSetsLoaded = 0;
 
-        for (let i = 0; i < pProduct.sets.length; i++) {
+        for (let i = 0; i < pProduct.dataSets.length; i++) {
 
-            let thisSet = pProduct.sets[i];
+            let thisSet = pProduct.dataSets[i];
 
             switch (thisSet.type) {
                 case 'Market Files': {

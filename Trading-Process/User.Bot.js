@@ -16,37 +16,12 @@
         start: start
     };
 
-    let platform;                           // You will receive a reference to the platform at your initialize function. 
+    let assistant;                           // You will receive a reference to the platform at your initialize function. 
 
-    /*
-
-    The Platform object represents what the AA Platform provides you to help you with your bot. Inside it you can access to these inner objects:
-
-    platform = {
-        datasource: datasource,             // This one will provide you with pre-loaded data ready for you to consume. In this version candlesticks and stari patterns.
-        assistant: assistant,               // This one will help you to to create, and move positions at the exchange.
-        getPositions: getPositions          // Returns an array with the positions the bot have on the order book.
-                };
-
-    More details about these objects:
-
-    datasource = {
-        candlesFiles: new Map,              // Complete sets of candles for different Time Periods. For Time Periods < 1hs sets are of current day only, otherwise whole market.
-        candlesMap: new Map,                // The last 10 candles for each Time Period will be stored here.
-        stairsFiles: new Map,               // Complete sets of patterns for different Time Periods. For Time Periods < 1hs sets are of current day only, otherwise whole market.
-        stairsMap: new Map                  // The patterns we are currently in will be stored here.
-    };
-
-    assistant = {
-        putPosition: putPosition,
-        movePosition: movePosition
-    };
-
-    */
 
     return thisObject;
 
-    function initialize(pPlatform, callBackFunction) {
+    function initialize(pAssistant, callBackFunction) {
 
         try {
 
@@ -55,7 +30,7 @@
             logger.fileName = MODULE_NAME;
 
             /* Store local values. */
-            platform = pPlatform;
+            assistant = pAssistant;
 
             logger.write("[INFO] initialize -> Entering function 'initialize' ");
 
@@ -133,7 +108,7 @@
 
                     */
 
-                    let positions = platform.assistant.getPositions();
+                    let positions = assistant.getPositions();
 
                     if (positions.length > 0) {
 
@@ -156,7 +131,7 @@
 
                         */
 
-                        let currentRate = platform.assistant.getMarketRate();
+                        let currentRate = assistant.getMarketRate();
 
                         /*
                         As we just want to create the first order now and we do not want this order to get executed, we will put it at
@@ -181,7 +156,7 @@
 
                         AmountA = AmountB * rate;
 
-                        platform.assistant.putPosition("sell", rate, AmountA, AmountB, callBack);
+                        assistant.putPosition("sell", rate, AmountA, AmountB, callBack);
 
                     }
                 } catch (err) {
@@ -271,7 +246,7 @@
 
                     /* Finally we move the order position to where we have just estimated is a better place. */
 
-                    platform.assistant.movePosition(pPosition, targetRate, callBack);
+                    assistant.movePosition(pPosition, targetRate, callBack);
 
                 } catch (err) {
                     logger.write("[ERROR] start -> decideAboutSellPosition -> err = " + err.message);

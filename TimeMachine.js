@@ -59,7 +59,7 @@ function newTimeMachine() {
         timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
         timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, currentCandelPanel, currentVolumePanel, botsPanel, orderBookPanel, onDefaultMarketInitialized);
+        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, botsPanel, orderBookPanel, onDefaultMarketInitialized);
 
         iteration++;
 
@@ -100,7 +100,7 @@ function newTimeMachine() {
                 timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
                 timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-                timelineChart.initialize(1, key, currentCandelPanel, currentVolumePanel, botsPanel, orderBookPanel, finalSteps);
+                timelineChart.initialize(1, key, botsPanel, orderBookPanel, finalSteps);
 
                 iteration++;
 
@@ -244,10 +244,6 @@ function newTimeMachine() {
 
         this.controlPanel.draw();
 
-        currentCandelPanel.draw();
-
-        currentVolumePanel.draw();
-
         botsPanel.draw();
 
         orderBookPanel.draw();
@@ -265,24 +261,6 @@ function newTimeMachine() {
             /* Now we see which is the inner most container that has it */
 
             container = this.controlPanel.getContainer(point);
-
-            if (container !== undefined) {
-
-                /* We found an inner container which has the point. We return it. */
-
-                return container;
-            }
-
-            container = currentCandelPanel.getContainer(point);
-
-            if (container !== undefined) {
-
-                /* We found an inner container which has the point. We return it. */
-
-                return container;
-            }
-
-            container = currentVolumePanel.getContainer(point);
 
             if (container !== undefined) {
 

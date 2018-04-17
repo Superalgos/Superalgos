@@ -88,8 +88,6 @@
     <Compile Include="OrderBookSnapShot.js" />
     <Compile Include="Panels\ProductsPanel.js" />
     <Compile Include="Panels\ControlPanel.js" />
-    <Compile Include="Panels\CurrentCandlePanel.js" />
-    <Compile Include="Panels\CurrentVolumePanel.js" />
     <Compile Include="Panels\OrderBookPanel.js" />
     <Compile Include="Physics.js" />
     <Compile Include="TimeLineCoordinateSystem.js" />
@@ -117,8 +115,6 @@
     <Compile Include="VolumeBar.js" />
     <Compile Include="Zoom.js" />
     <Content Include="index.html" />
-    <Content Include="package.json" />
-    <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />

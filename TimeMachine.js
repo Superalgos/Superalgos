@@ -22,8 +22,6 @@ function newTimeMachine() {
     container.zoom.containerName = "Time Machine";
     container.frame.containerName = "Time Machine";
 
-    let currentCandlePanel;
-    let currentVolumePanel;
     let botsPanel;
     let orderBookPanel;
 
@@ -36,12 +34,6 @@ function newTimeMachine() {
         var controlPanel = newControlPanel();
         controlPanel.initialize();
         this.controlPanel = controlPanel;
-
-        currentCandlePanel = newCurrentCandlePanel();
-        currentCandlePanel.initialize();
-
-        currentVolumePanel = newCurrentVolumePanel();
-        currentVolumePanel.initialize();
 
         orderBookPanel = newOrderBookPanel();
         orderBookPanel.initialize();
@@ -67,7 +59,7 @@ function newTimeMachine() {
         timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
         timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, currentCandlePanel, currentVolumePanel, botsPanel, orderBookPanel, onDefaultMarketInitialized);
+        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, currentCandelPanel, currentVolumePanel, botsPanel, orderBookPanel, onDefaultMarketInitialized);
 
         iteration++;
 
@@ -108,7 +100,7 @@ function newTimeMachine() {
                 timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
                 timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-                timelineChart.initialize(1, key, currentCandlePanel, currentVolumePanel, botsPanel, orderBookPanel, finalSteps);
+                timelineChart.initialize(1, key, currentCandelPanel, currentVolumePanel, botsPanel, orderBookPanel, finalSteps);
 
                 iteration++;
 
@@ -252,7 +244,7 @@ function newTimeMachine() {
 
         this.controlPanel.draw();
 
-        currentCandlePanel.draw();
+        currentCandelPanel.draw();
 
         currentVolumePanel.draw();
 
@@ -281,7 +273,7 @@ function newTimeMachine() {
                 return container;
             }
 
-            container = currentCandlePanel.getContainer(point);
+            container = currentCandelPanel.getContainer(point);
 
             if (container !== undefined) {
 

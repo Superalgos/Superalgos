@@ -38,14 +38,12 @@ function newTimelineChart() {
 
     let initializationReady = false;
 
-    let currentCandlePanel;
-    let currentVolumePanel;
     let productsPanel;
     let orderBookPanel;
 
     return thisObject;
 
-    function initialize(exchange, market, currentCandlePanelToUse, currentVolumePanelToUse, pProductsPanel, orderBookPanelToUse, callBackFunction) {
+    function initialize(exchange, market, pProductsPanel, orderBookPanelToUse, callBackFunction) {
 
         /* Remember the Products Panel */
 
@@ -57,8 +55,6 @@ function newTimelineChart() {
 
         /* Legacy code to clean */
 
-        currentCandlePanel = currentCandlePanelToUse;
-        currentVolumePanel = currentVolumePanelToUse;
         orderBookPanel = orderBookPanelToUse;
 
         marketId = market;

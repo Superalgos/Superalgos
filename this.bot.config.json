@@ -76,7 +76,7 @@
       "displayName": "Mariam Trading History",
       "description": "General information about Mariam trading history.",
       "storageAccount": "aamariam",
-      "sets": [
+      "dataSets": [
         {
           "codeName": "Oficial History",
           "type": "Single File",

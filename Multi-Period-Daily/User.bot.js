@@ -32,8 +32,8 @@
         start: start
     };
 
-    let oliviaStorage = FILE_STORAGE.newFileStorage(bot);
-    let bruceStorage = FILE_STORAGE.newFileStorage(bot);
+    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot);
+    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot);
 
     let utilities = UTILITIES.newUtilities(bot);
 

@@ -238,7 +238,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> filePath = " + filePath); }
 
-                            oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                            oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
 
                             function onFileReceived(err, text) {
 
@@ -278,7 +278,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
 
-                            oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                            oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
 
                             function onFileReceived(err, text) {
 

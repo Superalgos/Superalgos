@@ -71,6 +71,14 @@
         container.isClickeable = true;
         thisObject.container = container;
 
+        /* Get missing Plotter information. */
+
+        let team = ecosystem.getTeam(thisObject.product.plotter.devTeam);
+        let plotter = ecosystem.getPlotter(team, thisObject.product.plotter.codeName);
+        let plotterModule = ecosystem.getPlotterModule(plotter, thisObject.product.plotter.moduleName);
+
+        thisObject.product.plotter.profilePicture = plotterModule.profilePicture;
+
         /* Lets set the basic dimensions of this thisObject. */
 
         var position = {

@@ -104,7 +104,7 @@ function newTimelineChart() {
 
             /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
 
-            let plotter = getNewPlotter(competition.plotter.host, competition.plotter.repo, competition.plotter.moduleName);
+            let plotter = getNewPlotter(competition.plotter.host, competition.plotter.codeName, competition.plotter.moduleName);
 
             plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
             plotter.container.zoom.parentZoom = thisObject.container.zoom;
@@ -204,7 +204,7 @@ function newTimelineChart() {
 
             /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
 
-            let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.repo, pProductCard.product.plotter.moduleName);
+            let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName);
 
             plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
             plotter.container.zoom.parentZoom = thisObject.container.zoom;

@@ -9,7 +9,9 @@ function newEcosystem() {
         getBot: getBot,
         getProduct: getProduct,
         getDataSet: getDataSet,
-        getExchange: getExchange, 
+        getExchange: getExchange,
+        getPlotter: getPlotter,
+        getPlotterModule: getPlotterModule,
         initialize: initialize
     }
  
@@ -80,6 +82,17 @@ function newEcosystem() {
             if (pTeam.plotters[i].codeName === pPlotterCodeName) {
 
                 return pTeam.plotters[i];
+            }
+        }
+    }
+
+    function getPlotterModule(pPlotter, pModuleCodeName) {
+
+        for (let i = 0; i < pPlotter.modules.length; i++) {
+
+            if (pPlotter.modules[i].codeName === pModuleCodeName) {
+
+                return pPlotter.modules[i];
             }
         }
     }

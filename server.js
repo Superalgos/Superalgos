@@ -594,7 +594,7 @@ function onBrowserRequest(request, response) {
 
                                             let caseStringCopy = caseString;
 
-                                            let newFunctionName = devTeam.codeName + plotter.repo + module.codeName;
+                                            let newFunctionName = devTeam.codeName + plotter.codeName + module.codeName;
                                             newFunctionName = newFunctionName.replace(/-/g, "");
 
                                             let stringToInsert;

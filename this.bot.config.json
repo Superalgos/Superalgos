@@ -4,6 +4,7 @@
   "type": "Indicator",
   "version": "1.0.0",
   "devTeam": "AAMasters",
+  "profilePicture": "Tom.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
     {

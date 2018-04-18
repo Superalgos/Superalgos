@@ -1,7 +1,4 @@
-﻿
-
-
-function newProductsPanel() {
+﻿function newProductsPanel() {
 
     var thisObject = {
         container: undefined,
@@ -31,7 +28,7 @@ function newProductsPanel() {
 
     function initialize() {
 
-        thisObject.container.frame.width = 300;
+        thisObject.container.frame.width = 400;
         thisObject.container.frame.height = viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y + 15;
 
         var position = {

@@ -79,8 +79,8 @@
         };
 
         this.container.frame.position = position;
-        this.container.frame.width = 280;
-        this.container.frame.height = 60;
+        this.container.frame.width = 380;
+        this.container.frame.height = 80;
 
         /* We retrieve the locally stored status of the Product */
 
@@ -290,32 +290,31 @@
 
         */
 
+        const devTeamImageSize = 45;
+        const botImageSize = 45;
+
         let teamImagePoint = {
             x: 10,
-            y: 5
+            y: thisObject.container.frame.height / 2 - devTeamImageSize / 2
         };
 
         teamImagePoint = thisObject.container.frame.frameThisPoint(teamImagePoint);
 
-        let teamImage = document.getElementById("AAMasters");
-        browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, 45, 45);
+        let teamImage = document.getElementById(thisObject.bot.devTeam + ".png");
+        browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize);
 
-        centerPoint = {
-            x: thisObject.container.frame.width - 10,
-            y: thisObject.container.frame.height / 2
-        };
-
-        if (thisObject.bot.codeName === "AAOlivia") {
+        if (thisObject.bot.profilePicture !== undefined) {
 
             let botImagePoint = {
                 x: thisObject.container.frame.width - 10 - 50,
-                y: 5
+                y: thisObject.container.frame.height / 2 - botImageSize / 2
             };
 
             botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint);
 
-            let botImage = document.getElementById("AAOlivia");
-            browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, 45, 45);
+            let imageId = thisObject.bot.devTeam + "." + thisObject.bot.profilePicture;
+            let botImage = document.getElementById(imageId);
+            browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize);
 
         }
 
@@ -379,7 +378,7 @@
 
         labelPoint = {
             x: 65,
-            y: thisObject.container.frame.height - 45
+            y: thisObject.container.frame.height / 2 - 15
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
@@ -393,7 +392,7 @@
 
         labelPoint = {
             x: 65,
-            y: thisObject.container.frame.height - 30
+            y: thisObject.container.frame.height / 2 - 0
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
@@ -407,7 +406,7 @@
 
         labelPoint = {
             x: 65,
-            y: thisObject.container.frame.height - 15
+            y: thisObject.container.frame.height / 2 + 15
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);

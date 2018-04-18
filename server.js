@@ -121,6 +121,8 @@ function initialize() {
 
             let host = ecosystemObject.hosts[i];
 
+            /* In this first section we will load the competitions configurations. */
+
             for (let j = 0; j < host.competitions.length; j++) {
 
                 let competition = host.competitions[j];
@@ -153,7 +155,7 @@ function initialize() {
 
                                 if (requestsSent === responsesReceived) {
 
-                                    readBotsConfig();
+                                    readBotsAndPlottersConfig();
 
                                 }
                             }
@@ -197,7 +199,97 @@ function initialize() {
 
                             if (requestsSent === responsesReceived) {
 
-                                readBotsConfig();
+                                readBotsAndPlottersConfig();
+
+                            }
+
+                        }
+                        catch (err) {
+                            console.log("readCompetitionsConfig -> onDataArrived -> Error = " + err);
+                        }
+                    }
+                }
+            }
+
+            /* In this second section we will load the plotters configurations. */
+
+            for (let j = 0; j < host.plotters.length; j++) {
+
+                let plotter = host.plotters[j];
+
+                requestsSent++;
+
+                if (DEBUG_MODE === true) {
+
+                    let fs = require('fs');
+                    try {
+                        let fileName = '../Plotters/' + host.codeName + '/' + plotter.repo + '/' + plotter.configFile;
+                        fs.readFile(fileName, onFileRead);
+
+                        function onFileRead(err, pData) {
+
+                            try {
+                                responsesReceived++;
+
+                                pData = pData.toString();
+                                pData = pData.trim(); // remove first byte with some encoding.
+
+                                let configObj = JSON.parse(pData);
+
+                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                                configObj.repo = plotter.repo;
+                                configObj.configFile = plotter.configFile;
+
+                                host.plotters[j] = configObj;
+
+                                if (requestsSent === responsesReceived) {
+
+                                    readBotsAndPlottersConfig();
+
+                                }
+                            }
+                            catch (err) {
+                                console.log("readCompetitionsConfig -> onFileRead -> File = " + fileName + " Error = " + err);
+                            }
+
+                        }
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+
+                } else {
+
+                    getGithubData(host.codeName, plotter.repo, plotter.configFile, onDataArrived)
+
+                    function onDataArrived(pData) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) {
+
+                                console.log("readCompetitionsConfig -> onDataArrived -> pData = " + pData);
+
+                            }
+
+                            responsesReceived++;
+
+                            pData = pData.toString();
+                            pData = pData.trim(); // remove first byte with some encoding.
+
+                            let configObj = JSON.parse(pData);
+
+                            /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                            configObj.repo = plotter.repo;
+                            configObj.configFile = plotter.configFile;
+
+                            host.plotters[j] = configObj;
+
+                            if (requestsSent === responsesReceived) {
+
+                                readBotsAndPlottersConfig();
 
                             }
 
@@ -211,18 +303,20 @@ function initialize() {
         }
     }
 
-    function readBotsConfig() {
+    function readBotsAndPlottersConfig() {
 
         if (CONSOLE_LOG === true) {
 
-            console.log("I am entering the readBotsConfig function.");
+            console.log("I am entering the readBotsAndPlottersConfig function.");
 
         }
         /*
 
         Each bot has its configuration at its own repo since each team must be able to change it at will.
         So what we do here is to use the master config at the AAPlatform repo that we already have on
-        memory and inject into it the config of each bot. 
+        memory and inject into it the config of each bot.
+
+        Inmediatelly after that, we also load the Plotters configs using the same technique.
 
         */
 
@@ -232,6 +326,8 @@ function initialize() {
         for (let i = 0; i < ecosystemObject.devTeams.length; i++) {
 
             let devTeam = ecosystemObject.devTeams[i];
+
+            /* In the next section we are loading the bots configurations. */
 
             for (let j = 0; j < devTeam.bots.length; j++) {
 
@@ -270,7 +366,7 @@ function initialize() {
                                 }
                             }
                             catch (err) {
-                                console.log("readBotsConfig -> onFileRead -> File = " + fileName + " Error = " + err);
+                                console.log("readBotsAndPlottersConfig -> onFileRead -> File = " + fileName + " Error = " + err);
                             }
 
                         }
@@ -289,7 +385,7 @@ function initialize() {
 
                             if (CONSOLE_LOG === true) {
 
-                                console.log("readBotsConfig -> onDataArrived -> pData = " + pData);
+                                console.log("readBotsAndPlottersConfig -> onDataArrived -> pData = " + pData);
 
                             }
 
@@ -315,7 +411,97 @@ function initialize() {
 
                         }
                         catch (err) {
-                            console.log("readBotsConfig -> onDataArrived -> Error = " + err);
+                            console.log("readBotsAndPlottersConfig -> onDataArrived -> Error = " + err);
+                        }
+                    }
+                }
+            }
+
+            /* In the next section we are loading the plotters configurations. */
+
+            for (let j = 0; j < devTeam.plotters.length; j++) {
+
+                let plotter = devTeam.plotters[j];
+
+                requestsSent++;
+
+                if (DEBUG_MODE === true) {
+
+                    let fs = require('fs');
+                    try {
+                        let fileName = '../Plotters/' + devTeam.codeName + '/' + plotter.repo + '/' + plotter.configFile;
+                        fs.readFile(fileName, onFileRead);
+
+                        function onFileRead(err, pData) {
+
+                            try {
+                                responsesReceived++;
+
+                                pData = pData.toString();
+                                pData = pData.trim(); // remove first byte with some encoding.
+
+                                let configObj = JSON.parse(pData);
+
+                                /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
+
+                                configObj.repo = plotter.repo;
+                                configObj.configFile = plotter.configFile;
+
+                                devTeam.plotters[j] = configObj;
+
+                                if (requestsSent === responsesReceived) {
+
+                                    startHtttpServer();
+
+                                }
+                            }
+                            catch (err) {
+                                console.log("readPlottersConfig -> onFileRead -> File = " + fileName + " Error = " + err);
+                            }
+
+                        }
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+
+                } else {
+
+                    getGithubData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived)
+
+                    function onDataArrived(pData) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) {
+
+                                console.log("readBotsAndPlottersConfig -> onDataArrived -> pData = " + pData);
+
+                            }
+
+                            responsesReceived++;
+
+                            pData = pData.toString();
+                            pData = pData.trim(); // remove first byte with some encoding.
+
+                            let configObj = JSON.parse(pData);
+
+                            /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
+
+                            configObj.repo = plotter.repo;
+                            configObj.configFile = plotter.configFile;
+
+                            devTeam.plotters[j] = configObj;
+
+                            if (requestsSent === responsesReceived) {
+
+                                startHtttpServer();
+
+                            }
+
+                        }
+                        catch (err) {
+                            console.log("readBotsAndPlottersConfig -> onDataArrived -> Error = " + err);
                         }
                     }
                 }
@@ -402,20 +588,24 @@ function onBrowserRequest(request, response) {
 
                                         let plotter = devTeam.plotters[j];
 
-                                        let caseStringCopy = caseString;
+                                        for (let k = 0; k < plotter.modules.length; k++) {
 
-                                        let newFunctionName = devTeam.codeName + plotter.repo + plotter.moduleName;
-                                        newFunctionName = newFunctionName.replace(/-/g, "");
+                                            let module = plotter.modules[k];
 
-                                        let stringToInsert;
-                                        stringToInsert = caseStringCopy.replace('@newFunctionName@', newFunctionName);
-                                        stringToInsert = stringToInsert.replace('newPlotterName', 'new' + newFunctionName);
+                                            let caseStringCopy = caseString;
 
-                                        let firstPart = fileContent.substring(0, fileContent.indexOf('// Cases'));
-                                        let secondPart = fileContent.substring(fileContent.indexOf('// Cases'));
+                                            let newFunctionName = devTeam.codeName + plotter.repo + module.codeName;
+                                            newFunctionName = newFunctionName.replace(/-/g, "");
 
-                                        fileContent = firstPart + stringToInsert + secondPart;
+                                            let stringToInsert;
+                                            stringToInsert = caseStringCopy.replace('@newFunctionName@', newFunctionName);
+                                            stringToInsert = stringToInsert.replace('newPlotterName', 'new' + newFunctionName);
 
+                                            let firstPart = fileContent.substring(0, fileContent.indexOf('// Cases'));
+                                            let secondPart = fileContent.substring(fileContent.indexOf('// Cases'));
+
+                                            fileContent = firstPart + stringToInsert + secondPart;
+                                        }
                                     }
                                 }
                             }
@@ -529,44 +719,105 @@ function onBrowserRequest(request, response) {
 
                             let fileContent = file.toString();
 
-                            /* This is the string we will use to insert into the Plotters.js script. */
+                            addPlotters();
+                            addImages();
 
-                            let htmlLine = '' + '\n' +
-                                '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
+                            function addPlotters() {
 
-                            let devTeams = ecosystemObject.devTeams;
-                            let hosts = ecosystemObject.hosts;
+                                let htmlLine = '' + '\n' +
+                                    '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
 
-                            addScript(devTeams);
-                            addScript(hosts);
+                                let devTeams = ecosystemObject.devTeams;
+                                let hosts = ecosystemObject.hosts;
 
-                            function addScript(pDevTeamsOrHosts) {
+                                addScript(devTeams);
+                                addScript(hosts);
 
-                                for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
+                                function addScript(pDevTeamsOrHosts) {
 
-                                    let devTeam = pDevTeamsOrHosts[i];
+                                    for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
-                                    for (let j = 0; j < devTeam.plotters.length; j++) {
+                                        let devTeam = pDevTeamsOrHosts[i];
 
-                                        let plotter = devTeam.plotters[j];
+                                        for (let j = 0; j < devTeam.plotters.length; j++) {
 
-                                        /* Now each of these layers has a plotter that we need to define on the Plotter.js file. */
+                                            let plotter = devTeam.plotters[j];
+
+                                            for (let k = 0; k < plotter.modules.length; k++) {
+
+                                                let module = plotter.modules[k];
+
+                                                let htmlLineCopy = htmlLine;
+
+                                                let stringToInsert;
+                                                stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                                stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                                stringToInsert = stringToInsert.replace('@module@', module.moduleName);
+
+                                                let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Plotters-->') + 15);
+                                                let secondPart = fileContent.substring(fileContent.indexOf('<!--Plotters-->') + 15);
+
+                                                fileContent = firstPart + stringToInsert + secondPart;
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            function addImages() {
+
+                                const htmlLine = '' + '\n' +
+                                    '    <img id="@id@" width="0" height="0" src="https://raw.githubusercontent.com/@devTeam@/@repo@/master/@image@">'
+
+                                let devTeams = ecosystemObject.devTeams;
+
+                                addScript(devTeams);
+
+                                function addScript(pDevTeams) {
+
+                                    for (let i = 0; i < pDevTeams.length; i++) {
+
+                                        let devTeam = pDevTeams[i];
 
                                         let htmlLineCopy = htmlLine;
 
                                         let stringToInsert;
                                         stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                        stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                        stringToInsert = stringToInsert.replace('@module@', plotter.moduleName);
+                                        stringToInsert = stringToInsert.replace('@repo@', devTeam.codeName + "-Dev-Team");
+                                        stringToInsert = stringToInsert.replace('@image@', devTeam.codeName + ".png");
+                                        stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + ".png");
 
-                                        let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Plotters-->') + 15);
-                                        let secondPart = fileContent.substring(fileContent.indexOf('<!--Plotters-->') + 15);
+                                        let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
+                                        let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
 
                                         fileContent = firstPart + stringToInsert + secondPart;
 
+                                        for (let j = 0; j < devTeam.bots.length; j++) {
+
+                                            let bot = devTeam.bots[j];
+
+                                            if (bot.profilePicture !== undefined) {
+
+                                                let htmlLineCopy = htmlLine;
+
+                                                let stringToInsert;
+                                                stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                                stringToInsert = stringToInsert.replace('@repo@', bot.repo);
+                                                stringToInsert = stringToInsert.replace('@image@', bot.profilePicture);
+                                                stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + bot.profilePicture);
+
+                                                let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
+                                                let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
+
+                                                fileContent = firstPart + stringToInsert + secondPart;
+
+                                            }
+                                        }
                                     }
                                 }
                             }
+                           
 
                             respondWithContent(fileContent, response);
 

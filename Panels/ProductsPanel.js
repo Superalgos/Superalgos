@@ -89,7 +89,7 @@
                     productCard.container.frame.position.x = position.x;
                     productCard.container.frame.position.y = position.y + lastY;
 
-                    lastY = lastY + productCard.container.frame.height * 1.25;
+                    lastY = lastY + productCard.container.frame.height;
 
                     /* Add to the Product Array */
 

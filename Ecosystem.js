@@ -73,6 +73,17 @@ function newEcosystem() {
         }
     }
 
+    function getPlotter(pTeam, pPlotterCodeName) {
+
+        for (let i = 0; i < pTeam.plotters.length; i++) {
+
+            if (pTeam.plotters[i].codeName === pPlotterCodeName) {
+
+                return pTeam.plotters[i];
+            }
+        }
+    }
+
     function getProduct(pBot, pProductCodeName) {
 
         for (let i = 0; i < pBot.products.length; i++) {

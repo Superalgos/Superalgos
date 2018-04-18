@@ -80,7 +80,7 @@
 
         this.container.frame.position = position;
         this.container.frame.width = 380;
-        this.container.frame.height = 80;
+        this.container.frame.height = 100;
 
         /* We retrieve the locally stored status of the Product */
 
@@ -286,12 +286,14 @@
 
         /*
 
-        Put image on the card.
+        Put images on the card.
 
         */
 
-        const devTeamImageSize = 45;
-        const botImageSize = 45;
+        const devTeamImageSize = 50;
+        const botImageSize = 50;
+
+        /* First the Dev Team Profile Picture. */
 
         let teamImagePoint = {
             x: 10,
@@ -303,10 +305,12 @@
         let teamImage = document.getElementById(thisObject.bot.devTeam + ".png");
         browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize);
 
+        /* Second the Bot's Profile Picture. */
+
         if (thisObject.bot.profilePicture !== undefined) {
 
             let botImagePoint = {
-                x: thisObject.container.frame.width - 10 - 50,
+                x: thisObject.container.frame.width - 10 - botImageSize - 5,
                 y: thisObject.container.frame.height / 2 - botImageSize / 2
             };
 
@@ -317,6 +321,11 @@
             browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize);
 
         }
+
+        /* Third the Plotter's Profile Picture. */
+
+
+
 
         /* Now the small circle */
 
@@ -374,43 +383,53 @@
 
         /* devTeam */
 
-        label = "Dev Team: " + thisObject.devTeam.displayName;
+        label = thisObject.devTeam.displayName;
 
         labelPoint = {
-            x: 65,
-            y: thisObject.container.frame.height / 2 - 15
+            x: 10 + devTeamImageSize / 2 - label.length / 2 * fontSize * 0.60,
+            y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * 0.60 + 5
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
+        browserCanvasContext.font = fontSize + 'px Courier New';
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
         /* bot */
 
-        label = "Bot: " + thisObject.bot.displayName;
+        label = thisObject.bot.displayName;
 
         labelPoint = {
-            x: 65,
-            y: thisObject.container.frame.height / 2 - 0
+            x: thisObject.container.frame.width - 10 - botImageSize - 5 + botImageSize / 2 - label.length / 2 * fontSize * 0.60,
+            y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * 0.60 + 5
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
+        browserCanvasContext.font = fontSize + 'px Courier New';
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
         /* product */
 
-        label = "Product: " + thisObject.product.displayName;
+        fontSize = 12;
+
+        label = thisObject.product.displayName;
 
         labelPoint = {
             x: 65,
             y: thisObject.container.frame.height / 2 + 15
         };
 
+        labelPoint = {
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * 0.60,
+            y: thisObject.container.frame.height / 2 - devTeamImageSize / 2 - fontSize * 0.60 - 5
+        };
+
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
+        browserCanvasContext.font = fontSize + 'px Courier New bold';
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 

@@ -814,6 +814,33 @@ function onBrowserRequest(request, response) {
 
                                             }
                                         }
+
+                                        for (let j = 0; j < devTeam.plotters.length; j++) {
+
+                                            let plotter = devTeam.plotters[j];
+
+                                            for (let k = 0; k < plotter.modules.length; k++) {
+
+                                                let module = plotter.modules[k];
+
+                                                if (module.profilePicture !== undefined) {
+
+                                                    let htmlLineCopy = htmlLine;
+
+                                                    let stringToInsert;
+                                                    stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                                    stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                                    stringToInsert = stringToInsert.replace('@image@', module.profilePicture);
+                                                    stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + module.codeName + "." + module.profilePicture);
+
+                                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
+                                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
+
+                                                    fileContent = firstPart + stringToInsert + secondPart;
+
+                                                } 
+                                            }
+                                        }
                                     }
                                 }
                             }

@@ -8,6 +8,7 @@
     "patch": 0
   },
   "devTeam": "AAMasters",
+  "profilePicture": "Charly.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
     {
@@ -50,14 +51,14 @@
       "description": "Retrieves and saves the historical trades in batches going backwards from the current time until reaching the begining of the market.",
       "startMode": {
         "allMonths": {
-          "run": "true",
+          "run": "false",
           "minYear": "2014",
           "maxYear": "2018"
         },
         "oneMonth": {
-          "run": "false",
-          "year": "",
-          "month": ""
+          "run": "true",
+          "year": "2018",
+          "month": "04"
         },
         "noTime": {
           "run": "false"
@@ -95,14 +96,14 @@
       "description": "Scans the trades saved by the Live Trades and Historic Trades processes searching for missing records. Once a hole is found on the data set, it patches it by retrieving the missing records from the exchange.",
       "startMode": {
         "allMonths": {
-          "run": "true",
+          "run": "false",
           "minYear": "2018",
           "maxYear": "2018"
         },
         "oneMonth": {
-          "run": "false",
+          "run": "true",
           "year": "2018",
-          "month": "03"
+          "month": "04"
         },
         "noTime": {
           "run": "false"

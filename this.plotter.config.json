@@ -1,0 +1,27 @@
+{
+  "modules": [
+    {
+      "codeName": "Candles",
+      "moduleName": "Candles",
+      "description": "Plots traditional red and green candles.",
+      "profilePicture": "Candles.png",
+      "panels": [
+        {
+          "codeName": "Current Candle",
+          "moduleName": "CandlePanel"
+        }
+      ]
+    },
+    {
+      "codeName": "Volumes",
+      "description": "Plots volumes separated in buy and sell.",
+      "moduleName": "Volumes",
+      "panels": [
+        {
+          "codeName": "Current Volume",
+          "moduleName": "VolumePanel"
+        }
+      ]
+    }
+  ]
+}

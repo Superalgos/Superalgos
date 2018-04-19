@@ -15,14 +15,9 @@ function newFileServer() {
     var httpServer;             // This is the object that allows as to make calls to the fileServer.
 
     var fileServer = {
-        getOrderBook: getOrderBook,
-        getAggregattedOrderBook: getAggregattedOrderBook,
         getMarkets: getMarkets,
-        getLastTrades: getLastTrades,
-        getTrades: getTrades,
         getMarketFilesCandles: getMarketFilesCandles,
         getMarketIndexVolumes: getMarketIndexVolumes,
-        getAllTimes: getAllTimes,
         getDailyFile: getDailyFile,
         initialize: initialize
     };
@@ -150,29 +145,6 @@ function newFileServer() {
     }
 
 
-    function getAllTimes(exchangeId, marketId, callBackFunction) {
-
-        let fileName = exchangeId + "_" + marketId + ".json";
-
-        fileService.getFileToText('data', 'all-times', fileName, undefined, onFileReceived);
-
-        function onFileReceived(err, text, response) {
-
-            if (err) {
-
-                let data = JSON.parse("[]");
-                callBackFunction(data);
-
-            } else {
-
-                let data = JSON.parse(text);
-                callBackFunction(data);
-
-            }
-        }
-    }
-
-
     function getDailyFile(exchangeId, marketId, date, callBackFunction) {
 
         let fileName = '' + 'USDT' + '_' + 'BTC' + '.json';
@@ -249,104 +221,6 @@ function newFileServer() {
         }
     }
 
-
-
-    function getAggregattedOrderBook(exchangeId, marketId, date, callBackFunction) {
-
-        let stringDate = date.getFullYear() + '/' + pad(date.getMonth() + 1, 2) + '/' + pad(date.getDate(), 2) + '/' + pad(date.getHours(), 2) + '/' + pad(date.getMinutes(), 2);
-
-        let fileName = stringDate + "/" + exchangeId + "_" + marketId + ".json";
-
-        fileService.getFileToText('data', 'aggregatted-order-books', fileName, undefined, onFileReceived);
-
-        function onFileReceived(err, text, response) {
-
-            if (err) {
-
-                let data = JSON.parse("[]");
-                callBackFunction(data);
-
-            } else {
-
-                let data = JSON.parse(text);
-                callBackFunction(data);
-
-            }
-        }
-
-    }
-
-
-
-    function getOrderBook(exchangeId, marketId, date, callBackFunction) {
-
-        let stringDate = date.getFullYear() + '/' + pad(date.getMonth() + 1, 2) + '/' + pad(date.getDate(), 2) + '/' + pad(date.getHours(), 2) + '/' + pad(date.getMinutes(), 2);
-
-        let fileName = stringDate + "/" + exchangeId + "_" + marketId + ".json";
-
-        fileService.getFileToText('data', 'order-books', fileName, undefined, onFileReceived);
-
-        function onFileReceived(err, text, response) {
-
-            if (err) {
-
-                let data = JSON.parse("[]");
-                callBackFunction(data);
-
-            } else {
-
-                let data = JSON.parse(text);
-                callBackFunction(data);
-
-            }
-        }
-    }
-
-
-
-
-    function getLastTrades(marketId, exchangeId, callBackFunction) {
-
-        requestTrades();
-
-        function requestTrades() {
-
-            httpServer = new XMLHttpRequest();
-            httpServer.open('GET', "lastTrades/" + marketId + "/" + exchangeId, true);
-            httpServer.send();
-
-            httpServer.onreadystatechange = onHttpServerResponded;
-
-            function onHttpServerResponded(err) {
-
-                checkResponse(callBackFunction);
-
-            }
-        }
-
-    }
-
-
-
-    function getTrades(idBegin, idEnd, marketId, exchangeId, callBackFunction) {
-
-        requestTrades();
-
-        function requestTrades() {
-
-            httpServer = new XMLHttpRequest();
-            httpServer.open('GET', "trades/" + marketId + "/" + exchangeId + "/" + idBegin + "/" + idEnd, true);
-            httpServer.send();
-
-            httpServer.onreadystatechange = onHttpServerResponded;
-
-            function onHttpServerResponded(err) {
-
-                checkResponse(callBackFunction);
-
-            }
-        }
-    }
 
 
 

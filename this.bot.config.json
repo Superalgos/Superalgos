@@ -23,6 +23,10 @@
         },
         "noTime": {
           "run": "true"
+        },
+        "fixedInterval": {
+          "run": "false",
+          "interval": 0
         }
       },
       "intervalLapse": 3600000,
@@ -44,6 +48,10 @@
         },
         "noTime": {
           "run": "true"
+        },
+        "fixedInterval": {
+          "run": "false",
+          "interval": 0
         }
       },
       "intervalLapse": 60000,

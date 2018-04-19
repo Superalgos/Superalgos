@@ -1,4 +1,7 @@
 {
+  "displayName": "Plotters Candles & Volumes",
+  "codeName": "PlottersCandlesVolumes",
+  "devTeam": "AAMasters",
   "modules": [
     {
       "codeName": "Candles",
@@ -16,6 +19,7 @@
       "codeName": "Volumes",
       "description": "Plots volumes separated in buy and sell.",
       "moduleName": "Volumes",
+      "profilePicture": "Volumes.png",
       "panels": [
         {
           "codeName": "Current Volume",

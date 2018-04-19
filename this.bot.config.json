@@ -77,7 +77,7 @@
       ],
       "plotter": {
         "devTeam": "AAMasters",
-        "repo": "Plotters-Stairs-Patterns",
+        "codeName": "PlottersStairsPatterns",
         "moduleName": "CandleStairs"
       }
     },
@@ -107,7 +107,7 @@
       ],
       "plotter": {
         "devTeam": "AAMasters",
-        "repo": "Plotters-Stairs-Patterns",
+        "codeName": "PlottersStairsPatterns",
         "moduleName": "VolumeStairs"
       }
     }

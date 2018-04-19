@@ -198,41 +198,44 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
                 /* We tesst each type of start Mode to get what to run and how. */
 
-                if (processConfig.startMode.allMonths.run === "true") {
+                if (processConfig.startMode.allMonths !== undefined) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] run -> allMonths start mode detected. "); }
+                    if (processConfig.startMode.allMonths.run === "true") {
 
-                    for (let year = processConfig.startMode.allMonths.maxYear; year >= processConfig.startMode.allMonths.minYear; year--) {
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> allMonths start mode detected. "); }
 
-                        for (let month = 12; month > 0; month--) {
+                        for (let year = processConfig.startMode.allMonths.maxYear; year >= processConfig.startMode.allMonths.minYear; year--) {
 
-                            botConfig.debug = {
-                                month: pad(month, 2),
-                                year: pad(year, 4)
-                            };
+                            for (let month = 12; month > 0; month--) {
 
-                            let padMonth = pad(month,2)
+                                botConfig.debug = {
+                                    month: pad(month, 2),
+                                    year: pad(year, 4)
+                                };
 
-                            let newInstanceBotConfig = JSON.parse(JSON.stringify(botConfig));
+                                let padMonth = pad(month, 2)
 
-                            let timeDelay = Math.random() * 10 * 1000; // We introduce a short delay so as to not overload the machine.
-                            setTimeout(startProcess, timeDelay);
+                                let newInstanceBotConfig = JSON.parse(JSON.stringify(botConfig));
 
-                            function startProcess() {
+                                let timeDelay = Math.random() * 10 * 1000; // We introduce a short delay so as to not overload the machine.
+                                setTimeout(startProcess, timeDelay);
 
-                                if (FULL_LOG === true) { logger.write("[INFO] run -> startProcess -> Ready to start process."); }
+                                function startProcess() {
 
-                                switch (botConfig.type) {
-                                    case 'Extraction': {
-                                        runExtractionBot(newInstanceBotConfig, processConfig, padMonth, year);
-                                        break;
-                                    }
-                                    case 'Indicator': {
-                                        runIndicatorBot(newInstanceBotConfig, processConfig, padMonth, year);
-                                        break;
-                                    }
-                                    default: {
-                                        logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> startProcess -> Ready to start process."); }
+
+                                    switch (botConfig.type) {
+                                        case 'Extraction': {
+                                            runExtractionBot(newInstanceBotConfig, processConfig, padMonth, year);
+                                            break;
+                                        }
+                                        case 'Indicator': {
+                                            runIndicatorBot(newInstanceBotConfig, processConfig, padMonth, year);
+                                            break;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                        }
                                     }
                                 }
                             }
@@ -240,23 +243,49 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                     }
                 }
 
-                if (processConfig.startMode.oneMonth.run === "true") {
+                if (processConfig.startMode.oneMonth !== undefined) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] run -> oneMonth start mode detected. "); }
+                    if (processConfig.startMode.oneMonth.run === "true") {
 
-                    startProcess();
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> oneMonth start mode detected. "); }
 
-                    function startProcess() {
+                        startProcess();
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> startProcess -> Ready to start process."); }
+                        function startProcess() {
 
-                        let month = pad(processConfig.startMode.oneMonth.month, 2);
-                        let year = processConfig.startMode.oneMonth.year;
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> startProcess -> Ready to start process."); }
 
-                        botConfig.debug = {
-                            month: pad(month, 2),
-                            year: pad(year, 4)
-                        };
+                            let month = pad(processConfig.startMode.oneMonth.month, 2);
+                            let year = processConfig.startMode.oneMonth.year;
+
+                            botConfig.debug = {
+                                month: pad(month, 2),
+                                year: pad(year, 4)
+                            };
+
+                            switch (botConfig.type) {
+                                case 'Extraction': {
+                                    runExtractionBot(botConfig, processConfig, month, year);
+                                    break;
+                                }
+                                case 'Indicator': {
+                                    runIndicatorBot(botConfig, processConfig, month, year);
+                                    break;
+                                }
+                                default: {
+                                    logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (processConfig.startMode.noTime !== undefined) {
+
+                    if (processConfig.startMode.noTime.run === "true") {
+
+                        let month = pad((new Date()).getUTCMonth() + 1, 2);
+                        let year = (new Date()).getUTCFullYear();
 
                         switch (botConfig.type) {
                             case 'Extraction': {
@@ -267,30 +296,37 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                                 runIndicatorBot(botConfig, processConfig, month, year);
                                 break;
                             }
-                            default: {
-                                logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                            case 'Trading': {
+                                runTradingBot(botConfig, processConfig);
+                                break;
                             }
                         }
                     }
                 }
 
-                if (processConfig.startMode.noTime.run === "true") {
+                if (processConfig.startMode.fixedInterval !== undefined) {
 
-                    let month = pad((new Date()).getUTCMonth() + 1, 2);
-                    let year = (new Date()).getUTCFullYear();
+                    if (processConfig.startMode.fixedInterval.run === "true") {
 
-                    switch (botConfig.type) {
-                        case 'Extraction': {
-                            runExtractionBot(botConfig, processConfig, month, year);
-                            break;
-                        }
-                        case 'Indicator': {
-                            runIndicatorBot(botConfig, processConfig, month, year);
-                            break;
-                        }
-                        case 'Trading': {
-                            runTradingBot(botConfig, processConfig);
-                            break;
+                        botConfig.runAtFixedInterval = true;
+                        botConfig.fixedInterval = processConfig.startMode.fixedInterval.interval;
+
+                        let month = pad((new Date()).getUTCMonth() + 1, 2);
+                        let year = (new Date()).getUTCFullYear();
+
+                        switch (botConfig.type) {
+                            case 'Extraction': {
+                                runExtractionBot(botConfig, processConfig, month, year);
+                                break;
+                            }
+                            case 'Indicator': {
+                                runIndicatorBot(botConfig, processConfig, month, year);
+                                break;
+                            }
+                            case 'Trading': {
+                                runTradingBot(botConfig, processConfig);
+                                break;
+                            }
                         }
                     }
                 }

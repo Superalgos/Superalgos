@@ -51,7 +51,17 @@
         try {
             if (FULL_LOG === true) { logger.write("[INFO] run -> Entering function."); }
 
-            loop();
+            let intervalHandle;
+
+            if (bot.runAtFixedInterval === true) {
+
+                intervalHandle = setInterval(loop, bot.fixedInterval);
+                
+            } else {
+
+                loop();
+
+            }
 
             function loop() {
 
@@ -252,6 +262,8 @@
 
                 if (shallWeStop() === true) {
 
+                    if (bot.runAtFixedInterval === true) { intervalHandle.clearInterval();}
+
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time! :-)"); }
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                     return;
@@ -262,8 +274,13 @@
 
                 switch (nextWaitTime) {
                     case 'Normal': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                        setTimeout(loop, processConfig.normalWaitTime);
+                        if (bot.runAtFixedInterval === true) {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Fixed Interval Normal exit point reached."); }
+                            return;
+                        } else {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                            setTimeout(loop, processConfig.normalWaitTime);
+                        }
                     }
                         break;
                     case 'Retry': {
@@ -272,13 +289,23 @@
                     }
                         break;
                     case 'Sleep': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
-                        setTimeout(loop, processConfig.sleepWaitTime);
+                        if (bot.runAtFixedInterval === true) {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Fixed Interval Sleep exit point reached."); }
+                            return;
+                        } else {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
+                            setTimeout(loop, processConfig.sleepWaitTime);
+                        }
                     }
                         break;
                     case 'Coma': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
-                        setTimeout(loop, processConfig.comaWaitTime);
+                        if (bot.runAtFixedInterval === true) {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Fixed Interval Coma exit point reached."); }
+                            return;
+                        } else {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
+                            setTimeout(loop, processConfig.comaWaitTime);
+                        }
                     }
                         break;
                 }

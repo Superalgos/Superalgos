@@ -7,7 +7,7 @@
   },
   "executionList": [
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AAMariam-Trading-Bot",
       "process": "Trading-Process"
     },
@@ -32,7 +32,7 @@
       "process": "Poloniex-Hole-Fixing"
     },
     {
-      "enabled": "false",
+      "enabled": "true",
       "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
       "process": "Poloniex-Live-Trades"
     },

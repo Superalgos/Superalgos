@@ -27,6 +27,10 @@
         },
         "noTime": {
           "run": "true"
+        },
+        "fixedInterval": {
+          "run": "false",
+          "interval": 0
         }
       },
       "normalWaitTime": 60000,
@@ -83,6 +87,10 @@
         },
         "noTime": {
           "run": "true"
+        },
+        "fixedInterval": {
+          "run": "false",
+          "interval": 0
         }
       },
       "normalWaitTime": 60000,
@@ -135,7 +143,7 @@
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-          "filePath": "@Exchange/Output/Candles/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
@@ -167,7 +175,7 @@
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-          "filePath": "@Exchange/Output/Volumes/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
@@ -191,7 +199,7 @@
     }
   ],
   "storage": {
-    "sas": "?sv=2017-04-17&ss=f&srt=sco&sp=rl&se=2018-12-31T02:34:32Z&st=2018-02-01T18:34:32Z&spr=https,http&sig=24UJjGDVpPrHjhBoZtt3iKj4sxgenfSV4VTJD2v0q1U%3D",
-    "fileUri": "https://aaolivia.file.core.windows.net"
+    "sas": "?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2018-12-31T22:59:59Z&st=2018-04-01T12:59:54Z&spr=https&sig=Fre%2FUWrF9IAXNnJSOZ%2F5q5LUow9uno7dXg5pGZ3YDzo%3D",
+    "fileUri": "https://aamasters.blob.core.windows.net"
   }
 }

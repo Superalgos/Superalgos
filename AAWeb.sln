@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "AAWebPlatform", "AAWebPlatform.njsproj", "{3EF11619-DE26-4B8B-819D-A413DF220B76}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Project", "Project.njsproj", "{3EF11619-DE26-4B8B-819D-A413DF220B76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

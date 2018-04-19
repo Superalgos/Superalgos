@@ -1,4 +1,4 @@
-# AACloudPlatform
+# AACloud
 
 This repository holds the code of the bits of the AA Platform that run in the cloud.
 

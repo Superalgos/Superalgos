@@ -74,7 +74,7 @@
   "products": [
     {
       "codeName": "Trading History",
-      "displayName": "Mariam Trading History",
+      "displayName": "Trading History",
       "description": "General information about Mariam trading history.",
       "storageAccount": "aamariam",
       "dataSets": [
@@ -93,7 +93,7 @@
       ],
       "plotter": {
         "devTeam": "AAMasters",
-        "repo": "Plotters-Trading",
+        "codeName": "PlottersTrading",
         "moduleName": "History"
       }
     }

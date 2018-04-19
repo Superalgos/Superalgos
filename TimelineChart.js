@@ -57,24 +57,22 @@ function newTimelineChart() {
 
         chartGrid = newChartGrid();
 
-        function continueInitialization() {
+        recalculateScale();
+        moveViewPortToCurrentDatetime();
 
-            recalculateScale();
-            moveViewPortToCurrentDatetime();
+        /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 
-            /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
+        viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
+        viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-            viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
-            viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-            canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+        initializeProductPlotters();
+        initializeCompetitionPlotters();
 
-            initializeProductPlotters();
-            initializeCompetitionPlotters();
+        callBackFunction();
 
-            callBackFunction();
+        initializationReady = true;
 
-            initializationReady = true;
-        }
     }
 
     function initializeCompetitionPlotters() {

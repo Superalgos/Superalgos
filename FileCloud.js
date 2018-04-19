@@ -14,7 +14,7 @@ function newFileCloud() {
 
     function initialize(pBot) {
 
-        blobService = AzureStorage.createBlobServiceWithSas(pBot.storage.fileUri, pBot.storage.sas).withFilter(new AzureStorage.ExponentialRetryPolicyFilter());
+        blobService = AzureStorage.Blob.createBlobServiceWithSas(pBot.storage.fileUri, pBot.storage.sas);
 
     }
 

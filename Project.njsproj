@@ -33,8 +33,6 @@
     <Compile Include="AggregatedOrdersArray.js" />
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
-    <Compile Include="Azure\azure-storage.common.js" />
-    <Compile Include="Azure\azure-storage.file.js" />
     <Compile Include="Ball.js" />
     <Compile Include="Balls.js" />
     <Compile Include="CompetitionStorage.js">

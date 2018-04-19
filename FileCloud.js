@@ -8,13 +8,13 @@ function newFileCloud() {
         initialize: initialize
     };
 
-    let fileService;
+    let blobService;
 
     return fileCloud;
 
     function initialize(pBot) {
 
-        fileService = AzureStorage.createFileServiceWithSas(pBot.storage.fileUri, pBot.storage.sas).withFilter(new AzureStorage.ExponentialRetryPolicyFilter());
+        blobService = AzureStorage.createBlobServiceWithSas(pBot.storage.fileUri, pBot.storage.sas).withFilter(new AzureStorage.ExponentialRetryPolicyFilter());
 
     }
 
@@ -69,7 +69,7 @@ function newFileCloud() {
 
         }
 
-        fileService.getFileToText('data', filePath, fileName, undefined, onFileReceived);
+        blobService.getBlobToText('data', filePath + "/" + fileName, onFileReceived);
 
         if (CONSOLE_LOG === true) {
 

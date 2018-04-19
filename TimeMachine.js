@@ -23,7 +23,6 @@ function newTimeMachine() {
     container.frame.containerName = "Time Machine";
 
     let botsPanel;
-    let orderBookPanel;
 
     return timeMachine;
 
@@ -34,9 +33,6 @@ function newTimeMachine() {
         var controlPanel = newControlPanel();
         controlPanel.initialize();
         this.controlPanel = controlPanel;
-
-        orderBookPanel = newOrderBookPanel();
-        orderBookPanel.initialize();
 
         botsPanel = newProductsPanel();
         botsPanel.initialize();
@@ -59,7 +55,7 @@ function newTimeMachine() {
         timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
         timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, botsPanel, orderBookPanel, onDefaultMarketInitialized);
+        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, botsPanel, onDefaultMarketInitialized);
 
         iteration++;
 
@@ -100,7 +96,7 @@ function newTimeMachine() {
                 timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
                 timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-                timelineChart.initialize(1, key, botsPanel, orderBookPanel, finalSteps);
+                timelineChart.initialize(1, key, botsPanel, finalSteps);
 
                 iteration++;
 
@@ -246,8 +242,6 @@ function newTimeMachine() {
 
         botsPanel.draw();
 
-        orderBookPanel.draw();
-
     }
 
     function getContainer(point) {
@@ -278,14 +272,6 @@ function newTimeMachine() {
                 return container;
             }
 
-            container = orderBookPanel.getContainer(point);
-
-            if (container !== undefined) {
-
-                /* We found an inner container which has the point. We return it. */
-
-                return container;
-            }
             
             
             //for (var i = 0; i < this.charts.length; i++) {

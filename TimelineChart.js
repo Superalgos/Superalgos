@@ -30,8 +30,6 @@ function newTimelineChart() {
     let marketId;
     let exchangeId;
 
-    let marketIndex;
-
     let level;
 
     let chartGrid;
@@ -39,11 +37,10 @@ function newTimelineChart() {
     let initializationReady = false;
 
     let productsPanel;
-    let orderBookPanel;
 
     return thisObject;
 
-    function initialize(exchange, market, pProductsPanel, orderBookPanelToUse, callBackFunction) {
+    function initialize(exchange, market, pProductsPanel, callBackFunction) {
 
         /* Remember the Products Panel */
 
@@ -55,15 +52,10 @@ function newTimelineChart() {
 
         /* Legacy code to clean */
 
-        orderBookPanel = orderBookPanelToUse;
-
         marketId = market;
         exchangeId = exchange;
 
         chartGrid = newChartGrid();
-
-        marketIndex = newMarketIndex();
-        marketIndex.initialize(exchangeId, marketId, continueInitialization);
 
         function continueInitialization() {
 
@@ -490,7 +482,7 @@ function newTimelineChart() {
 
         var maxValue = {
             x: MAX_PLOTABLE_DATE.valueOf(),
-            y: nextPorwerOf10(marketIndex.maxRate())
+            y: nextPorwerOf10(USDT_BTC_HTH)
         };
 
 

@@ -2,8 +2,8 @@
 
 /* The Dashboard is the root object that contains all the other stuff in it. Some of that stuff is visible, some other is invisible. */
 
-var canvas;
-var markets;  
+let canvas;
+let markets;  
 let ecosystem = newEcosystem();
 
 let marketFilesPeriods =
@@ -69,6 +69,8 @@ const DEFAULT_MARKET = {
     assetA: "USDT",
     assetB: "BTC",
 };
+
+const USDT_BTC_HTH = 19900; // This is needed to know the scale of the market time line. 
 
 const WIDHTER_VOLUME_BAR_BASE_FACTOR = 2.5;
 const LESS_WIDHTER_VOLUME_BAR_TOP_FACTOR = 1 / 4;
@@ -149,38 +151,20 @@ function start() {
 
     const ID_EXCHANGE_POLONIEX = 1;
 
-    var server = newFileServer();
-    server.initialize();
+    /* For now, we are supporting only one market. */
 
-    server.getMarkets(ID_EXCHANGE_POLONIEX, onResultSetReady);
+    let market = {
+        id: 2,
+        assetA: "USDT",
+        assetB: "BTC"
+    };
 
-    function onResultSetReady(resultSet) {
+    markets = new Map(); 
 
-        markets = new Map(); 
+    markets.set(market.id, market);
 
-        var totalRows = resultSet.length;
-
-        for (var i = 0; i < totalRows; i++) {
-
-            var row = resultSet[i];
-
-            /* We move the information from the result set to an order object, and use that from now on. */
-
-            market = {
-                id: row[0],
-                assetA: row[1],
-                assetB: row[2]
-            };
-
-            markets.set(market.id, market);
-
-        }
-
-
-        canvas = newCanvas();
-        canvas.initialize();
-
-    }
+    canvas = newCanvas();
+    canvas.initialize();
 
 }
 

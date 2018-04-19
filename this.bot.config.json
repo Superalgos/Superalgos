@@ -26,7 +26,11 @@
           "month": ""
         },
         "noTime": {
-          "run": "true"
+          "run": "false"
+        },
+        "fixedInterval": {
+          "run": "true",
+          "interval": 60000
         }
       },
       "normalWaitTime": 60000,
@@ -62,6 +66,10 @@
         },
         "noTime": {
           "run": "false"
+        },
+        "fixedInterval": {
+          "run": "false",
+          "interval": 0
         }
       },
       "normalWaitTime": 60000,
@@ -107,6 +115,10 @@
         },
         "noTime": {
           "run": "false"
+        },
+        "fixedInterval": {
+          "run": "false",
+          "interval": 0
         }
       },
       "normalWaitTime": 60000,

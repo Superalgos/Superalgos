@@ -831,7 +831,7 @@ function onBrowserRequest(request, response) {
                                                     stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
                                                     stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
                                                     stringToInsert = stringToInsert.replace('@image@', module.profilePicture);
-                                                    stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + module.codeName + "." + module.profilePicture);
+                                                    stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + plotter.codeName + "." + module.codeName + "." + module.profilePicture);
 
                                                     let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
                                                     let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);

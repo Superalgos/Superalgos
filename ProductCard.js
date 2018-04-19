@@ -87,7 +87,7 @@
         };
 
         this.container.frame.position = position;
-        this.container.frame.width = 380;
+        this.container.frame.width = 300;
         this.container.frame.height = 100;
 
         /* We retrieve the locally stored status of the Product */
@@ -300,6 +300,10 @@
 
         const devTeamImageSize = 50;
         const botImageSize = 50;
+        const plotterImageSize = {
+            width: 150,
+            height: 50
+        };
 
         /* First the Dev Team Profile Picture. */
 
@@ -332,7 +336,20 @@
 
         /* Third the Plotter's Profile Picture. */
 
+        if (thisObject.product.plotter.profilePicture !== undefined) {
 
+            let plotterImagePoint = {
+                x: thisObject.container.frame.width / 2 - plotterImageSize.width / 2,
+                y: thisObject.container.frame.height / 2 - plotterImageSize.height / 2
+            };
+
+            plotterImagePoint = thisObject.container.frame.frameThisPoint(plotterImagePoint);
+
+            let imageId = thisObject.bot.devTeam + "." + thisObject.product.plotter.codeName + "." + thisObject.product.plotter.moduleName + "." + thisObject.product.plotter.profilePicture;
+            let plotterImage = document.getElementById(imageId);
+            browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height);
+
+        }
 
 
         /* Now the small circle */
@@ -421,7 +438,7 @@
 
         /* product */
 
-        fontSize = 12;
+        fontSize = 10;
 
         label = thisObject.product.displayName;
 

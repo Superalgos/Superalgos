@@ -345,7 +345,7 @@
 
             plotterImagePoint = thisObject.container.frame.frameThisPoint(plotterImagePoint);
 
-            let imageId = thisObject.bot.devTeam + "." + thisObject.product.plotter.codeName + "." + thisObject.product.plotter.moduleName + "." + thisObject.product.plotter.profilePicture;
+            let imageId = thisObject.product.plotter.devTeam + "." + thisObject.product.plotter.codeName + "." + thisObject.product.plotter.moduleName + "." + thisObject.product.plotter.profilePicture;
             let plotterImage = document.getElementById(imageId);
             browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height);
 

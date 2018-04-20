@@ -1,8 +1,8 @@
 ﻿
-function newVolumePanel() {
+function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
     var currentVolumePanel = {
-        onCurrentVolumeChanged: onCurrentVolumeChanged,
+        onEventRaised: onEventRaised,
         container: undefined,
         draw: draw,
         getContainer: getContainer,
@@ -29,10 +29,7 @@ function newVolumePanel() {
         currentVolumePanel.container.frame.position.x = viewPort.visibleArea.topRight.x - currentVolumePanel.container.frame.width;
         currentVolumePanel.container.frame.position.y = 0;
 
-
     }
-
-
 
     function getContainer(point) {
 
@@ -54,7 +51,7 @@ function newVolumePanel() {
     }
 
 
-    function onCurrentVolumeChanged(lastCurrentVolume) {
+    function onEventRaised(lastCurrentVolume) {
 
         currentVolume = lastCurrentVolume;
 

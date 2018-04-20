@@ -10,8 +10,9 @@
       "profilePicture": "Candles.png",
       "panels": [
         {
-          "codeName": "Current Candle",
-          "moduleName": "CandlePanel"
+          "codeName": "CandlePanel",
+          "moduleName": "CandlePanel",
+          "event": "Current Candle Changed"
         }
       ]
     },
@@ -22,8 +23,9 @@
       "profilePicture": "Volumes.png",
       "panels": [
         {
-          "codeName": "Current Volume",
-          "moduleName": "VolumePanel"
+          "codeName": "VolumePanel",
+          "moduleName": "VolumePanel",
+          "event": "Current Volume Changed"
         }
       ]
     }

@@ -565,7 +565,7 @@
                             innerCandle: candle
                         };
 
-                        thisObject.container.eventHandler.raiseEvent("Current Candle Info Changed", currentCandle);
+                        thisObject.container.eventHandler.raiseEvent("Current Candle Changed", currentCandle);
 
                     } else {
 

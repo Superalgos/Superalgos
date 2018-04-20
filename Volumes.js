@@ -215,7 +215,7 @@
 
                         if (datetime.valueOf() >= volume.begin && datetime.valueOf() <= volume.end) {
 
-                            thisObject.container.eventHandler.raiseEvent("Current Candle Changed", thisObject.currentCandle);
+                            thisObject.container.eventHandler.raiseEvent("Current Volume Changed", thisObject.currentCandle);
 
                         }
                     }
@@ -610,7 +610,7 @@
 
                         if (dateValue >= volume.begin && dateValue <= volume.end) {
 
-                            browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 0.40)'; // Current candle accroding to time
+                            browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 0.40)'; // Current volume accroding to time
 
                         } else {
 
@@ -656,7 +656,7 @@
                                 innerVolumeBar: volume
                             };
 
-                            thisObject.container.eventHandler.raiseEvent("Current Volume Info Changed", currentVolume);
+                            thisObject.container.eventHandler.raiseEvent("Current Volume Changed", currentVolume);
 
                         }
                     }

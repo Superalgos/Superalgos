@@ -117,113 +117,6 @@ function newTimeMachine() {
 
     }
 
-    function otherCharts() {
-                   /* Chart 1 */
-            /*
-            var orderBookChart = newOrderBookChart();
-    
-            orderBookChart.container.displacement.parentDisplacement = timeMachine.container.displacement;
-            orderBookChart.container.zoom.parentZoom = timeMachine.container.zoom;
-            orderBookChart.container.frame.parentFrame = timeMachine.container.frame;
-    
-            orderBookChart.container.parentContainer = timeMachine.container;
-    
-            orderBookChart.container.frame.width = timeMachine.container.frame.width * 0.50;          
-            orderBookChart.container.frame.height = timeMachine.container.frame.height * 0.50;      
-    
-            orderBookChart.container.frame.position.x = timeMachine.container.frame.width * 0;
-            orderBookChart.container.frame.position.y = timeMachine.container.frame.height * 0.50;
-    
-            orderBookChart.initialize(1);
-    
-
-            orderBookChart.setDatetime(controlPanel.datetimeDisplay.currentDatetime);
-    
-            timeMachine.charts.push(orderBookChart);
-
-            
-    
-            controlPanel.container.eventHandler.listenToEvent('Datetime Changed', orderBookChart.setDatetime, undefined);
-            */
-            /* Chart 2 */
-            /*
-            var orderBookChart = newOrderBookChart();
-    
-            orderBookChart.container.displacement.parentDisplacement = timeMachine.container.displacement;
-            orderBookChart.container.zoom.parentZoom = timeMachine.container.zoom;
-            orderBookChart.container.frame.parentFrame = timeMachine.container.frame;
-    
-            orderBookChart.container.parentContainer = timeMachine.container;
-    
-            orderBookChart.container.frame.width = timeMachine.container.frame.width * 0.50;
-            orderBookChart.container.frame.height = timeMachine.container.frame.height * 0.50;
-    
-            orderBookChart.container.frame.position.x = timeMachine.container.frame.width * 0.50;
-            orderBookChart.container.frame.position.y = timeMachine.container.frame.height * 0.50;
-    
-            orderBookChart.initialize(2);
-    
-
-            orderBookChart.setDatetime(controlPanel.datetimeDisplay.currentDatetime);
-    
-            timeMachine.charts.push(orderBookChart);
-    
-            controlPanel.container.eventHandler.listenToEvent('Datetime Changed', orderBookChart.setDatetime, undefined);
-            */
-            /* Chart 3 */
-            /*
-            var priceChart = newPriceChart();
-    
-            priceChart.container.displacement.parentDisplacement = timeMachine.container.displacement;
-            priceChart.container.zoom.parentZoom = timeMachine.container.zoom;
-            priceChart.container.frame.parentFrame = timeMachine.container.frame;
-    
-            priceChart.container.parentContainer = timeMachine.container;
-    
-            priceChart.container.frame.width = timeMachine.container.frame.width * 1;
-            priceChart.container.frame.height = timeMachine.container.frame.height * 1 / 3;
-    
-            priceChart.container.frame.position.x = timeMachine.container.frame.width * 0;
-            priceChart.container.frame.position.y = timeMachine.container.frame.height * 0;
-    
-            priceChart.initialize(1, 2, marketTrades);
-    
-
-            priceChart.setDatetime(controlPanel.datetimeDisplay.currentDatetime);
-    
-            timeMachine.charts.push(priceChart);
-    
-            controlPanel.container.eventHandler.listenToEvent('Datetime Changed', priceChart.setDatetime, undefined);
-            */
-
-            /* Chart 5 */
-            /*
-             var spreadChart = newSpreadChart();
-     
-             spreadChart.container.displacement.parentDisplacement = timeMachine.container.displacement;
-             spreadChart.container.zoom.parentZoom = timeMachine.container.zoom;
-             spreadChart.container.frame.parentFrame = timeMachine.container.frame;
-     
-             spreadChart.container.parentContainer = timeMachine.container;
-     
-             spreadChart.container.frame.width = timeMachine.container.frame.width * 1;
-             spreadChart.container.frame.height = timeMachine.container.frame.height * 1 / 3;
-     
-             spreadChart.container.frame.position.x = timeMachine.container.frame.width * 0;
-             spreadChart.container.frame.position.y = timeMachine.container.frame.height * 1 / 3;
-     
-             spreadChart.initialize(1, 2, marketTrades);
-     
-
-             spreadChart.setDatetime(controlPanel.datetimeDisplay.currentDatetime);
-     
-             timeMachine.charts.push(spreadChart);
-     
-             controlPanel.container.eventHandler.listenToEvent('Datetime Changed', spreadChart.setDatetime, undefined);
-             */
-
-
-    }
 
     function draw() {
 
@@ -272,19 +165,17 @@ function newTimeMachine() {
                 return container;
             }
 
-            
-            
-            //for (var i = 0; i < this.charts.length; i++) {
+            for (var i = 0; i < this.charts.length; i++) {
 
-            //    container = this.charts[i].getContainer(point);
+                container = this.charts[i].getContainer(point);
 
-           //     if (container !== undefined) {
+                if (container !== undefined) {
 
                     /* We found an inner container which has the point. We return it. */
 
-            //        return container;
-            //    }
-            //}
+                    return container;
+                }
+            }
             
             /* The point does not belong to any inner container, so we return the current container. */
 

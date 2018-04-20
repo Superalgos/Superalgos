@@ -78,6 +78,7 @@
         let plotterModule = ecosystem.getPlotterModule(plotter, thisObject.product.plotter.moduleName);
 
         thisObject.product.plotter.profilePicture = plotterModule.profilePicture;
+        thisObject.product.plotter.module = plotterModule;
 
         /* Lets set the basic dimensions of this thisObject. */
 

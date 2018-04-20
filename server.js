@@ -542,7 +542,7 @@ function onBrowserRequest(request, response) {
 
         }
             break;
-        case "Plotters.js":
+        case "Plotter.js":
             {
                 /*
 
@@ -554,7 +554,7 @@ function onBrowserRequest(request, response) {
 
                 let fs = require('fs');
                 try {
-                    let fileName = 'Plotters.js';
+                    let fileName = 'Plotter.js';
                     fs.readFile(fileName, onFileRead);
 
                     function onFileRead(err, file) {
@@ -605,6 +605,95 @@ function onBrowserRequest(request, response) {
                                             let secondPart = fileContent.substring(fileContent.indexOf('// Cases'));
 
                                             fileContent = firstPart + stringToInsert + secondPart;
+                                        }
+                                    }
+                                }
+                            }
+
+                            respondWithContent(fileContent, response);
+
+                        }
+                        catch (err) {
+                            console.log("File Not Found: " + fileName + " or Error = " + err);
+                        }
+
+                    }
+                }
+                catch (err) {
+                    console.log(err);
+                }
+
+            }
+            break;
+
+        case "PlotterPanel.js":
+            {
+                /*
+
+                This file is build dinamically because it has the code to instantiate the different configured Plotter Panels. The instantiation code
+                will be generated using a pre-defined string with replacement points. We will go through the configuration file to learn
+                about all the possible plotters panels the system can load.
+
+                */
+
+                let fs = require('fs');
+                try {
+                    let fileName = 'PlotterPanel.js';
+                    fs.readFile(fileName, onFileRead);
+
+                    function onFileRead(err, file) {
+
+                        try {
+
+                            let fileContent = file.toString();
+
+                            /* This is the string we will use to insert into the Plotters.js script. */
+
+                            let caseString = '' +
+                                '        case "@newFunctionName@":' + '\n' +
+                                '        {' + '\n' +
+                                '            plotterPanel = newPlotterPanelName();' + '\n' +
+                                '        }' + '\n' +
+                                '        break;' + '\n' + '\n'
+
+                            let devTeams = ecosystemObject.devTeams;
+                            let hosts = ecosystemObject.hosts;
+
+                            addToFileContent(devTeams);
+                            addToFileContent(hosts);
+
+                            function addToFileContent(pDevTeamsOrHosts) {
+
+                                for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
+
+                                    let devTeam = pDevTeamsOrHosts[i];
+
+                                    for (let j = 0; j < devTeam.plotters.length; j++) {
+
+                                        let plotter = devTeam.plotters[j];
+
+                                        for (let k = 0; k < plotter.modules.length; k++) {
+
+                                            let module = plotter.modules[k];
+
+                                            for (let l = 0; l < module.panels.length; l++) {
+
+                                                let panel = module.panels[l];
+
+                                                let caseStringCopy = caseString;
+
+                                                let newFunctionName = devTeam.codeName + plotter.codeName + module.codeName + panel.codeName;
+                                                newFunctionName = newFunctionName.replace(/-/g, "");
+
+                                                let stringToInsert;
+                                                stringToInsert = caseStringCopy.replace('@newFunctionName@', newFunctionName);
+                                                stringToInsert = stringToInsert.replace('newPlotterPanelName', 'new' + newFunctionName);
+
+                                                let firstPart = fileContent.substring(0, fileContent.indexOf('// Cases'));
+                                                let secondPart = fileContent.substring(fileContent.indexOf('// Cases'));
+
+                                                fileContent = firstPart + stringToInsert + secondPart;
+                                            }
                                         }
                                     }
                                 }
@@ -685,6 +774,25 @@ function onBrowserRequest(request, response) {
             }
             break; 
 
+        case "PlotterPanels": // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
+            {
+
+                if (DEBUG_MODE === true) {
+
+                    respondWithFile('../Plotters/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response);
+
+                } else {
+
+                    getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived)
+
+                    function onDataArrived(pData) {
+
+                        respondWithContent(pData, response);
+
+                    }
+                }
+            }
+            break; 
         case "Panels":
             {
                 respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
@@ -724,8 +832,11 @@ function onBrowserRequest(request, response) {
 
                             function addPlotters() {
 
-                                let htmlLine = '' + '\n' +
+                                let htmlLinePlotter = '' + '\n' +
                                     '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
+
+                                let htmlLinePlotterPanel = '' + '\n' +
+                                    '    <script type="text/javascript" src="PlotterPanels/@devTeam@/@repo@/@module@.js"></script>'
 
                                 let devTeams = ecosystemObject.devTeams;
                                 let hosts = ecosystemObject.hosts;
@@ -747,7 +858,7 @@ function onBrowserRequest(request, response) {
 
                                                 let module = plotter.modules[k];
 
-                                                let htmlLineCopy = htmlLine;
+                                                let htmlLineCopy = htmlLinePlotter;
 
                                                 let stringToInsert;
                                                 stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
@@ -759,6 +870,22 @@ function onBrowserRequest(request, response) {
 
                                                 fileContent = firstPart + stringToInsert + secondPart;
 
+                                                for (let l = 0; l < module.panels.length; l++) {
+
+                                                    let panel = module.panels[l];
+
+                                                    let htmlLineCopy = htmlLinePlotterPanel;
+
+                                                    let stringToInsert;
+                                                    stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                                    stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                                    stringToInsert = stringToInsert.replace('@module@', panel.moduleName);
+
+                                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--PlotterPanels-->') + 20);
+                                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--PlotterPanels-->') + 20);
+
+                                                    fileContent = firstPart + stringToInsert + secondPart;
+                                                }
                                             }
                                         }
                                     }

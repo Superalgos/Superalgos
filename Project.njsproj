@@ -38,6 +38,12 @@
     <Compile Include="CompetitionStorage.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ImageButton.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PlotterPanel.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ProductCard.js">
       <SubType>Code</SubType>
     </Compile>
@@ -68,7 +74,7 @@
     <Compile Include="FileCache.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Plotters.js">
+    <Compile Include="Plotter.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="server.js" />

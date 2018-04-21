@@ -1,16 +1,27 @@
 ﻿/*
 
-Whithin this system, the canvas object represents a layer on top of the browser canvas object, and it is the one who should interact with it.
+Whithin this sub-system, the canvas object represents a layer on top of the browser canvas object.
 
-Graphically, the system has 3 spaces:
+Graphically, this sub-system has 3 spaces:
 
 1) The "Chart Space": It is where the charts are plotted.
 
 2) The "Floating Space": It is where floating elements live. There is a physics engine for this layer that allows these elements to flow.  
 
-3) The "Control Panel": It is where the main controls are. This is a fix panel that sits on top of everything else.
+3) The "Panels Space": It is where panels live. --> This space has yet to be develop, currently pannels are somehow at the Chart Space.  
 
 All these spaces are child objects of the Canvas object.
+
+Canvas
+  |
+  |
+  ---> chartSpace
+  |
+  |
+  ---> flaotingSpace
+  |
+  |
+  ---> PanelsSpace
 
 */
 
@@ -40,7 +51,7 @@ function newCanvas() {
 
     /* canvas object */
 
-    let canvas = {
+    let thisObject = {
         eventHandler: undefined,
         chartSpace: undefined,
         floatingSpace: undefined,
@@ -48,12 +59,12 @@ function newCanvas() {
         initialize: initialize
     };
 
-    canvas.eventHandler = newEventHandler();
+    thisObject.eventHandler = newEventHandler();
 
     let splashScreen;
 
 
-    return canvas;
+    return thisObject;
 
     function initialize() {
 
@@ -154,7 +165,7 @@ function newCanvas() {
                 y: event.pageY
             };
 
-            let container = canvas.chartSpace.getContainer(point);
+            let container = thisObject.chartSpace.getContainer(point);
 
             if (container !== undefined && container.isDraggeable === true) {
 
@@ -191,7 +202,7 @@ function newCanvas() {
                 y: event.pageY
             };
 
-            let container = canvas.chartSpace.getContainer(point);
+            let container = thisObject.chartSpace.getContainer(point);
 
             if (container !== undefined && container.isClickeable === true) {
 
@@ -211,7 +222,7 @@ function newCanvas() {
 
         if (containerDragStarted || viewPortBeingDragged || ballDragStarted) {
 
-            canvas.eventHandler.raiseEvent("Drag Finished", undefined);
+            thisObject.eventHandler.raiseEvent("Drag Finished", undefined);
 
         }
 
@@ -260,7 +271,7 @@ function newCanvas() {
         if (containerDragStarted === true || ballDragStarted === true || viewPortBeingDragged === true) {
 
             browserCanvas.style.cursor = "grabbing";
-            canvas.eventHandler.raiseEvent("Dragging", undefined);
+            thisObject.eventHandler.raiseEvent("Dragging", undefined);
 
             let targetBall = isInside(event.pageX, event.pageY);
 

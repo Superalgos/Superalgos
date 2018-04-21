@@ -56,7 +56,6 @@ function newBall() {
 
         targetPosition = this.container.frame.frameThisPoint(targetPosition);
         targetPosition = this.container.displacement.displaceThisPoint(targetPosition);
-        targetPosition = this.container.zoom.zoomThisPoint(targetPosition);
 
         this.targetPosition = targetPosition;
 
@@ -127,14 +126,13 @@ function newBall() {
 
     function updateMass() {
 
-        this.currentMass = this.rawMass + this.rawMass * this.container.zoom.incrementM * this.container.zoom.levelM;
+        //this.currentMass = this.rawMass + this.rawMass * this.container.zoom.incrementM * this.container.zoom.levelM;
 
     }
 
     function updateRadius() {
 
-
-        this.targetRadius = this.rawRadius + this.rawRadius * this.container.zoom.incrementR * this.container.zoom.levelR;
+        //this.targetRadius = this.rawRadius + this.rawRadius * this.container.zoom.incrementR * this.container.zoom.levelR;
 
     }
 
@@ -152,10 +150,6 @@ function newBall() {
         /* Second we apply the displacement. */
 
         point = this.container.displacement.displaceThisPoint(point);
-
-        /* Third we apply the zoom factor. */
-
-        point = this.container.zoom.zoomThisPoint(point);
 
         this.targetPosition.x = point.x;
         this.targetPosition.y = point.y;

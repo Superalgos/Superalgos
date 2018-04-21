@@ -24,7 +24,6 @@ function newTimelineChart() {
     thisObject.container = container;
 
     container.displacement.containerName = "Time Period Chart";
-    container.zoom.containerName = "Time Period Chart";
     container.frame.containerName = "Time Period Chart";
 
     let marketId;
@@ -97,7 +96,6 @@ function newTimelineChart() {
             let plotter = getNewPlotter(competition.plotter.host, competition.plotter.codeName, competition.plotter.moduleName);
 
             plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
-            plotter.container.zoom.parentZoom = thisObject.container.zoom;
             plotter.container.frame.parentFrame = thisObject.container.frame;
 
             plotter.container.parentContainer = thisObject.container;
@@ -191,7 +189,6 @@ function newTimelineChart() {
             let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName);
 
             plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
-            plotter.container.zoom.parentZoom = thisObject.container.zoom;
             plotter.container.frame.parentFrame = thisObject.container.frame;
 
             plotter.container.parentContainer = thisObject.container;

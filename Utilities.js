@@ -10,10 +10,6 @@ function transformThisPoint(point, container) {
 
     point = container.displacement.displaceThisPoint(point);
 
-    /* We apply the zoom factor. */
-
-    //point = container.zoom.zoomThisPoint(point);
-
     /* We viewport Transformation. */
 
     point = viewPort.zoomThisPoint(point);
@@ -24,7 +20,6 @@ function transformThisPoint(point, container) {
 function unTransformThisPoint(point, container) {
 
     point = viewPort.unzoomThisPoint(point);
-    point = container.zoom.unzoomThisPoint(point);
     point = container.displacement.undisplaceThisPoint(point);
     point = container.frame.unframeThisPoint(point);
 

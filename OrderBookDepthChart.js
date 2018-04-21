@@ -26,7 +26,6 @@ function newOrderBookDephChart() {
     orderBookDephChart.container = container;
 
     container.displacement.containerName = "Order Book Depth Chart";
-    container.zoom.containerName = "Order Book Depth Chart";
     container.frame.containerName = "Order Book Depth Chart";
 
     var bidPoints = [];
@@ -339,7 +338,6 @@ function newOrderBookDephChart() {
 
             point = orderBookDephChart.container.frame.frameThisPoint(point);
             point = orderBookDephChart.container.displacement.displaceThisPoint(point);
-            point = orderBookDephChart.container.zoom.zoomThisPoint(point);
 
             browserCanvasContext.fillText(label, point.x, point.y);
 

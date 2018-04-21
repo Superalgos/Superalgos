@@ -16,7 +16,6 @@
     container.initialize();
 
     container.isDraggeable = true;
-    container.isZoomeable = false;
 
     thisObject.container = container;
     thisObject.container.frame.containerName = "Bot's Products";
@@ -76,7 +75,6 @@
                     /* Container Stuff */
 
                     productCard.container.displacement.parentDisplacement = thisObject.container.displacement;
-                    productCard.container.zoom.parentZoom = thisObject.container.zoom;
                     productCard.container.frame.parentFrame = thisObject.container.frame;
                     productCard.container.parentContainer = thisObject.container;
 

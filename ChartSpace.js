@@ -25,13 +25,11 @@ function newChartSpace() {
     chartSpace.container.frame.height = browserCanvas.height * 100;
 
     container.displacement.containerName = "Chart Space";
-    container.zoom.containerName = "Chart Space";
     container.frame.containerName = "Chart Space";
 
     container.frame.position.x = browserCanvas.width / 2 - chartSpace.container.frame.width / 2;
     container.frame.position.y = browserCanvas.height / 2 - chartSpace.container.frame.height / 2;
 
-    container.isZoomeable = false;
     container.isDraggeable = false;
 
     return chartSpace;
@@ -44,7 +42,6 @@ function newChartSpace() {
         var timeMachine = newTimeMachine();
 
         timeMachine.container.displacement.parentDisplacement = this.container.displacement;
-        timeMachine.container.zoom.parentZoom = this.container.zoom;
         timeMachine.container.frame.parentFrame = this.container.frame;
 
         timeMachine.container.parentContainer = this.container;

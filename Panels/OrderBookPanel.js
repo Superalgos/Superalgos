@@ -14,7 +14,6 @@ function newOrderBookPanel() {
     orderBookPanel.container = container;
 
     container.displacement.containerName = "Order Book Panel";
-    container.zoom.containerName = "Order Book Panel";
     container.frame.containerName = "Order Book Panel";
 
     let currentOrderBook;

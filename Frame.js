@@ -175,13 +175,6 @@ function newFrame() {
             point3 = this.container.displacement.displaceThisPoint(point3);
             point4 = this.container.displacement.displaceThisPoint(point4);
 
-            /* We add the actual zoom. */
-
-            point1 = this.container.zoom.zoomThisPoint(point1);
-            point2 = this.container.zoom.zoomThisPoint(point2);
-            point3 = this.container.zoom.zoomThisPoint(point3);
-            point4 = this.container.zoom.zoomThisPoint(point4);
-
             if (this.parentFrame.isThisPointHere(point1) === false) {
                 return false;
             }
@@ -284,7 +277,6 @@ function newFrame() {
 
         if (outsideViewPort === true) {
 
-            checkPoint = this.container.zoom.unzoomThisPoint(checkPoint);
             checkPoint = this.container.displacement.undisplaceThisPoint(checkPoint);
             checkPoint = this.container.frame.unframeThisPoint(checkPoint);
 

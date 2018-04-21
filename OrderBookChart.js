@@ -28,7 +28,6 @@ function newOrderBookChart() {
     orderBookChart.container = container;
 
     container.displacement.containerName = "Order Book Chart";
-    container.zoom.containerName = "Order Book Chart";
     container.frame.containerName = "Order Book Chart";
 
     var orderBookDephChart = newOrderBookDephChart();
@@ -51,7 +50,6 @@ function newOrderBookChart() {
         orderBookDephChart.container.frame.position.y = this.container.frame.height * 0.05;
 
         orderBookDephChart.container.displacement.parentDisplacement = this.container.displacement;
-        orderBookDephChart.container.zoom.parentZoom = this.container.zoom;
         orderBookDephChart.container.frame.parentFrame = this.container.frame;
 
         orderBookDephChart.container.parentContainer = this.container;

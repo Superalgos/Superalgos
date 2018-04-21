@@ -19,7 +19,6 @@ function newControlPanel() {
     var container = newContainer();
     container.initialize();
     container.isDraggeable = true;
-    container.isZoomeable = false;
     controlPanel.container = container;
     controlPanel.container.frame.containerName = "Time Control Panel";
 
@@ -56,7 +55,6 @@ function newControlPanel() {
             button.type = buttonNames[i];
 
             button.container.displacement.parentDisplacement = this.container.displacement;
-            button.container.zoom.parentZoom = this.container.zoom;
             button.container.frame.parentFrame = this.container.frame;
 
             button.container.parentContainer = this.container;

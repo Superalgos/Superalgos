@@ -24,7 +24,6 @@ function newSpreadChart() {
     spreadChart.container = container;
 
     container.displacement.containerName = "Spread Chart";
-    container.zoom.containerName = "Spread Chart";
     container.frame.containerName = "Spread Chart";
 
     var marketId;

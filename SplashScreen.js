@@ -23,13 +23,11 @@ function newSplashScreen() {
     splashScreen.container.frame.height = browserCanvas.height;
 
     container.displacement.containerName = "Splash Screen";
-    container.zoom.containerName = "Splash Screen";
     container.frame.containerName = "Splash Screen";
 
     container.frame.position.x = 0;
     container.frame.position.y = 0;
 
-    container.isZoomeable = false;
     container.isDraggeable = false;
 
 

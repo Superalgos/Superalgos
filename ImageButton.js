@@ -12,7 +12,6 @@
     var container = newContainer();
     container.initialize();
     container.isDraggeable = false;
-    container.isZoomeable = false;
     container.isClickeable = true;
     thisObject.container = container;
 

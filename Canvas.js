@@ -296,7 +296,7 @@ function newCanvas() {
                     mZoomValue = -1;
                 }
 
-                ball.container.zoom.mZoom(mZoomValue);   // Zoom is applied to ball mass of all balls in the same container.
+                //ball.container.zoom.mZoom(mZoomValue);   // Zoom is applied to ball mass of all balls in the same container.
             }
 
             if (containerDragStarted || viewPortBeingDragged) {
@@ -390,7 +390,7 @@ function newCanvas() {
 
             /* We need to apply the Radius zoom to the cointainer of the ball where the zoom was made, for that reason, we need the ball. */
 
-            balls[ballIndex].container.zoom.rZoom(delta);   // Zoom is applied to ball radius.
+           // balls[ballIndex].container.zoom.rZoom(delta);   // Zoom is applied to ball radius.
 
         } else {
 

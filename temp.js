@@ -48,7 +48,7 @@ function newOrderBookChart() {
     orderBookChart.container = container;
 
     container.displacement.containerName = "Order Book Chart";
-    container.zoom.containerName = "Order Book Chart";
+
     container.frame.containerName = "Order Book Chart";
 
     var orderBookSnapShot = newOrderBookSnapShot();
@@ -213,11 +213,6 @@ function newOrderBookChart() {
             maxBasePoint = orderBookChart.container.displacement.displaceThisPoint(maxBasePoint);
             minBasePoint = orderBookChart.container.displacement.displaceThisPoint(minBasePoint);
 
-            /* We apply the zoom factor. */
-
-            minBasePoint = orderBookChart.container.zoom.zoomThisPoint(minBasePoint);
-            maxBasePoint = orderBookChart.container.zoom.zoomThisPoint(maxBasePoint);
-
             /* Lets start the drawing. */
 
             browserCanvasContext.beginPath();
@@ -246,10 +241,6 @@ function newOrderBookChart() {
                 /* First we apply the displacement. */
 
                 point = orderBookChart.container.displacement.displaceThisPoint(point);
-
-                /* We apply the zoom factor. */
-
-                point = orderBookChart.container.zoom.zoomThisPoint(point);
 
                 browserCanvasContext.lineTo(point.x, point.y);
 
@@ -298,11 +289,6 @@ function newOrderBookChart() {
             maxBasePoint = orderBookChart.container.displacement.displaceThisPoint(maxBasePoint);
             minBasePoint = orderBookChart.container.displacement.displaceThisPoint(minBasePoint);
 
-            /* We apply the zoom factor. */
-
-            minBasePoint = orderBookChart.container.zoom.zoomThisPoint(minBasePoint);
-            maxBasePoint = orderBookChart.container.zoom.zoomThisPoint(maxBasePoint);
-
             /* Lets start the drawing. */
 
             browserCanvasContext.beginPath();
@@ -326,10 +312,6 @@ function newOrderBookChart() {
                 /* We add the possible displacement */
 
                 point = orderBookChart.container.displacement.displaceThisPoint(point);
-
-                /* We apply the zoom factor. */
-
-                point = orderBookChart.container.zoom.zoomThisPoint(point);
 
                 browserCanvasContext.lineTo(point.x, point.y);
 
@@ -391,7 +373,7 @@ function newOrderBookChart() {
 
             point = orderBookChart.container.frame.frameThisPoint(point);
             point = orderBookChart.container.displacement.displaceThisPoint(point);
-            point = orderBookChart.container.zoom.zoomThisPoint(point);
+
 
             browserCanvasContext.fillText(label, point.x, point.y);
 

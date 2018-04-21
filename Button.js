@@ -15,7 +15,6 @@
     var container = newContainer();
     container.initialize();
     container.isDraggeable = false;
-    container.isZoomeable = false;
     container.isClickeable = true;
     button.container = container;
 
@@ -170,15 +169,6 @@
         point6 = button.container.displacement.displaceThisPoint(point6);
         point7 = button.container.displacement.displaceThisPoint(point7);
 
-        point1 = button.container.zoom.zoomThisPoint(point1);
-        point2 = button.container.zoom.zoomThisPoint(point2);
-        point3 = button.container.zoom.zoomThisPoint(point3);
-
-        point5 = button.container.zoom.zoomThisPoint(point5);
-        point6 = button.container.zoom.zoomThisPoint(point6);
-        point7 = button.container.zoom.zoomThisPoint(point7);
-
-
         /* Lets start the drawing. */
 
         browserCanvasContext.beginPath();
@@ -235,10 +225,6 @@
         point1 = button.container.displacement.displaceThisPoint(point1);
         point2 = button.container.displacement.displaceThisPoint(point2);
         point3 = button.container.displacement.displaceThisPoint(point3);
-
-        point1 = button.container.zoom.zoomThisPoint(point1);
-        point2 = button.container.zoom.zoomThisPoint(point2);
-        point3 = button.container.zoom.zoomThisPoint(point3);
 
         /* Lets start the drawing. */
 
@@ -325,16 +311,6 @@
         point6 = button.container.displacement.displaceThisPoint(point6);
         point7 = button.container.displacement.displaceThisPoint(point7);
         point8 = button.container.displacement.displaceThisPoint(point8);
-
-        point1 = button.container.zoom.zoomThisPoint(point1);
-        point2 = button.container.zoom.zoomThisPoint(point2);
-        point3 = button.container.zoom.zoomThisPoint(point3);
-
-        point5 = button.container.zoom.zoomThisPoint(point5);
-        point6 = button.container.zoom.zoomThisPoint(point6);
-        point7 = button.container.zoom.zoomThisPoint(point7);
-        point8 = button.container.zoom.zoomThisPoint(point8);
-
 
         /* Lets start the drawing. */
 
@@ -429,16 +405,6 @@
         point7 = button.container.displacement.displaceThisPoint(point7);
         point8 = button.container.displacement.displaceThisPoint(point8);
 
-        point1 = button.container.zoom.zoomThisPoint(point1);
-        point2 = button.container.zoom.zoomThisPoint(point2);
-        point3 = button.container.zoom.zoomThisPoint(point3);
-        point4 = button.container.zoom.zoomThisPoint(point4);
-        point5 = button.container.zoom.zoomThisPoint(point5);
-        point6 = button.container.zoom.zoomThisPoint(point6);
-        point7 = button.container.zoom.zoomThisPoint(point7);
-        point8 = button.container.zoom.zoomThisPoint(point8);
-
-
         /* Lets start the drawing. */
 
         browserCanvasContext.beginPath();
@@ -531,16 +497,6 @@
         point7 = button.container.displacement.displaceThisPoint(point7);
         point8 = button.container.displacement.displaceThisPoint(point8);
 
-        point1 = button.container.zoom.zoomThisPoint(point1);
-        point2 = button.container.zoom.zoomThisPoint(point2);
-        point3 = button.container.zoom.zoomThisPoint(point3);
-
-        point5 = button.container.zoom.zoomThisPoint(point5);
-        point6 = button.container.zoom.zoomThisPoint(point6);
-        point7 = button.container.zoom.zoomThisPoint(point7);
-        point8 = button.container.zoom.zoomThisPoint(point8);
-
-
         /* Lets start the drawing. */
 
         browserCanvasContext.beginPath();
@@ -599,10 +555,6 @@
         point1 = button.container.displacement.displaceThisPoint(point1);
         point2 = button.container.displacement.displaceThisPoint(point2);
         point3 = button.container.displacement.displaceThisPoint(point3);
-
-        point1 = button.container.zoom.zoomThisPoint(point1);
-        point2 = button.container.zoom.zoomThisPoint(point2);
-        point3 = button.container.zoom.zoomThisPoint(point3);
 
         /* Lets start the drawing. */
 
@@ -685,15 +637,6 @@
         point5 = button.container.displacement.displaceThisPoint(point5);
         point6 = button.container.displacement.displaceThisPoint(point6);
         point7 = button.container.displacement.displaceThisPoint(point7);
-
-        point1 = button.container.zoom.zoomThisPoint(point1);
-        point2 = button.container.zoom.zoomThisPoint(point2);
-        point3 = button.container.zoom.zoomThisPoint(point3);
-
-        point5 = button.container.zoom.zoomThisPoint(point5);
-        point6 = button.container.zoom.zoomThisPoint(point6);
-        point7 = button.container.zoom.zoomThisPoint(point7);
-
 
         /* Lets start the drawing. */
 

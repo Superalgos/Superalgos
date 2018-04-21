@@ -22,7 +22,6 @@ function newPriceChart() {
     priceChart.container = container;
 
     container.displacement.containerName = "Price Chart";
-    container.zoom.containerName = "Price Chart";
     container.frame.containerName = "Price Chart";
 
     var marketId;

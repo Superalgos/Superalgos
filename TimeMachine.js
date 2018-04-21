@@ -19,7 +19,6 @@ function newTimeMachine() {
     timeMachine.container.isDraggeable = false;
 
     container.displacement.containerName = "Time Machine";
-    container.zoom.containerName = "Time Machine";
     container.frame.containerName = "Time Machine";
 
     let botsPanel;
@@ -44,7 +43,6 @@ function newTimeMachine() {
         let timelineChart = newTimelineChart();
 
         timelineChart.container.displacement.parentDisplacement = timeMachine.container.displacement;
-        timelineChart.container.zoom.parentZoom = timeMachine.container.zoom;
         timelineChart.container.frame.parentFrame = timeMachine.container.frame;
 
         timelineChart.container.parentContainer = timeMachine.container;
@@ -85,7 +83,6 @@ function newTimeMachine() {
                 let timelineChart = newTimelineChart();
 
                 timelineChart.container.displacement.parentDisplacement = timeMachine.container.displacement;
-                timelineChart.container.zoom.parentZoom = timeMachine.container.zoom;
                 timelineChart.container.frame.parentFrame = timeMachine.container.frame;
 
                 timelineChart.container.parentContainer = timeMachine.container;

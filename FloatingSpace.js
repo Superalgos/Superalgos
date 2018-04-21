@@ -9,6 +9,8 @@ function newFloatingSpace() {
 
     let thisObject = {
         physicsLoop: physicsLoop,
+        isInside: isInside,
+        isInsideBall: isInsideBall,
         balls: [],   // <-- TODO: Check if this is really needed here. 
         initialize: initialize
     };

@@ -151,7 +151,7 @@ function newCanvas() {
 
         /* We check first if the mouse is over a ball/ */
 
-        ballBeingDragged = isInside(event.pageX, event.pageY);
+        ballBeingDragged = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
 
         if (ballBeingDragged >= 0) {
             ballDragStarted = true;
@@ -187,7 +187,7 @@ function newCanvas() {
 
         /* We check first if the mouse is over a ball/ */ 
 
-        let ballBeingClicked = isInside(event.pageX, event.pageY);
+        let ballBeingClicked = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
 
         if (ballBeingClicked >= 0) {
 
@@ -247,7 +247,7 @@ function newCanvas() {
 
             if (ballDragStarted === true) {
 
-                if (isInsideBall(ballBeingDragged, event.pageX, event.pageY) === false) {
+                if (thisObject.floatingSpace.isInsideBall(ballBeingDragged, event.pageX, event.pageY) === false) {
 
                     /* This means that the user stop moving the mouse and the ball ball out of the pointer.
                     In this case we cancell the drag operation . */
@@ -273,7 +273,7 @@ function newCanvas() {
             browserCanvas.style.cursor = "grabbing";
             thisObject.eventHandler.raiseEvent("Dragging", undefined);
 
-            let targetBall = isInside(event.pageX, event.pageY);
+            let targetBall = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
 
             if (ballDragStarted) {
 
@@ -384,7 +384,7 @@ function newCanvas() {
         var event = window.event || event; // old IE support
         let delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
 
-        let ballIndex = isInside(event.pageX, event.pageY);
+        let ballIndex = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
 
         if (ballIndex >= 0) {
 

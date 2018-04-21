@@ -105,8 +105,6 @@ function repulsionForce(currentBall) {
 
 }
 
-
-
 function colliding(ball1, ball2)
 
 {
@@ -132,7 +130,6 @@ function colliding(ball1, ball2)
     else return true;
 }
 
-
 function isInside(x, y) {
 
     /* This function detects weather the point x,y is inside any of the balls. */
@@ -148,7 +145,6 @@ function isInside(x, y) {
     return -1;
 
 }
-
 
 function isInsideBall(ballIndex, x, y) {
 
@@ -169,7 +165,6 @@ function isInsideBall(ballIndex, x, y) {
 function distance(x1, y1, x2, y2) {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
-
 
 function resolveCollision(ball1, ball2) {
 
@@ -196,16 +191,11 @@ function resolveCollision(ball1, ball2) {
     var cosAngle = Math.cos(collisionision_angle);
     var sinAngle = Math.sin(collisionision_angle);
 
-
     ball1.currentSpeed.x = cosAngle * final_xspeed_1 - sinAngle * final_yspeed_1;
     ball1.currentSpeed.y = sinAngle * final_xspeed_1 + cosAngle * final_yspeed_1;
 
     ball2.currentSpeed.x = cosAngle * final_xspeed_2 - sinAngle * final_yspeed_2;
     ball2.currentSpeed.y = sinAngle * final_xspeed_2 + cosAngle * final_yspeed_2;
-
-
-
-
 
     var pos1 = {
         x: ball1.currentPosition.x,

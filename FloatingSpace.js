@@ -4,17 +4,17 @@ The Floating Space is the place where floating elements like balls, live and are
 
 */
 
-var balls;                          // This is the array of balls being displayed
+let balls;                          // This is the array of balls being displayed
 
 function newFloatingSpace() {
 
-    var floatingSpace = {
+    let thisObject = {
         physicsLoop: physicsLoop,
         balls: [],
         initialize: initialize
     };
 
-    return floatingSpace;
+    return thisObject;
 
     function initialize() {
 
@@ -26,9 +26,9 @@ function newFloatingSpace() {
 
         /* This function makes all the calculations to apply phisycs on all objects in this space. */
 
-        for (var i = 0; i < balls.length; i++) {
+        for (let i = 0; i < balls.length; i++) {
 
-            var ball = balls[i];
+            let ball = balls[i];
 
             /* Change position based on speed */
 
@@ -65,7 +65,7 @@ function newFloatingSpace() {
 
             /* Collision Control */
 
-            for (var k = i + 1; k < balls.length; k++) {
+            for (let k = i + 1; k < balls.length; k++) {
 
                 if (colliding(balls[i], balls[k])) {
 
@@ -81,14 +81,14 @@ function newFloatingSpace() {
 
         }
 
-        for (var i = 0; i < balls.length; i++) {
-            var ball = balls[i];
+        for (let i = 0; i < balls.length; i++) {
+            let ball = balls[i];
             ball.drawBackground();
         }
 
-        for (var i = 0; i < balls.length; i++) {
-            var ball = balls[balls.length - i - 1];
-            //var ball = balls[i];
+        for (let i = 0; i < balls.length; i++) {
+            let ball = balls[balls.length - i - 1];
+            //let ball = balls[i];
             ball.drawForeground();
         }
 

@@ -1,8 +1,11 @@
 ﻿
-
 function newBall() {
 
     var ball = {
+
+        initializeTargetPosition: initializeTargetPosition,
+        initializeMass: initializeMass,
+        initializeRadius: initializeRadius,
 
         currentPosition: 0,                     // Current x,y position of the ball at the ball's layer, where there is no displacement or zoom. This position is always changing towards the target position.
         currentSpeed: 0,                        // This is the current speed of the ball.
@@ -26,9 +29,6 @@ function newBall() {
 
         radomizeCurrentPosition: radomizeCurrentPosition,
         radomizeCurrentSpeed: radomizeCurrentSpeed,
-        initializeTargetPosition: initializeTargetPosition,
-        initializeMass: initializeMass,
-        initializeRadius: initializeRadius,
 
         drawBackground: drawBallBackgrond,      // Function to draw the ball elements on the canvas layer.
         drawForeground: drawBallForeground,     // Function to draw the ball elements on the balls layer.
@@ -41,11 +41,9 @@ function newBall() {
         linkedObjectType: "",                   // Since there might be balls for different types of objects, here we store the type of object we are linking to. 
 
         container: undefined                    // This is a pointer to the object where the ball belongs to.
-
     };
 
     return ball;
-
 
     function initializeTargetPosition() {
 
@@ -90,7 +88,6 @@ function newBall() {
         this.currentRadius = radius / 3;
 
     }
-
 
     function radomizeCurrentPosition(arroundPoint) {
 
@@ -165,129 +162,122 @@ function newBall() {
 
     }
 
-}
+    function drawBallBackgrond() {
 
+        if (this.currentRadius > 1) {
 
+            /* Target Line */
 
-function drawBallBackgrond() {
+            browserCanvasContext.beginPath();
+            browserCanvasContext.moveTo(this.currentPosition.x, this.currentPosition.y);
+            browserCanvasContext.lineTo(this.targetPosition.x, this.targetPosition.y);
+            browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)';
+            browserCanvasContext.setLineDash([4, 2]);
+            browserCanvasContext.lineWidth = 1;
+            browserCanvasContext.stroke();
+            browserCanvasContext.setLineDash([0, 0]);
 
-    if (this.currentRadius > 1) {
+        }
 
-        /* Target Line */
+        if (this.currentRadius > 0.5) {
 
-        browserCanvasContext.beginPath();
-        browserCanvasContext.moveTo(this.currentPosition.x, this.currentPosition.y);
-        browserCanvasContext.lineTo(this.targetPosition.x, this.targetPosition.y);
-        browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)';
-        browserCanvasContext.setLineDash([4, 2]);
-        browserCanvasContext.lineWidth = 1;
-        browserCanvasContext.stroke();
-        browserCanvasContext.setLineDash([0, 0]);
+            /* Target Spot */
 
+            var radius = 1;
+
+            browserCanvasContext.beginPath();
+            browserCanvasContext.arc(this.targetPosition.x, this.targetPosition.y, radius, 0, Math.PI * 2, true);
+            browserCanvasContext.closePath();
+            browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)';
+            browserCanvasContext.fill();
+
+        }
     }
 
-    if (this.currentRadius > 0.5) {
+    function drawBallForeground() {
 
-        /* Target Spot */
+        if (this.currentRadius > 5) {
 
-        var radius = 1;
+            /* Contourn */
 
-        browserCanvasContext.beginPath();
-        browserCanvasContext.arc(this.targetPosition.x, this.targetPosition.y, radius, 0, Math.PI * 2, true);
-        browserCanvasContext.closePath();
-        browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)';
-        browserCanvasContext.fill();
+            browserCanvasContext.beginPath();
+            browserCanvasContext.arc(this.currentPosition.x, this.currentPosition.y, this.currentRadius, 0, Math.PI * 2, true);
+            browserCanvasContext.closePath();
+            browserCanvasContext.strokeStyle = 'rgba(30, 30, 30, 0.75)';
+            browserCanvasContext.lineWidth = 1;
+            browserCanvasContext.stroke();
 
-    }
+        }
 
-}
+        if (this.currentRadius > 0.5) {
 
+            /* Main Ball */
 
+            var alphaA;
 
+            if (this.currentRadius < 3) {
+                alphaA = 1;
+            } else {
+                alphaA = 0.75;
+            }
 
-
-function drawBallForeground() {
-
-
-    if (this.currentRadius > 5) {
-
-        /* Contourn */
-
-        browserCanvasContext.beginPath();
-        browserCanvasContext.arc(this.currentPosition.x, this.currentPosition.y, this.currentRadius, 0, Math.PI * 2, true);
-        browserCanvasContext.closePath();
-        browserCanvasContext.strokeStyle = 'rgba(30, 30, 30, 0.75)';
-        browserCanvasContext.lineWidth = 1;
-        browserCanvasContext.stroke();
-
-    }
-
-    if (this.currentRadius > 0.5) {
-
-        /* Main Ball */
-
-        var alphaA;
-
-        if (this.currentRadius < 3) {
-            alphaA = 1;
-        } else {
             alphaA = 0.75;
+
+            browserCanvasContext.beginPath();
+            browserCanvasContext.arc(this.currentPosition.x, this.currentPosition.y, this.currentRadius, 0, Math.PI * 2, true);
+            browserCanvasContext.closePath();
+
+            browserCanvasContext.fillStyle = this.fillStyle;
+
+            browserCanvasContext.fill();
+
         }
 
-        alphaA = 0.75;
+        /* Label First Text */
 
-        browserCanvasContext.beginPath();
-        browserCanvasContext.arc(this.currentPosition.x, this.currentPosition.y, this.currentRadius, 0, Math.PI * 2, true);
-        browserCanvasContext.closePath();
+        if (this.currentRadius > 6) {
 
-        browserCanvasContext.fillStyle = this.fillStyle;
+            browserCanvasContext.strokeStyle = this.labelStrokeStyle;
 
-        browserCanvasContext.fill();
+            var xOffset = 0;
 
-    }
+            if (this.labelFirstText >= 10) {
+                xOffset = this.currentRadius / 10;
+            }
 
-    /* Label First Text */
+            browserCanvasContext.font = (this.currentRadius / 4).toFixed(0) + 'px verdana';
 
-    if (this.currentRadius > 6) {
+            try {
+                browserCanvasContext.fillText(this.labelFirstText.toFixed(0), this.currentPosition.x - 2 - xOffset, this.currentPosition.y + 2);
+            } catch (err) {
+                browserCanvasContext.fillText(this.labelFirstText, this.currentPosition.x - 2 - xOffset, this.currentPosition.y + 2);
+            }
 
-        browserCanvasContext.strokeStyle = this.labelStrokeStyle;
-
-        var xOffset = 0;
-
-        if (this.labelFirstText >= 10) {
-            xOffset = this.currentRadius / 10;
         }
 
-        browserCanvasContext.font = (this.currentRadius / 4).toFixed(0) + 'px verdana';
+        /* Label Second Text */
 
-        try {
-            browserCanvasContext.fillText(this.labelFirstText.toFixed(0), this.currentPosition.x - 2 - xOffset, this.currentPosition.y + 2);
-        } catch (err) {
-            browserCanvasContext.fillText(this.labelFirstText, this.currentPosition.x - 2 - xOffset, this.currentPosition.y + 2);
-        }
+        if (this.currentRadius > 10) {
 
-    }
+            browserCanvasContext.strokeStyle = this.labelStrokeStyle;
+
+            var xOffset = 0;
 
 
-    /* Label Second Text */
-
-    if (this.currentRadius > 10) {
-
-        browserCanvasContext.strokeStyle = this.labelStrokeStyle;
-
-        var xOffset = 0;
+            xOffset = this.currentRadius / 2;
 
 
-        xOffset = this.currentRadius / 2;
+            browserCanvasContext.font = (this.currentRadius / 6).toFixed(0) + 'px verdana';
 
-
-        browserCanvasContext.font = (this.currentRadius / 6).toFixed(0) + 'px verdana';
-
-        try {
-            browserCanvasContext.fillText(this.labelSecondText.toFixed(8), this.currentPosition.x - xOffset, this.currentPosition.y + xOffset);
-        } catch (err) {
-            browserCanvasContext.fillText(this.labelSecondText, this.currentPosition.x - xOffset, this.currentPosition.y + xOffset);
+            try {
+                browserCanvasContext.fillText(this.labelSecondText.toFixed(8), this.currentPosition.x - xOffset, this.currentPosition.y + xOffset);
+            } catch (err) {
+                browserCanvasContext.fillText(this.labelSecondText, this.currentPosition.x - xOffset, this.currentPosition.y + xOffset);
+            }
         }
     }
+
 }
+
+
 

@@ -14,8 +14,8 @@ All these spaces are child objects of the Canvas object.
 
 */
 
-var browserCanvas;                 // This is the canvas object of the browser.
-var browserCanvasContext;          // The context of the canvas object.
+let browserCanvas;                 // This is the canvas object of the browser.
+let browserCanvasContext;          // The context of the canvas object.
 
 let stepsInitializationCounter = 0;         // This counter the initialization steps required to be able to turn off the splash screen.
 let marketInitializationCounter = 0;        // This counter the initialization of markets required to be able to turn off the splash screen.
@@ -25,13 +25,13 @@ function newCanvas() {
 
     /* Mouse event related variables. */
 
-    var containerDragStarted = false;
-    var ballDragStarted = false;
-    var ballBeingDragged;
-    var containerBeingDragged;
-    var viewPortBeingDragged = false;
+    let containerDragStarted = false;
+    let ballDragStarted = false;
+    let ballBeingDragged;
+    let containerBeingDragged;
+    let viewPortBeingDragged = false;
 
-    var dragVector = {
+    let dragVector = {
         downX: 0,
         downY: 0,
         upX: 0,
@@ -40,7 +40,7 @@ function newCanvas() {
 
     /* canvas object */
 
-    var canvas = {
+    let canvas = {
         eventHandler: undefined,
         chartSpace: undefined,
         floatingSpace: undefined,
@@ -61,14 +61,14 @@ function newCanvas() {
 
         addCanvasEvents();
 
-        /* The canvas has one ChartSpace child. Here is where we get it. */
+        /* The canvas has one ChartSpace child. Here is where we get it. */ 
 
-        var chartSpace = newChartSpace();
+        let chartSpace = newChartSpace();
         chartSpace.initialize();
 
         this.chartSpace = chartSpace;
 
-        var floatingSpace = newFloatingSpace();
+        let floatingSpace = newFloatingSpace();
         floatingSpace.initialize();
 
         this.floatingSpace = floatingSpace;
@@ -76,10 +76,12 @@ function newCanvas() {
         splashScreen = newSplashScreen();
         splashScreen.initialize();
 
-        var animation = newAnimation();
+        let animation = newAnimation();
         animation.initialize(clearBrowserCanvas);
 
         this.animation = animation;
+
+        /* Here we add all the functions that will be called during the animation cycle. */
 
         animation.addCallBackFunction("Chart Space", this.chartSpace.draw);
         animation.addCallBackFunction("Floating Space", this.floatingSpace.physicsLoop);
@@ -93,7 +95,7 @@ function newCanvas() {
         browserCanvas = document.getElementById('canvas');
         browserCanvasContext = browserCanvas.getContext('2d');
 
-        var body = document.getElementById('body');
+        let body = document.getElementById('body');
 
         browserCanvas.width = window.innerWidth;
         browserCanvas.height = window.innerHeight;
@@ -147,12 +149,12 @@ function newCanvas() {
 
             /* If it is not, then we check if it is over any of the existing containers. */
 
-            var point = {
+            let point = {
                 x: event.pageX,
                 y: event.pageY
             };
 
-            var container = canvas.chartSpace.getContainer(point);
+            let container = canvas.chartSpace.getContainer(point);
 
             if (container !== undefined && container.isDraggeable === true) {
 
@@ -172,9 +174,9 @@ function newCanvas() {
         dragVector.downX = event.pageX;
         dragVector.downY = event.pageY;
 
-        /* We check first if the mouse is over a ball/ */
+        /* We check first if the mouse is over a ball/ */ 
 
-        var ballBeingClicked = isInside(event.pageX, event.pageY);
+        let ballBeingClicked = isInside(event.pageX, event.pageY);
 
         if (ballBeingClicked >= 0) {
 
@@ -184,12 +186,12 @@ function newCanvas() {
 
             /* If it is not, then we check if it is over any of the existing containers. */
 
-            var point = {
+            let point = {
                 x: event.pageX,
                 y: event.pageY
             };
 
-            var container = canvas.chartSpace.getContainer(point);
+            let container = canvas.chartSpace.getContainer(point);
 
             if (container !== undefined && container.isClickeable === true) {
 
@@ -260,21 +262,21 @@ function newCanvas() {
             browserCanvas.style.cursor = "grabbing";
             canvas.eventHandler.raiseEvent("Dragging", undefined);
 
-            var targetBall = isInside(event.pageX, event.pageY);
+            let targetBall = isInside(event.pageX, event.pageY);
 
             if (ballDragStarted) {
 
-                var ball = balls[ballBeingDragged];
+                let ball = balls[ballBeingDragged];
 
                 ball.currentPosition.x = dragVector.upX;
                 ball.currentPosition.y = dragVector.upY;
 
                 /* Now we estimate if the drag was towards the Target Point of the ball or not. */
 
-                var distDown = distance(dragVector.downX, dragVector.downY, ball.targetPosition.x, ball.targetPosition.y);
-                var distUp = distance(dragVector.upX, dragVector.upY, ball.targetPosition.x, ball.targetPosition.y);
+                let distDown = distance(dragVector.downX, dragVector.downY, ball.targetPosition.x, ball.targetPosition.y);
+                let distUp = distance(dragVector.upX, dragVector.upY, ball.targetPosition.x, ball.targetPosition.y);
 
-                var mZoomValue;
+                let mZoomValue;
 
                 if (distDown < distUp) {
 
@@ -291,21 +293,21 @@ function newCanvas() {
                 /* The parameters received have been captured with zoom applied. We must remove the zoom in order to correctly modify the displacement. */
 
                 
-                var downCopy = {
+                let downCopy = {
                     x: dragVector.downX,
                     y: dragVector.downY
                 };
 
-                var downCopyNoTransf;
+                let downCopyNoTransf;
                 downCopyNoTransf = viewPort.unzoomThisPoint(downCopy);
                 //downCopyNoTransf = containerBeingDragged.zoom.unzoomThisPoint(downCopyNoTransf);
 
-                var upCopy = {
+                let upCopy = {
                     x: dragVector.upX,
                     y: dragVector.upY
                 };
 
-                var upCopyNoTranf;
+                let upCopyNoTranf;
                 upCopyNoTranf = viewPort.unzoomThisPoint(upCopy);
                 //upCopyNoTranf = containerBeingDragged.zoom.unzoomThisPoint(upCopyNoTranf);
 
@@ -367,11 +369,11 @@ function newCanvas() {
 
     function onMouseWheel(event) {
 
-        // cross-browser wheel delta
+        // cross-browser wheel delta 
         var event = window.event || event; // old IE support
-        var delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
+        let delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
 
-        var ballIndex = isInside(event.pageX, event.pageY);
+        let ballIndex = isInside(event.pageX, event.pageY);
 
         if (ballIndex >= 0) {
 
@@ -383,7 +385,7 @@ function newCanvas() {
 
             /* We check if the mouse is over any of the existing containers. */
 
-            var point = {
+            let point = {
                 x: event.pageX,
                 y: event.pageY
             };

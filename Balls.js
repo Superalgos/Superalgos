@@ -1,6 +1,4 @@
 ﻿
-
-
 function updateBallsTargets() {
 
     /* Whenever there is a change in the currentZoom level, all targets needs to be recalculated in order to fit in the new timeLineCoordinateSystem. */

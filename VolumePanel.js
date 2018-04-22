@@ -14,7 +14,6 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
     currentVolumePanel.container = container;
 
     container.displacement.containerName = "Current Volume Panel";
-    container.zoom.containerName = "Current Volume Panel";
     container.frame.containerName = "Current Volume Panel";
 
     let currentVolume;

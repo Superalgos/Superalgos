@@ -14,7 +14,6 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
     currentCandlePanel.container = container;
 
     container.displacement.containerName = "Current Candle Panel";
-    container.zoom.containerName = "Current Candle Panel";
     container.frame.containerName = "Current Candle Panel";
 
     let currentCandle;

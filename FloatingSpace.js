@@ -8,6 +8,7 @@ function newFloatingSpace() {
     let thisObject = {
         balls: undefined,               // This is the array of balls being displayed
         createNewBall: createNewBall,
+        destroyBall: destroyBall,
         physicsLoop: physicsLoop,
         isInside: isInside,
         isInsideBall: isInsideBall,
@@ -136,9 +137,32 @@ function newFloatingSpace() {
 
         createdBalls.push(ball);
 
-        ball.index = thisObject.balls.length;
+        ball.handle = Math.floor((Math.random() * 10000000) + 1);
 
-        return ball;
+        return ball.handle;
+    }
+
+    function destroyBall(pBallHandle) {
+
+        for (let i = 0; i < createdBalls.length; i++) {
+
+            let ball = createdBalls[i];
+
+            if (ball.handle === pBallHandle) {
+                createdBalls.splice(i, 1);  // Delete item from array.
+                return;                 
+            }
+        }
+
+        for (let i = 0; i < thisObject.balls.length; i++) {
+
+            let ball = thisObject.balls[i];
+
+            if (ball.handle === pBallHandle) {
+                thisObject.balls.splice(i, 1);  // Delete item from array.
+                return;
+            }
+        }
     }
 
     /******************************************/

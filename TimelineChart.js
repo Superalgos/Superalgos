@@ -218,7 +218,8 @@ function newTimelineChart() {
                 let productPlotter = {
                     productCard: pProductCard,
                     plotter: plotter,
-                    storage: storage
+                    storage: storage,
+                    profile: undefined
                 };
 
                 /* Let the Plotter listen to the event of Cursor Files loaded, so that it can reack recalculating if needed. */
@@ -257,7 +258,7 @@ function newTimelineChart() {
                     productPlotter.plotter.profile.label = pProductCard.bot.displayName;
                     productPlotter.plotter.profile.imageId = imageId;
 
-                    canvas.floatingSpace.createNewBall(productPlotter.plotter.profile, thisObject.container)
+                    productPlotter.profile = canvas.floatingSpace.createNewBall(productPlotter.plotter.profile, thisObject.container)
 
                 }
 
@@ -302,6 +303,12 @@ function newTimelineChart() {
             for (let i = 0; i < productPlotters.length; i++) {
 
                 if (productPlotters[i].productCard.code === pProductCard.code) {
+
+                    if (productPlotters[i].profile !== undefined) {
+
+                        canvas.floatingSpace.destroyBall(productPlotters[i].profile);
+
+                    }
 
                     productPlotters.splice(i, 1); // Delete item from array.
 

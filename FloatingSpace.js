@@ -25,6 +25,62 @@ function newFloatingSpace() {
     
     }
 
+
+    function createNewBall(pInput, pContainer) {
+
+        /* This function is used to create new balls, representing labels of each point on the chart. */
+
+        var ball = newBall();
+
+        ball.input = pInput;
+
+        ball.container = pContainer;
+
+        ball.friction = .995;
+
+        ball.initializeMass(15);
+        ball.initializeRadius(30);
+        ball.initializeImageSize(50);
+
+        ball.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        ball.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)';
+
+        createdBalls.push(ball);
+
+        ball.handle = Math.floor((Math.random() * 10000000) + 1);
+
+        return ball.handle;
+    }
+
+    function destroyBall(pBallHandle) {
+
+        for (let i = 0; i < createdBalls.length; i++) {
+
+            let ball = createdBalls[i];
+
+            if (ball.handle === pBallHandle) {
+                createdBalls.splice(i, 1);  // Delete item from array.
+                return;
+            }
+        }
+
+        for (let i = 0; i < thisObject.balls.length; i++) {
+
+            let ball = thisObject.balls[i];
+
+            if (ball.handle === pBallHandle) {
+                thisObject.balls.splice(i, 1);  // Delete item from array.
+                return;
+            }
+        }
+    }
+
+    /******************************************/
+    /*                                        */
+    /*        Physics Engine Follows          */
+    /*                                        */
+    /******************************************/
+
     function physicsLoop() {
 
         /* This function makes all the calculations to apply phisycs on all balls in this space. */
@@ -63,6 +119,14 @@ function newFloatingSpace() {
                 ball.currentRadius = ball.currentRadius + .5;
             } else {
                 ball.currentRadius = ball.currentRadius - .5;
+            }
+
+            // The imageSize also have a target.
+
+            if (ball.currentImageSize < ball.targetImageSize) {
+                ball.currentImageSize = ball.currentImageSize + 1;
+            } else {
+                ball.currentImageSize = ball.currentImageSize - 1;
             }
 
             /* Collision Control */
@@ -116,60 +180,6 @@ function newFloatingSpace() {
             }
         }
     }
-
-    function createNewBall(pInput, pContainer) {
-
-        /* This function is used to create new balls, representing labels of each point on the chart. */
-
-        var ball = newBall();
-
-        ball.input = pInput;
-
-        ball.container = pContainer;
-
-        ball.friction = .995;
-
-        ball.initializeMass(15);
-        ball.initializeRadius(30);
-
-        ball.fillStyle = 'rgba(255, 255, 255, 0.5)';
-        ball.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)';
-
-        createdBalls.push(ball);
-
-        ball.handle = Math.floor((Math.random() * 10000000) + 1);
-
-        return ball.handle;
-    }
-
-    function destroyBall(pBallHandle) {
-
-        for (let i = 0; i < createdBalls.length; i++) {
-
-            let ball = createdBalls[i];
-
-            if (ball.handle === pBallHandle) {
-                createdBalls.splice(i, 1);  // Delete item from array.
-                return;                 
-            }
-        }
-
-        for (let i = 0; i < thisObject.balls.length; i++) {
-
-            let ball = thisObject.balls[i];
-
-            if (ball.handle === pBallHandle) {
-                thisObject.balls.splice(i, 1);  // Delete item from array.
-                return;
-            }
-        }
-    }
-
-    /******************************************/
-    /*                                        */
-    /*        Physics Engine Follows          */
-    /*                                        */
-    /******************************************/
 
     function gravityForce(ball) {
 

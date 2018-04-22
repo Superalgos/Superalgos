@@ -8,6 +8,7 @@ function newBall() {
 
         initializeMass: initializeMass,
         initializeRadius: initializeRadius,
+        initializeImageSize: initializeImageSize,
 
         imageId: undefined,
 
@@ -67,6 +68,19 @@ function newBall() {
         thisObject.rawRadius = radius;
         thisObject.targetRadius = radius;
         thisObject.currentRadius = radius / 3;
+
+    }
+
+    function initializeImageSize(suggestedValue) {
+
+        var size = suggestedValue;
+        if (size < 2) {
+            size = 2;
+        }
+
+        thisObject.rawImageSize = size;
+        thisObject.targetImageSize = size;
+        thisObject.currentImageSize = size / 3;
 
     }
 
@@ -191,15 +205,13 @@ function newBall() {
 
         /* Image */
 
-        let imageSize = 50;
-
         if (thisObject.input.imageId !== undefined) {
 
             let image = document.getElementById(thisObject.input.imageId);
 
             if (image !== null) {
 
-                browserCanvasContext.drawImage(image, thisObject.currentPosition.x - imageSize / 2, thisObject.currentPosition.y - imageSize / 2, imageSize, imageSize);
+                browserCanvasContext.drawImage(image, thisObject.currentPosition.x - thisObject.currentImageSize / 2, thisObject.currentPosition.y - thisObject.currentImageSize / 2, thisObject.currentImageSize, thisObject.currentImageSize);
 
             }
         }
@@ -219,7 +231,7 @@ function newBall() {
 
             labelPoint = {
                 x: thisObject.currentPosition.x - label.length / 2 * fontSize * 0.60,
-                y: thisObject.currentPosition.y + imageSize / 2 + fontSize * 0.60 + 5
+                y: thisObject.currentPosition.y + thisObject.currentImageSize / 2 + fontSize * 0.60 + 5
             };
 
             browserCanvasContext.font = fontSize + 'px Courier New';

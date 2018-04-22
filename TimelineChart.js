@@ -248,6 +248,19 @@ function newTimelineChart() {
                     productPlotter.panels.push(plotterPanel);
                 }
 
+                /* Create The Profie Picture Ball */
+
+                if (productPlotter.plotter.profile !== undefined) {
+
+                    let imageId = pProductCard.bot.devTeam + "." + pProductCard.bot.profilePicture;
+
+                    productPlotter.plotter.profile.text = pProductCard.bot.displayName;
+                    productPlotter.plotter.profile.imageId = imageId;
+
+                    canvas.floatingSpace.createNewBall(productPlotter.plotter.profile, thisObject.container)
+
+                }
+
                 /* Add the new Active Protter to the Array */
 
                 productPlotters.push(productPlotter);

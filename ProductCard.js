@@ -70,7 +70,7 @@
         container.isClickeable = true;
         thisObject.container = container;
 
-        /* Get missing Plotter information. */
+        /* Add information that will later be needed.*/
 
         let team = ecosystem.getTeam(thisObject.product.plotter.devTeam);
         let plotter = ecosystem.getPlotter(team, thisObject.product.plotter.codeName);

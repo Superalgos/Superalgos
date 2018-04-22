@@ -7,7 +7,6 @@ function updateBallsTargets() {
 
         balls[i].updateMass();
         balls[i].updateRadius();
-        balls[i].updatePosition();
 
     }
 }

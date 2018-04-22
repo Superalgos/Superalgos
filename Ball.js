@@ -1,11 +1,15 @@
 ﻿
 function newBall() {
 
-    var ball = {
+    var thisObject = {
 
-        initializeTargetPosition: initializeTargetPosition,
+        input: undefined,                       // This object contains information needed to draw the ball, but also referenced from outside, so as to have control of the basics of the ball.
+        physicsEnabled: false,
+
         initializeMass: initializeMass,
         initializeRadius: initializeRadius,
+
+        imageId: undefined,
 
         currentPosition: 0,                     // Current x,y position of the ball at the ball's layer, where there is no displacement or zoom. This position is always changing towards the target position.
         currentSpeed: 0,                        // This is the current speed of the ball.
@@ -14,11 +18,9 @@ function newBall() {
 
         friction: 0,                            // This is a factor that will ultimatelly desacelerate the ball.
 
-        rawPosition: 0,                         // This is the position on the canvas layer, withous displacement or zoom.
         rawMass: 0,                             // This is the mass value without zoom.             
         rawRadius: 0,                           // This is the radius of this ball without zoom.
 
-        targetPosition: 0,                      // This is the position of the ball at the canvas plane. This position has the displacement and zoom applied.
         targetRadius: 0,                        // This is the target radius of the ball with zoom applied. It should be animated until reaching this value.
 
         fillStyle: '',
@@ -35,7 +37,6 @@ function newBall() {
 
         updateMass: updateMass,                 // Function to update the mass when the zoom level changed.
         updateRadius: updateRadius,             // Function to update the radius when the zoom level changed.
-        updatePosition: updatePosition,         // Function to update the target position when either the displacement changed or the zoom level changed.
 
         linkedObject: undefined,                // This is a reference to the object that this ball is representing.
         linkedObjectType: "",                   // Since there might be balls for different types of objects, here we store the type of object we are linking to. 
@@ -43,25 +44,8 @@ function newBall() {
         container: undefined                    // This is a pointer to the object where the ball belongs to.
     };
 
-    return ball;
+    return thisObject;
 
-    function initializeTargetPosition() {
-
-        /* The initialization is based on the rawPosition that must be set before calling this function. */
-
-        var targetPosition = {
-            x: this.rawPosition.x,
-            y: this.rawPosition.y
-        };
-
-        targetPosition = this.container.frame.frameThisPoint(targetPosition);
-        targetPosition = this.container.displacement.displaceThisPoint(targetPosition);
-
-        this.targetPosition = targetPosition;
-
-        // We dont need this now> smallBalls.push ([targetPosition.x, targetPosition.y, 3, 'rgba(30, 130, 30, 0.85)']);
-
-    }
 
     function initializeMass(suggestedValue) {
 
@@ -70,8 +54,8 @@ function newBall() {
             mass = 0.1;
         }
 
-        this.rawMass = mass;
-        this.currentMass = mass;
+        thisObject.rawMass = mass;
+        thisObject.currentMass = mass;
 
     }
 
@@ -82,9 +66,9 @@ function newBall() {
             radius = 2;
         }
 
-        this.rawRadius = radius;
-        this.targetRadius = radius;
-        this.currentRadius = radius / 3;
+        thisObject.rawRadius = radius;
+        thisObject.targetRadius = radius;
+        thisObject.currentRadius = radius / 3;
 
     }
 
@@ -95,7 +79,7 @@ function newBall() {
             y: Math.floor((Math.random() * (200) - 100)) + arroundPoint.y
         };
 
-        this.currentPosition = position;
+        thisObject.currentPosition = position;
     }
 
     function radomizeCurrentSpeed() {
@@ -121,50 +105,41 @@ function newBall() {
             y: initialYDirection * Math.floor((Math.random() * 300) + 1) / 100
         };
 
-        this.currentSpeed = velocity;
+        thisObject.currentSpeed = velocity;
     }
 
     function updateMass() {
 
-        //this.currentMass = this.rawMass + this.rawMass * this.container.zoom.incrementM * this.container.zoom.levelM;
+        //thisObject.currentMass = thisObject.rawMass + thisObject.rawMass * thisObject.container.zoom.incrementM * thisObject.container.zoom.levelM;
 
     }
 
     function updateRadius() {
 
-        //this.targetRadius = this.rawRadius + this.rawRadius * this.container.zoom.incrementR * this.container.zoom.levelR;
-
-    }
-
-    function updatePosition() {
-
-        var point = {
-            x: this.rawPosition.x,
-            y: this.rawPosition.y
-        };
-
-        /* Frame the point */
-
-        point = this.container.frame.frameThisPoint(point);
-
-        /* Second we apply the displacement. */
-
-        point = this.container.displacement.displaceThisPoint(point);
-
-        this.targetPosition.x = point.x;
-        this.targetPosition.y = point.y;
+        //thisObject.targetRadius = thisObject.rawRadius + thisObject.rawRadius * thisObject.container.zoom.incrementR * thisObject.container.zoom.levelR;
 
     }
 
     function drawBallBackgrond() {
 
-        if (this.currentRadius > 1) {
+        if (thisObject.input.visible === false) { return; }
+        if (thisObject.input.visible === true && thisObject.physicsEnabled === false) {
+
+            /* The first time that the ball becomes visible, we need to do thisObject. */
+
+            radomizeCurrentPosition(thisObject.input.position);
+            radomizeCurrentSpeed();
+
+            thisObject.physicsEnabled = true;
+        }
+
+        if (thisObject.currentRadius > 1) {
 
             /* Target Line */
 
             browserCanvasContext.beginPath();
-            browserCanvasContext.moveTo(this.currentPosition.x, this.currentPosition.y);
-            browserCanvasContext.lineTo(this.targetPosition.x, this.targetPosition.y);
+            browserCanvasContext.moveTo(thisObject.currentPosition.x, thisObject.currentPosition.y);
+            browserCanvasContext.lineTo(thisObject.input.position.x, thisObject.input.position.y);
             browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)';
             browserCanvasContext.setLineDash([4, 2]);
             browserCanvasContext.lineWidth = 1;
@@ -173,14 +148,14 @@ function newBall() {
 
         }
 
-        if (this.currentRadius > 0.5) {
+        if (thisObject.currentRadius > 0.5) {
 
             /* Target Spot */
 
             var radius = 1;
 
             browserCanvasContext.beginPath();
-            browserCanvasContext.arc(this.targetPosition.x, this.targetPosition.y, radius, 0, Math.PI * 2, true);
+            browserCanvasContext.arc(thisObject.input.position.x, thisObject.input.position.y, radius, 0, Math.PI * 2, true);
             browserCanvasContext.closePath();
             browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)';
             browserCanvasContext.fill();
@@ -190,12 +165,14 @@ function newBall() {
 
     function drawBallForeground() {
 
-        if (this.currentRadius > 5) {
+        if (thisObject.input.visible === false) { return; }
+
+        if (thisObject.currentRadius > 5) {
 
             /* Contourn */
 
             browserCanvasContext.beginPath();
-            browserCanvasContext.arc(this.currentPosition.x, this.currentPosition.y, this.currentRadius, 0, Math.PI * 2, true);
+            browserCanvasContext.arc(thisObject.currentPosition.x, thisObject.currentPosition.y, thisObject.currentRadius, 0, Math.PI * 2, true);
             browserCanvasContext.closePath();
             browserCanvasContext.strokeStyle = 'rgba(30, 30, 30, 0.75)';
             browserCanvasContext.lineWidth = 1;
@@ -203,13 +180,13 @@ function newBall() {
 
         }
 
-        if (this.currentRadius > 0.5) {
+        if (thisObject.currentRadius > 0.5) {
 
             /* Main Ball */
 
             var alphaA;
 
-            if (this.currentRadius < 3) {
+            if (thisObject.currentRadius < 3) {
                 alphaA = 1;
             } else {
                 alphaA = 0.75;
@@ -218,55 +195,69 @@ function newBall() {
             alphaA = 0.75;
 
             browserCanvasContext.beginPath();
-            browserCanvasContext.arc(this.currentPosition.x, this.currentPosition.y, this.currentRadius, 0, Math.PI * 2, true);
+            browserCanvasContext.arc(thisObject.currentPosition.x, thisObject.currentPosition.y, thisObject.currentRadius, 0, Math.PI * 2, true);
             browserCanvasContext.closePath();
 
-            browserCanvasContext.fillStyle = this.fillStyle;
+            browserCanvasContext.fillStyle = thisObject.fillStyle;
 
             browserCanvasContext.fill();
 
         }
 
+        /* Image */
+
+        if (thisObject.input.imageId !== undefined) {
+
+            let image = document.getElementById(thisObject.input.imageId);
+            let imageSize = 50;
+
+            if (image !== null) {
+
+                browserCanvasContext.drawImage(image, thisObject.currentPosition.x - imageSize / 2, thisObject.currentPosition.y - imageSize / 2, imageSize, imageSize);
+
+            }
+        }
+
         /* Label First Text */
 
-        if (this.currentRadius > 6) {
+        if (thisObject.currentRadius > 6) {
 
-            browserCanvasContext.strokeStyle = this.labelStrokeStyle;
+            browserCanvasContext.strokeStyle = thisObject.labelStrokeStyle;
 
             var xOffset = 0;
 
-            if (this.labelFirstText >= 10) {
-                xOffset = this.currentRadius / 10;
+            if (thisObject.labelFirstText >= 10) {
+                xOffset = thisObject.currentRadius / 10;
             }
 
-            browserCanvasContext.font = (this.currentRadius / 4).toFixed(0) + 'px verdana';
+            browserCanvasContext.font = (thisObject.currentRadius / 4).toFixed(0) + 'px verdana';
 
             try {
-                browserCanvasContext.fillText(this.labelFirstText.toFixed(0), this.currentPosition.x - 2 - xOffset, this.currentPosition.y + 2);
+                browserCanvasContext.fillText(thisObject.labelFirstText.toFixed(0), thisObject.currentPosition.x - 2 - xOffset, thisObject.currentPosition.y + 2);
             } catch (err) {
-                browserCanvasContext.fillText(this.labelFirstText, this.currentPosition.x - 2 - xOffset, this.currentPosition.y + 2);
+                browserCanvasContext.fillText(thisObject.labelFirstText, thisObject.currentPosition.x - 2 - xOffset, thisObject.currentPosition.y + 2);
             }
 
         }
 
         /* Label Second Text */
 
-        if (this.currentRadius > 10) {
+        if (thisObject.currentRadius > 10) {
 
-            browserCanvasContext.strokeStyle = this.labelStrokeStyle;
+            browserCanvasContext.strokeStyle = thisObject.labelStrokeStyle;
 
             var xOffset = 0;
 
 
-            xOffset = this.currentRadius / 2;
+            xOffset = thisObject.currentRadius / 2;
 
 
-            browserCanvasContext.font = (this.currentRadius / 6).toFixed(0) + 'px verdana';
+            browserCanvasContext.font = (thisObject.currentRadius / 6).toFixed(0) + 'px verdana';
 
             try {
-                browserCanvasContext.fillText(this.labelSecondText.toFixed(8), this.currentPosition.x - xOffset, this.currentPosition.y + xOffset);
+                browserCanvasContext.fillText(thisObject.labelSecondText.toFixed(8), thisObject.currentPosition.x - xOffset, thisObject.currentPosition.y + xOffset);
             } catch (err) {
-                browserCanvasContext.fillText(this.labelSecondText, this.currentPosition.x - xOffset, this.currentPosition.y + xOffset);
+                browserCanvasContext.fillText(thisObject.labelSecondText, thisObject.currentPosition.x - xOffset, thisObject.currentPosition.y + xOffset);
             }
         }
     }

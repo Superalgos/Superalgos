@@ -3,17 +3,17 @@ The Floating Space is the place where floating elements like balls, live and are
 This space has its own physics which helps with the animation of these objects and also preventing them to overlap.
 */
 
-let balls;                          // This is the array of balls being displayed
-
 function newFloatingSpace() {
 
     let thisObject = {
+        createNewBall: createNewBall,
         physicsLoop: physicsLoop,
         isInside: isInside,
         isInsideBall: isInsideBall,
-        balls: [],   // <-- TODO: Check if this is really needed here. 
         initialize: initialize
     };
+
+    let balls;                          // This is the array of balls being displayed
 
     return thisObject;
 
@@ -31,6 +31,8 @@ function newFloatingSpace() {
 
             let ball = balls[i];
 
+            if (ball.physicsEnabled === false) { continue;}
+
             /* Change position based on speed */
 
             ball.currentPosition.x = ball.currentPosition.x + ball.currentSpeed.x;
@@ -43,13 +45,13 @@ function newFloatingSpace() {
 
             // Gives a minimun speed towards their taget.
 
-            if (ball.currentPosition.x < ball.targetPosition.x) {
+            if (ball.currentPosition.x < ball.input.position.x) {
                 ball.currentSpeed.x = ball.currentSpeed.x + .005;
             } else {
                 ball.currentSpeed.x = ball.currentSpeed.x - .005;
             }
 
-            if (ball.currentPosition.y < ball.targetPosition.y) {
+            if (ball.currentPosition.y < ball.input.position.y) {
                 ball.currentSpeed.y = ball.currentSpeed.y + .005;
             } else {
                 ball.currentSpeed.y = ball.currentSpeed.y - .005;
@@ -68,6 +70,8 @@ function newFloatingSpace() {
             for (let k = i + 1; k < balls.length; k++) {
 
                 if (colliding(balls[i], balls[k])) {
+
+                    if (balls[k].physicsEnabled === false) { continue; }
 
                     resolveCollision(balls[k], balls[i]);
 
@@ -91,9 +95,36 @@ function newFloatingSpace() {
 
         for (let i = 0; i < balls.length; i++) {
             let ball = balls[balls.length - i - 1];
-            //let ball = balls[i];
             ball.drawForeground();
         }
+    }
+
+    function createNewBall(pInput, pContainer) {
+
+        /* This function is used to create new balls, representing labels of each point on the chart. */
+
+        var ball = newBall();
+
+        ball.input = pInput;
+
+        ball.container = pContainer;
+
+        ball.friction = .995;
+
+        ball.initializeMass(15);
+        ball.initializeRadius(3);
+
+        ball.fillStyle = 'rgba(255, 155, 155, 0.5)';
+        ball.labelStrokeStyle = 'rgba(255, 0, 255, 1)';
+
+        ball.labelFirstText = pInput.name;
+        ball.labelSecondText = "Soy una bola :-)";
+
+        balls.push(ball);
+
+        ball.index = balls.length;
+
+        return ball;
     }
 
     /******************************************/
@@ -109,7 +140,7 @@ function newFloatingSpace() {
         const coulomb = .00001;
         const minForce = 0.01;
 
-        var d = Math.sqrt(Math.pow(ball.targetPosition.x - ball.currentPosition.x, 2) + Math.pow(ball.targetPosition.y - ball.currentPosition.y, 2));  // ... we calculate the distance ...
+        var d = Math.sqrt(Math.pow(ball.input.position.x - ball.currentPosition.x, 2) + Math.pow(ball.input.position.y - ball.currentPosition.y, 2));  // ... we calculate the distance ...
 
         var force = coulomb * d * d / ball.currentMass;  // In this case the mass of the ball affects the gravity force that it receives, that gives priority to target position to bigger balls. 
 
@@ -123,8 +154,8 @@ function newFloatingSpace() {
         };
 
         var pos2 = {
-            x: ball.targetPosition.x,
-            y: ball.targetPosition.y
+            x: ball.input.position.x,
+            y: ball.input.position.y
         };
 
         var posDiff = {             // Next we need the vector resulting from the 2 positions.

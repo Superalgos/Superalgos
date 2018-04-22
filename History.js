@@ -9,7 +9,14 @@
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
-        draw: draw
+        draw: draw,
+        profile: {
+            position: {
+                x: 0,
+                y: 0,
+            },
+            visible: false
+        }
     };
 
     /* this is part of the module template */
@@ -119,6 +126,7 @@
         }
 
         thisObject.container.eventHandler.raiseEvent("History Changed", history);
+
     }
 
     function recalculateScale() {
@@ -166,11 +174,13 @@
 
     function plotChart() {
 
+        let point;
+
         for (let i = 0; i < history.length; i++) {
 
             record = history[i];
 
-            let point = {
+            point = {
                 x: record.date,
                 y: record.sellAvgRate
             };
@@ -258,7 +268,21 @@
                 browserCanvasContext.fill();
             }
             browserCanvasContext.stroke();
+
+            /* Since there is at least some point plotted, then the profile should be visible. */
+
+            thisObject.profile.visible = true;
         }
+
+        /*
+
+        We replace the coordinate of the profile point so that whoever has a reference to it, gets the new position.
+        We will use the last point plotted on screen as the profilePoint.
+
+        */
+
+        thisObject.profile.position.x = point.x;
+        thisObject.profile.position.y = point.y;
     }
 
     function onZoomChanged(event) {

@@ -26,15 +26,13 @@ initialize();
 
 function initialize() {
 
-    if (CONSOLE_LOG === true) {
-
-        console.log("I am entering the Initialize function. So far so good.");
-
-    }
+    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> Entering function."); }
 
     readEcosystemConfig();
 
     function readEcosystemConfig() {
+
+        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Entering function."); }
 
         /*
 
@@ -93,11 +91,7 @@ function initialize() {
 
     function readCompetitionsConfig() {
 
-        if (CONSOLE_LOG === true) {
-
-            console.log("I am entering the readCompetitionsConfig function.");
-
-        }
+        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Entering function."); }
 
         /*
 
@@ -138,6 +132,9 @@ function initialize() {
 
                         function onFileRead(err, pData) {
 
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> Entering function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> fileName = " + fileName); }
+
                             try {
                                 responsesReceived++;
 
@@ -174,6 +171,10 @@ function initialize() {
                     getGithubData(host.codeName, competition.repo, competition.configFile, onDataArrived)
 
                     function onDataArrived(pData) {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> host.codeName = " + host.codeName); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> competition.repo = " + competition.repo); }
 
                         try {
 
@@ -228,6 +229,9 @@ function initialize() {
 
                         function onFileRead(err, pData) {
 
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> Entering function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> fileName = " + fileName); }
+
                             try {
                                 responsesReceived++;
 
@@ -264,6 +268,10 @@ function initialize() {
                     getGithubData(host.codeName, plotter.repo, plotter.configFile, onDataArrived)
 
                     function onDataArrived(pData) {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> host.codeName = " + host.codeName); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> competition.repo = " + competition.repo); }
 
                         try {
 
@@ -305,11 +313,8 @@ function initialize() {
 
     function readBotsAndPlottersConfig() {
 
-        if (CONSOLE_LOG === true) {
+        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Entering function."); }
 
-            console.log("I am entering the readBotsAndPlottersConfig function.");
-
-        }
         /*
 
         Each bot has its configuration at its own repo since each team must be able to change it at will.
@@ -343,6 +348,9 @@ function initialize() {
                         fs.readFile(fileName, onFileRead);
 
                         function onFileRead(err, pData) {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onFileRead -> Entering function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onFileRead -> fileName = " + fileName); }
 
                             try {
                                 responsesReceived++;
@@ -380,6 +388,10 @@ function initialize() {
                     getGithubData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived)
 
                     function onDataArrived(pData) {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> host.codeName = " + host.codeName); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> competition.repo = " + competition.repo); }
 
                         try {
 
@@ -434,6 +446,9 @@ function initialize() {
 
                         function onFileRead(err, pData) {
 
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onFileRead -> Entering function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onFileRead -> fileName = " + fileName); }
+
                             try {
                                 responsesReceived++;
 
@@ -470,6 +485,10 @@ function initialize() {
                     getGithubData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived)
 
                     function onDataArrived(pData) {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> host.codeName = " + host.codeName); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> competition.repo = " + competition.repo); }
 
                         try {
 
@@ -512,11 +531,7 @@ function initialize() {
 
 function startHtttpServer() {
 
-    if (CONSOLE_LOG === true) {
-
-        console.log("I am entering the startHtttpServer function. So far so good.");
-
-    }
+    if (CONSOLE_LOG === true) { console.log("[INFO] startHtttpServer -> Entering function."); }
 
     try {
 
@@ -528,6 +543,9 @@ function startHtttpServer() {
 }
 
 function onBrowserRequest(request, response) {
+
+    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> request = " + request); }
 
     var htmlResponse;
     var requestParameters = request.url.split("/");
@@ -559,6 +577,8 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
+                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+
                         try {
 
                             let fileContent = file.toString();
@@ -579,6 +599,8 @@ function onBrowserRequest(request, response) {
                             addToFileContent(hosts);
 
                             function addToFileContent(pDevTeamsOrHosts) {
+
+                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
 
                                 for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
@@ -643,6 +665,8 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
+                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+
                         try {
 
                             let fileContent = file.toString();
@@ -663,6 +687,8 @@ function onBrowserRequest(request, response) {
                             addToFileContent(hosts);
 
                             function addToFileContent(pDevTeamsOrHosts) {
+
+                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
 
                                 for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
@@ -730,6 +756,8 @@ function onBrowserRequest(request, response) {
                     fs.readFile(fileName, onFileRead);
 
                     function onFileRead(err, file) {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
 
                         try {
 
@@ -823,6 +851,8 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
+                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+
                         try {
 
                             let fileContent = file.toString();
@@ -831,6 +861,8 @@ function onBrowserRequest(request, response) {
                             addImages();
 
                             function addPlotters() {
+
+                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addPlotters -> Entering function."); }
 
                                 let htmlLinePlotter = '' + '\n' +
                                     '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
@@ -845,6 +877,8 @@ function onBrowserRequest(request, response) {
                                 addScript(hosts);
 
                                 function addScript(pDevTeamsOrHosts) {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addPlotters -> addScript -> Entering function."); }
 
                                     for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
@@ -894,6 +928,8 @@ function onBrowserRequest(request, response) {
 
                             function addImages() {
 
+                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addImages -> Entering function."); }
+
                                 const htmlLine = '' + '\n' +
                                     '    <img id="@id@" width="0" height="0" src="https://raw.githubusercontent.com/@devTeam@/@repo@/master/@image@">'
 
@@ -902,6 +938,8 @@ function onBrowserRequest(request, response) {
                                 addScript(devTeams);
 
                                 function addScript(pDevTeams) {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addImages -> addScript -> Entering function."); }
 
                                     for (let i = 0; i < pDevTeams.length; i++) {
 
@@ -993,6 +1031,9 @@ function onBrowserRequest(request, response) {
     }
 
     function sendResponseToBrowser(htmlResponse) {
+
+        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> sendResponseToBrowser -> Entering function."); }
+
         response.writeHead(200, { 'Content-Type': 'text/html' });
         response.write(htmlResponse);
 
@@ -1001,6 +1042,8 @@ function onBrowserRequest(request, response) {
 }
 
 function respondWithContent(content, response) {
+
+    if (CONSOLE_LOG === true) { console.log("[INFO] respondWithContent -> Entering function."); }
 
     try {
 
@@ -1022,12 +1065,16 @@ function respondWithContent(content, response) {
 
 function respondWithFile(fileName, response) {
 
+    if (CONSOLE_LOG === true) { console.log("[INFO] respondWithFile -> Entering function."); }
+
     let fs = require('fs');
     try {
 
         fs.readFile(fileName, onFileRead);
 
         function onFileRead(err, file) {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] respondWithFile -> onFileRead -> Entering function."); }
 
             try {
                 let htmlResponse = file.toString();
@@ -1056,6 +1103,8 @@ function respondWithFile(fileName, response) {
 
     function returnEmptyArray() {
 
+        if (CONSOLE_LOG === true) { console.log("[INFO] respondWithFile -> returnEmptyArray -> Entering function."); }
+
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
         response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
         response.setHeader("Expires", "0"); // Proxies.
@@ -1068,6 +1117,8 @@ function respondWithFile(fileName, response) {
 }
 
 function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
+
+    if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> Entering function."); }
 
     let cacheVersion = githubData.get(pOrg + '.' + pRepo + '.' + pPath)
 
@@ -1104,9 +1155,11 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
         function onContent(error, result) {
 
+            if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> Entering function."); }
+
             if (CONSOLE_LOG === true) {
 
-                console.log("getGithubData - Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString().substring(0,100));
+                console.log("[INFO] getGithubData -> onContent -> Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString().substring(0,100));
 
             }
 

@@ -277,7 +277,7 @@ function newCanvas() {
 
             if (ballDragStarted) {
 
-                let ball = balls[ballBeingDragged];
+                let ball = thisObject.floatingSpace.balls[ballBeingDragged];
 
                 ball.currentPosition.x = dragVector.upX;
                 ball.currentPosition.y = dragVector.upY;

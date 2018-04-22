@@ -26,8 +26,6 @@ function newBall() {
         fillStyle: '',
 
         labelStrokeStyle: '',
-        labelFirstText: '',
-        labelSecondText: '',
 
         radomizeCurrentPosition: radomizeCurrentPosition,
         radomizeCurrentSpeed: radomizeCurrentSpeed,
@@ -122,17 +120,6 @@ function newBall() {
 
     function drawBallBackgrond() {
 
-        if (thisObject.input.visible === false) { return; }
-        if (thisObject.input.visible === true && thisObject.physicsEnabled === false) {
-
-            /* The first time that the ball becomes visible, we need to do thisObject. */
-
-            radomizeCurrentPosition(thisObject.input.position);
-            radomizeCurrentSpeed();
-
-            thisObject.physicsEnabled = true;
-        }
-
         if (thisObject.currentRadius > 1) {
 
             /* Target Line */
@@ -164,8 +151,6 @@ function newBall() {
     }
 
     function drawBallForeground() {
-
-        if (thisObject.input.visible === false) { return; }
 
         if (thisObject.currentRadius > 5) {
 
@@ -206,10 +191,11 @@ function newBall() {
 
         /* Image */
 
+        let imageSize = 50;
+
         if (thisObject.input.imageId !== undefined) {
 
             let image = document.getElementById(thisObject.input.imageId);
-            let imageSize = 50;
 
             if (image !== null) {
 
@@ -218,50 +204,30 @@ function newBall() {
             }
         }
 
-        /* Label First Text */
+        /* Label Text */
 
         if (thisObject.currentRadius > 6) {
 
             browserCanvasContext.strokeStyle = thisObject.labelStrokeStyle;
 
-            var xOffset = 0;
+            let labelPoint;
+            let fontSize = 10;
 
-            if (thisObject.labelFirstText >= 10) {
-                xOffset = thisObject.currentRadius / 10;
-            }
+            browserCanvasContext.font = fontSize + 'px Courier New';
 
-            browserCanvasContext.font = (thisObject.currentRadius / 4).toFixed(0) + 'px verdana';
+            let label = thisObject.input.label;
 
-            try {
-                browserCanvasContext.fillText(thisObject.labelFirstText.toFixed(0), thisObject.currentPosition.x - 2 - xOffset, thisObject.currentPosition.y + 2);
-            } catch (err) {
-                browserCanvasContext.fillText(thisObject.labelFirstText, thisObject.currentPosition.x - 2 - xOffset, thisObject.currentPosition.y + 2);
-            }
+            labelPoint = {
+                x: thisObject.currentPosition.x - label.length / 2 * fontSize * 0.60,
+                y: thisObject.currentPosition.y + imageSize / 2 + fontSize * 0.60 + 5
+            };
 
-        }
+            browserCanvasContext.font = fontSize + 'px Courier New';
+            browserCanvasContext.fillStyle = thisObject.labelStrokeStyle;
+            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
-        /* Label Second Text */
-
-        if (thisObject.currentRadius > 10) {
-
-            browserCanvasContext.strokeStyle = thisObject.labelStrokeStyle;
-
-            var xOffset = 0;
-
-
-            xOffset = thisObject.currentRadius / 2;
-
-
-            browserCanvasContext.font = (thisObject.currentRadius / 6).toFixed(0) + 'px verdana';
-
-            try {
-                browserCanvasContext.fillText(thisObject.labelSecondText.toFixed(8), thisObject.currentPosition.x - xOffset, thisObject.currentPosition.y + xOffset);
-            } catch (err) {
-                browserCanvasContext.fillText(thisObject.labelSecondText, thisObject.currentPosition.x - xOffset, thisObject.currentPosition.y + xOffset);
-            }
         }
     }
-
 }
 
 

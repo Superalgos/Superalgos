@@ -104,7 +104,6 @@
     <Compile Include="ProductStorage.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="temp.js" />
     <Compile Include="TempExosystem.js">
       <SubType>Code</SubType>
     </Compile>

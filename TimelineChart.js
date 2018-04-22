@@ -254,7 +254,7 @@ function newTimelineChart() {
 
                     let imageId = pProductCard.bot.devTeam + "." + pProductCard.bot.profilePicture;
 
-                    productPlotter.plotter.profile.text = pProductCard.bot.displayName;
+                    productPlotter.plotter.profile.label = pProductCard.bot.displayName;
                     productPlotter.plotter.profile.imageId = imageId;
 
                     canvas.floatingSpace.createNewBall(productPlotter.plotter.profile, thisObject.container)

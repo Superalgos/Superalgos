@@ -6,6 +6,7 @@ This space has its own physics which helps with the animation of these objects a
 function newFloatingSpace() {
 
     let thisObject = {
+        balls: undefined,               // This is the array of balls being displayed
         createNewBall: createNewBall,
         physicsLoop: physicsLoop,
         isInside: isInside,
@@ -13,25 +14,23 @@ function newFloatingSpace() {
         initialize: initialize
     };
 
-    let balls;                          // This is the array of balls being displayed
+    let createdBalls = [];                          
 
     return thisObject;
 
     function initialize() {
 
-        balls = []; // We initialize this in order to start the calculations in a clean way.
+        thisObject.balls = []; // We initialize this in order to start the calculations in a clean way.
     
     }
 
     function physicsLoop() {
 
-        /* This function makes all the calculations to apply phisycs on all objects in this space. */
+        /* This function makes all the calculations to apply phisycs on all balls in this space. */
 
-        for (let i = 0; i < balls.length; i++) {
+        for (let i = 0; i < thisObject.balls.length; i++) {
 
-            let ball = balls[i];
-
-            if (ball.physicsEnabled === false) { continue;}
+            let ball = thisObject.balls[i];
 
             /* Change position based on speed */
 
@@ -67,13 +66,11 @@ function newFloatingSpace() {
 
             /* Collision Control */
 
-            for (let k = i + 1; k < balls.length; k++) {
+            for (let k = i + 1; k < thisObject.balls.length; k++) {
 
-                if (colliding(balls[i], balls[k])) {
+                if (colliding(thisObject.balls[i], thisObject.balls[k])) {
 
-                    if (balls[k].physicsEnabled === false) { continue; }
-
-                    resolveCollision(balls[k], balls[i]);
+                    resolveCollision(thisObject.balls[k], thisObject.balls[i]);
 
                 }
             }
@@ -86,16 +83,36 @@ function newFloatingSpace() {
 
         }
 
-        /* Finally we draw all the balls. */
+        /* We draw all the thisObject.balls. */
 
-        for (let i = 0; i < balls.length; i++) {
-            let ball = balls[i];
+        for (let i = 0; i < thisObject.balls.length; i++) {
+            let ball = thisObject.balls[i];
             ball.drawBackground();
         }
 
-        for (let i = 0; i < balls.length; i++) {
-            let ball = balls[balls.length - i - 1];
+        for (let i = 0; i < thisObject.balls.length; i++) {
+            let ball = thisObject.balls[thisObject.balls.length - i - 1];
             ball.drawForeground();
+        }
+
+        /* Finally we check if any of the created Balls where enabled to run under the Physics Engine. */
+
+        for (let i = 0; i < createdBalls.length; i++) {
+
+            let ball = createdBalls[i];
+
+            if (ball.input.visible === true) {
+
+                /* The first time that the ball becomes visible, we need to do this. */
+
+                ball.radomizeCurrentPosition(ball.input.position);
+                ball.radomizeCurrentSpeed();
+
+                thisObject.balls.push(ball);
+                createdBalls.splice(i, 1);  // Delete item from array.
+                return;                     // Only one at the time. 
+
+            }
         }
     }
 
@@ -112,17 +129,14 @@ function newFloatingSpace() {
         ball.friction = .995;
 
         ball.initializeMass(15);
-        ball.initializeRadius(3);
+        ball.initializeRadius(30);
 
-        ball.fillStyle = 'rgba(255, 155, 155, 0.5)';
-        ball.labelStrokeStyle = 'rgba(255, 0, 255, 1)';
+        ball.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        ball.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)';
 
-        ball.labelFirstText = pInput.name;
-        ball.labelSecondText = "Soy una bola :-)";
+        createdBalls.push(ball);
 
-        balls.push(ball);
-
-        ball.index = balls.length;
+        ball.index = thisObject.balls.length;
 
         return ball;
     }
@@ -186,13 +200,13 @@ function newFloatingSpace() {
 
         const coulomb = 2;
 
-        var ball1 = balls[currentBall];
+        var ball1 = thisObject.balls[currentBall];
 
-        for (var i = 0; i < balls.length; i++) {  // The force to be applied is considering all other balls...
+        for (var i = 0; i < thisObject.balls.length; i++) {  // The force to be applied is considering all other balls...
 
             if (i !== currentBall) {  // ... except for the current one. 
 
-                var ball2 = balls[i];   // So, for each ball...
+                var ball2 = thisObject.balls[i];   // So, for each ball...
 
                 var d = Math.sqrt(Math.pow(ball2.currentPosition.x - ball1.currentPosition.x, 2) + Math.pow(ball2.currentPosition.y - ball1.currentPosition.y, 2));  // ... we calculate the distance ...
 
@@ -267,8 +281,8 @@ function newFloatingSpace() {
 
         /* This function detects weather the point x,y is inside any of the balls. */
 
-        for (var i = 0; i < balls.length; i++) {
-            var ball = balls[i];
+        for (var i = 0; i < thisObject.balls.length; i++) {
+            var ball = thisObject.balls[i];
             var distance = Math.sqrt(Math.pow(ball.currentPosition.x - x, 2) + Math.pow(ball.currentPosition.y - y, 2));
 
             if (distance < ball.currentRadius) {
@@ -284,7 +298,7 @@ function newFloatingSpace() {
         /* This function detects weather the point x,y is inside one particular balls. */
 
 
-        var ball = balls[ballIndex];
+        var ball = thisObject.balls[ballIndex];
         var distance = Math.sqrt(Math.pow(ball.currentPosition.x - x, 2) + Math.pow(ball.currentPosition.y - y, 2));
 
         if (distance < ball.currentRadius) {

@@ -1,5 +1,4 @@
-﻿
-function newTimelineChart() {
+﻿function newTimelineChart() {
 
     const CONSOLE_LOG = false;
 

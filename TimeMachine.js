@@ -1,8 +1,15 @@
-﻿
+﻿/*
+
+Markets are a function of time. When watching them, end users must be positioned at one particular point in time. The system currently allows users
+to position themselves at any time they like.
+
+In the future, it will be usefull to explore markets and compare them at different times simultaneously. Anticipating that future this module exists.
+All the charts that depand on a datetime are children of this object Time Machine. In the future we will allow users to have more than one Time Machine,
+each one with it own charts, and each one positioned at an especific point in titme. 
+
+*/
 
 function newTimeMachine() {
-
-
 
     var timeMachine = {
         container: undefined,
@@ -113,7 +120,6 @@ function newTimeMachine() {
         
 
     }
-
 
     function draw() {
 

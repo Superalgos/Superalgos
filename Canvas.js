@@ -63,7 +63,6 @@ function newCanvas() {
 
     let splashScreen;
 
-
     return thisObject;
 
     function initialize() {
@@ -120,7 +119,6 @@ function newCanvas() {
         browserCanvasContext.clearRect(0, 0, browserCanvas.width, browserCanvas.height); 
 
     }
-
 
     function addCanvasEvents() {
 
@@ -179,7 +177,6 @@ function newCanvas() {
 
     }
 
-
     function onMouseClick(event) {
 
         dragVector.downX = event.pageX;
@@ -215,8 +212,6 @@ function newCanvas() {
         }
 
     }
-
-
 
     function onMouseUp(event) {
 
@@ -377,7 +372,6 @@ function newCanvas() {
 
     }
 
-
     function onMouseWheel(event) {
 
         // cross-browser wheel delta 
@@ -419,8 +413,6 @@ function newCanvas() {
 
         return false;  // This instructs the browser not to take the event and scroll the page. 
     }
-
-
 
 }
 

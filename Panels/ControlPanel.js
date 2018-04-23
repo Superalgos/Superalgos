@@ -32,11 +32,11 @@ function newControlPanel() {
     function initialize() {
 
         this.container.frame.width = 200;
-        this.container.frame.height = 65;
+        this.container.frame.height = 85;
 
         var position = {
             x: (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 - this.container.frame.width / 2,
-            y: browserCanvas.height * 0.30
+            y: 0
         };
 
         this.container.frame.position = position;
@@ -302,13 +302,16 @@ function newControlPanel() {
 
         let fontSize = 10;
 
-        var label = controlPanel.datetimeDisplay.currentDatetime.toDateString() + ' ' + controlPanel.datetimeDisplay.currentDatetime.toLocaleTimeString();
+        let label = controlPanel.datetimeDisplay.currentDatetime.toUTCString();
+        let labelArray = label.split(" ");
+
+        label = labelArray[0] + " " + labelArray[1] + " " + labelArray[2] + " " + labelArray[3];
 
         /* Now we transform x on the actual coordinate on the canvas. */
 
         let labelPoint = {
             x: controlPanel.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-            y: controlPanel.container.frame.height * 4.5 / 10
+            y: controlPanel.container.frame.height * 3.4 / 10
         };
 
         labelPoint = controlPanel.container.frame.frameThisPoint(labelPoint);
@@ -317,6 +320,22 @@ function newControlPanel() {
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
+        /* The time */
+
+        label = labelArray[4] + " " + labelArray[5];
+
+        /* Now we transform x on the actual coordinate on the canvas. */
+
+        labelPoint = {
+            x: controlPanel.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: controlPanel.container.frame.height * 5.0 / 10
+        };
+
+        labelPoint = controlPanel.container.frame.frameThisPoint(labelPoint);
+
+        browserCanvasContext.font = fontSize + 'px Courier New';
+        browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
         label = PLAY_STEP / _1_MINUTE_IN_MILISECONDS + ' min';
 

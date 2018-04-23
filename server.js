@@ -545,7 +545,7 @@ function startHtttpServer() {
 function onBrowserRequest(request, response) {
 
     if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> Entering function."); }
-    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> request = " + request); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> request.url = " + request.url); }
 
     var htmlResponse;
     var requestParameters = request.url.split("/");

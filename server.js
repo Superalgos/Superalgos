@@ -271,7 +271,7 @@ function initialize() {
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> Entering function."); }
                         if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> host.codeName = " + host.codeName); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> competition.repo = " + competition.repo); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> plotter.repo = " + plotter.repo); }
 
                         try {
 
@@ -390,8 +390,8 @@ function initialize() {
                     function onDataArrived(pData) {
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> Entering function."); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> host.codeName = " + host.codeName); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> competition.repo = " + competition.repo); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> bot.repo = " + bot.repo); }
 
                         try {
 
@@ -487,8 +487,8 @@ function initialize() {
                     function onDataArrived(pData) {
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> Entering function."); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> host.codeName = " + host.codeName); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> competition.repo = " + competition.repo); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> plotter.repo = " + plotter.repo); }
 
                         try {
 

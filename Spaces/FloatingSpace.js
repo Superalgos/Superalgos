@@ -113,6 +113,26 @@ function newFloatingSpace() {
                 ball.currentSpeed.y = ball.currentSpeed.y - .005;
             }
 
+            // Lets put a maximun speed also.
+
+            const MAX_SPEED = 50;
+
+            if (ball.currentSpeed.x > MAX_SPEED) {
+                ball.currentSpeed.x = MAX_SPEED;
+            }
+
+            if (ball.currentSpeed.y > MAX_SPEED) {
+                ball.currentSpeed.y = MAX_SPEED;
+            }
+
+            if (ball.currentSpeed.x < -MAX_SPEED) {
+                ball.currentSpeed.x = -MAX_SPEED;
+            }
+
+            if (ball.currentSpeed.y < -MAX_SPEED) {
+                ball.currentSpeed.y = -MAX_SPEED;
+            }
+
             // The radius also have a target.
 
             if (ball.currentRadius < ball.targetRadius) {

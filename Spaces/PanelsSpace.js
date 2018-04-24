@@ -33,7 +33,7 @@ function newPanelsSpace() {
 
     }
 
-    function createNewPanel(pType) {
+    function createNewPanel(pType, pParameters) {
 
         let panel;
 
@@ -49,6 +49,12 @@ function newPanelsSpace() {
             case "Products Panel":
                 {
                     panel = newProductsPanel();
+                    panel.initialize();
+                    break;
+                }
+            case "Plotter Panel":
+                {
+                    panel = getNewPlotterPanel(pParameters.devTeam, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName);
                     panel.initialize();
                     break;
                 }

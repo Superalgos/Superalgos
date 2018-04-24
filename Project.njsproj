@@ -69,7 +69,7 @@
     <Compile Include="Candle.js" />
     <Compile Include="Canvas.js" />
     <Compile Include="ChartGrid.js" />
-    <Compile Include="ChartSpace.js" />
+    <Compile Include="Spaces\ChartSpace.js" />
     <Compile Include="ChartUtilities.js" />
     <Compile Include="Container.js" />
     <Compile Include="DailyFileCursor.js" />
@@ -83,7 +83,7 @@
     <Compile Include="server.js" />
     <Compile Include="Displace.js" />
     <Compile Include="EventHandler.js" />
-    <Compile Include="FloatingSpace.js" />
+    <Compile Include="Spaces\FloatingSpace.js" />
     <Compile Include="Frame.js" />
     <Compile Include="Markets.js" />
     <Compile Include="MarketTrades.js" />

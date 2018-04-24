@@ -231,21 +231,27 @@
 
                 for (let i = 0; i < pProductCard.product.plotter.module.panels.length; i++) {
 
-                    let panel = pProductCard.product.plotter.module.panels[i];
+                    let panelConfig = pProductCard.product.plotter.module.panels[i];
 
-                    let plotterPanel = getNewPlotterPanel(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName, panel.codeName);
+                    let parameters = {
+                        devTeam: pProductCard.product.plotter.devTeam,
+                        plotterCodeName: pProductCard.product.plotter.codeName,
+                        moduleCodeName: pProductCard.product.plotter.moduleName,
+                        panelCodeName: panelConfig.codeName
+                    }
 
-                    plotterPanel.initialize();
+                    let plotterPanelHandle = canvas.panelsSpace.createNewPanel("Plotter Panel", parameters);
+                    let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle);
 
                     /* Connect Panel to the Plotter via an Event. */
 
-                    if (panel.event !== undefined) {
+                    if (panelConfig.event !== undefined) {
 
-                        productPlotter.plotter.container.eventHandler.listenToEvent(panel.event, plotterPanel.onEventRaised);
+                        productPlotter.plotter.container.eventHandler.listenToEvent(panelConfig.event, plotterPanel.onEventRaised);
 
                     }
 
-                    productPlotter.panels.push(plotterPanel);
+                    productPlotter.panels.push(plotterPanelHandle);
                 }
 
                 /* Create The Profie Picture Ball */
@@ -306,6 +312,14 @@
                     if (productPlotters[i].profile !== undefined) {
 
                         canvas.floatingSpace.destroyBall(productPlotters[i].profile);
+
+                    }
+
+                    /* Finally the panels. */
+
+                    for (let j = 0; j < productPlotters[i].panels.length; j++) {
+
+                        canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j]);
 
                     }
 
@@ -431,25 +445,6 @@
 
         if (this.container.frame.isThisPointHere(point) === true) {
 
-            for (let i = 0; i < productPlotters.length; i++) {
-
-                let productPlotter = productPlotters[i];
-
-                for (let j = 0; j < productPlotter.panels.length; j++) {
-
-                    let panel = productPlotter.panels[j];
-
-                    let panelContainer = panel.getContainer(point);
-
-                    if (panelContainer !== undefined) {
-
-                        /* We found an inner container which has the point. We return it. */
-
-                        return panelContainer;
-                    }
-                }
-            }
-
             // return this.container;    Currently there is a BUG in which if this is enabled the datetime of the control panel is not recalculated.
 
         } else {
@@ -522,20 +517,6 @@
                 let competitionPlotter = competitionPlotters[i];
                 competitionPlotter.plotter.draw();
             }
-
-            /* Finally the panels. */
-
-            for (let i = 0; i < productPlotters.length; i++) {
-
-                let productPlotter = productPlotters[i];
-
-                for (let j = 0; j < productPlotter.panels.length; j++) {
-
-                    let panel = productPlotter.panels[j];
-                    panel.draw();
-                }
-            }
-
         }
     }
 

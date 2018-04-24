@@ -11,37 +11,36 @@ each one with it own charts, and each one positioned at an especific point in ti
 
 function newTimeMachine() {
 
-    var timeMachine = {
+    let thisObject = {
         container: undefined,
-        controlPanel: undefined,
         draw: draw,
         charts: [],
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
-    timeMachine.container = container;
-    timeMachine.container.isDraggeable = false;
+    thisObject.container = container;
+    thisObject.container.isDraggeable = false;
 
     container.displacement.containerName = "Time Machine";
     container.frame.containerName = "Time Machine";
 
-    let botsPanel;
+    let controlPanelHandle;             // We need this to destroy the Panel when this object is itself destroyed or no longer needs it...
+    let productsPanelHandle;            // ... also to request a reference to the object for the cases we need it. 
 
-    return timeMachine;
+    return thisObject;
 
     function initialize() {
 
         /* Each Time Machine has a Control Panel. */
 
-        var controlPanel = newControlPanel();
-        controlPanel.initialize();
-        this.controlPanel = controlPanel;
+        controlPanelHandle = canvas.panelsSpace.createNewPanel("Time Control Panel");
+        let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle);
 
-        botsPanel = newProductsPanel();
-        botsPanel.initialize();
+        productsPanelHandle = canvas.panelsSpace.createNewPanel("Products Panel");
+        let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle);
 
         let iteration = 0;
 
@@ -49,24 +48,24 @@ function newTimeMachine() {
 
         let timelineChart = newTimelineChart();
 
-        timelineChart.container.displacement.parentDisplacement = timeMachine.container.displacement;
-        timelineChart.container.frame.parentFrame = timeMachine.container.frame;
+        timelineChart.container.displacement.parentDisplacement = thisObject.container.displacement;
+        timelineChart.container.frame.parentFrame = thisObject.container.frame;
 
-        timelineChart.container.parentContainer = timeMachine.container;
+        timelineChart.container.parentContainer = thisObject.container;
 
-        timelineChart.container.frame.width = timeMachine.container.frame.width * 1;
-        timelineChart.container.frame.height = timeMachine.container.frame.height * 1 * CHART_ASPECT_RATIO;
+        timelineChart.container.frame.width = thisObject.container.frame.width * 1;
+        timelineChart.container.frame.height = thisObject.container.frame.height * 1 * CHART_ASPECT_RATIO;
 
-        timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
+        timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2;
         timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, botsPanel, onDefaultMarketInitialized);
+        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, productsPanel, onDefaultMarketInitialized);
 
         iteration++;
 
         function onDefaultMarketInitialized() {
 
-            timeMachine.charts.push(timelineChart);
+            thisObject.charts.push(timelineChart);
 
             controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined);
             timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime);
@@ -74,7 +73,6 @@ function newTimeMachine() {
             initializeTheRestOfTheMarkets();
 
         }
-
 
         function initializeTheRestOfTheMarkets() {
 
@@ -89,36 +87,31 @@ function newTimeMachine() {
 
                 let timelineChart = newTimelineChart();
 
-                timelineChart.container.displacement.parentDisplacement = timeMachine.container.displacement;
-                timelineChart.container.frame.parentFrame = timeMachine.container.frame;
+                timelineChart.container.displacement.parentDisplacement = thisObject.container.displacement;
+                timelineChart.container.frame.parentFrame = thisObject.container.frame;
 
-                timelineChart.container.parentContainer = timeMachine.container;
+                timelineChart.container.parentContainer = thisObject.container;
 
-                timelineChart.container.frame.width = timeMachine.container.frame.width * 1;
-                timelineChart.container.frame.height = timeMachine.container.frame.height * 1 * CHART_ASPECT_RATIO;
+                timelineChart.container.frame.width = thisObject.container.frame.width * 1;
+                timelineChart.container.frame.height = thisObject.container.frame.height * 1 * CHART_ASPECT_RATIO;
 
-                timelineChart.container.frame.position.x = timeMachine.container.frame.width / 2 - timelineChart.container.frame.width / 2;
+                timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2;
                 timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-                timelineChart.initialize(1, key, botsPanel, finalSteps);
+                timelineChart.initialize(1, key, productsPanel, finalSteps);
 
                 iteration++;
 
                 function finalSteps() {
 
-                    timeMachine.charts.push(timelineChart);
+                    thisObject.charts.push(timelineChart);
 
                     controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined);
                     timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime);
 
                 }
-
             }
-
         }
-
-        
-
     }
 
     function draw() {
@@ -127,22 +120,17 @@ function newTimeMachine() {
 
         /* When we draw a time machine, that means also to draw all the charts in it. */
 
-        for (var i = 0; i < this.charts.length; i++) {
+        for (let i = 0; i < this.charts.length; i++) {
 
             let chart = this.charts[i];
             chart.draw();
 
         }
-
-        this.controlPanel.draw();
-
-        botsPanel.draw();
-
     }
 
     function getContainer(point) {
 
-        var container;
+        let container;
 
         /* First we check if this point is inside this space. */
 
@@ -150,25 +138,7 @@ function newTimeMachine() {
 
             /* Now we see which is the inner most container that has it */
 
-            container = this.controlPanel.getContainer(point);
-
-            if (container !== undefined) {
-
-                /* We found an inner container which has the point. We return it. */
-
-                return container;
-            }
-
-            container = botsPanel.getContainer(point);
-
-            if (container !== undefined) {
-
-                /* We found an inner container which has the point. We return it. */
-
-                return container;
-            }
-
-            for (var i = 0; i < this.charts.length; i++) {
+            for (let i = 0; i < this.charts.length; i++) {
 
                 container = this.charts[i].getContainer(point);
 
@@ -190,7 +160,5 @@ function newTimeMachine() {
 
             return undefined;
         }
-
     }
-
 }

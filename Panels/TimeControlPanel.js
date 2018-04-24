@@ -1,11 +1,11 @@
 ﻿
 
 
-function newControlPanel() {
+function newTimeControlPanel() {
 
     let PLAY_STEP = 0; 
 
-    var controlPanel = {
+    var thisObject = {
         container: undefined,
         buttons: undefined,
         setDatetime: setDatetime, 
@@ -19,12 +19,12 @@ function newControlPanel() {
     var container = newContainer();
     container.initialize();
     container.isDraggeable = true;
-    controlPanel.container = container;
-    controlPanel.container.frame.containerName = "Time Control Panel";
+    thisObject.container = container;
+    thisObject.container.frame.containerName = "Time Control Panel";
 
     var playingLoop;                    // Controls the generation of events that allows to play continuosly the market. 
 
-    return controlPanel;     
+    return thisObject;     
 
 
 
@@ -62,8 +62,8 @@ function newControlPanel() {
             button.initialize();
 
             buttonPosition = {  // The first button 
-                x: controlPanel.container.frame.width / 2 - (buttonNames.length * button.container.frame.width) / 2,
-                y: controlPanel.container.frame.height * 7 / 10
+                x: thisObject.container.frame.width / 2 - (buttonNames.length * button.container.frame.width) / 2,
+                y: thisObject.container.frame.height * 7 / 10
             };
             button.container.frame.position.x = buttonPosition.x + lastX;
             button.container.frame.position.y = buttonPosition.y;
@@ -84,7 +84,7 @@ function newControlPanel() {
 
 
 
-        controlPanel.buttons = buttons;
+        thisObject.buttons = buttons;
 
 
         var datetime = INITIAL_DATE;
@@ -95,8 +95,8 @@ function newControlPanel() {
             draw: drawTimeDisplay
         };
 
-        controlPanel.buttons = buttons;
-        controlPanel.datetimeDisplay = datetimeDisplay;
+        thisObject.buttons = buttons;
+        thisObject.datetimeDisplay = datetimeDisplay;
 
 
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
@@ -151,7 +151,7 @@ function newControlPanel() {
 
     function setDatetime(newDatetime) {
 
-        controlPanel.datetimeDisplay.currentDatetime = newDatetime;
+        thisObject.datetimeDisplay.currentDatetime = newDatetime;
 
     }
 
@@ -159,10 +159,10 @@ function newControlPanel() {
 
     function addTime(seconds) {
 
-        var newDate = controlPanel.datetimeDisplay.currentDatetime;
+        var newDate = thisObject.datetimeDisplay.currentDatetime;
 
         newDate.setSeconds(newDate.getSeconds() + seconds);
-        controlPanel.datetimeDisplay.currentDatetime = newDate;
+        thisObject.datetimeDisplay.currentDatetime = newDate;
 
     }
 
@@ -172,11 +172,11 @@ function newControlPanel() {
 
         /* When any of the buttons are pressed, the control panel must turn off the resto of the buttons. */
 
-        for (var i = 0; i < controlPanel.buttons.length; i++) {
+        for (var i = 0; i < thisObject.buttons.length; i++) {
 
             if (i !== buttonPressedIndex) {
 
-                var button = controlPanel.buttons[i];
+                var button = thisObject.buttons[i];
 
                 button.status = 'off';
 
@@ -186,7 +186,7 @@ function newControlPanel() {
 
         /* Now we actualy do something depending on which button was pressed. */
 
-        switch (controlPanel.buttons[buttonPressedIndex].type) {
+        switch (thisObject.buttons[buttonPressedIndex].type) {
 
             case "Fast Backwards":
 
@@ -246,11 +246,11 @@ function newControlPanel() {
 
     function pressStepBackwards() {
 
-        controlPanel.datetimeDisplay.addTime(-1 * PLAY_STEP / 1000);
+        thisObject.datetimeDisplay.addTime(-1 * PLAY_STEP / 1000);
 
-        var newDatetime = controlPanel.datetimeDisplay.currentDatetime;
+        var newDatetime = thisObject.datetimeDisplay.currentDatetime;
 
-        controlPanel.container.eventHandler.raiseEvent('Datetime Changed', newDatetime);
+        thisObject.container.eventHandler.raiseEvent('Datetime Changed', newDatetime);
 
     }
 
@@ -260,11 +260,11 @@ function newControlPanel() {
 
     function pressStepForward() {
 
-        controlPanel.datetimeDisplay.addTime(PLAY_STEP / 1000);
+        thisObject.datetimeDisplay.addTime(PLAY_STEP / 1000);
 
-        var newDatetime = controlPanel.datetimeDisplay.currentDatetime;
+        var newDatetime = thisObject.datetimeDisplay.currentDatetime;
 
-        controlPanel.container.eventHandler.raiseEvent('Datetime Changed', newDatetime);
+        thisObject.container.eventHandler.raiseEvent('Datetime Changed', newDatetime);
 
     }
 
@@ -285,10 +285,10 @@ function newControlPanel() {
 
     function draw() {
 
-        controlPanel.container.frame.draw(false, false, true);
+        thisObject.container.frame.draw(false, false, true);
 
-        for (var i = 0; i < controlPanel.buttons.length; i++) {
-            controlPanel.buttons[i].draw();
+        for (var i = 0; i < thisObject.buttons.length; i++) {
+            thisObject.buttons[i].draw();
         }
 
         this.datetimeDisplay.draw();
@@ -302,7 +302,7 @@ function newControlPanel() {
 
         let fontSize = 10;
 
-        let label = controlPanel.datetimeDisplay.currentDatetime.toUTCString();
+        let label = thisObject.datetimeDisplay.currentDatetime.toUTCString();
         let labelArray = label.split(" ");
 
         label = labelArray[0] + " " + labelArray[1] + " " + labelArray[2] + " " + labelArray[3];
@@ -310,11 +310,11 @@ function newControlPanel() {
         /* Now we transform x on the actual coordinate on the canvas. */
 
         let labelPoint = {
-            x: controlPanel.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-            y: controlPanel.container.frame.height * 3.4 / 10
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: thisObject.container.frame.height * 3.4 / 10
         };
 
-        labelPoint = controlPanel.container.frame.frameThisPoint(labelPoint);
+        labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
         browserCanvasContext.font = fontSize + 'px Courier New';
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
@@ -327,11 +327,11 @@ function newControlPanel() {
         /* Now we transform x on the actual coordinate on the canvas. */
 
         labelPoint = {
-            x: controlPanel.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-            y: controlPanel.container.frame.height * 5.0 / 10
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: thisObject.container.frame.height * 5.0 / 10
         };
 
-        labelPoint = controlPanel.container.frame.frameThisPoint(labelPoint);
+        labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
         browserCanvasContext.font = fontSize + 'px Courier New';
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
@@ -342,11 +342,11 @@ function newControlPanel() {
         /* Now we transform x on the actual coordinate on the canvas. */
 
         labelPoint = {
-            x: controlPanel.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-            y: controlPanel.container.frame.height * 6.5 / 10
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: thisObject.container.frame.height * 6.5 / 10
         };
 
-        labelPoint = controlPanel.container.frame.frameThisPoint(labelPoint);
+        labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
         browserCanvasContext.font = fontSize + 'px Courier New';
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';

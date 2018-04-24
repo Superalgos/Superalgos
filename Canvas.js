@@ -21,7 +21,7 @@ Canvas
   ---> flaotingSpace
   |
   |
-  ---> PanelsSpace
+  ---> panelsSpace
 
 */
 
@@ -55,6 +55,7 @@ function newCanvas() {
         eventHandler: undefined,
         chartSpace: undefined,
         floatingSpace: undefined,
+        panelsSpace: undefined,
         animation: undefined,
         initialize: initialize
     };
@@ -71,17 +72,24 @@ function newCanvas() {
 
         addCanvasEvents();
 
-        /* The canvas has one ChartSpace child. Here is where we get it. */ 
+        /* Instantiate all the children of Canvas object */ 
+
+        let panelsSpace = newPanelsSpace();
+        panelsSpace.initialize();
+
+        this.panelsSpace = panelsSpace;
+
+        let floatingSpace = newFloatingSpace();
+        floatingSpace.initialize();
+
+        this.floatingSpace = floatingSpace;
 
         let chartSpace = newChartSpace();
         chartSpace.initialize();
 
         this.chartSpace = chartSpace;
 
-        let floatingSpace = newFloatingSpace();
-        floatingSpace.initialize();
-
-        this.floatingSpace = floatingSpace;
+        /* Splash Screen */
 
         splashScreen = newSplashScreen();
         splashScreen.initialize();
@@ -93,8 +101,9 @@ function newCanvas() {
 
         /* Here we add all the functions that will be called during the animation cycle. */
 
-        animation.addCallBackFunction("Chart Space", this.chartSpace.draw);
-        animation.addCallBackFunction("Floating Space", this.floatingSpace.physicsLoop);
+        animation.addCallBackFunction("Chart Space", thisObject.chartSpace.draw);
+        animation.addCallBackFunction("Floating Space", thisObject.floatingSpace.physicsLoop);
+        animation.addCallBackFunction("Panels Space", thisObject.panelsSpace.draw);
         animation.addCallBackFunction("Splash Screen", splashScreen.draw);
         animation.start();
 
@@ -144,8 +153,39 @@ function newCanvas() {
 
     function onMouseDown(event) {
 
+        /*
+
+        There are four types of elements that can be dragged.
+
+        1. Panels.
+        2. Floating Elements (Currently only Balls).
+        3. Charts.
+        4. The Viewport.
+
+        We eveluate each space in order to see if they are holding the element being dragged, and we fallout at the Viewport.
+
+        */
+
         dragVector.downX = event.pageX;
         dragVector.downY = event.pageY;
+
+        let point = {
+            x: event.pageX,
+            y: event.pageY
+        };
+
+        let container;
+
+        /* We check first if the mouse is over a panel/ */
+
+        container = thisObject.panelsSpace.getContainer(point);
+
+        if (container !== undefined && container.isDraggeable === true) {
+
+            containerBeingDragged = container;
+            containerDragStarted = true;
+            return;
+        }
 
         /* We check first if the mouse is over a ball/ */
 
@@ -153,64 +193,62 @@ function newCanvas() {
 
         if (ballBeingDragged >= 0) {
             ballDragStarted = true;
+            return;
+        } 
 
-        } else {
+        /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
 
-            /* If it is not, then we check if it is over any of the existing containers. */
+        container = thisObject.chartSpace.getContainer(point);
 
-            let point = {
-                x: event.pageX,
-                y: event.pageY
-            };
+        if (container !== undefined && container.isDraggeable === true) {
 
-            let container = thisObject.chartSpace.getContainer(point);
+            containerBeingDragged = container;
+            containerDragStarted = true;
+            return;
+        } 
 
-            if (container !== undefined && container.isDraggeable === true) {
-
-                containerBeingDragged = container;
-                containerDragStarted = true;
-            } else {
-                viewPortBeingDragged = true;
-            }
-
-        }
-
+        viewPortBeingDragged = true;
     }
 
     function onMouseClick(event) {
 
-        dragVector.downX = event.pageX;
-        dragVector.downY = event.pageY;
+        let point = {
+            x: event.pageX,
+            y: event.pageY
+        };
 
-        /* We check first if the mouse is over a ball/ */ 
+        let container;
+
+        /* We check first if the mouse is over a panel/ */
+
+        container = thisObject.panelsSpace.getContainer(point);
+
+        if (container !== undefined && container.isClickeable === true) {
+
+            container.eventHandler.raiseEvent('onMouseClick', event);
+            return;
+        }
+
+        /* We check first if the mouse is over a ball/ */
 
         let ballBeingClicked = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
 
         if (ballBeingClicked >= 0) {
 
             /* Right now we do nothing with this. */
+            return;
 
-        } else {
+        } 
 
-            /* If it is not, then we check if it is over any of the existing containers. */
+        /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
 
-            let point = {
-                x: event.pageX,
-                y: event.pageY
-            };
+        container = thisObject.chartSpace.getContainer(point);
 
-            let container = thisObject.chartSpace.getContainer(point);
+        if (container !== undefined && container.isClickeable === true) {
 
-            if (container !== undefined && container.isClickeable === true) {
-
-                /* We deliver the event to the container that is waiting for it. */
-
-                container.eventHandler.raiseEvent('onMouseClick', event);
-
-            }
-
-        }
-
+            container.eventHandler.raiseEvent('onMouseClick', event);
+            return;
+        } 
     }
 
     function onMouseUp(event) {

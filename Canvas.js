@@ -299,117 +299,6 @@ function newCanvas() {
         }
     }
 
-    function checkDrag() {
-
-        if (containerDragStarted === true || ballDragStarted === true || viewPortBeingDragged === true) {
-
-            browserCanvas.style.cursor = "grabbing";
-            thisObject.eventHandler.raiseEvent("Dragging", undefined);
-
-            let targetBall = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
-
-            if (ballDragStarted) {
-
-                let ball = thisObject.floatingSpace.balls[ballBeingDragged];
-
-                ball.currentPosition.x = dragVector.upX;
-                ball.currentPosition.y = dragVector.upY;
-
-                /* Now we estimate if the drag was towards the Target Point of the ball or not. */
-
-                let distDown = distance(dragVector.downX, dragVector.downY, ball.targetPosition.x, ball.targetPosition.y);
-                let distUp = distance(dragVector.upX, dragVector.upY, ball.targetPosition.x, ball.targetPosition.y);
-
-                let mZoomValue;
-
-                if (distDown < distUp) {
-
-                    mZoomValue = 1;
-                } else {
-                    mZoomValue = -1;
-                }
-
-                //ball.container.zoom.mZoom(mZoomValue);   // Zoom is applied to ball mass of all balls in the same container.
-            }
-
-            if (containerDragStarted || viewPortBeingDragged) {
-
-                /* The parameters received have been captured with zoom applied. We must remove the zoom in order to correctly modify the displacement. */
-
-                
-                let downCopy = {
-                    x: dragVector.downX,
-                    y: dragVector.downY
-                };
-
-                let downCopyNoTransf;
-                downCopyNoTransf = viewPort.unzoomThisPoint(downCopy);
-                //downCopyNoTransf = containerBeingDragged.zoom.unzoomThisPoint(downCopyNoTransf);
-
-                let upCopy = {
-                    x: dragVector.upX,
-                    y: dragVector.upY
-                };
-
-                let upCopyNoTranf;
-                upCopyNoTranf = viewPort.unzoomThisPoint(upCopy);
-                //upCopyNoTranf = containerBeingDragged.zoom.unzoomThisPoint(upCopyNoTranf);
-
-                /*
-                let displaceVector = {
-                    x: upCopyNoTranf.x - downCopyNoTransf.x,
-                    y: upCopyNoTranf.y - downCopyNoTransf.y
-                };
-                */
-
-                let displaceVector = {
-                    x: dragVector.upX - dragVector.downX,
-                    y: dragVector.upY - dragVector.downY
-                };
-
-
-                if (viewPortBeingDragged) {
-
-                    viewPort.displace(displaceVector);
-
-                }
-
-
-                if (containerBeingDragged !== undefined) {
-
-                    containerBeingDragged.frame.position.x = containerBeingDragged.frame.position.x  + displaceVector.x;
-                    containerBeingDragged.frame.position.y = containerBeingDragged.frame.position.y + displaceVector.y;
-
-                }
-
-                
-
-
-
-                /*
-                if (containerBeingDragged.displacement.displace(diffX, diffY) === true) {
-
-                    updateBallsTargets();  // TODO: this should not be here
-
-                } else
-                {
-                    // If the displacement can not be performed, then we dont abort the dragging operation, just allow the user to move the mouse in some other direction.
-                }
-                */
-
-
-
-            }
-
-            /* Finally we set the starting point of the new dragVector at this current point. */
-
-            dragVector.downX = dragVector.upX;
-            dragVector.downY = dragVector.upY;
-
-        }
-
-    }
-
     function onMouseWheel(event) {
 
         // cross-browser wheel delta 
@@ -450,6 +339,117 @@ function newCanvas() {
         }
 
         return false;  // This instructs the browser not to take the event and scroll the page. 
+    }
+
+    function checkDrag() {
+
+        if (containerDragStarted === true || ballDragStarted === true || viewPortBeingDragged === true) {
+
+            browserCanvas.style.cursor = "grabbing";
+            thisObject.eventHandler.raiseEvent("Dragging", undefined);
+
+            let targetBall = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
+
+            if (ballDragStarted) {
+
+                let ball = thisObject.floatingSpace.balls[ballBeingDragged];
+
+                ball.currentPosition.x = dragVector.upX;
+                ball.currentPosition.y = dragVector.upY;
+
+                /* Now we estimate if the drag was towards the Target Point of the ball or not. */
+
+                let distDown = distance(dragVector.downX, dragVector.downY, ball.targetPosition.x, ball.targetPosition.y);
+                let distUp = distance(dragVector.upX, dragVector.upY, ball.targetPosition.x, ball.targetPosition.y);
+
+                let mZoomValue;
+
+                if (distDown < distUp) {
+
+                    mZoomValue = 1;
+                } else {
+                    mZoomValue = -1;
+                }
+
+                //ball.container.zoom.mZoom(mZoomValue);   // Zoom is applied to ball mass of all balls in the same container.
+            }
+
+            if (containerDragStarted || viewPortBeingDragged) {
+
+                /* The parameters received have been captured with zoom applied. We must remove the zoom in order to correctly modify the displacement. */
+
+
+                let downCopy = {
+                    x: dragVector.downX,
+                    y: dragVector.downY
+                };
+
+                let downCopyNoTransf;
+                downCopyNoTransf = viewPort.unzoomThisPoint(downCopy);
+                //downCopyNoTransf = containerBeingDragged.zoom.unzoomThisPoint(downCopyNoTransf);
+
+                let upCopy = {
+                    x: dragVector.upX,
+                    y: dragVector.upY
+                };
+
+                let upCopyNoTranf;
+                upCopyNoTranf = viewPort.unzoomThisPoint(upCopy);
+                //upCopyNoTranf = containerBeingDragged.zoom.unzoomThisPoint(upCopyNoTranf);
+
+                /*
+                let displaceVector = {
+                    x: upCopyNoTranf.x - downCopyNoTransf.x,
+                    y: upCopyNoTranf.y - downCopyNoTransf.y
+                };
+                */
+
+                let displaceVector = {
+                    x: dragVector.upX - dragVector.downX,
+                    y: dragVector.upY - dragVector.downY
+                };
+
+
+                if (viewPortBeingDragged) {
+
+                    viewPort.displace(displaceVector);
+
+                }
+
+
+                if (containerBeingDragged !== undefined) {
+
+                    containerBeingDragged.frame.position.x = containerBeingDragged.frame.position.x + displaceVector.x;
+                    containerBeingDragged.frame.position.y = containerBeingDragged.frame.position.y + displaceVector.y;
+
+                }
+
+
+
+
+
+                /*
+                if (containerBeingDragged.displacement.displace(diffX, diffY) === true) {
+
+                    updateBallsTargets();  // TODO: this should not be here
+
+                } else
+                {
+                    // If the displacement can not be performed, then we dont abort the dragging operation, just allow the user to move the mouse in some other direction.
+                }
+                */
+
+
+
+            }
+
+            /* Finally we set the starting point of the new dragVector at this current point. */
+
+            dragVector.downX = dragVector.upX;
+            dragVector.downY = dragVector.upY;
+
+        }
+
     }
 
 }

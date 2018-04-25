@@ -138,7 +138,7 @@
                         the +50% of current exchange rate. Next Bot execution will move it strategically.
                         */
 
-                        let rate = currentRate * 1.50;
+                        let rate = currentRate;
 
                         /*
                         The rules of the this first competition states that the bot will have the following initial balance in USDT and BTC to trade with.
@@ -153,6 +153,8 @@
                         /* 
                         Here is this bot example, we are going to sell all AmountB at once. You can do this or whatever you think is better.
                         */
+
+                        let balance = assistant.getBalance();
 
                         AmountA = AmountB * rate;
 
@@ -187,66 +189,28 @@
 
                     if (LOG_INFO === true) { logger.write("[INFO] start -> decideAboutSellPosition -> Entering function."); }
 
-                    /*
-    
-                    Here is where you decide what to do with your current sell position. Option are:
-    
-                    1. Do not touch it.
-                    2. Move it to another position by changing the rate.
-                        a. Up
-                        b. Down
-                    3. Cancell it. (not yet implemented at the platform.)
-    
-                    You can use here the information provided, analize it however you want and finally make a decition.
-    
-                    */
+                    let balance = assistant.getBalance();
 
-                    let candleArray;
-                    let candle;
-                    let weight;
+                    let rate = assistant.getMarketRate();
 
-                    /*
-    
-                    Keeping in mind this is an example of traing bot, we are going to put some logic here that in the end will move the current position
-                    up or down. It will move it down if the bot feels it is time to sell, and up if it feels that selling is not a good idea.
-    
-                    To achieve a final rate to move the current position at the exchange, we are going to go through the available candles and patterns
-                    and each one is going to make a micro-move, and at the end we will have a final rate to send a move command to the exchange.
-    
-                    We will use a weight to give more or less importance to different Time Periods.
-    
-                    ------
-                    NOTE: The code below is an example and you should replace it by your own logic. This is the key of your intervention here. 
-                    ------
-                    */
+                    let amountA; 
+                    let amountB;
 
-                    let diff;
-                    let variationPercentage;
-                    let timePeriodName;
+                    if (balance.assetA > 0) {
 
-                    let targetRate = pPosition.rate;
+                        amountA = balance.assetA;
+                        amountB = amountA / rate;
 
-                    let weightArray = [1 / (24 * 60), 1 / (12 * 60), 1 / (8 * 60), 1 / (6 * 60), 1 / (4 * 60), 1 / (3 * 60), 1 / (2 * 60), 1 / (1 * 60)];
+                        assistant.putPosition("buy", rate, amountA, amountB, callBack);
 
-                    for (i = 0; i < global.marketFilesPeriods.length; i++) {
+                    } else {
 
-                        weight = weightArray[i];
+                        amountB = balance.assetB; 
+                        amountA = amountB * rate;
 
-                        timePeriodName = global.marketFilesPeriods[i][1];
+                        assistant.putPosition("sell", rate, amountA, amountB, callBack);
 
-                        candleArray = platform.datasource.candlesMap.get(timePeriodName);
-                        candle = candleArray[candleArray.length - 1];           // The last candle of the 10 candles array.
-
-                        diff = candle.close - candle.open;
-                        variationPercentage = diff * 100 / candle.open;         // This is the % of how much the rate increased or decreced from open to close.
-
-                        targetRate = targetRate + targetRate * variationPercentage / 100 * weight;
-
-                    }
-
-                    /* Finally we move the order position to where we have just estimated is a better place. */
-
-                    assistant.movePosition(pPosition, targetRate, callBack);
+                    } 
 
                 } catch (err) {
                     logger.write("[ERROR] start -> decideAboutSellPosition -> err = " + err.message);

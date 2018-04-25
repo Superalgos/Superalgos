@@ -26,11 +26,17 @@
           "month": ""
         },
         "noTime": {
-          "run": "true"
+          "run": "false"
         },
         "fixedInterval": {
           "run": "false",
           "interval": 0
+        },
+        "timePeriod": {
+          "run": "true",
+          "beginDatetime": "2018-01-06T16:01:23.485Z",
+          "endDatetime": "2018-01-06T16:15:23.485Z",
+          "waitTime": 1000
         }
       },
       "normalWaitTime": 60000,

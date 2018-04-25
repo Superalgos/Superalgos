@@ -323,7 +323,7 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
                     if (processConfig.startMode.timePeriod.run === "true") {
 
-                        botConfig.backTesting = true;
+                        botConfig.backTestingMode = true;
                         botConfig.hasTheBotJustStarted = true;
                         botConfig.timePeriod = processConfig.startMode.timePeriod;
 

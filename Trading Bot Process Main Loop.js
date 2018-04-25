@@ -66,7 +66,7 @@
                     const BLOB_STORAGE = require(ROOT_DIR + 'Blob Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
-                    const EXCHANGE_API = require(ROOT_DIR + 'RealExchangeAPI');
+                    const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
                     const CONTEXT = require(ROOT_DIR + 'Context');
                     const DATASOURCE = require(ROOT_DIR + 'Datasource');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
@@ -77,7 +77,7 @@
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
-                    if (bot.backTesting === true) {
+                    if (bot.backTestingMode === true) {
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Backtesting Mode detected."); }
 
@@ -87,7 +87,11 @@
 
                             bot.processDatetime = new Date(bot.timePeriod.beginDatetime); // Set the starting time as the configured beginDatetime.   
 
-                            let endDatetime = new Date(bot.timePeriod.beginDatetime);
+                        } else {
+
+                            bot.processDatetime = new Date(bot.processDatetime.valueOf() + 60000); // We advance one minute in time. 
+
+                            let endDatetime = new Date(bot.timePeriod.endDatetime);
 
                             if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
 
@@ -96,10 +100,6 @@
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
                             }
-
-                        } else {
-
-                            bot.processDatetime = new Date(bot.processDatetime.valueOf() + 60000); // We advance one minute in time. 
                         }
 
                     } else {  // We are running Live!
@@ -280,7 +280,7 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeAssistant ->  Entering function."); }
 
-                        assistant = ASSISTANT.newAssistant(bot, DEBUG_MODULE);
+                        assistant = ASSISTANT.newAssistant(bot, DEBUG_MODULE, UTILITIES);
                         assistant.initialize(context, exchangeAPI, dataDependencies, onInizialized);
 
                         function onInizialized(err) {

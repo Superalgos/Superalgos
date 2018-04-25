@@ -240,7 +240,23 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> Entering function."); }
 
-                    let date = new Date(thisObject.statusReport.lastExecution);
+                    let date;
+                    let runType = thisObject.statusReport.runType;
+
+                    switch (runType) {
+
+                        case "Backtest": {
+                            date = new Date(thisObject.statusReport.backtestRuns[thisObject.statusReport.runIndex].lastExecution);
+                            thisObject.statusReport.backtestRuns[thisObject.statusReport.runIndex].lastExecution = bot.processDatetime;
+                            break;
+                        }
+
+                        case "Live": {
+                            date = new Date(thisObject.statusReport.liveRuns[thisObject.statusReport.runIndex].lastExecution);
+                            thisObject.statusReport.liveRuns[thisObject.statusReport.runIndex].lastExecution = bot.processDatetime;
+                            break;
+                        }
+                    }
 
                     let fileName = "Execution.Context." + thisObject.statusReport.runType + "." + thisObject.statusReport.runIndex + ".json";
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
@@ -312,7 +328,7 @@
 
                     let runType;
 
-                    if (bot.backTesting === true) {
+                    if (bot.backTestingMode === true) {
                         runType = "Backtest";
                     } else {
                         runType = "Live";
@@ -329,26 +345,28 @@
                             backtestRuns: []
                         };
 
-                    } else { // The Status Report does exist, we just need to move to the next runIndex. 
+                    } 
 
-                        thisObject.statusReport.runType = runType;
-                        let runContent = {
-                            lastExecution: bot.processDatetime
-                        };
+                    let runContent = {
+                        beginDatetime: (new Date(bot.timePeriod.beginDatetime)).valueOf(),
+                        endDatetime: (new Date(bot.timePeriod.endDatetime)).valueOf(),
+                        lastExecution: bot.processDatetime
+                    };
 
-                        switch (runType) {
+                    thisObject.statusReport.runType = runType;
 
-                            case "Backtest": {
-                                thisObject.statusReport.backtestRuns.push(runContent);
-                                thisObject.statusReport.runIndex = thisObject.statusReport.backtestRuns.lenght - 1;
-                                break;
-                            }
+                    switch (runType) {
 
-                            case "Live": {
-                                thisObject.statusReport.liveRuns.push(runContent);
-                                thisObject.statusReport.runIndex = thisObject.statusReport.liveRuns.lenght - 1;
-                                break;
-                            }
+                        case "Backtest": {
+                            thisObject.statusReport.backtestRuns.push(runContent);
+                            thisObject.statusReport.runIndex = thisObject.statusReport.backtestRuns.length - 1;
+                            break;
+                        }
+
+                        case "Live": {
+                            thisObject.statusReport.liveRuns.push(runContent);
+                            thisObject.statusReport.runIndex = thisObject.statusReport.liveRuns.length - 1;
+                            break;
                         }
                     }
 
@@ -579,6 +597,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function."); }
 
+                    statusReportModule.file = thisObject.statusReport;
                     statusReportModule.save(callBack);
 
                 }

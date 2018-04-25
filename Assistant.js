@@ -1,4 +1,4 @@
-﻿exports.newAssistant = function newAssistant(BOT, DEBUG_MODULE) {
+﻿exports.newAssistant = function newAssistant(BOT, DEBUG_MODULE, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -29,6 +29,8 @@
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
+
+    let utilities = UTILITIES.newUtilities(bot);
 
     let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
     let openPositions = [];         // These are the open positions the bot knows it made by itself. 
@@ -72,8 +74,9 @@
                     let dataSet = thisObject.dataDependencies.dataSets.get(key);
 
                     let timePeriod = "01-min";
+                    let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
                     let fileName = '' + global.MARKET.assetA + '_' + global.MARKET.assetB + '.json';
-                    let filePath = global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + timePeriod;
+                    let filePath = global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + timePeriod + "/" + dateForPath;
 
                     dataSet.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -88,45 +91,72 @@
                             try {
                                 candleArray = JSON.parse(text);
 
-                                let lastCandleRecord = candleArray[candleArray.length - 1];                   // The last candle contains at its close value the market rate.
+                                if (bot.backTestingMode === true) {
 
-                                let candle = {
-                                    open: lastCandleRecord[2],
-                                    close: lastCandleRecord[3],
-                                    min: lastCandleRecord[0],
-                                    max: lastCandleRecord[1],
-                                    begin: lastCandleRecord[4],
-                                    end: lastCandleRecord[5]
-                                };
+                                    logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Backtest Mode detected.");
 
-                                marketRate = candle.close;
+                                    /* We need to find the candle at which the process is currently running. */
 
-                                /*
-                                Now we verify that this candle is not too old. Lets say no more than 2 minutes old. This could happen if the datasets for
-                                any reason stops being updated.
-                                */
+                                    for (let i = 0; i < candleArray.length; i++) {
 
-                                if (candle.begin < bot.processDatetime.valueOf() - 2 * 60 * 1000) {
+                                        let candle = {
+                                            open: candleArray[i][2],
+                                            close: candleArray[i][3],
+                                            min: candleArray[i][0],
+                                            max: candleArray[i][1],
+                                            begin: candleArray[i][4],
+                                            end: candleArray[i][5]
+                                        };
 
-                                    logger.write("[ERROR] initialize -> Candles more than two minutes old. Retrying later.");
-                                    callBack(global.DEFAULT_RETRY_RESPONSE);
+                                        if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
+
+                                            marketRate = (candle.open + candle.close) / 2;
+
+                                            /* The Backtest Mode simulates that every trade posted is executed. 
+                                            In order to do this, we will take all open orders from the context and create a trades array similar to the one returned by the Exchange. */
+
+                                            validateExchangeSyncronicity();
+                                            return;
+                                        }
+                                    }
+
+                                    logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> No candle found for the current Process Datetime.");
+                                    logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> bot.processDatetime = " + bot.processDatetime);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
-                                }
 
-                                /* If we are in Exchange Simulation Mode then there is not much to do here. */
+                                } else { // We are running LIVE Mode.
 
-                                if (bot.backTesting === true) {
+                                    logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Live Mode detected.");
 
-                                    logger.write("[WARN] initialize -> Backtesting Mode detected. -> Skipping validateExchangeSyncronicity.");
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                    return;
+                                    let lastCandleRecord = candleArray[candleArray.length - 1];                   // The last candle contains at its close value the market rate.
 
-                                } else {
+                                    let candle = {
+                                        open: lastCandleRecord[2],
+                                        close: lastCandleRecord[3],
+                                        min: lastCandleRecord[0],
+                                        max: lastCandleRecord[1],
+                                        begin: lastCandleRecord[4],
+                                        end: lastCandleRecord[5]
+                                    };
+
+                                    marketRate = candle.close;
+
+                                    /*
+                                    Now we verify that this candle is not too old. Lets say no more than 2 minutes old. This could happen if the datasets for
+                                    any reason stops being updated.
+                                    */
+
+                                    if (candle.begin < bot.processDatetime.valueOf() - 2 * 60 * 1000) {
+
+                                        logger.write("[ERROR] initialize -> Candles more than two minutes old. Retrying later.");
+                                        callBack(global.DEFAULT_RETRY_RESPONSE);
+                                        return;
+                                    }
 
                                     validateExchangeSyncronicity();
                                     return;
                                 }
-
 
                             } catch (err) {
                                 logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> err = " + err.message);
@@ -211,7 +241,19 @@
 
             */
 
-            exchangeAPI.getOpenPositions(global.MARKET, onResponse);
+            if (bot.backTestingMode === true) {
+
+                if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange -> Backtest Mode Detected."); }
+
+                let exchangePositions = [];  // We simulate all positions were executed.
+
+                onResponse(global.DEFAULT_OK_RESPONSE, exchangePositions);
+            } else {
+
+                if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange -> Live Mode Detected."); }
+                exchangeAPI.getOpenPositions(global.MARKET, onResponse);
+
+            }
 
             function onResponse(err, pExchangePositions) {
 
@@ -390,75 +432,6 @@
                                 }
                             }
                         }
-
-                        function confirmOrderWasExecuted(pTrades) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
-                                if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
-
-                                /*
-    
-                                To confirm everything is ok, we will add all the amounts on trades asociated to the order and
-                                they must be equal to the one on file. Otherwise something very strange could have happened,
-                                in which case we will halt the bot execution.
-    
-                                */
-
-                                let sumAssetA = 0;
-                                let sumAssetB = 0;
-
-                                for (let k = 0; k < pTrades.length; k++) {
-
-                                    sumAssetA = sumAssetA + pTrades[k].amountA;
-                                    sumAssetB = sumAssetB + pTrades[k].amountB;
-
-                                }
-
-                                /* We add the fees */
-
-                                sumAssetA = sumAssetA + exchangePositions[j].fee;
-
-                                if (
-                                    position.amountA !== sumAssetA ||
-                                    position.amountB !== sumAssetB
-                                ) {
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
-                                    logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Verify also that you were not running under a Exchange Simulation and you turned it off without deleting the Status Report file.");
-                                    logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> If the process was abruptally cancelled and then restarted, it is possible that now is not sincronized with the exchange.");
-                                    logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> In any case, to continue, you must delete the Status Report file so as to start over. Also, you must manually delete the orders at the exchange.");
-                                    callBack(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-
-                                /*
-    
-                                Confirmed that order was executed. Next thing to do is to remember the trades and change its status.
-    
-                                */
-
-                                position.status = "executed";
-
-                                applyTradesToContext(pTrades);
-
-                                let newTransaction = {
-                                    type: position.type + " executed",
-                                    position: position
-                                };
-
-                                context.executionContext.transactions.push(newTransaction);
-
-                                /* All done. */
-
-                                next();
-
-                            } catch (err) {
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
-                                callBack(global.DEFAULT_FAIL_RESPONSE);
-                                return;
-                            }
-                        }
                     }
 
                     /* Position not found: we need to know if the order was executed. */
@@ -478,8 +451,49 @@
                 
                             */
 
-                            exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+                            if (bot.backTestingMode === true) {
 
+                                if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Backtest Mode Detected."); }
+
+                                let trades = [];  
+
+                                /* We look for the position at the executionContext */
+
+                                for (let i = 0; i < context.executionContext.positions.length; i++) {
+
+                                    let thisPosition = context.executionContext.positions[i];
+
+                                    if (thisPosition.id === pPositionId) {
+
+                                        let trade = {
+                                            id: Math.trunc(Math.random(1) * 1000000),
+                                            type: thisPosition.type,
+                                            rate: thisPosition.rate,
+                                            amountA: thisPosition.amountA,
+                                            amountB: thisPosition.amountB,
+                                            fee: 0,
+                                            date: (new Date()).valueOf()
+                                        }
+
+                                        trades.push(trade);
+
+                                        onResponse(global.DEFAULT_OK_RESPONSE, trades);
+
+                                        return;
+                                    }
+                                }
+
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Position not found at Executioin Context."); 
+                                callBack(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                                
+                            } else {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Live Mode Detected."); }
+                                exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+
+                            }
+                            
                             function onResponse(err, pTrades) {
 
                                 try {
@@ -513,7 +527,150 @@
                         }
                     }
 
+                    function confirmOrderWasExecuted(pTrades) {
 
+                        try {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
+
+                            /*
+ 
+                            To confirm everything is ok, we will add all the amounts on trades asociated to the order and
+                            they must be equal to the one on file. Otherwise something very strange could have happened,
+                            in which case we will halt the bot execution.
+ 
+                            */
+
+                            let sumAssetA = 0;
+                            let sumAssetB = 0;
+
+                            for (let k = 0; k < pTrades.length; k++) {
+
+                                sumAssetA = sumAssetA + pTrades[k].amountA;
+                                sumAssetB = sumAssetB + pTrades[k].amountB;
+
+                            }
+
+                            /* We add the fees */
+
+                            //sumAssetA = sumAssetA + exchangePositions[j].fee;
+
+                            if (
+                                position.amountA !== sumAssetA ||
+                                position.amountB !== sumAssetB
+                            ) {
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
+                                logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Verify also that you were not running under a Exchange Simulation and you turned it off without deleting the Status Report file.");
+                                logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> If the process was abruptally cancelled and then restarted, it is possible that now is not sincronized with the exchange.");
+                                logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> In any case, to continue, you must delete the Status Report file so as to start over. Also, you must manually delete the orders at the exchange.");
+                                callBack(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            /*
+ 
+                            Confirmed that order was executed. Next thing to do is to remember the trades and change its status.
+ 
+                            */
+
+                            position.status = "executed";
+
+                            applyTradesToContext(pTrades);
+
+                            let newTransaction = {
+                                type: position.type + " executed",
+                                position: position
+                            };
+
+                            context.executionContext.transactions.push(newTransaction);
+
+                            /* All done. */
+
+                            next();
+
+                        } catch (err) {
+                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+                    }
+
+                    function applyTradesToContext(pTrades) {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> applyTradesToContext -> Entering function."); }
+
+                            /* Here we apply the trades that already happened at the exchange to the balance and available balance of the bot. We also calculate its profits. */
+
+                            for (k = 0; k < pTrades.length; k++) {
+
+                                let trade = pTrades[k];
+
+                                position.trades.push(trade);
+
+                                context.newHistoryRecord.newTrades++;
+
+                                /* Calculate Balances */
+
+                                if (trade.type === 'buy') {
+
+                                    context.executionContext.balance.assetA = context.executionContext.balance.assetA - trade.amountA;
+                                    context.executionContext.balance.assetB = context.executionContext.balance.assetB + trade.amountB;
+
+                                    context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB + trade.amountB;
+                                }
+
+                                if (trade.type === 'sell') {
+
+                                    context.executionContext.balance.assetA = context.executionContext.balance.assetA + trade.amountA;
+                                    context.executionContext.balance.assetB = context.executionContext.balance.assetB - trade.amountB;
+
+                                    context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA + trade.amountA;
+                                }
+                            }
+
+                            /* Calculate Profits */
+
+                            if (context.executionContext.investment.assetA > 0) {
+
+                                context.executionContext.profits.assetA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
+                            }
+
+                            if (context.executionContext.investment.assetB > 0) {
+
+                                context.executionContext.profits.assetB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
+                            }
+
+                            context.newHistoryRecord.profitsAssetA = context.executionContext.profits.assetA;
+                            context.newHistoryRecord.profitsAssetB = context.executionContext.profits.assetB;
+
+                            /* Calculate Combined Profits */
+
+                            if (context.executionContext.investment.assetA > 0) {
+
+                                let convertedAssetsB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / marketRate;
+
+                                context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA + convertedAssetsB - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
+                            }
+
+                            if (context.executionContext.investment.assetB > 0) {
+
+                                let convertedAssetsA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) * marketRate;
+
+                                context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB + convertedAssetsA - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
+                            }
+
+                            context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;
+                            context.newHistoryRecord.combinedProfitsB = context.executionContext.combinedProfits.assetB;
+
+                        } catch (err) {
+                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = " + err.message);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+                    }
 
                 } catch (err) {
                     logger.write("[ERROR] ordersExecutionCheck -> loopBody -> err = " + err.message);
@@ -546,70 +703,6 @@
 
                 callBack(global.DEFAULT_OK_RESPONSE);
 
-            }
-
-            function applyTradesToContext(pTrades) {
-
-                /* Here we apply the trades that already happened at the exchange to the balance and available balance of the bot. We also calculate its profits. */
-
-                for (k = 0; k < pTrades.length; k++) {
-
-                    position.pTrades.push(pTrades[k]);
-
-                    context.newHistoryRecord.newTrades++;
-
-                    /* Calculate Balances */
-
-                    if (trade.type === 'buy') {
-
-                        context.executionContext.balance.assetA = context.executionContext.balance.assetA - trade.amountA;
-                        context.executionContext.balance.assetB = context.executionContext.balance.assetB + trade.amountB;
-
-                        context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB + trade.amountB;
-                    }
-
-                    if (trade.type === 'sell') {
-
-                        context.executionContext.balance.assetA = context.executionContext.balance.assetA + trade.amountA;
-                        context.executionContext.balance.assetB = context.executionContext.balance.assetB - trade.amountB;
-
-                        context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA + trade.amountA;
-                    }
-                }
-
-                /* Calculate Profits */
-
-                if (context.executionContext.investment.assetA > 0) {
-
-                    context.executionContext.profits.assetA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
-                }
-
-                if (context.executionContext.investment.assetB > 0) {
-
-                    context.executionContext.profits.assetB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
-                }
-
-                context.newHistoryRecord.profitsAssetA = context.executionContext.profits.assetA;
-                context.newHistoryRecord.profitsAssetB = context.executionContext.profits.assetB;
-
-                /* Calculate Combined Profits */
-
-                if (context.executionContext.investment.assetA > 0) {
-
-                    let convertedAssetsB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / marketRate;
-
-                    context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA + convertedAssetsB - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
-                }
-
-                if (context.executionContext.investment.assetB > 0) {
-
-                    let convertedAssetsA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) * marketRate;
-
-                    context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB + convertedAssetsA - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
-                }
-
-                context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;
-                context.newHistoryRecord.combinedProfitsB = context.executionContext.combinedProfits.assetB;
             }
 
         } catch (err) {
@@ -683,7 +776,13 @@
 
             /* All validations passed, we proceed. */
 
-            if (bot.backTesting === true) {
+            if (bot.backTestingMode === true) {
+
+                if (pRate !== marketRate) {
+
+                    logger.write("[ERROR] putPosition -> Input Validations -> putPosition Rate can not be different to marketRate while in Backtesting Mode. ");
+                    onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
+                }
 
                 let positionId = Math.trunc(Math.random(1) * 1000000);
                 if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
@@ -776,7 +875,7 @@
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
 
-            if (bot.backTesting === true) {
+            if (bot.backTestingMode === true) {
 
                 let positionId = Math.trunc(Math.random(1) * 1000000);
                 if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
@@ -895,7 +994,6 @@
         context.newHistoryRecord.buyAvgRate = (sumBuyWeightedRates / sumBuyWeights || 0);
         context.newHistoryRecord.sellAvgRate = (sumSellWeightedRates / sumSellWeights || 0);
     }
-
 
     function getPositions() {
         return JSON.parse(JSON.stringify(context.executionContext.positions));

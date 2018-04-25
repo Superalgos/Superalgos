@@ -17,10 +17,6 @@ catch (err) {
     return;
 }
 
-/* You do not have funds at the exchange and still want run your bot? No problem activate the exchange simulation mode: */
-
-global.EXCHANGE_SIMULATION_MODE = JSON.parse(global.PLATFORM_CONFIG.exchangeSimulationMode);
-
 /* The following global variable tells the system if it is running on test mode or production. */
 
 global.STORAGE_CONN_STRING_FOLDER = global.PLATFORM_CONFIG.storageConnStringFolder;  // 'Testnet', 'Mixed' or 'Production', or whatever folder name the conn strings files are into.
@@ -319,10 +315,24 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                                 runExtractionBot(botConfig, processConfig, month, year);
                                 break;
                             }
-                            case 'Indicator': {
-                                runIndicatorBot(botConfig, processConfig, month, year);
-                                break;
-                            }
+                        }
+                    }
+                }
+
+                if (processConfig.startMode.timePeriod !== undefined) {
+
+                    if (processConfig.startMode.timePeriod.run === "true") {
+
+                        botConfig.backTesting = true;
+                        botConfig.hasTheBotJustStarted = true;
+                        botConfig.timePeriod = processConfig.startMode.timePeriod;
+
+                        /* We override these waitTimes to the one specified at the timePeriod configuration. */
+
+                        processConfig.normalWaitTime = processConfig.startMode.timePeriod.waitTime;
+                        processConfig.retryWaitTime = processConfig.startMode.timePeriod.waitTime;
+
+                        switch (botConfig.type) {
                             case 'Trading': {
                                 runTradingBot(botConfig, processConfig);
                                 break;

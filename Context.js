@@ -121,6 +121,9 @@
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
                             logger.write("[INFO] initialize -> onDone -> Execution finished well. :-)");
+
+                            bot.hasTheBotJustStarted = false;
+
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
@@ -157,13 +160,14 @@
                     statusReportModule = statusDependencies.statusReports.get(key);
                     thisObject.statusReport = statusReportModule.file;
 
-                    if (thisObject.statusReport.lastExecution !== undefined) {
+                    if (bot.hasTheBotJustStarted === true) { 
 
-                        getExecutionHistory(callBack);  // Happens when the Status Report exists. 
+                        createConext(callBack);
 
                     } else {
 
-                        createConext(callBack);         // Happens when the Status Report does NOT exists. 
+                        getExecutionHistory(callBack); 
+
                     }
 
                 } catch (err) {
@@ -178,7 +182,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History.json";
+                    let fileName = "Execution.History." + thisObject.statusReport.runType + "." + thisObject.statusReport.runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
@@ -238,7 +242,7 @@
 
                     let date = new Date(thisObject.statusReport.lastExecution);
 
-                    let fileName = "Execution.Context.json";
+                    let fileName = "Execution.Context." + thisObject.statusReport.runType + "." + thisObject.statusReport.runIndex + ".json";
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
@@ -306,7 +310,47 @@
     
                     */
 
-                    thisObject.statusReport = {};
+                    let runType;
+
+                    if (bot.backTesting === true) {
+                        runType = "Backtest";
+                    } else {
+                        runType = "Live";
+                    }
+
+                    /* Here, we dont know if the Status Report was ever created or not. To test that we do this. */
+
+                    if (thisObject.statusReport.runType === undefined) { // This means that the Status Report does not exist.
+
+                        thisObject.statusReport = {
+                            runType: runType,
+                            runIndex: 0,
+                            liveRuns: [],
+                            backtestRuns: []
+                        };
+
+                    } else { // The Status Report does exist, we just need to move to the next runIndex. 
+
+                        thisObject.statusReport.runType = runType;
+                        let runContent = {
+                            lastExecution: bot.processDatetime
+                        };
+
+                        switch (runType) {
+
+                            case "Backtest": {
+                                thisObject.statusReport.backtestRuns.push(runContent);
+                                thisObject.statusReport.runIndex = thisObject.statusReport.backtestRuns.lenght - 1;
+                                break;
+                            }
+
+                            case "Live": {
+                                thisObject.statusReport.liveRuns.push(runContent);
+                                thisObject.statusReport.runIndex = thisObject.statusReport.liveRuns.lenght - 1;
+                                break;
+                            }
+                        }
+                    }
 
                     thisObject.executionHistory = [];
 
@@ -398,7 +442,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function."); }
 
-                    let fileName = "Execution.Context.json";
+                    let fileName = "Execution.Context." + thisObject.statusReport.runType + "." + thisObject.statusReport.runIndex +".json";
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
@@ -459,7 +503,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History.json";
+                    let fileName = "Execution.History." + thisObject.statusReport.runType + "." + thisObject.statusReport.runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
@@ -535,7 +579,6 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function."); }
 
-                    statusReportModule.file.lastExecution = bot.processDatetime;
                     statusReportModule.save(callBack);
 
                 }

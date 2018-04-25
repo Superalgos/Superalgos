@@ -66,7 +66,7 @@
                     const BLOB_STORAGE = require(ROOT_DIR + 'Blob Storage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
                     const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
-                    const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
+                    const EXCHANGE_API = require(ROOT_DIR + 'RealExchangeAPI');
                     const CONTEXT = require(ROOT_DIR + 'Context');
                     const DATASOURCE = require(ROOT_DIR + 'Datasource');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
@@ -77,8 +77,41 @@
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
-                    bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
+                    if (bot.backTesting === true) {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Backtesting Mode detected."); }
+
+                        if (bot.hasTheBotJustStarted === true) {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Bot just starting, setting initial datetime."); }
+
+                            bot.processDatetime = new Date(bot.timePeriod.beginDatetime); // Set the starting time as the configured beginDatetime.   
+
+                            let endDatetime = new Date(bot.timePeriod.beginDatetime);
+
+                            if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> End of Backtesting Period reached. Exiting Bot Process Loop."); }
+
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                return;
+                            }
+
+                        } else {
+
+                            bot.processDatetime = new Date(bot.processDatetime.valueOf() + 60000); // We advance one minute in time. 
+                        }
+
+                    } else {  // We are running Live!
+
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Live Mode detected."); }
+
+                        bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
+
+                    }
+
+                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> bot.processDatetime = " + bot.processDatetime); }
+                  
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
                     let context;
@@ -210,6 +243,7 @@
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
 
                         exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, DEBUG_MODULE, POLONIEX_CLIENT_MODULE);
+
                         exchangeAPI.initialize(onInizialized);
 
                         function onInizialized(err) {

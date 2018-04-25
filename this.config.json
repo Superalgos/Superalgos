@@ -43,7 +43,6 @@
     }
   ],
   "stopGracefully": "false",
-  "exchangeSimulationMode": "false",
   "storageConnStringFolder": "Production",
   "maxLogLoops": 5,
   "marketRateProvider": {

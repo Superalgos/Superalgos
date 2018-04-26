@@ -71,7 +71,7 @@ function newFileCloud() {
 
         if (pSequence !== undefined) {
 
-            fileName = fileName.replace("@Sequence", pSequence);
+            fileName = fileName.replace("@Sequence", pSequence); 
         }
 
         blobService.getBlobToText('data', filePath + "/" + fileName, onFileReceived);

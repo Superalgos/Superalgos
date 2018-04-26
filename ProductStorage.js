@@ -98,6 +98,19 @@ function newProductStorage(pName) {
                 }
                     break;
 
+                case 'File Sequence': {
+
+                    thisObject.file = newFileSequence();
+                    thisObject.file.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
+                    dataSetsToLoad++;
+
+                    if (CONSOLE_LOG === true) {
+
+                        console.log("Product storage initialize File Sequence for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+
+                    }
+                }
+                    break;
             }
 
             function onCacheFileReady() {

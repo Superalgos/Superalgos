@@ -53,16 +53,16 @@
     <Compile Include="Ecosystem.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="File.js">
+    <Compile Include="Files\File.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileCloud.js">
+    <Compile Include="Files\FileCloud.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileCursor.js">
+    <Compile Include="Files\FileCursor.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileCursorCache.js">
+    <Compile Include="Files\FileCursorCache.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Button.js" />
@@ -74,7 +74,7 @@
     <Compile Include="Container.js" />
     <Compile Include="DailyFileCursor.js" />
     <Compile Include="Dashboard.js" />
-    <Compile Include="FileCache.js">
+    <Compile Include="Files\FileCache.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Plotter.js">
@@ -86,7 +86,6 @@
     <Compile Include="Spaces\FloatingSpace.js" />
     <Compile Include="Frame.js" />
     <Compile Include="Markets.js" />
-    <Compile Include="MarketTrades.js" />
     <Compile Include="Order.js" />
     <Compile Include="OrderBook.js" />
     <Compile Include="OrderBookChart.js" />
@@ -99,7 +98,7 @@
     <Compile Include="TimeLineCoordinateSystem.js" />
     <Compile Include="PriceChart.js" />
     <Compile Include="Resistance.js" />
-    <Compile Include="FileServer.js" />
+    <Compile Include="Files\FileServer.js" />
     <Compile Include="SplashScreen.js">
       <SubType>Code</SubType>
     </Compile>
@@ -123,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />
+    <Folder Include="Files\" />
     <Folder Include="Spaces\" />
     <Folder Include="Panels\" />
   </ItemGroup>

@@ -575,8 +575,27 @@
                                     logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 
-                                writeStatusReport(callBack);
-                                return;
+                                /* Here we will write the file containing the max sequence number. */
+
+                                fileContent = thisObject.statusReport.runIndex;
+                                fileName = "Execution.History." + thisObject.statusReport.runType + "." + "Sequence" + ".json";
+                                filePath = bot.filePathRoot + "/Output/" + bot.process;
+
+                                cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onSequenceFileCreated);
+
+                                function onSequenceFileCreated(err) {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> onSequenceFileCreated -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> onSequenceFileCreated -> err = " + err.message);
+                                        callBack(err);
+                                        return;
+                                    }
+
+                                    writeStatusReport(callBack);
+                                    return;
+                                }
                             }
                         }
                         catch (err) {

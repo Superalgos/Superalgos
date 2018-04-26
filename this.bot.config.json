@@ -26,16 +26,16 @@
           "month": ""
         },
         "noTime": {
-          "run": "false"
+          "run": "true"
         },
         "fixedInterval": {
           "run": "false",
           "interval": 0
         },
         "timePeriod": {
-          "run": "true",
-          "beginDatetime": "2018-01-06T16:01:23.485Z",
-          "endDatetime": "2018-01-06T16:15:23.485Z",
+          "run": "false",
+          "beginDatetime": "2018-01-11T16:01:23.485Z",
+          "endDatetime": "2018-01-11T16:15:23.485Z",
           "waitTime": 1000
         }
       },
@@ -89,11 +89,11 @@
       "storageAccount": "aamariam",
       "dataSets": [
         {
-          "codeName": "Oficial History",
-          "type": "Single File",
+          "codeName": "Backtest History",
+          "type": "File Sequence",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
           "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
-          "fileName": "Execution.History.json"
+          "fileName": "Execution.History.Backtest.@Sequence.json"
         }
       ],
       "exchangeList": [
@@ -109,8 +109,8 @@
     }
   ],
   "storage": {
-    "sas": "?sv=2017-07-29&ss=f&srt=sco&sp=r&se=2018-12-30T23:44:52Z&st=2018-02-25T15:44:52Z&spr=https&sig=0pzOTcVAAOkgH7C4KmA1Rbs15kyjvVC1XFCsLQYjXKU%3D",
-    "fileUri": "https://aamariam.file.core.windows.net"
+    "sas": "?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2018-12-31T22:59:59Z&st=2018-04-01T12:59:54Z&spr=https&sig=Fre%2FUWrF9IAXNnJSOZ%2F5q5LUow9uno7dXg5pGZ3YDzo%3D",
+    "fileUri": "https://aamasters.blob.core.windows.net"
   }
 }
 

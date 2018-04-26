@@ -324,7 +324,6 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                     if (processConfig.startMode.timePeriod.run === "true") {
 
                         botConfig.backTestingMode = true;
-                        botConfig.hasTheBotJustStarted = true;
                         botConfig.timePeriod = processConfig.startMode.timePeriod;
 
                         /* We override these waitTimes to the one specified at the timePeriod configuration. */
@@ -460,6 +459,8 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] runTradingBot -> Entering function."); }
+
+            pBotConfig.hasTheBotJustStarted = true;
 
             let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotMainLoop(pBotConfig);
             tradingBotMainLoop.initialize(listItem.botPath, pProcessConfig, onInitializeReady);

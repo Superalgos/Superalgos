@@ -254,6 +254,7 @@
                         case "Live": {
                             date = new Date(thisObject.statusReport.liveRuns[thisObject.statusReport.runIndex].lastExecution);
                             thisObject.statusReport.liveRuns[thisObject.statusReport.runIndex].lastExecution = bot.processDatetime;
+                            thisObject.statusReport.liveRuns[thisObject.statusReport.runIndex].endDatetime = bot.processDatetime;
                             break;
                         }
                     }
@@ -347,23 +348,31 @@
 
                     } 
 
-                    let runContent = {
-                        beginDatetime: (new Date(bot.timePeriod.beginDatetime)).valueOf(),
-                        endDatetime: (new Date(bot.timePeriod.endDatetime)).valueOf(),
-                        lastExecution: bot.processDatetime
-                    };
-
                     thisObject.statusReport.runType = runType;
 
                     switch (runType) {
 
                         case "Backtest": {
+
+                            let runContent = {
+                                beginDatetime: (new Date(bot.timePeriod.beginDatetime)).valueOf(),
+                                endDatetime: (new Date(bot.timePeriod.endDatetime)).valueOf(),
+                                lastExecution: bot.processDatetime
+                            };
+
                             thisObject.statusReport.backtestRuns.push(runContent);
                             thisObject.statusReport.runIndex = thisObject.statusReport.backtestRuns.length - 1;
                             break;
                         }
 
                         case "Live": {
+
+                            let runContent = {
+                                beginDatetime: bot.processDatetime.valueOf(),
+                                endDatetime: bot.processDatetime.valueOf(),
+                                lastExecution: bot.processDatetime
+                            };
+
                             thisObject.statusReport.liveRuns.push(runContent);
                             thisObject.statusReport.runIndex = thisObject.statusReport.liveRuns.length - 1;
                             break;

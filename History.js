@@ -46,7 +46,7 @@
 
         for (let i = 0; i < maxSequence; i++) {
 
-            file.push(pStorage.fileSequence.getFile(i));
+            files.push(pStorage.fileSequence.getFile(i));
 
         }
 
@@ -97,7 +97,7 @@
 
     function recalculate() {    
 
-        if (files === undefined | files = []) { return; }
+        if (files === undefined) { return; }
 
         /*
 
@@ -105,6 +105,8 @@
         but for higher periods, we will filter out some records, so that they do not overlap ever. 
 
         */
+
+        plotElements = [];
 
         for (let j = 0; j < files.length; j++) {
 
@@ -144,7 +146,7 @@
 
     function recalculateScale() {
 
-        if (file === undefined) { return; } // We need the market file to be loaded to make the calculation.
+        if (files === undefined) { return; } // We need the market file to be loaded to make the calculation.
 
         if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
 

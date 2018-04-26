@@ -72,7 +72,6 @@
     <Compile Include="Spaces\ChartSpace.js" />
     <Compile Include="ChartUtilities.js" />
     <Compile Include="Container.js" />
-    <Compile Include="DailyFileCursor.js" />
     <Compile Include="Dashboard.js" />
     <Compile Include="Files\FileCache.js">
       <SubType>Code</SubType>
@@ -98,7 +97,6 @@
     <Compile Include="TimeLineCoordinateSystem.js" />
     <Compile Include="PriceChart.js" />
     <Compile Include="Resistance.js" />
-    <Compile Include="Files\FileServer.js" />
     <Compile Include="SplashScreen.js">
       <SubType>Code</SubType>
     </Compile>

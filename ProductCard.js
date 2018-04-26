@@ -17,6 +17,7 @@
         onMarketFileLoaded: onMarketFileLoaded, 
         onDailyFileLoaded: onDailyFileLoaded, 
         onSingleFileLoaded: onSingleFileLoaded, 
+        onFileSequenceLoaded: onFileSequenceLoaded, 
 
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
@@ -47,6 +48,14 @@
     };
 
     let singleFileProgressBar = {
+        value: 0,
+        animatedValue: 0,
+        fillStyle: UNLOADED_FILL_STYLE,
+        strokeStyle: UNLOADED_STROKE_STYLE,
+        opacity: 0.00
+    };
+
+    let fileSequenceProgressBar = {
         value: 0,
         animatedValue: 0,
         fillStyle: UNLOADED_FILL_STYLE,
@@ -235,6 +244,21 @@
         }
     }
 
+    function onFileSequenceLoaded(event) {
+
+        fileSequenceProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue);
+        fileSequenceProgressBar.fillStyle = LOADING_FILL_STYLE;
+        fileSequenceProgressBar.strokeStyle = LOADING_STROKE_STYLE;
+
+        if (fileSequenceProgressBar.value > 100) { fileSequenceProgressBar.value = 100; }
+
+        if (CONSOLE_LOG === true) {
+
+            console.log("ProductCard onFileSequenceLoaded Value = " + fileSequenceProgressBar.value + "% for " + thisObject.code + ". Event = " + JSON.stringify(event));
+
+        }
+    }
+
     function buttonPressed(event) {
 
         switch (thisObject.status) {
@@ -257,6 +281,11 @@
                 singleFileProgressBar.value = 0;
                 singleFileProgressBar.fillStyle = UNLOADED_FILL_STYLE;
                 singleFileProgressBar.strokeStyle = UNLOADED_STROKE_STYLE;
+
+                fileSequenceProgressBar.animatedValue = 0;
+                fileSequenceProgressBar.value = 0;
+                fileSequenceProgressBar.fillStyle = UNLOADED_FILL_STYLE;
+                fileSequenceProgressBar.strokeStyle = UNLOADED_STROKE_STYLE;
 
                 break;
 
@@ -660,6 +689,71 @@
 
         browserCanvasContext.fillStyle = singleFileProgressBar.fillStyle.replace('@Opacity', singleFileProgressBar.opacity.toString());
         browserCanvasContext.strokeStyle = singleFileProgressBar.strokeStyle.replace('@Opacity', singleFileProgressBar.opacity.toString());
+
+        browserCanvasContext.fill();
+        browserCanvasContext.lineWidth = 0.1;
+        browserCanvasContext.stroke();
+
+        /* We draw here the File Sequence Progress Bar. */
+
+        /* Animate */
+
+        if (fileSequenceProgressBar.animatedValue < fileSequenceProgressBar.value) {
+
+            fileSequenceProgressBar.animatedValue = fileSequenceProgressBar.animatedValue + ANIMATED_INCREMENT;
+            fileSequenceProgressBar.opacity = fileSequenceProgressBar.opacity + OPACITY_INCREMENT;
+
+        }
+
+        if (fileSequenceProgressBar.animatedValue >= 100) {
+
+            fileSequenceProgressBar.animatedValue = 100;
+
+            fileSequenceProgressBar.opacity = fileSequenceProgressBar.opacity - OPACITY_INCREMENT;
+            if (fileSequenceProgressBar.opacity < OPACITY_MIN) { fileSequenceProgressBar.opacity = OPACITY_MIN; }
+
+            fileSequenceProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', fileSequenceProgressBar.opacity.toString());
+            fileSequenceProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', fileSequenceProgressBar.opacity.toString());
+
+            changeStatusTo(PRODUCT_CARD_STATUS.ON);
+        }
+
+        point1 = {
+            x: 0,
+            y: thisObject.container.frame.height - 10
+        };
+
+        point2 = {
+            x: thisObject.container.frame.width * fileSequenceProgressBar.animatedValue / 100,
+            y: thisObject.container.frame.height - 10
+        };
+
+        point3 = {
+            x: thisObject.container.frame.width * fileSequenceProgressBar.animatedValue / 100,
+            y: thisObject.container.frame.height - 11
+        };
+
+        point4 = {
+            x: 0,
+            y: thisObject.container.frame.height - 11
+        };
+
+        /* Now the transformations. */
+
+        point1 = thisObject.container.frame.frameThisPoint(point1);
+        point2 = thisObject.container.frame.frameThisPoint(point2);
+        point3 = thisObject.container.frame.frameThisPoint(point3);
+        point4 = thisObject.container.frame.frameThisPoint(point4);
+
+        browserCanvasContext.beginPath();
+        browserCanvasContext.moveTo(point1.x, point1.y);
+        browserCanvasContext.lineTo(point2.x, point2.y);
+        browserCanvasContext.lineTo(point3.x, point3.y);
+        browserCanvasContext.lineTo(point4.x, point4.y);
+        browserCanvasContext.closePath();
+
+        browserCanvasContext.fillStyle = fileSequenceProgressBar.fillStyle.replace('@Opacity', fileSequenceProgressBar.opacity.toString());
+        browserCanvasContext.strokeStyle = fileSequenceProgressBar.strokeStyle.replace('@Opacity', fileSequenceProgressBar.opacity.toString());
 
         browserCanvasContext.fill();
         browserCanvasContext.lineWidth = 0.1;

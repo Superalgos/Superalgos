@@ -17,6 +17,7 @@ function newProductStorage(pName) {
         fileCache: undefined,
         fileCursorCache: undefined,
         file: undefined,
+        fileSequence: undefined,
 
         setDatetime: setDatetime,
         setTimePeriod: setTimePeriod,
@@ -100,8 +101,8 @@ function newProductStorage(pName) {
 
                 case 'File Sequence': {
 
-                    thisObject.file = newFileSequence();
-                    thisObject.file.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
+                    thisObject.fileSequence = newFileSequence();
+                    thisObject.fileSequence.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady);
                     dataSetsToLoad++;
 
                     if (CONSOLE_LOG === true) {
@@ -173,6 +174,29 @@ function newProductStorage(pName) {
                 }
 
                 thisObject.eventHandler.raiseEvent('Single File Loaded', event);
+
+                if (event.currentValue === event.totalValue) {
+
+                    dataSetsLoaded++;
+
+                    checkInitializeComplete();
+                }
+            }
+
+            function onFileSequenceReady() {
+
+                if (CONSOLE_LOG === true) {
+
+                    console.log("Product storage initialize onFileSequenceReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+
+                }
+
+                let event = {
+                    totalValue: thisObject.fileSequence.getExpectedFiles(),
+                    currentValue: thisObject.fileSequence.getFilesLoaded()
+                }
+
+                thisObject.eventHandler.raiseEvent('File Sequence Loaded', event);
 
                 if (event.currentValue === event.totalValue) {
 

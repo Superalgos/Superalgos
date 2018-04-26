@@ -173,7 +173,12 @@
                     break;
 
                 case 'Single File': {
-                    storage.eventHandler.listenToEvent('Single File Loaded', pProductCard.onSingleFileLoaded);;
+                    storage.eventHandler.listenToEvent('Single File Loaded', pProductCard.onSingleFileLoaded);
+                }
+                    break;
+
+                case 'File Sequence': {
+                    storage.eventHandler.listenToEvent('File Sequence Loaded', pProductCard.onFileSequenceLoaded);
                 }
                     break;
             }

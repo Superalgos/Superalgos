@@ -26,7 +26,7 @@ function newFile() {
 
         /* Now we will get the file */
 
-        fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, onFileReceived);
+        fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, undefined, onFileReceived);
 
         function onFileReceived(pFile) {
 

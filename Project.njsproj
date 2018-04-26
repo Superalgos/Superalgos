@@ -38,6 +38,9 @@
     <Compile Include="CompetitionStorage.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FileSequence.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ImageButton.js">
       <SubType>Code</SubType>
     </Compile>

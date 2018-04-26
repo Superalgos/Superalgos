@@ -295,7 +295,7 @@ function newFileCursor() {
 
                 if (fileCursor.files.get(dateString) === undefined) { // We dont reload files we already have. 
 
-                    fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, onFileReceived);
+                    fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, onFileReceived);
 
                 } else {
 

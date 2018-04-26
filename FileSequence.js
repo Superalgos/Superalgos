@@ -1,7 +1,7 @@
 ﻿
-function newFileCache() {
+function newFileSequence() {
 
-    let fileCache = {
+    let thisObject = {
         getFile: getFile,
         getExpectedFiles: getExpectedFiles,
         getFilesLoaded: getFilesLoaded,
@@ -13,8 +13,10 @@ function newFileCache() {
     let fileCloud;
 
     let files = new Map;
-    
-    return fileCache;
+
+    let maxSequence;
+
+    return thisObject;
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
 
@@ -29,20 +31,23 @@ function newFileCache() {
         fileCloud = newFileCloud();
         fileCloud.initialize(pBot);
 
-        /* Now we will get the market files */
+        /* First we will get the sequence max number */
 
-        for (let i = 0; i < marketFilesPeriods.length; i++) {
+        fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, "Sequence", onSequenceFileReceived);
 
-            let periodTime = marketFilesPeriods[i][0];
-            let periodName = marketFilesPeriods[i][1];
+        function onSequenceFileReceived(file) {
 
-            if (pSet.validPeriods.includes(periodName) === true) {
+            maxSequence = Number(file);
 
-                fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, periodName, undefined, undefined, onFileReceived);
+            /* Now we will get the sequence of files */
+
+            for (let i = 0; i <= maxSequence; i++) {
+
+                fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, i, onFileReceived);
 
                 function onFileReceived(file) {
 
-                    files.set(periodTime, file);
+                    files.set(i, file);
 
                     filesLoaded++;
 
@@ -52,16 +57,16 @@ function newFileCache() {
             }
         }
     }
-  
-    function getFile(pPeriod) {
 
-        return files.get(pPeriod);
+    function getFile(pSequence) {
+
+        return files.get(pSequence);
 
     }
 
     function getExpectedFiles() {
 
-        return marketFilesPeriods.length;
+        return maxSequence + 1;
 
     }
 

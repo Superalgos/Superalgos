@@ -18,7 +18,7 @@ function newFileCloud() {
 
     }
 
-    function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, callBackFunction) {
+    function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, callBackFunction) {
 
         let fileName = pSet.fileName;
         let filePath = pSet.filePath;
@@ -67,6 +67,11 @@ function newFileCloud() {
             filePath = filePath.replace("@Hour", pad(pDatetime.getUTCHours(), 2));
             filePath = filePath.replace("@Minute", pad(pDatetime.getUTCMinutes(), 2));
 
+        }
+
+        if (pSequence !== undefined) {
+
+            fileName = fileName.replace("@Sequence", pSequence);
         }
 
         blobService.getBlobToText('data', filePath + "/" + fileName, onFileReceived);

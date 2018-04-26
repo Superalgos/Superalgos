@@ -12,7 +12,7 @@
     {
       "codeName": "History",
       "moduleName": "History",
-      "description": "Plots trading positions history.",
+      "description": "Plots trading history.",
       "profilePicture": "History.png",
       "panels": []
     }

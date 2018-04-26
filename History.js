@@ -32,8 +32,8 @@
 
     /* these are module specific variables: */
 
-    let file;                           // Here we keep the history records to be ploted every time the Draw() function is called by the AAWebPlatform.
-    let history = [];                   // This is where the history records are stored before plotting.
+    let files = [];                           // Here we keep the history records to be ploted every time the Draw() function is called by the AAWebPlatform.
+    let plotElements = [];                    // This is where the elements to be plotted are stored before plotting.
 
     return thisObject;
 
@@ -42,7 +42,13 @@
         datetime = pDatetime;
         timePeriod = pTimePeriod;
 
-        file = pStorage.file.getFile();
+        let maxSequence = pStorage.fileSequence.getExpectedFiles();
+
+        for (let i = 0; i < maxSequence; i++) {
+
+            file.push(pStorage.fileSequence.getFile(i));
+
+        }
 
         recalculate();
         recalculateScale();
@@ -91,7 +97,7 @@
 
     function recalculate() {    
 
-        if (file === undefined) { return; }
+        if (files === undefined | files = []) { return; }
 
         /*
 
@@ -100,29 +106,36 @@
 
         */
 
-        history = [];
+        for (let j = 0; j < files.length; j++) {
 
-        let oneMin = 60000;
-        let step = timePeriod / oneMin;
+            let file = files[j];
 
-        for (let i = 0; i < file.length; i = i + step) {
+            let history = [];
 
-            let newHistoryRecord = {
+            let oneMin = 60000;
+            let step = timePeriod / oneMin;
 
-                date: Math.trunc(file[i][0] / 60000) * 60000 + 30000,
-                buyAvgRate: file[i][1],    
-                sellAvgRate: file[i][2], 
-                marketRate: file[i][3],
-                newPositions: file[i][4],
-                newTrades: file[i][5],
-                movedPositions: file[i][6],
-                profitsAssetA: file[i][7],
-                profitsAssetB: file[i][8],
-                combinedProfitsA: file[i][9],
-                combinedProfitsB: file[i][10]
-            };
+            for (let i = 0; i < file.length; i = i + step) {
 
-            history.push(newHistoryRecord);
+                let newHistoryRecord = {
+
+                    date: Math.trunc(file[i][0] / 60000) * 60000 + 30000,
+                    buyAvgRate: file[i][1],
+                    sellAvgRate: file[i][2],
+                    marketRate: file[i][3],
+                    newPositions: file[i][4],
+                    newTrades: file[i][5],
+                    movedPositions: file[i][6],
+                    profitsAssetA: file[i][7],
+                    profitsAssetB: file[i][8],
+                    combinedProfitsA: file[i][9],
+                    combinedProfitsB: file[i][10]
+                };
+
+                history.push(newHistoryRecord);
+            }
+
+            plotElements.push(history);
         }
 
         thisObject.container.eventHandler.raiseEvent("History Changed", history);
@@ -157,121 +170,132 @@
 
             let maxValue = 0;
 
-            for (let i = 0; i < file.length; i++) {
+            for (let j = 0; j < files.length; j++) {
 
-                let currentMax = file[i][1] + file[i][2];   // 1 = rates.
+                let file = files[j];
 
-                if (maxValue < currentMax) {
-                    maxValue = currentMax;
+                for (let i = 0; i < file.length; i++) {
+
+                    let currentMax = file[i][1] + file[i][2];   // 1 = rates.
+
+                    if (maxValue < currentMax) {
+                        maxValue = currentMax;
+                    }
                 }
             }
 
             return maxValue;
 
         }
-
     }
 
     function plotChart() {
 
         let point;
+        let history;
 
-        for (let i = 0; i < history.length; i++) {
+        for (let j = 0; j < plotElements.length; j++) {
 
-            record = history[i];
+            let history = plotElements[j];
 
-            point = {
-                x: record.date,
-                y: record.sellAvgRate
-            };
+            for (let i = 0; i < history.length; i++) {
 
-            point = timeLineCoordinateSystem.transformThisPoint(point);
-            point = transformThisPoint(point, thisObject.container);
+                record = history[i];
 
-            if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) { continue;}
+                point = {
+                    x: record.date,
+                    y: record.sellAvgRate
+                };
 
-            point = viewPort.fitIntoVisibleArea(point);
+                point = timeLineCoordinateSystem.transformThisPoint(point);
+                point = transformThisPoint(point, thisObject.container);
 
-            let isCurrentRecord = false;
+                if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) { continue;}
 
-            if (datetime !== undefined) {
-                let dateValue = datetime.valueOf();
-                if (dateValue >= record.date - timePeriod / 2 && dateValue <= record.date + timePeriod / 2 - 1) {
-                    isCurrentRecord = true;
+                point = viewPort.fitIntoVisibleArea(point);
+
+                let isCurrentRecord = false;
+
+                if (datetime !== undefined) {
+                    let dateValue = datetime.valueOf();
+                    if (dateValue >= record.date - timePeriod / 2 && dateValue <= record.date + timePeriod / 2 - 1) {
+                        isCurrentRecord = true;
+                    } 
                 } 
-            } 
 
-            let radiusFactor = 3;
-            let opacity = '0.2';
+                let radiusFactor = 3;
+                let opacity = '0.2';
 
-            let radius1 = record.newPositions * radiusFactor;
-            let radius2 = radius1 + record.movedPositions * radiusFactor;
-            let radius3 = radius2 + record.newTrades * radiusFactor;
+                let radius1 = record.newPositions * radiusFactor;
+                let radius2 = radius1 + record.movedPositions * radiusFactor;
+                let radius3 = radius2 + record.newTrades * radiusFactor;
 
-            browserCanvasContext.lineWidth = 1;
+                browserCanvasContext.lineWidth = 1;
 
-            /* Outer Circle */
+                /* Outer Circle */
 
-            browserCanvasContext.beginPath();
+                browserCanvasContext.beginPath();
 
-            browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
+                browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
 
-            if (isCurrentRecord === false) {
-                browserCanvasContext.fillStyle = 'rgba(64, 217, 26, ' + opacity + ')';
-            } else {
-                browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                if (isCurrentRecord === false) {
+                    browserCanvasContext.fillStyle = 'rgba(64, 217, 26, ' + opacity + ')';
+                } else {
+                    browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                }
+
+                browserCanvasContext.arc(point.x, point.y, radius3, 0, Math.PI * 2, true);
+                browserCanvasContext.closePath();
+
+                if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                    browserCanvasContext.fill();
+                }
+
+                browserCanvasContext.stroke();
+
+                /* Middle Circle */
+
+                browserCanvasContext.beginPath();
+                browserCanvasContext.strokeStyle = 'rgba(44, 61, 89, ' + opacity + ')';
+
+                if (isCurrentRecord === false) {
+                    browserCanvasContext.fillStyle = 'rgba(50, 108, 201, ' + opacity + ')';
+                } else {
+                    browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                }
+
+                browserCanvasContext.arc(point.x, point.y, radius2, 0, Math.PI * 2, true);
+                browserCanvasContext.closePath();
+
+                if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                    browserCanvasContext.fill();
+                }
+                browserCanvasContext.stroke();
+
+                /* Inner Circle */
+
+                browserCanvasContext.beginPath();
+                browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, ' + opacity + ')';
+
+                if (isCurrentRecord === false) {
+                    browserCanvasContext.fillStyle = 'rgba(64, 26, 217, ' + opacity + ')';
+                } else {
+                    browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                }
+
+                browserCanvasContext.arc(point.x, point.y, radius1, 0, Math.PI * 2, true);
+                browserCanvasContext.closePath();
+
+                if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                    browserCanvasContext.fill();
+                }
+                browserCanvasContext.stroke();
+
+                /* Since there is at least some point plotted, then the profile should be visible. */
+
+                thisObject.profile.visible = true;
             }
 
-            browserCanvasContext.arc(point.x, point.y, radius3, 0, Math.PI * 2, true);
-            browserCanvasContext.closePath();
-
-            if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
-                browserCanvasContext.fill();
-            }
-
-            browserCanvasContext.stroke();
-
-            /* Middle Circle */
-
-            browserCanvasContext.beginPath();
-            browserCanvasContext.strokeStyle = 'rgba(44, 61, 89, ' + opacity + ')';
-
-            if (isCurrentRecord === false) {
-                browserCanvasContext.fillStyle = 'rgba(50, 108, 201, ' + opacity + ')';
-            } else {
-                browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
-            }
-
-            browserCanvasContext.arc(point.x, point.y, radius2, 0, Math.PI * 2, true);
-            browserCanvasContext.closePath();
-
-            if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
-                browserCanvasContext.fill();
-            }
-            browserCanvasContext.stroke();
-
-            /* Inner Circle */
-
-            browserCanvasContext.beginPath();
-            browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, ' + opacity + ')';
-
-            if (isCurrentRecord === false) {
-                browserCanvasContext.fillStyle = 'rgba(64, 26, 217, ' + opacity + ')';
-            } else {
-                browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
-            }
-
-            browserCanvasContext.arc(point.x, point.y, radius1, 0, Math.PI * 2, true);
-            browserCanvasContext.closePath();
-
-            if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
-                browserCanvasContext.fill();
-            }
-            browserCanvasContext.stroke();
-
-            /* Since there is at least some point plotted, then the profile should be visible. */
-
-            thisObject.profile.visible = true;
         }
 
         /*
@@ -285,12 +309,5 @@
         thisObject.profile.position.y = point.y;
     }
 
-    function onZoomChanged(event) {
-
-    }
-
-    function onDragFinished() {
-
-    }
 }
 

@@ -94,71 +94,29 @@
 
                     if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> Entering function."); }
 
-                    /*
-
-                    First thing we need to know is to see where we are:
-
-                    Do we have open positions?
-
-                    If not, shall we create one?
-                    If yes, shall we move them?
-
-                    As this is an example we can assume that we will have only one position, since we will be trading the whole allowed capital all at once.
-                    You dont need to do this, you can have as many positions as you wish, and you will find them all at the positions array used below.
-
-                    */
-
                     let positions = assistant.getPositions();
 
                     if (positions.length > 0) {
 
-                        if (positions[0].type === "buy") {
-                            decideAboutBuyPosition(positions[0], callBack);
-                        } else {
-                            decideAboutSellPosition(positions[0], callBack);
-                        }
-                        
+                        decideWhatToDo(callBack);
+
                     } else {
 
-                        /*
+                        let rate = assistant.getMarketRate();
+                        rate = Number(rate.toFixed(8));
 
-                        Because this is an example, this bot is expected to always have an open position, either buy or sell.
-                        If it does not have one, that means that it is running for the first time. In which case, we will create one
-                        sell position at a very high price. Later, once the bot executes again, it will take it and move it to a reasonable
-                        place and monitor it during each execution round.
+                        const INITIAL_BALANCE_A = 0.000;
+                        const INITIAL_BALANCE_B = 0.001;
 
-                        Lets see first which is the current market rate.
+                        let amountA = INITIAL_BALANCE_A;
+                        let amountB = INITIAL_BALANCE_B;
 
-                        */
+                        amountB = Number(amountB.toFixed(8));
 
-                        let currentRate = assistant.getMarketRate();
+                        amountA = amountB * rate;
+                        amountA = Number(amountA.toFixed(8));
 
-                        /*
-                        As we just want to create the first order now and we do not want this order to get executed, we will put it at
-                        the +50% of current exchange rate. Next Bot execution will move it strategically.
-                        */
-
-                        let rate = currentRate;
-
-                        /*
-                        The rules of the this first competition states that the bot will have the following initial balance in USDT and BTC to trade with.
-                        */
-
-                        const INITIAL_BALANCE_A = 0.0000;
-                        const INITIAL_BALANCE_B = 0.0001;
-
-                        let AmountA = INITIAL_BALANCE_A;
-                        let AmountB = INITIAL_BALANCE_B;
-
-                        /* 
-                        Here is this bot example, we are going to sell all AmountB at once. You can do this or whatever you think is better.
-                        */
-
-                        let balance = assistant.getBalance();
-
-                        AmountA = AmountB * rate;
-
-                        assistant.putPosition("sell", rate, AmountA, AmountB, callBack);
+                        assistant.putPosition("sell", rate, amountA, amountB, callBack);
 
                     }
                 } catch (err) {
@@ -167,53 +125,64 @@
                 }
             }
 
-            function decideAboutBuyPosition(pPosition, callBack) {
+            function decideWhatToDo(callBack) {
 
                 try {
 
-                    if (LOG_INFO === true) { logger.write("[INFO] start -> decideAboutBuyPosition -> Entering function."); }
+                    if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> Entering function."); }
 
-                /* For simplicity of this example bot, we will use here the same logic than when we are selling. */
-
-                    decideAboutSellPosition(pPosition, callBack);
-
-                } catch (err) {
-                    logger.write("[ERROR] start -> decideAboutBuyPosition -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function decideAboutSellPosition(pPosition, callBack) {
-
-                try {
-
-                    if (LOG_INFO === true) { logger.write("[INFO] start -> decideAboutSellPosition -> Entering function."); }
-
-                    let balance = assistant.getBalance();
+                    let balance = assistant.getAvailableBalance();
 
                     let rate = assistant.getMarketRate();
+                    rate = Number(rate.toFixed(8));
 
                     let amountA; 
                     let amountB;
 
-                    if (balance.assetA > 0) {
+                    let balanceA = Number(balance.assetA);
+                    let balanceB = Number(balance.assetB);
 
-                        amountA = balance.assetA;
+                    if (balanceA === 0 && balanceB === 0) {
+
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> Cannot place orders since Available Balance is zero on both Assets."); }
+                        callBack(global.DEFAULT_OK_RESPONSE);
+                        return;
+                    }
+                    
+                    if (balanceA > 0) {
+
+                        amountA = balanceA;
+                        amountA = Number(amountA.toFixed(8));
+
                         amountB = amountA / rate;
+                        amountB = Number(amountB.toFixed(8));
+
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> Decided to BUY."); }
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> amountA = " + amountA); }
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> amountB = " + amountB); }
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> rate = " + rate); }
 
                         assistant.putPosition("buy", rate, amountA, amountB, callBack);
 
                     } else {
 
-                        amountB = balance.assetB; 
+                        amountB = balanceB; 
+                        amountB = Number(amountB.toFixed(8));
+
                         amountA = amountB * rate;
+                        amountA = Number(amountA.toFixed(8));
+
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> Decided to SELL."); }
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> amountA = " + amountA); }
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> amountB = " + amountB); }
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> rate = " + rate); }
 
                         assistant.putPosition("sell", rate, amountA, amountB, callBack);
 
                     } 
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> decideAboutSellPosition -> err = " + err.message);
+                    logger.write("[ERROR] start -> decideWhatToDo -> err = " + err.message);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

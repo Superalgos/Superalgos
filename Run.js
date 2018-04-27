@@ -337,7 +337,7 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                         processConfig.normalWaitTime = processConfig.startMode.timePeriod.waitTime;
                         processConfig.retryWaitTime = processConfig.startMode.timePeriod.waitTime;
 
-                        if (processConfig.startMode.noTime.resumeExecution === "true") {
+                        if (processConfig.startMode.timePeriod.resumeExecution === "true") {
                             botConfig.hasTheBotJustStarted = false;
                         } else {
                             botConfig.hasTheBotJustStarted = true;

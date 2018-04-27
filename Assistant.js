@@ -111,6 +111,7 @@
                                         if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
 
                                             marketRate = (candle.open + candle.close) / 2;
+                                            marketRate = Number(marketRate.toFixed(8));
 
                                             /* The Backtest Mode simulates that every trade posted is executed. 
                                             In order to do this, we will take all open orders from the context and create a trades array similar to the one returned by the Exchange. */
@@ -141,6 +142,7 @@
                                     };
 
                                     marketRate = candle.close;
+                                    marketRate = Number(marketRate.toFixed(8));
 
                                     /*
                                     Now we verify that this candle is not too old. Lets say no more than 2 minutes old. This could happen if the datasets for

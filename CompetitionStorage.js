@@ -43,7 +43,7 @@ function newCompetitionStorage(pName) {
 
             let devTeam = ecosystem.getTeam(pCompetition.participants[i].devTeam);
             let bot = ecosystem.getBot(devTeam, pCompetition.participants[i].bot)
-            let product = ecosystem.getProduct(bot, "Trading History");
+            let product = ecosystem.getProduct(bot, "Live Trading History");
 
             for (let i = 0; i < product.dataSets.length; i++) {
 

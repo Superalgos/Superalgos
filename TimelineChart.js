@@ -265,7 +265,8 @@
 
                     let imageId = pProductCard.bot.devTeam + "." + pProductCard.bot.profilePicture;
 
-                    productPlotter.plotter.profile.label = pProductCard.bot.displayName;
+                    productPlotter.plotter.profile.upLabel = pProductCard.product.shortDisplayName;
+                    productPlotter.plotter.profile.downLabel = pProductCard.bot.displayName;
                     productPlotter.plotter.profile.imageId = imageId;
 
                     productPlotter.profile = canvas.floatingSpace.createNewBall(productPlotter.plotter.profile, thisObject.container)

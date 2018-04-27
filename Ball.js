@@ -227,17 +227,37 @@ function newBall() {
 
             browserCanvasContext.font = fontSize + 'px Courier New';
 
-            let label = thisObject.input.label;
+            let label;
+            
+            label = thisObject.input.upLabel;
 
-            labelPoint = {
-                x: thisObject.currentPosition.x - label.length / 2 * fontSize * 0.60,
-                y: thisObject.currentPosition.y + thisObject.currentImageSize / 2 + fontSize * 0.60 + 5
-            };
+            if (label !== undefined) {
 
-            browserCanvasContext.font = fontSize + 'px Courier New';
-            browserCanvasContext.fillStyle = thisObject.labelStrokeStyle;
-            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
+                labelPoint = {
+                    x: thisObject.currentPosition.x - label.length / 2 * fontSize * 0.60,
+                    y: thisObject.currentPosition.y - thisObject.currentImageSize / 2 - fontSize * 0.60 - 5
+                };
 
+                browserCanvasContext.font = fontSize + 'px Courier New';
+                browserCanvasContext.fillStyle = thisObject.labelStrokeStyle;
+                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
+
+            }
+
+            label = thisObject.input.downLabel;
+
+            if (label !== undefined) {
+
+                labelPoint = {
+                    x: thisObject.currentPosition.x - label.length / 2 * fontSize * 0.60,
+                    y: thisObject.currentPosition.y + thisObject.currentImageSize / 2 + fontSize * 0.60 + 10
+                };
+
+                browserCanvasContext.font = fontSize + 'px Courier New';
+                browserCanvasContext.fillStyle = thisObject.labelStrokeStyle;
+                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
+
+            }
         }
     }
 }

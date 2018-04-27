@@ -85,8 +85,35 @@
   ],
   "products": [
     {
-      "codeName": "Trading History",
-      "displayName": "Trading History",
+      "codeName": "Live Trading History",
+      "displayName": "Live Trading History",
+      "shortDisplayName" : "Live",
+      "description": "General information about Mariam trading history.",
+      "storageAccount": "aamariam",
+      "dataSets": [
+        {
+          "codeName": "Backtest History",
+          "type": "File Sequence",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
+          "fileName": "Execution.History.Live.@Sequence.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersTrading",
+        "moduleName": "History"
+      }
+    },
+    {
+      "codeName": "Backtest Trading History",
+      "displayName": "Backtest Trading History",
+      "shortDisplayName": "Backtest",
       "description": "General information about Mariam trading history.",
       "storageAccount": "aamariam",
       "dataSets": [

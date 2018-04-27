@@ -208,8 +208,8 @@
 
                             /* Move some values to the new record, in case there are no transactions that re-calculate them. */
 
-                            thisObject.newHistoryRecord.buyAvgRate = thisObject.executionHistory[1];
-                            thisObject.newHistoryRecord.sellAvgRate = thisObject.executionHistory[2];
+                            thisObject.newHistoryRecord.buyAvgRate = thisObject.executionHistory[thisObject.executionHistory.length - 1][1];
+                            thisObject.newHistoryRecord.sellAvgRate = thisObject.executionHistory[thisObject.executionHistory.length - 1][2];
 
                             getExecutionContext(callBack);
 
@@ -386,7 +386,7 @@
                     once we advance into multiple competitions scheme.
                     */
 
-                    const INITIAL_INVESTMENT = 0.0001;              // This is just for this release of the platform.
+                    const INITIAL_INVESTMENT = 0.001;              // This is just for this release of the platform.
 
                     thisObject.executionContext = {
                         investment: {                               // This is used to calculate profits. 

@@ -283,6 +283,12 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                         let month = pad((new Date()).getUTCMonth() + 1, 2);
                         let year = (new Date()).getUTCFullYear();
 
+                        if (processConfig.startMode.noTime.resumeExecution === "true") {
+                            botConfig.hasTheBotJustStarted = false;
+                        } else {
+                            botConfig.hasTheBotJustStarted = true;
+                        }
+
                         switch (botConfig.type) {
                             case 'Extraction': {
                                 runExtractionBot(botConfig, processConfig, month, year);
@@ -330,6 +336,12 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
                         processConfig.normalWaitTime = processConfig.startMode.timePeriod.waitTime;
                         processConfig.retryWaitTime = processConfig.startMode.timePeriod.waitTime;
+
+                        if (processConfig.startMode.noTime.resumeExecution === "true") {
+                            botConfig.hasTheBotJustStarted = false;
+                        } else {
+                            botConfig.hasTheBotJustStarted = true;
+                        }
 
                         switch (botConfig.type) {
                             case 'Trading': {
@@ -459,8 +471,6 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] runTradingBot -> Entering function."); }
-
-            pBotConfig.hasTheBotJustStarted = true;
 
             let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotMainLoop(pBotConfig);
             tradingBotMainLoop.initialize(listItem.botPath, pProcessConfig, onInitializeReady);

@@ -106,7 +106,18 @@
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Live Mode detected."); }
 
-                        bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
+                        // This will be considered the process date and time, so as to have it consistenly all over the execution.
+
+                        let localDate = new Date();
+
+                        bot.processDatetime = new Date(Date.UTC(
+                            localDate.getUTCFullYear(),
+                            localDate.getUTCMonth(),
+                            localDate.getUTCDate(),
+                            localDate.getUTCHours(),
+                            localDate.getUTCMinutes(),
+                            localDate.getUTCSeconds(),
+                            localDate.getUTCMilliseconds()));
 
                     }
 

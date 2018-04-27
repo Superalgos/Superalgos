@@ -400,6 +400,13 @@
                 logger.write("[INFO] analizeResponse -> exchangeErr = " + JSON.stringify(exchangeErr));
                 logger.write("[INFO] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeResponse));
 
+                if (JSON.stringify(exchangeResponse).indexOf("error") > 0) {
+
+                    logger.write("[ERROR] analizeResponse -> Unexpected response from the Exchange.");
+                    notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                } 
+
                 if (
                     JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0 ||
                     JSON.stringify(exchangeResponse).indexOf("Connection Error") > 0 ||

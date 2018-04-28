@@ -68,7 +68,6 @@
                     const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
                     const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
                     const CONTEXT = require(ROOT_DIR + 'Context');
-                    const DATASOURCE = require(ROOT_DIR + 'Datasource');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
                     const DATA_SET = require(ROOT_DIR + 'Data Set');
@@ -77,48 +76,83 @@
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
-                    if (bot.backTestingMode === true) {
+                    switch (bot.runMode) {
+                        case 'Live': {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Backtesting Mode detected."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Live Mode detected."); }
 
-                        if (bot.hasTheBotJustStarted === true) {
+                            // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
-                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Bot just starting, setting initial datetime."); }
+                            let localDate = new Date();
 
-                            bot.processDatetime = new Date(bot.timePeriod.beginDatetime); // Set the starting time as the configured beginDatetime.   
-
-                        } else {
-
-                            bot.processDatetime = new Date(bot.processDatetime.valueOf() + 60000); // We advance one minute in time. 
-
-                            let endDatetime = new Date(bot.timePeriod.endDatetime);
-
-                            if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
-
-                                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> End of Backtesting Period reached. Exiting Bot Process Loop."); }
-
-                                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                return;
-                            }
+                            bot.processDatetime = new Date(Date.UTC(
+                                localDate.getUTCFullYear(),
+                                localDate.getUTCMonth(),
+                                localDate.getUTCDate(),
+                                localDate.getUTCHours(),
+                                localDate.getUTCMinutes(),
+                                localDate.getUTCSeconds(),
+                                localDate.getUTCMilliseconds()));
+                            break;
                         }
+                        case 'Backtest': {
 
-                    } else {  // We are running Live!
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Backtesting Mode detected."); }
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Live Mode detected."); }
+                            if (bot.hasTheBotJustStarted === true) {
 
-                        // This will be considered the process date and time, so as to have it consistenly all over the execution.
+                                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Bot just starting, setting initial datetime."); }
 
-                        let localDate = new Date();
+                                bot.processDatetime = new Date(bot.backtest.beginDatetime); // Set the starting time as the configured beginDatetime.   
 
-                        bot.processDatetime = new Date(Date.UTC(
-                            localDate.getUTCFullYear(),
-                            localDate.getUTCMonth(),
-                            localDate.getUTCDate(),
-                            localDate.getUTCHours(),
-                            localDate.getUTCMinutes(),
-                            localDate.getUTCSeconds(),
-                            localDate.getUTCMilliseconds()));
+                            } else {
 
+                                bot.processDatetime = new Date(bot.processDatetime.valueOf() + 60000); // We advance one minute in time. 
+
+                                let endDatetime = new Date(bot.backtest.endDatetime);
+
+                                if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> End of Backtesting Period reached. Exiting Bot Process Loop."); }
+
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
+                                }
+                            }
+                            break;
+                        }
+                        case 'Competition': {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Competition Mode detected."); }
+
+                            if (bot.hasTheBotJustStarted === true) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Bot just starting, setting initial datetime."); }
+
+                                bot.processDatetime = new Date(bot.competition.beginDatetime); // Set the starting time as the configured beginDatetime.   
+
+                            } else {
+
+                                bot.processDatetime = new Date(bot.processDatetime.valueOf() + 60000); // We advance one minute in time. 
+
+                                let endDatetime = new Date(bot.competition.endDatetime);
+
+                                if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> End of Competition Period reached. Exiting Bot Process Loop."); }
+
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
+                                }
+                            }
+                            break;
+                        }
+                        default: {
+                            logger.write("[ERROR] run -> loop -> Unexpected bot.runMode.");
+                            logger.write("[ERROR] run -> loop -> bot.runMode = " + bot.runMode);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
                     }
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> bot.processDatetime = " + bot.processDatetime); }

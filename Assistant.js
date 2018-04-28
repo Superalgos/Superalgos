@@ -91,78 +91,128 @@
                             try {
                                 candleArray = JSON.parse(text);
 
-                                if (bot.backTestingMode === true) {
+                                switch (bot.runMode) {
 
-                                    logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Backtest Mode detected.");
+                                    case "Live": {
 
-                                    /* We need to find the candle at which the process is currently running. */
+                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Live Mode detected.");
 
-                                    for (let i = 0; i < candleArray.length; i++) {
+                                        let lastCandleRecord = candleArray[candleArray.length - 1];                   // The last candle contains at its close value the market rate.
 
                                         let candle = {
-                                            open: candleArray[i][2],
-                                            close: candleArray[i][3],
-                                            min: candleArray[i][0],
-                                            max: candleArray[i][1],
-                                            begin: candleArray[i][4],
-                                            end: candleArray[i][5]
+                                            open: lastCandleRecord[2],
+                                            close: lastCandleRecord[3],
+                                            min: lastCandleRecord[0],
+                                            max: lastCandleRecord[1],
+                                            begin: lastCandleRecord[4],
+                                            end: lastCandleRecord[5]
                                         };
 
-                                        if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
+                                        marketRate = candle.close;
+                                        marketRate = Number(marketRate.toFixed(8));
 
-                                            marketRate = (candle.open + candle.close) / 2;
-                                            marketRate = Number(marketRate.toFixed(8));
+                                        /*
+                                        Now we verify that this candle is not too old. Lets say no more than 10 minutes old. This could happen if the datasets for
+                                        any reason stops being updated.
+                                        */
 
-                                            /* The Backtest Mode simulates that every trade posted is executed. 
-                                            In order to do this, we will take all open orders from the context and create a trades array similar to the one returned by the Exchange. */
+                                        let delay = (bot.processDatetime.valueOf() - candle.begin) / 1000 / 60;
 
-                                            validateExchangeSyncronicity();
+                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Market Rate " + delay + " minutes old.");
+
+                                        if (delay > 30) {
+
+                                            logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> Market Rate more than 10 minutes old. Retrying later.");
+
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                             return;
                                         }
-                                    }
 
-                                    logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> No candle found for the current Process Datetime.");
-                                    logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> bot.processDatetime = " + bot.processDatetime);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-
-                                } else { // We are running LIVE Mode.
-
-                                    logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Live Mode detected.");
-
-                                    let lastCandleRecord = candleArray[candleArray.length - 1];                   // The last candle contains at its close value the market rate.
-
-                                    let candle = {
-                                        open: lastCandleRecord[2],
-                                        close: lastCandleRecord[3],
-                                        min: lastCandleRecord[0],
-                                        max: lastCandleRecord[1],
-                                        begin: lastCandleRecord[4],
-                                        end: lastCandleRecord[5]
-                                    };
-
-                                    marketRate = candle.close;
-                                    marketRate = Number(marketRate.toFixed(8));
-
-                                    /*
-                                    Now we verify that this candle is not too old. Lets say no more than 2 minutes old. This could happen if the datasets for
-                                    any reason stops being updated.
-                                    */
-
-                                    let delay = (bot.processDatetime.valueOf() - candle.begin) / 1000 / 60; 
-
-                                    logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Market Rate " + delay + " minutes old." );
-
-                                    if (delay > 30) {
-
-                                        logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> Market Rate more than 10 minutes old. Retrying later.");
-                                        
-                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                        validateExchangeSyncronicity();
                                         return;
                                     }
 
-                                    validateExchangeSyncronicity();
-                                    return;
+                                    case "Backtest": {
+
+                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Backtest Mode detected.");
+
+                                        /* We need to find the candle at which the process is currently running. */
+
+                                        for (let i = 0; i < candleArray.length; i++) {
+
+                                            let candle = {
+                                                open: candleArray[i][2],
+                                                close: candleArray[i][3],
+                                                min: candleArray[i][0],
+                                                max: candleArray[i][1],
+                                                begin: candleArray[i][4],
+                                                end: candleArray[i][5]
+                                            };
+
+                                            if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
+
+                                                marketRate = (candle.open + candle.close) / 2;
+                                                marketRate = Number(marketRate.toFixed(8));
+
+                                                /* The Backtest Mode simulates that every trade posted is executed. 
+                                                In order to do this, we will take all open orders from the context and create a trades array similar to the one returned by the Exchange. */
+
+                                                validateExchangeSyncronicity();
+                                                return;
+                                            }
+                                        }
+
+                                        logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> No candle found for the current Process Datetime.");
+                                        logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> bot.processDatetime = " + bot.processDatetime);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+
+                                    case "Competition": {
+
+                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Competition Mode detected.");
+
+                                        let lastCandleRecord = candleArray[candleArray.length - 1];                   // The last candle contains at its close value the market rate.
+
+                                        let candle = {
+                                            open: lastCandleRecord[2],
+                                            close: lastCandleRecord[3],
+                                            min: lastCandleRecord[0],
+                                            max: lastCandleRecord[1],
+                                            begin: lastCandleRecord[4],
+                                            end: lastCandleRecord[5]
+                                        };
+
+                                        marketRate = candle.close;
+                                        marketRate = Number(marketRate.toFixed(8));
+
+                                        /*
+                                        Now we verify that this candle is not too old. Lets say no more than 10 minutes old. This could happen if the datasets for
+                                        any reason stops being updated.
+                                        */
+
+                                        let delay = (bot.processDatetime.valueOf() - candle.begin) / 1000 / 60;
+
+                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Market Rate " + delay + " minutes old.");
+
+                                        if (delay > 30) {
+
+                                            logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> Market Rate more than 10 minutes old. Retrying later.");
+
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            return;
+                                        }
+
+                                        validateExchangeSyncronicity();
+                                        return;
+                                    }
+
+                                    default: {
+                                        logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> Unexpected bot.runMode.");
+                                        logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> bot.runMode = " + bot.runMode);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
                                 }
 
                             } catch (err) {
@@ -250,18 +300,36 @@
 
             */
 
-            if (bot.backTestingMode === true) {
+            switch (bot.runMode) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange -> Backtest Mode Detected."); }
+                case "Live": {
 
-                let exchangePositions = [];  // We simulate all positions were executed.
+                    if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange -> Live Mode Detected."); }
+                    exchangeAPI.getOpenPositions(global.MARKET, onResponse);
+                    break;
+                }
 
-                onResponse(global.DEFAULT_OK_RESPONSE, exchangePositions);
-            } else {
+                case "Backtest": {
 
-                if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange -> Live Mode Detected."); }
-                exchangeAPI.getOpenPositions(global.MARKET, onResponse);
+                    if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange -> Backtest Mode Detected."); }
+                    let exchangePositions = [];  // We simulate all positions were executed.
+                    onResponse(global.DEFAULT_OK_RESPONSE, exchangePositions);
+                    break;
+                }
 
+                case "Competition": {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] getPositionsAtExchange -> Competition Mode Detected."); }
+                    exchangeAPI.getOpenPositions(global.MARKET, onResponse);
+                    break;
+                }
+
+                default: {
+                    logger.write("[ERROR] getPositionsAtExchange -> Unexpected bot.runMode.");
+                    logger.write("[ERROR] getPositionsAtExchange -> bot.runMode = " + bot.runMode);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
             }
 
             function onResponse(err, pExchangePositions) {
@@ -481,47 +549,66 @@
                     
                                 */
 
-                                if (bot.backTestingMode === true) {
+                                switch (bot.runMode) {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Backtest Mode Detected."); }
+                                    case "Live": {
 
-                                    let trades = [];
+                                        if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Live Mode Detected."); }
+                                        exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+                                        return;
 
-                                    /* We look for the position at the executionContext */
-
-                                    for (let i = 0; i < context.executionContext.positions.length; i++) {
-
-                                        let thisPosition = context.executionContext.positions[i];
-
-                                        if (thisPosition.id === pPositionId) {
-
-                                            let trade = {
-                                                id: Math.trunc(Math.random(1) * 1000000),
-                                                type: thisPosition.type,
-                                                rate: thisPosition.rate,
-                                                amountA: thisPosition.amountA,
-                                                amountB: thisPosition.amountB,
-                                                fee: 0,
-                                                date: (new Date()).valueOf()
-                                            }
-
-                                            trades.push(trade);
-
-                                            onResponse(global.DEFAULT_OK_RESPONSE, trades);
-
-                                            return;
-                                        }
                                     }
 
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Position not found at Executioin Context.");
-                                    callBack(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
+                                    case "Backtest": {
 
-                                } else {
+                                        if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Backtest Mode Detected."); }
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Live Mode Detected."); }
-                                    exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+                                        let trades = [];
 
+                                        /* We look for the position at the executionContext */
+
+                                        for (let i = 0; i < context.executionContext.positions.length; i++) {
+
+                                            let thisPosition = context.executionContext.positions[i];
+
+                                            if (thisPosition.id === pPositionId) {
+
+                                                let trade = {
+                                                    id: Math.trunc(Math.random(1) * 1000000),
+                                                    type: thisPosition.type,
+                                                    rate: thisPosition.rate,
+                                                    amountA: thisPosition.amountA,
+                                                    amountB: thisPosition.amountB,
+                                                    fee: 0,
+                                                    date: (new Date()).valueOf()
+                                                }
+
+                                                trades.push(trade);
+
+                                                onResponse(global.DEFAULT_OK_RESPONSE, trades);
+
+                                                return;
+                                            }
+                                        }
+
+                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Position not found at Executioin Context.");
+                                        callBack(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+
+                                    case "Competition": {
+
+                                        if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Competition Mode Detected."); }
+                                        exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+                                        return;
+                                    }
+
+                                    default: {
+                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Unexpected bot.runMode.");
+                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> bot.runMode = " + bot.runMode);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
                                 }
 
                                 function onResponse(err, pTrades) {
@@ -839,22 +926,40 @@
 
             /* All validations passed, we proceed. */
 
-            if (bot.backTestingMode === true) {
+            switch (bot.runMode) {
 
-                if (pRate !== marketRate) {
+                case "Live": {
 
-                    logger.write("[ERROR] putPosition -> Input Validations -> putPosition Rate can not be different to marketRate while in Backtesting Mode. ");
-                    onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
+                    exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
+                    return;
                 }
 
-                let positionId = Math.trunc(Math.random(1) * 1000000);
-                if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
-                onResponse(global.DEFAULT_OK_RESPONSE, positionId);
+                case "Backtest": {
 
-            } else {
+                    if (pRate !== marketRate) {
 
-                exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
+                        logger.write("[ERROR] putPosition -> Input Validations -> putPosition Rate can not be different to marketRate while in Backtesting Mode. ");
+                        onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
+                    }
 
+                    let positionId = Math.trunc(Math.random(1) * 1000000);
+                    if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
+                    onResponse(global.DEFAULT_OK_RESPONSE, positionId);
+                    return;
+                }
+
+                case "Competition": {
+
+                    exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
+                    return;
+                }
+
+                default: {
+                    logger.write("[ERROR] putPosition -> Unexpected bot.runMode.");
+                    logger.write("[ERROR] putPosition -> bot.runMode = " + bot.runMode);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
             }
 
             function onResponse(err, pPositionId) {
@@ -938,16 +1043,34 @@
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
 
-            if (bot.backTestingMode === true) {
+            switch (bot.runMode) {
 
-                let positionId = Math.trunc(Math.random(1) * 1000000);
-                if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
-                onResponse(global.DEFAULT_OK_RESPONSE, positionId);
+                case "Live": {
 
-            } else {
+                    exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
+                    return;
+                }
 
-                exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
+                case "Backtest": {
 
+                    let positionId = Math.trunc(Math.random(1) * 1000000);
+                    if (FULL_LOG === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
+                    onResponse(global.DEFAULT_OK_RESPONSE, positionId);
+                    return;
+                }
+
+                case "Competition": {
+
+                    exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
+                    return;
+                }
+
+                default: {
+                    logger.write("[ERROR] movePosition -> Unexpected bot.runMode.");
+                    logger.write("[ERROR] movePosition -> bot.runMode = " + bot.runMode);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
             }
 
             function onResponse(err, pPositionId) {

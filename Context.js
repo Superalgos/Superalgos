@@ -78,6 +78,8 @@
 
     let statusDependencies;
 
+    let runIndex;  // This is the index for this run and depends on the runMode. 
+
     return thisObject;
 
     function initialize(pStatusDependencies, callBackFunction) {
@@ -166,6 +168,34 @@
 
                     } else {
 
+                        switch (bot.runMode) {
+
+                            case "Live": {
+
+                                runIndex = thisObject.statusReport.liveRuns.length - 1;
+                                break;
+                            }
+
+                            case "Backtest": {
+
+                                runIndex = thisObject.statusReport.backtestRuns.length - 1;
+                                break;
+                            }
+
+                            case "Competition": {
+
+                                runIndex = thisObject.statusReport.competitionRuns.length - 1;
+                                break;
+                            }
+
+                            default: {
+                                logger.write("[ERROR] initialize -> createConext -> Unexpected bot.runMode.");
+                                logger.write("[ERROR] initialize -> createConext -> bot.runMode = " + bot.runMode);
+                                callBack(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+                        }
+
                         getExecutionHistory(callBack); 
 
                     }
@@ -182,7 +212,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History." + thisObject.statusReport.runType + "." + thisObject.statusReport.runIndex + ".json";
+                    let fileName = "Execution.History." + bot.runMode + "." + runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
@@ -208,8 +238,11 @@
 
                             /* Move some values to the new record, in case there are no transactions that re-calculate them. */
 
-                            thisObject.newHistoryRecord.buyAvgRate = thisObject.executionHistory[thisObject.executionHistory.length - 1][1];
+                            thisObject.newHistoryRecord.buyAvgRate = thisObject.executionHistory[thisObject.executionHistory.length-1][1];
                             thisObject.newHistoryRecord.sellAvgRate = thisObject.executionHistory[thisObject.executionHistory.length - 1][2];
+
+                            thisObject.newHistoryRecord.buyAvgRate = thisObject.executionHistory[1];
+                            thisObject.newHistoryRecord.sellAvgRate = thisObject.executionHistory[2];
 
                             getExecutionContext(callBack);
 
@@ -241,25 +274,37 @@
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> Entering function."); }
 
                     let date;
-                    let runType = thisObject.statusReport.runType;
 
-                    switch (runType) {
+                    switch (bot.runMode) {
 
-                        case "Backtest": {
-                            date = new Date(thisObject.statusReport.backtestRuns[thisObject.statusReport.runIndex].lastExecution);
-                            thisObject.statusReport.backtestRuns[thisObject.statusReport.runIndex].lastExecution = bot.processDatetime;
+                        case "Live": {
+                            date = new Date(thisObject.statusReport.liveRuns[runIndex].lastExecution);
+                            thisObject.statusReport.liveRuns[runIndex].lastExecution = bot.processDatetime;
+                            thisObject.statusReport.liveRuns[runIndex].endDatetime = bot.processDatetime;
                             break;
                         }
 
-                        case "Live": {
-                            date = new Date(thisObject.statusReport.liveRuns[thisObject.statusReport.runIndex].lastExecution);
-                            thisObject.statusReport.liveRuns[thisObject.statusReport.runIndex].lastExecution = bot.processDatetime;
-                            thisObject.statusReport.liveRuns[thisObject.statusReport.runIndex].endDatetime = bot.processDatetime;
+                        case "Backtest": {
+                            date = new Date(thisObject.statusReport.backtestRuns[runIndex].lastExecution);
+                            thisObject.statusReport.backtestRuns[runIndex].lastExecution = bot.processDatetime;
                             break;
+                        }
+
+                        case "Competition": {
+                            date = new Date(thisObject.statusReport.competitionRuns[runIndex].lastExecution);
+                            thisObject.statusReport.competitionRuns[runIndex].lastExecution = bot.processDatetime;
+                            break;
+                        }
+
+                        default: {
+                            logger.write("[ERROR] initialize -> getExecutionContext -> Unexpected bot.runMode.");
+                            logger.write("[ERROR] initialize -> getExecutionContext -> bot.runMode = " + bot.runMode);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                            return;
                         }
                     }
 
-                    let fileName = "Execution.Context." + thisObject.statusReport.runType + "." + thisObject.statusReport.runIndex + ".json";
+                    let fileName = "Execution.Context." + bot.runMode + "." + runIndex + ".json";
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
@@ -327,43 +372,18 @@
     
                     */
 
-                    let runType;
-
-                    if (bot.backTestingMode === true) {
-                        runType = "Backtest";
-                    } else {
-                        runType = "Live";
-                    }
-
                     /* Here, we dont know if the Status Report was ever created or not. To test that we do this. */
 
-                    if (thisObject.statusReport.runType === undefined) { // This means that the Status Report does not exist.
+                    if (thisObject.statusReport.liveRuns === undefined) { // This means that the Status Report does not exist.
 
                         thisObject.statusReport = {
-                            runType: runType,
-                            runIndex: 0,
                             liveRuns: [],
-                            backtestRuns: []
+                            backtestRuns: [],
+                            competitionRuns: []
                         };
-
                     } 
 
-                    thisObject.statusReport.runType = runType;
-
-                    switch (runType) {
-
-                        case "Backtest": {
-
-                            let runContent = {
-                                beginDatetime: (new Date(bot.timePeriod.beginDatetime)).valueOf(),
-                                endDatetime: (new Date(bot.timePeriod.endDatetime)).valueOf(),
-                                lastExecution: bot.processDatetime
-                            };
-
-                            thisObject.statusReport.backtestRuns.push(runContent);
-                            thisObject.statusReport.runIndex = thisObject.statusReport.backtestRuns.length - 1;
-                            break;
-                        }
+                    switch (bot.runMode) {
 
                         case "Live": {
 
@@ -374,8 +394,41 @@
                             };
 
                             thisObject.statusReport.liveRuns.push(runContent);
-                            thisObject.statusReport.runIndex = thisObject.statusReport.liveRuns.length - 1;
+                            runIndex = thisObject.statusReport.liveRuns.length - 1;
                             break;
+                        }
+
+                        case "Backtest": {
+
+                            let runContent = {
+                                beginDatetime: (new Date(bot.backtest.beginDatetime)).valueOf(),
+                                endDatetime: (new Date(bot.backtest.endDatetime)).valueOf(),
+                                lastExecution: bot.processDatetime
+                            };
+
+                            thisObject.statusReport.backtestRuns.push(runContent);
+                            runIndex = thisObject.statusReport.backtestRuns.length - 1;
+                            break;
+                        }
+
+                        case "Competition": {
+
+                            let runContent = {
+                                beginDatetime: (new Date(bot.competition.beginDatetime)).valueOf(),
+                                endDatetime: (new Date(bot.competition.endDatetime)).valueOf(),
+                                lastExecution: bot.processDatetime
+                            };
+
+                            thisObject.statusReport.competitionRuns.push(runContent);
+                            runIndex = thisObject.statusReport.competitionRuns.length - 1;
+                            break;
+                        }
+
+                        default: {
+                            logger.write("[ERROR] initialize -> createConext -> Unexpected bot.runMode.");
+                            logger.write("[ERROR] initialize -> createConext -> bot.runMode = " + bot.runMode);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                            return;
                         }
                     }
 
@@ -469,7 +522,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function."); }
 
-                    let fileName = "Execution.Context." + thisObject.statusReport.runType + "." + thisObject.statusReport.runIndex +".json";
+                    let fileName = "Execution.Context." + bot.runMode + "." + runIndex +".json";
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
@@ -530,7 +583,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History." + thisObject.statusReport.runType + "." + thisObject.statusReport.runIndex + ".json";
+                    let fileName = "Execution.History." + bot.runMode + "." + runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
@@ -586,8 +639,8 @@
 
                                 /* Here we will write the file containing the max sequence number. */
 
-                                fileContent = thisObject.statusReport.runIndex;
-                                fileName = "Execution.History." + thisObject.statusReport.runType + "." + "Sequence" + ".json";
+                                fileContent = runIndex;
+                                fileName = "Execution.History." + bot.runMode + "." + "Sequence" + ".json";
                                 filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                                 cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onSequenceFileCreated);

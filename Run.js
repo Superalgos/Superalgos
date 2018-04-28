@@ -298,9 +298,8 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                                 runIndicatorBot(botConfig, processConfig, month, year);
                                 break;
                             }
-                            case 'Trading': {
-                                runTradingBot(botConfig, processConfig);
-                                break;
+                            default: {
+                                logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                             }
                         }
                     }
@@ -321,23 +320,23 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                                 runExtractionBot(botConfig, processConfig, month, year);
                                 break;
                             }
+                            default: {
+                                logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                            }
                         }
                     }
                 }
 
-                if (processConfig.startMode.timePeriod !== undefined) {
+                if (processConfig.startMode.live !== undefined) {
 
-                    if (processConfig.startMode.timePeriod.run === "true") {
+                    if (processConfig.startMode.live.run === "true") {
 
-                        botConfig.backTestingMode = true;
-                        botConfig.timePeriod = processConfig.startMode.timePeriod;
+                        botConfig.runMode = "Live";
 
-                        /* We override these waitTimes to the one specified at the timePeriod configuration. */
+                        let month = pad((new Date()).getUTCMonth() + 1, 2);
+                        let year = (new Date()).getUTCFullYear();
 
-                        processConfig.normalWaitTime = processConfig.startMode.timePeriod.waitTime;
-                        processConfig.retryWaitTime = processConfig.startMode.timePeriod.waitTime;
-
-                        if (processConfig.startMode.timePeriod.resumeExecution === "true") {
+                        if (processConfig.startMode.live.resumeExecution === "true") {
                             botConfig.hasTheBotJustStarted = false;
                         } else {
                             botConfig.hasTheBotJustStarted = true;
@@ -347,6 +346,62 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
                             case 'Trading': {
                                 runTradingBot(botConfig, processConfig);
                                 break;
+                            }
+                            default: {
+                                logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                            }
+                        }
+                    }
+                }
+
+                if (processConfig.startMode.backtest !== undefined) {
+
+                    if (processConfig.startMode.backtest.run === "true") {
+
+                        botConfig.runMode = "Backtest";
+                        botConfig.backtest = processConfig.startMode.backtest;
+
+                        /* We override these waitTimes to the one specified at the backtest configuration. */
+
+                        processConfig.normalWaitTime = processConfig.startMode.backtest.waitTime;
+                        processConfig.retryWaitTime = processConfig.startMode.backtest.waitTime;
+
+                        /* Backtest Mode does not support Resume Execution, so this is the only way. */
+
+                        botConfig.hasTheBotJustStarted = true;
+
+                        switch (botConfig.type) {
+                            case 'Trading': {
+                                runTradingBot(botConfig, processConfig);
+                                break;
+                            }
+                            default: {
+                                logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                            }
+                        }
+                    }
+                }
+
+                if (processConfig.startMode.competition !== undefined) {
+
+                    if (processConfig.startMode.competition.run === "true") {
+
+                        botConfig.runMode = "Competition";
+                        botConfig.competition = processConfig.startMode.competition;
+
+                        if (processConfig.startMode.competition.resumeExecution === "true") {
+                            botConfig.hasTheBotJustStarted = false;
+                        } else {
+                            botConfig.hasTheBotJustStarted = true;
+                        }
+
+                        switch (botConfig.type) {
+                            case 'Trading': {
+                                runTradingBot(botConfig, processConfig);
+                                break;
+                            }
+                            default: {
+                                logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                             }
                         }
                     }

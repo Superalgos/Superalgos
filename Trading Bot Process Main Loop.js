@@ -74,6 +74,10 @@
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'Status Dependencies');
                     const DATA_DEPENDENCIES = require(ROOT_DIR + 'Data Dependencies');
 
+                    /* Waitime Variable */
+
+                    let nextWaitTime;
+
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
                     switch (bot.runMode) {
@@ -101,7 +105,7 @@
 
                             if (bot.hasTheBotJustStarted === true) {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Bot just starting, setting initial datetime."); }
+                                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Setting initial datetime."); }
 
                                 bot.processDatetime = new Date(bot.backtest.beginDatetime); // Set the starting time as the configured beginDatetime.   
 
@@ -125,26 +129,38 @@
 
                             if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Competition Mode detected."); }
 
-                            if (bot.hasTheBotJustStarted === true) {
+                            let localDate = new Date();
 
-                                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Bot just starting, setting initial datetime."); }
+                            bot.processDatetime = new Date(Date.UTC(
+                                localDate.getUTCFullYear(),
+                                localDate.getUTCMonth(),
+                                localDate.getUTCDate(),
+                                localDate.getUTCHours(),
+                                localDate.getUTCMinutes(),
+                                localDate.getUTCSeconds(),
+                                localDate.getUTCMilliseconds()));
 
-                                bot.processDatetime = new Date(bot.competition.beginDatetime); // Set the starting time as the configured beginDatetime.   
+                            let beginDatetime = new Date(bot.competition.beginDatetime);
 
-                            } else {
+                            if (bot.processDatetime.valueOf() < beginDatetime.valueOf()) {
 
-                                bot.processDatetime = new Date(bot.processDatetime.valueOf() + 60000); // We advance one minute in time. 
+                                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Competition not started yet. Wainting for the competition to start."); }
 
-                                let endDatetime = new Date(bot.competition.endDatetime);
-
-                                if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
-
-                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> End of Competition Period reached. Exiting Bot Process Loop."); }
-
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                    return;
-                                }
+                                nextWaitTime = 'Normal';
+                                loopControl(nextWaitTime);
+                                return;
                             }
+
+                            let endDatetime = new Date(bot.competition.endDatetime);
+
+                            if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> End of Competition Period reached. Exiting Bot Process Loop."); }
+
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                return;
+                            }
+
                             break;
                         }
                         default: {
@@ -165,8 +181,6 @@
                     let userBot;
                     let statusDependencies;
                     let dataDependencies;
-
-                    let nextWaitTime;
 
                     initializeStatusDependencies();
 

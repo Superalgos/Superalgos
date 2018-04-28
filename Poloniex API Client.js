@@ -397,8 +397,11 @@
 
             try {
 
-                logger.write("[INFO] analizeResponse -> exchangeErr = " + JSON.stringify(exchangeErr));
-                logger.write("[INFO] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeResponse));
+                let stringExchangeResponse = JSON.stringify(exchangeResponse);
+                let stringExchangeErr = JSON.stringify(exchangeErr);
+
+                logger.write("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr);
+                logger.write("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse);
 
                 if (JSON.stringify(exchangeResponse).indexOf("error") > 0) {
 
@@ -408,18 +411,19 @@
                 } 
 
                 if (
-                    JSON.stringify(exchangeResponse).indexOf("Connection timed out") > 0 ||
-                    JSON.stringify(exchangeResponse).indexOf("Connection Error") > 0 ||
-                    JSON.stringify(exchangeErr).indexOf("ETIMEDOUT") > 0 ||
-                    JSON.stringify(exchangeErr).indexOf("ENOTFOUND") > 0 ||
-                    JSON.stringify(exchangeErr).indexOf("ECONNREFUSED") > 0 ||
-                    JSON.stringify(exchangeErr).indexOf("ESOCKETTIMEDOUT") > 0 ||
-                    JSON.stringify(exchangeErr).indexOf("ECONNRESET") > 0) {
+                    stringExchangeResponse.indexOf("Connection timed out") > 0 ||
+                    stringExchangeResponse.indexOf("Connection Error") > 0 ||
+                    stringExchangeResponse.indexOf("Bad gateway") > 0 ||
+                    stringExchangeErr.indexOf("ETIMEDOUT") > 0 ||
+                    stringExchangeErr.indexOf("ENOTFOUND") > 0 ||
+                    stringExchangeErr.indexOf("ECONNREFUSED") > 0 ||
+                    stringExchangeErr.indexOf("ESOCKETTIMEDOUT") > 0 ||
+                    stringExchangeErr.indexOf("ECONNRESET") > 0) {
 
                     logger.write("[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
                     notOkCallBack(global.DEFAULT_RETRY_RESPONSE);
                     return;
-
+                    
                 } else {
 
                     if (exchangeErr) {

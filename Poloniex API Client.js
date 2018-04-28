@@ -429,11 +429,6 @@
                     if (exchangeErr) {
 
                         logger.write("[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange.");
-
-                        logger.write("[ERROR] analizeResponse -> Connection timed out = " + stringExchangeResponse.indexOf("Connection timed out"));
-                        logger.write("[ERROR] analizeResponse -> Connection Error = " + stringExchangeResponse.indexOf("Connection Error"));
-                        logger.write("[ERROR] analizeResponse -> Bad gateway = " + stringExchangeResponse.indexOf("Bad gateway"));
-
                         notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
                         return;
 

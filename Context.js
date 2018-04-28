@@ -388,8 +388,8 @@
                         case "Live": {
 
                             let runContent = {
-                                beginDatetime: bot.processDatetime.valueOf(),
-                                endDatetime: bot.processDatetime.valueOf(),
+                                beginDatetime: bot.processDatetime,
+                                endDatetime: bot.processDatetime,
                                 lastExecution: bot.processDatetime
                             };
 
@@ -401,8 +401,8 @@
                         case "Backtest": {
 
                             let runContent = {
-                                beginDatetime: (new Date(bot.backtest.beginDatetime)).valueOf(),
-                                endDatetime: (new Date(bot.backtest.endDatetime)).valueOf(),
+                                beginDatetime: new Date(bot.backtest.beginDatetime),
+                                endDatetime: new Date(bot.backtest.endDatetime),
                                 lastExecution: bot.processDatetime
                             };
 
@@ -414,8 +414,8 @@
                         case "Competition": {
 
                             let runContent = {
-                                beginDatetime: (new Date(bot.competition.beginDatetime)).valueOf(),
-                                endDatetime: (new Date(bot.competition.endDatetime)).valueOf(),
+                                beginDatetime: new Date(bot.competition.beginDatetime),
+                                endDatetime: new Date(bot.competition.endDatetime),
                                 lastExecution: bot.processDatetime
                             };
 

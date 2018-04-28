@@ -118,6 +118,11 @@
 
                         assistant.putPosition("sell", rate, amountA, amountB, callBack);
 
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> We start placing the first SELL order."); }
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> amountA = " + amountA); }
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> amountB = " + amountB); }
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> rate = " + rate); }
+
                     }
                 } catch (err) {
                     logger.write("[ERROR] start -> businessLogic -> err = " + err.message);

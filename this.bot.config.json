@@ -15,29 +15,20 @@
       "name": "Trading-Process",
       "description": "Simple trading strategy to be used as a template.",
       "startMode": {
-        "allMonths": {
+        "live": {
           "run": "false",
-          "minYear": "",
-          "maxYear": ""
-        },
-        "oneMonth": {
-          "run": "false",
-          "year": "",
-          "month": ""
-        },
-        "noTime": {
-          "run": "true",
           "resumeExecution": "false"
         },
-        "fixedInterval": {
+        "backtest": {
           "run": "false",
-          "interval": 0
+          "beginDatetime": "2018-03-12T16:01:23.485Z",
+          "endDatetime": "2018-03-12T16:15:23.485Z",
+          "waitTime": 1000
         },
-        "timePeriod": {
-          "run": "false",
-          "beginDatetime": "2018-02-11T16:01:23.485Z",
-          "endDatetime": "2018-02-11T16:15:23.485Z",
-          "waitTime": 1000,
+        "competition": {
+          "run": "true",
+          "beginDatetime": "2018-04-27T16:00:00.000Z",
+          "endDatetime": "2018-04-28T16:05:00.000Z",
           "resumeExecution": "false"
         }
       },

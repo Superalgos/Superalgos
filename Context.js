@@ -39,7 +39,11 @@
         newHistoryRecord : {
             date: undefined,
             buyAvgRate: 0,
-            sellAvgRate: 0,  
+            sellAvgRate: 0,
+            lastSellRate: 0,
+            sellExecRate: 0,
+            lastBuyRate: 0,
+            buyExecRate: 0,
             marketRate: 0,
             newPositions: 0,
             newTrades: 0,
@@ -607,6 +611,12 @@
                                 thisObject.newHistoryRecord.date.valueOf(),
                                 thisObject.newHistoryRecord.buyAvgRate,
                                 thisObject.newHistoryRecord.sellAvgRate,
+
+                                thisObject.newHistoryRecord.lastSellRate,
+                                thisObject.newHistoryRecord.sellExecRate,
+                                thisObject.newHistoryRecord.lastBuyRate,
+                                thisObject.newHistoryRecord.buyExecRate,
+
                                 thisObject.newHistoryRecord.marketRate,
                                 thisObject.newHistoryRecord.newPositions,
                                 thisObject.newHistoryRecord.newTrades,

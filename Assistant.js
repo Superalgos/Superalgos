@@ -110,6 +110,7 @@
 
                                         marketRate = candle.close;
                                         marketRate = Number(marketRate.toFixed(8));
+                                        context.newHistoryRecord.marketRate = marketRate;
 
                                         /*
                                         Now we verify that this candle is not too old. Lets say no more than 10 minutes old. This could happen if the datasets for
@@ -153,6 +154,7 @@
 
                                                 marketRate = (candle.open + candle.close) / 2;
                                                 marketRate = Number(marketRate.toFixed(8));
+                                                context.newHistoryRecord.marketRate = marketRate;
 
                                                 /* The Backtest Mode simulates that every trade posted is executed. 
                                                 In order to do this, we will take all open orders from the context and create a trades array similar to the one returned by the Exchange. */
@@ -185,6 +187,7 @@
 
                                         marketRate = candle.close;
                                         marketRate = Number(marketRate.toFixed(8));
+                                        context.newHistoryRecord.marketRate = marketRate;
 
                                         /*
                                         Now we verify that this candle is not too old. Lets say no more than 10 minutes old. This could happen if the datasets for
@@ -694,6 +697,12 @@
 
                             position.status = "executed";
 
+                            if (position.type === "sell") {
+                                context.newHistoryRecord.sellExecRate = position.rate;
+                            } else {
+                                context.newHistoryRecord.buyExecRate = position.rate;
+                            }
+
                             applyTradesToContext(pTrades);
 
                             let newTransaction = {
@@ -1001,11 +1010,13 @@
                             if (position.type === 'buy') {
 
                                 context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA - pAmountA;
-                            }
+                                context.newHistoryRecord.lastBuyRate = pRate;
+                            } 
 
                             if (position.type === 'sell') {
 
                                 context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB - pAmountB;
+                                context.newHistoryRecord.lastSellRate = pRate;
                             }
 
                             callBackFunction(global.DEFAULT_OK_RESPONSE);

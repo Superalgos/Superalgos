@@ -1,7 +1,12 @@
 ﻿
 function newFileCache() {
 
-    let fileCache = {
+    const MODULE_NAME = "File Cache";
+    const FULL_LOG = true;
+    const logger = newDebugLog();
+    logger.fileName = MODULE_NAME;
+
+    let thisObject = {
         getFile: getFile,
         getExpectedFiles: getExpectedFiles,
         getFilesLoaded: getFilesLoaded,
@@ -14,9 +19,12 @@ function newFileCache() {
 
     let files = new Map;
     
-    return fileCache;
+    return thisObject;
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
         let exchange = ecosystem.getExchange(pProduct, pExchange);
 
@@ -40,13 +48,46 @@ function newFileCache() {
 
                 fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, periodName, undefined, undefined, onFileReceived);
 
-                function onFileReceived(file) {
+                function onFileReceived(err, file) {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Entering function."); }
+
+                    switch (err.result) {
+                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received OK Response."); }
+                            break;
+                        }
+
+                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received FAIL Response."); }
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+
+                        case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> err.message = " + err.message); }
+
+                            callBackFunction(err);
+                            return;
+                        }
+
+                        default: {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
+                            callBackFunction(err);
+                            return;
+                        }
+                    }
 
                     files.set(periodTime, file);
 
                     filesLoaded++;
 
-                    callBackFunction(); // Note that the callback is called for every file loaded.
+                    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); // Note that the callback is called for every file loaded.
 
                 }
             }
@@ -55,17 +96,23 @@ function newFileCache() {
   
     function getFile(pPeriod) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] getFile -> Entering function."); }
+
         return files.get(pPeriod);
 
     }
 
     function getExpectedFiles() {
 
+        if (FULL_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
+
         return marketFilesPeriods.length;
 
     }
 
     function getFilesLoaded() {
+
+        if (FULL_LOG === true) { logger.write("[INFO] getFilesLoaded -> Entering function."); }
 
         return filesLoaded;
 

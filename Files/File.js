@@ -1,7 +1,12 @@
 ﻿
 function newFile() {  
 
-    let fileObject = {
+    const MODULE_NAME = "File";
+    const FULL_LOG = true;
+    const logger = newDebugLog();
+    logger.fileName = MODULE_NAME;
+
+    let thisObject = {
         getFile: getFile,
         initialize: initialize
     }
@@ -9,9 +14,12 @@ function newFile() {
     let fileCloud;
     let file;
 
-    return fileObject;
+    return thisObject;
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
         let exchange = ecosystem.getExchange(pProduct, pExchange);
 
@@ -28,17 +36,51 @@ function newFile() {
 
         fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, undefined, onFileReceived);
 
-        function onFileReceived(pFile) {
+        function onFileReceived(err, pFile) {
+
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Entering function."); }
+
+            switch (err.result) {
+                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received OK Response."); }
+                    break;
+                }
+
+                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received FAIL Response."); }
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+
+                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> err.message = " + err.message); }
+
+                    callBackFunction(err);
+                    return;
+                }
+
+                default: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
+                    callBackFunction(err);
+                    return;
+                }
+            }
 
             file = pFile;
 
             callBackFunction();
 
         }
-
     }
 
     function getFile() {
+
+        if (FULL_LOG === true) { logger.write("[INFO] getFile -> Entering function."); }
 
         return file;
 

@@ -1,10 +1,15 @@
 ﻿
 function newFileCursor() {
 
+    const MODULE_NAME = "File Cursor";
+    const FULL_LOG = true;
+    const logger = newDebugLog();
+    logger.fileName = MODULE_NAME;
+
     let files = new Map;
     let cursorDate;
 
-    let fileCursor = {
+    let thisObject = {
         setDatetime: setDatetime,
         setTimePeriod: setTimePeriod,
         files: undefined,
@@ -12,7 +17,7 @@ function newFileCursor() {
         initialize: initialize
     }
 
-    fileCursor.files = files;
+    thisObject.files = files;
 
     let minCursorSize = 10;
     let maxCursorSize = 30;
@@ -26,9 +31,12 @@ function newFileCursor() {
     let periodName;
     let timePeriod;
 
-    return fileCursor;
+    return thisObject;
 
     function initialize(pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, callBackFunction) {
+
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pSet.codeName + "-" + pPeriodName); }
 
         market = pMarket;
         exchange = pExchange;
@@ -45,6 +53,8 @@ function newFileCursor() {
     }
 
     function setTimePeriod(pTimePeriod, pDatetime, callBackFunction) {
+
+        if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
 
         /*
 
@@ -95,6 +105,8 @@ function newFileCursor() {
         collectGarbage();
 
         function enterSavingMode() {
+
+            if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> enterSavingMode -> Entering function."); }
 
             switch (timePeriod) {
 
@@ -169,6 +181,8 @@ function newFileCursor() {
         }
 
         function exitSavingMode() {
+
+            if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> exitSavingMode -> Entering function."); }
 
             switch (timePeriod) {
 
@@ -247,6 +261,8 @@ function newFileCursor() {
 
     function setDatetime(pDatetime, callBackFunction) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
+
         if (pDatetime === undefined) { return; }
 
         cursorDate = pDatetime;
@@ -258,6 +274,8 @@ function newFileCursor() {
 
     function getFiles(callBackFunction) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] getFiles -> Entering function."); }
+
         let i = 0;
         let j = 0;
 
@@ -266,6 +284,8 @@ function newFileCursor() {
         getNextFile();
 
         function getNextFile() {
+
+            if (FULL_LOG === true) { logger.write("[INFO] getFiles -> getNextFile -> Entering function."); }
 
             let targetDate = new Date(cursorDate);
             targetDate.setUTCDate(targetDate.getUTCDate() + j);
@@ -293,7 +313,7 @@ function newFileCursor() {
 
             } else {
 
-                if (fileCursor.files.get(dateString) === undefined) { // We dont reload files we already have. 
+                if (thisObject.files.get(dateString) === undefined) { // We dont reload files we already have. 
 
                     fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, onFileReceived);
 
@@ -306,9 +326,42 @@ function newFileCursor() {
 
         }
 
-        function onFileReceived(file) {
+        function onFileReceived(err, file) {
 
-            fileCursor.files.set(dateString, file);
+            if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Entering function."); }
+
+            switch (err.result) {
+                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received OK Response."); }
+                    break;
+                }
+
+                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received FAIL Response."); }
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+
+                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received CUSTOM FAIL Response."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> err.message = " + err.message); }
+
+                    callBackFunction(err);
+                    return;
+                }
+
+                default: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
+                    callBackFunction(err);
+                    return;
+                }
+            }
+
+            thisObject.files.set(dateString, file);
 
             controlLoop();
 
@@ -317,9 +370,11 @@ function newFileCursor() {
 
         function controlLoop() {
 
+            if (FULL_LOG === true) { logger.write("[INFO] getFiles -> controlLoop -> Entering function."); }
+
             if (callBackFunction !== undefined) {
 
-                callBackFunction();
+                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
             }
 
@@ -336,18 +391,20 @@ function newFileCursor() {
 
     function collectGarbage() {
 
+        if (FULL_LOG === true) { logger.write("[INFO] collectGarbage -> Entering function."); }
+
         date = removeTime(cursorDate);
 
         let minDate = date.valueOf() - maxCursorSize * ONE_DAY_IN_MILISECONDS / 2;
         let maxDate = date.valueOf() + maxCursorSize * ONE_DAY_IN_MILISECONDS / 2;
 
-        for (let key of fileCursor.files.keys()) {
+        for (let key of thisObject.files.keys()) {
 
             let keyDate = new Date(key);
 
             if (keyDate.valueOf() < minDate || keyDate.valueOf() > maxDate) {
 
-                fileCursor.files.delete(key);
+                thisObject.files.delete(key);
 
             }
 
@@ -356,6 +413,8 @@ function newFileCursor() {
     }
 
     function getExpectedFiles() {
+
+        if (FULL_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
 
         return minCursorSize;
 

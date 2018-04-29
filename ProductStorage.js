@@ -98,10 +98,41 @@ function newProductStorage(pName) {
                     break;
             }
 
-            function onCacheFileReady() {
+            function onCacheFileReady(err) {
 
                 if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Entering function."); }
                 if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                switch (err.result) {
+                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received OK Response."); }
+                        break;
+                    }
+
+                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received FAIL Response."); }
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received CUSTOM FAIL Response."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> err.message = " + err.message); }
+
+                        callBackFunction(err);
+                        return;
+                    }
+
+                    default: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received Unexpected Response."); }
+                        callBackFunction(err);
+                        return;
+                    }
+                }
 
                 let event = {
                     totalValue: thisObject.fileCache.getExpectedFiles(),
@@ -118,10 +149,41 @@ function newProductStorage(pName) {
                 }
             }
 
-            function onFileCursorReady() {
+            function onFileCursorReady(err) {
 
                 if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Entering function."); }
                 if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                switch (err.result) {
+                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received OK Response."); }
+                        break;
+                    }
+
+                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received FAIL Response."); }
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received CUSTOM FAIL Response."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> err.message = " + err.message); }
+
+                        callBackFunction(err);
+                        return;
+                    }
+
+                    default: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received Unexpected Response."); }
+                        callBackFunction(err);
+                        return;
+                    }
+                }
 
                 let event = {
                     totalValue: thisObject.fileCursorCache.getExpectedFiles(),
@@ -138,10 +200,41 @@ function newProductStorage(pName) {
                 }
             }
 
-            function onSingleFileReady() {
+            function onSingleFileReady(err) {
 
                 if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Entering function."); }
                 if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                switch (err.result) {
+                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received OK Response."); }
+                        break;
+                    }
+
+                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received FAIL Response."); }
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received CUSTOM FAIL Response."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> err.message = " + err.message); }
+
+                        callBackFunction(err);
+                        return;
+                    }
+
+                    default: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received Unexpected Response."); }
+                        callBackFunction(err);
+                        return;
+                    }
+                }
 
                 let event = {
                     totalValue: 1,

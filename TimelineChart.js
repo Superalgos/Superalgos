@@ -624,8 +624,6 @@
 
     function tooTiny() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] tooTiny -> Entering function."); }
-
         if (viewPort.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
             return true;
         } else {

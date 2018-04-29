@@ -124,14 +124,20 @@
                     date: Math.trunc(file[i][0] / 60000) * 60000 + 30000,
                     buyAvgRate: file[i][1],
                     sellAvgRate: file[i][2],
-                    marketRate: file[i][3],
-                    newPositions: file[i][4],
-                    newTrades: file[i][5],
-                    movedPositions: file[i][6],
-                    profitsAssetA: file[i][7],
-                    profitsAssetB: file[i][8],
-                    combinedProfitsA: file[i][9],
-                    combinedProfitsB: file[i][10]
+
+                    lastSellRate: file[i][3],
+                    sellExecRate: file[i][4],
+                    lastBuyRate: file[i][5],
+                    buyExecRate: file[i][6],
+
+                    marketRate: file[i][7],
+                    newPositions: file[i][8],
+                    newTrades: file[i][9],
+                    movedPositions: file[i][10],
+                    profitsAssetA: file[i][11],
+                    profitsAssetB: file[i][12],
+                    combinedProfitsA: file[i][13],
+                    combinedProfitsB: file[i][14]
                 };
 
                 history.push(newHistoryRecord);
@@ -206,7 +212,7 @@
 
                 point = {
                     x: record.date,
-                    y: record.sellAvgRate
+                    y: record.marketRate
                 };
 
                 point = timeLineCoordinateSystem.transformThisPoint(point);
@@ -225,12 +231,9 @@
                     } 
                 } 
 
-                let radiusFactor = 3;
-                let opacity = '0.2';
+                let radius = 3;
 
-                let radius1 = record.newPositions * radiusFactor;
-                let radius2 = radius1 + record.movedPositions * radiusFactor;
-                let radius3 = radius2 + record.newTrades * radiusFactor;
+                let opacity = '0.2';
 
                 browserCanvasContext.lineWidth = 1;
 
@@ -246,7 +249,7 @@
                     browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
                 }
 
-                browserCanvasContext.arc(point.x, point.y, radius3, 0, Math.PI * 2, true);
+                browserCanvasContext.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
                 browserCanvasContext.closePath();
 
                 if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
@@ -255,43 +258,239 @@
 
                 browserCanvasContext.stroke();
 
-                /* Middle Circle */
 
-                browserCanvasContext.beginPath();
-                browserCanvasContext.strokeStyle = 'rgba(44, 61, 89, ' + opacity + ')';
+                /* Draw a red inverted triangle on exec sell */
 
-                if (isCurrentRecord === false) {
-                    browserCanvasContext.fillStyle = 'rgba(50, 108, 201, ' + opacity + ')';
-                } else {
-                    browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                if (record.sellExecRate > 0) {
+
+                    opacity = '1';
+
+                    let point1 = {
+                        x: record.date,
+                        y: record.sellExecRate
+                    };
+
+                    let point2 = {
+                        x: record.date + timePeriod / 7 * 2,
+                        y: record.sellExecRate
+                    };
+
+                    let point3 = {
+                        x: record.date - timePeriod / 7 * 2,
+                        y: record.sellExecRate
+                    };
+
+                    point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                    point1 = transformThisPoint(point1, thisObject.container);
+                    point1 = viewPort.fitIntoVisibleArea(point1);
+
+                    point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                    point2 = transformThisPoint(point2, thisObject.container);
+                    point2 = viewPort.fitIntoVisibleArea(point2);
+
+                    point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                    point3 = transformThisPoint(point3, thisObject.container);
+                    point3 = viewPort.fitIntoVisibleArea(point3);
+
+                    let diff = point2.x - point3.x;
+                    point2.y = point2.y - diff;
+                    point3.y = point3.y - diff;
+
+                    point2 = viewPort.fitIntoVisibleArea(point2);
+                    point3 = viewPort.fitIntoVisibleArea(point3);
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(point1.x, point1.y);
+                    browserCanvasContext.lineTo(point2.x, point2.y);
+                    browserCanvasContext.lineTo(point3.x, point3.y);
+                    browserCanvasContext.lineTo(point1.x, point1.y);
+
+                    browserCanvasContext.closePath();
+
+                    browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, ' + opacity + ')';
+                    browserCanvasContext.stroke();
+
                 }
 
-                browserCanvasContext.arc(point.x, point.y, radius2, 0, Math.PI * 2, true);
-                browserCanvasContext.closePath();
+                /* Draw a green triangle on exec buy */
 
-                if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                if (record.buyExecRate > 0) {
+
+                    opacity = '1';
+
+                    let point1 = {
+                        x: record.date,
+                        y: record.buyExecRate
+                    };
+
+                    let point2 = {
+                        x: record.date + timePeriod / 7 * 2,
+                        y: record.buyExecRate
+                    };
+
+                    let point3 = {
+                        x: record.date - timePeriod / 7 * 2,
+                        y: record.buyExecRate
+                    };
+
+                    point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                    point1 = transformThisPoint(point1, thisObject.container);
+                    point1 = viewPort.fitIntoVisibleArea(point1);
+
+                    point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                    point2 = transformThisPoint(point2, thisObject.container);
+                    point2 = viewPort.fitIntoVisibleArea(point2);
+
+                    point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                    point3 = transformThisPoint(point3, thisObject.container);
+                    point3 = viewPort.fitIntoVisibleArea(point3);
+
+                    let diff = point2.x - point3.x;
+                    point2.y = point2.y + diff;
+                    point3.y = point3.y + diff;
+
+                    point2 = viewPort.fitIntoVisibleArea(point2);
+                    point3 = viewPort.fitIntoVisibleArea(point3);
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(point1.x, point1.y);
+                    browserCanvasContext.lineTo(point2.x, point2.y);
+                    browserCanvasContext.lineTo(point3.x, point3.y);
+                    browserCanvasContext.lineTo(point1.x, point1.y);
+
+                    browserCanvasContext.closePath();
+
+                    browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
+                    browserCanvasContext.stroke();
+
+                }
+
+                /* Draw a red inverted triangle on sell */
+
+                if (record.lastSellRate > 0) {
+
+                    opacity = '1';
+
+                    let point1 = {
+                        x: record.date,
+                        y: record.lastSellRate
+                    };
+
+                    let point2 = {
+                        x: record.date + timePeriod / 7 * 2,
+                        y: record.lastSellRate
+                    };
+
+                    let point3 = {
+                        x: record.date - timePeriod / 7 * 2,
+                        y: record.lastSellRate
+                    };
+
+                    point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                    point1 = transformThisPoint(point1, thisObject.container);
+                    point1 = viewPort.fitIntoVisibleArea(point1);
+
+                    point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                    point2 = transformThisPoint(point2, thisObject.container);
+                    point2 = viewPort.fitIntoVisibleArea(point2);
+
+                    point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                    point3 = transformThisPoint(point3, thisObject.container);
+                    point3 = viewPort.fitIntoVisibleArea(point3);
+
+                    let diff = point2.x - point3.x;
+                    point2.y = point2.y - diff;
+                    point3.y = point3.y - diff;
+
+                    point2 = viewPort.fitIntoVisibleArea(point2);
+                    point3 = viewPort.fitIntoVisibleArea(point3);
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(point1.x, point1.y);
+                    browserCanvasContext.lineTo(point2.x, point2.y);
+                    browserCanvasContext.lineTo(point3.x, point3.y);
+                    browserCanvasContext.lineTo(point1.x, point1.y);
+
+                    browserCanvasContext.closePath();
+
+                    if (isCurrentRecord === false) {
+                        browserCanvasContext.fillStyle = 'rgba(219, 18, 18, ' + opacity + ')';
+                    } else {
+                        browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                    }
+
                     browserCanvasContext.fill();
-                }
-                browserCanvasContext.stroke();
 
-                /* Inner Circle */
+                    browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, ' + opacity + ')';
+                    browserCanvasContext.stroke();
 
-                browserCanvasContext.beginPath();
-                browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, ' + opacity + ')';
-
-                if (isCurrentRecord === false) {
-                    browserCanvasContext.fillStyle = 'rgba(64, 26, 217, ' + opacity + ')';
-                } else {
-                    browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
                 }
 
-                browserCanvasContext.arc(point.x, point.y, radius1, 0, Math.PI * 2, true);
-                browserCanvasContext.closePath();
+                /* Draw a green triangle on buy */
 
-                if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                if (record.lastBuyRate > 0) {
+
+                    opacity = '1';
+
+                    let point1 = {
+                        x: record.date,
+                        y: record.lastBuyRate
+                    };
+
+                    let point2 = {
+                        x: record.date + timePeriod / 7 * 2,
+                        y: record.lastBuyRate
+                    };
+
+                    let point3 = {
+                        x: record.date - timePeriod / 7 * 2,
+                        y: record.lastBuyRate
+                    };
+
+                    point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                    point1 = transformThisPoint(point1, thisObject.container);
+                    point1 = viewPort.fitIntoVisibleArea(point1);
+
+                    point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                    point2 = transformThisPoint(point2, thisObject.container);
+                    point2 = viewPort.fitIntoVisibleArea(point2);
+
+                    point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                    point3 = transformThisPoint(point3, thisObject.container);
+                    point3 = viewPort.fitIntoVisibleArea(point3);
+
+                    let diff = point2.x - point3.x;
+                    point2.y = point2.y + diff;
+                    point3.y = point3.y + diff;
+
+                    point2 = viewPort.fitIntoVisibleArea(point2);
+                    point3 = viewPort.fitIntoVisibleArea(point3);
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(point1.x, point1.y);
+                    browserCanvasContext.lineTo(point2.x, point2.y);
+                    browserCanvasContext.lineTo(point3.x, point3.y);
+                    browserCanvasContext.lineTo(point1.x, point1.y);
+
+                    browserCanvasContext.closePath();
+
+                    if (isCurrentRecord === false) {
+                        browserCanvasContext.fillStyle = 'rgba(64, 217, 26, ' + opacity + ')';
+                    } else {
+                        browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                    }
+
                     browserCanvasContext.fill();
+
+                    browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
+                    browserCanvasContext.stroke();
+
                 }
-                browserCanvasContext.stroke();
+
 
                 /* Since there is at least some point plotted, then the profile should be visible. */
 

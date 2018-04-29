@@ -44,6 +44,9 @@
     <Compile Include="ImageButton.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DebugLog.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Spaces\PanelsSpace.js">
       <SubType>Code</SubType>
     </Compile>

@@ -1,10 +1,12 @@
 ﻿
 
+
 /* The Dashboard is the root object that contains all the other stuff in it. Some of that stuff is visible, some other is invisible. */
 
 let canvas;
 let markets;  
 let ecosystem = newEcosystem();
+
 
 let marketFilesPeriods =
     '[' +

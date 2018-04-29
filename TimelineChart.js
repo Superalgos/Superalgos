@@ -1,5 +1,10 @@
 ﻿function newTimelineChart() {
 
+    const MODULE_NAME = "Timeline Chart";
+    const FULL_LOG = false;
+    const logger = newDebugLog();
+    logger.fileName = MODULE_NAME;
+
     const CONSOLE_LOG = false;
 
     let productPlotters = [];
@@ -40,6 +45,8 @@
 
     function initialize(exchange, market, pProductsPanel, callBackFunction) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+
         /* Remember the Products Panel */
 
         productsPanel = pProductsPanel;
@@ -75,6 +82,11 @@
 
     function initializeCompetitionPlotters() {
 
+        if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> Entering function."); }
+
+        if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> Aborting function until Competition Plotter is ready."); }
+        return;
+
         /* At this current version of the platform, we will support only one competition with only one plotter. */
 
         const COMPETITION_HOST = "AAArena";
@@ -89,6 +101,8 @@
         storage.initialize(host, competition, onStorageInitialized);
 
         function onStorageInitialized() {
+
+            if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onStorageInitialized -> Entering function."); }
 
             /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
 
@@ -108,6 +122,8 @@
             plotter.initialize(competition, storage, datetime, timePeriod, onPlotterInizialized);
 
             function onPlotterInizialized() {
+
+                if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onStorageInitialized -> onPlotterInizialized -> Entering function."); }
 
                 if (CONSOLE_LOG === true) {
 
@@ -130,6 +146,8 @@
 
     function initializeProductPlotters() {
 
+        if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotters -> Entering function."); }
+
         /* Lets get all the cards that needs to be loaded. */
 
         let loadingProductCards = productsPanel.getLoadingProductCards();
@@ -145,10 +163,14 @@
 
     function initializeProductPlotter(pProductCard) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> Entering function."); }
+
         /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
 
         let objName = pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName;
         let storage = newProductStorage(objName);
+
+        if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> objName = " + objName); }
 
         /*
 
@@ -188,6 +210,8 @@
 
         function onStorageInitialized() {
 
+            if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Entering function."); }
+
             /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
 
             let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName);
@@ -206,6 +230,8 @@
             plotter.initialize(storage, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onPlotterInizialized);
 
             function onPlotterInizialized() {
+
+                if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> onPlotterInizialized -> Entering function."); }
 
                 if (CONSOLE_LOG === true) {
 
@@ -283,6 +309,8 @@
 
     function onProductCardStatusChanged(pProductCard) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] onProductCardStatusChanged -> Entering function."); }
+
         if (pProductCard.status === PRODUCT_CARD_STATUS.LOADING) {
 
             /* Lets see if we can find the Plotter of this card on our Active Plotters list, other wise we will initialize it */
@@ -338,6 +366,8 @@
 
     function onZoomChanged(event) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] onZoomChanged -> Entering function."); }
+
         if (initializationReady === true) {
 
             level = event.newLevel; // for debugging purposes only
@@ -376,6 +406,8 @@
 
     function onDragFinished() {
 
+        if (FULL_LOG === true) { logger.write("[INFO] onDragFinished -> Entering function."); }
+
         if (initializationReady === true) {
 
             if (thisObject.container.frame.isInViewPort() && tooSmall() === false) {
@@ -387,6 +419,8 @@
     }
 
     function onOffsetChanged() {
+
+        if (FULL_LOG === true) { logger.write("[INFO] onOffsetChanged -> Entering function."); }
 
         if (initializationReady === true) {
 
@@ -400,6 +434,8 @@
     }
 
     function recalculateCurrentDatetime() {
+
+        if (FULL_LOG === true) { logger.write("[INFO] recalculateCurrentDatetime -> Entering function."); }
 
         /*
 
@@ -445,6 +481,8 @@
 
     function getContainer(point) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
+
         var container;
 
         /* First we check if this point is inside this space. */
@@ -463,6 +501,8 @@
     }
 
     function setDatetime(pDatetime) {
+
+        if (FULL_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
         /* This function is used when the time is changed through the user interface, but without zooming or panning. */
         /* No matter if the day changed or not, we need to inform all visible Plotters. */
@@ -528,6 +568,8 @@
 
     function recalculateScale() {
 
+        if (FULL_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
+
         var minValue = {
             x: EARLIEST_DATE.valueOf(),
             y: 0
@@ -550,6 +592,8 @@
 
     function tooTiny() {
 
+        if (FULL_LOG === true) { logger.write("[INFO] tooTiny -> Entering function."); }
+
         if (viewPort.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
             return true;
         } else {
@@ -559,6 +603,8 @@
     }
 
     function tooSmall() {
+
+        if (FULL_LOG === true) { logger.write("[INFO] tooSmall -> Entering function."); }
 
         if (viewPort.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
             return true;
@@ -642,6 +688,8 @@
     }
 
     function moveViewPortToCurrentDatetime() {
+
+        if (FULL_LOG === true) { logger.write("[INFO] moveViewPortToCurrentDatetime -> Entering function."); }
 
         let targetPoint = {
             x: datetime.valueOf(),

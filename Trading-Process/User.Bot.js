@@ -153,6 +153,13 @@
                         callBack(global.DEFAULT_OK_RESPONSE);
                         return;
                     }
+
+                    if (Math.random() * 10 > 5) {
+
+                        if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> In some situations it is just fin no to place orders. Passing this turn. "); }
+                        callBack(global.DEFAULT_OK_RESPONSE);
+                        return;
+                    }
                     
                     if (balanceA > 0) {
 

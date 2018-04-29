@@ -16,17 +16,17 @@
       "description": "Simple trading strategy to be used as a template.",
       "startMode": {
         "live": {
-          "run": "false",
+          "run": "true",
           "resumeExecution": "false"
         },
         "backtest": {
           "run": "false",
-          "beginDatetime": "2018-03-12T16:01:23.485Z",
-          "endDatetime": "2018-03-12T16:15:23.485Z",
+          "beginDatetime": "2018-03-12T16:00:00.000Z",
+          "endDatetime": "2018-03-12T16:15:00.000Z",
           "waitTime": 1000
         },
         "competition": {
-          "run": "true",
+          "run": "false",
           "beginDatetime": "2018-04-27T16:00:00.000Z",
           "endDatetime": "2018-04-28T16:05:00.000Z",
           "resumeExecution": "false"
@@ -114,32 +114,6 @@
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
           "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
           "fileName": "Execution.History.Backtest.@Sequence.json"
-        }
-      ],
-      "exchangeList": [
-        {
-          "name": "Poloniex"
-        }
-      ],
-      "plotter": {
-        "devTeam": "AAMasters",
-        "codeName": "PlottersTrading",
-        "moduleName": "History"
-      }
-    },
-    {
-      "codeName": "Competition Trading History",
-      "displayName": "Competition Trading History",
-      "shortDisplayName": "Competition",
-      "description": "General information about Mariam competition trading history.",
-      "storageAccount": "aamariam",
-      "dataSets": [
-        {
-          "codeName": "Backtest History",
-          "type": "File Sequence",
-          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-          "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
-          "fileName": "Execution.History.Competition.@Sequence.json"
         }
       ],
       "exchangeList": [

@@ -9,7 +9,7 @@ changes, then all charts in it are replotted with the corresponging data.
 function newChartSpace() {
 
     const MODULE_NAME = "Chart Space";
-    const FULL_LOG = false;
+    const INFO_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -41,7 +41,7 @@ function newChartSpace() {
 
     function initialize() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
         /* We create the first of many possible time machines that could live at the Chart Space. */
 
@@ -83,7 +83,7 @@ function newChartSpace() {
 
     function getContainer(point) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
 
         var container;
 

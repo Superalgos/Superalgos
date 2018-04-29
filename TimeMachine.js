@@ -12,7 +12,7 @@ each one with it own charts, and each one positioned at an especific point in ti
 function newTimeMachine() {
 
     const MODULE_NAME = "Time Machine";
-    const FULL_LOG = false;
+    const INFO_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -39,7 +39,7 @@ function newTimeMachine() {
 
     function initialize() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
         /* Each Time Machine has a Control Panel. */
 
@@ -72,7 +72,7 @@ function newTimeMachine() {
 
         function onDefaultMarketInitialized() {
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onDefaultMarketInitialized -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDefaultMarketInitialized -> Entering function."); }
 
             thisObject.charts.push(timelineChart);
 
@@ -85,13 +85,13 @@ function newTimeMachine() {
 
         function initializeTheRestOfTheMarkets() {
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> initializeTheRestOfTheMarkets -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> initializeTheRestOfTheMarkets -> Entering function."); }
 
             markets.forEach(initializeTimelineChart);
 
             function initializeTimelineChart(item, key, mapObj) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] initialize -> initializeTheRestOfTheMarkets -> initializeTimelineChart -> Entering function."); }
+                if (INFO_LOG === true) { logger.write("[INFO] initialize -> initializeTheRestOfTheMarkets -> initializeTimelineChart -> Entering function."); }
 
                 if (key === INITIAL_DEFAULT_MARKET) { // We skip this market since it has already been initialized.
 
@@ -117,7 +117,7 @@ function newTimeMachine() {
 
                 function finalSteps() {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> initializeTheRestOfTheMarkets -> initializeTimelineChart -> finalSteps -> Entering function."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> initializeTheRestOfTheMarkets -> initializeTimelineChart -> finalSteps -> Entering function."); }
 
                     thisObject.charts.push(timelineChart);
 
@@ -145,7 +145,7 @@ function newTimeMachine() {
 
     function getContainer(point) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
 
         let container;
 

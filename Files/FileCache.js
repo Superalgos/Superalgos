@@ -2,7 +2,7 @@
 function newFileCache() {
 
     const MODULE_NAME = "File Cache";
-    const FULL_LOG = false;
+    const INFO_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -23,8 +23,8 @@ function newFileCache() {
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
         let exchange = ecosystem.getExchange(pProduct, pExchange);
 
@@ -50,26 +50,26 @@ function newFileCache() {
 
                 function onFileReceived(err, file) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Entering function."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Entering function."); }
 
                     switch (err.result) {
                         case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received OK Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received OK Response."); }
                             break;
                         }
 
                         case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received FAIL Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received FAIL Response."); }
                             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
 
                         case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response."); }
-                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> err.message = " + err.message); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> err.message = " + err.message); }
 
                             callBackFunction(err);
                             return;
@@ -77,7 +77,7 @@ function newFileCache() {
 
                         default: {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
                             callBackFunction(err);
                             return;
                         }
@@ -96,7 +96,7 @@ function newFileCache() {
   
     function getFile(pPeriod) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getFile -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFile -> Entering function."); }
 
         return files.get(pPeriod);
 
@@ -104,7 +104,7 @@ function newFileCache() {
 
     function getExpectedFiles() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
 
         return marketFilesPeriods.length;
 
@@ -112,7 +112,7 @@ function newFileCache() {
 
     function getFilesLoaded() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getFilesLoaded -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFilesLoaded -> Entering function."); }
 
         return filesLoaded;
 

@@ -2,7 +2,7 @@
 function newFileCursor() {
 
     const MODULE_NAME = "File Cursor";
-    const FULL_LOG = false;
+    const INFO_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -35,8 +35,8 @@ function newFileCursor() {
 
     function initialize(pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pSet.codeName + "-" + pPeriodName); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pSet.codeName + "-" + pPeriodName); }
 
         market = pMarket;
         exchange = pExchange;
@@ -54,7 +54,7 @@ function newFileCursor() {
 
     function setTimePeriod(pTimePeriod, pDatetime, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
 
         /*
 
@@ -106,7 +106,7 @@ function newFileCursor() {
 
         function enterSavingMode() {
 
-            if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> enterSavingMode -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> enterSavingMode -> Entering function."); }
 
             switch (timePeriod) {
 
@@ -182,7 +182,7 @@ function newFileCursor() {
 
         function exitSavingMode() {
 
-            if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> exitSavingMode -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> exitSavingMode -> Entering function."); }
 
             switch (timePeriod) {
 
@@ -261,7 +261,7 @@ function newFileCursor() {
 
     function setDatetime(pDatetime, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
         if (pDatetime === undefined) { return; }
 
@@ -274,7 +274,7 @@ function newFileCursor() {
 
     function getFiles(callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getFiles -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFiles -> Entering function."); }
 
         let i = 0;
         let j = 0;
@@ -285,7 +285,7 @@ function newFileCursor() {
 
         function getNextFile() {
 
-            if (FULL_LOG === true) { logger.write("[INFO] getFiles -> getNextFile -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> getNextFile -> Entering function."); }
 
             let targetDate = new Date(cursorDate);
             targetDate.setUTCDate(targetDate.getUTCDate() + j);
@@ -328,26 +328,26 @@ function newFileCursor() {
 
         function onFileReceived(err, file) {
 
-            if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Entering function."); }
 
             switch (err.result) {
                 case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received OK Response."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received OK Response."); }
                     break;
                 }
 
                 case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received FAIL Response."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received FAIL Response."); }
                     callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
 
                 case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received CUSTOM FAIL Response."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> err.message = " + err.message); }
+                    if (INFO_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received CUSTOM FAIL Response."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> err.message = " + err.message); }
 
                     callBackFunction(err);
                     return;
@@ -355,7 +355,7 @@ function newFileCursor() {
 
                 default: {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
                     callBackFunction(err);
                     return;
                 }
@@ -370,7 +370,7 @@ function newFileCursor() {
 
         function controlLoop() {
 
-            if (FULL_LOG === true) { logger.write("[INFO] getFiles -> controlLoop -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> controlLoop -> Entering function."); }
 
             if (callBackFunction !== undefined) {
 
@@ -391,7 +391,7 @@ function newFileCursor() {
 
     function collectGarbage() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] collectGarbage -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] collectGarbage -> Entering function."); }
 
         date = removeTime(cursorDate);
 
@@ -414,7 +414,7 @@ function newFileCursor() {
 
     function getExpectedFiles() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
 
         return minCursorSize;
 

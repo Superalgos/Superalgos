@@ -2,7 +2,8 @@
 function newProductStorage(pName) {
 
     const MODULE_NAME = "Product Storage";
-    const FULL_LOG = false;
+    const INFO_LOG = false;
+    const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -12,6 +13,17 @@ function newProductStorage(pName) {
     Once all the underlaying objects are fully initialized it will callback.
 
     At the same time it will raise an event for each underlaying file being loaded, so that the UI can reflect the progress to the end user. 
+
+    Product Storage
+         |
+         |
+         |-----> File
+         |
+         |-----> FileSequence
+         |
+         |-----> FileCursorCache  -----> FileCursor
+         |
+         |-----> FileCache
 
     */
 
@@ -43,282 +55,330 @@ function newProductStorage(pName) {
 
     function initialize(pDevTeam, pBot, pProduct, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+        try {
 
-        datetime = pDatetime;
-        timePeriod = pTimePeriod;
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-        let dataSetsToLoad = 0;
-        let dataSetsLoaded = 0;
+            datetime = pDatetime;
+            timePeriod = pTimePeriod;
 
-        for (let i = 0; i < pProduct.dataSets.length; i++) {
+            let dataSetsToLoad = 0;
+            let dataSetsLoaded = 0;
 
-            let thisSet = pProduct.dataSets[i];
+            for (let i = 0; i < pProduct.dataSets.length; i++) {
 
-            switch (thisSet.type) {
-                case 'Market Files': {
+                let thisSet = pProduct.dataSets[i];
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> Market Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+                switch (thisSet.type) {
+                    case 'Market Files': {
 
-                    thisObject.fileCache = newFileCache();
-                    thisObject.fileCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onCacheFileReady);
-                    dataSetsToLoad++;
-                }
-                    break;
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Market Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                case 'Daily Files': {
-
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> Daily Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
-
-                    thisObject.fileCursorCache = newFileCursorCache();
-                    thisObject.fileCursorCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
-                    dataSetsToLoad++;
-                }
-                    break;
-
-                case 'Single File': {
-
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> Single File -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
-
-                    thisObject.file = newFile();
-                    thisObject.file.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
-                    dataSetsToLoad++;
-                }
-                    break;
-
-                case 'File Sequence': {
-
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> File Sequence -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
-
-                    thisObject.fileSequence = newFileSequence();
-                    thisObject.fileSequence.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady);
-                    dataSetsToLoad++;
-                }
-                    break;
-            }
-
-            function onCacheFileReady(err) {
-
-                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
-
-                switch (err.result) {
-                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received OK Response."); }
+                        thisObject.fileCache = newFileCache();
+                        thisObject.fileCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onCacheFileReady);
+                        dataSetsToLoad++;
+                    }
                         break;
+
+                    case 'Daily Files': {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Daily Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                        thisObject.fileCursorCache = newFileCursorCache();
+                        thisObject.fileCursorCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
+                        dataSetsToLoad++;
                     }
-
-                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received FAIL Response."); }
-                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-                        return;
-                    }
-
-                    case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received CUSTOM FAIL Response."); }
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> err.message = " + err.message); }
-
-                        callBackFunction(err);
-                        return;
-                    }
-
-                    default: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received Unexpected Response."); }
-                        callBackFunction(err);
-                        return;
-                    }
-                }
-
-                let event = {
-                    totalValue: thisObject.fileCache.getExpectedFiles(),
-                    currentValue: thisObject.fileCache.getFilesLoaded()
-                }
-
-                thisObject.eventHandler.raiseEvent('Market File Loaded', event);
-
-                if (event.currentValue === event.totalValue) {
-
-                    dataSetsLoaded++;
-
-                    checkInitializeComplete();
-                }
-            }
-
-            function onFileCursorReady(err) {
-
-                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
-
-                switch (err.result) {
-                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received OK Response."); }
                         break;
+
+                    case 'Single File': {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Single File -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                        thisObject.file = newFile();
+                        thisObject.file.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
+                        dataSetsToLoad++;
                     }
-
-                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received FAIL Response."); }
-                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-                        return;
-                    }
-
-                    case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received CUSTOM FAIL Response."); }
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> err.message = " + err.message); }
-
-                        callBackFunction(err);
-                        return;
-                    }
-
-                    default: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received Unexpected Response."); }
-                        callBackFunction(err);
-                        return;
-                    }
-                }
-
-                let event = {
-                    totalValue: thisObject.fileCursorCache.getExpectedFiles(),
-                    currentValue: thisObject.fileCursorCache.getFilesLoaded()
-                }
-
-                thisObject.eventHandler.raiseEvent('Daily File Loaded', event);
-
-                if (event.currentValue === event.totalValue) {
-
-                    dataSetsLoaded++;
-
-                    checkInitializeComplete();
-                }
-            }
-
-            function onSingleFileReady(err) {
-
-                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
-
-                switch (err.result) {
-                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received OK Response."); }
                         break;
+
+                    case 'File Sequence': {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> File Sequence -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                        thisObject.fileSequence = newFileSequence();
+                        thisObject.fileSequence.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady);
+                        dataSetsToLoad++;
                     }
-
-                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received FAIL Response."); }
-                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-                        return;
-                    }
-
-                    case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received CUSTOM FAIL Response."); }
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> err.message = " + err.message); }
-
-                        callBackFunction(err);
-                        return;
-                    }
-
-                    default: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received Unexpected Response."); }
-                        callBackFunction(err);
-                        return;
-                    }
-                }
-
-                let event = {
-                    totalValue: 1,
-                    currentValue: 1
-                }
-
-                thisObject.eventHandler.raiseEvent('Single File Loaded', event);
-
-                if (event.currentValue === event.totalValue) {
-
-                    dataSetsLoaded++;
-
-                    checkInitializeComplete();
-                }
-            }
-
-            function onFileSequenceReady(err) {
-
-                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
-
-                switch (err.result) {
-                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received OK Response."); }
                         break;
-                    }
+                }
 
-                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                function onCacheFileReady(err) {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received FAIL Response."); }
-                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-                        return;
-                    }
+                    try {
 
-                    case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Entering function."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received CUSTOM FAIL Response."); }
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> err.message = " + err.message); }
+                        switch (err.result) {
+                            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
-                        callBackFunction(err);
-                        return;
-                    }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received OK Response."); }
+                                break;
+                            }
 
-                    default: {
+                            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received Unexpected Response."); }
-                        callBackFunction(err);
-                        return;
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received FAIL Response."); }
+                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received CUSTOM FAIL Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> err.message = " + err.message); }
+
+                                callBackFunction(err);
+                                return;
+                            }
+
+                            default: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received Unexpected Response."); }
+                                callBackFunction(err);
+                                return;
+                            }
+                        }
+
+                        let event = {
+                            totalValue: thisObject.fileCache.getExpectedFiles(),
+                            currentValue: thisObject.fileCache.getFilesLoaded()
+                        }
+
+                        thisObject.eventHandler.raiseEvent('Market File Loaded', event);
+
+                        if (event.currentValue === event.totalValue) {
+
+                            dataSetsLoaded++;
+
+                            checkInitializeComplete();
+                        }
+
+                    } catch (err) {
+
+                        if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onCacheFileReady -> err = " + err); }
+                        callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
                     }
                 }
 
-                let event = {
-                    totalValue: thisObject.fileSequence.getExpectedFiles(),
-                    currentValue: thisObject.fileSequence.getFilesLoaded()
+                function onFileCursorReady(err) {
+
+                    try {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Entering function."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                        switch (err.result) {
+                            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received OK Response."); }
+                                break;
+                            }
+
+                            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received FAIL Response."); }
+                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received CUSTOM FAIL Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> err.message = " + err.message); }
+
+                                callBackFunction(err);
+                                return;
+                            }
+
+                            default: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received Unexpected Response."); }
+                                callBackFunction(err);
+                                return;
+                            }
+                        }
+
+                        let event = {
+                            totalValue: thisObject.fileCursorCache.getExpectedFiles(),
+                            currentValue: thisObject.fileCursorCache.getFilesLoaded()
+                        }
+
+                        thisObject.eventHandler.raiseEvent('Daily File Loaded', event);
+
+                        if (event.currentValue === event.totalValue) {
+
+                            dataSetsLoaded++;
+
+                            checkInitializeComplete();
+                        }
+
+                    } catch (err) {
+
+                        if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileCursorReady -> err = " + err); }
+                        callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    }
                 }
 
-                thisObject.eventHandler.raiseEvent('File Sequence Loaded', event);
+                function onSingleFileReady(err) {
 
-                if (event.currentValue === event.totalValue) {
+                    try {
 
-                    dataSetsLoaded++;
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Entering function."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                    checkInitializeComplete();
+                        switch (err.result) {
+                            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received OK Response."); }
+                                break;
+                            }
+
+                            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received FAIL Response."); }
+                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received CUSTOM FAIL Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> err.message = " + err.message); }
+
+                                callBackFunction(err);
+                                return;
+                            }
+
+                            default: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Received Unexpected Response."); }
+                                callBackFunction(err);
+                                return;
+                            }
+                        }
+
+                        let event = {
+                            totalValue: 1,
+                            currentValue: 1
+                        }
+
+                        thisObject.eventHandler.raiseEvent('Single File Loaded', event);
+
+                        if (event.currentValue === event.totalValue) {
+
+                            dataSetsLoaded++;
+
+                            checkInitializeComplete();
+                        }
+
+                    } catch (err) {
+
+                        if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onSingleFileReady -> err = " + err); }
+                        callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    }
+                }
+
+                function onFileSequenceReady(err) {
+
+                    try {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Entering function."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                        switch (err.result) {
+                            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received OK Response."); }
+                                break;
+                            }
+
+                            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received FAIL Response."); }
+                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received CUSTOM FAIL Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> err.message = " + err.message); }
+
+                                callBackFunction(err);
+                                return;
+                            }
+
+                            default: {
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received Unexpected Response."); }
+                                callBackFunction(err);
+                                return;
+                            }
+                        }
+
+                        let event = {
+                            totalValue: thisObject.fileSequence.getExpectedFiles(),
+                            currentValue: thisObject.fileSequence.getFilesLoaded()
+                        }
+
+                        thisObject.eventHandler.raiseEvent('File Sequence Loaded', event);
+
+                        if (event.currentValue === event.totalValue) {
+
+                            dataSetsLoaded++;
+
+                            checkInitializeComplete();
+                        }
+
+                    } catch (err) {
+
+                        if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileSequenceReady -> err = " + err); }
+                        callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    }
+                }
+
+                function checkInitializeComplete() {
+
+                    try {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] checkInitializeComplete -> Entering function."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] checkInitializeComplete -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                        if (dataSetsLoaded === dataSetsToLoad) {
+
+                            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
+
+                        }
+
+                    } catch (err) {
+
+                        if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> checkInitializeComplete -> err = " + err); }
+                        callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    }
                 }
             }
 
-            function checkInitializeComplete() {
-
-                if (FULL_LOG === true) { logger.write("[INFO] checkInitializeComplete -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] checkInitializeComplete -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
-
-                if (dataSetsLoaded === dataSetsToLoad) {
-
-                    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
-
-                }
-            }
+        } catch (err) {
+            
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
     }
 
     function setDatetime(pDatetime) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
         /* If there is a change in the day, then we take some actions, otherwise, we dont. */
 
@@ -335,11 +395,12 @@ function newProductStorage(pName) {
 
             }
         }
+
     }
 
     function setTimePeriod(pTimePeriod) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
 
         /* We are going to filter out the cases in which the timePeriod received is the same that the one we already know. */
 

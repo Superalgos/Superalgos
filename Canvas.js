@@ -37,7 +37,7 @@ let splashScreenNeeded = true;
 function newCanvas() {
 
     const MODULE_NAME = "Canvas";
-    const FULL_LOG = false;
+    const INFO_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -75,7 +75,7 @@ function newCanvas() {
 
     function initialize() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
         initializeBrowserCanvas();
 
@@ -120,7 +120,7 @@ function newCanvas() {
 
     function initializeBrowserCanvas() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initializeBrowserCanvas -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initializeBrowserCanvas -> Entering function."); }
 
         browserCanvas = document.getElementById('canvas');
         browserCanvasContext = browserCanvas.getContext('2d');
@@ -136,7 +136,7 @@ function newCanvas() {
 
     function clearBrowserCanvas() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] clearBrowserCanvas -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] clearBrowserCanvas -> Entering function."); }
 
         browserCanvasContext.clearRect(0, 0, browserCanvas.width, browserCanvas.height); 
 
@@ -144,7 +144,7 @@ function newCanvas() {
 
     function addCanvasEvents() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] addCanvasEvents -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] addCanvasEvents -> Entering function."); }
 
         /* Mouse down and up events to control the drag of the canvas. */
 
@@ -168,7 +168,7 @@ function newCanvas() {
 
     function onMouseDown(event) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onMouseDown -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onMouseDown -> Entering function."); }
 
         /*
 
@@ -229,7 +229,7 @@ function newCanvas() {
 
     function onMouseClick(event) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onMouseClick -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onMouseClick -> Entering function."); }
 
         let point = {
             x: event.pageX,
@@ -272,7 +272,7 @@ function newCanvas() {
 
     function onMouseUp(event) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onMouseUp -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onMouseUp -> Entering function."); }
 
         if (containerDragStarted || viewPortBeingDragged || ballDragStarted) {
 
@@ -294,7 +294,7 @@ function newCanvas() {
 
     function onMouseMove(event) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onMouseMove -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onMouseMove -> Entering function."); }
 
         viewPort.mousePosition.x = event.pageX;
         viewPort.mousePosition.y = event.pageY;
@@ -324,7 +324,7 @@ function newCanvas() {
 
     function onMouseWheel(event) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onMouseWheel -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onMouseWheel -> Entering function."); }
 
         // cross-browser wheel delta 
         var event = window.event || event; // old IE support
@@ -368,7 +368,7 @@ function newCanvas() {
 
     function checkDrag() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] checkDrag -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] checkDrag -> Entering function."); }
 
         if (containerDragStarted === true || ballDragStarted === true || viewPortBeingDragged === true) {
 

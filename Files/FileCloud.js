@@ -2,7 +2,7 @@
 function newFileCloud() {
 
     const MODULE_NAME = "File Cloud";
-    const FULL_LOG = false;
+    const INFO_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -17,8 +17,8 @@ function newFileCloud() {
 
     function initialize(pBot) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> pBot = " + pBot.codeName); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> pBot = " + pBot.codeName); }
 
         blobService = AzureStorage.Blob.createBlobServiceWithSas(pBot.storage.fileUri, pBot.storage.sas);
 
@@ -26,8 +26,8 @@ function newFileCloud() {
 
     function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getFile -> Entering function."); }
-        if (FULL_LOG === true) { logger.write("[INFO] getFile -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pSet.filePath + "-" + pSet.fileName); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFile -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFile -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pSet.filePath + "-" + pSet.fileName); }
 
         let fileName = pSet.fileName;
         let filePath = pSet.filePath;
@@ -83,8 +83,8 @@ function newFileCloud() {
             fileName = fileName.replace("@Sequence", pSequence); 
         }
 
-        if (FULL_LOG === true) { logger.write("[INFO] getFile -> filePath = " + filePath); }
-        if (FULL_LOG === true) { logger.write("[INFO] getFile -> fileName = " + fileName); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFile -> filePath = " + filePath); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFile -> fileName = " + fileName); }
 
         try {
 
@@ -92,15 +92,15 @@ function newFileCloud() {
 
         } catch (err) {
 
-            if (FULL_LOG === true) { logger.write("[ERROR] getFile -> err = " + err); }
+            if (INFO_LOG === true) { logger.write("[ERROR] getFile -> err = " + err); }
 
         }
 
         function onFileReceived(err, text, response) {
 
-            if (FULL_LOG === true) { logger.write("[INFO] getFile -> onFileReceived -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] getFile -> onFileReceived -> filePath = " + filePath); }
-            if (FULL_LOG === true) { logger.write("[INFO] getFile -> onFileReceived -> fileName = " + fileName); }
+            if (INFO_LOG === true) { logger.write("[INFO] getFile -> onFileReceived -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] getFile -> onFileReceived -> filePath = " + filePath); }
+            if (INFO_LOG === true) { logger.write("[INFO] getFile -> onFileReceived -> fileName = " + fileName); }
 
             let data;
 
@@ -113,14 +113,14 @@ function newFileCloud() {
                         message: "File does not exist."
                     };
 
-                    if (FULL_LOG === true) { logger.write("[WARN] getFile -> onFileReceived -> customErr.message = " + customErr.message); }
+                    if (INFO_LOG === true) { logger.write("[WARN] getFile -> onFileReceived -> customErr.message = " + customErr.message); }
 
                     callBackFunction(customErr);
                     return;
                 }
 
-                if (FULL_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> Unexpected Error Ocurred."); }
-                if (FULL_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> err = " + err); }
+                if (INFO_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> Unexpected Error Ocurred."); }
+                if (INFO_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> err = " + err); }
                 callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 return;
 
@@ -130,21 +130,21 @@ function newFileCloud() {
 
                     data = JSON.parse(text);
 
-                    if (FULL_LOG === true) { logger.write("[INFO] getFile -> onFileReceived -> Data received is valid JSON."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] getFile -> onFileReceived -> Data received is valid JSON."); }
 
                     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, data);
                     return;
 
                 } catch (err) {
 
-                    if (FULL_LOG === true) { logger.write("[WARN] getFile -> onFileReceived -> err = " + err); }
+                    if (INFO_LOG === true) { logger.write("[WARN] getFile -> onFileReceived -> err = " + err); }
 
                     let customErr = {
                         result: GLOBAL.CUSTOM_OK_RESPONSE.result,
                         message: "Data not in JSON Format."
                     };
 
-                    if (FULL_LOG === true) { logger.write("[WARN] getFile -> onFileReceived -> customErr.message = " + customErr.message); }
+                    if (INFO_LOG === true) { logger.write("[WARN] getFile -> onFileReceived -> customErr.message = " + customErr.message); }
 
                     callBackFunction(customErr, text);
                     return;

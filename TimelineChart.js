@@ -1,7 +1,7 @@
 ﻿function newTimelineChart() {
 
     const MODULE_NAME = "Timeline Chart";
-    const FULL_LOG = false;
+    const INFO_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -43,7 +43,7 @@
 
     function initialize(exchange, market, pProductsPanel, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
         /* Remember the Products Panel */
 
@@ -80,9 +80,9 @@
 
     function initializeCompetitionPlotters() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> Entering function."); }
 
-        if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> Aborting function until Competition Plotter is ready."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> Aborting function until Competition Plotter is ready."); }
         return;
 
         /* At this current version of the platform, we will support only one competition with only one plotter. */
@@ -100,7 +100,7 @@
 
         function onStorageInitialized(err) {
 
-            if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onStorageInitialized -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onStorageInitialized -> Entering function."); }
 
             /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
 
@@ -121,7 +121,7 @@
 
             function onPlotterInizialized() {
 
-                if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onStorageInitialized -> onPlotterInizialized -> Entering function."); }
+                if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onStorageInitialized -> onPlotterInizialized -> Entering function."); }
 
                 let competitionPlotter = {
                     plotter: plotter,
@@ -138,7 +138,7 @@
 
     function initializeProductPlotters() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotters -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> Entering function."); }
 
         /* Lets get all the cards that needs to be loaded. */
 
@@ -155,14 +155,14 @@
 
     function initializeProductPlotter(pProductCard) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> Entering function."); }
 
         /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
 
         let objName = pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName;
         let storage = newProductStorage(objName);
 
-        if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> objName = " + objName); }
+        if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> objName = " + objName); }
 
         /*
 
@@ -202,36 +202,36 @@
 
         function onStorageInitialized(err) {
 
-            if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> key = " + pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName); }
+            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> key = " + pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName); }
 
             switch (err.result) {
                 case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received OK Response."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will be started."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received OK Response."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will be started."); }
                     break;
                 }
 
                 case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received FAIL Response."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will not be started."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received FAIL Response."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will not be started."); }
                     return;
                 }
 
                 case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received CUSTOM FAIL Response."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> err.message = " + err.message); }
-                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will not be started."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received CUSTOM FAIL Response."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> err.message = " + err.message); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will not be started."); }
                     return;
                 }
 
                 default: {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received Unexpected Response."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will not be started."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received Unexpected Response."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will not be started."); }
                     return;
                 }
             }
@@ -255,8 +255,8 @@
 
             function onPlotterInizialized() {
 
-                if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> onPlotterInizialized -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> onPlotterInizialized -> key = " + pProductCard.product.plotter.devTeam + "-" + pProductCard.product.plotter.repo + "-" + pProductCard.product.plotter.moduleName); }
+                if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> onPlotterInizialized -> Entering function."); }
+                if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> onPlotterInizialized -> key = " + pProductCard.product.plotter.devTeam + "-" + pProductCard.product.plotter.repo + "-" + pProductCard.product.plotter.moduleName); }
 
                 try {
                     plotter.positionAtDatetime(INITIAL_DATE);
@@ -328,7 +328,7 @@
 
     function onProductCardStatusChanged(pProductCard) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onProductCardStatusChanged -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onProductCardStatusChanged -> Entering function."); }
 
         if (pProductCard.status === PRODUCT_CARD_STATUS.LOADING) {
 
@@ -385,7 +385,7 @@
 
     function onZoomChanged(event) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onZoomChanged -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onZoomChanged -> Entering function."); }
 
         if (initializationReady === true) {
 
@@ -425,7 +425,7 @@
 
     function onDragFinished() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onDragFinished -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onDragFinished -> Entering function."); }
 
         if (initializationReady === true) {
 
@@ -439,7 +439,7 @@
 
     function onOffsetChanged() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onOffsetChanged -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onOffsetChanged -> Entering function."); }
 
         if (initializationReady === true) {
 
@@ -454,7 +454,7 @@
 
     function recalculateCurrentDatetime() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] recalculateCurrentDatetime -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] recalculateCurrentDatetime -> Entering function."); }
 
         /*
 
@@ -500,7 +500,7 @@
 
     function getContainer(point) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
 
         var container;
 
@@ -521,7 +521,7 @@
 
     function setDatetime(pDatetime) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
         /* This function is used when the time is changed through the user interface, but without zooming or panning. */
         /* No matter if the day changed or not, we need to inform all visible Plotters. */
@@ -587,7 +587,7 @@
 
     function recalculateScale() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
 
         var minValue = {
             x: EARLIEST_DATE.valueOf(),
@@ -621,7 +621,7 @@
 
     function tooSmall() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] tooSmall -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] tooSmall -> Entering function."); }
 
         if (viewPort.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
             return true;
@@ -706,7 +706,7 @@
 
     function moveViewPortToCurrentDatetime() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] moveViewPortToCurrentDatetime -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] moveViewPortToCurrentDatetime -> Entering function."); }
 
         let targetPoint = {
             x: datetime.valueOf(),

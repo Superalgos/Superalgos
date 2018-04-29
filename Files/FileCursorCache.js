@@ -2,7 +2,7 @@
 function newFileCursorCache() {
 
     const MODULE_NAME = "File Cursor Cache";
-    const FULL_LOG = false;
+    const INFO_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -29,8 +29,8 @@ function newFileCursorCache() {
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-        if (FULL_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
         callBackWhenFileReceived = callBackFunction;
 
@@ -67,26 +67,26 @@ function newFileCursorCache() {
 
     function onFileReceived(err) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] onFileReceived -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] onFileReceived -> Entering function."); }
 
         switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
-                if (FULL_LOG === true) { logger.write("[INFO] onFileReceived -> Received OK Response."); }
+                if (INFO_LOG === true) { logger.write("[INFO] onFileReceived -> Received OK Response."); }
                 break;
             }
 
             case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
 
-                if (FULL_LOG === true) { logger.write("[INFO] onFileReceived -> Received FAIL Response."); }
+                if (INFO_LOG === true) { logger.write("[INFO] onFileReceived -> Received FAIL Response."); }
                 callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 return;
             }
 
             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
 
-                if (FULL_LOG === true) { logger.write("[INFO] onFileReceived -> Received CUSTOM FAIL Response."); }
-                if (FULL_LOG === true) { logger.write("[INFO] onFileReceived -> err.message = " + err.message); }
+                if (INFO_LOG === true) { logger.write("[INFO] onFileReceived -> Received CUSTOM FAIL Response."); }
+                if (INFO_LOG === true) { logger.write("[INFO] onFileReceived -> err.message = " + err.message); }
 
                 callBackWhenFileReceived(err);
                 return;
@@ -94,7 +94,7 @@ function newFileCursorCache() {
 
             default: {
 
-                if (FULL_LOG === true) { logger.write("[INFO] onFileReceived -> Received Unexpected Response."); }
+                if (INFO_LOG === true) { logger.write("[INFO] onFileReceived -> Received Unexpected Response."); }
                 callBackWhenFileReceived(err);
                 return;
             }
@@ -107,7 +107,7 @@ function newFileCursorCache() {
 
     function getFileCursor(pPeriod) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getFileCursor -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFileCursor -> Entering function."); }
 
         return fileCursors.get(pPeriod);
 
@@ -115,7 +115,7 @@ function newFileCursorCache() {
 
     function setDatetime(pDatetime) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
         filesLoaded = 0;
         expectedFiles = 0;
@@ -129,13 +129,13 @@ function newFileCursorCache() {
 
         }
 
-        if (FULL_LOG === true) { logger.write("[INFO] setDatetime -> expectedFiles = " + expectedFiles); }
+        if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> expectedFiles = " + expectedFiles); }
 
     }
 
     function setTimePeriod(pTimePeriod, pDatetime) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
 
         filesLoaded = 0;
         expectedFiles = 0;
@@ -149,13 +149,13 @@ function newFileCursorCache() {
 
         }
 
-        if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> expectedFiles = " + expectedFiles); }
+        if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> expectedFiles = " + expectedFiles); }
 
     }
 
     function getExpectedFiles() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
 
         return expectedFiles;
 
@@ -163,7 +163,7 @@ function newFileCursorCache() {
 
     function getFilesLoaded() {
 
-        if (FULL_LOG === true) { logger.write("[INFO] getFilesLoaded -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFilesLoaded -> Entering function."); }
 
         return filesLoaded;
 

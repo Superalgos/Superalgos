@@ -13,7 +13,7 @@
         profile: {
             position: {
                 x: 0,
-                y: 0,
+                y: 0
             },
             visible: false
         }
@@ -34,6 +34,7 @@
 
     let files = [];                           // Here we keep the history records to be ploted every time the Draw() function is called by the AAWebPlatform.
     let plotElements = [];                    // This is where the elements to be plotted are stored before plotting.
+    let plotLines = [];                       // Here we store the lines of open positions.
 
     return thisObject;
 
@@ -107,12 +108,22 @@
         */
 
         plotElements = [];
+        plotLines = [];
+
+        let lastSellRate;
+        let lastSellDate;
+        let sellExecRate;
+
+        let lastBuyRate;
+        let lastBuyDate;
+        let buyExecRate;
 
         for (let j = 0; j < files.length; j++) {
 
             let file = files[j];
 
             let history = [];
+            let lines = [];
 
             let oneMin = 60000;
             let step = timePeriod / oneMin;
@@ -141,9 +152,57 @@
                 };
 
                 history.push(newHistoryRecord);
+
+                if (timePeriod === 60000) {
+
+                    /* Here we build the lines. */
+
+                    if (newHistoryRecord.lastSellRate > 0) {
+
+                        lastSellRate = newHistoryRecord.lastSellRate;
+                        lastSellDate = newHistoryRecord.date;
+
+                    }
+
+                    if (newHistoryRecord.sellExecRate > 0) {
+
+                        let newLine = {
+                            type: "sell",
+                            x1: lastSellDate,
+                            y1: lastSellRate,
+                            x2: newHistoryRecord.date,
+                            y2: newHistoryRecord.sellExecRate
+                        };
+
+                        lines.push(newLine);
+
+                    }
+
+                    if (newHistoryRecord.lastBuyRate > 0) {
+
+                        lastBuyRate = newHistoryRecord.lastBuyRate;
+                        lastBuyDate = newHistoryRecord.date;
+
+                    }
+
+                    if (newHistoryRecord.buyExecRate > 0) {
+
+                        let newLine = {
+                            type: "buy",
+                            x1: lastBuyDate,
+                            y1: lastBuyRate,
+                            x2: newHistoryRecord.date,
+                            y2: newHistoryRecord.buyExecRate
+                        };
+
+                        lines.push(newLine);
+
+                    }
+                }
             }
 
             plotElements.push(history);
+            plotLines.push(lines);
         }
 
         thisObject.container.eventHandler.raiseEvent("History Changed", history);
@@ -257,7 +316,6 @@
                 }
 
                 browserCanvasContext.stroke();
-
 
                 /* Draw a red inverted triangle on exec sell */
 
@@ -497,6 +555,54 @@
                 thisObject.profile.visible = true;
             }
 
+            /* Draw the lines connecting plot elements. */
+
+            let lines = plotLines[j];
+
+            for (let i = 0; i < lines.length; i++) {
+
+                let line = lines[i];
+
+                opacity = '0.5';
+
+                let point1 = {
+                    x: line.x1,
+                    y: line.y1
+                };
+
+                let point2 = {
+                    x: line.x2,
+                    y: line.y2
+                };
+
+                point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                point1 = transformThisPoint(point1, thisObject.container);
+                point1 = viewPort.fitIntoVisibleArea(point1);
+
+                point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                point2 = transformThisPoint(point2, thisObject.container);
+                point2 = viewPort.fitIntoVisibleArea(point2);
+
+                browserCanvasContext.beginPath();
+
+                browserCanvasContext.moveTo(point1.x, point1.y);
+                browserCanvasContext.lineTo(point2.x, point2.y);
+
+                browserCanvasContext.closePath();
+
+                if (line.type === "sell") {
+
+                    browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, ' + opacity + ')';
+
+                } else {
+
+                    browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
+
+                }
+                
+                browserCanvasContext.stroke();
+
+            }
         }
 
         /*

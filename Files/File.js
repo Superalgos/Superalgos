@@ -3,6 +3,7 @@ function newFile() {
 
     const MODULE_NAME = "File";
     const INFO_LOG = false;
+    const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -18,63 +19,78 @@ function newFile() {
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-        if (INFO_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+        try {
 
-        let exchange = ecosystem.getExchange(pProduct, pExchange);
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-        if (pExchange !== undefined && exchange === undefined) { // We support no exchange as a parameter, but if provided, then it must be at the list of exchanges of that product.
+            let exchange = ecosystem.getExchange(pProduct, pExchange);
 
-            throw "Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = " + pDevTeam.codeName + ", pBot.codeName = " + pBot.codeName + ", pProduct.codeName = " + pProduct.codeName + ", pExchange = " + pExchange;
+            if (pExchange !== undefined && exchange === undefined) { // We support no exchange as a parameter, but if provided, then it must be at the list of exchanges of that product.
 
-        }
+                throw "Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = " + pDevTeam.codeName + ", pBot.codeName = " + pBot.codeName + ", pProduct.codeName = " + pProduct.codeName + ", pExchange = " + pExchange;
 
-        fileCloud = newFileCloud();
-        fileCloud.initialize(pBot);
+            }
 
-        /* Now we will get the file */
+            fileCloud = newFileCloud();
+            fileCloud.initialize(pBot);
 
-        fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, undefined, onFileReceived);
+            /* Now we will get the file */
 
-        function onFileReceived(err, pFile) {
+            fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, undefined, onFileReceived);
 
-            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Entering function."); }
+            function onFileReceived(err, pFile) {
 
-            switch (err.result) {
-                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                try {
 
-                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received OK Response."); }
-                    break;
-                }
+                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Entering function."); }
 
-                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                    switch (err.result) {
+                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
-                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received FAIL Response."); }
-                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received OK Response."); }
+                            break;
+                        }
 
-                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
 
-                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response."); }
-                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> err.message = " + err.message); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received FAIL Response."); }
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
 
-                    callBackFunction(err);
-                    return;
-                }
+                        case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
 
-                default: {
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> err.message = " + err.message); }
 
-                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
-                    callBackFunction(err);
-                    return;
+                            callBackFunction(err);
+                            return;
+                        }
+
+                        default: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
+                            callBackFunction(err);
+                            return;
+                        }
+                    }
+
+                    file = pFile;
+
+                    callBackFunction();
+
+                } catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileReceived -> err = " + err); }
+                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
                 }
             }
 
-            file = pFile;
+        } catch (err) {
 
-            callBackFunction();
-
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
     }
 

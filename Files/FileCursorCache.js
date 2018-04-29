@@ -2,7 +2,7 @@
 function newFileCursorCache() {
 
     const MODULE_NAME = "File Cursor Cache";
-    const FULL_LOG = true;
+    const FULL_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 

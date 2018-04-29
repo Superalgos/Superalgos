@@ -1,11 +1,9 @@
 ﻿function newTimelineChart() {
 
     const MODULE_NAME = "Timeline Chart";
-    const FULL_LOG = true;
+    const FULL_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
-
-    const CONSOLE_LOG = false;
 
     let productPlotters = [];
     let competitionPlotters = [];
@@ -124,12 +122,6 @@
             function onPlotterInizialized() {
 
                 if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onStorageInitialized -> onPlotterInizialized -> Entering function."); }
-
-                if (CONSOLE_LOG === true) {
-
-                    console.log(competition.plotter.host, competition.plotter.repo, competition.plotter.moduleName + " Initialized. ");
-
-                }
 
                 let competitionPlotter = {
                     plotter: plotter,
@@ -264,12 +256,7 @@
             function onPlotterInizialized() {
 
                 if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> onPlotterInizialized -> Entering function."); }
-
-                if (CONSOLE_LOG === true) {
-
-                    console.log(pProductCard.product.plotter.devTeam + '->' + pProductCard.product.plotter.repo + '->' + pProductCard.product.plotter.moduleName + " Initialized. ");
-
-                }
+                if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> onPlotterInizialized -> key = " + pProductCard.product.plotter.devTeam + "-" + pProductCard.product.plotter.repo + "-" + pProductCard.product.plotter.moduleName); }
 
                 try {
                     plotter.positionAtDatetime(INITIAL_DATE);

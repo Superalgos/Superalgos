@@ -2,7 +2,7 @@
 function newProductStorage(pName) {
 
     const MODULE_NAME = "Product Storage";
-    const FULL_LOG = true;
+    const FULL_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 

@@ -9,7 +9,7 @@ changes, then all charts in it are replotted with the corresponging data.
 function newChartSpace() {
 
     const MODULE_NAME = "Chart Space";
-    const FULL_LOG = true;
+    const FULL_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 

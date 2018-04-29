@@ -1,6 +1,11 @@
 ﻿
 function newFileSequence() {
 
+    const MODULE_NAME = "File Sequence";
+    const FULL_LOG = true;
+    const logger = newDebugLog();
+    logger.fileName = MODULE_NAME;
+
     let thisObject = {
         getFile: getFile,
         getExpectedFiles: getExpectedFiles,
@@ -20,6 +25,9 @@ function newFileSequence() {
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
         let exchange = ecosystem.getExchange(pProduct, pExchange);
 
         if (exchange === undefined) {
@@ -35,7 +43,50 @@ function newFileSequence() {
 
         fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, "Sequence", onSequenceFileReceived);
 
-        function onSequenceFileReceived(file) {
+        function onSequenceFileReceived(err, file) {
+
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+            switch (err.result) {
+                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> Received OK Response."); }
+                    break;
+                }
+
+                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> Received FAIL Response."); }
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+
+                case GLOBAL.CUSTOM_OK_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> Received CUSTOM OK Response."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> err.message = " + err.message); }
+
+                    callBackFunction(err);
+                    return;
+                }
+
+                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> Received CUSTOM FAIL Response."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> err.message = " + err.message); }
+
+                    callBackFunction(err);
+                    return;
+                }
+
+                default: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> Received Unexpected Response."); }
+                    callBackFunction(err);
+                    return;
+                }
+            }
 
             maxSequence = Number(file);
 
@@ -45,13 +96,44 @@ function newFileSequence() {
 
                 fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, i, onFileReceived);
 
-                function onFileReceived(file) {
+                function onFileReceived(err, file) {
+
+                    switch (err.result) {
+                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received OK Response."); }
+                            break;
+                        }
+
+                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received FAIL Response."); }
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+
+                        case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received CUSTOM FAIL Response."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> err.message = " + err.message); }
+
+                            callBackFunction(err);
+                            return;
+                        }
+
+                        default: {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> onFileReceived -> Received Unexpected Response."); }
+                            callBackFunction(err);
+                            return;
+                        }
+                    }
 
                     files.set(i, file);
 
                     filesLoaded++;
 
-                    callBackFunction(); // Note that the callback is called for every file loaded.
+                    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); // Note that the callback is called for every file loaded.
 
                 }
             }
@@ -60,17 +142,24 @@ function newFileSequence() {
 
     function getFile(pSequence) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] getFile -> Entering function."); }
+        if (FULL_LOG === true) { logger.write("[INFO] getFile -> pSequence = " + pSequence); }
+
         return files.get(pSequence);
 
     }
 
     function getExpectedFiles() {
 
+        if (FULL_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
+
         return maxSequence + 1;
 
     }
 
     function getFilesLoaded() {
+
+        if (FULL_LOG === true) { logger.write("[INFO] getFilesLoaded -> Entering function."); }
 
         return filesLoaded;
 

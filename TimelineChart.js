@@ -1,7 +1,7 @@
 ﻿function newTimelineChart() {
 
     const MODULE_NAME = "Timeline Chart";
-    const FULL_LOG = false;
+    const FULL_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -100,7 +100,7 @@
 
         storage.initialize(host, competition, onStorageInitialized);
 
-        function onStorageInitialized() {
+        function onStorageInitialized(err) {
 
             if (FULL_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onStorageInitialized -> Entering function."); }
 
@@ -208,9 +208,41 @@
 
         storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.product, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onStorageInitialized) ;
 
-        function onStorageInitialized() {
+        function onStorageInitialized(err) {
 
             if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> key = " + pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName); }
+
+            switch (err.result) {
+                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received OK Response."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will be started."); }
+                    break;
+                }
+
+                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received FAIL Response."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will not be started."); }
+                    return;
+                }
+
+                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received CUSTOM FAIL Response."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> err.message = " + err.message); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will not be started."); }
+                    return;
+                }
+
+                default: {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> Received Unexpected Response."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onStorageInitialized -> The plotter will not be started."); }
+                    return;
+                }
+            }
 
             /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
 

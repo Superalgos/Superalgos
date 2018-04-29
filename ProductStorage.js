@@ -1,7 +1,10 @@
 ﻿
 function newProductStorage(pName) {
 
-    const CONSOLE_LOG = false;
+    const MODULE_NAME = "Product Storage";
+    const FULL_LOG = true;
+    const logger = newDebugLog();
+    logger.fileName = MODULE_NAME;
 
     /*
 
@@ -40,14 +43,11 @@ function newProductStorage(pName) {
 
     function initialize(pDevTeam, pBot, pProduct, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        if (FULL_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
         datetime = pDatetime;
         timePeriod = pTimePeriod;
-
-        if (CONSOLE_LOG === true) {
-
-            console.log("Product storage initialize for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
-
-        }
 
         let dataSetsToLoad = 0;
         let dataSetsLoaded = 0;
@@ -59,68 +59,49 @@ function newProductStorage(pName) {
             switch (thisSet.type) {
                 case 'Market Files': {
 
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> Market Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
                     thisObject.fileCache = newFileCache();
                     thisObject.fileCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onCacheFileReady);
                     dataSetsToLoad++;
-
-                    if (CONSOLE_LOG === true) {
-
-                        console.log("Product storage initialize Market Files for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
-
-                    }
                 }
                     break;
 
                 case 'Daily Files': {
 
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> Daily Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
                     thisObject.fileCursorCache = newFileCursorCache();
                     thisObject.fileCursorCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
                     dataSetsToLoad++;
-
-                    if (CONSOLE_LOG === true) {
-
-                        console.log("Product storage initialize Daily Files for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
-
-                    }
                 }
                     break;
 
                 case 'Single File': {
 
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> Single File -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
                     thisObject.file = newFile();
                     thisObject.file.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
                     dataSetsToLoad++;
-
-                    if (CONSOLE_LOG === true) {
-
-                        console.log("Product storage initialize Single File for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
-
-                    }
                 }
                     break;
 
                 case 'File Sequence': {
 
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> File Sequence -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
                     thisObject.fileSequence = newFileSequence();
                     thisObject.fileSequence.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady);
                     dataSetsToLoad++;
-
-                    if (CONSOLE_LOG === true) {
-
-                        console.log("Product storage initialize File Sequence for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
-
-                    }
                 }
                     break;
             }
 
             function onCacheFileReady() {
 
-                if (CONSOLE_LOG === true) {
-
-                    console.log("Product storage initialize onCacheFileReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
-
-                }
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
                 let event = {
                     totalValue: thisObject.fileCache.getExpectedFiles(),
@@ -139,11 +120,8 @@ function newProductStorage(pName) {
 
             function onFileCursorReady() {
 
-                if (CONSOLE_LOG === true) {
-
-                    console.log("Product storage initialize onFileCursorReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
-
-                }
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
                 let event = {
                     totalValue: thisObject.fileCursorCache.getExpectedFiles(),
@@ -162,11 +140,8 @@ function newProductStorage(pName) {
 
             function onSingleFileReady() {
 
-                if (CONSOLE_LOG === true) {
-
-                    console.log("Product storage initialize onSingleFileReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
-
-                }
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
                 let event = {
                     totalValue: 1,
@@ -183,12 +158,40 @@ function newProductStorage(pName) {
                 }
             }
 
-            function onFileSequenceReady() {
+            function onFileSequenceReady(err) {
 
-                if (CONSOLE_LOG === true) {
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                    console.log("Product storage initialize onFileSequenceReady for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
+                switch (err.result) {
+                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received OK Response."); }
+                        break;
+                    }
+
+                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received FAIL Response."); }
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received CUSTOM FAIL Response."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> err.message = " + err.message); }
+
+                        callBackFunction(err);
+                        return;
+                    }
+
+                    default: {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received Unexpected Response."); }
+                        callBackFunction(err);
+                        return;
+                    }
                 }
 
                 let event = {
@@ -208,15 +211,12 @@ function newProductStorage(pName) {
 
             function checkInitializeComplete() {
 
-                if (CONSOLE_LOG === true) {
-
-                    console.log("Product storage initialize checkInitializeComplete for " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName);
-
-                }
+                if (FULL_LOG === true) { logger.write("[INFO] checkInitializeComplete -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] checkInitializeComplete -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
                 if (dataSetsLoaded === dataSetsToLoad) {
 
-                    callBackFunction();
+                    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
                 }
             }
@@ -224,6 +224,8 @@ function newProductStorage(pName) {
     }
 
     function setDatetime(pDatetime) {
+
+        if (FULL_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
         /* If there is a change in the day, then we take some actions, otherwise, we dont. */
 
@@ -243,6 +245,8 @@ function newProductStorage(pName) {
     }
 
     function setTimePeriod(pTimePeriod) {
+
+        if (FULL_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
 
         /* We are going to filter out the cases in which the timePeriod received is the same that the one we already know. */
 

@@ -1,7 +1,7 @@
 ﻿
-function newFileCursorCache() {
+function newDailyFiles() {
 
-    const MODULE_NAME = "File Cursor Cache";
+    const MODULE_NAME = "Daily Files";
     const INFO_LOG = false;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;

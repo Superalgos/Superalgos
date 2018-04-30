@@ -16,12 +16,11 @@ function newProductStorage(pName) {
 
     Product Storage
          |
-         |
          |-----> File
          |
          |-----> FileSequence
          |
-         |-----> FileCursorCache  -----> FileCursor
+         |-----> DailyFiles  -----> FileCursor
          |
          |-----> MarketFiles
 
@@ -30,7 +29,7 @@ function newProductStorage(pName) {
     let thisObject = {
 
         marketFiles: [],
-        fileCursorCache: [],
+        dailyFiles: [],
         file: [],
         fileSequence: [],
 
@@ -86,9 +85,9 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Daily Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                        let fileCursorCache = newFileCursorCache();
-                        fileCursorCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
-                        thisObject.fileCursorCache.push(fileCursorCache);
+                        let dailyFiles = newDailyFiles();
+                        dailyFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
+                        thisObject.dailyFiles.push(dailyFiles);
                         dataSetsToLoad++;
                     }
                         break;
@@ -395,9 +394,9 @@ function newProductStorage(pName) {
 
             if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
 
-                for (let i = 0; i < thisObject.fileCursorCache.length; i++) {
+                for (let i = 0; i < thisObject.dailyFiles.length; i++) {
 
-                    thisObject.fileCursorCache[i].setDatetime(pDatetime);
+                    thisObject.dailyFiles[i].setDatetime(pDatetime);
                 }
             }
         }
@@ -416,9 +415,9 @@ function newProductStorage(pName) {
 
             if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
 
-                for (let i = 0; i < thisObject.fileCursorCache.length; i++) {
+                for (let i = 0; i < thisObject.dailyFiles.length; i++) {
 
-                    thisObject.fileCursorCache[i].setTimePeriod(pTimePeriod, datetime);
+                    thisObject.dailyFiles[i].setTimePeriod(pTimePeriod, datetime);
                 }
             }
         }

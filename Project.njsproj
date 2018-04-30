@@ -68,7 +68,7 @@
     <Compile Include="Files\FileCursor.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Files\FileCursorCache.js">
+    <Compile Include="Files\DailyFiles.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Button.js" />

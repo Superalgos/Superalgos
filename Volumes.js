@@ -31,7 +31,7 @@
     let marketFile;                     // This is the current Market File being plotted.
     let fileCursor;                     // This is the current File Cursor being used to retrieve Daily Files.
 
-    let fileCache;                      // This object will provide the different Market Files at different Time Periods.
+    let marketFiles;                    // This object will provide the different Market Files at different Time Periods.
     let fileCursorCache;                // This object will provide the different File Cursors at different Time Periods.
 
     let scaleFile;                      // This file is used to calculate the scale.
@@ -46,7 +46,7 @@
 
         /* Store the information received. */
 
-        fileCache = pStorage.fileCache[0];
+        marketFiles = pStorage.marketFiles[0];
         fileCursorCache = pStorage.fileCursorCache[0];
 
         datetime = pDatetime;
@@ -54,11 +54,11 @@
 
         /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
-        scaleFile = fileCache.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
+        scaleFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
 
         /* Now we set the right files according to current Period. */
 
-        marketFile = fileCache.getFile(pTimePeriod); 
+        marketFile = marketFiles.getFile(pTimePeriod); 
         fileCursor = fileCursorCache.getFileCursor(pTimePeriod);
 
         /* Listen to the necesary events. */
@@ -103,7 +103,7 @@
 
             if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-                let newMarketFile = fileCache.getFile(pTimePeriod);
+                let newMarketFile = marketFiles.getFile(pTimePeriod);
 
                 if (newMarketFile !== undefined) {
 

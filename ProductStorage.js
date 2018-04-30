@@ -16,7 +16,7 @@ function newProductStorage(pName) {
 
     Product Storage
          |
-         |-----> File
+         |-----> SingleFile
          |
          |-----> FileSequence
          |
@@ -30,7 +30,7 @@ function newProductStorage(pName) {
 
         marketFiles: [],
         dailyFiles: [],
-        file: [],
+        singleFile: [],
         fileSequence: [],
 
         setDatetime: setDatetime,
@@ -96,9 +96,9 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Single File -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                        let file = newFile();
-                        file.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
-                        thisObject.file.push(file);
+                        let singleFile = newSingleFile();
+                        singleFile.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
+                        thisObject.singleFile.push(singleFile);
                         dataSetsToLoad++;
                     }
                         break;

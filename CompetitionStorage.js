@@ -53,9 +53,9 @@ function newCompetitionStorage(pName) {
 
                     case 'Single File': {
 
-                        let file = newFile();
-                        file.initialize(devTeam, bot, product, thisSet, undefined, undefined, onSingleFileReady);
-                        thisObject.files.set(pCompetition.participants[i].devTeam + "-" + pCompetition.participants[i].bot, file);
+                        let singleFile = newSingleFile();
+                        singleFile.initialize(devTeam, bot, product, thisSet, undefined, undefined, onSingleFileReady);
+                        thisObject.files.set(pCompetition.participants[i].devTeam + "-" + pCompetition.participants[i].bot, singleFile);
                         dataSetsToLoad++;
 
                         if (CONSOLE_LOG === true) {

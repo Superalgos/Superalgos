@@ -1,7 +1,7 @@
 ﻿
-function newFile() {  
+function newSingleFile() {  
 
-    const MODULE_NAME = "File";
+    const MODULE_NAME = "Single File";
     const INFO_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();

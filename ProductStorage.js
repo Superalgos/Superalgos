@@ -23,13 +23,13 @@ function newProductStorage(pName) {
          |
          |-----> FileCursorCache  -----> FileCursor
          |
-         |-----> FileCache
+         |-----> MarketFiles
 
     */
 
     let thisObject = {
 
-        fileCache: [],
+        marketFiles: [],
         fileCursorCache: [],
         file: [],
         fileSequence: [],
@@ -75,9 +75,9 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Market Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                        let fileCache = newFileCache();
-                        fileCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onCacheFileReady);
-                        thisObject.fileCache.push(fileCache);
+                        let marketFiles = newMarketFiles();
+                        marketFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onCacheFileReady);
+                        thisObject.marketFiles.push(marketFiles);
                         dataSetsToLoad++;
                     }
                         break;

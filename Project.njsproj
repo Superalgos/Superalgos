@@ -79,7 +79,7 @@
     <Compile Include="ChartUtilities.js" />
     <Compile Include="Container.js" />
     <Compile Include="Dashboard.js" />
-    <Compile Include="Files\FileCache.js">
+    <Compile Include="Files\MarketFiles.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Plotter.js">

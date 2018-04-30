@@ -1,7 +1,7 @@
 ﻿
-function newFileCache() {
+function newMarketFiles() {
 
-    const MODULE_NAME = "File Cache";
+    const MODULE_NAME = "Market Files";
     const INFO_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();

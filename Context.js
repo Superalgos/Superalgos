@@ -245,9 +245,6 @@
                             thisObject.newHistoryRecord.buyAvgRate = thisObject.executionHistory[thisObject.executionHistory.length-1][1];
                             thisObject.newHistoryRecord.sellAvgRate = thisObject.executionHistory[thisObject.executionHistory.length - 1][2];
 
-                            thisObject.newHistoryRecord.buyAvgRate = thisObject.executionHistory[1];
-                            thisObject.newHistoryRecord.sellAvgRate = thisObject.executionHistory[2];
-
                             getExecutionContext(callBack);
 
                         } catch (err) {

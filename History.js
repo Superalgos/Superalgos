@@ -32,7 +32,7 @@
 
     /* these are module specific variables: */
 
-    let files = [];                           // Here we keep the history records to be ploted every time the Draw() function is called by the AAWebPlatform.
+    let fileSequence;                           
     let plotElements = [];                    // This is where the elements to be plotted are stored before plotting.
     let plotLines = [];                       // Here we store the lines of open positions.
 
@@ -43,13 +43,7 @@
         datetime = pDatetime;
         timePeriod = pTimePeriod;
 
-        let maxSequence = pStorage.fileSequence.getExpectedFiles();
-
-        for (let i = 0; i < maxSequence; i++) {
-
-            files.push(pStorage.fileSequence.getFile(i));
-
-        }
+        fileSequence = pStorage.fileSequence;
 
         recalculate();
         recalculateScale();
@@ -98,7 +92,7 @@
 
     function recalculate() {    
 
-        if (files === undefined) { return; }
+        if (fileSequence === undefined) { return; }
 
         /*
 
@@ -118,9 +112,11 @@
         let lastBuyDate;
         let buyExecRate;
 
-        for (let j = 0; j < files.length; j++) {
+        let maxSequence = fileSequence.getFilesLoaded();
 
-            let file = files[j];
+        for (let j = 0; j < maxSequence; j++) {
+
+            let file = fileSequence.getFile(j);
 
             let history = [];
             let lines = [];
@@ -211,7 +207,7 @@
 
     function recalculateScale() {
 
-        if (files === undefined) { return; } // We need the market file to be loaded to make the calculation.
+        if (fileSequence === undefined) { return; } // We need the market file to be loaded to make the calculation.
 
         if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
 
@@ -237,9 +233,11 @@
 
             let maxValue = 0;
 
-            for (let j = 0; j < files.length; j++) {
+            let maxSequence = fileSequence.getFilesLoaded();
 
-                let file = files[j];
+            for (let j = 0; j < maxSequence; j++) {
+
+                let file = fileSequence.getFile(j);
 
                 for (let i = 0; i < file.length; i++) {
 

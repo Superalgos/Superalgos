@@ -78,7 +78,7 @@ function newFile() {
 
                     file = pFile;
 
-                    callBackFunction();
+                    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
 

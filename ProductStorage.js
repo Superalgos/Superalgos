@@ -29,10 +29,10 @@ function newProductStorage(pName) {
 
     let thisObject = {
 
-        fileCache: undefined,
-        fileCursorCache: undefined,
-        file: undefined,
-        fileSequence: undefined,
+        fileCache: [],
+        fileCursorCache: [],
+        file: [],
+        fileSequence: [],
 
         setDatetime: setDatetime,
         setTimePeriod: setTimePeriod,
@@ -75,8 +75,9 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Market Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                        thisObject.fileCache = newFileCache();
-                        thisObject.fileCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onCacheFileReady);
+                        let fileCache = newFileCache();
+                        fileCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onCacheFileReady);
+                        thisObject.fileCache.push(fileCache);
                         dataSetsToLoad++;
                     }
                         break;
@@ -85,8 +86,9 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Daily Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                        thisObject.fileCursorCache = newFileCursorCache();
-                        thisObject.fileCursorCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
+                        let fileCursorCache = newFileCursorCache();
+                        fileCursorCache.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
+                        thisObject.fileCursorCache.push(fileCursorCache);
                         dataSetsToLoad++;
                     }
                         break;
@@ -95,8 +97,9 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Single File -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                        thisObject.file = newFile();
-                        thisObject.file.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
+                        let file = newFile();
+                        file.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
+                        thisObject.file.push(file);
                         dataSetsToLoad++;
                     }
                         break;
@@ -105,14 +108,15 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> File Sequence -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-                        thisObject.fileSequence = newFileSequence();
-                        thisObject.fileSequence.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady);
+                        let fileSequence = newFileSequence();
+                        fileSequence.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady);
+                        thisObject.fileSequence.push(fileSequence);
                         dataSetsToLoad++;
                     }
                         break;
                 }
 
-                function onCacheFileReady(err) {
+                function onCacheFileReady(err, pCaller) {
 
                     try {
 
@@ -151,8 +155,8 @@ function newProductStorage(pName) {
                         }
 
                         let event = {
-                            totalValue: thisObject.fileCache.getExpectedFiles(),
-                            currentValue: thisObject.fileCache.getFilesLoaded()
+                            totalValue: pCaller.getExpectedFiles(),
+                            currentValue: pCaller.getFilesLoaded()
                         }
 
                         thisObject.eventHandler.raiseEvent('Market File Loaded', event);
@@ -171,7 +175,7 @@ function newProductStorage(pName) {
                     }
                 }
 
-                function onFileCursorReady(err) {
+                function onFileCursorReady(err, pCaller) {
 
                     try {
 
@@ -210,8 +214,8 @@ function newProductStorage(pName) {
                         }
 
                         let event = {
-                            totalValue: thisObject.fileCursorCache.getExpectedFiles(),
-                            currentValue: thisObject.fileCursorCache.getFilesLoaded()
+                            totalValue: pCaller.getExpectedFiles(),
+                            currentValue: pCaller.getFilesLoaded()
                         }
 
                         thisObject.eventHandler.raiseEvent('Daily File Loaded', event);
@@ -230,7 +234,7 @@ function newProductStorage(pName) {
                     }
                 }
 
-                function onSingleFileReady(err) {
+                function onSingleFileReady(err, pCaller) {
 
                     try {
 
@@ -289,7 +293,7 @@ function newProductStorage(pName) {
                     }
                 }
 
-                function onFileSequenceReady(err) {
+                function onFileSequenceReady(err, pCaller) {
 
                     try {
 
@@ -328,8 +332,8 @@ function newProductStorage(pName) {
                         }
 
                         let event = {
-                            totalValue: thisObject.fileSequence.getExpectedFiles(),
-                            currentValue: thisObject.fileSequence.getFilesLoaded()
+                            totalValue: pCaller.getExpectedFiles(),
+                            currentValue: pCaller.getFilesLoaded()
                         }
 
                         thisObject.eventHandler.raiseEvent('File Sequence Loaded', event);
@@ -391,8 +395,10 @@ function newProductStorage(pName) {
 
             if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
 
-                thisObject.fileCursorCache.setDatetime(pDatetime);
+                for (let i = 0; i < thisObject.fileCursorCache.length; i++) {
 
+                    thisObject.fileCursorCache[i].setDatetime(pDatetime);
+                }
             }
         }
 
@@ -410,9 +416,9 @@ function newProductStorage(pName) {
 
             if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
 
-                if (thisObject.fileCursorCache !== undefined) {
+                for (let i = 0; i < thisObject.fileCursorCache.length; i++) {
 
-                    thisObject.fileCursorCache.setTimePeriod(pTimePeriod, datetime);
+                    thisObject.fileCursorCache[i].setTimePeriod(pTimePeriod, datetime);
                 }
             }
         }

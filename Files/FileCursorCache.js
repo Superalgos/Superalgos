@@ -101,7 +101,7 @@ function newFileCursorCache() {
         }
 
         filesLoaded++;
-        callBackWhenFileReceived(GLOBAL.DEFAULT_OK_RESPONSE); // Note that the call back is called for every file loaded at each cursor.
+        callBackWhenFileReceived(GLOBAL.DEFAULT_OK_RESPONSE, thisObject); // Note that the call back is called for every file loaded at each cursor.
 
     }
 

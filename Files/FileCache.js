@@ -90,7 +90,7 @@ function newFileCache() {
 
                         filesLoaded++;
 
-                        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); // Note that the callback is called for every file loaded.
+                        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject); // Note that the callback is called for every file loaded.
 
                     }
                 }

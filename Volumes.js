@@ -46,8 +46,8 @@
 
         /* Store the information received. */
 
-        fileCache = pStorage.fileCache;
-        fileCursorCache = pStorage.fileCursorCache;
+        fileCache = pStorage.fileCache[0];
+        fileCursorCache = pStorage.fileCursorCache[0];
 
         datetime = pDatetime;
         timePeriod = pTimePeriod;

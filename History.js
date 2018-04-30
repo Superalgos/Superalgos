@@ -43,7 +43,7 @@
         datetime = pDatetime;
         timePeriod = pTimePeriod;
 
-        fileSequence = pStorage.fileSequence;
+        fileSequence = pStorage.fileSequence[0];
 
         recalculate();
         recalculateScale();

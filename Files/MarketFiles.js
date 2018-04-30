@@ -53,45 +53,52 @@ function newMarketFiles() {
 
                     function onFileReceived(err, file) {
 
-                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Entering function."); }
+                        try {
 
-                        switch (err.result) {
-                            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Entering function."); }
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received OK Response."); }
-                                break;
+                            switch (err.result) {
+                                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received OK Response."); }
+                                    break;
+                                }
+
+                                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received FAIL Response."); }
+                                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+
+                                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response."); }
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> err.message = " + err.message); }
+
+                                    callBackFunction(err);
+                                    return;
+                                }
+
+                                default: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
+                                    callBackFunction(err);
+                                    return;
+                                }
                             }
 
-                            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                            files.set(periodTime, file);
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received FAIL Response."); }
-                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-                                return;
-                            }
+                            filesLoaded++;
 
-                            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+                            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject); // Note that the callback is called for every file loaded.
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response."); }
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> err.message = " + err.message); }
+                        } catch (err) {
 
-                                callBackFunction(err);
-                                return;
-                            }
-
-                            default: {
-
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
-                                callBackFunction(err);
-                                return;
-                            }
+                            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileReceived -> err = " + err); }
+                            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
                         }
-
-                        files.set(periodTime, file);
-
-                        filesLoaded++;
-
-                        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject); // Note that the callback is called for every file loaded.
-
                     }
                 }
             }

@@ -38,6 +38,7 @@ function newCanvas() {
 
     const MODULE_NAME = "Canvas";
     const INFO_LOG = false;
+    const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -73,7 +74,7 @@ function newCanvas() {
 
     return thisObject;
 
-    function initialize() {
+    function initialize(callBackFunction) {
 
         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
@@ -104,18 +105,60 @@ function newCanvas() {
         splashScreen.initialize();
 
         let animation = newAnimation();
-        animation.initialize(clearBrowserCanvas);
+        animation.initialize(onAnimationInitialized);
 
-        this.animation = animation;
+        function onAnimationInitialized(err) {
 
-        /* Here we add all the functions that will be called during the animation cycle. */
+            this.animation = animation;
 
-        animation.addCallBackFunction("Chart Space", thisObject.chartSpace.draw);
-        animation.addCallBackFunction("Floating Space", thisObject.floatingSpace.physicsLoop);
-        animation.addCallBackFunction("Panels Space", thisObject.panelsSpace.draw);
-        animation.addCallBackFunction("Splash Screen", splashScreen.draw);
-        animation.start();
+            /* Here we add all the functions that will be called during the animation cycle. */
 
+            animation.addCallBackFunction("Chart Space", thisObject.chartSpace.draw, onFunctionAdded);
+            animation.addCallBackFunction("Floating Space", thisObject.floatingSpace.physicsLoop, onFunctionAdded);
+            animation.addCallBackFunction("Panels Space", thisObject.panelsSpace.draw, onFunctionAdded);
+            animation.addCallBackFunction("Splash Screen", splashScreen.draw, onFunctionAdded);
+            animation.addCallBackFunction("ViewPort Animate", viewPort.animate, onFunctionAdded);
+            animation.addCallBackFunction("ViewPort Draw", viewPort.draw, onFunctionAdded);
+            animation.start(onStart);
+
+            function onFunctionAdded(err) {
+
+                if (err.result === GLOBAL.CUSTOM_FAIL_RESPONSE.result) {
+
+                    animation.stop();
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onAnimationInitialized -> onFunctionAdded -> Animation Stopped since a vital funtion could not be added."); }
+
+                    /* Display some Error Page here. */
+                }
+            }
+
+            function onStart(err) {
+
+                switch (err.result) {
+                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onAnimationInitialized -> onStart ->  Received OK Response."); }
+                        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
+                        return;
+                    }
+
+                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onAnimationInitialized -> onStart -> Received FAIL Response."); }
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    default: {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onAnimationInitialized -> onStart -> Received Unexpected Response."); }
+                        callBackFunction(err);
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     function initializeBrowserCanvas() {
@@ -132,14 +175,6 @@ function newCanvas() {
         browserCanvas.style.border = "none";
 
         viewPort.initialize();
-    }
-
-    function clearBrowserCanvas() {
-
-        if (INFO_LOG === true) { logger.write("[INFO] clearBrowserCanvas -> Entering function."); }
-
-        browserCanvasContext.clearRect(0, 0, browserCanvas.width, browserCanvas.height); 
-
     }
 
     function addCanvasEvents() {

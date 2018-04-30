@@ -1,18 +1,24 @@
-﻿/*
-
-Essentially, what the animation object does, is to call several functions in order to draw the content of each frame.
-To do that, it has an array of functions that need to be called, and it just goes one by one through them. His parent object
-is responsible for providing more functions to call, or removing functions from its list when they are not longer needed.
-
-*/
-
+﻿
 function newAnimation() {
 
-    var animationLoopHandle;          // This is the handle to the animation loop. With this handle we can cancel the loop, for instance.
-    var callBackFunctions = new Map();
-    var clearCanvasFunction;
+    const MODULE_NAME = "Animation";
+    const INFO_LOG = false;
+    const ERROR_LOG = true;
+    const logger = newDebugLog();
+    logger.fileName = MODULE_NAME;
 
-    var animation = {
+    /*
+
+    Essentially, what the animation object does, is to call several functions in order to draw the content of each frame.
+    To do that, it has an array of functions that need to be called, and it just goes one by one through them. His parent object
+    is responsible for providing more functions to call, or removing functions from its list when they are not longer needed.
+
+    */
+
+    let animationLoopHandle;          // This is the handle to the animation loop. With this handle we can cancel the loop, for instance.
+    let callBackFunctions = new Map();
+
+    let thisObject = {
         start: start,
         stop: stop,
         addCallBackFunction: addCallBackFunction,
@@ -20,61 +26,122 @@ function newAnimation() {
         initialize: initialize
     };
 
-    return animation;
+    return thisObject;
 
     function initialize(callBackFunction) {
 
-        /* We store the function to be called each time we need to draw a new animation frame. */
+        try {
 
-        clearCanvasFunction = callBackFunction;
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+
+            /* Nothing to do here yet. */
+            callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        }
     }
 
 
-    function start() {
+    function start(callBackFunction) {
 
-        animationLoop();  // Inside this function the animation process is started, and at the same time it creates a loop.
+        try {
 
+            if (INFO_LOG === true) { logger.write("[INFO] start -> Entering function."); }
+
+            animationLoop();  // Inside this function the animation process is started, and at the same time it creates a loop.
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] start -> err = " + err); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        }
     }
 
-    function stop() {
+    function stop(callBackFunction) {
 
-        window.cancelAnimationFrame(animationLoopHandle);
+        try {
 
+            if (INFO_LOG === true) { logger.write("[INFO] stop -> Entering function."); }
+
+            window.cancelAnimationFrame(animationLoopHandle);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] stop -> err = " + err); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        }
     }
 
-    function addCallBackFunction(key, callBackFunction) {
+    function addCallBackFunction(key, callBack, callBackFunction) {
 
-        callBackFunctions.set(key, callBackFunction);
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] addCallBackFunction -> Entering function."); }
+
+            callBackFunctions.set(key, callBack);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] addCallBackFunction -> err = " + err); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        }
     }
 
     function removeCallBackFunction(key, callBackFunction) {
 
-        callBackFunctions.delete(key);
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] removeCallBackFunction -> Entering function."); }
+
+            callBackFunctions.delete(key);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] removeCallBackFunction -> err = " + err); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        }
     }
 
-    function animationLoop() {
+    function animationLoop(callBackFunction) {
 
-        /* First thing is to clear the actual canvas */
+        try {
 
-        clearCanvasFunction();
+            if (INFO_LOG === true) { logger.write("[INFO] animationLoop -> Entering function."); }
 
-        /* We loop through the callback functions collections and execute them all. */
+            /* First thing is to clear the actual canvas */
 
-        callBackFunctions.forEach(function (callBackFunction) {
+            clearBrowserCanvas();
 
-            callBackFunction();
+            /* We loop through the callback functions collections and execute them all. */
 
-        });
+            callBackFunctions.forEach(function (callBackFunction) {
 
+                callBackFunction();
 
-        /* We animate the zoom of the viewPort */
+            });
 
-        viewPort.animate();
-        viewPort.draw();
+            /* We request the next frame to be drawn, and stablishing a loop */
 
-        /* We request the next frame to be drawn, and stablishing a loop */
+            animationLoopHandle = window.requestAnimationFrame(animationLoop);
 
-        animationLoopHandle = window.requestAnimationFrame(animationLoop);
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] animationLoop -> err = " + err); }
+
+            if (callBackFunction !== undefined) {       // When the loop is called by the browser there will be no callBackFunction.
+                callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            } 
+        }
+    }
+
+    function clearBrowserCanvas() {
+
+        if (INFO_LOG === true) { logger.write("[INFO] clearBrowserCanvas -> Entering function."); }
+
+        browserCanvasContext.clearRect(0, 0, browserCanvas.width, browserCanvas.height);
 
     }
 }

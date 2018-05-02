@@ -126,6 +126,32 @@
         "codeName": "PlottersTrading",
         "moduleName": "History"
       }
+    },
+    {
+      "codeName": "Competition Trading History",
+      "displayName": "Competition Trading History",
+      "shortDisplayName": "Competition",
+      "description": "General information about Mariam competition trading history.",
+      "storageAccount": "aamariam",
+      "dataSets": [
+        {
+          "codeName": "Backtest History",
+          "type": "File Sequence",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
+          "fileName": "Execution.History.Competition.@Sequence.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersTrading",
+        "moduleName": "History"
+      }
     }
   ],
   "storage": {

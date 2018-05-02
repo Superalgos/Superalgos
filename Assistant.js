@@ -611,12 +611,17 @@
 
                             }
 
+                            sumAssetB = Number(sumAssetB.toFixed(8));
+
                             if (
                                 position.amountB !== sumAssetB
                             ) {
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> sumAssetB = " + sumAssetB);
+
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
                                 logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> If the process was abruptally cancelled and then restarted, it is possible that now is not sincronized with the exchange.");
-                                logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> In any case, to continue, you must delete the Status Report file so as to start over. Also, you must manually delete the orders at the exchange.");
+                                logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> In any case, to continue, you must manually delete the orders at the exchange.");
                                 callBack(global.DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
@@ -676,6 +681,10 @@
                                 sumAssetA = sumAssetA + pTrades[k].amountA;
                                 sumAssetB = sumAssetB + pTrades[k].amountB;
 
+                                /* We add the fees */
+
+                                sumAssetA = sumAssetA - Number(pTrades[k].fee);
+
                             }
 
                             /* To this we add the current position amounts. */
@@ -683,14 +692,18 @@
                             sumAssetA = sumAssetA + exchangePosition.amountA;
                             sumAssetB = sumAssetB + exchangePosition.amountB;
 
-                            /* And finally we add the fees */
-
-                            sumAssetA = sumAssetA + exchangePosition.fee;
+                            sumAssetA = Number(sumAssetA.toFixed(8));
+                            sumAssetB = Number(sumAssetB.toFixed(8));
 
                             if (
                                 position.amountA !== sumAssetA ||
                                 position.amountB !== sumAssetB
                             ) {
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetB = " + sumAssetB);
+
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
                                 callBack(global.DEFAULT_FAIL_RESPONSE);
                                 return;

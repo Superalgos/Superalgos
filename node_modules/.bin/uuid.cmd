@@ -1,7 +1,7 @@
 @IF EXIST "%~dp0\node.exe" (
-  "%~dp0\node.exe"  "%~dp0\..\node-uuid\bin\uuid" %*
+  "%~dp0\node.exe"  "%~dp0\..\uuid\bin\uuid" %*
 ) ELSE (
   @SETLOCAL
   @SET PATHEXT=%PATHEXT:;.JS;=;%
-  node  "%~dp0\..\node-uuid\bin\uuid" %*
+  node  "%~dp0\..\uuid\bin\uuid" %*
 )

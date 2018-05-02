@@ -14,9 +14,7 @@
 // limitations under the License.
 // 
 
-var AzureStorage = window.AzureStorage || {};
-
-AzureStorage.generateDevelopmentStorageCredentials = function (proxyUri) {
+module.exports.generateDevelopmentStorageCredentials = function (proxyUri) {
   var devStore = 'UseDevelopmentStorage=true;';
   if(proxyUri){
     devStore += 'DevelopmentStorageProxyUri=' + proxyUri;
@@ -26,16 +24,16 @@ AzureStorage.generateDevelopmentStorageCredentials = function (proxyUri) {
 };
 
 var TableService = require('../lib/services/table/tableservice');
-AzureStorage.TableService = TableService;
-AzureStorage.TableQuery = require('../lib/services/table/tablequery');
-AzureStorage.TableBatch = require('../lib/services/table/tablebatch');
-AzureStorage.TableUtilities = require('../lib/services/table/tableutilities');
+module.exports.TableService = TableService;
+module.exports.TableQuery = require('../lib/services/table/tablequery');
+module.exports.TableBatch = require('../lib/services/table/tablebatch');
+module.exports.TableUtilities = require('../lib/services/table/tableutilities');
 
-AzureStorage.createTableService = function (storageAccountOrConnectionString, storageAccessKey, host) {
+module.exports.createTableService = function (storageAccountOrConnectionString, storageAccessKey, host) {
   return new TableService(storageAccountOrConnectionString, storageAccessKey, host);
 };
 
-AzureStorage.createTableServiceWithSas = function (hostUri, sasToken) {
+module.exports.createTableServiceWithSas = function (hostUri, sasToken) {
   return new TableService(null, null, hostUri, sasToken);
 };
 
@@ -43,7 +41,7 @@ var azureCommon = require('../lib/common/common.browser');
 var StorageServiceClient = azureCommon.StorageServiceClient;
 var SharedKey = azureCommon.SharedKey;
 
-AzureStorage.generateAccountSharedAccessSignature = function(storageAccountOrConnectionString, storageAccessKey, sharedAccessAccountPolicy)
+module.exports.generateAccountSharedAccessSignature = function(storageAccountOrConnectionString, storageAccessKey, sharedAccessAccountPolicy)
 {
   var storageSettings = StorageServiceClient.getStorageSettings(storageAccountOrConnectionString, storageAccessKey);
   var sharedKey = new SharedKey(storageSettings._name, storageSettings._key);
@@ -51,20 +49,18 @@ AzureStorage.generateAccountSharedAccessSignature = function(storageAccountOrCon
   return sharedKey.generateAccountSignedQueryString(sharedAccessAccountPolicy);
 };
 
-AzureStorage.Constants = azureCommon.Constants;
-AzureStorage.StorageUtilities = azureCommon.StorageUtilities;
-AzureStorage.AccessCondition = azureCommon.AccessCondition;
+module.exports.Constants = azureCommon.Constants;
+module.exports.StorageUtilities = azureCommon.StorageUtilities;
+module.exports.AccessCondition = azureCommon.AccessCondition;
 
-AzureStorage.SR = azureCommon.SR;
-AzureStorage.StorageServiceClient = StorageServiceClient;
-AzureStorage.Logger = azureCommon.Logger;
-AzureStorage.WebResource = azureCommon.WebResource;
-AzureStorage.Validate = azureCommon.validate;
-AzureStorage.date = azureCommon.date;
+module.exports.SR = azureCommon.SR;
+module.exports.StorageServiceClient = StorageServiceClient;
+module.exports.Logger = azureCommon.Logger;
+module.exports.WebResource = azureCommon.WebResource;
+module.exports.Validate = azureCommon.validate;
+module.exports.date = azureCommon.date;
 
 // Other filters
-AzureStorage.LinearRetryPolicyFilter = azureCommon.LinearRetryPolicyFilter;
-AzureStorage.ExponentialRetryPolicyFilter = azureCommon.ExponentialRetryPolicyFilter;
-AzureStorage.RetryPolicyFilter = azureCommon.RetryPolicyFilter;
-
-window.AzureStorage = AzureStorage;
+module.exports.LinearRetryPolicyFilter = azureCommon.LinearRetryPolicyFilter;
+module.exports.ExponentialRetryPolicyFilter = azureCommon.ExponentialRetryPolicyFilter;
+module.exports.RetryPolicyFilter = azureCommon.RetryPolicyFilter;

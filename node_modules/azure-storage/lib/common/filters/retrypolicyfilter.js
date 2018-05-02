@@ -138,7 +138,8 @@ RetryPolicyFilter._handle = function (self, requestOptions, next) {
                 returnObject.error.code === 'ETIMEDOUT' ||
                 returnObject.error.code === 'ESOCKETTIMEDOUT' || 
                 returnObject.error.code === 'ECONNRESET' || 
-                returnObject.error.code === 'EAI_AGAIN'
+                returnObject.error.code === 'EAI_AGAIN' ||
+                returnObject.error.message === 'XHR error' // stream-http XHR network error message in browsers
               )
             )
           ) {

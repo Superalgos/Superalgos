@@ -2,11 +2,13 @@
 
 If you would like to become an active contributor to this project please follow the instructions provided in [Microsoft Azure Projects Contribution Guidelines](https://azure.github.io/guidelines/).
 
+Look at issues in the repository labeled 'good first issue' to choose what'd you liked to jump into!
+
 ## Project Steup
 The Azure Storage development team uses Visual Studio Code so instructions will be tailored to that preference. However, any preferred IDE or other toolset should be usable.
 
 ### Install
-* Node v0.10, v0.12 or v4
+* Node v4 or above
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ### Development Environment Setup
@@ -73,7 +75,7 @@ The following are the minimum requirements for any pull request that must be met
 Changes should be based on the **dev** branch, not master as master is considered publicly released code. Each breaking change should be recorded in [BreakingChanges.md](BreakingChanges.md).
 
 ### Adding Features for All Platforms
-We strive to release each new feature for each of our environments at the same time. Therefore, we ask that all contributions be written for Node v0.10 and later.
+We strive to release each new feature for each of our environments at the same time. Therefore, we ask that all contributions be written for Node v4 and later.
 
 ### Review Process
 We expect all guidelines to be met before accepting a pull request. As such, we will work with you to address issues we find by leaving comments in your code. Please understand that it may take a few iterations before the code is accepted as we maintain high standards on code quality. Once we feel comfortable with a contribution, we will validate the change and accept the pull request.

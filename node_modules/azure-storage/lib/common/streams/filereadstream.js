@@ -244,7 +244,7 @@ FileReadStream.prototype.destroy = function () {
   }
 
   // when the stream is closed immediately after creating it
-  if (!validator.isInt(this._fd)) {
+  if (!validator.isInt('' + this._fd)) {
     this.once('open', close);
     return;
   }

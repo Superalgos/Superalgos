@@ -53,7 +53,7 @@ function SharedKey(storageAccount, storageAccessKey, usePathStyleUri) {
 * @param {SharedAccessServices}       sharedAccessPolicy.AccessPolicy.Services          The services (blob, file, queue, table) for a shared access signature associated with this shared access policy.
 *                                                                                       Refer to `Constants.AccountSasConstants.Services`.
 * @param {SharedAccessResourceTypes}  sharedAccessPolicy.AccessPolicy.ResourceTypes     The resource type for a shared access signature associated with this shared access policy.
-*                                                                                       Refer to `Constants.AccountSasConstants.ResourceTypes`.
+*                                                                                       Refer to `Constants.AccountSasConstants.Resources`.
 * @param {SharedAccessPermissions}    sharedAccessPolicy.AccessPolicy.Permissions       The permissions for a shared access signature. 
 *                                                                                       Refer to `Constants.AccountSasConstants.Permissions`.
 * @param {date}                       sharedAccessPolicy.AccessPolicy.Start             The time at which the Shared Access Signature becomes valid.

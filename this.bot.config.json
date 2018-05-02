@@ -17,7 +17,7 @@
       "startMode": {
         "live": {
           "run": "true",
-          "resumeExecution": "false"
+          "resumeExecution": "true"
         },
         "backtest": {
           "run": "false",

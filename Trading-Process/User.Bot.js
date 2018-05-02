@@ -88,48 +88,6 @@
                 }
             }
 
-            function businessLogic(callBack) {
-
-                try {
-
-                    if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> Entering function."); }
-
-                    let positions = assistant.getPositions();
-
-                    if (positions.length > 0) {
-
-                        decideWhatToDo(callBack);
-
-                    } else {
-
-                        let rate = assistant.getMarketRate();
-                        rate = Number(rate.toFixed(8));
-
-                        const INITIAL_BALANCE_A = 0.000;
-                        const INITIAL_BALANCE_B = 0.001;
-
-                        let amountA = INITIAL_BALANCE_A;
-                        let amountB = INITIAL_BALANCE_B;
-
-                        amountB = Number(amountB.toFixed(8));
-
-                        amountA = amountB * rate;
-                        amountA = Number(amountA.toFixed(8));
-
-                        assistant.putPosition("sell", rate, amountA, amountB, callBack);
-
-                        if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> We start placing the first SELL order."); }
-                        if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> amountA = " + amountA); }
-                        if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> amountB = " + amountB); }
-                        if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> rate = " + rate); }
-
-                    }
-                } catch (err) {
-                    logger.write("[ERROR] start -> businessLogic -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
             function decideWhatToDo(callBack) {
 
                 try {
@@ -154,7 +112,7 @@
                         return;
                     }
 
-                    if (Math.random() * 10 > 5) {
+                    if (Math.random() * 10 > 8) {
 
                         if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> In some situations it is just fin no to place orders. Passing this turn. "); }
                         callBack(global.DEFAULT_OK_RESPONSE);

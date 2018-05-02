@@ -94,6 +94,12 @@ fs.readFile __dirname + '/foo.xml', (err, data) ->
     console.log 'Done.'
 ```
 
+But what happens if you forget the `new` keyword to create a new `Parser`? In
+the middle of a nightly coding session, it might get lost, after all. Worry
+not, we got you covered! Starting with 0.2.8 you can also leave it out, in
+which case `xml2js` will helpfully add it for you, no bad surprises and
+inexplicable bugs!
+
 "Traditional" usage
 -------------------
 

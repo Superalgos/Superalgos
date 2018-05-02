@@ -87,25 +87,20 @@ FileService.prototype.getFileToLocalFile = function (share, directory, file, loc
   var writeStream = fs.createWriteStream(localFileName);
   writeStream.on('error', function (error) {
     callback(error);
-    return;    
   });
 
   this.getFileToStream(share, directory, file, writeStream, options, function (error, responseFile, response) {
     if (error) {
-      // make sure writeStream is closed / destroyed to avoid locking issues
-      if (writeStream.close) {
-        writeStream.close();
-      }
-
-      if (fs.existsSync(localFileName)) {
+      writeStream.end(function () {
         // If the download failed from the beginning, remove the file.
-        fs.unlink(localFileName, function () {
-          callback(error, responseFile, response);
-          return;
-        });
-      }
+        if (fs.existsSync(localFileName) && writeStream.bytesWritten === 0) {
+          fs.unlinkSync(localFileName);
+        }
+        callback(error, responseFile, response);
+      });
+    } else {
+      callback(error, responseFile, response);
     }
-    callback(error, responseFile, response); 
   });
   
   return options.speedSummary;

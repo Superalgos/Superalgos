@@ -439,25 +439,20 @@ BlobService.prototype._getBlobToLocalFile = function (container, blob, localFile
   var writeStream = fs.createWriteStream(localFileName, { 'highWaterMark': BlobConstants.MAX_QUEUED_WRITE_DISK_BUFFER_SIZE });
   writeStream.on('error', function (error) {
     callback(error);
-    return;    
   });
   
   this.getBlobToStream(container, blob, writeStream, options, function (error, responseBlob, response) {
     if (error) {
-      if (fs.existsSync(localFileName)) {
-        // make sure writeStream is closed / destroyed to avoid locking issues
-        if (writeStream.close) {
-          writeStream.close();
-        }
-        
+      writeStream.end(function () {
         // If the download failed from the beginning, remove the file.
-        fs.unlink(localFileName, function () {
-          callback(error, responseBlob, response);
-        });
-        return;
-      }
+        if (fs.existsSync(localFileName) && writeStream.bytesWritten === 0) {
+          fs.unlinkSync(localFileName);
+        }
+        callback(error, responseBlob, response);
+      });
+    } else {
+      callback(error, responseBlob, response);
     }
-    callback(error, responseBlob, response);
   });
   
   return options.speedSummary;

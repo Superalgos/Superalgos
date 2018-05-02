@@ -23,75 +23,105 @@ var ServicePropertiesConstants = Constants.ServicePropertiesConstants;
 
 exports = module.exports;
 
-function serializeRetentionPolicy(doc, policy){
-  if(policy !== null){
-    if (typeof policy === 'undefined'){
+function serializeRetentionPolicy(doc, policy) {
+  if (policy !== null) {
+    if (typeof policy === 'undefined') {
       policy = {};
     }
 
     doc = doc.ele(ServicePropertiesConstants.RETENTION_POLICY_ELEMENT);
     if (typeof policy.Enabled !== 'undefined') {
       doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-                .txt(policy.Enabled)
-               .up();
+        .txt(policy.Enabled)
+        .up();
     } else {
       doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-                .txt(false)
-                .up();
+        .txt(false)
+        .up();
     }
 
     if (typeof policy.Days !== 'undefined') {
       doc = doc.ele(ServicePropertiesConstants.DAYS_ELEMENT)
-                .txt(policy.Days)
-               .up();
-    } else if (policy.Enabled === true){
+        .txt(policy.Days)
+        .up();
+    } else if (policy.Enabled === true) {
       doc = doc.ele(ServicePropertiesConstants.DAYS_ELEMENT)
-                .txt(1)
-                .up();
+        .txt(1)
+        .up();
     }
 
     doc = doc.up();
   }
 }
 
-function serializeLogging(doc, logging){
+function serializeDeleteRetentionPolicy(doc, policy) {
+  if (policy !== null) {
+    if (typeof policy === 'undefined') {
+      policy = {};
+    }
+
+    if (typeof policy.Enabled !== 'undefined') {
+      doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
+        .txt(policy.Enabled)
+        .up();
+    } else {
+      doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
+        .txt(false)
+        .up();
+    }
+
+    if (typeof policy.Days !== 'undefined') {
+      doc = doc.ele(ServicePropertiesConstants.DAYS_ELEMENT)
+        .txt(policy.Days)
+        .up();
+    } else if (policy.Enabled === true) {
+      doc = doc.ele(ServicePropertiesConstants.DAYS_ELEMENT)
+        .txt(1)
+        .up();
+    }
+
+    doc = doc.up();
+  }
+}
+
+function serializeLogging(doc, logging) {
   if (typeof logging.Version !== 'undefined') {
     doc = doc.ele(ServicePropertiesConstants.VERSION_ELEMENT)
-            .txt(logging.Version)
-          .up();
+      .txt(logging.Version)
+      .up();
   } else {
     doc = doc.ele(ServicePropertiesConstants.VERSION_ELEMENT)
-        .txt(ServicePropertiesConstants.DEFAULT_ANALYTICS_VERSION)
+      .txt(ServicePropertiesConstants.DEFAULT_ANALYTICS_VERSION)
       .up();
   }
 
   if (typeof logging.Delete !== 'undefined') {
     doc = doc.ele(ServicePropertiesConstants.DELETE_ELEMENT)
-            .txt(logging.Delete)
-          .up();
+      .txt(logging.Delete)
+      .up();
   } else {
     doc = doc.ele(ServicePropertiesConstants.DELETE_ELEMENT)
-        .txt(false)
+      .txt(false)
       .up();
   }
 
   if (typeof logging.Read !== 'undefined') {
     doc = doc.ele(ServicePropertiesConstants.READ_ELEMENT)
-            .txt(logging.Read)
-          .up();
+      .txt(logging.Read)
+      .up();
   } else {
     doc = doc.ele(ServicePropertiesConstants.READ_ELEMENT)
-        .txt(false)
+      .txt(false)
       .up();
   }
 
   if (typeof logging.Write !== 'undefined') {
     doc = doc.ele(ServicePropertiesConstants.WRITE_ELEMENT)
-            .txt(logging.Write)
-          .up();
+      .txt(logging.Write)
+      .up();
   } else {
     doc = doc.ele(ServicePropertiesConstants.WRITE_ELEMENT)
-        .txt(false)
+      .txt(false)
       .up();
   }
 
@@ -100,86 +130,86 @@ function serializeLogging(doc, logging){
   doc = doc.up();
 }
 
-function serializeMetrics(doc, metrics){
+function serializeMetrics(doc, metrics) {
   if (typeof metrics.Version !== 'undefined') {
     doc = doc.ele(ServicePropertiesConstants.VERSION_ELEMENT)
-            .txt(metrics.Version)
-          .up();
+      .txt(metrics.Version)
+      .up();
   } else {
     doc = doc.ele(ServicePropertiesConstants.VERSION_ELEMENT)
-        .txt(ServicePropertiesConstants.DEFAULT_ANALYTICS_VERSION)
+      .txt(ServicePropertiesConstants.DEFAULT_ANALYTICS_VERSION)
       .up();
   }
 
   if (typeof metrics.Enabled !== 'undefined') {
     doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-            .txt(metrics.Enabled)
-          .up();
+      .txt(metrics.Enabled)
+      .up();
   } else {
     doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-        .txt(false)
+      .txt(false)
       .up();
   }
 
-  if(metrics.Enabled) {
+  if (metrics.Enabled) {
     if (typeof metrics.IncludeAPIs !== 'undefined') {
       doc = doc.ele(ServicePropertiesConstants.INCLUDE_APIS_ELEMENT)
-              .txt(metrics.IncludeAPIs)
-            .up();
-    } else if (metrics.Enabled === true){
+        .txt(metrics.IncludeAPIs)
+        .up();
+    } else if (metrics.Enabled === true) {
       doc = doc.ele(ServicePropertiesConstants.INCLUDE_APIS_ELEMENT)
-          .txt(false)
+        .txt(false)
         .up();
     }
   }
   serializeRetentionPolicy(doc, metrics.RetentionPolicy);
 }
 
-function serializeCorsRules(doc, rules){
-  if(typeof rules !== 'undefined' && rules !== null && _.isArray(rules)){
+function serializeCorsRules(doc, rules) {
+  if (typeof rules !== 'undefined' && rules !== null && _.isArray(rules)) {
     rules.forEach(function (rule) {
       doc = doc.ele(ServicePropertiesConstants.CORS_RULE_ELEMENT);
-      
-      if(typeof rule.AllowedMethods !== 'undefined' && _.isArray(rule.AllowedMethods)){
+
+      if (typeof rule.AllowedMethods !== 'undefined' && _.isArray(rule.AllowedMethods)) {
         doc = doc.ele(ServicePropertiesConstants.ALLOWED_METHODS_ELEMENT)
-                .txt(rule.AllowedMethods.join(','))
-                .up();
+          .txt(rule.AllowedMethods.join(','))
+          .up();
       }
 
-      if(typeof rule.AllowedOrigins !== 'undefined' && _.isArray(rule.AllowedOrigins)){
+      if (typeof rule.AllowedOrigins !== 'undefined' && _.isArray(rule.AllowedOrigins)) {
         doc = doc.ele(ServicePropertiesConstants.ALLOWED_ORIGINS_ELEMENT)
-                .txt(rule.AllowedOrigins.join(','))
-                .up();
+          .txt(rule.AllowedOrigins.join(','))
+          .up();
       }
 
-      if(typeof rule.AllowedHeaders !== 'undefined' && _.isArray(rule.AllowedHeaders)){
+      if (typeof rule.AllowedHeaders !== 'undefined' && _.isArray(rule.AllowedHeaders)) {
         doc = doc.ele(ServicePropertiesConstants.ALLOWED_HEADERS_ELEMENT)
-                .txt(rule.AllowedHeaders.join(','))
-                .up();
+          .txt(rule.AllowedHeaders.join(','))
+          .up();
       } else {
         doc = doc.ele(ServicePropertiesConstants.ALLOWED_HEADERS_ELEMENT)
-                .txt('')
-                .up();
+          .txt('')
+          .up();
       }
 
-      if(typeof rule.ExposedHeaders !== 'undefined' && _.isArray(rule.ExposedHeaders)){
+      if (typeof rule.ExposedHeaders !== 'undefined' && _.isArray(rule.ExposedHeaders)) {
         doc = doc.ele(ServicePropertiesConstants.EXPOSED_HEADERS_ELEMENT)
-                .txt(rule.ExposedHeaders.join(','))
-                .up();
+          .txt(rule.ExposedHeaders.join(','))
+          .up();
       } else {
         doc = doc.ele(ServicePropertiesConstants.EXPOSED_HEADERS_ELEMENT)
-                .txt('')
-                .up();
+          .txt('')
+          .up();
       }
 
-      if(typeof rule.MaxAgeInSeconds !== 'undefined'){
+      if (typeof rule.MaxAgeInSeconds !== 'undefined') {
         doc = doc.ele(ServicePropertiesConstants.MAX_AGE_IN_SECONDS_ELEMENT)
-                .txt(rule.MaxAgeInSeconds)
-                .up();
+          .txt(rule.MaxAgeInSeconds)
+          .up();
       } else {
         doc = doc.ele(ServicePropertiesConstants.MAX_AGE_IN_SECONDS_ELEMENT)
-                .txt('0')
-                .up();
+          .txt('0')
+          .up();
       }
 
       doc = doc.up();
@@ -217,28 +247,34 @@ exports.serialize = function (servicePropertiesJs) {
 
   if (servicePropertiesJs.DefaultServiceVersion) {
     doc = doc.ele(ServicePropertiesConstants.DEFAULT_SERVICE_VERSION_ELEMENT)
-               .txt(servicePropertiesJs.DefaultServiceVersion)
-             .up();
+      .txt(servicePropertiesJs.DefaultServiceVersion)
+      .up();
+  }
+
+  if (servicePropertiesJs.DeleteRetentionPolicy) {
+    doc = doc.ele(ServicePropertiesConstants.DEFAULT_DELETE_RETENTION_POLICY_ELEMENT);
+    serializeDeleteRetentionPolicy(doc, servicePropertiesJs.DeleteRetentionPolicy);
+    doc = doc.up();
   }
 
   return doc.doc().toString();
 };
 
-function parseRetentionPolicy(policyXml){
-    var policy = {};
+function parseRetentionPolicy(policyXml) {
+  var policy = {};
 
-    if (typeof policyXml.Enabled !== 'undefined') {
-      policy.Enabled = policyXml.Enabled === 'true';
-    }
+  if (typeof policyXml.Enabled !== 'undefined') {
+    policy.Enabled = policyXml.Enabled === 'true';
+  }
 
-    if (typeof policyXml.Days !== 'undefined') {
-      policy.Days = parseInt(policyXml.Days, 10);
-    }
+  if (typeof policyXml.Days !== 'undefined') {
+    policy.Days = parseInt(policyXml.Days, 10);
+  }
 
-    return policy;
+  return policy;
 }
 
-function parseLogging(loggingXml){
+function parseLogging(loggingXml) {
   var logging = {};
 
   if (typeof loggingXml.Version !== 'undefined') {
@@ -264,7 +300,7 @@ function parseLogging(loggingXml){
   return logging;
 }
 
-function parseMetrics(metricsXml){
+function parseMetrics(metricsXml) {
   var metrics = {};
 
   if (typeof metricsXml.Version !== 'undefined') {
@@ -286,21 +322,21 @@ function parseMetrics(metricsXml){
   return metrics;
 }
 
-function parseCors(corsXml){
+function parseCors(corsXml) {
   var cors = {};
 
   if (typeof corsXml.CorsRule !== 'undefined') {
     var rulesXml = corsXml.CorsRule;
     if (!_.isArray(rulesXml)) {
-        rulesXml = [ rulesXml ];
+      rulesXml = [rulesXml];
     }
 
     cors.CorsRule = [];
     rulesXml.forEach(function (ruleXml) {
       var rule = {};
 
-      if(typeof ruleXml.AllowedMethods !== 'undefined'){
-        if(ruleXml.AllowedMethods  !== ''){
+      if (typeof ruleXml.AllowedMethods !== 'undefined') {
+        if (ruleXml.AllowedMethods !== '') {
           rule.AllowedMethods = ruleXml.AllowedMethods.split(',');
         }
         else {
@@ -308,8 +344,8 @@ function parseCors(corsXml){
         }
       }
 
-      if(typeof ruleXml.AllowedOrigins !== 'undefined'){
-        if(ruleXml.AllowedOrigins  !== ''){
+      if (typeof ruleXml.AllowedOrigins !== 'undefined') {
+        if (ruleXml.AllowedOrigins !== '') {
           rule.AllowedOrigins = ruleXml.AllowedOrigins.split(',');
         }
         else {
@@ -317,8 +353,8 @@ function parseCors(corsXml){
         }
       }
 
-      if(typeof ruleXml.AllowedHeaders !== 'undefined'){
-        if(ruleXml.AllowedHeaders  !== ''){
+      if (typeof ruleXml.AllowedHeaders !== 'undefined') {
+        if (ruleXml.AllowedHeaders !== '') {
           rule.AllowedHeaders = ruleXml.AllowedHeaders.split(',');
         }
         else {
@@ -326,8 +362,8 @@ function parseCors(corsXml){
         }
       }
 
-      if(typeof ruleXml.ExposedHeaders !== 'undefined'){
-        if(ruleXml.ExposedHeaders  !== ''){
+      if (typeof ruleXml.ExposedHeaders !== 'undefined') {
+        if (ruleXml.ExposedHeaders !== '') {
           rule.ExposedHeaders = ruleXml.ExposedHeaders.split(',');
         }
         else {
@@ -335,7 +371,7 @@ function parseCors(corsXml){
         }
       }
 
-      if(typeof ruleXml.MaxAgeInSeconds !== 'undefined'){
+      if (typeof ruleXml.MaxAgeInSeconds !== 'undefined') {
         rule.MaxAgeInSeconds = parseInt(ruleXml.MaxAgeInSeconds, 10);
       }
 
@@ -346,11 +382,25 @@ function parseCors(corsXml){
   return cors;
 }
 
+function parseDeleteRetentionPolicy(deleteRetentionPolicyXml) {
+  var deleteRetentionPolicy = {};
+
+  if (typeof deleteRetentionPolicyXml.Enabled !== 'undefined') {
+    deleteRetentionPolicy.Enabled = deleteRetentionPolicyXml.Enabled === 'true';
+  }
+
+  if (typeof deleteRetentionPolicyXml.Days !== 'undefined') {
+    deleteRetentionPolicy.Days = deleteRetentionPolicyXml.Days;
+  }
+
+  return deleteRetentionPolicy;
+}
+
 exports.parse = function (servicePropertiesXml) {
   var serviceProperties = {};
 
   if (typeof servicePropertiesXml.Logging !== 'undefined') {
-    serviceProperties.Logging = parseLogging(servicePropertiesXml.Logging); 
+    serviceProperties.Logging = parseLogging(servicePropertiesXml.Logging);
   }
 
   if (typeof servicePropertiesXml.HourMetrics !== 'undefined') {
@@ -367,6 +417,10 @@ exports.parse = function (servicePropertiesXml) {
 
   if (typeof servicePropertiesXml.DefaultServiceVersion !== 'undefined') {
     serviceProperties.DefaultServiceVersion = servicePropertiesXml.DefaultServiceVersion;
+  }
+
+  if (typeof servicePropertiesXml.DeleteRetentionPolicy !== 'undefined') {
+    serviceProperties.DeleteRetentionPolicy = parseDeleteRetentionPolicy(servicePropertiesXml.DeleteRetentionPolicy);
   }
 
   return serviceProperties;

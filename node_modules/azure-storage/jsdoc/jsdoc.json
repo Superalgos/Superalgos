@@ -10,7 +10,7 @@
     "dateFormat"            : "ddd MMM Do YYYY",
     "outputSourceFiles"     : true,
     "outputSourcePath"      : true,
-    "systemName"            : "Microsoft Azure Storage Client Library for node.js",
+    "systemName"            : "Microsoft Azure Storage Client Library for Node.js and JavaScript",
     "footer"                : "",
     "navType"               : "vertical",
     "theme"                 : "cosmo",

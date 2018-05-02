@@ -71,12 +71,13 @@
                         global.PLATFORM_CONFIG.marketRateProvider.dataSet + "-" +
                         global.PLATFORM_CONFIG.marketRateProvider.dataSetVersion;
 
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> key = " + key); }
+
                     let dataSet = thisObject.dataDependencies.dataSets.get(key);
 
-                    let timePeriod = "01-min";
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
                     let fileName = '' + global.MARKET.assetA + '_' + global.MARKET.assetB + '.json';
-                    let filePath = global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + timePeriod + "/" + dateForPath;
+                    let filePath = global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + dateForPath;
 
                     dataSet.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -458,76 +459,6 @@
                             getPositionTradesAtExchange(position.id, confirmOrderWasPartiallyExecuted);
                             return;
 
-                            function confirmOrderWasPartiallyExecuted(pTrades) {
-
-                                try {
-                                    if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionFound -> confirmOrderWasPartiallyExecuted -> Entering function."); }
-
-                                    /*
-    
-                                    To confirm everything is ok, we will add all the amounts on trades plus the remaining amounts
-                                    at the order at the exchange and they must be equal to the one on file. Otherwise something very strange could
-                                    have happened, in which case we will halt the bot execution.
-    
-                                    */
-
-                                    let sumAssetA = 0;
-                                    let sumAssetB = 0;
-
-                                    for (let k = 0; k < pTrades.length; k++) {
-
-                                        sumAssetA = sumAssetA + pTrades[k].amountA;
-                                        sumAssetB = sumAssetB + pTrades[k].amountB;
-
-                                    }
-
-                                    /* To this we add the current position amounts. */
-
-                                    sumAssetA = sumAssetA + exchangePosition.amountA;
-                                    sumAssetB = sumAssetB + exchangePosition.amountB;
-
-                                    /* And finally we add the fees */
-
-                                    sumAssetA = sumAssetA + exchangePosition.fee;
-
-                                    if (
-                                        position.amountA !== sumAssetA ||
-                                        position.amountB !== sumAssetB
-                                    ) {
-                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionFound > confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
-                                        callBack(global.DEFAULT_FAIL_RESPONSE);
-                                        return;
-                                    }
-
-                                    /*
-    
-                                    Confirmed that order was partially executed. Next thing to do is to remember the trades and the new position.
-    
-                                    */
-
-                                    position.amountA = exchangePosition.amountA;
-                                    position.amountB = exchangePosition.amountB;
-                                    position.date = (new Date(exchangePosition.date)).valueOf();
-
-                                    applyTradesToContext(pTrades);
-
-                                    let newTransaction = {
-                                        type: position.type + "  partially executed",
-                                        position: position
-                                    };
-
-                                    context.executionContext.transactions.push(newTransaction);
-
-                                    /* All done. */
-
-                                    next();
-
-                                } catch (err) {
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionFound > confirmOrderWasPartiallyExecuted -> err = " + err.message);
-                                    callBack(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-                            }
                         }
                     }
 
@@ -539,114 +470,115 @@
 
                         getPositionTradesAtExchange(position.id, confirmOrderWasExecuted);
 
-                        function getPositionTradesAtExchange(pPositionId, innerCallBack) {
+                    }
 
-                            try {
+                    function getPositionTradesAtExchange(pPositionId, innerCallBack) {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Entering function."); }
-                                if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> pPositionId = " + pPositionId); }
+                        try {
 
-                                /*
-                    
-                                Given one position, we request all the associated trades to it.
-                    
-                                */
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> pPositionId = " + pPositionId); }
 
-                                switch (bot.runMode) {
+                            /*
+                
+                            Given one position, we request all the associated trades to it.
+                
+                            */
 
-                                    case "Live": {
+                            switch (bot.runMode) {
 
-                                        if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Live Mode Detected."); }
-                                        exchangeAPI.getExecutedTrades(pPositionId, onResponse);
-                                        return;
+                                case "Live": {
 
-                                    }
+                                    if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Live Mode Detected."); }
+                                    exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+                                    return;
 
-                                    case "Backtest": {
-
-                                        if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Backtest Mode Detected."); }
-
-                                        let trades = [];
-
-                                        /* We look for the position at the executionContext */
-
-                                        for (let i = 0; i < context.executionContext.positions.length; i++) {
-
-                                            let thisPosition = context.executionContext.positions[i];
-
-                                            if (thisPosition.id === pPositionId) {
-
-                                                let trade = {
-                                                    id: Math.trunc(Math.random(1) * 1000000),
-                                                    type: thisPosition.type,
-                                                    rate: thisPosition.rate,
-                                                    amountA: thisPosition.amountA,
-                                                    amountB: thisPosition.amountB,
-                                                    fee: 0,
-                                                    date: (new Date()).valueOf()
-                                                }
-
-                                                trades.push(trade);
-
-                                                onResponse(global.DEFAULT_OK_RESPONSE, trades);
-
-                                                return;
-                                            }
-                                        }
-
-                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Position not found at Executioin Context.");
-                                        callBack(global.DEFAULT_FAIL_RESPONSE);
-                                        return;
-                                    }
-
-                                    case "Competition": {
-
-                                        if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Competition Mode Detected."); }
-                                        exchangeAPI.getExecutedTrades(pPositionId, onResponse);
-                                        return;
-                                    }
-
-                                    default: {
-                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> Unexpected bot.runMode.");
-                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> bot.runMode = " + bot.runMode);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        return;
-                                    }
                                 }
 
-                                function onResponse(err, pTrades) {
+                                case "Backtest": {
 
-                                    try {
-                                        if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> onResponse -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Backtest Mode Detected."); }
 
-                                        switch (err.result) {
-                                            case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                                                logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> onResponse -> Execution finished well. :-)");
-                                                innerCallBack(pTrades);
+                                    let trades = [];
+
+                                    /* We look for the position at the executionContext */
+
+                                    for (let i = 0; i < context.executionContext.positions.length; i++) {
+
+                                        let thisPosition = context.executionContext.positions[i];
+
+                                        if (thisPosition.id === pPositionId) {
+
+                                            let trade = {
+                                                id: Math.trunc(Math.random(1) * 1000000),
+                                                type: thisPosition.type,
+                                                rate: thisPosition.rate,
+                                                amountA: thisPosition.amountA,
+                                                amountB: thisPosition.amountB,
+                                                fee: 0,
+                                                date: (new Date()).valueOf()
                                             }
-                                                break;
-                                            case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
-                                                callBack(global.DEFAULT_RETRY_RESPONSE);
-                                                return;
-                                            }
-                                                break;
-                                            case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
-                                                callBack(global.DEFAULT_FAIL_RESPONSE);
-                                                return;
-                                            }
-                                                break;
+
+                                            trades.push(trade);
+
+                                            onResponse(global.DEFAULT_OK_RESPONSE, trades);
+
+                                            return;
                                         }
-                                    } catch (err) {
-                                        logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> onResponse -> err = " + err.message);
-                                        callBack(global.DEFAULT_FAIL_RESPONSE);
                                     }
+
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Position not found at Executioin Context.");
+                                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
                                 }
-                            } catch (err) {
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> positionNotFound -> getPositionTradesAtExchange -> err = " + err.message);
-                                callBack(global.DEFAULT_FAIL_RESPONSE);
+
+                                case "Competition": {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Competition Mode Detected."); }
+                                    exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+                                    return;
+                                }
+
+                                default: {
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Unexpected bot.runMode.");
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> bot.runMode = " + bot.runMode);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
                             }
+
+                            function onResponse(err, pTrades) {
+
+                                try {
+                                    if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
+                                            logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well. :-)");
+                                            innerCallBack(pTrades);
+                                        }
+                                            break;
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
+                                            callBack(global.DEFAULT_RETRY_RESPONSE);
+                                            return;
+                                        }
+                                            break;
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                            break;
+                                    }
+                                } catch (err) {
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.message);
+                                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+                        } catch (err) {
+                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -718,6 +650,77 @@
 
                         } catch (err) {
                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
+                            callBack(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+                    }
+
+                    function confirmOrderWasPartiallyExecuted(pTrades) {
+
+                        try {
+                            if (FULL_LOG === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Entering function."); }
+
+                            /*
+ 
+                            To confirm everything is ok, we will add all the amounts on trades plus the remaining amounts
+                            at the order at the exchange and they must be equal to the one on file. Otherwise something very strange could
+                            have happened, in which case we will halt the bot execution.
+ 
+                            */
+
+                            let sumAssetA = 0;
+                            let sumAssetB = 0;
+
+                            for (let k = 0; k < pTrades.length; k++) {
+
+                                sumAssetA = sumAssetA + pTrades[k].amountA;
+                                sumAssetB = sumAssetB + pTrades[k].amountB;
+
+                            }
+
+                            /* To this we add the current position amounts. */
+
+                            sumAssetA = sumAssetA + exchangePosition.amountA;
+                            sumAssetB = sumAssetB + exchangePosition.amountB;
+
+                            /* And finally we add the fees */
+
+                            sumAssetA = sumAssetA + exchangePosition.fee;
+
+                            if (
+                                position.amountA !== sumAssetA ||
+                                position.amountB !== sumAssetB
+                            ) {
+                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
+                                callBack(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            /*
+ 
+                            Confirmed that order was partially executed. Next thing to do is to remember the trades and the new position.
+ 
+                            */
+
+                            position.amountA = exchangePosition.amountA;
+                            position.amountB = exchangePosition.amountB;
+                            position.date = (new Date(exchangePosition.date)).valueOf();
+
+                            applyTradesToContext(pTrades);
+
+                            let newTransaction = {
+                                type: position.type + "  partially executed",
+                                position: position
+                            };
+
+                            context.executionContext.transactions.push(newTransaction);
+
+                            /* All done. */
+
+                            next();
+
+                        } catch (err) {
+                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }

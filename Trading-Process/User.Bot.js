@@ -56,7 +56,7 @@
 
             */
 
-            businessLogic(onDone);
+            decideWhatToDo(onDone);
 
             function onDone(err) {
                 try {
@@ -176,7 +176,9 @@
 
                         assistant.putPosition("buy", rate, amountA, amountB, callBack);
 
-                    } else {
+                    }
+
+                    if (balanceB > 0) {
 
                         amountB = balanceB; 
                         amountB = Number(amountB.toFixed(8));

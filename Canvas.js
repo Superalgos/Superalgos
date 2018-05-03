@@ -46,7 +46,7 @@ function newCanvas() {
 
     let containerDragStarted = false;
     let ballDragStarted = false;
-    let ballBeingDragged;
+    let floatingObjectBeingDragged;
     let containerBeingDragged;
     let viewPortBeingDragged = false;
 
@@ -241,9 +241,9 @@ function newCanvas() {
 
         /* We check first if the mouse is over a ball/ */
 
-        ballBeingDragged = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
+        floatingObjectBeingDragged = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
 
-        if (ballBeingDragged >= 0) {
+        if (floatingObjectBeingDragged >= 0) {
             ballDragStarted = true;
             return;
         } 
@@ -338,7 +338,7 @@ function newCanvas() {
 
             if (ballDragStarted === true) {
 
-                if (thisObject.floatingSpace.isInsideBall(ballBeingDragged, event.pageX, event.pageY) === false) {
+                if (thisObject.floatingSpace.isInsideBall(floatingObjectBeingDragged, event.pageX, event.pageY) === false) {
 
                     /* This means that the user stop moving the mouse and the ball ball out of the pointer.
                     In this case we cancell the drag operation . */
@@ -414,7 +414,7 @@ function newCanvas() {
 
             if (ballDragStarted) {
 
-                let ball = thisObject.floatingSpace.balls[ballBeingDragged];
+                let ball = thisObject.floatingSpace.floatingObjects[floatingObjectBeingDragged];
 
                 ball.currentPosition.x = dragVector.upX;
                 ball.currentPosition.y = dragVector.upY;

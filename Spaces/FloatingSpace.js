@@ -1,12 +1,12 @@
 ﻿/*
-The Floating Space is the place where floating elements like balls, live and are rendered.
+The Floating Space is the place where floating elements like floatingObjects, live and are rendered.
 This space has its own physics which helps with the animation of these objects and also preventing them to overlap.
 */
 
 function newFloatingSpace() {
 
     let thisObject = {
-        balls: undefined,               // This is the array of balls being displayed
+        floatingObjects: undefined,               // This is the array of floatingObjects being displayed
         createNewBall: createNewBall,
         destroyBall: destroyBall,
         createBubbleSet: createBubbleSet,
@@ -24,14 +24,14 @@ function newFloatingSpace() {
 
     function initialize() {
 
-        thisObject.balls = []; // We initialize this in order to start the calculations in a clean way.
+        thisObject.floatingObjects = []; // We initialize this in order to start the calculations in a clean way.
     
     }
 
 
     function createNewBall(pInput, pContainer) {
 
-        /* This function is used to create new balls */
+        /* This function is used to create new floatingObjects */
 
         var ball = newFloatingObject();
 
@@ -67,12 +67,12 @@ function newFloatingSpace() {
             }
         }
 
-        for (let i = 0; i < thisObject.balls.length; i++) {
+        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
 
-            let ball = thisObject.balls[i];
+            let ball = thisObject.floatingObjects[i];
 
             if (ball.handle === pBallHandle) {
-                thisObject.balls.splice(i, 1);  // Delete item from array.
+                thisObject.floatingObjects.splice(i, 1);  // Delete item from array.
                 return;
             }
         }
@@ -113,11 +113,11 @@ function newFloatingSpace() {
 
     function physicsLoop() {
 
-        /* This function makes all the calculations to apply phisycs on all balls in this space. */
+        /* This function makes all the calculations to apply phisycs on all floatingObjects in this space. */
 
-        for (let i = 0; i < thisObject.balls.length; i++) {
+        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
 
-            let ball = thisObject.balls[i];
+            let ball = thisObject.floatingObjects[i];
 
             /* Change position based on speed */
 
@@ -181,16 +181,16 @@ function newFloatingSpace() {
 
             /* Collision Control */
 
-            for (let k = i + 1; k < thisObject.balls.length; k++) {
+            for (let k = i + 1; k < thisObject.floatingObjects.length; k++) {
 
-                if (colliding(thisObject.balls[i], thisObject.balls[k])) {
+                if (colliding(thisObject.floatingObjects[i], thisObject.floatingObjects[k])) {
 
-                    resolveCollision(thisObject.balls[k], thisObject.balls[i]);
+                    resolveCollision(thisObject.floatingObjects[k], thisObject.floatingObjects[i]);
 
                 }
             }
 
-            /* Calculate repulsion force produced by all other balls */
+            /* Calculate repulsion force produced by all other floatingObjects */
 
             repulsionForce(i);
 
@@ -198,15 +198,15 @@ function newFloatingSpace() {
 
         }
 
-        /* We draw all the thisObject.balls. */
+        /* We draw all the thisObject.floatingObjects. */
 
-        for (let i = 0; i < thisObject.balls.length; i++) {
-            let ball = thisObject.balls[i];
+        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+            let ball = thisObject.floatingObjects[i];
             ball.drawBackground();
         }
 
-        for (let i = 0; i < thisObject.balls.length; i++) {
-            let ball = thisObject.balls[thisObject.balls.length - i - 1];
+        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+            let ball = thisObject.floatingObjects[thisObject.floatingObjects.length - i - 1];
             ball.drawForeground();
         }
 
@@ -223,7 +223,7 @@ function newFloatingSpace() {
                 ball.radomizeCurrentPosition(ball.input.position);
                 ball.radomizeCurrentSpeed();
 
-                thisObject.balls.push(ball);
+                thisObject.floatingObjects.push(ball);
                 createdBalls.splice(i, 1);  // Delete item from array.
                 return;                     // Only one at the time. 
 
@@ -240,7 +240,7 @@ function newFloatingSpace() {
 
         var d = Math.sqrt(Math.pow(ball.input.position.x - ball.currentPosition.x, 2) + Math.pow(ball.input.position.y - ball.currentPosition.y, 2));  // ... we calculate the distance ...
 
-        var force = coulomb * d * d / ball.currentMass;  // In this case the mass of the ball affects the gravity force that it receives, that gives priority to target position to bigger balls. 
+        var force = coulomb * d * d / ball.currentMass;  // In this case the mass of the ball affects the gravity force that it receives, that gives priority to target position to bigger floatingObjects. 
 
         if (force < minForce) { // We need this attraction force to overcome the friction we imposed to the system.
             force = minForce;
@@ -280,23 +280,23 @@ function newFloatingSpace() {
 
     function repulsionForce(currentBall) {
 
-        /* We generate a repulsion force between balls, that prevents them to be collisioning so often. */
+        /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
 
         const coulomb = 2;
 
-        var ball1 = thisObject.balls[currentBall];
+        var ball1 = thisObject.floatingObjects[currentBall];
 
-        for (var i = 0; i < thisObject.balls.length; i++) {  // The force to be applied is considering all other balls...
+        for (var i = 0; i < thisObject.floatingObjects.length; i++) {  // The force to be applied is considering all other floatingObjects...
 
             if (i !== currentBall) {  // ... except for the current one. 
 
-                var ball2 = thisObject.balls[i];   // So, for each ball...
+                var ball2 = thisObject.floatingObjects[i];   // So, for each ball...
 
                 var d = Math.sqrt(Math.pow(ball2.currentPosition.x - ball1.currentPosition.x, 2) + Math.pow(ball2.currentPosition.y - ball1.currentPosition.y, 2));  // ... we calculate the distance ...
 
                 var force = coulomb * ball2.currentMass / (d * d);  // ... and with it the repulsion force.
 
-                /* We need to put a hard limit to this force, in order to to eject very little balls to the infinite and beyond. */
+                /* We need to put a hard limit to this force, in order to to eject very little floatingObjects to the infinite and beyond. */
 
                 if (force > 1) {
                     force = 1;
@@ -339,7 +339,7 @@ function newFloatingSpace() {
     }
 
     function colliding(ball1, ball2) {
-        /* This function detects weather 2 balls collide with each other. */
+        /* This function detects weather 2 floatingObjects collide with each other. */
 
         var r1 = ball1.currentRadius;
         var r2 = ball2.currentRadius;
@@ -363,10 +363,10 @@ function newFloatingSpace() {
 
     function isInside(x, y) {
 
-        /* This function detects weather the point x,y is inside any of the balls. */
+        /* This function detects weather the point x,y is inside any of the floatingObjects. */
 
-        for (var i = 0; i < thisObject.balls.length; i++) {
-            var ball = thisObject.balls[i];
+        for (var i = 0; i < thisObject.floatingObjects.length; i++) {
+            var ball = thisObject.floatingObjects[i];
             var distance = Math.sqrt(Math.pow(ball.currentPosition.x - x, 2) + Math.pow(ball.currentPosition.y - y, 2));
 
             if (distance < ball.currentRadius) {
@@ -379,10 +379,10 @@ function newFloatingSpace() {
 
     function isInsideBall(ballIndex, x, y) {
 
-        /* This function detects weather the point x,y is inside one particular balls. */
+        /* This function detects weather the point x,y is inside one particular floatingObjects. */
 
 
-        var ball = thisObject.balls[ballIndex];
+        var ball = thisObject.floatingObjects[ballIndex];
         var distance = Math.sqrt(Math.pow(ball.currentPosition.x - x, 2) + Math.pow(ball.currentPosition.y - y, 2));
 
         if (distance < ball.currentRadius) {
@@ -399,7 +399,7 @@ function newFloatingSpace() {
 
     function resolveCollision(ball1, ball2) {
 
-        /* This function changes speed and position of balls that are in collision */
+        /* This function changes speed and position of floatingObjects that are in collision */
 
         var collisionision_angle = Math.atan2((ball2.currentPosition.y - ball1.currentPosition.y), (ball2.currentPosition.x - ball1.currentPosition.x));
 
@@ -446,7 +446,7 @@ function newFloatingSpace() {
 
         var d = Math.sqrt(Math.pow(ball2.currentPosition.x - ball1.currentPosition.x, 2) + Math.pow(ball2.currentPosition.y - ball1.currentPosition.y, 2));
 
-        // minimum translation distance to push balls apart after intersecting
+        // minimum translation distance to push floatingObjects apart after intersecting
         var scalar = (((ball1.currentRadius + ball2.currentRadius) - d) / d);
 
         var minTD = {

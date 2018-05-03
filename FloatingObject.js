@@ -3,7 +3,7 @@ function newFloatingObject() {
 
     var thisObject = {
 
-        input: undefined,                       // This object contains information needed to draw the ball, but also referenced from outside, so as to have control of the basics of the ball.
+        input: undefined,                       // This object contains information needed to draw the floating object, but also referenced from outside, so as to have control of the basics of the floating object.
         physicsEnabled: false,
 
         initializeMass: initializeMass,
@@ -12,17 +12,17 @@ function newFloatingObject() {
 
         imageId: undefined,
 
-        currentPosition: 0,                     // Current x,y position of the ball at the ball's layer, where there is no displacement or zoom. This position is always changing towards the target position.
-        currentSpeed: 0,                        // This is the current speed of the ball.
-        currentRadius: 0,                       // This is the current radius of the ball, including its zoom applied.
-        currentMass: 0,                         // This is the current mass of the ball, including its zoom applied.
+        currentPosition: 0,                     // Current x,y position of the floating object at the floating object's layer, where there is no displacement or zoom. This position is always changing towards the target position.
+        currentSpeed: 0,                        // This is the current speed of the floating object.
+        currentRadius: 0,                       // This is the current radius of the floating object, including its zoom applied.
+        currentMass: 0,                         // This is the current mass of the floating object, including its zoom applied.
 
-        friction: 0,                            // This is a factor that will ultimatelly desacelerate the ball.
+        friction: 0,                            // This is a factor that will ultimatelly desacelerate the floating object.
 
         rawMass: 0,                             // This is the mass value without zoom.             
-        rawRadius: 0,                           // This is the radius of this ball without zoom.
+        rawRadius: 0,                           // This is the radius of this floating object without zoom.
 
-        targetRadius: 0,                        // This is the target radius of the ball with zoom applied. It should be animated until reaching this value.
+        targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
 
         fillStyle: '',
 
@@ -31,16 +31,16 @@ function newFloatingObject() {
         radomizeCurrentPosition: radomizeCurrentPosition,
         radomizeCurrentSpeed: radomizeCurrentSpeed,
 
-        drawBackground: drawBallBackgrond,      // Function to draw the ball elements on the canvas layer.
-        drawForeground: drawBallForeground,     // Function to draw the ball elements on the balls layer.
+        drawBackground: drawBackgrond,      // Function to draw the floating object elements on the canvas layer.
+        drawForeground: drawForeground,     // Function to draw the floating object elements on the floating objects layer.
 
         updateMass: updateMass,                 // Function to update the mass when the zoom level changed.
         updateRadius: updateRadius,             // Function to update the radius when the zoom level changed.
 
-        linkedObject: undefined,                // This is a reference to the object that this ball is representing.
-        linkedObjectType: "",                   // Since there might be balls for different types of objects, here we store the type of object we are linking to. 
+        linkedObject: undefined,                // This is a reference to the object that this floating object is representing.
+        linkedObjectType: "",                   // Since there might be floating objects for different types of objects, here we store the type of object we are linking to. 
 
-        container: undefined                    // This is a pointer to the object where the ball belongs to.
+        container: undefined                    // This is a pointer to the object where the floating object belongs to.
     };
 
     return thisObject;
@@ -132,7 +132,7 @@ function newFloatingObject() {
 
     }
 
-    function drawBallBackgrond() {
+    function drawBackgrond() {
 
         if (thisObject.currentRadius > 1) {
 
@@ -164,7 +164,7 @@ function newFloatingObject() {
         }
     }
 
-    function drawBallForeground() {
+    function drawForeground() {
 
         if (thisObject.currentRadius > 5) {
 

@@ -34,7 +34,6 @@
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
     <Compile Include="FloatingObject.js" />
-    <Compile Include="Balls.js" />
     <Compile Include="CompetitionStorage.js">
       <SubType>Code</SubType>
     </Compile>
@@ -121,7 +120,6 @@
     <Compile Include="Utilities.js" />
     <Compile Include="ViewPort.js" />
     <Compile Include="VolumeBar.js" />
-    <Compile Include="Zoom.js" />
     <Content Include="index.html" />
   </ItemGroup>
   <ItemGroup>

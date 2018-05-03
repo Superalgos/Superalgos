@@ -365,38 +365,7 @@ function newCanvas() {
         var event = window.event || event; // old IE support
         let delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
 
-        let ballIndex = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
-
-        if (ballIndex >= 0) {
-
-            /* We need to apply the Radius zoom to the cointainer of the ball where the zoom was made, for that reason, we need the ball. */
-
-           // balls[ballIndex].container.zoom.rZoom(delta);   // Zoom is applied to ball radius.
-
-        } else {
-
-            /* We check if the mouse is over any of the existing containers. */
-
-            let point = {
-                x: event.pageX,
-                y: event.pageY
-            };
-
-            /*
-            var container = canvas.chartSpace.getContainer(point);
-
-            if (container !== undefined && container.isZoomeable === true) {
-
-                if (container.zoom.xyZoom(delta) === true) {
-
-                    updateBallsTargets();
-
-                }
-
-            } */
-
-            viewPort.applyZoom(delta);
-        }
+        viewPort.applyZoom(delta);
 
         return false;  // This instructs the browser not to take the event and scroll the page. 
     }
@@ -485,24 +454,6 @@ function newCanvas() {
                     containerBeingDragged.frame.position.y = containerBeingDragged.frame.position.y + displaceVector.y;
 
                 }
-
-
-
-
-
-                /*
-                if (containerBeingDragged.displacement.displace(diffX, diffY) === true) {
-
-                    updateBallsTargets();  // TODO: this should not be here
-
-                } else
-                {
-                    // If the displacement can not be performed, then we dont abort the dragging operation, just allow the user to move the mouse in some other direction.
-                }
-                */
-
-
-
             }
 
             /* Finally we set the starting point of the new dragVector at this current point. */

@@ -210,7 +210,7 @@ function newCanvas() {
         There are four types of elements that can be dragged.
 
         1. Panels.
-        2. Floating Elements (Currently only Balls).
+        2. Floating Elements (Currently only FloatingObjects).
         3. Charts.
         4. The Viewport.
 
@@ -338,7 +338,7 @@ function newCanvas() {
 
             if (ballDragStarted === true) {
 
-                if (thisObject.floatingSpace.isInsideBall(floatingObjectBeingDragged, event.pageX, event.pageY) === false) {
+                if (thisObject.floatingSpace.isInsideFloatingObject(floatingObjectBeingDragged, event.pageX, event.pageY) === false) {
 
                     /* This means that the user stop moving the mouse and the ball ball out of the pointer.
                     In this case we cancell the drag operation . */
@@ -379,7 +379,7 @@ function newCanvas() {
             browserCanvas.style.cursor = "grabbing";
             thisObject.eventHandler.raiseEvent("Dragging", undefined);
 
-            let targetBall = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
+            let targetFloatingObject = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
 
             if (ballDragStarted) {
 

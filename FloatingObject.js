@@ -31,8 +31,8 @@ function newFloatingObject() {
         radomizeCurrentPosition: radomizeCurrentPosition,
         radomizeCurrentSpeed: radomizeCurrentSpeed,
 
-        drawBackground: drawBackgrond,      // Function to draw the floating object elements on the canvas layer.
-        drawForeground: drawForeground,     // Function to draw the floating object elements on the floating objects layer.
+        drawBackground: drawBackgrond,          // Function to draw the floating object elements on the canvas layer.
+        drawForeground: drawForeground,         // Function to draw the floating object elements on the floating objects layer.
 
         updateMass: updateMass,                 // Function to update the mass when the zoom level changed.
         updateRadius: updateRadius,             // Function to update the radius when the zoom level changed.
@@ -181,7 +181,7 @@ function newFloatingObject() {
 
         if (thisObject.currentRadius > 0.5) {
 
-            /* Main Ball */
+            /* Main FloatingObject */
 
             var alphaA;
 

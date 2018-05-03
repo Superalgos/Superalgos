@@ -305,7 +305,7 @@
                     productPlotter.panels.push(plotterPanelHandle);
                 }
 
-                /* Create The Profie Picture Ball */
+                /* Create The Profie Picture FloatingObject */
 
                 if (productPlotter.plotter.profile !== undefined) {
 
@@ -315,7 +315,7 @@
                     productPlotter.plotter.profile.downLabel = pProductCard.bot.displayName;
                     productPlotter.plotter.profile.imageId = imageId;
 
-                    productPlotter.profile = canvas.floatingSpace.createNewBall(productPlotter.plotter.profile, thisObject.container)
+                    productPlotter.profile = canvas.floatingSpace.createNewFloatingObject(productPlotter.plotter.profile, thisObject.container)
 
                 }
 
@@ -369,7 +369,7 @@
 
                     if (productPlotters[i].profile !== undefined) {
 
-                        canvas.floatingSpace.destroyBall(productPlotters[i].profile);
+                        canvas.floatingSpace.destroyFloatingObject(productPlotters[i].profile);
 
                     }
 

@@ -165,9 +165,6 @@ maxDate.setDate(maxDate.getDate() + 10);
 
 const MAX_PLOTABLE_DATE = maxDate;
 
-
-var smallBalls = []; // Array of small circles for debugging purposes.
-
 function dashboardStart() {
 
     setTimeout(start, DEBUG_START_UP_DELAY);    
@@ -195,29 +192,4 @@ function start() {
     canvas.initialize();
 
 }
-
-
-
-
-
-
-function drawSmallBall() {
-
-    for (var i = 0; i < smallBalls.length; i++) {
-
-        x = smallBalls[i][0];
-        y = smallBalls[i][1];
-        radius = smallBalls[i][2];
-        fillStyle = smallBalls[i][3];
-
-        browserCanvasContext.beginPath();
-        browserCanvasContext.moveTo(x, y);
-        browserCanvasContext.arc(x, y, radius, 0, Math.PI * 2, true);
-        browserCanvasContext.closePath();
-        browserCanvasContext.fillStyle = fillStyle;
-        browserCanvasContext.fill();
-
-    }
-}
-
 

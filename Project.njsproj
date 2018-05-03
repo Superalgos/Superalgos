@@ -90,17 +90,9 @@
     <Compile Include="Spaces\FloatingSpace.js" />
     <Compile Include="Frame.js" />
     <Compile Include="Markets.js" />
-    <Compile Include="Order.js" />
-    <Compile Include="OrderBook.js" />
-    <Compile Include="OrderBookChart.js" />
-    <Compile Include="OrderBookDepthChart.js" />
-    <Compile Include="OrderBookFilesCursor.js" />
-    <Compile Include="OrderBookSnapShot.js" />
     <Compile Include="Panels\ProductsPanel.js" />
     <Compile Include="Panels\TimeControlPanel.js" />
-    <Compile Include="Panels\OrderBookPanel.js" />
     <Compile Include="TimeLineCoordinateSystem.js" />
-    <Compile Include="PriceChart.js" />
     <Compile Include="Resistance.js" />
     <Compile Include="SplashScreen.js">
       <SubType>Code</SubType>
@@ -115,8 +107,6 @@
     <Compile Include="TextButton.js" />
     <Compile Include="TimelineChart.js" />
     <Compile Include="TimeMachine.js" />
-    <Compile Include="Trade.js" />
-    <Compile Include="TradesCursor.js" />
     <Compile Include="Utilities.js" />
     <Compile Include="ViewPort.js" />
     <Compile Include="VolumeBar.js" />

@@ -9,13 +9,16 @@ function newFloatingSpace() {
         balls: undefined,               // This is the array of balls being displayed
         createNewBall: createNewBall,
         destroyBall: destroyBall,
+        createBubbleSet: createBubbleSet,
+        destroyBubbleSet: destroyBubbleSet,
         physicsLoop: physicsLoop,
         isInside: isInside,
         isInsideBall: isInsideBall,
         initialize: initialize
     };
 
-    let createdBalls = [];                          
+    let createdBalls = [];            
+    let bubbleSets = [];
 
     return thisObject;
 
@@ -28,9 +31,9 @@ function newFloatingSpace() {
 
     function createNewBall(pInput, pContainer) {
 
-        /* This function is used to create new balls, representing labels of each point on the chart. */
+        /* This function is used to create new balls */
 
-        var ball = newBall();
+        var ball = newFloatingObject();
 
         ball.input = pInput;
 
@@ -70,6 +73,33 @@ function newFloatingSpace() {
 
             if (ball.handle === pBallHandle) {
                 thisObject.balls.splice(i, 1);  // Delete item from array.
+                return;
+            }
+        }
+    }
+
+
+    function createBubbleSet(pPlotterBubbles) {
+
+        let bubbleSet = {
+            floatingBubbles: [],
+            plotterBubbles: pPlotterBubbles,
+            handle: Math.floor((Math.random() * 10000000) + 1)
+        };
+
+        bubbleSets.push(bubbleSet);
+
+        return bubbleSet.handle;
+    }
+
+    function destroyBubbleSet(pHandle) {
+
+        for (let i = 0; i < bubbleSets.length; i++) {
+
+            let bubbleSet = bubbleSets[i];
+
+            if (bubbleSet.handle === pHandle) {
+                bubbleSets.splice(i, 1);  // Delete item from array.
                 return;
             }
         }

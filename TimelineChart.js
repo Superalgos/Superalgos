@@ -268,7 +268,8 @@
                     productCard: pProductCard,
                     plotter: plotter,
                     storage: storage,
-                    profile: undefined
+                    profile: undefined,
+                    bubbles: undefined
                 };
 
                 /* Let the Plotter listen to the event of Cursor Files loaded, so that it can reack recalculating if needed. */
@@ -317,6 +318,10 @@
                     productPlotter.profile = canvas.floatingSpace.createNewBall(productPlotter.plotter.profile, thisObject.container)
 
                 }
+
+                /* Create the Text Bubbles */
+
+                productPlotter.bubbleSet = canvas.floatingSpace.createBubbleSet(productPlotter.plotter.bubbles);
 
                 /* Add the new Active Protter to the Array */
 
@@ -367,6 +372,10 @@
                         canvas.floatingSpace.destroyBall(productPlotters[i].profile);
 
                     }
+
+                    /* Destroyd the Bubble Set */
+
+                    canvas.floatingSpace.destroyBubbleSet(productPlotters[i].bubbleSet);
 
                     /* Finally the panels. */
 

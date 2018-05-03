@@ -1,5 +1,5 @@
 ﻿
-function newBall() {
+function newFloatingObject() {
 
     var thisObject = {
 

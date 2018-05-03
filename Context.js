@@ -51,7 +51,10 @@
             profitsAssetA: 0,
             profitsAssetB: 0,
             combinedProfitsA: 0,
-            combinedProfitsB: 0
+            combinedProfitsB: 0,
+            messageRelevance: 0,
+            messageTitle: "",
+            messageBody: ""
         },
         initialize: initialize,
         saveThemAll: saveThemAll
@@ -621,7 +624,11 @@
                                 thisObject.newHistoryRecord.profitsAssetA,
                                 thisObject.newHistoryRecord.profitsAssetB,
                                 thisObject.newHistoryRecord.combinedProfitsA,
-                                thisObject.newHistoryRecord.combinedProfitsB
+                                thisObject.newHistoryRecord.combinedProfitsB,
+
+                                thisObject.newHistoryRecord.messageRelevance,
+                                thisObject.newHistoryRecord.messageTitle,
+                                thisObject.newHistoryRecord.messageBody
                             ];
 
                             thisObject.executionHistory.push(newRecord);

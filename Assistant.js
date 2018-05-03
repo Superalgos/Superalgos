@@ -21,7 +21,8 @@
         getAvailableBalance: getAvailableBalance,
         getInvestment: getInvestment,
         getProfits: getProfits,
-        getMarketRate: getMarketRate 
+        getMarketRate: getMarketRate,
+        sendMessage: sendMessage
     };
 
     let bot = BOT;
@@ -685,8 +686,8 @@
 
                             for (let k = 0; k < pTrades.length; k++) {
 
-                                sumAssetA = sumAssetA + pTrades[k].amountA;
-                                sumAssetB = sumAssetB + pTrades[k].amountB;
+                                sumAssetA = sumAssetA + Number(pTrades[k].amountA);
+                                sumAssetB = sumAssetB + Number(pTrades[k].amountB);
 
                                 /* We add the fees */
 
@@ -1239,5 +1240,13 @@
 
     function getMarketRate() {
         return marketRate;
+    }
+
+    function sendMessage(pRelevance, pTitle, pBody) {
+
+        context.newHistoryRecord.messageRelevance = pRelevance;
+        context.newHistoryRecord.messageTitle = pTitle;
+        context.newHistoryRecord.messageBody = pBody;
+
     }
 };

@@ -41,7 +41,7 @@ function newFloatingSpace() {
 
         floatingObject.friction = .995;
 
-        floatingObject.initializeMass(15);
+        floatingObject.initializeMass(150);
         floatingObject.initializeRadius(30);
         floatingObject.initializeImageSize(50);
 

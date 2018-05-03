@@ -88,6 +88,13 @@
 
                         let candleArray;
 
+                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result) {  // Just past midnight, this file will not exist for a couple of minutes.
+                            if (err.message === "File does not exist.") {
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                return;
+                            }
+                        }
+
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                             try {
                                 candleArray = JSON.parse(text);
@@ -689,8 +696,8 @@
 
                             /* To this we add the current position amounts. */
 
-                            sumAssetA = sumAssetA + exchangePosition.amountA;
-                            sumAssetB = sumAssetB + exchangePosition.amountB;
+                            sumAssetA = sumAssetA + Number(exchangePosition.amountA.toFixed(8));
+                            sumAssetB = sumAssetB + Number(exchangePosition.amountB.toFixed(8));
 
                             sumAssetA = Number(sumAssetA.toFixed(8));
                             sumAssetB = Number(sumAssetB.toFixed(8));
@@ -1026,12 +1033,14 @@
                             if (position.type === 'buy') {
 
                                 context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA - pAmountA;
+                                context.executionContext.availableBalance.assetA = Number(context.executionContext.availableBalance.assetA.toFixed(8));
                                 context.newHistoryRecord.lastBuyRate = pRate;
                             } 
 
                             if (position.type === 'sell') {
 
                                 context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB - pAmountB;
+                                context.executionContext.availableBalance.assetB = Number(context.executionContext.availableBalance.assetB.toFixed(8));
                                 context.newHistoryRecord.lastSellRate = pRate;
                             }
 

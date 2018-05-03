@@ -167,9 +167,9 @@
 
         }
         catch (err) {
-            console.log("Error trying to log info into a file.");
-            console.log("File: " + filePath );
-            console.log("Error: " + err.message);
+            //console.log("Error trying to log info into a file.");
+            //console.log("File: " + filePath );
+            //console.log("Error: " + err.message);
         }
     }
 
@@ -270,7 +270,7 @@
                             }
                         }
                         catch (err) {
-                            console.log("Error trying to delete Loop Folder " + pFolderPath + ".Reading file " + fileName + ". err.message = " + err.message);
+                            //console.log("Error trying to delete Loop Folder " + pFolderPath + ".Reading file " + fileName + ". err.message = " + err.message);
                         }
                     }
                 })

@@ -1,4 +1,4 @@
-# I'm Olivia, an i-gobot!
+# I'm Olivia, an i-bot!
 AKA an indicator algobot running on the AAPlatform by Advanced Algos Ltd.
 
 ### My Specialty

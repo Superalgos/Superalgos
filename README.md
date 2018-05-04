@@ -1,4 +1,4 @@
-# I'm Charly, an e-gobot!
+# I'm Charly, an e-bot!
 AKA an extractor algobot running on the AAPlatform by Advanced Algos Ltd.
 
 ### My Specialty

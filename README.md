@@ -1,4 +1,5 @@
 # I'm Olivia, an i-gobot!
+AKA an indicator algobot running on the AAPlatform by Advanced Algos Ltd.
 
 ### My Specialty
 I produce several datasets:

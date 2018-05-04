@@ -19,6 +19,12 @@ function newBubble() {
 
     function drawBackground(pFloatingObject) {
 
+        if (pFloatingObject.payloadBubbleIndex >= pFloatingObject.payload.bubbles.length) {
+
+            return;   // The bubbles array changed at the plotter before it was reflected here. We ignore this object from now on.
+
+        } 
+
         if (pFloatingObject.currentRadius > 1) {
 
             /* Target Line */
@@ -50,6 +56,12 @@ function newBubble() {
     }
 
     function drawForeground(pFloatingObject) {
+
+        if (pFloatingObject.payloadBubbleIndex >= pFloatingObject.payload.bubbles.length) {
+
+            return;   // The bubbles array changed at the plotter before it was reflected here. We ignore this object from now on.
+
+        } 
 
         const BUBBLE_CORNERS_RADIOUS = 10;
         const TITLE_BAR_HEIGHT = 14;
@@ -214,7 +226,7 @@ function newBubble() {
                     const TOTAL_ROWS = 5;
                     const ALPHA = Math.trunc(pFloatingObject.currentRadius / pFloatingObject.targetRadius  * 100) / 100 / 2;
 
-                    if (ALPHA > 0.3) {
+                    if (ALPHA > 0.4) {
 
                         let startingPosition = {
                             x: pFloatingObject.currentPosition.x,
@@ -232,11 +244,11 @@ function newBubble() {
 
                             labelArray.push(word);
 
-                            if (word.length > 10) {
+                            if (word.length > 8) {
                                 labelArray.push("");
                             }
 
-                            if (word.length > 12) {
+                            if (word.length > 10) {
                                 labelArray.push("");
                             }
                         }

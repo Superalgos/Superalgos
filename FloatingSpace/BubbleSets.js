@@ -59,9 +59,9 @@ function newBubbleSets() {
 
             let newFloatingBubbles = []; // We will create a new array of Floating Bubbles as a result of this operation.
 
-            for (let i = 0; i < bubbleSet.payload.bubbles.length; i++) {
+            for (let i = 0; i < pNewBubbles.length; i++) {
 
-                let plotterBubble = bubbleSet.payload.bubbles[i];
+                let plotterBubble = pNewBubbles[i];
                 let plotterBubbleKey = plotterBubble.date.toString() + plotterBubble.rate.toString();
                 let found = false;
 
@@ -93,7 +93,7 @@ function newBubbleSets() {
 
                         floatingObject.initializeMass(200);
 
-                        let bodyText = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].body;
+                        let bodyText = pNewBubbles[i].body;
                         let radius;
 
                         if (bodyText.length < 100) {
@@ -131,9 +131,9 @@ function newBubbleSets() {
                 let floatingBubble = bubbleSet.floatingBubbles[j];
                 let floatingBubbleKey = floatingBubble.date.toString() + floatingBubble.rate.toString();
 
-                for (let i = 0; i < bubbleSet.payload.bubbles.length; i++) {
+                for (let i = 0; i < pNewBubbles.length; i++) {
 
-                    let plotterBubble = bubbleSet.payload.bubbles[i];
+                    let plotterBubble = pNewBubbles[i];
                     let plotterBubbleKey = plotterBubble.date.toString() + plotterBubble.rate.toString();
 
                     if (plotterBubbleKey === floatingBubbleKey) {

@@ -1,4 +1,5 @@
-# I'm Bruce, an AA i-Bot!
+# I'm Bruce, an i-gobot!
+AKA an indicator algobot running on the AAPlatform by Advanced Algos Ltd.
 
 ### My Specialty
 I produce two datasets:

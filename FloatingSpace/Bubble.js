@@ -25,7 +25,7 @@ function newBubble() {
 
             browserCanvasContext.beginPath();
             browserCanvasContext.moveTo(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y);
-            browserCanvasContext.lineTo(pFloatingObject.payload.bubbles[pFloatingObject.payload.bubbleIndex].position.x, pFloatingObject.payload.bubbles[pFloatingObject.payload.bubbleIndex].position.y);
+            browserCanvasContext.lineTo(pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].position.x, pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].position.y);
             browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)';
             browserCanvasContext.setLineDash([4, 2]);
             browserCanvasContext.lineWidth = 1;
@@ -41,7 +41,7 @@ function newBubble() {
             var radius = 1;
 
             browserCanvasContext.beginPath();
-            browserCanvasContext.arc(pFloatingObject.payload.bubbles[pFloatingObject.payload.bubbleIndex].position.x, pFloatingObject.payload.bubbles[pFloatingObject.payload.bubbleIndex].position.y, radius, 0, Math.PI * 2, true);
+            browserCanvasContext.arc(pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].position.x, pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].position.y, radius, 0, Math.PI * 2, true);
             browserCanvasContext.closePath();
             browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)';
             browserCanvasContext.fill();
@@ -114,7 +114,7 @@ function newBubble() {
 
             let label;
 
-            label = pFloatingObject.payload.bubbles[pFloatingObject.payload.bubbleIndex].title;
+            label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].title;
 
             if (label !== undefined) {
 
@@ -129,7 +129,7 @@ function newBubble() {
 
             }
 
-            label = pFloatingObject.payload.bubbles[pFloatingObject.payload.bubbleIndex].body;
+            label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].body;
 
             if (label !== undefined) {
 

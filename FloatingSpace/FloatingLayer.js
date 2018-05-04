@@ -94,8 +94,8 @@ function newFloatingLayer() {
                 }
                 case "Bubble": {
 
-                    payload.position = floatingObject.payload.bubbles[floatingObject.payload.bubbleIndex].position;
-                    payload.visible = floatingObject.payload.bubbles[floatingObject.payload.bubbleIndex].visible;
+                    payload.position = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].position;
+                    payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
                     break;
                 }
                 default: {
@@ -204,8 +204,8 @@ function newFloatingLayer() {
                 }
                 case "Bubble": {
 
-                    payload.position = floatingObject.payload.bubbles[floatingObject.payload.bubbleIndex].position;
-                    payload.visible = floatingObject.payload.bubbles[floatingObject.payload.bubbleIndex].visible;
+                    payload.position = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].position;
+                    payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
                     break;
                 }
                 default: {

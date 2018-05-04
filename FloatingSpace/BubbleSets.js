@@ -53,6 +53,7 @@ function newBubbleSets() {
         function onBubblesChanged(pEvent, pBubbleSetIndex) {
 
             let bubbleSet = bubbleSets[pBubbleSetIndex];
+            let found = false;
 
             /* First we add the new bubbles. */
 
@@ -85,7 +86,7 @@ function newBubbleSets() {
                     function onInitialized(err) {
                         
                         floatingObject.payload = bubbleSet.payload; 
-                        floatingObject.payload.bubbleIndex = i;
+                        floatingObject.payloadBubbleIndex = i;
                         floatingObject.payload.profile.imageId = bubbleSet.imageId;
 
                         //floatingObject.container = pContainer;
@@ -115,6 +116,7 @@ function newBubbleSets() {
             /* Second we remove the old bubbles. */
 
             newFloatingBubbles = []; // We will create a new array of Floating Bubbles as a result of this operation.
+            found = false;
 
             for (let j = 0; j < bubbleSet.floatingBubbles.length; j++) {
 
@@ -125,7 +127,6 @@ function newBubbleSets() {
 
                     let plotterBubble = bubbleSet.payload.bubbles[i];
                     let plotterBubbleKey = plotterBubble.date.toString() + plotterBubble.rate.toString();
-                    let found = false;
 
                     if (plotterBubbleKey === floatingBubbleKey) {
 

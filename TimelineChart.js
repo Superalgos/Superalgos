@@ -315,13 +315,18 @@
                     productPlotter.plotter.profile.downLabel = pProductCard.bot.displayName;
                     productPlotter.plotter.profile.imageId = imageId;
 
-                    productPlotter.profile = canvas.floatingSpace.createNewFloatingObject(productPlotter.plotter.profile, thisObject.container)
+                    canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.profile, thisObject.container, onProfileBallCreated)
 
+                    function onProfileBallCreated(err, pProfileHandle) {
+
+                        productPlotter.profile = pProfileHandle;
+
+                    }
                 }
 
                 /* Create the Text Bubbles */
 
-                productPlotter.bubbleSet = canvas.floatingSpace.createBubbleSet(productPlotter.plotter.bubbles);
+                productPlotter.bubbleSet = canvas.floatingSpace.bubbleSets.createBubbleSet(productPlotter.plotter.bubbles);
 
                 /* Add the new Active Protter to the Array */
 
@@ -369,13 +374,13 @@
 
                     if (productPlotters[i].profile !== undefined) {
 
-                        canvas.floatingSpace.destroyFloatingObject(productPlotters[i].profile);
+                        canvas.floatingSpace.profileBalls.destroyProfileBall(productPlotters[i].profile);
 
                     }
 
                     /* Destroyd the Bubble Set */
 
-                    canvas.floatingSpace.destroyBubbleSet(productPlotters[i].bubbleSet);
+                    canvas.floatingSpace.bubbleSets.destroyBubbleSet(productPlotters[i].bubbleSet);
 
                     /* Finally the panels. */
 

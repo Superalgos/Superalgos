@@ -45,7 +45,7 @@ function newCanvas() {
     /* Mouse event related variables. */
 
     let containerDragStarted = false;
-    let ballDragStarted = false;
+    let floatingObjectDragStarted = false;
     let floatingObjectBeingDragged;
     let containerBeingDragged;
     let viewPortBeingDragged = false;
@@ -114,7 +114,7 @@ function newCanvas() {
             /* Here we add all the functions that will be called during the animation cycle. */
 
             animation.addCallBackFunction("Chart Space", thisObject.chartSpace.draw, onFunctionAdded);
-            animation.addCallBackFunction("Floating Space", thisObject.floatingSpace.physicsLoop, onFunctionAdded);
+            animation.addCallBackFunction("Floating Space", thisObject.floatingSpace.floatingLayer.physicsLoop, onFunctionAdded);
             animation.addCallBackFunction("Panels Space", thisObject.panelsSpace.draw, onFunctionAdded);
             animation.addCallBackFunction("Splash Screen", splashScreen.draw, onFunctionAdded);
             animation.addCallBackFunction("ViewPort Animate", viewPort.animate, onFunctionAdded);
@@ -239,12 +239,12 @@ function newCanvas() {
             return;
         }
 
-        /* We check first if the mouse is over a ball/ */
+        /* We check first if the mouse is over a floatingObject/ */
 
-        floatingObjectBeingDragged = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
+        floatingObjectBeingDragged = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
 
         if (floatingObjectBeingDragged >= 0) {
-            ballDragStarted = true;
+            floatingObjectDragStarted = true;
             return;
         } 
 
@@ -283,11 +283,11 @@ function newCanvas() {
             return;
         }
 
-        /* We check first if the mouse is over a ball/ */
+        /* We check first if the mouse is over a floatingObject/ */
 
-        let ballBeingClicked = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
+        let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
 
-        if (ballBeingClicked >= 0) {
+        if (floatingObjectBeingClicked >= 0) {
 
             /* Right now we do nothing with this. */
             return;
@@ -309,7 +309,7 @@ function newCanvas() {
 
         if (INFO_LOG === true) { logger.write("[INFO] onMouseUp -> Entering function."); }
 
-        if (containerDragStarted || viewPortBeingDragged || ballDragStarted) {
+        if (containerDragStarted || viewPortBeingDragged || floatingObjectDragStarted) {
 
             thisObject.eventHandler.raiseEvent("Drag Finished", undefined);
 
@@ -318,7 +318,7 @@ function newCanvas() {
         /* Turn off all the possible things that can be dragged. */
 
         containerDragStarted = false;
-        ballDragStarted = false;
+        floatingObjectDragStarted = false;
         viewPortBeingDragged = false;
 
         containerBeingDragged = undefined;
@@ -334,16 +334,16 @@ function newCanvas() {
         viewPort.mousePosition.x = event.pageX;
         viewPort.mousePosition.y = event.pageY;
 
-        if (containerDragStarted === true || ballDragStarted === true || viewPortBeingDragged === true) {
+        if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
 
-            if (ballDragStarted === true) {
+            if (floatingObjectDragStarted === true) {
 
-                if (thisObject.floatingSpace.isInsideFloatingObject(floatingObjectBeingDragged, event.pageX, event.pageY) === false) {
+                if (thisObject.floatingSpace.floatingLayer.isInsideFloatingObject(floatingObjectBeingDragged, event.pageX, event.pageY) === false) {
 
-                    /* This means that the user stop moving the mouse and the ball ball out of the pointer.
+                    /* This means that the user stop moving the mouse and the floatingObject floatingObject out of the pointer.
                     In this case we cancell the drag operation . */
 
-                    ballDragStarted = false;
+                    floatingObjectDragStarted = false;
                     browserCanvas.style.cursor = "auto";
                     return;
                 }
@@ -374,24 +374,24 @@ function newCanvas() {
 
         if (INFO_LOG === true) { logger.write("[INFO] checkDrag -> Entering function."); }
 
-        if (containerDragStarted === true || ballDragStarted === true || viewPortBeingDragged === true) {
+        if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
 
             browserCanvas.style.cursor = "grabbing";
             thisObject.eventHandler.raiseEvent("Dragging", undefined);
 
-            let targetFloatingObject = thisObject.floatingSpace.isInside(event.pageX, event.pageY);
+            let targetFloatingObject = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
 
-            if (ballDragStarted) {
+            if (floatingObjectDragStarted) {
 
-                let ball = thisObject.floatingSpace.floatingObjects[floatingObjectBeingDragged];
+                let floatingObject = thisObject.floatingSpace.floatingLayer.floatingObjects[floatingObjectBeingDragged];
 
-                ball.currentPosition.x = dragVector.upX;
-                ball.currentPosition.y = dragVector.upY;
+                floatingObject.currentPosition.x = dragVector.upX;
+                floatingObject.currentPosition.y = dragVector.upY;
 
-                /* Now we estimate if the drag was towards the Target Point of the ball or not. */
+                /* Now we estimate if the drag was towards the Target Point of the floatingObject or not. */
 
-                let distDown = distance(dragVector.downX, dragVector.downY, ball.targetPosition.x, ball.targetPosition.y);
-                let distUp = distance(dragVector.upX, dragVector.upY, ball.targetPosition.x, ball.targetPosition.y);
+                let distDown = distance(dragVector.downX, dragVector.downY, floatingObject.targetPosition.x, floatingObject.targetPosition.y);
+                let distUp = distance(dragVector.upX, dragVector.upY, floatingObject.targetPosition.x, floatingObject.targetPosition.y);
 
                 let mZoomValue;
 
@@ -402,7 +402,7 @@ function newCanvas() {
                     mZoomValue = -1;
                 }
 
-                //ball.container.zoom.mZoom(mZoomValue);   // Zoom is applied to ball mass of all balls in the same container.
+                //floatingObject.container.zoom.mZoom(mZoomValue);   // Zoom is applied to floatingObject mass of all floatingObjects in the same container.
             }
 
             if (containerDragStarted || viewPortBeingDragged) {

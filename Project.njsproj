@@ -32,17 +32,29 @@
     <Compile Include="AccumulatedVolumeBar.js" />
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
-    <Compile Include="FloatingObject.js" />
+    <Compile Include="FloatingSpace\BubbleSets.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FloatingSpace\FloatingObject.js" />
     <Compile Include="CompetitionStorage.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Files\FileSequence.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FloatingSpace\FloatingLayer.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ImageButton.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DebugLog.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FloatingSpace\ProfileBalls.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FloatingSpace\ProfileBall.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Spaces\PanelsSpace.js">
@@ -112,6 +124,7 @@
   <ItemGroup>
     <Folder Include="Azure\" />
     <Folder Include="Files\" />
+    <Folder Include="FloatingSpace\" />
     <Folder Include="Spaces\" />
     <Folder Include="Panels\" />
   </ItemGroup>

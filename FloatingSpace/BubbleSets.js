@@ -89,8 +89,6 @@ function newBubbleSets() {
                         floatingObject.payloadBubbleIndex = i;
                         floatingObject.payload.profile.imageId = bubbleSet.imageId;
 
-                        //floatingObject.container = pContainer;
-
                         floatingObject.friction = .995;
 
                         floatingObject.initializeMass(100);

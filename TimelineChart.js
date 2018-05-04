@@ -315,7 +315,7 @@
                     productPlotter.plotter.payload.profile.downLabel = pProductCard.bot.displayName;
                     productPlotter.plotter.payload.profile.imageId = imageId;
 
-                    canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.payload, thisObject.container, onProfileBallCreated)
+                    canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.payload, onProfileBallCreated)
 
                     function onProfileBallCreated(err, pProfileHandle) {
 

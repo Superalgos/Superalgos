@@ -42,7 +42,7 @@ function newProfileBalls() {
         }
     }
 
-    function createNewProfileBall(pPayload, pContainer, callBackFunction) {
+    function createNewProfileBall(pPayload, callBackFunction) {
 
         let floatingObject = newFloatingObject();
         floatingObject.initialize("Profile Ball", onInitialized);
@@ -50,8 +50,6 @@ function newProfileBalls() {
         function onInitialized(err) {
 
             floatingObject.payload = pPayload;
-
-            floatingObject.container = pContainer;
 
             floatingObject.friction = .995;
 

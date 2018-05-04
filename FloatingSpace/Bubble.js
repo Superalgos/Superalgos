@@ -51,97 +51,224 @@ function newBubble() {
 
     function drawForeground(pFloatingObject) {
 
+        const BUBBLE_CORNERS_RADIOUS = 10;
+        const TITLE_BAR_HEIGHT = 14;
+
+        const BUBBLE_WIDTH = BUBBLE_CORNERS_RADIOUS * 4 + pFloatingObject.currentRadius;
+        const BUBBLE_HEIGHT = BUBBLE_CORNERS_RADIOUS * 2 + pFloatingObject.currentRadius;
+
+        let borderPoint1;
+        let borderPoint2;
+        let borderPoint3;
+        let borderPoint4;
+
         if (pFloatingObject.currentRadius > 5) {
 
-            /* Contourn */
+            /* Rounded Background */
 
-            browserCanvasContext.beginPath();
-            browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true);
-            browserCanvasContext.closePath();
-            browserCanvasContext.strokeStyle = 'rgba(30, 30, 30, 0.75)';
-            browserCanvasContext.lineWidth = 1;
-            browserCanvasContext.stroke();
-
-        }
-
-        if (pFloatingObject.currentRadius > 0.5) {
-
-            /* Main FloatingObject */
-
-            var alphaA;
-
-            if (pFloatingObject.currentRadius < 3) {
-                alphaA = 1;
-            } else {
-                alphaA = 0.75;
+            let intialDisplace = {
+                x: pFloatingObject.currentPosition.x - BUBBLE_WIDTH / 2,
+                y: pFloatingObject.currentPosition.y - BUBBLE_HEIGHT / 2
             }
 
-            alphaA = 0.75;
+            borderPoint1 = {
+                x: intialDisplace.x + BUBBLE_CORNERS_RADIOUS,
+                y: intialDisplace.y + BUBBLE_CORNERS_RADIOUS
+            };
 
+            borderPoint2 = {
+                x: intialDisplace.x + BUBBLE_WIDTH - BUBBLE_CORNERS_RADIOUS,
+                y: intialDisplace.y + BUBBLE_CORNERS_RADIOUS
+            };
+
+            borderPoint3 = {
+                x: intialDisplace.x + BUBBLE_WIDTH - BUBBLE_CORNERS_RADIOUS,
+                y: intialDisplace.y + BUBBLE_HEIGHT - BUBBLE_CORNERS_RADIOUS
+            };
+
+            borderPoint4 = {
+                x: intialDisplace.x + BUBBLE_CORNERS_RADIOUS,
+                y: intialDisplace.y + + BUBBLE_HEIGHT - BUBBLE_CORNERS_RADIOUS
+            };
+
+            titleBarPoint1 = {
+                x: intialDisplace.x + 0,
+                y: intialDisplace.y + TITLE_BAR_HEIGHT
+            };
+
+            titleBarPoint2 = {
+                x: intialDisplace.x + BUBBLE_WIDTH,
+                y: intialDisplace.y + TITLE_BAR_HEIGHT
+            };
+
+            /* We paint the panel background first */
+
+            browserCanvasContext.fillStyle = 'rgba(255, 255, 255, 0.75)';
             browserCanvasContext.beginPath();
-            browserCanvasContext.arc(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y, pFloatingObject.currentRadius, 0, Math.PI * 2, true);
-            browserCanvasContext.closePath();
 
-            browserCanvasContext.fillStyle = pFloatingObject.fillStyle;
+            browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, BUBBLE_CORNERS_RADIOUS, 1.0 * Math.PI, 1.5 * Math.PI);
+            browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - BUBBLE_CORNERS_RADIOUS);
+            browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, BUBBLE_CORNERS_RADIOUS, 1.5 * Math.PI, 2.0 * Math.PI);
+            browserCanvasContext.lineTo(borderPoint3.x + BUBBLE_CORNERS_RADIOUS, borderPoint3.y);
+            browserCanvasContext.arc(borderPoint3.x, borderPoint3.y, BUBBLE_CORNERS_RADIOUS, 0 * Math.PI, 0.5 * Math.PI);
+            browserCanvasContext.lineTo(borderPoint4.x, borderPoint4.y + BUBBLE_CORNERS_RADIOUS);
+            browserCanvasContext.arc(borderPoint4.x, borderPoint4.y, BUBBLE_CORNERS_RADIOUS, 0.5 * Math.PI, 1.0 * Math.PI);
+            browserCanvasContext.lineTo(borderPoint1.x - BUBBLE_CORNERS_RADIOUS, borderPoint1.y);
+
+            browserCanvasContext.closePath();
 
             browserCanvasContext.fill();
 
-        }
+            browserCanvasContext.lineWidth = 0.1;
+            browserCanvasContext.strokeStyle = 'rgba(54, 54, 54, 0.75)';
+            browserCanvasContext.stroke();
 
-        /* Image */
+            /* We paint the title bar now */
 
-        if (pFloatingObject.payload.profile.imageId !== undefined) {
+            browserCanvasContext.fillStyle = 'rgba(255, 151, 48, 0.75)';
+            browserCanvasContext.beginPath();
 
-            let image = document.getElementById(pFloatingObject.payload.profile.imageId);
+            browserCanvasContext.moveTo(titleBarPoint1.x, titleBarPoint1.y);
+            browserCanvasContext.lineTo(borderPoint1.x - BUBBLE_CORNERS_RADIOUS, borderPoint1.y);
+            browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, BUBBLE_CORNERS_RADIOUS, 1.0 * Math.PI, 1.5 * Math.PI);
+            browserCanvasContext.lineTo(borderPoint2.x, borderPoint2.y - BUBBLE_CORNERS_RADIOUS);
+            browserCanvasContext.arc(borderPoint2.x, borderPoint2.y, BUBBLE_CORNERS_RADIOUS, 1.5 * Math.PI, 2.0 * Math.PI);
+            browserCanvasContext.lineTo(titleBarPoint2.x, titleBarPoint2.y);
 
-            if (image !== null) {
+            browserCanvasContext.closePath();
+            browserCanvasContext.fill();
 
-                browserCanvasContext.drawImage(image, pFloatingObject.currentPosition.x - pFloatingObject.currentImageSize / 2, pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize);
+            browserCanvasContext.lineWidth = 0.1;
+            browserCanvasContext.strokeStyle = 'rgba(12, 64, 148, 0.75)';
+            browserCanvasContext.stroke();
 
-            }
-        }
-
-        /* Label Text */
-
-        if (pFloatingObject.currentRadius > 6) {
-
-            browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle;
+            /* print the title */
 
             let labelPoint;
             let fontSize = 10;
 
             browserCanvasContext.font = fontSize + 'px Courier New';
 
-            let label;
+            let label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].title;
 
-            label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].title;
+            let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
+            let yOffset = (TITLE_BAR_HEIGHT - fontSize) / 2 + 2;
 
-            if (label !== undefined) {
+            labelPoint = {
+                x: intialDisplace.x + BUBBLE_WIDTH / 2 - xOffset,
+                y: intialDisplace.y + TITLE_BAR_HEIGHT - yOffset
+            };
 
-                labelPoint = {
-                    x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * 0.60,
-                    y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * 0.60 - 5
-                };
+            //labelPoint = frame.frameThisPoint(labelPoint);
 
-                browserCanvasContext.font = fontSize + 'px Courier New';
-                browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle;
-                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
+            browserCanvasContext.fillStyle = 'rgba(240, 240, 240, 1)';
+            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
+        }
+
+        if (pFloatingObject.currentRadius > 0.5) {
+
+            /* Image */
+
+            let imagePosition = {
+                x: borderPoint1.x,
+                y: borderPoint1.y + TITLE_BAR_HEIGHT
+            };
+
+            if (pFloatingObject.payload.profile.imageId !== undefined) {
+
+                let image = document.getElementById(pFloatingObject.payload.profile.imageId);
+
+                if (image !== null) {
+
+                    browserCanvasContext.drawImage(image, imagePosition.x - pFloatingObject.currentImageSize / 2, imagePosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize);
+
+                }
             }
 
-            label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].body;
+            /* Image Contourn */
 
-            if (label !== undefined) {
+            browserCanvasContext.beginPath();
+            browserCanvasContext.arc(imagePosition.x, imagePosition.y, pFloatingObject.currentImageSize / 2, 0, Math.PI * 2, true);
+            browserCanvasContext.closePath();
+            browserCanvasContext.strokeStyle = 'rgba(30, 30, 30, 0.25)';
+            browserCanvasContext.lineWidth = 1;
+            browserCanvasContext.stroke();
 
-                labelPoint = {
-                    x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * 0.60,
-                    y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * 0.60 + 10
-                };
+            /* Label Text */
 
-                browserCanvasContext.font = fontSize + 'px Courier New';
-                browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle;
-                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
+            if (pFloatingObject.currentRadius > 6) {
 
+                browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle;
+
+                let labelPoint;
+                let fontSize = 10;
+
+                let label;
+
+                label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].body;
+
+                if (label !== undefined) {
+
+                    const WORDS_PER_ROW = 4;
+                    const TOTAL_ROWS = 5;
+                    const ALPHA = Math.trunc(pFloatingObject.currentRadius / pFloatingObject.targetRadius  * 100) / 100 / 2;
+
+                    if (ALPHA > 0.3) {
+
+                        let startingPosition = {
+                            x: pFloatingObject.currentPosition.x,
+                            y: pFloatingObject.currentPosition.y - TOTAL_ROWS / 2 * (fontSize * 0.60 + 10)
+                        };
+
+                        let rawLabelArray = label.split(" ");
+                        let labelArray = [];
+
+                        /* Lets check when words are to long we add an empty space to the same line so as to roll all other words forward. */
+
+                        for (let i = 0; i < rawLabelArray.length; i++) {
+
+                            let word = rawLabelArray[i];
+
+                            labelArray.push(word);
+
+                            if (word.length > 10) {
+                                labelArray.push("");
+                            }
+
+                            if (word.length > 12) {
+                                labelArray.push("");
+                            }
+                        }
+
+                        /* Now we plot each row. */
+
+                        for (let i = 0; i < TOTAL_ROWS; i++) {
+
+                            let labelRow = "";
+
+                            for (let j = 0; j < WORDS_PER_ROW; j++) {
+
+                                let newWord = labelArray[j + i * WORDS_PER_ROW];
+
+                                if (newWord !== undefined && newWord !== "") {
+
+                                    labelRow = labelRow + " " + newWord;
+                                }
+                            }
+
+                            labelPoint = {
+                                x: startingPosition.x - labelRow.length / 2 * fontSize * 0.60,
+                                y: startingPosition.y + (i + 1) * (fontSize * 0.60 + 10)
+                            };
+
+                            browserCanvasContext.font = fontSize + 'px Courier New';
+                            browserCanvasContext.fillStyle = 'rgba(60, 60, 60, ' + ALPHA + ')'
+                            browserCanvasContext.fillText(labelRow, labelPoint.x, labelPoint.y);
+
+                        }
+                    }
+                }
             }
         }
     }

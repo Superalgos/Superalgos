@@ -94,6 +94,11 @@ function newFloatingLayer() {
                 }
                 case "Bubble": {
 
+                   // if (floatingObject.payloadBubbleIndex >= floatingObject.payload.bubbles.length) {
+
+                     //   continue;   // The bubbles array changed at the plotter but the 
+                    //} 
+
                     payload.position = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].position;
                     payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
                     break;

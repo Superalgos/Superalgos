@@ -50,7 +50,7 @@ function newBubbleSets() {
 
         callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE, bubbleSet.handle);
 
-        function onBubblesChanged(pEvent, pBubbleSetIndex) {
+        function onBubblesChanged(pNewBubbles, pBubbleSetIndex) {
 
             let bubbleSet = bubbleSets[pBubbleSetIndex];
             let found = false;
@@ -84,16 +84,26 @@ function newBubbleSets() {
                     floatingObject.initialize("Bubble", onInitialized);
 
                     function onInitialized(err) {
-                        
+
                         floatingObject.payload = bubbleSet.payload; 
                         floatingObject.payloadBubbleIndex = i;
                         floatingObject.payload.profile.imageId = bubbleSet.imageId;
 
                         floatingObject.friction = .995;
 
-                        floatingObject.initializeMass(100);
-                        floatingObject.initializeRadius(30);
-                        floatingObject.initializeImageSize(50);
+                        floatingObject.initializeMass(200);
+
+                        let bodyText = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].body;
+                        let radius;
+
+                        if (bodyText.length < 100) {
+                            radius = 100;
+                        } else {
+                            radius = bodyText.length;
+                        }
+
+                        floatingObject.initializeRadius(radius);
+                        floatingObject.initializeImageSize(15);
 
                         floatingObject.fillStyle = 'rgba(255, 255, 255, 0.5)';
                         floatingObject.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)';

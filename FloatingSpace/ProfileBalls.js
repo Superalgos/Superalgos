@@ -42,14 +42,14 @@ function newProfileBalls() {
         }
     }
 
-    function createNewProfileBall(pInput, pContainer, callBackFunction) {
+    function createNewProfileBall(pPayload, pContainer, callBackFunction) {
 
         let floatingObject = newFloatingObject();
         floatingObject.initialize("Profile Ball", onInitialized);
 
         function onInitialized(err) {
 
-            floatingObject.input = pInput;
+            floatingObject.payload = pPayload;
 
             floatingObject.container = pContainer;
 

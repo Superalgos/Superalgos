@@ -307,26 +307,32 @@
 
                 /* Create The Profie Picture FloatingObject */
 
-                if (productPlotter.plotter.profile !== undefined) {
+                if (productPlotter.plotter.payload !== undefined) {
 
                     let imageId = pProductCard.bot.devTeam + "." + pProductCard.bot.profilePicture;
 
-                    productPlotter.plotter.profile.upLabel = pProductCard.product.shortDisplayName;
-                    productPlotter.plotter.profile.downLabel = pProductCard.bot.displayName;
-                    productPlotter.plotter.profile.imageId = imageId;
+                    productPlotter.plotter.payload.profile.upLabel = pProductCard.product.shortDisplayName;
+                    productPlotter.plotter.payload.profile.downLabel = pProductCard.bot.displayName;
+                    productPlotter.plotter.payload.profile.imageId = imageId;
 
-                    canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.profile, thisObject.container, onProfileBallCreated)
+                    canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.payload, thisObject.container, onProfileBallCreated)
 
                     function onProfileBallCreated(err, pProfileHandle) {
 
                         productPlotter.profile = pProfileHandle;
 
                     }
+
+                    /* Create the Text Bubbles */
+
+                    canvas.floatingSpace.bubbleSets.createBubbleSet(productPlotter.plotter.payload, productPlotter.plotter.container.eventHandler, onBubbleSetCreated);
+
+                    function onBubbleSetCreated(err, pBubbleSetHandle) {
+
+                        productPlotter.bubbleSet = pBubbleSetHandle;
+
+                    }
                 }
-
-                /* Create the Text Bubbles */
-
-                productPlotter.bubbleSet = canvas.floatingSpace.bubbleSets.createBubbleSet(productPlotter.plotter.bubbles);
 
                 /* Add the new Active Protter to the Array */
 

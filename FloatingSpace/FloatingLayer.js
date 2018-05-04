@@ -79,13 +79,38 @@ function newFloatingLayer() {
 
             // Gives a minimun speed towards their taget.
 
-            if (floatingObject.currentPosition.x < floatingObject.input.position.x) {
+            let payload = {
+                position: undefined,
+                visible: false
+            };
+
+            switch (floatingObject.type) {
+
+                case "Profile Ball": {
+
+                    payload.position = floatingObject.payload.profile.position;
+                    payload.visible = floatingObject.payload.profile.visible;
+                    break;
+                }
+                case "Bubble": {
+
+                    payload.position = floatingObject.payload.bubbles[floatingObject.payload.bubbleIndex].position;
+                    payload.visible = floatingObject.payload.bubbles[floatingObject.payload.bubbleIndex].visible;
+                    break;
+                }
+                default: {
+
+                    break;
+                }
+            }
+
+            if (floatingObject.currentPosition.x < payload.position.x) {
                 floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + .005;
             } else {
                 floatingObject.currentSpeed.x = floatingObject.currentSpeed.x - .005;
             }
 
-            if (floatingObject.currentPosition.y < floatingObject.input.position.y) {
+            if (floatingObject.currentPosition.y < payload.position.y) {
                 floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + .005;
             } else {
                 floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - .005;
@@ -142,7 +167,7 @@ function newFloatingLayer() {
 
             repulsionForce(i);
 
-            gravityForce(floatingObject);
+            gravityForce(floatingObject, payload);
 
         }
 
@@ -164,11 +189,36 @@ function newFloatingLayer() {
 
             let floatingObject = innactiveFloatingObjects[i];
 
-            if (floatingObject.input.visible === true) {
+            let payload = {
+                position: undefined,
+                visible: false
+            };
+
+            switch (floatingObject.type) {
+
+                case "Profile Ball": {
+
+                    payload.position = floatingObject.payload.profile.position;
+                    payload.visible = floatingObject.payload.profile.visible;
+                    break;
+                }
+                case "Bubble": {
+
+                    payload.position = floatingObject.payload.bubbles[floatingObject.payload.bubbleIndex].position;
+                    payload.visible = floatingObject.payload.bubbles[floatingObject.payload.bubbleIndex].visible;
+                    break;
+                }
+                default: {
+
+                    break;
+                }
+            }
+
+            if (payload.visible === true) {
 
                 /* The first time that the floatingObject becomes visible, we need to do this. */
 
-                floatingObject.radomizeCurrentPosition(floatingObject.input.position);
+                floatingObject.radomizeCurrentPosition(payload.position);
                 floatingObject.radomizeCurrentSpeed();
 
                 thisObject.floatingObjects.push(floatingObject);
@@ -179,14 +229,14 @@ function newFloatingLayer() {
         }
     }
 
-    function gravityForce(floatingObject) {
+    function gravityForce(floatingObject, payload) {
 
         /* We simulate a kind of gravity towards the target point of each floatingObject. This force will make the floatingObject to keep pushing to reach that point. */
 
         const coulomb = .00001;
         const minForce = 0.01;
 
-        var d = Math.sqrt(Math.pow(floatingObject.input.position.x - floatingObject.currentPosition.x, 2) + Math.pow(floatingObject.input.position.y - floatingObject.currentPosition.y, 2));  // ... we calculate the distance ...
+        var d = Math.sqrt(Math.pow(payload.position.x - floatingObject.currentPosition.x, 2) + Math.pow(payload.position.y - floatingObject.currentPosition.y, 2));  // ... we calculate the distance ...
 
         var force = coulomb * d * d / floatingObject.currentMass;  // In this case the mass of the floatingObject affects the gravity force that it receives, that gives priority to target position to bigger floatingObjects. 
 
@@ -200,8 +250,8 @@ function newFloatingLayer() {
         };
 
         var pos2 = {
-            x: floatingObject.input.position.x,
-            y: floatingObject.input.position.y
+            x: payload.position.x,
+            y: payload.position.y
         };
 
         var posDiff = {             // Next we need the vector resulting from the 2 positions.

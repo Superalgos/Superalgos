@@ -3,7 +3,9 @@ function newFloatingObject() {
 
     var thisObject = {
 
-        input: undefined,                       // This object contains information needed to draw the floating object, but also referenced from outside, so as to have control of the basics of the floating object.
+        payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
+        type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Bubbles.
+
         physicsEnabled: false,
 
         initializeMass: initializeMass,
@@ -67,6 +69,13 @@ function newFloatingObject() {
             }
             case "Bubble": {
 
+                underlayingObject = newBubble();
+                underlayingObject.initialize(onInitialized);
+
+                function onInitialized(err) {
+
+
+                }
                 break;
             }
             default: {
@@ -74,6 +83,8 @@ function newFloatingObject() {
                 break;
             }
         }
+
+        thisObject.type = pType;
 
         callBackFunction();
     }

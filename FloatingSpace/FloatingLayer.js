@@ -19,7 +19,7 @@ function newFloatingLayer() {
         initialize: initialize
     };
 
-    let innactiveFloatingObjects = [];
+    let invisibleFloatingObjects = [];
 
     let maxTargetRepulsionForce = 0.0005;
 
@@ -38,9 +38,9 @@ function newFloatingLayer() {
 
         if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> Entering function."); }
 
-        innactiveFloatingObjects.push(pFloatingObject);
+        invisibleFloatingObjects.push(pFloatingObject);
 
-        if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> innactiveFloatingObjects.length = " + innactiveFloatingObjects.length); }
+        if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
 
         pFloatingObject.handle = Math.floor((Math.random() * 10000000) + 1);
 
@@ -53,16 +53,16 @@ function newFloatingLayer() {
 
         if (INFO_LOG === true) { logger.write("[INFO] removeFloatingObject -> Entering function."); }
 
-        for (let i = 0; i < innactiveFloatingObjects.length; i++) {
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
 
-            let floatingObject = innactiveFloatingObjects[i];
+            let floatingObject = invisibleFloatingObjects[i];
 
             if (floatingObject.handle === pFloatingObjectHandle) {
-                innactiveFloatingObjects.splice(i, 1);  // Delete item from array.
+                invisibleFloatingObjects.splice(i, 1);  // Delete item from array.
 
                 if (INFO_LOG === true) { logger.write("[INFO] removeFloatingObject -> floatingObject.handle = " + floatingObject.handle); }
-                if (INFO_LOG === true) { logger.write("[INFO] removeFloatingObject -> Removing floatingObject from innactiveFloatingObjects."); }
-                if (INFO_LOG === true) { logger.write("[INFO] removeFloatingObject -> innactiveFloatingObjects.length = " + innactiveFloatingObjects.length); }
+                if (INFO_LOG === true) { logger.write("[INFO] removeFloatingObject -> Removing floatingObject from invisibleFloatingObjects."); }
+                if (INFO_LOG === true) { logger.write("[INFO] removeFloatingObject -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
 
                 return;
             }
@@ -88,9 +88,9 @@ function newFloatingLayer() {
 
         if (INFO_LOG === true) { logger.write("[INFO] getFloatingObject -> Entering function."); }
 
-        for (let i = 0; i < innactiveFloatingObjects.length; i++) {
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
 
-            let floatingObject = innactiveFloatingObjects[i];
+            let floatingObject = invisibleFloatingObjects[i];
 
             if (floatingObject.handle === pFloatingObjectHandle) {
 
@@ -252,9 +252,9 @@ function newFloatingLayer() {
 
         /* Now we check if any of the created FloatingObjects where enabled to run under the Physics Engine. */
 
-        for (let i = 0; i < innactiveFloatingObjects.length; i++) {
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
 
-            let floatingObject = innactiveFloatingObjects[i];
+            let floatingObject = invisibleFloatingObjects[i];
 
             let payload = {
                 position: undefined,
@@ -296,11 +296,11 @@ function newFloatingLayer() {
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to thisObject.floatingObjects"); }
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> thisObject.floatingObjects.length = " + thisObject.floatingObjects.length); }
 
-                innactiveFloatingObjects.splice(i, 1);  // Delete item from array.
+                invisibleFloatingObjects.splice(i, 1);  // Delete item from array.
 
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
-                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from innactiveFloatingObjects"); }
-                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> innactiveFloatingObjects.length = " + innactiveFloatingObjects.length); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from invisibleFloatingObjects"); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
 
                 return;                     // Only one at the time. 
 
@@ -340,11 +340,11 @@ function newFloatingLayer() {
 
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> payload.visible = " + payload.visible); }
 
-                innactiveFloatingObjects.push(floatingObject);
+                invisibleFloatingObjects.push(floatingObject);
 
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
-                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to innactiveFloatingObjects"); }
-                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> innactiveFloatingObjects.length = " + innactiveFloatingObjects.length); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to invisibleFloatingObjects"); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
 
                 thisObject.floatingObjects.splice(i, 1);  // Delete item from array.
 

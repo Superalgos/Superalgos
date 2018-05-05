@@ -1,8 +1,8 @@
 # Contributing
 
-We are thrilled you are interested in contributing to the AACloud. Your help may be essential to the project's success and we want you in! 
+We are thrilled you are interested in contributing to the AAWeb. Your help may be essential to the project's success and we want you in! 
 
-Advanced Algos is a startup, currently at a very early stage. Although AACloud is not open source software yet, we do welcome contributions from the community.
+Advanced Algos is a startup, currently at a very early stage. Although AAWeb is not open source software yet, we do welcome contributions from the community.
 
 Contributions are deemed _work for hire_ and --as such-- are compensated on a case by case basis, with ALGO tokens. Contributors agree to provide an express grant of patent rights for their contributions. Our Balanced Contributor Intellectual Property Agreement is a direct implementation of GitHub's [Balanced Employee Intellectual Property Agreement 1.0.1](https://github.com/github/balanced-employee-ip-agreement/blob/master/Balanced_Employee_IP_Agreement.md).
 

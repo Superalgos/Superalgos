@@ -10,14 +10,16 @@
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
         draw: draw,
-        profile: {
-            position: {
-                x: 0,
-                y: 0
+        payload: {
+            profile: {
+                position: {
+                    x: 0,
+                    y: 0
+                },
+                visible: false
             },
-            visible: false
-        },
-        bubbles: undefined
+            bubbles: []
+        }
     };
 
     /* this is part of the module template */
@@ -38,6 +40,8 @@
     let plotLines = [];                       // Here we store the lines of open positions.
     let bubbles = [];                         // Here we store the bubbles with messages from the bot.
 
+    let bubblesChangedEventRaised = true;     // This controls when to raise the event that bubbles changed.
+
     return thisObject;
 
     function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
@@ -50,6 +54,8 @@
         recalculate();
         recalculateScale();
         callBackFunction();
+
+        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
     }
 
@@ -69,6 +75,12 @@
 
             return undefined;
         }
+
+    }
+
+    function onDragFinished() {
+
+        recalculate();
 
     }
 
@@ -126,6 +138,8 @@
 
             let oneMin = 60000;
             let step = timePeriod / oneMin;
+
+            /* First the small balls */
 
             for (let i = 0; i < file.length; i = i + step) {
 
@@ -202,36 +216,67 @@
 
                     }
                 }
+            }
 
-                /* Finally we process the text on the file. */
+            /* Second we process the text */
 
-                /*
+            for (let i = 0; i < file.length; i++) {
+
+                let newHistoryRecord = {
+
+                    date: Math.trunc(file[i][0] / 60000) * 60000 + 30000,
+                    buyAvgRate: file[i][1],
+                    sellAvgRate: file[i][2],
+
+                    lastSellRate: file[i][3],
+                    sellExecRate: file[i][4],
+                    lastBuyRate: file[i][5],
+                    buyExecRate: file[i][6],
+
+                    marketRate: file[i][7],
+                    newPositions: file[i][8],
+                    newTrades: file[i][9],
+                    movedPositions: file[i][10],
+                    profitsAssetA: file[i][11],
+                    profitsAssetB: file[i][12],
+                    combinedProfitsA: file[i][13],
+                    combinedProfitsB: file[i][14],
+
+                    messageRelevance: file[i][15],
+                    messageTitle: file[i][16],
+                    messageBody: file[i][17]
+                };
+
                 if (newHistoryRecord.messageTitle !== "" && newHistoryRecord.messageBody !== "") {
 
                     if (newHistoryRecord.messageRelevance >= 0 && newHistoryRecord.messageRelevance <= 10) {
 
-                        if (timePeriod <= dailyFilePeriods[newHistoryRecord.messageRelevance][0]) {
+                        let relevanceTimePeriod = (dailyFilePeriods[10 - newHistoryRecord.messageRelevance][0]);
+
+                        if (timePeriod <= relevanceTimePeriod) {
 
                             let bubble = {
                                 title: newHistoryRecord.messageTitle,
-                                body: newHistoryRecord.messageBody,
+                                body: newHistoryRecord.messageRelevance + ". " + newHistoryRecord.messageBody,
                                 date: newHistoryRecord.date,
                                 rate: newHistoryRecord.marketRate,
                                 position: {
                                     x: 0,
                                     y: 0
-                                }
+                                },
+                                visible: false
                             };
 
                             bubbles.push(bubble);
                         }
                     }
                 }
-                */
             }
 
             plotElements.push(history);
             plotLines.push(lines);
+
+            bubblesChangedEventRaised = false;
         }
 
         thisObject.container.eventHandler.raiseEvent("History Changed", history);
@@ -599,7 +644,7 @@
 
                 /* Since there is at least some point plotted, then the profile should be visible. */
 
-                thisObject.profile.visible = true;
+                thisObject.payload.profile.visible = true;
             }
 
             /* Draw the lines connecting plot elements. */
@@ -653,7 +698,7 @@
 
             /* Now we calculate the anchor position of bubbles. */
 
-            /*
+            
             for (let i = 0; i < bubbles.length; i++) {
 
                 let bubble = bubbles[i];
@@ -667,12 +712,25 @@
 
                 bubble.position = timeLineCoordinateSystem.transformThisPoint(bubble.position);
                 bubble.position = transformThisPoint(bubble.position, thisObject.container);
+
+                if (bubble.position.x < (viewPort.visibleArea.bottomRight.x) * (-1) || bubble.position.x > (viewPort.visibleArea.bottomRight.x) * (2)) {
+                    bubble.visible = false;
+                } else {
+                    bubble.visible = true;
+                }
+
                 bubble.position = viewPort.fitIntoVisibleArea(bubble.position);
 
             }
 
-            thisObject.bubbles = bubbles;
-            */
+            if (bubblesChangedEventRaised === false) {
+
+                thisObject.container.eventHandler.raiseEvent("Bubbles Changed", bubbles);
+                thisObject.payload.bubbles = bubbles;
+
+                bubblesChangedEventRaised = true;
+            }
+
         }
 
         /*
@@ -682,8 +740,8 @@
 
         */
 
-        thisObject.profile.position.x = point.x;
-        thisObject.profile.position.y = point.y;
+        thisObject.payload.profile.position.x = point.x;
+        thisObject.payload.profile.position.y = point.y;
     }
 
 }

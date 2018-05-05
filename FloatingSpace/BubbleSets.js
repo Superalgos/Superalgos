@@ -2,7 +2,7 @@
 function newBubbleSets() {
 
     const MODULE_NAME = "Bubble Sets";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;

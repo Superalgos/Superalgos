@@ -2,7 +2,7 @@
 function newFloatingLayer() {
 
     const MODULE_NAME = "Floating Layer";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -148,19 +148,9 @@ function newFloatingLayer() {
                 }
                 case "Bubble": {
 
-                    try {
+                    payload.position = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].position;
+                    payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
 
-                        payload.position = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].position;
-                        payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
-
-                    } catch (err) {
-
-                        if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> err = " + err); }
-                        if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> floatingObject.payloadBubbleIndex = " + floatingObject.payloadBubbleIndex); }
-                        if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> floatingObject.payload.bubbles.length = " + floatingObject.payload.bubbles.length); }
-
-                        continue;
-                    }
                     break;
                 }
                 default: {

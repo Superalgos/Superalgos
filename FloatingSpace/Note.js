@@ -153,9 +153,9 @@ function newNote() {
                 y: pFloatingObject.currentPosition.y + BUBBLE_HEIGHT / 2
             };
 
-            if (pFloatingObject.payload.profile.imageId !== undefined) {
+            if (pFloatingObject.payloadImageId !== undefined) {
 
-                let image = document.getElementById(pFloatingObject.payload.profile.imageId);
+                let image = document.getElementById(pFloatingObject.payloadImageId);
 
                 if (image !== null) {
 
@@ -180,8 +180,20 @@ function newNote() {
                 browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle;
 
                 const SIZE_PERCENTAGE = Math.trunc(pFloatingObject.currentRadius / pFloatingObject.targetRadius * 100) / 100;
-                const ALPHA = 0.5 - (1 - SIZE_PERCENTAGE) * 5;
+                let ALPHA;
 
+                if (pFloatingObject.targetRadius > 0) {
+
+                    ALPHA = 0.5 - (1 - SIZE_PERCENTAGE) * 5;
+
+                } else { // Object is dying...
+
+                    ALPHA = Math.trunc((0.5 - (100 - pFloatingObject.currentRadius / 100) ) * 100) / 100;
+
+                    if (ALPHA < 0) { ALPHA = 0}
+
+                }
+                
                 let labelPoint;
                 let fontSize = 10;
 

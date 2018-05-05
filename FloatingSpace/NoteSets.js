@@ -102,7 +102,7 @@ function newNoteSets() {
 
                 if (found === false) {
 
-                    floatingLayer.removeFloatingObject(floatingNote.floatingHandle);
+                    floatingLayer.killFloatingObject(floatingNote.floatingHandle);
 
                     if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> floatingNote.floatingHandle = " + floatingNote.floatingHandle); }
                     if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> Removed from Layer."); }
@@ -177,7 +177,7 @@ function newNoteSets() {
 
                         floatingObject.payload = noteSet.payload;
                         floatingObject.payloadNoteIndex = i;
-                        floatingObject.payload.profile.imageId = noteSet.imageId;
+                        floatingObject.payloadImageId = noteSet.imageId;
 
                         floatingObject.friction = .995;
 
@@ -255,7 +255,7 @@ function newNoteSets() {
 
                     let floatingNote = noteSet.floatingNotes[j];
 
-                    floatingLayer.removeFloatingObject(floatingNote.floatingHandle);
+                    floatingLayer.killFloatingObject(floatingNote.floatingHandle);
                 }
 
                 noteSets.splice(i, 1);  // Delete item from array.

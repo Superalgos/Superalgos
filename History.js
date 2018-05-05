@@ -55,8 +55,6 @@
         recalculateScale();
         callBackFunction();
 
-        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
-
     }
 
     function getContainer(point) {
@@ -75,12 +73,6 @@
 
             return undefined;
         }
-
-    }
-
-    function onDragFinished() {
-
-        recalculate();
 
     }
 
@@ -257,7 +249,7 @@
 
                             let bubble = {
                                 title: newHistoryRecord.messageTitle,
-                                body: newHistoryRecord.messageRelevance + ". " + newHistoryRecord.messageBody,
+                                body: newHistoryRecord.messageBody,
                                 date: newHistoryRecord.date,
                                 rate: newHistoryRecord.marketRate,
                                 position: {
@@ -718,8 +710,6 @@
                 } else {
                     bubble.visible = true;
                 }
-
-                bubble.position = viewPort.fitIntoVisibleArea(bubble.position);
 
             }
 

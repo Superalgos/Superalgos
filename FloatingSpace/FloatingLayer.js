@@ -200,16 +200,19 @@ function newFloatingLayer() {
                 } else {
                     floatingObject.currentRadius = floatingObject.currentRadius - .5;
                 }
-
             }
 
             // The imageSize also have a target.
 
-            if (floatingObject.currentImageSize < floatingObject.targetImageSize) {
-                floatingObject.currentImageSize = floatingObject.currentImageSize + 1;
-            } else {
-                floatingObject.currentImageSize = floatingObject.currentImageSize - 1;
+            if (Math.abs(floatingObject.currentImageSize - floatingObject.targetImageSize) >= 1) {
+
+                if (floatingObject.currentImageSize < floatingObject.targetImageSize) {
+                    floatingObject.currentImageSize = floatingObject.currentImageSize + 1;
+                } else {
+                    floatingObject.currentImageSize = floatingObject.currentImageSize - 1;
+                }
             }
+
 
             /* Collision Control */
 
@@ -224,7 +227,9 @@ function newFloatingLayer() {
 
             /* Calculate repulsion force produced by all other floatingObjects */
 
-            repulsionForce(i);
+            currentRepulsionForce(i);
+
+            targetRepulsionForce(i);
 
             gravityForce(floatingObject, payload);
 
@@ -356,7 +361,6 @@ function newFloatingLayer() {
 
         const coulomb = .00001;
         const minForce = 0.01;
-        const minDistance = 200;
 
         var d = Math.sqrt(Math.pow(payload.position.x - floatingObject.currentPosition.x, 2) + Math.pow(payload.position.y - floatingObject.currentPosition.y, 2));  // ... we calculate the distance ...
 
@@ -393,21 +397,12 @@ function newFloatingLayer() {
 
         /* We add the force vector to the speed vector */
 
-        if (d > minDistance) {
-
-            floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x;
-            floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y;
-
-        } else {
-
-            floatingObject.currentSpeed.x = floatingObject.currentSpeed.x - forceVector.x * 2;
-            floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - forceVector.y * 2;
-        }
-
+        floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x;
+        floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y;
 
     }
 
-    function repulsionForce(currentFloatingObject) {
+    function currentRepulsionForce(currentFloatingObject) {
 
         /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
 
@@ -462,6 +457,84 @@ function newFloatingLayer() {
                 floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y;
 
             }
+
+        }
+
+    }
+
+    function targetRepulsionForce(currentFloatingObject) {
+
+        /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
+
+        const coulomb = 2;
+
+        var floatingObject1 = thisObject.floatingObjects[currentFloatingObject];
+
+        for (var i = 0; i < thisObject.floatingObjects.length; i++) {  // The force to be applied is considering all other floatingObjects...
+
+            var floatingObject2 = thisObject.floatingObjects[i];   // So, for each floatingObject...
+
+            let payload = {
+                position: undefined
+            };
+
+            switch (floatingObject2.type) {
+
+                case "Profile Ball": {
+
+                    payload.position = floatingObject2.payload.profile.position;
+                    break;
+                }
+                case "Bubble": {
+
+                    payload.position = floatingObject2.payload.bubbles[floatingObject2.payloadBubbleIndex].position;
+                    break;
+                }
+                default: {
+
+                    break;
+                }
+            }
+
+            var d = Math.sqrt(Math.pow(payload.position.x - floatingObject1.currentPosition.x, 2) + Math.pow(payload.position.y - floatingObject1.currentPosition.y, 2));  // ... we calculate the distance ...
+
+            var force = coulomb * floatingObject2.currentMass / (d * d);  // ... and with it the repulsion force.
+
+            /* We need to put a hard limit to this force, in order to to eject very little floatingObjects to the infinite and beyond. */
+
+            if (force > 0.0005) {
+                force = 0.0005;
+            }
+
+            var pos1 = {
+                x: floatingObject1.currentPosition.x,
+                y: floatingObject1.currentPosition.y
+            };
+
+            var pos2 = {
+                x: payload.position.x,
+                y: payload.position.y
+            };
+
+            var posDiff = {             // Next we need the vector resulting from the 2 positions.
+                x: pos2.x - pos1.x,
+                y: pos2.y - pos1.y
+            };
+
+            var unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+                x: posDiff.x / d,
+                y: posDiff.y / d
+            };
+
+            var forceVector = {
+                x: unitVector.x * force,
+                y: unitVector.y * force
+            };
+
+            /* We substract the force vector to the speed vector of the current floatingObject */
+
+            floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x;
+            floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y;
 
         }
 

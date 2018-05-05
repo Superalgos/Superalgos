@@ -238,7 +238,7 @@ function newFloatingLayer() {
             floatingObject.drawForeground();
         }
 
-        /* Finally we check if any of the created FloatingObjects where enabled to run under the Physics Engine. */
+        /* Now we check if any of the created FloatingObjects where enabled to run under the Physics Engine. */
 
         for (let i = 0; i < innactiveFloatingObjects.length; i++) {
 
@@ -289,6 +289,56 @@ function newFloatingLayer() {
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from innactiveFloatingObjects"); }
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> innactiveFloatingObjects.length = " + innactiveFloatingObjects.length); }
+
+                return;                     // Only one at the time. 
+
+            }
+        }
+
+        /* Finally we check if any of the currently visible floatingObjects has become invisible and must be removed from the Physics Engine. */
+
+        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+
+            let floatingObject = thisObject.floatingObjects[i];
+
+            let payload = {
+                position: undefined,
+                visible: true
+            };
+
+            switch (floatingObject.type) {
+
+                case "Profile Ball": {
+
+                    payload.visible = floatingObject.payload.profile.visible;
+                    break;
+                }
+                case "Bubble": {
+
+                    payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
+                    break;
+                }
+                default: {
+
+                    break;
+                }
+            }
+
+            if (payload.visible === false) {
+
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> payload.visible = " + payload.visible); }
+
+                innactiveFloatingObjects.push(floatingObject);
+
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to innactiveFloatingObjects"); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> innactiveFloatingObjects.length = " + innactiveFloatingObjects.length); }
+
+                thisObject.floatingObjects.splice(i, 1);  // Delete item from array.
+
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from thisObject.floatingObjects"); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> thisObject.floatingObjects.length = " + thisObject.floatingObjects.length); }
 
                 return;                     // Only one at the time. 
 

@@ -9,7 +9,7 @@ function newFloatingSpace() {
     let thisObject = {
         floatingLayer: undefined,               // This is the array of floatingObjects being displayed
         profileBalls: undefined,
-        bubbleSets: undefined,
+        noteSets: undefined,
         initialize: initialize
     };
 
@@ -27,10 +27,10 @@ function newFloatingSpace() {
 
             function onProfileBallsInitialized(err) {
 
-                thisObject.bubbleSets = newBubbleSets();
-                thisObject.bubbleSets.initialize(thisObject.floatingLayer, onBubbleSetsInitialized);
+                thisObject.noteSets = newNoteSets();
+                thisObject.noteSets.initialize(thisObject.floatingLayer, onNoteSetsInitialized);
 
-                function onBubbleSetsInitialized(err) {
+                function onNoteSetsInitialized(err) {
 
 
 

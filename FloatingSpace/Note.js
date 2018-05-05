@@ -1,5 +1,5 @@
 ﻿
-function newBubble() {
+function newNote() {
 
     var thisObject = {
 
@@ -25,7 +25,7 @@ function newBubble() {
 
             browserCanvasContext.beginPath();
             browserCanvasContext.moveTo(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y);
-            browserCanvasContext.lineTo(pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].position.x, pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].position.y);
+            browserCanvasContext.lineTo(pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.x, pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.y);
             browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)';
             browserCanvasContext.setLineDash([4, 2]);
             browserCanvasContext.lineWidth = 1;
@@ -41,7 +41,7 @@ function newBubble() {
             var radius = 1;
 
             browserCanvasContext.beginPath();
-            browserCanvasContext.arc(pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].position.x, pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].position.y, radius, 0, Math.PI * 2, true);
+            browserCanvasContext.arc(pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.x, pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.y, radius, 0, Math.PI * 2, true);
             browserCanvasContext.closePath();
             browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)';
             browserCanvasContext.fill();
@@ -189,7 +189,7 @@ function newBubble() {
 
                 /* print the title */
 
-                label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].title;
+                label = pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].title;
 
                 if (label !== undefined) {
 
@@ -213,7 +213,7 @@ function newBubble() {
 
                 /* Message Body */
 
-                label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].body;
+                label = pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].body;
 
                 if (label !== undefined) {
 

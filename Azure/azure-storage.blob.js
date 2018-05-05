@@ -2679,7 +2679,7 @@ StorageServiceClient.prototype._performRequest = function (webResource, body, op
               oldEnd.call(requestStream);
             };
 
-            // Bubble events up -- This is when the request is going to be made.
+            // Note events up -- This is when the request is going to be made.
             requestStream.on('response', function (response) {
               self.emit('receivedResponseEvent', response);
             });

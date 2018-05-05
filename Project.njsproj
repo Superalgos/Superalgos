@@ -32,10 +32,10 @@
     <Compile Include="AccumulatedVolumeBar.js" />
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
-    <Compile Include="FloatingSpace\Bubble.js">
+    <Compile Include="FloatingSpace\Note.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FloatingSpace\BubbleSets.js">
+    <Compile Include="FloatingSpace\NoteSets.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FloatingSpace\FloatingObject.js" />

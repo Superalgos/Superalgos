@@ -149,10 +149,10 @@ function newFloatingLayer() {
                     payload.visible = floatingObject.payload.profile.visible;
                     break;
                 }
-                case "Bubble": {
+                case "Note": {
 
-                    payload.position = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].position;
-                    payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
+                    payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position;
+                    payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
 
                     break;
                 }
@@ -269,10 +269,10 @@ function newFloatingLayer() {
                     payload.visible = floatingObject.payload.profile.visible;
                     break;
                 }
-                case "Bubble": {
+                case "Note": {
 
-                    payload.position = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].position;
-                    payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
+                    payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position;
+                    payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
                     break;
                 }
                 default: {
@@ -325,9 +325,9 @@ function newFloatingLayer() {
                     payload.visible = floatingObject.payload.profile.visible;
                     break;
                 }
-                case "Bubble": {
+                case "Note": {
 
-                    payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
+                    payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
                     break;
                 }
                 default: {
@@ -488,9 +488,9 @@ function newFloatingLayer() {
                     payload.position = floatingObject2.payload.profile.position;
                     break;
                 }
-                case "Bubble": {
+                case "Note": {
 
-                    payload.position = floatingObject2.payload.bubbles[floatingObject2.payloadBubbleIndex].position;
+                    payload.position = floatingObject2.payload.notes[floatingObject2.payloadNoteIndex].position;
                     break;
                 }
                 default: {

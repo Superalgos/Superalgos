@@ -269,7 +269,7 @@
                     plotter: plotter,
                     storage: storage,
                     profile: undefined,
-                    bubbles: undefined
+                    notes: undefined
                 };
 
                 /* Let the Plotter listen to the event of Cursor Files loaded, so that it can reack recalculating if needed. */
@@ -323,13 +323,13 @@
 
                     }
 
-                    /* Create the Text Bubbles */
+                    /* Create the Text Notes */
 
-                    canvas.floatingSpace.bubbleSets.createBubbleSet(productPlotter.plotter.payload, productPlotter.plotter.container.eventHandler, onBubbleSetCreated);
+                    canvas.floatingSpace.noteSets.createNoteSet(productPlotter.plotter.payload, productPlotter.plotter.container.eventHandler, onNoteSetCreated);
 
-                    function onBubbleSetCreated(err, pBubbleSetHandle) {
+                    function onNoteSetCreated(err, pNoteSetHandle) {
 
-                        productPlotter.bubbleSet = pBubbleSetHandle;
+                        productPlotter.noteSet = pNoteSetHandle;
 
                     }
                 }
@@ -384,9 +384,9 @@
 
                     }
 
-                    /* Destroyd the Bubble Set */
+                    /* Destroyd the Note Set */
 
-                    canvas.floatingSpace.bubbleSets.destroyBubbleSet(productPlotters[i].bubbleSet);
+                    canvas.floatingSpace.noteSets.destroyNoteSet(productPlotters[i].noteSet);
 
                     /* Finally the panels. */
 

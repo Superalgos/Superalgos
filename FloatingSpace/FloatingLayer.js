@@ -356,6 +356,7 @@ function newFloatingLayer() {
 
         const coulomb = .00001;
         const minForce = 0.01;
+        const minDistance = 200;
 
         var d = Math.sqrt(Math.pow(payload.position.x - floatingObject.currentPosition.x, 2) + Math.pow(payload.position.y - floatingObject.currentPosition.y, 2));  // ... we calculate the distance ...
 
@@ -392,8 +393,17 @@ function newFloatingLayer() {
 
         /* We add the force vector to the speed vector */
 
-        floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x;
-        floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y;
+        if (d > minDistance) {
+
+            floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x;
+            floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y;
+
+        } else {
+
+            floatingObject.currentSpeed.x = floatingObject.currentSpeed.x - forceVector.x * 2;
+            floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - forceVector.y * 2;
+        }
+
 
     }
 

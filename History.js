@@ -18,7 +18,7 @@
                 },
                 visible: false
             },
-            bubbles: []
+            notes: []
         }
     };
 
@@ -38,9 +38,9 @@
     let fileSequence;                           
     let plotElements = [];                    // This is where the elements to be plotted are stored before plotting.
     let plotLines = [];                       // Here we store the lines of open positions.
-    let bubbles = [];                         // Here we store the bubbles with messages from the bot.
+    let notes = [];                         // Here we store the notes with messages from the bot.
 
-    let bubblesChangedEventRaised = true;     // This controls when to raise the event that bubbles changed.
+    let notesChangedEventRaised = true;     // This controls when to raise the event that notes changed.
 
     return thisObject;
 
@@ -109,7 +109,7 @@
 
         plotElements = [];
         plotLines = [];
-        bubbles = [];
+        notes = [];
 
         let lastSellRate;
         let lastSellDate;
@@ -247,7 +247,7 @@
 
                         if (timePeriod <= relevanceTimePeriod) {
 
-                            let bubble = {
+                            let note = {
                                 title: newHistoryRecord.messageTitle,
                                 body: newHistoryRecord.messageBody,
                                 date: newHistoryRecord.date,
@@ -259,7 +259,7 @@
                                 visible: false
                             };
 
-                            bubbles.push(bubble);
+                            notes.push(note);
                         }
                     }
                 }
@@ -268,7 +268,7 @@
             plotElements.push(history);
             plotLines.push(lines);
 
-            bubblesChangedEventRaised = false;
+            notesChangedEventRaised = false;
         }
 
         thisObject.container.eventHandler.raiseEvent("History Changed", history);
@@ -688,37 +688,37 @@
 
             }
 
-            /* Now we calculate the anchor position of bubbles. */
+            /* Now we calculate the anchor position of notes. */
 
             
-            for (let i = 0; i < bubbles.length; i++) {
+            for (let i = 0; i < notes.length; i++) {
 
-                let bubble = bubbles[i];
+                let note = notes[i];
 
                 opacity = '0.2';
 
-                bubble.position = {
-                    x: bubble.date,
-                    y: bubble.rate
+                note.position = {
+                    x: note.date,
+                    y: note.rate
                 };
 
-                bubble.position = timeLineCoordinateSystem.transformThisPoint(bubble.position);
-                bubble.position = transformThisPoint(bubble.position, thisObject.container);
+                note.position = timeLineCoordinateSystem.transformThisPoint(note.position);
+                note.position = transformThisPoint(note.position, thisObject.container);
 
-                if (bubble.position.x < (viewPort.visibleArea.bottomRight.x) * (-1) || bubble.position.x > (viewPort.visibleArea.bottomRight.x) * (2)) {
-                    bubble.visible = false;
+                if (note.position.x < (viewPort.visibleArea.bottomRight.x) * (-1) || note.position.x > (viewPort.visibleArea.bottomRight.x) * (2)) {
+                    note.visible = false;
                 } else {
-                    bubble.visible = true;
+                    note.visible = true;
                 }
 
             }
 
-            if (bubblesChangedEventRaised === false) {
+            if (notesChangedEventRaised === false) {
 
-                thisObject.container.eventHandler.raiseEvent("Bubbles Changed", bubbles);
-                thisObject.payload.bubbles = bubbles;
+                thisObject.container.eventHandler.raiseEvent("Notes Changed", notes);
+                thisObject.payload.notes = notes;
 
-                bubblesChangedEventRaised = true;
+                notesChangedEventRaised = true;
             }
 
         }

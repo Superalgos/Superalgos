@@ -11,6 +11,7 @@ function newFloatingLayer() {
         floatingObjects: undefined,               // This is the array of floatingObjects being displayed
         addFloatingObject: addFloatingObject,
         removeFloatingObject: removeFloatingObject,
+        getFloatingObject: getFloatingObject,
         physicsLoop: physicsLoop,
         isInside: isInside,
         isInsideFloatingObject: isInsideFloatingObject,
@@ -80,6 +81,32 @@ function newFloatingLayer() {
         }
     }
 
+    function getFloatingObject(pFloatingObjectHandle) {
+
+        if (INFO_LOG === true) { logger.write("[INFO] getFloatingObject -> Entering function."); }
+
+        for (let i = 0; i < innactiveFloatingObjects.length; i++) {
+
+            let floatingObject = innactiveFloatingObjects[i];
+
+            if (floatingObject.handle === pFloatingObjectHandle) {
+
+                return floatingObject;
+            }
+        }
+
+        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+
+            let floatingObject = thisObject.floatingObjects[i];
+
+            if (floatingObject.handle === pFloatingObjectHandle) {
+
+                return floatingObject;
+            }
+        }
+    }
+
+
     /******************************************/
     /*                                        */
     /*        Physics Engine Follows          */
@@ -121,14 +148,19 @@ function newFloatingLayer() {
                 }
                 case "Bubble": {
 
-                    if (floatingObject.payloadBubbleIndex >= floatingObject.payload.bubbles.length) {
+                    try {
 
-                        continue;   // The bubbles array changed at the plotter before it was reflected here. We ignore this object.
+                        payload.position = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].position;
+                        payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
 
-                    } 
+                    } catch (err) {
 
-                    payload.position = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].position;
-                    payload.visible = floatingObject.payload.bubbles[floatingObject.payloadBubbleIndex].visible;
+                        if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> err = " + err); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> floatingObject.payloadBubbleIndex = " + floatingObject.payloadBubbleIndex); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> floatingObject.payload.bubbles.length = " + floatingObject.payload.bubbles.length); }
+
+                        continue;
+                    }
                     break;
                 }
                 default: {

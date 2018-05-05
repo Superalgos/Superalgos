@@ -19,12 +19,6 @@ function newBubble() {
 
     function drawBackground(pFloatingObject) {
 
-        if (pFloatingObject.payloadBubbleIndex >= pFloatingObject.payload.bubbles.length) {
-
-            return;   // The bubbles array changed at the plotter before it was reflected here. We ignore this object from now on.
-
-        } 
-
         if (pFloatingObject.currentRadius > 1) {
 
             /* Target Line */
@@ -57,31 +51,25 @@ function newBubble() {
 
     function drawForeground(pFloatingObject) {
 
-        if (pFloatingObject.payloadBubbleIndex >= pFloatingObject.payload.bubbles.length) {
-
-            return;   // The bubbles array changed at the plotter before it was reflected here. We ignore this object from now on.
-
-        } 
-
-        const BUBBLE_CORNERS_RADIOUS = 10;
+        const BUBBLE_CORNERS_RADIOUS = 5;
         const TITLE_BAR_HEIGHT = 14;
 
-        const BUBBLE_WIDTH = BUBBLE_CORNERS_RADIOUS * 4 + pFloatingObject.currentRadius;
-        const BUBBLE_HEIGHT = BUBBLE_CORNERS_RADIOUS * 2 + pFloatingObject.currentRadius;
+        const BUBBLE_WIDTH = BUBBLE_CORNERS_RADIOUS + pFloatingObject.currentRadius * 4;
+        const BUBBLE_HEIGHT = BUBBLE_CORNERS_RADIOUS + pFloatingObject.currentRadius * 2;
 
         let borderPoint1;
         let borderPoint2;
         let borderPoint3;
         let borderPoint4;
 
+        let intialDisplace = {
+            x: pFloatingObject.currentPosition.x - BUBBLE_WIDTH / 2,
+            y: pFloatingObject.currentPosition.y - BUBBLE_HEIGHT / 2
+        }
+
         if (pFloatingObject.currentRadius > 5) {
 
             /* Rounded Background */
-
-            let intialDisplace = {
-                x: pFloatingObject.currentPosition.x - BUBBLE_WIDTH / 2,
-                y: pFloatingObject.currentPosition.y - BUBBLE_HEIGHT / 2
-            }
 
             borderPoint1 = {
                 x: intialDisplace.x + BUBBLE_CORNERS_RADIOUS,
@@ -115,7 +103,7 @@ function newBubble() {
 
             /* We paint the panel background first */
 
-            browserCanvasContext.fillStyle = 'rgba(255, 255, 255, 0.75)';
+            browserCanvasContext.fillStyle = 'rgba(255, 249, 196, 0.75)';
             browserCanvasContext.beginPath();
 
             browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, BUBBLE_CORNERS_RADIOUS, 1.0 * Math.PI, 1.5 * Math.PI);
@@ -137,7 +125,7 @@ function newBubble() {
 
             /* We paint the title bar now */
 
-            browserCanvasContext.fillStyle = 'rgba(255, 151, 48, 0.75)';
+            browserCanvasContext.fillStyle = 'rgba(244, 224, 44, 0.75)';
             browserCanvasContext.beginPath();
 
             browserCanvasContext.moveTo(titleBarPoint1.x, titleBarPoint1.y);
@@ -154,28 +142,6 @@ function newBubble() {
             browserCanvasContext.strokeStyle = 'rgba(12, 64, 148, 0.75)';
             browserCanvasContext.stroke();
 
-            /* print the title */
-
-            let labelPoint;
-            let fontSize = 10;
-
-            browserCanvasContext.font = fontSize + 'px Courier New';
-
-            let label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].title;
-
-            let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
-            let yOffset = (TITLE_BAR_HEIGHT - fontSize) / 2 + 2;
-
-            labelPoint = {
-                x: intialDisplace.x + BUBBLE_WIDTH / 2 - xOffset,
-                y: intialDisplace.y + TITLE_BAR_HEIGHT - yOffset
-            };
-
-            //labelPoint = frame.frameThisPoint(labelPoint);
-
-            browserCanvasContext.fillStyle = 'rgba(240, 240, 240, 1)';
-            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
-
         }
 
         if (pFloatingObject.currentRadius > 0.5) {
@@ -183,8 +149,8 @@ function newBubble() {
             /* Image */
 
             let imagePosition = {
-                x: borderPoint1.x,
-                y: borderPoint1.y + TITLE_BAR_HEIGHT
+                x: pFloatingObject.currentPosition.x,
+                y: pFloatingObject.currentPosition.y + BUBBLE_HEIGHT / 2
             };
 
             if (pFloatingObject.payload.profile.imageId !== undefined) {
@@ -207,26 +173,54 @@ function newBubble() {
             browserCanvasContext.lineWidth = 1;
             browserCanvasContext.stroke();
 
-            /* Label Text */
+            /* Labels */
 
             if (pFloatingObject.currentRadius > 6) {
 
                 browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle;
+
+                const SIZE_PERCENTAGE = Math.trunc(pFloatingObject.currentRadius / pFloatingObject.targetRadius * 100) / 100;
+                const ALPHA = 0.5 - (1 - SIZE_PERCENTAGE) * 5;
 
                 let labelPoint;
                 let fontSize = 10;
 
                 let label;
 
+                /* print the title */
+
+                label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].title;
+
+                if (label !== undefined) {
+
+                    if (SIZE_PERCENTAGE > 0.9) {
+
+                        browserCanvasContext.font = fontSize + 'px Courier New';
+
+                        let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
+                        let yOffset = (TITLE_BAR_HEIGHT - fontSize) / 2 + 2;
+
+                        labelPoint = {
+                            x: intialDisplace.x + BUBBLE_WIDTH / 2 - xOffset,
+                            y: intialDisplace.y + TITLE_BAR_HEIGHT - yOffset
+                        };
+
+                        browserCanvasContext.fillStyle = 'rgba(30, 30, 30, ' + ALPHA + ')'
+                        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y); 
+
+                    }
+                }
+
+                /* Message Body */
+
                 label = pFloatingObject.payload.bubbles[pFloatingObject.payloadBubbleIndex].body;
 
                 if (label !== undefined) {
 
-                    const WORDS_PER_ROW = 4;
+                    const WORDS_PER_ROW = 5;
                     const TOTAL_ROWS = 5;
-                    const ALPHA = Math.trunc(pFloatingObject.currentRadius / pFloatingObject.targetRadius  * 100) / 100 / 2;
 
-                    if (ALPHA > 0.4) {
+                    if (SIZE_PERCENTAGE > 0.9) {
 
                         let startingPosition = {
                             x: pFloatingObject.currentPosition.x,

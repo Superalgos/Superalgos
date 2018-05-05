@@ -77,7 +77,9 @@ function newBubbleSets() {
 
                 if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Remove old Bubbles -> j = " + j); }
 
-                for (let i = 0; i < pNewBubbles.length; i++) {
+                let i;
+
+                for (i = 0; i < pNewBubbles.length; i++) {
 
                     let plotterBubble = pNewBubbles[i];
                     let plotterBubbleKey = plotterBubble.date.toString() + plotterBubble.rate.toString();
@@ -112,6 +114,12 @@ function newBubbleSets() {
                     if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Remove old Bubbles -> floatingBubble.floatingHandle = " + floatingBubble.floatingHandle); }
                     if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Remove old Bubbles -> Added to newFloatingBubbles."); }
                     if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Remove old Bubbles -> newFloatingBubbles.length = " + newFloatingBubbles.length); }
+
+                    let floatingObject = floatingLayer.getFloatingObject(floatingBubble.floatingHandle);
+                    floatingObject.payloadBubbleIndex = i;
+
+                    if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Remove old Bubbles -> floatingObject index updated."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Remove old Bubbles -> floatingObject.payloadBubbleIndex = " + i); }
 
                 }
             }
@@ -175,14 +183,17 @@ function newBubbleSets() {
 
                         floatingObject.initializeMass(200);
 
-                        let bodyText = pNewBubbles[i].body;
+                        //let bodyText = pNewBubbles[i].body;
                         let radius;
 
+                        /*
                         if (bodyText.length < 100) {
                             radius = 100;
                         } else {
                             radius = bodyText.length;
                         }
+                        */
+                        radius = 50;
 
                         floatingObject.initializeRadius(radius);
                         floatingObject.initializeImageSize(15);
@@ -213,6 +224,12 @@ function newBubbleSets() {
                     if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Add new Bubbles -> onInitialized -> floatingBubble.floatingHandle = " + floatingBubble.floatingHandle); }
                     if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Add new Bubbles -> onInitialized -> Added to newFloatingBubbles."); }
                     if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Add new Bubbles -> onInitialized -> newFloatingBubbles.length = " + newFloatingBubbles.length); }
+
+                    let floatingObject = floatingLayer.getFloatingObject(floatingBubble.floatingHandle);
+                    floatingObject.payloadBubbleIndex = i;
+
+                    if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Add new Bubbles -> onInitialized -> floatingObject index updated."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] createBubbleSet -> onBubblesChanged -> Add new Bubbles -> onInitialized -> floatingObject.payloadBubbleIndex = " + i); }
 
                 }
             }

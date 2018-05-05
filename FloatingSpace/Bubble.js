@@ -222,11 +222,6 @@ function newBubble() {
 
                     if (SIZE_PERCENTAGE > 0.9) {
 
-                        let startingPosition = {
-                            x: pFloatingObject.currentPosition.x,
-                            y: pFloatingObject.currentPosition.y - TOTAL_ROWS / 2 * (fontSize * 0.60 + 10)
-                        };
-
                         let rawLabelArray = label.split(" ");
                         let labelArray = [];
 
@@ -247,7 +242,9 @@ function newBubble() {
                             }
                         }
 
-                        /* Now we plot each row. */
+                        /* Calculate each ROW */
+
+                        let labelRows = [];
 
                         for (let i = 0; i < TOTAL_ROWS; i++) {
 
@@ -262,6 +259,25 @@ function newBubble() {
                                     labelRow = labelRow + " " + newWord;
                                 }
                             }
+
+                            if (labelRow !== "") {
+
+                                labelRows.push(labelRow);
+
+                            }
+
+                        }
+
+                        /* Now we plot each row. */
+
+                        for (let i = 0; i < labelRows.length; i++) {
+
+                            let labelRow = labelRows[i];
+
+                            let startingPosition = {
+                                x: pFloatingObject.currentPosition.x,
+                                y: pFloatingObject.currentPosition.y - labelRows.length / 2 * (fontSize * 0.60 + 10)
+                            };
 
                             labelPoint = {
                                 x: startingPosition.x - labelRow.length / 2 * fontSize * 0.60,

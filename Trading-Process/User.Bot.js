@@ -110,9 +110,47 @@
                         if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> Cannot place orders since Available Balance is zero on both Assets."); }
                         callBack(global.DEFAULT_OK_RESPONSE);
                         return;
+
+                        let messageRelevance = Math.trunc(Math.random() * 10);
+
+                        switch (messageRelevance) {
+
+                            case 1: {
+                                assistant.sendMessage(messageRelevance, "No Available Balance","Cannot place orders since Available Balance is zero on both Assets.");
+                                break;
+                            }
+                            case 3: {
+                                assistant.sendMessage(messageRelevance, "Available Balance Too Low", "Available balances too low on both assets.");
+                                break;
+                            }
+                            case 5: {
+                                assistant.sendMessage(messageRelevance, "Orders Already at Order Book", "All intended orders have already been put at the order book.");
+                                break;
+                            }
+
+                        }
                     }
 
-                    if (Math.random() * 10 > 8) {
+                    if (Math.random() * 10 > 3) {
+
+                        let messageRelevance = Math.trunc(Math.random() * 6);
+
+                        switch (messageRelevance) {
+
+                            case 1: {
+                                assistant.sendMessage(messageRelevance, "Feeling Lazy", "I don't feel like putting any order by now. Will think about it later.");
+                                break;
+                            }
+                            case 3: {
+                                assistant.sendMessage(messageRelevance, "Not Right Time", "According to my internal calculations, this is not a good time to place an order.");
+                                break;
+                            }
+                            case 5: {
+                                assistant.sendMessage(messageRelevance, "Not Feeling Lucky", "I am currently not feeling lucky, for that reason I wont put any order now.");
+                                break;
+                            }
+
+                        }
 
                         if (LOG_INFO === true) { logger.write("[INFO] start -> decideWhatToDo -> In some situations it is just fin no to place orders. Passing this turn. "); }
                         callBack(global.DEFAULT_OK_RESPONSE);
@@ -134,6 +172,7 @@
 
                         assistant.putPosition("buy", rate, amountA, amountB, callBack);
 
+                        assistant.sendMessage(10, "Buy Order Placed", "I ve just placed a Buy order because I thought the rate " + rate + " was great.");
                     }
 
                     if (balanceB > 0) {
@@ -151,6 +190,7 @@
 
                         assistant.putPosition("sell", rate, amountA, amountB, callBack);
 
+                        assistant.sendMessage(10, "Sell Order Placed", "I ve just placed a Sell order because I believe it was the right time to do so.");
                     } 
 
                 } catch (err) {

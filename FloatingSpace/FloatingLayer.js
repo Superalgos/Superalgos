@@ -15,10 +15,13 @@ function newFloatingLayer() {
         physicsLoop: physicsLoop,
         isInside: isInside,
         isInsideFloatingObject: isInsideFloatingObject,
+        changeTargetRepulsion: changeTargetRepulsion,
         initialize: initialize
     };
 
-    innactiveFloatingObjects = [];
+    let innactiveFloatingObjects = [];
+
+    let maxTargetRepulsionForce = 0.0005;
 
     return thisObject;
 
@@ -502,10 +505,10 @@ function newFloatingLayer() {
 
             /* We need to put a hard limit to this force, in order to to eject very little floatingObjects to the infinite and beyond. */
 
-            if (force > 0.0005) {
-                force = 0.0005;
+            if (force > maxTargetRepulsionForce) {
+                force = maxTargetRepulsionForce;
             }
-
+            
             var pos1 = {
                 x: floatingObject1.currentPosition.x,
                 y: floatingObject1.currentPosition.y
@@ -538,6 +541,26 @@ function newFloatingLayer() {
 
         }
 
+    }
+
+    function changeTargetRepulsion(pDelta) {
+
+        if (pDelta > 0) {
+
+            pDelta = 1;
+            
+        } else {
+
+            pDelta = -1;
+
+        }
+
+        maxTargetRepulsionForce = maxTargetRepulsionForce + pDelta / 10000;
+
+        if (maxTargetRepulsionForce < 0.0001) {
+
+            maxTargetRepulsionForce = 0.0001
+        }
     }
 
     function colliding(floatingObject1, floatingObject2) {

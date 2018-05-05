@@ -365,8 +365,18 @@ function newCanvas() {
         var event = window.event || event; // old IE support
         let delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
 
-        viewPort.applyZoom(delta);
+        let floatingObjectIndex = canvas.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
 
+        if (floatingObjectIndex > 0) {
+
+            canvas.floatingSpace.floatingLayer.changeTargetRepulsion(event.wheelDelta);
+
+        } else {
+
+            viewPort.applyZoom(delta);
+
+        }
+        
         return false;  // This instructs the browser not to take the event and scroll the page. 
     }
 

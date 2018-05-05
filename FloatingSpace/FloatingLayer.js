@@ -193,10 +193,14 @@ function newFloatingLayer() {
 
             // The radius also have a target.
 
-            if (floatingObject.currentRadius < floatingObject.targetRadius) {
-                floatingObject.currentRadius = floatingObject.currentRadius + .5;
-            } else {
-                floatingObject.currentRadius = floatingObject.currentRadius - .5;
+            if (Math.abs(floatingObject.currentRadius - floatingObject.targetRadius) >= 1) {
+
+                if (floatingObject.currentRadius < floatingObject.targetRadius) {
+                    floatingObject.currentRadius = floatingObject.currentRadius + .5;
+                } else {
+                    floatingObject.currentRadius = floatingObject.currentRadius - .5;
+                }
+
             }
 
             // The imageSize also have a target.

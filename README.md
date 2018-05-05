@@ -1,4 +1,5 @@
-# I'm Mariam, an AA t-Bot!
+# I'm Mariam, a t-bot!
+AKA a trading algobot running on the AAPlatform by Advanced Algos Ltd.
 
 ### My Specialty
 I serve as a template for developing trading bots.

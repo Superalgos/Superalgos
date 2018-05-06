@@ -393,7 +393,7 @@ function newCanvas() {
 
             if (floatingObjectDragStarted) {
 
-                let floatingObject = thisObject.floatingSpace.floatingLayer.floatingObjects[floatingObjectBeingDragged];
+                let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingDragged);
 
                 floatingObject.currentPosition.x = dragVector.upX;
                 floatingObject.currentPosition.y = dragVector.upY;

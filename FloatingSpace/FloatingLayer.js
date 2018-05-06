@@ -148,27 +148,43 @@ function newFloatingLayer() {
         }
     }
 
-    function getFloatingObject(pFloatingObjectHandle) {
+    function getFloatingObject(pFloatingObjectHandle, pFloatingObjectIndex) {
 
         if (INFO_LOG === true) { logger.write("[INFO] getFloatingObject -> Entering function."); }
 
-        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+        if (pFloatingObjectHandle !== undefined) {
 
-            let floatingObject = invisibleFloatingObjects[i];
+            for (let i = 0; i < invisibleFloatingObjects.length; i++) {
 
-            if (floatingObject.handle === pFloatingObjectHandle) {
+                let floatingObject = invisibleFloatingObjects[i];
 
-                return floatingObject;
+                if (floatingObject.handle === pFloatingObjectHandle) {
+
+                    return floatingObject;
+                }
+            }
+
+            for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+
+                let floatingObject = thisObject.floatingObjects[i];
+
+                if (floatingObject.handle === pFloatingObjectHandle) {
+
+                    return floatingObject;
+                }
             }
         }
 
-        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+        if (pFloatingObjectIndex !== undefined) {
 
-            let floatingObject = thisObject.floatingObjects[i];
+            for (let i = 0; i < thisObject.floatingObjects.length; i++) {
 
-            if (floatingObject.handle === pFloatingObjectHandle) {
+                let floatingObject = thisObject.floatingObjects[i];
 
-                return floatingObject;
+                if (i === pFloatingObjectIndex) {
+
+                    return floatingObject;
+                }
             }
         }
     }

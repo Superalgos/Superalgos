@@ -516,17 +516,22 @@
                                         let thisPosition = context.executionContext.positions[i];
 
                                         if (thisPosition.id === pPositionId) {
-
-                                            let trade = {
-                                                id: Math.trunc(Math.random(1) * 1000000),
-                                                type: thisPosition.type,
-                                                rate: thisPosition.rate,
-                                                amountA: thisPosition.amountA,
-                                                amountB: thisPosition.amountB,
-                                                fee: 0,
-                                                date: (new Date()).valueOf()
-                                            }
-
+											
+											let feeRate = 0.0025; 		// Default fee
+											
+											if (Math.random(1) < 0.5)
+												feeRate = 0.0015;		// Some times we will pay less fee
+											
+											let trade = {
+												id: Math.trunc(Math.random(1) * 1000000),
+												type: thisPosition.type,
+												rate: thisPosition.rate.toString(),
+												amountA: Number(thisPosition.amountA.toFixed(8)).toString(),
+												amountB: Number(thisPosition.amountB.toFixed(8)).toString(),
+												fee: Number(feeRate.toFixed(8)).toString(),
+												date: (new Date()).valueOf()
+											}
+											
                                             trades.push(trade);
 
                                             onResponse(global.DEFAULT_OK_RESPONSE, trades);
@@ -609,21 +614,15 @@
                             let sumAssetB = 0;
 
                             for (let k = 0; k < pTrades.length; k++) {
-
-                                sumAssetA = sumAssetA + Number(pTrades[k].amountA);
-                                sumAssetB = sumAssetB + Number(pTrades[k].amountB);
-
-                                /* We add the fees */
-
-                                sumAssetA = sumAssetA - Number(pTrades[k].fee);
-
+								let trade = pTrades[k];
+                                sumAssetA = sumAssetA + Number(trade.amountA);
+                                sumAssetB = sumAssetB + Number(trade.amountB);
                             }
+							
+							sumAssetA = Number(sumAssetA.toFixed(8));
+							sumAssetB = Number(sumAssetB.toFixed(8));
 
-                            sumAssetB = Number(sumAssetB.toFixed(8));
-
-                            if (
-                                position.amountB !== sumAssetB
-                            ) {
+                            if (position.amountB !== sumAssetB) {
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> sumAssetB = " + sumAssetB);
 
@@ -683,30 +682,22 @@
 
                             let sumAssetA = 0;
                             let sumAssetB = 0;
-
-                            for (let k = 0; k < pTrades.length; k++) {
-
-                                sumAssetA = sumAssetA + Number(pTrades[k].amountA);
-                                sumAssetB = sumAssetB + Number(pTrades[k].amountB);
-
-                                /* We add the fees */
-
-                                sumAssetA = sumAssetA - Number(pTrades[k].fee);
-
+							
+							for (let k = 0; k < pTrades.length; k++) {
+								let trade = pTrades[k];
+                                sumAssetA = sumAssetA + Number(trade.amountA);
+                                sumAssetB = sumAssetB + Number(trade.amountB);
                             }
-
+							
                             /* To this we add the current position amounts. */
-
-                            sumAssetA = sumAssetA + Number(exchangePosition.amountA.toFixed(8));
-                            sumAssetB = sumAssetB + Number(exchangePosition.amountB.toFixed(8));
-
+							
+                            sumAssetA = sumAssetA + Number(exchangePosition.amountA);
+                            sumAssetB = sumAssetB + Number(exchangePosition.amountB);
+							
                             sumAssetA = Number(sumAssetA.toFixed(8));
                             sumAssetB = Number(sumAssetB.toFixed(8));
 
-                            if (
-                                position.amountA !== sumAssetA ||
-                                position.amountB !== sumAssetB
-                            ) {
+                            if (position.amountA !== sumAssetA || position.amountB !== sumAssetB ) {
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
@@ -764,57 +755,80 @@
                                 context.newHistoryRecord.newTrades++;
 
                                 /* Calculate Balances */
-
+								let assetA = 0;
+								let assetB = 0;
+								
                                 if (trade.type === 'buy') {
+									let fee = Number(trade.fee) * trade.amountB;
+									let fixedFee = Number(fee.toFixed(8));
+									
+									assetA = context.executionContext.balance.assetA - Number(trade.amountA);
+									assetB = context.executionContext.balance.assetB + Number(trade.amountB) - fixedFee;
 
-                                    context.executionContext.balance.assetA = context.executionContext.balance.assetA - Number(trade.amountA);
-                                    context.executionContext.balance.assetB = context.executionContext.balance.assetB + Number(trade.amountB);
-
-                                    context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB + Number(trade.amountB);
+									let available = context.executionContext.availableBalance.assetB + Number(trade.amountB) - fixedFee;
+                                    context.executionContext.availableBalance.assetB = Number(available.toFixed(8));
                                 }
 
                                 if (trade.type === 'sell') {
-
-                                    context.executionContext.balance.assetA = context.executionContext.balance.assetA + Number(trade.amountA);
-                                    context.executionContext.balance.assetB = context.executionContext.balance.assetB - Number(trade.amountB);
-
-                                    context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA + Number(trade.amountA);
+									let fee = Number(trade.fee) * trade.amountA;
+									let fixedFee = Number(fee.toFixed(8));
+									
+									assetA = context.executionContext.balance.assetA + Number(trade.amountA) - fixedFee;
+									assetB = context.executionContext.balance.assetB - Number(trade.amountB);
+									
+									let available = context.executionContext.availableBalance.assetA + Number(trade.amountA) - fixedFee;
+									context.executionContext.availableBalance.assetA = Number(available.toFixed(8));
                                 }
+								
+								context.executionContext.balance.assetA = Number(assetA.toFixed(8));
+								context.executionContext.balance.assetB = Number(assetB.toFixed(8));
                             }
 
                             /* Calculate Profits */
 
-                            if (context.executionContext.investment.assetA > 0) {
-
+                            if (context.executionContext.investment.assetA > 0 && context.executionContext.balance.assetA > 0) {
                                 context.executionContext.profits.assetA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
-                            }
-
-                            if (context.executionContext.investment.assetB > 0) {
-
+                            }else{
+								context.executionContext.profits.assetA = 0;
+							}
+                            
+							if (context.executionContext.investment.assetB > 0 && context.executionContext.balance.assetB > 0) {
                                 context.executionContext.profits.assetB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
-                            }
-
-                            context.newHistoryRecord.profitsAssetA = context.executionContext.profits.assetA;
+                            }else{
+								context.executionContext.profits.assetB = 0;
+							}
+							
+							context.newHistoryRecord.profitsAssetA = context.executionContext.profits.assetA;
                             context.newHistoryRecord.profitsAssetB = context.executionContext.profits.assetB;
 
                             /* Calculate Combined Profits */
-
-                            if (context.executionContext.investment.assetA > 0) {
-
-                                let convertedAssetsB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / marketRate;
-
-                                context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA + convertedAssetsB - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
-                            }
-
-                            if (context.executionContext.investment.assetB > 0) {
-
-                                let convertedAssetsA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) * marketRate;
-
-                                context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB + convertedAssetsA - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
-                            }
-
-                            context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;
-                            context.newHistoryRecord.combinedProfitsB = context.executionContext.combinedProfits.assetB;
+							if (context.executionContext.investment.assetA > 0) {
+								let convertedAssetsB = 0;
+								
+								if(context.executionContext.balance.assetB > 0)
+									convertedAssetsB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) * marketRate;
+								
+								context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA + convertedAssetsB ) / context.executionContext.investment.assetA;
+								
+							}else{
+								context.executionContext.combinedProfits.assetA = 0;
+							}
+							
+							if (context.executionContext.investment.assetB > 0) {
+								let convertedAssetsA = 0;
+								
+								if(context.executionContext.balance.assetA > 0)
+									convertedAssetsA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / marketRate;
+								
+								context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB + convertedAssetsA ) / context.executionContext.investment.assetB;
+								
+							}else{
+								context.executionContext.combinedProfits.assetB = 0;
+							}
+							
+							context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;
+							context.newHistoryRecord.combinedProfitsB = context.executionContext.combinedProfits.assetB;
+							
 
                         } catch (err) {
                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = " + err.message);

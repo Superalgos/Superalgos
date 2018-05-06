@@ -411,7 +411,8 @@
                     stringExchangeErr.indexOf("ENOTFOUND") > 0 ||
                     stringExchangeErr.indexOf("ECONNREFUSED") > 0 ||
                     stringExchangeErr.indexOf("ESOCKETTIMEDOUT") > 0 ||
-                    stringExchangeErr.indexOf("ECONNRESET") > 0) {
+                    stringExchangeErr.indexOf("ECONNRESET") > 0 ||
+					stringExchangeResponse.indexOf("Internal error. Please try again") > 0) {
 
                     logger.write("[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
                     notOkCallBack(global.DEFAULT_RETRY_RESPONSE);

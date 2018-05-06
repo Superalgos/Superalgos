@@ -443,20 +443,21 @@
                     once we advance into multiple competitions scheme.
                     */
 
-                    const INITIAL_INVESTMENT = 0.001;              // This is just for this release of the platform.
+					const INITIAL_INVESTMENT_A = 57.23872937;              // This is just for this release of the platform.
+                    const INITIAL_INVESTMENT_B = 0;              // This is just for this release of the platform.
 
                     thisObject.executionContext = {
                         investment: {                               // This is used to calculate profits. 
-                            assetA: 0,
-                            assetB: INITIAL_INVESTMENT
+                            assetA: INITIAL_INVESTMENT_A,
+                            assetB: INITIAL_INVESTMENT_B
                         },
                         balance: {                                  // This is the total balance that includes positions at the order book + funds available to be traded. 
-                            assetA: 0,
-                            assetB: INITIAL_INVESTMENT              // It starts with the initial investment.
+                            assetA: INITIAL_INVESTMENT_A,
+                            assetB: INITIAL_INVESTMENT_B              // It starts with the initial investment.
                         },
                         availableBalance: {                         // This is the balance the bot has at any moment in time available to be traded (not in positions at the order book). 
-                            assetA: 0,
-                            assetB: INITIAL_INVESTMENT              // It starts with the initial investment.
+                            assetA: INITIAL_INVESTMENT_A,
+                            assetB: INITIAL_INVESTMENT_B              // It starts with the initial investment.
                         },
                         profits: {
                             assetA: 0,

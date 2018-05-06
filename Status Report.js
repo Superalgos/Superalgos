@@ -428,7 +428,7 @@
                             } else {
 
                                 if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Main Status Report Not Updated."); }
-                                if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Current Trade Id (" + monthlyStatusReport.lastTrade.id + ") is <= than Id at main status report file. (" + statusReport.lastTrade.id + ")"); }
+                                if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Current Trade Id (" + monthlyStatusReport.lastTrade.id + ") is <= than Id at main status report file. (" + thisObject.file.lastTrade.id + ")"); }
 
                                 loop();  // Lets see the next month.
                             }

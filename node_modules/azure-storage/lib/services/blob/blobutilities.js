@@ -47,7 +47,8 @@ var BlobUtilities = {
     SNAPSHOTS: 'snapshots',
     METADATA: 'metadata',
     UNCOMMITTED_BLOBS: 'uncommittedblobs',
-    COPY: 'copy'
+    COPY: 'copy',
+    DELETED: 'deleted'
   },
 
   /**

@@ -657,6 +657,8 @@ StorageServiceClient.prototype._buildRequestOptions = function (webResource, bod
       } else {
         requestOptions.timeout = Constants.DEFAULT_CLIENT_REQUEST_TIMEOUT_IN_MS; // 2 minutes
       }
+
+      requestOptions.forever = true;
     }
 
     callback(error, requestOptions);

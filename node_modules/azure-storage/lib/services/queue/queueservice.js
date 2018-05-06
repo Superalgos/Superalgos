@@ -728,6 +728,8 @@ QueueService.prototype.createMessage = function (queue, messageText, optionsOrCa
     .withQueryOption(QueryStringConstants.VISIBILITY_TIMEOUT, options.visibilityTimeout)
     .withBody(xmlMessageDescriptor);
 
+  var messageEncoder = this.messageEncoder;
+
   var processResponseCallback = function (responseObject, next) {
     responseObject.queueMessageResults = [];
 
@@ -739,7 +741,7 @@ QueueService.prototype.createMessage = function (queue, messageText, optionsOrCa
       }
 
       messages.forEach(function (message) {
-        var queueMessageResult = QueueMessageResult.parse(message, this.messageEncoder);
+        var queueMessageResult = QueueMessageResult.parse(message, messageEncoder);
         responseObject.queueMessageResults.push(queueMessageResult);
       });
     }

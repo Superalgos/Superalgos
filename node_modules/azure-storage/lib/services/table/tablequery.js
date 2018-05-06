@@ -96,7 +96,7 @@ TableQuery.prototype.top = function (top) {
  * OR
  * var tableQuery = new TableQuery().where('Name == ? or Name <= ?', name1, name2);
  * OR
- * var tableQuery = new TableQuery().where('Name == ?string? && Value == ?int64?, name1, int64Val);
+ * var tableQuery = new TableQuery().where('Name == ?string? && Value == ?int64?', name1, int64Val);
  *
  * // tasktable should already exist and have entities
  * tableService.queryEntities('tasktable', tableQuery, null \/*currentToken*\/, function(error, result, response) {

@@ -1,5 +1,5 @@
 #!/bin/sh
-basedir=`dirname "$0"`
+basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
 
 case `uname` in
     *CYGWIN*) basedir=`cygpath -w "$basedir"`;;

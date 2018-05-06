@@ -8,7 +8,6 @@ function newFloatingLayer() {
     logger.fileName = MODULE_NAME;
 
     let thisObject = {
-        floatingObjects: undefined,               // This is the array of floatingObjects being displayed
         addFloatingObject: addFloatingObject,
         killFloatingObject: killFloatingObject,
         getFloatingObject: getFloatingObject,
@@ -19,6 +18,7 @@ function newFloatingLayer() {
         initialize: initialize
     };
 
+    let visibleFloatingObjects = [];
     let invisibleFloatingObjects = [];
     let dyingFloatingObjects = [];
 
@@ -29,8 +29,6 @@ function newFloatingLayer() {
     function initialize(callBackFunction) {
 
         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-
-        thisObject.floatingObjects = []; // We initialize this in order to start the calculations in a clean way.
 
         callBackFunction();
     }
@@ -70,16 +68,16 @@ function newFloatingLayer() {
             }
         }
 
-        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
 
-            let floatingObject = thisObject.floatingObjects[i];
+            let floatingObject = visibleFloatingObjects[i];
 
             if (floatingObject.handle === pFloatingObjectHandle) {
-                thisObject.floatingObjects.splice(i, 1);  // Delete item from array.
+                visibleFloatingObjects.splice(i, 1);  // Delete item from array.
 
                 if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> floatingObject.handle = " + floatingObject.handle); }
-                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Removing floatingObject from thisObject.floatingObjects."); }
-                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> thisObject.floatingObjects.length = " + thisObject.floatingObjects.length); }
+                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Removing floatingObject from visibleFloatingObjects."); }
+                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> visibleFloatingObjects.length = " + visibleFloatingObjects.length); }
 
                 sendToDie(floatingObject);
                 return;
@@ -164,9 +162,9 @@ function newFloatingLayer() {
                 }
             }
 
-            for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+            for (let i = 0; i < visibleFloatingObjects.length; i++) {
 
-                let floatingObject = thisObject.floatingObjects[i];
+                let floatingObject = visibleFloatingObjects[i];
 
                 if (floatingObject.handle === pFloatingObjectHandle) {
 
@@ -177,9 +175,9 @@ function newFloatingLayer() {
 
         if (pFloatingObjectIndex !== undefined) {
 
-            for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+            for (let i = 0; i < visibleFloatingObjects.length; i++) {
 
-                let floatingObject = thisObject.floatingObjects[i];
+                let floatingObject = visibleFloatingObjects[i];
 
                 if (i === pFloatingObjectIndex) {
 
@@ -200,9 +198,9 @@ function newFloatingLayer() {
 
         /* This function makes all the calculations to apply phisycs on all floatingObjects in this space. */
 
-        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
 
-            let floatingObject = thisObject.floatingObjects[i];
+            let floatingObject = visibleFloatingObjects[i];
 
             /* Change position based on speed */
 
@@ -299,11 +297,11 @@ function newFloatingLayer() {
 
             /* Collision Control */
 
-            for (let k = i + 1; k < thisObject.floatingObjects.length; k++) {
+            for (let k = i + 1; k < visibleFloatingObjects.length; k++) {
 
-                if (colliding(thisObject.floatingObjects[i], thisObject.floatingObjects[k])) {
+                if (colliding(visibleFloatingObjects[i], visibleFloatingObjects[k])) {
 
-                    resolveCollision(thisObject.floatingObjects[k], thisObject.floatingObjects[i]);
+                    resolveCollision(visibleFloatingObjects[k], visibleFloatingObjects[i]);
 
                 }
             }
@@ -318,15 +316,15 @@ function newFloatingLayer() {
 
         }
 
-        /* We draw all the thisObject.floatingObjects. */
+        /* We draw all the visibleFloatingObjects. */
 
-        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
-            let floatingObject = thisObject.floatingObjects[i];
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+            let floatingObject = visibleFloatingObjects[i];
             floatingObject.drawBackground();
         }
 
-        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
-            let floatingObject = thisObject.floatingObjects[thisObject.floatingObjects.length - i - 1];
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+            let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1];
             floatingObject.drawForeground();
         }
 
@@ -370,11 +368,11 @@ function newFloatingLayer() {
                 floatingObject.radomizeCurrentPosition(payload.position);
                 floatingObject.radomizeCurrentSpeed();
 
-                thisObject.floatingObjects.push(floatingObject);
+                visibleFloatingObjects.push(floatingObject);
 
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
-                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to thisObject.floatingObjects"); }
-                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> thisObject.floatingObjects.length = " + thisObject.floatingObjects.length); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to visibleFloatingObjects"); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> visibleFloatingObjects.length = " + visibleFloatingObjects.length); }
 
                 invisibleFloatingObjects.splice(i, 1);  // Delete item from array.
 
@@ -389,9 +387,9 @@ function newFloatingLayer() {
 
         /* Finally we check if any of the currently visible floatingObjects has become invisible and must be removed from the Physics Engine. */
 
-        for (let i = 0; i < thisObject.floatingObjects.length; i++) {
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
 
-            let floatingObject = thisObject.floatingObjects[i];
+            let floatingObject = visibleFloatingObjects[i];
 
             let payload = {
                 position: undefined,
@@ -426,11 +424,11 @@ function newFloatingLayer() {
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to invisibleFloatingObjects"); }
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
 
-                thisObject.floatingObjects.splice(i, 1);  // Delete item from array.
+                visibleFloatingObjects.splice(i, 1);  // Delete item from array.
 
                 if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
-                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from thisObject.floatingObjects"); }
-                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> thisObject.floatingObjects.length = " + thisObject.floatingObjects.length); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from visibleFloatingObjects"); }
+                if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> visibleFloatingObjects.length = " + visibleFloatingObjects.length); }
 
                 return;                     // Only one at the time. 
 
@@ -524,13 +522,13 @@ function newFloatingLayer() {
 
         const coulomb = 2;
 
-        var floatingObject1 = thisObject.floatingObjects[currentFloatingObject];
+        var floatingObject1 = visibleFloatingObjects[currentFloatingObject];
 
-        for (var i = 0; i < thisObject.floatingObjects.length; i++) {  // The force to be applied is considering all other floatingObjects...
+        for (var i = 0; i < visibleFloatingObjects.length; i++) {  // The force to be applied is considering all other floatingObjects...
 
             if (i !== currentFloatingObject) {  // ... except for the current one. 
 
-                var floatingObject2 = thisObject.floatingObjects[i];   // So, for each floatingObject...
+                var floatingObject2 = visibleFloatingObjects[i];   // So, for each floatingObject...
 
                 var d = Math.sqrt(Math.pow(floatingObject2.currentPosition.x - floatingObject1.currentPosition.x, 2) + Math.pow(floatingObject2.currentPosition.y - floatingObject1.currentPosition.y, 2));  // ... we calculate the distance ...
 
@@ -584,11 +582,11 @@ function newFloatingLayer() {
 
         const coulomb = 2;
 
-        var floatingObject1 = thisObject.floatingObjects[currentFloatingObject];
+        var floatingObject1 = visibleFloatingObjects[currentFloatingObject];
 
-        for (var i = 0; i < thisObject.floatingObjects.length; i++) {  // The force to be applied is considering all other floatingObjects...
+        for (var i = 0; i < visibleFloatingObjects.length; i++) {  // The force to be applied is considering all other floatingObjects...
 
-            var floatingObject2 = thisObject.floatingObjects[i];   // So, for each floatingObject...
+            var floatingObject2 = visibleFloatingObjects[i];   // So, for each floatingObject...
 
             let payload = {
                 position: undefined
@@ -703,8 +701,8 @@ function newFloatingLayer() {
 
         /* This function detects weather the point x,y is inside any of the floatingObjects. */
 
-        for (var i = 0; i < thisObject.floatingObjects.length; i++) {
-            var floatingObject = thisObject.floatingObjects[i];
+        for (var i = 0; i < visibleFloatingObjects.length; i++) {
+            var floatingObject = visibleFloatingObjects[i];
             var distance = Math.sqrt(Math.pow(floatingObject.currentPosition.x - x, 2) + Math.pow(floatingObject.currentPosition.y - y, 2));
 
             if (distance < floatingObject.currentRadius) {
@@ -720,7 +718,7 @@ function newFloatingLayer() {
         /* This function detects weather the point x,y is inside one particular floatingObjects. */
 
 
-        var floatingObject = thisObject.floatingObjects[floatingObjectIndex];
+        var floatingObject = visibleFloatingObjects[floatingObjectIndex];
         var distance = Math.sqrt(Math.pow(floatingObject.currentPosition.x - x, 2) + Math.pow(floatingObject.currentPosition.y - y, 2));
 
         if (distance < floatingObject.currentRadius) {

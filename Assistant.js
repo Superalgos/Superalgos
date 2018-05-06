@@ -680,9 +680,23 @@
  
                             */
 
-                            let sumAssetA = Number(exchangePosition.amountA).toFixed(8);
-                            let sumAssetB = Number(exchangePosition.amountB).toFixed(8);
+                            let sumAssetA = 0;
+                            let sumAssetB = 0;
 							
+							for (let k = 0; k < pTrades.length; k++) {
+								let trade = pTrades[k];
+                                sumAssetA = sumAssetA + Number(trade.amountA);
+                                sumAssetB = sumAssetB + Number(trade.amountB);
+                            }
+							
+                            /* To this we add the current position amounts. */
+							
+                            sumAssetA = sumAssetA + Number(exchangePosition.amountA);
+                            sumAssetB = sumAssetB + Number(exchangePosition.amountB);
+							
+                            sumAssetA = Number(sumAssetA.toFixed(8));
+                            sumAssetB = Number(sumAssetB.toFixed(8));
+
                             if (position.amountA !== sumAssetA || position.amountB !== sumAssetB ) {
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);

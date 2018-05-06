@@ -1,20 +1,15 @@
 ﻿
 function newCompetitionStorage(pName) {
 
-    const CONSOLE_LOG = false;
-
-    /*
-
-    This object will initialize children objects that will end up loading the data of each participant on the competition.
-
-    At the same time it will raise an event for each underlaying file being loaded, so that the UI can reflect the progress to the end user. 
-
-    */
+    const MODULE_NAME = "Competition Storage";
+    const INFO_LOG = false;
+    const ERROR_LOG = true;
+    const logger = newDebugLog();
+    logger.fileName = MODULE_NAME;
 
     let thisObject = {
 
-        files: new Map(),
-
+        competitorsSequences: [],
         eventHandler: undefined,
         initialize: initialize
 
@@ -26,84 +21,136 @@ function newCompetitionStorage(pName) {
 
     thisObject.eventHandler.name = "Storage-" + pName;
 
+    let fileSequences = [];
+
     return thisObject;
 
-    function initialize(pHost, pCompetition, callBackFunction) {
+    function initialize(pHost, pCompetition, pExchange, pMarket, callBackFunction) {
 
-        if (CONSOLE_LOG === true) {
+        try {
 
-            console.log("Competition storage initialize for " + pHost.codeName + "-" + pCompetition.codeName);
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> key = " + pHost.codeName + "-" + pCompetition.codeName); }
 
-        }
+            let dataSetsToLoad = 0;
+            let dataSetsLoaded = 0;
 
-        let dataSetsToLoad = 0;
-        let dataSetsLoaded = 0;
+            fileSequences = [];
 
-        for (let i = 0; i < pCompetition.participants.length; i++) {
+            for (let j = 0; j < pCompetition.participants.length; j++) {
 
-            let devTeam = ecosystem.getTeam(pCompetition.participants[i].devTeam);
-            let bot = ecosystem.getBot(devTeam, pCompetition.participants[i].bot)
-            let product = ecosystem.getProduct(bot, "Live Trading History");
+                let devTeam = ecosystem.getTeam(pCompetition.participants[j].devTeam);
+                let bot = ecosystem.getBot(devTeam, pCompetition.participants[j].bot)
+                let product = ecosystem.getProduct(bot, "Competition Trading History");
 
-            for (let i = 0; i < product.dataSets.length; i++) {
+                if (INFO_LOG === true) { logger.write("[INFO] initialize -> key = " + devTeam.codeName + "-" + bot.codeName + "-" + product.codeName); }
 
-                let thisSet = product.dataSets[i];
+                for (let i = 0; i < product.dataSets.length; i++) {
 
-                switch (thisSet.type) {
+                    let thisSet = product.dataSets[i];
 
-                    case 'Single File': {
+                    switch (thisSet.type) {
+                        case 'File Sequence': {
 
-                        let singleFile = newSingleFile();
-                        singleFile.initialize(devTeam, bot, product, thisSet, undefined, undefined, onSingleFileReady);
-                        thisObject.files.set(pCompetition.participants[i].devTeam + "-" + pCompetition.participants[i].bot, singleFile);
-                        dataSetsToLoad++;
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> File Sequence -> key = " + pHost.codeName + "-" + pCompetition.codeName + "-" + devTeam.codeName + "-" + bot.codeName + "-" + product.codeName); }
 
-                        if (CONSOLE_LOG === true) {
+                            let fileSequence = newFileSequence();
+                            fileSequence.initialize(devTeam, bot, product, thisSet, pExchange, pMarket, onFileSequenceReady);
+                            fileSequences.push(fileSequence);
+                            dataSetsToLoad++;
+                        }
+                            break;
+                    }
 
-                            console.log("Competition storage initialize Single File for " + devTeam.codeName + "-" + bot.codeName + "-" + product.codeName);
+                    function onFileSequenceReady(err, pCaller) {
 
+                        try {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Entering function."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> key = " + pHost.codeName + "-" + pCompetition.codeName + "-" + devTeam.codeName + "-" + bot.codeName + "-" + product.codeName); }
+
+                            switch (err.result) {
+                                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received OK Response."); }
+                                    break;
+                                }
+
+                                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received FAIL Response."); }
+                                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+
+                                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received CUSTOM FAIL Response."); }
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> err.message = " + err.message); }
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> This bot has not starting competing yet."); }
+
+                                    break;
+                                }
+
+                                default: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady -> Received Unexpected Response."); }
+                                    callBackFunction(err);
+                                    return;
+                                }
+                            }
+
+                            let event = {
+                                totalValue: pCaller.getExpectedFiles(),
+                                currentValue: pCaller.getFilesLoaded()
+                            }
+
+                            thisObject.eventHandler.raiseEvent('File Sequence Loaded', event);
+
+                            if (event.currentValue === event.totalValue) {
+
+                                dataSetsLoaded++;
+
+                                checkInitializeComplete();
+                            }
+
+                        } catch (err) {
+
+                            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileSequenceReady -> err = " + err); }
+                            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
                         }
                     }
-                        break;
 
-                }
+                    function checkInitializeComplete() {
 
-                function onSingleFileReady() {
+                        try {
 
-                    if (CONSOLE_LOG === true) {
+                            if (INFO_LOG === true) { logger.write("[INFO] checkInitializeComplete -> Entering function."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] checkInitializeComplete -> key = " + pHost.codeName + "-" + pCompetition.codeName + "-" + devTeam.codeName + "-" + bot.codeName + "-" + product.codeName); }
 
-                        console.log("Competition storage initialize onSingleFileReady for " + devTeam.codeName + "-" + bot.codeName + "-" + product.codeName);
+                            if (dataSetsLoaded === dataSetsToLoad) {
 
-                    }
+                                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
-                    let event = {
-                        totalValue: 1,
-                        currentValue: 1
-                    }
+                            }
 
-                    thisObject.eventHandler.raiseEvent('Single File Loaded', event);
+                        } catch (err) {
 
-                    if (event.currentValue === event.totalValue) {
-
-                        dataSetsLoaded++;
-                        checkInitializeComplete();
-                    }
-                }
-
-                function checkInitializeComplete() {
-
-                    if (CONSOLE_LOG === true) {
-
-                        console.log("Competition storage initialize checkInitializeComplete for " + devTeam.codeName + "-" + bot.codeName + "-" + product.codeName);
-
-                    }
-
-                    if (dataSetsLoaded === dataSetsToLoad) {
-                        callBackFunction();
+                            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> checkInitializeComplete -> err = " + err); }
+                            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                        }
                     }
                 }
             }
+
+            thisObject.competitorsSequences.push(fileSequences);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
     }
+
 }
 

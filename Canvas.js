@@ -398,21 +398,6 @@ function newCanvas() {
                 floatingObject.currentPosition.x = dragVector.upX;
                 floatingObject.currentPosition.y = dragVector.upY;
 
-                /* Now we estimate if the drag was towards the Target Point of the floatingObject or not. */
-
-                let distDown = distance(dragVector.downX, dragVector.downY, floatingObject.targetPosition.x, floatingObject.targetPosition.y);
-                let distUp = distance(dragVector.upX, dragVector.upY, floatingObject.targetPosition.x, floatingObject.targetPosition.y);
-
-                let mZoomValue;
-
-                if (distDown < distUp) {
-
-                    mZoomValue = 1;
-                } else {
-                    mZoomValue = -1;
-                }
-
-                //floatingObject.container.zoom.mZoom(mZoomValue);   // Zoom is applied to floatingObject mass of all floatingObjects in the same container.
             }
 
             if (containerDragStarted || viewPortBeingDragged) {

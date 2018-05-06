@@ -20,7 +20,7 @@ function newFileSequence() {
 
     let files = new Map;
 
-    let maxSequence;
+    let maxSequence = -1; // This is replaced by the content of the sequence file, which contains an index that starts on zero. In the case that the sequence file is not found the default value is -1 sin when you add 1 it gives you the amount of files in the sequence, zero.
 
     return thisObject;
 
@@ -81,7 +81,7 @@ function newFileSequence() {
                             if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> Received CUSTOM FAIL Response."); }
                             if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> err.message = " + err.message); }
 
-                            callBackFunction(err);
+                            callBackFunction(err, thisObject);
                             return;
                         }
 

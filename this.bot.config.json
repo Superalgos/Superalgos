@@ -108,7 +108,7 @@
       "plotter": {
         "devTeam": "AAMasters",
         "codeName": "PlottersTrading",
-        "moduleName": "History"
+        "moduleName": "LiveHistory"
       }
     },
     {
@@ -134,7 +134,7 @@
       "plotter": {
         "devTeam": "AAMasters",
         "codeName": "PlottersTrading",
-        "moduleName": "History"
+        "moduleName": "BacktestHistory"
       }
     },
     {
@@ -160,7 +160,7 @@
       "plotter": {
         "devTeam": "AAMasters",
         "codeName": "PlottersTrading",
-        "moduleName": "History"
+        "moduleName": "CompetitionHistory"
       }
     }
   ],

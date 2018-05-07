@@ -104,7 +104,7 @@ exports.newUserBot = function newUserBot(BOT, DEBUG_MODULE, COMMONS_MODULE) {
 				if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> Entering function."); }
 
 				getChannelTilt(botDecision);
-
+				
 				function botDecision(err, channelTilt) {
 					if (LOG_INFO === true) { logger.write("[INFO] start -> businessLogic -> botDecision  -> LRC Channel Tilt:" + channelTilt); }
 
@@ -133,22 +133,23 @@ exports.newUserBot = function newUserBot(BOT, DEBUG_MODULE, COMMONS_MODULE) {
                 let currentRate = assistant.getMarketRate();
                 let amountA = assistant.getAvailableBalance().assetA;
                 let amountB = amountA / currentRate;
-                
-				if(positions.length > 0){
+				
+				if(positions.length > 0 && positions[0].type === "buy" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 5)){
 					
 					assistant.movePosition(positions[0], currentRate, callBack);
 					
 					if (LOG_INFO === true) { logger.write("[INFO] start -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + currentRate.toFixed(8) + ". Position: " + JSON.stringify(positions[0])); }
 					
 					let message = "I'm moving an existing buy position to a new rate: " + currentRate.toFixed(8);
-					assistant.sendMessage(5, "Moving Position", message);
+					assistant.sendMessage(1, "Moving Position", message);
+
 					
 				} else if(assetABalance > 0){
 					
 					assistant.putPosition("buy", currentRate, amountA, amountB, callBack);
 					
 					let message = "I'm creating a new buy position at rate: " + currentRate.toFixed(8) + ". " + MARKET.assetA +" amount: " + amountA.toFixed(8) + ". " + MARKET.assetB + " amount: "  + amountB.toFixed(8);
-					assistant.sendMessage(5, "Buying", message);
+					assistant.sendMessage(1, "Buying", message);
 										
 				} else {
 					if (LOG_INFO === true) { logger.write("[INFO] start -> createBuyPosition -> There is not enough available balance to buy. Available balance: " + assetABalance ); }
@@ -168,14 +169,14 @@ exports.newUserBot = function newUserBot(BOT, DEBUG_MODULE, COMMONS_MODULE) {
                 let amountB = assistant.getAvailableBalance().assetB;
                 let amountA = amountB * currentRate;
 
-				if(positions.length > 0){
+				if(positions.length > 0 && positions[0].type === "sell" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 5)){
 					
 					assistant.movePosition(positions[0], currentRate, callBack);
 					
 					if (LOG_INFO === true) { logger.write("[INFO] start -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + currentRate.toFixed(8) + ". Position: " + JSON.stringify(positions[0])); }
 					
 					let message = "I'm moving an existing sell position to a new rate: " + currentRate.toFixed(8);
-					assistant.sendMessage(5, "Moving Position", message);
+					assistant.sendMessage(1, "Moving Position", message);
 
 				}else if(assetBBalance > 0){
 					
@@ -184,7 +185,7 @@ exports.newUserBot = function newUserBot(BOT, DEBUG_MODULE, COMMONS_MODULE) {
 					if (LOG_INFO === true) { logger.write("[INFO] start -> createSellPosition -> Artuditu put a new SELL Position at rate: " + currentRate + ". Amount traded asset A: " + amountA + ". Amount traded asset B: " + amountB); }
 					
 					let message = "I'm creating a new sell position at rate: " + currentRate.toFixed(8) + ". " + MARKET.assetA +" amount: " + amountA.toFixed(8) + ". " + MARKET.assetB + " amount: "  + amountB.toFixed(8);
-					assistant.sendMessage(5, "Selling", message);
+					assistant.sendMessage(1, "Selling", message);
 					
 				} else {
 					if (LOG_INFO === true) { logger.write("[INFO] start -> createBuyPosition -> There is not enough available balance to sell. Available balance: " + assetBBalance ); }

@@ -45,93 +45,197 @@
 
     function initialize(exchange, market, pProductsPanel, callBackFunction) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        try {
 
-        /* Remember the Products Panel */
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-        productsPanel = pProductsPanel;
+            /* Remember the Products Panel */
 
-        /* Listen to the event of change of status */
+            productsPanel = pProductsPanel;
 
-        productsPanel.container.eventHandler.listenToEvent("Product Card Status Changed", onProductCardStatusChanged);
+            /* Listen to the event of change of status */
 
-        /* Legacy code to clean */
+            productsPanel.container.eventHandler.listenToEvent("Product Card Status Changed", onProductCardStatusChanged);
 
-        marketId = market;
-        exchangeId = exchange;
+            /* Legacy code to clean */
 
-        chartGrid = newChartGrid();
+            marketId = market;
+            exchangeId = exchange;
 
-        recalculateScale();
-        moveViewPortToCurrentDatetime();
+            chartGrid = newChartGrid();
 
-        /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
+            recalculateScale();
+            moveViewPortToCurrentDatetime();
 
-        viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
-        viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+            /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 
-        initializeProductPlotters();
-        initializeCompetitionPlotters();
+            viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
+            viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+            canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-        callBackFunction();
+            initializeCompetitionPlotters(onCompetitionPlottersInitialized);
 
-        initializationReady = true;
+            function onCompetitionPlottersInitialized(err) {
 
+                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> Entering function."); }
+
+                switch (err.result) {
+                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> Received OK Response."); }
+                        break;
+                    }
+
+                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> Received FAIL Response."); }
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    default: {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received Unexpected Response."); }
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+                }
+
+                initializeProductPlotters();
+
+                initializationReady = true;
+
+                callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE);
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        }
     }
 
-    function initializeCompetitionPlotters() {
+    function initializeCompetitionPlotters(callBack) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> Entering function."); }
+        try {
 
-        /* At this current version of the platform, we will support only one competition with only one plotter. */
+            if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> Entering function."); }
 
-        const COMPETITION_HOST = "AAArena";
-        const COMPETITION = "First-Closed-Door";
+            /* At this current version of the platform, we will support only one competition with only one plotter. */
 
-        let objName = COMPETITION_HOST + "-" + COMPETITION;
-        let storage = newCompetitionStorage(objName);
+            const COMPETITION_HOST = "AAArena";
+            const COMPETITION = "First-Closed-Door";
 
-        let host = ecosystem.getHost(COMPETITION_HOST);
-        let competition = ecosystem.getCompetition(host, COMPETITION);
+            let objName = COMPETITION_HOST + "-" + COMPETITION;
+            let storage = newCompetitionStorage(objName);
 
-        storage.initialize(host, competition, DEFAULT_EXCHANGE, DEFAULT_MARKET, onCompetitionStorageInitialized);
+            let host = ecosystem.getHost(COMPETITION_HOST);
+            let competition = ecosystem.getCompetition(host, COMPETITION);
 
-        function onCompetitionStorageInitialized(err) {
+            storage.initialize(host, competition, DEFAULT_EXCHANGE, DEFAULT_MARKET, onCompetitionStorageInitialized);
 
-            if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> Entering function."); }
+            function onCompetitionStorageInitialized(err) {
 
-            /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
+                try {
 
-            let plotter = getNewPlotter(competition.plotter.host, competition.plotter.codeName, competition.plotter.moduleName);
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> Entering function."); }
 
-            plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
-            plotter.container.frame.parentFrame = thisObject.container.frame;
+                    switch (err.result) {
+                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
-            plotter.container.parentContainer = thisObject.container;
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> Received OK Response."); }
+                            break;
+                        }
 
-            plotter.container.frame.width = thisObject.container.frame.width * 1;
-            plotter.container.frame.height = thisObject.container.frame.height * 1;
+                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
 
-            plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2;
-            plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2;
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> Received FAIL Response."); }
+                            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
 
-            plotter.initialize(competition, storage, datetime, timePeriod, onPlotterInizialized);
+                        default: {
 
-            function onPlotterInizialized() {
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> Received Unexpected Response."); }
+                            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+                    }
 
-                if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> Entering function."); }
+                    /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
 
-                let competitionPlotter = {
-                    plotter: plotter,
-                    storage: storage
-                };
+                    let plotter = getNewPlotter(competition.plotter.host, competition.plotter.codeName, competition.plotter.moduleName);
 
-                /* Add the new Active Protter to the Array */
+                    plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
+                    plotter.container.frame.parentFrame = thisObject.container.frame;
 
-                competitionPlotters.push(competitionPlotter);
+                    plotter.container.parentContainer = thisObject.container;
 
+                    plotter.container.frame.width = thisObject.container.frame.width * 1;
+                    plotter.container.frame.height = thisObject.container.frame.height * 1;
+
+                    plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2;
+                    plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2;
+
+                    plotter.initialize(competition, storage, datetime, timePeriod, onPlotterInizialized);
+
+                    function onPlotterInizialized(err) {
+
+                        try {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> Entering function."); }
+
+                            switch (err.result) {
+                                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> Received OK Response."); }
+                                    break;
+                                }
+
+                                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> Received FAIL Response."); }
+                                    callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+
+                                default: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> Received Unexpected Response."); }
+                                    callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+                            }
+
+                            let competitionPlotter = {
+                                plotter: plotter,
+                                storage: storage
+                            };
+
+                            /* Add the new Active Protter to the Array */
+
+                            competitionPlotters.push(competitionPlotter);
+
+                            callBack(GLOBAL.DEFAULT_OK_RESPONSE);
+
+                        } catch (err) {
+
+                            if (ERROR_LOG === true) { logger.write("[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> err = " + err); }
+                            callBack(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                        }
+                    }
+
+                } catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> err = " + err); }
+                    callBack(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                }
             }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initializeCompetitionPlotters -> err = " + err); }
+            callBack(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
     }
 

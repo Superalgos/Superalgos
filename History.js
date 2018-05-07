@@ -407,7 +407,11 @@
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
 
-            let point;
+            let point = {
+                x: 0,
+                y: 0
+            };
+
             let history;
 
             for (let j = 0; j < plotElements.length; j++) {

@@ -443,8 +443,8 @@
                     once we advance into multiple competitions scheme.
                     */
 
-					const INITIAL_INVESTMENT_A = 57.23872937;              // This is just for this release of the platform.
-                    const INITIAL_INVESTMENT_B = 0;              // This is just for this release of the platform.
+					const INITIAL_INVESTMENT_A = 0;              // This is just for this release of the platform.
+                    const INITIAL_INVESTMENT_B = .001;              // This is just for this release of the platform.
 
                     thisObject.executionContext = {
                         investment: {                               // This is used to calculate profits. 

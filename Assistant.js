@@ -704,7 +704,9 @@
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetB = " + sumAssetB);
 
                                 logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
-                                callBack(global.DEFAULT_FAIL_RESPONSE);
+								
+								/* There are diferences on the responses between the getPosition and getTrades that causes some issues, let's retry. */
+                                callBack(global.DEFAULT_RETRY_RESPONSE);
                                 return;
                             }
 

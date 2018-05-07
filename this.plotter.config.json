@@ -13,7 +13,7 @@
       "codeName": "BacktestHistory",
       "moduleName": "History",
       "description": "Plots trading history.",
-      "profilePicture": "Backtest.png",
+      "profilePicture": "BackTest.png",
       "panels": []
     },
     {

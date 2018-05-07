@@ -10,7 +10,7 @@
       "panels": []
     },
     {
-      "codeName": "BackTestHistory",
+      "codeName": "BacktestHistory",
       "moduleName": "History",
       "description": "Plots trading history.",
       "profilePicture": "BackTest.png",

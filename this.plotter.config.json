@@ -15,6 +15,13 @@
       "description": "Plots trading history.",
       "profilePicture": "History.png",
       "panels": []
+    },
+    {
+      "codeName": "CompetitionHistory",
+      "moduleName": "History",
+      "description": "Plots trading history.",
+      "profilePicture": "Competition.png",
+      "panels": []
     }
   ]
 }

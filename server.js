@@ -1173,6 +1173,7 @@ function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
         function onContent(error, result) {
 
             if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> error = " + error); }
 
             if (CONSOLE_LOG === true) {
 

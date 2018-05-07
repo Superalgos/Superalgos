@@ -2,6 +2,8 @@
 
     const MODULE_NAME = "Timeline Chart";
     const INFO_LOG = false;
+    const INTENSIVE_LOG = false;
+    const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -13,7 +15,7 @@
     let timePeriod = INITIAL_TIME_PERIOD;
     let datetime = INITIAL_DATE;
 
-    var thisObject = {
+    let thisObject = {
         setDatetime: setDatetime,
         container: undefined,
         draw: draw,
@@ -21,7 +23,7 @@
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     thisObject.container = container;
 
@@ -493,7 +495,7 @@
 
         datetime = newDate;
 
-        for (var i = 0; i < productPlotters.length; i++) {
+        for (let i = 0; i < productPlotters.length; i++) {
 
             let productPlotter = productPlotters[i];
 
@@ -519,7 +521,7 @@
 
         if (INFO_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
 
-        var container;
+        let container;
 
         /* First we check if this point is inside this space. */
 
@@ -545,7 +547,7 @@
 
         if (thisObject.container.frame.isInViewPort()) {
 
-            for (var i = 0; i < productPlotters.length; i++) {
+            for (let i = 0; i < productPlotters.length; i++) {
 
                 let productPlotter = productPlotters[i];
 
@@ -571,7 +573,57 @@
         }
     }
 
+    function recalculateScale() {
+
+        if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
+
+        let minValue = {
+            x: EARLIEST_DATE.valueOf(),
+            y: 0
+        };
+
+        let maxValue = {
+            x: MAX_PLOTABLE_DATE.valueOf(),
+            y: nextPorwerOf10(USDT_BTC_HTH)
+        };
+
+
+        timeLineCoordinateSystem.initialize(
+            minValue,
+            maxValue,
+            thisObject.container.frame.width,
+            thisObject.container.frame.height
+        );
+
+    }
+
+    function tooTiny() {
+
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] tooTiny -> Entering function."); }
+
+        if (viewPort.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    function tooSmall() {
+
+        if (INFO_LOG === true) { logger.write("[INFO] tooSmall -> Entering function."); }
+
+        if (viewPort.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     function draw() {
+
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] draw -> Entering function."); }
 
         if (productPlotters === undefined) { return; } // We need to wait
 
@@ -602,60 +654,16 @@
         }
     }
 
-    function recalculateScale() {
-
-        if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
-
-        var minValue = {
-            x: EARLIEST_DATE.valueOf(),
-            y: 0
-        };
-
-        var maxValue = {
-            x: MAX_PLOTABLE_DATE.valueOf(),
-            y: nextPorwerOf10(USDT_BTC_HTH)
-        };
-
-
-        timeLineCoordinateSystem.initialize(
-            minValue,
-            maxValue,
-            thisObject.container.frame.width,
-            thisObject.container.frame.height
-        );
-
-    }
-
-    function tooTiny() {
-
-        if (viewPort.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-    function tooSmall() {
-
-        if (INFO_LOG === true) { logger.write("[INFO] tooSmall -> Entering function."); }
-
-        if (viewPort.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
     function drawBackground() {
+
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] drawBackground -> Entering function."); }
 
         let targetLabelFontSize = 150;
         let fontSizeIncrement = 12.5;
         let currentFontSize = 150;
 
-        var market = markets.get(marketId);
-        var label = market.assetA + " " + market.assetB;
+        let market = markets.get(marketId);
+        let label = market.assetA + " " + market.assetB;
 
         //label = '' + level; // Math.trunc(timePeriod / 1000 / 60); 
 

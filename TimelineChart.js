@@ -1,7 +1,7 @@
 ﻿function newTimelineChart() {
 
     const MODULE_NAME = "Timeline Chart";
-    const INFO_LOG = false;
+    const INFO_LOG = true;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();

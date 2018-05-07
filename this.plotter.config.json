@@ -10,24 +10,10 @@
       "panels": []
     },
     {
-      "codeName": "BacktestHistory",
+      "codeName": "History",
       "moduleName": "History",
       "description": "Plots trading history.",
-      "profilePicture": "Backtest.png",
-      "panels": []
-    },
-    {
-      "codeName": "CompetitionHistory",
-      "moduleName": "History",
-      "description": "Plots trading history.",
-      "profilePicture": "Competition.png",
-      "panels": []
-    },
-    {
-      "codeName": "LiveHistory",
-      "moduleName": "History",
-      "description": "Plots trading history.",
-      "profilePicture": "Live.png",
+      "profilePicture": "History.png",
       "panels": []
     }
   ]

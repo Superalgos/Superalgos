@@ -1,5 +1,4 @@
 ﻿
-
 /*
 
 Whithin this sub-system, the canvas object represents a layer on top of the browser canvas object.

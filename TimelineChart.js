@@ -177,6 +177,17 @@
                     plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2;
                     plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2;
 
+                    /* We add the profile picture of each participant, because the plotter will need it. */
+
+                    for (let k = 0; k < competition.participants.length; k++) {
+
+                        let participant = competition.participants[k];
+                        let devTeam = ecosystem.getTeam(participant.devTeam);
+                        let bot = ecosystem.getBot(devTeam, participant.bot);
+                        participant.profilePicture = bot.profilePicture;
+
+                    }
+
                     plotter.initialize(competition, storage, datetime, timePeriod, onPlotterInizialized);
 
                     function onPlotterInizialized(err) {

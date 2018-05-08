@@ -227,6 +227,30 @@
 
                             competitionPlotters.push(competitionPlotter);
 
+                            /* Create The Profie Picture FloatingObject */
+
+                            if (competitionPlotter.plotter.payload !== undefined) {
+
+                                for (let k = 0; k < competition.participants.length; k++) {
+
+                                    let participant = competition.participants[k];
+                                    let devTeam = ecosystem.getTeam(participant.devTeam);
+                                    let bot = ecosystem.getBot(devTeam, participant.bot);
+                                    let imageId = participant.devTeam + "." + participant.profilePicture;
+
+                                    competitionPlotter.plotter.payload[k].profile.downLabel = bot.displayName;
+                                    competitionPlotter.plotter.payload[k].profile.imageId = imageId;
+
+                                    canvas.floatingSpace.profileBalls.createNewProfileBall(competitionPlotter.plotter.payload[k], onProfileBallCreated)
+
+                                    function onProfileBallCreated(err, pProfileHandle) {
+
+                                        competitionPlotter.plotter.payload[k].profile.handle = pProfileHandle;
+
+                                    }
+                                }
+                            }
+
                             callBack(GLOBAL.DEFAULT_OK_RESPONSE);
 
                         } catch (err) {

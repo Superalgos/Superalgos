@@ -1,7 +1,7 @@
 ﻿function newTimelineChart() {
 
     const MODULE_NAME = "Timeline Chart";
-    const INFO_LOG = false;
+    const INFO_LOG = true;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();
@@ -77,41 +77,83 @@
 
             function onCompetitionPlottersInitialized(err) {
 
-                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> Entering function."); }
+                try {
 
-                switch (err.result) {
-                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> Entering function."); }
 
-                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> Received OK Response."); }
-                        break;
+                    switch (err.result) {
+                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> Received OK Response."); }
+                            break;
+                        }
+
+                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> Received FAIL Response."); }
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+
+                        default: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received Unexpected Response."); }
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
                     }
 
-                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                    initializeProductPlotters(onProductPlottersInitialized);
 
-                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> Received FAIL Response."); }
-                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-                        return;
+                    function onProductPlottersInitialized(err) {
+
+                        try {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized -> Entering function."); }
+
+                            switch (err.result) {
+                                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized ->  Received OK Response."); }
+
+                                    initializationReady = true;
+                                    callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE);
+                                    break;
+                                }
+
+                                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized ->  Received FAIL Response."); }
+                                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+
+                                default: {
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized ->  Received Unexpected Response."); }
+                                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+                            }
+
+                        } catch (err) {
+
+                            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized -> err = " + err); }
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        }
                     }
 
-                    default: {
+                } catch (err) {
 
-                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received Unexpected Response."); }
-                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-                        return;
-                    }
+                    if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onCompetitionPlottersInitialized -> err = " + err); }
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
-
-                initializeProductPlotters();
-
-                initializationReady = true;
-
-                callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE);
             }
 
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -256,227 +298,299 @@
                         } catch (err) {
 
                             if (ERROR_LOG === true) { logger.write("[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> onPlotterInizialized -> err = " + err); }
-                            callBack(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] initializeCompetitionPlotters -> onCompetitionStorageInitialized -> err = " + err); }
-                    callBack(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initializeCompetitionPlotters -> err = " + err); }
-            callBack(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function initializeProductPlotters() {
+    function initializeProductPlotters(callBack) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> Entering function."); }
+        try {
 
-        /* Lets get all the cards that needs to be loaded. */
+            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> Entering function."); }
 
-        let loadingProductCards = productsPanel.getLoadingProductCards();
+            /* Lets get all the cards that needs to be loaded. */
 
-        for (let i = 0; i < loadingProductCards.length; i++) {
+            let initializationCounter = 0;
+            let loadingProductCards = productsPanel.getLoadingProductCards();
+            let okCounter = 0;
+            let failCounter = 0;
 
-            /* For each one, we will initialize the associated plotter. */
+            for (let i = 0; i < loadingProductCards.length; i++) {
 
-            initializeProductPlotter(loadingProductCards[i]);
+                /* For each one, we will initialize the associated plotter. */
 
+                initializeProductPlotter(loadingProductCards[i], onProductPlotterInitialized);
+
+                function onProductPlotterInitialized(err) {
+
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> Entering function."); }
+
+                    initializationCounter++;
+
+                    switch (err.result) {
+                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> Received OK Response."); }
+                            okCounter++;
+                            break;
+                        }
+
+                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> Received FAIL Response."); }
+                            failCounter++;
+                            return;
+                        }
+
+                        default: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> Received Unexpected Response."); }
+                            failCounter++;
+                            return;
+                        }
+                    }
+
+                    if (initializationCounter === loadingProductCards.length) { // This was the last one.
+
+                        /* If less than 50% of plotters are initialized then we return FAIL. */
+
+                        if (okCounter >= 1) {
+                            callBack(GLOBAL.DEFAULT_OK_RESPONSE);
+                        } else {
+                            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+                }
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initializeProductPlotters -> err = " + err); }
+            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     } 
 
-    function initializeProductPlotter(pProductCard) {
+    function initializeProductPlotter(pProductCard, callBack) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> Entering function."); }
+        try {
 
-        /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
+            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> Entering function."); }
 
-        let objName = pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName;
-        let storage = newProductStorage(objName);
+            /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
 
-        if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> objName = " + objName); }
+            let objName = pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName;
+            let storage = newProductStorage(objName);
 
-        /*
+            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> objName = " + objName); }
 
-        Before Initializing the Storage, we will put the Product Card to listen to the events the storage will raise every time a file is loaded,
-        so that the UI can somehow show this. There are different types of events. 
+            /*
+    
+            Before Initializing the Storage, we will put the Product Card to listen to the events the storage will raise every time a file is loaded,
+            so that the UI can somehow show this. There are different types of events. 
+    
+            */
 
-        */
+            for (let i = 0; i < pProductCard.product.dataSets.length; i++) {
 
-        for (let i = 0; i < pProductCard.product.dataSets.length; i++) {
+                let thisSet = pProductCard.product.dataSets[i];
 
-            let thisSet = pProductCard.product.dataSets[i];
+                switch (thisSet.type) {
+                    case 'Market Files': {
+                        storage.eventHandler.listenToEvent('Market File Loaded', pProductCard.onMarketFileLoaded);
+                    }
+                        break;
 
-            switch (thisSet.type) {
-                case 'Market Files': {
-                    storage.eventHandler.listenToEvent('Market File Loaded', pProductCard.onMarketFileLoaded);
-                }
-                    break;
+                    case 'Daily Files': {
+                        storage.eventHandler.listenToEvent('Daily File Loaded', pProductCard.onDailyFileLoaded);
+                    }
+                        break;
 
-                case 'Daily Files': {
-                    storage.eventHandler.listenToEvent('Daily File Loaded', pProductCard.onDailyFileLoaded);
-                }
-                    break;
+                    case 'Single File': {
+                        storage.eventHandler.listenToEvent('Single File Loaded', pProductCard.onSingleFileLoaded);
+                    }
+                        break;
 
-                case 'Single File': {
-                    storage.eventHandler.listenToEvent('Single File Loaded', pProductCard.onSingleFileLoaded);
-                }
-                    break;
-
-                case 'File Sequence': {
-                    storage.eventHandler.listenToEvent('File Sequence Loaded', pProductCard.onFileSequenceLoaded);
-                }
-                    break;
-            }
-        }
-
-        storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.product, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onProductStorageInitialized) ;
-
-        function onProductStorageInitialized(err) {
-
-            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> Entering function."); }
-            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> key = " + pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName); }
-
-            switch (err.result) {
-                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-
-                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> Received OK Response."); }
-                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> The plotter will be started."); }
-                    break;
-                }
-
-                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-
-                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> Received FAIL Response."); }
-                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> The plotter will not be started."); }
-                    return;
-                }
-
-                case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-
-                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> Received CUSTOM FAIL Response."); }
-                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> err.message = " + err.message); }
-                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> The plotter will not be started."); }
-                    return;
-                }
-
-                default: {
-
-                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> Received Unexpected Response."); }
-                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> The plotter will not be started."); }
-                    return;
+                    case 'File Sequence': {
+                        storage.eventHandler.listenToEvent('File Sequence Loaded', pProductCard.onFileSequenceLoaded);
+                    }
+                        break;
                 }
             }
 
-            /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
+            storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.product, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onProductStorageInitialized);
 
-            let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName);
-
-            plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
-            plotter.container.frame.parentFrame = thisObject.container.frame;
-
-            plotter.container.parentContainer = thisObject.container;
-
-            plotter.container.frame.width = thisObject.container.frame.width * 1;
-            plotter.container.frame.height = thisObject.container.frame.height * 1;
-
-            plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2;
-            plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2;
-
-            plotter.initialize(storage, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onPlotterInizialized);
-
-            function onPlotterInizialized() {
-
-                if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> Entering function."); }
-                if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> key = " + pProductCard.product.plotter.devTeam + "-" + pProductCard.product.plotter.repo + "-" + pProductCard.product.plotter.moduleName); }
+            function onProductStorageInitialized(err) {
 
                 try {
-                    plotter.positionAtDatetime(INITIAL_DATE);
+
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> Entering function."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> key = " + pProductCard.devTeam.codeName + "-" + pProductCard.bot.codeName + "-" + pProductCard.product.codeName); }
+
+                    switch (err.result) {
+                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> Received OK Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> The plotter will be started."); }
+                            break;
+                        }
+
+                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> Received FAIL Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> The plotter will not be started."); }
+                            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+
+                        default: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> Received Unexpected Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> The plotter will not be started."); }
+                            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+                    }
+
+                    /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
+
+                    let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName);
+
+                    plotter.container.displacement.parentDisplacement = thisObject.container.displacement;
+                    plotter.container.frame.parentFrame = thisObject.container.frame;
+
+                    plotter.container.parentContainer = thisObject.container;
+
+                    plotter.container.frame.width = thisObject.container.frame.width * 1;
+                    plotter.container.frame.height = thisObject.container.frame.height * 1;
+
+                    plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2;
+                    plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2;
+
+                    plotter.initialize(storage, DEFAULT_EXCHANGE, DEFAULT_MARKET, datetime, timePeriod, onPlotterInizialized);
+
+                    function onPlotterInizialized() {
+
+                        try {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> Entering function."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> key = " + pProductCard.product.plotter.devTeam + "-" + pProductCard.product.plotter.codeName + "-" + pProductCard.product.plotter.moduleName); }
+
+                            try {
+                                plotter.positionAtDatetime(INITIAL_DATE);
+                            } catch (err) {
+                                // If the plotter does not implement this function its ok.
+                            }
+
+                            let productPlotter = {
+                                productCard: pProductCard,
+                                plotter: plotter,
+                                storage: storage,
+                                profile: undefined,
+                                notes: undefined
+                            };
+
+                            /* Let the Plotter listen to the event of Cursor Files loaded, so that it can reack recalculating if needed. */
+
+                            storage.eventHandler.listenToEvent('Daily File Loaded', plotter.onDailyFileLoaded);
+
+                            /* Lets load now this plotter panels. */
+
+                            productPlotter.panels = [];
+
+                            for (let i = 0; i < pProductCard.product.plotter.module.panels.length; i++) {
+
+                                let panelConfig = pProductCard.product.plotter.module.panels[i];
+
+                                let parameters = {
+                                    devTeam: pProductCard.product.plotter.devTeam,
+                                    plotterCodeName: pProductCard.product.plotter.codeName,
+                                    moduleCodeName: pProductCard.product.plotter.moduleName,
+                                    panelCodeName: panelConfig.codeName
+                                }
+
+                                let plotterPanelHandle = canvas.panelsSpace.createNewPanel("Plotter Panel", parameters);
+                                let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle);
+
+                                /* Connect Panel to the Plotter via an Event. */
+
+                                if (panelConfig.event !== undefined) {
+
+                                    productPlotter.plotter.container.eventHandler.listenToEvent(panelConfig.event, plotterPanel.onEventRaised);
+
+                                }
+
+                                productPlotter.panels.push(plotterPanelHandle);
+                            }
+
+                            /* Create The Profie Picture FloatingObject */
+
+                            if (productPlotter.plotter.payload !== undefined) {
+
+                                let imageId = pProductCard.bot.devTeam + "." + pProductCard.bot.profilePicture;
+
+                                productPlotter.plotter.payload.profile.upLabel = pProductCard.product.shortDisplayName;
+                                productPlotter.plotter.payload.profile.downLabel = pProductCard.bot.displayName;
+                                productPlotter.plotter.payload.profile.imageId = imageId;
+
+                                canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.payload, onProfileBallCreated)
+
+                                function onProfileBallCreated(err, pProfileHandle) {
+
+                                    productPlotter.profile = pProfileHandle;
+
+                                    /* There is no policy yet of what to do if this fails. */
+                                }
+
+                                /* Create the Text Notes */
+
+                                canvas.floatingSpace.noteSets.createNoteSet(productPlotter.plotter.payload, productPlotter.plotter.container.eventHandler, onNoteSetCreated);
+
+                                function onNoteSetCreated(err, pNoteSetHandle) {
+
+                                    productPlotter.noteSet = pNoteSetHandle;
+
+                                    /* There is no policy yet of what to do if this fails. */
+                                }
+                            }
+
+                            /* Add the new Active Protter to the Array */
+
+                            productPlotters.push(productPlotter);
+
+                            callBack(GLOBAL.DEFAULT_OK_RESPONSE);
+
+                        } catch (err) {
+
+                            if (ERROR_LOG === true) { logger.write("[ERROR] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> err = " + err); }
+                            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+
                 } catch (err) {
-                    // If the plotter does not implement this function its ok.
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] initializeProductPlotter -> onProductStorageInitialized -> err = " + err); }
+                    callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
-
-                let productPlotter = {
-                    productCard: pProductCard,
-                    plotter: plotter,
-                    storage: storage,
-                    profile: undefined,
-                    notes: undefined
-                };
-
-                /* Let the Plotter listen to the event of Cursor Files loaded, so that it can reack recalculating if needed. */
-
-                storage.eventHandler.listenToEvent('Daily File Loaded', plotter.onDailyFileLoaded);
-
-                /* Lets load now this plotter panels. */
-
-                productPlotter.panels = [];
-
-                for (let i = 0; i < pProductCard.product.plotter.module.panels.length; i++) {
-
-                    let panelConfig = pProductCard.product.plotter.module.panels[i];
-
-                    let parameters = {
-                        devTeam: pProductCard.product.plotter.devTeam,
-                        plotterCodeName: pProductCard.product.plotter.codeName,
-                        moduleCodeName: pProductCard.product.plotter.moduleName,
-                        panelCodeName: panelConfig.codeName
-                    }
-
-                    let plotterPanelHandle = canvas.panelsSpace.createNewPanel("Plotter Panel", parameters);
-                    let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle);
-
-                    /* Connect Panel to the Plotter via an Event. */
-
-                    if (panelConfig.event !== undefined) {
-
-                        productPlotter.plotter.container.eventHandler.listenToEvent(panelConfig.event, plotterPanel.onEventRaised);
-
-                    }
-
-                    productPlotter.panels.push(plotterPanelHandle);
-                }
-
-                /* Create The Profie Picture FloatingObject */
-
-                if (productPlotter.plotter.payload !== undefined) {
-
-                    let imageId = pProductCard.bot.devTeam + "." + pProductCard.bot.profilePicture;
-
-                    productPlotter.plotter.payload.profile.upLabel = pProductCard.product.shortDisplayName;
-                    productPlotter.plotter.payload.profile.downLabel = pProductCard.bot.displayName;
-                    productPlotter.plotter.payload.profile.imageId = imageId;
-
-                    canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.payload, onProfileBallCreated)
-
-                    function onProfileBallCreated(err, pProfileHandle) {
-
-                        productPlotter.profile = pProfileHandle;
-
-                    }
-
-                    /* Create the Text Notes */
-
-                    canvas.floatingSpace.noteSets.createNoteSet(productPlotter.plotter.payload, productPlotter.plotter.container.eventHandler, onNoteSetCreated);
-
-                    function onNoteSetCreated(err, pNoteSetHandle) {
-
-                        productPlotter.noteSet = pNoteSetHandle;
-
-                    }
-                }
-
-                /* Add the new Active Protter to the Array */
-
-                productPlotters.push(productPlotter);
-
             }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initializeProductPlotter -> err = " + err); }
+            callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -502,10 +616,16 @@
 
             if (found === false) {
 
-                initializeProductPlotter(pProductCard);
+                initializeProductPlotter(pProductCard, onProductPlotterInitialized);
 
+                function onProductPlotterInitialized(err) {
+
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> Entering function."); }
+
+                    /* There is no policy yet of what to do if this fails. */
+
+                }
             }
-
         }
 
         if (pProductCard.status === PRODUCT_CARD_STATUS.OFF) {

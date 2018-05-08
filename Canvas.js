@@ -122,7 +122,7 @@ function newCanvas() {
 
             function onFunctionAdded(err) {
 
-                if (err.result === GLOBAL.CUSTOM_FAIL_RESPONSE.result) {
+                if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE.result) {
 
                     animation.stop();
 

@@ -145,7 +145,7 @@ function newFileSequence() {
                             } catch (err) {
 
                                 if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onSequenceFileReceived -> onFileReceived -> err = " + err); }
-                                callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                             }
                         }
                     }
@@ -153,14 +153,14 @@ function newFileSequence() {
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onSequenceFileReceived -> err = " + err); }
-                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 

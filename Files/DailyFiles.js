@@ -70,7 +70,7 @@ function newDailyFiles() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -117,7 +117,7 @@ function newDailyFiles() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] onFileReceived -> err = " + err); }
-            callBackWhenFileReceived(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 

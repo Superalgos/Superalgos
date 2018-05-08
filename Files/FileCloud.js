@@ -157,14 +157,14 @@ function newFileCloud() {
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> err = " + err); }
-                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 }

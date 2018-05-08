@@ -97,7 +97,7 @@ function newMarketFiles() {
                         } catch (err) {
 
                             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileReceived -> err = " + err); }
-                            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
@@ -107,7 +107,7 @@ function newMarketFiles() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
   

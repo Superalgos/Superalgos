@@ -56,7 +56,7 @@ function newFileCursor() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -194,7 +194,7 @@ function newFileCursor() {
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> enterSavingMode -> err = " + err); }
-                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -278,14 +278,14 @@ function newFileCursor() {
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> exitSavingMode -> err = " + err); }
-                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -308,7 +308,7 @@ function newFileCursor() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] setDatetime -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -371,7 +371,7 @@ function newFileCursor() {
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] getFiles -> getNextFile -> err = " + err); }
-                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -419,7 +419,7 @@ function newFileCursor() {
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] getFiles -> onFileReceived -> err = " + err); }
-                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -446,14 +446,14 @@ function newFileCursor() {
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] getFiles -> controlLoop -> err = " + err); }
-                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] getFiles -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -482,7 +482,7 @@ function newFileCursor() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] collectGarbage -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
 
     }

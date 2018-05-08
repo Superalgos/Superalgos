@@ -117,7 +117,7 @@ function newCompetitionStorage(pName) {
                         } catch (err) {
 
                             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileSequenceReady -> err = " + err); }
-                            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -137,7 +137,7 @@ function newCompetitionStorage(pName) {
                         } catch (err) {
 
                             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> checkInitializeComplete -> err = " + err); }
-                            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
@@ -148,7 +148,7 @@ function newCompetitionStorage(pName) {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 

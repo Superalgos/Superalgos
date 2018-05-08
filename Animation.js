@@ -40,7 +40,7 @@ function newAnimation() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -56,7 +56,7 @@ function newAnimation() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] start -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -71,7 +71,7 @@ function newAnimation() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] stop -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -86,7 +86,7 @@ function newAnimation() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] addCallBackFunction -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -101,7 +101,7 @@ function newAnimation() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] removeCallBackFunction -> err = " + err); }
-            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -132,7 +132,7 @@ function newAnimation() {
         //    if (ERROR_LOG === true) { logger.write("[ERROR] animationLoop -> err = " + err); }
 
         //    if (callBackFunction !== undefined) {       // When the loop is called by the browser there will be no callBackFunction.
-        //        callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        //        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
        //     } 
       //  }
     }

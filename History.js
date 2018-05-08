@@ -790,7 +790,7 @@
                     note.position = timeLineCoordinateSystem.transformThisPoint(note.position);
                     note.position = transformThisPoint(note.position, thisObject.container);
 
-                    if (note.position.x < (viewPort.visibleArea.bottomRight.x) * (-1) || note.position.x > (viewPort.visibleArea.bottomRight.x) * (2)) {
+                    if (note.position.x < (viewPort.visibleArea.bottomRight.x / 2) * (-1) || note.position.x > (viewPort.visibleArea.bottomRight.x) * (1.5)) {
                         note.visible = false;
                     } else {
                         note.visible = true;

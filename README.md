@@ -1,4 +1,5 @@
-# I'm Charly, an AA e-Bot!
+# I'm Charly, an e-bot!
+AKA an extractor algobot running on the AAPlatform by Advanced Algos Ltd.
 
 ### My Specialty
 I get trades data for all markets --both historic and live-- assuring consistency using recursive processes, and store it in a highly fragmented and usable dataset.

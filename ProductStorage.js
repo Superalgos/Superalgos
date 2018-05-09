@@ -75,7 +75,7 @@ function newProductStorage(pName) {
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Market Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
                         let marketFiles = newMarketFiles();
-                        marketFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onCacheFileReady);
+                        marketFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onMarketFileReady);
                         thisObject.marketFiles.push(marketFiles);
                         dataSetsToLoad++;
                     }
@@ -86,7 +86,7 @@ function newProductStorage(pName) {
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Daily Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
                         let dailyFiles = newDailyFiles();
-                        dailyFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onFileCursorReady);
+                        dailyFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onDailyFileReady);
                         thisObject.dailyFiles.push(dailyFiles);
                         dataSetsToLoad++;
                     }
@@ -115,31 +115,31 @@ function newProductStorage(pName) {
                         break;
                 }
 
-                function onCacheFileReady(err, pCaller) {
+                function onMarketFileReady(err, pCaller) {
 
                     try {
 
-                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Entering function."); }
-                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> Entering function."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
                         switch (err.result) {
                             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received OK Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> Received OK Response."); }
                                 break;
                             }
 
                             case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received FAIL Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> Received FAIL Response."); }
                                 callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
 
                             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received CUSTOM FAIL Response."); }
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> err.message = " + err.message); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> Received CUSTOM FAIL Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> err.message = " + err.message); }
 
                                 callBackFunction(err);
                                 return;
@@ -147,7 +147,7 @@ function newProductStorage(pName) {
 
                             default: {
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCacheFileReady -> Received Unexpected Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> Received Unexpected Response."); }
                                 callBackFunction(err);
                                 return;
                             }
@@ -169,36 +169,36 @@ function newProductStorage(pName) {
 
                     } catch (err) {
 
-                        if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onCacheFileReady -> err = " + err); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onMarketFileReady -> err = " + err); }
                         callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                     }
                 }
 
-                function onFileCursorReady(err, pCaller) {
+                function onDailyFileReady(err, pCaller) {
 
                     try {
 
-                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Entering function."); }
-                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> Entering function."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
                         switch (err.result) {
                             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received OK Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> Received OK Response."); }
                                 break;
                             }
 
                             case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received FAIL Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> Received FAIL Response."); }
                                 callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
 
                             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received CUSTOM FAIL Response."); }
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> err.message = " + err.message); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> Received CUSTOM FAIL Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> err.message = " + err.message); }
 
                                 callBackFunction(err);
                                 return;
@@ -206,7 +206,7 @@ function newProductStorage(pName) {
 
                             default: {
 
-                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileCursorReady -> Received Unexpected Response."); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> Received Unexpected Response."); }
                                 callBackFunction(err);
                                 return;
                             }
@@ -228,7 +228,7 @@ function newProductStorage(pName) {
 
                     } catch (err) {
 
-                        if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileCursorReady -> err = " + err); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onDailyFileReady -> err = " + err); }
                         callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                     }
                 }

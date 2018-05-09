@@ -1,7 +1,7 @@
 ﻿function newTimelineChart() {
 
     const MODULE_NAME = "Timeline Chart";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();
@@ -353,18 +353,25 @@
 
                             if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> Received FAIL Response."); }
                             failCounter++;
-                            return;
+                            break;
                         }
 
                         default: {
 
                             if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> Received Unexpected Response."); }
                             failCounter++;
-                            return;
+                            break;
                         }
                     }
 
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> initializationCounter = " + initializationCounter); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> okCounter = " + okCounter); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> failCounter = " + failCounter); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> loadingProductCards.length = " + loadingProductCards.length); }
+
                     if (initializationCounter === loadingProductCards.length) { // This was the last one.
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotters -> onProductPlotterInitialized -> onProductPlotterInitialized -> Last Product Loaded."); }
 
                         /* If less than 50% of plotters are initialized then we return FAIL. */
 

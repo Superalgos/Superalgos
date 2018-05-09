@@ -109,7 +109,7 @@ function newFileCloud() {
 
                     if (err) {
 
-                        if (err.code === "BlobNotFound") {
+                        if (err.code === "BlobNotFound" | err.code === "FileNotFound" | err.code === "ParentNotFound") {
 
                             let customErr = {
                                 result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,

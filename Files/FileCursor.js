@@ -400,8 +400,17 @@ function newFileCursor() {
                             if (INFO_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received CUSTOM FAIL Response."); }
                             if (INFO_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> err.message = " + err.message); }
 
-                            callBackFunction(err);
-                            return;
+                            if (err.message === "File does not exist.") {
+
+                                controlLoop();
+                                return;
+
+                            } else {
+
+                                callBackFunction(err);
+                                return;
+                            }
+
                         }
 
                         default: {

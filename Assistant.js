@@ -262,7 +262,7 @@
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
                                     logger.write("[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Execution finished well. :-)");
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    calculateProfits();
                                     return;
                                 }
                                     break;
@@ -289,6 +289,55 @@
                 } catch (err) {
                     logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function calculateProfits() {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> calculateProfits -> Entering function."); }
+
+                    /* Calculate Profits */
+
+                    if (context.executionContext.investment.assetA > 0) {
+
+                        context.executionContext.profits.assetA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
+                    }
+
+                    if (context.executionContext.investment.assetB > 0) {
+
+                        context.executionContext.profits.assetB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
+                    }
+
+                    context.newHistoryRecord.profitsAssetA = context.executionContext.profits.assetA;
+                    context.newHistoryRecord.profitsAssetB = context.executionContext.profits.assetB;
+
+                    /* Calculate Combined Profits */
+
+                    if (context.executionContext.investment.assetA > 0) {
+
+                        let convertedAssetsB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) * marketRate;
+
+                        context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA + convertedAssetsB - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
+                    }
+
+                    if (context.executionContext.investment.assetB > 0) {
+
+                        let convertedAssetsA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / marketRate;
+
+                        context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB + convertedAssetsA - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
+                    }
+
+                    context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;
+                    context.newHistoryRecord.combinedProfitsB = context.executionContext.combinedProfits.assetB;
+
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } catch (err) {
+                    logger.write("[ERROR] initialize -> calculateProfits -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    return;
                 }
             }
 
@@ -781,40 +830,6 @@
                                     context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA + Number(trade.amountA);
                                 }
                             }
-
-                            /* Calculate Profits */
-
-                            if (context.executionContext.investment.assetA > 0) {
-
-                                context.executionContext.profits.assetA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
-                            }
-
-                            if (context.executionContext.investment.assetB > 0) {
-
-                                context.executionContext.profits.assetB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
-                            }
-
-                            context.newHistoryRecord.profitsAssetA = context.executionContext.profits.assetA;
-                            context.newHistoryRecord.profitsAssetB = context.executionContext.profits.assetB;
-
-                            /* Calculate Combined Profits */
-
-                            if (context.executionContext.investment.assetA > 0) {
-
-                                let convertedAssetsB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / marketRate;
-
-                                context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA + convertedAssetsB - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
-                            }
-
-                            if (context.executionContext.investment.assetB > 0) {
-
-                                let convertedAssetsA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) * marketRate;
-
-                                context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB + convertedAssetsA - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
-                            }
-
-                            context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;
-                            context.newHistoryRecord.combinedProfitsB = context.executionContext.combinedProfits.assetB;
 
                         } catch (err) {
                             logger.write("[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = " + err.message);

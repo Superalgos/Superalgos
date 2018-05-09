@@ -7,7 +7,7 @@
   },
   "executionList": [
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AAMariam-Trading-Bot",
       "process": "Trading-Process"
     },
@@ -17,7 +17,7 @@
       "process": "Multi-Period-Market"
     },
     {
-      "enabled": "false",
+      "enabled": "true",
       "botPath": "../Bots/AAMasters/AAOlivia-Indicator-Bot",
       "process": "Multi-Period-Daily"
     },

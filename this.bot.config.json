@@ -151,7 +151,11 @@
           "type": "Daily Files",
           "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
           "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
-          "fileName": "@AssetA_@AssetB.json"
+          "fileName": "@AssetA_@AssetB.json",
+          "dataRange": {
+            "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily",
+            "fileName": "Data.Range.@AssetA_@AssetB.json"
+          }
         }
       ],
       "exchangeList": [
@@ -183,7 +187,11 @@
           "type": "Daily Files",
           "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
           "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
-          "fileName": "@AssetA_@AssetB.json"
+          "fileName": "@AssetA_@AssetB.json",
+          "dataRange": {
+            "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily",
+            "fileName": "Data.Range.@AssetA_@AssetB.json"
+          }
         }
       ],
       "exchangeList": [

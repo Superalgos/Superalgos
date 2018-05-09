@@ -72,7 +72,63 @@
         }
       ]
     }
-  ]
+  ],
+  "products": [
+    {
+      "codeName": "Candles",
+      "displayName": "Candles",
+      "description": "01 Min Candles.",
+      "storageAccount": "aamasters",
+      "dataSets": [
+        {
+          "codeName": "One-Min",
+          "type": "Daily Files",
+          "validPeriods": [ "01-min" ],
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/One-Min",
+          "fileName": "@AssetA_@AssetB.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersCandlesVolumes",
+        "moduleName": "Candles"
+      }
+    },
+    {
+      "codeName": "Volumes",
+      "displayName": "Buy and Sell Volumes",
+      "description": "01 Min Volumes.",
+      "storageAccount": "aamasters",
+      "dataSets": [
+        {
+          "codeName": "One-Min",
+          "type": "Daily Files",
+          "validPeriods": [ "01-min" ],
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/One-Min",
+          "fileName": "@AssetA_@AssetB.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersCandlesVolumes",
+        "moduleName": "Volumes"
+      }
+    }
+  ],
+  "storage": {
+    "sas": "?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2018-12-31T22:59:59Z&st=2018-04-01T12:59:54Z&spr=https&sig=Fre%2FUWrF9IAXNnJSOZ%2F5q5LUow9uno7dXg5pGZ3YDzo%3D",
+    "fileUri": "https://aamasters.blob.core.windows.net"
+  }
 }
 
 

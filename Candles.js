@@ -388,7 +388,7 @@
 
         let maxValue = {
             x: MAX_PLOTABLE_DATE.valueOf(),
-            y: nextPorwerOf10(getMaxRate())
+            y: nextPorwerOf10(getMaxRate()) / 4 // TODO: This 4 is temporary
         };
 
 

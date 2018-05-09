@@ -31,15 +31,42 @@ function newFileCloud() {
 
     }
 
-    function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, callBackFunction) {
+    function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
 
         try {
 
             if (INFO_LOG === true) { logger.write("[INFO] getFile -> Entering function."); }
             if (INFO_LOG === true) { logger.write("[INFO] getFile -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pSet.filePath + "-" + pSet.fileName); }
 
-            let fileName = pSet.fileName;
-            let filePath = pSet.filePath;
+            let fileName;
+            let filePath;
+
+            if (pDataRange === undefined) {
+
+                fileName = pSet.fileName;
+                filePath = pSet.filePath;
+
+            } else {
+
+                if (pSet.dataRange !== undefined) {
+
+                    fileName = pSet.dataRange.fileName;
+                    filePath = pSet.dataRange.filePath;
+
+                } else {
+
+                    let customErr = {
+                        result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
+                        message: "Missing Configuration."
+                    };
+
+                    if (ERROR_LOG === true) { logger.write("[WARN] getFile -> onFileReceived -> customErr.message = " + customErr.message); }
+                    if (ERROR_LOG === true) { logger.write("[WARN] getFile -> onFileReceived -> Data Range configuration could not be found. "); }
+
+                    callBackFunction(customErr);
+                    return;
+                }
+            }
 
             if (fileName === undefined) {
 

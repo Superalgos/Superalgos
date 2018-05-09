@@ -31,10 +31,12 @@ function newFileCursor() {
     let thisSet;
     let periodName;
     let timePeriod;
+    let beginDateRange;
+    let endDateRange;
 
     return thisObject;
 
-    function initialize(pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, callBackFunction) {
+    function initialize(pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
 
         try {
 
@@ -50,6 +52,8 @@ function newFileCursor() {
             periodName = pPeriodName;
             cursorDate = pCursorDate;
             timePeriod = pTimePeriod;
+            beginDateRange = pBeginDateRange;
+            endDateRange = pEndDateRange;
 
             setTimePeriod(pCurrentTimePeriod, pCursorDate, callBackFunction);
 
@@ -289,8 +293,6 @@ function newFileCursor() {
         }
     }
 
-
-
     function setDatetime(pDatetime, callBackFunction) {
 
         try {
@@ -346,6 +348,38 @@ function newFileCursor() {
                         }
                     }
 
+                    let compareTargetDate = new Date(targetDate.toDateString());
+                    
+                    if (beginDateRange !== undefined) {
+
+                        let compareBeginDate = new Date(beginDateRange.toDateString());
+
+                        if (compareTargetDate.valueOf() < compareBeginDate.valueOf()) {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> getNextFile -> compareTargetDate < compareBeginDate -> Not loading the file for this date."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> getNextFile -> compareTargetDate < compareBeginDate -> compareTargetDate = " + compareTargetDate); }
+                            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> getNextFile -> compareTargetDate < compareBeginDate -> compareBeginDate = " + compareBeginDate); }
+
+                            controlLoop();
+                            return;
+                        }
+                    }
+
+                    if (endDateRange !== undefined) {
+
+                        let compareEndDate = new Date(endDateRange.toDateString());
+
+                        if (compareTargetDate.valueOf() > compareEndDate.valueOf()) {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> getNextFile -> compareTargetDate > compareEndDate -> Not loading the file for this date."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> getNextFile -> compareTargetDate > compareEndDate -> compareTargetDate = " + compareTargetDate); }
+                            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> getNextFile -> compareTargetDate > compareEndDate -> compareEndDate = " + compareEndDate); }
+
+                            controlLoop();
+                            return;
+                        }
+                    }
+
                     dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2);
 
                     let currentDay = Math.trunc((new Date()).valueOf() / (24 * 60 * 60 * 1000));
@@ -359,7 +393,7 @@ function newFileCursor() {
 
                         if (thisObject.files.get(dateString) === undefined) { // We dont reload files we already have. 
 
-                            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, onFileReceived);
+                            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived);
 
                         } else {
 

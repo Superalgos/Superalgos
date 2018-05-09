@@ -48,22 +48,96 @@ function newDailyFiles() {
             fileCloud = newFileCloud();
             fileCloud.initialize(pBot);
 
-            /* Now we will get the daily files */
+            /* First we will get the Data Range */
 
-            for (i = 0; i < dailyFilePeriods.length; i++) {
+            fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, undefined, true, onDataRangeReceived);
 
-                let periodTime = dailyFilePeriods[i][0];
-                let periodName = dailyFilePeriods[i][1];
+            function onDataRangeReceived(err, pFile) {
 
-                if (pSet.validPeriods.includes(periodName) === true) {
+                try {
 
-                    let fileCursor = newFileCursor();
-                    fileCursor.initialize(fileCloud, pDevTeam, pBot, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, onFileReceived);
+                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Entering function."); }
 
-                    fileCursors.set(periodTime, fileCursor);
+                    let beginDateRange;
+                    let endDateRange;
 
-                    expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
+                    switch (err.result) {
+                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
 
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received OK Response."); }
+
+                            beginDateRange = new Date(pFile.begin);
+                            endDateRange = new Date(pFile.end);
+
+                            break;
+                        }
+
+                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received FAIL Response."); }
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+
+                        case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received CUSTOM FAIL Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> err.message = " + err.message); }
+
+                            if (err.message === "File does not exist.") {
+
+                                if (INFO_LOG === true) { logger.write("[WARN] initialize -> onFileReceived -> No Date Range file found. maxDate will be set to current datetime. "); }
+
+                                endDateRange = new Date();
+                                break;
+                            }
+
+                            if (err.message === "Missing Configuration.") {
+
+                                if (ERROR_LOG === true) { logger.write("[WARN] initialize -> onFileReceived -> The needed configuration for the dateRange at the dataSet of the product was not found."); }
+                                if (ERROR_LOG === true) { logger.write("[WARN] initialize -> onFileReceived -> maxDate will be set to current datetime."); }
+
+                                endDateRange = new Date();
+                                break;
+                            }
+
+                           /* If none of the previous conditions are met, the we return the err to the caller. */
+
+                            callBackFunction(err);
+                            return;
+                        }
+
+                        default: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
+                            callBackFunction(err);
+                            return;
+                        }
+                    }
+
+                    /* Now we will get the daily files */
+
+                    for (i = 0; i < dailyFilePeriods.length; i++) {
+
+                        let periodTime = dailyFilePeriods[i][0];
+                        let periodName = dailyFilePeriods[i][1];
+
+                        if (pSet.validPeriods.includes(periodName) === true) {
+
+                            let fileCursor = newFileCursor();
+                            fileCursor.initialize(fileCloud, pDevTeam, pBot, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, beginDateRange, endDateRange, onFileReceived);
+
+                            fileCursors.set(periodTime, fileCursor);
+
+                            expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileReceived -> err = " + err); }
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 

@@ -44,7 +44,7 @@ function newFileSequence() {
 
             /* First we will get the sequence max number */
 
-            fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, "Sequence", onSequenceFileReceived);
+            fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, "Sequence", undefined, onSequenceFileReceived);
 
             function onSequenceFileReceived(err, file) {
 
@@ -99,7 +99,7 @@ function newFileSequence() {
 
                     for (let i = 0; i <= maxSequence; i++) {
 
-                        fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, i, onFileReceived);
+                        fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, i, undefined, onFileReceived);
 
                         function onFileReceived(err, file) {
 

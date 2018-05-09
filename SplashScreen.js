@@ -128,11 +128,11 @@ function newSplashScreen() {
         browserCanvasContext.fillStyle = 'rgba(255, 0, 0,  ' + opacity + ')';
         browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y);
 
-        /* Trading Bots Competitions Sub Title */
+        /* Algo Bots Competitions Sub Title */
 
         fontSize = 50;
 
-        title = "Trading Bots Competitions"
+        title = "Algobots Competitions"
 
         titlePoint = {
             x: splashScreen.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 0,

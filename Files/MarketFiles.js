@@ -49,7 +49,7 @@ function newMarketFiles() {
 
                 if (pSet.validPeriods.includes(periodName) === true) {
 
-                    fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, periodName, undefined, undefined, onFileReceived);
+                    fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, periodName, undefined, undefined, undefined, onFileReceived);
 
                     function onFileReceived(err, file) {
 

@@ -403,15 +403,16 @@
                 logger.write("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr);
                 logger.write("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse);
 
-                if (
-                    stringExchangeResponse.indexOf("Connection timed out") > 0 ||
-                    stringExchangeResponse.indexOf("Connection Error") > 0 ||
-                    stringExchangeResponse.indexOf("Bad gateway") > 0 ||
-                    stringExchangeErr.indexOf("ETIMEDOUT") > 0 ||
+                if (stringExchangeErr.indexOf("ETIMEDOUT") > 0 ||
                     stringExchangeErr.indexOf("ENOTFOUND") > 0 ||
                     stringExchangeErr.indexOf("ECONNREFUSED") > 0 ||
                     stringExchangeErr.indexOf("ESOCKETTIMEDOUT") > 0 ||
-                    stringExchangeErr.indexOf("ECONNRESET") > 0) {
+                    stringExchangeErr.indexOf("ECONNRESET") > 0 ||
+					(stringExchangeResponse !== undefined && (
+					stringExchangeResponse.indexOf("Connection timed out") > 0 ||
+                    stringExchangeResponse.indexOf("Connection Error") > 0 ||
+                    stringExchangeResponse.indexOf("Bad gateway") > 0 ||
+					stringExchangeResponse.indexOf("Internal error. Please try again") > 0))) {
 
                     logger.write("[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
                     notOkCallBack(global.DEFAULT_RETRY_RESPONSE);

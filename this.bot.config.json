@@ -20,15 +20,15 @@
           "resumeExecution": "false"
         },
         "backtest": {
-          "run": "true",
+          "run": "false",
           "beginDatetime": "2018-04-18T16:00:00.000Z",
           "endDatetime": "2018-04-18T17:00:00.000Z",
           "waitTime": 1000
         },
         "competition": {
-          "run": "false",
-          "beginDatetime": "2018-04-27T16:00:00.000Z",
-          "endDatetime": "2018-04-28T16:05:00.000Z",
+          "run": "true",
+          "beginDatetime": "2018-05-08T00:00:00.000Z",
+          "endDatetime": "2018-05-09T00:00:00.000Z",
           "resumeExecution": "false"
         }
       },

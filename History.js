@@ -336,7 +336,7 @@
 
             let maxValue = {
                 x: MAX_PLOTABLE_DATE.valueOf(),
-                y: nextPorwerOf10(USDT_BTC_HTH)
+                y: nextPorwerOf10(USDT_BTC_HTH) / 4 // TODO: This 4 is temporary
             };
 
 

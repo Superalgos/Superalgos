@@ -364,6 +364,18 @@ function newCanvas() {
         var event = window.event || event; // old IE support
         let delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
 
+        /* We try first with panels. */
+
+        let panelContainer = canvas.panelsSpace.getContainer({ x: event.pageX, y: event.pageY });
+
+        if (panelContainer !== undefined && panelContainer.isWheelable === true) {
+
+            panelContainer.eventHandler.raiseEvent("Mouse Wheel", event.wheelDelta);
+            return false;  // This instructs the browser not to take the event and scroll the page. 
+        }
+
+        /* We try second with floating objects. */
+
         let floatingObjectIndex = canvas.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
 
         if (floatingObjectIndex > 0) {

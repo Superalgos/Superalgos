@@ -9,6 +9,7 @@ function newContainer() {
         parentContainer: undefined,
         isDraggeable: true,
         isClickeable: false,
+        isWheelable: false,
         name: undefined,
         initialize: initialize
     };

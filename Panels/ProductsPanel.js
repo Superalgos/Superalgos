@@ -16,12 +16,16 @@
     container.initialize();
 
     container.isDraggeable = true;
+    container.isWheelable = true;
 
     thisObject.container = container;
     thisObject.container.frame.containerName = "Bot's Products";
 
     let isInitialized = false;
     let productCards = [];
+
+    let visibleProductCards = [];
+    let firstVisibleCard = 1;
 
     return thisObject;
 
@@ -71,12 +75,12 @@
 
                     productCard.initialize();
 
-
                     /* Container Stuff */
 
                     productCard.container.displacement.parentDisplacement = thisObject.container.displacement;
                     productCard.container.frame.parentFrame = thisObject.container.frame;
                     productCard.container.parentContainer = thisObject.container;
+                    productCard.container.isWheelable = true;
 
                     /* Positioning within thisObject Panel */
 
@@ -89,6 +93,14 @@
 
                     lastY = lastY + productCard.container.frame.height;
 
+                    /* Add to Visible Product Array */
+
+                    if (lastY < thisObject.container.frame.height) {
+
+                        visibleProductCards.push(productCard);
+
+                    }
+
                     /* Add to the Product Array */
 
                     productCards.push(productCard);
@@ -96,13 +108,57 @@
                     /* Listen to Status Changes Events */
 
                     productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
+                    productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 
                 }
             }
         }
 
+        thisObject.container.eventHandler.listenToEvent("Mouse Wheel", onMouseWheel);
         isInitialized = true;
 
+    }
+
+    function onMouseWheel(pDelta) {
+
+        if (pDelta > 0) {
+            pDelta = 1;
+        } else {
+            pDelta = -1;
+        }
+
+        firstVisibleCard = firstVisibleCard + pDelta;
+
+        let availableSlots = visibleProductCards.length;
+
+        if (firstVisibleCard < 1) { firstVisibleCard = 1; }
+        if (firstVisibleCard > (productCards.length - availableSlots + 1)) { firstVisibleCard = productCards.length - availableSlots + 1; }
+
+        visibleProductCards = [];
+        var lastY = 5;
+
+        for (let i = 0; i < productCards.length; i++) {
+
+            if (i + 1 >= firstVisibleCard && i + 1 < firstVisibleCard + availableSlots) {
+
+                let productCard = productCards[i];
+
+                /* Positioning within thisObject Panel */
+
+                let position = {
+                    x: 10,
+                    y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+                };
+                productCard.container.frame.position.x = position.x;
+                productCard.container.frame.position.y = position.y + lastY;
+
+                lastY = lastY + productCard.container.frame.height;
+
+                /* Add to Visible Product Array */
+
+                visibleProductCards.push(productCard);
+            }
+        }
     }
 
     function onProductCardStatusChanged(pProductCard) {
@@ -139,9 +195,9 @@
             /* Now we see which is the inner most container that has it */
 
 
-            for (var i = 0; i < productCards.length; i++) {
+            for (var i = 0; i < visibleProductCards.length; i++) {
 
-                container = productCards[i].getContainer(point);
+                container = visibleProductCards[i].getContainer(point);
 
                 if (container !== undefined) {
 
@@ -171,8 +227,8 @@
 
         thisObject.container.frame.draw(false, false, true);
 
-        for (let i = 0; i < productCards.length; i++) {
-            productCards[i].draw();
+        for (let i = 0; i < visibleProductCards.length; i++) {
+            visibleProductCards[i].draw();
         }
 
     }

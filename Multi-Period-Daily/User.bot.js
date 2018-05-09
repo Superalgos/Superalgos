@@ -488,6 +488,8 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                         function controlLoop() {
 
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> controlLoop -> Entering function."); }
+
                             n++;
 
                             if (n < global.dailyFilePeriods.length) {
@@ -496,7 +498,21 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                             } else {
 
-                                writeStatusReport(contextVariables.lastCandleFile, advanceTime);
+                                writeDataRanges(onWritten);
+
+                                function onWritten(err) {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> controlLoop -> onWritten -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> err = " + err.message);
+                                        callBack(err);
+                                        return;
+                                    }
+
+                                    writeStatusReport(contextVariables.lastCandleFile, advanceTime);
+
+                                }
                             }
                         }
                     }
@@ -652,6 +668,104 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                 catch (err) {
                     logger.write("[ERROR] start -> writeFiles -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function writeDataRanges(callBack) {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRanges -> Entering function."); }
+
+                    writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, CANDLES_FOLDER_NAME, onCandlesDataRangeWritten);
+
+                    function onCandlesDataRangeWritten(err) {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRanges -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, VOLUMES_FOLDER_NAME, onVolumeDataRangeWritten);
+
+                        function onVolumeDataRangeWritten(err) {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> onVolumeDataRangeWritten -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write("[ERROR] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> onVolumeDataRangeWritten -> err = " + err.message);
+                                callBack(err);
+                                return;
+                            }
+
+                            callBack(global.DEFAULT_OK_RESPONSE);
+                        }
+                    }
+                }
+                catch (err) {
+                    logger.write("[ERROR] start -> writeDataRanges -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                }
+
+            }
+
+            function writeDataRange(pBegin, pEnd, pProductFolder, callBack) {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> Entering function."); }
+
+                    let dataRange = {
+                        begin: pBegin.valueOf(),
+                        end:pEnd.valueOf()
+                    };
+
+                    let fileContent = JSON.stringify(dataRange);
+
+                    let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
+                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
+
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> fileName = " + fileName); }
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> filePath = " + filePath); }
+
+                    utilities.createFolderIfNeeded(filePath, oliviaStorage, onFolderCreated);
+
+                    function onFolderCreated(err) {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> onFolderCreated -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] start -> writeDataRange -> onFolderCreated -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                        function onFileCreated(err) {
+
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> onFolderCreated -> onFileCreated -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write("[ERROR] start -> writeDataRange -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                callBack(err);
+                                return;
+                            }
+
+                            if (LOG_FILE_CONTENT === true) {
+                                logger.write("[INFO] start -> writeDataRange -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
+                            }
+
+                            callBack(global.DEFAULT_OK_RESPONSE);
+                        }
+                    }
+                }
+                catch (err) {
+                    logger.write("[ERROR] start -> writeDataRange -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 

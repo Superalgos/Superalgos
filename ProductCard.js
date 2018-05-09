@@ -96,7 +96,7 @@
         };
 
         this.container.frame.position = position;
-        this.container.frame.width = 300;
+        this.container.frame.width = 330;
         this.container.frame.height = 100;
 
         /* We retrieve the locally stored status of the Product */
@@ -330,7 +330,7 @@
         const devTeamImageSize = 50;
         const botImageSize = 50;
         const plotterImageSize = {
-            width: 150,
+            width: 180,
             height: 50
         };
 
@@ -351,7 +351,7 @@
         if (thisObject.bot.profilePicture !== undefined) {
 
             let botImagePoint = {
-                x: thisObject.container.frame.width - 10 - botImageSize - 5,
+                x: thisObject.container.frame.width - 10 - botImageSize,
                 y: thisObject.container.frame.height / 2 - botImageSize / 2
             };
 
@@ -384,7 +384,7 @@
         /* Now the small circle */
 
         centerPoint = {
-            x: thisObject.container.frame.width - 10,
+            x: thisObject.container.frame.width / 2,
             y: thisObject.container.frame.height / 2
         };
 

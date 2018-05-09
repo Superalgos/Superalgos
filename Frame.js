@@ -1,7 +1,7 @@
 ﻿
 function newFrame() {
 
-    const PANEL_CORNERS_RADIOUS = 10;
+    const PANEL_CORNERS_RADIOUS = 5;
     const TITLE_BAR_HEIGHT = 14; // this must be grater than radius
 
     var frame = {

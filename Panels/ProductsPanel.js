@@ -27,7 +27,7 @@
 
     function initialize() {
 
-        thisObject.container.frame.width = 320;
+        thisObject.container.frame.width = 350;
         thisObject.container.frame.height = viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y + 15;
 
         var position = {

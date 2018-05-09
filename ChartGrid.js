@@ -500,7 +500,7 @@
 
                         let fontSize = 10;
 
-                        let label = ' ' + Math.round(j * 1000000) / 1000000;
+                        let label = ' ' + Math.round(j * 1000000) / 1000000 / 4; // TODO This 4 is to be removed.
 
                         let labelPoint = {
                             x: viewPort.visibleArea.bottomRight.x + 1,

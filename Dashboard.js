@@ -128,7 +128,7 @@ const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
 const FONT_ASPECT_RATIO = 0.60;
 const CHART_ASPECT_RATIO = 1 / 10;
 
-const INITIAL_ZOOM_LEVEL = 0;       // This is the zoom level at the view port in which the APP starts.
+const INITIAL_ZOOM_LEVEL = -22;       // This is the zoom level at the view port in which the APP starts.
 const INITIAL_TIME_PERIOD = recalculatePeriod(INITIAL_ZOOM_LEVEL);
 
 var viewPort = newViewPort();
@@ -157,7 +157,7 @@ var newDate = new Date();
 newDate.setMilliseconds(0);
 newDate.setDate(newDate.getDate() - 90);
 
-const INITIAL_DATE = new Date(2017,11,17,14,18,0,0);
+const INITIAL_DATE = new Date();
 
 var maxDate = new Date();
 maxDate.setMilliseconds(0);

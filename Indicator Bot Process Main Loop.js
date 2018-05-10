@@ -84,157 +84,205 @@
 
                     function initializeStatusDependencies() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusDependencies ->  Entering function."); }
+                        try {
 
-                        statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusDependencies ->  Entering function."); }
 
-                        statusDependencies.initialize(processConfig.statusDependencies, pMonth, pYear, onInizialized);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
 
-                        function onInizialized(err) {
+                            statusDependencies.initialize(processConfig.statusDependencies, pMonth, pYear, onInizialized);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized > Execution finished well. :-)");
-                                    initializeUserBot();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Operation Failed. Aborting the process.");
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusDependencies ->  onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well. :-)");
+                                            initializeUserBot();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 
                     function initializeUserBot() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
+                        try {
 
-                        usertBot = USER_BOT_MODULE.newUserBot(bot, COMMONS_MODULE, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, FILE_STORAGE);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
-                        usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);
+                            usertBot = USER_BOT_MODULE.newUserBot(bot, COMMONS_MODULE, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, FILE_STORAGE);
 
-                        function onInizialized(err) {
+                            usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeUserBot -> onInizialized > Execution finished well. :-)");
-                                    startUserBot();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Operation Failed. Aborting the process.");
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> initializeUserBot -> onInizialized -> Execution finished well. :-)");
+                                            startUserBot();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> initializeUserBot ->  onInizialized -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> initializeUserBot -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 
                     function startUserBot() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> startUserBot ->  Entering function."); }
+                        try {
 
-                        usertBot.start(onFinished);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> startUserBot ->  Entering function."); }
 
-                        function onFinished(err) {
+                            usertBot.start(onFinished);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> startUserBot -> onFinished > Execution finished well. :-)");
-                                    nextWaitTime = 'Normal';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Operation Failed. Aborting the process.");
-                                    callBackFunction(err);
-                                    return;
-                                }
-                                case global.CUSTOM_OK_RESPONSE.result: {
+                            function onFinished(err) {
 
-                                    switch (err.message) {
-                                        case "Dependency does not exist.": {
-                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Dependency does not exist. This Loop will go to sleep.");
-                                            nextWaitTime = 'Sleep';
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> startUserBot -> onFinished -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> startUserBot -> onFinished -> Execution finished well. :-)");
+                                            nextWaitTime = 'Normal';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
-                                        case "Dependency not ready.": {
-                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Dependency not ready. This Loop will go to sleep.");
-                                            nextWaitTime = 'Sleep';
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
-                                        case "Month before it is needed.": {
-                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Month before it is needed. This Loop will be terminated.");
-                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                            return;
-                                        }
-                                        case "Month fully processed.": {
-                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Month fully processed. This Loop will be terminated.");
-                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                            return;
-                                        }
-                                        case "End of the month reached.": {
-                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > End of the month reached. This Loop will be terminated.");
-                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                            return;
-                                        }
-                                        case "Too far in the future.": {
-                                            logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Too far in the future. This Loop will enter in coma.");
-                                            nextWaitTime = 'Coma';
-                                            loopControl(nextWaitTime);
-                                            return;
-                                        }
-                                        default: {
-                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled custom response received. -> err.message = " + err.message);
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Operation Failed. Aborting the process.");
                                             callBackFunction(err);
                                             return;
                                         }
-                                    }
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.message = " + err.message);
+                                        case global.CUSTOM_OK_RESPONSE.result: {
 
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
+                                            switch (err.message) {
+                                                case "Dependency does not exist.": {
+                                                    logger.write("[WARN] run -> loop -> startUserBot -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
+                                                    nextWaitTime = 'Sleep';
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                case "Dependency not ready.": {
+                                                    logger.write("[WARN] run -> loop -> startUserBot -> onFinished -> Dependency not ready. This Loop will go to sleep.");
+                                                    nextWaitTime = 'Sleep';
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                case "Month before it is needed.": {
+                                                    logger.write("[WARN] run -> loop -> startUserBot -> onFinished -> Month before it is needed. This Loop will be terminated.");
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    return;
+                                                }
+                                                case "Month fully processed.": {
+                                                    logger.write("[WARN] run -> loop -> startUserBot -> onFinished -> Month fully processed. This Loop will be terminated.");
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    return;
+                                                }
+                                                case "End of the month reached.": {
+                                                    logger.write("[WARN] run -> loop -> startUserBot -> onFinished -> End of the month reached. This Loop will be terminated.");
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    return;
+                                                }
+                                                case "Too far in the future.": {
+                                                    logger.write("[WARN] run -> loop -> startUserBot -> onFinished -> Too far in the future. This Loop will enter in coma.");
+                                                    nextWaitTime = 'Coma';
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                default: {
+                                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled custom response received. -> err.message = " + err.message);
+                                                    callBackFunction(err);
+                                                    return;
+                                                }
+                                            }
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.message);
+                                    callBackFunction(err);
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> startUserBot -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 

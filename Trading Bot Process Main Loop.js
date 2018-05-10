@@ -186,299 +186,427 @@
 
                     function initializeStatusDependencies() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusDependencies ->  Entering function."); }
+                        try {
 
-                        statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusDependencies ->  Entering function."); }
 
-                        statusDependencies.initialize(processConfig.statusDependencies, undefined, undefined, onInizialized);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, DEBUG_MODULE, STATUS_REPORT, BLOB_STORAGE, UTILITIES);
 
-                        function onInizialized(err) {
+                            statusDependencies.initialize(processConfig.statusDependencies, undefined, undefined, onInizialized);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized > Execution finished well. :-)");
-                                    initializeDataDependencies();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Operation Failed. Aborting the process.");
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeStatusDependencies ->  onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well. :-)");
+                                            initializeDataDependencies();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies ->  onInizialized -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 
                     function initializeDataDependencies() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDataDependencies ->  Entering function."); }
+                        try {
 
-                        dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, DEBUG_MODULE, DATA_SET, BLOB_STORAGE, UTILITIES);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDataDependencies ->  Entering function."); }
 
-                        dataDependencies.initialize(processConfig.dataDependencies, onInizialized);
+                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, DEBUG_MODULE, DATA_SET, BLOB_STORAGE, UTILITIES);
 
-                        function onInizialized(err) {
+                            dataDependencies.initialize(processConfig.dataDependencies, onInizialized);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeDataDependencies -> onInizialized > Execution finished well. :-)");
-                                    initializeContext();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized > Operation Failed. Aborting the process.");
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeDataDependencies ->  onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well. :-)");
+                                            initializeContext();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> initializeDataDependencies ->  onInizialized -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> initializeDataDependencies -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
                     
                     function initializeContext() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
+                        try {
 
-                        context = CONTEXT.newContext(bot, DEBUG_MODULE, BLOB_STORAGE, UTILITIES, STATUS_REPORT);
-                        context.initialize(statusDependencies, onInizialized);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
-                        function onInizialized(err) {
+                            context = CONTEXT.newContext(bot, DEBUG_MODULE, BLOB_STORAGE, UTILITIES, STATUS_REPORT);
+                            context.initialize(statusDependencies, onInizialized);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeContext -> onInizialized > Execution finished well. :-)");
-                                    initializeExchangeAPI();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized > Operation Failed. Aborting the process.");
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> initializeContext -> onInizialized -> Execution finished well. :-)");
+                                            initializeExchangeAPI();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> initializeContext ->  onInizialized -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> initializeContext -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 
                     function initializeExchangeAPI() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
+                        try {
 
-                        exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, DEBUG_MODULE, POLONIEX_CLIENT_MODULE);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
 
-                        exchangeAPI.initialize(onInizialized);
+                            exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, DEBUG_MODULE, POLONIEX_CLIENT_MODULE);
 
-                        function onInizialized(err) {
+                            exchangeAPI.initialize(onInizialized);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeExchangeAPI -> onInizialized > Execution finished well. :-)");
-                                    initializeAssistant();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized > Operation Failed. Aborting the process.");
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeContext ->  onInizialized -> onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> initializeExchangeAPI -> onInizialized -> Execution finished well. :-)");
+                                            initializeAssistant();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> initializeContext ->  onInizialized -> onInizialized -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 
                     function initializeAssistant() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeAssistant ->  Entering function."); }
+                        try {
 
-                        assistant = ASSISTANT.newAssistant(bot, DEBUG_MODULE, UTILITIES);
-                        assistant.initialize(context, exchangeAPI, dataDependencies, onInizialized);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeAssistant ->  Entering function."); }
 
-                        function onInizialized(err) {
+                            assistant = ASSISTANT.newAssistant(bot, DEBUG_MODULE, UTILITIES);
+                            assistant.initialize(context, exchangeAPI, dataDependencies, onInizialized);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeAssistant -> onInizialized > Execution finished well. :-)");
-                                    initializeUserBot();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Operation Failed. Aborting the process.");
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeAssistant -> onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> initializeAssistant -> onInizialized -> Execution finished well. :-)");
+                                            initializeUserBot();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> initializeAssistant -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 
                     function initializeUserBot() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
+                        try {
 
-                        usertBot = USER_BOT_MODULE.newUserBot(bot, DEBUG_MODULE, COMMONS_MODULE);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
-                        usertBot.initialize(assistant, onInizialized);
+                            usertBot = USER_BOT_MODULE.newUserBot(bot, DEBUG_MODULE, COMMONS_MODULE);
 
-                        function onInizialized(err) {
+                            usertBot.initialize(assistant, onInizialized);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> initializeUserBot -> onInizialized > Execution finished well. :-)");
-                                    startUserBot();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Operation Failed. Aborting the process.");
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> initializeUserBot -> onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> initializeUserBot -> onInizialized -> Execution finished well. :-)");
+                                            startUserBot();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> initializeUserBot -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 
                     function startUserBot() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> startUserBot ->  Entering function."); }
+                        try {
 
-                        usertBot.start(onFinished);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> startUserBot ->  Entering function."); }
 
-                        function onFinished(err) {
+                            usertBot.start(onFinished);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> startUserBot -> onFinished > Execution finished well. :-)");
-                                    saveContext();
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Retry Later. Requesting Execution Retry.");
-                                    nextWaitTime = 'Retry';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Operation Failed. Aborting the process.");
+                            function onFinished(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> startUserBot -> onFinished -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> startUserBot -> onFinished -> Execution finished well. :-)");
+                                            saveContext();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> startUserBot -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 
                     function saveContext() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> saveContext ->  Entering function."); }
+                        try {
 
-                        context.saveThemAll(onFinished);
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> saveContext ->  Entering function."); }
 
-                        function onFinished(err) {
+                            context.saveThemAll(onFinished);
 
-                            switch (err.result) {
-                                case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] run -> loop -> saveContext -> onFinished > Execution finished well. :-)");
-                                    nextWaitTime = 'Normal';
-                                    loopControl(nextWaitTime);
-                                    return;
-                                }
-                                case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Can not retry at this point.");
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-                                case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Operation Failed. Aborting the process.");
+                            function onFinished(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> saveContext -> onFinished -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write("[INFO] run -> loop -> saveContext -> onFinished -> Execution finished well. :-)");
+                                            nextWaitTime = 'Normal';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> Can not retry at this point.");
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> Operation Failed. Aborting the process.");
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> err = " + err.message);
                                     callBackFunction(err);
-                                    return;
-                                }
-                                default: {
-                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
-                                    logger.write("[ERROR] run -> loop -> saveContext -> onFinished > Unhandled err.result received. -> err.message = " + err.message);
-
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
                                 }
                             }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loop -> saveContext -> err = " + err.message);
+                            callBackFunction(err);
                         }
                     }
 

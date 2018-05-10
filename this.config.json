@@ -17,12 +17,12 @@
       "process": "Multi-Period-Market"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AAOlivia-Indicator-Bot",
       "process": "Multi-Period-Daily"
     },
     {
-      "enabled": "false",
+      "enabled": "true",
       "botPath": "../Bots/AAMasters/AABruce-Indicator-Bot",
       "process": "One-Min-Daily-Candles-Volumes"
     },

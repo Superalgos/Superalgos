@@ -121,7 +121,7 @@
 
             let market = global.MARKET;
 
-            let lastCandleFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
+            let lastHoleFixedFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
             let lastFileWithoutHoles;   // Datetime of the last verified file without holes.
             let lastCandleClose;        // Value of the last candle close.
@@ -267,7 +267,7 @@
                         logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
                         logger.write("[HINT] start -> getContextVariables -> If the status report does not exist we will point the lasCandleFile to the last day of the previous month.");
 
-                        lastCandleFile = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
+                        lastHoleFixedFile = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
                         findLastCandleCloseValue();
                         return;
                     }
@@ -286,12 +286,12 @@
 
                     } else {
 
-                        lastCandleFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
+                        lastHoleFixedFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
                         lastCandleClose = thisReport.candleClose;
 
                         if (thisReport.fileComplete === true) {
 
-                            buildCandles();
+                            buildCandlesAndVolumes();
 
                         } else {
 
@@ -328,7 +328,7 @@
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getCandles -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                            let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+                            let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
                             let filePath = bot.filePathRoot +  "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
                             bruceStorage.getTextFile(filePath, fileName, onFileReceived);
@@ -376,7 +376,7 @@
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getVolumes -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                            let dateForPath = lastCandleFile.getUTCFullYear() + '/' + utilities.pad(lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastCandleFile.getUTCDate(), 2);
+                            let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
                             bruceStorage.getTextFile(filePath, fileName, onFileReceived);
@@ -402,8 +402,8 @@
 
                                     volumesFile = JSON.parse(text);
                                     previousVolumes = volumesFile;
-                                    lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
-                                    buildCandles(previousCandles, previousVolumes);
+                                    lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
+                                    buildCandlesAndVolumes(previousCandles, previousVolumes);
 
                                 } catch (err) {
 
@@ -448,11 +448,11 @@
                         if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Entering market = " + JSON.stringify(market)); }
                         if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> lastCandleClose = " + lastCandleClose); }
 
-                        lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00"  + GMT_SECONDS);
-                        lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
+                        lastHoleFixedFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00"  + GMT_SECONDS);
+                        lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
                         lastCandleClose = 0;
-                        buildCandles();
+                        buildCandlesAndVolumes();
 
                     } else {
 
@@ -507,7 +507,7 @@
                                             logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
                                             logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> lastCandleClose = " + lastCandleClose);
 
-                                            buildCandles();
+                                            buildCandlesAndVolumes();
 
                                         } else {
 
@@ -538,9 +538,9 @@
                 }
             }
 
-            function buildCandles(previousCandles, previousVolumes) {
+            function buildCandlesAndVolumes(previousCandles, previousVolumes) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> Entering function."); }
 
                 /*
                 Here we are going to scan the trades files packing them in candles files every one day.
@@ -551,16 +551,17 @@
                 let canAddPrevious = true;
 
                 try {
-                    nextCandleFile();
+                    nextFile();
 
-                    function nextCandleFile() {
+                    function nextFile() {
 
                         try {
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> Entering function."); }
 
-                            lastCandleFile = new Date(lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> Entering function."); }
 
-                            let date = new Date(lastCandleFile.valueOf() - 60 * 1000);
+                            lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() + ONE_DAY_IN_MILISECONDS);
+
+                            let date = new Date(lastHoleFixedFile.valueOf() - 60 * 1000);
 
                             if (date.valueOf() < firstTradeFile.valueOf()) {  // At the special case where we are at the begining of the market, this might be true.
                                 date = new Date(firstTradeFile.valueOf() - 60 * 1000);
@@ -570,10 +571,14 @@
                                 date = new Date(lastTradeFile.valueOf());
                             }
 
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> date = " + date); }
+
                             let candles = [];
                             let volumes = [];
 
                             if (previousCandles !== undefined && canAddPrevious === true) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> Adding Previous Candles. "); }
 
                                 for (let i = 0; i < previousCandles.length; i++) {
 
@@ -591,6 +596,8 @@
                             }
 
                             if (previousVolumes !== undefined && canAddPrevious === true) {
+
+                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> Adding Previous Volumes. "); }
 
                                 for (let i = 0; i < previousVolumes.length; i++) {
 
@@ -612,21 +619,24 @@
                             function nextDate() {
 
                                 try {
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> nextDate -> Entering function."); }
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Entering function."); }
 
                                     date = new Date(date.valueOf() + 60 * 1000);
 
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> date = " + date); }
+
                                     /* Check if we are outside the current Day / File */
 
-                                    if (date.getUTCDate() !== lastCandleFile.getUTCDate()) {
+                                    if (date.getUTCDate() !== lastHoleFixedFile.getUTCDate()) {
 
-                                        writeFiles(lastCandleFile, candles, volumes, true, onFilesWritten);
+                                        writeFiles(lastHoleFixedFile, candles, volumes, true, onFilesWritten);
 
                                         return;
 
                                         function onFilesWritten() {
 
-                                            nextCandleFile();
+                                            nextFile();
                                         }
                                     }
 
@@ -634,20 +644,20 @@
 
                                     if (date.getUTCMonth() + 1 !== parseInt(month)) {
 
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> nextDate -> End of the month reached at date = " + date.toUTCString()); }
+                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> End of the month reached at date = " + date.toUTCString()); }
 
-                                        lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
+                                        lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                                        writeStatusReport(lastCandleFile, lastTradeFile, lastCandleClose, true, true, onStatusReportWritten);
+                                        writeStatusReport(lastHoleFixedFile, lastTradeFile, lastCandleClose, true, true, onStatusReportWritten);
                                         return;
 
                                         function onStatusReportWritten(err) {
 
                                             try {
-                                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> nextDate -> onStatusReportWritten -> Entering function."); }
+                                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> Entering function."); }
 
                                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                    logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
+                                                    logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
                                                     callBackFunction(err);
                                                     return;
                                                 }
@@ -656,12 +666,12 @@
                                                     result: global.CUSTOM_OK_RESPONSE.result,
                                                     message: "End of the month reached."
                                                 }
-                                                logger.write("[WARN] start -> buildCandles -> nextCandleFile -> nextDate -> onStatusReportWritten -> customOK = " + customOK.message);
+                                                logger.write("[WARN] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> customOK = " + customOK.message);
                                                 callBackFunction(customOK);
 
                                                 return;
                                             } catch (err) {
-                                                logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
+                                                logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
                                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 return;
                                             }
@@ -672,13 +682,13 @@
 
                                     if (date.valueOf() > lastFileWithoutHoles.valueOf()) {
 
-                                        writeFiles(lastCandleFile, candles, volumes, false, onFilesWritten);
+                                        writeFiles(lastHoleFixedFile, candles, volumes, false, onFilesWritten);
                                         return;
 
                                         function onFilesWritten() {
 
                                             if (FULL_LOG === true) {
-                                                logger.write("[INFO] start -> buildCandles -> nextCandleFile -> nextDate -> Head of the market reached for market " + market.assetA + '_' + market.assetB + "."); }
+                                                logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Head of the market reached for market " + market.assetA + '_' + market.assetB + "."); }
 
                                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                                             return;
@@ -688,7 +698,7 @@
                                     readTrades();
 
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> nextDate -> err = " + err.message);
+                                    logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -696,7 +706,8 @@
                             function readTrades() {
 
                                 try {
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> nextDate -> readTrades -> Entering function."); }
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> readTrades -> Entering function."); }
 
                                     lastTradeFile = new Date(date.valueOf());
 
@@ -712,17 +723,18 @@
                                         let tradesFile;
 
                                         try {
-                                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> Entering function."); }
+
+                                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> Entering function."); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> err = " + err.message);
-                                                logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived ->  text = " + text);
+                                                logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.message);
+                                                logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
                                                 callBackFunction(err);
                                                 return;
                                             }
 
                                             if (LOG_FILE_CONTENT === true) {
-                                                logger.write("[INFO] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived ->  text = " + text);
+                                                logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
                                             }
 
                                             let candle = {
@@ -745,7 +757,7 @@
 
                                             let tradesCount = utilities.pad(tradesFile.length, 5);
 
-                                            logger.write("[INFO] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> " + tradesCount + " trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ". ");
+                                            logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> " + tradesCount + " trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ". ");
 
                                             if (tradesFile.length > 0) {
 
@@ -792,29 +804,29 @@
 
                                         } catch (err) {
 
-                                            logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> err = " + err.message);
-                                            logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> filePath = " + filePath);
-                                            logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived ->  text = " + text);
-                                            logger.write("[HINT] start -> buildCandles -> nextCandleFile -> readTrades -> onFileReceived -> Empty or corrupt volume file found.");
+                                            logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.message);
+                                            logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> filePath = " + filePath);
+                                            logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
+                                            logger.write("[HINT] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> Empty or corrupt volume file found.");
                                             
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
                                     }
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> readTrades -> err = " + err.message);
+                                    logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         } catch (err) {
-                            logger.write("[ERROR] start -> buildCandles -> nextCandleFile -> err = " + err.message);
+                            logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> buildCandles -> err = " + err.message);
+                    logger.write("[ERROR] start -> buildCandlesAndVolumes -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -843,7 +855,6 @@
 
                             for (i = 0; i < candles.length; i++) {
 
-                                let candle = candles[i];
                                 fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
                                 if (separator === "") { separator = ","; }
                                 fileRecordCounter++;
@@ -920,7 +931,20 @@
 
                             for (i = 0; i < volumes.length; i++) {
 
-                                let candle = volumes[i];
+                                /* Validation trying to find a BUG that changes the dates of rubish data. */
+
+                                if (volumes[i].begin < 1262304000000 | volumes[i].end < 1262304000000) { // If it is storing a number that represents a date before the year 2010...
+
+                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> Invalid Date trying to be recorded on output file. ");
+                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> volumes[i].begin = " + volumes[i].begin);
+                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> volumes[i].end = " + volumes[i].end);
+                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> i = " + i);
+                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> volumes = " + JSON.stringify(volumes));
+
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+
                                 fileContent = fileContent + separator + '[' + volumes[i].buy + "," + volumes[i].sell + "," + volumes[i].begin + "," + volumes[i].end + "]";
                                 if (separator === "") { separator = ","; }
                                 fileRecordCounter++;

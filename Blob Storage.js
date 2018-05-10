@@ -2,7 +2,7 @@
 exports.newBlobStorage = function newBlobStorage(BOT) {
 
     const FULL_LOG = true;
-    const LOG_FILE_CONTENT = true;
+    const LOG_FILE_CONTENT = false;
 
     let bot = BOT;
     const ROOT_DIR = './';

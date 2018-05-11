@@ -1,0 +1,3 @@
+C:\Users\Luis\source\repos\Plotters\AAMasters\Plotters-Candles-Volumes\obj\Debug\Project.njsprojResolveAssemblyReference.cache
+C:\Users\Luis\source\repos\Plotters\AAMasters\Plotters-Candles-Volumes\obj\Debug\Project.njsproj.CoreCompileInputs.cache
+C:\Users\Luis\source\repos\Plotters\AAMasters\Plotters-Candles-Volumes\bin\Microsoft.NodejsTools.WebRole.dll

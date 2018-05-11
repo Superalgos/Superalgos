@@ -172,8 +172,6 @@
 
         if (fileCursor.files.size === 0) { return; } // We need to wait until there are files in the cursor
 
-        let daysOnSides = getSideDays(timePeriod);
-
         let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
         let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
 
@@ -248,8 +246,6 @@
     function recalculateUsingMarketFiles() {
 
         if (marketFile === undefined) { return; } // Initialization not complete yet.
-
-        let daysOnSides = getSideDays(timePeriod);
 
         let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
         let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);

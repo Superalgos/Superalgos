@@ -240,43 +240,51 @@
 
             function onfileCount(err, files) {
 
-                if (err) { return;}
+                if (err) { return; }
 
-                fileCount = files.length;
+                try {
+                    fileCount = files.length;
 
-                fs.readdirSync(pFolderPath).forEach(fileName => {
+                    fs.readdirSync(pFolderPath).forEach(fileName => {
 
-                    fs.readFile(pFolderPath + "/" + fileName, onFileRead);
+                        fs.readFile(pFolderPath + "/" + fileName, onFileRead);
 
-                    function onFileRead(err, file) {
+                        function onFileRead(err, file) {
 
-                        try {
+                            try {
 
-                            filesChecked++;
+                                filesChecked++;
 
-                            if (file.indexOf("[ERROR]") > 0) {
+                                if (file.indexOf("[ERROR]") > 0) {
 
-                                errosFound = true;
-
-                            }
-
-                            if (filesChecked === fileCount) {
-
-                                if (errosFound === false) {
-
-                                    rimraf.sync(pFolderPath);
+                                    errosFound = true;
 
                                 }
+
+                                if (filesChecked === fileCount) {
+
+                                    if (errosFound === false) {
+
+                                        rimraf.sync(pFolderPath);
+
+                                    }
+                                }
+                            }
+                            catch (err) {
+                                // We ignore the error;
+                                return;
                             }
                         }
-                        catch (err) {
-                            //console.log("Error trying to delete Loop Folder " + pFolderPath + ".Reading file " + fileName + ". err.message = " + err.message);
-                        }
-                    }
-                })
-            } 
+                    })
+                }
+                catch (err) {
+                    // We ignore the error;
+                    return;
+                }  
+            }
         }
         catch (err) {
+            // We ignore the error;
             return;
         } 
     }

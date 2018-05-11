@@ -22,7 +22,7 @@
       "process": "Multi-Period-Daily"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AABruce-Indicator-Bot",
       "process": "One-Min-Daily-Candles-Volumes"
     },
@@ -37,9 +37,9 @@
       "process": "Poloniex-Live-Trades"
     },
     {
-      "enabled": "false",
+      "enabled": "true",
       "botPath": "../Bots/AAMasters/AAMiguel-Indicator-Bot",
-      "process": "Trades-Files-To-Blobs"
+      "process": "Trades-Blobs-To-Blobs"
     }
   ],
   "stopGracefully": "false",

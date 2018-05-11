@@ -19,9 +19,6 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    const shareName = 'data';
-    let dataOwner;
-
     let thisObject = {
         initialize: initialize,
         createFolder: createFolder,
@@ -30,9 +27,11 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
     };
 
     let blobService;
+    let containerName = 'data';
+    let dataOwner;
+    let ambient = global.STORAGE_CONN_STRING_FOLDER;
 
     return thisObject;
-
 
     function initialize(pDataOwner, callBackFunction) {
 
@@ -40,10 +39,17 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
             if (pDataOwner === undefined) {
                 dataOwner = bot.devTeam;
-                logger.fileName = MODULE_NAME + '.' + bot.devTeam + '.' + bot.codeName;
+                logger.fileName = MODULE_NAME + '.' + bot.devTeam + '.' + bot.codeName + '.' + containerName;
             } else {
                 dataOwner = pDataOwner.devTeam;
-                logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot;
+                logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
+
+                if (pDataOwner.ambient !== undefined) {
+
+                    ambient = pDataOwner.ambient;
+                    containerName = pDataOwner.devTeam.toLowerCase();
+                    logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
+                }
             }
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
@@ -59,8 +65,22 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                 }
 
                 try {
-                    blobService = storage.createBlobService(pConnObj.connectionString);
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                    if (pConnObj.connectionString !== "") {
+                        blobService = storage.createBlobService(pConnObj.connectionString);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+                        return;
+                    }
+
+                    if (pConnObj.accountName !== "") {
+                        blobService = storage.createBlobService(pConnObj.accountName, pConnObj.sas);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+                        return;
+                    }
+                    
+                    logger.write("[ERROR] initialize -> onConnectionStringReady -> Either a connectionString or an accountName must be provided.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
 
                 } catch (err) {
 
@@ -76,7 +96,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                 try {
                     let fs = require('fs');
-                    filePath = '../' + 'Connection-Strings' + '/' + global.STORAGE_CONN_STRING_FOLDER + '/' + dataOwner + '.azure.storage.connstring';
+                    filePath = '../' + 'Connection-Strings' + '/' + ambient + '/' + dataOwner + '.azure.storage.connstring';
                     let connObj = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
                     callBack(global.DEFAULT_OK_RESPONSE, connObj);
@@ -133,12 +153,12 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
             if (FULL_LOG === true) {
                 logger.write("[INFO] createTextFile -> About to create a text file.");
-                logger.write("[INFO] createTextFile -> shareName = " + shareName);
+                logger.write("[INFO] createTextFile -> containerName = " + containerName);
                 logger.write("[INFO] createTextFile -> pFolderPath = " + pFolderPath);
                 logger.write("[INFO] createTextFile -> pFileName = " + pFileName);
             }
 
-            blobService.createBlockBlobFromText(shareName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
+            blobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
 
             function onFileCreated(err, result, response) {
 
@@ -169,7 +189,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                             logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
 
-                            blobService.createBlockBlobFromText(shareName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
+                            blobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
 
                             function onSecondTry(err, result, response) {
 
@@ -212,12 +232,12 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
             if (FULL_LOG === true) {
                 logger.write("[INFO] getTextFile -> About to get a text file.");
-                logger.write("[INFO] getTextFile -> shareName = " + shareName);
+                logger.write("[INFO] getTextFile -> containerName = " + containerName);
                 logger.write("[INFO] getTextFile -> pFolderPath = " + pFolderPath);
                 logger.write("[INFO] getTextFile -> pFileName = " + pFileName);
             }
 
-            blobService.getBlobToText(shareName, pFolderPath + "/" + pFileName, onFileReceived);
+            blobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onFileReceived);
 
             function onFileReceived(err, text, response) {
 
@@ -247,7 +267,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                             logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
 
-                            blobService.getBlobToText(shareName, pFolderPath + "/" + pFileName, onSecondTry);
+                            blobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onSecondTry);
 
                             function onSecondTry(err, text, response) {
 

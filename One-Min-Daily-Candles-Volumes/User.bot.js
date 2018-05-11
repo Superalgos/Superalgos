@@ -377,7 +377,7 @@
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
-                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
                             bruceStorage.getTextFile(filePath, fileName, onFileReceived);
 

@@ -17,13 +17,13 @@
       "startMode": {
         "allMonths": {
           "run": "false",
-          "minYear": "2014",
-          "maxYear": "2018"
+          "minYear": "2016",
+          "maxYear": "2017"
         },
         "oneMonth": {
           "run": "true",
           "year": "2018",
-          "month": "4"
+          "month": "5"
         },
         "noTime": {
           "run": "false"

@@ -8,5 +8,6 @@
   },
   "dependencies": {
     "@octokit/rest": "^14.0.9",
-    "atob": "^2.1.1"}
+    "atob": "^2.1.1"
+  }
 }

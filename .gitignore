@@ -1,5 +1,5 @@
 
 *.config
-.vs/AACharly/v15/.suo
 *.log
 *.cache
+node_modules/*

@@ -1,3 +1,0 @@
-c:\users\luis\source\repos\AAOlivia\obj\Debug\AAOlivia.njsprojResolveAssemblyReference.cache
-c:\users\luis\source\repos\AAOlivia\obj\Debug\AAOlivia.njsproj.CoreCompileInputs.cache
-c:\users\luis\source\repos\AAOlivia\bin\Microsoft.NodejsTools.WebRole.dll

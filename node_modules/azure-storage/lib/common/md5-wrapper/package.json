@@ -1,7 +1,0 @@
-{
-  "name": "azure-storage-md5-wrapper",
-  "author": "Microsoft Corporation",
-  "license": "Apache-2.0",
-  "main": "md5.node.js",
-  "browser": "md5.browser.js"
-}

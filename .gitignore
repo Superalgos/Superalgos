@@ -1,6 +1,10 @@
 
+.vs/*
+.obj/*
+
+.bin/*
+
 *.config
-*.connstring
-.vs/AACharly/v15/.suo
 *.log
 *.cache
+node_modules/*

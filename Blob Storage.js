@@ -27,7 +27,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
     };
 
     let blobService;
-    let containerName = 'data';
+    let containerName = 'aamasters';
     let dataOwner;
     let ambient = global.STORAGE_CONN_STRING_FOLDER;
 

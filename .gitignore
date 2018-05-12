@@ -1,1 +1,6 @@
+
+.vs/*
+.obj/*
+
+
 node_modules/*

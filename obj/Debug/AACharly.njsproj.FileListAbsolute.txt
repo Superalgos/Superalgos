@@ -1,3 +1,0 @@
-c:\users\luis\source\repos\AACharly\obj\Debug\AACharly.njsprojResolveAssemblyReference.cache
-c:\users\luis\source\repos\AACharly\obj\Debug\AACharly.njsproj.CoreCompileInputs.cache
-c:\users\luis\source\repos\AACharly\bin\Microsoft.NodejsTools.WebRole.dll

@@ -1,6 +1,0 @@
-C:\Users\Luis\source\repos\AACloudPlatform\obj\Debug\Project.njsproj.CoreCompileInputs.cache
-C:\Users\Luis\source\repos\AACloudPlatform\bin\Microsoft.NodejsTools.WebRole.dll
-C:\Users\Luis\source\repos\AACloudPlatform\obj\Debug\Project.njsprojResolveAssemblyReference.cache
-C:\Users\Luis\source\repos\AACloud\obj\Debug\Project.njsprojResolveAssemblyReference.cache
-C:\Users\Luis\source\repos\AACloud\obj\Debug\Project.njsproj.CoreCompileInputs.cache
-C:\Users\Luis\source\repos\AACloud\bin\Microsoft.NodejsTools.WebRole.dll

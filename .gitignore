@@ -1,4 +1,9 @@
 
+.vs/*
+.obj/*
+
+.bin/*
+
 *.config
 *.log
 *.cache

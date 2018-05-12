@@ -1,7 +1,7 @@
 {
   "name": "AAArtudito",
   "version": "1.0.0",
-  "description": "Processes that get the order books from Poloniex.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,9 +9,5 @@
   "author": "Matias-Benitez",
   "license": "ISC",
   "dependencies": {
-    "azure-storage": "^2.6.0",
-    "node-uuid": "^1.4.8",
-    "nonce": "^1.0.4",
-    "request": "^2.83.0"
-  }
+ }
 }

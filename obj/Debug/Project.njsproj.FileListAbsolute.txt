@@ -1,3 +1,0 @@
-C:\Users\Luis\source\repos\Bots\AAMasters\AAMariam-Trading-Bot\obj\Debug\Project.njsprojResolveAssemblyReference.cache
-C:\Users\Luis\source\repos\Bots\AAMasters\AAMariam-Trading-Bot\obj\Debug\Project.njsproj.CoreCompileInputs.cache
-C:\Users\Luis\source\repos\Bots\AAMasters\AAMariam-Trading-Bot\bin\Microsoft.NodejsTools.WebRole.dll

@@ -1,6 +1,0 @@
-{
-  "globalDependencies": {
-    "node": "registry:env/node#0.10.0+20160918225031",
-    "node-uuid": "registry:dt/node-uuid#0.0.0+20160316155526"
-  }
-}

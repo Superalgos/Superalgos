@@ -1,8 +1,8 @@
 {
-  "name": "AACharly",
+  "name": "AACloud",
   "version": "1.0.0",
-  "description": "Processes that get the trades from Poloniex.",
-  "main": "index.js",
+  "description": "",
+  "main": "Run.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

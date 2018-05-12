@@ -1,14 +1,12 @@
 {
-  "name": "browser",
+  "name": "AAWeb",
   "version": "0.0.0",
-  "description": "browser",
+  "description": "",
   "main": "server.js",
   "author": {
-    "name": "Luis"
+    "name": "Luis-Fernando-Molina"
   },
   "dependencies": {
     "@octokit/rest": "^14.0.9",
-    "atob": "^2.1.1",
-    "octokit": "^0.10.4"
-  }
+    "atob": "^2.1.1"}
 }

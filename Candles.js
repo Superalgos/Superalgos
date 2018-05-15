@@ -69,6 +69,7 @@
 
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+        marketFiles.eventHandler.listenToEvent("Files Updated", onFilesUpdated);
 
         /* Get ready for plotting. */
 
@@ -93,6 +94,18 @@
             /* This point does not belong to this space. */
 
             return undefined;
+        }
+
+    }
+
+    function onFilesUpdated() {
+
+        let newMarketFile = marketFiles.getFile(timePeriod);
+
+        if (newMarketFile !== undefined) {
+
+            marketFile = newMarketFile;
+            recalculate();
         }
 
     }

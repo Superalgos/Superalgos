@@ -2,7 +2,7 @@
 function newFileCursor() {
 
     const MODULE_NAME = "File Cursor";
-    const INFO_LOG = false;
+    const INFO_LOG = true;
     const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -15,7 +15,8 @@ function newFileCursor() {
         setTimePeriod: setTimePeriod,
         files: undefined,
         getExpectedFiles: getExpectedFiles,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     }
 
     thisObject.files = files;
@@ -34,7 +35,36 @@ function newFileCursor() {
     let beginDateRange;
     let endDateRange;
 
+    let intervalHandle;
+
     return thisObject;
+
+    function finalize() {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
+
+            clearInterval(intervalHandle);
+
+            files = undefined;
+            cursorDate = undefined;
+            market = undefined;
+            exchange = undefined;
+            fileCloud = undefined;
+            devTeam = undefined;
+            bot = undefined;
+            thisSet = undefined;
+            periodName = undefined;
+            timePeriod = undefined;
+            beginDateRange = undefined;
+            endDateRange = undefined;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err); }
+        }
+    }
 
     function initialize(pFileCloud, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
 
@@ -57,10 +87,78 @@ function newFileCursor() {
 
             setTimePeriod(pCurrentTimePeriod, pCursorDate, callBackFunction);
 
+            intervalHandle = setInterval(updateFiles , timePeriod);
+
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function updateFiles() {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> Entering function."); }
+
+            let targetDate = new Date();
+            let dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2);
+
+            let file = thisObject.files.get(dateString);
+
+            if (file !== undefined) {
+
+                if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> File found at the cursor, proceeding to update."); }
+
+                fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived);
+
+            }
+
+            function onFileReceived(err, file) {
+
+                try {
+
+                    if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onFileReceived -> Entering function."); }
+
+                    switch (err.result) {
+                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onFileReceived -> Received OK Response."); }
+                            break;
+                        }
+
+                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onFileReceived -> Received FAIL Response."); }
+                            return;
+                        }
+
+                        default: {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onFileReceived -> Received Unexpected Response."); }
+                            return;
+                        }
+                    }
+
+                    thisObject.files.set(dateString, file);
+
+                    if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onFileReceived -> File updated."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onFileReceived -> devTeam = " + devTeam.codeName); }
+                    if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onFileReceived -> bot = " + bot.codeName); }
+                    if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onFileReceived -> thisSet = " + thisSet.codeName); }
+                    if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> onFileReceived -> dateString = " + dateString); }
+
+
+                } catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] updateFiles -> onFileReceived -> err = " + err); }
+                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] updateFiles -> err = " + err); }
         }
     }
 
@@ -449,7 +547,7 @@ function newFileCursor() {
 
                         default: {
 
-                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> Received Unexpected Response."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] getFiles -> onFileReceived -> Received Unexpected Response."); }
                             callBackFunction(err);
                             return;
                         }

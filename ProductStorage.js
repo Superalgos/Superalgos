@@ -37,7 +37,8 @@ function newProductStorage(pName) {
         setTimePeriod: setTimePeriod,
 
         eventHandler: undefined,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
 
     }
 
@@ -52,6 +53,34 @@ function newProductStorage(pName) {
 
     return thisObject;
 
+    function finalize() {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
+
+            for (let i = 0; i < thisObject.marketFiles.length; i++) {
+
+                let marketFile = thisObject.marketFiles[i];
+                marketFile.finalize();
+            }
+
+            thisObject.marketFiles = undefined;
+
+            for (let i = 0; i < thisObject.dailyFiles.length; i++) {
+
+                let dailyFile = thisObject.dailyFiles[i];
+                dailyFile.finalize();
+            }
+
+            thisObject.dailyFile = undefined;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err); }
+        }
+    }
+ 
     function initialize(pDevTeam, pBot, pProduct, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
         try {

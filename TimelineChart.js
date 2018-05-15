@@ -668,13 +668,17 @@
 
                     canvas.floatingSpace.noteSets.destroyNoteSet(productPlotters[i].noteSet);
 
-                    /* Finally the panels. */
+                    /* Then the panels. */
 
                     for (let j = 0; j < productPlotters[i].panels.length; j++) {
 
                         canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j]);
 
                     }
+
+                    /* Finally the Storage Objects */
+
+                    productPlotters[i].storage.finalize();
 
                     productPlotters.splice(i, 1); // Delete item from array.
 

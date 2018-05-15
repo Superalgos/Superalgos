@@ -13,7 +13,8 @@ function newDailyFiles() {
         setTimePeriod: setTimePeriod,
         getExpectedFiles: getExpectedFiles,
         getFilesLoaded: getFilesLoaded,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     }
 
     let filesLoaded = 0;
@@ -21,12 +22,36 @@ function newDailyFiles() {
 
     let fileCloud;
 
-    let marketFiles = new Map;
     let fileCursors = new Map;
 
     let callBackWhenFileReceived;
 
     return thisObject;
+
+    function finalize() {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
+
+            filesLoaded = undefined;
+            expectedFiles = undefined;
+            fileCloud = undefined;
+
+            fileCursors.forEach(finalizeEach);
+
+            function finalizeEach(item, key, mapObj) {
+
+                if (INFO_LOG === true) { logger.write("[INFO] finalize -> finalizeEach -> Entering function."); }
+
+                item.finalize();
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err); }
+        }
+    }
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 

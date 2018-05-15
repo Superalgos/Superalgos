@@ -86,17 +86,25 @@ function newCanvas() {
         let panelsSpace = newPanelsSpace();
         panelsSpace.initialize();
 
-        this.panelsSpace = panelsSpace;
+        thisObject.panelsSpace = panelsSpace;
 
         let floatingSpace = newFloatingSpace();
         floatingSpace.initialize();
 
-        this.floatingSpace = floatingSpace;
+        thisObject.floatingSpace = floatingSpace;
 
         let chartSpace = newChartSpace();
-        chartSpace.initialize();
+        chartSpace.initialize(onCharSpaceInitialized);
 
-        this.chartSpace = chartSpace;
+        thisObject.chartSpace = chartSpace;
+
+        function onCharSpaceInitialized(err) {
+            viewPort.raiseEvents(); // These events will impacts on objects just initialized.
+
+            /* We will store the last used this screen resolution. This will help us know if we can remember the las viewPort offset or not, since they depends on the screen resolution. */
+
+            window.localStorage.setItem('webApp.lastRun.screenResolution', browserCanvas.width + '.' + browserCanvas.height);
+        }
 
         /* Splash Screen */
 
@@ -108,7 +116,7 @@ function newCanvas() {
 
         function onAnimationInitialized(err) {
 
-            this.animation = animation;
+            thisObject.animation = animation;
 
             /* Here we add all the functions that will be called during the animation cycle. */
 

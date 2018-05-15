@@ -65,8 +65,16 @@
             chartGrid = newChartGrid();
 
             recalculateScale();
-            moveViewPortToCurrentDatetime();
 
+            /* When the Web App has never run, we need to position the viewPort at the current Date. This in turn will set the current date as the date for loading the data. */
+
+            let lastRun = window.localStorage.getItem('webApp.lastRun.screenResolution');
+
+            if (lastRun === null || lastRun !== browserCanvas.width + '.' + browserCanvas.height) {
+
+                moveViewPortToCurrentDatetime();
+            }
+            
             /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 
             viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
@@ -117,7 +125,7 @@
                                     if (INFO_LOG === true) { logger.write("[INFO] initialize -> onCompetitionPlottersInitialized -> onProductPlottersInitialized ->  Received OK Response."); }
 
                                     initializationReady = true;
-                                    callBackFunction(GLOBAL.CUSTOM_OK_RESPONSE);
+                                    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
                                     break;
                                 }
 
@@ -496,10 +504,17 @@
                             if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> Entering function."); }
                             if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> key = " + pProductCard.product.plotter.devTeam + "-" + pProductCard.product.plotter.codeName + "-" + pProductCard.product.plotter.moduleName); }
 
-                            try {
-                                plotter.positionAtDatetime(INITIAL_DATE);
-                            } catch (err) {
-                                // If the plotter does not implement this function its ok.
+                            /* When the Web App has never run, we need to position the viewPort at the current Date. Otherwise it will get automatically positioned at the last thing the user was browsing. */
+
+                            let lastRun = window.localStorage.getItem('webApp.lastRun.screenResolution');
+
+                            if (lastRun === null || lastRun !== browserCanvas.width + '.' + browserCanvas.height) {
+
+                                try {
+                                    plotter.positionAtDatetime(INITIAL_DATE);
+                                } catch (err) {
+                                    // If the plotter does not implement this function its ok.
+                                } 
                             }
 
                             let productPlotter = {

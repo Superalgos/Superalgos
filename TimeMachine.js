@@ -37,7 +37,7 @@ function newTimeMachine() {
 
     return thisObject;
 
-    function initialize() {
+    function initialize(callBackFunction) {
 
         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
@@ -70,16 +70,26 @@ function newTimeMachine() {
 
         iteration++;
 
-        function onDefaultMarketInitialized() {
+        function onDefaultMarketInitialized(err) {
 
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDefaultMarketInitialized -> Entering function."); }
+
+            if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+
+                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDefaultMarketInitialized -> Initialization of the only market failed."); }
+
+                callBackFunction(err);
+                return;
+            }
 
             thisObject.charts.push(timelineChart);
 
             controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined);
             timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime);
 
-            initializeTheRestOfTheMarkets();
+            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
+
+            //initializeTheRestOfTheMarkets();
 
         }
 

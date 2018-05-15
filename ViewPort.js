@@ -9,10 +9,10 @@ function newViewPort() {
     const LEFT_MARGIN = 50;
     const RIGHT_MARGIN = 50;
 
-    let viewPort = {
+    let thisObject = {
         visibleArea: undefined,
         eventHandler: undefined,
-        zoomLevel: INITIAL_ZOOM_LEVEL,   
+        zoomLevel: undefined,   
         mousePosition: undefined,
         applyZoom: applyZoom,
         zoomFontSize: zoomFontSize,
@@ -24,10 +24,9 @@ function newViewPort() {
         displaceTarget: displaceTarget,
         animate: animate,
         draw: draw,
+        raiseEvents: raiseEvents, 
         initialize: initialize
     };
-
-    zoomTargetLevel = INITIAL_ZOOM_LEVEL;
 
     let increment = 0.035;
 
@@ -46,42 +45,93 @@ function newViewPort() {
         y: 0
     }; 
 
-   viewPort.mousePosition = { 
+   thisObject.mousePosition = { 
         x: 0,
         y: 0
     }; 
 
-   viewPort.eventHandler = newEventHandler();
+   thisObject.eventHandler = newEventHandler();
 
-   return viewPort;
+   let zoomTargetLevel;
+
+   return thisObject;
 
    function initialize() {
 
-       viewPort.visibleArea = {
+       thisObject.visibleArea = {
            topLeft: { x: LEFT_MARGIN, y: TOP_MARGIN },
            topRight: { x: browserCanvas.width - RIGHT_MARGIN , y: TOP_MARGIN },
            bottomRight: { x: browserCanvas.width - RIGHT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN},
            bottomLeft: { x: LEFT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN}
        };  
 
+       /* There is a chance that we could resume the last session at the place we left it. */
+
+       let lastRun = window.localStorage.getItem('webApp.lastRun.screenResolution');
+
+       if (lastRun !== null && lastRun === browserCanvas.width + '.' + browserCanvas.height) {
+
+           /* We get from the local storage the recored values of Zoom and OffSet during the last session using this app with this browser */
+
+           let savedZoomTargetLevel = window.localStorage.getItem('viewPort.zoomTargetLevel');
+
+           if (savedZoomTargetLevel !== null) {
+
+               thisObject.zoomLevel = Number(savedZoomTargetLevel);
+               zoomTargetLevel = Number(savedZoomTargetLevel);
+
+               INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel);
+           }
+
+           let savedOffset = window.localStorage.getItem('viewPort.offset');
+
+           if (savedOffset !== null) {
+
+               offset = JSON.parse(savedOffset);
+           }
+
+           let savedTargetOffset = window.localStorage.getItem('viewPort.targetOffset');
+
+           if (savedTargetOffset !== null) {
+
+               targetOffset = JSON.parse(savedTargetOffset);
+           }
+
+       } else {
+
+           thisObject.zoomLevel = INITIAL_ZOOM_LEVEL;
+           zoomTargetLevel = INITIAL_ZOOM_LEVEL;
+
+           INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel);
+       }
+   }
+
+   function raiseEvents() {
+
+       let event = {
+           newOffset: offset
+       };
+
+       thisObject.eventHandler.raiseEvent("Offset Changed", event);
+
    }
 
    function animate() {
 
-       if (viewPort.zoomLevel < zoomTargetLevel) {
-           if (zoomTargetLevel - viewPort.zoomLevel < ANIMATION_INCREMENT) {
-               ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - viewPort.zoomLevel);
+       if (thisObject.zoomLevel < zoomTargetLevel) {
+           if (zoomTargetLevel - thisObject.zoomLevel < ANIMATION_INCREMENT) {
+               ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - thisObject.zoomLevel);
            }
-           viewPort.zoomLevel = viewPort.zoomLevel + ANIMATION_INCREMENT;
-           changeZoom(viewPort.zoomLevel - ANIMATION_INCREMENT, viewPort.zoomLevel);
+           thisObject.zoomLevel = thisObject.zoomLevel + ANIMATION_INCREMENT;
+           changeZoom(thisObject.zoomLevel - ANIMATION_INCREMENT, thisObject.zoomLevel);
        }
 
-       if (viewPort.zoomLevel > zoomTargetLevel) {
-           if (viewPort.zoomLevel - zoomTargetLevel < ANIMATION_INCREMENT) {
-               ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - viewPort.zoomLevel);
+       if (thisObject.zoomLevel > zoomTargetLevel) {
+           if (thisObject.zoomLevel - zoomTargetLevel < ANIMATION_INCREMENT) {
+               ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - thisObject.zoomLevel);
            } 
-           viewPort.zoomLevel = viewPort.zoomLevel - ANIMATION_INCREMENT;
-           changeZoom(viewPort.zoomLevel + ANIMATION_INCREMENT, viewPort.zoomLevel);
+           thisObject.zoomLevel = thisObject.zoomLevel - ANIMATION_INCREMENT;
+           changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel);
        }
 
  /*
@@ -119,7 +169,9 @@ function newViewPort() {
            newOffset: offset
        };
 
-       viewPort.eventHandler.raiseEvent("Offset Changed", event);
+       thisObject.eventHandler.raiseEvent("Offset Changed", event);
+
+       window.localStorage.setItem('viewPort.offset', JSON.stringify(offset));
 
        //console.log("displace produced new Offset x = " + offset.x + " y = " + offset.y);
 
@@ -136,6 +188,8 @@ function newViewPort() {
            x: (targetOffset.x - offset.x) / 10,
            y: (targetOffset.y - offset.y) / 10
        };
+
+       window.localStorage.setItem('viewPort.targetOffset', JSON.stringify(targetOffset));
 
        //console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
 
@@ -195,7 +249,7 @@ function newViewPort() {
 
         zoomTargetLevel = zoomTargetLevel + amount;
 
-        ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - viewPort.zoomLevel) / 3;
+        ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - thisObject.zoomLevel) / 3;
 
         let event = {
             newLevel: zoomTargetLevel,
@@ -211,23 +265,30 @@ function newViewPort() {
 
         //console.log("Zoom Changed > " + event.newLevel);
 
-        viewPort.eventHandler.raiseEvent("Zoom Changed", event);
+        thisObject.eventHandler.raiseEvent("Zoom Changed", event);
+
+        window.localStorage.setItem('viewPort.zoomTargetLevel', zoomTargetLevel);
+
         return true;
    }
 
 
     function changeZoom(oldLevel, newLevel) {
 
-        let mouseNoZoom = unzoomThisPoint(viewPort.mousePosition, oldLevel);
+        let mouseNoZoom = unzoomThisPoint(thisObject.mousePosition, oldLevel);
         let newMouse = zoomThisPoint(mouseNoZoom, newLevel);
 
-        offset.x = offset.x - newMouse.x + viewPort.mousePosition.x;
-        offset.y = offset.y - newMouse.y + viewPort.mousePosition.y;
+        offset.x = offset.x - newMouse.x + thisObject.mousePosition.x;
+        offset.y = offset.y - newMouse.y + thisObject.mousePosition.y;
+
+        window.localStorage.setItem('viewPort.offset', JSON.stringify(offset));
 
         //console.log("changeZoom produced new Offset x = " + offset.x + " y = " + offset.y);
 
         targetOffset.x = offset.x
         targetOffset.y = offset.y ;
+
+        window.localStorage.setItem('viewPort.targetOffset', JSON.stringify(targetOffset));
 
         offsetIncrement = {
             x: 0,
@@ -239,11 +300,11 @@ function newViewPort() {
 
     function zoomFontSize(baseSize, level) {
 
-        let zoomFactor = increment; // + increment * viewPort.zoomLevel / 100;
+        let zoomFactor = increment; // + increment * thisObject.zoomLevel / 100;
 
         if (level === undefined) {
 
-            baseSize = baseSize * (1 + zoomFactor * viewPort.zoomLevel);
+            baseSize = baseSize * (1 + zoomFactor * thisObject.zoomLevel);
 
         } else {
 
@@ -259,20 +320,20 @@ function newViewPort() {
 
         /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
-        if (point.x > viewPort.visibleArea.bottomRight.x + 1) {
-            point.x = viewPort.visibleArea.bottomRight.x + 1;
+        if (point.x > thisObject.visibleArea.bottomRight.x + 1) {
+            point.x = thisObject.visibleArea.bottomRight.x + 1;
         }
 
-        if (point.x < viewPort.visibleArea.topLeft.x - 1) {
-            point.x = viewPort.visibleArea.topLeft.x - 1;
+        if (point.x < thisObject.visibleArea.topLeft.x - 1) {
+            point.x = thisObject.visibleArea.topLeft.x - 1;
         }
 
-        if (point.y > viewPort.visibleArea.bottomRight.y + 1) {
-            point.y = viewPort.visibleArea.bottomRight.y + 1;
+        if (point.y > thisObject.visibleArea.bottomRight.y + 1) {
+            point.y = thisObject.visibleArea.bottomRight.y + 1;
         }
 
-        if (point.y < viewPort.visibleArea.topLeft.y - 1) {
-            point.y = viewPort.visibleArea.topLeft.y - 1;
+        if (point.y < thisObject.visibleArea.topLeft.y - 1) {
+            point.y = thisObject.visibleArea.topLeft.y - 1;
         }
 
         return point;
@@ -281,12 +342,12 @@ function newViewPort() {
 
     function zoomThisPoint(point, level) {
 
-        let zoomFactor = increment; // + increment * viewPort.zoomLevel / 100;
+        let zoomFactor = increment; // + increment * thisObject.zoomLevel / 100;
 
         if (level === undefined) {
 
-            point.x = point.x * (1 + zoomFactor * viewPort.zoomLevel) + offset.x;
-            point.y = point.y * (1 + zoomFactor * viewPort.zoomLevel) + offset.y;
+            point.x = point.x * (1 + zoomFactor * thisObject.zoomLevel) + offset.x;
+            point.y = point.y * (1 + zoomFactor * thisObject.zoomLevel) + offset.y;
 
         } else {
 
@@ -301,13 +362,13 @@ function newViewPort() {
     function unzoomThisPoint(pointWithZoom, level) {
 
         let pointWithoutZoom;
-        let zoomFactor = increment; // + increment * viewPort.zoomLevel / 100;
+        let zoomFactor = increment; // + increment * thisObject.zoomLevel / 100;
 
         if (level === undefined) {
 
             pointWithoutZoom = {
-                x: (pointWithZoom.x - offset.x) / (1 + zoomFactor * viewPort.zoomLevel),
-                y: (pointWithZoom.y - offset.y) / (1 + zoomFactor * viewPort.zoomLevel)
+                x: (pointWithZoom.x - offset.x) / (1 + zoomFactor * thisObject.zoomLevel),
+                y: (pointWithZoom.y - offset.y) / (1 + zoomFactor * thisObject.zoomLevel)
             };
 
         } else {
@@ -352,12 +413,12 @@ function newViewPort() {
 
     function drawGrid(step) {
 
-        let squareWidth = (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / step;
-        squareWidth = squareWidth + squareWidth * increment * viewPort.zoomLevel;
+        let squareWidth = (thisObject.visibleArea.bottomRight.x - thisObject.visibleArea.bottomLeft.x) / step;
+        squareWidth = squareWidth + squareWidth * increment * thisObject.zoomLevel;
 
         let startingX = offset.x - Math.trunc(offset.x / squareWidth) * squareWidth;
         let startingY = offset.y - Math.trunc(offset.y / squareWidth) * squareWidth;
-        let lineWidth = 10 / step + 10 / step * increment * viewPort.zoomLevel;
+        let lineWidth = 10 / step + 10 / step * increment * thisObject.zoomLevel;
 
         if (lineWidth < 0.5) {
             return;
@@ -369,17 +430,17 @@ function newViewPort() {
 
         browserCanvasContext.beginPath();
 
-        for (var i = startingX; i < viewPort.visibleArea.bottomRight.x; i = i + squareWidth) {
+        for (var i = startingX; i < thisObject.visibleArea.bottomRight.x; i = i + squareWidth) {
 
-            for (var j = startingY; j < viewPort.visibleArea.bottomRight.y; j = j + squareWidth) {
+            for (var j = startingY; j < thisObject.visibleArea.bottomRight.y; j = j + squareWidth) {
 
                 let point1 = {
-                    x: viewPort.visibleArea.bottomLeft.x,
+                    x: thisObject.visibleArea.bottomLeft.x,
                     y: j
                 };
 
                 let point2 = {
-                    x: viewPort.visibleArea.bottomRight.x,
+                    x: thisObject.visibleArea.bottomRight.x,
                     y: j
                 };
 
@@ -389,12 +450,12 @@ function newViewPort() {
 
             let point3 = {
                 x: i,
-                y: viewPort.visibleArea.topLeft.y
+                y: thisObject.visibleArea.topLeft.y
             };
 
             let point4 = {
                 x: i,
-                y: viewPort.visibleArea.bottomLeft.y
+                y: thisObject.visibleArea.bottomLeft.y
             };
 
             browserCanvasContext.moveTo(point3.x, point3.y);

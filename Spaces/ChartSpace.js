@@ -13,7 +13,7 @@ function newChartSpace() {
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
-    var chartSpace = {
+    var thisObject = {
         container: undefined,
         draw: draw,
         timeMachines: [],
@@ -24,24 +24,27 @@ function newChartSpace() {
 
     var container = newContainer();
     container.initialize();
-    chartSpace.container = container;
+    thisObject.container = container;
 
-    chartSpace.container.frame.width = browserCanvas.width * 1000;
-    chartSpace.container.frame.height = browserCanvas.height * 100;
+    thisObject.container.frame.width = browserCanvas.width * 1000;
+    thisObject.container.frame.height = browserCanvas.height * 100;
 
     container.displacement.containerName = "Chart Space";
     container.frame.containerName = "Chart Space";
 
-    container.frame.position.x = browserCanvas.width / 2 - chartSpace.container.frame.width / 2;
-    container.frame.position.y = browserCanvas.height / 2 - chartSpace.container.frame.height / 2;
+    container.frame.position.x = browserCanvas.width / 2 - thisObject.container.frame.width / 2;
+    container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2;
 
     container.isDraggeable = false;
 
-    return chartSpace;
+    return thisObject;
 
-    function initialize() {
+    function initialize(callBackFunction) {
 
         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+
+        let initializedCounter = 0;
+        let toInitialize = 1;
 
         /* We create the first of many possible time machines that could live at the Chart Space. */
 
@@ -60,21 +63,41 @@ function newChartSpace() {
         timeMachine.container.frame.position.x = this.container.frame.width / 2 - timeMachine.container.frame.width / 2;   
         timeMachine.container.frame.position.y = this.container.frame.height / 2 - timeMachine.container.frame.height / 2;  
 
-        timeMachine.initialize();
+        timeMachine.initialize(onTimeMachineInitialized);
 
-        this.timeMachines.push(timeMachine);
+        function onTimeMachineInitialized(err) {
 
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onTimeMachineInitialized -> Entering function."); }
+
+            initializedCounter++;
+
+            if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+
+                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onTimeMachineInitialized -> Initialization of a Time Machine failed."); }
+
+                callBackFunction(err);
+                return;
+            }
+
+            thisObject.timeMachines.push(timeMachine);
+
+            if (initializedCounter === toInitialize) {
+
+                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
+
+            }
+        }
     }
 
     function draw() {
 
-        chartSpace.container.frame.draw(false, false);
+        thisObject.container.frame.draw(false, false);
 
         /* When we draw the chart space, that means we draw all the time machines in it. */
 
-        for (var i = 0; i < chartSpace.timeMachines.length;  i++ ) {
+        for (var i = 0; i < thisObject.timeMachines.length;  i++ ) {
 
-            var timeMachine = chartSpace.timeMachines[i];
+            var timeMachine = thisObject.timeMachines[i];
             timeMachine.draw();
 
         }

@@ -1,10 +1,11 @@
 
 .vs/*
-.obj/*
+obj/*
 
-.bin/*
+bin/*
 
 *.config
 *.log
 *.cache
 node_modules/*
+

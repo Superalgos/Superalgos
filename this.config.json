@@ -27,7 +27,7 @@
       "process": "One-Min-Daily-Candles-Volumes"
     },
     {
-      "enabled": "false",
+      "enabled": "true",
       "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
       "process": "Poloniex-Hole-Fixing"
     },
@@ -37,7 +37,7 @@
       "process": "Poloniex-Live-Trades"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AAMiguel-Indicator-Bot",
       "process": "Trades-Blobs-To-Blobs"
     }

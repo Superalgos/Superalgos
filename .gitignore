@@ -1,8 +1,8 @@
 
 .vs/*
-.obj/*
+obj/*
 
-.bin/*
+bin/*
 
 *.config
 *.log

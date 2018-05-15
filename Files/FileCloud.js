@@ -122,7 +122,15 @@ function newFileCloud() {
             if (INFO_LOG === true) { logger.write("[INFO] getFile -> filePath = " + filePath); }
             if (INFO_LOG === true) { logger.write("[INFO] getFile -> fileName = " + fileName); }
 
-            blobService.getBlobToText('data', filePath + "/" + fileName, onFileReceived);
+            let containerName;
+
+            if (pBot.codeName !== "AATom") {
+                containerName = pDevTeam.codeName.toLowerCase();
+            } else {
+                containerName = 'data';
+            }
+
+            blobService.getBlobToText(containerName, filePath + "/" + fileName, onFileReceived);
 
             function onFileReceived(err, text, response) {
 
@@ -149,8 +157,11 @@ function newFileCloud() {
                             return;
                         }
 
-                        if (INFO_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> Unexpected Error Ocurred."); }
-                        if (INFO_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> err = " + err); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> containerName = " + containerName); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> filePath = " + filePath); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> fileName = " + fileName); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> Unexpected Error Ocurred."); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> err = " + err); }
                         callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                         return;
 

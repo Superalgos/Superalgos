@@ -123,6 +123,7 @@
     <Compile Include="ViewPort.js" />
     <Compile Include="VolumeBar.js" />
     <Content Include="index.html" />
+    <Content Include="this.server.config.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />

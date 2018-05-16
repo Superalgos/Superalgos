@@ -580,7 +580,7 @@ function initialize() {
                     let fileUri;
                     let sas;
 
-                    switch (serverConfig.ambient) {
+                    switch (serverConfig.environment) {
 
                         case "Develop": {
 

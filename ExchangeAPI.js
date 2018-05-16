@@ -15,7 +15,8 @@
         getOpenPositions: getOpenPositions,
         getExecutedTrades: getExecutedTrades,
         putPosition: putPosition,
-        movePosition: movePosition
+        movePosition: movePosition,
+        getTicker: getTicker
     };
 
     let bot = BOT;
@@ -334,4 +335,66 @@
         }
     }
 
+    function getTicker(pMarket, callBackFunction) {
+
+        try {
+
+            if (FULL_LOG === true) { logger.write("[INFO] getTicker -> Entering function."); }
+
+            poloniexApiClient.returnTicker(onExchangeCallReturned);
+
+            function onExchangeCallReturned(err, exchangeResponse) {
+
+                if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
+                if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
+                if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+
+                try {
+
+                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
+
+                    function onResponseOk() {
+
+                        /*
+
+                       This is what we can receive from the exchange.
+
+                       {"BTC_LTC":{ "last":"0.0251",
+                                    "lowestAsk":"0.02589999",
+                                    "highestBid":"0.0251",
+                                    "percentChange":"0.02390438",
+                                    "baseVolume":"6.16485315",
+                                    "quoteVolume":"245.82513926"
+                                  },
+                        "BTC_NXT":{ "last":"0.00005730",
+                                    "lowestAsk":"0.00005710",
+                                    "highestBid":"0.00004903",
+                                    "percentChange":"0.16701570",
+                                    "baseVolume":"0.45347489",
+                                    "quoteVolume":"9094"
+                                  },
+                        ... }
+
+                       */
+
+                        let ticker = {
+                            bid: Number(exchangeResponse[pMarket].highestBid),
+                            ask: Number(exchangeResponse[pMarket].lowestAsk),
+                            last: Number(exchangeResponse[pMarket].last)
+                        };
+
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, ticker);
+                    }
+                }
+                catch (err) {
+                    logger.write("[ERROR] movePosition -> onExchangeCallReturned -> Error = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+        } catch (err) {
+            logger.write("[ERROR] movePosition -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
 };

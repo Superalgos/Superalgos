@@ -22,6 +22,7 @@
         getInvestment: getInvestment,
         getProfits: getProfits,
         getMarketRate: getMarketRate,
+        getTicker: getTicker,
         sendMessage: sendMessage
     };
 
@@ -40,6 +41,7 @@
     let exchangeAPI;
 
     let marketRate; 
+    let ticker;
 
     return thisObject;
 
@@ -63,180 +65,36 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> Entering function."); }
 
-                    /* Procedure to get the current market rate. */
+                    exchangeAPI.getTicker(global.MARKET.assetA + '_' + global.MARKET.assetB, onTicker);
 
-                    let key =
-                        global.PLATFORM_CONFIG.marketRateProvider.devTeam + "-" +
-                        global.PLATFORM_CONFIG.marketRateProvider.bot + "-" +
-                        global.PLATFORM_CONFIG.marketRateProvider.product + "-" +
-                        global.PLATFORM_CONFIG.marketRateProvider.dataSet + "-" +
-                        global.PLATFORM_CONFIG.marketRateProvider.dataSetVersion;
+                    return;
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> key = " + key); }
+                    function onTicker(err, pTicker) {
 
-                    let dataSet = thisObject.dataDependencies.dataSets.get(key);
+                        try {
 
-                    let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
-                    let fileName = '' + global.MARKET.assetA + '_' + global.MARKET.assetB + '.json';
-                    let filePath = global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + dateForPath;
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> onTicker -> Entering function."); }
 
-                    dataSet.getTextFile(filePath, fileName, onFileReceived, true);
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) { 
 
-                    function onFileReceived(err, text) {
+                                if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> onTicker -> We could not get the Market Price now."); }
 
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Entering function."); }
-                        if (LOG_FILE_CONTENT === true) { logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> text = " + text); }
-
-                        let candleArray;
-
-                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result) {  // Just past midnight, this file will not exist for a couple of minutes.
-                            if (err.message === "File does not exist.") {
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                callBackFunction(err);
                                 return;
                             }
+
+                            ticker = pTicker;
+                            marketRate = pTicker.last;
+
+                            context.newHistoryRecord.marketRate = marketRate;
+
+                            validateExchangeSyncronicity();
+
+                        } catch (err) {
+                            logger.write("[ERROR] initialize -> getMarketRate -> onTicker -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
-
-                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                            try {
-                                candleArray = JSON.parse(text);
-
-                                switch (bot.runMode) {
-
-                                    case "Live": {
-
-                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Live Mode detected.");
-
-                                        let lastCandleRecord = candleArray[candleArray.length - 1];                   // The last candle contains at its close value the market rate.
-
-                                        let candle = {
-                                            open: lastCandleRecord[2],
-                                            close: lastCandleRecord[3],
-                                            min: lastCandleRecord[0],
-                                            max: lastCandleRecord[1],
-                                            begin: lastCandleRecord[4],
-                                            end: lastCandleRecord[5]
-                                        };
-
-                                        marketRate = candle.close;
-                                        marketRate = Number(marketRate.toFixed(8));
-                                        context.newHistoryRecord.marketRate = marketRate;
-
-                                        /*
-                                        Now we verify that this candle is not too old. Lets say no more than 10 minutes old. This could happen if the datasets for
-                                        any reason stops being updated.
-                                        */
-
-                                        let delay = (bot.processDatetime.valueOf() - candle.begin) / 1000 / 60;
-
-                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Market Rate " + delay + " minutes old.");
-
-                                        if (delay > 30) {
-
-                                            logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> Market Rate more than 10 minutes old. Retrying later.");
-
-                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                            return;
-                                        }
-
-                                        validateExchangeSyncronicity();
-                                        return;
-                                    }
-
-                                    case "Backtest": {
-
-                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Backtest Mode detected.");
-
-                                        /* We need to find the candle at which the process is currently running. */
-
-                                        for (let i = 0; i < candleArray.length; i++) {
-
-                                            let candle = {
-                                                open: candleArray[i][2],
-                                                close: candleArray[i][3],
-                                                min: candleArray[i][0],
-                                                max: candleArray[i][1],
-                                                begin: candleArray[i][4],
-                                                end: candleArray[i][5]
-                                            };
-
-                                            if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
-
-                                                marketRate = (candle.open + candle.close) / 2;
-                                                marketRate = Number(marketRate.toFixed(8));
-                                                context.newHistoryRecord.marketRate = marketRate;
-
-                                                /* The Backtest Mode simulates that every trade posted is executed. 
-                                                In order to do this, we will take all open orders from the context and create a trades array similar to the one returned by the Exchange. */
-
-                                                validateExchangeSyncronicity();
-                                                return;
-                                            }
-                                        }
-
-                                        logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> No candle found for the current Process Datetime.");
-                                        logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> bot.processDatetime = " + bot.processDatetime);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        return;
-                                    }
-
-                                    case "Competition": {
-
-                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Competition Mode detected.");
-
-                                        let lastCandleRecord = candleArray[candleArray.length - 1];                   // The last candle contains at its close value the market rate.
-
-                                        let candle = {
-                                            open: lastCandleRecord[2],
-                                            close: lastCandleRecord[3],
-                                            min: lastCandleRecord[0],
-                                            max: lastCandleRecord[1],
-                                            begin: lastCandleRecord[4],
-                                            end: lastCandleRecord[5]
-                                        };
-
-                                        marketRate = candle.close;
-                                        marketRate = Number(marketRate.toFixed(8));
-                                        context.newHistoryRecord.marketRate = marketRate;
-
-                                        /*
-                                        Now we verify that this candle is not too old. Lets say no more than 10 minutes old. This could happen if the datasets for
-                                        any reason stops being updated.
-                                        */
-
-                                        let delay = (bot.processDatetime.valueOf() - candle.begin) / 1000 / 60;
-
-                                        logger.write("[INFO] initialize -> getMarketRate -> onFileReceived -> Market Rate " + delay + " minutes old.");
-
-                                        if (delay > 30) {
-
-                                            logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> Market Rate more than 10 minutes old. Retrying later.");
-
-                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                            return;
-                                        }
-
-                                        validateExchangeSyncronicity();
-                                        return;
-                                    }
-
-                                    default: {
-                                        logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> Unexpected bot.runMode.");
-                                        logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> bot.runMode = " + bot.runMode);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        return;
-                                    }
-                                }
-
-                            } catch (err) {
-                                logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> err = " + err.message);
-                                logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                            }
-                        } else {
-                            logger.write("[ERROR] initialize -> getMarketRate -> onFileReceived -> err = " + err.message);
-                            callBackFunction(err);
-                        }
-                    }
+                    } 
 
                 } catch (err) {
                     logger.write("[ERROR] initialize -> getMarketRate -> err = " + err.message);
@@ -1259,6 +1117,10 @@
 
     function getMarketRate() {
         return marketRate;
+    }
+
+    function getTicker() {
+        return ticker;
     }
 
     function sendMessage(pRelevance, pTitle, pBody) {

@@ -7,7 +7,7 @@
   },
   "executionList": [
     {
-      "enabled": "false",
+      "enabled": "true",
       "botPath": "../Bots/AAMasters/AAMariam-Trading-Bot",
       "process": "Trading-Process"
     },
@@ -27,7 +27,7 @@
       "process": "One-Min-Daily-Candles-Volumes"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
       "process": "Poloniex-Hole-Fixing"
     },
@@ -43,17 +43,6 @@
     }
   ],
   "stopGracefully": "false",
-  "storageConnStringFolder": "Testnet",
-  "maxLogLoops": 5,
-  "marketRateProvider": {
-    "devTeam": "AAMasters",
-    "bot": "AABruce",
-    "botVersion": {
-      "major": 1,
-      "minor": 0
-    },
-    "product": "Candles",
-    "dataSet": "One-Min",
-    "dataSetVersion": "dataSet.V1"
-  }
+  "storageConnStringFolder": "Develop",
+  "maxLogLoops": 5
 }

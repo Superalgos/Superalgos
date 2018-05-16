@@ -29,7 +29,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
     let blobService;
     let containerName = 'aamasters';
     let dataOwner;
-    let ambient = global.STORAGE_CONN_STRING_FOLDER;
+    let environment = global.STORAGE_CONN_STRING_FOLDER;
 
     return thisObject;
 
@@ -44,9 +44,9 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                 dataOwner = pDataOwner.devTeam;
                 logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
 
-                if (pDataOwner.ambient !== undefined) {
+                if (pDataOwner.environment !== undefined) {
 
-                    ambient = pDataOwner.ambient;
+                    environment = pDataOwner.environment;
                     containerName = pDataOwner.devTeam.toLowerCase();
                     logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
                 }
@@ -96,7 +96,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                 try {
                     let fs = require('fs');
-                    filePath = '../' + 'Connection-Strings' + '/' + ambient + '/' + dataOwner + '.azure.storage.connstring';
+                    filePath = '../' + 'Connection-Strings' + '/' + environment + '/' + dataOwner + '.azure.storage.connstring';
                     let connObj = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
                     callBack(global.DEFAULT_OK_RESPONSE, connObj);

@@ -341,7 +341,7 @@
 
         let timePeriodRatio = ONE_DAY_IN_MILISECONDS / timePeriod;
 
-        maxValue.y = getMaxVolume() / (timePeriodRatio / 10);
+        maxValue.y = getMaxVolume() / (timePeriodRatio / 2.5);
 
         timeLineCoordinateSystem.initializeY(
             minValue,

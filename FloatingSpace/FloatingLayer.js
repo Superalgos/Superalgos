@@ -3,6 +3,7 @@ function newFloatingLayer() {
 
     const MODULE_NAME = "Floating Layer";
     const INFO_LOG = false;
+    const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -28,137 +29,62 @@ function newFloatingLayer() {
 
     function initialize(callBackFunction) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+        try {
 
-        callBackFunction();
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
+        }
     }
 
-    function addFloatingObject(pFloatingObject) {
+    function addFloatingObject(pFloatingObject, callBackFunction) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> Entering function."); }
+        try {
 
-        invisibleFloatingObjects.push(pFloatingObject);
+            if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> Entering function."); }
 
-        if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
+            invisibleFloatingObjects.push(pFloatingObject);
 
-        pFloatingObject.handle = Math.floor((Math.random() * 10000000) + 1);
+            if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
 
-        if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> pFloatingObject.handle = " + pFloatingObject.handle); }
-        if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> pFloatingObject.type = " + pFloatingObject.type); }
+            pFloatingObject.handle = Math.floor((Math.random() * 10000000) + 1);
 
+            if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> pFloatingObject.handle = " + pFloatingObject.handle); }
+            if (INFO_LOG === true) { logger.write("[INFO] addFloatingObject -> pFloatingObject.type = " + pFloatingObject.type); }
+
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] addFloatingObject -> err = " + err); }
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
+        }
     }
 
     function killFloatingObject(pFloatingObjectHandle) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Entering function."); }
+        try {
 
-        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-
-            let floatingObject = invisibleFloatingObjects[i];
-
-            if (floatingObject.handle === pFloatingObjectHandle) {
-                invisibleFloatingObjects.splice(i, 1);  // Delete item from array.
-
-                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> floatingObject.handle = " + floatingObject.handle); }
-                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Removing floatingObject from invisibleFloatingObjects."); }
-                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
-
-                sendToDie(floatingObject);
-                return;
-            }
-        }
-
-        for (let i = 0; i < visibleFloatingObjects.length; i++) {
-
-            let floatingObject = visibleFloatingObjects[i];
-
-            if (floatingObject.handle === pFloatingObjectHandle) {
-                visibleFloatingObjects.splice(i, 1);  // Delete item from array.
-
-                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> floatingObject.handle = " + floatingObject.handle); }
-                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Removing floatingObject from visibleFloatingObjects."); }
-                if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> visibleFloatingObjects.length = " + visibleFloatingObjects.length); }
-
-                sendToDie(floatingObject);
-                return;
-            }
-        }
-
-        function sendToDie(pFloatingObject) {
-
-            /* Lets mofigy the targerRadius */
-
-            pFloatingObject.targetRadius = 0;
-
-            /* Lets transfer the payload to a new payload structure. */
-
-            let payload = {};
-
-            switch (pFloatingObject.type) {
-
-                case "Profile Ball": {
-
-                    if (pFloatingObject.payload.profile.visible === false) { return;}
-
-                    payload.profile = {
-                        position: {
-                            x: pFloatingObject.payload.profile.position.x,
-                            y: pFloatingObject.payload.profile.position.y
-                        },
-                        visible: pFloatingObject.payload.profile.visible
-                    }
-
-                    pFloatingObject.payload = payload;
-                    break;
-                }
-                case "Note": {
-
-                    if (pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].visible === false) { return; }
-
-                    payload.notes = [];
-                    let note = {
-                        title: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].title,
-                        body: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].body,
-                        date: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].date,
-                        rate: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].rate,
-                        position: {
-                            x: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.x,
-                            y: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.y
-                        },
-                        visible: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].visible
-                    };
-                    payload.notes.push(note);
-                    pFloatingObject.payloadNoteIndex = 0;
-
-                    pFloatingObject.payload = payload;
-                    break;
-                }
-                default: {
-
-                    break;
-                }
-            }
-
-            dyingFloatingObjects.push(pFloatingObject);
-
-            if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Adding floatingObject to dyingFloatingObjects."); }
-            if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> dyingFloatingObjects.length = " + dyingFloatingObjects.length); }
-        }
-    }
-
-    function getFloatingObject(pFloatingObjectHandle, pFloatingObjectIndex) {
-
-        if (INFO_LOG === true) { logger.write("[INFO] getFloatingObject -> Entering function."); }
-
-        if (pFloatingObjectHandle !== undefined) {
+            if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Entering function."); }
 
             for (let i = 0; i < invisibleFloatingObjects.length; i++) {
 
                 let floatingObject = invisibleFloatingObjects[i];
 
                 if (floatingObject.handle === pFloatingObjectHandle) {
+                    invisibleFloatingObjects.splice(i, 1);  // Delete item from array.
 
-                    return floatingObject;
+                    if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> floatingObject.handle = " + floatingObject.handle); }
+                    if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Removing floatingObject from invisibleFloatingObjects."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
+
+                    sendToDie(floatingObject);
+                    return;
                 }
             }
 
@@ -167,23 +93,146 @@ function newFloatingLayer() {
                 let floatingObject = visibleFloatingObjects[i];
 
                 if (floatingObject.handle === pFloatingObjectHandle) {
+                    visibleFloatingObjects.splice(i, 1);  // Delete item from array.
 
-                    return floatingObject;
+                    if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> floatingObject.handle = " + floatingObject.handle); }
+                    if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Removing floatingObject from visibleFloatingObjects."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> visibleFloatingObjects.length = " + visibleFloatingObjects.length); }
+
+                    sendToDie(floatingObject);
+                    return;
                 }
             }
+
+            function sendToDie(pFloatingObject) {
+
+                try {
+
+                    if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> sendToDie -> Entering function."); }
+
+                    /* Lets mofigy the targerRadius */
+
+                    pFloatingObject.targetRadius = 0;
+
+                    /* Lets transfer the payload to a new payload structure. */
+
+                    let payload = {};
+
+                    switch (pFloatingObject.type) {
+
+                        case "Profile Ball": {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> sendToDie -> Profile Ball -> Entering function."); }
+
+                            if (pFloatingObject.payload.profile.visible === false) { return; }
+
+                            payload.profile = {
+                                position: {
+                                    x: pFloatingObject.payload.profile.position.x,
+                                    y: pFloatingObject.payload.profile.position.y
+                                },
+                                visible: pFloatingObject.payload.profile.visible
+                            }
+
+                            pFloatingObject.payload = payload;
+                            break;
+                        }
+                        case "Note": {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> sendToDie -> Note -> Entering function."); }
+
+                            if (pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].visible === false) { return; }
+
+                            payload.notes = [];
+                            let note = {
+                                title: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].title,
+                                body: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].body,
+                                date: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].date,
+                                rate: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].rate,
+                                position: {
+                                    x: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.x,
+                                    y: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].position.y
+                                },
+                                visible: pFloatingObject.payload.notes[pFloatingObject.payloadNoteIndex].visible
+                            };
+                            payload.notes.push(note);
+                            pFloatingObject.payloadNoteIndex = 0;
+
+                            pFloatingObject.payload = payload;
+                            break;
+                        }
+                        default: {
+
+                            break;
+                        }
+                    }
+
+                    dyingFloatingObjects.push(pFloatingObject);
+
+                    if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Adding floatingObject to dyingFloatingObjects."); }
+                    if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> dyingFloatingObjects.length = " + dyingFloatingObjects.length); }
+
+                    if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); }
+
+                } catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] killFloatingObject -> err = " + err); }
+                    if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
+                }
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] killFloatingObject -> err = " + err); }
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
         }
+    }
 
-        if (pFloatingObjectIndex !== undefined) {
+    function getFloatingObject(pFloatingObjectHandle, pFloatingObjectIndex) {
 
-            for (let i = 0; i < visibleFloatingObjects.length; i++) {
+        try {
 
-                let floatingObject = visibleFloatingObjects[i];
+            if (INFO_LOG === true) { logger.write("[INFO] getFloatingObject -> Entering function."); }
 
-                if (i === pFloatingObjectIndex) {
+            if (pFloatingObjectHandle !== undefined) {
 
-                    return floatingObject;
+                for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+
+                    let floatingObject = invisibleFloatingObjects[i];
+
+                    if (floatingObject.handle === pFloatingObjectHandle) {
+
+                        return floatingObject;
+                    }
+                }
+
+                for (let i = 0; i < visibleFloatingObjects.length; i++) {
+
+                    let floatingObject = visibleFloatingObjects[i];
+
+                    if (floatingObject.handle === pFloatingObjectHandle) {
+
+                        return floatingObject;
+                    }
                 }
             }
+
+            if (pFloatingObjectIndex !== undefined) {
+
+                for (let i = 0; i < visibleFloatingObjects.length; i++) {
+
+                    let floatingObject = visibleFloatingObjects[i];
+
+                    if (i === pFloatingObjectIndex) {
+
+                        return floatingObject;
+                    }
+                }
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] getFloatingObject -> err = " + err); }
         }
     }
 
@@ -195,6 +244,8 @@ function newFloatingLayer() {
     /******************************************/
 
     function physicsLoop() {
+
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> Entering function."); }
 
         /* This function makes all the calculations to apply phisycs on all floatingObjects in this space. */
 
@@ -471,6 +522,8 @@ function newFloatingLayer() {
 
     function gravityForce(floatingObject, payload) {
 
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] gravityForce -> Entering function."); }
+
         /* We simulate a kind of gravity towards the target point of each floatingObject. This force will make the floatingObject to keep pushing to reach that point. */
 
         const coulomb = .00001;
@@ -517,6 +570,8 @@ function newFloatingLayer() {
     }
 
     function currentRepulsionForce(currentFloatingObject) {
+
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] currentRepulsionForce -> Entering function."); }
 
         /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
 
@@ -577,6 +632,8 @@ function newFloatingLayer() {
     }
 
     function targetRepulsionForce(currentFloatingObject) {
+
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] targetRepulsionForce -> Entering function."); }
 
         /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
 
@@ -656,6 +713,8 @@ function newFloatingLayer() {
 
     function changeTargetRepulsion(pDelta) {
 
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] changeTargetRepulsion -> Entering function."); }
+
         if (pDelta > 0) {
 
             pDelta = 1;
@@ -675,6 +734,9 @@ function newFloatingLayer() {
     }
 
     function colliding(floatingObject1, floatingObject2) {
+
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] colliding -> Entering function."); }
+
         /* This function detects weather 2 floatingObjects collide with each other. */
 
         var r1 = floatingObject1.currentRadius;
@@ -699,6 +761,8 @@ function newFloatingLayer() {
 
     function isInside(x, y) {
 
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] isInside -> Entering function."); }
+
         /* This function detects weather the point x,y is inside any of the floatingObjects. */
 
         for (var i = 0; i < visibleFloatingObjects.length; i++) {
@@ -715,8 +779,9 @@ function newFloatingLayer() {
 
     function isInsideFloatingObject(floatingObjectIndex, x, y) {
 
-        /* This function detects weather the point x,y is inside one particular floatingObjects. */
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] isInsideFloatingObject -> Entering function."); }
 
+        /* This function detects weather the point x,y is inside one particular floatingObjects. */
 
         var floatingObject = visibleFloatingObjects[floatingObjectIndex];
         var distance = Math.sqrt(Math.pow(floatingObject.currentPosition.x - x, 2) + Math.pow(floatingObject.currentPosition.y - y, 2));
@@ -730,10 +795,15 @@ function newFloatingLayer() {
     }
 
     function distance(x1, y1, x2, y2) {
+
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] distance -> Entering function."); }
+
         return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
 
     function resolveCollision(floatingObject1, floatingObject2) {
+
+        if (INTENSIVE_LOG === true) { logger.write("[INFO] resolveCollision -> Entering function."); }
 
         /* This function changes speed and position of floatingObjects that are in collision */
 

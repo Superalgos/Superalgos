@@ -147,15 +147,85 @@ function newDailyFiles() {
                         let periodTime = dailyFilePeriods[i][0];
                         let periodName = dailyFilePeriods[i][1];
 
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> periodTime = " + periodTime); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> periodName = " + periodName); }
+
                         if (pSet.validPeriods.includes(periodName) === true) {
 
                             let fileCursor = newFileCursor();
-                            fileCursor.initialize(fileCloud, pDevTeam, pBot, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, beginDateRange, endDateRange, onFileReceived);
+                            fileCursor.initialize(fileCloud, pDevTeam, pBot, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, beginDateRange, endDateRange, onInitialized);
 
-                            fileCursors.set(periodTime, fileCursor);
+                            function onInitialized(err) {
 
-                            expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
+                                try {
 
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> onInitialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+
+                                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> onInitialized -> Received OK Response."); }
+                                            break;
+                                        }
+
+                                        case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+
+                                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> onInitialized -> Received FAIL Response."); }
+                                            callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                        default: {
+
+                                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> onInitialized -> Received Unexpected Response."); }
+                                            callBackWhenFileReceived(err);
+                                            return;
+                                        }
+                                    }
+
+                                    fileCursors.set(periodTime, fileCursor);
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> onInitialized -> expectedFiles = " + expectedFiles); }
+
+                                    expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
+
+                                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> onInitialized -> expectedFiles = " + expectedFiles); }
+
+                                } catch (err) {
+
+                                    if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileReceived -> onInitialized -> err = " + err); }
+                                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+                        }
+                    }
+
+                    loadThemAll();
+
+                    function loadThemAll() {
+
+                        try {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> loadThemAll -> Entering function."); }
+
+                            for (i = 0; i < dailyFilePeriods.length; i++) {
+
+                                let periodTime = dailyFilePeriods[i][0];
+                                let periodName = dailyFilePeriods[i][1];
+
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> loadThemAll -> periodTime = " + periodTime); }
+                                if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileReceived -> loadThemAll -> periodName = " + periodName); }
+
+                                if (pSet.validPeriods.includes(periodName) === true) {
+
+                                    let fileCursor = fileCursors.get(periodTime);
+                                    fileCursor.reload(onFileReceived);
+
+                                }
+                            }
+                        } catch (err) {
+
+                            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onFileReceived -> loadThemAll -> err = " + err); }
+                            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -211,6 +281,9 @@ function newDailyFiles() {
             }
 
             filesLoaded++;
+
+            if (INFO_LOG === true) { logger.write("[INFO] onFileReceived -> filesLoaded = " + filesLoaded); }
+
             callBackWhenFileReceived(GLOBAL.DEFAULT_OK_RESPONSE, thisObject); // Note that the call back is called for every file loaded at each cursor.
 
         } catch (err) {
@@ -248,12 +321,17 @@ function newDailyFiles() {
 
             function setDatetimeToEach(fileCursor, key, map) {
 
-                fileCursor.setDatetime(pDatetime, onFileReceived);
+                fileCursor.setDatetime(pDatetime);
+
+                if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> expectedFiles = " + expectedFiles); }
+
                 expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
 
-            }
+                if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> expectedFiles = " + expectedFiles); }
 
-            if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> expectedFiles = " + expectedFiles); }
+                fileCursor.reload(onFileReceived);
+
+            }
 
         } catch (err) {
 
@@ -275,12 +353,17 @@ function newDailyFiles() {
 
             function setTimePeriodToEach(fileCursor, key, map) {
 
-                fileCursor.setTimePeriod(pTimePeriod, pDatetime, onFileReceived);
+                fileCursor.setTimePeriod(pTimePeriod, pDatetime);
+
+                if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> expectedFiles = " + expectedFiles); }
+
                 expectedFiles = expectedFiles + fileCursor.getExpectedFiles();
 
-            }
+                if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> expectedFiles = " + expectedFiles); }
 
-            if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> expectedFiles = " + expectedFiles); }
+                fileCursor.reload(onFileReceived);
+
+            }
 
         } catch (err) {
 
@@ -292,6 +375,7 @@ function newDailyFiles() {
     function getExpectedFiles() {
 
         if (INFO_LOG === true) { logger.write("[INFO] getExpectedFiles -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getExpectedFiles -> expectedFiles = " + expectedFiles); }
 
         return expectedFiles;
 
@@ -300,6 +384,7 @@ function newDailyFiles() {
     function getFilesLoaded() {
 
         if (INFO_LOG === true) { logger.write("[INFO] getFilesLoaded -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] getFilesLoaded -> filesLoaded = " + filesLoaded); }
 
         return filesLoaded;
 

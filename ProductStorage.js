@@ -94,6 +94,10 @@ function newProductStorage(pName) {
             let dataSetsToLoad = 0;
             let dataSetsLoaded = 0;
 
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> dataSetsToLoad = " + dataSetsToLoad); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> dataSetsLoaded = " + dataSetsLoaded); }
+
+
             for (let i = 0; i < pProduct.dataSets.length; i++) {
 
                 let thisSet = pProduct.dataSets[i];
@@ -103,10 +107,13 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Market Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
+                        dataSetsToLoad++;
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> dataSetsToLoad = " + dataSetsToLoad); }
+
                         let marketFiles = newMarketFiles();
                         marketFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onMarketFileReady);
                         thisObject.marketFiles.push(marketFiles);
-                        dataSetsToLoad++;
                     }
                         break;
 
@@ -114,10 +121,13 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Daily Files -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
+                        dataSetsToLoad++;
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> dataSetsToLoad = " + dataSetsToLoad); }
+
                         let dailyFiles = newDailyFiles();
                         dailyFiles.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onDailyFileReady);
                         thisObject.dailyFiles.push(dailyFiles);
-                        dataSetsToLoad++;
                     }
                         break;
 
@@ -125,10 +135,13 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> Single File -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
+                        dataSetsToLoad++;
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> dataSetsToLoad = " + dataSetsToLoad); }
+
                         let singleFile = newSingleFile();
                         singleFile.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onSingleFileReady);
                         thisObject.singleFile.push(singleFile);
-                        dataSetsToLoad++;
                     }
                         break;
 
@@ -136,10 +149,13 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> File Sequence -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
+                        dataSetsToLoad++;
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> dataSetsToLoad = " + dataSetsToLoad); }
+
                         let fileSequence = newFileSequence();
                         fileSequence.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady);
                         thisObject.fileSequence.push(fileSequence);
-                        dataSetsToLoad++;
                     }
                         break;
                 }
@@ -189,9 +205,14 @@ function newProductStorage(pName) {
 
                         thisObject.eventHandler.raiseEvent('Market File Loaded', event);
 
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> event.currentValue = " + event.currentValue); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> event.totalValue = " + event.totalValue); }
+
                         if (event.currentValue === event.totalValue) {
 
                             dataSetsLoaded++;
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onMarketFileReady -> dataSetsLoaded = " + dataSetsLoaded); }
 
                             checkInitializeComplete();
                         }
@@ -248,9 +269,14 @@ function newProductStorage(pName) {
 
                         thisObject.eventHandler.raiseEvent('Daily File Loaded', event);
 
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> event.currentValue = " + event.currentValue); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> event.totalValue = " + event.totalValue); }
+
                         if (event.currentValue === event.totalValue) {
 
                             dataSetsLoaded++;
+
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onDailyFileReady -> dataSetsLoaded = " + dataSetsLoaded); }
 
                             checkInitializeComplete();
                         }
@@ -311,6 +337,8 @@ function newProductStorage(pName) {
 
                             dataSetsLoaded++;
 
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSingleFileReady -> dataSetsLoaded = " + dataSetsLoaded); }
+
                             checkInitializeComplete();
                         }
 
@@ -370,6 +398,8 @@ function newProductStorage(pName) {
 
                             dataSetsLoaded++;
 
+                            if (INFO_LOG === true) { logger.write("[INFO] initialize -> onFileSequenceReady = " + dataSetsLoaded); }
+
                             checkInitializeComplete();
                         }
 
@@ -384,8 +414,11 @@ function newProductStorage(pName) {
 
                     try {
 
-                        if (INFO_LOG === true) { logger.write("[INFO] checkInitializeComplete -> Entering function."); }
-                        if (INFO_LOG === true) { logger.write("[INFO] checkInitializeComplete -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> checkInitializeComplete -> Entering function."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> checkInitializeComplete -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> checkInitializeComplete -> dataSetsToLoad = " + dataSetsToLoad); }
+                        if (INFO_LOG === true) { logger.write("[INFO] initialize -> checkInitializeComplete -> dataSetsLoaded = " + dataSetsLoaded); }
 
                         if (dataSetsLoaded === dataSetsToLoad) {
 

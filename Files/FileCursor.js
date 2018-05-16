@@ -11,6 +11,7 @@ function newFileCursor() {
     let cursorDate;
 
     let thisObject = {
+        reload: reload,
         setDatetime: setDatetime,
         setTimePeriod: setTimePeriod,
         files: undefined,
@@ -85,9 +86,11 @@ function newFileCursor() {
             beginDateRange = pBeginDateRange;
             endDateRange = pEndDateRange;
 
-            setTimePeriod(pCurrentTimePeriod, pCursorDate, callBackFunction);
+            setTimePeriod(pCurrentTimePeriod, pCursorDate);
 
             intervalHandle = setInterval(updateFiles , timePeriod);
+
+            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
 
@@ -197,7 +200,7 @@ function newFileCursor() {
         }
     }
 
-    function setTimePeriod(pTimePeriod, pDatetime, callBackFunction) {
+    function setTimePeriod(pTimePeriod, pDatetime) {
 
         try {
 
@@ -237,19 +240,21 @@ function newFileCursor() {
 
             if (Math.abs(positionB - positionA) <= 1) {
 
+                if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> Will EXIT Saving Mode."); }
+                if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> pTimePeriod = " + convertTimePeriodToName(pTimePeriod)); }
+                if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> timePeriod = " + convertTimePeriodToName(timePeriod)); }
+
                 exitSavingMode();
-                //console.log("File Cursor with period " + periodName + " EXITED saving mode after being notified the user is at period " + convertTimePeriodToName(pTimePeriod));
 
             } else {
 
+                if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> Will ENTER Saving Mode."); }
+                if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> pTimePeriod = " + convertTimePeriodToName(pTimePeriod)); }
+                if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> timePeriod = " + convertTimePeriodToName(timePeriod)); }
+
                 enterSavingMode();
-                //console.log("File Cursor with period " + periodName + " ENTERED saving mode after being notified the user is at period " + convertTimePeriodToName(pTimePeriod));
 
             }
-
-            getFiles(callBackFunction);
-
-            collectGarbage(callBackFunction);
 
             function enterSavingMode() {
 
@@ -331,7 +336,6 @@ function newFileCursor() {
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> enterSavingMode -> err = " + err); }
-                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -415,26 +419,40 @@ function newFileCursor() {
                 } catch (err) {
 
                     if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> exitSavingMode -> err = " + err); }
-                    callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err); }
-            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function setDatetime(pDatetime, callBackFunction) {
+    function setDatetime(pDatetime) {
 
         try {
 
             if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
-            if (pDatetime === undefined) { return; }
+            if (pDatetime === undefined) {
+
+                if (ERROR_LOG === true) { logger.write("[ERROR] setDatetime -> Received undefined datetime."); }
+                return;
+            }
 
             cursorDate = pDatetime;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] setDatetime -> err = " + err); }
+        }
+    }
+
+    function reload(callBackFunction) {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] reload -> Entering function."); }
 
             getFiles(callBackFunction);
 
@@ -442,7 +460,7 @@ function newFileCursor() {
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] setDatetime -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] reload -> err = " + err); }
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
     }

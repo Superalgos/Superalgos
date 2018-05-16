@@ -2,7 +2,7 @@
 function newFileCursor() {
 
     const MODULE_NAME = "File Cursor";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -102,10 +102,25 @@ function newFileCursor() {
 
             if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> Entering function."); }
 
-            let targetDate = new Date();
-            let dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2);
+            /*
 
-            let file = thisObject.files.get(dateString);
+            In order to know if we need to update any file we follow this logic:
+
+            1. If the current date is already a file in the cursor, we need to update it.
+            2. If the current date is one day ahead of a file in the cursor, we need to add this one to the cursor. 
+
+            */
+
+            let targetDate;
+            let dateString;
+            let file;
+
+            /* Situation 1 */
+
+            targetDate = new Date();
+            dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2);
+
+            file = thisObject.files.get(dateString);
 
             if (file !== undefined) {
 
@@ -113,6 +128,26 @@ function newFileCursor() {
 
                 fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived);
 
+                return;
+            }
+
+            /* Situation 2 */
+
+            targetDate = new Date( (new Date()).valueOf() - ONE_DAY_IN_MILISECONDS);
+            dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2);
+
+            file = thisObject.files.get(dateString); // This is from yesterday
+
+            targetDate = new Date();
+            dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2);
+
+            if (file !== undefined) {
+
+                if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> Previous day file found at the cursor, proceeding to add current date."); }
+
+                fileCloud.getFile(devTeam, bot, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived);
+
+                return;
             }
 
             function onFileReceived(err, file) {

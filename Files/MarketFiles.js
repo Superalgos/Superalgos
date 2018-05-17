@@ -44,12 +44,7 @@ function newMarketFiles() {
             clearInterval(intervalHandle);
 
             filesLoaded = undefined;
-            market = undefined;
-            exchange = undefined;
-            devTeam = undefined;
-            bot = undefined;
-            thisSet = undefined;
-            periodName = undefined;
+            files = undefined;
 
         } catch (err) {
 

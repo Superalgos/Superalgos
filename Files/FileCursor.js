@@ -7,20 +7,17 @@ function newFileCursor() {
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
 
-    let files = new Map;
     let cursorDate;
 
     let thisObject = {
         reload: reload,
         setDatetime: setDatetime,
         setTimePeriod: setTimePeriod,
-        files: undefined,
+        files: new Map,
         getExpectedFiles: getExpectedFiles,
         initialize: initialize,
         finalize: finalize
     }
-
-    thisObject.files = files;
 
     let minCursorSize = 10;
     let maxCursorSize = 30;
@@ -48,18 +45,11 @@ function newFileCursor() {
 
             clearInterval(intervalHandle);
 
-            files = undefined;
+            thisObject.files = undefined;
             cursorDate = undefined;
-            market = undefined;
-            exchange = undefined;
             fileCloud = undefined;
-            devTeam = undefined;
-            bot = undefined;
-            thisSet = undefined;
             periodName = undefined;
             timePeriod = undefined;
-            beginDateRange = undefined;
-            endDateRange = undefined;
 
         } catch (err) {
 

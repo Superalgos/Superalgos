@@ -31,7 +31,7 @@ function newProductStorage(pName) {
         marketFiles: [],
         dailyFiles: [],
         singleFile: [],
-        fileSequence: [],
+        fileSequences: [],
 
         setDatetime: setDatetime,
         setTimePeriod: setTimePeriod,
@@ -71,6 +71,14 @@ function newProductStorage(pName) {
 
                 let dailyFile = thisObject.dailyFiles[i];
                 dailyFile.finalize();
+            }
+
+            thisObject.dailyFile = undefined;
+
+            for (let i = 0; i < thisObject.fileSequences.length; i++) {
+
+                let fileSequence = thisObject.fileSequences[i];
+                fileSequence.finalize();
             }
 
             thisObject.dailyFile = undefined;
@@ -153,9 +161,9 @@ function newProductStorage(pName) {
 
                         if (INFO_LOG === true) { logger.write("[INFO] initialize -> dataSetsToLoad = " + dataSetsToLoad); }
 
-                        let fileSequence = newFileSequence();
-                        fileSequence.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady);
-                        thisObject.fileSequence.push(fileSequence);
+                        let fileSequences = newFileSequence();
+                        fileSequences.initialize(pDevTeam, pBot, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady);
+                        thisObject.fileSequences.push(fileSequences);
                     }
                         break;
                 }

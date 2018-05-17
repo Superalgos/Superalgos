@@ -11,18 +11,42 @@ function newFileSequence() {
         getFile: getFile,
         getExpectedFiles: getExpectedFiles,
         getFilesLoaded: getFilesLoaded,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     }
 
     let filesLoaded = 0;
-
     let fileCloud;
-
     let files = new Map;
-
     let maxSequence = -1; // This is replaced by the content of the sequence file, which contains an index that starts on zero. In the case that the sequence file is not found the default value is -1 sin when you add 1 it gives you the amount of files in the sequence, zero.
+    let intervalHandle;
 
     return thisObject;
+
+    function finalize() {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
+
+            clearInterval(intervalHandle);
+
+            filesLoaded = undefined;
+            fileCloud = undefined;
+            files = undefined;
+            maxSequence = undefined;
+            devTeam = undefined;
+            bot = undefined;
+            product = undefined;
+            thisSet = undefined;
+            exchange = undefined;
+            market = undefined;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err); }
+        }
+    }
 
     function initialize(pDevTeam, pBot, pProduct, pSet, pExchange, pMarket, callBackFunction) {
 
@@ -31,7 +55,7 @@ function newFileSequence() {
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
 
-            let exchange = ecosystem.getExchange(pProduct, pExchange);
+            exchange = ecosystem.getExchange(pProduct, pExchange);
 
             if (exchange === undefined) {
 
@@ -39,19 +63,27 @@ function newFileSequence() {
 
             }
 
+            market = pMarket;
+            devTeam = pDevTeam;
+            bot = pBot;
+            product = pProduct;
+            thisSet = pSet;
+
+            intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS);  
+
             fileCloud = newFileCloud();
-            fileCloud.initialize(pBot);
+            fileCloud.initialize(bot);
 
             /* First we will get the sequence max number */
 
-            fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, "Sequence", undefined, onSequenceFileReceived);
+            fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, "Sequence", undefined, onSequenceFileReceived);
 
             function onSequenceFileReceived(err, file) {
 
                 try {
 
                     if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> Entering function."); }
-                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> key = " + pDevTeam.codeName + "-" + pBot.codeName + "-" + pProduct.codeName); }
+                    if (INFO_LOG === true) { logger.write("[INFO] initialize -> onSequenceFileReceived -> key = " + devTeam.codeName + "-" + bot.codeName + "-" + product.codeName); }
 
                     switch (err.result) {
                         case GLOBAL.DEFAULT_OK_RESPONSE.result: {
@@ -99,7 +131,7 @@ function newFileSequence() {
 
                     for (let i = 0; i <= maxSequence; i++) {
 
-                        fileCloud.getFile(pDevTeam, pBot, pSet, exchange, pMarket, undefined, undefined, i, undefined, onFileReceived);
+                        fileCloud.getFile(devTeam, bot, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived);
 
                         function onFileReceived(err, file) {
 
@@ -161,6 +193,23 @@ function newFileSequence() {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function updateFiles() {
+
+        try {
+
+            let updateFiles = 0;
+
+            if (INFO_LOG === true) { logger.write("[INFO] updateFiles -> Entering function."); }
+
+
+
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] updateFiles -> err = " + err); }
         }
     }
 

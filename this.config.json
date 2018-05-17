@@ -7,7 +7,7 @@
   },
   "executionList": [
     {
-      "enabled": "true",
+      "enabled": "false",
       "botPath": "../Bots/AAMasters/AAMariam-Trading-Bot",
       "process": "Trading-Process"
     },
@@ -40,6 +40,11 @@
       "enabled": "false",
       "botPath": "../Bots/AAMasters/AAMiguel-Indicator-Bot",
       "process": "Trades-Blobs-To-Blobs"
+    },
+    {
+      "enabled": "true",
+      "botPath": "../Bots/AASpartans/AADumbo-Trading-Bot",
+      "process": "Trading-Process"
     }
   ],
   "stopGracefully": "false",

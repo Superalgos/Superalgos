@@ -27,32 +27,42 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
     };
 
     let blobService;
-    let containerName = 'aamasters';
-    let dataOwner;
+    let containerName;
+    let devTeamDataOwner;
     let environment = global.STORAGE_CONN_STRING_FOLDER;
 
     return thisObject;
 
-    function initialize(pDataOwner, callBackFunction) {
+    function initialize(pBotDataOwner, callBackFunction) {
 
         try {
 
-            if (pDataOwner === undefined) {
-                dataOwner = bot.devTeam;
+            if (pBotDataOwner === undefined) {
+
+                devTeamDataOwner = bot.devTeam;
+                containerName = 'aamasters';
+
                 logger.fileName = MODULE_NAME + '.' + bot.devTeam + '.' + bot.codeName + '.' + containerName;
+                
             } else {
-                dataOwner = pDataOwner.devTeam;
-                logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
 
-                if (pDataOwner.environment !== undefined) {
+                devTeamDataOwner = pBotDataOwner.devTeam;
+                containerName = pBotDataOwner.devTeam.toLowerCase();
 
-                    environment = pDataOwner.environment;
-                    containerName = pDataOwner.devTeam.toLowerCase();
-                    logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
+                logger.fileName = MODULE_NAME + '.' + pBotDataOwner.devTeam + '.' + pBotDataOwner.bot + '.' + containerName;
+
+                if (pBotDataOwner.environment !== undefined) {
+
+                    environment = pBotDataOwner.environment;
+
+                    logger.fileName = MODULE_NAME + '.' + pBotDataOwner.devTeam + '.' + pBotDataOwner.bot + '.' + containerName;
                 }
             }
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> environment = " + environment); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> containerName = " + containerName); }
+            if (FULL_LOG === true) { logger.write("[INFO] initialize -> devTeamDataOwner = " + devTeamDataOwner); }
 
             readConnectionStringConfigFile(onConnectionStringReady);
 
@@ -96,7 +106,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                 try {
                     let fs = require('fs');
-                    filePath = '../' + 'Connection-Strings' + '/' + environment + '/' + dataOwner + '.azure.storage.connstring';
+                    filePath = '../' + 'Connection-Strings' + '/' + environment + '/' + devTeamDataOwner + '.azure.storage.connstring';
                     let connObj = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
                     callBack(global.DEFAULT_OK_RESPONSE, connObj);

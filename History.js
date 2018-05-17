@@ -60,10 +60,12 @@
             datetime = pDatetime;
             timePeriod = pTimePeriod;
 
-            fileSequence = pStorage.fileSequence[0];
+            fileSequence = pStorage.fileSequences[0];
 
             recalculate(callBackFunction);
             recalculateScale(callBackFunction);
+
+            fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
 
             callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
@@ -99,6 +101,12 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
         }
+    }
+
+    function onFilesUpdated() {
+
+        recalculate();
+
     }
 
     function setTimePeriod(pTimePeriod) {

@@ -7,12 +7,14 @@ var fs = require('fs');
 
 try {
 
-    global.PLATFORM_CONFIG = JSON.parse(fs.readFileSync('this.config.json', 'utf8'));
+    let configFile = fs.readFileSync('this.config.json', 'utf8');
+    global.PLATFORM_CONFIG = JSON.parse(configFile);
 
 }
 catch (err) {
-    const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;
-    console.log(logText);
+
+    console.log("[ERROR] Run -> readConfig -> Error Reading the AACloud Config File.");
+    console.log("[ERROR] Run -> readConfig -> err.message = " + err.message);
 
     return;
 }
@@ -29,17 +31,28 @@ const MODULE_NAME = "Run";
 const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
 
 process.on('uncaughtException', function (err) {
-    logger.write('uncaughtException - ' + err.message);
+    console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);
+    return;
 });
 
 
 process.on('unhandledRejection', (reason, p) => {
-    logger.write("Unhandled Rejection at: Promise " + JSON.stringify(p) + " reason: " + reason);
+    console.log('[INFO] Run -> unhandledRejection -> reason = ' + reason);
+    console.log('[INFO] Run -> unhandledRejection -> p = ' + JSON.stringify(p));
+    return;
 });
 
 
 process.on('exit', function (code) {
-    logger.write('About to exit with code:' + code);
+    try {
+        console.log('[INFO] Run -> process.on.exit -> About to exit -> code = ' + code);
+        return;
+    }
+    catch (err) {
+        console.log("[ERROR] Run -> process.on.exit -> Error Logging Error Code.");
+        console.log("[ERROR] Run -> process.on.exit -> err.message = " + err.message);
+        return;
+    }
 });
 
 /* Global constants definitions. */
@@ -150,7 +163,8 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
     try {
 
-        botConfig = JSON.parse(fs.readFileSync(listItem.botPath + '/this.bot.config.json', 'utf8'));
+        let botConfigFile = fs.readFileSync(listItem.botPath + '/this.bot.config.json', 'utf8');
+        botConfig = JSON.parse(botConfigFile);
     }
     catch (err) {
         console.log("[ERROR] 'readConfig' - ERROR : " + err.message);

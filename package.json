@@ -7,7 +7,8 @@
     "name": "Luis-Fernando-Molina"
   },
   "dependencies": {
-    "@octokit/rest": "^14.0.9",
+   "azure-storage": "^2.8.2",
+  "@octokit/rest": "^14.0.9",
     "atob": "^2.1.1"
   }
 }

@@ -11,6 +11,7 @@ if (CONSOLE_LOG === true) {
 let serverConfig;
 
 let githubData = new Map;
+let storageData = new Map;
 let ecosystem;
 let ecosystemObject;
 
@@ -81,54 +82,90 @@ function initialize() {
     
             */
 
-            if (serverConfig.localMode === true) {
+            switch (serverConfig.storage.source) {
 
-                let fs = require('fs');
-                try {
-                    let fileName = '../AAPlatform/ecosystem.json';
-                    fs.readFile(fileName, onFileRead);
+                case 'Cloud': {
 
-                    function onFileRead(err, file) {
+                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Cloud -> Entering Case."); }
+
+                    getStorageData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived)
+
+                    function onDataArrived(pData) {
 
                         try {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> onFileRead -> Entering function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Cloud -> onDataArrived -> Entering function."); }
 
-                            ecosystem = file.toString();
+                            ecosystem = pData.toString();
                             ecosystem = ecosystem.trim(); // remove first byte with some encoding.
 
                             ecosystemObject = JSON.parse(ecosystem);
                             readCompetitionsConfig();
                         }
                         catch (err) {
-                            console.log("[ERROR] initialize -> readEcosystemConfig -> onFileRead -> File = " + fileName + " Error = " + err);
+                            console.log("[ERROR] initialize -> readEcosystemConfig -> Cloud -> onDataArrived -> Error = " + err);
                         }
-
                     }
+
+                    break;
                 }
-                catch (err) {
-                    console.log("[ERROR] initialize -> readEcosystemConfig -> File = " + fileName + " Error = " + err);
-                }
 
-            } else {
+                case 'File System': {
 
-                getGithubData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived)
+                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> File System -> Entering Case."); }
 
-                function onDataArrived(pData) {
-
+                    let fs = require('fs');
                     try {
+                        let fileName = '../AAPlatform/ecosystem.json';
+                        fs.readFile(fileName, onFileRead);
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> onDataArrived -> Entering function."); }
+                        function onFileRead(err, file) {
 
-                        ecosystem = pData.toString();
-                        ecosystem = ecosystem.trim(); // remove first byte with some encoding.
+                            try {
 
-                        ecosystemObject = JSON.parse(ecosystem);
-                        readCompetitionsConfig();
+                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> File System -> onFileRead -> Entering function."); }
+
+                                ecosystem = file.toString();
+                                ecosystem = ecosystem.trim(); // remove first byte with some encoding.
+
+                                ecosystemObject = JSON.parse(ecosystem);
+                                readCompetitionsConfig();
+                            }
+                            catch (err) {
+                                console.log("[ERROR] initialize -> readEcosystemConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                            }
+
+                        }
                     }
                     catch (err) {
-                        console.log("[ERROR] initialize -> readEcosystemConfig -> onDataArrived -> Error = " + err);
+                        console.log("[ERROR] initialize -> readEcosystemConfig -> File System -> File = " + fileName + " Error = " + err);
                     }
+                    break;
+                }
+
+                case 'Github': {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Github -> Entering Case."); }
+
+                    getGithubData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived)
+
+                    function onDataArrived(pData) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Github -> onDataArrived -> Entering function."); }
+
+                            ecosystem = pData.toString();
+                            ecosystem = ecosystem.trim(); // remove first byte with some encoding.
+
+                            ecosystemObject = JSON.parse(ecosystem);
+                            readCompetitionsConfig();
+                        }
+                        catch (err) {
+                            console.log("[ERROR] initialize -> readEcosystemConfig -> Github -> onDataArrived -> Error = " + err);
+                        }
+                    }
+                    break;
                 }
             }
         }
@@ -643,6 +680,7 @@ function onBrowserRequest(request, response) {
         case "clear-cache": {
 
             githubData = new Map;
+            storageData = new Map;
 
             respondWithContent("command acepted", response);
 
@@ -1223,92 +1261,140 @@ function respondWithFile(fileName, response) {
 
 function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> Entering function."); }
+    try {
 
-    let cacheVersion = githubData.get(pOrg + '.' + pRepo + '.' + pPath)
+        if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> Entering function."); }
 
-    if (cacheVersion !== undefined) {
+        let cacheVersion = githubData.get(pOrg + '.' + pRepo + '.' + pPath)
 
-        if (CONSOLE_LOG === true) {
+        if (cacheVersion !== undefined) {
 
-            console.log("getGithubData - " + pOrg + '.' + pRepo + '.' + pPath + " found at cache.  :-) ");
+            if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> " + pOrg + '.' + pRepo + '.' + pPath + " found at cache."); }
 
-        }
+            callBackFunction(cacheVersion);
 
-        callBackFunction(cacheVersion);
+        } else {
 
-    } else {
+            if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
 
-        if (CONSOLE_LOG === true) {
+            const octokit = require('@octokit/rest')()
+            global.atob = require("atob");
 
-            console.log("getGithubData - " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache.  :-( ");
+            let owner = pOrg;
+            let repo = pRepo;
+            let branch = "master";
+            let page = 1;
+            let per_page = 100;
+            let ref = "master";
+            let path = pPath;
 
-        }
+            octokit.repos.getContent({ owner, repo, path, ref }, onContent);
 
-        const octokit = require('@octokit/rest')()
-        global.atob = require("atob");
+            function onContent(error, result) {
 
-        let owner = pOrg;
-        let repo = pRepo;
-        let branch = "master";
-        let page = 1;
-        let per_page = 100;
-        let ref = "master";
-        let path = pPath;
-
-        octokit.repos.getContent({ owner, repo, path, ref }, onContent);
-
-        function onContent(error, result) {
-
-            if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> error = " + error); }
-
-            if (CONSOLE_LOG === true) {
-
-                console.log("[INFO] getGithubData -> onContent -> Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString().substring(0,100));
-
-            }
-
-            if (error !== null) { console.log("getGithubData -> onContent -> " + error);}
-
-            let decoded = atob(result.data.content);
-
-            /*
-
-            This method usually brings up to 3 characters of encoding info at the begining of the JSON string which destroys the JSON format.
-            We will run the following code with the intention to eliminate this problem. 
-
-            */
-
-            let cleanString = decoded;
-            let jsonTest;
-
-            try {
-                jsonTest = JSON.parse(cleanString);
-            } catch (err) {
-                cleanString = decoded.substring(1);
                 try {
-                    jsonTest = JSON.parse(cleanString);
-                } catch (err) {
-                    cleanString = decoded.substring(2);
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> error = " + error); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString().substring(0, 100)); }
+
+                    if (error !== null) { console.log("[ERROR] getGithubData -> onContent -> " + error); }
+
+                    let decoded = atob(result.data.content);
+
+                    /*
+        
+                    This method usually brings up to 3 characters of encoding info at the begining of the JSON string which destroys the JSON format.
+                    We will run the following code with the intention to eliminate this problem. 
+        
+                    */
+
+                    let cleanString = decoded;
+                    let jsonTest;
+
                     try {
                         jsonTest = JSON.parse(cleanString);
                     } catch (err) {
-                        cleanString = decoded.substring(3);
+                        cleanString = decoded.substring(1);
                         try {
                             jsonTest = JSON.parse(cleanString);
                         } catch (err) {
-                            console.log("getGithubData -> onContent -> Could not clean the data received -> Data = " + decoded.substring(0, 50));
+                            cleanString = decoded.substring(2);
+                            try {
+                                jsonTest = JSON.parse(cleanString);
+                            } catch (err) {
+                                cleanString = decoded.substring(3);
+                                try {
+                                    jsonTest = JSON.parse(cleanString);
+                                } catch (err) {
+                                    console.log("[INFO] getGithubData -> onContent -> Could not clean the data received -> Data = " + decoded.substring(0, 50));
+                                }
+                            }
                         }
                     }
+
+                    githubData.set(pOrg + '.' + pRepo + '.' + pPath, cleanString);
+
+                    callBackFunction(cleanString);
+
+                } catch (err) {
+                    console.log("[ERROR] getGithubData -> onContent -> err.message = " + err.message);
+                    callBackFunction("{}");
                 }
             }
-           
-            githubData.set(pOrg + '.' + pRepo + '.' + pPath, cleanString);
-
-            callBackFunction(cleanString);
-
         }
+
+    } catch (err) {
+        console.log("[ERROR] getGithubData -> err.message = " + err.message);
+        callBackFunction("{}");
     }
 }
 
+function getStorageData(pOrg, pRepo, pPath, callBackFunction) {
+
+    try {
+
+        if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> Entering function."); }
+
+        let cacheVersion = storageData.get(pOrg + '.' + pRepo + '.' + pPath)
+
+        if (cacheVersion !== undefined) {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData ->  " + pOrg + '.' + pRepo + '.' + pPath + " found at cache."); }
+
+            callBackFunction(cacheVersion);
+
+        } else {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData ->  " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
+
+            let storage = require('azure-storage');
+            let blobService = storage.createBlobService(serverConfig.storage.connectionString);
+
+            blobService.getBlobToText('aaplatform', pOrg + "/" + pRepo + "/" + pPath, onFileReceived);
+
+
+            function onFileReceived(err, text, response) {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> onFileReceived -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> onContent -> err = " + JSON.stringify(err)); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> onContent ->  response = " + JSON.stringify(response)); }
+
+                    storageData.set(pOrg + '.' + pRepo + '.' + pPath, text);
+
+                    callBackFunction(text);
+
+                } catch (err) {
+                    console.log("[ERROR] getStorageData -> onFileReceived -> err.message = " + err.message);
+                    callBackFunction("{}");
+                }
+            }
+        }
+
+    } catch (err) {
+        console.log("[ERROR] getStorageData -> err.message = " + err.message); 
+        callBackFunction("{}");
+    }
+}

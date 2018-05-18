@@ -24,11 +24,18 @@ function newFileCloud() {
 
     function initialize(pBot) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-        if (INFO_LOG === true) { logger.write("[INFO] initialize -> pBot = " + pBot.codeName); }
+        try {
 
-        blobService = AzureStorage.Blob.createBlobServiceWithSas(pBot.storage.fileUri, pBot.storage.sas);
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> pBot = " + pBot.codeName); }
 
+            blobService = AzureStorage.Blob.createBlobServiceWithSas(pBot.storage.fileUri, pBot.storage.sas);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            //callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);  TODO> Handle this callback.
+        }
     }
 
     function getFile(pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {

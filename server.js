@@ -83,7 +83,7 @@ function initialize() {
     
             */
 
-            switch (serverConfig.configurationStorage.source) {
+            switch (serverConfig.configAndPlugins.Location) {
 
                 case 'Cloud': {
 
@@ -205,7 +205,7 @@ function initialize() {
 
                             requestsSent++;
 
-                            switch (serverConfig.configurationStorage.source) {
+                            switch (serverConfig.configAndPlugins.Location) {
 
                                 case 'Cloud': {
 
@@ -364,7 +364,7 @@ function initialize() {
 
                             requestsSent++;
 
-                            switch (serverConfig.configurationStorage.source) {
+                            switch (serverConfig.configAndPlugins.Location) {
 
                                 case 'Cloud': {
 
@@ -557,7 +557,7 @@ function initialize() {
 
                             requestsSent++;
 
-                            switch (serverConfig.configurationStorage.source) {
+                            switch (serverConfig.configAndPlugins.Location) {
 
                                 case 'Cloud': {
 
@@ -727,7 +727,7 @@ function initialize() {
 
                             requestsSent++;
 
-                            switch (serverConfig.configurationStorage.source) {
+                            switch (serverConfig.configAndPlugins.Location) {
 
                                 case 'Cloud': {
 
@@ -1184,7 +1184,7 @@ function onBrowserRequest(request, response) {
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
 
-                switch (serverConfig.configurationStorage.source) {
+                switch (serverConfig.configAndPlugins.Location) {
 
                     case 'Cloud': {
 
@@ -1231,7 +1231,7 @@ function onBrowserRequest(request, response) {
         case "PlotterPanels": // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
             {
 
-                switch (serverConfig.configurationStorage.source) {
+                switch (serverConfig.configAndPlugins.Location) {
 
                     case 'Cloud': {
 
@@ -1699,7 +1699,24 @@ function getStorageData(pOrg, pRepo, pPath, callBackFunction) {
             if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData ->  " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
 
             let storage = require('azure-storage');
-            let blobService = storage.createBlobService(serverConfig.configurationStorage.connectionString);
+            let connectionString;
+
+            switch (serverConfig.environment) {
+
+                case "Develop": {
+
+                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
+                    break;
+                }
+
+                case "Production": {
+
+                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
+                    break;
+                }
+            }
+
+            let blobService = storage.createBlobService(connectionString);
 
             blobService.getBlobToText('aaplatform', pOrg + "/" + pRepo + "/" + pPath, onFileReceived);
 

@@ -1,5 +1,5 @@
-const CONSOLE_LOG = true;
-const LOG_FILE_CONTENT = false;
+let CONSOLE_LOG = false;
+let LOG_FILE_CONTENT = false;
 
 if (CONSOLE_LOG === true) { console.log("[INFO] Node Server Starting."); }
 
@@ -21,6 +21,11 @@ initialize();
 function initialize() {
 
     if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> Entering function."); }
+
+    /* Clear all cached information. */
+
+    githubData = new Map;
+    storageData = new Map;
 
     readServerConfig();
 
@@ -48,6 +53,9 @@ function initialize() {
 
                     serverConfig = JSON.parse(fileText);
 
+                    CONSOLE_LOG = serverConfig.webServerLog.console;
+                    LOG_FILE_CONTENT = serverConfig.webServerLog.fileContent;
+
                     readEcosystemConfig();
                 }
                 catch (err) {
@@ -67,12 +75,6 @@ function initialize() {
 
             if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Entering function."); }
 
-            if (CONSOLE_LOG === true && serverConfig.localMode === true) {
-
-                console.log("Hey! if you expect this to run at the web server I have some bad news for you son, serverConfig.localMode is true, that means the server wont find your local files. ");
-
-            }
-
             /*
     
             This configuration file is the backbone of the system. The first file we are going to get is a template where other configurations are
@@ -81,7 +83,7 @@ function initialize() {
     
             */
 
-            switch (serverConfig.storage.source) {
+            switch (serverConfig.configurationStorage.source) {
 
                 case 'Cloud': {
 
@@ -203,7 +205,7 @@ function initialize() {
 
                             requestsSent++;
 
-                            switch (serverConfig.storage.source) {
+                            switch (serverConfig.configurationStorage.source) {
 
                                 case 'Cloud': {
 
@@ -362,7 +364,7 @@ function initialize() {
 
                             requestsSent++;
 
-                            switch (serverConfig.storage.source) {
+                            switch (serverConfig.configurationStorage.source) {
 
                                 case 'Cloud': {
 
@@ -555,7 +557,7 @@ function initialize() {
 
                             requestsSent++;
 
-                            switch (serverConfig.storage.source) {
+                            switch (serverConfig.configurationStorage.source) {
 
                                 case 'Cloud': {
 
@@ -725,7 +727,7 @@ function initialize() {
 
                             requestsSent++;
 
-                            switch (serverConfig.storage.source) {
+                            switch (serverConfig.configurationStorage.source) {
 
                                 case 'Cloud': {
 
@@ -889,16 +891,16 @@ function initialize() {
 
                         case "Develop": {
 
-                            fileUri = "https://aadevelop.blob.core.windows.net";
-                            sas = "?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2019-01-01T17:39:27Z&st=2018-05-01T08:39:27Z&spr=https,http&sig=9atUljJam0E8zMg1VWQ0bGj2FqGYwtPIbImy5xyBMhE%3D"
+                            fileUri = serverConfig.productsStorage.Develop.fileUri;
+                            sas = serverConfig.productsStorage.Develop.sas;
 
                             break;
                         }
 
                         case "Production": {
 
-                            fileUri = "https://aaproduction.blob.core.windows.net";
-                            sas = "?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2019-01-01T03:17:16Z&st=2018-05-01T18:17:16Z&spr=https,http&sig=Ok4l7YxZlduPJrX31Y%2FHyajzxCHRnfEnTkoiRsYDXhk%3D"
+                            fileUri = serverConfig.productsStorage.Production.fileUri;
+                            sas = serverConfig.productsStorage.Production.sas;
 
                             break;
                         }
@@ -949,14 +951,11 @@ function onBrowserRequest(request, response) {
 
     switch (requestParameters[1]) {
 
-        case "clear-cache": {
-
-            githubData = new Map;
-            storageData = new Map;
+        case serverConfig.reinitializeCommand: {
 
             initialize();
 
-            respondWithContent("command acepted", response);
+            respondWithContent("Node JS Server Reinitilized.", response);
 
         }
             break;
@@ -1645,7 +1644,7 @@ function getStorageData(pOrg, pRepo, pPath, callBackFunction) {
             if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData ->  " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
 
             let storage = require('azure-storage');
-            let blobService = storage.createBlobService(serverConfig.storage.connectionString);
+            let blobService = storage.createBlobService(serverConfig.configurationStorage.connectionString);
 
             blobService.getBlobToText('aaplatform', pOrg + "/" + pRepo + "/" + pPath, onFileReceived);
 

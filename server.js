@@ -99,7 +99,7 @@ function initialize() {
                             ecosystem = ecosystem.trim(); // remove first byte with some encoding.
 
                             ecosystemObject = JSON.parse(ecosystem);
-                            readCompetitionsConfig();
+                            readHostsConfigs();
                         }
                         catch (err) {
                             console.log("[ERROR] initialize -> readEcosystemConfig -> Cloud -> onDataArrived -> Error = " + err);
@@ -128,7 +128,7 @@ function initialize() {
                                 ecosystem = ecosystem.trim(); // remove first byte with some encoding.
 
                                 ecosystemObject = JSON.parse(ecosystem);
-                                readCompetitionsConfig();
+                                readHostsConfigs();
                             }
                             catch (err) {
                                 console.log("[ERROR] initialize -> readEcosystemConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
@@ -158,7 +158,7 @@ function initialize() {
                             ecosystem = ecosystem.trim(); // remove first byte with some encoding.
 
                             ecosystemObject = JSON.parse(ecosystem);
-                            readCompetitionsConfig();
+                            readHostsConfigs();
                         }
                         catch (err) {
                             console.log("[ERROR] initialize -> readEcosystemConfig -> Github -> onDataArrived -> Error = " + err);
@@ -173,11 +173,11 @@ function initialize() {
         }
     }
 
-    function readCompetitionsConfig() {
+    function readHostsConfigs() {
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readHostsConfigs -> Entering function."); }
 
             let requestsSent = 0;
             let responsesReceived = 0;
@@ -186,343 +186,340 @@ function initialize() {
 
                 let host = ecosystemObject.hosts[i];
 
-                /* In this first section we will load the competitions configurations. */
+                getCompetitions();
+                getPlotters();
 
-                for (let j = 0; j < host.competitions.length; j++) {
+                function getCompetitions() {
 
-                    let competition = host.competitions[j];
+                    try {
 
-                    requestsSent++;
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readHostsConfigs -> getCompetitions -> Entering function."); }
 
-                    switch (serverConfig.storage.source) {
+                        /* In this first section we will load the competitions configurations. */
 
-                        case 'Cloud': {
+                        for (let j = 0; j < host.competitions.length; j++) {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> Entering Case."); }
+                            let competition = host.competitions[j];
 
-                            getStorageData(host.codeName, competition.repo, competition.configFile, onDataArrived)
+                            requestsSent++;
 
-                            function onDataArrived(pData) {
+                            switch (serverConfig.storage.source) {
 
-                                try {
+                                case 'Cloud': {
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> competition.repo = " + competition.repo); }
-                                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> pData = " + pData); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> Entering Case."); }
 
-                                    responsesReceived++;
+                                    getStorageData(host.codeName, competition.repo, competition.configFile, onDataArrived)
 
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
+                                    function onDataArrived(pData) {
 
-                                    let configObj = JSON.parse(pData);
+                                        try {
 
-                                    /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> Entering function."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> competition.repo = " + competition.repo); }
+                                            if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> pData = " + pData); }
 
-                                    configObj.repo = competition.repo;
-                                    configObj.configFile = competition.configFile;
+                                            responsesReceived++;
 
-                                    host.competitions[j] = configObj;
+                                            pData = pData.toString();
+                                            pData = pData.trim(); // remove first byte with some encoding.
 
-                                    if (requestsSent === responsesReceived) {
+                                            let configObj = JSON.parse(pData);
 
-                                        readBotsAndPlottersConfig();
+                                            /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
 
+                                            configObj.repo = competition.repo;
+                                            configObj.configFile = competition.configFile;
+
+                                            host.competitions[j] = configObj;
+
+                                            if (requestsSent === responsesReceived) {
+
+                                                readDevTeamsConfigs();
+
+                                            }
+
+                                        }
+                                        catch (err) {
+                                            console.log("[ERROR] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> Error = " + err);
+                                        }
                                     }
-
+                                    break;
                                 }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> Error = " + err);
-                                }
-                            }
-                            break;
-                        }
 
-                        case 'File System': {
-
-                            try {
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> Entering Case."); }
-
-                                let fs = require('fs');
-                            
-                                let fileName = '../Competitions/' + host.codeName + '/' + competition.repo + '/' + competition.configFile;
-                                fs.readFile(fileName, onFileRead);
-
-                                function onFileRead(err, pData) {
+                                case 'File System': {
 
                                     try {
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> File System -> Entering Case."); }
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> onFileRead -> Entering function."); }
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> onFileRead -> fileName = " + fileName); }
+                                        let fs = require('fs');
 
-                                        responsesReceived++;
+                                        let fileName = '../Competitions/' + host.codeName + '/' + competition.repo + '/' + competition.configFile;
+                                        fs.readFile(fileName, onFileRead);
 
-                                        pData = pData.toString();
-                                        pData = pData.trim(); // remove first byte with some encoding.
+                                        function onFileRead(err, pData) {
 
-                                        let configObj = JSON.parse(pData);
+                                            try {
 
-                                        /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> File System -> onFileRead -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> File System -> onFileRead -> fileName = " + fileName); }
 
-                                        configObj.repo = competition.repo;
-                                        configObj.configFile = competition.configFile;
+                                                responsesReceived++;
 
-                                        host.competitions[j] = configObj;
+                                                pData = pData.toString();
+                                                pData = pData.trim(); // remove first byte with some encoding.
 
-                                        if (requestsSent === responsesReceived) {
+                                                let configObj = JSON.parse(pData);
 
-                                            readBotsAndPlottersConfig();
+                                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
 
+                                                configObj.repo = competition.repo;
+                                                configObj.configFile = competition.configFile;
+
+                                                host.competitions[j] = configObj;
+
+                                                if (requestsSent === responsesReceived) {
+
+                                                    readDevTeamsConfigs();
+
+                                                }
+                                            }
+                                            catch (err) {
+                                                console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                            }
                                         }
                                     }
                                     catch (err) {
-                                        console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
-                                    }
-                                }
-                            }
-                            catch (err) {
-                                console.log("[ERROR] initialize -> readCompetitionsConfig -> File System -> File = " + fileName + " Error = " + err);
-                            }
-
-                            break;
-                        }
-
-                        case 'Github': {
-
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> Entering Case."); }
-
-                            getGithubData(host.codeName, competition.repo, competition.configFile, onDataArrived)
-
-                            function onDataArrived(pData) {
-
-                                try {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> host.codeName = " + host.codeName); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> competition.repo = " + competition.repo); }
-                                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> pData = " + pData); }
-
-                                    responsesReceived++;
-
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
-
-                                    let configObj = JSON.parse(pData);
-
-                                    /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
-
-                                    configObj.repo = competition.repo;
-                                    configObj.configFile = competition.configFile;
-
-                                    host.competitions[j] = configObj;
-
-                                    if (requestsSent === responsesReceived) {
-
-                                        readBotsAndPlottersConfig();
-
+                                        console.log("[ERROR] initialize ->  readHostsConfigs -> getCompetitions -> File System -> File = " + fileName + " Error = " + err);
                                     }
 
+                                    break;
                                 }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> Error = " + err);
+
+                                case 'Github': {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> Entering Case."); }
+
+                                    getGithubData(host.codeName, competition.repo, competition.configFile, onDataArrived)
+
+                                    function onDataArrived(pData) {
+
+                                        try {
+
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> Entering function."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> host.codeName = " + host.codeName); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> competition.repo = " + competition.repo); }
+                                            if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> pData = " + pData); }
+
+                                            responsesReceived++;
+
+                                            pData = pData.toString();
+                                            pData = pData.trim(); // remove first byte with some encoding.
+
+                                            let configObj = JSON.parse(pData);
+
+                                            /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                                            configObj.repo = competition.repo;
+                                            configObj.configFile = competition.configFile;
+
+                                            host.competitions[j] = configObj;
+
+                                            if (requestsSent === responsesReceived) {
+
+                                                readDevTeamsConfigs();
+
+                                            }
+
+                                        }
+                                        catch (err) {
+                                            console.log("[ERROR] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> Error = " + err);
+                                        }
+                                    }
+
+                                    break;
                                 }
                             }
-
-                            break;
                         }
+                    }
+                    catch (err) {
+                        console.log("[ERROR] initialize ->  readHostsConfigs -> getCompetitions -> getCompetitions -> Error = " + err);
                     }
                 }
 
-                /* In this second section we will load the competition plotters configurations. */
+                function getPlotters() {
 
-                for (let j = 0; j < host.plotters.length; j++) {
+                    try {
 
-                    let plotter = host.plotters[j];
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> getPlotters -> Entering function."); }
 
-                    requestsSent++;
+                        /* In this second section we will load the competition plotters configurations. */
 
-                    switch (serverConfig.storage.source) {
+                        for (let j = 0; j < host.plotters.length; j++) {
 
-                        case 'Cloud': {
+                            let plotter = host.plotters[j];
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> Entering Case."); }
+                            requestsSent++;
 
-                            getStorageData(host.codeName, plotter.repo, plotter.configFile, onDataArrived)
+                            switch (serverConfig.storage.source) {
 
-                            function onDataArrived(pData) {
+                                case 'Cloud': {
 
-                                try {
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> Entering Case."); }
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> pData = " + pData); }
+                                    getStorageData(host.codeName, plotter.repo, plotter.configFile, onDataArrived)
 
-                                    responsesReceived++;
+                                    function onDataArrived(pData) {
 
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
+                                        try {
 
-                                    let configObj = JSON.parse(pData);
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> Entering function."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
+                                            if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> pData = " + pData); }
 
-                                    /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+                                            responsesReceived++;
 
-                                    configObj.repo = plotter.repo;
-                                    configObj.configFile = plotter.configFile;
+                                            pData = pData.toString();
+                                            pData = pData.trim(); // remove first byte with some encoding.
 
-                                    host.plotters[j] = configObj;
+                                            let configObj = JSON.parse(pData);
 
-                                    if (requestsSent === responsesReceived) {
+                                            /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
 
-                                        readBotsAndPlottersConfig();
+                                            configObj.repo = plotter.repo;
+                                            configObj.configFile = plotter.configFile;
 
+                                            host.plotters[j] = configObj;
+
+                                            if (requestsSent === responsesReceived) {
+
+                                                readDevTeamsConfigs();
+
+                                            }
+
+                                        }
+                                        catch (err) {
+                                            console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> Error = " + err);
+                                        }
                                     }
 
+                                    break;
                                 }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> Error = " + err);
-                                }
-                            }
 
-                            break;
-                        }
+                                case 'File System': {
 
-                        case 'File System': {
-
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> Entering Case."); }
-
-                            try {
-
-                                let fs = require('fs');
-
-                                let fileName = '../Plotters/' + host.codeName + '/' + plotter.repo + '/' + plotter.configFile;
-                                fs.readFile(fileName, onFileRead);
-
-                                function onFileRead(err, pData) {
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> File System -> Entering Case."); }
 
                                     try {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> onFileRead -> Entering function."); }
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> onFileRead -> fileName = " + fileName); }
+                                        let fs = require('fs');
 
-                                        responsesReceived++;
+                                        let fileName = '../Plotters/' + host.codeName + '/' + plotter.repo + '/' + plotter.configFile;
+                                        fs.readFile(fileName, onFileRead);
 
-                                        pData = pData.toString();
-                                        pData = pData.trim(); // remove first byte with some encoding.
+                                        function onFileRead(err, pData) {
 
-                                        let configObj = JSON.parse(pData);
+                                            try {
 
-                                        /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> File System -> onFileRead -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> File System -> onFileRead -> fileName = " + fileName); }
 
-                                        configObj.repo = plotter.repo;
-                                        configObj.configFile = plotter.configFile;
+                                                responsesReceived++;
 
-                                        host.plotters[j] = configObj;
+                                                pData = pData.toString();
+                                                pData = pData.trim(); // remove first byte with some encoding.
 
-                                        if (requestsSent === responsesReceived) {
+                                                let configObj = JSON.parse(pData);
 
-                                            readBotsAndPlottersConfig();
+                                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                                                configObj.repo = plotter.repo;
+                                                configObj.configFile = plotter.configFile;
+
+                                                host.plotters[j] = configObj;
+
+                                                if (requestsSent === responsesReceived) {
+
+                                                    readDevTeamsConfigs();
+
+                                                }
+                                            }
+                                            catch (err) {
+                                                console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                            }
 
                                         }
                                     }
                                     catch (err) {
-                                        console.log("[ERROR] initialize -> readCompetitionsConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                        console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> File System -> File = " + fileName + " Error = " + err);
                                     }
 
+                                    break;
                                 }
-                            }
-                            catch (err) {
-                                console.log("[ERROR] initialize -> readCompetitionsConfig -> File System -> File = " + fileName + " Error = " + err);
-                            }
 
-                            break;
-                        }
+                                case 'Github': {
 
-                        case 'Github': {
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> Entering Case."); }
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> Entering Case."); }
+                                    getGithubData(host.codeName, plotter.repo, plotter.configFile, onDataArrived)
 
-                            getGithubData(host.codeName, plotter.repo, plotter.configFile, onDataArrived)
+                                    function onDataArrived(pData) {
 
-                            function onDataArrived(pData) {
+                                        try {
 
-                                try {
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> Entering function."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> host.codeName = " + host.codeName); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> plotter.repo = " + plotter.repo); }
+                                            if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> pData = " + pData); }
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> host.codeName = " + host.codeName); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> pData = " + pData); }
+                                            responsesReceived++;
 
-                                    responsesReceived++;
+                                            pData = pData.toString();
+                                            pData = pData.trim(); // remove first byte with some encoding.
 
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
+                                            let configObj = JSON.parse(pData);
 
-                                    let configObj = JSON.parse(pData);
+                                            /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
 
-                                    /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+                                            configObj.repo = plotter.repo;
+                                            configObj.configFile = plotter.configFile;
 
-                                    configObj.repo = plotter.repo;
-                                    configObj.configFile = plotter.configFile;
+                                            host.plotters[j] = configObj;
 
-                                    host.plotters[j] = configObj;
+                                            if (requestsSent === responsesReceived) {
 
-                                    if (requestsSent === responsesReceived) {
+                                                readDevTeamsConfigs();
 
-                                        readBotsAndPlottersConfig();
+                                            }
 
+                                        }
+                                        catch (err) {
+                                            console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> Error = " + err);
+                                        }
                                     }
-
-                                }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> Error = " + err);
+                                    break;
                                 }
                             }
-                            break;
                         }
+                    }
+                    catch (err) {
+                        console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> getCompetitions -> Error = " + err);
                     }
                 }
             }
         }
         catch (err) {
-            console.log("[ERROR] initialize -> readCompetitionsConfig -> Error = " + err);
+            console.log("[ERROR] initialize -> readHostsConfigs -> Error = " + err);
         }
     }
 
-    function switchTemplate() {
-
-        switch (serverConfig.storage.source) {
-
-            case 'Cloud': {
-
-                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Cloud -> Entering Case."); }
-
-                break;
-            }
-
-            case 'File System': {
-
-                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> File System -> Entering Case."); }
-
-                break;
-            }
-
-            case 'Github': {
-
-                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Github -> Entering Case."); }
-
-                break;
-            }
-        }
-
-    }
-
-    function readBotsAndPlottersConfig() {
+    function readDevTeamsConfigs() {
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> Entering function."); }
 
             /*
     
@@ -541,311 +538,338 @@ function initialize() {
 
                 let devTeam = ecosystemObject.devTeams[i];
 
-                /* In the next section we are loading the bots configurations. */
+                getBots();
+                getPlotters();
 
-                for (let j = 0; j < devTeam.bots.length; j++) {
+                function getBots() {
 
-                    let bot = devTeam.bots[j];
+                    try {
 
-                    requestsSent++;
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Entering function."); }
 
-                    switch (serverConfig.storage.source) {
+                        /* In the next section we are loading the bots configurations. */
 
-                        case 'Cloud': {
+                        for (let j = 0; j < devTeam.bots.length; j++) {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> Entering Case."); }
+                            let bot = devTeam.bots[j];
 
-                            getStorageData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived)
+                            requestsSent++;
 
-                            function onDataArrived(pData) {
+                            switch (serverConfig.storage.source) {
 
-                                try {
+                                case 'Cloud': {
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> bot.repo = " + bot.repo); }
-                                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> pData = " + pData); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> Entering Case."); }
 
-                                    responsesReceived++;
+                                    getStorageData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived)
 
-                                    if (pData !== "{}") { // If for any reason we could not tet this config, then we just exclude this bot to improve resiliency.
+                                    function onDataArrived(pData) {
 
-                                        pData = pData.toString();
-                                        pData = pData.trim(); // remove first byte with some encoding.
+                                        try {
 
-                                        let configObj = JSON.parse(pData);
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> Entering function."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> bot.repo = " + bot.repo); }
+                                            if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> pData = " + pData); }
 
-                                        /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+                                            responsesReceived++;
 
-                                        configObj.repo = bot.repo;
-                                        configObj.configFile = bot.configFile;
+                                            if (pData !== "{}") { // If for any reason we could not tet this config, then we just exclude this bot to improve resiliency.
 
-                                        addStoragePermissions(configObj);
+                                                pData = pData.toString();
+                                                pData = pData.trim(); // remove first byte with some encoding.
 
-                                        devTeam.bots[j] = configObj;
+                                                let configObj = JSON.parse(pData);
 
+                                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                                                configObj.repo = bot.repo;
+                                                configObj.configFile = bot.configFile;
+
+                                                addStoragePermissions(configObj);
+
+                                                devTeam.bots[j] = configObj;
+
+                                            }
+
+                                            if (requestsSent === responsesReceived) {
+
+                                                startHtttpServer();
+
+                                            }
+
+                                        }
+                                        catch (err) {
+                                            console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> Error = " + err);
+                                        }
                                     }
-
-                                    if (requestsSent === responsesReceived) {
-
-                                        startHtttpServer();
-
-                                    }
-
+                                    break;
                                 }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> Error = " + err);
-                                }
-                            }
-                            break;
-                        }
 
-                        case 'File System': {
-
-                            try {
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> File System -> Entering Case."); }
-
-                                let fs = require('fs');
-
-                                let fileName = '../Bots/' + devTeam.codeName + '/' + bot.repo + '/' + bot.configFile;
-                                fs.readFile(fileName, onFileRead);
-
-                                function onFileRead(err, pData) {
+                                case 'File System': {
 
                                     try {
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> File System -> Entering Case."); }
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> File System -> onFileRead -> Entering function."); }
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> File System -> onFileRead -> fileName = " + fileName); }
+                                        let fs = require('fs');
 
-                                        responsesReceived++;
+                                        let fileName = '../Bots/' + devTeam.codeName + '/' + bot.repo + '/' + bot.configFile;
+                                        fs.readFile(fileName, onFileRead);
 
-                                        pData = pData.toString();
-                                        pData = pData.trim(); // remove first byte with some encoding.
+                                        function onFileRead(err, pData) {
 
-                                        let configObj = JSON.parse(pData);
+                                            try {
 
-                                        /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> File System -> onFileRead -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> File System -> onFileRead -> fileName = " + fileName); }
 
-                                        configObj.repo = bot.repo;
-                                        configObj.configFile = bot.configFile;
+                                                responsesReceived++;
 
-                                        addStoragePermissions(configObj);
+                                                pData = pData.toString();
+                                                pData = pData.trim(); // remove first byte with some encoding.
 
-                                        devTeam.bots[j] = configObj;
+                                                let configObj = JSON.parse(pData);
 
-                                        if (requestsSent === responsesReceived) {
+                                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
 
-                                            startHtttpServer();
+                                                configObj.repo = bot.repo;
+                                                configObj.configFile = bot.configFile;
+
+                                                addStoragePermissions(configObj);
+
+                                                devTeam.bots[j] = configObj;
+
+                                                if (requestsSent === responsesReceived) {
+
+                                                    startHtttpServer();
+
+                                                }
+                                            }
+                                            catch (err) {
+                                                console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                            }
 
                                         }
                                     }
                                     catch (err) {
-                                        console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                        console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> File System -> File = " + fileName + " Error = " + err);
                                     }
 
+                                    break;
                                 }
-                            }
-                            catch (err) {
-                                console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> File System -> File = " + fileName + " Error = " + err);
-                            }
 
-                            break;
-                        }
+                                case 'Github': {
 
-                        case 'Github': {
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> Entering Case."); }
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> Entering Case."); }
+                                    getGithubData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived)
 
-                            getGithubData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived)
+                                    function onDataArrived(pData) {
 
-                            function onDataArrived(pData) {
+                                        try {
 
-                                try {
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> Entering function."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> bot.repo = " + bot.repo); }
+                                            if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> pData = " + pData); }
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> bot.repo = " + bot.repo); }
-                                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> pData = " + pData); }
+                                            responsesReceived++;
 
-                                    responsesReceived++;
+                                            pData = pData.toString();
+                                            pData = pData.trim(); // remove first byte with some encoding.
 
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
+                                            let configObj = JSON.parse(pData);
 
-                                    let configObj = JSON.parse(pData);
+                                            /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
 
-                                    /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+                                            configObj.repo = bot.repo;
+                                            configObj.configFile = bot.configFile;
 
-                                    configObj.repo = bot.repo;
-                                    configObj.configFile = bot.configFile;
+                                            addStoragePermissions(configObj);
 
-                                    addStoragePermissions(configObj);
+                                            devTeam.bots[j] = configObj;
 
-                                    devTeam.bots[j] = configObj;
+                                            if (requestsSent === responsesReceived) {
 
-                                    if (requestsSent === responsesReceived) {
+                                                startHtttpServer();
 
-                                        startHtttpServer();
+                                            }
 
+                                        }
+                                        catch (err) {
+                                            console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> Error = " + err);
+                                        }
                                     }
-
-                                }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> Error = " + err);
+                                    break;
                                 }
                             }
-                            break;
                         }
+
+                    }
+                    catch (err) {
+                        console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> Error = " + err);
                     }
                 }
 
-                /* In the next section we are loading the plotters configurations. */
+                function getPlotters() {
 
-                for (let j = 0; j < devTeam.plotters.length; j++) {
+                    try {
 
-                    let plotter = devTeam.plotters[j];
+                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Entering Function."); }
 
-                    requestsSent++;
+                        /* In the next section we are loading the plotters configurations. */
 
-                    switch (serverConfig.storage.source) {
+                        for (let j = 0; j < devTeam.plotters.length; j++) {
 
-                        case 'Cloud': {
+                            let plotter = devTeam.plotters[j];
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> Entering Case."); }
+                            requestsSent++;
 
-                            getStorageData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived)
+                            switch (serverConfig.storage.source) {
 
-                            function onDataArrived(pData) {
+                                case 'Cloud': {
 
-                                try {
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> Entering Case."); }
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> pData = " + pData); }
+                                    getStorageData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived)
 
-                                    responsesReceived++;
+                                    function onDataArrived(pData) {
 
-                                    if (pData !== "{}") { // If for any reason we could not tet this config, then we just exclude this bot to improve resiliency.
+                                        try {
 
-                                        pData = pData.toString();
-                                        pData = pData.trim(); // remove first byte with some encoding.
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> Entering function."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
+                                            if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> pData = " + pData); }
 
-                                        let configObj = JSON.parse(pData);
+                                            responsesReceived++;
 
-                                        /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
+                                            if (pData !== "{}") { // If for any reason we could not tet this config, then we just exclude this bot to improve resiliency.
 
-                                        configObj.repo = plotter.repo;
-                                        configObj.configFile = plotter.configFile;
+                                                pData = pData.toString();
+                                                pData = pData.trim(); // remove first byte with some encoding.
 
-                                        devTeam.plotters[j] = configObj;
+                                                let configObj = JSON.parse(pData);
 
+                                                /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
+
+                                                configObj.repo = plotter.repo;
+                                                configObj.configFile = plotter.configFile;
+
+                                                devTeam.plotters[j] = configObj;
+
+                                            }
+
+                                            if (requestsSent === responsesReceived) {
+
+                                                startHtttpServer();
+
+                                            }
+                                        }
+                                        catch (err) {
+                                            console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> Error = " + err);
+                                        }
                                     }
-                                    
-                                    if (requestsSent === responsesReceived) {
-
-                                        startHtttpServer();
-
-                                    }
+                                    break;
                                 }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> Cloud -> onDataArrived -> Error = " + err);
-                                }
-                            }
-                            break;
-                        }
 
-                        case 'File System': {
+                                case 'File System': {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> File System -> Entering Case."); }
-
-                            try {
-
-                                let fs = require('fs');
-
-                                let fileName = '../Plotters/' + devTeam.codeName + '/' + plotter.repo + '/' + plotter.configFile;
-                                fs.readFile(fileName, onFileRead);
-
-                                function onFileRead(err, pData) {
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> File System -> Entering Case."); }
 
                                     try {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> File System -> onFileRead -> Entering function."); }
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> File System -> onFileRead -> fileName = " + fileName); }
+                                        let fs = require('fs');
 
-                                        responsesReceived++;
+                                        let fileName = '../Plotters/' + devTeam.codeName + '/' + plotter.repo + '/' + plotter.configFile;
+                                        fs.readFile(fileName, onFileRead);
 
-                                        pData = pData.toString();
-                                        pData = pData.trim(); // remove first byte with some encoding.
+                                        function onFileRead(err, pData) {
 
-                                        let configObj = JSON.parse(pData);
+                                            try {
 
-                                        /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> File System -> onFileRead -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> File System -> onFileRead -> fileName = " + fileName); }
 
-                                        configObj.repo = plotter.repo;
-                                        configObj.configFile = plotter.configFile;
+                                                responsesReceived++;
 
-                                        devTeam.plotters[j] = configObj;
+                                                pData = pData.toString();
+                                                pData = pData.trim(); // remove first byte with some encoding.
 
-                                        if (requestsSent === responsesReceived) {
+                                                let configObj = JSON.parse(pData);
 
-                                            startHtttpServer();
+                                                /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
 
+                                                configObj.repo = plotter.repo;
+                                                configObj.configFile = plotter.configFile;
+
+                                                devTeam.plotters[j] = configObj;
+
+                                                if (requestsSent === responsesReceived) {
+
+                                                    startHtttpServer();
+
+                                                }
+                                            }
+                                            catch (err) {
+                                                console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                            }
                                         }
                                     }
                                     catch (err) {
-                                        console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                        console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> File = " + fileName + " Error = " + err);
                                     }
+                                    break;
+                                }
+
+                                case 'Github': {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> Entering Case."); }
+
+                                    getGithubData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived)
+
+                                    function onDataArrived(pData) {
+
+                                        try {
+
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> Entering function."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> plotter.repo = " + plotter.repo); }
+                                            if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> pData = " + pData); }
+
+                                            responsesReceived++;
+
+                                            pData = pData.toString();
+                                            pData = pData.trim(); // remove first byte with some encoding.
+
+                                            let configObj = JSON.parse(pData);
+
+                                            /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
+
+                                            configObj.repo = plotter.repo;
+                                            configObj.configFile = plotter.configFile;
+
+                                            devTeam.plotters[j] = configObj;
+
+                                            if (requestsSent === responsesReceived) {
+
+                                                startHtttpServer();
+
+                                            }
+
+                                        }
+                                        catch (err) {
+                                            console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> Error = " + err);
+                                        }
+                                    }
+                                    break;
                                 }
                             }
-                            catch (err) {
-                                console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> File = " + fileName + " Error = " + err);
-                            }
-                            break;
                         }
 
-                        case 'Github': {
-
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> Entering Case."); }
-
-                            getGithubData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived)
-
-                            function onDataArrived(pData) {
-
-                                try {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> pData = " + pData); }
-
-                                    responsesReceived++;
-
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
-
-                                    let configObj = JSON.parse(pData);
-
-                                    /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
-
-                                    configObj.repo = plotter.repo;
-                                    configObj.configFile = plotter.configFile;
-
-                                    devTeam.plotters[j] = configObj;
-
-                                    if (requestsSent === responsesReceived) {
-
-                                        startHtttpServer();
-
-                                    }
-
-                                }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> Github -> onDataArrived -> Error = " + err);
-                                }
-                            }
-                            break;
-                        }
+                    }
+                    catch (err) {
+                        console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> Error = " + err);
                     }
                 }
             }
@@ -854,7 +878,7 @@ function initialize() {
 
                 try {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> addStoragePermissions -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> addStoragePermissions -> Entering function."); }
 
                     if (pConfigObj.storage !== undefined) { return; } // If this information is at the config file, then we take it, otherwise, we define it here. 
 
@@ -887,13 +911,13 @@ function initialize() {
 
                 }
                 catch (err) {
-                    console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> addStoragePermissions -> Error = " + err);
+                    console.log("[ERROR] initialize -> readDevTeamsConfigs -> addStoragePermissions -> Error = " + err);
                 }
             }
 
         }
         catch (err) {
-            console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> Error = " + err);
+            console.log("[ERROR] initialize -> readDevTeamsConfigs -> Error = " + err);
         }
     }
 }

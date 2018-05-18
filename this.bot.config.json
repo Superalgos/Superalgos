@@ -205,9 +205,5 @@
         "moduleName": "Volumes"
       }
     }
-  ],
-  "storage": {
-    "sas": "?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2019-01-01T03:17:16Z&st=2018-05-01T18:17:16Z&spr=https,http&sig=Ok4l7YxZlduPJrX31Y%2FHyajzxCHRnfEnTkoiRsYDXhk%3D",
-    "fileUri": "https://aaproduction.blob.core.windows.net"
-  }
+  ]
 }

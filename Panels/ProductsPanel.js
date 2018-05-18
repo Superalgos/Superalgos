@@ -57,59 +57,62 @@
 
                 let bot = devTeam.bots[j];
 
-                for (let k = 0; k < bot.products.length; k++) {
+                if (bot.products !== undefined) {
 
-                    let product = bot.products[k];
+                    for (let k = 0; k < bot.products.length; k++) {
 
-                    /* Now we create Product objects */
+                        let product = bot.products[k];
 
-                    let productCard = newProductCard();
+                        /* Now we create Product objects */
 
-                    productCard.devTeam = devTeam;
-                    productCard.bot = bot;
-                    productCard.product = product;
+                        let productCard = newProductCard();
 
-                    productCard.code = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName;
+                        productCard.devTeam = devTeam;
+                        productCard.bot = bot;
+                        productCard.product = product;
 
-                    /* Initialize it */
+                        productCard.code = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName;
 
-                    productCard.initialize();
+                        /* Initialize it */
 
-                    /* Container Stuff */
+                        productCard.initialize();
 
-                    productCard.container.displacement.parentDisplacement = thisObject.container.displacement;
-                    productCard.container.frame.parentFrame = thisObject.container.frame;
-                    productCard.container.parentContainer = thisObject.container;
-                    productCard.container.isWheelable = true;
+                        /* Container Stuff */
 
-                    /* Positioning within thisObject Panel */
+                        productCard.container.displacement.parentDisplacement = thisObject.container.displacement;
+                        productCard.container.frame.parentFrame = thisObject.container.frame;
+                        productCard.container.parentContainer = thisObject.container;
+                        productCard.container.isWheelable = true;
 
-                    let position = { 
-                        x: 10,
-                        y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
-                    };
-                    productCard.container.frame.position.x = position.x;
-                    productCard.container.frame.position.y = position.y + lastY;
+                        /* Positioning within thisObject Panel */
 
-                    lastY = lastY + productCard.container.frame.height;
+                        let position = {
+                            x: 10,
+                            y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+                        };
+                        productCard.container.frame.position.x = position.x;
+                        productCard.container.frame.position.y = position.y + lastY;
 
-                    /* Add to Visible Product Array */
+                        lastY = lastY + productCard.container.frame.height;
 
-                    if (lastY < thisObject.container.frame.height) {
+                        /* Add to Visible Product Array */
 
-                        visibleProductCards.push(productCard);
+                        if (lastY < thisObject.container.frame.height) {
+
+                            visibleProductCards.push(productCard);
+
+                        }
+
+                        /* Add to the Product Array */
+
+                        productCards.push(productCard);
+
+                        /* Listen to Status Changes Events */
+
+                        productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
+                        productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 
                     }
-
-                    /* Add to the Product Array */
-
-                    productCards.push(productCard);
-
-                    /* Listen to Status Changes Events */
-
-                    productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
-                    productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
-
                 }
             }
         }

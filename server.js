@@ -172,26 +172,39 @@ function initialize() {
         }
     }
 
+    function switchTemplate() {
+
+        switch (serverConfig.storage.source) {
+
+            case 'Cloud': {
+
+                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Cloud -> Entering Case."); }
+
+                break;
+            }
+
+            case 'File System': {
+
+                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> File System -> Entering Case."); }
+
+                break;
+            }
+
+            case 'Github': {
+
+                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Github -> Entering Case."); }
+
+                break;
+            }
+        }
+
+    }
+
     function readCompetitionsConfig() {
 
         try {
 
             if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Entering function."); }
-
-            /*
-    
-            The file previously read contains the reference to all competiotion hosts and their competitions. We use these references to load the specific
-            configurations and inject them to the first file.
-    
-            Lets remember that these files can come from 3 different sources, and this patter is later repeated many times down this module:
-    
-                1.If we are in debug mode, from the filesystem.
-                2.If we are in production from a cache we keep in memory at the node server.
-                3.If the cache does not have the file, then we get it from github.com, put in on the cache and serve it.
-    
-            2 and 3 are done by the getGithubData function.
-    
-            */
 
             let requestsSent = 0;
             let responsesReceived = 0;
@@ -208,20 +221,23 @@ function initialize() {
 
                     requestsSent++;
 
-                    if (serverConfig.localMode === true) {
+                    switch (serverConfig.storage.source) {
 
-                        let fs = require('fs');
-                        try {
-                            let fileName = '../Competitions/' + host.codeName + '/' + competition.repo + '/' + competition.configFile;
-                            fs.readFile(fileName, onFileRead);
+                        case 'Cloud': {
 
-                            function onFileRead(err, pData) {
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> Entering Case."); }
+
+                            getStorageData(host.codeName, competition.repo, competition.configFile, onDataArrived)
+
+                            function onDataArrived(pData) {
 
                                 try {
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> fileName = " + fileName); }
-                                
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> Entering function."); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> competition.repo = " + competition.repo); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> pData = " + pData); }
+
                                     responsesReceived++;
 
                                     pData = pData.toString();
@@ -241,53 +257,106 @@ function initialize() {
                                         readBotsAndPlottersConfig();
 
                                     }
+
                                 }
                                 catch (err) {
-                                    console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> File = " + fileName + " Error = " + err);
+                                    console.log("[ERROR] initialize -> readCompetitionsConfig -> Cloud -> onDataArrived -> Error = " + err);
                                 }
                             }
-                        }
-                        catch (err) {
-                            console.log("[ERROR] initialize -> readCompetitionsConfig -> File = " + fileName + " Error = " + err);
+                            break;
                         }
 
-                    } else {
-
-                        getGithubData(host.codeName, competition.repo, competition.configFile, onDataArrived)
-
-                        function onDataArrived(pData) {
+                        case 'File System': {
 
                             try {
+                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> Entering Case."); }
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> Entering function."); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> host.codeName = " + host.codeName); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> competition.repo = " + competition.repo); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> pData = " + pData); }
+                                let fs = require('fs');
+                            
+                                let fileName = '../Competitions/' + host.codeName + '/' + competition.repo + '/' + competition.configFile;
+                                fs.readFile(fileName, onFileRead);
 
-                                responsesReceived++;
+                                function onFileRead(err, pData) {
 
-                                pData = pData.toString();
-                                pData = pData.trim(); // remove first byte with some encoding.
+                                    try {
 
-                                let configObj = JSON.parse(pData);
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> onFileRead -> Entering function."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> onFileRead -> fileName = " + fileName); }
 
-                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+                                        responsesReceived++;
 
-                                configObj.repo = competition.repo;
-                                configObj.configFile = competition.configFile;
+                                        pData = pData.toString();
+                                        pData = pData.trim(); // remove first byte with some encoding.
 
-                                host.competitions[j] = configObj;
+                                        let configObj = JSON.parse(pData);
 
-                                if (requestsSent === responsesReceived) {
+                                        /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
 
-                                    readBotsAndPlottersConfig();
+                                        configObj.repo = competition.repo;
+                                        configObj.configFile = competition.configFile;
 
+                                        host.competitions[j] = configObj;
+
+                                        if (requestsSent === responsesReceived) {
+
+                                            readBotsAndPlottersConfig();
+
+                                        }
+                                    }
+                                    catch (err) {
+                                        console.log("[INFO] initialize -> readCompetitionsConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                    }
                                 }
-
                             }
                             catch (err) {
-                                console.log("[ERROR] initialize -> readCompetitionsConfig -> onDataArrived -> Error = " + err);
+                                console.log("[ERROR] initialize -> readCompetitionsConfig -> File System -> File = " + fileName + " Error = " + err);
                             }
+
+                            break;
+                        }
+
+                        case 'Github': {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> Entering Case."); }
+
+                            getGithubData(host.codeName, competition.repo, competition.configFile, onDataArrived)
+
+                            function onDataArrived(pData) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> Entering function."); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> host.codeName = " + host.codeName); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> competition.repo = " + competition.repo); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> pData = " + pData); }
+
+                                    responsesReceived++;
+
+                                    pData = pData.toString();
+                                    pData = pData.trim(); // remove first byte with some encoding.
+
+                                    let configObj = JSON.parse(pData);
+
+                                    /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
+
+                                    configObj.repo = competition.repo;
+                                    configObj.configFile = competition.configFile;
+
+                                    host.competitions[j] = configObj;
+
+                                    if (requestsSent === responsesReceived) {
+
+                                        readBotsAndPlottersConfig();
+
+                                    }
+
+                                }
+                                catch (err) {
+                                    console.log("[ERROR] initialize -> readCompetitionsConfig -> Github -> onDataArrived -> Error = " + err);
+                                }
+                            }
+
+                            break;
                         }
                     }
                 }

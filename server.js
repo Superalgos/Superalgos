@@ -1,5 +1,5 @@
-let CONSOLE_LOG = true;
-let LOG_FILE_CONTENT = true;
+let CONSOLE_LOG = false;
+let LOG_FILE_CONTENT = false;
 
 if (CONSOLE_LOG === true) { console.log("[INFO] Node Server Starting."); }
 

@@ -1,12 +1,6 @@
 const CONSOLE_LOG = true;
 
-if (CONSOLE_LOG === true) {
-
-    console.log("Node Server Starting. Be happy, everything is going to be allright. :-)");
-
-}
-
-// serverConfig.localMode                 // This forces the server to read files from the local drive instead of github and to use develop storage and not production.
+if (CONSOLE_LOG === true) { console.log("[INFO] Node Server Starting."); }
 
 let serverConfig;
 
@@ -16,8 +10,10 @@ let ecosystem;
 let ecosystemObject;
 
 //'use strict';
-var http = require('http');
-var port = process.env.PORT || 1337;
+let http = require('http');
+let port = process.env.PORT || 1337;
+
+let isHttpServerStarted = false;
 
 initialize();
 
@@ -29,10 +25,12 @@ function initialize() {
 
     function readServerConfig() {
 
-        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readServerConfig -> Entering function."); }
-
-        let fs = require('fs');
         try {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readServerConfig -> Entering function."); }
+
+            let fs = require('fs');
+        
             let fileName = './this.server.config.json';
             fs.readFile(fileName, onFileRead);
 
@@ -660,7 +658,11 @@ function startHtttpServer() {
 
     try {
 
-        gWebServer = http.createServer(onBrowserRequest).listen(port);
+        if (isHttpServerStarted === false) {
+
+            gWebServer = http.createServer(onBrowserRequest).listen(port);
+            isHttpServerStarted = true;
+        }
     }
     catch (err) {
         console.log("[ERROR] startHtttpServer -> Error = " + err);
@@ -681,6 +683,8 @@ function onBrowserRequest(request, response) {
 
             githubData = new Map;
             storageData = new Map;
+
+            initialize();
 
             respondWithContent("command acepted", response);
 
@@ -762,7 +766,7 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("File Not Found: " + fileName + " or Error = " + err);
+                            console.log("[ERROR] onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
 
                     }
@@ -855,7 +859,7 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("File Not Found: " + fileName + " or Error = " + err);
+                            console.log("[ERROR] onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
 
                     }
@@ -896,9 +900,8 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("File Not Found: " + fileName);
+                            console.log("[ERROR] onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
-
                     }
                 }
                 catch (err) {
@@ -1158,9 +1161,8 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("File Not Found: " + fileName + " or Error = " + err);
+                            console.log("[ERROR] onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
-
                     }
                 }
                 catch (err) {
@@ -1236,6 +1238,7 @@ function respondWithFile(fileName, response) {
             catch (err) {
                 returnEmptyArray();
                 console.log("File Not Found: " + fileName);
+                console.log("[ERROR] respondWithFile -> onFileRead -> File Not Found: " + fileName + " or Error = " + err);
             }
 
         }

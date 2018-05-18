@@ -64,7 +64,7 @@
         {
             "codeName": "LRCChannel",
             "displayName": "LRCChannel",
-            "description": "Two sets of files per period that contains candles.",
+            "description": "Two sets of files per period that contains LRC points.",
             "storageAccount": "aagauss",
             "dataSets": [
                 {
@@ -80,11 +80,11 @@
                     "name": "Poloniex"
                 }
             ],
-            "plotter": {
-                "devTeam": "AAMasters",
-                "codeName": "Plotter",
-                "moduleName": "LRCChannel"
-            }
+          "plotter": {
+            "devTeam": "AAMasters",
+            "codeName": "PlotterLinearRegressionCurve",
+            "moduleName": "LRC"
+          }
         }
     ]
 

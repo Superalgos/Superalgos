@@ -167,7 +167,7 @@ for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
         botConfig = JSON.parse(botConfigFile);
     }
     catch (err) {
-        console.log("[ERROR] 'readConfig' - ERROR : " + err.message);
+        console.log("[ERROR] run -> readBotConfig -> err.message = " + err.message);
         return;
     }
 

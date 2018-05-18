@@ -1,5 +1,5 @@
-let CONSOLE_LOG = false;
-let LOG_FILE_CONTENT = false;
+let CONSOLE_LOG = true;
+let LOG_FILE_CONTENT = true;
 
 if (CONSOLE_LOG === true) { console.log("[INFO] Node Server Starting."); }
 
@@ -52,6 +52,8 @@ function initialize() {
                     fileText = fileText.trim(); // remove first byte with some encoding.
 
                     serverConfig = JSON.parse(fileText);
+
+                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readServerConfig -> onFileRead -> fileText = " + fileText); }
 
                     CONSOLE_LOG = serverConfig.webServerLog.console;
                     LOG_FILE_CONTENT = serverConfig.webServerLog.fileContent;

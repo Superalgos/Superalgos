@@ -344,8 +344,11 @@
         teamImagePoint = thisObject.container.frame.frameThisPoint(teamImagePoint);
 
         let teamImage = document.getElementById(thisObject.bot.devTeam + ".png");
-        browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize);
 
+        if (teamImage.naturalHeight !== 0) {
+            browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize);
+        }
+        
         /* Second the Bot's Profile Picture. */
 
         if (thisObject.bot.profilePicture !== undefined) {
@@ -359,8 +362,10 @@
 
             let imageId = thisObject.bot.devTeam + "." + thisObject.bot.profilePicture;
             let botImage = document.getElementById(imageId);
-            browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize);
 
+            if (botImage.naturalHeight !== 0) {
+                browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize);
+            }
         }
 
         /* Third the Plotter's Profile Picture. */
@@ -376,8 +381,10 @@
 
             let imageId = thisObject.product.plotter.devTeam + "." + thisObject.product.plotter.codeName + "." + thisObject.product.plotter.moduleName + "." + thisObject.product.plotter.profilePicture;
             let plotterImage = document.getElementById(imageId);
-            browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height);
 
+            if (plotterImage.naturalHeight !== 0) {
+                browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height);
+            }
         }
 
 

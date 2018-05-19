@@ -128,7 +128,7 @@ const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
 const FONT_ASPECT_RATIO = 0.60;
 const CHART_ASPECT_RATIO = 1 / 10;
 
-const INITIAL_ZOOM_LEVEL = -22;       // This is the zoom level at the view port in which the APP starts.
+let INITIAL_ZOOM_LEVEL = -26;       // This is the zoom level at the view port in which the APP starts.
 let INITIAL_TIME_PERIOD = recalculatePeriod(INITIAL_ZOOM_LEVEL);  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
 
 var viewPort = newViewPort();
@@ -153,7 +153,7 @@ const PERIOD_10_MIN = "10-min";
 const PERIOD_05_MIN = "05-min";
 const PERIOD_01_MIN = "01-min";
 
-const INITIAL_DATE = new Date();  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
+let INITIAL_DATE = new Date();  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
 
 var maxDate = new Date();
 maxDate.setMilliseconds(0);

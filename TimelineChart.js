@@ -65,15 +65,11 @@
             chartGrid = newChartGrid();
 
             recalculateScale();
-
-            /* When the Web App has never run, we need to position the viewPort at the current Date. This in turn will set the current date as the date for loading the data. */
-
-            let lastRun = window.localStorage.getItem('webApp.lastRun.screenResolution');
-
-            if (lastRun === null || lastRun !== browserCanvas.width + '.' + browserCanvas.height) {
-
-                moveViewPortToCurrentDatetime();
-            }
+            
+            //moveViewPortToCurrentDatetime();
+            moveToUserPosition(container, timeLineCoordinateSystem);
+            timePeriod = INITIAL_TIME_PERIOD;
+            datetime = INITIAL_DATE;
             
             /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 
@@ -504,18 +500,11 @@
                             if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> Entering function."); }
                             if (INFO_LOG === true) { logger.write("[INFO] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> key = " + pProductCard.product.plotter.devTeam + "-" + pProductCard.product.plotter.codeName + "-" + pProductCard.product.plotter.moduleName); }
 
-                            /* When the Web App has never run, we need to position the viewPort at the current Date. Otherwise it will get automatically positioned at the last thing the user was browsing. */
-
-                            let lastRun = window.localStorage.getItem('webApp.lastRun.screenResolution');
-
-                            if (lastRun === null || lastRun !== browserCanvas.width + '.' + browserCanvas.height) {
-
-                                try {
-                                    plotter.positionAtDatetime(INITIAL_DATE);
-                                } catch (err) {
-                                    // If the plotter does not implement this function its ok.
-                                } 
-                            }
+                            try {
+                                //plotter.positionAtDatetime(INITIAL_DATE);
+                            } catch (err) {
+                                // If the plotter does not implement this function its ok.
+                            } 
 
                             let productPlotter = {
                                 productCard: pProductCard,
@@ -724,6 +713,8 @@
 
             recalculateCurrentDatetime();
 
+            saveUserPosition(thisObject.container, timeLineCoordinateSystem);
+
         }
     }
 
@@ -732,6 +723,12 @@
         if (INFO_LOG === true) { logger.write("[INFO] onDragFinished -> Entering function."); }
 
         if (initializationReady === true) {
+
+            if (thisObject.container.frame.isInViewPort()) {
+
+                saveUserPosition(thisObject.container, timeLineCoordinateSystem);
+
+            }
 
             if (thisObject.container.frame.isInViewPort() && tooSmall() === false) {
 
@@ -869,7 +866,7 @@
 
         let maxValue = {
             x: MAX_PLOTABLE_DATE.valueOf(),
-            y: nextPorwerOf10(USDT_BTC_HTH)
+            y: nextPorwerOf10(USDT_BTC_HTH) / 4
         };
 
 

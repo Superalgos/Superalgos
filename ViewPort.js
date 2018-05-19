@@ -12,8 +12,10 @@ function newViewPort() {
     let thisObject = {
         visibleArea: undefined,
         eventHandler: undefined,
+        zoomTargetLevel:undefined,
         zoomLevel: undefined,   
         mousePosition: undefined,
+        newZoomLevel: newZoomLevel,
         applyZoom: applyZoom,
         zoomFontSize: zoomFontSize,
         zoomThisPoint: zoomThisPoint,
@@ -52,8 +54,6 @@ function newViewPort() {
 
    thisObject.eventHandler = newEventHandler();
 
-   let zoomTargetLevel;
-
    return thisObject;
 
    function initialize() {
@@ -64,46 +64,6 @@ function newViewPort() {
            bottomRight: { x: browserCanvas.width - RIGHT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN},
            bottomLeft: { x: LEFT_MARGIN, y: browserCanvas.height - BOTTOM_MARGIN}
        };  
-
-       /* There is a chance that we could resume the last session at the place we left it. */
-
-       let lastRun = window.localStorage.getItem('webApp.lastRun.screenResolution');
-
-       if (lastRun !== null && lastRun === browserCanvas.width + '.' + browserCanvas.height) {
-
-           /* We get from the local storage the recored values of Zoom and OffSet during the last session using this app with this browser */
-
-           let savedZoomTargetLevel = window.localStorage.getItem('viewPort.zoomTargetLevel');
-
-           if (savedZoomTargetLevel !== null) {
-
-               thisObject.zoomLevel = Number(savedZoomTargetLevel);
-               zoomTargetLevel = Number(savedZoomTargetLevel);
-
-               INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel);
-           }
-
-           let savedOffset = window.localStorage.getItem('viewPort.offset');
-
-           if (savedOffset !== null) {
-
-               offset = JSON.parse(savedOffset);
-           }
-
-           let savedTargetOffset = window.localStorage.getItem('viewPort.targetOffset');
-
-           if (savedTargetOffset !== null) {
-
-               targetOffset = JSON.parse(savedTargetOffset);
-           }
-
-       } else {
-
-           thisObject.zoomLevel = INITIAL_ZOOM_LEVEL;
-           zoomTargetLevel = INITIAL_ZOOM_LEVEL;
-
-           INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel);
-       }
    }
 
    function raiseEvents() {
@@ -118,17 +78,17 @@ function newViewPort() {
 
    function animate() {
 
-       if (thisObject.zoomLevel < zoomTargetLevel) {
-           if (zoomTargetLevel - thisObject.zoomLevel < ANIMATION_INCREMENT) {
-               ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - thisObject.zoomLevel);
+       if (thisObject.zoomLevel < thisObject.zoomTargetLevel) {
+           if (thisObject.zoomTargetLevel - thisObject.zoomLevel < ANIMATION_INCREMENT) {
+               ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel);
            }
            thisObject.zoomLevel = thisObject.zoomLevel + ANIMATION_INCREMENT;
            changeZoom(thisObject.zoomLevel - ANIMATION_INCREMENT, thisObject.zoomLevel);
        }
 
-       if (thisObject.zoomLevel > zoomTargetLevel) {
-           if (thisObject.zoomLevel - zoomTargetLevel < ANIMATION_INCREMENT) {
-               ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - thisObject.zoomLevel);
+       if (thisObject.zoomLevel > thisObject.zoomTargetLevel) {
+           if (thisObject.zoomLevel - thisObject.zoomTargetLevel < ANIMATION_INCREMENT) {
+               ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel);
            } 
            thisObject.zoomLevel = thisObject.zoomLevel - ANIMATION_INCREMENT;
            changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel);
@@ -171,8 +131,6 @@ function newViewPort() {
 
        thisObject.eventHandler.raiseEvent("Offset Changed", event);
 
-       window.localStorage.setItem('viewPort.offset', JSON.stringify(offset));
-
        //console.log("displace produced new Offset x = " + offset.x + " y = " + offset.y);
 
    }
@@ -189,12 +147,27 @@ function newViewPort() {
            y: (targetOffset.y - offset.y) / 10
        };
 
-       window.localStorage.setItem('viewPort.targetOffset', JSON.stringify(targetOffset));
-
        //console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
 
    }
-   
+
+   function newZoomLevel(level) {
+
+       thisObject.zoomTargetLevel = level;
+       thisObject.zoomLevel = level;
+
+       ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / 3;
+
+       let event = {
+           newLevel: thisObject.zoomTargetLevel,
+           newOffset: offset,
+           type: undefined
+       };
+
+       thisObject.eventHandler.raiseEvent("Zoom Changed", event);
+
+       return true;
+   }
 
     function applyZoom(amount) {
 
@@ -203,56 +176,56 @@ function newViewPort() {
         if (amount > 0) {
              
 
-            if (zoomTargetLevel > -5) {
+            if (thisObject.zoomTargetLevel > -5) {
                 amount = amount * 2;
             }
 
-            if (zoomTargetLevel > 10) {
+            if (thisObject.zoomTargetLevel > 10) {
                 amount = amount * 3;
             }
 
-            if (zoomTargetLevel > 15) {
+            if (thisObject.zoomTargetLevel > 15) {
                 amount = amount * 4;
             } 
         }
 
         if (amount < 0) {
 
-            if (zoomTargetLevel > -4) {
+            if (thisObject.zoomTargetLevel > -4) {
                 amount = amount * 2;
             }
 
-            if (zoomTargetLevel > 13) {
+            if (thisObject.zoomTargetLevel > 13) {
                 amount = amount * 3;
             }
 
-            if (zoomTargetLevel > 19) {
+            if (thisObject.zoomTargetLevel > 19) {
                 amount = amount * 4;
             }
         }
 
-        if (zoomTargetLevel + amount > 1000) {
+        if (thisObject.zoomTargetLevel + amount > 1000) {
             return false;
         }
 
-        if (zoomTargetLevel <= -27 && amount < 0) {
+        if (thisObject.zoomTargetLevel <= -27 && amount < 0) {
             amount = amount / 4;
         }
 
-        if (zoomTargetLevel < -27 && amount > 0) {
+        if (thisObject.zoomTargetLevel < -27 && amount > 0) {
             amount = amount / 4;
         }
 
-        if (zoomTargetLevel + amount < -28.25) {
+        if (thisObject.zoomTargetLevel + amount < -28.25) {
             return false;
         }
 
-        zoomTargetLevel = zoomTargetLevel + amount;
+        thisObject.zoomTargetLevel = thisObject.zoomTargetLevel + amount;
 
-        ANIMATION_INCREMENT = Math.abs(zoomTargetLevel - thisObject.zoomLevel) / 3;
+        ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / 3;
 
         let event = {
-            newLevel: zoomTargetLevel,
+            newLevel: thisObject.zoomTargetLevel,
             newOffset: offset,
             type: undefined
         };
@@ -263,11 +236,7 @@ function newViewPort() {
             event.type = "Zoom Out";
         }
 
-        //console.log("Zoom Changed > " + event.newLevel);
-
         thisObject.eventHandler.raiseEvent("Zoom Changed", event);
-
-        window.localStorage.setItem('viewPort.zoomTargetLevel', zoomTargetLevel);
 
         return true;
    }
@@ -281,14 +250,8 @@ function newViewPort() {
         offset.x = offset.x - newMouse.x + thisObject.mousePosition.x;
         offset.y = offset.y - newMouse.y + thisObject.mousePosition.y;
 
-        window.localStorage.setItem('viewPort.offset', JSON.stringify(offset));
-
-        //console.log("changeZoom produced new Offset x = " + offset.x + " y = " + offset.y);
-
         targetOffset.x = offset.x
         targetOffset.y = offset.y ;
-
-        window.localStorage.setItem('viewPort.targetOffset', JSON.stringify(targetOffset));
 
         offsetIncrement = {
             x: 0,

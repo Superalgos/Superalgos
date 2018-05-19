@@ -88,20 +88,6 @@ function newTimeControlPanel() {
 
         let datetime = INITIAL_DATE;
 
-        /* There is a chance that we could resume the last session at the place we left it. */
-
-        let lastRun = window.localStorage.getItem('webApp.lastRun.screenResolution');
-
-        if (lastRun !== null && lastRun === browserCanvas.width + '.' + browserCanvas.height) {
-
-            let savedCurrentDatetime = window.localStorage.getItem('timeControlPanel.currentDatetime');
-
-            if (savedCurrentDatetime !== null) {
-                datetime = new Date(savedCurrentDatetime);
-
-            }
-        }
-
         var datetimeDisplay = {
             currentDatetime: datetime,
             addTime: addTime,
@@ -165,8 +151,6 @@ function newTimeControlPanel() {
     function setDatetime(newDatetime) {
 
         thisObject.datetimeDisplay.currentDatetime = newDatetime;
-
-        window.localStorage.setItem('timeControlPanel.currentDatetime', newDatetime);
 
     }
 

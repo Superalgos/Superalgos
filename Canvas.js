@@ -100,10 +100,6 @@ function newCanvas() {
 
         function onCharSpaceInitialized(err) {
             viewPort.raiseEvents(); // These events will impacts on objects just initialized.
-
-            /* We will store the last used this screen resolution. This will help us know if we can remember the las viewPort offset or not, since they depends on the screen resolution. */
-
-            window.localStorage.setItem('webApp.lastRun.screenResolution', browserCanvas.width + '.' + browserCanvas.height);
         }
 
         /* Splash Screen */

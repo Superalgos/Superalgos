@@ -50,7 +50,6 @@ function getDateFromPoint(point, container, timeLineCoordinateSystem) {
     return date;
 }
 
-
 function getRateFromPoint(point, container, timeLineCoordinateSystem) {
 
     point = unTransformThisPoint(point, container);
@@ -58,7 +57,6 @@ function getRateFromPoint(point, container, timeLineCoordinateSystem) {
 
     return point.y;
 }
-
 
 function getMilisecondsFromPoint(point, container, timeLineCoordinateSystem) {
 
@@ -68,6 +66,70 @@ function getMilisecondsFromPoint(point, container, timeLineCoordinateSystem) {
     return point.x;
 }
 
+function saveUserPosition(container, timeLineCoordinateSystem) {
+
+    let centerPoint = {
+        x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
+        y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+    };
+
+    let userPosition = {
+        date: getDateFromPoint(centerPoint, container, timeLineCoordinateSystem),
+        rate: getRateFromPoint(centerPoint, container, timeLineCoordinateSystem),
+        market: DEFAULT_MARKET,
+        zoom: viewPort.zoomTargetLevel
+    };
+
+    window.localStorage.setItem('userPosition', JSON.stringify(userPosition));
+}
+
+function moveToUserPosition(container, timeLineCoordinateSystem) {
+
+    let savedPosition = window.localStorage.getItem('userPosition');
+    let userPosition;
+
+    if (savedPosition === null) {
+
+        userPosition = {
+            date: (new Date()).toString(),
+            rate: timeLineCoordinateSystem.max.y / 2,
+            market: DEFAULT_MARKET,
+            zoom: INITIAL_ZOOM_LEVEL
+        };
+
+    } else {
+
+        userPosition = JSON.parse(savedPosition);
+    }
+
+    let centerPoint = {
+        x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
+        y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+    };
+
+    viewPort.newZoomLevel(userPosition.zoom);
+    INITIAL_TIME_PERIOD = recalculatePeriod(userPosition.zoom);
+    INITIAL_DATE = new Date (userPosition.date);
+
+    let targetPoint = {
+        x: (new Date(userPosition.date)).valueOf(),
+        y: userPosition.rate
+    };
+
+    /* Put this point in the coordinate system of the viewPort */
+
+    targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint);
+    targetPoint = transformThisPoint(targetPoint, container);
+
+    /* Lets calculate the displace vector, from the point we want at the center, to the current center. */
+
+    let displaceVector = {
+        x: centerPoint.x - targetPoint.x,
+        y: centerPoint.y - targetPoint.y
+    };
+
+    viewPort.displace(displaceVector);
+}
 
 function removeTime(datetime) {
 

@@ -2,7 +2,7 @@
 function newProductStorage(pName) {
 
     const MODULE_NAME = "Product Storage";
-    const INFO_LOG = false;
+    const INFO_LOG = true;
     const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -451,6 +451,9 @@ function newProductStorage(pName) {
 
     function setDatetime(pDatetime) {
 
+        console.log("recibi= " + pDatetime);
+        console.log("tenia = " + datetime);
+
         if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
         /* If there is a change in the day, then we take some actions, otherwise, we dont. */
@@ -458,7 +461,7 @@ function newProductStorage(pName) {
         let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS);
         let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS);
 
-        datetime = pDatetime;
+        datetime = new Date(pDatetime);
 
         if (currentDate !== newDate) {
 

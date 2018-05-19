@@ -1,7 +1,7 @@
 ﻿function newTimelineChart() {
 
     const MODULE_NAME = "Timeline Chart";
-    const INFO_LOG = false;
+    const INFO_LOG = true;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();
@@ -75,7 +75,6 @@
 
             viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
             viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-            canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
             initializeCompetitionPlotters(onCompetitionPlottersInitialized);
 
@@ -718,21 +717,35 @@
         }
     }
 
-    function onDragFinished() {
+    function setDatetime(pDatetime) {
 
-        if (INFO_LOG === true) { logger.write("[INFO] onDragFinished -> Entering function."); }
+        if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
-        if (initializationReady === true) {
+        /* This function is used when the time is changed through the user interface, but without zooming or panning. */
+        /* No matter if the day changed or not, we need to inform all visible Plotters. */
 
-            if (thisObject.container.frame.isInViewPort()) {
+        if (thisObject.container.frame.isInViewPort()) {
 
-                saveUserPosition(thisObject.container, timeLineCoordinateSystem);
+            for (let i = 0; i < productPlotters.length; i++) {
+
+                let productPlotter = productPlotters[i];
+
+                productPlotter.productCard.setDatetime(pDatetime);
+                productPlotter.plotter.setDatetime(pDatetime);
+
+                /* The time has changed, but the viewPort is still on the same place, so we request any of the plotters to reposition it. */
+
+                if (productPlotter.plotter.positionAtDatetime !== undefined) {
+                    productPlotter.plotter.positionAtDatetime(pDatetime);
+                }
 
             }
 
-            if (thisObject.container.frame.isInViewPort() && tooSmall() === false) {
+            for (let i = 0; i < competitionPlotters.length; i++) {
 
+                let competitionPlotter = competitionPlotters[i];
 
+                competitionPlotter.plotter.setDatetime(datetime);
 
             }
         }
@@ -747,7 +760,7 @@
             if (thisObject.container.frame.isInViewPort()) {
 
                 recalculateCurrentDatetime();
-
+                saveUserPosition(thisObject.container, timeLineCoordinateSystem);
             }
         }
 
@@ -759,7 +772,7 @@
 
         /*
 
-        The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that me
+        The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
         must calculate.
 
         */
@@ -776,6 +789,8 @@
         newDate.setUTCSeconds(center.x / 1000);
 
         datetime = newDate;
+
+        console.log("nueva = " + datetime);
 
         for (let i = 0; i < productPlotters.length; i++) {
 
@@ -818,41 +833,6 @@
             return undefined;
         }
 
-    }
-
-    function setDatetime(pDatetime) {
-
-        if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
-
-        /* This function is used when the time is changed through the user interface, but without zooming or panning. */
-        /* No matter if the day changed or not, we need to inform all visible Plotters. */
-
-        if (thisObject.container.frame.isInViewPort()) {
-
-            for (let i = 0; i < productPlotters.length; i++) {
-
-                let productPlotter = productPlotters[i];
-
-                productPlotter.productCard.setDatetime(pDatetime);
-                productPlotter.storage.setDatetime(pDatetime);
-                productPlotter.plotter.setDatetime(pDatetime);
-
-                /* The time has changed, but the viewPort is still on the same place, so we request any of the plotters to reposition it. */
-
-                if (productPlotter.plotter.positionAtDatetime !== undefined) {
-                    productPlotter.plotter.positionAtDatetime(pDatetime);
-                }
-
-            }
-
-            for (let i = 0; i < competitionPlotters.length; i++) {
-
-                let competitionPlotter = competitionPlotters[i];
-
-                competitionPlotter.plotter.setDatetime(datetime);
-
-            }
-        }
     }
 
     function recalculateScale() {

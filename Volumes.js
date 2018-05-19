@@ -64,6 +64,7 @@
         /* Listen to the necesary events. */
 
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+        viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
         marketFiles.eventHandler.listenToEvent("Files Updated", onFilesUpdated);
         canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
@@ -684,6 +685,17 @@
         recalculate();
         recalculateScaleY();
 
+    }
+
+    function onOffsetChanged() {
+
+        if (Math.random() * 100 > 95) {
+
+            recalculateScaleX();
+            recalculate();
+            recalculateScaleY();
+
+        };
     }
 
     function onDragFinished() {

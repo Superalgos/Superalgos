@@ -91,7 +91,6 @@
       "displayName": "Live Trading History",
       "shortDisplayName": "Live",
       "description": "General information about Mariam live trading history.",
-      "storageAccount": "aamariam",
       "dataSets": [
         {
           "codeName": "Live History",
@@ -117,7 +116,6 @@
       "displayName": "Backtest Trading History",
       "shortDisplayName": "Backtest",
       "description": "General information about Mariam backtest trading history.",
-      "storageAccount": "aamariam",
       "dataSets": [
         {
           "codeName": "Backtest History",
@@ -143,7 +141,6 @@
       "displayName": "Competition Trading History",
       "shortDisplayName": "Competition",
       "description": "General information about Mariam competition trading history.",
-      "storageAccount": "aamariam",
       "dataSets": [
         {
           "codeName": "Competition History",

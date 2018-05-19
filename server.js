@@ -1360,37 +1360,43 @@ function onBrowserRequest(request, response) {
 
                                             let plotter = devTeam.plotters[j];
 
-                                            for (let k = 0; k < plotter.modules.length; k++) {
+                                            if (plotter.modules !== undefined) {
 
-                                                let module = plotter.modules[k];
+                                                for (let k = 0; k < plotter.modules.length; k++) {
 
-                                                let htmlLineCopy = htmlLinePlotter;
+                                                    let module = plotter.modules[k];
 
-                                                let stringToInsert;
-                                                stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                                stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                                stringToInsert = stringToInsert.replace('@module@', module.moduleName);
-
-                                                let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Plotters-->') + 15);
-                                                let secondPart = fileContent.substring(fileContent.indexOf('<!--Plotters-->') + 15);
-
-                                                fileContent = firstPart + stringToInsert + secondPart;
-
-                                                for (let l = 0; l < module.panels.length; l++) {
-
-                                                    let panel = module.panels[l];
-
-                                                    let htmlLineCopy = htmlLinePlotterPanel;
+                                                    let htmlLineCopy = htmlLinePlotter;
 
                                                     let stringToInsert;
                                                     stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
                                                     stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                                    stringToInsert = stringToInsert.replace('@module@', panel.moduleName);
+                                                    stringToInsert = stringToInsert.replace('@module@', module.moduleName);
 
-                                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--PlotterPanels-->') + 20);
-                                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--PlotterPanels-->') + 20);
+                                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Plotters-->') + 15);
+                                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Plotters-->') + 15);
 
                                                     fileContent = firstPart + stringToInsert + secondPart;
+
+                                                    if (module.panels !== undefined) {
+
+                                                        for (let l = 0; l < module.panels.length; l++) {
+
+                                                            let panel = module.panels[l];
+
+                                                            let htmlLineCopy = htmlLinePlotterPanel;
+
+                                                            let stringToInsert;
+                                                            stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                                            stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                                            stringToInsert = stringToInsert.replace('@module@', panel.moduleName);
+
+                                                            let firstPart = fileContent.substring(0, fileContent.indexOf('<!--PlotterPanels-->') + 20);
+                                                            let secondPart = fileContent.substring(fileContent.indexOf('<!--PlotterPanels-->') + 20);
+
+                                                            fileContent = firstPart + stringToInsert + secondPart;
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }

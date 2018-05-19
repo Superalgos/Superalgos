@@ -90,6 +90,7 @@
                             x: 10,
                             y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
                         };
+
                         productCard.container.frame.position.x = position.x;
                         productCard.container.frame.position.y = position.y + lastY;
 
@@ -125,9 +126,9 @@
     function onMouseWheel(pDelta) {
 
         if (pDelta > 0) {
-            pDelta = 1;
-        } else {
             pDelta = -1;
+        } else {
+            pDelta = 1;
         }
 
         firstVisibleCard = firstVisibleCard + pDelta;

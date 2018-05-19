@@ -115,7 +115,7 @@
 
         } else {
 
-            changeStatusTo(PRODUCT_CARD_STATUS.LOADING);  // This happens the first time the app is run on a new browser.
+            changeStatusTo(PRODUCT_CARD_STATUS.OFF);  // This happens the first time the app is run on a new browser.
 
         }
 

@@ -63,7 +63,6 @@
       "codeName": "Candle-Stairs",
       "displayName": "Candle-Stairs Patters",
       "description": "Two sets of files per period that contains candle-stairs patterns.",
-      "storageAccount": "aatom",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
@@ -99,7 +98,6 @@
       "codeName": "Volume-Stairs",
       "displayName": "Volume-Stairs Patters",
       "description": "Two sets of files per period that contains volume-stairs patterns.",
-      "storageAccount": "aatom",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",

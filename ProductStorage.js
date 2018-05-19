@@ -2,7 +2,7 @@
 function newProductStorage(pName) {
 
     const MODULE_NAME = "Product Storage";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();
     logger.fileName = MODULE_NAME;
@@ -450,9 +450,6 @@ function newProductStorage(pName) {
     }
 
     function setDatetime(pDatetime) {
-
-        console.log("recibi= " + pDatetime);
-        console.log("tenia = " + datetime);
 
         if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 

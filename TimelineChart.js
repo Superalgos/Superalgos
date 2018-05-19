@@ -1,7 +1,7 @@
 ﻿function newTimelineChart() {
 
     const MODULE_NAME = "Timeline Chart";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
     const logger = newDebugLog();
@@ -789,8 +789,6 @@
         newDate.setUTCSeconds(center.x / 1000);
 
         datetime = newDate;
-
-        console.log("nueva = " + datetime);
 
         for (let i = 0; i < productPlotters.length; i++) {
 

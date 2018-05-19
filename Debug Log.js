@@ -7,7 +7,7 @@
     const dateString = currentDate.getUTCFullYear() + '-' + pad(currentDate.getUTCMonth() + 1, 2) + '-' + pad(currentDate.getUTCDate(), 2) + '-' + pad(currentDate.getUTCHours(), 2) + '-' + pad(currentDate.getUTCMinutes(), 2);
     const randomId = parseInt(Math.random() * 1000000); 
 
-    let executionPath = global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCHours(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCMinutes(), 2);
+    let executionPath = global.EXECUTION_DATETIME.getUTCFullYear() + '-' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '-' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) + '.' + pad(global.EXECUTION_DATETIME.getUTCHours(), 2) + '-' + pad(global.EXECUTION_DATETIME.getUTCMinutes(), 2);
     let fileNumber = 1;
     let messageId = 0;
     let firstCall = true;
@@ -32,23 +32,7 @@
 
             createFolderSync(folderPath);
 
-            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear();
-
-            createFolderSync(folderPath);
-
-            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2);
-
-            createFolderSync(folderPath);
-
-            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2);
-
-            createFolderSync(folderPath);
-
-            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCHours(), 2);
-
-            createFolderSync(folderPath);
-
-            folderPath = '../Logs/' + global.EXECUTION_DATETIME.getUTCFullYear() + '/' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCHours(), 2) + '/' + pad(global.EXECUTION_DATETIME.getUTCMinutes(), 2);
+            folderPath = '../Logs/' + executionPath;
 
             createFolderSync(folderPath);
 

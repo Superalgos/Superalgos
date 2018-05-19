@@ -26,7 +26,8 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
         getTextFile: getTextFile
     };
 
-    let blobService;
+    let readOnlyBlobService;
+    let writeOnlyBlobService;
     let containerName;
     let devTeamDataOwner;
     let environment = global.STORAGE_CONN_STRING_FOLDER;
@@ -76,19 +77,21 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                 try {
 
-                    if (pConnObj.connectionString !== "") {
-                        blobService = storage.createBlobService(pConnObj.connectionString);
+                    if (pConnObj.readConnectionString !== "") {
+                        readOnlyBlobService = storage.createBlobService(pConnObj.readConnectionString);
+                    }
+
+                    if (pConnObj.writeConnectionString !== "") {
+                        writeOnlyBlobService = storage.createBlobService(pConnObj.writeConnectionString);
+                    }
+
+                    if (readOnlyBlobService !== undefined || writeOnlyBlobService !== undefined) {
+
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
                     }
 
-                    if (pConnObj.accountName !== "") {
-                        blobService = storage.createBlobService(pConnObj.accountName, pConnObj.sas);
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        return;
-                    }
-                    
-                    logger.write("[ERROR] initialize -> onConnectionStringReady -> Either a connectionString or an accountName must be provided.");
+                    logger.write("[ERROR] initialize -> onConnectionStringReady -> Either a readConnectionString or writeConnectionString must be provided.");
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
 
@@ -129,13 +132,6 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
         if (FULL_LOG === true) { logger.write("[INFO] createFolder -> Entering function."); }
 
-        if (blobService === undefined) {
-
-            logger.write("[ERROR] createFolder -> initialize function not executed or failed. Can not process this request. Sorry.");
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            return;
-        }
-
         try {
 
             /* Folders do not need to be created when using blobs. */
@@ -152,7 +148,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
     function createTextFile(pFolderPath, pFileName, pFileContent, callBackFunction) {
 
-        if (blobService === undefined) {
+        if (writeOnlyBlobService === undefined) {
 
             logger.write("[ERROR] createTextFile -> initialize function not executed or failed. Can not process this request. Sorry.");
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -168,7 +164,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                 logger.write("[INFO] createTextFile -> pFileName = " + pFileName);
             }
 
-            blobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
+            writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
 
             function onFileCreated(err, result, response) {
 
@@ -199,7 +195,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                             logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
 
-                            blobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
+                            writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
 
                             function onSecondTry(err, result, response) {
 
@@ -231,7 +227,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
     function getTextFile(pFolderPath, pFileName, callBackFunction) {
 
-        if (blobService === undefined) {
+        if (readOnlyBlobService === undefined) {
 
             logger.write("[ERROR] getTextFile -> initialize function not executed or failed. Can not process this request. Sorry.");
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -247,7 +243,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                 logger.write("[INFO] getTextFile -> pFileName = " + pFileName);
             }
 
-            blobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onFileReceived);
+            readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onFileReceived);
 
             function onFileReceived(err, text, response) {
 
@@ -277,7 +273,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                             logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
 
-                            blobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onSecondTry);
+                            readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onSecondTry);
 
                             function onSecondTry(err, text, response) {
 

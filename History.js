@@ -66,6 +66,7 @@
             recalculateScale(callBackFunction);
 
             fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
+            viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
 
             callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
@@ -137,6 +138,15 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err); }
         }
+    }
+
+    function onOffsetChanged() {
+
+        if (Math.random() * 100 > 95) {
+
+            recalculate()
+        };
+
     }
 
     function recalculate(callBackFunction) {    

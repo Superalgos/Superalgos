@@ -68,8 +68,8 @@
         /* Listen to the necesary events. */
 
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
         marketFiles.eventHandler.listenToEvent("Files Updated", onFilesUpdated);
+        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
         /* Get ready for plotting. */
 

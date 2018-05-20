@@ -5,18 +5,20 @@
 
     const MODULE_NAME = "Data Dependencies";
 
-    let thisObject = {
-        dataSets: new Map(),
-        initialize: initialize,
-        keys: []
-    };
-
     let bot = BOT;
     let ownerBot;                       // This is the bot owner of the Data Set. 
 
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
+    logger.initialize();
+
+    let thisObject = {
+        dataSets: new Map(),
+        initialize: initialize,
+        keys: []
+    };
+
 
     return thisObject;
 

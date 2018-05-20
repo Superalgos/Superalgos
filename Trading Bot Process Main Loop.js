@@ -9,11 +9,15 @@
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
+    const EVENT_HANDLER_MODULE = require(ROOT_DIR + 'EventHandler');
+    bot.eventHandler = EVENT_HANDLER_MODULE.newEventHandler();
+
     const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
     logger.forceLoopSplit = true;
+    logger.initialize();
 
     let thisObject = {
         initialize: initialize,
@@ -42,6 +46,7 @@
 
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
+            bot.eventHandler.raiseEvent("Loop Finished");
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -119,6 +124,7 @@
 
                                     if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> End of Backtesting Period reached. Exiting Bot Process Loop."); }
 
+                                    bot.eventHandler.raiseEvent("Loop Finished");
                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                     return;
                                 }
@@ -157,6 +163,7 @@
 
                                 if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> End of Competition Period reached. Exiting Bot Process Loop."); }
 
+                                bot.eventHandler.raiseEvent("Loop Finished");
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
                             }
@@ -166,6 +173,7 @@
                         default: {
                             logger.write("[ERROR] run -> loop -> Unexpected bot.runMode.");
                             logger.write("[ERROR] run -> loop -> bot.runMode = " + bot.runMode);
+                            bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -214,6 +222,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(err);
                                             return;
                                         }
@@ -221,6 +230,7 @@
                                             logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -228,12 +238,14 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> initializeStatusDependencies ->  onInizialized -> err = " + err.message);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
                                     callBackFunction(err);
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(err);
                         }
                     }
@@ -268,6 +280,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Operation Failed. Aborting the process.");
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(err);
                                             return;
                                         }
@@ -275,6 +288,7 @@
                                             logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -282,12 +296,14 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> initializeDataDependencies ->  onInizialized -> err = " + err.message);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
                                     callBackFunction(err);
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> initializeDataDependencies -> err = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(err);
                         }
                     }
@@ -321,6 +337,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized -> Operation Failed. Aborting the process.");
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(err);
                                             return;
                                         }
@@ -328,6 +345,7 @@
                                             logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> initializeContext -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -335,12 +353,14 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> initializeContext ->  onInizialized -> err = " + err.message);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
                                     callBackFunction(err);
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> initializeContext -> err = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(err);
                         }
                     }
@@ -375,6 +395,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(err);
                                             return;
                                         }
@@ -382,6 +403,7 @@
                                             logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -389,12 +411,14 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> initializeContext ->  onInizialized -> onInizialized -> err = " + err.message);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
                                     callBackFunction(err);
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> initializeExchangeAPI -> err = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(err);
                         }
                     }
@@ -428,6 +452,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Operation Failed. Aborting the process.");
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(err);
                                             return;
                                         }
@@ -435,6 +460,7 @@
                                             logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -442,12 +468,14 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> initializeAssistant -> onInizialized -> err = " + err.message);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
                                     callBackFunction(err);
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> initializeAssistant -> err = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(err);
                         }
                     }
@@ -482,6 +510,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Operation Failed. Aborting the process.");
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(err);
                                             return;
                                         }
@@ -489,6 +518,7 @@
                                             logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -496,12 +526,14 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> err = " + err.message);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
                                     callBackFunction(err);
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> initializeUserBot -> err = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(err);
                         }
                     }
@@ -534,6 +566,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Operation Failed. Aborting the process.");
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(err);
                                             return;
                                         }
@@ -541,6 +574,7 @@
                                             logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
 
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -548,12 +582,14 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.message);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
                                     callBackFunction(err);
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> startUserBot -> err = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(err);
                         }
                     }
@@ -581,11 +617,13 @@
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                                             logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> Can not retry at this point.");
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> Operation Failed. Aborting the process.");
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(err);
                                             return;
                                         }
@@ -593,6 +631,7 @@
                                             logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
 
+                                            bot.eventHandler.raiseEvent("Loop Finished");
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -600,18 +639,21 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> saveContext -> onFinished -> err = " + err.message);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
                                     callBackFunction(err);
                                 }
                             }
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> saveContext -> err = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(err);
                         }
                     }
 
                 } catch (err) {
                     logger.write("[ERROR] run -> loop -> err = " + err.message);
+                    bot.eventHandler.raiseEvent("Loop Finished");
                     callBackFunction(err);
                 }
             }
@@ -625,6 +667,7 @@
                 if (shallWeStop() === true) {
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time! :-)"); }
+                    bot.eventHandler.raiseEvent("Loop Finished");
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                     return;
 
@@ -635,21 +678,25 @@
                 switch (nextWaitTime) {
                     case 'Normal': {
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                        bot.eventHandler.raiseEvent("Loop Finished");
                         setTimeout(loop, processConfig.normalWaitTime);
                     }
                         break;
                     case 'Retry': {
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                        bot.eventHandler.raiseEvent("Loop Finished");
                         setTimeout(loop, processConfig.retryWaitTime);
                     }
                         break;
                     case 'Sleep': {
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
+                        bot.eventHandler.raiseEvent("Loop Finished");
                         setTimeout(loop, processConfig.sleepWaitTime);
                     }
                         break;
                     case 'Coma': {
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
+                        bot.eventHandler.raiseEvent("Loop Finished");
                         setTimeout(loop, processConfig.comaWaitTime);
                     }
                         break;
@@ -666,16 +713,17 @@
                     return JSON.parse(global.PLATFORM_CONFIG.stopGracefully);
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'readConfig' - ERROR : " + err.message;
-                    console.log(logText);
-
-                    return;
+                    logger.write("[ERROR] run -> shallWeStop -> err = " + err.message);
+                    bot.eventHandler.raiseEvent("Loop Finished");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
 
         catch (err) {
             logger.write("[ERROR] run -> err = " + err.message);
+            bot.eventHandler.raiseEvent("Loop Finished");
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

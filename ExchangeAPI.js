@@ -10,6 +10,13 @@
 
     const MODULE_NAME = "Exchange API";
 
+    let bot = BOT;
+
+    const logger = DEBUG_MODULE.newDebugLog();
+    logger.fileName = MODULE_NAME;
+    logger.bot = bot;
+    logger.initialize();
+
     let thisObject = {
         initialize: initialize,
         getOpenPositions: getOpenPositions,
@@ -18,12 +25,6 @@
         movePosition: movePosition,
         getTicker: getTicker
     };
-
-    let bot = BOT;
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
 
     let poloniexApiClient;
 

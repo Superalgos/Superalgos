@@ -32,6 +32,7 @@
     <Compile Include="Data Set.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EventHandler.js" />
     <Compile Include="Status Dependencies.js">
       <SubType>Code</SubType>
     </Compile>

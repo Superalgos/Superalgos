@@ -13,6 +13,7 @@ exports.newUtilities = function newUtilities(BOT) {
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
+    logger.initialize();
 
     let utilities = {
         pad: pad,

@@ -11,6 +11,13 @@
 
     const MODULE_NAME = "Assistant";
 
+    let bot = BOT;
+
+    const logger = DEBUG_MODULE.newDebugLog();
+    logger.fileName = MODULE_NAME;
+    logger.bot = bot;
+    logger.initialize();
+
     let thisObject = {
         dataDependencies: undefined,
         initialize: initialize,
@@ -25,12 +32,6 @@
         getTicker: getTicker,
         sendMessage: sendMessage
     };
-
-    let bot = BOT;
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
 
     let utilities = UTILITIES.newUtilities(bot);
 

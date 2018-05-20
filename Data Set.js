@@ -5,6 +5,13 @@
 
     const MODULE_NAME = "Data Set";
 
+    let bot = BOT;
+
+    const logger = DEBUG_MODULE.newDebugLog();
+    logger.bot = bot;
+    logger.fileName = MODULE_NAME;
+    logger.initialize();
+
     let thisObject = {
         file: undefined,                    // Here we have the JSON object representing the file content.
         initialize: initialize,
@@ -12,11 +19,7 @@
         createTextFile: createTextFile
     };
 
-    let bot = BOT;
-    let dependencyConfig;                       
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.bot = bot;
+    let dependencyConfig;
 
     /* Utilities needed. */
 

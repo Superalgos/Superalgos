@@ -18,6 +18,7 @@ exports.newFileStorage = function newFileStorage(BOT) {
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
+    logger.initialize();
 
     const shareName = 'data';
     let dataOwner;

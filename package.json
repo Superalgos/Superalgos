@@ -10,9 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "azure-storage": "^2.8.2",
-    "node-uuid": "^1.4.8",
-    "nonce": "^1.0.4",
-    "request": "^2.85.0",
     "rimraf": "^2.6.2"
   }
 }

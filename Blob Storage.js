@@ -1,23 +1,21 @@
 ﻿
 exports.newBlobStorage = function newBlobStorage(BOT) {
 
-    const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
+    let FULL_LOG = true;
+    let LOG_FILE_CONTENT = false;
 
     let bot = BOT;
     const ROOT_DIR = './';
 
     const MODULE_NAME = "Blob Storage";
 
-    var util = require('util');
-    var guid = require('node-uuid');
-    var crypto = require('crypto');
-    var storage = require('azure-storage');
+    let storage = require('azure-storage');
 
     const DEBUG_MODULE = require('./Debug Log');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
+
 
     let thisObject = {
         initialize: initialize,
@@ -34,9 +32,18 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
     return thisObject;
 
-    function initialize(pBotDataOwner, callBackFunction) {
+    function initialize(pBotDataOwner, callBackFunction, disableLogging) {
 
         try {
+
+            if (disableLogging === true) {
+
+                FULL_LOG = false;
+                LOG_FILE_CONTENT = false;
+
+            } else {
+                logger.initialize();
+            }
 
             if (pBotDataOwner === undefined) {
 

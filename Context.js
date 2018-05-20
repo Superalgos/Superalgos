@@ -3,6 +3,15 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
+    let bot = BOT;
+
+    const MODULE_NAME = "Context";
+
+    const logger = DEBUG_MODULE.newDebugLog();
+    logger.fileName = MODULE_NAME;
+    logger.bot = bot;
+    logger.initialize();
+
     /* 
 
     This module allows deals with keeping the context between different executions of the bot. 
@@ -14,7 +23,7 @@
 
     */
 
-    const MODULE_NAME = "Context";
+ 
 
     /*
 
@@ -68,12 +77,7 @@
 
     */
 
-    let bot = BOT;
     let statusReportModule;
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
 
     /* Utilities needed. */
 

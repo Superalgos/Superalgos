@@ -13,6 +13,12 @@
 
     const MODULE_NAME = "Status Report";
 
+    let bot = BOT;
+
+    const logger = DEBUG_MODULE.newDebugLog();
+    logger.bot = bot;
+    logger.initialize();
+
     let thisObject = {
         file: undefined,                    // Here we have the JSON object representing the file content.
         initialize: initialize,
@@ -22,11 +28,7 @@
         verifyMarketComplete: verifyMarketComplete
     };
 
-    let bot = BOT;
     let owner;                       // This is the bot owner of the Status Report. Only owners can save the report and override the existing content.
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.bot = bot;
 
     /* Utilities needed. */
 

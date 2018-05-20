@@ -1,5 +1,6 @@
 ﻿exports.newDebugLog = function newDebugLog() {
 
+    const ROOT_DIR = './';
     const MODULE_NAME = "Debug Log";
     const fileSystem = require('fs');
 
@@ -7,7 +8,9 @@
     const dateString = currentDate.getUTCFullYear() + '-' + pad(currentDate.getUTCMonth() + 1, 2) + '-' + pad(currentDate.getUTCDate(), 2) + '-' + pad(currentDate.getUTCHours(), 2) + '-' + pad(currentDate.getUTCMinutes(), 2);
     const randomId = parseInt(Math.random() * 1000000); 
 
-    let executionPath = global.EXECUTION_DATETIME.getUTCFullYear() + '-' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '-' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) + '.' + pad(global.EXECUTION_DATETIME.getUTCHours(), 2) + '-' + pad(global.EXECUTION_DATETIME.getUTCMinutes(), 2);
+    let executionDatetime = global.EXECUTION_DATETIME.toISOString();  
+    let executionPath = global.EXECUTION_DATETIME.getUTCFullYear() + '-' + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) + '-' + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) + 'T' + pad(global.EXECUTION_DATETIME.getUTCHours(), 2) + '-' + pad(global.EXECUTION_DATETIME.getUTCMinutes(), 2) + '-' + pad(global.EXECUTION_DATETIME.getUTCSeconds(), 2);
+
     let fileNumber = 1;
     let messageId = 0;
     let firstCall = true;
@@ -19,10 +22,63 @@
         bot: undefined,
         fileName: undefined,
         forceLoopSplit: false,          // When set to 'true' this will force that the logs of the current module are split in many different Loop folders.
-        write: write
+        write: write,
+        initialize: initialize
     };
 
+    let blobContent = "";
+
     return thisObject;
+
+    function initialize() {
+
+        thisObject.bot.eventHandler.listenToEvent("Loop Finished", onLoopFinished);
+
+    }
+
+    function onLoopFinished(event) {
+
+        try {
+
+            const BLOB_STORAGE = require(ROOT_DIR + 'Blob Storage');
+            let cloudStorage = BLOB_STORAGE.newBlobStorage(thisObject.bot);
+
+            cloudStorage.initialize(thisObject.bot, onInizialized, true);
+
+            function onInizialized(err) {
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/" + executionDatetime;
+
+                    if (thisObject.bot.debug.year !== undefined) {
+
+                        filePath = filePath + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
+                    }
+
+                    if (loopCounter === undefined) { loopCounter = 0 };
+
+                    filePath = filePath + "/Loop." + loopCounter;
+
+                    cloudStorage.createTextFile(filePath, thisObject.fileName + ".txt", blobContent + '\n', onFileCreated);
+
+                    function onFileCreated(err) {
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            console.log("[ERROR] onLoopFinished -> onInizialized -> onFileCreated -> err = " + err.message);
+                            return;
+                        }
+                    }
+
+                } else {
+                    console.log("[ERROR] onLoopFinished -> onInizialized -> err = " + err.message);
+                }
+            }
+
+        } catch (err) {
+            console.log("[ERROR] onLoopFinished -> err = " + err.message);
+        }
+    }
 
     function createFolders() {
 
@@ -127,6 +183,7 @@
 
                     loopCounter = thisObject.bot.loopCounter;
                     createLoopFolder();
+                    blobContent = "";
                 }
             } else {
 
@@ -138,7 +195,7 @@
             }
         }
 
-        let filePath = getCurrentLogFile(folderPath + "/" + dateString + "---" + randomId + "---", this.fileName);
+        let filePath = getCurrentLogFile(folderPath + "/" + dateString + "---" + randomId + "---", thisObject.fileName);
 
         let newDate = new Date();
         newDate = newDate.toISOString();
@@ -147,7 +204,11 @@
 
         try {
 
-            fileSystem.appendFileSync(filePath, '\r\n' + newDate + "   "  + messageId + "   " + Message);
+            let fileLine = '\r\n' + newDate + "   " + messageId + "   " + Message;
+
+            fileSystem.appendFileSync(filePath, fileLine);
+
+            blobContent = blobContent + fileLine;
 
         }
         catch (err) {

@@ -23,39 +23,39 @@
     <Compile Include="Assistant.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Blob Storage.js">
+    <Compile Include="BlobStorage.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data Dependencies.js">
+    <Compile Include="DataDependencies.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data Set.js">
+    <Compile Include="DataSet.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="EventHandler.js" />
-    <Compile Include="Status Dependencies.js">
+    <Compile Include="StatusDependencies.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extraction Bot Process Main Loop.js">
+    <Compile Include="ExtractionBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="File Storage.js" />
+    <Compile Include="FileStorage.js" />
     <Compile Include="Context.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Debug Log.js" />
+    <Compile Include="DebugLog.js" />
     <Compile Include="ExchangeAPI.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Indicator Bot Process Main Loop.js">
+    <Compile Include="IndicatorBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Poloniex API Client.js" />
+    <Compile Include="PoloniexAPIClient.js" />
     <Compile Include="Run.js" />
-    <Compile Include="Status Report.js">
+    <Compile Include="StatusReport.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Trading Bot Process Main Loop.js">
+    <Compile Include="TradingBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities.js" />

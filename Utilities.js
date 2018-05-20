@@ -9,7 +9,7 @@ exports.newUtilities = function newUtilities(BOT) {
     const MODULE_NAME = "Utilities";
 
 
-    const DEBUG_MODULE = require('./Debug Log');
+    const DEBUG_MODULE = require('./DebugLog');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;

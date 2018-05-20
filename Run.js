@@ -28,7 +28,7 @@ global.STORAGE_CONN_STRING_FOLDER = global.PLATFORM_CONFIG.storageConnStringFold
 const ROOT_DIR = './';
 const MODULE_NAME = "Run";
 
-const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
+const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
 
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);
@@ -139,9 +139,9 @@ function pad(str, max) {
 
 /* Process Loops Declarations. */
 
-const TRADING_BOT_MAIN_LOOP_MODULE = require('./Trading Bot Process Main Loop');
-const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./Indicator Bot Process Main Loop');
-const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./Extraction Bot Process Main Loop');
+const TRADING_BOT_MAIN_LOOP_MODULE = require('./TradingBotProcessMainLoop');
+const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./IndicatorBotProcessMainLoop');
+const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./ExtractionBotProcessMainLoop');
 
 /* Loop through all the processes configured to be run by this Node.js Instance. */
 

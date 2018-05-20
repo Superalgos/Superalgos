@@ -12,7 +12,7 @@
     const EVENT_HANDLER_MODULE = require(ROOT_DIR + 'EventHandler');
     bot.eventHandler = EVENT_HANDLER_MODULE.newEventHandler();
 
-    const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
+    const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
@@ -68,11 +68,11 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
-                    const BLOB_STORAGE = require(ROOT_DIR + 'Blob Storage');
-                    const FILE_STORAGE = require(ROOT_DIR + 'File Storage');
-                    const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
-                    const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
-                    const STATUS_DEPENDENCIES = require(ROOT_DIR + 'Status Dependencies');
+                    const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
+                    const FILE_STORAGE = require(ROOT_DIR + 'FileStorage');
+                    const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                    const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
+                    const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 

@@ -3,7 +3,7 @@
     let bot = BOT;
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Trading Bot Process Main Loop";
+    const MODULE_NAME = "TradingBotProcessMainLoop";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
@@ -12,7 +12,7 @@
     const EVENT_HANDLER_MODULE = require(ROOT_DIR + 'EventHandler');
     bot.eventHandler = EVENT_HANDLER_MODULE.newEventHandler();
 
-    const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
+    const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     const logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
@@ -68,16 +68,16 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'Utilities');
-                    const BLOB_STORAGE = require(ROOT_DIR + 'Blob Storage');
-                    const DEBUG_MODULE = require(ROOT_DIR + 'Debug Log');
-                    const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'Poloniex API Client');
+                    const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
+                    const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                    const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'PoloniexAPIClient');
                     const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
                     const CONTEXT = require(ROOT_DIR + 'Context');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
-                    const STATUS_REPORT = require(ROOT_DIR + 'Status Report');
-                    const DATA_SET = require(ROOT_DIR + 'Data Set');
-                    const STATUS_DEPENDENCIES = require(ROOT_DIR + 'Status Dependencies');
-                    const DATA_DEPENDENCIES = require(ROOT_DIR + 'Data Dependencies');
+                    const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
+                    const DATA_SET = require(ROOT_DIR + 'DataSet');
+                    const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
+                    const DATA_DEPENDENCIES = require(ROOT_DIR + 'DataDependencies');
 
                     /* Waitime Variable */
 

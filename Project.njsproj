@@ -60,6 +60,18 @@
     <Compile Include="FloatingSpace\ProfileBall.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="NewBot.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Server\ConfigReader.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Server\Github.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Server\Storage.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Spaces\PanelsSpace.js">
       <SubType>Code</SubType>
     </Compile>
@@ -129,6 +141,7 @@
     <Folder Include="Azure\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
+    <Folder Include="Server\" />
     <Folder Include="Spaces\" />
     <Folder Include="Panels\" />
   </ItemGroup>

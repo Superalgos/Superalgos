@@ -33,7 +33,6 @@ let canvas;
 let markets;  
 let ecosystem = newEcosystem();
 
-
 let marketFilesPeriods =
     '[' +
     '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +

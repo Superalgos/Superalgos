@@ -33,7 +33,7 @@
         sendMessage: sendMessage
     };
 
-    let utilities = UTILITIES.newUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot);
 
     let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
     let openPositions = [];         // These are the open positions the bot knows it made by itself. 

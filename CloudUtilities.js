@@ -1,12 +1,12 @@
 ﻿
-exports.newUtilities = function newUtilities(BOT) {
+exports.newCloudUtilities = function newCloudUtilities(BOT) {
 
     const FULL_LOG = true;
 
     let bot = BOT;
     const ROOT_DIR = '../';
 
-    const MODULE_NAME = "Utilities";
+    const MODULE_NAME = "CloudUtilities";
 
 
     const DEBUG_MODULE = require('./DebugLog');

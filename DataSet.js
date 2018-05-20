@@ -23,7 +23,7 @@
 
     /* Utilities needed. */
 
-    let utilities = UTILITIES.newUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot);
 
     /* Storage account to be used here. */
 

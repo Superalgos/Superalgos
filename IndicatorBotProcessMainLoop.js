@@ -67,7 +67,7 @@
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
-                    const UTILITIES = require(ROOT_DIR + 'Utilities');
+                    const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
                     const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
                     const FILE_STORAGE = require(ROOT_DIR + 'FileStorage');
                     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');

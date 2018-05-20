@@ -58,7 +58,7 @@
     <Compile Include="TradingBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utilities.js" />
+    <Compile Include="CloudUtilities.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />

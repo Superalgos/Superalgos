@@ -26,7 +26,7 @@
         initialize: initialize
     };
 
-    let blobContent = "";
+    let blobContent = "[";
 
     return thisObject;
 
@@ -60,7 +60,7 @@
 
                     filePath = filePath + "/Loop." + loopCounter;
 
-                    cloudStorage.createTextFile(filePath, thisObject.fileName + ".txt", blobContent + '\n', onFileCreated);
+                    cloudStorage.createTextFile(filePath, thisObject.fileName + ".json", blobContent + '\n' + "]", onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -183,7 +183,7 @@
 
                     loopCounter = thisObject.bot.loopCounter;
                     createLoopFolder();
-                    blobContent = "";
+                    blobContent = "[";
                 }
             } else {
 
@@ -204,11 +204,24 @@
 
         try {
 
-            let fileLine = '\r\n' + newDate + "   " + messageId + "   " + Message;
+            let line = {
+                date: newDate,
+                sec: messageId,
+                data: Message
+            };
+
+            let fileLine = '\r\n' + JSON.stringify(line);
 
             fileSystem.appendFileSync(filePath, fileLine);
 
-            blobContent = blobContent + fileLine;
+            if (blobContent === "[") {
+
+                blobContent = blobContent + fileLine;
+
+            } else {
+
+                blobContent = blobContent + "," + fileLine;
+            }
 
         }
         catch (err) {

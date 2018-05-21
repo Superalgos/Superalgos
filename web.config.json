@@ -1,7 +1,43 @@
 {
   "webModules": [
     {
-      "name": "Run"
+      "name": "Root"
+    },
+    {
+      "name": "Assistant"
+    },
+    {
+      "name": "BlobStorage"
+    },
+    {
+      "name": "DebugLog"
+    },
+    {
+      "name": "Context"
+    },
+    {
+      "name": "DataDependencies"
+    },
+    {
+      "name": "ExchangeAPI"
+    },
+    {
+      "name": "StatusDependencies"
+    },
+    {
+      "name": "StatusReport"
+    },
+    {
+      "name": "CloudUtilities"
+    },
+    {
+      "name": "ExtractionBotProcessMainLoop"
+    },
+    {
+      "name": "IndicatorBotProcessMainLoop"
+    },
+    {
+      "name": "TradingBotProcessMainLoop"
     }
   ]
 }

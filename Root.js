@@ -30,8 +30,8 @@ exports.newRoot = function newRoot() {
         }
         catch (err) {
 
-            console.log("[ERROR] Run -> readConfig -> Error Reading the AACloud Config File.");
-            console.log("[ERROR] Run -> readConfig -> err.message = " + err.message);
+            console.log("[ERROR] Root -> readConfig -> Error Reading the AACloud Config File.");
+            console.log("[ERROR] Root -> readConfig -> err.message = " + err.message);
 
             return;
         }
@@ -159,7 +159,7 @@ exports.newRoot = function newRoot() {
                 botConfig = JSON.parse(botConfigFile);
             }
             catch (err) {
-                console.log("[ERROR] run -> readBotConfig -> err.message = " + err.message);
+                console.log("[ERROR] Root -> readBotConfig -> err.message = " + err.message);
                 return;
             }
 
@@ -174,14 +174,14 @@ exports.newRoot = function newRoot() {
 
             botConfig.loopCounter = 0;
 
-            if (FULL_LOG === true) { logger.write("[INFO] run -> Processing item from executionList -> p = " + p); }
-            if (FULL_LOG === true) { logger.write("[INFO] run -> listItem.botPath = " + listItem.botPath); }
+            if (FULL_LOG === true) { logger.write("[INFO] Root -> Processing item from executionList -> p = " + p); }
+            if (FULL_LOG === true) { logger.write("[INFO] Root -> listItem.botPath = " + listItem.botPath); }
 
             /* File Path Root */
 
             botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
-            if (FULL_LOG === true) { logger.write("[INFO] run -> listItem.process = " + listItem.process); }
+            if (FULL_LOG === true) { logger.write("[INFO] Root -> listItem.process = " + listItem.process); }
 
             /* Now we loop throug all the configured processes at each bots configuration until we find the one we are supposed to run at this Node.js process. */
 
@@ -192,7 +192,7 @@ exports.newRoot = function newRoot() {
                 if (botConfig.processes[i].name === listItem.process) {
 
                     processFound = true;
-                    if (FULL_LOG === true) { logger.write("[INFO] run -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
+                    if (FULL_LOG === true) { logger.write("[INFO] Root -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
 
                     let processConfig = botConfig.processes[i];
 
@@ -204,7 +204,7 @@ exports.newRoot = function newRoot() {
 
                             if (processConfig.startMode.allMonths.run === "true") {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] run -> allMonths start mode detected. "); }
+                                if (FULL_LOG === true) { logger.write("[INFO] Root -> allMonths start mode detected. "); }
 
                                 for (let year = processConfig.startMode.allMonths.maxYear; year >= processConfig.startMode.allMonths.minYear; year--) {
 
@@ -224,7 +224,7 @@ exports.newRoot = function newRoot() {
 
                                         function startProcess() {
 
-                                            if (FULL_LOG === true) { logger.write("[INFO] run -> startProcess -> Ready to start process."); }
+                                            if (FULL_LOG === true) { logger.write("[INFO] Root -> startProcess -> Ready to start process."); }
 
                                             switch (botConfig.type) {
                                                 case 'Extraction': {
@@ -236,7 +236,7 @@ exports.newRoot = function newRoot() {
                                                     break;
                                                 }
                                                 default: {
-                                                    logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                                    logger.write("[ERROR] Root -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                                 }
                                             }
                                         }
@@ -249,13 +249,13 @@ exports.newRoot = function newRoot() {
 
                             if (processConfig.startMode.oneMonth.run === "true") {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] run -> oneMonth start mode detected. "); }
+                                if (FULL_LOG === true) { logger.write("[INFO] Root -> oneMonth start mode detected. "); }
 
                                 startProcess();
 
                                 function startProcess() {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] run -> startProcess -> Ready to start process."); }
+                                    if (FULL_LOG === true) { logger.write("[INFO] Root -> startProcess -> Ready to start process."); }
 
                                     let month = pad(processConfig.startMode.oneMonth.month, 2);
                                     let year = processConfig.startMode.oneMonth.year;
@@ -275,7 +275,7 @@ exports.newRoot = function newRoot() {
                                             break;
                                         }
                                         default: {
-                                            logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                            logger.write("[ERROR] Root -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                         }
                                     }
                                 }
@@ -305,7 +305,7 @@ exports.newRoot = function newRoot() {
                                         break;
                                     }
                                     default: {
-                                        logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                        logger.write("[ERROR] Root -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                     }
                                 }
                             }
@@ -327,7 +327,7 @@ exports.newRoot = function newRoot() {
                                         break;
                                     }
                                     default: {
-                                        logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                        logger.write("[ERROR] Root -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                     }
                                 }
                             }
@@ -354,7 +354,7 @@ exports.newRoot = function newRoot() {
                                         break;
                                     }
                                     default: {
-                                        logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                        logger.write("[ERROR] Root -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                     }
                                 }
                             }
@@ -382,7 +382,7 @@ exports.newRoot = function newRoot() {
                                         break;
                                     }
                                     default: {
-                                        logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                        logger.write("[ERROR] Root -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                     }
                                 }
                             }
@@ -407,21 +407,21 @@ exports.newRoot = function newRoot() {
                                         break;
                                     }
                                     default: {
-                                        logger.write("[ERROR] run -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                        logger.write("[ERROR] Root -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                     }
                                 }
                             }
                         }
 
                     } catch (err) {
-                        logger.write("[ERROR] run -> Unexpected exception. -> err.message = " + err.message);
+                        logger.write("[ERROR] Root -> Unexpected exception. -> err.message = " + err.message);
                     }
                 }
             }
 
             if (processFound === false) {
 
-                logger.write("[ERROR] run -> Process listed at the configuration file of AACloud not found at the configuration file of the bot. -> listItem.process = " + listItem.process);
+                logger.write("[ERROR] Root -> Process listed at the configuration file of AACloud not found at the configuration file of the bot. -> listItem.process = " + listItem.process);
             }
 
             function runExtractionBot(pBotConfig, pProcessConfig, pMonth, pYear) {

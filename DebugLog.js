@@ -285,7 +285,6 @@
 
     function deleteLoopFolder(pFolderPath) {
 
-        let rimraf = require('rimraf');
         let fs = require('fs');
         let errosFound = false;
 
@@ -323,6 +322,7 @@
 
                                     if (errosFound === false) {
 
+                                        let rimraf = require('rimraf');
                                         rimraf.sync(pFolderPath);
 
                                     }

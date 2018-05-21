@@ -1,40 +1,7 @@
 {
   "webModules": [
     {
-      "name": "Assistant"
-    },
-    {
-      "name": "BlobStorage"
-    },
-    {
-      "name": "Context"
-    },
-    {
-      "name": "DataDependencies"
-    },
-    {
-      "name": "ExchangeAPI"
-    },
-    {
-      "name": "PoloniexAPIClient"
-    },
-    {
-      "name": "StatusDependencies"
-    },
-    {
-      "name": "StatusReport"
-    },
-    {
-      "name": "CloudUtilities"
-    },
-    {
-      "name": "ExtractionBotProcessMainLoop"
-    },
-    {
-      "name": "IndicatorBotProcessMainLoop"
-    },
-    {
-      "name": "TradingBotProcessMainLoop"
+      "name": "Run"
     }
   ]
 }

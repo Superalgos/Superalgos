@@ -21,22 +21,22 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> pOrg = " + pOrg); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> pRepo = " + pRepo); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> pPath = " + pPath); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> pOrg = " + pOrg); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> pRepo = " + pRepo); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> pPath = " + pPath); }
 
             let cacheVersion = storageData.get(pOrg + '.' + pRepo + '.' + pPath)
 
             if (cacheVersion !== undefined) {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData ->  " + pOrg + '.' + pRepo + '.' + pPath + " found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData ->  " + pOrg + '.' + pRepo + '.' + pPath + " found at cache."); }
 
                 callBackFunction(cacheVersion);
 
             } else {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData ->  " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData ->  " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
 
                 let storage = require('azure-storage');
                 let connectionString;
@@ -65,20 +65,20 @@
 
                     try {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> onFileReceived -> Entering function."); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> onFileReceived -> err = " + JSON.stringify(err)); }
-                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] getStorageData -> onFileReceived -> response = " + JSON.stringify(response)); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> onFileReceived -> pOrg = " + pOrg); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> onFileReceived -> pRepo = " + pRepo); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] getStorageData -> onFileReceived -> pPath = " + pPath); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> onFileReceived -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> onFileReceived -> err = " + JSON.stringify(err)); }
+                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> getStorageData -> onFileReceived -> response = " + JSON.stringify(response)); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> onFileReceived -> pOrg = " + pOrg); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> onFileReceived -> pRepo = " + pRepo); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> onFileReceived -> pPath = " + pPath); }
 
                         storageData.set(pOrg + '.' + pRepo + '.' + pPath, text);
 
                         if (err !== null || text === null) {
 
-                            console.log("[ERROR] getStorageData -> onFileReceived -> Error Received from Storage Library. ");
-                            console.log("[ERROR] getStorageData -> onFileReceived -> err = " + JSON.stringify(err));
-                            console.log("[ERROR] getStorageData -> onFileReceived -> Returning an empty JSON object string. ");
+                            console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> Error Received from Storage Library. ");
+                            console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> err = " + JSON.stringify(err));
+                            console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> Returning an empty JSON object string. ");
 
                             callBackFunction("{}");
                             return;
@@ -88,14 +88,14 @@
                         callBackFunction(text);
 
                     } catch (err) {
-                        console.log("[ERROR] getStorageData -> onFileReceived -> err.message = " + err.message);
+                        console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> err.message = " + err.message);
                         callBackFunction("{}");
                     }
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] getStorageData -> err.message = " + err.message);
+            console.log("[ERROR] Storage -> getStorageData -> err.message = " + err.message);
             callBackFunction("{}");
         }
     }

@@ -3,7 +3,7 @@
 CONSOLE_LOG = false;
 LOG_FILE_CONTENT = false;
 
-if (CONSOLE_LOG === true) { console.log("[INFO] Node Server Starting."); }
+if (CONSOLE_LOG === true) { console.log("[INFO] server -> Node Server Starting."); }
 
 let serverConfig;
 
@@ -28,7 +28,7 @@ initialize();
 
 function initialize() {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> initialize -> Entering function."); }
 
     /* Clear all cached information. */
 
@@ -64,7 +64,7 @@ function initialize() {
 
 function startHtttpServer() {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] startHtttpServer -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> startHtttpServer -> Entering function."); }
 
     try {
 
@@ -75,14 +75,14 @@ function startHtttpServer() {
         }
     }
     catch (err) {
-        console.log("[ERROR] startHtttpServer -> Error = " + err);
+        console.log("[ERROR] server -> startHtttpServer -> Error = " + err);
     }
 }
 
 function onBrowserRequest(request, response) {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> Entering function."); }
-    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> request.url = " + request.url); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> request.url = " + request.url); }
 
     var htmlResponse;
     var requestParameters = request.url.split("/");
@@ -115,7 +115,7 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
 
                         try {
 
@@ -138,7 +138,7 @@ function onBrowserRequest(request, response) {
 
                             function addToFileContent(pDevTeamsOrHosts) {
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
 
                                 for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
@@ -174,7 +174,7 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("[ERROR] onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
+                            console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
 
                     }
@@ -203,7 +203,7 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
 
                         try {
 
@@ -226,7 +226,7 @@ function onBrowserRequest(request, response) {
 
                             function addToFileContent(pDevTeamsOrHosts) {
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
 
                                 for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
@@ -267,7 +267,7 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("[ERROR] onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
+                            console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
 
                     }
@@ -295,7 +295,7 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
 
                         try {
 
@@ -308,7 +308,7 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("[ERROR] onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
+                            console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
                     }
                 }
@@ -326,9 +326,9 @@ function onBrowserRequest(request, response) {
 
                     case 'Cloud': {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived)
+                        storage.getStorageData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -341,7 +341,7 @@ function onBrowserRequest(request, response) {
 
                     case 'File System': {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
 
                         respondWithFile('../Plotters/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response);
 
@@ -350,9 +350,9 @@ function onBrowserRequest(request, response) {
 
                     case 'Github': {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
 
-                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived)
+                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -373,9 +373,9 @@ function onBrowserRequest(request, response) {
 
                     case 'Cloud': {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived)
+                        storage.getStorageData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -388,7 +388,7 @@ function onBrowserRequest(request, response) {
 
                     case 'File System': {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
 
                         respondWithFile('../Plotters/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response);
 
@@ -397,9 +397,9 @@ function onBrowserRequest(request, response) {
 
                     case 'Github': {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
 
-                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived)
+                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -459,7 +459,7 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
 
                         try {
 
@@ -470,7 +470,7 @@ function onBrowserRequest(request, response) {
 
                             function addPlotters() {
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addPlotters -> Entering function."); }
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> Entering function."); }
 
                                 let htmlLinePlotter = '' + '\n' +
                                     '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
@@ -486,7 +486,7 @@ function onBrowserRequest(request, response) {
 
                                 function addScript(pDevTeamsOrHosts) {
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addPlotters -> addScript -> Entering function."); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> addScript -> Entering function."); }
 
                                     for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
@@ -542,7 +542,7 @@ function onBrowserRequest(request, response) {
 
                             function addImages() {
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addImages -> Entering function."); }
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addImages -> Entering function."); }
 
                                 const htmlLine = '' + '\n' +
                                     '    <img id="@id@" width="0" height="0" src="https://raw.githubusercontent.com/@devTeam@/@repo@/master/@image@">'
@@ -553,7 +553,7 @@ function onBrowserRequest(request, response) {
 
                                 function addScript(pDevTeams) {
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addImages -> addScript -> Entering function."); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addImages -> addScript -> Entering function."); }
 
                                     for (let i = 0; i < pDevTeams.length; i++) {
 
@@ -629,7 +629,7 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("[ERROR] onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
+                            console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
                     }
                 }
@@ -645,7 +645,7 @@ function onBrowserRequest(request, response) {
 
     function sendResponseToBrowser(htmlResponse) {
 
-        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> sendResponseToBrowser -> Entering function."); }
+        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> sendResponseToBrowser -> Entering function."); }
 
         response.writeHead(200, { 'Content-Type': 'text/html' });
         response.write(htmlResponse);
@@ -656,7 +656,7 @@ function onBrowserRequest(request, response) {
 
 function respondWithContent(content, response) {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] respondWithContent -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithContent -> Entering function."); }
 
     try {
 
@@ -678,7 +678,7 @@ function respondWithContent(content, response) {
 
 function respondWithFile(fileName, response) {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] respondWithFile -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithFile -> Entering function."); }
 
     let fs = require('fs');
     try {
@@ -687,7 +687,7 @@ function respondWithFile(fileName, response) {
 
         function onFileRead(err, file) {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] respondWithFile -> onFileRead -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithFile -> onFileRead -> Entering function."); }
 
             try {
                 let htmlResponse = file.toString();
@@ -706,7 +706,7 @@ function respondWithFile(fileName, response) {
             catch (err) {
                 returnEmptyArray();
                 console.log("File Not Found: " + fileName);
-                console.log("[ERROR] respondWithFile -> onFileRead -> File Not Found: " + fileName + " or Error = " + err);
+                console.log("[ERROR] server -> respondWithFile -> onFileRead -> File Not Found: " + fileName + " or Error = " + err);
             }
 
         }
@@ -717,7 +717,7 @@ function respondWithFile(fileName, response) {
 
     function returnEmptyArray() {
 
-        if (CONSOLE_LOG === true) { console.log("[INFO] respondWithFile -> returnEmptyArray -> Entering function."); }
+        if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithFile -> returnEmptyArray -> Entering function."); }
 
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
         response.setHeader("Pragma", "no-cache"); // HTTP 1.0.

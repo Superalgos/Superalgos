@@ -33,7 +33,7 @@
 
             try {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readServerConfig -> Entering function."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readServerConfig -> Entering function."); }
 
                 let fs = require('fs');
 
@@ -44,7 +44,7 @@
 
                     try {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readServerConfig -> onFileRead -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readServerConfig -> onFileRead -> Entering function."); }
 
                         let fileText;
 
@@ -53,7 +53,7 @@
 
                         serverConfig = JSON.parse(fileText);
 
-                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readServerConfig -> onFileRead -> fileText = " + fileText); }
+                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readServerConfig -> onFileRead -> fileText = " + fileText); }
 
                         CONSOLE_LOG = serverConfig.webServerLog.console;
                         LOG_FILE_CONTENT = serverConfig.webServerLog.fileContent;
@@ -66,13 +66,13 @@
                         callBackFunction(serverConfig);
                     }
                     catch (err) {
-                        console.log("[ERROR] initialize -> readServerConfig -> onFileRead -> File = " + fileName + " Error = " + err);
+                        console.log("[ERROR] ConfigReader -> readServerConfig -> onFileRead -> File = " + fileName + " Error = " + err);
                     }
 
                 }
             }
             catch (err) {
-                console.log("[ERROR] initialize -> readServerConfig -> Error = " + err);
+                console.log("[ERROR] ConfigReader -> readServerConfig -> Error = " + err);
             }
         }
     }
@@ -85,7 +85,7 @@
 
             try {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Entering function."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> Entering function."); }
 
                 /*
         
@@ -99,15 +99,15 @@
 
                     case 'Cloud': {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Cloud -> Entering Case."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived)
+                        storage.getStorageData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived);
 
                         function onDataArrived(pData) {
 
                             try {
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Cloud -> onDataArrived -> Entering function."); }
+                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> Entering function."); }
 
                                 ecosystem = pData.toString();
                                 ecosystem = ecosystem.trim(); // remove first byte with some encoding.
@@ -116,7 +116,7 @@
                                 readHostsConfigs();
                             }
                             catch (err) {
-                                console.log("[ERROR] initialize -> readEcosystemConfig -> Cloud -> onDataArrived -> Error = " + err);
+                                console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> Error = " + err);
                             }
                         }
 
@@ -125,7 +125,7 @@
 
                     case 'File System': {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> File System -> Entering Case."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> File System -> Entering Case."); }
 
                         let fs = require('fs');
                         try {
@@ -136,7 +136,7 @@
 
                                 try {
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> File System -> onFileRead -> Entering function."); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> File System -> onFileRead -> Entering function."); }
 
                                     ecosystem = file.toString();
                                     ecosystem = ecosystem.trim(); // remove first byte with some encoding.
@@ -145,28 +145,28 @@
                                     readHostsConfigs();
                                 }
                                 catch (err) {
-                                    console.log("[ERROR] initialize -> readEcosystemConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                    console.log("[ERROR] ConfigReader -> readEcosystemConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
                                 }
 
                             }
                         }
                         catch (err) {
-                            console.log("[ERROR] initialize -> readEcosystemConfig -> File System -> File = " + fileName + " Error = " + err);
+                            console.log("[ERROR] ConfigReader -> readEcosystemConfig -> File System -> File = " + fileName + " Error = " + err);
                         }
                         break;
                     }
 
                     case 'Github': {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Github -> Entering Case."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> Github -> Entering Case."); }
 
-                        github.getGithubData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived)
+                        github.getGithubData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived);
 
                         function onDataArrived(pData) {
 
                             try {
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Github -> onDataArrived -> Entering function."); }
+                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> Github -> onDataArrived -> Entering function."); }
 
                                 ecosystem = pData.toString();
                                 ecosystem = ecosystem.trim(); // remove first byte with some encoding.
@@ -175,7 +175,7 @@
                                 readHostsConfigs();
                             }
                             catch (err) {
-                                console.log("[ERROR] initialize -> readEcosystemConfig -> Github -> onDataArrived -> Error = " + err);
+                                console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Github -> onDataArrived -> Error = " + err);
                             }
                         }
                         break;
@@ -183,7 +183,7 @@
                 }
             }
             catch (err) {
-                console.log("[ERROR] initialize -> readEcosystemConfig -> Error = " + err);
+                console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Error = " + err);
             }
         }
 
@@ -191,7 +191,7 @@
 
             try {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readHostsConfigs -> Entering function."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readHostsConfigs -> Entering function."); }
 
                 let requestsSent = 0;
                 let responsesReceived = 0;
@@ -207,7 +207,7 @@
 
                         try {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readHostsConfigs -> getCompetitions -> Entering function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readHostsConfigs -> getCompetitions -> Entering function."); }
 
                             /* In this first section we will load the competitions configurations. */
 
@@ -221,18 +221,18 @@
 
                                     case 'Cloud': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> Entering Case."); }
 
-                                        storage.getStorageData(host.codeName, competition.repo, competition.configFile, onDataArrived)
+                                        storage.getStorageData(host.codeName, competition.repo, competition.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
                                             try {
 
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> Entering function."); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> competition.repo = " + competition.repo); }
-                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> pData = " + pData); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> competition.repo = " + competition.repo); }
+                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> pData = " + pData); }
 
                                                 responsesReceived++;
 
@@ -256,7 +256,7 @@
 
                                             }
                                             catch (err) {
-                                                console.log("[ERROR] initialize ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> Error = " + err);
+                                                console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> Error = " + err);
                                             }
                                         }
                                         break;
@@ -265,7 +265,7 @@
                                     case 'File System': {
 
                                         try {
-                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> File System -> Entering Case."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> File System -> Entering Case."); }
 
                                             let fs = require('fs');
 
@@ -276,8 +276,8 @@
 
                                                 try {
 
-                                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> File System -> onFileRead -> Entering function."); }
-                                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> File System -> onFileRead -> fileName = " + fileName); }
+                                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> File System -> onFileRead -> Entering function."); }
+                                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> File System -> onFileRead -> fileName = " + fileName); }
 
                                                     responsesReceived++;
 
@@ -300,12 +300,12 @@
                                                     }
                                                 }
                                                 catch (err) {
-                                                    console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                                    console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
                                                 }
                                             }
                                         }
                                         catch (err) {
-                                            console.log("[ERROR] initialize ->  readHostsConfigs -> getCompetitions -> File System -> File = " + fileName + " Error = " + err);
+                                            console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getCompetitions -> File System -> File = " + fileName + " Error = " + err);
                                         }
 
                                         break;
@@ -313,18 +313,18 @@
 
                                     case 'Github': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Github -> Entering Case."); }
 
-                                        github.getGithubData(host.codeName, competition.repo, competition.configFile, onDataArrived)
+                                        github.getGithubData(host.codeName, competition.repo, competition.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
                                             try {
 
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> Entering function."); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> host.codeName = " + host.codeName); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> competition.repo = " + competition.repo); }
-                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> pData = " + pData); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> host.codeName = " + host.codeName); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> competition.repo = " + competition.repo); }
+                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> pData = " + pData); }
 
                                                 responsesReceived++;
 
@@ -348,7 +348,7 @@
 
                                             }
                                             catch (err) {
-                                                console.log("[ERROR] initialize ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> Error = " + err);
+                                                console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getCompetitions -> Github -> onDataArrived -> Error = " + err);
                                             }
                                         }
 
@@ -358,7 +358,7 @@
                             }
                         }
                         catch (err) {
-                            console.log("[ERROR] initialize ->  readHostsConfigs -> getCompetitions -> getCompetitions -> Error = " + err);
+                            console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getCompetitions -> getCompetitions -> Error = " + err);
                         }
                     }
 
@@ -366,7 +366,7 @@
 
                         try {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> getPlotters -> Entering function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> getPlotters -> Entering function."); }
 
                             /* In this second section we will load the competition plotters configurations. */
 
@@ -380,18 +380,18 @@
 
                                     case 'Cloud': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> Entering Case."); }
 
-                                        storage.getStorageData(host.codeName, plotter.repo, plotter.configFile, onDataArrived)
+                                        storage.getStorageData(host.codeName, plotter.repo, plotter.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
                                             try {
 
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> Entering function."); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> pData = " + pData); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
+                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> pData = " + pData); }
 
                                                 responsesReceived++;
 
@@ -415,7 +415,7 @@
 
                                             }
                                             catch (err) {
-                                                console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> Error = " + err);
+                                                console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> Error = " + err);
                                             }
                                         }
 
@@ -424,7 +424,7 @@
 
                                     case 'File System': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> File System -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> File System -> Entering Case."); }
 
                                         try {
 
@@ -437,8 +437,8 @@
 
                                                 try {
 
-                                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> File System -> onFileRead -> Entering function."); }
-                                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> File System -> onFileRead -> fileName = " + fileName); }
+                                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> File System -> onFileRead -> Entering function."); }
+                                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> File System -> onFileRead -> fileName = " + fileName); }
 
                                                     responsesReceived++;
 
@@ -461,13 +461,13 @@
                                                     }
                                                 }
                                                 catch (err) {
-                                                    console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                                    console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getPlotters -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
                                                 }
 
                                             }
                                         }
                                         catch (err) {
-                                            console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> File System -> File = " + fileName + " Error = " + err);
+                                            console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getPlotters -> File System -> File = " + fileName + " Error = " + err);
                                         }
 
                                         break;
@@ -475,18 +475,18 @@
 
                                     case 'Github': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Github -> Entering Case."); }
 
-                                        github.getGithubData(host.codeName, plotter.repo, plotter.configFile, onDataArrived)
+                                        github.getGithubData(host.codeName, plotter.repo, plotter.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
                                             try {
 
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> Entering function."); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> host.codeName = " + host.codeName); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> pData = " + pData); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> host.codeName = " + host.codeName); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> plotter.repo = " + plotter.repo); }
+                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> pData = " + pData); }
 
                                                 responsesReceived++;
 
@@ -510,7 +510,7 @@
 
                                             }
                                             catch (err) {
-                                                console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> Error = " + err);
+                                                console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getPlotters -> Github -> onDataArrived -> Error = " + err);
                                             }
                                         }
                                         break;
@@ -519,13 +519,13 @@
                             }
                         }
                         catch (err) {
-                            console.log("[ERROR] initialize ->  readHostsConfigs -> getPlotters -> getCompetitions -> Error = " + err);
+                            console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getPlotters -> getCompetitions -> Error = " + err);
                         }
                     }
                 }
             }
             catch (err) {
-                console.log("[ERROR] initialize -> readHostsConfigs -> Error = " + err);
+                console.log("[ERROR] ConfigReader -> readHostsConfigs -> Error = " + err);
             }
         }
 
@@ -533,7 +533,7 @@
 
             try {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> Entering function."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> Entering function."); }
 
                 /*
         
@@ -559,7 +559,7 @@
 
                         try {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Entering function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Entering function."); }
 
                             /* In the next section we are loading the bots configurations. */
 
@@ -573,18 +573,18 @@
 
                                     case 'Cloud': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> Entering Case."); }
 
-                                        storage.getStorageData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived)
+                                        storage.getStorageData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
                                             try {
 
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> Entering function."); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> bot.repo = " + bot.repo); }
-                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> pData = " + pData); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> bot.repo = " + bot.repo); }
+                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> pData = " + pData); }
 
                                                 responsesReceived++;
 
@@ -614,7 +614,7 @@
 
                                             }
                                             catch (err) {
-                                                console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> Error = " + err);
+                                                console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> Error = " + err);
                                             }
                                         }
                                         break;
@@ -623,7 +623,7 @@
                                     case 'File System': {
 
                                         try {
-                                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> File System -> Entering Case."); }
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> File System -> Entering Case."); }
 
                                             let fs = require('fs');
 
@@ -634,8 +634,8 @@
 
                                                 try {
 
-                                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> File System -> onFileRead -> Entering function."); }
-                                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> File System -> onFileRead -> fileName = " + fileName); }
+                                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> File System -> onFileRead -> Entering function."); }
+                                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> File System -> onFileRead -> fileName = " + fileName); }
 
                                                     responsesReceived++;
 
@@ -660,13 +660,13 @@
                                                     }
                                                 }
                                                 catch (err) {
-                                                    console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                                    console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getBots -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
                                                 }
 
                                             }
                                         }
                                         catch (err) {
-                                            console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> File System -> File = " + fileName + " Error = " + err);
+                                            console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getBots -> File System -> File = " + fileName + " Error = " + err);
                                         }
 
                                         break;
@@ -674,18 +674,18 @@
 
                                     case 'Github': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Github -> Entering Case."); }
 
-                                        github.getGithubData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived)
+                                        github.getGithubData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
                                             try {
 
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> Entering function."); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> bot.repo = " + bot.repo); }
-                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> pData = " + pData); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> bot.repo = " + bot.repo); }
+                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> pData = " + pData); }
 
                                                 responsesReceived++;
 
@@ -711,7 +711,7 @@
 
                                             }
                                             catch (err) {
-                                                console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> Error = " + err);
+                                                console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getBots -> Github -> onDataArrived -> Error = " + err);
                                             }
                                         }
                                         break;
@@ -721,7 +721,7 @@
 
                         }
                         catch (err) {
-                            console.log("[ERROR] initialize -> readDevTeamsConfigs -> getBots -> Error = " + err);
+                            console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getBots -> Error = " + err);
                         }
                     }
 
@@ -729,7 +729,7 @@
 
                         try {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Entering Function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Entering Function."); }
 
                             /* In the next section we are loading the plotters configurations. */
 
@@ -743,18 +743,18 @@
 
                                     case 'Cloud': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> Entering Case."); }
 
-                                        storage.getStorageData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived)
+                                        storage.getStorageData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
                                             try {
 
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> Entering function."); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> pData = " + pData); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
+                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> pData = " + pData); }
 
                                                 responsesReceived++;
 
@@ -781,7 +781,7 @@
                                                 }
                                             }
                                             catch (err) {
-                                                console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> Error = " + err);
+                                                console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> Error = " + err);
                                             }
                                         }
                                         break;
@@ -789,7 +789,7 @@
 
                                     case 'File System': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> File System -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> File System -> Entering Case."); }
 
                                         try {
 
@@ -802,8 +802,8 @@
 
                                                 try {
 
-                                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> File System -> onFileRead -> Entering function."); }
-                                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> File System -> onFileRead -> fileName = " + fileName); }
+                                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> File System -> onFileRead -> Entering function."); }
+                                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> File System -> onFileRead -> fileName = " + fileName); }
 
                                                     responsesReceived++;
 
@@ -826,30 +826,30 @@
                                                     }
                                                 }
                                                 catch (err) {
-                                                    console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                                    console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
                                                 }
                                             }
                                         }
                                         catch (err) {
-                                            console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> File = " + fileName + " Error = " + err);
+                                            console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> File = " + fileName + " Error = " + err);
                                         }
                                         break;
                                     }
 
                                     case 'Github': {
 
-                                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> Entering Case."); }
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Github -> Entering Case."); }
 
-                                        github.getGithubData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived)
+                                        github.getGithubData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
                                             try {
 
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> Entering function."); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> pData = " + pData); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> Entering function."); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
+                                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> plotter.repo = " + plotter.repo); }
+                                                if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> pData = " + pData); }
 
                                                 responsesReceived++;
 
@@ -873,7 +873,7 @@
 
                                             }
                                             catch (err) {
-                                                console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> Error = " + err);
+                                                console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Github -> onDataArrived -> Error = " + err);
                                             }
                                         }
                                         break;
@@ -883,7 +883,7 @@
 
                         }
                         catch (err) {
-                            console.log("[ERROR] initialize -> readDevTeamsConfigs -> getPlotters -> Error = " + err);
+                            console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Error = " + err);
                         }
                     }
                 }
@@ -892,7 +892,7 @@
 
                     try {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readDevTeamsConfigs -> addStoragePermissions -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> addStoragePermissions -> Entering function."); }
 
                         if (pConfigObj.storage !== undefined) { return; } // If this information is at the config file, then we take it, otherwise, we define it here. 
 
@@ -925,16 +925,14 @@
 
                     }
                     catch (err) {
-                        console.log("[ERROR] initialize -> readDevTeamsConfigs -> addStoragePermissions -> Error = " + err);
+                        console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> addStoragePermissions -> Error = " + err);
                     }
                 }
 
             }
             catch (err) {
-                console.log("[ERROR] initialize -> readDevTeamsConfigs -> Error = " + err);
+                console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> Error = " + err);
             }
         }
     }
-
-
 }

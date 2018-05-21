@@ -19,19 +19,19 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Github -> getGithubData -> Entering function."); }
 
             let cacheVersion = githubData.get(pOrg + '.' + pRepo + '.' + pPath)
 
             if (cacheVersion !== undefined) {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> " + pOrg + '.' + pRepo + '.' + pPath + " found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Github -> getGithubData -> " + pOrg + '.' + pRepo + '.' + pPath + " found at cache."); }
 
                 callBackFunction(cacheVersion);
 
             } else {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Github -> getGithubData -> " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
 
                 const octokit = require('@octokit/rest')()
                 global.atob = require("atob");
@@ -50,11 +50,11 @@
 
                     try {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> Entering function."); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> error = " + error); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString().substring(0, 100)); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Github -> getGithubData -> onContent -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Github -> getGithubData -> onContent -> error = " + error); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Github -> getGithubData -> onContent -> Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString().substring(0, 100)); }
 
-                        if (error !== null) { console.log("[ERROR] getGithubData -> onContent -> " + error); }
+                        if (error !== null) { console.log("[ERROR] Github -> getGithubData -> onContent -> " + error); }
 
                         let decoded = atob(result.data.content);
 
@@ -83,7 +83,7 @@
                                     try {
                                         jsonTest = JSON.parse(cleanString);
                                     } catch (err) {
-                                        console.log("[INFO] getGithubData -> onContent -> Could not clean the data received -> Data = " + decoded.substring(0, 50));
+                                        console.log("[INFO] Github -> getGithubData -> onContent -> Could not clean the data received -> Data = " + decoded.substring(0, 50));
                                     }
                                 }
                             }
@@ -94,14 +94,14 @@
                         callBackFunction(cleanString);
 
                     } catch (err) {
-                        console.log("[ERROR] getGithubData -> onContent -> err.message = " + err.message);
+                        console.log("[ERROR] Github -> getGithubData -> onContent -> err.message = " + err.message);
                         callBackFunction("{}");
                     }
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] getGithubData -> err.message = " + err.message);
+            console.log("[ERROR] Github -> getGithubData -> err.message = " + err.message);
             callBackFunction("{}");
         }
     }

@@ -263,11 +263,14 @@
 
                 let result = pData.substring(pData.indexOf('=') + 2);
 
-                result = result.replace("require", "webRequire");
-                result = result.replace("global", "window");
+                result = replaceAll(result, "require", "webRequire");
+                result = replaceAll(result, "global", "window");
 
                 return result;
 
+                function replaceAll(text, search, replacement) {
+                    return text.replace(new RegExp(search, 'g'), replacement);
+                }
             }
 
             function createHTML(callBackfunction) {

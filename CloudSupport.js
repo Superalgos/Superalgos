@@ -7,6 +7,15 @@ When running at the clode on NodeJS some things work diffently that at the brows
 
 */
 
+function runBot() {
+
+    let root = newRoot();
+
+    root.initialize();
+    root.start();
+
+}
+
 function webRequire(pModulePath) {
 
 

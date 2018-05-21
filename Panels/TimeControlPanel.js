@@ -214,7 +214,8 @@ function newTimeControlPanel() {
 
             case "Play Forward":
 
-                pressPlayForward();
+                runBot();
+                //pressPlayForward();
                 break;
 
             case "Fast Forward":

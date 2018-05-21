@@ -9,6 +9,10 @@ let serverConfig;
 
 let githubData = new Map;
 let storageData = new Map;
+let fileSystemData = new Map;
+
+let HTMLCloudScripts;           // This are the html script tags needed to download the cloud web scripts.
+
 let ecosystem;
 let ecosystemObject;
 
@@ -34,6 +38,7 @@ function initialize() {
 
     githubData = new Map;
     storageData = new Map;
+    fileSystemData = new Map;
 
     const CONFIG_READER = require('./Server/ConfigReader');
     let configReader = CONFIG_READER.newConfigReader();
@@ -54,8 +59,22 @@ function initialize() {
             github.initialize(githubData);
             storage.initialize(storageData, serverConfig)
 
-            startHtttpServer();
+            const CLOUD_SCRIPTS = require('./Server/CloudScripts');
+            let cloudScripts = CLOUD_SCRIPTS.newCloudScripts();
 
+            cloudScripts.initialize(ecosystem, ecosystemObject, serverConfig, githubData, storageData, fileSystemData, onInitialized);
+
+            function onInitialized() {
+
+                cloudScripts.loadCloudScripts(onLoadCompeted);
+
+                function onLoadCompeted(pHTMLCloudScripts) {
+
+                    HTMLCloudScripts = pHTMLCloudScripts;
+                    startHtttpServer();
+
+                }
+            }
         }
     }
 }
@@ -319,6 +338,56 @@ function onBrowserRequest(request, response) {
             }
             break;
 
+        case "Cloud": // This means the cloud folder.
+            {
+
+                let map;
+
+                switch (serverConfig.configAndPlugins.Location) {
+
+                    case 'Cloud': {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
+
+                        map = storageData;
+                        break;
+                    }
+
+                    case 'File System': {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
+
+                        map = fileSystemData;
+                        break;
+                    }
+
+                    case 'Github': {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
+
+                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
+
+                        map = githubData;
+                        break;
+                    }
+                }
+
+                let script = map.get(requestParameters[2]);
+
+                if (script !== undefined) {
+
+                    respondWithContent(script, response);
+
+                } else {
+
+                    if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> Script Not Found."); }
+                    if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> requestParameters[2] = " + requestParameters[2]); }
+
+                    respondWithContent("", response);
+                }
+            }
+            break; 
+
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
 
@@ -465,8 +534,19 @@ function onBrowserRequest(request, response) {
 
                             let fileContent = file.toString();
 
+                            addCloudWebScripts();
                             addPlotters();
                             addImages();
+
+                            function addCloudWebScripts() {
+
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addCloudWebScripts -> Entering function."); }
+
+                                let firstPart = fileContent.substring(0, fileContent.indexOf('<!--CloudWebScripts-->') + 22);
+                                let secondPart = fileContent.substring(fileContent.indexOf('<!--CloudWebScripts-->') + 22);
+
+                                fileContent = firstPart + HTMLCloudScripts + secondPart;
+                            }
 
                             function addPlotters() {
 
@@ -624,7 +704,6 @@ function onBrowserRequest(request, response) {
                                 }
                             }
                            
-
                             respondWithContent(fileContent, response);
 
                         }

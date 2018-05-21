@@ -338,6 +338,14 @@ function onBrowserRequest(request, response) {
             }
             break;
 
+        case "Scripts": // This means the Scripts folder.
+            {
+
+                respondWithFile('./Scripts/' + requestParameters[2], response);
+
+            }
+            break; 
+
         case "Cloud": // This means the cloud folder.
             {
 

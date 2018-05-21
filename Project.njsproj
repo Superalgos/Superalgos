@@ -32,6 +32,9 @@
     <Compile Include="AccumulatedVolumeBar.js" />
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
+    <Compile Include="CloudSupport.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FloatingSpace\Note.js">
       <SubType>Code</SubType>
     </Compile>
@@ -63,6 +66,8 @@
     <Compile Include="NewBot.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Scripts\DummyWeb.js" />
+    <Compile Include="Scripts\require.js" />
     <Compile Include="Server\CloudScripts.js">
       <SubType>Code</SubType>
     </Compile>
@@ -144,6 +149,7 @@
     <Folder Include="Azure\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
+    <Folder Include="Scripts\" />
     <Folder Include="Server\" />
     <Folder Include="Spaces\" />
     <Folder Include="Panels\" />

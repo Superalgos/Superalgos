@@ -261,7 +261,10 @@
 
             function browserify(pData) {
 
-                let result = pData.substring(pData.indexOf('=') + 1);
+                let result = pData.substring(pData.indexOf('=') + 2);
+
+                result = result.replace("require", "webRequire");
+                result = result.replace("global", "window");
 
                 return result;
 

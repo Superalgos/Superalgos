@@ -1,4 +1,6 @@
-﻿/* Callbacks default responses. */
+﻿
+
+/* Callbacks default responses. */
 
 let GLOBAL = {};
 

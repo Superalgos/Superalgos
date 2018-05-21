@@ -32,7 +32,10 @@
     <Compile Include="AccumulatedVolumeBar.js" />
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
-    <Compile Include="CloudSupport.js">
+    <Compile Include="WebVM\CloudSupport.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebVM\WebFS.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FloatingSpace\Note.js">
@@ -147,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />
+    <Folder Include="WebVM\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
     <Folder Include="Scripts\" />

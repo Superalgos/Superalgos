@@ -18,12 +18,13 @@ function runBot() {
 
 function webRequire(pModulePath) {
 
+    switch (pModulePath) {
 
-    if (pModulePath === '') {
+        case 'fs': {
 
-
+            return newWebFS();
+        }
     }
-
 }
 
 function downloadModule(pPath) {
@@ -35,3 +36,5 @@ function downloadModule(pPath) {
     });
 
 }
+
+

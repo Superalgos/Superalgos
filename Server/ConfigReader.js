@@ -27,13 +27,13 @@
         ecosystem = pEcosystem;
         ecosystemObject = pEcosystemObject;
 
-        readServerConfig();
+        readAAWebConfig();
 
-        function readServerConfig() {
+        function readAAWebConfig() {
 
             try {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readServerConfig -> Entering function."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAAWebConfig -> Entering function."); }
 
                 let fs = require('fs');
 
@@ -44,7 +44,7 @@
 
                     try {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readServerConfig -> onFileRead -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAAWebConfig -> onFileRead -> Entering function."); }
 
                         let fileText;
 
@@ -53,7 +53,7 @@
 
                         serverConfig = JSON.parse(fileText);
 
-                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readServerConfig -> onFileRead -> fileText = " + fileText); }
+                        if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readAAWebConfig -> onFileRead -> fileText = " + fileText); }
 
                         CONSOLE_LOG = serverConfig.webServerLog.console;
                         LOG_FILE_CONTENT = serverConfig.webServerLog.fileContent;
@@ -66,13 +66,13 @@
                         callBackFunction(serverConfig);
                     }
                     catch (err) {
-                        console.log("[ERROR] ConfigReader -> readServerConfig -> onFileRead -> File = " + fileName + " Error = " + err);
+                        console.log("[ERROR] ConfigReader -> readAAWebConfig -> onFileRead -> File = " + fileName + " Error = " + err);
                     }
 
                 }
             }
             catch (err) {
-                console.log("[ERROR] ConfigReader -> readServerConfig -> Error = " + err);
+                console.log("[ERROR] ConfigReader -> readAAWebConfig -> Error = " + err);
             }
         }
     }
@@ -113,7 +113,7 @@
                                 ecosystem = ecosystem.trim(); // remove first byte with some encoding.
 
                                 ecosystemObject = JSON.parse(ecosystem);
-                                readHostsConfigs();
+                                readAACloudConfig();
                             }
                             catch (err) {
                                 console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> Error = " + err);
@@ -142,7 +142,7 @@
                                     ecosystem = ecosystem.trim(); // remove first byte with some encoding.
 
                                     ecosystemObject = JSON.parse(ecosystem);
-                                    readHostsConfigs();
+                                    readAACloudConfig();
                                 }
                                 catch (err) {
                                     console.log("[ERROR] ConfigReader -> readEcosystemConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
@@ -172,7 +172,7 @@
                                 ecosystem = ecosystem.trim(); // remove first byte with some encoding.
 
                                 ecosystemObject = JSON.parse(ecosystem);
-                                readHostsConfigs();
+                                readAACloudConfig();
                             }
                             catch (err) {
                                 console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Github -> onDataArrived -> Error = " + err);
@@ -184,6 +184,107 @@
             }
             catch (err) {
                 console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Error = " + err);
+            }
+        }
+
+        function readAACloudConfig() {
+
+            try {
+
+                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAACloudConfig -> Entering function."); }
+
+                switch (serverConfig.configAndPlugins.Location) {
+
+                    case 'Cloud': {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAACloudConfig -> Cloud -> Entering Case."); }
+
+                        storage.getStorageData('AdvancedAlgos', 'AACloud', 'this.config.json', onDataArrived);
+
+                        function onDataArrived(pData) {
+
+                            try {
+
+                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAACloudConfig -> Cloud -> onDataArrived -> Entering function."); }
+
+                                let data = pData.toString();
+                                data = data.trim(); // remove first byte with some encoding.
+
+                                let dataObject = JSON.parse(data);
+                                ecosystemObject.AACloud = dataObject;
+                                readHostsConfigs();
+                            }
+                            catch (err) {
+                                console.log("[ERROR] ConfigReader -> readAACloudConfig -> Cloud -> onDataArrived -> Error = " + err);
+                            }
+                        }
+
+                        break;
+                    }
+
+                    case 'File System': {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAACloudConfig -> File System -> Entering Case."); }
+
+                        let fs = require('fs');
+                        try {
+                            let fileName = '../AACloud/this.config.json';
+                            fs.readFile(fileName, onFileRead);
+
+                            function onFileRead(err, pData) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAACloudConfig -> File System -> onFileRead -> Entering function."); }
+
+                                    let data = pData.toString();
+                                    data = data.trim(); // remove first byte with some encoding.
+
+                                    let dataObject = JSON.parse(data);
+                                    ecosystemObject.AACloud = dataObject;
+                                    readHostsConfigs();
+                                }
+                                catch (err) {
+                                    console.log("[ERROR] ConfigReader -> readAACloudConfig -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
+                                }
+
+                            }
+                        }
+                        catch (err) {
+                            console.log("[ERROR] ConfigReader -> readAACloudConfig -> File System -> File = " + fileName + " Error = " + err);
+                        }
+                        break;
+                    }
+
+                    case 'Github': {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAACloudConfig -> Github -> Entering Case."); }
+
+                        github.getGithubData('AdvancedAlgos', 'AAWeb', 'this.config.json', onDataArrived);
+
+                        function onDataArrived(pData) {
+
+                            try {
+
+                                if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readAACloudConfig -> Github -> onDataArrived -> Entering function."); }
+
+                                let data = pData.toString();
+                                data = data.trim(); // remove first byte with some encoding.
+
+                                let dataObject = JSON.parse(data);
+                                ecosystemObject.AACloud = dataObject;
+                                readHostsConfigs();
+                            }
+                            catch (err) {
+                                console.log("[ERROR] ConfigReader -> readAACloudConfig -> Github -> onDataArrived -> Error = " + err);
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            catch (err) {
+                console.log("[ERROR] ConfigReader -> readAACloudConfig -> Error = " + err);
             }
         }
 
@@ -934,5 +1035,7 @@
                 console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> Error = " + err);
             }
         }
+
+
     }
 }

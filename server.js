@@ -338,6 +338,14 @@ function onBrowserRequest(request, response) {
             }
             break;
 
+        case "WebVM": // This means the Scripts folder.
+            {
+
+                respondWithFile('./WebVM/' + requestParameters[2], response);
+
+            }
+            break; 
+
         case "Scripts": // This means the Scripts folder.
             {
 

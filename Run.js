@@ -30,7 +30,7 @@ global.STORAGE_PERMISSIONS = {};
 
 readStoragePermissions();
 
-function readStoragePermissions(environment, devTeamDataOwner) {
+function readStoragePermissions() {
 
     let filePath;
 
@@ -39,7 +39,7 @@ function readStoragePermissions(environment, devTeamDataOwner) {
         filePath = '../' + 'Connection-Strings' + '/' + 'Storage.Permissions.json';
         global.STORAGE_PERMISSIONS = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-        readApiKey();
+        readExchangeAPIKey();
     }
     catch (err) {
         console.log("[ERROR] readStoragePermissions -> err = " + err.message);
@@ -48,7 +48,7 @@ function readStoragePermissions(environment, devTeamDataOwner) {
     }
 }
 
-function readApiKey() {
+function readExchangeAPIKey() {
 
     try {
         let fs = require('fs');
@@ -58,7 +58,7 @@ function readApiKey() {
         startRoot();
     }
     catch (err) {
-        logger.write("[ERROR] readApiKey -> err = " + err.message);
+        logger.write("[ERROR] readExchangeAPIKey -> err = " + err.message);
         logger.write("[HINT] You need to have a file at this path -> " + filePath);
 
         global.EXCHANGE_KEYS = {

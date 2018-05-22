@@ -36,27 +36,9 @@
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            let apiKey = readApiKey();
-            poloniexApiClient = new POLONIEX_CLIENT_MODULE(apiKey.Key, apiKey.Secret);
+            poloniexApiClient = new POLONIEX_CLIENT_MODULE(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-            function readApiKey() {
-
-                try {
-                    let fs = require('fs');
-                    let filePath = '../' + 'API-Keys' + '/' + bot.codeName  + '.'  + global.EXCHANGE_NAME + '.json';
-                    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                }
-                catch (err) {
-                    logger.write("[ERROR] initialize -> readApiKey -> err = " + err.message);
-                    logger.write("[HINT] You need to have a file at this path -> " + filePath);
-                    logger.write("[HINT] The file must have the keys to access your poloniex account, in this format -> " + '{ "Key" : "4FB9TMEB-234VH2W1-BYJIXHGM-GL15DSA1", "Secret" : "1a24298skdjdf734uuyhbdagdasdtyut276587256hdsdas765asdasdasd76asdasda765asdasfas6asfda57657asd5a76sd5a7s65d7a6sd57as65d7as65d"}');
-                    logger.write("[HINT] You get this key logging in to your Poloniex web account, enabling API keys and getting a new one. ");
-                    logger.write("[HINT] Be sure not to allow withdrawls with this Key. When asked at the exchange key page, say no. ");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
 
         } catch (err) {
 

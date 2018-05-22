@@ -1,7 +1,5 @@
 ﻿
-
 global.CURRENT_ENVIRONMENT = "Develop"; 
-
 
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);
@@ -30,9 +28,9 @@ process.on('exit', function (code) {
 
 global.STORAGE_PERMISSIONS = {};
 
-readConnectionStringConfigFile();
+readStoragePermissions();
 
-function readConnectionStringConfigFile(environment, devTeamDataOwner) {
+function readStoragePermissions(environment, devTeamDataOwner) {
 
     let filePath;
 
@@ -41,13 +39,36 @@ function readConnectionStringConfigFile(environment, devTeamDataOwner) {
         filePath = '../' + 'Connection-Strings' + '/' + 'Storage.Permissions.json';
         global.STORAGE_PERMISSIONS = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
+        readApiKey();
+    }
+    catch (err) {
+        console.log("[ERROR] readStoragePermissions -> err = " + err.message);
+        console.log("[HINT] readStoragePermissions -> You need to have a file at this path -> " + filePath);
+        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+    }
+}
+
+function readApiKey() {
+
+    try {
+        let fs = require('fs');
+        let filePath = '../' + 'Exchange-Keys' + '/' + 'Secret.Keys' + '.json';
+
+        global.EXCHANGE_KEYS = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         startRoot();
     }
     catch (err) {
-        console.log("[ERROR] readConnectionStringConfigFile -> err = " + err.message);
-        console.log("[HINT] readConnectionStringConfigFile -> You need to have a file at this path -> " + filePath);
-        console.log("[HINT] readConnectionStringConfigFile -> The file must have the connection string to the Azure Storage Account. Request the file to an AA Team Member if you dont have it.");
-        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        logger.write("[ERROR] readApiKey -> err = " + err.message);
+        logger.write("[HINT] You need to have a file at this path -> " + filePath);
+
+        global.EXCHANGE_KEYS = {
+            Poloniex: {
+                Key: "",
+                Secret: ""
+            }
+        }
+
+        startRoot();
     }
 }
 

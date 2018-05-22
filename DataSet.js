@@ -45,7 +45,7 @@
 
             function initializeStorage() {
 
-                cloudStorage.initialize(dependencyConfig, onInizialized);
+                cloudStorage.initialize(dependencyConfig.devTeam, onInizialized);
 
                 function onInizialized(err) {
 

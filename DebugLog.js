@@ -43,7 +43,7 @@
             const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
             let cloudStorage = BLOB_STORAGE.newBlobStorage(thisObject.bot);
 
-            cloudStorage.initialize(thisObject.bot, onInizialized, true);
+            cloudStorage.initialize(thisObject.bot.devTeam, onInizialized, true);
 
             function onInizialized(err) {
 

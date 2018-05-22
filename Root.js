@@ -208,7 +208,7 @@ exports.newRoot = function newRoot() {
             function findProcess() {
 
                 try {
-                    console.log("[INFO] Root -> start -> findProcess -> Entering function. ");
+                    if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> Entering function. "); }
 
                     botConfig.process = listItem.process;
                     botConfig.debug = {};
@@ -221,14 +221,14 @@ exports.newRoot = function newRoot() {
 
                     botConfig.loopCounter = 0;
 
-                    if (FULL_LOG === true) { logger.write("[INFO] Root -> Processing item from executionList -> p = " + p); }
-                    if (FULL_LOG === true) { logger.write("[INFO] Root -> listItem.botPath = " + listItem.botPath); }
+                    if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> Processing item from executionList -> p = " + p); }
+                    if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> listItem.botPath = " + listItem.botPath); }
 
                     /* File Path Root */
 
                     botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
-                    if (FULL_LOG === true) { logger.write("[INFO] Root -> listItem.process = " + listItem.process); }
+                    if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> listItem.process = " + listItem.process); }
 
                     /* Now we loop throug all the configured processes at each bots configuration until we find the one we are supposed to run at this Node.js process. */
 
@@ -239,7 +239,7 @@ exports.newRoot = function newRoot() {
                         if (botConfig.processes[i].name === listItem.process) {
 
                             processFound = true;
-                            if (FULL_LOG === true) { logger.write("[INFO] Root -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
+                            if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
 
                             let processConfig = botConfig.processes[i];
 

@@ -111,7 +111,7 @@
 
             function initializeStorage() {
 
-                cloudStorage.initialize(bot, onInizialized);
+                cloudStorage.initialize(bot.devTeam, onInizialized);
 
                 function onInizialized(err) {
 

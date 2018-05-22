@@ -68,7 +68,7 @@
 
             function initializeStorage() {
 
-                cloudStorage.initialize(owner, onInizialized);
+                cloudStorage.initialize(owner.devTeam, onInizialized);
 
                 function onInizialized(err) {
 

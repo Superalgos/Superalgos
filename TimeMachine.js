@@ -13,7 +13,7 @@ function newTimeMachine() {
 
     const MODULE_NAME = "Time Machine";
     const INFO_LOG = false;
-    const logger = newDebugLog();
+    const logger = newWebDebugLog();
     logger.fileName = MODULE_NAME;
 
     let thisObject = {

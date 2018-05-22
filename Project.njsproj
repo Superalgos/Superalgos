@@ -60,7 +60,7 @@
     <Compile Include="ImageButton.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DebugLog.js">
+    <Compile Include="WebDebugLog.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FloatingSpace\ProfileBalls.js">

@@ -1,5 +1,5 @@
 ﻿
-function newDebugLog() {
+function newWebDebugLog() {
 
     let thisObject = {
         write: write,

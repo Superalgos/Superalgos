@@ -5,7 +5,7 @@ function newFloatingLayer() {
     const INFO_LOG = false;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
-    const logger = newDebugLog();
+    const logger = newWebDebugLog();
     logger.fileName = MODULE_NAME;
 
     let thisObject = {

@@ -4,7 +4,7 @@ function newFileCursor() {
     const MODULE_NAME = "File Cursor";
     const INFO_LOG = false;
     const ERROR_LOG = true;
-    const logger = newDebugLog();
+    const logger = newWebDebugLog();
     logger.fileName = MODULE_NAME;
 
     let cursorDate;

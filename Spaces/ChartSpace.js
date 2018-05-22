@@ -10,7 +10,7 @@ function newChartSpace() {
 
     const MODULE_NAME = "Chart Space";
     const INFO_LOG = false;
-    const logger = newDebugLog();
+    const logger = newWebDebugLog();
     logger.fileName = MODULE_NAME;
 
     var thisObject = {

@@ -28,22 +28,89 @@
 
     return thisObject;
 
-    function initialize(pBotPath, pProcessConfig, callBackFunction) {
+    function initialize(pProcessConfig, callBackFunction) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+
             processConfig = pProcessConfig;
 
-            USER_BOT_MODULE = require(pBotPath + "/" + pProcessConfig.name + "/" + 'User.Bot');
+            const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
+            cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 
-            try {
-                COMMONS_MODULE = require(pBotPath + "/" + 'Commons');
-            } catch (err) {
-                // Nothing happens since COMMONS modules are optional.
+            cloudStorage.initialize("AAPlatform", onInizialized);
+
+            function onInizialized(err) {
+
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onInizialized -> Entering function."); }
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    let filePath = bot.devTeam + "/" + bot.repo + "/" + pProcessConfig.name;
+                    let fileName = "User.Bot.js";
+
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                    function onFileReceived(err, text) {
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                            logger.write("[ERROR] initialize -> onInizialized -> onFileReceived -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            return;
+                        }
+
+                        try {
+
+                            USER_BOT_MODULE = {};
+                            USER_BOT_MODULE.newUserBot = eval(text);
+
+                            filePath = bot.devTeam + "/" + bot.repo;
+                            fileName = "Commons.js";
+
+                            cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                            function onFileReceived(err, text) {
+
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                    // Nothing happens since COMMONS modules are optional.
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
+                                }
+
+                                try {
+
+                                    COMMONS_MODULE = {};
+                                    COMMONS_MODULE.newCommons = eval(text);
+
+                                    filePath = bot.devTeam + "/" + bot.repo;
+                                    fileName = "Commons.js";
+
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                                } catch (err) {
+                                    logger.write("[ERROR] initialize -> onInizialized -> onFileReceived -> onFileReceived -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
+                                    return;
+                                }
+                            }
+                        } catch (err) {
+                            logger.write("[ERROR] initialize -> onInizialized -> onFileReceived -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            return;
+                        }
+                    }
+
+                } else {
+                    logger.write("[ERROR] Root -> start -> getBotConfig -> onInizialized ->  err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    bot.eventHandler.raiseEvent("Loop Finished");
+                }
             }
-
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
-
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
             bot.eventHandler.raiseEvent("Loop Finished");
@@ -321,7 +388,9 @@
 
                 /* Here we check if we must stop the loop gracefully. */
 
-                if (shallWeStop() === true) {
+                shallWeStop(onStop, onContinue);
+
+                function onStop() {
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time! :-)"); }
 
@@ -331,49 +400,81 @@
 
                 }
 
-                /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+                function onContinue() {
 
-                switch (nextWaitTime) {
-                    case 'Normal': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                        bot.eventHandler.raiseEvent("Loop Finished");
-                        setTimeout(loop, processConfig.normalWaitTime);
+                    /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+
+                    switch (nextWaitTime) {
+                        case 'Normal': {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            setTimeout(loop, processConfig.normalWaitTime);
+                        }
+                            break;
+                        case 'Retry': {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            setTimeout(loop, processConfig.retryWaitTime);
+                        }
+                            break;
+                        case 'Sleep': {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            setTimeout(loop, processConfig.sleepWaitTime);
+                        }
+                            break;
+                        case 'Coma': {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            setTimeout(loop, processConfig.comaWaitTime);
+                        }
+                            break;
                     }
-                        break;
-                    case 'Retry': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
-                        bot.eventHandler.raiseEvent("Loop Finished");
-                        setTimeout(loop, processConfig.retryWaitTime);
-                    }
-                        break;
-                    case 'Sleep': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
-                        bot.eventHandler.raiseEvent("Loop Finished");
-                        setTimeout(loop, processConfig.sleepWaitTime);
-                    }
-                        break;
-                    case 'Coma': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
-                        bot.eventHandler.raiseEvent("Loop Finished");
-                        setTimeout(loop, processConfig.comaWaitTime);
-                    }
-                        break;
                 }
             }
 
-            function shallWeStop() {
-
-                var fs = require('fs');
+            function shallWeStop(stopCallBack, continueCallBack) {
 
                 try {
+                    if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> shallWeStop -> Entering function. "); }
 
-                    global.PLATFORM_CONFIG = JSON.parse(fs.readFileSync('this.config.json', 'utf8'));
-                    return JSON.parse(global.PLATFORM_CONFIG.stopGracefully);
+                    let filePath = "AdvancedAlgos" + "/" + "AACloud";
+                    let fileName = "this.config.json";
+
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                    function onFileReceived(err, text) {
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+
+                        try {
+
+                            let configRead = JSON.parse(text);
+
+                            if (configRead.stopGracefully === false) {
+                                continueCallBack();
+                            } else {
+                                stopCallBack();
+                            }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+                    }
                 }
                 catch (err) {
-                    logger.write("[ERROR] run -> shallWeStop -> err = " + err.message);
+                    logger.write("[ERROR] run -> loopControl -> shallWeStop -> err.message = " + err.message);
                     bot.eventHandler.raiseEvent("Loop Finished");
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
                 }
             }
         }

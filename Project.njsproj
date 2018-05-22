@@ -45,7 +45,6 @@
     <Compile Include="ExtractionBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileStorage.js" />
     <Compile Include="Context.js">
       <SubType>Code</SubType>
     </Compile>

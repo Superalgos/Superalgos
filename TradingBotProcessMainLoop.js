@@ -25,6 +25,7 @@
     };
 
     let processConfig;
+    let cloudStorage;
 
     return thisObject;
 
@@ -36,7 +37,7 @@
             processConfig = pProcessConfig;
 
             const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
-            let cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
+            cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 
             cloudStorage.initialize("AAPlatform", onInizialized, true);
 
@@ -731,7 +732,9 @@
 
                 /* Here we check if we must stop the loop gracefully. */
 
-                if (shallWeStop() === true) {
+                shallWeStop(onStop, onContinue);
+
+                function onStop() {
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time! :-)"); }
                     bot.eventHandler.raiseEvent("Loop Finished");
@@ -740,49 +743,81 @@
 
                 }
 
-                /* Trading bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+                function onContinue() {
 
-                switch (nextWaitTime) {
-                    case 'Normal': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                        bot.eventHandler.raiseEvent("Loop Finished");
-                        setTimeout(loop, processConfig.normalWaitTime);
+                    /* Trading bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+
+                    switch (nextWaitTime) {
+                        case 'Normal': {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            setTimeout(loop, processConfig.normalWaitTime);
+                        }
+                            break;
+                        case 'Retry': {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            setTimeout(loop, processConfig.retryWaitTime);
+                        }
+                            break;
+                        case 'Sleep': {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            setTimeout(loop, processConfig.sleepWaitTime);
+                        }
+                            break;
+                        case 'Coma': {
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            setTimeout(loop, processConfig.comaWaitTime);
+                        }
+                            break;
                     }
-                        break;
-                    case 'Retry': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
-                        bot.eventHandler.raiseEvent("Loop Finished");
-                        setTimeout(loop, processConfig.retryWaitTime);
-                    }
-                        break;
-                    case 'Sleep': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
-                        bot.eventHandler.raiseEvent("Loop Finished");
-                        setTimeout(loop, processConfig.sleepWaitTime);
-                    }
-                        break;
-                    case 'Coma': {
-                        if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
-                        bot.eventHandler.raiseEvent("Loop Finished");
-                        setTimeout(loop, processConfig.comaWaitTime);
-                    }
-                        break;
-                } 
+                }
             }
 
-            function shallWeStop() {
-
-                var fs = require('fs');
+            function shallWeStop(stopCallBack, continueCallBack) {
 
                 try {
+                    if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> shallWeStop -> Entering function. "); }
 
-                    global.PLATFORM_CONFIG = JSON.parse(fs.readFileSync('this.config.json', 'utf8'));
-                    return JSON.parse(global.PLATFORM_CONFIG.stopGracefully);
+                    let filePath = "AdvancedAlgos" + "/" + "AACloud";
+                    let fileName = "this.config.json";
+
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                    function onFileReceived(err, text) {
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+
+                        try {
+
+                            let configRead = JSON.parse(text);
+
+                            if (configRead.stopGracefully === false) {
+                                continueCallBack();
+                            } else {
+                                stopCallBack();
+                            }
+
+                        } catch (err) {
+                            logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
+                    }
                 }
                 catch (err) {
-                    logger.write("[ERROR] run -> shallWeStop -> err = " + err.message);
+                    logger.write("[ERROR] run -> loopControl -> shallWeStop -> err.message = " + err.message);
                     bot.eventHandler.raiseEvent("Loop Finished");
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
                 }
             }
         }

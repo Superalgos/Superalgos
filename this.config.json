@@ -14,7 +14,7 @@
       "repo": "AAMariam-Trading-Bot"
     }
   ],
-  "stopGracefully": "false",
+  "stopGracefully": false,
   "storageConnStringFolder": "Develop",
   "maxLogLoops": 5
 }

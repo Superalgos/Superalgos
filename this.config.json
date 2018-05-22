@@ -15,6 +15,5 @@
     }
   ],
   "stopGracefully": false,
-  "storageConnStringFolder": "Develop",
   "maxLogLoops": 5
 }

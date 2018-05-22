@@ -1,4 +1,8 @@
 ﻿
+
+global.CURRENT_ENVIRONMENT = "Develop"; 
+
+
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);
     return;
@@ -53,8 +57,11 @@ function startRoot() {
     const ROOT_MODULE = require(ROOT_DIR + 'Root');
     let root = ROOT_MODULE.newRoot();
 
-    root.initialize();
-    root.start();
+    root.initialize(onInitialized);
 
+    function onInitialized() {
+
+        root.start();
+    }
 }
 

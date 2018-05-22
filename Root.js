@@ -2,6 +2,84 @@
 
 exports.newRoot = function newRoot() {
 
+    /* Global constants definitions. */
+
+    /* Callbacks default responses. */
+
+    global.DEFAULT_OK_RESPONSE = {
+        result: "Ok",
+        message: "Operation Succeeded"
+    };
+
+    global.DEFAULT_FAIL_RESPONSE = {
+        result: "Fail",
+        message: "Operation Failed"
+    };
+
+    global.DEFAULT_RETRY_RESPONSE = {
+        result: "Retry",
+        message: "Retry Later"
+    };
+
+    global.CUSTOM_OK_RESPONSE = {
+        result: "Ok, but check Message",
+        message: "Custom Message"
+    };
+
+    global.CUSTOM_FAIL_RESPONSE = {
+        result: "Fail Because",
+        message: "Custom Message"
+    };
+
+    /* Current state of the art fixed parameters */
+
+    global.MARKET = {
+        assetA: "USDT",
+        assetB: "BTC",
+    };
+
+    /* Currently only one exchange is supported. */
+
+    global.EXCHANGE_NAME = "Poloniex";
+
+    /* This is the Execution Datetime */
+
+    global.EXECUTION_DATETIME = new Date();
+
+    /* Time Periods Definitions. */
+
+    global.marketFilesPeriods =
+        '[' +
+        '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
+        '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
+        '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
+        '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
+        '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
+        '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
+        '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
+        '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
+
+    global.marketFilesPeriods = JSON.parse(global.marketFilesPeriods);
+
+    global.dailyFilePeriods =
+        '[' +
+        '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
+        '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
+        '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
+        '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
+        '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
+        '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
+        '[' + 05 * 60 * 1000 + ',' + '"05-min"' + ']' + ',' +
+        '[' + 04 * 60 * 1000 + ',' + '"04-min"' + ']' + ',' +
+        '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
+        '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
+        '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
+
+    global.dailyFilePeriods = JSON.parse(global.dailyFilePeriods);
+
+    const ROOT_DIR = './';
+    const MODULE_NAME = "Root";
+
     let thisObject = {
         initialize: initialize,
         start: start
@@ -9,14 +87,56 @@ exports.newRoot = function newRoot() {
 
     const FULL_LOG = true;
 
+    let cloudStorage;
+
     return thisObject;
 
-    function initialize() {
+    function initialize(callBackFunction) {
 
+        try {
+            console.log("[INFO] Root -> initialize -> Entering function. ");
 
-    }
+            const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
+            cloudStorage = BLOB_STORAGE.newBlobStorage();
 
-    function start() {
+            cloudStorage.initialize("AAPlatform", onInizialized, true);
+
+            function onInizialized(err) {
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    let filePath = "AdvancedAlgos" + "/" + "AACloud";
+                    let fileName = "this.config.json";
+
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                    function onFileReceived(err, text) {
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            console.log("[ERROR] Root -> initialize -> onInizialized -> onFileReceived -> err = " + err.message);
+                            return;
+                        }
+
+                        try {
+                            global.PLATFORM_CONFIG = JSON.parse(text);
+                            callBackFunction();
+                        } catch (err) {
+                            console.log("[ERROR] Root -> initialize -> onInizialized -> onFileReceived -> err = " + err.message);
+                            return;
+                        }
+                    }
+
+                } else {
+                    console.log("[ERROR] Root -> initialize -> onInizialized ->  err = " + err.message);
+                    return;
+                }
+            }
+        }
+        catch (err) {
+            console.log("[ERROR] Root -> initialize -> err.message = " + err.message);
+            return;
+        }
+
 
         /* First thing to do is to read the config and guess which bot we will be running. */
 
@@ -35,92 +155,13 @@ exports.newRoot = function newRoot() {
 
             return;
         }
+    }
 
-        /* The following global variable tells the system if it is running on test mode or production. */
-
-        global.STORAGE_CONN_STRING_FOLDER = global.PLATFORM_CONFIG.storageConnStringFolder;  // 'Testnet', 'Mixed' or 'Production', or whatever folder name the conn strings files are into.
+    function start() {
 
         /* Now we will run according to what we see at the config file. */
 
-        const ROOT_DIR = './';
-        const MODULE_NAME = "Root";
-
         const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
-
-        /* Global constants definitions. */
-
-        /* Callbacks default responses. */
-
-        global.DEFAULT_OK_RESPONSE = {
-            result: "Ok",
-            message: "Operation Succeeded"
-        };
-
-        global.DEFAULT_FAIL_RESPONSE = {
-            result: "Fail",
-            message: "Operation Failed"
-        };
-
-        global.DEFAULT_RETRY_RESPONSE = {
-            result: "Retry",
-            message: "Retry Later"
-        };
-
-        global.CUSTOM_OK_RESPONSE = {
-            result: "Ok, but check Message",
-            message: "Custom Message"
-        };
-
-        global.CUSTOM_FAIL_RESPONSE = {
-            result: "Fail Because",
-            message: "Custom Message"
-        };
-
-        /* Current state of the art fixed parameters */
-
-        global.MARKET = {
-            assetA: "USDT",
-            assetB: "BTC",
-        };
-
-        /* Currently only one exchange is supported. */
-
-        global.EXCHANGE_NAME = "Poloniex";
-
-        /* This is the Execution Datetime */
-
-        global.EXECUTION_DATETIME = new Date();
-
-        /* Time Periods Definitions. */
-
-        global.marketFilesPeriods =
-            '[' +
-            '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
-            '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
-            '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
-            '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
-            '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
-            '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
-            '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
-            '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
-
-        global.marketFilesPeriods = JSON.parse(global.marketFilesPeriods);
-
-        global.dailyFilePeriods =
-            '[' +
-            '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
-            '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
-            '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
-            '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
-            '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
-            '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
-            '[' + 05 * 60 * 1000 + ',' + '"05-min"' + ']' + ',' +
-            '[' + 04 * 60 * 1000 + ',' + '"04-min"' + ']' + ',' +
-            '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
-            '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
-            '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
-
-        global.dailyFilePeriods = JSON.parse(global.dailyFilePeriods);
 
         /* Small Function to fix numbers into strings in a cool way. */
 

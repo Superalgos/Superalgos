@@ -39,7 +39,7 @@
             const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
             cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 
-            cloudStorage.initialize("AAPlatform", onInizialized, true);
+            cloudStorage.initialize("AAPlatform", onInizialized);
 
             function onInizialized(err) {
 

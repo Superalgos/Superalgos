@@ -12,9 +12,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
     let storage = require('azure-storage');
 
     const DEBUG_MODULE = require('./DebugLog');
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
+    let logger;
 
 
     let thisObject = {
@@ -27,7 +25,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
     let readOnlyBlobService;
     let writeOnlyBlobService;
     let containerName;
-    let environment = global.STORAGE_CONN_STRING_FOLDER;
+    let environment = global.CURRENT_ENVIRONMENT;
 
     return thisObject;
 
@@ -35,24 +33,26 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
         try {
 
+            containerName = pDataOwner.toLowerCase();
+
             if (disableLogging === true) {
 
                 FULL_LOG = false;
                 LOG_FILE_CONTENT = false;
 
             } else {
+                logger = DEBUG_MODULE.newDebugLog();
+                logger.fileName = MODULE_NAME;
+                logger.bot = bot;
                 logger.initialize();
+
+                logger.fileName = MODULE_NAME + '.' + pDataOwner;
             }
-
-            containerName = pDataOwner.toLowerCase();
-
-            logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
 
             if (pDataOwner.environment !== undefined) { // This is use for data migration from one environment to the other.
 
                 environment = pDataOwner.environment;
 
-                logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
             }
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }

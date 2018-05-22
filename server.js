@@ -70,9 +70,17 @@ function initialize() {
 
                 function onLoadCompeted(pHTMLCloudScripts) {
 
-                    HTMLCloudScripts = pHTMLCloudScripts;
-                    startHtttpServer();
+                    const PERMISSIONS = require('./Server/Permissions');
+                    let permissions = PERMISSIONS.newPermissions();
 
+                    permissions.initialize(ecosystemObject, onInitialized);
+
+                    function onInitialized() {
+
+                        HTMLCloudScripts = pHTMLCloudScripts;
+                        startHtttpServer();
+
+                    }
                 }
             }
         }

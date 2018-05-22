@@ -7,9 +7,13 @@ When running at the clode on NodeJS some things work diffently that at the brows
 
 */
 
-window.CURRENT_ENVIRONMENT = "Develop"; 
+
 
 function runBot() {
+
+    window.CURRENT_ENVIRONMENT = "Develop"; 
+    window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
+    window.EXCHANGE_KEYS = ecosystem.getExchangeKeys();
 
     let root = newRoot();
 

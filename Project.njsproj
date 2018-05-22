@@ -32,6 +32,9 @@
     <Compile Include="AccumulatedVolumeBar.js" />
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
+    <Compile Include="Server\Permissions.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="WebVM\CloudSupport.js">
       <SubType>Code</SubType>
     </Compile>

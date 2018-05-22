@@ -1,7 +1,7 @@
 ﻿
 function newEcosystem() {
 
-    let ecosystem = {
+    let thisObject = {
         getHost: getHost,
         getCompetition: getCompetition,
         getTeam: getTeam,
@@ -12,16 +12,29 @@ function newEcosystem() {
         getExchange: getExchange,
         getPlotter: getPlotter,
         getPlotterModule: getPlotterModule,
+        getStoragePermissions: getStoragePermissions,
+        getExchangeKeys: getExchangeKeys,
         initialize: initialize
     }
  
     const ECOSYSTEM = "@ecosystem.json@";
 
-    return ecosystem;
-
+    return thisObject;
 
     function initialize() {
 
+
+    }
+
+    function getStoragePermissions() {
+
+        return ECOSYSTEM.STORAGE_PERMISSIONS;
+
+    }
+
+    function getExchangeKeys() {
+
+        return ECOSYSTEM.EXCHANGE_KEYS;
 
     }
 

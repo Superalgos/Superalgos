@@ -136,25 +136,6 @@ exports.newRoot = function newRoot() {
             console.log("[ERROR] Root -> initialize -> err.message = " + err.message);
             return;
         }
-
-
-        /* First thing to do is to read the config and guess which bot we will be running. */
-
-        var fs = require('fs');
-
-        try {
-
-            let configFile = fs.readFileSync('this.config.json', 'utf8');
-            global.PLATFORM_CONFIG = JSON.parse(configFile);
-
-        }
-        catch (err) {
-
-            console.log("[ERROR] Root -> start -> Error Reading the AACloud Config File.");
-            console.log("[ERROR] Root -> start -> err.message = " + err.message);
-
-            return;
-        }
     }
 
     function start() {

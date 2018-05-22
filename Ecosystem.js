@@ -12,7 +12,6 @@ function newEcosystem() {
         getExchange: getExchange,
         getPlotter: getPlotter,
         getPlotterModule: getPlotterModule,
-        getAACloudConfig: getAACloudConfig,
         initialize: initialize
     }
  
@@ -24,11 +23,6 @@ function newEcosystem() {
     function initialize() {
 
 
-    }
-
-    function getAACloudConfig() {
-
-        return ECOSYSTEM.AACloud;
     }
 
     function getHost(pHostCodeName) {

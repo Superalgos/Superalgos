@@ -7,6 +7,8 @@ When running at the clode on NodeJS some things work diffently that at the brows
 
 */
 
+window.CURRENT_ENVIRONMENT = "Develop"; 
+
 function runBot() {
 
     let root = newRoot();

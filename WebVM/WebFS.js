@@ -29,11 +29,7 @@
 
         switch (pPath) {
 
-            case 'this.config.json': {
-
-                /* This is AAWeb Config File. */
-
-                return JSON.stringify(ecosystem.getAACloudConfig());
+            case '': {
 
                 break;
             }

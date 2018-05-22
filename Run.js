@@ -44,7 +44,6 @@ function readStoragePermissions() {
     catch (err) {
         console.log("[ERROR] readStoragePermissions -> err = " + err.message);
         console.log("[HINT] readStoragePermissions -> You need to have a file at this path -> " + filePath);
-        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
     }
 }
 
@@ -58,8 +57,8 @@ function readExchangeAPIKey() {
         startRoot();
     }
     catch (err) {
-        logger.write("[ERROR] readExchangeAPIKey -> err = " + err.message);
-        logger.write("[HINT] You need to have a file at this path -> " + filePath);
+        console.log("[ERROR] readExchangeAPIKey -> err = " + err.message);
+        console.log("[HINT] You need to have a file at this path -> " + filePath);
 
         global.EXCHANGE_KEYS = {
             Poloniex: {

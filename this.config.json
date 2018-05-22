@@ -8,43 +8,10 @@
   "executionList": [
     {
       "enabled": "true",
-      "botPath": "../Bots/AAMasters/AAMariam-Trading-Bot",
-      "process": "Trading-Process"
-    },
-    {
-      "enabled": "false",
-      "botPath": "../Bots/AAMasters/AAOlivia-Indicator-Bot",
-      "process": "Multi-Period-Market"
-    },
-    {
-      "enabled": "false",
-      "botPath": "../Bots/AAMasters/AAOlivia-Indicator-Bot",
-      "process": "Multi-Period-Daily"
-    },
-    {
-      "enabled": "false",
-      "botPath": "../Bots/AAMasters/AABruce-Indicator-Bot",
-      "process": "One-Min-Daily-Candles-Volumes"
-    },
-    {
-      "enabled": "false",
-      "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
-      "process": "Poloniex-Hole-Fixing"
-    },
-    {
-      "enabled": "false",
-      "botPath": "../Bots/AAMasters/AACharly-Extraction-Bot",
-      "process": "Poloniex-Live-Trades"
-    },
-    {
-      "enabled": "false",
-      "botPath": "../Bots/AAMasters/AAMiguel-Indicator-Bot",
-      "process": "Trades-Blobs-To-Blobs"
-    },
-    {
-      "enabled": "false",
-      "botPath": "../Bots/AASpartans/AADumbo-Trading-Bot",
-      "process": "Trading-Process"
+      "devTeam": "AAMasters",
+      "bot": "AAMariam",
+      "process": "Trading-Process",
+      "repo": "AAMariam-Trading-Bot"
     }
   ],
   "stopGracefully": "false",

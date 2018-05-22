@@ -27,12 +27,11 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
     let readOnlyBlobService;
     let writeOnlyBlobService;
     let containerName;
-    let devTeamDataOwner;
     let environment = global.STORAGE_CONN_STRING_FOLDER;
 
     return thisObject;
 
-    function initialize(pBotDataOwner, callBackFunction, disableLogging) {
+    function initialize(pDataOwner, callBackFunction, disableLogging) {
 
         try {
 
@@ -45,89 +44,34 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                 logger.initialize();
             }
 
-            if (pBotDataOwner === undefined) {
+            containerName = pDataOwner.toLowerCase();
 
-                devTeamDataOwner = bot.devTeam;
-                containerName = 'aamasters';
+            logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
 
-                logger.fileName = MODULE_NAME + '.' + bot.devTeam + '.' + bot.codeName + '.' + containerName;
-                
-            } else {
+            if (pDataOwner.environment !== undefined) { // This is use for data migration from one environment to the other.
 
-                devTeamDataOwner = pBotDataOwner.devTeam;
-                containerName = pBotDataOwner.devTeam.toLowerCase();
+                environment = pDataOwner.environment;
 
-                logger.fileName = MODULE_NAME + '.' + pBotDataOwner.devTeam + '.' + pBotDataOwner.bot + '.' + containerName;
-
-                if (pBotDataOwner.environment !== undefined) {
-
-                    environment = pBotDataOwner.environment;
-
-                    logger.fileName = MODULE_NAME + '.' + pBotDataOwner.devTeam + '.' + pBotDataOwner.bot + '.' + containerName;
-                }
+                logger.fileName = MODULE_NAME + '.' + pDataOwner.devTeam + '.' + pDataOwner.bot + '.' + containerName;
             }
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> environment = " + environment); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> containerName = " + containerName); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> devTeamDataOwner = " + devTeamDataOwner); }
 
-            readConnectionStringConfigFile(onConnectionStringReady);
-
-            function onConnectionStringReady(err, pConnObj) {
-
-                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write("[ERROR] initialize -> onConnectionStringReady -> err = " + err.message);
-                    callBackFunction(err);
-                    return;
-                }
-
-                try {
-
-                    if (pConnObj.readConnectionString !== "") {
-                        readOnlyBlobService = storage.createBlobService(pConnObj.readConnectionString);
-                    }
-
-                    if (pConnObj.writeConnectionString !== "") {
-                        writeOnlyBlobService = storage.createBlobService(pConnObj.writeConnectionString);
-                    }
-
-                    if (readOnlyBlobService !== undefined || writeOnlyBlobService !== undefined) {
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        return;
-                    }
-
-                    logger.write("[ERROR] initialize -> onConnectionStringReady -> Either a readConnectionString or writeConnectionString must be provided.");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-
-                } catch (err) {
-
-                    logger.write("[ERROR] initialize -> onConnectionStringReady -> createFileService -> err = " + err.message);
-                    callBackFunction(err);
-                    return;
-                }
+            if (global.STORAGE_PERMISSIONS[environment][containerName].readConnectionString !== undefined) {
+                readOnlyBlobService = storage.createBlobService(global.STORAGE_PERMISSIONS[environment][containerName].readConnectionString);
             }
 
-            function readConnectionStringConfigFile(callBack) {
-
-                let filePath;
-
-                try {
-                    let fs = require('fs');
-                    filePath = '../' + 'Connection-Strings' + '/' + environment + '/' + devTeamDataOwner + '.azure.storage.connstring';
-                    let connObj = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-                    callBack(global.DEFAULT_OK_RESPONSE, connObj);
-                }
-                catch (err) {
-                    logger.write("[ERROR] readConnectionStringConfigFile -> err = " + err.message);
-                    logger.write("[HINT] readConnectionStringConfigFile -> You need to have a file at this path -> " + filePath);
-                    logger.write("[HINT] readConnectionStringConfigFile -> The file must have the connection string to the Azure Storage Account. Request the file to an AA Team Member if you dont have it.");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
+            if (global.STORAGE_PERMISSIONS[environment][containerName].writeConnectionString !== undefined) {
+                writeOnlyBlobService = storage.createBlobService(global.STORAGE_PERMISSIONS[environment][containerName].writeConnectionString);
             }
+
+            if (readOnlyBlobService !== undefined || writeOnlyBlobService !== undefined) {
+
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return;
+            }          
         }
         catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);

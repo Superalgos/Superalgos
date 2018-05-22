@@ -180,21 +180,22 @@ exports.newRoot = function newRoot() {
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     console.log("[ERROR] Root -> start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
-                                    callBack(err);
                                     return;
                                 }
 
                                 try {
                                     botConfig = JSON.parse(text);
+                                    botConfig.repo = listItem.repo;
                                     findProcess();
                                 } catch (err) {
-
+                                    console.log("[ERROR] Root -> start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
+                                    return;
                                 }
                             }
 
                         } else {
                             console.log("[ERROR] Root -> start -> getBotConfig -> onInizialized ->  err = " + err.message);
-                            callBackFunction(err);
+                            return;
                         }
                     }
                 }
@@ -202,13 +203,12 @@ exports.newRoot = function newRoot() {
                     console.log("[ERROR] Root -> start -> getBotConfig -> err.message = " + err.message);
                     return;
                 }
-
             }
 
             function findProcess() {
 
                 try {
-                    if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> Entering function. "); }
+                    if (FULL_LOG === true) { console.log("[INFO] Root -> start -> findProcess -> Entering function. "); }
 
                     botConfig.process = listItem.process;
                     botConfig.debug = {};
@@ -479,7 +479,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess ->runExtractionBot -> pYear = " + pYear); }
 
                             let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotMainLoop(pBotConfig);
-                            extractionBotMainLoop.initialize(listItem.botPath, pProcessConfig, onInitializeReady);
+                            extractionBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
@@ -531,7 +531,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> runIndicatorBot -> pYear = " + pYear); }
 
                             let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotMainLoop(pBotConfig);
-                            indicatorBotMainLoop.initialize(listItem.botPath, pProcessConfig, onInitializeReady);
+                            indicatorBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
@@ -581,7 +581,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> runTradingBot -> Entering function."); }
 
                             let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotMainLoop(pBotConfig);
-                            tradingBotMainLoop.initialize(listItem.botPath, pProcessConfig, onInitializeReady);
+                            tradingBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 

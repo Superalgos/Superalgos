@@ -28,22 +28,87 @@
 
     return thisObject;
 
-    function initialize(pBotPath, pProcessConfig, callBackFunction) {
+    function initialize(pProcessConfig, callBackFunction) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-            processConfig = pProcessConfig;
 
-            USER_BOT_MODULE = require(pBotPath + "/" + pProcessConfig.name + "/" + 'User.Bot');
+            const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
+            let cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 
-            try {
-                COMMONS_MODULE = require(pBotPath + "/" + 'Commons');
-            } catch (err) {
-                // Nothing happens since COMMONS modules are optional.
+            cloudStorage.initialize("AAPlatform", onInizialized, true);
+
+            function onInizialized(err) {
+
+                if (FULL_LOG === true) { logger.write("[INFO] initialize -> onInizialized -> Entering function."); }
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    let filePath = bot.devTeam + "/" + bot.repo + "/" + pProcessConfig.name;
+                    let fileName = "User.Bot.js";
+
+                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                    function onFileReceived(err, text) {
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                            logger.write("[ERROR] initialize -> onInizialized -> onFileReceived -> err.message = " + err.message); 
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            return;
+                        }
+
+                        try {
+
+                            USER_BOT_MODULE = {};
+                            USER_BOT_MODULE.newUserBot = eval(text);
+
+                            filePath = bot.devTeam + "/" + bot.repo;
+                            fileName = "Commons.js";
+
+                            cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                            function onFileReceived(err, text) {
+
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                    // Nothing happens since COMMONS modules are optional.
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
+                                }
+
+                                try {
+
+                                    COMMONS_MODULE = {};
+                                    COMMONS_MODULE.newCommons = eval(text);
+
+                                    filePath = bot.devTeam + "/" + bot.repo;
+                                    fileName = "Commons.js";
+
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                                } catch (err) {
+                                    logger.write("[ERROR] initialize -> onInizialized -> onFileReceived -> onFileReceived -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    bot.eventHandler.raiseEvent("Loop Finished");
+                                    return;
+                                }
+                            }
+                        } catch (err) {
+                            logger.write("[ERROR] initialize -> onInizialized -> onFileReceived -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            bot.eventHandler.raiseEvent("Loop Finished");
+                            return;
+                        }
+                    }
+
+                } else {
+                    logger.write("[ERROR] Root -> start -> getBotConfig -> onInizialized ->  err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    bot.eventHandler.raiseEvent("Loop Finished");
+                }
             }
-
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
-
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
             bot.eventHandler.raiseEvent("Loop Finished");

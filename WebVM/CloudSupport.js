@@ -17,8 +17,12 @@ function runBot() {
 
     let root = newRoot();
 
-    root.initialize();
-    root.start();
+    root.initialize(onInitialized);
+
+    function onInitialized() {
+
+        root.start();
+    }
 
 }
 
@@ -29,6 +33,19 @@ function webRequire(pModulePath) {
         case 'fs': {
 
             return newWebFS();
+        }
+        case './BlobStorage': {
+
+            return newBlobStorage();
+        }
+        case 'azure-storage': {
+
+            return AzureStorage.Blob;
+        }
+        case './DebugLog': {
+
+            return newDebugLog();
+
         }
     }
 }

@@ -33,6 +33,8 @@
         try {
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
+            processConfig = pProcessConfig;
+
             const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
             let cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 

@@ -35,10 +35,10 @@
     <Compile Include="Server\Permissions.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WebVM\CloudSupport.js">
+    <Compile Include="CloudVM\CloudSupport.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WebVM\WebFS.js">
+    <Compile Include="CloudVM\WebFS.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FloatingSpace\Note.js">
@@ -153,7 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />
-    <Folder Include="WebVM\" />
+    <Folder Include="CloudVM\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
     <Folder Include="Scripts\" />

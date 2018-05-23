@@ -346,10 +346,10 @@ function onBrowserRequest(request, response) {
             }
             break;
 
-        case "WebVM": // This means the Scripts folder.
+        case "CloudVM": // This means the Scripts folder.
             {
 
-                respondWithFile('./WebVM/' + requestParameters[2], response);
+                respondWithFile('./CloudVM/' + requestParameters[2], response);
 
             }
             break; 

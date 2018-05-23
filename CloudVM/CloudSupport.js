@@ -128,20 +128,30 @@ function webRequire(pModulePath) {
             MODULE.newDataDependencies = newDataDependencies;
             return MODULE;
         }
+        case './CloudRequire': {
+
+            let MODULE = {};
+            MODULE.newCloudRequire = newCloudRequire;
+            return MODULE;
+        }
         default: {
             console.log(pModulePath + " not found. ");
         }
     }
 }
 
-function downloadModule(pPath) {
+function downloadModule(pPath, callBackFunction) {
 
     /*  We will need this to load individual bots modules. */
 
-    Requirejs(["Scripts/DummyWeb"], function (DummyWeb) {
-        console.log("Dummy Web Loaded");
-    });
+    Requirejs([pPath], onRequired);
 
+    function onRequired(pModule) {
+
+        console.log(pPath + " downloaded.");
+
+        callBackFunction(pModule);
+    }
 }
 
 

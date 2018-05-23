@@ -59,12 +59,16 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> environment = " + environment); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> containerName = " + containerName); }
 
-            if (global.STORAGE_PERMISSIONS[environment][containerName].readConnectionString !== undefined) {
-                readOnlyBlobService = storage.createBlobService(global.STORAGE_PERMISSIONS[environment][containerName].readConnectionString);
+            let readConnectionString = global.STORAGE_PERMISSIONS[environment][containerName].readConnectionString;
+
+            if (readConnectionString !== undefined) {
+                readOnlyBlobService = storage.createBlobService(readConnectionString);
             }
 
-            if (global.STORAGE_PERMISSIONS[environment][containerName].writeConnectionString !== undefined) {
-                writeOnlyBlobService = storage.createBlobService(global.STORAGE_PERMISSIONS[environment][containerName].writeConnectionString);
+            let writeConnectionString = global.STORAGE_PERMISSIONS[environment][containerName].writeConnectionString;
+
+            if (writeConnectionString !== undefined) {
+                writeOnlyBlobService = storage.createBlobService(writeConnectionString);
             }
 
             if (readOnlyBlobService !== undefined || writeOnlyBlobService !== undefined) {
@@ -74,6 +78,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
             }          
         }
         catch (err) {
+
             logger.write("[ERROR] initialize -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }

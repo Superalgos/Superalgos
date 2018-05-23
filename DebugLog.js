@@ -171,6 +171,8 @@
 
     function write(Message) {
 
+        console.log(thisObject.fileName + " " + Message);
+
         if (firstCall === true) { createFolders(); }
 
         if (thisObject.bot.loopCounter !== loopCounter) {

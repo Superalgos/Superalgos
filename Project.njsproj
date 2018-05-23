@@ -26,6 +26,9 @@
     <Compile Include="BlobStorage.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CloudRequire.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataDependencies.js">
       <SubType>Code</SubType>
     </Compile>

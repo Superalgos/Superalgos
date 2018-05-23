@@ -63,7 +63,7 @@
 
                     if (loopCounter === undefined) { loopCounter = 0 };
 
-                    filePath = filePath + "/Loop." + loopCounter;
+                    filePath = filePath + "/Loop." + pad(loopCounter, 5);
 
                     cloudStorage.createTextFile(filePath, thisObject.fileName + ".json", blobContent + '\n' + "]", onFileCreated);
 

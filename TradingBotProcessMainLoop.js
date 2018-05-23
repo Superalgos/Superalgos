@@ -47,62 +47,40 @@
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    let filePath = bot.devTeam + "/" + bot.repo + "/" + pProcessConfig.name;
-                    let fileName = "User.Bot.js";
+                    /* We needed the cloudStorage initialized for both requesting the bot source code and, later requesting the AACloud condig at ShallWeStop function. */
 
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+                    const CLOUD_REQUIRE = require(ROOT_DIR + 'CloudRequire');
+                    let cloudRequire = CLOUD_REQUIRE.newCloudRequire(bot, DEBUG_MODULE);
 
-                    function onFileReceived(err, text) {
+                    cloudRequire.requireBot(cloudStorage, pProcessConfig, onBotRequired);
+
+                    function onBotRequired(err, pMODULE) {
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                            logger.write("[ERROR] initialize -> onInizialized -> onFileReceived -> err.message = " + err.message); 
+                            logger.write("[ERROR] initialize -> onInizialized -> onBotRequired -> err.message = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             bot.eventHandler.raiseEvent("Loop Finished");
                             return;
                         }
 
-                        try {
+                        USER_BOT_MODULE = pMODULE;
 
-                            USER_BOT_MODULE = {};
-                            USER_BOT_MODULE.newUserBot = eval(text);
+                        cloudRequire.requireCommons(cloudStorage, onCommonsRequired);
 
-                            filePath = bot.devTeam + "/" + bot.repo;
-                            fileName = "Commons.js";
+                        function onCommonsRequired(err, pMODULE) {
 
-                            cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                            function onFileReceived(err, text) {
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    // Nothing happens since COMMONS modules are optional.
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                    return;
-                                }
-
-                                try {
-
-                                    COMMONS_MODULE = {};
-                                    COMMONS_MODULE.newCommons = eval(text);
-
-                                    filePath = bot.devTeam + "/" + bot.repo;
-                                    fileName = "Commons.js";
-
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-                                } catch (err) {
-                                    logger.write("[ERROR] initialize -> onInizialized -> onFileReceived -> onFileReceived -> err.message = " + err.message);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    bot.eventHandler.raiseEvent("Loop Finished");
-                                    return;
-                                }
+                                logger.write("[ERROR] initialize -> onInizialized -> onBotRequired -> onCommonsRequired -> err.message = " + err.message);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                bot.eventHandler.raiseEvent("Loop Finished");
+                                return;
                             }
-                        } catch (err) {
-                            logger.write("[ERROR] initialize -> onInizialized -> onFileReceived -> err.message = " + err.message);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            bot.eventHandler.raiseEvent("Loop Finished");
-                            return;
+
+                            COMMONS_MODULE = pMODULE;
+
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                         }
                     }
 

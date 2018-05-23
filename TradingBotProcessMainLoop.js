@@ -1,4 +1,4 @@
-﻿exports.newTradingBotMainLoop = function newTradingBotMainLoop(BOT) {
+﻿exports.newTradingBotProcessMainLoop = function newTradingBotProcessMainLoop(BOT) {
 
     let bot = BOT;
     const ROOT_DIR = './';

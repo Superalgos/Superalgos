@@ -1,4 +1,4 @@
-﻿exports.newExtractionBotMainLoop = function newExtractionBotMainLoop(BOT) {
+﻿exports.newExtractionBotProcessMainLoop = function newExtractionBotProcessMainLoop(BOT) {
 
     let bot = BOT;
     const ROOT_DIR = './';

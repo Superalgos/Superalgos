@@ -500,7 +500,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess ->runExtractionBot -> pMonth = " + pMonth); }
                             if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess ->runExtractionBot -> pYear = " + pYear); }
 
-                            let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotMainLoop(pBotConfig);
+                            let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotProcessMainLoop(pBotConfig);
                             extractionBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
@@ -552,7 +552,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> runIndicatorBot -> pMonth = " + pMonth); }
                             if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> runIndicatorBot -> pYear = " + pYear); }
 
-                            let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotMainLoop(pBotConfig);
+                            let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotProcessMainLoop(pBotConfig);
                             indicatorBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
@@ -602,7 +602,7 @@ exports.newRoot = function newRoot() {
                         try {
                             if (FULL_LOG === true) { logger.write("[INFO] Root -> start -> findProcess -> runTradingBot -> Entering function."); }
 
-                            let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotMainLoop(pBotConfig);
+                            let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotProcessMainLoop(pBotConfig);
                             tradingBotMainLoop.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {

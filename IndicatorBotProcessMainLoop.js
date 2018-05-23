@@ -1,4 +1,4 @@
-﻿exports.newIndicatorBotMainLoop = function newIndicatorBotMainLoop(BOT) {
+﻿exports.newIndicatorBotProcessMainLoop = function newIndicatorBotProcessMainLoop(BOT) {
 
     let bot = BOT;
     const ROOT_DIR = './';

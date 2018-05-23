@@ -77,9 +77,21 @@ function initialize() {
 
                     function onInitialized() {
 
-                        HTMLCloudScripts = pHTMLCloudScripts;
-                        startHtttpServer();
+                        const BOT_SCRIPTS = require('./Server/BotsScripts');
+                        let botScripts = BOT_SCRIPTS.newBotScripts();
 
+                        botScripts.initialize(ecosystem, ecosystemObject, serverConfig, githubData, storageData, fileSystemData, onInitialized);
+
+                        function onInitialized() {
+
+                            botScripts.loadBotScripts(onScriptsLoaded);
+
+                            function onScriptsLoaded(){
+
+                                HTMLCloudScripts = pHTMLCloudScripts;
+                                startHtttpServer();
+                            }
+                        }
                     }
                 }
             }
@@ -406,6 +418,68 @@ function onBrowserRequest(request, response) {
 
                     if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> Script Not Found."); }
                     if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> requestParameters[2] = " + requestParameters[2]); }
+
+                    respondWithContent("", response);
+                }
+            }
+            break; 
+
+        case "Bots": // This means the cloud folder.
+            {
+
+                let map;
+
+                switch (serverConfig.configAndPlugins.Location) {
+
+                    case 'Cloud': {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
+
+                        map = storageData;
+                        break;
+                    }
+
+                    case 'File System': {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
+
+                        map = fileSystemData;
+                        break;
+                    }
+
+                    case 'Github': {
+
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
+
+                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
+
+                        map = githubData;
+                        break;
+                    }
+                }
+
+                let key;
+
+                if (requestParameters[4] !== undefined) {
+
+                    key = requestParameters[2] + "." + requestParameters[3] + "." + requestParameters[4];
+
+                } else {
+
+                    key = requestParameters[2] + "." + requestParameters[3];
+
+                }
+
+                let script = map.get(key);
+
+                if (script !== undefined) {
+
+                    respondWithContent(script, response);
+
+                } else {
+
+                    if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> Script Not Found."); }
+                    if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> key = " + key); }
 
                     respondWithContent("", response);
                 }

@@ -35,6 +35,9 @@
     <Compile Include="CloudVM\CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Server\BotsScripts.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Server\Permissions.js">
       <SubType>Code</SubType>
     </Compile>
@@ -75,7 +78,6 @@
     <Compile Include="NewBot.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Scripts\DummyWeb.js" />
     <Compile Include="Scripts\require.js" />
     <Compile Include="Server\CloudScripts.js">
       <SubType>Code</SubType>

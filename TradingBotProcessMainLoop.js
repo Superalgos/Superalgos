@@ -52,13 +52,13 @@
                     const CLOUD_REQUIRE = require(ROOT_DIR + 'CloudRequire');
                     let cloudRequire = CLOUD_REQUIRE.newCloudRequire(bot, DEBUG_MODULE);
 
-                    cloudRequire.requireBot(cloudStorage, pProcessConfig, onBotRequired);
+                    cloudRequire.downloadBot(cloudStorage, pProcessConfig, onBotDownloaded);
 
-                    function onBotRequired(err, pMODULE) {
+                    function onBotDownloaded(err, pMODULE) {
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                            logger.write("[ERROR] initialize -> onInizialized -> onBotRequired -> err.message = " + err.message);
+                            logger.write("[ERROR] initialize -> onInizialized -> onBotDownloaded -> err.message = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             bot.eventHandler.raiseEvent("Loop Finished");
                             return;
@@ -66,13 +66,13 @@
 
                         USER_BOT_MODULE = pMODULE;
 
-                        cloudRequire.requireCommons(cloudStorage, onCommonsRequired);
+                        cloudRequire.downloadCommons(cloudStorage, onCommonsDownloaded);
 
-                        function onCommonsRequired(err, pMODULE) {
+                        function onCommonsDownloaded(err, pMODULE) {
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                logger.write("[ERROR] initialize -> onInizialized -> onBotRequired -> onCommonsRequired -> err.message = " + err.message);
+                                logger.write("[ERROR] initialize -> onInizialized -> onBotDownloaded -> onCommonsDownloaded -> err.message = " + err.message);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 bot.eventHandler.raiseEvent("Loop Finished");
                                 return;

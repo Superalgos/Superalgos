@@ -13,17 +13,17 @@
     logger.initialize();
 
     let thisObject = {
-        requireBot: requireBot,
-        requireCommons: requireCommons
+        downloadBot: downloadBot,
+        downloadCommons: downloadCommons
     };
 
     return thisObject;
 
-    function requireBot(pCloudStorage, pProcessConfig, callBackFunction) {
+    function downloadBot(pCloudStorage, pProcessConfig, callBackFunction) {
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] requireBot -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] downloadBot -> Entering function."); }
 
             let filePath = bot.devTeam + "/" + bot.repo + "/" + pProcessConfig.name;
             let fileName = "User.Bot.js";
@@ -34,7 +34,7 @@
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                    logger.write("[ERROR] requireBot -> onFileReceived -> err.message = " + err.message);
+                    logger.write("[ERROR] downloadBot -> onFileReceived -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -47,23 +47,23 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE, USER_BOT_MODULE);
 
                 } catch (err) {
-                    logger.write("[ERROR] requireBot -> onFileReceived -> err.message = " + err.message);
+                    logger.write("[ERROR] downloadBot -> onFileReceived -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] requireBot -> err = " + err.message);
+            logger.write("[ERROR] downloadBot -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function requireCommons(pCloudStorage, callBackFunction) {
+    function downloadCommons(pCloudStorage, callBackFunction) {
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] requireCommons -> Entering function."); }
+            if (FULL_LOG === true) { logger.write("[INFO] downloadCommons -> Entering function."); }
 
             let filePath = bot.devTeam + "/" + bot.repo;
             let fileName = "Commons.js";
@@ -87,14 +87,14 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE, COMMONS_MODULE);
 
                 } catch (err) {
-                    logger.write("[ERROR] requireCommons -> onFileReceived -> err.message = " + err.message);
+                    logger.write("[ERROR] downloadCommons -> onFileReceived -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] requireCommons -> err = " + err.message);
+            logger.write("[ERROR] downloadCommons -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

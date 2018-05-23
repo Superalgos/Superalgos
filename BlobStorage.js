@@ -35,19 +35,11 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
             containerName = pDataOwner.toLowerCase();
 
-            if (disableLogging === true) {
-
-                FULL_LOG = false;
-                LOG_FILE_CONTENT = false;
-
-            } else {
-                logger = DEBUG_MODULE.newDebugLog();
-                logger.fileName = MODULE_NAME;
-                logger.bot = bot;
-                logger.initialize();
-
-                logger.fileName = MODULE_NAME + '.' + pDataOwner;
-            }
+            logger = DEBUG_MODULE.newDebugLog();
+            logger.fileName = MODULE_NAME;
+            logger.bot = bot;
+            logger.fileName = MODULE_NAME + '.' + pDataOwner;
+            logger.initialize(disableLogging);
 
             if (pDataOwner.environment !== undefined) { // This is use for data migration from one environment to the other.
 

@@ -28,12 +28,17 @@
 
     let blobContent = "[";
 
+    let disableCloudLogging;
+
     return thisObject;
 
-    function initialize() {
+    function initialize(pDisableCloudLogging) {
 
-        thisObject.bot.eventHandler.listenToEvent("Loop Finished", onLoopFinished);
+        disableCloudLogging = pDisableCloudLogging
 
+        if (disableCloudLogging !== true) {
+            thisObject.bot.eventHandler.listenToEvent("Loop Finished", onLoopFinished);
+        }
     }
 
     function onLoopFinished(event) {
@@ -173,7 +178,9 @@
 
         console.log(thisObject.fileName + " " + Message);
 
-        if (firstCall === true) { createFolders(); }
+        if (thisObject.bot === undefined) { return;}
+
+        if (firstCall === true && global.CURRENT_LOCATION === "Cloud") { createFolders(); }
 
         if (thisObject.bot.loopCounter !== loopCounter) {
 

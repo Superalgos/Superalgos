@@ -1,5 +1,6 @@
 ﻿
 global.CURRENT_ENVIRONMENT = "Develop"; 
+global.CURRENT_LOCATION = "Cloud"; 
 
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);

@@ -38,6 +38,9 @@
     },
     {
       "name": "TradingBotProcessMainLoop"
+    },
+    {
+      "name": "DataSet"
     }
   ]
 }

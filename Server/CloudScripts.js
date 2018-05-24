@@ -276,7 +276,7 @@
             function createHTML(callBackfunction) {
 
                 let links = "";
-                let htmlLine = '' + '\n' + '    <script type="text/javascript" src="Cloud/@module@"></script>'
+                let htmlLine = '' + '\n' + '    <script type="text/javascript" src="AACloud/@module@"></script>'
 
                 for (let i = 0; i < pCloudWebConfig.webModules.length; i++) {
 

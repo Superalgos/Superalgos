@@ -1,6 +1,7 @@
-﻿function newPoloniexAPIClient() {
+﻿function newPoloniexAPIClient(pKey, pSecret) {
 
-    let newFunction = new API(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
+    let key = pKey;
+    let secret = pSecret;
 
     let thisObject = {
         API: {
@@ -77,8 +78,8 @@
 
         let path = "PloniexAPIClinet" + "/" 
             + "returnOpenOrders" + "/" 
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret + "/"
+            + key + "/"
+            + secret + "/"
             + pMarketAssetA + "/"
             + pMarketAssetB
             ;
@@ -96,8 +97,8 @@
 
         let path = "PloniexAPIClinet" + "/"
             + "returnOrderTrades" + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret + "/"
+            + key + "/"
+            + secret + "/"
             + pPositionId
             ;
 
@@ -114,8 +115,8 @@
 
         let path = "PloniexAPIClinet" + "/"
             + "buy" + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret + "/"
+            + key + "/"
+            + secret + "/"
             + pMarketAssetB + "/"
             + pRate + "/"
             + pAmountB
@@ -134,8 +135,8 @@
 
         let path = "PloniexAPIClinet" + "/"
             + "sell" + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret + "/"
+            + key + "/"
+            + secret + "/"
             + pMarketAssetB + "/"
             + pRate + "/"
             + pAmountB
@@ -154,8 +155,8 @@
 
         let path = "PloniexAPIClinet" + "/"
             + "moveOrder" + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret + "/"
+            + key + "/"
+            + secret + "/"
             + pPositionId + "/"
             + pNewRate + "/"
             + pPositionAmountB
@@ -174,8 +175,8 @@
 
         let path = "PloniexAPIClinet" + "/"
             + "returnTicker" + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key + "/"
-            + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret
+            + key + "/"
+            + secret
             ;
 
         callServer(path, onServerResponse);

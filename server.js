@@ -424,7 +424,7 @@ function onBrowserRequest(request, response) {
             }
             break; 
             
-        case "Cloud": // This means the cloud folder.
+        case "AACloud": // This means the cloud folder.
             {
 
                 let map;

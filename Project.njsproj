@@ -36,6 +36,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudVM\PoloniexAPIClient.js" />
+    <Compile Include="Exchanges\PoloniexAPIClient.js" />
     <Compile Include="Server\BotsScripts.js">
       <SubType>Code</SubType>
     </Compile>
@@ -160,6 +161,7 @@
   <ItemGroup>
     <Folder Include="Azure\" />
     <Folder Include="CloudVM\" />
+    <Folder Include="Exchanges\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
     <Folder Include="Scripts\" />

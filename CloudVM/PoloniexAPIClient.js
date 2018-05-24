@@ -82,8 +82,14 @@
             + pMarketAssetA + "/"
             + pMarketAssetB
             ;
-        callServer(callBackFunction);
 
+        callServer(path, onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+
+            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+
+        }
     }
 
     function returnOrderTrades(pPositionId, callBackFunction) {
@@ -94,8 +100,14 @@
             + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret + "/"
             + pPositionId
             ;
-        callServer(callBackFunction);
 
+        callServer(path, onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+
+            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+
+        }
     }
 
     function buy(pMarketAssetA, pMarketAssetB, pRate, pAmountB, callBackFunction) {
@@ -108,8 +120,14 @@
             + pRate + "/"
             + pAmountB
             ;
-        callServer(callBackFunction);
 
+        callServer(path, onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+
+            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+
+        }
     }
 
     function sell(pMarketAssetA, pMarketAssetB, pRate, pAmountB, callBackFunction) {
@@ -122,8 +140,14 @@
             + pRate + "/"
             + pAmountB
             ;
-        callServer(callBackFunction);
 
+        callServer(path, onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+
+            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+
+        }
     }
 
     function moveOrder(pPositionId, pNewRate, pPositionAmountB, callBackFunction) {
@@ -136,8 +160,14 @@
             + pNewRate + "/"
             + pPositionAmountB
             ;
-        callServer(callBackFunction);
 
+        callServer(path, onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+
+            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+
+        }
     }
 
     function returnTicker(callBackFunction) {
@@ -147,8 +177,13 @@
             + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key + "/"
             + global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret
             ;
-        callServer(callBackFunction);
 
+        callServer(path, onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+
+            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+
+        }
     }
-
 }

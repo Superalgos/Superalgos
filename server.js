@@ -374,6 +374,56 @@ function onBrowserRequest(request, response) {
             }
             break; 
 
+        case "PoloniexAPIClient": // This is trying to access this library functionality from the broser.
+            {
+                const POLONIEX_CLIENT_MODULE = require('./Exchanges/' + 'PoloniexAPIClient');
+                let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(requestParameters[3], requestParameters[4]);
+
+                switch (requestParameters[2]) {
+
+                    case "returnOpenOrders": {
+                        poloniexApiClient.returnOpenOrders(requestParameters[5], requestParameters[6], onExchangeResponse)
+                        break;
+                    }
+
+                    case "returnOrderTrades": {
+                        poloniexApiClient.returnOrderTrades(requestParameters[5], onExchangeResponse)
+                        break;
+                    }
+
+                    case "buy": {
+                        poloniexApiClient.buy(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse)
+                        break;
+                    }
+
+                    case "sell": {
+                        poloniexApiClient.buy(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse)
+                        break;
+                    }
+
+                    case "moveOrder": {
+                        poloniexApiClient.buy(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse)
+                        break;
+                    }
+
+                    case "returnTicker": {
+                        poloniexApiClient.returnTicker(onExchangeResponse)
+                        break;
+                    }
+                }
+
+                function onExchangeResponse(err, exchangeResponse) {
+
+                    let serverResponse = {
+                        err: err,
+                        exchangeResponse: exchangeResponse
+                    }
+
+                    respondWithContent(serverResponse, response);
+                }
+            }
+            break; 
+            
         case "Cloud": // This means the cloud folder.
             {
 

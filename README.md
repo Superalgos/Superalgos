@@ -26,7 +26,7 @@ My datasets are ideal for statistical analysis of prices and for identifying tre
 Pending.
 
 ### Compatible Plotters
-[AAMasters Plotters-Candles-Volumes](https://github.com/AAMasters/Plotters-Candles-Volumes)
+[AAMasters Plotters-Linear-Regression-Curve](https://github.com/AAMasters/Plotters-Linear-Regression-Curve)
 
 ### Dependencies
 [AAMasters Olivia](https://github.com/AAMasters/AAOlivia-Indicator-Bot)

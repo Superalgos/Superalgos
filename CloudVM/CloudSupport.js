@@ -148,9 +148,11 @@ function downloadModule(pPath, callBackFunction) {
 
     function onRequired(pModule) {
 
-        console.log(pPath + " downloaded.");
+        console.log("CloudVM " + pPath + " downloaded.");
 
-        callBackFunction(pModule);
+        let MODULE = {};
+        MODULE.newUserBot = newUserBot;
+        callBackFunction(MODULE);
     }
 }
 

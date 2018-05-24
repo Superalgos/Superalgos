@@ -121,7 +121,7 @@ function startHtttpServer() {
 function onBrowserRequest(request, response) {
 
     if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> Entering function."); }
-    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> request.url = " + request.url); }
+    if (CONSOLE_LOG === true && request.url.indexOf("NO-LOG") === -1) { console.log("[INFO] server -> onBrowserRequest -> request.url = " + request.url); }
 
     var htmlResponse;
     var requestParameters = request.url.split("/");
@@ -413,6 +413,11 @@ function onBrowserRequest(request, response) {
                 }
 
                 function onExchangeResponse(err, exchangeResponse) {
+
+                    /* Delete these secrets before they get logged. */
+
+                    requestParameters[3] = "";
+                    requestParameters[4] = "";
 
                     let serverResponse = {
                         err: err,

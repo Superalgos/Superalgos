@@ -1,5 +1,8 @@
 ﻿function newPoloniexAPIClient(pKey, pSecret) {
 
+    const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
+
     let key = pKey;
     let secret = pSecret;
 
@@ -26,9 +29,9 @@
             let stringExchangeResponse = JSON.stringify(exchangeResponse);
             let stringExchangeErr = JSON.stringify(exchangeErr);
 
-            logger.write("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr);
-            logger.write("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse);
-
+            if (FULL_LOG === true) { logger.write("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
+            if (LOG_FILE_CONTENT === true) { logger.write("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
+       
             if (stringExchangeErr.indexOf("ETIMEDOUT") > 0 ||
                 stringExchangeErr.indexOf("ENOTFOUND") > 0 ||
                 stringExchangeErr.indexOf("ECONNREFUSED") > 0 ||
@@ -84,7 +87,7 @@
             + pMarketAssetB
             ;
 
-        callServer(path, onServerResponse);
+        callServer(path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -103,7 +106,7 @@
             + pPositionId
             ;
 
-        callServer(path, onServerResponse);
+        callServer(path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -124,7 +127,7 @@
             + pAmountB
             ;
 
-        callServer(path, onServerResponse);
+        callServer(path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -145,7 +148,7 @@
             + pAmountB
             ;
 
-        callServer(path, onServerResponse);
+        callServer(path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -166,7 +169,7 @@
             + pPositionAmountB
             ;
 
-        callServer(path, onServerResponse);
+        callServer(path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -184,7 +187,7 @@
             + secret
             ;
 
-        callServer(path, onServerResponse);
+        callServer(path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 

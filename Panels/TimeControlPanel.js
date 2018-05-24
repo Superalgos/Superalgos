@@ -5,7 +5,7 @@ function newTimeControlPanel() {
 
     let PLAY_STEP = 0; 
 
-    var thisObject = {
+    let thisObject = {
         container: undefined,
         buttons: undefined,
         setDatetime: setDatetime, 
@@ -16,13 +16,13 @@ function newTimeControlPanel() {
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     container.isDraggeable = true;
     thisObject.container = container;
     thisObject.container.frame.containerName = "Time Control Panel";
 
-    var playingLoop;                    // Controls the generation of events that allows to play continuosly the market. 
+    let playingLoop;                    // Controls the generation of events that allows to play continuosly the market. 
 
     return thisObject;     
 
@@ -31,33 +31,33 @@ function newTimeControlPanel() {
 
     function initialize() {
 
-        this.container.frame.width = 200;
-        this.container.frame.height = 85;
+        thisObject.container.frame.width = 200;
+        thisObject.container.frame.height = 85;
 
-        var position = {
-            x: (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 - this.container.frame.width / 2,
+        let position = {
+            x: (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 - thisObject.container.frame.width / 2,
             y: 0
         };
 
-        this.container.frame.position = position;
+        thisObject.container.frame.position = position;
 
-        var buttonPosition;
+        let buttonPosition;
 
-        var buttonNames = ['Fast Backwards', 'Play Backwards', 'Step Backwards', 'Pause', 'Step Forward', 'Play Forward', 'Fast Forward'];
-        var lastX = 0;
-        var buttons = [];
+        let buttonNames = ['Fast Backwards', 'Play Backwards', 'Step Backwards', 'Pause', 'Step Forward', 'Play Forward', 'Fast Forward'];
+        let lastX = 0;
+        let buttons = [];
 
-        for (var i = 0; i < buttonNames.length; i++) {
+        for (let i = 0; i < buttonNames.length; i++) {
 
             /* Buttons are going to be one at the right of the other. */
 
-            var button = newButton();
+            let button = newButton();
             button.type = buttonNames[i];
 
-            button.container.displacement.parentDisplacement = this.container.displacement;
-            button.container.frame.parentFrame = this.container.frame;
+            button.container.displacement.parentDisplacement = thisObject.container.displacement;
+            button.container.frame.parentFrame = thisObject.container.frame;
 
-            button.container.parentContainer = this.container;
+            button.container.parentContainer = thisObject.container;
 
             button.initialize();
 
@@ -88,7 +88,7 @@ function newTimeControlPanel() {
 
         let datetime = INITIAL_DATE;
 
-        var datetimeDisplay = {
+        let datetimeDisplay = {
             currentDatetime: datetime,
             addTime: addTime,
             draw: drawTimeDisplay
@@ -106,18 +106,18 @@ function newTimeControlPanel() {
 
     function getContainer(point) {
 
-        var container;
+        let container;
 
-        /* First we check if this point is inside this space. */
+        /* First we check if thisObject point is inside thisObject space. */
 
-        if (this.container.frame.isThisPointHere(point, true) === true) {
+        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
 
             /* Now we see which is the inner most container that has it */
 
 
-            for (var i = 0; i < this.buttons.length; i++) {
+            for (let i = 0; i < thisObject.buttons.length; i++) {
 
-                container = this.buttons[i].getContainer(point);
+                container = thisObject.buttons[i].getContainer(point);
 
                 if (container !== undefined) {
 
@@ -129,11 +129,11 @@ function newTimeControlPanel() {
 
             /* The point does not belong to any inner container, so we return the current container. */
 
-            return this.container;
+            return thisObject.container;
 
         } else {
 
-            /* This point does not belong to this space. */
+            /* This point does not belong to thisObject space. */
 
             return undefined;
         }
@@ -158,7 +158,7 @@ function newTimeControlPanel() {
 
     function addTime(seconds) {
 
-        var newDate = thisObject.datetimeDisplay.currentDatetime;
+        let newDate = thisObject.datetimeDisplay.currentDatetime;
 
         newDate.setSeconds(newDate.getSeconds() + seconds);
         thisObject.datetimeDisplay.currentDatetime = newDate;
@@ -171,11 +171,11 @@ function newTimeControlPanel() {
 
         /* When any of the buttons are pressed, the control panel must turn off the resto of the buttons. */
 
-        for (var i = 0; i < thisObject.buttons.length; i++) {
+        for (let i = 0; i < thisObject.buttons.length; i++) {
 
             if (i !== buttonPressedIndex) {
 
-                var button = thisObject.buttons[i];
+                let button = thisObject.buttons[i];
 
                 button.status = 'off';
 
@@ -205,6 +205,7 @@ function newTimeControlPanel() {
             case "Pause":
 
                 pressPause();
+                stopBot();
                 break;
 
             case "Step Forward":
@@ -215,7 +216,7 @@ function newTimeControlPanel() {
             case "Play Forward":
 
                 runBot();
-                //pressPlayForward();
+                pressPlayForward();
                 break;
 
             case "Fast Forward":
@@ -248,7 +249,7 @@ function newTimeControlPanel() {
 
         thisObject.datetimeDisplay.addTime(-1 * PLAY_STEP / 1000);
 
-        var newDatetime = thisObject.datetimeDisplay.currentDatetime;
+        let newDatetime = thisObject.datetimeDisplay.currentDatetime;
 
         thisObject.container.eventHandler.raiseEvent('Datetime Changed', newDatetime);
 
@@ -262,7 +263,7 @@ function newTimeControlPanel() {
 
         thisObject.datetimeDisplay.addTime(PLAY_STEP / 1000);
 
-        var newDatetime = thisObject.datetimeDisplay.currentDatetime;
+        let newDatetime = thisObject.datetimeDisplay.currentDatetime;
 
         thisObject.container.eventHandler.raiseEvent('Datetime Changed', newDatetime);
 
@@ -287,11 +288,11 @@ function newTimeControlPanel() {
 
         thisObject.container.frame.draw(false, false, true);
 
-        for (var i = 0; i < thisObject.buttons.length; i++) {
+        for (let i = 0; i < thisObject.buttons.length; i++) {
             thisObject.buttons[i].draw();
         }
 
-        this.datetimeDisplay.draw();
+        thisObject.datetimeDisplay.draw();
 
     }
 

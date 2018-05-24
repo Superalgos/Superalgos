@@ -11,6 +11,8 @@ When running at the clode on NodeJS some things work diffently that at the brows
 
 function runBot() {
 
+    window.SHALL_BOT_STOP = false;
+
     window.CURRENT_ENVIRONMENT = "Develop"; 
     window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
     window.EXCHANGE_KEYS = ecosystem.getExchangeKeys();
@@ -23,6 +25,12 @@ function runBot() {
 
         root.start();
     }
+
+}
+
+function stopBot() {
+
+    window.SHALL_BOT_STOP = true;
 
 }
 

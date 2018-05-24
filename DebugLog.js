@@ -176,7 +176,7 @@
 
     function write(Message) {
 
-        console.log(thisObject.fileName + " " + Message);
+        console.log("AACloud" + spacePad(thisObject.fileName, 40) + " : " + Message);
 
         if (thisObject.bot === undefined) { return;}
 
@@ -290,6 +290,11 @@
     function pad(str, max) {
         str = str.toString();
         return str.length < max ? pad("0" + str, max) : str;
+    }
+
+    function spacePad(str, max) {
+        str = str.toString();
+        return str.length < max ? spacePad(" " + str, max) : str;
     }
 
     function deleteLoopFolder(pFolderPath) {

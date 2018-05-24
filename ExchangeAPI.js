@@ -36,7 +36,7 @@
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            poloniexApiClient = new POLONIEX_CLIENT_MODULE(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
+            poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -54,7 +54,7 @@
             if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> Entering function."); }
             if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
 
-            poloniexApiClient.returnOpenOrders(pMarket.assetA, pMarket.assetB, onExchangeCallReturned);
+            poloniexApiClient.API.returnOpenOrders(pMarket.assetA, pMarket.assetB, onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 
@@ -64,7 +64,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 
@@ -120,7 +120,7 @@
             if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> Entering function."); }
             if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> pPositionId = " + pPositionId); }
 
-            poloniexApiClient.returnOrderTrades(pPositionId, onExchangeCallReturned);
+            poloniexApiClient.API.returnOrderTrades(pPositionId, onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 
@@ -130,7 +130,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 
@@ -198,12 +198,12 @@
             if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             if (pType === "buy") {
-                poloniexApiClient.buy(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
+                poloniexApiClient.API.buy(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
                 return;
             } 
 
             if (pType === "sell") {
-                poloniexApiClient.sell(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
+                poloniexApiClient.API.sell(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
                 return;
             }
 
@@ -219,7 +219,7 @@
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
                     if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
-                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 
@@ -265,7 +265,7 @@
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
 
-            poloniexApiClient.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
+            poloniexApiClient.API.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 
@@ -275,7 +275,7 @@
 
                 try {
 
-                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 
@@ -324,7 +324,7 @@
 
             if (FULL_LOG === true) { logger.write("[INFO] getTicker -> Entering function."); }
 
-            poloniexApiClient.returnTicker(onExchangeCallReturned);
+            poloniexApiClient.API.returnTicker(onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 
@@ -334,7 +334,7 @@
 
                 try {
 
-                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 

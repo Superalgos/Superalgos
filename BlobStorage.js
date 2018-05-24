@@ -1,7 +1,7 @@
 ﻿
 exports.newBlobStorage = function newBlobStorage(BOT) {
 
-    let FULL_LOG = true;
+    let FULL_LOG = false;
     let LOG_FILE_CONTENT = false;
 
     let bot = BOT;

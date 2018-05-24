@@ -35,6 +35,7 @@
     <Compile Include="CloudVM\CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CloudVM\PoloniexAPIClient.js" />
     <Compile Include="Server\BotsScripts.js">
       <SubType>Code</SubType>
     </Compile>

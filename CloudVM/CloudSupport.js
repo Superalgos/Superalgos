@@ -144,7 +144,7 @@ function downloadModule(pPath, callBackFunction) {
 
     /*  We will need this to load individual bots modules. */
 
-    Requirejs([pPath], onRequired);
+    REQUIREJS([pPath], onRequired);
 
     function onRequired(pModule) {
 
@@ -153,5 +153,21 @@ function downloadModule(pPath, callBackFunction) {
         callBackFunction(pModule);
     }
 }
+
+function callServer(pPath, callBackFunction) {
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            callBackFunction(xhttp.responseText);
+
+        }
+    };
+    xhttp.open("GET", pPath, true);
+    xhttp.send();
+
+}
+
 
 

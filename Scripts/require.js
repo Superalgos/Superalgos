@@ -1,19 +1,19 @@
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.3.5 Copyright jQuery Foundation and other contributors.
- * Released under MIT license, https://github.com/Requirejs/Requirejs/blob/master/LICENSE
+ * Released under MIT license, https://github.com/REQUIREJS/REQUIREJS/blob/master/LICENSE
  */
 //Not using strict: uneven strict support in browsers, #392, and causes
-//problems with Requirejs.exec()/transpiler plugins that may not be strict.
+//problems with REQUIREJS.exec()/transpiler plugins that may not be strict.
 /*jslint regexp: true, nomen: true, sloppy: true */
 /*global window, navigator, document, importScripts, setTimeout, opera */
 
-var Requirejs, Require, Define;
+var REQUIREJS, REQUIRE, DEFINE;
 (function (global, setTimeout) {
     var req, s, head, baseElement, dataMain, src,
         interactiveScript, currentlyAddingScript, mainScript, subPath,
         version = '2.3.5',
         commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,
-        cjsRequireRegExp = /[^.]\s*Require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
+        cjsRequireRegExp = /[^.]\s*REQUIRE\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
         jsSuffixRegExp = /\.js$/,
         currDirRegExp = /^\.\//,
         op = Object.prototype,
@@ -165,7 +165,7 @@ var Requirejs, Require, Define;
      * @returns {Error}
      */
     function makeError(id, msg, err, requireModules) {
-        var e = new Error(msg + '\nhttp://Requirejs.org/docs/errors.html#' + id);
+        var e = new Error(msg + '\nhttp://REQUIREJS.org/docs/errors.html#' + id);
         e.requireType = id;
         e.requireModules = requireModules;
         if (err) {
@@ -174,26 +174,26 @@ var Requirejs, Require, Define;
         return e;
     }
 
-    if (typeof Define !== 'undefined') {
-        //If a Define is already in play via another AMD loader,
+    if (typeof DEFINE !== 'undefined') {
+        //If a DEFINE is already in play via another AMD loader,
         //do not overwrite.
         return;
     }
 
-    if (typeof Requirejs !== 'undefined') {
-        if (isFunction(Requirejs)) {
-            //Do not overwrite an existing Requirejs instance.
+    if (typeof REQUIREJS !== 'undefined') {
+        if (isFunction(REQUIREJS)) {
+            //Do not overwrite an existing REQUIREJS instance.
             return;
         }
-        cfg = Requirejs;
-        Requirejs = undefined;
+        cfg = REQUIREJS;
+        REQUIREJS = undefined;
     }
 
-    //Allow for a Require config object
-    if (typeof Require !== 'undefined' && !isFunction(Require)) {
+    //Allow for a REQUIRE config object
+    if (typeof REQUIRE !== 'undefined' && !isFunction(REQUIRE)) {
         //assume it is a config object.
-        cfg = Require;
-        Require = undefined;
+        cfg = REQUIRE;
+        REQUIRE = undefined;
     }
 
     function newContext(contextName) {
@@ -373,9 +373,9 @@ var Requirejs, Require, Define;
                 //Pop off the first array value, since it failed, and
                 //retry
                 pathConfig.shift();
-                context.Require.undef(id);
+                context.REQUIRE.undef(id);
 
-                //Custom Require that does not do map translation, since
+                //Custom REQUIRE that does not do map translation, since
                 //ID is "absolute", already mapped/resolved.
                 context.makeRequire(null, {
                     skipMap: true
@@ -401,13 +401,13 @@ var Requirejs, Require, Define;
         /**
          * Creates a module mapping that includes plugin prefix, module
          * name, and path. If parentModuleMap is provided it will
-         * also normalize the name via Require.normalize()
+         * also normalize the name via REQUIRE.normalize()
          *
          * @param {String} name the module name
          * @param {String} [parentModuleMap] parent module map
          * for the module name, used to resolve relative names.
          * @param {Boolean} isNormalized: is the ID already normalized.
-         * This is true if this call is done for a Define() module ID.
+         * This is true if this call is done for a DEFINE() module ID.
          * @param {Boolean} applyMap: apply the map config to the ID.
          * Should only be true if this map is for a dependency.
          *
@@ -421,7 +421,7 @@ var Requirejs, Require, Define;
                 isDefine = true,
                 normalizedName = '';
 
-            //If no name, then it means it is a Require call, generate an
+            //If no name, then it means it is a REQUIRE call, generate an
             //internal name.
             if (!name) {
                 isDefine = false;
@@ -570,11 +570,11 @@ var Requirejs, Require, Define;
         }
 
         handlers = {
-            'Require': function (mod) {
-                if (mod.Require) {
-                    return mod.Require;
+            'REQUIRE': function (mod) {
+                if (mod.REQUIRE) {
+                    return mod.REQUIRE;
                 } else {
-                    return (mod.Require = context.makeRequire(mod.map));
+                    return (mod.REQUIRE = context.makeRequire(mod.map));
                 }
             },
             'exports': function (mod) {
@@ -745,7 +745,7 @@ var Requirejs, Require, Define;
                 options = options || {};
 
                 //Do not do more inits if already done. Can happen if there
-                //are multiple Define calls for the same module. That is not
+                //are multiple DEFINE calls for the same module. That is not
                 //a normal, common case, but it is also not unexpected.
                 if (this.inited) {
                     return;
@@ -836,8 +836,8 @@ var Requirejs, Require, Define;
             },
 
             /**
-             * Checks if the module is ready to Define itself, and if so,
-             * Define it.
+             * Checks if the module is ready to DEFINE itself, and if so,
+             * DEFINE it.
              */
             check: function () {
                 if (!this.enabled || this.enabling) {
@@ -858,9 +858,9 @@ var Requirejs, Require, Define;
                 } else if (this.error) {
                     this.emit('error', this.error);
                 } else if (!this.defining) {
-                    //The factory could trigger another Require call
+                    //The factory could trigger another REQUIRE call
                     //that would result in checking this module to
-                    //Define itself again. If already in the process
+                    //DEFINE itself again. If already in the process
                     //of doing that, skip this work.
                     this.defining = true;
 
@@ -868,7 +868,7 @@ var Requirejs, Require, Define;
                         if (isFunction(factory)) {
                             //If there is an error listener, favor passing
                             //to that instead of throwing an error. However,
-                            //only do it for Define()'d  modules. Require
+                            //only do it for DEFINE()'d  modules. REQUIRE
                             //errbacks should not be called for failures in
                             //their callbacks (#699). However if a global
                             //onError is set, use that.
@@ -899,7 +899,7 @@ var Requirejs, Require, Define;
                             if (err) {
                                 err.requireMap = this.map;
                                 err.requireModules = this.map.isDefine ? [this.map.id] : null;
-                                err.requireType = this.map.isDefine ? 'Define' : 'Require';
+                                err.requireType = this.map.isDefine ? 'DEFINE' : 'REQUIRE';
                                 return onError((this.error = err));
                             }
 
@@ -928,8 +928,8 @@ var Requirejs, Require, Define;
                         this.defined = true;
                     }
 
-                    //Finished the Define stage. Allow calling check again
-                    //to allow Define notifications below in the case of a
+                    //Finished the DEFINE stage. Allow calling check again
+                    //to allow DEFINE notifications below in the case of a
                     //cycle.
                     this.defining = false;
 
@@ -1048,7 +1048,7 @@ var Requirejs, Require, Define;
                             text = textAlt;
                         }
 
-                        //Turn off interactive script matching for IE for any Define
+                        //Turn off interactive script matching for IE for any DEFINE
                         //calls in the text, then turn it back on at the end.
                         if (hasInteractive) {
                             useInteractive = false;
@@ -1154,7 +1154,7 @@ var Requirejs, Require, Define;
                     id = depMap.id;
                     mod = registry[id];
 
-                    //Skip special modules like 'Require', 'exports', 'module'
+                    //Skip special modules like 'REQUIRE', 'exports', 'module'
                     //Also, don't call enable if it is already enabled,
                     //important in circular dependency cases.
                     if (!hasProp(handlers, id) && mod && !mod.enabled) {
@@ -1220,7 +1220,7 @@ var Requirejs, Require, Define;
         }
 
         /**
-         * Given an event from a script node, get the Requirejs info from it,
+         * Given an event from a script node, get the REQUIREJS info from it,
          * and then removes the event listeners on the node.
          * @param {Event} evt
          * @returns {Object}
@@ -1251,11 +1251,11 @@ var Requirejs, Require, Define;
             while (defQueue.length) {
                 args = defQueue.shift();
                 if (args[0] === null) {
-                    return onError(makeError('mismatch', 'Mismatched anonymous Define() module: ' +
+                    return onError(makeError('mismatch', 'Mismatched anonymous DEFINE() module: ' +
                         args[args.length - 1]));
                 } else {
                     //args are id, deps, factory. Should be normalized by the
-                    //Define() function.
+                    //DEFINE() function.
                     callGetModule(args);
                 }
             }
@@ -1295,7 +1295,7 @@ var Requirejs, Require, Define;
                     };
                 }
 
-                //Save off the paths since they Require special processing,
+                //Save off the paths since they REQUIRE special processing,
                 //they are additive.
                 var shim = config.shim,
                     objs = {
@@ -1381,10 +1381,10 @@ var Requirejs, Require, Define;
                 });
 
                 //If a deps array or a config callback is specified, then call
-                //Require with those args. This is useful when Require is defined as a
-                //config object before Require.js is loaded.
+                //REQUIRE with those args. This is useful when REQUIRE is defined as a
+                //config object before REQUIRE.js is loaded.
                 if (cfg.deps || cfg.callback) {
-                    context.Require(cfg.deps || [], cfg.callback);
+                    context.REQUIRE(cfg.deps || [], cfg.callback);
                 }
             },
 
@@ -1412,17 +1412,17 @@ var Requirejs, Require, Define;
                     if (typeof deps === 'string') {
                         if (isFunction(callback)) {
                             //Invalid call
-                            return onError(makeError('requireargs', 'Invalid Require call'), errback);
+                            return onError(makeError('requireargs', 'Invalid REQUIRE call'), errback);
                         }
 
-                        //If Require|exports|module are requested, get the
+                        //If REQUIRE|exports|module are requested, get the
                         //value for them from the special handlers. Caveat:
                         //this only works while module is being defined.
                         if (relMap && hasProp(handlers, deps)) {
                             return handlers[deps](registry[relMap.id]);
                         }
 
-                        //Synchronous access to one module. If Require.get is
+                        //Synchronous access to one module. If REQUIRE.get is
                         //available (as in the Node adapter), prefer that.
                         if (req.get) {
                             return req.get(context, deps, relMap, localRequire);
@@ -1437,7 +1437,7 @@ var Requirejs, Require, Define;
                                         id +
                                         '" has not been loaded yet for context: ' +
                                         contextName +
-                                        (relMap ? '' : '. Use Require([])')));
+                                        (relMap ? '' : '. Use REQUIRE([])')));
                         }
                         return defined[id];
                     }
@@ -1448,12 +1448,12 @@ var Requirejs, Require, Define;
                     //Mark all the dependencies as needing to be loaded.
                     context.nextTick(function () {
                         //Some defines could have been added since the
-                        //Require call, collect them.
+                        //REQUIRE call, collect them.
                         intakeDefines();
 
                         requireMod = getModule(makeModuleMap(null, relMap));
 
-                        //Store if map config should be applied to this Require
+                        //Store if map config should be applied to this REQUIRE
                         //call for dependencies.
                         requireMod.skipMap = options.skipMap;
 
@@ -1502,10 +1502,10 @@ var Requirejs, Require, Define;
                     }
                 });
 
-                //Only allow undef on top level Require calls
+                //Only allow undef on top level REQUIRE calls
                 if (!relMap) {
                     localRequire.undef = function (id) {
-                        //Bind any waiting Define() calls to this context,
+                        //Bind any waiting DEFINE() calls to this context,
                         //fix for #408
                         takeGlobalQueue();
 
@@ -1583,7 +1583,7 @@ var Requirejs, Require, Define;
                         }
                         found = true;
                     } else if (args[0] === moduleName) {
-                        //Found matching Define call for this script!
+                        //Found matching DEFINE call for this script!
                         found = true;
                     }
 
@@ -1601,12 +1601,12 @@ var Requirejs, Require, Define;
                             return;
                         } else {
                             return onError(makeError('nodefine',
-                                             'No Define call for ' + moduleName,
+                                             'No DEFINE call for ' + moduleName,
                                              null,
                                              [moduleName]));
                         }
                     } else {
-                        //A script that does not call Define(), so just simulate
+                        //A script that does not call DEFINE(), so just simulate
                         //the call for it.
                         callGetModule([moduleName, (shim.deps || []), shim.exportsFn]);
                     }
@@ -1743,14 +1743,14 @@ var Requirejs, Require, Define;
             }
         };
 
-        context.Require = context.makeRequire();
+        context.REQUIRE = context.makeRequire();
         return context;
     }
 
     /**
      * Main entry point.
      *
-     * If the only argument to Require is a string, then the module that
+     * If the only argument to REQUIRE is a string, then the module that
      * is represented by that string is fetched for the appropriate context.
      *
      * If the first argument is an array, then it will be treated as an array
@@ -1758,10 +1758,10 @@ var Requirejs, Require, Define;
      * be specified to execute when all of those dependencies are available.
      *
      * Make a local req variable to help Caja compliance (it assumes things
-     * on a Require that are not standardized), and to give a short
+     * on a REQUIRE that are not standardized), and to give a short
      * name for minification/local scope use.
      */
-    req = Requirejs = function (deps, callback, errback, optional) {
+    req = REQUIREJS = function (deps, callback, errback, optional) {
 
         //Find the right context, use default
         var context, config,
@@ -1794,11 +1794,11 @@ var Requirejs, Require, Define;
             context.configure(config);
         }
 
-        return context.Require(deps, callback, errback);
+        return context.REQUIRE(deps, callback, errback);
     };
 
     /**
-     * Support Require.config() to make it easier to cooperate with other
+     * Support REQUIRE.config() to make it easier to cooperate with other
      * AMD loaders on globally agreed names.
      */
     req.config = function (config) {
@@ -1816,10 +1816,10 @@ var Requirejs, Require, Define;
     } : function (fn) { fn(); };
 
     /**
-     * Export Require as a global, but only if it does not already exist.
+     * Export REQUIRE as a global, but only if it does not already exist.
      */
-    if (!Require) {
-        Require = req;
+    if (!REQUIRE) {
+        REQUIRE = req;
     }
 
     req.version = version;
@@ -1835,7 +1835,7 @@ var Requirejs, Require, Define;
     //Create default context.
     req({});
 
-    //Exports some context-sensitive methods on global Require.
+    //Exports some context-sensitive methods on global REQUIRE.
     each([
         'toUrl',
         'undef',
@@ -1847,7 +1847,7 @@ var Requirejs, Require, Define;
         //with its config gets used.
         req[prop] = function () {
             var ctx = contexts[defContextName];
-            return ctx.Require[prop].apply(ctx, arguments);
+            return ctx.REQUIRE[prop].apply(ctx, arguments);
         };
     });
 
@@ -1863,7 +1863,7 @@ var Requirejs, Require, Define;
     }
 
     /**
-     * Any errors that Require explicitly generates will be passed to this
+     * Any errors that REQUIRE explicitly generates will be passed to this
      * function. Intercept/override it if you want custom error handling.
      * @param {Error} err the error object.
      */
@@ -1887,7 +1887,7 @@ var Requirejs, Require, Define;
      * Make this a separate function to allow other environments
      * to override it.
      *
-     * @param {Object} context the Require context to find state.
+     * @param {Object} context the REQUIRE context to find state.
      * @param {String} moduleName the name of the module.
      * @param {Object} url the URL to the module.
      */
@@ -1912,18 +1912,18 @@ var Requirejs, Require, Define;
             if (node.attachEvent &&
                     //Check if node.attachEvent is artificially added by custom script or
                     //natively supported by browser
-                    //read https://github.com/Requirejs/Requirejs/issues/187
+                    //read https://github.com/REQUIREJS/REQUIREJS/issues/187
                     //if we can NOT find [native code] then it must NOT natively supported.
                     //in IE8, node.attachEvent does not have toString()
                     //Note the test for "[native code" with no closing brace, see:
-                    //https://github.com/Requirejs/Requirejs/issues/273
+                    //https://github.com/REQUIREJS/REQUIREJS/issues/273
                     !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) &&
                     !isOpera) {
                 //Probably IE. IE (at least 6-8) do not fire
                 //script onload right after executing the script, so
-                //we cannot tie the anonymous Define call to a name.
+                //we cannot tie the anonymous DEFINE call to a name.
                 //However, IE reports the script as being in 'interactive'
-                //readyState at the time of the Define call.
+                //readyState at the time of the DEFINE call.
                 useInteractive = true;
 
                 node.attachEvent('onreadystatechange', context.onScriptLoad);
@@ -1951,7 +1951,7 @@ var Requirejs, Require, Define;
             }
 
             //For some cache cases in IE 6-8, the script executes before the end
-            //of the appendChild execution, so to tie an anonymous Define
+            //of the appendChild execution, so to tie an anonymous DEFINE
             //call to the module name (which is stored on the node), hold on
             //to a reference to this node, but clear after the DOM insertion.
             currentlyAddingScript = node;
@@ -2005,7 +2005,7 @@ var Requirejs, Require, Define;
 
     //Look for a data-main script attribute, which could also adjust the baseUrl.
     if (isBrowser && !cfg.skipDataMain) {
-        //Figure out baseUrl. Get it from the script tag with Require.js in it.
+        //Figure out baseUrl. Get it from the script tag with REQUIRE.js in it.
         eachReverse(scripts(), function (script) {
             //Set the 'head' where we can append children by
             //using the script's parent.
@@ -2053,12 +2053,12 @@ var Requirejs, Require, Define;
 
     /**
      * The function that handles definitions of modules. Differs from
-     * Require() in that a string for the module should be the first argument,
+     * REQUIRE() in that a string for the module should be the first argument,
      * and the function to execute after dependencies are loaded should
-     * return a value to Define the module corresponding to the first argument's
+     * return a value to DEFINE the module corresponding to the first argument's
      * name.
      */
-    Define = function (name, deps, callback) {
+    DEFINE = function (name, deps, callback) {
         var node, context;
 
         //Allow for anonymous modules
@@ -2080,7 +2080,7 @@ var Requirejs, Require, Define;
         if (!deps && isFunction(callback)) {
             deps = [];
             //Remove comments from the callback string,
-            //look for Require calls, and pull them into the dependencies,
+            //look for REQUIRE calls, and pull them into the dependencies,
             //but only if there are function args.
             if (callback.length) {
                 callback
@@ -2090,16 +2090,16 @@ var Requirejs, Require, Define;
                         deps.push(dep);
                     });
 
-                //May be a CommonJS thing even without Require calls, but still
+                //May be a CommonJS thing even without REQUIRE calls, but still
                 //could use exports, and module. Avoid doing exports and module
-                //work though if it just needs Require.
+                //work though if it just needs REQUIRE.
                 //REQUIRES the function to expect the CommonJS variables in the
                 //order listed below.
-                deps = (callback.length === 1 ? ['Require'] : ['Require', 'exports', 'module']).concat(deps);
+                deps = (callback.length === 1 ? ['REQUIRE'] : ['REQUIRE', 'exports', 'module']).concat(deps);
             }
         }
 
-        //If in IE 6-8 and hit an anonymous Define() call, do the interactive
+        //If in IE 6-8 and hit an anonymous DEFINE() call, do the interactive
         //work.
         if (useInteractive) {
             node = currentlyAddingScript || getInteractiveScript();
@@ -2125,7 +2125,7 @@ var Requirejs, Require, Define;
         }
     };
 
-    Define.amd = {
+    DEFINE.amd = {
         jQuery: true
     };
 

@@ -29,6 +29,9 @@
         ecosystem = pEcosystem;
         ecosystemObject = pEcosystemObject;
 
+        github.initialize(githubData);
+        storage.initialize(storageData, serverConfig);
+
         callBackFunction();
     }
 

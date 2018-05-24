@@ -29,6 +29,9 @@
         ecosystem = pEcosystem;
         ecosystemObject = pEcosystemObject;
 
+        github.initialize(githubData);
+        storage.initialize(storageData, serverConfig);
+
         callBackFunction();
     }
 
@@ -92,7 +95,7 @@
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(path, moduleName, onDataArrived);
+                        storage.getStorageData(pDevTeam, pBot, moduleName, onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -208,7 +211,7 @@
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(path, moduleName, onDataArrived);
+                        storage.getStorageData(pDevTeam, pBot, moduleName, onDataArrived);
 
                         function onDataArrived(pData) {
 

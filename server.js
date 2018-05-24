@@ -382,32 +382,32 @@ function onBrowserRequest(request, response) {
                 switch (requestParameters[2]) {
 
                     case "returnOpenOrders": {
-                        poloniexApiClient.returnOpenOrders(requestParameters[5], requestParameters[6], onExchangeResponse)
+                        poloniexApiClient.API.returnOpenOrders(requestParameters[5], requestParameters[6], onExchangeResponse);
                         break;
                     }
 
                     case "returnOrderTrades": {
-                        poloniexApiClient.returnOrderTrades(requestParameters[5], onExchangeResponse)
+                        poloniexApiClient.API.returnOrderTrades(requestParameters[5], onExchangeResponse);
                         break;
                     }
 
                     case "buy": {
-                        poloniexApiClient.buy(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse)
+                        poloniexApiClient.API.buy(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                         break;
                     }
 
                     case "sell": {
-                        poloniexApiClient.buy(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse)
+                        poloniexApiClient.API.sell(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                         break;
                     }
 
                     case "moveOrder": {
-                        poloniexApiClient.buy(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse)
+                        poloniexApiClient.API.moveOrder(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                         break;
                     }
 
                     case "returnTicker": {
-                        poloniexApiClient.returnTicker(onExchangeResponse)
+                        poloniexApiClient.API.returnTicker(onExchangeResponse);
                         break;
                     }
                 }
@@ -419,7 +419,7 @@ function onBrowserRequest(request, response) {
                         exchangeResponse: exchangeResponse
                     }
 
-                    respondWithContent(serverResponse, response);
+                    respondWithContent(JSON.stringify(serverResponse), response);
                 }
             }
             break; 
@@ -941,21 +941,19 @@ function respondWithFile(fileName, response) {
     catch (err) {
         returnEmptyArray();
     }
-
-    function returnEmptyArray() {
-
-        if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithFile -> returnEmptyArray -> Entering function."); }
-
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-        response.setHeader("Expires", "0"); // Proxies.
-
-        response.writeHead(200, { 'Content-Type': 'text/html' });
-        response.write("[]");
-        response.end("\n");
-
-    }
 }
 
+function returnEmptyArray() {
 
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithFile -> returnEmptyArray -> Entering function."); }
+
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+    response.setHeader("Expires", "0"); // Proxies.
+
+    response.writeHead(200, { 'Content-Type': 'text/html' });
+    response.write("[]");
+    response.end("\n");
+
+}
 

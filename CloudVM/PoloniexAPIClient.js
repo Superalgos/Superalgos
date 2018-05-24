@@ -76,7 +76,7 @@
 
     function returnOpenOrders(pMarketAssetA, pMarketAssetB, callBackFunction) {
 
-        let path = "PloniexAPIClinet" + "/" 
+        let path = "PoloniexAPIClient" + "/" 
             + "returnOpenOrders" + "/" 
             + key + "/"
             + secret + "/"
@@ -88,14 +88,15 @@
 
         function onServerResponse(pServerResponse) {
 
-            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+            let response = JSON.parse(pServerResponse);
+            callBackFunction(response.err, response.exchangeResponse);
 
         }
     }
 
     function returnOrderTrades(pPositionId, callBackFunction) {
 
-        let path = "PloniexAPIClinet" + "/"
+        let path = "PoloniexAPIClient" + "/"
             + "returnOrderTrades" + "/"
             + key + "/"
             + secret + "/"
@@ -106,14 +107,15 @@
 
         function onServerResponse(pServerResponse) {
 
-            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+            let response = JSON.parse(pServerResponse);
+            callBackFunction(response.err, response.exchangeResponse);
 
         }
     }
 
     function buy(pMarketAssetA, pMarketAssetB, pRate, pAmountB, callBackFunction) {
 
-        let path = "PloniexAPIClinet" + "/"
+        let path = "PoloniexAPIClient" + "/"
             + "buy" + "/"
             + key + "/"
             + secret + "/"
@@ -126,14 +128,15 @@
 
         function onServerResponse(pServerResponse) {
 
-            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+            let response = JSON.parse(pServerResponse);
+            callBackFunction(response.err, response.exchangeResponse);
 
         }
     }
 
     function sell(pMarketAssetA, pMarketAssetB, pRate, pAmountB, callBackFunction) {
 
-        let path = "PloniexAPIClinet" + "/"
+        let path = "PoloniexAPIClient" + "/"
             + "sell" + "/"
             + key + "/"
             + secret + "/"
@@ -146,14 +149,15 @@
 
         function onServerResponse(pServerResponse) {
 
-            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+            let response = JSON.parse(pServerResponse);
+            callBackFunction(response.err, response.exchangeResponse);
 
         }
     }
 
     function moveOrder(pPositionId, pNewRate, pPositionAmountB, callBackFunction) {
 
-        let path = "PloniexAPIClinet" + "/"
+        let path = "PoloniexAPIClient" + "/"
             + "moveOrder" + "/"
             + key + "/"
             + secret + "/"
@@ -166,14 +170,15 @@
 
         function onServerResponse(pServerResponse) {
 
-            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+            let response = JSON.parse(pServerResponse);
+            callBackFunction(response.err, response.exchangeResponse);
 
         }
     }
 
     function returnTicker(callBackFunction) {
 
-        let path = "PloniexAPIClinet" + "/"
+        let path = "PoloniexAPIClient" + "/"
             + "returnTicker" + "/"
             + key + "/"
             + secret
@@ -183,7 +188,8 @@
 
         function onServerResponse(pServerResponse) {
 
-            callBackFunction(pServerResponse.err, pServerResponse.exchangeResponse);
+            let response = JSON.parse(pServerResponse);
+            callBackFunction(response.err, response.exchangeResponse);
 
         }
     }

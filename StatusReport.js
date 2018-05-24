@@ -131,7 +131,7 @@
                     return;
                 }
 
-                if (FULL_LOG === true) {
+                if (LOG_FILE_CONTENT === true) {
                     logger.write("[INFO] initialize -> load -> onFileReceived -> Content received = " + text);
                 }
 
@@ -219,7 +219,7 @@
                             return;
                         }
 
-                        if (FULL_LOG === true) {
+                        if (LOG_FILE_CONTENT === true) {
                             logger.write("[INFO] save -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                         }
 

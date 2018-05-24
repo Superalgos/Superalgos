@@ -1,6 +1,7 @@
 ﻿
 global.CURRENT_ENVIRONMENT = "Develop"; 
 global.CURRENT_LOCATION = "Cloud"; 
+global.SHALL_BOT_STOP = false;
 
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);

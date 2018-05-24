@@ -777,7 +777,7 @@
 
                             let configRead = JSON.parse(text);
 
-                            if (configRead.stopGracefully === false) {
+                            if (configRead.stopGracefully === false && global.SHALL_BOT_STOP === false) {
                                 continueCallBack();
                             } else {
                                 stopCallBack();

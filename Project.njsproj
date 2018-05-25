@@ -22,7 +22,7 @@
     <Compile Include="Commons.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="One-Min-Daily-Candles-Volumes\User.bot.js" />
+    <Compile Include="One-Min-Daily-Candles-Volumes\User.Bot.js" />
     <Content Include="obj\Debug\AACarol.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACharly.njsproj.FileListAbsolute.txt" />
     <Content Include="this.bot.config.json" />

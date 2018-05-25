@@ -25,8 +25,8 @@
 
     let charlyStorage = BLOB_STORAGE.newBlobStorage(bot);
 
-    let utilities = UTILITIES.newUtilities(bot);
-    let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
+    let utilities = UTILITIES.newCloudUtilities(bot);
+    let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
     let statusDependencies;
 
@@ -42,7 +42,7 @@
 
             statusDependencies = pStatusDependencies;
 
-            charlyStorage.initialize({ bot: "AACharly", devTeam: "AAMasters" }, onCharlyInizialized);
+            charlyStorage.initialize(bot.devTeam, onCharlyInizialized);
 
             function onCharlyInizialized(err) {
 
@@ -192,7 +192,7 @@ Array of records with this information:
 
                     exchangeCallTime = new Date();
 
-                    poloniexApiClient.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
+                    poloniexApiClient.API.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
 
                 } catch (err) {
                     logger.write("[ERROR] start -> getTheTrades -> err = " + err.message);
@@ -213,7 +213,7 @@ Array of records with this information:
                         logger.write("[INFO] start -> onExchangeCallReturned -> Call time recorded = " + timeDifference + " seconds.");
                     }
 
-                    poloniexApiClient.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
+                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
                     function onResponseOk() {
 

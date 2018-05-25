@@ -29,7 +29,7 @@
 
     let charlyStorage = FILE_STORAGE.newFileStorage(bot);
 
-    let utilities = UTILITIES.newUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot);
 
     let year;
     let month;
@@ -51,7 +51,7 @@
             console.log(logText);
             logger.write(logText);
 
-            charlyStorage.initialize();
+            charlyStorage.initialize(bot.devTeam);
 
             markets = MARKETS_MODULE.newMarkets(bot);
             markets.initialize(callBackFunction);
@@ -417,9 +417,9 @@ This process complements the Live Trades process and write historical trades fil
 
                     exchangeCallTime = new Date();
 
-                    let poloniexApiClient = new POLONIEX_CLIENT_MODULE();
+                    let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
-                    poloniexApiClient.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
+                    poloniexApiClient.API.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
 
                 }
                 catch (err) {

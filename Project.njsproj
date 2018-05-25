@@ -18,9 +18,9 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
-    <Compile Include="Poloniex-Historic-Trades\Interval.js" />
-    <Compile Include="Poloniex-Hole-Fixing\User.bot.js" />
-    <Compile Include="Poloniex-Live-Trades\User.bot.js" />
+    <Compile Include="Poloniex-Historic-Trades\User.Bot.js" />
+    <Compile Include="Poloniex-Hole-Fixing\User.Bot.js" />
+    <Compile Include="Poloniex-Live-Trades\User.Bot.js" />
     <Content Include="this.bot.config.json" />
   </ItemGroup>
   <ItemGroup>

@@ -76,9 +76,9 @@
 
                         if (err !== null || text === null) {
 
-                            console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> Error Received from Storage Library. ");
-                            console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> err = " + JSON.stringify(err));
-                            console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> Returning an empty JSON object string. ");
+                            if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> Error Received from Storage Library. "); }
+                            if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> err = " + JSON.stringify(err)); }
+                            if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> Returning an empty JSON object string. "); }
 
                             callBackFunction("{}");
                             return;

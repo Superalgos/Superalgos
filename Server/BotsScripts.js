@@ -83,11 +83,11 @@
                 }
             }
 
-            function getCommons(pDevTeam, pBot, callBack) {
+            function getCommons(pDevTeam, pRepo, callBack) {
 
                 let moduleName = "Commons.js";
-                let key = pDevTeam + "." + pBot;
-                let path = pDevTeam + "/" + pBot;
+                let key = pDevTeam + "." + pRepo;
+                let path = pDevTeam + "/" + pRepo;
 
                 switch (serverConfig.configAndPlugins.Location) {
 
@@ -95,7 +95,7 @@
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(pDevTeam, pBot, moduleName, onDataArrived);
+                        storage.getStorageData(pDevTeam, pRepo, moduleName, onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -110,7 +110,7 @@
 
                                     data = browserify(data);
 
-                                    fileSystemData.set(key, data);
+                                    storageData.set(key, data);
 
                                 }
 
@@ -183,7 +183,7 @@
 
                                     data = browserify(data);
 
-                                    fileSystemData.set(key, data);
+                                    githubData.set(key, data);
 
                                 }
 
@@ -199,11 +199,11 @@
                 }
             }
 
-            function getUserBot(pDevTeam, pBot, pProcess, callBack) {
+            function getUserBot(pDevTeam, pRepo, pProcess, callBack) {
 
                 let moduleName = "User.Bot.js";
-                let key = pDevTeam + "." + pBot + "." + pProcess;
-                let path = pDevTeam + "/" + pBot + "/" + pProcess;
+                let key = pDevTeam + "." + pRepo + "." + pProcess + "/" + moduleName;
+                let path = pProcess + "/" + moduleName;
 
                 switch (serverConfig.configAndPlugins.Location) {
 
@@ -211,7 +211,7 @@
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(pDevTeam, pBot, moduleName, onDataArrived);
+                        storage.getStorageData(pDevTeam, pRepo, path, onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -226,7 +226,7 @@
 
                                     data = browserify(data);
 
-                                    fileSystemData.set(key, data);
+                                    storageData.set(key, data);
 
                                 }
 
@@ -247,7 +247,7 @@
 
                         let fs = require('fs');
                         try {
-                            let fileName = '../Bots/' + path + "/" + moduleName;
+                            let fileName = '../Bots/' + pDevTeam + pRepo + path + "/" + moduleName;
                             fs.readFile(fileName, onFileRead);
 
                             function onFileRead(err, pData) {
@@ -286,7 +286,7 @@
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Github -> Entering Case."); }
 
-                        github.getGithubData(path, moduleName, onDataArrived);
+                        github.getGithubData(pDevTeam, pRepo, path, onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -299,7 +299,7 @@
 
                                     data = browserify(data);
 
-                                    fileSystemData.set(key, data);
+                                    githubData.set(key, data);
 
                                 }
 

@@ -456,8 +456,6 @@ function onBrowserRequest(request, response) {
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
 
-                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
-
                         map = githubData;
                         break;
                     }
@@ -515,19 +513,19 @@ function onBrowserRequest(request, response) {
 
                 let key;
 
-                if (requestParameters[4] !== undefined) {
+                if (requestParameters[5] !== undefined) {
 
-                    key = requestParameters[2] + "." + requestParameters[3] + "." + requestParameters[4];
+                    key = requestParameters[2] + "." + requestParameters[3] + "." + requestParameters[4] + "/" + requestParameters[5];
 
                 } else {
 
-                    key = requestParameters[2] + "." + requestParameters[3];
+                    key = requestParameters[2] + "." + requestParameters[3] + "." + requestParameters[4];
 
                 }
 
                 let script = map.get(key);
 
-                if (script !== undefined) {
+                if (script !== undefined && script !== null) {
 
                     respondWithContent(script, response);
 

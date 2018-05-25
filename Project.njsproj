@@ -21,8 +21,8 @@
     <Compile Include="Commons.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Multi-Period-Daily\User.bot.js" />
-    <Compile Include="Multi-Period-Market\User.bot.js" />
+    <Compile Include="Multi-Period-Daily\User.Bot.js" />
+    <Compile Include="Multi-Period-Market\User.Bot.js" />
     <Content Include="obj\Debug\AABruce.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACarol.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACharly.njsproj.FileListAbsolute.txt" />

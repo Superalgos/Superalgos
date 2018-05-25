@@ -35,7 +35,7 @@
     let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot);
     let bruceStorage = BLOB_STORAGE.newBlobStorage(bot);
 
-    let utilities = UTILITIES.newUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot);
 
     let statusDependencies;
 

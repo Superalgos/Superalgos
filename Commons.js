@@ -18,7 +18,7 @@
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
 
-    let utilities = UTILITIES.newUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot);
 
     return thisObject;
 
@@ -32,7 +32,7 @@
 
             function initializeBruceStorage() {
 
-                bruceStorage.initialize({ bot: "AABruce", devTeam: "AAMasters" }, onBruceInizialized);
+                bruceStorage.initialize(bot.devTeam, onBruceInizialized);
 
                 function onBruceInizialized(err) {
 
@@ -49,7 +49,7 @@
 
             function initializeOliviaStorage() {
 
-                oliviaStorage.initialize({ bot: "AAOlivia", devTeam: "AAMasters" }, onOliviaInizialized);
+                oliviaStorage.initialize(bot.devTeam, onOliviaInizialized);
 
                 function onOliviaInizialized(err) {
 

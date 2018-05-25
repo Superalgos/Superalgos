@@ -247,7 +247,7 @@
 
                         let fs = require('fs');
                         try {
-                            let fileName = '../Bots/' + pDevTeam + pRepo + path + "/" + moduleName;
+                            let fileName = '../Bots/' + pDevTeam + "/" + pRepo + "/" + path;
                             fs.readFile(fileName, onFileRead);
 
                             function onFileRead(err, pData) {

@@ -9,7 +9,7 @@ When running at the clode on NodeJS some things work diffently that at the brows
 
 
 
-function runBot() {
+function runBot(pUI_COMMANDS) {
 
     window.SHALL_BOT_STOP = false;
 
@@ -19,7 +19,7 @@ function runBot() {
 
     let root = newRoot();
 
-    root.initialize(onInitialized);
+    root.initialize(pUI_COMMANDS, onInitialized);
 
     function onInitialized() {
 

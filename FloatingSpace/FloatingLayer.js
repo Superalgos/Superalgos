@@ -3,7 +3,7 @@ function newFloatingLayer() {
 
     const MODULE_NAME = "Floating Layer";
     const INFO_LOG = false;
-    const INTENSIVE_LOG = false;
+    let INTENSIVE_LOG = false;
     const ERROR_LOG = true;
     const logger = newWebDebugLog();
     logger.fileName = MODULE_NAME;
@@ -250,274 +250,370 @@ function newFloatingLayer() {
 
             /* This function makes all the calculations to apply phisycs on all floatingObjects in this space. */
 
-            for (let i = 0; i < visibleFloatingObjects.length; i++) {
+            applyPhysics();
 
-                let floatingObject = visibleFloatingObjects[i];
+            function applyPhysics() {
 
-                /* Change position based on speed */
+                try {
 
-                floatingObject.currentPosition.x = floatingObject.currentPosition.x + floatingObject.currentSpeed.x;
-                floatingObject.currentPosition.y = floatingObject.currentPosition.y + floatingObject.currentSpeed.y;
+                    if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> applyPhysics -> Entering function."); }
 
-                /* Apply some friction to desacelerate */
+                    for (let i = 0; i < visibleFloatingObjects.length; i++) {
 
-                floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction;  // Desaceleration factor.
-                floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction;  // Desaceleration factor.
+                        let floatingObject = visibleFloatingObjects[i];
 
-                // Gives a minimun speed towards their taget.
+                        if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> Change position based on speed."); }
 
-                let payload = {
-                    position: undefined,
-                    visible: false
-                };
+                        floatingObject.currentPosition.x = floatingObject.currentPosition.x + floatingObject.currentSpeed.x;
+                        floatingObject.currentPosition.y = floatingObject.currentPosition.y + floatingObject.currentSpeed.y;
 
-                switch (floatingObject.type) {
+                        if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> Apply some friction to desacelerate."); }
 
-                    case "Profile Ball": {
+                        floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction;  // Desaceleration factor.
+                        floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction;  // Desaceleration factor.
 
-                        payload.position = floatingObject.payload.profile.position;
-                        payload.visible = floatingObject.payload.profile.visible;
-                        break;
+                        if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> Gives a minimun speed towards their taget."); }
+
+                        let payload = {
+                            position: undefined,
+                            visible: false
+                        };
+
+                        switch (floatingObject.type) {
+
+                            case "Profile Ball": {
+
+                                payload.position = floatingObject.payload.profile.position;
+                                payload.visible = floatingObject.payload.profile.visible;
+                                break;
+                            }
+                            case "Note": {
+
+                                payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position;
+                                payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
+
+                                break;
+                            }
+                            default: {
+
+                                break;
+                            }
+                        }
+
+                        if (floatingObject.currentPosition.x < payload.position.x) {
+                            floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + .005;
+                        } else {
+                            floatingObject.currentSpeed.x = floatingObject.currentSpeed.x - .005;
+                        }
+
+                        if (floatingObject.currentPosition.y < payload.position.y) {
+                            floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + .005;
+                        } else {
+                            floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - .005;
+                        }
+
+                        if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> Set a maximun speed."); }
+
+                        const MAX_SPEED = 50;
+
+                        if (floatingObject.currentSpeed.x > MAX_SPEED) {
+                            floatingObject.currentSpeed.x = MAX_SPEED;
+                        }
+
+                        if (floatingObject.currentSpeed.y > MAX_SPEED) {
+                            floatingObject.currentSpeed.y = MAX_SPEED;
+                        }
+
+                        if (floatingObject.currentSpeed.x < -MAX_SPEED) {
+                            floatingObject.currentSpeed.x = -MAX_SPEED;
+                        }
+
+                        if (floatingObject.currentSpeed.y < -MAX_SPEED) {
+                            floatingObject.currentSpeed.y = -MAX_SPEED;
+                        }
+
+                        // The radius also have a target.
+
+                        if (Math.abs(floatingObject.currentRadius - floatingObject.targetRadius) >= 1) {
+
+                            if (floatingObject.currentRadius < floatingObject.targetRadius) {
+                                floatingObject.currentRadius = floatingObject.currentRadius + .5;
+                            } else {
+                                floatingObject.currentRadius = floatingObject.currentRadius - .5;
+                            }
+                        }
+
+                        // The imageSize also have a target.
+
+                        if (Math.abs(floatingObject.currentImageSize - floatingObject.targetImageSize) >= 1) {
+
+                            if (floatingObject.currentImageSize < floatingObject.targetImageSize) {
+                                floatingObject.currentImageSize = floatingObject.currentImageSize + 1;
+                            } else {
+                                floatingObject.currentImageSize = floatingObject.currentImageSize - 1;
+                            }
+                        }
+
+
+                        /* Collision Control */
+
+                        for (let k = i + 1; k < visibleFloatingObjects.length; k++) {
+
+                            if (colliding(visibleFloatingObjects[i], visibleFloatingObjects[k])) {
+
+                                resolveCollision(visibleFloatingObjects[k], visibleFloatingObjects[i]);
+
+                            }
+                        }
+
+                        /* Calculate repulsion force produced by all other floatingObjects */
+
+                        currentRepulsionForce(i);
+
+                        targetRepulsionForce(i);
+
+                        gravityForce(floatingObject, payload);
+
                     }
-                    case "Note": {
 
-                        payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position;
-                        payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
-
-                        break;
-                    }
-                    default: {
-
-                        break;
-                    }
+                    drawVisibleObjects();
                 }
 
-                if (floatingObject.currentPosition.x < payload.position.x) {
-                    floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + .005;
-                } else {
-                    floatingObject.currentSpeed.x = floatingObject.currentSpeed.x - .005;
-                }
+                catch(err) {
 
-                if (floatingObject.currentPosition.y < payload.position.y) {
-                    floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + .005;
-                } else {
-                    floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - .005;
-                }
-
-                // Lets put a maximun speed also.
-
-                const MAX_SPEED = 50;
-
-                if (floatingObject.currentSpeed.x > MAX_SPEED) {
-                    floatingObject.currentSpeed.x = MAX_SPEED;
-                }
-
-                if (floatingObject.currentSpeed.y > MAX_SPEED) {
-                    floatingObject.currentSpeed.y = MAX_SPEED;
-                }
-
-                if (floatingObject.currentSpeed.x < -MAX_SPEED) {
-                    floatingObject.currentSpeed.x = -MAX_SPEED;
-                }
-
-                if (floatingObject.currentSpeed.y < -MAX_SPEED) {
-                    floatingObject.currentSpeed.y = -MAX_SPEED;
-                }
-
-                // The radius also have a target.
-
-                if (Math.abs(floatingObject.currentRadius - floatingObject.targetRadius) >= 1) {
-
-                    if (floatingObject.currentRadius < floatingObject.targetRadius) {
-                        floatingObject.currentRadius = floatingObject.currentRadius + .5;
-                    } else {
-                        floatingObject.currentRadius = floatingObject.currentRadius - .5;
-                    }
-                }
-
-                // The imageSize also have a target.
-
-                if (Math.abs(floatingObject.currentImageSize - floatingObject.targetImageSize) >= 1) {
-
-                    if (floatingObject.currentImageSize < floatingObject.targetImageSize) {
-                        floatingObject.currentImageSize = floatingObject.currentImageSize + 1;
-                    } else {
-                        floatingObject.currentImageSize = floatingObject.currentImageSize - 1;
-                    }
-                }
-
-
-                /* Collision Control */
-
-                for (let k = i + 1; k < visibleFloatingObjects.length; k++) {
-
-                    if (colliding(visibleFloatingObjects[i], visibleFloatingObjects[k])) {
-
-                        resolveCollision(visibleFloatingObjects[k], visibleFloatingObjects[i]);
-
-                    }
-                }
-
-                /* Calculate repulsion force produced by all other floatingObjects */
-
-                currentRepulsionForce(i);
-
-                targetRepulsionForce(i);
-
-                gravityForce(floatingObject, payload);
-
-            }
-
-            /* We draw all the visibleFloatingObjects. */
-
-            for (let i = 0; i < visibleFloatingObjects.length; i++) {
-                let floatingObject = visibleFloatingObjects[i];
-                floatingObject.drawBackground();
-            }
-
-            for (let i = 0; i < visibleFloatingObjects.length; i++) {
-                let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1];
-                floatingObject.drawForeground();
-            }
-
-            /* Now we check if any of the created FloatingObjects where enabled to run under the Physics Engine. */
-
-            for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-
-                let floatingObject = invisibleFloatingObjects[i];
-
-                let payload = {
-                    position: undefined,
-                    visible: false
-                };
-
-                switch (floatingObject.type) {
-
-                    case "Profile Ball": {
-
-                        payload.position = floatingObject.payload.profile.position;
-                        payload.visible = floatingObject.payload.profile.visible;
-                        break;
-                    }
-                    case "Note": {
-
-                        payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position;
-                        payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
-                        break;
-                    }
-                    default: {
-
-                        break;
-                    }
-                }
-
-                if (payload.visible === true) {
-
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> payload.visible = " + payload.visible); }
-
-                    /* The first time that the floatingObject becomes visible, we need to do this. */
-
-                    floatingObject.radomizeCurrentPosition(payload.position);
-                    floatingObject.radomizeCurrentSpeed();
-
-                    visibleFloatingObjects.push(floatingObject);
-
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to visibleFloatingObjects"); }
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> visibleFloatingObjects.length = " + visibleFloatingObjects.length); }
-
-                    invisibleFloatingObjects.splice(i, 1);  // Delete item from array.
-
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from invisibleFloatingObjects"); }
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
-
-                    return;                     // Only one at the time. 
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> applyPhysics -> err = " + err); }
 
                 }
             }
 
-            /* Finally we check if any of the currently visible floatingObjects has become invisible and must be removed from the Physics Engine. */
+            function drawVisibleObjects() {
 
-            for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                try {
 
-                let floatingObject = visibleFloatingObjects[i];
+                    if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> drawVisibleObjects -> Entering function."); }
 
-                let payload = {
-                    position: undefined,
-                    visible: true
-                };
+                    /* We draw all the visibleFloatingObjects. */
 
-                switch (floatingObject.type) {
-
-                    case "Profile Ball": {
-
-                        payload.visible = floatingObject.payload.profile.visible;
-                        break;
+                    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                        let floatingObject = visibleFloatingObjects[i];
+                        floatingObject.drawBackground();
                     }
-                    case "Note": {
 
-                        payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
-                        break;
+                    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                        let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1];
+                        floatingObject.drawForeground();
                     }
-                    default: {
 
-                        break;
-                    }
+                    makeVisible();
                 }
 
-                if (payload.visible === false) {
+                catch (err) {
 
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> payload.visible = " + payload.visible); }
-
-                    invisibleFloatingObjects.push(floatingObject);
-
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to invisibleFloatingObjects"); }
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
-
-                    visibleFloatingObjects.splice(i, 1);  // Delete item from array.
-
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from visibleFloatingObjects"); }
-                    if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> visibleFloatingObjects.length = " + visibleFloatingObjects.length); }
-
-                    return;                     // Only one at the time. 
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> drawVisibleObjects -> err = " + err); }
 
                 }
             }
 
-            /* We animate some parts of the dying objects */
+            function makeVisible() {
 
-            for (let i = 0; i < dyingFloatingObjects.length; i++) {
+                try {
 
-                let floatingObject = dyingFloatingObjects[i];
+                    if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> makeVisible -> Entering function."); }
 
-                if (Math.abs(floatingObject.currentRadius - floatingObject.targetRadius) >= 5) {
+                    /* Now we check if any of the created FloatingObjects where enabled to run under the Physics Engine. */
 
-                    let speed = Math.random();
+                    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
 
-                    floatingObject.currentRadius = floatingObject.currentRadius - speed * 3;
+                        let floatingObject = invisibleFloatingObjects[i];
 
-                } else {
+                        let payload = {
+                            position: undefined,
+                            visible: false
+                        };
 
-                    /* Here is when the floatingObjects are definetelly killed. */
+                        switch (floatingObject.type) {
 
-                    dyingFloatingObjects.splice(i, 1);  // Delete item from array.
-                    break;  // only one at the time. 
+                            case "Profile Ball": {
+
+                                payload.position = floatingObject.payload.profile.position;
+                                payload.visible = floatingObject.payload.profile.visible;
+                                break;
+                            }
+                            case "Note": {
+
+                                payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position;
+                                payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
+                                break;
+                            }
+                            default: {
+
+                                break;
+                            }
+                        }
+
+                        if (payload.visible === true) {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> payload.visible = " + payload.visible); }
+
+                            /* The first time that the floatingObject becomes visible, we need to do this. */
+
+                            floatingObject.radomizeCurrentPosition(payload.position);
+                            floatingObject.radomizeCurrentSpeed();
+
+                            visibleFloatingObjects.push(floatingObject);
+
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to visibleFloatingObjects"); }
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> visibleFloatingObjects.length = " + visibleFloatingObjects.length); }
+
+                            invisibleFloatingObjects.splice(i, 1);  // Delete item from array.
+
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from invisibleFloatingObjects"); }
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
+
+                            return;                     // Only one at the time. 
+
+                        }
+                    }
+
+                    makeInvisible();
+                }
+
+                catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> makeVisible -> err = " + err); }
+
                 }
             }
 
-            /* We also draw all the dyingFloatingObjects */
+            function makeInvisible() {
 
-            for (let i = 0; i < dyingFloatingObjects.length; i++) {
-                let floatingObject = dyingFloatingObjects[i];
-                floatingObject.drawBackground();
+                try {
+
+                    if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> makeInvisible -> Entering function."); }
+
+                    /* Finally we check if any of the currently visible floatingObjects has become invisible and must be removed from the Physics Engine. */
+
+                    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+
+                        let floatingObject = visibleFloatingObjects[i];
+
+                        let payload = {
+                            position: undefined,
+                            visible: true
+                        };
+
+                        switch (floatingObject.type) {
+
+                            case "Profile Ball": {
+
+                                payload.visible = floatingObject.payload.profile.visible;
+                                break;
+                            }
+                            case "Note": {
+
+                                payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
+                                break;
+                            }
+                            default: {
+
+                                break;
+                            }
+                        }
+
+                        if (payload.visible === false) {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> payload.visible = " + payload.visible); }
+
+                            invisibleFloatingObjects.push(floatingObject);
+
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject added to invisibleFloatingObjects"); }
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> invisibleFloatingObjects.length = " + invisibleFloatingObjects.length); }
+
+                            visibleFloatingObjects.splice(i, 1);  // Delete item from array.
+
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject.handle = " + floatingObject.handle); }
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> floatingObject removed from visibleFloatingObjects"); }
+                            if (INFO_LOG === true) { logger.write("[INFO] physicsLoop -> visibleFloatingObjects.length = " + visibleFloatingObjects.length); }
+
+                            return;                     // Only one at the time. 
+
+                        }
+                    }
+
+                    animateDyingObjects();
+                }
+
+                catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> makeInvisible -> err = " + err); }
+
+                }
             }
 
-            for (let i = 0; i < dyingFloatingObjects.length; i++) {
-                let floatingObject = dyingFloatingObjects[dyingFloatingObjects.length - i - 1];
-                floatingObject.drawForeground();
+            function animateDyingObjects() {
+
+                try {
+
+                    if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> animateDyingObjects -> Entering function."); }
+
+                    /* We animate some parts of the dying objects */
+
+                    for (let i = 0; i < dyingFloatingObjects.length; i++) {
+
+                        let floatingObject = dyingFloatingObjects[i];
+
+                        if (Math.abs(floatingObject.currentRadius - floatingObject.targetRadius) >= 5) {
+
+                            let speed = Math.random();
+
+                            floatingObject.currentRadius = floatingObject.currentRadius - speed * 3;
+
+                        } else {
+
+                            /* Here is when the floatingObjects are definetelly killed. */
+
+                            dyingFloatingObjects.splice(i, 1);  // Delete item from array.
+                            break;  // only one at the time. 
+                        }
+                    }
+
+                    drawDyingObjects();
+                }
+
+                catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> animateDyingObjects -> err = " + err); }
+
+                }
+            }
+
+            function drawDyingObjects() {
+
+                try {
+
+                    if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> drawDyingObjects -> Entering function."); }
+
+                    /* We also draw all the dyingFloatingObjects */
+
+                    for (let i = 0; i < dyingFloatingObjects.length; i++) {
+                        let floatingObject = dyingFloatingObjects[i];
+                        floatingObject.drawBackground();
+                    }
+
+                    for (let i = 0; i < dyingFloatingObjects.length; i++) {
+                        let floatingObject = dyingFloatingObjects[dyingFloatingObjects.length - i - 1];
+                        floatingObject.drawForeground();
+                    }
+                }
+
+                catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> drawDyingObjects -> err = " + err); }
+
+                }
             }
 
         } catch (err) {

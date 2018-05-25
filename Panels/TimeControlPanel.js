@@ -189,12 +189,12 @@ function newTimeControlPanel() {
 
             case "Fast Backwards":
 
-                pressFastBackwards();
+                //pressFastBackwards();
                 break;
 
             case "Play Backwards":
 
-                pressPlayBackwards();
+                //pressPlayBackwards();
                 break;
 
             case "Step Backwards":
@@ -204,24 +204,31 @@ function newTimeControlPanel() {
 
             case "Pause":
 
-                pressPause();
+                //pressPause();
                 stopBot();
                 break;
 
             case "Step Forward":
 
-                pressStepForward();
+                //pressStepForward();
                 break;
 
             case "Play Forward":
 
-                runBot();
-                pressPlayForward();
+                let UI_COMMANDS = {
+                    beginDatetime: thisObject.datetimeDisplay.currentDatetime,
+                    endDatetime: undefined,
+                    timePeriod: PLAY_STEP,
+                    eventHandler: thisObject.container.eventHandler
+                };
+
+                runBot(UI_COMMANDS);
+                //pressPlayForward();
                 break;
 
             case "Fast Forward":
 
-                pressFastForward();
+                //pressFastForward();
                 break;
 
             default:

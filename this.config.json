@@ -7,11 +7,18 @@
   },
   "executionList": [
     {
-      "enabled": "true",
+      "enabled": "false",
       "devTeam": "AAMasters",
       "bot": "AAMariam",
       "process": "Trading-Process",
       "repo": "AAMariam-Trading-Bot"
+    },
+    {
+      "enabled": "true",
+      "devTeam": "AAMasters",
+      "bot": "AACharly",
+      "process": "Poloniex-Live-Trades",
+      "repo": "AACharly-Extraction-Bot"
     }
   ],
   "stopGracefully": false,

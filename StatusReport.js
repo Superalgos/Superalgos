@@ -1,8 +1,5 @@
 ﻿exports.newStatusReport = function newStatusReport(BOT, DEBUG_MODULE, BLOB_STORAGE, UTILITIES) {
 
-    const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
-
     /* 
 
     A Status Report is a file that every bot reads at the begining of its execution and saves after it finishes its job.
@@ -11,7 +8,7 @@
 
     */
 
-    const MODULE_NAME = "Status Report";
+    const MODULE_NAME = "StatusReport";
 
     let bot = BOT;
 
@@ -61,7 +58,7 @@
                 timePath = "/" + year + "/" + month; 
             }
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> Entering function."); }
 
 
             initializeStorage();
@@ -74,7 +71,7 @@
 
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> initializeStorage -> onInizialized -> Entering function."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> initializeStorage -> onInizialized -> Entering function."); }
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                     } else {
@@ -93,14 +90,14 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> load -> Entering function."); }
 
             let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath = rootPath + "/Reports/" + owner.process + timePath;
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> fileName = " + fileName); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> load -> filePath = " + filePath); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> load -> fileName = " + fileName); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> load -> filePath = " + filePath); }
 
             cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -131,7 +128,7 @@
                     return;
                 }
 
-                if (LOG_FILE_CONTENT === true) {
+                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                     logger.write("[INFO] initialize -> load -> onFileReceived -> Content received = " + text);
                 }
 
@@ -169,7 +166,7 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] save -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] save -> Entering function."); }
 
             let ownerId = owner.devTeam + "-" + owner.bot + "-" + owner.botVersion.major + "-" + owner.botVersion.minor + "-" + owner.process + "-" + owner.dataSetVersion;
             let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
@@ -188,8 +185,8 @@
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath = bot.filePathRoot + "/Reports/" + owner.process + timePath;
 
-            if (FULL_LOG === true) { logger.write("[INFO] save -> fileName = " + fileName); }
-            if (FULL_LOG === true) { logger.write("[INFO] save -> filePath = " + filePath); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] save -> fileName = " + fileName); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] save -> filePath = " + filePath); }
 
             utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -197,7 +194,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] save -> onFolderCreated -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] save -> onFolderCreated -> Entering function."); }
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         logger.write("[ERROR] save -> onFolderCreated -> err = " + err.message);
@@ -211,7 +208,7 @@
 
                     function onFileCreated(err) {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] save -> onFolderCreated -> onFileCreated -> Entering function."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] save -> onFolderCreated -> onFileCreated -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             logger.write("[ERROR] save -> onFolderCreated -> onFileCreated -> err = " + err.message);
@@ -219,7 +216,7 @@
                             return;
                         }
 
-                        if (LOG_FILE_CONTENT === true) {
+                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                             logger.write("[INFO] save -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                         }
 
@@ -253,7 +250,7 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> Entering function."); }
 
             let initialYear;
             let initialMonth;
@@ -269,7 +266,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> onLoad -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> onLoad -> Entering function."); }
 
                     if (
                         err.result === global.CUSTOM_FAIL_RESPONSE.result &&
@@ -279,7 +276,7 @@
 
                         /* The first month of the market didnt create the main report yet. Aborting verification. */
 
-                        if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> onLoad -> Verification ABORTED since the main status report does not exist."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> onLoad -> Verification ABORTED since the main status report does not exist."); }
 
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
@@ -309,7 +306,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> loopCycle -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> loopCycle -> Entering function."); }
 
                     /* Here we read the status report file of each month / year to verify if it is complete or not. */
 
@@ -323,7 +320,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> loopCycle -> onLoad -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> loopCycle -> onLoad -> Entering function."); }
 
                             if (
                                 err.result === global.CUSTOM_FAIL_RESPONSE.result &&
@@ -333,7 +330,7 @@
 
                                 /* The first month of the market didnt create the main report yet. Aborting verification. */
 
-                                if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> loopCycle -> onLoad -> Verification ABORTED  since the status report for year  " + initialYear + " and month " + initialMonth + " did not exist. "); }
+                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> loopCycle -> onLoad -> Verification ABORTED  since the status report for year  " + initialYear + " and month " + initialMonth + " did not exist. "); }
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
@@ -353,7 +350,7 @@
 
                                 /* If any of the files says that month is not checked then it is enough to know the market continuity is broken. */
 
-                                if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> loopCycle -> onLoad -> Verification ABORTED since the status report for year  " + initialYear + " and month " + initialMonth + " is not marked as complete."); }
+                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> loopCycle -> onLoad -> Verification ABORTED since the status report for year  " + initialYear + " and month " + initialMonth + " is not marked as complete."); }
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
@@ -376,7 +373,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> Entering function."); }
 
                     /* We will read the current file to preserve its data, and save it again with the new lastFile */
 
@@ -390,7 +387,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                 logger.write("[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> err = " + err.message);
@@ -410,7 +407,7 @@
 
                                     try {
 
-                                        if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> Entering function."); }
+                                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                             logger.write("[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> err = " + err.message);
@@ -429,8 +426,8 @@
 
                             } else {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Main Status Report Not Updated."); }
-                                if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Current Trade Id (" + monthlyStatusReport.lastTrade.id + ") is <= than Id at main status report file. (" + thisObject.file.lastTrade.id + ")"); }
+                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Main Status Report Not Updated."); }
+                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Current Trade Id (" + monthlyStatusReport.lastTrade.id + ") is <= than Id at main status report file. (" + thisObject.file.lastTrade.id + ")"); }
 
                                 loop();  // Lets see the next month.
                             }
@@ -452,7 +449,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> loop -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> loop -> Entering function."); }
 
                     initialMonth++;
 
@@ -467,7 +464,7 @@
 
                         /* We arrived to the point where we have checked all the status reports of every month and they are all complete. */
 
-                        if (FULL_LOG === true) { logger.write("[INFO] verifyMarketComplete -> loop -> Verification Finished. Success. :-)"); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> loop -> Verification Finished. Success. :-)"); }
 
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;

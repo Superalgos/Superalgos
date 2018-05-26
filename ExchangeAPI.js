@@ -1,15 +1,12 @@
 ﻿exports.newExchangeAPI = function newExchangeAPI(BOT, DEBUG_MODULE, POLONIEX_CLIENT_MODULE) {
 
-    const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
-
     /* 
 
     This module allows trading bots to connect to the exchange and do trading operations on it. So far it can only work with Poloniex.
 
     */
 
-    const MODULE_NAME = "Exchange API";
+    const MODULE_NAME = "ExchangeAPI";
 
     let bot = BOT;
 
@@ -35,7 +32,7 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
@@ -52,8 +49,8 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getOpenPositions -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
 
             poloniexApiClient.API.returnOpenOrders(pMarket.assetA, pMarket.assetB, onExchangeCallReturned);
 
@@ -61,9 +58,9 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> Entering function."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
-                    if (LOG_FILE_CONTENT === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                     poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
@@ -118,8 +115,8 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> pPositionId = " + pPositionId); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getExecutedTrades -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getExecutedTrades -> pPositionId = " + pPositionId); }
 
             poloniexApiClient.API.returnOrderTrades(pPositionId, onExchangeCallReturned);
 
@@ -127,9 +124,9 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> Entering function."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
-                    if (LOG_FILE_CONTENT === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                     poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
@@ -191,12 +188,12 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pMarket = " + JSON.stringify(pMarket)); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pType = " + pType); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pRate = " + pRate); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pAmountA = " + pAmountA); }
-            if (FULL_LOG === true) { logger.write("[INFO] putPosition -> pAmountB = " + pAmountB); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pMarket = " + JSON.stringify(pMarket)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pType = " + pType); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pRate = " + pRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pAmountA = " + pAmountA); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             if (pType === "buy") {
                 poloniexApiClient.API.buy(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
@@ -216,9 +213,9 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> Entering function."); }
-                    if (FULL_LOG === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
-                    if (LOG_FILE_CONTENT === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                     poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
@@ -262,17 +259,17 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] movePosition -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
-            if (FULL_LOG === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
 
             poloniexApiClient.API.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
-                if (LOG_FILE_CONTENT === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
+                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                 try {
 
@@ -323,15 +320,15 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] getTicker -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getTicker -> Entering function."); }
 
             poloniexApiClient.API.returnTicker(onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
-                if (LOG_FILE_CONTENT === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
+                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                 try {
 

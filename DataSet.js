@@ -1,9 +1,6 @@
 ﻿exports.newDataSet = function newDataSet(BOT, DEBUG_MODULE, BLOB_STORAGE, UTILITIES) {
 
-    const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
-
-    const MODULE_NAME = "Data Set";
+    const MODULE_NAME = "DataSet";
 
     let bot = BOT;
 
@@ -39,7 +36,7 @@
 
             dependencyConfig = pDependencyConfig;
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             initializeStorage();
 
@@ -51,7 +48,7 @@
 
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> initializeStorage -> onInizialized -> Entering function."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> initializeStorage -> onInizialized -> Entering function."); }
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                     } else {
@@ -70,9 +67,9 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> pFolderPath = " + pFolderPath); }
-            if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> pFileName = " + pFileName); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getTextFile -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getTextFile -> pFolderPath = " + pFolderPath); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getTextFile -> pFileName = " + pFileName); }
 
             let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
             let filePath = filePathRoot + "/Output/" + pFolderPath;
@@ -81,7 +78,7 @@
 
             function onFileReceived(err, text) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> onFileReceived -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getTextFile -> onFileReceived -> Entering function."); }
 
                 callBackFunction(err, text);
 
@@ -97,9 +94,9 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] createTextFile -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] createTextFile -> pFolderPath = " + pFolderPath); }
-            if (FULL_LOG === true) { logger.write("[INFO] createTextFile -> pFileName = " + pFileName); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] createTextFile -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] createTextFile -> pFolderPath = " + pFolderPath); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] createTextFile -> pFileName = " + pFileName); }
 
             let ownerId = dependencyConfig.devTeam + "-" + dependencyConfig.bot + "-" + dependencyConfig.botVersion.major + "-" + dependencyConfig.botVersion.minor + "-" + dependencyConfig.dataSetVersion;
             let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.dataSetVersion;
@@ -122,7 +119,7 @@
 
             function onFileCreated(err) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] createTextFile -> onFileCreated -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] createTextFile -> onFileCreated -> Entering function."); }
 
                 callBackFunction(err);
 

@@ -1,5 +1,0 @@
-﻿exports.newDummy = function newDummy() {
-
-
-
-}

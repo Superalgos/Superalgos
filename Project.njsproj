@@ -35,9 +35,6 @@
     <Compile Include="DataSet.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Dummy.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="EventHandler.js" />
     <Compile Include="Root.js">
       <SubType>Code</SubType>

@@ -4,6 +4,44 @@ exports.newRoot = function newRoot() {
 
     /* Global constants definitions. */
 
+    global.LOG_CONTROL = {
+        Assistant: {
+            logInfo: true,
+            logWarnings: true,
+            logErrors: true,
+            logContent: false,
+            intensiveLogging: false
+        },
+        ExchangeAPI: {
+            logInfo: true,
+            logWarnings: true,
+            logErrors: true,
+            logContent: false,
+            intensiveLogging: false
+        },
+        StatusReport: {
+            logInfo: true,
+            logWarnings: true,
+            logErrors: true,
+            logContent: false,
+            intensiveLogging: false
+        },
+        DataSet: {
+            logInfo: true,
+            logWarnings: true,
+            logErrors: true,
+            logContent: false,
+            intensiveLogging: false
+        },
+        Context: {
+            logInfo: true,
+            logWarnings: true,
+            logErrors: true,
+            logContent: false,
+            intensiveLogging: false
+        }
+    };
+
     /* Callbacks default responses. */
 
     global.DEFAULT_OK_RESPONSE = {

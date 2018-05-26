@@ -1,8 +1,5 @@
 ﻿exports.newContext = function newContext(BOT, DEBUG_MODULE, BLOB_STORAGE, UTILITIES, STATUS_REPORT) {
 
-    const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
-
     let bot = BOT;
 
     const MODULE_NAME = "Context";
@@ -97,7 +94,7 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
 
@@ -166,7 +163,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getStatusReport -> Entering function."); }
 
                     let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
@@ -221,13 +218,13 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History." + bot.runMode + "." + runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionHistory -> filePath = " + filePath); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getExecutionHistory -> filePath = " + filePath); }
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -239,7 +236,7 @@
                             return;
                         }
 
-                        if (LOG_FILE_CONTENT === true) {
+                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                             logger.write("[INFO] initialize -> getExecutionHistory -> onFileReceived -> Content received = " + text);
                         }
 
@@ -279,7 +276,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getExecutionContext -> Entering function."); }
 
                     let date;
 
@@ -316,8 +313,8 @@
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getExecutionContext -> filePath = " + filePath); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getExecutionContext -> fileName = " + fileName); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getExecutionContext -> filePath = " + filePath); }
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -329,7 +326,7 @@
                             return;
                         }
 
-                        if (FULL_LOG === true) {
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) {
                             logger.write("[INFO] initialize -> getExecutionContext -> onFileReceived -> Content received = " + text);
                         }
 
@@ -372,7 +369,7 @@
             function createConext(callBack) {
 
                 try {
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> createConext -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> createConext -> Entering function."); }
                     /*
     
                     When the bot is executed for the very first time, there are a few files that do not exist and need to be created, and that
@@ -529,14 +526,14 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function."); }
 
                     let fileName = "Execution.Context." + bot.runMode + "." + runIndex +".json";
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
-                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> filePath = " + filePath); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> filePath = " + filePath); }
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -544,7 +541,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                 logger.write("[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> err = " + err.message);
@@ -558,7 +555,7 @@
 
                             function onFileCreated(err) {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated -> Entering function."); }
+                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated -> Entering function."); }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     logger.write("[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated -> err = " + err.message);
@@ -566,7 +563,7 @@
                                     return;
                                 }
 
-                                if (FULL_LOG === true) {
+                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) {
                                     logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 
@@ -590,13 +587,13 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
                     let fileName = "Execution.History." + bot.runMode + "." + runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
-                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
-                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> filePath = " + filePath); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> filePath = " + filePath); }
 
                     utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
 
@@ -604,7 +601,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                 logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> err = " + err.message);
@@ -644,7 +641,7 @@
 
                             function onFileCreated(err) {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> Entering function."); }
+                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> Entering function."); }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> err = " + err.message);
@@ -652,7 +649,7 @@
                                     return;
                                 }
 
-                                if (LOG_FILE_CONTENT === true) {
+                                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                                     logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 
@@ -666,7 +663,7 @@
 
                                 function onSequenceFileCreated(err) {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> onSequenceFileCreated -> Entering function."); }
+                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> onSequenceFileCreated -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                         logger.write("[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> onSequenceFileCreated -> err = " + err.message);
@@ -695,7 +692,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeStatusReport -> Entering function."); }
 
                     statusReportModule.file = thisObject.statusReport;
                     statusReportModule.save(callBack);

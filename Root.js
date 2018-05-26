@@ -90,13 +90,16 @@ exports.newRoot = function newRoot() {
     let cloudStorage;
 
     let logDisplace = "AACloud" + "                                    ";
+    let UI_COMMANDS;
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(pUI_COMMANDS, callBackFunction) {
 
         try {
             console.log(logDisplace  + "Root : [INFO] initialize -> Entering function. ");
+
+            UI_COMMANDS = pUI_COMMANDS;
 
             const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
             cloudStorage = BLOB_STORAGE.newBlobStorage();
@@ -503,7 +506,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess ->runExtractionBot -> pYear = " + pYear); }
 
                             let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotProcessMainLoop(pBotConfig);
-                            extractionBotMainLoop.initialize(pProcessConfig, onInitializeReady);
+                            extractionBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
@@ -555,7 +558,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> runIndicatorBot -> pYear = " + pYear); }
 
                             let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotProcessMainLoop(pBotConfig);
-                            indicatorBotMainLoop.initialize(pProcessConfig, onInitializeReady);
+                            indicatorBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
@@ -605,7 +608,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> runTradingBot -> Entering function."); }
 
                             let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotProcessMainLoop(pBotConfig);
-                            tradingBotMainLoop.initialize(pProcessConfig, onInitializeReady);
+                            tradingBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 

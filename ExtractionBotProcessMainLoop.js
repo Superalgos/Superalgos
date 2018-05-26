@@ -25,14 +25,16 @@
     };
 
     let processConfig;
+    let UI_COMMANDS; 
 
     return thisObject;
 
-    function initialize(pProcessConfig, callBackFunction) {
+    function initialize(pUI_COMMANDS, pProcessConfig, callBackFunction) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
+            UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
             const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');

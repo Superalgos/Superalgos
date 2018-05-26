@@ -79,7 +79,14 @@ function startRoot() {
     const ROOT_MODULE = require(ROOT_DIR + 'Root');
     let root = ROOT_MODULE.newRoot();
 
-    root.initialize(onInitialized);
+    let UI_COMMANDS = {
+        beginDatetime: undefined,
+        endDatetime: undefined,
+        timePeriod: undefined,
+        eventHandler: undefined
+    };
+
+    root.initialize(UI_COMMANDS, onInitialized);
 
     function onInitialized() {
 

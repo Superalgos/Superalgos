@@ -26,14 +26,16 @@
 
     let processConfig;
     let cloudStorage;
+    let UI_COMMANDS; 
 
     return thisObject;
 
-    function initialize(pProcessConfig, callBackFunction) {
+    function initialize(pUI_COMMANDS, pProcessConfig, callBackFunction) {
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
+            UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
             const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
@@ -158,13 +160,50 @@
 
                                 if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Setting initial datetime."); }
 
-                                bot.processDatetime = new Date(bot.backtest.beginDatetime); // Set the starting time as the configured beginDatetime.   
+                                if (UI_COMMANDS.beginDatetime !== undefined) {
+
+                                    bot.processDatetime = new Date(UI_COMMANDS.beginDatetime.valueOf());   //datetime is comming from the UI.
+
+                                } else {
+
+                                    bot.processDatetime = new Date(bot.backtest.beginDatetime); // Set the starting time as the configured beginDatetime.  
+
+                                }
 
                             } else {
 
-                                bot.processDatetime = new Date(bot.processDatetime.valueOf() + 60000); // We advance one minute in time. 
+                                let timePeriod;
 
-                                let endDatetime = new Date(bot.backtest.endDatetime);
+                                if (UI_COMMANDS.timePeriod !== undefined) {
+
+                                    timePeriod = UI_COMMANDS.timePeriod;
+
+                                } else {
+
+                                    timePeriod = processConfig.normalWaitTime; 
+
+                                }
+
+                                bot.processDatetime = new Date(bot.processDatetime.valueOf() + timePeriod); // We advance time here. 
+
+
+                                if (UI_COMMANDS.eventHandler !== undefined) {
+
+                                    UI_COMMANDS.eventHandler.raiseEvent('Datetime Changed', bot.processDatetime);
+
+                                }
+
+                                let endDatetime;
+
+                                if (UI_COMMANDS.endDatetime !== undefined) {
+
+                                    endDatetime = new Date(UI_COMMANDS.endDatetime.valueOf()); 
+
+                                } else {
+
+                                    endDatetime = new Date(bot.backtest.endDatetime); 
+
+                                }
 
                                 if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
 

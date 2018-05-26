@@ -1,6 +1,19 @@
 ﻿
 function newFloatingLayer() {
 
+    /*
+    This module represent one layer of many possible layers that could be at the Floating Space. Objects in the same layer are subject to
+    the same physics, and by being at the same level, they interact with each other. For example, they can bounce when one hit the other.
+    This module posesses its own physics engine. There are different types of floating objects, but this layer takes care of each of them.
+
+    Floating Objects Types:
+
+    1. Profile Balls: These are small balls with a profile picture, and two levels, one above and one below the ball. They are usually used
+                      to specify the location of a bot instance.
+
+    2. Notes:         Notes are a rectangular area where some text is posted. It has a subject and a body.
+    */
+
     const MODULE_NAME = "Floating Layer";
     const INFO_LOG = false;
     let INTENSIVE_LOG = false;
@@ -19,8 +32,33 @@ function newFloatingLayer() {
         initialize: initialize
     };
 
-    let visibleFloatingObjects = [];
+    /*
+    When objects are added to this layer they are added to the invisibleFloatingObjects array and they stay there because they are invisible.
+    Visibility of objects is not decided at this layer, but outside. The ones who decides which object is visible or not are plotters, because
+    they know the position of objects and the coordinate system which these positions belong to.
+
+    To save resources, the physics engine only apply its calculations to visible floating objects.
+    */
+
     let invisibleFloatingObjects = [];
+
+    /*
+    Floating objects are accesible to plotters because they carry a "payload" object that was creted by them. This object includes the position
+    and visible property. When visible turns to true, this layer module will move the reference of the floating object from the invisible array
+    to the visibleFloatingObjects array. If the plotter decides that the object is to far from the what the user is seeing, it can eventually
+    turn the visible property off again, forcing the layer to remove the object from the visibleFloatingObjects and place it again at the invisible
+    array.
+    */
+
+    let visibleFloatingObjects = [];
+
+    /*
+    The creator of the floatingObject at any time can decide to get rid of it and kill it. But we dont want the object just to dissapear because
+    that doesnt look good. What this module does is to remove it from the visible or invisible layer where they are and move them to the
+    dyingFloatingObjects array. Object in this array have a short animation until they finally graphically dissapear and at thay point they are also
+    removed from the dying array for good. 
+    */
+
     let dyingFloatingObjects = [];
 
     let maxTargetRepulsionForce = 0.0005;
@@ -33,16 +71,24 @@ function newFloatingLayer() {
 
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
+            /* We dont need to initialize anything right now. */
+
             if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); }
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
             if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
         }
     }
 
     function addFloatingObject(pFloatingObject, callBackFunction) {
+
+        /*
+        As you can see here, even though the floating objects are created outside this layer, its creator it is not supossed to keep
+        the reference to the object, so that the managment of the objects references can live entirely inside this module. What the
+        creator keeps, is a handle to the object which it can use to retrieve the floating object when needed.
+        */
 
         try {
 
@@ -61,7 +107,7 @@ function newFloatingLayer() {
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] addFloatingObject -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] addFloatingObject -> err.message = " + err.message); }
             if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
         }
     }
@@ -69,6 +115,11 @@ function newFloatingLayer() {
     function killFloatingObject(pFloatingObjectHandle, callBackFunction) {
 
         try {
+
+            /*
+            The floting object to be killed can be either at the visible or the invisible array. What we do here is look for it
+            at each of the arrays until we find it. Once found, we remove it and is sent to the dying floating objects array.
+            */
 
             if (INFO_LOG === true) { logger.write("[INFO] killFloatingObject -> Entering function."); }
 
@@ -176,19 +227,25 @@ function newFloatingLayer() {
 
                 } catch (err) {
 
-                    if (ERROR_LOG === true) { logger.write("[ERROR] killFloatingObject -> err = " + err); }
+                    if (ERROR_LOG === true) { logger.write("[ERROR] killFloatingObject -> err.message = " + err.message); }
                     if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
                 }
             }
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] killFloatingObject -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] killFloatingObject -> err.message = " + err.message); }
             if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
         }
     }
 
     function getFloatingObject(pFloatingObjectHandle, pFloatingObjectIndex) {
+
+        /*
+        There are two ways to look for a floating object: by handle or by index. The search by handle is done on the visible and invisible array.
+        The search by index is done only on the visible ones. The search by index is usually needed when mouse events occurs. In those cases
+        only objects visible to the end usser matters.
+        */
 
         try {
 
@@ -231,7 +288,7 @@ function newFloatingLayer() {
             }
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] getFloatingObject -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] getFloatingObject -> err.message = " + err.message); }
         }
     }
 
@@ -244,15 +301,29 @@ function newFloatingLayer() {
 
     function physicsLoop() {
 
+        /*
+        The Physics engine is hooked at the animation loop, so it executes very very often. According to this Physics engine, each
+        floating object has a position and a speed. In fact, each floating object has two positions at the same time:
+
+        1. The current position: is the position of the ball, floating around.
+        2. The anchor position: is the position of where the ball is achored on the plot. This one is inside the payload object controlled by the
+           plotter.
+
+        The anchor position influences the current position, since the Physics engine will apply a gravity force to the ball's position in order
+        to make it gravitate towards the anchor position. At the same time there will be a repulsion force that will prevent the ball reaching
+        the anchor position, so that the anchor point keeps visible to the user. 
+
+        */
+
         try {
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> Entering function."); }
 
-            /* This function makes all the calculations to apply phisycs on all floatingObjects in this space. */
-
             applyPhysics();
 
             function applyPhysics() {
+
+                /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
 
                 try {
 
@@ -267,7 +338,7 @@ function newFloatingLayer() {
                         floatingObject.currentPosition.x = floatingObject.currentPosition.x + floatingObject.currentSpeed.x;
                         floatingObject.currentPosition.y = floatingObject.currentPosition.y + floatingObject.currentSpeed.y;
 
-                        if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> Apply some friction to desacelerate."); }
+                        if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> Apply some friction to desaccelerate."); }
 
                         floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction;  // Desaceleration factor.
                         floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction;  // Desaceleration factor.
@@ -381,7 +452,7 @@ function newFloatingLayer() {
 
                 catch(err) {
 
-                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> applyPhysics -> err = " + err); }
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> applyPhysics -> err.message = " + err.message); }
 
                 }
             }
@@ -409,7 +480,7 @@ function newFloatingLayer() {
 
                 catch (err) {
 
-                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> drawVisibleObjects -> err = " + err); }
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> drawVisibleObjects -> err.message = " + err.message); }
 
                 }
             }
@@ -482,7 +553,7 @@ function newFloatingLayer() {
 
                 catch (err) {
 
-                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> makeVisible -> err = " + err); }
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> makeVisible -> err.message = " + err.message); }
 
                 }
             }
@@ -548,7 +619,7 @@ function newFloatingLayer() {
 
                 catch (err) {
 
-                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> makeInvisible -> err = " + err); }
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> makeInvisible -> err.message = " + err.message); }
 
                 }
             }
@@ -585,7 +656,7 @@ function newFloatingLayer() {
 
                 catch (err) {
 
-                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> animateDyingObjects -> err = " + err); }
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> animateDyingObjects -> err.message = " + err.message); }
 
                 }
             }
@@ -611,13 +682,13 @@ function newFloatingLayer() {
 
                 catch (err) {
 
-                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> drawDyingObjects -> err = " + err); }
+                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> drawDyingObjects -> err.message = " + err.message); }
 
                 }
             }
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> err.message = " + err.message); }
         }
     }
 
@@ -671,7 +742,7 @@ function newFloatingLayer() {
             floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y;
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] gravityForce -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] gravityForce -> err.message = " + err.message); }
         }
     }
 
@@ -738,7 +809,7 @@ function newFloatingLayer() {
             }
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] currentRepulsionForce -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] currentRepulsionForce -> err.message = " + err.message); }
         }
     }
 
@@ -823,7 +894,7 @@ function newFloatingLayer() {
             }
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] targetRepulsionForce -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] targetRepulsionForce -> err.message = " + err.message); }
         }
     }
 
@@ -851,7 +922,7 @@ function newFloatingLayer() {
             }
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] changeTargetRepulsion -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] changeTargetRepulsion -> err.message = " + err.message); }
         }
     }
 
@@ -883,7 +954,7 @@ function newFloatingLayer() {
             else return true;
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] colliding -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] colliding -> err.message = " + err.message); }
         }
     }
 
@@ -906,7 +977,7 @@ function newFloatingLayer() {
             return -1;
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] isInside -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] isInside -> err.message = " + err.message); }
         }
     }
 
@@ -928,7 +999,7 @@ function newFloatingLayer() {
             return false;
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] isInsideFloatingObject -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] isInsideFloatingObject -> err.message = " + err.message); }
         }
     }
 
@@ -941,7 +1012,7 @@ function newFloatingLayer() {
             return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] distance -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] distance -> err.message = " + err.message); }
         }
     }
 
@@ -1022,7 +1093,7 @@ function newFloatingLayer() {
             floatingObject2.currentPosition = pos2;
 
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] resolveCollision -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] resolveCollision -> err.message = " + err.message); }
         }
     }
 }

@@ -205,7 +205,7 @@ function newTimeControlPanel() {
             case "Pause":
 
                 //pressPause();
-                stopBot();
+                onBotStopPressed();
                 break;
 
             case "Step Forward":
@@ -222,7 +222,7 @@ function newTimeControlPanel() {
                     eventHandler: thisObject.container.eventHandler
                 };
 
-                runBot(UI_COMMANDS);
+                onBotPlayPressed(UI_COMMANDS);
                 //pressPlayForward();
                 break;
 

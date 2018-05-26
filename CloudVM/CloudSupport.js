@@ -9,7 +9,7 @@ When running at the clode on NodeJS some things work diffently that at the brows
 
 
 
-function runBot(pUI_COMMANDS) {
+function onBotPlayPressed(pUI_COMMANDS) {
 
     window.SHALL_BOT_STOP = false;
 
@@ -17,18 +17,16 @@ function runBot(pUI_COMMANDS) {
     window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
     window.EXCHANGE_KEYS = ecosystem.getExchangeKeys();
 
-    let root = newRoot();
-
-    root.initialize(pUI_COMMANDS, onInitialized);
+    cloudVM.initialize(pUI_COMMANDS, onInitialized);
 
     function onInitialized() {
 
-        root.start();
+        cloudVM.start();
     }
 
 }
 
-function stopBot() {
+function onBotStopPressed() {
 
     window.SHALL_BOT_STOP = true;
 

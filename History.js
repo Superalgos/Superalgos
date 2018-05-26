@@ -4,7 +4,7 @@
     const INFO_LOG = false;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
-    const logger = newDebugLog();
+    const logger = newWebDebugLog();
     logger.fileName = MODULE_NAME;
 
     let thisObject = {
@@ -184,13 +184,10 @@
 
                 let history = [];
                 let lines = [];
-
-                let oneMin = 60000;
-                let step = timePeriod / oneMin;
-
+                
                 /* First the small balls */
 
-                for (let i = 0; i < file.length; i = i + step) {
+                for (let i = 0; i < file.length; i++) {
 
                     let newHistoryRecord = {
 

@@ -52,19 +52,33 @@
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            /* Store local values. */
+            /* Save local values. */
 
             context = pContext;
             exchangeAPI = pExchangeAPI;
             thisObject.dataDependencies = pDataDependencies;
 
-            getMarketRate();
+            switch (bot.runMode) {
 
-            function getMarketRate() {
+                case 'Live': { getMarketRateFromExchange();}
+
+                case 'Backtest': { getMarketRateFromIndicator();}
+
+                case 'Competition': { getMarketRateFromExchange(); }
+
+                default: {
+                    logger.write("[ERROR] initialize -> Unexpected bot.runMode.");
+                    logger.write("[ERROR] initialize -> bot.runMode = " + bot.runMode);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+            }
+
+            function getMarketRateFromExchange() {
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRateFromExchange -> Entering function."); }
 
                     exchangeAPI.getTicker(global.MARKET.assetA + '_' + global.MARKET.assetB, onTicker);
 
@@ -74,11 +88,11 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> onTicker -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRateFromExchange -> onTicker -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) { 
 
-                                if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRate -> onTicker -> We could not get the Market Price now."); }
+                                if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRateFromExchange -> onTicker -> We could not get the Market Price now."); }
 
                                 callBackFunction(err);
                                 return;
@@ -92,13 +106,103 @@
                             validateExchangeSyncronicity();
 
                         } catch (err) {
-                            logger.write("[ERROR] initialize -> getMarketRate -> onTicker -> err = " + err.message);
+                            logger.write("[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     } 
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> getMarketRate -> err = " + err.message);
+                    logger.write("[ERROR] initialize -> getMarketRateFromExchange -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function getMarketRateFromIndicator() {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRateFromIndicator -> Entering function."); }
+
+                    /* Procedure to get the current market rate. */
+
+                    let key =
+                        global.PLATFORM_CONFIG.marketRateProvider.devTeam + "-" +
+                        global.PLATFORM_CONFIG.marketRateProvider.bot + "-" +
+                        global.PLATFORM_CONFIG.marketRateProvider.product + "-" +
+                        global.PLATFORM_CONFIG.marketRateProvider.dataSet + "-" +
+                        global.PLATFORM_CONFIG.marketRateProvider.dataSetVersion;
+
+                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRateFromIndicator -> key = " + key); }
+
+                    let dataSet = thisObject.dataDependencies.dataSets.get(key);
+
+                    let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
+                    let fileName = '' + global.MARKET.assetA + '_' + global.MARKET.assetB + '.json';
+                    let filePath = global.PLATFORM_CONFIG.marketRateProvider.product + "/" + global.PLATFORM_CONFIG.marketRateProvider.dataSet + "/" + dateForPath;
+
+                    dataSet.getTextFile(filePath, fileName, onFileReceived, true);
+
+                    function onFileReceived(err, text) {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> Entering function."); }
+                        if (LOG_FILE_CONTENT === true) { logger.write("[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> text = " + text); }
+
+                        let candleArray;
+
+                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result) {  // Just past midnight, this file will not exist for a couple of minutes.
+                            if (err.message === "File does not exist.") {
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                return;
+                            }
+                        }
+
+                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                            try {
+                                candleArray = JSON.parse(text);
+
+                                /* We need to find the candle at which the process is currently running. */
+
+                                for (let i = 0; i < candleArray.length; i++) {
+
+                                    let candle = {
+                                        open: candleArray[i][2],
+                                        close: candleArray[i][3],
+                                        min: candleArray[i][0],
+                                        max: candleArray[i][1],
+                                        begin: candleArray[i][4],
+                                        end: candleArray[i][5]
+                                    };
+
+                                    if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
+
+                                        marketRate = (candle.open + candle.close) / 2;
+                                        marketRate = Number(marketRate.toFixed(8));
+                                        context.newHistoryRecord.marketRate = marketRate;
+
+                                        ticker = {
+                                            bid: marketRate,
+                                            ask: marketRate,
+                                            last: marketRate
+                                        };
+
+                                        validateExchangeSyncronicity();
+                                        return;
+                                    }
+                                }
+
+                            } catch (err) {
+                                logger.write("[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
+                                logger.write("[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                            }
+                        } else {
+                            logger.write("[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
+                            callBackFunction(err);
+                        }
+                    }
+
+                } catch (err) {
+                    logger.write("[ERROR] initialize -> getMarketRateFromIndicator -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

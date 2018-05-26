@@ -16,13 +16,13 @@
       "description": "Simple trading strategy to be used as a template.",
       "startMode": {
         "live": {
-          "run": "true",
+          "run": "false",
           "resumeExecution": "false"
         },
         "backtest": {
-          "run": "false",
-          "beginDatetime": "2018-04-18T16:00:00.000Z",
-          "endDatetime": "2018-04-18T17:00:00.000Z",
+          "run": "true",
+          "beginDatetime": "2018-04-21T16:00:00.000Z",
+          "endDatetime": "2018-04-21T17:00:00.000Z",
           "waitTime": 1000
         },
         "competition": {

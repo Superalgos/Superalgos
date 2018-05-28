@@ -19,7 +19,7 @@ function newFileSequence() {
     let filesLoaded = 0;
     let fileCloud;
     let files = new Map;
-    let maxSequence = -1; // This is replaced by the content of the sequence file, which contains an index that starts on zero. In the case that the sequence file is not found the default value is -1 sin when you add 1 it gives you the amount of files in the sequence, zero.
+    let maxSequence = -1; // This is replaced by the content of the sequence file, which contains an index that starts on zero. In the case that the sequence file is not found the default value is -1 so when you add 1 it gives you the amount of files in the sequence, zero.
     let market;
     let devTeam;
     let bot;
@@ -70,7 +70,7 @@ function newFileSequence() {
 
             }
 
-            intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS); 
+            //intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS); 
 
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> intervalHandle = " + intervalHandle); }
 

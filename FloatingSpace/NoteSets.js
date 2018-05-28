@@ -16,6 +16,7 @@ function newNoteSets() {
 
     const MODULE_NAME = "Note Sets";
     const INFO_LOG = false;
+    const INFO_WARN = true;
     const ERROR_LOG = true;
     const logger = newWebDebugLog();
     logger.fileName = MODULE_NAME;
@@ -142,10 +143,21 @@ function newNoteSets() {
                             Each time we identify a floatingObject that is not at the raw data anymore, we request the floatinglayer to kill it.
                             */
 
-                            floatingLayer.killFloatingObject(floatingNote.floatingHandle);
+                            floatingLayer.killFloatingObject(floatingNote.floatingHandle, onObjectKilled);
 
-                            if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> floatingNote.floatingHandle = " + floatingNote.floatingHandle); }
-                            if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> Removed from Layer."); }
+                            function onObjectKilled(err) {
+
+                                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+
+                                    if (ERROR_LOG === true) { logger.write("[ERROR] createNoteSet -> onNotesChanged -> Remove old Notes -> Floating Object Not Found."); }
+                                    if (ERROR_LOG === true) { logger.write("[ERROR] createNoteSet -> onNotesChanged -> Remove old Notes -> Floating Object cannot be killed."); }
+                                    if (ERROR_LOG === true) { logger.write("[ERROR] createNoteSet -> onNotesChanged -> Remove old Notes -> floatingNote.floatingHandle = " + floatingNote.floatingHandle); }
+                                    return;
+                                } 
+
+                                if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> floatingNote.floatingHandle = " + floatingNote.floatingHandle); }
+                                if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> Removed from Layer."); }
+                            }
 
                         } else {
 
@@ -154,6 +166,10 @@ function newNoteSets() {
                             if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> floatingNote.floatingHandle = " + floatingNote.floatingHandle); }
                             if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> Added to newFloatingNotes."); }
                             if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Remove old Notes -> newFloatingNotes.length = " + newFloatingNotes.length); }
+
+                            /*
+                            We set a property at each floatingObject of which is the index of the note at the raw data array, so that it can later evaluate its position or its visibility.
+                            */
 
                             let floatingObject = floatingLayer.getFloatingObject(floatingNote.floatingHandle);
                             floatingObject.payloadNoteIndex = i;
@@ -182,6 +198,13 @@ function newNoteSets() {
 
                     newFloatingNotes = []; // We will create a new array of Floating Notes as a result of this operation.
 
+                    /*
+                    We are using the date and rate as a unique key to identify each note. To prevent the cases of duplicate keys, we will check that at
+                    least to consecutive records dont have the same key, and if they do, will ignore the second one.
+                    */
+
+                    let lastPlotterKey = "";
+
                     for (let i = 0; i < pNewNotes.length; i++) {
 
                         found = false;
@@ -190,6 +213,15 @@ function newNoteSets() {
                         let plotterNoteKey = plotterNote.date.toString() + plotterNote.rate.toString();
                         let floatingNote;
                         let floatingNoteKey;
+
+                        if (lastPlotterKey === plotterNoteKey) {
+
+                            if (INFO_WARN=== true) { logger.write("[WARN] createNoteSet -> onNotesChanged -> Add new Notes -> Duplicate record detected. Discarding it."); }
+                            if (INFO_WARN === true) { logger.write("[WARN] createNoteSet -> onNotesChanged -> Add new Notes -> i = " + i); }
+                            continue;
+                        }
+
+                        lastPlotterKey = plotterNoteKey;
 
                         if (INFO_LOG === true) { logger.write("[INFO] createNoteSet -> onNotesChanged -> Add new Notes -> i = " + i); }
 

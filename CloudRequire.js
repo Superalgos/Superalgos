@@ -25,7 +25,7 @@
 
             if (FULL_LOG === true) { logger.write("[INFO] downloadBot -> Entering function."); }
 
-            let filePath = bot.devTeam + "/" + bot.repo + "/" + pProcessConfig.name;
+            let filePath = global.USER_DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + bot.repo + "/" + pProcessConfig.name;
             let fileName = "User.Bot.js";
 
             pCloudStorage.getTextFile(filePath, fileName, onFileReceived);

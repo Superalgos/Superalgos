@@ -2,6 +2,8 @@
 global.CURRENT_ENVIRONMENT = "Develop"; 
 global.CURRENT_LOCATION = "Cloud"; 
 global.SHALL_BOT_STOP = false;
+global.USER_LOGGED_IN = "ciencias";
+global.USER_DEV_TEAM = "AAMasters";
 
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);

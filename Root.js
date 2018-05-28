@@ -148,7 +148,7 @@ exports.newRoot = function newRoot() {
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    let filePath = "AdvancedAlgos" + "/" + "AACloud";
+                    let filePath = global.USER_DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + "AACloud";
                     let fileName = "this.config.json";
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);

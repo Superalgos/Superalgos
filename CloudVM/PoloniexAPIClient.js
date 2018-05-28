@@ -87,7 +87,7 @@
             + pMarketAssetB
             ;
 
-        callServer(path + "/NO-LOG", onServerResponse);
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -106,7 +106,7 @@
             + pPositionId
             ;
 
-        callServer(path + "/NO-LOG", onServerResponse);
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -127,7 +127,7 @@
             + pAmountB
             ;
 
-        callServer(path + "/NO-LOG", onServerResponse);
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -148,7 +148,7 @@
             + pAmountB
             ;
 
-        callServer(path + "/NO-LOG", onServerResponse);
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -169,7 +169,7 @@
             + pPositionAmountB
             ;
 
-        callServer(path + "/NO-LOG", onServerResponse);
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 
@@ -187,7 +187,7 @@
             + secret
             ;
 
-        callServer(path + "/NO-LOG", onServerResponse);
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
 

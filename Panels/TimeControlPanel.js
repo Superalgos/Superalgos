@@ -199,13 +199,13 @@ function newTimeControlPanel() {
 
             case "Step Backwards":
 
-                pressStepBackwards();
+                //pressStepBackwards();
                 break;
 
             case "Pause":
 
                 //pressPause();
-                onBotStopPressed();
+                cloudVM.onBotStopPressed();
                 break;
 
             case "Step Forward":
@@ -222,7 +222,7 @@ function newTimeControlPanel() {
                     eventHandler: thisObject.container.eventHandler
                 };
 
-                onBotPlayPressed(UI_COMMANDS);
+                cloudVM.onBotPlayPressed(UI_COMMANDS);
                 //pressPlayForward();
                 break;
 

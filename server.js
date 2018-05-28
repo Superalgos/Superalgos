@@ -7,6 +7,31 @@ if (CONSOLE_LOG === true) { console.log("[INFO] server -> Node Server Starting."
 
 let serverConfig;
 
+global.DEFAULT_OK_RESPONSE = {
+    result: "Ok",
+    message: "Operation Succeeded"
+};
+
+global.DEFAULT_FAIL_RESPONSE = {
+    result: "Fail",
+    message: "Operation Failed"
+};
+
+global.DEFAULT_RETRY_RESPONSE = {
+    result: "Retry",
+    message: "Retry Later"
+};
+
+global.CUSTOM_OK_RESPONSE = {
+    result: "Ok, but check Message",
+    message: "Custom Message"
+};
+
+global.CUSTOM_FAIL_RESPONSE = {
+    result: "Fail Because",
+    message: "Custom Message"
+};
+
 let githubData = new Map;
 let storageData = new Map;
 let fileSystemData = new Map;
@@ -363,6 +388,34 @@ function onBrowserRequest(request, response) {
 
                 respondWithFile('./CloudVM/' + requestParameters[2], response);
 
+            }
+            break; 
+
+        case "AABrowserAPI": // This means the Scripts folder.
+            {
+                const AABROSER_API_MODULE = require('./AABrowserAPI/' + 'API');
+                let api = AABROSER_API_MODULE.newAPI();
+
+                api.initialize(serverConfig);
+
+                processPost(request, response, onPostReceived)
+
+                function onPostReceived(pData) {
+
+                    switch (requestParameters[2]) {
+
+                        case "saveBotCode": {
+                            api.saveBotCode(pData, onResponse);
+                            break;
+                        }
+
+                    }
+
+                    function onResponse(err, pResponse) {
+
+                        respondWithContent(JSON.stringify(pResponse), response);
+                    }
+                }
             }
             break; 
 
@@ -967,3 +1020,26 @@ function returnEmptyArray() {
     }
 }
 
+function processPost(request, response, callback) {
+    let data = "";
+    if (typeof callback !== 'function') return null;
+
+    if (request.method == 'POST') {
+        request.on('data', function (pData) {
+            data += pData;
+            if (data.length > 1e6) {
+                data = "";
+                response.writeHead(413, { 'Content-Type': 'text/plain' }).end();
+                request.connection.destroy();
+            }
+        });
+
+        request.on('end', function () {
+            callback(data);
+        });
+
+    } else {
+        response.writeHead(405, { 'Content-Type': 'text/plain' });
+        response.end();
+    }
+}

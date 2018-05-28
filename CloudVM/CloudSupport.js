@@ -9,28 +9,7 @@ When running at the clode on NodeJS some things work diffently that at the brows
 
 
 
-function onBotPlayPressed(pUI_COMMANDS) {
 
-    window.SHALL_BOT_STOP = false;
-
-    window.CURRENT_ENVIRONMENT = "Develop"; 
-    window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
-    window.EXCHANGE_KEYS = ecosystem.getExchangeKeys();
-
-    cloudVM.initialize(pUI_COMMANDS, onInitialized);
-
-    function onInitialized() {
-
-        cloudVM.start();
-    }
-
-}
-
-function onBotStopPressed() {
-
-    window.SHALL_BOT_STOP = true;
-
-}
 
 function webRequire(pModulePath) {
 
@@ -162,7 +141,7 @@ function downloadModule(pPath, callBackFunction) {
     }
 }
 
-function callServer(pPath, callBackFunction) {
+function callServer(pContentToSend, pPath, callBackFunction) {
 
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -172,9 +151,20 @@ function callServer(pPath, callBackFunction) {
 
         }
     };
-    xhttp.open("GET", pPath, true);
-    xhttp.send();
 
+    if (pContentToSend === undefined) {
+
+        xhttp.open("GET", pPath, true);
+        xhttp.send();
+
+    } else {
+
+        let blob = new Blob([pContentToSend], { type: 'text/plain' });
+
+        xhttp.open("POST", pPath, true);
+        xhttp.send(blob);
+
+    }
 }
 
 

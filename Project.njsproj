@@ -29,10 +29,16 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AABrowserAPI\API.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="AccumulatedVolumeBar.js" />
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
     <Compile Include="CloudVM\CloudRequire.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CloudVM\CloudVM.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudVM\PoloniexAPIClient.js" />
@@ -164,6 +170,7 @@
     <Folder Include="Exchanges\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
+    <Folder Include="AABrowserAPI\" />
     <Folder Include="Scripts\" />
     <Folder Include="Server\" />
     <Folder Include="Spaces\" />

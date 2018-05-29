@@ -101,7 +101,7 @@
 
                         modulesRetrieved++;
                         if (modulesRetrieved === pCloudWebConfig.webModules.length) {
-                            createHTML(callBackfunction);
+                            createJS(callBackfunction);
                         }
 
                     }
@@ -125,21 +125,21 @@
                 }
             }
 
-            function createHTML(callBackfunction) {
+            function createJS(callBackfunction) {
 
-                let links = "";
-                let htmlLine = '' + '\n' + '    <script type="text/javascript" src="AACloud/@module@"></script>'
+                let lines = "";
+                let jsLine = '' + '\n' + '            "AACloud/@module@",'
 
                 for (let i = 0; i < pCloudWebConfig.webModules.length; i++) {
 
                     let webModule = pCloudWebConfig.webModules[i].name + '.js';
-                    let htmlLineCopy = htmlLine;
+                    let htmlLineCopy = jsLine;
                     let newLink = htmlLineCopy.replace('@module@', webModule);
 
-                    links = links + newLink;
+                    lines = lines + newLink;
                 }
 
-                callBackfunction(links);
+                callBackfunction(lines);
             }
 
         }

@@ -414,8 +414,122 @@ function onBrowserRequest(request, response) {
         case "Scripts": // This means the Scripts folder.
             {
 
-                respondWithFile('./Scripts/' + requestParameters[2], response);
+                if (requestParameters[2] === "AppLoader.js") {
 
+                    let fs = require('fs');
+                    try {
+                        let fileName = './Scripts/' + 'AppLoader.js';
+                        fs.readFile(fileName, onFileRead);
+
+                        function onFileRead(err, file) {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
+
+                            try {
+
+                                let fileContent = file.toString();
+
+                                addCloudWebScripts();
+                                addPlotters();
+
+                                function addCloudWebScripts() {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addCloudWebScripts -> Entering function."); }
+
+                                    let firstPart = fileContent.substring(0, fileContent.indexOf('/* CloudWebScripts */') + 21);
+                                    let secondPart = fileContent.substring(fileContent.indexOf('/* CloudWebScripts */') + 21);
+
+                                    fileContent = firstPart + HTMLCloudScripts + secondPart;
+                                }
+
+                                function addPlotters() {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> Entering function."); }
+
+                                    let htmlLinePlotter = '' + '\n' +
+                                        '            "Plotters/@devTeam@/@repo@/@module@.js",'
+
+                                    let htmlLinePlotterPanel = '' + '\n' +
+                                        '            "PlotterPanels/@devTeam@/@repo@/@module@.js",'
+
+                                    let devTeams = ecosystemObject.devTeams;
+                                    let hosts = ecosystemObject.hosts;
+
+                                    addScript(devTeams);
+                                    addScript(hosts);
+
+                                    function addScript(pDevTeamsOrHosts) {
+
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> addScript -> Entering function."); }
+
+                                        for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
+
+                                            let devTeam = pDevTeamsOrHosts[i];
+
+                                            for (let j = 0; j < devTeam.plotters.length; j++) {
+
+                                                let plotter = devTeam.plotters[j];
+
+                                                if (plotter.modules !== undefined) {
+
+                                                    for (let k = 0; k < plotter.modules.length; k++) {
+
+                                                        let module = plotter.modules[k];
+
+                                                        let htmlLineCopy = htmlLinePlotter;
+
+                                                        let stringToInsert;
+                                                        stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                                        stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                                        stringToInsert = stringToInsert.replace('@module@', module.moduleName);
+
+                                                        let firstPart = fileContent.substring(0, fileContent.indexOf('/* Plotters */') + 14);
+                                                        let secondPart = fileContent.substring(fileContent.indexOf('/* Plotters */') + 14);
+
+                                                        fileContent = firstPart + stringToInsert + secondPart;
+
+                                                        if (module.panels !== undefined) {
+
+                                                            for (let l = 0; l < module.panels.length; l++) {
+
+                                                                let panel = module.panels[l];
+
+                                                                let htmlLineCopy = htmlLinePlotterPanel;
+
+                                                                let stringToInsert;
+                                                                stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                                                stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                                                stringToInsert = stringToInsert.replace('@module@', panel.moduleName);
+
+                                                                let firstPart = fileContent.substring(0, fileContent.indexOf('/* PlotterPanels */') + 19);
+                                                                let secondPart = fileContent.substring(fileContent.indexOf('/* PlotterPanels */') + 19);
+
+                                                                fileContent = firstPart + stringToInsert + secondPart;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                respondWithContent(fileContent, response);
+
+                            }
+                            catch (err) {
+                                console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
+                            }
+                        }
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+                } else {
+
+                    respondWithFile('./Scripts/' + requestParameters[2], response);
+
+                }
             }
             break; 
 
@@ -605,91 +719,7 @@ function onBrowserRequest(request, response) {
 
                             let fileContent = file.toString();
 
-                            addCloudWebScripts();
-                            addPlotters();
                             addImages();
-
-                            function addCloudWebScripts() {
-
-                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addCloudWebScripts -> Entering function."); }
-
-                                let firstPart = fileContent.substring(0, fileContent.indexOf('<!--CloudWebScripts-->') + 22);
-                                let secondPart = fileContent.substring(fileContent.indexOf('<!--CloudWebScripts-->') + 22);
-
-                                fileContent = firstPart + HTMLCloudScripts + secondPart;
-                            }
-
-                            function addPlotters() {
-
-                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> Entering function."); }
-
-                                let htmlLinePlotter = '' + '\n' +
-                                    '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
-
-                                let htmlLinePlotterPanel = '' + '\n' +
-                                    '    <script type="text/javascript" src="PlotterPanels/@devTeam@/@repo@/@module@.js"></script>'
-
-                                let devTeams = ecosystemObject.devTeams;
-                                let hosts = ecosystemObject.hosts;
-
-                                addScript(devTeams);
-                                addScript(hosts);
-
-                                function addScript(pDevTeamsOrHosts) {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> addScript -> Entering function."); }
-
-                                    for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
-
-                                        let devTeam = pDevTeamsOrHosts[i];
-
-                                        for (let j = 0; j < devTeam.plotters.length; j++) {
-
-                                            let plotter = devTeam.plotters[j];
-
-                                            if (plotter.modules !== undefined) {
-
-                                                for (let k = 0; k < plotter.modules.length; k++) {
-
-                                                    let module = plotter.modules[k];
-
-                                                    let htmlLineCopy = htmlLinePlotter;
-
-                                                    let stringToInsert;
-                                                    stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                                    stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                                    stringToInsert = stringToInsert.replace('@module@', module.moduleName);
-
-                                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Plotters-->') + 15);
-                                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Plotters-->') + 15);
-
-                                                    fileContent = firstPart + stringToInsert + secondPart;
-
-                                                    if (module.panels !== undefined) {
-
-                                                        for (let l = 0; l < module.panels.length; l++) {
-
-                                                            let panel = module.panels[l];
-
-                                                            let htmlLineCopy = htmlLinePlotterPanel;
-
-                                                            let stringToInsert;
-                                                            stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                                            stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                                            stringToInsert = stringToInsert.replace('@module@', panel.moduleName);
-
-                                                            let firstPart = fileContent.substring(0, fileContent.indexOf('<!--PlotterPanels-->') + 20);
-                                                            let secondPart = fileContent.substring(fileContent.indexOf('<!--PlotterPanels-->') + 20);
-
-                                                            fileContent = firstPart + stringToInsert + secondPart;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
 
                             function addImages() {
 

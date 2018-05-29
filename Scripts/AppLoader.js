@@ -15,6 +15,12 @@
 
         let modulesArray = [    
 
+            /* CloudWebScripts */
+
+            /* Plotters */
+
+            /* PlotterPanels */
+
             "Panels/TimeControlPanel.js",
             "Panels/ProductsPanel.js",
 

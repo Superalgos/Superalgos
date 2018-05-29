@@ -485,34 +485,7 @@ function onBrowserRequest(request, response) {
         case "AACloud": // This means the cloud folder.
             {
 
-                let map;
-
-                switch (serverConfig.configAndPlugins.Location) {
-
-                    case 'Cloud': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
-
-                        map = storageData;
-                        break;
-                    }
-
-                    case 'File System': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
-
-                        map = fileSystemData;
-                        break;
-                    }
-
-                    case 'Github': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
-
-                        map = githubData;
-                        break;
-                    }
-                }
+                let map = storageData;
 
                 let script = map.get(requestParameters[2]);
 
@@ -533,36 +506,7 @@ function onBrowserRequest(request, response) {
         case "Bots": // This means the cloud folder.
             {
 
-                let map;
-
-                switch (serverConfig.configAndPlugins.Location) {
-
-                    case 'Cloud': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
-
-                        map = storageData;
-                        break;
-                    }
-
-                    case 'File System': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
-
-                        map = fileSystemData;
-                        break;
-                    }
-
-                    case 'Github': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
-
-                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
-
-                        map = githubData;
-                        break;
-                    }
-                }
+                let map = storageData;
 
                 let key;
 
@@ -595,93 +539,24 @@ function onBrowserRequest(request, response) {
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
 
-                switch (serverConfig.configAndPlugins.Location) {
+                storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], onDataArrived);
 
-                    case 'Cloud': {
+                function onDataArrived(pData) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
+                    respondWithContent(pData, response);
 
-                        storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], onDataArrived);
-
-                        function onDataArrived(pData) {
-
-                            respondWithContent(pData, response);
-
-                        }
-
-                        break;
-                    }
-
-                    case 'File System': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
-
-                        respondWithFile('../Plotters/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response);
-
-                        break;
-                    }
-
-                    case 'Github': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
-
-                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
-
-                        function onDataArrived(pData) {
-
-                            respondWithContent(pData, response);
-
-                        }
-
-                        break;
-                    }
                 }
             }
             break; 
 
         case "PlotterPanels": // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
             {
+                storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], onDataArrived);
 
-                switch (serverConfig.configAndPlugins.Location) {
+                function onDataArrived(pData) {
 
-                    case 'Cloud': {
+                    respondWithContent(pData, response);
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
-
-                        storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], onDataArrived);
-
-                        function onDataArrived(pData) {
-
-                            respondWithContent(pData, response);
-
-                        }
-
-                        break;
-                    }
-
-                    case 'File System': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> File System -> Entering Case."); }
-
-                        respondWithFile('../Plotters/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response);
-
-                        break;
-                    }
-
-                    case 'Github': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Github -> Entering Case."); }
-
-                        github.getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
-
-                        function onDataArrived(pData) {
-
-                            respondWithContent(pData, response);
-
-                        }
-
-                        break;
-                    }
                 }
             }
             break; 

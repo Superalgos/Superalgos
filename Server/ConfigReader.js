@@ -12,17 +12,15 @@
     let storage = STORAGE.newStorage();
 
     let serverConfig;
-    let githubData;
     let storageData;
     let ecosystem;
     let ecosystemObject;
 
     return thisObject;
 
-    function initialize(pEcosystem, pEcosystemObject, pServerConfig, pGithubData, pStorageData, callBackFunction) {
+    function initialize(pEcosystem, pEcosystemObject, pServerConfig, pStorageData, callBackFunction) {
 
         serverConfig = pServerConfig;
-        githubData = pGithubData;
         storageData = pStorageData;
         ecosystem = pEcosystem;
         ecosystemObject = pEcosystemObject;
@@ -60,7 +58,6 @@
 
                         /* Finalize initializations. */
 
-                        github.initialize(githubData);
                         storage.initialize(storageData, serverConfig);
 
                         callBackFunction(serverConfig);

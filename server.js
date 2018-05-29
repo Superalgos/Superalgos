@@ -32,7 +32,6 @@ global.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 };
 
-let githubData = new Map;
 let storageData = new Map;
 let fileSystemData = new Map;
 
@@ -47,9 +46,6 @@ let port = process.env.PORT || 1337;
 
 let isHttpServerStarted = false;
 
-const GITHUB = require('./Server/Github');
-let github = GITHUB.newGithub();
-
 const STORAGE = require('./Server/Storage');
 let storage = STORAGE.newStorage();
 
@@ -61,14 +57,13 @@ function initialize() {
 
     /* Clear all cached information. */
 
-    githubData = new Map;
     storageData = new Map;
     fileSystemData = new Map;
 
     const CONFIG_READER = require('./Server/ConfigReader');
     let configReader = CONFIG_READER.newConfigReader();
 
-    configReader.initialize(ecosystem, ecosystemObject, serverConfig, githubData, storageData, onInitialized);
+    configReader.initialize(ecosystem, ecosystemObject, serverConfig, storageData, onInitialized);
 
     function onInitialized(pServerConfig) {
 
@@ -81,13 +76,12 @@ function initialize() {
             ecosystem = pEcosystem;
             ecosystemObject = pEcosystemObject;
             
-            github.initialize(githubData);
             storage.initialize(storageData, serverConfig)
 
             const CLOUD_SCRIPTS = require('./Server/CloudScripts');
             let cloudScripts = CLOUD_SCRIPTS.newCloudScripts();
 
-            cloudScripts.initialize(ecosystem, ecosystemObject, serverConfig, githubData, storageData, fileSystemData, onInitialized);
+            cloudScripts.initialize(ecosystem, ecosystemObject, serverConfig, storageData, fileSystemData, onInitialized);
 
             function onInitialized() {
 
@@ -105,7 +99,7 @@ function initialize() {
                         const BOT_SCRIPTS = require('./Server/BotsScripts');
                         let botScripts = BOT_SCRIPTS.newBotScripts();
 
-                        botScripts.initialize(ecosystem, ecosystemObject, serverConfig, githubData, storageData, fileSystemData, onInitialized);
+                        botScripts.initialize(ecosystem, ecosystemObject, serverConfig, storageData, fileSystemData, onInitialized);
 
                         function onInitialized() {
 

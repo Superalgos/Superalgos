@@ -5,9 +5,6 @@
 
     const MODULE_NAME = "App Loader";
 
-    const logger = newWebDebugLog();
-    logger.fileName = MODULE_NAME;
-
     let thisObject = {
         loadModules: loadModules
     };
@@ -16,7 +13,26 @@
 
     function loadModules() {
 
+
+
         let modulesArray = [    
+
+            "WebDebugLog.js",
+            "Plotter.js",
+            "PlotterPanel.js",
+
+            "ProductStorage.js",
+            "CompetitionStorage.js",
+            "ProductCard.js",
+            "Ecosystem.js",
+
+            "SplashScreen.js",
+            "Canvas.js",
+            "Button.js",
+            "TextButton.js",
+            "ImageButton.js",
+            "EventHandler.js",
+            "Frame.js",
 
             "ViewPort.js",
             "TimeMachine.js",
@@ -46,7 +62,7 @@
 
             function onRequired(pModule) {
 
-                console.log(path + " downloaded.");
+                console.log(MODULE_NAME + ": " + path + " downloaded.");
                 downloadedCounter++;
 
                 if (downloadedCounter === modulesArray.length) {

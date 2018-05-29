@@ -88,9 +88,6 @@
     <Compile Include="FloatingSpace\ProfileBall.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="NewBot.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Scripts\require.js" />
     <Compile Include="Server\CloudScripts.js">
       <SubType>Code</SubType>

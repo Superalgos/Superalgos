@@ -223,7 +223,7 @@
 
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> Entering Case."); }
 
-                                        storage.getStorageData(host.codeName, competition.repo, competition.configFile, onDataArrived);
+                                        storage.getStorageData(host.codeName + "/" + "competitions", competition.repo, competition.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
@@ -382,7 +382,7 @@
 
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> Entering Case."); }
 
-                                        storage.getStorageData(host.codeName, plotter.repo, plotter.configFile, onDataArrived);
+                                        storage.getStorageData(host.codeName + "/" + "plotters", plotter.repo, plotter.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
@@ -575,7 +575,7 @@
 
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> Entering Case."); }
 
-                                        storage.getStorageData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived);
+                                        storage.getStorageData(devTeam.codeName + "/" + "bots", bot.repo, bot.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 
@@ -745,7 +745,7 @@
 
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> Entering Case."); }
 
-                                        storage.getStorageData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived);
+                                        storage.getStorageData(devTeam.codeName + "/" + "plotters", plotter.repo, plotter.configFile, onDataArrived);
 
                                         function onDataArrived(pData) {
 

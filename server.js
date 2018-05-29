@@ -601,7 +601,7 @@ function onBrowserRequest(request, response) {
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
+                        storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -648,7 +648,7 @@ function onBrowserRequest(request, response) {
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> readEcosystemConfig -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived);
+                        storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], onDataArrived);
 
                         function onDataArrived(pData) {
 

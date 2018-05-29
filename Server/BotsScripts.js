@@ -95,7 +95,7 @@
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(pDevTeam, pRepo, moduleName, onDataArrived);
+                        storage.getStorageData(pDevTeam + "/" + "bots", pRepo, moduleName, onDataArrived);
 
                         function onDataArrived(pData) {
 
@@ -211,7 +211,7 @@
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> Entering Case."); }
 
-                        storage.getStorageData(pDevTeam, pRepo, path, onDataArrived);
+                        storage.getStorageData(pDevTeam + "/" + "bots", pRepo, path, onDataArrived);
 
                         function onDataArrived(pData) {
 

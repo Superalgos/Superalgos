@@ -47,90 +47,22 @@
         
             */
 
-            switch (serverConfig.configAndPlugins.Location) {
+            storage.getStorageData('AdvancedAlgos', 'AACloud', 'web.config.json', onDataArrived);
 
-                case 'Cloud': {
+            function onDataArrived(pData) {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> loadCloudScripts -> Cloud -> Entering Case."); }
+                try {
 
-                    storage.getStorageData('AdvancedAlgos', 'AACloud', 'web.config.json', onDataArrived);
+                    if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> loadCloudScripts -> Cloud -> onDataArrived -> Entering function."); }
 
-                    function onDataArrived(pData) {
+                    let data = pData.toString();
+                    data = data.trim(); // remove first byte with some encoding.
 
-                        try {
-
-                            if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> loadCloudScripts -> Cloud -> onDataArrived -> Entering function."); }
-
-                            let data = pData.toString();
-                            data = data.trim(); // remove first byte with some encoding.
-
-                            dataObject = JSON.parse(data);
-                            retrieveScripts(dataObject, callBackfunction);
-                        }
-                        catch (err) {
-                            console.log("[ERROR] CloudScripts -> loadCloudScripts -> Cloud -> onDataArrived -> Error = " + err);
-                        }
-                    }
-
-                    break;
+                    dataObject = JSON.parse(data);
+                    retrieveScripts(dataObject, callBackfunction);
                 }
-
-                case 'File System': {
-
-                    if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> loadCloudScripts -> File System -> Entering Case."); }
-
-                    let fs = require('fs');
-                    try {
-                        let fileName = '../AACloud/web.config.json';
-                        fs.readFile(fileName, onFileRead);
-
-                        function onFileRead(err, pData) {
-
-                            try {
-
-                                if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> loadCloudScripts -> File System -> onFileRead -> Entering function."); }
-
-                                let data = pData.toString();
-                                data = data.trim(); // remove first byte with some encoding.
-
-                                dataObject = JSON.parse(data);
-                                retrieveScripts(dataObject, callBackfunction);
-                            }
-                            catch (err) {
-                                console.log("[ERROR] CloudScripts -> loadCloudScripts -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
-                            }
-
-                        }
-                    }
-                    catch (err) {
-                        console.log("[ERROR] CloudScripts -> loadCloudScripts -> File System -> File = " + fileName + " Error = " + err);
-                    }
-                    break;
-                }
-
-                case 'Github': {
-
-                    if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> loadCloudScripts -> Github -> Entering Case."); }
-
-                    github.getGithubData('AdvancedAlgos', 'AACloud', 'web.config.json', onDataArrived);
-
-                    function onDataArrived(pData) {
-
-                        try {
-
-                            if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> loadCloudScripts -> Github -> onDataArrived -> Entering function."); }
-
-                            let data = pData.toString();
-                            data = data.trim(); // remove first byte with some encoding.
-
-                            dataObject = JSON.parse(data);
-                            retrieveScripts(dataObject, callBackfunction);
-                        }
-                        catch (err) {
-                            console.log("[ERROR] CloudScripts -> loadCloudScripts -> Github -> onDataArrived -> Error = " + err);
-                        }
-                    }
-                    break;
+                catch (err) {
+                    console.log("[ERROR] CloudScripts -> loadCloudScripts -> Cloud -> onDataArrived -> Error = " + err);
                 }
             }
         }
@@ -157,107 +89,29 @@
 
                 let webModule = pCloudWebConfig.webModules[i].name + '.js';
 
-                switch (serverConfig.configAndPlugins.Location) {
+                storage.getStorageData('AdvancedAlgos', 'AACloud', webModule, onDataArrived);
 
-                    case 'Cloud': {
+                function onDataArrived(pData) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> retrieveScripts -> Cloud -> Entering Case."); }
+                    try {
 
-                        storage.getStorageData('AdvancedAlgos', 'AACloud', webModule, onDataArrived);
+                        if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> Entering function."); }
 
-                        function onDataArrived(pData) {
+                        let data = pData.toString();
+                        data = data.trim(); // remove first byte with some encoding.
 
-                            try {
+                        data = browserify(data);
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> Entering function."); }
+                        storageData.set(webModule, data);
 
-                                let data = pData.toString();
-                                data = data.trim(); // remove first byte with some encoding.
-
-                                data = browserify(data);
-
-                                storageData.set(webModule, data);
-
-                                modulesRetrieved++;
-                                if (modulesRetrieved === pCloudWebConfig.webModules.length) {
-                                    createHTML(callBackfunction);
-                                }
-
-                            }
-                            catch (err) {
-                                console.log("[ERROR] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> Error = " + err);
-                            }
+                        modulesRetrieved++;
+                        if (modulesRetrieved === pCloudWebConfig.webModules.length) {
+                            createHTML(callBackfunction);
                         }
 
-                        break;
                     }
-
-                    case 'File System': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> retrieveScripts -> File System -> Entering Case."); }
-
-                        let fs = require('fs');
-                        try {
-                            let fileName = '../AACloud/' + webModule;
-                            fs.readFile(fileName, onFileRead);
-
-                            function onFileRead(err, pData) {
-
-                                try {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> retrieveScripts -> File System -> onFileRead -> Entering function."); }
-
-                                    let data = pData.toString();
-                                    data = data.trim(); // remove first byte with some encoding.
-
-                                    data = browserify(data);
-
-                                    fileSystemData.set(webModule, data);
-
-                                    modulesRetrieved++;
-                                    if (modulesRetrieved === pCloudWebConfig.webModules.length) {
-                                        createHTML(callBackfunction);
-                                    }
-                                }
-                                catch (err) {
-                                    console.log("[ERROR] CloudScripts -> retrieveScripts -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
-                                }
-
-                            }
-                        }
-                        catch (err) {
-                            console.log("[ERROR] CloudScripts -> retrieveScripts -> File System -> File = " + fileName + " Error = " + err);
-                        }
-                        break;
-                    }
-
-                    case 'Github': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> retrieveScripts -> Github -> Entering Case."); }
-
-                        github.getGithubData('AdvancedAlgos', 'AACloud', 'web.config.json', onDataArrived);
-
-                        function onDataArrived(pData) {
-
-                            try {
-
-                                let data = pData.toString();
-                                data = data.trim(); // remove first byte with some encoding.
-
-                                data = browserify(data);
-
-                                githubData.set(webModule, data);
-
-                                modulesRetrieved++;
-                                if (modulesRetrieved === pCloudWebConfig.webModules.length) {
-                                    createHTML(callBackfunction);
-                                }
-                            }
-                            catch (err) {
-                                console.log("[ERROR] CloudScripts -> retrieveScripts -> Github -> onDataArrived -> Error = " + err);
-                            }
-                        }
-                        break;
+                    catch (err) {
+                        console.log("[ERROR] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> Error = " + err);
                     }
                 }
             }

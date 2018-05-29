@@ -13,16 +13,14 @@
 
     let serverConfig;
     let storageData;
-    let fileSystemData;
     let ecosystem;
     let ecosystemObject;
 
     return thisObject;
 
-    function initialize(pEcosystem, pEcosystemObject, pServerConfig, pStorageData, pFileSystemData, callBackFunction) {
+    function initialize(pEcosystem, pEcosystemObject, pServerConfig, pStorageData, callBackFunction) {
 
         serverConfig = pServerConfig;
-        fileSystemData = pFileSystemData;
         storageData = pStorageData;
         ecosystem = pEcosystem;
         ecosystemObject = pEcosystemObject;

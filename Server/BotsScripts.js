@@ -89,112 +89,30 @@
                 let key = pDevTeam + "." + pRepo;
                 let path = pDevTeam + "/" + pRepo;
 
-                switch (serverConfig.configAndPlugins.Location) {
+                storage.getStorageData(pDevTeam + "/" + "bots", pRepo, moduleName, onDataArrived);
 
-                    case 'Cloud': {
+                function onDataArrived(pData) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> Entering Case."); }
+                    try {
 
-                        storage.getStorageData(pDevTeam + "/" + "bots", pRepo, moduleName, onDataArrived);
+                        if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Entering function."); }
 
-                        function onDataArrived(pData) {
+                        if (pData !== undefined) {
 
-                            try {
+                            let data = pData.toString();
+                            data = data.trim(); // remove first byte with some encoding.
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Entering function."); }
+                            data = browserify(data);
 
-                                if (pData !== undefined) {
+                            storageData.set(key, data);
 
-                                    let data = pData.toString();
-                                    data = data.trim(); // remove first byte with some encoding.
-
-                                    data = browserify(data);
-
-                                    storageData.set(key, data);
-
-                                }
-
-                                callBack();
-
-                            }
-                            catch (err) {
-                                console.log("[ERROR] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Error = " + err);
-                            }
                         }
 
-                        break;
+                        callBack();
+
                     }
-
-                    case 'File System': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> File System -> Entering Case."); }
-
-                        let fs = require('fs');
-                        try {
-                            let fileName = '../Bots/' + path + "/" + moduleName;
-                            fs.readFile(fileName, onFileRead);
-
-                            function onFileRead(err, pData) {
-
-                                try {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> File System -> onFileRead -> Entering function."); }
-
-                                    if (pData !== undefined) {
-
-                                        let data = pData.toString();
-                                        data = data.trim(); // remove first byte with some encoding.
-
-                                        data = browserify(data);
-
-                                        fileSystemData.set(key, data);
-
-                                    }
-
-                                    callBack();
-                                   
-                                }
-                                catch (err) {
-                                    console.log("[ERROR] BotScripts -> retrieveScripts -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
-                                }
-
-                            }
-                        }
-                        catch (err) {
-                            console.log("[ERROR] BotScripts -> retrieveScripts -> File System -> File = " + fileName + " Error = " + err);
-                        }
-                        break;
-                    }
-
-                    case 'Github': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Github -> Entering Case."); }
-
-                        github.getGithubData(path, moduleName, onDataArrived);
-
-                        function onDataArrived(pData) {
-
-                            try {
-
-                                if (pData !== undefined) {
-
-                                    let data = pData.toString();
-                                    data = data.trim(); // remove first byte with some encoding.
-
-                                    data = browserify(data);
-
-                                    githubData.set(key, data);
-
-                                }
-
-                                callBack();
-
-                            }
-                            catch (err) {
-                                console.log("[ERROR] BotScripts -> retrieveScripts -> Github -> onDataArrived -> Error = " + err);
-                            }
-                        }
-                        break;
+                    catch (err) {
+                        console.log("[ERROR] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Error = " + err);
                     }
                 }
             }
@@ -205,112 +123,30 @@
                 let key = pDevTeam + "." + pRepo + "." + pProcess + "/" + moduleName;
                 let path = pProcess + "/" + moduleName;
 
-                switch (serverConfig.configAndPlugins.Location) {
+                storage.getStorageData(pDevTeam + "/" + "bots", pRepo, path, onDataArrived);
 
-                    case 'Cloud': {
+                function onDataArrived(pData) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> Entering Case."); }
+                    try {
 
-                        storage.getStorageData(pDevTeam + "/" + "bots", pRepo, path, onDataArrived);
+                        if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Entering function."); }
 
-                        function onDataArrived(pData) {
+                        if (pData !== undefined) {
 
-                            try {
+                            let data = pData.toString();
+                            data = data.trim(); // remove first byte with some encoding.
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Entering function."); }
+                            data = browserify(data);
 
-                                if (pData !== undefined) {
+                            storageData.set(key, data);
 
-                                    let data = pData.toString();
-                                    data = data.trim(); // remove first byte with some encoding.
-
-                                    data = browserify(data);
-
-                                    storageData.set(key, data);
-
-                                }
-
-                                callBack();
-
-                            }
-                            catch (err) {
-                                console.log("[ERROR] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Error = " + err);
-                            }
                         }
 
-                        break;
+                        callBack();
+
                     }
-
-                    case 'File System': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> File System -> Entering Case."); }
-
-                        let fs = require('fs');
-                        try {
-                            let fileName = '../Bots/' + pDevTeam + "/" + pRepo + "/" + path;
-                            fs.readFile(fileName, onFileRead);
-
-                            function onFileRead(err, pData) {
-
-                                try {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> File System -> onFileRead -> Entering function."); }
-
-                                    if (pData !== undefined) {
-
-                                        let data = pData.toString();
-                                        data = data.trim(); // remove first byte with some encoding.
-
-                                        data = browserify(data);
-
-                                        fileSystemData.set(key, data);
-
-                                    }
-
-                                    callBack();
-
-                                }
-                                catch (err) {
-                                    console.log("[ERROR] BotScripts -> retrieveScripts -> File System -> onFileRead -> File = " + fileName + " Error = " + err);
-                                }
-
-                            }
-                        }
-                        catch (err) {
-                            console.log("[ERROR] BotScripts -> retrieveScripts -> File System -> File = " + fileName + " Error = " + err);
-                        }
-                        break;
-                    }
-
-                    case 'Github': {
-
-                        if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Github -> Entering Case."); }
-
-                        github.getGithubData(pDevTeam, pRepo, path, onDataArrived);
-
-                        function onDataArrived(pData) {
-
-                            try {
-
-                                if (pData !== undefined) {
-
-                                    let data = pData.toString();
-                                    data = data.trim(); // remove first byte with some encoding.
-
-                                    data = browserify(data);
-
-                                    githubData.set(key, data);
-
-                                }
-
-                                callBack();
-
-                            }
-                            catch (err) {
-                                console.log("[ERROR] BotScripts -> retrieveScripts -> Github -> onDataArrived -> Error = " + err);
-                            }
-                        }
-                        break;
+                    catch (err) {
+                        console.log("[ERROR] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Error = " + err);
                     }
                 }
             }

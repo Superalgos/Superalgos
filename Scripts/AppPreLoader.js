@@ -1,5 +1,15 @@
 ﻿
-function loadAPP() {
+function loadAdvancedAlgosPlatform() {
+
+    let canvas = document.createElement('canvas');
+
+    canvas.id = "canvas";
+    canvas.width = 1400;
+    canvas.height = 600;
+    canvas.style.border = "0";
+
+    let body = document.getElementsByTagName("body")[0];
+    body.appendChild(canvas);
 
     let path = "Scripts/AppLoader.js";
 

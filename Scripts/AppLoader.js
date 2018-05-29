@@ -13,7 +13,6 @@
 
     function loadModules() {
 
-
         let modulesArray = [    
 
             "Panels/TimeControlPanel.js",

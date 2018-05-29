@@ -32,7 +32,6 @@
     <Compile Include="AABrowserAPI\API.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AccumulatedVolumeBar.js" />
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
     <Compile Include="CloudVM\CloudRequire.js">
@@ -43,6 +42,12 @@
     </Compile>
     <Compile Include="CloudVM\PoloniexAPIClient.js" />
     <Compile Include="Exchanges\PoloniexAPIClient.js" />
+    <Compile Include="Scripts\AppLoader.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Scripts\AppPreLoader.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Server\BotsScripts.js">
       <SubType>Code</SubType>
     </Compile>

@@ -383,6 +383,15 @@ function onBrowserRequest(request, response) {
             }
             break; 
 
+
+        case "TopSpace": // This means the TopSpace folder.
+            {
+
+                respondWithFile('./TopSpace/' + requestParameters[2], response);
+
+            }
+            break; 
+
         case "AABrowserAPI": // This means the Scripts folder.
             {
                 const AABROSER_API_MODULE = require('./AABrowserAPI/' + 'API');

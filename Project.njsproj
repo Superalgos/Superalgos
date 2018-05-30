@@ -82,6 +82,21 @@
     <Compile Include="Spaces\TopSpace.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TopSpace\CurrentBot.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TopSpace\CurrentProcess.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TopSpace\CurrentStartMode.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TopSpace\DevTeam.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TopSpace\EndUser.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="WebDebugLog.js">
       <SubType>Code</SubType>
     </Compile>
@@ -173,6 +188,7 @@
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
     <Folder Include="AABrowserAPI\" />
+    <Folder Include="TopSpace\" />
     <Folder Include="Scripts\" />
     <Folder Include="Server\" />
     <Folder Include="Spaces\" />

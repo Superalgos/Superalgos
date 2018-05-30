@@ -132,7 +132,7 @@ const CHART_ASPECT_RATIO = 1 / 10;
 let INITIAL_ZOOM_LEVEL = -26;       // This is the zoom level at the view port in which the APP starts.
 let INITIAL_TIME_PERIOD = recalculatePeriod(INITIAL_ZOOM_LEVEL);  // This value will be overwritten at the viewPort.initialize if the user had a prevous session with this same browser.
 
-const TOP_SPACE_HEIGHT = 100;
+const TOP_SPACE_HEIGHT = 50;
 var viewPort = newViewPort();
 
 

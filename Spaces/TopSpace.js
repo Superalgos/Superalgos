@@ -23,11 +23,31 @@ function newTopSpace() {
 
     container.isDraggeable = false;
 
+    let endUser;
+    let devTeam;
+    let currentBot;
+    let currentProcess;
+    let currentStartMode;
+
     return thisObject;
 
     function initialize() {
 
-       
+        endUser = newEndUser();
+        endUser.initialize();
+
+        devTeam = newDevTeam();
+        devTeam.initialize();
+
+        currentBot = newCurrentBot();
+        currentBot.initialize();
+
+        currentProcess = newCurrentProcess();
+        currentProcess.initialize();
+
+        currentStartMode = newCurrentStartMode();
+        currentStartMode.initialize();
+
     }
 
     function getContainer(point) {
@@ -57,6 +77,12 @@ function newTopSpace() {
         thisObject.container.frame.draw(false, false);
 
         drawBackground();
+        endUser.draw();
+        devTeam.draw();
+        currentBot.draw();
+        currentProcess.draw();
+        currentStartMode.draw();
+
     }
 
     function drawBackground() {

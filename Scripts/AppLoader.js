@@ -21,6 +21,12 @@
 
             /* PlotterPanels */
 
+            "TopSpace/CurrentStartMode.js",
+            "TopSpace/CurrentProcess.js",
+            "TopSpace/CurrentBot.js",
+            "TopSpace/DevTeam.js",
+            "TopSpace/EndUser.js",
+
             "Panels/TimeControlPanel.js",
             "Panels/ProductsPanel.js",
 

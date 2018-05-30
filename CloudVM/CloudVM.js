@@ -29,9 +29,7 @@ function newCloudVM() {
             window.CURRENT_ENVIRONMENT = "Develop";
             window.CURRENT_EXECUTION_AT = "Browser";
             window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
-            window.EXCHANGE_KEYS = ecosystem.getExchangeKeys();
-            window.USER_LOGGED_IN = window.localStorage.getItem("userName");
-            window.DEV_TEAM = window.localStorage.getItem("devTeam");
+            window.EXCHANGE_KEYS = ecosystem.getExchangeKeys();            
 
             root.initialize(pUI_COMMANDS, onInitialized);
 

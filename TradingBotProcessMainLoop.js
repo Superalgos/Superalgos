@@ -156,6 +156,18 @@
 
                             if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Backtesting Mode detected."); }
 
+                            let timePeriod;
+
+                            if (UI_COMMANDS.timePeriod !== undefined) {
+
+                                timePeriod = UI_COMMANDS.timePeriod;
+
+                            } else {
+
+                                timePeriod = processConfig.timePeriod;
+
+                            }
+
                             if (bot.hasTheBotJustStarted === true) {
 
                                 if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Setting initial datetime."); }
@@ -170,19 +182,16 @@
 
                                 }
 
+                                /*
+                                We will standarize the backtesting execution time, setting the exact time at the middle of the candle or timePeriod.
+                                */
+
+                                let totalMiliseconds = bot.processDatetime.valueOf();
+                                totalMiliseconds = Math.trunc(totalMiliseconds / timePeriod) * timePeriod + timePeriod / 2;
+
+                                bot.processDatetime = new Date(totalMiliseconds);
+
                             } else {
-
-                                let timePeriod;
-
-                                if (UI_COMMANDS.timePeriod !== undefined) {
-
-                                    timePeriod = UI_COMMANDS.timePeriod;
-
-                                } else {
-
-                                    timePeriod = processConfig.normalWaitTime; 
-
-                                }
 
                                 bot.processDatetime = new Date(bot.processDatetime.valueOf() + timePeriod); // We advance time here. 
 

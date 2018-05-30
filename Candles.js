@@ -1,5 +1,12 @@
 ﻿function newAAMastersPlottersCandlesVolumesCandles() {
 
+    const MODULE_NAME = "Candles Plotter";
+    const INFO_LOG = false;
+    const ERROR_LOG = true;
+    const INTENSIVE_LOG = false;
+    const logger = newWebDebugLog();
+    logger.fileName = MODULE_NAME;
+
     let thisObject = {
 
         // Main functions and properties.
@@ -46,101 +53,136 @@
 
     function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
 
-        /* Store the information received. */
+        try {
 
-        marketFiles = pStorage.marketFiles[0];
-        dailyFiles = pStorage.dailyFiles[0];
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-        datetime = pDatetime;
-        timePeriod = pTimePeriod;
+            /* Store the information received. */
 
-        /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
+            marketFiles = pStorage.marketFiles[0];
+            dailyFiles = pStorage.dailyFiles[0];
 
-        marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
+            datetime = pDatetime;
+            timePeriod = pTimePeriod;
 
-        recalculateScale();
+            /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
-        /* Now we set the right files according to current Period. */
+            marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
 
-        marketFile = marketFiles.getFile(pTimePeriod);
-        fileCursor = dailyFiles.getFileCursor(pTimePeriod);
+            recalculateScale();
 
-        /* Listen to the necesary events. */
+            /* Now we set the right files according to current Period. */
 
-        viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
-        viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
-        marketFiles.eventHandler.listenToEvent("Files Updated", onFilesUpdated);
-        canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
+            marketFile = marketFiles.getFile(pTimePeriod);
+            fileCursor = dailyFiles.getFileCursor(pTimePeriod);
 
-        /* Get ready for plotting. */
+            /* Listen to the necesary events. */
 
-        recalculate();
+            viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+            viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
+            marketFiles.eventHandler.listenToEvent("Files Updated", onFilesUpdated);
+            canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
 
-        callBackFunction();
+            /* Get ready for plotting. */
 
+            recalculate();
+
+            callBackFunction();
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
+        }
     }
 
     function getContainer(point) {
 
-        let container;
+        try {
 
-        /* First we check if this point is inside this space. */
+            if (INFO_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
 
-        if (this.container.frame.isThisPointHere(point) === true) {
+            let container;
 
-            return this.container;
+            /* First we check if this point is inside this space. */
 
-        } else {
+            if (this.container.frame.isThisPointHere(point) === true) {
 
-            /* This point does not belong to this space. */
+                return this.container;
 
-            return undefined;
+            } else {
+
+                /* This point does not belong to this space. */
+
+                return undefined;
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err.message = " + err.message); }
         }
-
     }
 
     function onFilesUpdated() {
 
-        let newMarketFile = marketFiles.getFile(timePeriod);
+        try {
 
-        if (newMarketFile !== undefined) {
+            if (INFO_LOG === true) { logger.write("[INFO] onFilesUpdated -> Entering function."); }
 
-            marketFile = newMarketFile;
-            recalculate();
+            let newMarketFile = marketFiles.getFile(timePeriod);
+
+            if (newMarketFile !== undefined) {
+
+                marketFile = newMarketFile;
+                recalculate();
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] onFilesUpdated -> err.message = " + err.message); }
         }
-
     }
 
     function setTimePeriod(pTimePeriod) {
 
-        if (timePeriod !== pTimePeriod) {
+        try {
 
-            timePeriod = pTimePeriod;
+            if (INFO_LOG === true) { logger.write("[INFO] setTimePeriod -> Entering function."); }
 
-            if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
+            if (timePeriod !== pTimePeriod) {
 
-                let newMarketFile = marketFiles.getFile(pTimePeriod);
+                timePeriod = pTimePeriod;
 
-                if (newMarketFile !== undefined) {
+                if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-                    marketFile = newMarketFile;
-                    recalculate();
-                }
+                    let newMarketFile = marketFiles.getFile(pTimePeriod);
 
-            } else {
+                    if (newMarketFile !== undefined) {
 
-                let newFileCursor = dailyFiles.getFileCursor(pTimePeriod);
+                        marketFile = newMarketFile;
+                        recalculate();
+                    }
 
-                if (newFileCursor !== undefined) {
+                } else {
 
-                    fileCursor = newFileCursor;
-                    recalculate();
+                    let newFileCursor = dailyFiles.getFileCursor(pTimePeriod);
+
+                    if (newFileCursor !== undefined) {
+
+                        fileCursor = newFileCursor;
+                        recalculate();
+                    }
                 }
             }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err.message = " + err.message); }
         }
     }
 
     function setDatetime(pDatetime) {
+
+        if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
 
         datetime = pDatetime;
 
@@ -148,493 +190,588 @@
 
     function positionAtDatetime(newDatetime) {
 
-        value = newDatetime.valueOf();
+        try {
 
-        /* Now we calculate which candle has this new time, because it will give us the y coordinate. */
+            if (INFO_LOG === true) { logger.write("[INFO] positionAtDatetime -> Entering function."); }
 
-        for (let i = 0; i < candles.length; i++) {
+            value = newDatetime.valueOf();
 
-            if (value >= candles[i].begin && value <= candles[i].end) {
+            /* Now we calculate which candle has this new time, because it will give us the y coordinate. */
 
-                let targetPoint = {
-                    x: value,
-                    y: candles[i].open
-                };
+            for (let i = 0; i < candles.length; i++) {
 
-                targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint);
-                targetPoint = transformThisPoint(targetPoint, thisObject.container);
+                if (value >= candles[i].begin && value <= candles[i].end) {
 
-                let targetMax = {
-                    x: value,
-                    y: candles[i].max
-                };
-
-                targetMax = timeLineCoordinateSystem.transformThisPoint(targetMax);
-                targetMax = transformThisPoint(targetMax, thisObject.container);
-
-                let targetMin = {
-                    x: value,
-                    y: candles[i].min
-                };
-
-                targetMin = timeLineCoordinateSystem.transformThisPoint(targetMin);
-                targetMin = transformThisPoint(targetMin, thisObject.container);
-
-                let center = {
-                    x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
-                    y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
-                };
-
-                if (targetMax.y < viewPort.visibleArea.topLeft.y || targetMin.y > viewPort.visibleArea.bottomRight.y) {
-
-                    let displaceVector = {
-                        x: 0,
-                        y: center.y - targetPoint.y
+                    let targetPoint = {
+                        x: value,
+                        y: candles[i].open
                     };
 
-                    viewPort.displaceTarget(displaceVector);
+                    targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint);
+                    targetPoint = transformThisPoint(targetPoint, thisObject.container);
 
+                    let targetMax = {
+                        x: value,
+                        y: candles[i].max
+                    };
+
+                    targetMax = timeLineCoordinateSystem.transformThisPoint(targetMax);
+                    targetMax = transformThisPoint(targetMax, thisObject.container);
+
+                    let targetMin = {
+                        x: value,
+                        y: candles[i].min
+                    };
+
+                    targetMin = timeLineCoordinateSystem.transformThisPoint(targetMin);
+                    targetMin = transformThisPoint(targetMin, thisObject.container);
+
+                    let center = {
+                        x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
+                        y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
+                    };
+
+                    if (targetMax.y < viewPort.visibleArea.topLeft.y || targetMin.y > viewPort.visibleArea.bottomRight.y) {
+
+                        let displaceVector = {
+                            x: 0,
+                            y: center.y - targetPoint.y
+                        };
+
+                        viewPort.displaceTarget(displaceVector);
+
+                    }
+
+                    let displaceVector = {
+                        x: center.x - targetPoint.x,
+                        y: 0
+                    };
+
+                    viewPort.displace(displaceVector);
+
+                    return;
                 }
-
-                let displaceVector = {
-                    x: center.x - targetPoint.x,
-                    y: 0
-                };
-
-                viewPort.displace(displaceVector);
-
-                return;
             }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] positionAtDatetime -> err.message = " + err.message); }
         }
     }
 
     function onDailyFileLoaded(event) {
 
-        if (event.currentValue === event.totalValue) {
+        try {
 
-            /* This happens only when all of the files in the cursor have been loaded. */
+            if (INFO_LOG === true) { logger.write("[INFO] onDailyFileLoaded -> Entering function."); }
 
-            recalculate();
+            if (event.currentValue === event.totalValue) {
 
+                /* This happens only when all of the files in the cursor have been loaded. */
+
+                recalculate();
+
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDailyFileLoaded -> err.message = " + err.message); }
         }
     }
 
     function draw() {
 
-        this.container.frame.draw();
+        try {
 
-        plotChart();
+            if (INTENSIVE_LOG === true) { logger.write("[INFO] draw -> Entering function."); }
 
+            this.container.frame.draw();
+
+            plotChart();
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err.message = " + err.message); }
+        }
     }
 
     function recalculate() {
 
-        if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
+        try {
 
-            recalculateUsingMarketFiles();
+            if (INFO_LOG === true) { logger.write("[INFO] recalculate -> Entering function."); }
 
-        } else {
+            if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
 
-            recalculateUsingDailyFiles();
+                recalculateUsingMarketFiles();
 
+            } else {
+
+                recalculateUsingDailyFiles();
+
+            }
+
+            thisObject.container.eventHandler.raiseEvent("Candles Changed", candles);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err.message = " + err.message); }
         }
-
-        thisObject.container.eventHandler.raiseEvent("Candles Changed", candles);
     }
 
     function recalculateUsingDailyFiles() {
 
-        if (fileCursor === undefined) { return; } // We need to wait
+        try {
 
-        if (fileCursor.files.size === 0) { return;} // We need to wait until there are files in the cursor
+            if (INFO_LOG === true) { logger.write("[INFO] recalculateUsingDailyFiles -> Entering function."); }
 
-        let daysOnSides = getSideDays(timePeriod);
+            if (fileCursor === undefined) { return; } // We need to wait
 
-        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            if (fileCursor.files.size === 0) { return; } // We need to wait until there are files in the cursor
 
-        let dateDiff = rightDate.valueOf() - leftDate.valueOf();
+            let daysOnSides = getSideDays(timePeriod);
 
-        let farLeftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
-        let farRightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
 
-        let currentDate = new Date(farLeftDate.valueOf());
+            let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
-        candles = [];
+            let farLeftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
+            let farRightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
 
-        while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
+            let currentDate = new Date(farLeftDate.valueOf());
 
-            let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
+            candles = [];
 
-            let dailyFile = fileCursor.files.get(stringDate);
+            while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
-            if (dailyFile !== undefined) {
+                let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
 
-                for (let i = 0; i < dailyFile.length; i++) {
+                let dailyFile = fileCursor.files.get(stringDate);
 
-                    let candle = {
-                        open: undefined,
-                        close: undefined,
-                        min: 10000000000000,
-                        max: 0,
-                        begin: undefined,
-                        end: undefined,
-                        direction: undefined
-                    };
+                if (dailyFile !== undefined) {
 
-                    candle.min = dailyFile[i][0];
-                    candle.max = dailyFile[i][1];
+                    for (let i = 0; i < dailyFile.length; i++) {
 
-                    candle.open = dailyFile[i][2];
-                    candle.close = dailyFile[i][3];
+                        let candle = {
+                            open: undefined,
+                            close: undefined,
+                            min: 10000000000000,
+                            max: 0,
+                            begin: undefined,
+                            end: undefined,
+                            direction: undefined
+                        };
 
-                    candle.begin = dailyFile[i][4];
-                    candle.end = dailyFile[i][5];
+                        candle.min = dailyFile[i][0];
+                        candle.max = dailyFile[i][1];
 
-                    if (candle.open > candle.close) { candle.direction = 'down'; }
-                    if (candle.open < candle.close) { candle.direction = 'up'; }
-                    if (candle.open === candle.close) { candle.direction = 'side'; }
+                        candle.open = dailyFile[i][2];
+                        candle.close = dailyFile[i][3];
 
-                    if (candle.begin >= farLeftDate.valueOf() && candle.end <= farRightDate.valueOf()) {
+                        candle.begin = dailyFile[i][4];
+                        candle.end = dailyFile[i][5];
 
-                        candles.push(candle);
+                        if (candle.open > candle.close) { candle.direction = 'down'; }
+                        if (candle.open < candle.close) { candle.direction = 'up'; }
+                        if (candle.open === candle.close) { candle.direction = 'side'; }
 
-                        if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
+                        if (candle.begin >= farLeftDate.valueOf() && candle.end <= farRightDate.valueOf()) {
 
-                            thisObject.currentCandle = candle;
-                            thisObject.container.eventHandler.raiseEvent("Current Candle Changed", thisObject.currentCandle);
+                            candles.push(candle);
 
+                            if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
+
+                                thisObject.currentCandle = candle;
+                                thisObject.container.eventHandler.raiseEvent("Current Candle Changed", thisObject.currentCandle);
+
+                            }
                         }
                     }
                 }
-            } 
 
-            currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
-        }
-
-        /* Lests check if all the visible screen is going to be covered by candles. */
-
-        let lowerEnd = leftDate.valueOf();
-        let upperEnd = rightDate.valueOf();
-
-        if (candles.length > 0) {
-
-            if (candles[0].begin > lowerEnd || candles[candles.length - 1].end < upperEnd) {
-
-                setTimeout(recalculate, 2000);
-
-                //console.log("File missing while calculating candles, scheduling a recalculation in 2 seconds.");
-
+                currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
             }
+
+            /* Lests check if all the visible screen is going to be covered by candles. */
+
+            let lowerEnd = leftDate.valueOf();
+            let upperEnd = rightDate.valueOf();
+
+            if (candles.length > 0) {
+
+                if (candles[0].begin > lowerEnd || candles[candles.length - 1].end < upperEnd) {
+
+                    setTimeout(recalculate, 2000);
+
+                    //console.log("File missing while calculating candles, scheduling a recalculation in 2 seconds.");
+
+                }
+            }
+
+            //console.log("Olivia > recalculateUsingDailyFiles > total candles generated : " + candles.length);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingDailyFiles -> err.message = " + err.message); }
         }
-
-        //console.log("Olivia > recalculateUsingDailyFiles > total candles generated : " + candles.length);
-
     }
 
     function recalculateUsingMarketFiles() {
 
-        if (marketFile === undefined) { return; } // Initialization not complete yet.
+        try {
 
-        let daysOnSides = getSideDays(timePeriod);
+            if (INFO_LOG === true) { logger.write("[INFO] recalculateUsingMarketFiles -> Entering function."); }
 
-        let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-        let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            if (marketFile === undefined) { return; } // Initialization not complete yet.
 
-        let dateDiff = rightDate.valueOf() - leftDate.valueOf();
+            let daysOnSides = getSideDays(timePeriod);
 
-        leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
-        rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
 
-        candles = [];
+            let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
-        for (let i = 0; i < marketFile.length; i++) {
+            leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
+            rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
 
-            let candle = {
-                open: undefined,
-                close: undefined,
-                min: 10000000000000,
-                max: 0,
-                begin: undefined,
-                end: undefined,
-                direction: undefined
-            };
+            candles = [];
 
-            candle.min = marketFile[i][0];
-            candle.max = marketFile[i][1];
+            for (let i = 0; i < marketFile.length; i++) {
 
-            candle.open = marketFile[i][2];
-            candle.close = marketFile[i][3];
+                let candle = {
+                    open: undefined,
+                    close: undefined,
+                    min: 10000000000000,
+                    max: 0,
+                    begin: undefined,
+                    end: undefined,
+                    direction: undefined
+                };
 
-            candle.begin = marketFile[i][4];
-            candle.end = marketFile[i][5];
+                candle.min = marketFile[i][0];
+                candle.max = marketFile[i][1];
 
-            if (candle.open > candle.close) { candle.direction = 'down'; }
-            if (candle.open < candle.close) { candle.direction = 'up'; }
-            if (candle.open === candle.close) { candle.direction = 'side'; }
+                candle.open = marketFile[i][2];
+                candle.close = marketFile[i][3];
 
-            if (candle.begin >= leftDate.valueOf() && candle.end <= rightDate.valueOf()) {
+                candle.begin = marketFile[i][4];
+                candle.end = marketFile[i][5];
 
-                candles.push(candle);
+                if (candle.open > candle.close) { candle.direction = 'down'; }
+                if (candle.open < candle.close) { candle.direction = 'up'; }
+                if (candle.open === candle.close) { candle.direction = 'side'; }
 
-                if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
+                if (candle.begin >= leftDate.valueOf() && candle.end <= rightDate.valueOf()) {
 
-                    thisObject.currentCandle = candle;
-                    thisObject.container.eventHandler.raiseEvent("Current Candle Changed", thisObject.currentCandle);
+                    candles.push(candle);
 
+                    if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
+
+                        thisObject.currentCandle = candle;
+                        thisObject.container.eventHandler.raiseEvent("Current Candle Changed", thisObject.currentCandle);
+
+                    }
                 }
-            } 
-        }
+            }
 
-        //console.log("Olivia > recalculateUsingMarketFiles > total candles generated : " + candles.length);
+            //console.log("Olivia > recalculateUsingMarketFiles > total candles generated : " + candles.length);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err.message = " + err.message); }
+        }
     }
 
     function recalculateScale() {
 
-        if (marketFile === undefined) { return; } // We need the market file to be loaded to make the calculation.
+        try {
 
-        if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
+            if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
 
-        let minValue = {
-            x: EARLIEST_DATE.valueOf(),
-            y: 0
-        };
+            if (marketFile === undefined) { return; } // We need the market file to be loaded to make the calculation.
 
-        let maxValue = {
-            x: MAX_PLOTABLE_DATE.valueOf(),
-            y: nextPorwerOf10(getMaxRate()) / 4 // TODO: This 4 is temporary
-        };
+            if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
+
+            let minValue = {
+                x: EARLIEST_DATE.valueOf(),
+                y: 0
+            };
+
+            let maxValue = {
+                x: MAX_PLOTABLE_DATE.valueOf(),
+                y: nextPorwerOf10(getMaxRate()) / 4 // TODO: This 4 is temporary
+            };
 
 
-        timeLineCoordinateSystem.initialize(
-            minValue,
-            maxValue,
-            thisObject.container.frame.width,
-            thisObject.container.frame.height
-        );
+            timeLineCoordinateSystem.initialize(
+                minValue,
+                maxValue,
+                thisObject.container.frame.width,
+                thisObject.container.frame.height
+            );
 
-        function getMaxRate() {
+            function getMaxRate() {
 
-            let maxValue = 0;
+                if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> getMaxRate -> Entering function."); }
 
-            for (let i = 0; i < marketFile.length; i++) {
+                let maxValue = 0;
 
-                let currentMax = marketFile[i][1];   // 1 = rates.
+                for (let i = 0; i < marketFile.length; i++) {
 
-                if (maxValue < currentMax) {
-                    maxValue = currentMax;
+                    let currentMax = marketFile[i][1];   // 1 = rates.
+
+                    if (maxValue < currentMax) {
+                        maxValue = currentMax;
+                    }
                 }
+
+                return maxValue;
+
             }
 
-            return maxValue;
+        } catch (err) {
 
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err.message = " + err.message); }
         }
-
     }
 
     function plotChart() {
 
-        if (candles.length > 0) {
+        try {
 
-            /* Now we calculate and plot the candles */
+            if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
 
-            for (let i = 0; i < candles.length; i++) {
+            if (candles.length > 0) {
 
-                candle = candles[i];
+                /* Now we calculate and plot the candles */
 
-                let candlePoint1 = {
-                    x: candle.begin + timePeriod / 7 * 1.5,
-                    y: candle.open
-                };
+                for (let i = 0; i < candles.length; i++) {
 
-                let candlePoint2 = {
-                    x: candle.begin + timePeriod / 7 * 5.5,
-                    y: candle.open
-                };
+                    candle = candles[i];
 
-                let candlePoint3 = {
-                    x: candle.begin + timePeriod / 7 * 5.5,
-                    y: candle.close
-                };
+                    let candlePoint1 = {
+                        x: candle.begin + timePeriod / 7 * 1.5,
+                        y: candle.open
+                    };
 
-                let candlePoint4 = {
-                    x: candle.begin + timePeriod / 7 * 1.5,
-                    y: candle.close
-                };
+                    let candlePoint2 = {
+                        x: candle.begin + timePeriod / 7 * 5.5,
+                        y: candle.open
+                    };
 
-                candlePoint1 = timeLineCoordinateSystem.transformThisPoint(candlePoint1);
-                candlePoint2 = timeLineCoordinateSystem.transformThisPoint(candlePoint2);
-                candlePoint3 = timeLineCoordinateSystem.transformThisPoint(candlePoint3);
-                candlePoint4 = timeLineCoordinateSystem.transformThisPoint(candlePoint4);
+                    let candlePoint3 = {
+                        x: candle.begin + timePeriod / 7 * 5.5,
+                        y: candle.close
+                    };
 
-                candlePoint1 = transformThisPoint(candlePoint1, thisObject.container);
-                candlePoint2 = transformThisPoint(candlePoint2, thisObject.container);
-                candlePoint3 = transformThisPoint(candlePoint3, thisObject.container);
-                candlePoint4 = transformThisPoint(candlePoint4, thisObject.container);
+                    let candlePoint4 = {
+                        x: candle.begin + timePeriod / 7 * 1.5,
+                        y: candle.close
+                    };
 
-                if (candlePoint2.x < viewPort.visibleArea.bottomLeft.x || candlePoint1.x > viewPort.visibleArea.bottomRight.x) {
-                    continue;
-                }
+                    candlePoint1 = timeLineCoordinateSystem.transformThisPoint(candlePoint1);
+                    candlePoint2 = timeLineCoordinateSystem.transformThisPoint(candlePoint2);
+                    candlePoint3 = timeLineCoordinateSystem.transformThisPoint(candlePoint3);
+                    candlePoint4 = timeLineCoordinateSystem.transformThisPoint(candlePoint4);
 
-                candlePoint1 = viewPort.fitIntoVisibleArea(candlePoint1);
-                candlePoint2 = viewPort.fitIntoVisibleArea(candlePoint2);
-                candlePoint3 = viewPort.fitIntoVisibleArea(candlePoint3);
-                candlePoint4 = viewPort.fitIntoVisibleArea(candlePoint4);
+                    candlePoint1 = transformThisPoint(candlePoint1, thisObject.container);
+                    candlePoint2 = transformThisPoint(candlePoint2, thisObject.container);
+                    candlePoint3 = transformThisPoint(candlePoint3, thisObject.container);
+                    candlePoint4 = transformThisPoint(candlePoint4, thisObject.container);
 
-                let stickPoint1 = {
-                    x: candle.begin + timePeriod / 7 * 3.2,
-                    y: candle.max
-                };
+                    if (candlePoint2.x < viewPort.visibleArea.bottomLeft.x || candlePoint1.x > viewPort.visibleArea.bottomRight.x) {
+                        continue;
+                    }
 
-                let stickPoint2 = {
-                    x: candle.begin + timePeriod / 7 * 3.8,
-                    y: candle.max
-                };
+                    candlePoint1 = viewPort.fitIntoVisibleArea(candlePoint1);
+                    candlePoint2 = viewPort.fitIntoVisibleArea(candlePoint2);
+                    candlePoint3 = viewPort.fitIntoVisibleArea(candlePoint3);
+                    candlePoint4 = viewPort.fitIntoVisibleArea(candlePoint4);
 
-                let stickPoint3 = {
-                    x: candle.begin + timePeriod / 7 * 3.8,
-                    y: candle.min
-                };
+                    let stickPoint1 = {
+                        x: candle.begin + timePeriod / 7 * 3.2,
+                        y: candle.max
+                    };
 
-                let stickPoint4 = {
-                    x: candle.begin + timePeriod / 7 * 3.2,
-                    y: candle.min
-                };
+                    let stickPoint2 = {
+                        x: candle.begin + timePeriod / 7 * 3.8,
+                        y: candle.max
+                    };
 
-                stickPoint1 = timeLineCoordinateSystem.transformThisPoint(stickPoint1);
-                stickPoint2 = timeLineCoordinateSystem.transformThisPoint(stickPoint2);
-                stickPoint3 = timeLineCoordinateSystem.transformThisPoint(stickPoint3);
-                stickPoint4 = timeLineCoordinateSystem.transformThisPoint(stickPoint4);
+                    let stickPoint3 = {
+                        x: candle.begin + timePeriod / 7 * 3.8,
+                        y: candle.min
+                    };
 
-                stickPoint1 = transformThisPoint(stickPoint1, thisObject.container);
-                stickPoint2 = transformThisPoint(stickPoint2, thisObject.container);
-                stickPoint3 = transformThisPoint(stickPoint3, thisObject.container);
-                stickPoint4 = transformThisPoint(stickPoint4, thisObject.container);
+                    let stickPoint4 = {
+                        x: candle.begin + timePeriod / 7 * 3.2,
+                        y: candle.min
+                    };
 
-                stickPoint1 = viewPort.fitIntoVisibleArea(stickPoint1);
-                stickPoint2 = viewPort.fitIntoVisibleArea(stickPoint2);
-                stickPoint3 = viewPort.fitIntoVisibleArea(stickPoint3);
-                stickPoint4 = viewPort.fitIntoVisibleArea(stickPoint4);
+                    stickPoint1 = timeLineCoordinateSystem.transformThisPoint(stickPoint1);
+                    stickPoint2 = timeLineCoordinateSystem.transformThisPoint(stickPoint2);
+                    stickPoint3 = timeLineCoordinateSystem.transformThisPoint(stickPoint3);
+                    stickPoint4 = timeLineCoordinateSystem.transformThisPoint(stickPoint4);
 
-                browserCanvasContext.beginPath();
+                    stickPoint1 = transformThisPoint(stickPoint1, thisObject.container);
+                    stickPoint2 = transformThisPoint(stickPoint2, thisObject.container);
+                    stickPoint3 = transformThisPoint(stickPoint3, thisObject.container);
+                    stickPoint4 = transformThisPoint(stickPoint4, thisObject.container);
 
-                browserCanvasContext.moveTo(stickPoint1.x, stickPoint1.y);
-                browserCanvasContext.lineTo(stickPoint2.x, stickPoint2.y);
-                browserCanvasContext.lineTo(stickPoint3.x, stickPoint3.y);
-                browserCanvasContext.lineTo(stickPoint4.x, stickPoint4.y);
+                    stickPoint1 = viewPort.fitIntoVisibleArea(stickPoint1);
+                    stickPoint2 = viewPort.fitIntoVisibleArea(stickPoint2);
+                    stickPoint3 = viewPort.fitIntoVisibleArea(stickPoint3);
+                    stickPoint4 = viewPort.fitIntoVisibleArea(stickPoint4);
 
-                browserCanvasContext.closePath();
-                browserCanvasContext.fillStyle = 'rgba(54, 54, 54, 1)';
-                browserCanvasContext.fill();
+                    browserCanvasContext.beginPath();
 
-                if (datetime !== undefined) {
+                    browserCanvasContext.moveTo(stickPoint1.x, stickPoint1.y);
+                    browserCanvasContext.lineTo(stickPoint2.x, stickPoint2.y);
+                    browserCanvasContext.lineTo(stickPoint3.x, stickPoint3.y);
+                    browserCanvasContext.lineTo(stickPoint4.x, stickPoint4.y);
 
-                    let dateValue = datetime.valueOf();
+                    browserCanvasContext.closePath();
+                    browserCanvasContext.fillStyle = 'rgba(54, 54, 54, 1)';
+                    browserCanvasContext.fill();
 
-                    if (dateValue >= candle.begin && dateValue <= candle.end) {
+                    if (datetime !== undefined) {
 
-                        browserCanvasContext.strokeStyle = 'rgba(255, 233, 31, 1)'; // Current candle accroding to time
+                        let dateValue = datetime.valueOf();
+
+                        if (dateValue >= candle.begin && dateValue <= candle.end) {
+
+                            browserCanvasContext.strokeStyle = 'rgba(255, 233, 31, 1)'; // Current candle accroding to time
+
+                        } else {
+                            browserCanvasContext.strokeStyle = 'rgba(212, 206, 201, 1)';
+                        }
 
                     } else {
                         browserCanvasContext.strokeStyle = 'rgba(212, 206, 201, 1)';
                     }
 
-                } else {
-                    browserCanvasContext.strokeStyle = 'rgba(212, 206, 201, 1)';
-                }
+                    browserCanvasContext.lineWidth = 1;
+                    browserCanvasContext.stroke();
 
-                browserCanvasContext.lineWidth = 1;
-                browserCanvasContext.stroke();
+                    browserCanvasContext.beginPath();
 
-                browserCanvasContext.beginPath();
+                    browserCanvasContext.moveTo(candlePoint1.x, candlePoint1.y);
+                    browserCanvasContext.lineTo(candlePoint2.x, candlePoint2.y);
+                    browserCanvasContext.lineTo(candlePoint3.x, candlePoint3.y);
+                    browserCanvasContext.lineTo(candlePoint4.x, candlePoint4.y);
 
-                browserCanvasContext.moveTo(candlePoint1.x, candlePoint1.y);
-                browserCanvasContext.lineTo(candlePoint2.x, candlePoint2.y);
-                browserCanvasContext.lineTo(candlePoint3.x, candlePoint3.y);
-                browserCanvasContext.lineTo(candlePoint4.x, candlePoint4.y);
+                    browserCanvasContext.closePath();
 
-                browserCanvasContext.closePath();
+                    if (candle.direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, 1)'; }
+                    if (candle.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, 1)'; }
+                    if (candle.direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, 1)'; }
 
-                if (candle.direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, 1)'; }
-                if (candle.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, 1)'; }
-                if (candle.direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, 1)'; }
+                    if (datetime !== undefined) {
 
-                if (datetime !== undefined) {
+                        let dateValue = datetime.valueOf();
 
-                    let dateValue = datetime.valueOf();
+                        if (dateValue >= candle.begin && dateValue <= candle.end) {
 
-                    if (dateValue >= candle.begin && dateValue <= candle.end) {
+                            /* highlight the current candle */
 
-                        /* highlight the current candle */
+                            browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 1)'; // Current candle accroding to time
 
-                        browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 1)'; // Current candle accroding to time
+                            let currentCandle = {
+                                bodyWidth: candlePoint2.x - candlePoint1.x,
+                                bodyHeight: candlePoint3.y - candlePoint2.y,
+                                stickHeight: stickPoint4.y - stickPoint2.y,
+                                stickWidth: stickPoint2.x - stickPoint1.x,
+                                stickStart: candlePoint2.y - stickPoint2.y,
+                                period: timePeriod,
+                                innerCandle: candle
+                            };
 
-                        let currentCandle = {
-                            bodyWidth: candlePoint2.x - candlePoint1.x,
-                            bodyHeight: candlePoint3.y - candlePoint2.y,
-                            stickHeight: stickPoint4.y - stickPoint2.y,
-                            stickWidth: stickPoint2.x - stickPoint1.x,
-                            stickStart: candlePoint2.y - stickPoint2.y,
-                            period: timePeriod,
-                            innerCandle: candle
-                        };
+                            thisObject.container.eventHandler.raiseEvent("Current Candle Changed", currentCandle);
 
-                        thisObject.container.eventHandler.raiseEvent("Current Candle Changed", currentCandle);
+                        } else {
+
+                            if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 1)'; }
+                            if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(219, 18, 18, 1)'; }
+                            if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(64, 26, 217, 1)'; }
+                        }
 
                     } else {
 
                         if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 1)'; }
                         if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(219, 18, 18, 1)'; }
                         if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(64, 26, 217, 1)'; }
+
                     }
 
-                } else {
 
-                    if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 1)'; }
-                    if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(219, 18, 18, 1)'; }
-                    if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(64, 26, 217, 1)'; }
+
+                    if (
+                        candlePoint1.x < viewPort.visibleArea.topLeft.x + 50
+                        ||
+                        candlePoint1.x > viewPort.visibleArea.bottomRight.x - 50
+                    ) {
+                        // we leave this candles without fill.
+                    } else {
+                        browserCanvasContext.fill();
+                    }
+
+                    browserCanvasContext.lineWidth = 1;
+                    browserCanvasContext.stroke();
+
 
                 }
-
-
-
-                if (
-                    candlePoint1.x < viewPort.visibleArea.topLeft.x + 50
-                    ||
-                    candlePoint1.x > viewPort.visibleArea.bottomRight.x - 50
-                ) {
-                    // we leave this candles without fill.
-                } else {
-                    browserCanvasContext.fill();
-                }
-
-                browserCanvasContext.lineWidth = 1;
-                browserCanvasContext.stroke();
-
-
             }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err.message = " + err.message); }
         }
     }
 
     function onZoomChanged(event) {
 
-        recalculate();
+        try {
 
+            if (INFO_LOG === true) { logger.write("[INFO] onZoomChanged -> Entering function."); }
+
+            recalculate();
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] onZoomChanged -> err.message = " + err.message); }
+        }
     }
 
     function onOffsetChanged() {
 
-        if (Math.random() * 100 > 95) {
+        try {
 
-            recalculate()
-        };
+            if (INFO_LOG === true) { logger.write("[INFO] onOffsetChanged -> Entering function."); }
 
+            if (Math.random() * 100 > 95) {
+
+                recalculate()
+            };
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] onOffsetChanged -> err.message = " + err.message); }
+        }
     }
 
     function onDragFinished() {
 
-        recalculate();
+        try {
 
+            if (INFO_LOG === true) { logger.write("[INFO] onDragFinished -> Entering function."); }
+
+            recalculate();
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err.message = " + err.message); }
+        }
     }
 }
 

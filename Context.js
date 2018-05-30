@@ -130,7 +130,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
-                            logger.write("[INFO] initialize -> onDone -> Execution finished well. :-)");
+                            logger.write("[INFO] initialize -> onDone -> Execution finished well.");
 
                             bot.hasTheBotJustStarted = false;
 
@@ -326,7 +326,7 @@
                             return;
                         }
 
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) {
+                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                             logger.write("[INFO] initialize -> getExecutionContext -> onFileReceived -> Content received = " + text);
                         }
 
@@ -497,7 +497,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
-                            logger.write("[INFO] saveThemAll -> onDone -> Execution finished well. :-)");
+                            logger.write("[INFO] saveThemAll -> onDone -> Execution finished well.");
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
@@ -563,7 +563,7 @@
                                     return;
                                 }
 
-                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) {
+                                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                                     logger.write("[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
                                 }
 

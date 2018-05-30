@@ -176,11 +176,11 @@
 
     function write(Message) {
 
-        console.log("AACloud" + spacePad(thisObject.fileName, 40) + " : " + Message);
+        console.log("AACloud" + spacePad(thisObject.fileName, 50) + " : " + Message);
 
         if (thisObject.bot === undefined) { return;}
 
-        if (firstCall === true && global.CURRENT_LOCATION === "Cloud") { createFolders(); }
+        if (firstCall === true && global.CURRENT_EXECUTION_AT === "Cloud") { createFolders(); }
 
         if (thisObject.bot.loopCounter !== loopCounter) {
 

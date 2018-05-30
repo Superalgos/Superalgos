@@ -127,7 +127,7 @@ exports.newRoot = function newRoot() {
 
     let cloudStorage;
 
-    let logDisplace = "AACloud" + "                                    ";
+    let logDisplace = "AACloud" + "                                              ";
     let UI_COMMANDS;
 
     return thisObject;
@@ -148,7 +148,22 @@ exports.newRoot = function newRoot() {
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    let filePath = global.USER_DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + "AACloud";
+                    let filePath;
+
+                    switch (global.CURRENT_EXECUTION_AT) {
+                        case "Cloud": {
+                            filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
+                            break;
+                        }
+                        case "Browser": {
+                            filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + "AACloud";  // DevTeam Members bots only are run at the browser.
+                            break;
+                        }
+                        default: {
+                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
+                        }
+                    }
+
                     let fileName = "this.config.json";
 
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
@@ -236,7 +251,22 @@ exports.newRoot = function newRoot() {
 
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                            let filePath = listItem.devTeam + "/" + listItem.repo;
+                            let filePath;
+
+                            switch (global.CURRENT_EXECUTION_AT) {
+                                case "Cloud": {
+                                    filePath = global.DEV_TEAM + "/" + "bots" + "/" + listItem.repo; // DevTeams bots only are run at the cloud.
+                                    break;
+                                }
+                                case "Browser": {
+                                    filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + listItem.repo;  // DevTeam Members bots only are run at the browser.
+                                    break;
+                                }
+                                default: {
+                                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
+                                }
+                            }
+
                             let fileName = "this.bot.config.json";
 
                             cloudStorage.getTextFile(filePath, fileName, onFileReceived);
@@ -244,7 +274,10 @@ exports.newRoot = function newRoot() {
                             function onFileReceived(err, text) {
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    console.log(logDisplace  + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
+                                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> err = " + err.message);
+                                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> filePath = " + filePath);
+                                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> onFileReceived -> fileName = " + fileName);
+
                                     return;
                                 }
 
@@ -563,9 +596,9 @@ exports.newRoot = function newRoot() {
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                            logger.write("[INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+                                            logger.write("[INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write("[INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(botId + " Bot execution finished sucessfully. :-)");
+                                            console.log(botId + " Bot execution finished sucessfully.");
 
                                         } else {
 
@@ -615,9 +648,9 @@ exports.newRoot = function newRoot() {
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                            logger.write("[INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+                                            logger.write("[INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write("[INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(botId + " Bot execution finished sucessfully. :-)");
+                                            console.log(botId + " Bot execution finished sucessfully.");
 
                                         } else {
 
@@ -662,9 +695,9 @@ exports.newRoot = function newRoot() {
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                            logger.write("[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully. :-)");
+                                            logger.write("[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write("[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(botId + " Bot execution finished sucessfully. :-)");
+                                            console.log(botId + " Bot execution finished sucessfully.");
 
                                         } else {
 

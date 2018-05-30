@@ -464,7 +464,7 @@
 
                         /* We arrived to the point where we have checked all the status reports of every month and they are all complete. */
 
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> loop -> Verification Finished. Success. :-)"); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] verifyMarketComplete -> loop -> Verification Finished. Success."); }
 
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;

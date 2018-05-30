@@ -57,11 +57,20 @@
 
             switch (bot.runMode) {
 
-                case 'Live': { getMarketRateFromExchange();}
+                case 'Live': {
+                    getMarketRateFromExchange();
+                    break;
+                }
 
-                case 'Backtest': { getMarketRateFromIndicator();}
+                case 'Backtest': {
+                    getMarketRateFromIndicator();
+                    break;
+                }
 
-                case 'Competition': { getMarketRateFromExchange(); }
+                case 'Competition': {
+                    getMarketRateFromExchange();
+                    break;
+                }
 
                 default: {
                     logger.write("[ERROR] initialize -> Unexpected bot.runMode.");
@@ -221,7 +230,7 @@
 
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Execution finished well. :-)");
+                                    logger.write("[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Execution finished well.");
                                     calculateProfits();
                                     return;
                                 }
@@ -360,7 +369,7 @@
 
                 switch (err.result) {
                     case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                        logger.write("[INFO] getPositionsAtExchange -> onResponse -> Execution finished well. :-)");
+                        logger.write("[INFO] getPositionsAtExchange -> onResponse -> Execution finished well.");
                         exchangePositions = pExchangePositions;
                         ordersExecutionCheck(callBack);
                         return;
@@ -576,7 +585,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                                            logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well. :-)");
+                                            logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well.");
                                             innerCallBack(pTrades);
                                         }
                                             break;
@@ -609,7 +618,7 @@
                         try {
 
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
 
                             /*
  
@@ -982,7 +991,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                            logger.write("[INFO] putPosition -> onResponse -> Execution finished well. :-)");
+                            logger.write("[INFO] putPosition -> onResponse -> Execution finished well.");
 
                             let position = {
                                 id: pPositionId,
@@ -1097,7 +1106,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                            logger.write("[INFO] movePosition -> onResponse -> Execution finished well. :-)");
+                            logger.write("[INFO] movePosition -> onResponse -> Execution finished well.");
 
                             let newPosition = {
                                 id: pPositionId,

@@ -295,7 +295,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well.");
                                             initializeDataDependencies();
                                             return;
                                         }
@@ -353,7 +353,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.");
                                             initializeContext();
                                             return;
                                         }
@@ -410,7 +410,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> initializeContext -> onInizialized -> Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> initializeContext -> onInizialized -> Execution finished well.");
                                             initializeExchangeAPI();
                                             return;
                                         }
@@ -468,7 +468,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> initializeExchangeAPI -> onInizialized -> Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> initializeExchangeAPI -> onInizialized -> Execution finished well.");
                                             initializeAssistant();
                                             return;
                                         }
@@ -525,7 +525,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> initializeAssistant -> onInizialized -> Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> initializeAssistant -> onInizialized -> Execution finished well.");
                                             initializeUserBot();
                                             return;
                                         }
@@ -583,7 +583,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> initializeUserBot -> onInizialized -> Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> initializeUserBot -> onInizialized -> Execution finished well.");
                                             startUserBot();
                                             return;
                                         }
@@ -639,7 +639,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> startUserBot -> onFinished -> Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> startUserBot -> onFinished -> Execution finished well.");
                                             saveContext();
                                             return;
                                         }
@@ -695,7 +695,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> saveContext -> onFinished -> Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> saveContext -> onFinished -> Execution finished well.");
                                             nextWaitTime = 'Normal';
                                             loopControl(nextWaitTime);
                                             return;
@@ -753,7 +753,7 @@
 
                 function onStop() {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time! :-)"); }
+                    if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time!"); }
                     bot.eventHandler.raiseEvent("Loop Finished");
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                     return;
@@ -766,25 +766,25 @@
 
                     switch (nextWaitTime) {
                         case 'Normal': {
-                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Normal -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
                             bot.eventHandler.raiseEvent("Loop Finished");
                             setTimeout(loop, processConfig.normalWaitTime);
                         }
                             break;
                         case 'Retry': {
-                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Retry -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
                             bot.eventHandler.raiseEvent("Loop Finished");
                             setTimeout(loop, processConfig.retryWaitTime);
                         }
                             break;
                         case 'Sleep': {
-                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Sleep -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
                             bot.eventHandler.raiseEvent("Loop Finished");
                             setTimeout(loop, processConfig.sleepWaitTime);
                         }
                             break;
                         case 'Coma': {
-                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Coma -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
                             bot.eventHandler.raiseEvent("Loop Finished");
                             setTimeout(loop, processConfig.comaWaitTime);
                         }

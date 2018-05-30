@@ -247,7 +247,10 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                             message: "File does not exist."
                         };
 
-                        logger.write("[ERROR] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
+                        logger.write("[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
+                        logger.write("[WARN] getTextFile -> containerName = " + containerName);
+                        logger.write("[WARN] getTextFile -> pFolderPath = " + pFolderPath);
+                        logger.write("[WARN] getTextFile -> pFileName = " + pFileName);
 
                         callBackFunction(customErr);
                         return;
@@ -263,7 +266,10 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                             message: "Folder does not exist."
                         };
 
-                        logger.write("[ERROR] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
+                        logger.write("[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
+                        logger.write("[WARN] getTextFile -> containerName = " + containerName);
+                        logger.write("[WARN] getTextFile -> pFolderPath = " + pFolderPath);
+                        logger.write("[WARN] getTextFile -> pFileName = " + pFileName);
 
                         callBackFunction(customErr);
                         return;

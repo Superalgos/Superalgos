@@ -1,22 +1,20 @@
 ﻿
 global.CURRENT_ENVIRONMENT = "Develop"; 
-global.CURRENT_LOCATION = "Cloud"; 
+global.CURRENT_EXECUTION_AT = "Cloud"; 
 global.SHALL_BOT_STOP = false;
 global.USER_LOGGED_IN = "ciencias";
-global.USER_DEV_TEAM = "AAMasters";
+global.DEV_TEAM = "AAMasters";
 
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);
     return;
 });
 
-
 process.on('unhandledRejection', (reason, p) => {
     console.log('[INFO] Run -> unhandledRejection -> reason = ' + reason);
     console.log('[INFO] Run -> unhandledRejection -> p = ' + JSON.stringify(p));
     return;
 });
-
 
 process.on('exit', function (code) {
     try {

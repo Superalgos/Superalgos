@@ -162,7 +162,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well.");
                                             initializeUserBot();
                                             return;
                                         }
@@ -224,7 +224,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> initializeUserBot -> onInizialized > Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> initializeUserBot -> onInizialized > Execution finished well.");
                                             startUserBot();
                                             return;
                                         }
@@ -284,7 +284,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write("[INFO] run -> loop -> startUserBot -> onFinished > Execution finished well. :-)");
+                                            logger.write("[INFO] run -> loop -> startUserBot -> onFinished > Execution finished well.");
                                             nextWaitTime = 'Normal';
                                             loopControl(nextWaitTime);
                                             return;
@@ -401,7 +401,7 @@
 
                     if (bot.runAtFixedInterval === true) { intervalHandle.clearInterval();}
 
-                    if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time! :-)"); }
+                    if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time!"); }
                     bot.eventHandler.raiseEvent("Loop Finished");
                     clearInterval(intervalHandle);
                     callBackFunction(global.DEFAULT_OK_RESPONSE);

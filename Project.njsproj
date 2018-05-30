@@ -79,6 +79,9 @@
     <Compile Include="ImageButton.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Spaces\TopSpace.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="WebDebugLog.js">
       <SubType>Code</SubType>
     </Compile>
@@ -152,9 +155,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ProductStorage.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TempExosystem.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TextButton.js" />

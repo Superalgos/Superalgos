@@ -36,7 +36,7 @@ function newTimeControlPanel() {
 
         let position = {
             x: (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 - thisObject.container.frame.width / 2,
-            y: 0
+            y: viewPort.visibleArea.topLeft.y
         };
 
         thisObject.container.frame.position = position;

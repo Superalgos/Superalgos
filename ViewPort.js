@@ -4,7 +4,7 @@ function newViewPort() {
     const CONSOLE_LOG = true;
 
     let ANIMATION_INCREMENT = 0.25;
-    const TOP_MARGIN = 15;
+    const TOP_MARGIN = 15 + TOP_SPACE_HEIGHT;
     const BOTTOM_MARGIN = 0;
     const LEFT_MARGIN = 50;
     const RIGHT_MARGIN = 50;

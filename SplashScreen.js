@@ -6,7 +6,7 @@ The Splash Screen is to show some 'loading...' controls while the app is being l
 
 function newSplashScreen() {
 
-    var splashScreen = {
+    var thisObject = {
         container: undefined,
         draw: draw,
         timeMachines: [],
@@ -17,10 +17,10 @@ function newSplashScreen() {
 
     var container = newContainer();
     container.initialize();
-    splashScreen.container = container;
+    thisObject.container = container;
 
-    splashScreen.container.frame.width = browserCanvas.width;
-    splashScreen.container.frame.height = browserCanvas.height;
+    thisObject.container.frame.width = browserCanvas.width;
+    thisObject.container.frame.height = browserCanvas.height;
 
     container.displacement.containerName = "Splash Screen";
     container.frame.containerName = "Splash Screen";
@@ -34,7 +34,7 @@ function newSplashScreen() {
     let fadeOutCounter = 0;
     let opacity = 1;
 
-    return splashScreen;
+    return thisObject;
 
     function initialize() {
 
@@ -58,7 +58,7 @@ function newSplashScreen() {
 
         }
 
-        splashScreen.container.frame.draw(false, false);
+        thisObject.container.frame.draw(false, false);
 
         let label = '' + Math.trunc(stepsInitializationCounter)  + ' %';
         stepsInitializationCounter = stepsInitializationCounter + 1;
@@ -72,13 +72,13 @@ function newSplashScreen() {
         let fontSize = 50;
 
         let labelPoint = {
-            x: splashScreen.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO  -30,
-            y: splashScreen.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 200
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO  -30,
+            y: thisObject.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 200
         };
 
         browserCanvasContext.beginPath();
 
-        browserCanvasContext.rect(0, 0, splashScreen.container.frame.width, splashScreen.container.frame.height);
+        browserCanvasContext.rect(0, 0, thisObject.container.frame.width, thisObject.container.frame.height);
         browserCanvasContext.fillStyle = 'rgba(255, 255, 255, ' + opacity + ')';
 
         browserCanvasContext.closePath();
@@ -99,8 +99,8 @@ function newSplashScreen() {
         title = "Advanced"
 
         titlePoint = {
-            x: splashScreen.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 230,
-            y: splashScreen.container.frame.height / 2 - fontSize * 2 + 50
+            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 230,
+            y: thisObject.container.frame.height / 2 - fontSize * 2 + 50
         };
 
         browserCanvasContext.font = fontSize + 'px Verdana';
@@ -115,8 +115,8 @@ function newSplashScreen() {
         title = "Algos"
 
         titlePoint = {
-            x: splashScreen.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 230,
-            y: splashScreen.container.frame.height / 2 - fontSize * 2 + 50
+            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 230,
+            y: thisObject.container.frame.height / 2 - fontSize * 2 + 50
         };
 
         browserCanvasContext.font = fontSize + 'px Verdana';
@@ -135,8 +135,8 @@ function newSplashScreen() {
         title = "Algobots Competitions"
 
         titlePoint = {
-            x: splashScreen.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 0,
-            y: splashScreen.container.frame.height / 2 - fontSize * 2 + 150
+            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 0,
+            y: thisObject.container.frame.height / 2 - fontSize * 2 + 150
         };
 
         browserCanvasContext.font = fontSize + 'px Verdana';

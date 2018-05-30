@@ -107,7 +107,7 @@ function newAnimation() {
 
     function animationLoop(callBackFunction) {
 
-        //try {
+        try {
 
             if (INFO_LOG === true) { logger.write("[INFO] animationLoop -> Entering function."); }
 
@@ -127,14 +127,14 @@ function newAnimation() {
 
             animationLoopHandle = window.requestAnimationFrame(animationLoop);
 
-       // } catch (err) {
+        } catch (err) {
 
-        //    if (ERROR_LOG === true) { logger.write("[ERROR] animationLoop -> err = " + err); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] animationLoop -> err = " + err); }
 
-        //    if (callBackFunction !== undefined) {       // When the loop is called by the browser there will be no callBackFunction.
-        //        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-       //     } 
-      //  }
+            if (callBackFunction !== undefined) {       // When the loop is called by the browser there will be no callBackFunction.
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
+            } 
+        }
     }
 
     function clearBrowserCanvas() {

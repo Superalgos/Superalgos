@@ -669,8 +669,8 @@
 
             browserCanvasContext.fillStyle = 'rgba(255, 255, 255, 1)';
             browserCanvasContext.beginPath();
-            browserCanvasContext.rect(0, 0, viewPort.visibleArea.topLeft.x, viewPort.visibleArea.topLeft.y);
-            browserCanvasContext.rect(viewPort.visibleArea.topRight.x, 0, 500, viewPort.visibleArea.topLeft.y);
+            browserCanvasContext.rect(0, TOP_SPACE_HEIGHT, viewPort.visibleArea.topLeft.x, viewPort.visibleArea.topLeft.y - TOP_SPACE_HEIGHT);
+            browserCanvasContext.rect(viewPort.visibleArea.topRight.x, TOP_SPACE_HEIGHT, 500, viewPort.visibleArea.topLeft.y - TOP_SPACE_HEIGHT);
             browserCanvasContext.closePath();
             browserCanvasContext.fill();
         }

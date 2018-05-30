@@ -36,7 +36,7 @@
 
         var position = {
             x: viewPort.visibleArea.topLeft.x,
-            y: 0
+            y: viewPort.visibleArea.topLeft.y
         };
 
         thisObject.container.frame.position = position;

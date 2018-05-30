@@ -1,19 +1,24 @@
 ﻿
 /*
 
-Whithin this sub-system, the canvas object represents a layer on top of the browser canvas object.
+The canvas object represents a layer on top of the browser canvas object.
 
-Graphically, this sub-system has 3 spaces:
+Graphically, thiscanvas object has 4 spaces:
 
-1) The "Chart Space": It is where the charts are plotted.
+1) The "Top Space": It is where Team and User information is displayed.
 
-2) The "Floating Space": It is where floating elements live. There is a physics engine for this layer that allows these elements to flow.  
+2) The "Chart Space": It is where the charts are plotted.
 
-3) The "Panels Space": It is where panels live. --> This space has yet to be develop, currently pannels are somehow at the Chart Space.  
+3) The "Floating Space": It is where floating elements live. There is a physics engine for this layer that allows these elements to flow.  
+
+4) The "Panels Space": It is where panels live. --> This space has yet to be develop, currently pannels are somehow at the Chart Space.  
 
 All these spaces are child objects of the Canvas object.
 
 Canvas
+  |
+  |
+  ---> topSpace
   |
   |
   ---> chartSpace
@@ -60,6 +65,7 @@ function newCanvas() {
 
     let thisObject = {
         eventHandler: undefined,
+        topSpace: undefined,
         chartSpace: undefined,
         floatingSpace: undefined,
         panelsSpace: undefined,
@@ -83,24 +89,21 @@ function newCanvas() {
 
         /* Instantiate all the children of Canvas object */ 
 
-        let panelsSpace = newPanelsSpace();
-        panelsSpace.initialize();
+        thisObject.panelsSpace = newPanelsSpace();
+        thisObject.panelsSpace.initialize();
 
-        thisObject.panelsSpace = panelsSpace;
+        thisObject.floatingSpace = newFloatingSpace();
+        thisObject.floatingSpace.initialize();
 
-        let floatingSpace = newFloatingSpace();
-        floatingSpace.initialize();
-
-        thisObject.floatingSpace = floatingSpace;
-
-        let chartSpace = newChartSpace();
-        chartSpace.initialize(onCharSpaceInitialized);
-
-        thisObject.chartSpace = chartSpace;
+        thisObject.chartSpace = newChartSpace();
+        thisObject.chartSpace.initialize(onCharSpaceInitialized);
 
         function onCharSpaceInitialized(err) {
             viewPort.raiseEvents(); // These events will impacts on objects just initialized.
         }
+
+        thisObject.topSpace = newTopSpace();
+        thisObject.topSpace.initialize();
 
         /* Splash Screen */
 
@@ -116,6 +119,7 @@ function newCanvas() {
 
             /* Here we add all the functions that will be called during the animation cycle. */
 
+            animation.addCallBackFunction("Top Space", thisObject.topSpace.draw, onFunctionAdded);
             animation.addCallBackFunction("Chart Space", thisObject.chartSpace.draw, onFunctionAdded);
             animation.addCallBackFunction("Floating Space", thisObject.floatingSpace.floatingLayer.physicsLoop, onFunctionAdded);
             animation.addCallBackFunction("Panels Space", thisObject.panelsSpace.draw, onFunctionAdded);

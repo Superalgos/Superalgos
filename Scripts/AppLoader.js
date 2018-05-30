@@ -24,6 +24,7 @@
             "Panels/TimeControlPanel.js",
             "Panels/ProductsPanel.js",
 
+            "Spaces/TopSpace.js",
             "Spaces/PanelsSpace.js",
             "Spaces/ChartSpace.js",
             "Spaces/FloatingSpace.js",

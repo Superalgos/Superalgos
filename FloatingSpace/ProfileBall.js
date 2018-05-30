@@ -19,13 +19,20 @@ function newProfileBall() {
 
     function drawBackground(pFloatingObject) {
 
+        let point = {
+            x: pFloatingObject.payload.profile.position.x,
+            y: pFloatingObject.payload.profile.position.y
+        };
+
+        point = viewPort.fitIntoVisibleArea(point);
+
         if (pFloatingObject.currentRadius > 1) {
 
             /* Target Line */
 
             browserCanvasContext.beginPath();
             browserCanvasContext.moveTo(pFloatingObject.currentPosition.x, pFloatingObject.currentPosition.y);
-            browserCanvasContext.lineTo(pFloatingObject.payload.profile.position.x, pFloatingObject.payload.profile.position.y);
+            browserCanvasContext.lineTo(point.x, point.y);
             browserCanvasContext.strokeStyle = 'rgba(204, 204, 204, 0.5)';
             browserCanvasContext.setLineDash([4, 2]);
             browserCanvasContext.lineWidth = 1;
@@ -41,7 +48,7 @@ function newProfileBall() {
             var radius = 1;
 
             browserCanvasContext.beginPath();
-            browserCanvasContext.arc(pFloatingObject.payload.profile.position.x, pFloatingObject.payload.profile.position.y, radius, 0, Math.PI * 2, true);
+            browserCanvasContext.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
             browserCanvasContext.closePath();
             browserCanvasContext.fillStyle = 'rgba(30, 30, 30, 1)';
             browserCanvasContext.fill();

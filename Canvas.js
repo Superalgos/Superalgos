@@ -119,13 +119,13 @@ function newCanvas() {
 
             /* Here we add all the functions that will be called during the animation cycle. */
 
-            animation.addCallBackFunction("Top Space", thisObject.topSpace.draw, onFunctionAdded);
             animation.addCallBackFunction("Chart Space", thisObject.chartSpace.draw, onFunctionAdded);
             animation.addCallBackFunction("Floating Space", thisObject.floatingSpace.floatingLayer.physicsLoop, onFunctionAdded);
             animation.addCallBackFunction("Panels Space", thisObject.panelsSpace.draw, onFunctionAdded);
             animation.addCallBackFunction("Splash Screen", splashScreen.draw, onFunctionAdded);
             animation.addCallBackFunction("ViewPort Animate", viewPort.animate, onFunctionAdded);
             animation.addCallBackFunction("ViewPort Draw", viewPort.draw, onFunctionAdded);
+            animation.addCallBackFunction("Top Space", thisObject.topSpace.draw, onFunctionAdded);
             animation.start(onStart);
 
             function onFunctionAdded(err) {

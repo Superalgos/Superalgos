@@ -70,7 +70,7 @@ function newFileSequence() {
 
             }
 
-            //intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS); 
+            intervalHandle = setInterval(updateFiles, _1_MINUTE_IN_MILISECONDS); 
 
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> intervalHandle = " + intervalHandle); }
 

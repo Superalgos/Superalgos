@@ -26,7 +26,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         currentCandlePanel.container.frame.height = 300;
 
         currentCandlePanel.container.frame.position.x = viewPort.visibleArea.topRight.x - currentCandlePanel.container.frame.width * 2;
-        currentCandlePanel.container.frame.position.y = 0;
+        currentCandlePanel.container.frame.position.y = viewPort.visibleArea.topLeft.y;
 
     }
 

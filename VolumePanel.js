@@ -26,7 +26,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
         currentVolumePanel.container.frame.height = 300;
 
         currentVolumePanel.container.frame.position.x = viewPort.visibleArea.topRight.x - currentVolumePanel.container.frame.width;
-        currentVolumePanel.container.frame.position.y = viewPort.visibleArea.topLeft.y;
+        currentVolumePanel.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - currentVolumePanel.container.frame.height;
 
     }
 

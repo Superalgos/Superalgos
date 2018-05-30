@@ -1,6 +1,6 @@
 ﻿function newPoloniexAPIClient(pKey, pSecret) {
 
-    const FULL_LOG = true;
+    const INFO_LOG = true;
     const LOG_FILE_CONTENT = false;
 
     let key = pKey;
@@ -29,7 +29,7 @@
             let stringExchangeResponse = JSON.stringify(exchangeResponse);
             let stringExchangeErr = JSON.stringify(exchangeErr);
 
-            if (FULL_LOG === true) { logger.write("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
+            if (INFO_LOG === true) { logger.write("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
             if (LOG_FILE_CONTENT === true) { logger.write("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
        
             if (stringExchangeErr.indexOf("ETIMEDOUT") > 0 ||

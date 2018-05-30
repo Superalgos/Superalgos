@@ -1,6 +1,6 @@
 ﻿function newCloudRequire(BOT, DEBUG_MODULE) {
 
-    const FULL_LOG = true;
+    const INFO_LOG = true;
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "Cloud Require";
@@ -23,7 +23,7 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] downloadBot -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] downloadBot -> Entering function."); }
 
             let filePath = "Bots" + "/" + bot.devTeam + "/" + bot.repo + "/" + pProcessConfig.name + "/" + "User.Bot.js";
 
@@ -46,7 +46,7 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] downloadCommons -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] downloadCommons -> Entering function."); }
 
             let filePath = "Bots" + "/" +  bot.devTeam + "/" + bot.repo + "/" + "Commons.js";
 

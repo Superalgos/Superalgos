@@ -20,27 +20,45 @@ function newCloudVM() {
 
     function onBotPlayPressed(pUI_COMMANDS) {
 
-        window.SHALL_BOT_STOP = false;
+        try {
 
-        window.CURRENT_ENVIRONMENT = "Develop";
-        window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
-        window.EXCHANGE_KEYS = ecosystem.getExchangeKeys();
-        window.USER_LOGGED_IN = window.localStorage.getItem("userName"); 
-        window.USER_DEV_TEAM = window.localStorage.getItem("devTeam"); 
+            if (INFO_LOG === true) { logger.write("[INFO] onBotPlayPressed -> Entering function."); }
 
-        root.initialize(pUI_COMMANDS, onInitialized);
+            window.SHALL_BOT_STOP = false;
 
-        function onInitialized() {
+            window.CURRENT_ENVIRONMENT = "Develop";
+            window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
+            window.EXCHANGE_KEYS = ecosystem.getExchangeKeys();
+            window.USER_LOGGED_IN = window.localStorage.getItem("userName");
+            window.USER_DEV_TEAM = window.localStorage.getItem("devTeam");
 
-            root.start();
+            root.initialize(pUI_COMMANDS, onInitialized);
 
-            intervalHandler = setInterval(checkForChangesInBotCode, 10000);
+            function onInitialized() {
 
+                try {
+
+                    if (INFO_LOG === true) { logger.write("[INFO] onBotPlayPressed -> Entering function."); }
+
+                    root.start();
+
+                    intervalHandler = setInterval(checkForChangesInBotCode, 10000);
+
+                } catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] onBotPlayPressed -> onInitialized -> err.message = " + err.message); }
+                }
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] onBotPlayPressed -> err.message = " + err.message); }
         }
-
     }
 
     function onBotStopPressed() {
+
+        if (INFO_LOG === true) { logger.write("[INFO] onBotStopPressed -> Entering function."); }
 
         window.SHALL_BOT_STOP = true; 
 
@@ -48,32 +66,43 @@ function newCloudVM() {
 
     function checkForChangesInBotCode() {
 
-        let botFunction = newUserBot;
+        try {
 
-        if (botFunction !== undefined) {
+            if (INFO_LOG === true) { logger.write("[INFO] checkForChangesInBotCode -> Entering function."); }
 
-            let currentBotCode = botFunction.toString();
+            let botFunction = newUserBot;
 
-            if (previousBotCode !== "") {
+            if (botFunction !== undefined) {
 
-                if (currentBotCode !== previousBotCode) {
+                let currentBotCode = botFunction.toString();
 
-                    console.log("Bot code changes detected.");
+                if (previousBotCode !== "") {
 
-                    let path = "AABrowserAPI" + "/"
-                        + "saveBotCode"
-                        ;
+                    if (currentBotCode !== previousBotCode) {
 
-                    callServer(currentBotCode, path, onServerResponse);
+                        console.log("Bot code changes detected.");
 
-                    function onServerResponse(err) {
+                        let path = "AABrowserAPI" + "/"
+                            + "saveBotCode"
+                            ;
 
-                        console.log("Server responded: " + err);
+                        callServer(currentBotCode, path, onServerResponse);
+
+                        function onServerResponse(err) {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] checkForChangesInBotCode -> onServerResponse -> Entering function."); }
+                            if (INFO_LOG === true) { logger.write("[INFO] checkForChangesInBotCode -> onServerResponse -> err = " + err); }
+
+                        }
                     }
                 }
+
+                previousBotCode = currentBotCode;
             }
 
-            previousBotCode = currentBotCode;
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] checkForChangesInBotCode -> err.message = " + err.message); }
         }
     }
 }

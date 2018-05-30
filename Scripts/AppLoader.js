@@ -1,6 +1,6 @@
 ﻿function newAppLoader() {
 
-    const FULL_LOG = false;
+    const INFO_LOG = false;
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "App Loader";

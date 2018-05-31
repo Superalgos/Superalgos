@@ -55,7 +55,7 @@
             exchangeAPI = pExchangeAPI;
             thisObject.dataDependencies = pDataDependencies;
 
-            switch (bot.runMode) {
+            switch (bot.startMode) {
 
                 case 'Live': {
                     getMarketRateFromExchange();
@@ -73,8 +73,8 @@
                 }
 
                 default: {
-                    logger.write("[ERROR] initialize -> Unexpected bot.runMode.");
-                    logger.write("[ERROR] initialize -> bot.runMode = " + bot.runMode);
+                    logger.write("[ERROR] initialize -> Unexpected bot.startMode.");
+                    logger.write("[ERROR] initialize -> bot.startMode = " + bot.startMode);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -330,7 +330,7 @@
 
             */
 
-            switch (bot.runMode) {
+            switch (bot.startMode) {
 
                 case "Live": {
 
@@ -355,8 +355,8 @@
                 }
 
                 default: {
-                    logger.write("[ERROR] getPositionsAtExchange -> Unexpected bot.runMode.");
-                    logger.write("[ERROR] getPositionsAtExchange -> bot.runMode = " + bot.runMode);
+                    logger.write("[ERROR] getPositionsAtExchange -> Unexpected bot.startMode.");
+                    logger.write("[ERROR] getPositionsAtExchange -> bot.startMode = " + bot.startMode);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -511,7 +511,7 @@
                 
                             */
 
-                            switch (bot.runMode) {
+                            switch (bot.startMode) {
 
                                 case "Live": {
 
@@ -571,8 +571,8 @@
                                 }
 
                                 default: {
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Unexpected bot.runMode.");
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> bot.runMode = " + bot.runMode);
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Unexpected bot.startMode.");
+                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> bot.startMode = " + bot.startMode);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
@@ -947,7 +947,7 @@
 
             /* All validations passed, we proceed. */
 
-            switch (bot.runMode) {
+            switch (bot.startMode) {
 
                 case "Live": {
 
@@ -976,8 +976,8 @@
                 }
 
                 default: {
-                    logger.write("[ERROR] putPosition -> Unexpected bot.runMode.");
-                    logger.write("[ERROR] putPosition -> bot.runMode = " + bot.runMode);
+                    logger.write("[ERROR] putPosition -> Unexpected bot.startMode.");
+                    logger.write("[ERROR] putPosition -> bot.startMode = " + bot.startMode);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -1068,7 +1068,7 @@
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
 
-            switch (bot.runMode) {
+            switch (bot.startMode) {
 
                 case "Live": {
 
@@ -1091,8 +1091,8 @@
                 }
 
                 default: {
-                    logger.write("[ERROR] movePosition -> Unexpected bot.runMode.");
-                    logger.write("[ERROR] movePosition -> bot.runMode = " + bot.runMode);
+                    logger.write("[ERROR] movePosition -> Unexpected bot.startMode.");
+                    logger.write("[ERROR] movePosition -> bot.startMode = " + bot.startMode);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }

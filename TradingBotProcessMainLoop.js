@@ -133,7 +133,7 @@
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
-                    switch (bot.runMode) {
+                    switch (bot.startMode) {
                         case 'Live': {
 
                             if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Live Mode detected."); }
@@ -198,7 +198,7 @@
 
                                 if (UI_COMMANDS.eventHandler !== undefined) {
 
-                                    UI_COMMANDS.eventHandler.raiseEvent('Datetime Changed', bot.processDatetime);
+                                    UI_COMMANDS.eventHandler.raiseEvent('Bot Execution Changed Datetime', bot.processDatetime);
 
                                 }
 
@@ -265,8 +265,8 @@
                             break;
                         }
                         default: {
-                            logger.write("[ERROR] run -> loop -> Unexpected bot.runMode.");
-                            logger.write("[ERROR] run -> loop -> bot.runMode = " + bot.runMode);
+                            logger.write("[ERROR] run -> loop -> Unexpected bot.startMode.");
+                            logger.write("[ERROR] run -> loop -> bot.startMode = " + bot.startMode);
                             bot.eventHandler.raiseEvent("Loop Finished");
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;

@@ -343,6 +343,50 @@ exports.newRoot = function newRoot() {
 
                             try {
 
+                                /*
+
+                                When running at the browser, the endUser can override the configured setting for the bot. In this scenario we use the commands
+                                sent from the User Interface.
+
+                                */
+
+                                if (UI_COMMANDS.startMode !== undefined) {
+
+                                    switch (UI_COMMANDS.startMode) {
+
+                                        case "Backtest": {
+
+                                            processConfig.startMode.backtest.run = "true";
+                                            processConfig.startMode.live.run = "false";
+                                            processConfig.startMode.competition.run = "false";
+
+                                            break;
+                                        }
+
+                                        case "Live": {
+
+                                            processConfig.startMode.backtest.run = "false";
+                                            processConfig.startMode.live.run = "true";
+                                            processConfig.startMode.competition.run = "false";
+
+                                            break;
+                                        }
+
+                                        case "Competition": {
+
+                                            processConfig.startMode.backtest.run = "false";
+                                            processConfig.startMode.live.run = "false";
+                                            processConfig.startMode.competition.run = "true";
+
+                                            break;
+                                        }
+                                    }
+
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode Overwritten. "); }
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> Process found at the bot configuration file. -> processConfig.startMode = " + processConfig.startMode); }
+
+                                }
+
                                 /* We tesst each type of start Mode to get what to run and how. */
 
                                 if (processConfig.startMode.allMonths !== undefined) {
@@ -482,7 +526,7 @@ exports.newRoot = function newRoot() {
 
                                     if (processConfig.startMode.live.run === "true") {
 
-                                        botConfig.runMode = "Live";
+                                        botConfig.startMode = "Live";
 
                                         let month = pad((new Date()).getUTCMonth() + 1, 2);
                                         let year = (new Date()).getUTCFullYear();
@@ -509,7 +553,7 @@ exports.newRoot = function newRoot() {
 
                                     if (processConfig.startMode.backtest.run === "true") {
 
-                                        botConfig.runMode = "Backtest";
+                                        botConfig.startMode = "Backtest";
                                         botConfig.backtest = processConfig.startMode.backtest;
 
                                         /* We override these waitTimes to the one specified at the backtest configuration. */
@@ -537,7 +581,7 @@ exports.newRoot = function newRoot() {
 
                                     if (processConfig.startMode.competition.run === "true") {
 
-                                        botConfig.runMode = "Competition";
+                                        botConfig.startMode = "Competition";
                                         botConfig.competition = processConfig.startMode.competition;
 
                                         if (processConfig.startMode.competition.resumeExecution === "true") {

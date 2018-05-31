@@ -86,7 +86,7 @@
 
     let statusDependencies;
 
-    let runIndex;  // This is the index for this run and depends on the runMode. 
+    let runIndex;  // This is the index for this run and depends on the startMode. 
 
     return thisObject;
 
@@ -176,7 +176,7 @@
 
                     } else {
 
-                        switch (bot.runMode) {
+                        switch (bot.startMode) {
 
                             case "Live": {
 
@@ -197,8 +197,8 @@
                             }
 
                             default: {
-                                logger.write("[ERROR] initialize -> createConext -> Unexpected bot.runMode.");
-                                logger.write("[ERROR] initialize -> createConext -> bot.runMode = " + bot.runMode);
+                                logger.write("[ERROR] initialize -> createConext -> Unexpected bot.startMode.");
+                                logger.write("[ERROR] initialize -> createConext -> bot.startMode = " + bot.startMode);
                                 callBack(global.DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
@@ -220,7 +220,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getExecutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History." + bot.runMode + "." + runIndex + ".json";
+                    let fileName = "Execution.History." + bot.startMode + "." + runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getExecutionHistory -> fileName = " + fileName); }
@@ -280,7 +280,7 @@
 
                     let date;
 
-                    switch (bot.runMode) {
+                    switch (bot.startMode) {
 
                         case "Live": {
                             date = new Date(thisObject.statusReport.liveRuns[runIndex].lastExecution);
@@ -302,14 +302,14 @@
                         }
 
                         default: {
-                            logger.write("[ERROR] initialize -> getExecutionContext -> Unexpected bot.runMode.");
-                            logger.write("[ERROR] initialize -> getExecutionContext -> bot.runMode = " + bot.runMode);
+                            logger.write("[ERROR] initialize -> getExecutionContext -> Unexpected bot.startMode.");
+                            logger.write("[ERROR] initialize -> getExecutionContext -> bot.startMode = " + bot.startMode);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
 
-                    let fileName = "Execution.Context." + bot.runMode + "." + runIndex + ".json";
+                    let fileName = "Execution.Context." + bot.startMode + "." + runIndex + ".json";
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
@@ -388,7 +388,7 @@
                         };
                     } 
 
-                    switch (bot.runMode) {
+                    switch (bot.startMode) {
 
                         case "Live": {
 
@@ -430,8 +430,8 @@
                         }
 
                         default: {
-                            logger.write("[ERROR] initialize -> createConext -> Unexpected bot.runMode.");
-                            logger.write("[ERROR] initialize -> createConext -> bot.runMode = " + bot.runMode);
+                            logger.write("[ERROR] initialize -> createConext -> Unexpected bot.startMode.");
+                            logger.write("[ERROR] initialize -> createConext -> bot.startMode = " + bot.startMode);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -528,7 +528,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExecutionContext -> Entering function."); }
 
-                    let fileName = "Execution.Context." + bot.runMode + "." + runIndex +".json";
+                    let fileName = "Execution.Context." + bot.startMode + "." + runIndex +".json";
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCHours(), 2) + '/' + utilities.pad(bot.processDatetime.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + bot.process + '/' + dateForPath;
 
@@ -589,7 +589,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> Entering function."); }
 
-                    let fileName = "Execution.History." + bot.runMode + "." + runIndex + ".json";
+                    let fileName = "Execution.History." + bot.startMode + "." + runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
@@ -656,7 +656,7 @@
                                 /* Here we will write the file containing the max sequence number. */
 
                                 fileContent = runIndex;
-                                fileName = "Execution.History." + bot.runMode + "." + "Sequence" + ".json";
+                                fileName = "Execution.History." + bot.startMode + "." + "Sequence" + ".json";
                                 filePath = bot.filePathRoot + "/Output/" + bot.process;
 
                                 cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onSequenceFileCreated);

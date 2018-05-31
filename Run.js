@@ -83,6 +83,7 @@ function startRoot() {
         beginDatetime: undefined,
         endDatetime: undefined,
         timePeriod: undefined,
+        startMode: undefined,
         eventHandler: undefined
     };
 

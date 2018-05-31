@@ -122,6 +122,7 @@
             + "buy" + "/"
             + key + "/"
             + secret + "/"
+            + pMarketAssetA + "/"
             + pMarketAssetB + "/"
             + pRate + "/"
             + pAmountB
@@ -143,6 +144,7 @@
             + "sell" + "/"
             + key + "/"
             + secret + "/"
+            + pMarketAssetA + "/"
             + pMarketAssetB + "/"
             + pRate + "/"
             + pAmountB

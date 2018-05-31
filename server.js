@@ -560,12 +560,12 @@ function onBrowserRequest(request, response) {
                     }
 
                     case "buy": {
-                        poloniexApiClient.API.buy(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                        poloniexApiClient.API.buy(requestParameters[5], requestParameters[6], requestParameters[7], requestParameters[8], onExchangeResponse);
                         break;
                     }
 
                     case "sell": {
-                        poloniexApiClient.API.sell(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                        poloniexApiClient.API.sell(requestParameters[5], requestParameters[6], requestParameters[7], requestParameters[8], onExchangeResponse);
                         break;
                     }
 

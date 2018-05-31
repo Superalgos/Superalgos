@@ -25,6 +25,10 @@ function newCurrentProcess() {
     function initialize() {
 
         window.CURRENT_PROCESS = window.localStorage.getItem("currentProcess");
+
+        if (window.CURRENT_PROCESS === null) {
+            window.CURRENT_PROCESS = "";
+        }
     }
 
     function getContainer(point) {

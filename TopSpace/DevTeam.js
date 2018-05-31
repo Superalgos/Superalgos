@@ -25,6 +25,10 @@ function newDevTeam() {
     function initialize() {
 
         window.DEV_TEAM = window.localStorage.getItem("devTeam");
+
+        if (window.DEV_TEAM === null) {
+            window.DEV_TEAM = "Not devTeam Member";
+        }
     }
 
     function getContainer(point) {

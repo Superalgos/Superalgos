@@ -25,6 +25,10 @@ function newCurrentStartMode() {
     function initialize() {
 
         window.CURRENT_START_MODE = window.localStorage.getItem("currentStartMode");
+
+        if (window.CURRENT_START_MODE === null) {
+            window.CURRENT_START_MODE = "";
+        }
     }
 
     function getContainer(point) {

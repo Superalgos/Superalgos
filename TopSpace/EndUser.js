@@ -25,6 +25,10 @@ function newEndUser() {
     function initialize() {
 
         window.USER_LOGGED_IN = window.localStorage.getItem("userName");
+
+        if (window.USER_LOGGED_IN === null) {
+            window.USER_LOGGED_IN = "Guest User";
+        }
     }
 
     function getContainer(point) {

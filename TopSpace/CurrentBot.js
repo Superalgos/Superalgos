@@ -25,6 +25,10 @@ function newCurrentBot() {
     function initialize() {
 
         window.CURRENT_BOT = window.localStorage.getItem("currentBot");
+
+        if (window.DEV_TEAM === null) {
+            window.DEV_TEAM = "No Bot";
+        }
     }
 
     function getContainer(point) {

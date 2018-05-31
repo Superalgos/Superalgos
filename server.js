@@ -391,6 +391,14 @@ function onBrowserRequest(request, response) {
             }
             break; 
 
+        case "favicon.ico": // This means the Scripts folder.
+            {
+
+                respondWithImage('./Images/' + 'favicon.ico', response);
+
+            }
+            break; 
+
         case "TopSpace": // This means the TopSpace folder.
             {
 

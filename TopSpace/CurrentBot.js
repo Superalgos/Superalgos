@@ -26,8 +26,8 @@ function newCurrentBot() {
 
         window.CURRENT_BOT = window.localStorage.getItem("currentBot");
 
-        if (window.DEV_TEAM === null) {
-            window.DEV_TEAM = "No Bot";
+        if (window.CURRENT_BOT === null) {
+            window.CURRENT_BOT = "No Bot";
         }
     }
 

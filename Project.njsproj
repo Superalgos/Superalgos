@@ -82,6 +82,9 @@
     <Compile Include="Spaces\TopSpace.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TopSpace\CompanyLogo.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TopSpace\CurrentBot.js">
       <SubType>Code</SubType>
     </Compile>

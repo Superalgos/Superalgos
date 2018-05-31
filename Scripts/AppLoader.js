@@ -21,6 +21,7 @@
 
             /* PlotterPanels */
 
+            "TopSpace/CompanyLogo.js",
             "TopSpace/CurrentStartMode.js",
             "TopSpace/CurrentProcess.js",
             "TopSpace/CurrentBot.js",

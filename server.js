@@ -383,6 +383,13 @@ function onBrowserRequest(request, response) {
             }
             break; 
 
+        case "Images": // This means the Scripts folder.
+            {
+
+                respondWithImage('./Images/' + requestParameters[2], response);
+
+            }
+            break; 
 
         case "TopSpace": // This means the TopSpace folder.
             {
@@ -886,7 +893,7 @@ function respondWithFile(fileName, response) {
                 response.setHeader("Expires", "0"); // Proxies.
                 response.setHeader("Access-Control-Allow-Origin", "*"); // Allows to access data from other domains.
 
-                response.writeHead(200, { 'Content-Type': 'text/html' });
+                //response.writeHead(200, { 'Content-Type': 'text/html' });
                 response.write(htmlResponse);
                 response.end("\n");
                 //console.log("File Sent: " + fileName);
@@ -894,7 +901,6 @@ function respondWithFile(fileName, response) {
             }
             catch (err) {
                 returnEmptyArray();
-                console.log("File Not Found: " + fileName);
                 console.log("[ERROR] server -> respondWithFile -> onFileRead -> File Not Found: " + fileName + " or Error = " + err);
             }
 
@@ -902,6 +908,42 @@ function respondWithFile(fileName, response) {
     }
     catch (err) {
         returnEmptyArray();
+    }
+}
+
+function respondWithImage(fileName, response) {
+
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithImage -> Entering function."); }
+
+    let fs = require('fs');
+    try {
+
+        fs.readFile(fileName, onFileRead);
+
+        function onFileRead(err, file) {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithImage -> onFileRead -> Entering function."); }
+
+            try {
+
+                response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+                response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+                response.setHeader("Expires", "0"); // Proxies.
+                response.setHeader("Access-Control-Allow-Origin", "*"); // Allows to access data from other domains.
+
+                response.writeHead(200, { 'Content-Type': 'image/png' });
+                response.end(file, 'binary');
+
+            }
+            catch (err) {
+
+                console.log("[ERROR] server -> respondWithImage -> onFileRead -> File Not Found: " + fileName + " or Error = " + err);
+            }
+
+        }
+    }
+    catch (err) {
+        console.log("[ERROR] server -> respondWithImage -> err = " + err);
     }
 }
 

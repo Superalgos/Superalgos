@@ -23,6 +23,7 @@ function newTopSpace() {
 
     container.isDraggeable = false;
 
+    let companyLogo;
     let endUser;
     let devTeam;
     let currentBot;
@@ -32,6 +33,9 @@ function newTopSpace() {
     return thisObject;
 
     function initialize() {
+
+        companyLogo = newCompanyLogo();
+        companyLogo.initialize();
 
         endUser = newEndUser();
         endUser.initialize();
@@ -53,6 +57,9 @@ function newTopSpace() {
     function getContainer(point) {
 
         let container;
+
+        container = companyLogo.getContainer(point);
+        if (container !== undefined) { return container; }
 
         container = endUser.getContainer(point);
         if (container !== undefined) { return container; }
@@ -80,6 +87,7 @@ function newTopSpace() {
         thisObject.container.frame.draw(false, false);
 
         drawBackground();
+        companyLogo.draw();
         endUser.draw();
         devTeam.draw();
         currentBot.draw();

@@ -68,7 +68,6 @@
 
             "SplashScreen.js",
             "Canvas.js",
-            "Button.js",
             "TextButton.js",
             "ImageButton.js",
             "EventHandler.js",

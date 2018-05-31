@@ -149,7 +149,6 @@
     <Compile Include="Files\DailyFiles.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Button.js" />
     <Compile Include="Candle.js" />
     <Compile Include="Canvas.js" />
     <Compile Include="ChartGrid.js" />

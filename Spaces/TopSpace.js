@@ -5,6 +5,13 @@ function newTopSpace() {
         container: undefined,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+        companyLogo: undefined,
+        endUser: undefined,
+        devTeam: undefined,
+        currentBot: undefined,
+        currentProcess: undefined,
+        currentStartMode: undefined,
+        playStopButton: undefined,
         initialize: initialize
     };
 
@@ -23,34 +30,30 @@ function newTopSpace() {
 
     container.isDraggeable = false;
 
-    let companyLogo;
-    let endUser;
-    let devTeam;
-    let currentBot;
-    let currentProcess;
-    let currentStartMode;
-
     return thisObject;
 
     function initialize() {
 
-        companyLogo = newCompanyLogo();
-        companyLogo.initialize();
+        thisObject.companyLogo = newCompanyLogo();
+        thisObject.companyLogo.initialize();
 
-        endUser = newEndUser();
-        endUser.initialize();
+        thisObject.endUser = newEndUser();
+        thisObject.endUser.initialize();
 
-        devTeam = newDevTeam();
-        devTeam.initialize();
+        thisObject.devTeam = newDevTeam();
+        thisObject.devTeam.initialize();
 
-        currentBot = newCurrentBot();
-        currentBot.initialize();
+        thisObject.currentBot = newCurrentBot();
+        thisObject.currentBot.initialize();
 
-        currentProcess = newCurrentProcess();
-        currentProcess.initialize();
+        thisObject.currentProcess = newCurrentProcess();
+        thisObject.currentProcess.initialize();
 
-        currentStartMode = newCurrentStartMode();
-        currentStartMode.initialize();
+        thisObject.currentStartMode = newCurrentStartMode();
+        thisObject.currentStartMode.initialize();
+
+        thisObject.playStopButton = newPlayStopButton();
+        thisObject.playStopButton.initialize();
 
     }
 
@@ -58,22 +61,25 @@ function newTopSpace() {
 
         let container;
 
-        container = companyLogo.getContainer(point);
+        container = thisObject.companyLogo.getContainer(point);
         if (container !== undefined) { return container; }
 
-        container = endUser.getContainer(point);
+        container = thisObject.endUser.getContainer(point);
         if (container !== undefined) { return container; }
 
-        container = devTeam.getContainer(point);
+        container = thisObject.devTeam.getContainer(point);
         if (container !== undefined) { return container; }
 
-        container = currentBot.getContainer(point);
+        container = thisObject.currentBot.getContainer(point);
         if (container !== undefined) { return container; }
 
-        container = currentProcess.getContainer(point);
+        container = thisObject.currentProcess.getContainer(point);
         if (container !== undefined) { return container; }
 
-        container = currentStartMode.getContainer(point);
+        container = thisObject.currentStartMode.getContainer(point);
+        if (container !== undefined) { return container; }
+
+        container = thisObject.playStopButton.getContainer(point);
         if (container !== undefined) { return container; }
 
         /* The point does not belong to any inner container, so we return the current container. */
@@ -87,12 +93,13 @@ function newTopSpace() {
         thisObject.container.frame.draw(false, false);
 
         drawBackground();
-        companyLogo.draw();
-        endUser.draw();
-        devTeam.draw();
-        currentBot.draw();
-        currentProcess.draw();
-        currentStartMode.draw();
+        thisObject.companyLogo.draw();
+        thisObject.endUser.draw();
+        thisObject.devTeam.draw();
+        thisObject.currentBot.draw();
+        thisObject.currentProcess.draw();
+        thisObject.currentStartMode.draw();
+        thisObject.playStopButton.draw();
 
     }
 

@@ -36,7 +36,7 @@ function newCompanyLogo() {
             }
 
         logo.src = "Images/aa-logo-dark-8.png";
-        document.body.append(logo);
+
     }
 
     function getContainer(point) {

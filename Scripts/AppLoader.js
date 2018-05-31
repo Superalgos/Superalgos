@@ -21,6 +21,7 @@
 
             /* PlotterPanels */
 
+            "TopSpace/PlayStopButton.js",
             "TopSpace/CompanyLogo.js",
             "TopSpace/CurrentStartMode.js",
             "TopSpace/CurrentProcess.js",

@@ -89,6 +89,9 @@ function newCanvas() {
 
         /* Instantiate all the children of Canvas object */ 
 
+        thisObject.topSpace = newTopSpace();
+        thisObject.topSpace.initialize();
+
         thisObject.panelsSpace = newPanelsSpace();
         thisObject.panelsSpace.initialize();
 
@@ -101,9 +104,6 @@ function newCanvas() {
         function onCharSpaceInitialized(err) {
             viewPort.raiseEvents(); // These events will impacts on objects just initialized.
         }
-
-        thisObject.topSpace = newTopSpace();
-        thisObject.topSpace.initialize();
 
         /* Splash Screen */
 

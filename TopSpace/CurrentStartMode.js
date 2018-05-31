@@ -77,10 +77,10 @@ function newCurrentStartMode() {
         thisObject.container.frame.draw(false, false);
 
         let fontSize = 12;
-        let label = window.CURRENT_START_MODE;
+        let label = window.CURRENT_START_MODE + " Mode";
 
         let point = {
-            x: thisObject.container.frame.width * 1 / 3,
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize / 3,
             y: (thisObject.container.frame.height / 2) + 4
         };
 

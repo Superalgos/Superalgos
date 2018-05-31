@@ -150,6 +150,13 @@
                                 localDate.getUTCMinutes(),
                                 localDate.getUTCSeconds(),
                                 localDate.getUTCMilliseconds()));
+
+                            if (UI_COMMANDS.eventHandler !== undefined) {
+
+                                UI_COMMANDS.eventHandler.raiseEvent('Bot Execution Changed Datetime', bot.processDatetime);
+
+                            }
+
                             break;
                         }
                         case 'Backtest': {
@@ -239,6 +246,12 @@
                                 localDate.getUTCMinutes(),
                                 localDate.getUTCSeconds(),
                                 localDate.getUTCMilliseconds()));
+
+                            if (UI_COMMANDS.eventHandler !== undefined) {
+
+                                UI_COMMANDS.eventHandler.raiseEvent('Bot Execution Changed Datetime', bot.processDatetime);
+
+                            }
 
                             let beginDatetime = new Date(bot.competition.beginDatetime);
 

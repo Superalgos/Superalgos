@@ -19,6 +19,7 @@ function newCurrentStartMode() {
     container.frame.position.y = 0;
 
     container.isDraggeable = false;
+    container.isClickeable = true;
 
     return thisObject;
 
@@ -27,7 +28,28 @@ function newCurrentStartMode() {
         window.CURRENT_START_MODE = window.localStorage.getItem("currentStartMode");
 
         if (window.CURRENT_START_MODE === null) {
-            window.CURRENT_START_MODE = "";
+            window.CURRENT_START_MODE = "Backtest";
+        }
+
+        thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
+    }
+
+    function onClick() {
+
+        switch (window.CURRENT_START_MODE) {
+
+            case "Backtest": {
+                window.CURRENT_START_MODE = "Live";
+                break;
+            }
+            case "Live": {
+                window.CURRENT_START_MODE = "Competition";
+                break;
+            }
+            case "Competition": {
+                window.CURRENT_START_MODE = "Backtest";
+                break;
+            }
         }
     }
 
@@ -35,21 +57,18 @@ function newCurrentStartMode() {
 
         let container;
 
-        for (let i = 0; i < thisObject.panels.length; i++) {
+        /* First we check if this point is inside this object UI. */
 
-            container = thisObject.panels[i].getContainer(point);
+        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
 
-            if (container !== undefined) {
+            return this.container;
 
-                /* We found an inner container which has the point. We return it. */
+        } else {
 
-                return container;
-            }
+            /* This point does not belong to this space. */
+
+            return undefined;
         }
-
-        /* The point does not belong to any inner container, so we return the current container. */
-
-        return thisObject.container;
 
     }
 

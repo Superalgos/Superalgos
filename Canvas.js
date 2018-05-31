@@ -235,7 +235,18 @@ function newCanvas() {
 
         let container;
 
-        /* We check first if the mouse is over a panel/ */
+        /* We check if the mouse is over an element of the Top Space / */
+
+        container = thisObject.topSpace.getContainer(point);
+
+        if (container !== undefined && container.isDraggeable === true) {
+
+            containerBeingDragged = container;
+            containerDragStarted = true;
+            return;
+        }
+
+        /* We check if the mouse is over a panel/ */
 
         container = thisObject.panelsSpace.getContainer(point);
 
@@ -246,7 +257,7 @@ function newCanvas() {
             return;
         }
 
-        /* We check first if the mouse is over a floatingObject/ */
+        /* We check if the mouse is over a floatingObject/ */
 
         floatingObjectBeingDragged = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
 
@@ -280,7 +291,17 @@ function newCanvas() {
 
         let container;
 
-        /* We check first if the mouse is over a panel/ */
+        /* We check if the mouse is over an element of the Top Space / */
+
+        container = thisObject.topSpace.getContainer(point);
+
+        if (container !== undefined && container.isClickeable === true) {
+
+            container.eventHandler.raiseEvent('onMouseClick', event);
+            return;
+        }
+
+        /* We check if the mouse is over a panel/ */
 
         container = thisObject.panelsSpace.getContainer(point);
 
@@ -290,7 +311,7 @@ function newCanvas() {
             return;
         }
 
-        /* We check first if the mouse is over a floatingObject/ */
+        /* We check if the mouse is over a floatingObject/ */
 
         let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
 

@@ -54,17 +54,20 @@ function newTopSpace() {
 
         let container;
 
-        for (let i = 0; i < thisObject.panels.length; i++) {
+        container = endUser.getContainer(point);
+        if (container !== undefined) { return container; }
 
-            container = thisObject.panels[i].getContainer(point);
+        container = devTeam.getContainer(point);
+        if (container !== undefined) { return container; }
 
-            if (container !== undefined) {
+        container = currentBot.getContainer(point);
+        if (container !== undefined) { return container; }
 
-                /* We found an inner container which has the point. We return it. */
+        container = currentProcess.getContainer(point);
+        if (container !== undefined) { return container; }
 
-                return container;
-            }
-        }
+        container = currentStartMode.getContainer(point);
+        if (container !== undefined) { return container; }
 
         /* The point does not belong to any inner container, so we return the current container. */
 

@@ -219,6 +219,7 @@ function newTimeControlPanel() {
                     beginDatetime: thisObject.datetimeDisplay.currentDatetime,
                     endDatetime: undefined,
                     timePeriod: PLAY_STEP,
+                    startMode: window.CURRENT_START_MODE,
                     eventHandler: thisObject.container.eventHandler
                 };
 

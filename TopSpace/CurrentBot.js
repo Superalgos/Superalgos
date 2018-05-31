@@ -35,21 +35,18 @@ function newCurrentBot() {
 
         let container;
 
-        for (let i = 0; i < thisObject.panels.length; i++) {
+        /* First we check if this point is inside this object UI. */
 
-            container = thisObject.panels[i].getContainer(point);
+        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
 
-            if (container !== undefined) {
+            return this.container;
 
-                /* We found an inner container which has the point. We return it. */
+        } else {
 
-                return container;
-            }
+            /* This point does not belong to this space. */
+
+            return undefined;
         }
-
-        /* The point does not belong to any inner container, so we return the current container. */
-
-        return thisObject.container;
 
     }
 

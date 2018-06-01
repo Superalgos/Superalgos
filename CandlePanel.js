@@ -1,7 +1,7 @@
 ﻿
 function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
-    var currentCandlePanel = {
+    var thisObject = {
         onEventRaised: onEventRaised,
         container: undefined,
         draw: draw,
@@ -11,22 +11,22 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
     var container = newContainer();
     container.initialize();
-    currentCandlePanel.container = container;
+    thisObject.container = container;
 
     container.displacement.containerName = "Current Candle Panel";
     container.frame.containerName = "Current Candle Panel";
 
     let currentCandle;
 
-    return currentCandlePanel;
+    return thisObject;
 
     function initialize() {
 
-        currentCandlePanel.container.frame.width = 250;
-        currentCandlePanel.container.frame.height = 300;
+        thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL;
 
-        currentCandlePanel.container.frame.position.x = viewPort.visibleArea.topRight.x - currentCandlePanel.container.frame.width * 2;
-        currentCandlePanel.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - currentCandlePanel.container.frame.height;
+        thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 2;
+        thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height;
 
     }
 
@@ -71,10 +71,10 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         if (currentCandle === undefined) { return; }
         if (currentCandle.innerCandle === undefined) { return; }
 
-        const frameBodyHeight = currentCandlePanel.container.frame.getBodyHeight();
-        const frameTitleHeight = currentCandlePanel.container.frame.height - frameBodyHeight;
+        const frameBodyHeight = thisObject.container.frame.getBodyHeight();
+        const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight;
 
-        const X_AXIS = currentCandlePanel.container.frame.width / 2;
+        const X_AXIS = thisObject.container.frame.width / 2;
         const Y_AXIS = frameTitleHeight + frameBodyHeight / 2;
  
         var candlePoint1 = {
@@ -181,15 +181,15 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         }
 
 
-        candlePoint1 = currentCandlePanel.container.frame.frameThisPoint(candlePoint1);
-        candlePoint2 = currentCandlePanel.container.frame.frameThisPoint(candlePoint2);
-        candlePoint3 = currentCandlePanel.container.frame.frameThisPoint(candlePoint3);
-        candlePoint4 = currentCandlePanel.container.frame.frameThisPoint(candlePoint4);
+        candlePoint1 = thisObject.container.frame.frameThisPoint(candlePoint1);
+        candlePoint2 = thisObject.container.frame.frameThisPoint(candlePoint2);
+        candlePoint3 = thisObject.container.frame.frameThisPoint(candlePoint3);
+        candlePoint4 = thisObject.container.frame.frameThisPoint(candlePoint4);
 
-        stickPoint1 = currentCandlePanel.container.frame.frameThisPoint(stickPoint1);
-        stickPoint2 = currentCandlePanel.container.frame.frameThisPoint(stickPoint2);
-        stickPoint3 = currentCandlePanel.container.frame.frameThisPoint(stickPoint3);
-        stickPoint4 = currentCandlePanel.container.frame.frameThisPoint(stickPoint4);
+        stickPoint1 = thisObject.container.frame.frameThisPoint(stickPoint1);
+        stickPoint2 = thisObject.container.frame.frameThisPoint(stickPoint2);
+        stickPoint3 = thisObject.container.frame.frameThisPoint(stickPoint3);
+        stickPoint4 = thisObject.container.frame.frameThisPoint(stickPoint4);
 
 
 
@@ -282,7 +282,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
                 y: y
             };
 
-            labelPoint = currentCandlePanel.container.frame.frameThisPoint(labelPoint);
+            labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
             browserCanvasContext.fillStyle = 'rgba(60, 60, 60, ' + opacity + ')';
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);

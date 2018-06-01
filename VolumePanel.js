@@ -1,7 +1,7 @@
 ﻿
 function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
-    var currentVolumePanel = {
+    var thisObject = {
         onEventRaised: onEventRaised,
         container: undefined,
         draw: draw,
@@ -11,22 +11,22 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
     var container = newContainer();
     container.initialize();
-    currentVolumePanel.container = container;
+    thisObject.container = container;
 
     container.displacement.containerName = "Current Volume Panel";
     container.frame.containerName = "Current Volume Panel";
 
     let currentVolume;
 
-    return currentVolumePanel;
+    return thisObject;
 
     function initialize() {
 
-        currentVolumePanel.container.frame.width = 250;
-        currentVolumePanel.container.frame.height = 300;
+        thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL;
 
-        currentVolumePanel.container.frame.position.x = viewPort.visibleArea.topRight.x - currentVolumePanel.container.frame.width;
-        currentVolumePanel.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - currentVolumePanel.container.frame.height;
+        thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width;
+        thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height;
 
     }
 
@@ -71,10 +71,10 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
         if (currentVolume === undefined) { return; }
         if (currentVolume.innerVolumeBar === undefined) { return; }
 
-        const frameBodyHeight = currentVolumePanel.container.frame.getBodyHeight();
-        const frameTitleHeight = currentVolumePanel.container.frame.height - frameBodyHeight;
+        const frameBodyHeight = thisObject.container.frame.getBodyHeight();
+        const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight;
 
-        const X_AXIS = currentVolumePanel.container.frame.width / 2;
+        const X_AXIS = thisObject.container.frame.width / 2;
         const Y_AXIS_BUY = frameTitleHeight + frameBodyHeight * 0.85;
         const Y_AXIS_SELL = frameTitleHeight + frameBodyHeight * 0.15;
 
@@ -98,15 +98,15 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
             y: Y_AXIS_BUY
         };
 
-        buyVolumePoint1 = currentVolumePanel.container.frame.fitIntoFrame(buyVolumePoint1);
-        buyVolumePoint2 = currentVolumePanel.container.frame.fitIntoFrame(buyVolumePoint2);
-        buyVolumePoint3 = currentVolumePanel.container.frame.fitIntoFrame(buyVolumePoint3);
-        buyVolumePoint4 = currentVolumePanel.container.frame.fitIntoFrame(buyVolumePoint4);
+        buyVolumePoint1 = thisObject.container.frame.fitIntoFrame(buyVolumePoint1);
+        buyVolumePoint2 = thisObject.container.frame.fitIntoFrame(buyVolumePoint2);
+        buyVolumePoint3 = thisObject.container.frame.fitIntoFrame(buyVolumePoint3);
+        buyVolumePoint4 = thisObject.container.frame.fitIntoFrame(buyVolumePoint4);
 
-        buyVolumePoint1 = currentVolumePanel.container.frame.frameThisPoint(buyVolumePoint1);
-        buyVolumePoint2 = currentVolumePanel.container.frame.frameThisPoint(buyVolumePoint2);
-        buyVolumePoint3 = currentVolumePanel.container.frame.frameThisPoint(buyVolumePoint3);
-        buyVolumePoint4 = currentVolumePanel.container.frame.frameThisPoint(buyVolumePoint4);
+        buyVolumePoint1 = thisObject.container.frame.frameThisPoint(buyVolumePoint1);
+        buyVolumePoint2 = thisObject.container.frame.frameThisPoint(buyVolumePoint2);
+        buyVolumePoint3 = thisObject.container.frame.frameThisPoint(buyVolumePoint3);
+        buyVolumePoint4 = thisObject.container.frame.frameThisPoint(buyVolumePoint4);
 
         var sellVolumePoint1 = {
             x: X_AXIS - currentVolume.buyInfo.baseWidth / 2,
@@ -128,15 +128,15 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
             y: Y_AXIS_SELL
         };
 
-        sellVolumePoint1 = currentVolumePanel.container.frame.fitIntoFrame(sellVolumePoint1);
-        sellVolumePoint2 = currentVolumePanel.container.frame.fitIntoFrame(sellVolumePoint2);
-        sellVolumePoint3 = currentVolumePanel.container.frame.fitIntoFrame(sellVolumePoint3);
-        sellVolumePoint4 = currentVolumePanel.container.frame.fitIntoFrame(sellVolumePoint4);
+        sellVolumePoint1 = thisObject.container.frame.fitIntoFrame(sellVolumePoint1);
+        sellVolumePoint2 = thisObject.container.frame.fitIntoFrame(sellVolumePoint2);
+        sellVolumePoint3 = thisObject.container.frame.fitIntoFrame(sellVolumePoint3);
+        sellVolumePoint4 = thisObject.container.frame.fitIntoFrame(sellVolumePoint4);
 
-        sellVolumePoint1 = currentVolumePanel.container.frame.frameThisPoint(sellVolumePoint1);
-        sellVolumePoint2 = currentVolumePanel.container.frame.frameThisPoint(sellVolumePoint2);
-        sellVolumePoint3 = currentVolumePanel.container.frame.frameThisPoint(sellVolumePoint3);
-        sellVolumePoint4 = currentVolumePanel.container.frame.frameThisPoint(sellVolumePoint4);
+        sellVolumePoint1 = thisObject.container.frame.frameThisPoint(sellVolumePoint1);
+        sellVolumePoint2 = thisObject.container.frame.frameThisPoint(sellVolumePoint2);
+        sellVolumePoint3 = thisObject.container.frame.frameThisPoint(sellVolumePoint3);
+        sellVolumePoint4 = thisObject.container.frame.frameThisPoint(sellVolumePoint4);
 
         const OPACITY = '0.40';
 
@@ -203,7 +203,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
                 y: y
             };
 
-            labelPoint = currentVolumePanel.container.frame.frameThisPoint(labelPoint);
+            labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
             browserCanvasContext.fillStyle = 'rgba(60, 60, 60, ' + opacity + ')';
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);

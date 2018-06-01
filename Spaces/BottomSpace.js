@@ -5,7 +5,6 @@ function newBottomSpace() {
         container: undefined,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-        breakpointsBar: undefined,
         initialize: initialize
     };
 
@@ -25,8 +24,7 @@ function newBottomSpace() {
 
     function initialize() {
 
-        thisObject.breakpointsBar = newBreakpointsBar();
-        thisObject.breakpointsBar.initialize();
+
 
     }
 
@@ -34,8 +32,7 @@ function newBottomSpace() {
 
         let container;
 
-        container = thisObject.breakpointsBar.getContainer(point);
-        if (container !== undefined) { return container; }
+
 
         /* The point does not belong to any inner container, so we return the current container. */
 
@@ -48,7 +45,7 @@ function newBottomSpace() {
         thisObject.container.frame.draw(false, false);
 
         drawBackground();
-        thisObject.breakpointsBar.draw();
+
     }
 
     function drawBackground() {

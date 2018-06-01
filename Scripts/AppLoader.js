@@ -21,7 +21,7 @@
 
             /* PlotterPanels */
 
-            "BottomSpace/BreakpointsBar.js",
+            
 
             "TopSpace/PlayStopButton.js",
             "TopSpace/CompanyLogo.js",
@@ -60,6 +60,7 @@
             "CloudVM/WebFS.js",
             "CloudVM/CloudVM.js",
 
+            "BreakpointsBar.js",
             "WebDebugLog.js",
             "Plotter.js",
             "PlotterPanel.js",

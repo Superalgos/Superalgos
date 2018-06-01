@@ -1,12 +1,10 @@
 ﻿function newChartGrid() {
 
-
-
-    var chartGrid = {
+    let thisObject = {
         draw: draw
     };
 
-    return chartGrid;
+    return thisObject;
 
     function draw(container, timeLineCoordinateSystem) {
 

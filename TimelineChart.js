@@ -36,6 +36,7 @@
     let level;
 
     let chartGrid;
+    let breakpointsBar;
 
     let initializationReady = false;
 
@@ -63,6 +64,8 @@
             exchangeId = exchange;
 
             chartGrid = newChartGrid();
+            breakpointsBar = newBreakpointsBar();
+            breakpointsBar.initialize(container, timeLineCoordinateSystem);
 
             recalculateScale();
             
@@ -748,6 +751,8 @@
                 competitionPlotter.plotter.setDatetime(datetime);
 
             }
+
+            breakpointsBar.setDatetime(pDatetime);
         }
     }
 
@@ -808,6 +813,8 @@
 
         }
 
+        breakpointsBar.setDatetime(datetime);
+
         thisObject.container.eventHandler.raiseEvent("Datetime Changed", datetime);
   
     }
@@ -818,18 +825,9 @@
 
         let container;
 
-        /* First we check if this point is inside this space. */
+        container = breakpointsBar.getContainer(point);
 
-        if (this.container.frame.isThisPointHere(point) === true) {
-
-            // return this.container;    Currently there is a BUG in which if this is enabled the datetime of the control panel is not recalculated.
-
-        } else {
-
-            /* This point does not belong to this space. */
-
-            return undefined;
-        }
+        return container;
 
     }
 
@@ -911,6 +909,8 @@
                 let competitionPlotter = competitionPlotters[i];
                 competitionPlotter.plotter.draw();
             }
+
+            breakpointsBar.draw();
         }
     }
 

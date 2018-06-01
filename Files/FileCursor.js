@@ -2,7 +2,7 @@
 function newFileCursor() {
 
     const MODULE_NAME = "File Cursor";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const ERROR_LOG = true;
     const logger = newWebDebugLog();
     logger.fileName = MODULE_NAME;

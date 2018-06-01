@@ -316,7 +316,7 @@ function newCanvas() {
 
         if (container !== undefined && container.isClickeable === true) {
 
-            container.eventHandler.raiseEvent('onMouseClick', event);
+            container.eventHandler.raiseEvent('onMouseClick', point);
             return;
         }
 
@@ -326,7 +326,7 @@ function newCanvas() {
 
         if (container !== undefined && container.isClickeable === true) {
 
-            container.eventHandler.raiseEvent('onMouseClick', event);
+            container.eventHandler.raiseEvent('onMouseClick', point);
             return;
         }
 
@@ -336,7 +336,7 @@ function newCanvas() {
 
         if (container !== undefined && container.isClickeable === true) {
 
-            container.eventHandler.raiseEvent('onMouseClick', event);
+            container.eventHandler.raiseEvent('onMouseClick', point);
             return;
         }
 
@@ -357,7 +357,7 @@ function newCanvas() {
 
         if (container !== undefined && container.isClickeable === true) {
 
-            container.eventHandler.raiseEvent('onMouseClick', event);
+            container.eventHandler.raiseEvent('onMouseClick', point);
             return;
         } 
     }

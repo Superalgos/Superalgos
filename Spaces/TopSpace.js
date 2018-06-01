@@ -107,7 +107,7 @@ function newTopSpace() {
         browserCanvasContext.beginPath();
 
         browserCanvasContext.rect(0, 0, thisObject.container.frame.width, thisObject.container.frame.height);
-        browserCanvasContext.fillStyle = 'rgba(0, 0, 0, ' + opacity + ')';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
 
         browserCanvasContext.closePath();
 

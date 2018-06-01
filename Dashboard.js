@@ -1,5 +1,13 @@
 ﻿
 
+
+/* User Interface Colors */
+
+UI_COLOR = {
+    DARK: "48, 48, 54",
+    LIGHT: "234, 226, 222"
+};
+
 /* Callbacks default responses. */
 
 let GLOBAL = {};

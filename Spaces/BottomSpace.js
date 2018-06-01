@@ -67,7 +67,7 @@ function newBottomSpace() {
         browserCanvasContext.beginPath();
 
         browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, zeroPoint.x + thisObject.container.frame.width, zeroPoint.y + thisObject.container.frame.height - breakpointsHeight);
-        browserCanvasContext.fillStyle = 'rgba(0, 0, 0, ' + opacity + ')';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK +  ', ' + opacity + ')';
 
         browserCanvasContext.closePath();
 

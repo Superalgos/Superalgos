@@ -399,6 +399,14 @@ function onBrowserRequest(request, response) {
             }
             break; 
 
+        case "BottomSpace": // This means the BottomSpace folder.
+            {
+
+                respondWithFile('./BottomSpace/' + requestParameters[2], response);
+
+            }
+            break; 
+
         case "TopSpace": // This means the TopSpace folder.
             {
 

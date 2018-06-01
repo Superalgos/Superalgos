@@ -1,36 +1,4 @@
 ﻿
-/*
-
-The canvas object represents a layer on top of the browser canvas object.
-
-Graphically, thiscanvas object has 4 spaces:
-
-1) The "Top Space": It is where Team and User information is displayed.
-
-2) The "Chart Space": It is where the charts are plotted.
-
-3) The "Floating Space": It is where floating elements live. There is a physics engine for this layer that allows these elements to flow.  
-
-4) The "Panels Space": It is where panels live. --> This space has yet to be develop, currently pannels are somehow at the Chart Space.  
-
-All these spaces are child objects of the Canvas object.
-
-Canvas
-  |
-  |
-  ---> topSpace
-  |
-  |
-  ---> chartSpace
-  |
-  |
-  ---> flaotingSpace
-  |
-  |
-  ---> panelsSpace
-
-*/
-
 let browserCanvas;                 // This is the canvas object of the browser.
 let browserCanvasContext;          // The context of the canvas object.
 
@@ -39,6 +7,41 @@ let marketInitializationCounter = 0;        // This counter the initialization o
 let splashScreenNeeded = true;
 
 function newCanvas() {
+
+    /*
+    The canvas object represents a layer on top of the browser canvas object.
+
+    Graphically, thiscanvas object has 4 spaces:
+
+    1) The "Top Space": It is where Team and User information is displayed.
+
+    2) The "Chart Space": It is where the charts are plotted.
+
+    3) The "Floating Space": It is where floating elements live. There is a physics engine for this layer that allows these elements to flow.  
+
+    4) The "Panels Space": It is where panels live. --> This space has yet to be develop, currently pannels are somehow at the Chart Space.
+
+    5) The "Bottom Space": Includes the breakpoint bar and a toolbar.
+
+    All these spaces are child objects of the Canvas object.
+
+    Canvas
+      |
+      |
+      ---> topSpace
+      |
+      |
+      ---> chartSpace
+      |
+      |
+      ---> flaotingSpace
+      |
+      |
+      ---> panelsSpace
+      |
+      |
+      ---> bottomSpace
+*/
 
     const MODULE_NAME = "Canvas";
     const INFO_LOG = false;
@@ -69,6 +72,7 @@ function newCanvas() {
         chartSpace: undefined,
         floatingSpace: undefined,
         panelsSpace: undefined,
+        bottomSpace: undefined,
         animation: undefined,
         initialize: initialize
     };
@@ -87,7 +91,7 @@ function newCanvas() {
 
         addCanvasEvents();
 
-        /* Instantiate all the children of Canvas object */ 
+        /* Instantiate all the children spaces of Canvas object */ 
 
         thisObject.topSpace = newTopSpace();
         thisObject.topSpace.initialize();
@@ -100,6 +104,9 @@ function newCanvas() {
 
         thisObject.chartSpace = newChartSpace();
         thisObject.chartSpace.initialize(onCharSpaceInitialized);
+
+        thisObject.bottomSpace = newBottomSpace();
+        thisObject.bottomSpace.initialize();
 
         function onCharSpaceInitialized(err) {
             viewPort.raiseEvents(); // These events will impacts on objects just initialized.
@@ -125,6 +132,7 @@ function newCanvas() {
             animation.addCallBackFunction("Splash Screen", splashScreen.draw, onFunctionAdded);
             animation.addCallBackFunction("ViewPort Animate", viewPort.animate, onFunctionAdded);
             animation.addCallBackFunction("ViewPort Draw", viewPort.draw, onFunctionAdded);
+            animation.addCallBackFunction("Bottom Space", thisObject.bottomSpace.draw, onFunctionAdded);
             animation.addCallBackFunction("Top Space", thisObject.topSpace.draw, onFunctionAdded);
             animation.start(onStart);
 
@@ -246,6 +254,17 @@ function newCanvas() {
             return;
         }
 
+        /* We check if the mouse is over an element of the Bottom Space / */
+
+        container = thisObject.bottomSpace.getContainer(point);
+
+        if (container !== undefined && container.isDraggeable === true) {
+
+            containerBeingDragged = container;
+            containerDragStarted = true;
+            return;
+        }
+
         /* We check if the mouse is over a panel/ */
 
         container = thisObject.panelsSpace.getContainer(point);
@@ -294,6 +313,16 @@ function newCanvas() {
         /* We check if the mouse is over an element of the Top Space / */
 
         container = thisObject.topSpace.getContainer(point);
+
+        if (container !== undefined && container.isClickeable === true) {
+
+            container.eventHandler.raiseEvent('onMouseClick', event);
+            return;
+        }
+
+        /* We check if the mouse is over an element of the Bottom Space / */
+
+        container = thisObject.bottomSpace.getContainer(point);
 
         if (container !== undefined && container.isClickeable === true) {
 
@@ -461,28 +490,18 @@ function newCanvas() {
 
                 let upCopyNoTranf;
                 upCopyNoTranf = viewPort.unzoomThisPoint(upCopy);
-                //upCopyNoTranf = containerBeingDragged.zoom.unzoomThisPoint(upCopyNoTranf);
-
-                /*
-                let displaceVector = {
-                    x: upCopyNoTranf.x - downCopyNoTransf.x,
-                    y: upCopyNoTranf.y - downCopyNoTransf.y
-                };
-                */
 
                 let displaceVector = {
                     x: dragVector.upX - dragVector.downX,
                     y: dragVector.upY - dragVector.downY
                 };
 
-
                 if (viewPortBeingDragged) {
 
                     viewPort.displace(displaceVector);
 
                 }
-
-
+                
                 if (containerBeingDragged !== undefined) {
 
                     containerBeingDragged.frame.position.x = containerBeingDragged.frame.position.x + displaceVector.x;
@@ -497,9 +516,5 @@ function newCanvas() {
             dragVector.downY = dragVector.upY;
 
         }
-
     }
-
 }
-
-

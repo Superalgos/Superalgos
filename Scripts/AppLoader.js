@@ -21,6 +21,8 @@
 
             /* PlotterPanels */
 
+            "BottomSpace/BreakpointsBar.js",
+
             "TopSpace/PlayStopButton.js",
             "TopSpace/CompanyLogo.js",
             "TopSpace/CurrentStartMode.js",
@@ -32,6 +34,7 @@
             "Panels/TimeControlPanel.js",
             "Panels/ProductsPanel.js",
 
+            "Spaces/BottomSpace.js",
             "Spaces/TopSpace.js",
             "Spaces/PanelsSpace.js",
             "Spaces/ChartSpace.js",

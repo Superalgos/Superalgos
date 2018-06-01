@@ -34,6 +34,9 @@
     </Compile>
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
+    <Compile Include="BottomSpace\BreakpointsBar.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CloudVM\CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>
@@ -77,6 +80,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ImageButton.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Spaces\BottomSpace.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Spaces\TopSpace.js">
@@ -193,6 +199,7 @@
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
     <Folder Include="AABrowserAPI\" />
+    <Folder Include="BottomSpace\" />
     <Folder Include="TopSpace\" />
     <Folder Include="Scripts\" />
     <Folder Include="Server\" />

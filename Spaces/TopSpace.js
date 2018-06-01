@@ -22,9 +22,6 @@ function newTopSpace() {
     thisObject.container.frame.width = browserCanvas.width;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.displacement.containerName = "Top Space";
-    container.frame.containerName = "Top Space";
-
     container.frame.position.x = 0;
     container.frame.position.y = 0;
 

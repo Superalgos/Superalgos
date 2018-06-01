@@ -271,10 +271,12 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
             let labelPoint;
             let fontSize = 10;
 
-            browserCanvasContext.font = fontSize + 'px Courier New';
+            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
 
             let label = '' + labelToPrint;
-
+            if (isNaN(label) === false) {
+                label = Number(label).toLocaleString();
+            }
             let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
 
             labelPoint = {

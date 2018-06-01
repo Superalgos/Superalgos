@@ -287,7 +287,13 @@
                     }
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> bot.processDatetime = " + bot.processDatetime); }
-                  
+
+                    if (AT_BREAKPOINT === true) {
+
+                        if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Plot Breakpoint Hit."); }
+
+                    }
+
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
                     let context;

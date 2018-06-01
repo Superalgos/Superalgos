@@ -354,7 +354,7 @@
         if (thisObject.bot.profilePicture !== undefined) {
 
             let botImagePoint = {
-                x: thisObject.container.frame.width - 10 - botImageSize,
+                x: thisObject.container.frame.width - botImageSize / 2 - 40,
                 y: thisObject.container.frame.height / 2 - botImageSize / 2
             };
 
@@ -462,7 +462,7 @@
         label = thisObject.bot.displayName;
 
         labelPoint = {
-            x: thisObject.container.frame.width - 10 - botImageSize - 5 + botImageSize / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            x: thisObject.container.frame.width - 40 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
             y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
         };
 

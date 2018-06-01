@@ -72,7 +72,7 @@ function newSplashScreen() {
         let fontSize = 50;
 
         let labelPoint = {
-            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO  -30,
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
             y: thisObject.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 200
         };
 
@@ -85,7 +85,7 @@ function newSplashScreen() {
 
         browserCanvasContext.fill();
 
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
         browserCanvasContext.fillStyle = 'rgba(200, 200, 200,  ' + opacity + ')';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 

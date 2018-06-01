@@ -511,7 +511,7 @@
 
                             if (labelPoint.y > viewPort.visibleArea.topLeft.y + fontSize && labelPoint.y < viewPort.visibleArea.bottomRight.y - fontSize) {
 
-                                browserCanvasContext.font = fontSize + 'px Courier New';
+                                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
                                 browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
                                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
@@ -548,7 +548,7 @@
 
                             if (labelPoint.y > viewPort.visibleArea.topLeft.y + fontSize && labelPoint.y < viewPort.visibleArea.bottomRight.y - fontSize) {
 
-                                browserCanvasContext.font = fontSize + 'px Courier New';
+                                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
                                 browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
                                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
@@ -657,17 +657,17 @@
                 browserCanvasContext.beginPath();
 
                 browserCanvasContext.rect(labelPoint.x, labelPoint.y - fontSize, xOffset * 2, fontSize );
-                browserCanvasContext.fillStyle = 'rgba(255, 255, 255, 1)';
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)';
                 browserCanvasContext.fill();
 
                 browserCanvasContext.closePath();
 
-                browserCanvasContext.font = fontSize + 'px Courier New';
+                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
                 browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
             }
 
-            browserCanvasContext.fillStyle = 'rgba(255, 255, 255, 1)';
+            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)';
             browserCanvasContext.beginPath();
             browserCanvasContext.rect(0, TOP_SPACE_HEIGHT, viewPort.visibleArea.topLeft.x, viewPort.visibleArea.topLeft.y - TOP_SPACE_HEIGHT);
             browserCanvasContext.rect(viewPort.visibleArea.topRight.x, TOP_SPACE_HEIGHT, 500, viewPort.visibleArea.topLeft.y - TOP_SPACE_HEIGHT);

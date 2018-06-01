@@ -365,7 +365,7 @@ function newFrame() {
 
         /* We paint the panel background first */
 
-        browserCanvasContext.fillStyle = 'rgba(255, 255, 255, 0.75)';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.75)';
         browserCanvasContext.beginPath();
 
         browserCanvasContext.arc(borderPoint1.x, borderPoint1.y, PANEL_CORNERS_RADIOUS, 1.0 * Math.PI, 1.5 * Math.PI);
@@ -411,7 +411,7 @@ function newFrame() {
         let labelPoint;
         let fontSize = 10;
 
-        browserCanvasContext.font = fontSize + 'px Courier New';
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
 
         let label = frame.containerName;
 

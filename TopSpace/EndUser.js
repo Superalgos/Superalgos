@@ -64,8 +64,8 @@ function newEndUser() {
 
         point = thisObject.container.frame.frameThisPoint(point);
 
-        browserCanvasContext.font = fontSize + 'px Courier New';
-        browserCanvasContext.fillStyle = 'rgba(255, 255, 255, 1)';
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)';
         browserCanvasContext.fillText(label, point.x, point.y);
     }
 }

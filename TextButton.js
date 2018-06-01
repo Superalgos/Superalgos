@@ -115,7 +115,7 @@
         let labelPoint;
         let fontSize = 10;
 
-        browserCanvasContext.font = fontSize + 'px Courier New';
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
 
         let label = textButton.type;
 

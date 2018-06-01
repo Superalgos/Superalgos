@@ -117,7 +117,7 @@ function newProfileBall() {
             let labelPoint;
             let fontSize = 10;
 
-            browserCanvasContext.font = fontSize + 'px Courier New';
+            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
 
             let label;
 
@@ -130,7 +130,7 @@ function newProfileBall() {
                     y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * 0.60 - 5
                 };
 
-                browserCanvasContext.font = fontSize + 'px Courier New';
+                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
                 browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle;
                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
@@ -145,7 +145,7 @@ function newProfileBall() {
                     y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * 0.60 + 10
                 };
 
-                browserCanvasContext.font = fontSize + 'px Courier New';
+                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
                 browserCanvasContext.fillStyle = pFloatingObject.labelStrokeStyle;
                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 

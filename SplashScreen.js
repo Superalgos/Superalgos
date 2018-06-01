@@ -79,13 +79,13 @@ function newSplashScreen() {
         browserCanvasContext.beginPath();
 
         browserCanvasContext.rect(0, 0, thisObject.container.frame.width, thisObject.container.frame.height);
-        browserCanvasContext.fillStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')';
 
         browserCanvasContext.closePath();
 
         browserCanvasContext.fill();
 
-        browserCanvasContext.font = fontSize + 'px Courier New';
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
         browserCanvasContext.fillStyle = 'rgba(200, 200, 200,  ' + opacity + ')';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 

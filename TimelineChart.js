@@ -983,7 +983,7 @@
 
         }
 
-        browserCanvasContext.font = currentFontSize + 'px Courier New';
+        browserCanvasContext.font = currentFontSize + 'px ' + UI_FONT.PRIMARY;
         browserCanvasContext.fillStyle = 'rgba(75, 86, 235, 0.07)';
         browserCanvasContext.fillText(label, point.x, point.y);
 

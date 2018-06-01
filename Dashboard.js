@@ -5,7 +5,15 @@
 
 UI_COLOR = {
     DARK: "48, 48, 54",
-    LIGHT: "234, 226, 222"
+    LIGHT: "234, 226, 222",
+    WHITE: "255, 255, 255"
+};
+
+/* User Interface Fonts */
+
+UI_FONT = {
+    PRIMARY: "Saira",
+    SECONDARY: "Courier New"
 };
 
 /* Callbacks default responses. */

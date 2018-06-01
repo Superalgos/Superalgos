@@ -214,7 +214,7 @@ function newNote() {
 
                     if (SIZE_PERCENTAGE > 0.9) {
 
-                        browserCanvasContext.font = fontSize + 'px Courier New';
+                        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
 
                         let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
                         let yOffset = (TITLE_BAR_HEIGHT - fontSize) / 2 + 2;
@@ -303,7 +303,7 @@ function newNote() {
                                 y: startingPosition.y + (i + 1) * (fontSize * 0.60 + 10)
                             };
 
-                            browserCanvasContext.font = fontSize + 'px Courier New';
+                            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
                             browserCanvasContext.fillStyle = 'rgba(60, 60, 60, ' + ALPHA + ')'
                             browserCanvasContext.fillText(labelRow, labelPoint.x, labelPoint.y);
 

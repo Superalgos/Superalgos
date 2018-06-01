@@ -438,7 +438,7 @@
         let labelPoint;
         let fontSize = 10;
 
-        browserCanvasContext.font = fontSize + 'px Courier New';
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
 
         let label;
 
@@ -453,7 +453,7 @@
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
-        browserCanvasContext.font = fontSize + 'px Courier New';
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
@@ -468,7 +468,7 @@
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
-        browserCanvasContext.font = fontSize + 'px Courier New';
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
@@ -490,7 +490,7 @@
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
-        browserCanvasContext.font = fontSize + 'px Courier New bold';
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
         browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 

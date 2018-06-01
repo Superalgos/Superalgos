@@ -283,7 +283,7 @@ function newNoteSets() {
                                 floatingObject.initializeRadius(radius);
                                 floatingObject.initializeImageSize(15);
 
-                                floatingObject.fillStyle = 'rgba(255, 255, 255, 0.5)';
+                                floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.5)';
                                 floatingObject.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)';
 
                                 floatingLayer.addFloatingObject(floatingObject);

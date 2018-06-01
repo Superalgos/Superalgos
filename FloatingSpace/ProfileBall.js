@@ -126,8 +126,8 @@ function newProfileBall() {
             if (label !== undefined) {
 
                 labelPoint = {
-                    x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * 0.60,
-                    y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * 0.60 - 5
+                    x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+                    y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 5
                 };
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
@@ -141,8 +141,8 @@ function newProfileBall() {
             if (label !== undefined) {
 
                 labelPoint = {
-                    x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * 0.60,
-                    y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * 0.60 + 10
+                    x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+                    y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 10
                 };
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;

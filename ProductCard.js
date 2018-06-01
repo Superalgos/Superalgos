@@ -447,8 +447,8 @@
         label = thisObject.devTeam.displayName;
 
         labelPoint = {
-            x: 10 + devTeamImageSize / 2 - label.length / 2 * fontSize * 0.60,
-            y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * 0.60 + 5
+            x: 10 + devTeamImageSize / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
@@ -462,8 +462,8 @@
         label = thisObject.bot.displayName;
 
         labelPoint = {
-            x: thisObject.container.frame.width - 10 - botImageSize - 5 + botImageSize / 2 - label.length / 2 * fontSize * 0.60,
-            y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * 0.60 + 5
+            x: thisObject.container.frame.width - 10 - botImageSize - 5 + botImageSize / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
@@ -484,8 +484,8 @@
         };
 
         labelPoint = {
-            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * 0.60,
-            y: thisObject.container.frame.height / 2 - devTeamImageSize / 2 - fontSize * 0.60 - 5
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: thisObject.container.frame.height / 2 - devTeamImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 5
         };
 
         labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);

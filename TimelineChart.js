@@ -968,8 +968,8 @@
             point = transformThisPoint(point, thisObject.container);
 
             point = {
-                x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * 0.60,
-                y: point.y + currentFontSize * 0.60 / 2
+                x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * FONT_ASPECT_RATIO,
+                y: point.y + currentFontSize * FONT_ASPECT_RATIO / 2
             };
 
         } else {
@@ -977,8 +977,8 @@
             targetLabelFontSize = 150;
 
             point = {
-                x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * 0.60,
-                y: (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 2 + currentFontSize * 0.60 / 2
+                x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * FONT_ASPECT_RATIO,
+                y: (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 2 + currentFontSize * FONT_ASPECT_RATIO / 2
             };
 
         }

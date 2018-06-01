@@ -501,9 +501,10 @@
                         let fontSize = 10;
 
                         let label = ' ' + Math.round(j * 1000000) / 1000000;
+                        label = Number(label).toLocaleString();
 
                         let labelPoint = {
-                            x: viewPort.visibleArea.bottomRight.x + 1,
+                            x: viewPort.visibleArea.bottomRight.x + 5,
                             y: point1.y + fontSize / 2 * FONT_ASPECT_RATIO
                         };
 
@@ -540,7 +541,7 @@
                         let label = ' ' + pad(labelValue, 3) + '%';
 
                         let labelPoint = {
-                            x: -2,
+                            x: 0,
                             y: point1.y + fontSize / 2 * FONT_ASPECT_RATIO
                         };
 

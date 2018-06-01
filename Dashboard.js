@@ -13,8 +13,10 @@ UI_COLOR = {
 
 UI_FONT = {
     PRIMARY: "Saira",
-    SECONDARY: "Courier New"
+    SECONDARY: "Source Code Pro"
 };
+
+FONT_ASPECT_RATIO = 0.50;
 
 /* User Interface Panels */
 
@@ -157,7 +159,7 @@ const _2_MINUTES_IN_MILISECONDS = 2 * 60 * 1000;
 const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 
 const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
-const FONT_ASPECT_RATIO = 0.60;
+
 const CHART_ASPECT_RATIO = 1 / 10;
 
 let INITIAL_ZOOM_LEVEL = -26;       // This is the zoom level at the view port in which the APP starts.

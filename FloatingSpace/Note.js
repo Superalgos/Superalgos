@@ -295,12 +295,12 @@ function newNote() {
 
                             let startingPosition = {
                                 x: pFloatingObject.currentPosition.x,
-                                y: pFloatingObject.currentPosition.y - labelRows.length / 2 * (fontSize * 0.60 + 10)
+                                y: pFloatingObject.currentPosition.y - labelRows.length / 2 * (fontSize * FONT_ASPECT_RATIO + 10)
                             };
 
                             labelPoint = {
-                                x: startingPosition.x - labelRow.length / 2 * fontSize * 0.60,
-                                y: startingPosition.y + (i + 1) * (fontSize * 0.60 + 10)
+                                x: startingPosition.x - labelRow.length / 2 * fontSize * FONT_ASPECT_RATIO,
+                                y: startingPosition.y + (i + 1) * (fontSize * FONT_ASPECT_RATIO + 10)
                             };
 
                             browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;

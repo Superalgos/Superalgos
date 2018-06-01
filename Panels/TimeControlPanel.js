@@ -23,8 +23,8 @@ function newTimeControlPanel() {
 
     function initialize() {
 
-        thisObject.container.frame.width = 200;
-        thisObject.container.frame.height = 65;
+        thisObject.container.frame.width = UI_PANEL.WIDTH.SMALL;
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.SMALL;
 
         let position = {
             x: (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 - thisObject.container.frame.width / 2,

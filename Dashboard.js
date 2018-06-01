@@ -16,6 +16,21 @@ UI_FONT = {
     SECONDARY: "Courier New"
 };
 
+/* User Interface Panels */
+
+UI_PANEL = {
+    WIDTH: {
+        SMALL: 200,
+        NORMAL: 250,
+        LARGE: 350
+    },
+    HEIGHT: {
+        SMALL: 65,
+        NORMAL: 300,
+        LARGE: 450
+    }
+};
+
 /* Callbacks default responses. */
 
 let GLOBAL = {};

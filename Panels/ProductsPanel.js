@@ -31,12 +31,12 @@
 
     function initialize() {
 
-        thisObject.container.frame.width = 350;
-        thisObject.container.frame.height = viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y;
+        thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE;
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE;
 
         var position = {
             x: viewPort.visibleArea.topLeft.x,
-            y: viewPort.visibleArea.topLeft.y
+            y: viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
         };
 
         thisObject.container.frame.position = position;

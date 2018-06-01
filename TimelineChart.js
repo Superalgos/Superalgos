@@ -918,9 +918,9 @@
 
         if (INTENSIVE_LOG === true) { logger.write("[INFO] drawBackground -> Entering function."); }
 
-        let targetLabelFontSize = 150;
-        let fontSizeIncrement = 12.5;
-        let currentFontSize = 150;
+        let targetLabelFontSize = 120;
+        let fontSizeIncrement = 12;
+        let currentFontSize = 120;
 
         let market = markets.get(marketId);
         let label = market.assetA + " " + market.assetB;
@@ -958,7 +958,7 @@
 
         if (topPoint.y > viewPort.visibleArea.topLeft.y || bottomPoint.y < viewPort.visibleArea.bottomRight.y) {
 
-            targetLabelFontSize = 150 / 2;
+            targetLabelFontSize = 120 / 2;
 
             point = {
                 x: 0,
@@ -974,7 +974,7 @@
 
         } else {
 
-            targetLabelFontSize = 150;
+            targetLabelFontSize = 120;
 
             point = {
                 x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * FONT_ASPECT_RATIO,

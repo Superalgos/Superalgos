@@ -19,16 +19,32 @@ function newBreakpointsBar() {
     container.frame.position.y = 0;
 
     container.isDraggeable = false;
+    container.isClickeable = true;
 
     let logo;
     let canDrawLogo = false;
+
+    let datetime;
+    let timePeriod;
 
     return thisObject;
 
     function initialize() {
 
+        viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
+        timePeriod = INITIAL_TIME_PERIOD;
 
+    }
 
+    function onZoomChanged(event) {
+
+        timePeriod = recalculatePeriod(event.newLevel);
+
+    }
+
+    function setDatetime(pDatetime) {
+
+        datetime = new Date(pDatetime);
     }
 
     function getContainer(point) {

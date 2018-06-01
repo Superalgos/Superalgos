@@ -8,7 +8,6 @@
 
     return chartGrid;
 
-
     function draw(container, timeLineCoordinateSystem) {
 
         let periods = [];

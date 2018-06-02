@@ -132,10 +132,10 @@ function newSplashScreen() {
 
         fontSize = 50;
 
-        title = "Algobots Competitions"
+        title = "Algobots Competitions Platform"
 
         titlePoint = {
-            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 0,
+            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 50,
             y: thisObject.container.frame.height / 2 - fontSize * 2 + 150
         };
 

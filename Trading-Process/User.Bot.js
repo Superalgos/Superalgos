@@ -56,7 +56,7 @@
 
             */
 
-            if (AT_BREAKPOINT === true) {
+            if (global.AT_BREAKPOINT === true) {
 
                 if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Plot Breakpoint Hit."); }
 

@@ -4,6 +4,7 @@ global.CURRENT_EXECUTION_AT = "Cloud";
 global.SHALL_BOT_STOP = false;
 global.USER_LOGGED_IN = "ciencias";
 global.DEV_TEAM = "AAMasters";
+global.AT_BREAKPOINT = false; // This is used only when running at the browser. 
 
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);

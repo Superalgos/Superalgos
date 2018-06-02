@@ -49,12 +49,28 @@
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    /* We needed the cloudStorage initialized for both requesting the bot source code and, later requesting the AACloud condig at ShallWeStop function. */
+                    /* We needed the cloudStorage initialized for both requesting the bot source code and, later requesting the AACloud config at the ShallWeStop function. */
+
+                    let filePath; 
+
+                    switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
+                        case "Cloud": {
+                            filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
+                            break;
+                        }
+                        case "Browser": {
+                            filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
+                            break;
+                        }
+                        default: {
+                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
+                        }
+                    }
 
                     const CLOUD_REQUIRE = require(ROOT_DIR + 'CloudRequire');
                     let cloudRequire = CLOUD_REQUIRE.newCloudRequire(bot, DEBUG_MODULE);
 
-                    cloudRequire.downloadBot(cloudStorage, pProcessConfig, onBotDownloaded);
+                    cloudRequire.downloadBot(cloudStorage, filePath, onBotDownloaded);
 
                     function onBotDownloaded(err, pMODULE) {
 
@@ -68,7 +84,21 @@
 
                         USER_BOT_MODULE = pMODULE;
 
-                        cloudRequire.downloadCommons(cloudStorage, onCommonsDownloaded);
+                        switch (global.CURRENT_EXECUTION_AT) { 
+                            case "Cloud": {
+                                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo; 
+                                break;
+                            }
+                            case "Browser": {
+                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + bot.repo; 
+                                break;
+                            }
+                            default: {
+                                console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
+                            }
+                        }
+
+                        cloudRequire.downloadCommons(cloudStorage, filePath, onCommonsDownloaded);
 
                         function onCommonsDownloaded(err, pMODULE) {
 
@@ -288,7 +318,7 @@
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> bot.processDatetime = " + bot.processDatetime); }
 
-                    if (AT_BREAKPOINT === true) {
+                    if (global.AT_BREAKPOINT === true) {
 
                         if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Plot Breakpoint Hit."); }
 

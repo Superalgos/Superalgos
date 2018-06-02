@@ -256,10 +256,17 @@ exports.newRoot = function newRoot() {
                             switch (global.CURRENT_EXECUTION_AT) {
                                 case "Cloud": {
                                     filePath = global.DEV_TEAM + "/" + "bots" + "/" + listItem.repo; // DevTeams bots only are run at the cloud.
+
+                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> Getting Bot Config from the devTeams's Bot. ");
+                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> filePath =  " + filePath);
                                     break;
                                 }
                                 case "Browser": {
                                     filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + listItem.repo;  // DevTeam Members bots only are run at the browser.
+
+                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> Getting Bot Config from the endUser's Bot. ");
+                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> global.USER_LOGGED_IN = " + global.USER_LOGGED_IN);
+                                    console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> filePath =  " + filePath);
                                     break;
                                 }
                                 default: {

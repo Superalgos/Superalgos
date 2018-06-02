@@ -19,31 +19,15 @@
 
     return thisObject;
 
-    function downloadBot(pCloudStorage, pProcessConfig, callBackFunction) {
+    function downloadBot(pCloudStorage, pFilePath, callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] downloadBot -> Entering function."); }
 
-            let filePath;
-
-            switch (global.CURRENT_EXECUTION_AT) {
-                case "Cloud": {
-                    filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
-                    break;
-                }
-                case "Browser": {
-                    filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
-                    break;
-                }
-                default: {
-                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
-                }
-            }
-
             let fileName = "User.Bot.js";
 
-            pCloudStorage.getTextFile(filePath, fileName, onFileReceived);
+            pCloudStorage.getTextFile(pFilePath, fileName, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -74,31 +58,15 @@
         }
     }
 
-    function downloadCommons(pCloudStorage, callBackFunction) {
+    function downloadCommons(pCloudStorage, pFilePath, callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write("[INFO] downloadCommons -> Entering function."); }
 
-            let filePath;
-
-            switch (global.CURRENT_EXECUTION_AT) {
-                case "Cloud": {
-                    filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo; // DevTeams bots only are run at the cloud.
-                    break;
-                }
-                case "Browser": {
-                    filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + bot.repo; // DevTeam Members bots only are run at the browser.
-                    break;
-                }
-                default: {
-                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
-                }
-            }
-
             let fileName = "Commons.js";
 
-            pCloudStorage.getTextFile(filePath, fileName, onFileReceived);
+            pCloudStorage.getTextFile(pFilePath, fileName, onFileReceived);
 
             function onFileReceived(err, text) {
 

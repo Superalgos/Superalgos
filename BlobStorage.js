@@ -135,7 +135,8 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                         || err.code === 'ESOCKETTIMEDOUT'
                         || err.code === 'ETIMEDOUT'
                         || err.code === 'ECONNREFUSED'
-                        || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)) {
+                        || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
+                        || err.code === 'OperationTimedOut') {
 
                         setTimeout(secondTry, 1000);
                         return;
@@ -214,7 +215,8 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                         || err.code === 'ESOCKETTIMEDOUT'
                         || err.code === 'ETIMEDOUT'
                         || err.code === 'ECONNREFUSED'
-                        || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)) {
+                        || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
+                        || err.code === 'OperationTimedOut') {
 
                         setTimeout(secondTry, 1000);
                         return;

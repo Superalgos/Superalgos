@@ -19,13 +19,13 @@
 
     return thisObject;
 
-    function downloadBot(pCloudStorage, pProcessConfig, callBackFunction) {
+    function downloadBot(pCloudStorage, pFilePath, callBackFunction) {
 
         try {
 
             if (INFO_LOG === true) { logger.write("[INFO] downloadBot -> Entering function."); }
 
-            let filePath = "Bots" + "/" + bot.devTeam + "/" + bot.repo + "/" + pProcessConfig.name + "/" + "User.Bot.js";
+            let filePath = "Bots" + "/" + pFilePath + "/" + "User.Bot.js";
 
             downloadModule(filePath, onDownloaded)
 
@@ -42,13 +42,13 @@
         }
     }
 
-    function downloadCommons(pCloudStorage, callBackFunction) {
+    function downloadCommons(pCloudStorage, pFilePath, callBackFunction) {
 
         try {
 
             if (INFO_LOG === true) { logger.write("[INFO] downloadCommons -> Entering function."); }
 
-            let filePath = "Bots" + "/" +  bot.devTeam + "/" + bot.repo + "/" + "Commons.js";
+            let filePath = "Bots" + "/" + pFilePath + "/" + "Commons.js";
 
             downloadModule(filePath, onDownloaded)
 

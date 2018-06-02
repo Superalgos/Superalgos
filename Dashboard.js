@@ -123,7 +123,7 @@ function convertTimePeriodToName(pTimePeriod) {
 }
 
 let cloudVM = newCloudVM();
-let AT_BREAKPOINT = false;
+window.AT_BREAKPOINT = false;
 
 const DEBUG_START_UP_DELAY = 0 //3000; // This is a waiting time in case there is a need to debug the very first steps of initialization, to be able to hit F12 on time.
 const INITIAL_DEFAULT_MARKET = 2;       // This is the market that will be shown when loading the site for the first time.

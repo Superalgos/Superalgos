@@ -82,7 +82,13 @@ function newCloudVM() {
                         console.log("Bot code changes detected.");
 
                         let path = "AABrowserAPI" + "/"
-                            + "saveBotCode"
+                            + "saveBotCode" + "/"
+                            + window.DEV_TEAM + "/"
+                            + "members" + "/"
+                            + window.USER_LOGGED_IN + "/"
+                            + window.CURRENT_BOT + "/"
+                            + window.CURRENT_PROCESS + "/"
+                            + "User.Bot.js"
                             ;
 
                         callServer(currentBotCode, path, onServerResponse);

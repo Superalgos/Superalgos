@@ -35,6 +35,7 @@ global.CUSTOM_FAIL_RESPONSE = {
 let storageData = new Map;
 
 let HTMLCloudScripts;           // This are the html script tags needed to download the cloud web scripts.
+let botScripts;                 // This module is the one which grabs user bots scrips from the storage, and browserifys them.
 
 let ecosystem;
 let ecosystemObject;
@@ -95,19 +96,15 @@ function initialize() {
                     function onInitialized() {
 
                         const BOT_SCRIPTS = require('./Server/BotsScripts');
-                        let botScripts = BOT_SCRIPTS.newBotScripts();
+                        botScripts = BOT_SCRIPTS.newBotScripts();
 
-                        botScripts.initialize(ecosystem, ecosystemObject, serverConfig, storageData, onInitialized);
+                        botScripts.initialize(serverConfig, onInitialized);
 
                         function onInitialized() {
 
-                            botScripts.loadBotScripts(onScriptsLoaded);
+                            HTMLCloudScripts = pHTMLCloudScripts;
+                            startHtttpServer();
 
-                            function onScriptsLoaded(){
-
-                                HTMLCloudScripts = pHTMLCloudScripts;
-                                startHtttpServer();
-                            }
                         }
                     }
                 }
@@ -429,7 +426,18 @@ function onBrowserRequest(request, response) {
                     switch (requestParameters[2]) {
 
                         case "saveBotCode": {
-                            api.saveBotCode(pData, onResponse);
+
+                            let devTeam = requestParameters[3];
+                            let source = requestParameters[4] + "/" +  requestParameters[5];
+                            let repo = requestParameters[6];
+                            let path;
+
+                            if (requestParameters[8] !== undefined) {
+                                path = requestParameters[7] + "/" + requestParameters[8];
+                            } else {
+                                path = requestParameters[7];
+                            }
+                            api.saveBotCode(devTeam, source, repo, path, pData, onResponse);
                             break;
                         }
 
@@ -643,33 +651,53 @@ function onBrowserRequest(request, response) {
 
         case "Bots": // This means the cloud folder.
             {
+                switch (requestParameters[3]) {
 
-                let map = storageData;
+                    case 'bots': {
 
-                let key;
+                        let devTeam = requestParameters[2];
+                        let source = requestParameters[3];
+                        let repo = requestParameters[4];
+                        let path;
 
-                if (requestParameters[5] !== undefined) {
+                        if (requestParameters[6] !== undefined) {
+                            path = requestParameters[5] + "/" + requestParameters[6];
+                        } else {
+                            path = requestParameters[5];
+                        }
 
-                    key = requestParameters[2] + "." + requestParameters[3] + "." + requestParameters[4] + "/" + requestParameters[5];
+                        botScripts.getScript(devTeam, source, repo, path, onScriptReady) 
 
-                } else {
+                        break;
+                    }
 
-                    key = requestParameters[2] + "." + requestParameters[3] + "." + requestParameters[4];
+                    case 'members': {
 
+                        let devTeam = requestParameters[2];
+                        let source = requestParameters[3] + "/" + requestParameters[4];
+                        let repo = requestParameters[5];
+                        let path;
+
+                        if (requestParameters[7] !== undefined) {
+                            path = requestParameters[6] + "/" + requestParameters[7];
+                        } else {
+                            path = requestParameters[6];
+                        }
+
+                        botScripts.getScript(devTeam, source, repo, path, onScriptReady)
+
+                        break;
+                    }
+
+                    default : {
+                        if (CONSOLE_LOG === true) { console.log("[ERROR] server -> onBrowserRequest -> Bots -> Invalid Request. "); }
+                    }
                 }
 
-                let script = map.get(key);
+                function onScriptReady(pScript) {
 
-                if (script !== undefined && script !== null) {
+                    respondWithContent(pScript, response);
 
-                    respondWithContent(script, response);
-
-                } else {
-
-                    if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> Script Not Found."); }
-                    if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> key = " + key); }
-
-                    respondWithContent("", response);
                 }
             }
             break; 

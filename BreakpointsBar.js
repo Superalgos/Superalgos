@@ -148,7 +148,7 @@ function newBreakpointsBar() {
         beginMiliseconds = normalizeX(beginMiliseconds);
         endMiliseconds = normalizeX(endMiliseconds);
 
-        AT_BREAKPOINT = false;
+        window.AT_BREAKPOINT = false;
 
         for (let miliSeconds = beginMiliseconds; miliSeconds < endMiliseconds; miliSeconds = miliSeconds + timePeriod) {
 
@@ -202,7 +202,7 @@ function newBreakpointsBar() {
                 } else {
                     browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
 
-                    AT_BREAKPOINT = true; // We are hitting a breakpoint!
+                    window.AT_BREAKPOINT = true; // We are hitting a breakpoint!
                 }
 
                 browserCanvasContext.arc(point.x, point.y, radius, 0, Math.PI * 2, true);

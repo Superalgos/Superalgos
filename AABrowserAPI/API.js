@@ -15,9 +15,9 @@
 
     }
 
-    function saveBotCode(pSourceCode, callBackFunction) {
+    function saveBotCode(pDevTeam, pSource, pRepo, pPath, pSourceCode, callBackFunction) {
 
-        writeData("AAMasters", "AAMariam-Trading-Bot", "Trading-Process/User.Bot.js", pSourceCode, onDataWritten);
+        writeData(pDevTeam + "/" + pSource, pRepo, pPath, pSourceCode, onDataWritten);
 
         function onDataWritten(err) {
 

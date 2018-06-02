@@ -7,10 +7,6 @@ When running at the clode on NodeJS some things work diffently that at the brows
 
 */
 
-
-
-
-
 function webRequire(pModulePath) {
 
     switch (pModulePath) {
@@ -166,6 +162,3 @@ function callServer(pContentToSend, pPath, callBackFunction) {
 
     }
 }
-
-
-

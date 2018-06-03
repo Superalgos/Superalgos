@@ -1,7 +1,7 @@
 ﻿
 exports.newBlobStorage = function newBlobStorage(BOT) {
 
-    let FULL_LOG = false;
+    let FULL_LOG = true;
     let LOG_FILE_CONTENT = false;
 
     let bot = BOT;
@@ -136,8 +136,9 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                         || err.code === 'ETIMEDOUT'
                         || err.code === 'ECONNREFUSED'
                         || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
-                        || err.code === 'OperationTimedOut') {
-
+                        || err.code === 'OperationTimedOut'
+                        || err.code === 'EADDRINUSE') {
+                        
                         setTimeout(secondTry, 1000);
                         return;
 
@@ -209,6 +210,10 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                 if (err) {
 
+                    logger.write("[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
+                    logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
+                    logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
+
                     if (err.code === 'ServerBusy'
                         || err.code === 'ECONNRESET'
                         || err.code === 'ENOTFOUND'
@@ -216,7 +221,8 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                         || err.code === 'ETIMEDOUT'
                         || err.code === 'ECONNREFUSED'
                         || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
-                        || err.code === 'OperationTimedOut') {
+                        || err.code === 'OperationTimedOut'
+                        || err.code === 'EADDRINUSE') {
 
                         setTimeout(secondTry, 1000);
                         return;

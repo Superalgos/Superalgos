@@ -619,7 +619,7 @@
             }
 
             browserCanvasContext.closePath();
-            browserCanvasContext.strokeStyle = 'rgba(0, 37, 224, 0.' + Math.trunc(lineWidth + 1) + ')';
+            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.' + Math.trunc(lineWidth + 1) + ')';
 
             browserCanvasContext.lineWidth = lineWidth;
 

@@ -918,9 +918,10 @@
 
         if (INTENSIVE_LOG === true) { logger.write("[INFO] drawBackground -> Entering function."); }
 
-        let targetLabelFontSize = 120;
+        let fontMaxSize = 80;
+        let targetLabelFontSize = fontMaxSize;
         let fontSizeIncrement = 12;
-        let currentFontSize = 120;
+        let currentFontSize = fontMaxSize;
 
         let market = markets.get(marketId);
         let label = market.assetA + " " + market.assetB;
@@ -958,7 +959,7 @@
 
         if (topPoint.y > viewPort.visibleArea.topLeft.y || bottomPoint.y < viewPort.visibleArea.bottomRight.y) {
 
-            targetLabelFontSize = 120 / 2;
+            targetLabelFontSize = fontMaxSize / 2;
 
             point = {
                 x: 0,
@@ -969,22 +970,22 @@
 
             point = {
                 x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * FONT_ASPECT_RATIO,
-                y: point.y + currentFontSize * FONT_ASPECT_RATIO / 2
+                y: point.y + currentFontSize / 2
             };
 
         } else {
 
-            targetLabelFontSize = 120;
+            targetLabelFontSize = fontMaxSize;
 
             point = {
                 x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * FONT_ASPECT_RATIO,
-                y: (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 2 + currentFontSize * FONT_ASPECT_RATIO / 2
+                y: (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 2 + currentFontSize / 2
             };
 
         }
 
-        browserCanvasContext.font = currentFontSize + 'px ' + UI_FONT.PRIMARY;
-        browserCanvasContext.fillStyle = 'rgba(75, 86, 235, 0.07)';
+        browserCanvasContext.font = currentFontSize + 'px ' + UI_FONT.SECONDARY;
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.07)';
         browserCanvasContext.fillText(label, point.x, point.y);
 
     }

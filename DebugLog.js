@@ -176,6 +176,8 @@
 
     function write(Message) {
 
+        if (thisObject.bot === undefined) { return;}
+
         console.log("AACloud" + spacePad(thisObject.fileName, 50) + " : " + Message);
 
         if (thisObject.bot === undefined) { return;}

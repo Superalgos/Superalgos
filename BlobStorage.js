@@ -7,7 +7,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
     let bot = BOT;
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Blob Storage";
+    const MODULE_NAME = "BlobStorage";
 
     let storage = require('azure-storage');
 
@@ -116,57 +116,78 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
             function onFileCreated(err, result, response) {
 
-                if (FULL_LOG === true) {
-                    logger.write("[INFO] createTextFile -> onFileCreated -> Response from Azure received.");
-                    logger.write("[INFO] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
-                    logger.write("[INFO] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
-                    logger.write("[INFO] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
-                }
+                try {
 
-                if (err) {
+                    if (FULL_LOG === true) {
+                        logger.write("[INFO] createTextFile -> onFileCreated -> Response from Azure received.");
+                        logger.write("[INFO] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
+                        logger.write("[INFO] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
+                        logger.write("[INFO] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
+                    }
 
-                    logger.write("[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
-                    logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
-                    logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
+                    if (err) {
 
-                    if (err.code === 'ServerBusy'
-                        || err.code === 'ECONNRESET'
-                        || err.code === 'ENOTFOUND'
-                        || err.code === 'ESOCKETTIMEDOUT'
-                        || err.code === 'ETIMEDOUT'
-                        || err.code === 'ECONNREFUSED'
-                        || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
-                        || err.code === 'OperationTimedOut'
-                        || err.code === 'EADDRINUSE') {
-                        
-                        setTimeout(secondTry, 1000);
-                        return;
+                        logger.write("[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
+                        logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
+                        logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
 
-                        function secondTry() {
+                        if (err.code === 'ServerBusy'
+                            || err.code === 'ECONNRESET'
+                            || err.code === 'ENOTFOUND'
+                            || err.code === 'ESOCKETTIMEDOUT'
+                            || err.code === 'ETIMEDOUT'
+                            || err.code === 'ECONNREFUSED'
+                            || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
+                            || err.code === 'OperationTimedOut'
+                            || err.code === 'EADDRINUSE') {
 
-                            logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
+                            setTimeout(secondTry, 1000);
+                            return;
 
-                            writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
+                            function secondTry() {
 
-                            function onSecondTry(err, result, response) {
+                                try {
 
-                                if (err) {
-                                    logger.write("[ERROR] createTextFile -> onFileCreated -> secondTry -> File not created. Giving Up.");
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                } else {
-                                    logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> File succesfully created on second try.");
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
+
+                                    writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
+
+                                    function onSecondTry(err, result, response) {
+
+                                        try {
+
+                                            if (err) {
+                                                logger.write("[ERROR] createTextFile -> onFileCreated -> secondTry -> File not created. Giving Up.");
+                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            } else {
+                                                logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> File succesfully created on second try.");
+                                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                            }
+                                        }
+                                        catch (err) {
+                                            logger.write("[ERROR] 'createTextFile' -> onFileCreated -> secondTry -> onSecondTry -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write("[ERROR] 'createTextFile' -> onFileCreated -> secondTry -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
+
+                        logger.write("[ERROR] createTextFile -> onFileCreated -> Dont know what to do here. Cancelling operation. ");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                    } else {
+                        if (FULL_LOG === true) { logger.write("[INFO] createTextFile -> onFileCreated -> File Created."); }
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
                     }
-
-                    logger.write("[ERROR] createTextFile -> onFileCreated -> Dont know what to do here. Cancelling operation. ");
+                }
+                catch (err) {
+                    logger.write("[ERROR] 'createTextFile' -> onFileCreated -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-
-                } else {
-                    if (FULL_LOG === true) { logger.write("[INFO] createTextFile -> onFileCreated -> File Created."); }
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }
             }
         }
@@ -198,98 +219,119 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
             function onFileReceived(err, text, response) {
 
-                if (FULL_LOG === true) {
-                    logger.write("[INFO] getTextFile -> onFileReceived -> Response from Azure received.");
-                    logger.write("[INFO] getTextFile -> onFileReceived -> err = " + JSON.stringify(err));
-                    logger.write("[INFO] getTextFile -> onFileReceived -> response = " + JSON.stringify(response));
-                }
+                try {
 
-                if (LOG_FILE_CONTENT === true) {
-                    logger.write("[INFO] getTextFile -> onFileReceived -> text = " + text);
-                }
+                    if (FULL_LOG === true) {
+                        logger.write("[INFO] getTextFile -> onFileReceived -> Response from Azure received.");
+                        logger.write("[INFO] getTextFile -> onFileReceived -> err = " + JSON.stringify(err));
+                        logger.write("[INFO] getTextFile -> onFileReceived -> response = " + JSON.stringify(response));
+                    }
 
-                if (err) {
+                    if (LOG_FILE_CONTENT === true) {
+                        logger.write("[INFO] getTextFile -> onFileReceived -> text = " + text);
+                    }
 
-                    logger.write("[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
-                    logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
-                    logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
+                    if (err) {
 
-                    if (err.code === 'ServerBusy'
-                        || err.code === 'ECONNRESET'
-                        || err.code === 'ENOTFOUND'
-                        || err.code === 'ESOCKETTIMEDOUT'
-                        || err.code === 'ETIMEDOUT'
-                        || err.code === 'ECONNREFUSED'
-                        || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
-                        || err.code === 'OperationTimedOut'
-                        || err.code === 'EADDRINUSE') {
+                        logger.write("[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
+                        logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
+                        logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
 
-                        setTimeout(secondTry, 1000);
-                        return;
+                        if (err.code === 'ServerBusy'
+                            || err.code === 'ECONNRESET'
+                            || err.code === 'ENOTFOUND'
+                            || err.code === 'ESOCKETTIMEDOUT'
+                            || err.code === 'ETIMEDOUT'
+                            || err.code === 'ECONNREFUSED'
+                            || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
+                            || err.code === 'OperationTimedOut'
+                            || err.code === 'EADDRINUSE') {
 
-                        function secondTry() {
+                            setTimeout(secondTry, 1000);
+                            return;
 
-                            logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
+                            function secondTry() {
 
-                            readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onSecondTry);
+                                try {
 
-                            function onSecondTry(err, text, response) {
+                                    logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
 
-                                if (err) {
-                                    logger.write("[ERROR] getTextFile -> onFileReceived -> secondTry -> File not retrieved. Giving Up.");
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                } else {
-                                    logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> File succesfully retrieved on second try.");
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE, text);
+                                    readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onSecondTry);
+
+                                    function onSecondTry(err, text, response) {
+
+                                        try {
+
+                                            if (err) {
+                                                logger.write("[ERROR] getTextFile -> onFileReceived -> secondTry -> File not retrieved. Giving Up.");
+                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            } else {
+                                                logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> File succesfully retrieved on second try.");
+                                                callBackFunction(global.DEFAULT_OK_RESPONSE, text);
+                                            }
+                                        }
+                                        catch (err) {
+                                            logger.write("[ERROR] 'getTextFile' -> onFileReceived -> secondTry -> onSecondTry -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write("[ERROR] 'getTextFile' -> onFileReceived -> secondTry -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
+
+                        if (err.code === "BlobNotFound") {
+
+                            /* This is how Azure tell us the file does not exist. */
+
+                            let customErr = {
+                                result: global.CUSTOM_FAIL_RESPONSE.result,
+                                message: "File does not exist."
+                            };
+
+                            logger.write("[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
+                            logger.write("[WARN] getTextFile -> containerName = " + containerName);
+                            logger.write("[WARN] getTextFile -> pFolderPath = " + pFolderPath);
+                            logger.write("[WARN] getTextFile -> pFileName = " + pFileName);
+
+                            callBackFunction(customErr);
+                            return;
+
+                        }
+
+                        if (err.code === "ParentNotFound") {
+
+                            /* This is how Azure tell us the folder where the file was supposed to be does not exist. We map this to our own response. */
+
+                            let customErr = {
+                                result: global.CUSTOM_FAIL_RESPONSE.result,
+                                message: "Folder does not exist."
+                            };
+
+                            logger.write("[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
+                            logger.write("[WARN] getTextFile -> containerName = " + containerName);
+                            logger.write("[WARN] getTextFile -> pFolderPath = " + pFolderPath);
+                            logger.write("[WARN] getTextFile -> pFileName = " + pFileName);
+
+                            callBackFunction(customErr);
+                            return;
+
+                        }
+
+                        logger.write("[ERROR] getTextFile -> onFileReceived -> Dont know what to do here. Cancelling operation. ");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                    } else {
+                        if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> onFileReceived -> File retrieved."); }
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, text);
                     }
-
-                    if (err.code === "BlobNotFound") {
-
-                        /* This is how Azure tell us the file does not exist. */
-
-                        let customErr = {
-                            result: global.CUSTOM_FAIL_RESPONSE.result,
-                            message: "File does not exist."
-                        };
-
-                        logger.write("[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
-                        logger.write("[WARN] getTextFile -> containerName = " + containerName);
-                        logger.write("[WARN] getTextFile -> pFolderPath = " + pFolderPath);
-                        logger.write("[WARN] getTextFile -> pFileName = " + pFileName);
-
-                        callBackFunction(customErr);
-                        return;
-
-                    }
-
-                    if (err.code === "ParentNotFound") {
-
-                        /* This is how Azure tell us the folder where the file was supposed to be does not exist. We map this to our own response. */
-
-                        let customErr = {
-                            result: global.CUSTOM_FAIL_RESPONSE.result,
-                            message: "Folder does not exist."
-                        };
-
-                        logger.write("[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
-                        logger.write("[WARN] getTextFile -> containerName = " + containerName);
-                        logger.write("[WARN] getTextFile -> pFolderPath = " + pFolderPath);
-                        logger.write("[WARN] getTextFile -> pFileName = " + pFileName);
-
-                        callBackFunction(customErr);
-                        return;
-
-                    }
-
-                    logger.write("[ERROR] getTextFile -> onFileReceived -> Dont know what to do here. Cancelling operation. ");
+                }
+                catch (err) {
+                    logger.write("[ERROR] 'getTextFile' -> onFileReceived -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-
-                } else {
-                    if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> onFileReceived -> File retrieved."); }
-                    callBackFunction(global.DEFAULT_OK_RESPONSE, text);
                 }
             }
         }

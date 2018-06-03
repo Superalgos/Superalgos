@@ -3,7 +3,7 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
-    const MODULE_NAME = "Status Dependencies";
+    const MODULE_NAME = "StatusDependencies";
 
     let thisObject = {
         statusReports: new Map(),              

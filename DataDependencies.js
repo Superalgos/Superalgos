@@ -3,7 +3,7 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
-    const MODULE_NAME = "Data Dependencies";
+    const MODULE_NAME = "DataDependencies";
 
     let bot = BOT;
     let ownerBot;                       // This is the bot owner of the Data Set. 

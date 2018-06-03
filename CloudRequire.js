@@ -3,7 +3,7 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
-    const MODULE_NAME = "Cloud Require";
+    const MODULE_NAME = "CloudRequire";
 
     let bot = BOT;
 

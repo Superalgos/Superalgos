@@ -3,7 +3,7 @@
     let bot = BOT;
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Indicator Bot Process Main Loop";
+    const MODULE_NAME = "IndicatorBotProcessMainLoop";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;

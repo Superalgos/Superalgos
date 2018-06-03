@@ -13,7 +13,9 @@
     bot.eventHandler = EVENT_HANDLER_MODULE.newEventHandler();
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
-    const logger = DEBUG_MODULE.newDebugLog();
+    let logger;
+
+    logger = DEBUG_MODULE.newDebugLog();
     logger.fileName = MODULE_NAME;
     logger.bot = bot;
     logger.forceLoopSplit = true;
@@ -77,7 +79,7 @@
 
                             logger.write("[ERROR] initialize -> onInizialized -> onBotDownloaded -> err.message = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            bot.eventHandler.raiseEvent("Loop Finished");
+                            bot.eventHandler.raiseEvent("Close Log File");
                             return;
                         }
 
@@ -105,7 +107,7 @@
 
                                 logger.write("[ERROR] initialize -> onInizialized -> onBotDownloaded -> onCommonsDownloaded -> err.message = " + err.message);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                bot.eventHandler.raiseEvent("Loop Finished");
+                                bot.eventHandler.raiseEvent("Close Log File");
                                 return;
                             }
 
@@ -118,12 +120,12 @@
                 } else {
                     logger.write("[ERROR] Root -> start -> getBotConfig -> onInizialized ->  err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    bot.eventHandler.raiseEvent("Loop Finished");
+                    bot.eventHandler.raiseEvent("Close Log File");
                 }
             }
         } catch (err) {
             logger.write("[ERROR] initialize -> err = " + err.message);
-            bot.eventHandler.raiseEvent("Loop Finished");
+            bot.eventHandler.raiseEvent("Close Log File");
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -132,6 +134,8 @@
 
         try {
             if (FULL_LOG === true) { logger.write("[INFO] run -> Entering function."); }
+
+            bot.eventHandler.raiseEvent("Close Log File");
 
             let intervalHandle;
 
@@ -148,6 +152,15 @@
             function loop() {
 
                 try {
+
+                    /* For each loop we want to create a new log file. */
+
+                    logger = DEBUG_MODULE.newDebugLog();
+                    logger.fileName = MODULE_NAME;
+                    logger.bot = bot;
+                    logger.forceLoopSplit = true;
+                    logger.initialize();
+
                     bot.loopCounter++;
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Entering function."); }
@@ -156,7 +169,6 @@
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
                     const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
-                    const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
                     const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'PoloniexAPIClient');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
@@ -204,7 +216,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
-                                            bot.eventHandler.raiseEvent("Loop Finished");
+                                            bot.eventHandler.raiseEvent("Close Log File");
                                             clearInterval(intervalHandle);
                                             callBackFunction(err);
                                             return;
@@ -213,7 +225,7 @@
                                             logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
-                                            bot.eventHandler.raiseEvent("Loop Finished");
+                                            bot.eventHandler.raiseEvent("Close Log File");
                                             clearInterval(intervalHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
@@ -222,7 +234,7 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.message);
-                                    bot.eventHandler.raiseEvent("Loop Finished");
+                                    bot.eventHandler.raiseEvent("Close Log File");
                                     clearInterval(intervalHandle);
                                     callBackFunction(err);
                                 }
@@ -230,7 +242,7 @@
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.message);
-                            bot.eventHandler.raiseEvent("Loop Finished");
+                            bot.eventHandler.raiseEvent("Close Log File");
                             clearInterval(intervalHandle);
                             callBackFunction(err);
                         }
@@ -266,7 +278,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Operation Failed. Aborting the process.");
-                                            bot.eventHandler.raiseEvent("Loop Finished");
+                                            bot.eventHandler.raiseEvent("Close Log File");
                                             clearInterval(intervalHandle);
                                             callBackFunction(err);
                                             return;
@@ -275,7 +287,7 @@
                                             logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
 
-                                            bot.eventHandler.raiseEvent("Loop Finished");
+                                            bot.eventHandler.raiseEvent("Close Log File");
                                             clearInterval(intervalHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
@@ -284,7 +296,7 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized -> err = " + err.message);
-                                    bot.eventHandler.raiseEvent("Loop Finished");
+                                    bot.eventHandler.raiseEvent("Close Log File");
                                     clearInterval(intervalHandle);
                                     callBackFunction(err);
                                 }
@@ -292,7 +304,7 @@
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> initializeUserBot -> err = " + err.message);
-                            bot.eventHandler.raiseEvent("Loop Finished");
+                            bot.eventHandler.raiseEvent("Close Log File");
                             clearInterval(intervalHandle);
                             callBackFunction(err);
                         }
@@ -327,7 +339,7 @@
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Operation Failed. Aborting the process.");
-                                            bot.eventHandler.raiseEvent("Loop Finished");
+                                            bot.eventHandler.raiseEvent("Close Log File");
                                             clearInterval(intervalHandle);
                                             callBackFunction(err);
                                             return;
@@ -349,21 +361,21 @@
                                                 }
                                                 case "Month before it is needed.": {
                                                     logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Month before it is needed. This Loop will be terminated.");
-                                                    bot.eventHandler.raiseEvent("Loop Finished");
+                                                    bot.eventHandler.raiseEvent("Close Log File");
                                                     clearInterval(intervalHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 case "Month fully processed.": {
                                                     logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Month fully processed. This Loop will be terminated.");
-                                                    bot.eventHandler.raiseEvent("Loop Finished");
+                                                    bot.eventHandler.raiseEvent("Close Log File");
                                                     clearInterval(intervalHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 case "End of the month reached.": {
                                                     logger.write("[WARN] run -> loop -> startUserBot -> onFinished > End of the month reached. This Loop will be terminated.");
-                                                    bot.eventHandler.raiseEvent("Loop Finished");
+                                                    bot.eventHandler.raiseEvent("Close Log File");
                                                     clearInterval(intervalHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
@@ -377,7 +389,7 @@
                                                 }
                                                 default: {
                                                     logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled custom response received. -> err.message = " + err.message);
-                                                    bot.eventHandler.raiseEvent("Loop Finished");
+                                                    bot.eventHandler.raiseEvent("Close Log File");
                                                     clearInterval(intervalHandle);
                                                     callBackFunction(err);
                                                     return;
@@ -388,7 +400,7 @@
                                             logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.message = " + err.message);
 
-                                            bot.eventHandler.raiseEvent("Loop Finished");
+                                            bot.eventHandler.raiseEvent("Close Log File");
                                             clearInterval(intervalHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
@@ -397,7 +409,7 @@
 
                                 } catch (err) {
                                     logger.write("[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.message);
-                                    bot.eventHandler.raiseEvent("Loop Finished");
+                                    bot.eventHandler.raiseEvent("Close Log File");
                                     clearInterval(intervalHandle);
                                     callBackFunction(err);
                                 }
@@ -405,7 +417,7 @@
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loop -> startUserBot -> err = " + err.message);
-                            bot.eventHandler.raiseEvent("Loop Finished");
+                            bot.eventHandler.raiseEvent("Close Log File");
                             clearInterval(intervalHandle);
                             callBackFunction(err);
                         }
@@ -413,7 +425,7 @@
 
                 } catch (err) {
                     logger.write("[ERROR] run -> loop -> err = " + err.message);
-                    bot.eventHandler.raiseEvent("Loop Finished");
+                    bot.eventHandler.raiseEvent("Close Log File");
                     clearInterval(intervalHandle);
                     callBackFunction(err);
                 }
@@ -432,7 +444,7 @@
                     if (bot.runAtFixedInterval === true) { intervalHandle.clearInterval();}
 
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Stopping the Loop Gracefully. See you next time!"); }
-                    bot.eventHandler.raiseEvent("Loop Finished");
+                    bot.eventHandler.raiseEvent("Close Log File");
                     clearInterval(intervalHandle);
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                     return;
@@ -447,29 +459,29 @@
                         case 'Normal': {
                             if (bot.runAtFixedInterval === true) {
                                 if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Fixed Interval Normal exit point reached."); }
-                                bot.eventHandler.raiseEvent("Loop Finished");
+                                bot.eventHandler.raiseEvent("Close Log File");
                                 return;
                             } else {
                                 if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                bot.eventHandler.raiseEvent("Loop Finished");
+                                bot.eventHandler.raiseEvent("Close Log File");
                                 setTimeout(loop, processConfig.normalWaitTime);
                             }
                         }
                             break;
                         case 'Retry': {
                             if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
-                            bot.eventHandler.raiseEvent("Loop Finished");
+                            bot.eventHandler.raiseEvent("Close Log File");
                             setTimeout(loop, processConfig.retryWaitTime);
                         }
                             break;
                         case 'Sleep': {
                             if (bot.runAtFixedInterval === true) {
                                 if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Fixed Interval Sleep exit point reached."); }
-                                bot.eventHandler.raiseEvent("Loop Finished");
+                                bot.eventHandler.raiseEvent("Close Log File");
                                 return;
                             } else {
                                 if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
-                                bot.eventHandler.raiseEvent("Loop Finished");
+                                bot.eventHandler.raiseEvent("Close Log File");
                                 setTimeout(loop, processConfig.sleepWaitTime);
                             }
                         }
@@ -477,11 +489,11 @@
                         case 'Coma': {
                             if (bot.runAtFixedInterval === true) {
                                 if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Fixed Interval Coma exit point reached."); }
-                                bot.eventHandler.raiseEvent("Loop Finished");
+                                bot.eventHandler.raiseEvent("Close Log File");
                                 return;
                             } else {
                                 if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
-                                bot.eventHandler.raiseEvent("Loop Finished");
+                                bot.eventHandler.raiseEvent("Close Log File");
                                 setTimeout(loop, processConfig.comaWaitTime);
                             }
                         }
@@ -504,7 +516,7 @@
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                            bot.eventHandler.raiseEvent("Loop Finished");
+                            bot.eventHandler.raiseEvent("Close Log File");
                             clearInterval(intervalHandle);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
@@ -522,7 +534,7 @@
 
                         } catch (err) {
                             logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                            bot.eventHandler.raiseEvent("Loop Finished");
+                            bot.eventHandler.raiseEvent("Close Log File");
                             clearInterval(intervalHandle);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
@@ -531,7 +543,7 @@
                 }
                 catch (err) {
                     logger.write("[ERROR] run -> loopControl -> shallWeStop -> err.message = " + err.message);
-                    bot.eventHandler.raiseEvent("Loop Finished");
+                    bot.eventHandler.raiseEvent("Close Log File");
                     clearInterval(intervalHandle);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
@@ -541,7 +553,7 @@
 
         catch (err) {
             logger.write("[ERROR] run -> err = " + err.message);
-            bot.eventHandler.raiseEvent("Loop Finished");
+            bot.eventHandler.raiseEvent("Close Log File");
             clearInterval(intervalHandle);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }

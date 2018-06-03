@@ -3,7 +3,7 @@
     const ROOT_DIR = './';
     const MODULE_NAME = "DebugLog";
 
-    let executionDatetime = ".Y." + global.EXECUTION_DATETIME.getUTCFullYear() +
+    let executionDatetime = "Y." + global.EXECUTION_DATETIME.getUTCFullYear() +
         ".M." + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) +
         ".D." + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) +
         ".H." + pad(global.EXECUTION_DATETIME.getUTCHours(),2) +
@@ -33,7 +33,7 @@
         disableCloudLogging = pDisableCloudLogging
 
         if (disableCloudLogging !== true) {
-            thisObject.bot.eventHandler.listenToEvent("Loop Finished", onLoopFinished);
+            thisObject.bot.eventHandler.listenToEvent("Close Log File", onLoopFinished);
         }
     }
 

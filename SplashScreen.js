@@ -86,10 +86,11 @@ function newSplashScreen() {
 
         let imageHeight = 96;
         let imageWidth = 480;
+        let yDisplacement = -50;
 
         let imagePoint = {
             x: thisObject.container.frame.width * 1 / 2 - imageWidth / 2,
-            y: thisObject.container.frame.height * 1 / 2 - imageHeight / 2
+            y: thisObject.container.frame.height * 1 / 2 - imageHeight / 2 + yDisplacement
         };
 
         imagePoint = thisObject.container.frame.frameThisPoint(imagePoint);
@@ -99,7 +100,7 @@ function newSplashScreen() {
         /* Second the % of Advance. */
 
         let label = '' + Math.trunc(stepsInitializationCounter)  + ' %';
-        stepsInitializationCounter = stepsInitializationCounter + 0.2;
+        stepsInitializationCounter = stepsInitializationCounter + 0.1;
 
         if (stepsInitializationCounter > 99) {
 
@@ -111,8 +112,8 @@ function newSplashScreen() {
         let fontSize = 10;
 
         let labelPoint = {
-            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-            y: thisObject.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 95
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 25,
+            y: thisObject.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 80 + yDisplacement
         };
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
@@ -129,8 +130,8 @@ function newSplashScreen() {
         title = "Algobots Competitions Platform"
 
         titlePoint = {
-            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 20,
-            y: thisObject.container.frame.height / 2 - fontSize * 2 + 80
+            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 20,
+            y: thisObject.container.frame.height / 2 - fontSize * 2 + 80 + yDisplacement
         };
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;

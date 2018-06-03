@@ -46,6 +46,7 @@
         try {
 
             logger.fileName = MODULE_NAME;
+            logger.initialize();
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 

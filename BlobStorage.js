@@ -233,10 +233,6 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                     if (err) {
 
-                        logger.write("[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
-                        logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
-                        logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
-
                         if (err.code === 'ServerBusy'
                             || err.code === 'ECONNRESET'
                             || err.code === 'ENOTFOUND'
@@ -320,6 +316,9 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                             return;
 
                         }
+
+                        logger.write("[ERROR] getTextFile -> onFileCreated -> err = " + JSON.stringify(err));
+                        logger.write("[ERROR] getTextFile -> onFileCreated -> response = " + JSON.stringify(response));
 
                         logger.write("[ERROR] getTextFile -> onFileReceived -> Dont know what to do here. Cancelling operation. ");
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);

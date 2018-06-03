@@ -3,12 +3,12 @@
     const ROOT_DIR = './';
     const MODULE_NAME = "DebugLog";
 
-    let executionDatetime = global.EXECUTION_DATETIME.getUTCFullYear() +
-        "/" + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) +
-        "/" + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) +
-        "/" + pad(global.EXECUTION_DATETIME.getUTCHours(),2) +
-        "/" + pad(global.EXECUTION_DATETIME.getUTCMinutes(),2) +
-        "/" + pad(global.EXECUTION_DATETIME.getUTCSeconds(),2);  
+    let executionDatetime = ".Y." + global.EXECUTION_DATETIME.getUTCFullYear() +
+        ".M." + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) +
+        ".D." + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) +
+        ".H." + pad(global.EXECUTION_DATETIME.getUTCHours(),2) +
+        ".M." + pad(global.EXECUTION_DATETIME.getUTCMinutes(),2) +
+        ".S." + pad(global.EXECUTION_DATETIME.getUTCSeconds(),2);  
 
     let messageId = 0;
     let loopCounter;

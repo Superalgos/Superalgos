@@ -106,11 +106,22 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     let thisReport;
                     let reportKey;
+                    let statusReport;
+
+                    /* We look first for Charly in order to get when the market starts. */
 
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-                    if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                    statusReport = statusDependencies.statusReports.get(reportKey);
+
+                    if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write("[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    if (statusReport.status === "Status Report is corrupt.") {
                         logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
@@ -133,10 +144,20 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     contextVariables.firstTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
 
+                    /* Second, we get the report from Bruce, to know when the marted ends. */
+
                     reportKey = "AAMasters" + "-" + "AABruce" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" +  bot.processDatetime.getUTCFullYear() + "-" + utilities.pad(bot.processDatetime.getUTCMonth() + 1,2);
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-                    if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                    statusReport = statusDependencies.statusReports.get(reportKey);
+
+                    if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write("[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    if (statusReport.status === "Status Report is corrupt.") {
                         logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
@@ -158,10 +179,20 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     contextVariables.maxCandleFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
 
+                    /* Finally we get our own Status Report. */
+
                     reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-                    if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                    statusReport = statusDependencies.statusReports.get(reportKey);
+
+                    if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write("[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    if (statusReport.status === "Status Report is corrupt.") {
                         logger.write("[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;

@@ -34,11 +34,22 @@ function newSplashScreen() {
     let fadeOutCounter = 0;
     let opacity = 1;
 
+    let logo;
+    let canDrawLogo = false;
+
     return thisObject;
 
     function initialize() {
 
+        logo = new Image();
 
+        logo.onload = onImageLoad;
+
+        function onImageLoad() {
+            canDrawLogo = true;
+        }
+
+        logo.src = "Images/aa-logo.png";
 
     }
 
@@ -53,28 +64,14 @@ function newSplashScreen() {
             if (fadeOutCounter > 20) {
                 return;
             }
-
             opacity = opacity - 0.05;
-
         }
+
+        if (canDrawLogo === false) { return; }
 
         thisObject.container.frame.draw(false, false);
 
-        let label = '' + Math.trunc(stepsInitializationCounter)  + ' %';
-        stepsInitializationCounter = stepsInitializationCounter + 1;
-
-        if (stepsInitializationCounter > 99) {
-
-            splashScreenNeeded = false;
-            stepsInitializationCounter = 99;
-        }
-
-        let fontSize = 50;
-
-        let labelPoint = {
-            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-            y: thisObject.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 200
-        };
+        /* Set the background. */
 
         browserCanvasContext.beginPath();
 
@@ -85,61 +82,58 @@ function newSplashScreen() {
 
         browserCanvasContext.fill();
 
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
-        browserCanvasContext.fillStyle = 'rgba(200, 200, 200,  ' + opacity + ')';
+        /* First the AA Logo. */
+
+        let imageHeight = 96;
+        let imageWidth = 480;
+
+        let imagePoint = {
+            x: thisObject.container.frame.width * 1 / 2 - imageWidth / 2,
+            y: thisObject.container.frame.height * 1 / 2 - imageHeight / 2
+        };
+
+        imagePoint = thisObject.container.frame.frameThisPoint(imagePoint);
+
+        browserCanvasContext.drawImage(logo, imagePoint.x, imagePoint.y, imageWidth, imageHeight);
+
+        /* Second the % of Advance. */
+
+        let label = '' + Math.trunc(stepsInitializationCounter)  + ' %';
+        stepsInitializationCounter = stepsInitializationCounter + 0.2;
+
+        if (stepsInitializationCounter > 99) {
+
+            splashScreenNeeded = false;
+            stepsInitializationCounter = 99;
+        }
+
+
+        let fontSize = 10;
+
+        let labelPoint = {
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+            y: thisObject.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 95
+        };
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
+        browserCanvasContext.fillStyle = 'rgba(0, 0, 0,  ' + opacity + ')';
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
         let title;
         let titlePoint;
 
-        /* Advanced Algos Title */
-
-        fontSize = 100;
-        
-        title = "Advanced"
-
-        titlePoint = {
-            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 230,
-            y: thisObject.container.frame.height / 2 - fontSize * 2 + 50
-        };
-
-        browserCanvasContext.font = fontSize + 'px Verdana';
-        browserCanvasContext.fillStyle = 'rgba(0, 0, 0,  ' + opacity + ')';
-        browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y);
-
-        title = "A"
-
-        browserCanvasContext.fillStyle = 'rgba(255, 0, 0,  ' + opacity + ')';
-        browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y);
-
-        title = "Algos"
-
-        titlePoint = {
-            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 230,
-            y: thisObject.container.frame.height / 2 - fontSize * 2 + 50
-        };
-
-        browserCanvasContext.font = fontSize + 'px Verdana';
-        browserCanvasContext.fillStyle = 'rgba(0, 0, 0,  ' + opacity + ')';
-        browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y);
-
-        title = "A"
-
-        browserCanvasContext.fillStyle = 'rgba(255, 0, 0,  ' + opacity + ')';
-        browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y);
-
         /* Algo Bots Competitions Sub Title */
 
-        fontSize = 50;
+        fontSize = 15;
 
         title = "Algobots Competitions Platform"
 
         titlePoint = {
-            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 50,
-            y: thisObject.container.frame.height / 2 - fontSize * 2 + 150
+            x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO + 20,
+            y: thisObject.container.frame.height / 2 - fontSize * 2 + 80
         };
 
-        browserCanvasContext.font = fontSize + 'px Verdana';
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
         browserCanvasContext.fillStyle = 'rgba(0, 0, 0,  ' + opacity + ')';
         browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y);
 

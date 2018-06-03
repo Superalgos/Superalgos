@@ -54,6 +54,7 @@
             statusDependencies = pStatusDependencies;
 
             logger.fileName = MODULE_NAME + "-" + year + "-" + month;
+            logger.initialize();
 
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> pYear = " + year); }

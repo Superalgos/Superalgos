@@ -317,6 +317,7 @@ exports.newRoot = function newRoot() {
 
                     botConfig.process = listItem.process;
                     botConfig.debug = {};
+                    botConfig.sharedLogFileMap = new Map();
 
                     logger = DEBUG_MODULE.newDebugLog();
                     logger.fileName = MODULE_NAME;
@@ -414,6 +415,7 @@ exports.newRoot = function newRoot() {
                                                 let padMonth = pad(month, 2)
 
                                                 let newInstanceBotConfig = JSON.parse(JSON.stringify(botConfig));
+                                                newInstanceBotConfig.sharedLogFileMap = new Map();
 
                                                 let timeDelay = Math.random() * 10 * 1000; // We introduce a short delay so as to not overload the machine.
                                                 setTimeout(startProcess, timeDelay);

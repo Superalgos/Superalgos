@@ -48,36 +48,78 @@
 
             function onInizialized(err) {
 
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                try {
 
-                    let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/" + executionDatetime;
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    if (thisObject.bot.debug.year !== undefined) {
+                        /* We save a file for the module doing the logging at this instance of DebugLog. */
 
-                        filePath = filePath + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
-                    }
+                        let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/" + executionDatetime;
 
-                    if (loopCounter === undefined) { loopCounter = 0 };
+                        if (thisObject.bot.debug.year !== undefined) {
 
-                    filePath = filePath + "/Loop." + pad(loopCounter, 5);
-
-                    cloudStorage.createTextFile(filePath, thisObject.fileName + ".json", blobContent + '\n' + "]", onFileCreated);
-
-                    function onFileCreated(err) {
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            console.log("[ERROR] Debug-Log -> onLoopFinished -> onInizialized -> onFileCreated -> err = " + err.message);
-                            return;
+                            filePath = filePath + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
                         }
+
+                        if (loopCounter === undefined) { loopCounter = 0 };
+
+                        filePath = filePath + "/Loop." + pad(loopCounter, 5);
+
+                        cloudStorage.createTextFile(filePath, thisObject.fileName + ".json", blobContent + '\r\n' + "]", onFileCreated);
+
+                        function onFileCreated(err) {
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                console.log("[ERROR] DebugLog -> onLoopFinished -> onInizialized -> onFileCreated -> err = " + err.message);
+                                return;
+                            }
+                        }
+
+                        /* We save a single file for the whole Process of the bot, inlcuding AACloud modules. */
+
+                        if (thisObject.bot.sharedLogFileMap !== undefined) {
+
+                            let fileSaved = thisObject.bot.sharedLogFileMap.get(loopCounter);
+
+                            if (fileSaved !== true) {
+
+                                thisObject.bot.sharedLogFileMap.set(loopCounter, true);
+
+                                let sharedFileContent = "[";
+
+                                for (let i = 0; i < thisObject.bot.blobContent.length; i++) {
+
+                                    sharedFileContent = sharedFileContent + thisObject.bot.blobContent[i];
+                                }
+
+                                sharedFileContent = sharedFileContent + '\r\n' + "]";
+
+                                cloudStorage.createTextFile(filePath, "AllModules" + ".json", sharedFileContent, onSharedFileCreated);
+
+                                function onSharedFileCreated(err) {
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        console.log("[ERROR] DebugLog -> onLoopFinished -> onInizialized -> onSharedFileCreated -> err = " + err.message);
+                                        return;
+                                    }
+                                }
+                            }
+
+                        } else {
+                            console.log("[ERROR] DebugLog -> onLoopFinished -> onInizialized -> err = " + err.message);
+                        }
+
+                    } else {
+                        console.log("[ERROR] DebugLog -> onLoopFinished -> onInizialized -> sharedLogFileMap is undefined. ");
                     }
 
-                } else {
-                    console.log("[ERROR] Debug-Log -> onLoopFinished -> onInizialized -> err = " + err.message);
+                } catch (err) {
+                    console.log("[ERROR] DebugLog -> onLoopFinished -> onInizialized -> err = " + err.message);
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] Debug-Log -> onLoopFinished -> err = " + err.message);
+            console.log("[ERROR] DebugLog -> onLoopFinished -> err = " + err.message);
         }
     }
 
@@ -99,7 +141,7 @@
 
                         loopCounter = thisObject.bot.loopCounter;
 
-                        blobContent = "[";
+                        blobContent = "[";                  // Local version
                     }
                 } else {
 
@@ -115,13 +157,9 @@
 
             messageId++;
 
-            let line = {
-                date: newDate,
-                sec: messageId,
-                data: Message
-            };
+            /* When writing one file pero module we need this. */
 
-            let fileLine = '\r\n' + JSON.stringify(line);
+            let fileLine = '\r\n' + "['" + newDate + "'," + messageId + ",'" + Message + "']";
 
             if (blobContent === "[") {
 
@@ -131,8 +169,25 @@
 
                 blobContent = blobContent + "," + fileLine;
             }
+
+            /* When writting one file for all modules we use this. */
+
+            let sharedFileLine;
+
+            if (thisObject.bot.blobContent === undefined || thisObject.bot.blobContent.length === 0) {
+
+                thisObject.bot.blobContent = [];
+                sharedFileLine = '\r\n' + "['" + newDate + "'," + (thisObject.bot.blobContent.length + 1) + ",'" + thisObject.fileName + "','" + Message + "']";
+                thisObject.bot.blobContent.push(sharedFileLine.toString());
+
+            } else {
+                sharedFileLine = '\r\n' + "['" + newDate + "'," + (thisObject.bot.blobContent.length + 1) + ",'" + thisObject.fileName + "','" + Message + "']";
+                thisObject.bot.blobContent.push("," + sharedFileLine.toString());
+            }
+            
+
         } catch (err) {
-            console.log("[ERROR] Debug-Log -> write -> err = " + err.message);
+            console.log("[ERROR] DebugLog -> write -> err = " + err.message);
         }
     }
 

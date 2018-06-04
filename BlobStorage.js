@@ -36,7 +36,6 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
             containerName = pDataOwner.toLowerCase();
 
             logger = DEBUG_MODULE.newDebugLog();
-            logger.fileName = MODULE_NAME;
             logger.bot = bot;
             logger.fileName = MODULE_NAME + '.' + pDataOwner;
             logger.initialize(disableLogging);
@@ -72,7 +71,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
         catch (err) {
 
             logger.write("[ERROR] initialize -> err = " + err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

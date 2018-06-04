@@ -7,7 +7,7 @@
     "minor": 0,
     "patch": 0
   },
-  "devTeam": "AAMasters",
+  "devTeam": "AAVikings",
   "profilePicture": "Artudito.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
@@ -38,8 +38,8 @@
       "comaWaitTime": 86400000,
       "statusDependencies": [
         {
-          "devTeam": "AAMasters",
-          "bot": "AAOlivia",
+          "devTeam": "AAVikings",
+          "bot": "AAGauss",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -48,38 +48,27 @@
           "dataSetVersion": "dataSet.V1"
         },
         {
-          "devTeam": "AAMasters",
-          "bot": "AAArtudito",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Trading-Process",
-          "dataSetVersion": "dataSet.V1"
+            "devTeam": "AAVikings",
+            "bot": "AAArtudito",
+            "botVersion": {
+                "major": 1,
+                "minor": 0
+            },
+            "process": "Trading-Process",
+            "dataSetVersion": "dataSet.V1"
         }
       ],
       "dataDependencies": [
         {
-          "devTeam": "AAMasters",
-          "bot": "AAOlivia",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Candles",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "Multi-Period-Daily"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AABruce",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "product": "Candles",
-          "dataSetVersion": "dataSet.V1",
-          "dataSet": "One-Min"
+            "devTeam": "AAVikings",
+            "bot": "AAGauss",
+            "botVersion": {
+                "major": 1,
+                "minor": 0
+            },
+            "product": "LRC-Points",
+            "dataSetVersion": "dataSet.V1",
+            "dataSet": "Multi-Period-Daily"
         }
       ]
     }

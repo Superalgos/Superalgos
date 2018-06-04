@@ -92,6 +92,8 @@
                                     sharedFileContent = sharedFileContent + thisObject.bot.blobContent[i];
                                 }
 
+                                thisObject.bot.blobContent = [];
+
                                 sharedFileContent = sharedFileContent + '\r\n' + "]";
 
                                 cloudStorage.createTextFile(filePath, "AllModules" + ".json", sharedFileContent, onSharedFileCreated);

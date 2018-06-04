@@ -154,7 +154,7 @@
                 try {
 
                     /* For each loop we want to create a new log file. */
-
+                    
                     logger = DEBUG_MODULE.newDebugLog();
                     logger.fileName = MODULE_NAME;
                     logger.bot = bot;

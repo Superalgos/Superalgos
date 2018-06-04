@@ -144,7 +144,17 @@
 
             bot.eventHandler.raiseEvent("Close Log File");
 
-            loop();
+            let intervalHandle;
+
+            if (bot.runAtFixedInterval === true) {
+
+                intervalHandle = setInterval(loop, bot.fixedInterval);
+
+            } else {
+
+                loop();
+
+            }
 
             function loop() {
 

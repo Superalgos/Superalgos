@@ -544,38 +544,38 @@
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
+                            }
 
-                                let fileName = "this.config.json";
+                            let fileName = "this.config.json";
 
-                                cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+                            cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
-                                function onFileReceived(err, text) {
+                            function onFileReceived(err, text) {
 
-                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                                        bot.eventHandler.raiseEvent("Close Log File");
-                                        clearInterval(intervalHandle);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        return;
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
+                                    bot.eventHandler.raiseEvent("Close Log File");
+                                    clearInterval(intervalHandle);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+
+                                try {
+
+                                    let configRead = JSON.parse(text);
+
+                                    if (configRead.stopGracefully === false && global.SHALL_BOT_STOP === false) {
+                                        continueCallBack();
+                                    } else {
+                                        stopCallBack();
                                     }
 
-                                    try {
-
-                                        let configRead = JSON.parse(text);
-
-                                        if (configRead.stopGracefully === false && global.SHALL_BOT_STOP === false) {
-                                            continueCallBack();
-                                        } else {
-                                            stopCallBack();
-                                        }
-
-                                    } catch (err) {
-                                        logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                                        bot.eventHandler.raiseEvent("Close Log File");
-                                        clearInterval(intervalHandle);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        return;
-                                    }
+                                } catch (err) {
+                                    logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
+                                    bot.eventHandler.raiseEvent("Close Log File");
+                                    clearInterval(intervalHandle);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
                                 }
                             }
                         }

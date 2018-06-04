@@ -24,15 +24,15 @@
 
     let blobContent = "[";
 
-    let disableCloudLogging;
+    let disableLogging;
 
     return thisObject;
 
-    function initialize(pDisableCloudLogging) {
+    function initialize(pdisableLogging) {
 
-        disableCloudLogging = pDisableCloudLogging
+        disableLogging = pdisableLogging
 
-        if (disableCloudLogging !== true) {
+        if (disableLogging !== true) {
             thisObject.bot.eventHandler.listenToEvent("Close Log File", onLoopFinished);
         }
     }
@@ -128,6 +128,8 @@
     function write(Message) {
 
         try {
+
+            if (disableLogging === true) { return; }
 
             console.log("AACloud" + spacePad(thisObject.fileName, 50) + " : " + Message);
 

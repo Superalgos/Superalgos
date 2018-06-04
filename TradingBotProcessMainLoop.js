@@ -9,6 +9,8 @@
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
+    const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
+
     const EVENT_HANDLER_MODULE = require(ROOT_DIR + 'EventHandler');
     bot.eventHandler = EVENT_HANDLER_MODULE.newEventHandler();
 
@@ -40,7 +42,6 @@
             UI_COMMANDS = pUI_COMMANDS;
             processConfig = pProcessConfig;
 
-            const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
             cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 
             cloudStorage.initialize("AAPlatform", onInizialized);
@@ -51,9 +52,7 @@
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    /* We needed the cloudStorage initialized for both requesting the bot source code and, later requesting the AACloud config at the ShallWeStop function. */
-
-                    let filePath; 
+                    let filePath;
 
                     switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
                         case "Cloud": {
@@ -65,7 +64,11 @@
                             break;
                         }
                         default: {
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
+                            logger.write("[ERROR] initialize -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
+                            logger.write("[ERROR] initialize -> onInizialized -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            bot.eventHandler.raiseEvent("Close Log File");
+                            return;
                         }
                     }
 
@@ -86,17 +89,20 @@
 
                         USER_BOT_MODULE = pMODULE;
 
-                        switch (global.CURRENT_EXECUTION_AT) { 
+                        switch (global.CURRENT_EXECUTION_AT) {
                             case "Cloud": {
-                                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo; 
+                                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo;
                                 break;
                             }
                             case "Browser": {
-                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + bot.repo; 
+                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + bot.repo;
                                 break;
                             }
                             default: {
-                                console.log(logDisplace + "Root : [ERROR] start -> getBotConfig -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser' ");
+                                logger.write("[ERROR] initialize -> onInizialized -> onBotDownloaded -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
+                                logger.write("[ERROR] initialize -> onInizialized -> onBotDownloaded -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return;
                             }
                         }
 
@@ -159,7 +165,6 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
-                    const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
                     const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'PoloniexAPIClient');
                     const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
                     const CONTEXT = require(ROOT_DIR + 'Context');
@@ -868,41 +873,80 @@
                 try {
                     if (FULL_LOG === true) { logger.write("[INFO] run -> loopControl -> shallWeStop -> Entering function. "); }
 
-                    let filePath = "AdvancedAlgos" + "/" + "AACloud";
-                    let fileName = "this.config.json";
+                    cloudStorage = BLOB_STORAGE.newBlobStorage(bot);
 
-                    cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+                    cloudStorage.initialize("AAPlatform", onInizialized);
 
-                    function onFileReceived(err, text) {
+                    function onInizialized(err) {
 
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                            bot.eventHandler.raiseEvent("Close Log File");
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
+                        if (FULL_LOG === true) { logger.write("[INFO] initialize -> onInizialized -> Entering function."); }
 
-                        try {
+                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                            let configRead = JSON.parse(text);
+                            let filePath;
 
-                            if (configRead.stopGracefully === false && global.SHALL_BOT_STOP === false) {
-                                continueCallBack();
-                            } else {
-                                stopCallBack();
+                            switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
+                                case "Cloud": {
+                                    filePath = global.DEV_TEAM + "/" + "AACloud"; // DevTeams bots only are run at the cloud.
+                                    break;
+                                }
+                                case "Browser": {
+                                    if (global.SHALL_BOT_STOP === false) {
+                                        continueCallBack();
+                                    } else {
+                                        stopCallBack();
+                                    }
+                                    break;
+                                }
+                                default: {
+                                    logger.write("[ERROR] shallWeStop -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
+                                    logger.write("[ERROR] shallWeStop -> onInizialized -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
+                                    bot.eventHandler.raiseEvent("Close Log File");
+                                    clearInterval(intervalHandle);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+
+                                let fileName = "this.config.json";
+
+                                cloudStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                                function onFileReceived(err, text) {
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                        logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
+                                        bot.eventHandler.raiseEvent("Close Log File");
+                                        clearInterval(intervalHandle);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+
+                                    try {
+
+                                        let configRead = JSON.parse(text);
+
+                                        if (configRead.stopGracefully === false && global.SHALL_BOT_STOP === false) {
+                                            continueCallBack();
+                                        } else {
+                                            stopCallBack();
+                                        }
+
+                                    } catch (err) {
+                                        logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
+                                        bot.eventHandler.raiseEvent("Close Log File");
+                                        clearInterval(intervalHandle);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+                                }
                             }
-
-                        } catch (err) {
-                            logger.write("[ERROR] run -> loopControl -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                            bot.eventHandler.raiseEvent("Close Log File");
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
                         }
                     }
                 }
                 catch (err) {
                     logger.write("[ERROR] run -> loopControl -> shallWeStop -> err.message = " + err.message);
                     bot.eventHandler.raiseEvent("Close Log File");
+                    clearInterval(intervalHandle);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }

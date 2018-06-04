@@ -15,6 +15,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>Project</Name>
+    <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -23,8 +24,7 @@
     <Compile Include="olds\Commons.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Multi-Period-Daily\LRCIndicator.js" />
-    <Compile Include="Multi-Period-Daily\User.bot.js" />
+    <Compile Include="Multi-Period-Daily\User.Bot.js" />
     <Content Include="obj\Debug\AABruce.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACarol.njsproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AACharly.njsproj.FileListAbsolute.txt" />

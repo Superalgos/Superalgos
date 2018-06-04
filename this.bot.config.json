@@ -7,38 +7,38 @@
         "minor": 0,
         "patch": 0
     },
-    "devTeam": "AAMasters",
+    "devTeam": "AAVikings",
     "dataSetVersion": "dataSet.V1",
     "processes": [
         {
             "name": "Multi-Period-Daily",
-            "description": "Produces files with the LRC Channel on a daily format.",
+            "description": "Produces files with the LRC Points on a daily format.",
             "startMode": {
                 "allMonths": {
-                  "run": "false",
-                  "minYear": "",
-                  "maxYear": ""
+                    "run": "false",
+                    "minYear": "",
+                    "maxYear": ""
                 },
                 "oneMonth": {
-                  "run": "false",
-                  "year": "",
-                  "month": ""
+                    "run": "false",
+                    "year": "",
+                    "month": ""
                 },
                 "noTime": {
-                  "run": "true"
+                    "run": "true"
                 },
                 "fixedInterval": {
-                  "run": "false",
-                  "interval": 0
+                    "run": "false",
+                    "interval": 0
                 }
-              },
-            "normalWaitTime": 100,
+            },
+            "normalWaitTime": 50,
             "retryWaitTime": 10000,
             "sleepWaitTime": 3600000,
             "comaWaitTime": 86400000,
             "statusDependencies": [
                 {
-                    "devTeam": "AAMasters",
+                    "devTeam": "AAVikings",
                     "bot": "AAGauss",
                     "botVersion": {
                         "major": 1,
@@ -62,8 +62,8 @@
     ],
     "products": [
         {
-            "codeName": "LRCChannel",
-            "displayName": "LRCChannel",
+            "codeName": "LRCPoints",
+            "displayName": "LRCPoints",
             "description": "Two sets of files per period that contains LRC points.",
             "storageAccount": "aagauss",
             "dataSets": [
@@ -71,8 +71,12 @@
                     "codeName": "Multi-Period-Daily",
                     "type": "Daily Files",
                     "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-                    "filePath": "AAMasters/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Channel/Multi-Period-Daily/@Period/@Year/@Month/@Day",
-                    "fileName": "@AssetA_@AssetB.json"
+                    "filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                    "fileName": "@AssetA_@AssetB.json",
+                    "dataRange": {
+                        "filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Daily",
+                        "fileName": "Data.Range.@AssetA_@AssetB.json"
+                    }
                 }
             ],
             "exchangeList": [
@@ -80,11 +84,11 @@
                     "name": "Poloniex"
                 }
             ],
-          "plotter": {
-            "devTeam": "AAMasters",
-            "codeName": "PlotterLinearRegressionCurve",
-            "moduleName": "LRC"
-          }
+            "plotter": {
+                "devTeam": "AAVikings",
+                "codeName": "PlotterLinearRegressionCurve",
+                "moduleName": "LRC"
+            }
         }
     ]
 

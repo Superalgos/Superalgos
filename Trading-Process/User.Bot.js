@@ -29,6 +29,7 @@
             let key = "AAVikings-AAGauss-LRC-Points-Multi-Period-Daily-dataSet.V1";
 
             gaussStorage = assistant.dataDependencies.dataSets.get(key);
+
             callBackFunction(global.DEFAULT_OK_RESPONSE);
         } catch (err) {
             logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
@@ -40,6 +41,7 @@
         try {
             if (LOG_INFO === true) { logger.write("[INFO] start -> Entering function."); }
 
+            let market = global.MARKET;
             /*
 
             This trading bot will use an strategy based on the interpretation of the Linear Regression Curve Channel.
@@ -128,9 +130,7 @@
 					if (LOG_INFO === true) { logger.write("[INFO] start -> createBuyPosition -> There is not enough available balance to buy. Available balance: " + assetABalance ); }
 					
 					callBack(global.DEFAULT_OK_RESPONSE);
-				}
-				
-                
+				}                
             }
               
             function createSellPosition(callBack) {
@@ -180,7 +180,7 @@
                 getLRCPointsFile(queryDate, onLRCPointsFileReceived);
 
                 function onLRCPointsFileReceived(err, lrcPointsFile) {
-                    if (LOG_INFO === true) { logger.write("[INFO] start -> getChannelTilt -> onDailyFileReceived."); }
+                    if (LOG_INFO === true) { logger.write("[INFO] start -> getChannelTilt -> onLRCPointsFileReceived."); }
 
                     for (let i = 0; i < lrcPointsFile.length; i++) {
 
@@ -210,13 +210,15 @@
                                 getLRCPointsFile(queryDate, onPreviousLRCPointsFileReceived);
                             }
 
-                            break;
+                            return;
                         }
                     }
+
+                    callBack(global.DEFAULT_OK_RESPONSE, NO_CHANNEL);
                 }
 
-                function onLRCPointsFileReceived(err, lrcPointsFile) {
-                    if (LOG_INFO === true) { logger.write("[INFO] start -> getChannelTilt -> onDailyFileReceived."); }
+                function onPreviousLRCPointsFileReceived(err, lrcPointsFile) {
+                    if (LOG_INFO === true) { logger.write("[INFO] start -> getChannelTilt -> onLRCPointsFileReceived."); }
 
                     let previous = lrcPointsFile.length - 2;
                     previousLRCPoint = {
@@ -270,23 +272,23 @@
                 }
             }
 
-            function getLRCPointsFile(dateTime, onDailyFileReceived) {
+            function getLRCPointsFile(dateTime, callback) {
                 try {
                     if (FULL_LOG === true) { logger.write("[INFO] start -> getChannelTilt -> getLRCPointsFile -> Entering function."); }
 
                     let periodName = "30-min";
                     let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2);
-                    let filePath = "AAVikings/AAGauss.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/LRC-Points/Multi-Period-Daily/" + periodName + "/" + datePath;
+                    let filePath = "LRC-Points/Multi-Period-Daily/" + periodName + "/" + datePath;
                     let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                    gaussStorage.getTextFile(pFilePath, pFileName, onFileReceived);
+                    gaussStorage.getTextFile(filePath, fileName, onFileReceived);
 
                     function onFileReceived(err, text) {
                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                             if (FULL_LOG === true) { logger.write("[INFO] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived > Entering Function."); }
 
                             let lrcPointsFile = JSON.parse(text);
-                            onDailyFileReceived(global.DEFAULT_OK_RESPONSE, lrcPointsFile);
+                            callback(global.DEFAULT_OK_RESPONSE, lrcPointsFile);
                         } else {
                             logger.write("[ERROR] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.");
                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);

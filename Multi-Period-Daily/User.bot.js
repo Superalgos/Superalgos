@@ -598,38 +598,25 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
 
-                        utilities.createFolderIfNeeded(filePath, oliviaStorage, onFolderCreated);
+                        oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                        function onFolderCreated(err) {
+                        function onFileCreated(err) {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> err = " + err.message);
+                                logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
                                 callBackFunction(err);
                                 return;
                             }
 
-                            oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated(err) {
-
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                    callBackFunction(err);
-                                    return;
-                                }
-
-                                if (LOG_FILE_CONTENT === true) {
-                                    logger.write("[INFO] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
-                                }
-
-                                logger.write("[WARN] start -> writeFiles -> writeCandles -> onFolderCreated -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
-
-                                writeVolumes();
+                            if (LOG_FILE_CONTENT === true) {
+                                logger.write("[INFO] start -> writeFiles -> writeCandles -> onFileCreated ->  Content written = " + fileContent);
                             }
+
+                            logger.write("[WARN] start -> writeFiles -> writeCandles -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
+
+                            writeVolumes();
                         }
                     }
 
@@ -662,38 +649,25 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
 
-                        utilities.createFolderIfNeeded(filePath, oliviaStorage, onFolderCreated);
+                        oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                        function onFolderCreated(err) {
+                        function onFileCreated(err) {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> err = " + err.message);
+                                logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
                                 callBackFunction(err);
                                 return;
                             }
 
-                            oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated(err) {
-
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                    callBackFunction(err);
-                                    return;
-                                }
-
-                                if (LOG_FILE_CONTENT === true) {
-                                    logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
-                                }
-
-                                logger.write("[WARN] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
-
-                                callBack();
+                            if (LOG_FILE_CONTENT === true) {
+                                logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFileCreated ->  Content written = " + fileContent);
                             }
+
+                            logger.write("[WARN] start -> writeFiles -> writeVolumes -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
+
+                            callBack();
                         }
                     }
                 }
@@ -763,36 +737,23 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                     if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> filePath = " + filePath); }
 
-                    utilities.createFolderIfNeeded(filePath, oliviaStorage, onFolderCreated);
+                    oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                    function onFolderCreated(err) {
+                    function onFileCreated(err) {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> onFolderCreated -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> onFileCreated -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] start -> writeDataRange -> onFolderCreated -> err = " + err.message);
+                            logger.write("[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.message);
                             callBack(err);
                             return;
                         }
 
-                        oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeDataRange -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write("[ERROR] start -> writeDataRange -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                callBack(err);
-                                return;
-                            }
-
-                            if (LOG_FILE_CONTENT === true) {
-                                logger.write("[INFO] start -> writeDataRange -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
-                            }
-
-                            callBack(global.DEFAULT_OK_RESPONSE);
+                        if (LOG_FILE_CONTENT === true) {
+                            logger.write("[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
+
+                        callBack(global.DEFAULT_OK_RESPONSE);
                     }
                 }
                 catch (err) {

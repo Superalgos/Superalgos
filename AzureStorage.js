@@ -128,9 +128,10 @@
             let options = {
                 host: pEndPoint,
                 port: 443,
-                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS,
+                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=30',
                 method: 'GET',
-                headers: {}
+                headers: {},
+                agent: false 
             }
 
             let responseData = '';
@@ -140,7 +141,7 @@
             /* We add the headers. */
 
             options.headers['x-ms-version'] = '2017-07-29';
-            options.headers['Connection'] = 'Keep-Alive';
+            //options.headers['Connection'] = 'Keep-Alive';
 
             /* Making the https get call. */
 
@@ -160,27 +161,16 @@
             }
 
             function onResponse(response) {
-                console.log("\nstatus code: ", response.statusCode);
                 response.on('data', onPieceOfDataArrived);
                 response.on('end', onAllDataArrived);
             }
 
             function onPieceOfDataArrived(pData) {
-                console.log('New Data Arrived!');
-                console.log(pData.toString());
 
                 responseData = responseData + pData.toString();
             }
 
             function onAllDataArrived() {
-
-                try {
-                    let obj = JSON.parse(responseData);
-                }
-                catch (err) {
-
-                    console.log("Cannot parse this.");
-                }
 
                 callBack(err, responseData)
 
@@ -192,9 +182,10 @@
             let options = {
                 host: pEndPoint,
                 port: 443,
-                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS,
+                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=30',
                 method: 'PUT',
-                headers: {}
+                headers: {},
+                agent: false
             }
 
             let responseData = '';
@@ -207,7 +198,7 @@
             options.headers['x-ms-version'] = '2017-07-29';
             options.headers['Content-Length'] = pBlobContent.length;
             options.headers['x-ms-blob-type'] = 'BlockBlob';
-            options.headers['Connection'] = 'Keep-Alive';
+            //options.headers['Connection'] = 'Keep-Alive';
 
             /* Making the https get call. */
 
@@ -243,9 +234,6 @@
             }
 
             function onPieceOfDataArrived(pData) {
-                console.log('New Data Arrived!');
-                console.log(pData.toString());
-
                 responseData = responseData + pData.toString();
             }
 

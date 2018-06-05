@@ -288,6 +288,32 @@
                                             callBackFunction(err);
                                             return;
                                         }
+                                        case global.CUSTOM_OK_RESPONSE.result: {
+
+                                            switch (err.message) {
+                                                case "Too far in the future.": {
+                                                    logger.write("[WARN] run -> loop -> initializeUserBot -> onInizialized > Too far in the future. This Loop will enter in coma.");
+                                                    nextWaitTime = 'Coma';
+                                                    clearInterval(intervalHandle);
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                case "Not needed now, but soon.": {
+                                                    logger.write("[WARN] run -> loop -> initializeUserBot -> onInizialized > Not needed now, but soon. This Loop will continue with Normal wait time.");
+                                                    nextWaitTime = 'Normal';
+                                                    clearInterval(intervalHandle);
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                default: {
+                                                    logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled custom response received. -> err.message = " + err.message);
+                                                    bot.eventHandler.raiseEvent("Close Log File");
+                                                    clearInterval(intervalHandle);
+                                                    callBackFunction(err);
+                                                    return;
+                                                }
+                                            }
+                                        }
                                         default: {
                                             logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write("[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.message = " + err.message);
@@ -383,13 +409,6 @@
                                                     bot.eventHandler.raiseEvent("Close Log File");
                                                     clearInterval(intervalHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                    return;
-                                                }
-                                                case "Too far in the future.": {
-                                                    logger.write("[WARN] run -> loop -> startUserBot -> onFinished > Too far in the future. This Loop will enter in coma.");
-                                                    nextWaitTime = 'Coma';
-                                                    clearInterval(intervalHandle);
-                                                    loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 default: {

@@ -9,7 +9,7 @@
     const GMT_MILI_SECONDS = '.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-    const MODULE_NAME = "User Bot";
+    const MODULE_NAME = "UserBot";
 
     const EXCHANGE_NAME = "Poloniex";
 

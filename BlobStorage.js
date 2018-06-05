@@ -9,7 +9,8 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
     const MODULE_NAME = "BlobStorage";
 
-    let storage = require('azure-storage');
+    let AZURE_STORAGE = require('./AzureStorage');
+    let storage = AZURE_STORAGE.newAzureStorage(bot);
 
     const DEBUG_MODULE = require('./DebugLog');
     let logger;
@@ -130,15 +131,18 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                         logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
                         logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
 
-                        if (err.code === 'ServerBusy'
-                            || err.code === 'ECONNRESET'
-                            || err.code === 'ENOTFOUND'
-                            || err.code === 'ESOCKETTIMEDOUT'
-                            || err.code === 'ETIMEDOUT'
-                            || err.code === 'ECONNREFUSED'
-                            || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
-                            || err.code === 'OperationTimedOut'
-                            || err.code === 'EADDRINUSE') {
+                        if (
+                            err.code === 'ECONNRESET' ||
+                            err.code === 'ENOTFOUND' ||
+                            err.code === 'ESOCKETTIMEDOUT' ||
+                            err.code === 'ETIMEDOUT' ||
+                            err.code === 'ECONNREFUSED' ||
+                            err.code === 'EADDRINUSE' ||
+                            err.code === 'AuthenticationFailed' ||
+                            err.code === 'OperationTimedOut' ||
+                            err.code === 'ServerBusy'
+                        )
+                        {
 
                             setTimeout(secondTry, 1000);
                             return;
@@ -232,15 +236,19 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                     if (err) {
 
-                        if (err.code === 'ServerBusy'
-                            || err.code === 'ECONNRESET'
-                            || err.code === 'ENOTFOUND'
-                            || err.code === 'ESOCKETTIMEDOUT'
-                            || err.code === 'ETIMEDOUT'
-                            || err.code === 'ECONNREFUSED'
-                            || (err.code === 'AuthenticationFailed' && err.authenticationerrordetail.indexOf('Request date header too old') === 0)
-                            || err.code === 'OperationTimedOut'
-                            || err.code === 'EADDRINUSE') {
+                        if (
+                            err.code === 'ECONNRESET'           || 
+                            err.code === 'ENOTFOUND'            || 
+                            err.code === 'ESOCKETTIMEDOUT'      || 
+                            err.code === 'ETIMEDOUT'            || 
+                            err.code === 'ECONNREFUSED'         || 
+                            err.code === 'EADDRINUSE'           || 
+                            err.code === 'AuthenticationFailed' || 
+                            err.code === 'OperationTimedOut'    || 
+                            err.code === 'ServerBusy'
+                        )
+
+                        {
 
                             setTimeout(secondTry, 1000);
                             return;

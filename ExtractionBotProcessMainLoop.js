@@ -147,7 +147,8 @@
             if (bot.runAtFixedInterval === true) {
 
                 intervalHandle = setInterval(loop, bot.fixedInterval);
-                
+                loop(); // First run.
+
             } else {
 
                 loop();

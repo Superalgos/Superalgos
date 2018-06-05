@@ -30,10 +30,16 @@
 
     function initialize(pdisableLogging) {
 
-        disableLogging = pdisableLogging
+        try {
 
-        if (disableLogging !== true) {
-            thisObject.bot.eventHandler.listenToEvent("Close Log File", onLoopFinished);
+            disableLogging = pdisableLogging
+
+            if (disableLogging !== true) {
+                thisObject.bot.eventHandler.listenToEvent("Close Log File", onLoopFinished);
+            }
+
+        } catch (err) {
+            console.log("[ERROR] DebugLog -> initialize -> err = " + err.message);
         }
     }
 

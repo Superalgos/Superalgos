@@ -23,6 +23,9 @@
     <Compile Include="Assistant.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AzureStorage.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BlobStorage.js">
       <SubType>Code</SubType>
     </Compile>

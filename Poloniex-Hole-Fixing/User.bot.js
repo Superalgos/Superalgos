@@ -1092,51 +1092,32 @@ What is the lastFile pointer?
 
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
-                            utilities.createFolderIfNeeded(filePath, charlyStorage, onFolderCreated);
+                            charlyStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                            function onFolderCreated(err) {
+                            function onFileCreated(err) {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> err = " + err.message);
+                                        logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> err = " + err.message);
                                         callBackFunction(err);
                                         return;
                                     }
 
-                                    charlyStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                    function onFileCreated(err) {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                                callBackFunction(err);
-                                                return;
-                                            }
-
-                                            if (LOG_FILE_CONTENT === true) {
-                                                logger.write("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
-                                            }
-
-                                            logger.write("[WARN] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + ""); 
-
-                                            controlLoop();
-
-                                        } catch (err) {
-                                            logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
-                                        }
+                                    if (LOG_FILE_CONTENT === true) {
+                                        logger.write("[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Content written = " + fileContent);
                                     }
 
+                                    logger.write("[WARN] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB); 
+                                    logger.write("[WARN] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Records inserted = " + fileRecordCounter); 
+                                    logger.write("[WARN] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Path = " + filePath + "/" + fileName + ""); 
+
+                                    controlLoop();
+
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFolderCreated -> err = " + err.message);
+                                    logger.write("[ERROR] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }

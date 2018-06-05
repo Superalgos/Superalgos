@@ -111,13 +111,13 @@ Array of records with this information:
 
             let exchangeCallTime;
 
-            createFolders(); 
+            firstSteps(); 
 
-            function createFolders() {
+            function firstSteps() {
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> createFolders -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write("[INFO] start -> firstSteps -> Entering function."); }
 
                     currentDate = bot.processDatetime;
                     
@@ -129,48 +129,10 @@ Array of records with this information:
                     filePathA = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathA;
                     filePathB = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPathB;
 
-                    utilities.createFolderIfNeeded(filePathA, charlyStorage, onFolderACreated);
-
-                    function onFolderACreated(err) {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> createFolders -> onFolderACreated -> Entering function."); }
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] start -> createFolders -> onFolderACreated -> err = " + err.message);
-                            callBackFunction(err);
-                            return;
-                        }
-
-                        utilities.createFolderIfNeeded(filePathB, charlyStorage, onFolderBCreated);
-                    }
-
-                    function onFolderBCreated(err) {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> createFolders -> onFolderBCreated -> Entering function."); }
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] start -> createFolders -> onFolderBCreated -> err = " + err.message);
-                            callBackFunction(err);
-                            return;
-                        }
-
-                        utilities.createFolderIfNeeded(reportFilePath, charlyStorage, onFolderCreated);
-                    }
-
-                    function onFolderCreated(err) {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> createFolders -> onFolderCreated -> Entering function."); }
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] start -> createFolders -> onFolderCreated -> err = " + err.message);
-                            callBackFunction(err);
-                            return;
-                        }
-                        getTheTrades(); 
-                    }
+                    getTheTrades(); 
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> createFolders -> err = " + err.message);
+                    logger.write("[ERROR] start -> firstSteps -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -298,10 +260,12 @@ Array of records with this information:
                         }
 
                         if (LOG_FILE_CONTENT === true) {
-                            logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
+                            logger.write("[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Content written = " + fileContent);
                         }
 
-                        logger.write("[WARN] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Finished with File A @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounterA + " records inserted into " + filePathA + "/" + fileNameA + ""); 
+                        logger.write("[WARN] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Finished with File A @ " + market.assetA + "_" + market.assetB);
+                        logger.write("[WARN] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Records inserted = " + fileRecordCounterA);
+                        logger.write("[WARN] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Path = " + filePathA + "/" + fileNameA + ""); 
 
                         generateFileB();
                     }
@@ -363,10 +327,12 @@ Array of records with this information:
                             }
 
                             if (LOG_FILE_CONTENT === true) {
-                                logger.write("[INFO] start -> tradesReadyToBeSaved -> onFileBCreated ->  Content written = " + fileContent);
+                                logger.write("[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written = " + fileContent);
                             }
 
-                            logger.write("[WARN] start -> tradesReadyToBeSaved -> onFileBCreated -> Finished with File B @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounterB + " records inserted into " + filePathB + "/" + fileNameB + ""); 
+                            logger.write("[WARN] start -> tradesReadyToBeSaved -> onFileBCreated -> Finished with File B @ " + market.assetA + "_" + market.assetB);
+                            logger.write("[WARN] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Records inserted = " + fileRecordCounterB);
+                            logger.write("[WARN] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Path = " + filePathB + "/" + fileNameB + ""); 
 
                             writeStatusReport();
                         }

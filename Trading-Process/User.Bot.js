@@ -4,7 +4,7 @@
 
     let bot = BOT;
 
-    const MODULE_NAME = 'User Bot';
+    const MODULE_NAME = 'UserBot';
     const LOG_INFO = true;
 
     const logger = DEBUG_MODULE.newDebugLog();

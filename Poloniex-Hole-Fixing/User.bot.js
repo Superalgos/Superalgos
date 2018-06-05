@@ -53,6 +53,36 @@
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> pYear = " + year); }
             if (FULL_LOG === true) { logger.write("[INFO] initialize -> pMonth = " + month); }
 
+            /* The very first validation is about if we are not too far in the future. In those cases we will not proceed and expect this instance to be restarted later. */
+
+            let processDate = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
+            let today = new Date();
+            let tomorrow = new Date(today.valueOf() + 1000 * 60 * 60 * 24);
+
+            if (processDate.valueOf() > tomorrow.valueOf()) { // This means that it should start more than a day from current time.
+                logger.write("[WARN] initialize -> Too far in the future.");
+
+                let customOK = {
+                    result: global.CUSTOM_OK_RESPONSE.result,
+                    message: "Too far in the future."
+                }
+                logger.write("[WARN] initialize -> customOK = " + customOK.message);
+                callBackFunction(customOK);
+                return;
+            }
+
+            if (processDate.valueOf() > today.valueOf()) { // This means that is should start in less than a day from current time.
+                logger.write("[WARN] initialize -> Too far in the future.");
+
+                let customOK = {
+                    result: global.CUSTOM_OK_RESPONSE.result,
+                    message: "Not needed now, but soon."
+                }
+                logger.write("[WARN] initialize -> customOK = " + customOK.message);
+                callBackFunction(customOK);
+                return;
+            }
+
             charlyStorage.initialize(bot.devTeam, onCharlyInizialized);
 
             function onCharlyInizialized(err) {
@@ -123,21 +153,6 @@ What is the lastFile pointer?
 
             lastMinuteOfMonth.setUTCMonth(lastMinuteOfMonth.getUTCMonth() + 1);             // First we go 1 month into the future.
             lastMinuteOfMonth.setUTCSeconds(lastMinuteOfMonth.getUTCSeconds() - 30);        // Then we go back 30 seconds, or to the last minute of the original month.
-
-            let thisDatetime = new Date();
-
-            if ((year === thisDatetime.getUTCFullYear() && month > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
-
-                logger.write("[ERROR] start -> writeStatusReport -> We are too far in the future. Bot will not execute now.");
-
-                let customOK = {
-                    result: global.CUSTOM_OK_RESPONSE.result,
-                    message: "Too far in the future."
-                }
-                logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                callBackFunction(customOK);
-                return;
-            }
 
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
 

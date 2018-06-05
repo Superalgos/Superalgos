@@ -8,7 +8,7 @@
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
 
-    const MODULE_NAME = "User Bot";
+    const MODULE_NAME = "UserBot";
 
     const EXCHANGE_NAME = "Poloniex";
 

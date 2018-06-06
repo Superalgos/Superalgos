@@ -1,9 +1,8 @@
 ﻿exports.newUserBot = function newUserBot(bot, logger) {
 
-    const FULL_LOG = true;
-
     const MODULE_NAME = 'User Bot';
-    const LOG_INFO = true;
+    const FULL_LOG = true;
+    const ERROR_LOG = true;
 
     let thisObject = {
         initialize: initialize,
@@ -19,19 +18,17 @@
 
         try {
 
-            if (LOG_INFO === true) { logger.write('[INFO] initialize -> Entering function.'); }
+            if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] initialize -> Entering function.'); }
 
             logger.fileName = MODULE_NAME;
 
             /* Store local values. */
             assistant = pAssistant;
 
-            logger.write('[INFO] initialize -> Entering function initialize ');
-
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write('[ERROR] initialize -> onDone -> err = ' + err.message);
+            if (ERROR_LOG === true) { logger.write(MODULE_NAME, '[ERROR] initialize -> onDone -> err = ' + err.message); }
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -40,7 +37,7 @@
 
         try {
 
-            if (LOG_INFO === true) { logger.write('[INFO] start -> Entering function.'); }
+            if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> Entering function.'); }
 
             /*
 
@@ -63,19 +60,20 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: { 
-                            logger.write('[INFO] start -> onDone -> Execution finished well. :-)');
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> onDone -> Execution finished well.'); }
+
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write('[ERROR] start -> onDone -> Retry Later. Requesting Execution Retry.');
+                            if (ERROR_LOG === true) { logger.write(MODULE_NAME, '[ERROR] start -> onDone -> Retry Later. Requesting Execution Retry.'); }
                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write('[ERROR] start -> onDone -> Operation Failed. Aborting the process.');
+                            if (ERROR_LOG === true) { logger.write(MODULE_NAME, '[ERROR] start -> onDone -> Operation Failed. Aborting the process.'); }
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -83,7 +81,7 @@
                     }
 
                 } catch (err) {
-                    logger.write('[ERROR] start -> onDone -> err = ' + err.message);
+                    if (ERROR_LOG === true) { logger.write(MODULE_NAME, '[ERROR] start -> onDone -> err = ' + err.message); }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -92,7 +90,7 @@
 
                 try {
 
-                    if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> Entering function.'); }
+                    if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> Entering function.'); }
 
                     let balance = assistant.getAvailableBalance();
 
@@ -107,7 +105,7 @@
 
                     if (balanceA === 0 && balanceB === 0) {
 
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> Cannot place orders since Available Balance is zero on both Assets.'); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> Cannot place orders since Available Balance is zero on both Assets.'); }
                         callBack(global.DEFAULT_OK_RESPONSE);
                         return;
 
@@ -152,7 +150,7 @@
 
                         }
 
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> In some situations it is just fin no to place orders. Passing this turn. '); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> In some situations it is just fin no to place orders. Passing this turn. '); }
                         callBack(global.DEFAULT_OK_RESPONSE);
                         return;
                     }
@@ -165,10 +163,10 @@
                         amountB = amountA / rate;
                         amountB = Number(amountB.toFixed(8));
 
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> Decided to BUY.'); }
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> amountA = ' + amountA); }
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> amountB = ' + amountB); }
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> rate = ' + rate); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> Decided to BUY.'); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> amountA = ' + amountA); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> amountB = ' + amountB); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> rate = ' + rate); }
 
                         assistant.putPosition('buy', rate, amountA, amountB, callBack);
 
@@ -183,10 +181,10 @@
                         amountA = amountB * rate;
                         amountA = Number(amountA.toFixed(8));
 
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> Decided to SELL.'); }
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> amountA = ' + amountA); }
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> amountB = ' + amountB); }
-                        if (LOG_INFO === true) { logger.write('[INFO] start -> decideWhatToDo -> rate = ' + rate); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> Decided to SELL.'); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> amountA = ' + amountA); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> amountB = ' + amountB); }
+                        if (FULL_LOG === true) { logger.write( MODULE_NAME, '[INFO] start -> decideWhatToDo -> rate = ' + rate); }
 
                         assistant.putPosition('sell', rate, amountA, amountB, callBack);
 
@@ -194,13 +192,13 @@
                     } 
 
                 } catch (err) {
-                    logger.write('[ERROR] start -> decideWhatToDo -> err = ' + err.message);
+                    if (ERROR_LOG === true) { logger.write(MODULE_NAME, '[ERROR] start -> decideWhatToDo -> err = ' + err.message); }
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            logger.write('[ERROR] start -> err = ' + err.message);
+            if (ERROR_LOG === true) { logger.write(MODULE_NAME, '[ERROR] start -> err = ' + err.message); }
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

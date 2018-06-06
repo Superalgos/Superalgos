@@ -1,15 +1,13 @@
-﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-
-    let bot = BOT;
 
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-    const MODULE_NAME = "UserBot";
+    const MODULE_NAME = "User Bot";
 
     const EXCHANGE_NAME = "Poloniex";
 
@@ -21,21 +19,17 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUMES_ONE_MIN = "One-Min";
 
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-
-    const commons = COMMONS.newCommons(bot, DEBUG_MODULE, UTILITIES);
+    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
     thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let charlyStorage = BLOB_STORAGE.newBlobStorage(bot);
-    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot);
+    let charlyStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
-    let utilities = UTILITIES.newCloudUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let year;
     let month;
@@ -56,9 +50,9 @@
             logger.fileName = MODULE_NAME + "-" + year + "-" + month;
             logger.initialize();
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> pYear = " + year); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> pMonth = " + month); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> pYear = " + year); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> pMonth = " + month); }
 
             /* The very first validation is about if we are not too far in the future. In those cases we will not proceed and expect this instance to be restarted later. */
 
@@ -67,25 +61,25 @@
             let tomorrow = new Date(today.valueOf() + 1000 * 60 * 60 * 24);
 
             if (processDate.valueOf() > tomorrow.valueOf()) { // This means that it should start more than a day from current time.
-                logger.write("[WARN] initialize -> Too far in the future.");
+                logger.write(MODULE_NAME, "[WARN] initialize -> Too far in the future.");
 
                 let customOK = {
                     result: global.CUSTOM_OK_RESPONSE.result,
                     message: "Too far in the future."
                 }
-                logger.write("[WARN] initialize -> customOK = " + customOK.message);
+                logger.write(MODULE_NAME, "[WARN] initialize -> customOK = " + customOK.message);
                 callBackFunction(customOK);
                 return;
             }
 
             if (processDate.valueOf() > today.valueOf()) { // This means that is should start in less than a day from current time.
-                logger.write("[WARN] initialize -> Too far in the future.");
+                logger.write(MODULE_NAME, "[WARN] initialize -> Too far in the future.");
 
                 let customOK = {
                     result: global.CUSTOM_OK_RESPONSE.result,
                     message: "Not needed now, but soon."
                 }
-                logger.write("[WARN] initialize -> customOK = " + customOK.message);
+                logger.write(MODULE_NAME, "[WARN] initialize -> customOK = " + customOK.message);
                 callBackFunction(customOK);
                 return;
             }
@@ -96,17 +90,17 @@
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onInizialized -> Initialization Succeed."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } else {
-                    logger.write("[ERROR] initialize -> onInizialized -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
                     callBackFunction(err);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -120,7 +114,7 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let processDate = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
             let lastMinuteOfMonth = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
@@ -151,7 +145,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Entering function."); }
 
                     let thisReport;
                     let reportKey;
@@ -159,10 +153,10 @@
                     /* First Status Report */
 
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
-                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -170,14 +164,14 @@
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        logger.write("[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency does not exist."
                         }
-                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
                     }
@@ -193,24 +187,24 @@
                             ||
                             (processDate.getUTCFullYear() === firstTradeFile.getUTCFullYear() && processDate.getUTCMonth() < firstTradeFile.getUTCMonth())
                         ) {
-                            logger.write("[WARN] start -> getContextVariables -> The current year / month is before the start of the market history for market.");
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> The current year / month is before the start of the market history for market.");
                             let customOK = {
                                 result: global.CUSTOM_OK_RESPONSE.result,
                                 message: "Month before it is needed."
                             }
-                            logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                             callBackFunction(customOK);
                             return;
                         }
 
                     } else {
-                        logger.write("[WARN] start -> getContextVariables -> Trade History is not complete.");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Trade History is not complete.");
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency not ready."
                         }
-                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
                     }
@@ -218,10 +212,10 @@
                     /* Next Status Report */
 
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month; 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
-                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -229,14 +223,14 @@
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        logger.write("[HINT] start -> getContextVariables -> It is too early too run this process since the hole fixing process has not started yet for this month.");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the hole fixing process has not started yet for this month.");
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency does not exist."
                         }
-                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
                     }
@@ -262,7 +256,7 @@
                                 result: global.CUSTOM_OK_RESPONSE.result,
                                 message: "Dependency not ready."
                             }
-                            logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                             callBackFunction(customOK);
                             return;
                         }
@@ -271,10 +265,10 @@
                      /* Final Status Report */
 
                     reportKey = "AAMasters" + "-" + "AABruce" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" + year + "-" + month;
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
-                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
@@ -282,8 +276,8 @@
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        logger.write("[HINT] start -> getContextVariables -> If the status report does not exist we will point the lasCandleFile to the last day of the previous month.");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> If the status report does not exist we will point the lasCandleFile to the last day of the previous month.");
 
                         lastHoleFixedFile = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
                         findLastCandleCloseValue();
@@ -292,13 +286,13 @@
 
                     if (thisReport.monthCompleted === true) {
 
-                        logger.write("[WARN] start -> getContextVariables -> The current year / month was already fully processed.");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> The current year / month was already fully processed.");
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,
                             message: "Month fully processed."
                         }
-                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
 
@@ -319,10 +313,10 @@
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.message);
                     if (err.message === "Cannot read property 'file' of undefined") {
-                        logger.write("[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
-                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
@@ -332,7 +326,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering function."); }
 
                     let previousCandles;
                     let previousVolumes;
@@ -343,7 +337,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getCandles -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
@@ -357,16 +351,16 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getCandles -> onFileReceived -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> onFileReceived -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write("[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.message);
                                         callBackFunction(err);
                                         return;
                                     }
 
                                     if (LOG_FILE_CONTENT === true) {
-                                        logger.write("[INFO] start -> findPreviousContent -> getCandles -> onFileReceived ->  text = " + text);
+                                        logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> onFileReceived ->  text = " + text);
                                     }
 
                                     candlesFile = JSON.parse(text);
@@ -375,15 +369,15 @@
 
                                 } catch (err) {
 
-                                    logger.write("[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.message);
-                                    logger.write("[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> filePath = " + filePath);
-                                    logger.write("[HINT] start -> findPreviousContent -> getCandles -> onFileReceived -> Empty or corrupt volume file found.");
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> onFileReceived -> filePath = " + filePath);
+                                    logger.write(MODULE_NAME, "[HINT] start -> findPreviousContent -> getCandles -> onFileReceived -> Empty or corrupt volume file found.");
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
                         } catch (err) {
-                            logger.write("[ERROR] start -> findPreviousContent -> getCandles -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getCandles -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -391,7 +385,7 @@
                     function getVolumes() {
 
                         try {
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getVolumes -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
@@ -405,17 +399,17 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> getVolumes -> onFileReceived -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> onFileReceived -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
-                                        logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
                                         callBackFunction(err);
                                         return;
                                     }
 
                                     if (LOG_FILE_CONTENT === true) {
-                                        logger.write("[INFO] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
+                                        logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
                                     }
 
                                     volumesFile = JSON.parse(text);
@@ -425,22 +419,22 @@
 
                                 } catch (err) {
 
-                                    logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
-                                    logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> filePath = " + filePath);
-                                    logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
-                                    logger.write("[HINT] start -> findPreviousContent -> getVolumes -> onFileReceived -> Empty or corrupt volume file found.");
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived -> filePath = " + filePath);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> onFileReceived ->  text = " + text);
+                                    logger.write(MODULE_NAME, "[HINT] start -> findPreviousContent -> getVolumes -> onFileReceived -> Empty or corrupt volume file found.");
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
                         } catch (err) {
-                            logger.write("[ERROR] start -> findPreviousContent -> getVolumes -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     } 
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> findPreviousContent -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -449,7 +443,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering function."); }
 
                     /* 
                     We will search and find for the last trade before the begining of the current candle and that will give us the last close value.
@@ -462,9 +456,9 @@
                         We are at the begining of the market, so we will set everyting to build the first candle.
                         */
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Begining of the market detected."); }
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Entering market = " + JSON.stringify(market)); }
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> lastCandleClose = " + lastCandleClose); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Begining of the market detected."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering market = " + JSON.stringify(market)); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> lastCandleClose = " + lastCandleClose); }
 
                         lastHoleFixedFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00"  + GMT_SECONDS);
                         lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() - ONE_DAY_IN_MILISECONDS);
@@ -486,7 +480,7 @@
 
                             try {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopStart -> Entering function."); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopStart -> Entering function."); }
 
                                 date = new Date(date.valueOf() - 60 * 1000);
 
@@ -503,17 +497,17 @@
 
                                     try {
 
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Entering function."); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
-                                            logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
                                             callBackFunction(err);
                                             return;
                                         }
 
                                         if (LOG_FILE_CONTENT === true) {
-                                            logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
+                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
                                         }
 
                                         tradesFile = JSON.parse(text);
@@ -522,43 +516,43 @@
 
                                             lastCandleClose = tradesFile[tradesFile.length - 1][2]; // Position 2 is the rate at which the trade was executed.
 
-                                            logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
-                                            logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> lastCandleClose = " + lastCandleClose);
+                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> lastCandleClose = " + lastCandleClose);
 
                                             buildCandlesAndVolumes();
 
                                         } else {
 
-                                            logger.write("[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> NO Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> NO Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
 
                                             loopStart();
                                         }
 
                                     } catch (err) {
 
-                                        logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
-                                        logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> filePath = " + filePath);
-                                        logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
-                                        logger.write("[HINT] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Empty or corrupt volume file found.");
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> filePath = " + filePath);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
+                                        logger.write(MODULE_NAME, "[HINT] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Empty or corrupt volume file found.");
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
                                 }
                             } catch (err) {
-                                logger.write("[ERROR] start -> findLastCandleCloseValue -> loopStart -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> err = " + err.message);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             }
                         }
                     }
                 } catch (err) {
-                    logger.write("[ERROR] start -> findLastCandleCloseValue -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function buildCandlesAndVolumes(previousCandles, previousVolumes) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> Entering function."); }
 
                 /*
                 Here we are going to scan the trades files packing them in candles files every one day.
@@ -575,7 +569,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> Entering function."); }
 
                             lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
@@ -589,14 +583,14 @@
                                 date = new Date(lastTradeFile.valueOf());
                             }
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> date = " + date); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> date = " + date); }
 
                             let candles = [];
                             let volumes = [];
 
                             if (previousCandles !== undefined && canAddPrevious === true) {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> Adding Previous Candles. "); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> Adding Previous Candles. "); }
 
                                 for (let i = 0; i < previousCandles.length; i++) {
 
@@ -615,7 +609,7 @@
 
                             if (previousVolumes !== undefined && canAddPrevious === true) {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> Adding Previous Volumes. "); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> Adding Previous Volumes. "); }
 
                                 for (let i = 0; i < previousVolumes.length; i++) {
 
@@ -638,11 +632,11 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Entering function."); }
 
                                     date = new Date(date.valueOf() + 60 * 1000);
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> date = " + date); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> date = " + date); }
 
                                     /* Check if we are outside the current Day / File */
 
@@ -662,7 +656,7 @@
 
                                     if (date.getUTCMonth() + 1 !== parseInt(month)) {
 
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> End of the month reached at date = " + date.toUTCString()); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> End of the month reached at date = " + date.toUTCString()); }
 
                                         lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
@@ -672,10 +666,10 @@
                                         function onStatusReportWritten(err) {
 
                                             try {
-                                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> Entering function."); }
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> Entering function."); }
 
                                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                    logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
                                                     callBackFunction(err);
                                                     return;
                                                 }
@@ -684,12 +678,12 @@
                                                     result: global.CUSTOM_OK_RESPONSE.result,
                                                     message: "End of the month reached."
                                                 }
-                                                logger.write("[WARN] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> customOK = " + customOK.message);
+                                                logger.write(MODULE_NAME, "[WARN] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> customOK = " + customOK.message);
                                                 callBackFunction(customOK);
 
                                                 return;
                                             } catch (err) {
-                                                logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.message);
                                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 return;
                                             }
@@ -706,7 +700,7 @@
                                         function onFilesWritten() {
 
                                             if (FULL_LOG === true) {
-                                                logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Head of the market reached for market " + market.assetA + '_' + market.assetB + "."); }
+                                                logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Head of the market reached for market " + market.assetA + '_' + market.assetB + "."); }
 
                                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                                             return;
@@ -716,7 +710,7 @@
                                     readTrades();
 
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -725,7 +719,7 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> readTrades -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> readTrades -> Entering function."); }
 
                                     lastTradeFile = new Date(date.valueOf());
 
@@ -742,17 +736,17 @@
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> Entering function."); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> Entering function."); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.message);
-                                                logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
                                                 callBackFunction(err);
                                                 return;
                                             }
 
                                             if (LOG_FILE_CONTENT === true) {
-                                                logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
+                                                logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
                                             }
 
                                             let candle = {
@@ -775,7 +769,7 @@
 
                                             let tradesCount = utilities.pad(tradesFile.length, 5);
 
-                                            logger.write("[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> " + tradesCount + " trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ". ");
+                                            logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> " + tradesCount + " trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ". ");
 
                                             if (tradesFile.length > 0) {
 
@@ -822,36 +816,36 @@
 
                                         } catch (err) {
 
-                                            logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.message);
-                                            logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> filePath = " + filePath);
-                                            logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
-                                            logger.write("[HINT] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> Empty or corrupt volume file found.");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> filePath = " + filePath);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
+                                            logger.write(MODULE_NAME, "[HINT] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> Empty or corrupt volume file found.");
                                             
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
                                     }
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         } catch (err) {
-                            logger.write("[ERROR] start -> buildCandlesAndVolumes -> nextFile -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> buildCandlesAndVolumes -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function writeFiles(date, candles, volumes, isFileComplete, callBack) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> Entering function."); }
 
                 /*
                 Here we will write the contents of the Candles and Volumens files. If the File is declared as complete, we will also write the status report.
@@ -864,7 +858,7 @@
                     function writeCandles() {
 
                         try {
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> Entering function."); }
 
                             let separator = "";
                             let fileRecordCounter = 0;
@@ -890,30 +884,30 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
                                         callBackFunction(err);
                                         return;
                                     }
 
                                     if (LOG_FILE_CONTENT === true) {
-                                        logger.write("[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> fileContent = " + fileContent);
+                                        logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> fileContent = " + fileContent);
                                     }
 
-                                    logger.write("[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
+                                    logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
 
                                     writeVolumes();
 
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         } catch (err) {
-                                logger.write("[ERROR] start -> writeFiles -> writeCandles -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -921,7 +915,7 @@
                     function writeVolumes() {
 
                         try {
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> Entering function."); }
 
                             let separator = "";
                             let fileRecordCounter = 0;
@@ -934,11 +928,11 @@
 
                                 if (volumes[i].begin < 1262304000000 | volumes[i].end < 1262304000000) { // If it is storing a number that represents a date before the year 2010...
 
-                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> Invalid Date trying to be recorded on output file. ");
-                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> volumes[i].begin = " + volumes[i].begin);
-                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> volumes[i].end = " + volumes[i].end);
-                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> i = " + i);
-                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> volumes = " + JSON.stringify(volumes));
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> Invalid Date trying to be recorded on output file. ");
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> volumes[i].begin = " + volumes[i].begin);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> volumes[i].end = " + volumes[i].end);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> i = " + i);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> volumes = " + JSON.stringify(volumes));
 
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
@@ -960,30 +954,30 @@
                             function onFileCreated(err) {
 
                                 try {
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
                                         callBackFunction(err);
                                         return;
                                     }
 
                                     if (LOG_FILE_CONTENT === true) {
-                                        logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> fileContent = " + fileContent);
+                                        logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> fileContent = " + fileContent);
                                     }
 
-                                    logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
+                                    logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
 
                                     writeReport();
 
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         } catch (err) {
-                            logger.write("[ERROR] start -> writeFiles -> writeVolumes -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -991,17 +985,17 @@
                     function writeReport() {
 
                         try {
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeReport -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeReport -> Entering function."); }
 
                             writeStatusReport(date, lastTradeFile, lastCandleClose, isFileComplete, false, onStatusReportWritten);
 
                             function onStatusReportWritten(err) {
 
                                 try {
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeReport -> onStatusReportWritten -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeReport -> onStatusReportWritten -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write("[ERROR] start -> writeFiles -> onStatusReportWritten -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> onStatusReportWritten -> err = " + err.message);
                                         callBackFunction(err);
                                         return;
                                     }
@@ -1009,31 +1003,31 @@
                                     callBack();
                                     return;
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> writeFiles -> writeReport -> onStatusReportWritten -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeReport -> onStatusReportWritten -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
                             }
                         } catch (err) {
-                            logger.write("[ERROR] start -> writeFiles -> writeReport -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeReport -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> writeFiles -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function writeStatusReport(lastFileDate, lastTradeFile, candleClose, isFileComplete, isMonthComplete, callBack) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> lastTradeFile = " + lastTradeFile); }
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> candleClose = " + candleClose); }
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> isFileComplete = " + isFileComplete); }
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> isMonthComplete = " + isMonthComplete); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastTradeFile = " + lastTradeFile); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> candleClose = " + candleClose); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> isFileComplete = " + isFileComplete); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> isMonthComplete = " + isMonthComplete); }
 
                 try {
 
@@ -1064,10 +1058,10 @@
 
                     function onSaved(err) {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
                             callBackFunction(err);
                             return;
                         }
@@ -1076,13 +1070,13 @@
                     }
                 }
                 catch (err) {
-                    logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
-            logger.write("[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

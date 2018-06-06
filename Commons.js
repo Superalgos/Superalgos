@@ -1,4 +1,4 @@
-﻿exports.newCommons = function newCommons(BOT, DEBUG_MODULE, UTILITIES) {
+﻿exports.newCommons = function newCommons(bot, logger, UTILITIES) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -12,13 +12,7 @@
         initializeStorage: initializeStorage
     };
 
-    let bot = BOT;
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-
-    let utilities = UTILITIES.newCloudUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     return thisObject;
 
@@ -26,7 +20,7 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] initializeStorage -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initializeStorage -> Entering function."); }
 
             initializeBruceStorage();
 
@@ -41,7 +35,7 @@
                         initializeCharlyStorage();
 
                     } else {
-                        logger.write("[ERROR] initializeStorage -> initializeBruceStorage -> onBruceInizialized -> err = " + err.message);
+                        logger.write(MODULE_NAME, "[ERROR] initializeStorage -> initializeBruceStorage -> onBruceInizialized -> err = " + err.message);
                         callBackFunction(err);
                     }
                 }
@@ -58,14 +52,14 @@
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                     } else {
-                        logger.write("[ERROR] initializeStorage -> initializeCharlyStorage -> onCharlyInizialized -> err = " + err.message);
+                        logger.write(MODULE_NAME, "[ERROR] initializeStorage -> initializeCharlyStorage -> onCharlyInizialized -> err = " + err.message);
                         callBackFunction(err);
                     }
                 }
             }
         }
         catch (err) {
-            logger.write("[ERROR] initializeStorage -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initializeStorage -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

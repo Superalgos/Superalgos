@@ -16,12 +16,12 @@
       "description": "Produces two data-sets with candles and volumes for all markets at Poloniex.",
       "startMode": {
         "allMonths": {
-          "run": "false",
+          "run": "true",
           "minYear": "2016",
           "maxYear": "2017"
         },
         "oneMonth": {
-          "run": "true",
+          "run": "false",
           "year": "2018",
           "month": "6"
         },

@@ -1,31 +1,25 @@
-﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
-    let bot = BOT;
-
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
 
-    const MODULE_NAME = "UserBot";
+    const MODULE_NAME = "User Bot";
 
     const EXCHANGE_NAME = "Poloniex";
 
     const TRADES_FOLDER_NAME = "Trades";
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
 
     thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let charlyStorage = BLOB_STORAGE.newBlobStorage(bot);
+    let charlyStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
-    let utilities = UTILITIES.newCloudUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot, logger);
     let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
     let statusDependencies;
@@ -39,7 +33,7 @@
             logger.fileName = MODULE_NAME;
             logger.initialize();
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
 
@@ -49,17 +43,17 @@
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onCharlyInizialized -> Initialization Succeed."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onCharlyInizialized -> Initialization Succeed."); }
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } else {
-                    logger.write("[ERROR] initialize -> onCharlyInizialized -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onCharlyInizialized -> err = " + err.message);
                     callBackFunction(err);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -93,7 +87,7 @@ Array of records with this information:
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let market = global.MARKET;
 
@@ -117,7 +111,7 @@ Array of records with this information:
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> firstSteps -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> firstSteps -> Entering function."); }
 
                     currentDate = bot.processDatetime;
                     
@@ -132,7 +126,7 @@ Array of records with this information:
                     getTheTrades(); 
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> firstSteps -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> firstSteps -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -141,7 +135,7 @@ Array of records with this information:
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getTheTrades -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTheTrades -> Entering function."); }
 
                     const datetime = parseInt(currentDate.valueOf() / 1000);
 
@@ -158,7 +152,7 @@ Array of records with this information:
                     poloniexApiClient.API.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> getTheTrades -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getTheTrades -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -167,13 +161,13 @@ Array of records with this information:
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> onExchangeCallReturned -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> onExchangeCallReturned -> Entering function."); }
 
                     if (FULL_LOG === true) {
 
                         let exchangeResponseTime = new Date();
                         let timeDifference = (exchangeResponseTime.valueOf() - exchangeCallTime.valueOf()) / 1000;
-                        logger.write("[INFO] start -> onExchangeCallReturned -> Call time recorded = " + timeDifference + " seconds.");
+                        logger.write(MODULE_NAME, "[INFO] start -> onExchangeCallReturned -> Call time recorded = " + timeDifference + " seconds.");
                     }
 
                     poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
@@ -184,7 +178,7 @@ Array of records with this information:
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> onExchangeCallReturned -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> onExchangeCallReturned -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -193,7 +187,7 @@ Array of records with this information:
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> Entering function."); }
 
                     let fileRecordCounterA = 0;
                     let fileRecordCounterB = 0;
@@ -251,28 +245,28 @@ Array of records with this information:
 
                     function onFirstFileACreated(err) {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] start -> tradesReadyToBeSaved -> onFirstFileACreated -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> onFirstFileACreated -> err = " + err.message);
                             callBackFunction(err);
                             return;
                         }
 
                         if (LOG_FILE_CONTENT === true) {
-                            logger.write("[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Content written = " + fileContent);
+                            logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Content written = " + fileContent);
                         }
 
-                        logger.write("[WARN] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Finished with File A @ " + market.assetA + "_" + market.assetB);
-                        logger.write("[WARN] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Records inserted = " + fileRecordCounterA);
-                        logger.write("[WARN] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Path = " + filePathA + "/" + fileNameA + ""); 
+                        logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Finished with File A @ " + market.assetA + "_" + market.assetB);
+                        logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Records inserted = " + fileRecordCounterA);
+                        logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Path = " + filePathA + "/" + fileNameA + ""); 
 
                         generateFileB();
                     }
 
                     function generateFileB() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> generateFileB -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> generateFileB -> Entering function."); }
 
                         fileContent = "";
                         needSeparator = false;
@@ -318,27 +312,27 @@ Array of records with this information:
 
                         function onFileBCreated(err) {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write("[ERROR] start -> tradesReadyToBeSaved -> onFileBCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> onFileBCreated -> err = " + err.message);
                                 callBackFunction(err);
                                 return;
                             }
 
                             if (LOG_FILE_CONTENT === true) {
-                                logger.write("[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written = " + fileContent);
+                                logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written = " + fileContent);
                             }
 
-                            logger.write("[WARN] start -> tradesReadyToBeSaved -> onFileBCreated -> Finished with File B @ " + market.assetA + "_" + market.assetB);
-                            logger.write("[WARN] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Records inserted = " + fileRecordCounterB);
-                            logger.write("[WARN] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Path = " + filePathB + "/" + fileNameB + ""); 
+                            logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Finished with File B @ " + market.assetA + "_" + market.assetB);
+                            logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Records inserted = " + fileRecordCounterB);
+                            logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Path = " + filePathB + "/" + fileNameB + ""); 
 
                             writeStatusReport();
                         }
                     }
                 } catch (err) {
-                    logger.write("[ERROR] start -> tradesReadyToBeSaved -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -347,7 +341,7 @@ Array of records with this information:
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
 
                     let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
@@ -374,10 +368,10 @@ Array of records with this information:
 
                     function onSaved(err) {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
                             callBackFunction(err);
                             return;
                         }
@@ -386,13 +380,13 @@ Array of records with this information:
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

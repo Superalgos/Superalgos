@@ -1,6 +1,5 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿exports.newInterval = function newInterval(bot, logger, UTILITIES, FILE_STORAGE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
 
-    let bot = BOT;
     const ROOT_DIR = './';
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
@@ -16,10 +15,6 @@
     const GO_RANDOM = false;
     const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. 
 
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-
     interval = {
         initialize: initialize,
         start: start
@@ -27,9 +22,9 @@
 
     let markets;
 
-    let charlyStorage = FILE_STORAGE.newFileStorage(bot);
+    let charlyStorage = FILE_STORAGE.newFileStorage(bot, logger);
 
-    let utilities = UTILITIES.newCloudUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let year;
     let month;
@@ -53,7 +48,7 @@
 
             charlyStorage.initialize(bot.devTeam);
 
-            markets = MARKETS_MODULE.newMarkets(bot);
+            markets = MARKETS_MODULE.newMarkets(bot.logger);
             markets.initialize(callBackFunction);
 
 
@@ -83,7 +78,7 @@ This process complements the Live Trades process and write historical trades fil
         try {
 
             if (LOG_INFO === true) {
-                logger.write("[INFO] Entering function 'start', with year = " + year + " and month = " + month);
+                logger.write(MODULE_NAME, "[INFO] Entering function 'start', with year = " + year + " and month = " + month);
             }
 
             let processDate = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
@@ -95,7 +90,7 @@ This process complements the Live Trades process and write historical trades fil
 
             if ((year === thisDatetime.getUTCFullYear() && month > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
 
-                logger.write("[INFO] We are too far in the future. Interval will not execute. Sorry.");
+                logger.write(MODULE_NAME, "[INFO] We are too far in the future. Interval will not execute. Sorry.");
                 return;
 
             }
@@ -136,7 +131,7 @@ This process complements the Live Trades process and write historical trades fil
                 try {
 
                     if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'marketsLoop'");
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'marketsLoop'");
                     }
 
                     currentDate = new Date();
@@ -163,14 +158,14 @@ This process complements the Live Trades process and write historical trades fil
                 try {
 
                     if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'openMarket'");
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'openMarket'");
                     }
 
 
                     if (marketQueue.length === 0) {
 
                         if (LOG_INFO === true) {
-                            logger.write("[INFO] 'openMarket' - marketQueue.length === 0");
+                            logger.write(MODULE_NAME, "[INFO] 'openMarket' - marketQueue.length === 0");
                         }
 
                         const logText = "[WARN] We processed all the markets.";
@@ -208,8 +203,8 @@ This process complements the Live Trades process and write historical trades fil
                     }
 
                     if (LOG_INFO === true) {
-                        logger.write("[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
-                        logger.write("[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
+                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
+                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
                     }
 
                     if (market.status === markets.ENABLED) {
@@ -218,7 +213,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     } else {
 
-                        logger.write("[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
+                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
                         closeAndOpenMarket();
                         return;
 
@@ -236,7 +231,7 @@ This process complements the Live Trades process and write historical trades fil
             function closeMarket() {
 
                 if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeMarket'");
+                    logger.write(MODULE_NAME, "[INFO] Entering function 'closeMarket'");
                 }
 
             }
@@ -244,7 +239,7 @@ This process complements the Live Trades process and write historical trades fil
             function closeAndOpenMarket() {
 
                 if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeAndOpenMarket'");
+                    logger.write(MODULE_NAME, "[INFO] Entering function 'closeAndOpenMarket'");
                 }
 
                 openMarket();
@@ -271,7 +266,7 @@ This process complements the Live Trades process and write historical trades fil
                 try {
 
                     if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'getMarketStatusReport'");
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'getMarketStatusReport'");
                     }
 
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
@@ -327,7 +322,7 @@ This process complements the Live Trades process and write historical trades fil
                 try {
 
                     if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'getMarketStatusReport'");
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'getMarketStatusReport'");
                     }
 
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
@@ -389,7 +384,7 @@ This process complements the Live Trades process and write historical trades fil
                 try {
 
                     if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'getTheTrades'");
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'getTheTrades'");
                     }
 
                     const firstTradeDate = parseInt(currentDate.valueOf() / 1000);
@@ -437,7 +432,7 @@ This process complements the Live Trades process and write historical trades fil
 
                         let exchangeResponseTime = new Date();
                         let timeDifference = (exchangeResponseTime.valueOf() - exchangeCallTime.valueOf()) / 1000;
-                        logger.write("[INFO] Entering function 'onExchangeCallReturned' - Call time recorded = " + timeDifference + " seconds.");
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'onExchangeCallReturned' - Call time recorded = " + timeDifference + " seconds.");
                     }
 
                     if (err || tradesRequested.error !== undefined) {
@@ -485,7 +480,7 @@ This process complements the Live Trades process and write historical trades fil
 
                                 function onMarketDeactivated() {
 
-                                    logger.write("[INFO] Market " + market.assetA + "_" + market.assetB + " deactivated. Id = " + market.id);
+                                    logger.write(MODULE_NAME, "[INFO] Market " + market.assetA + "_" + market.assetB + " deactivated. Id = " + market.id);
 
                                     closeAndOpenMarket();
                                     return;
@@ -529,7 +524,7 @@ This process complements the Live Trades process and write historical trades fil
                 try {
 
                     if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'tradesReadyToBeSaved'");
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'tradesReadyToBeSaved'");
                     }
 
                     moreIntervalCallsNeeded = true; // If we are requesting trades from the exchange, that means that something is being done.
@@ -706,7 +701,7 @@ This process complements the Live Trades process and write historical trades fil
                     */
 
                     if (LOG_INFO === true) {
-                        logger.write("[INFO] About to save " + (filesToSave.length + 1) + " files. ");
+                        logger.write(MODULE_NAME, "[INFO] About to save " + (filesToSave.length + 1) + " files. ");
                     }
 
                     let i = 0;
@@ -775,7 +770,7 @@ This process complements the Live Trades process and write historical trades fil
                         } else {
 
                             if (LOG_INFO === true) {
-                                logger.write("[INFO] Leaving function 'tradesReadyToBeSaved'");
+                                logger.write(MODULE_NAME, "[INFO] Leaving function 'tradesReadyToBeSaved'");
                             }
 
                             let monthCompleteHistory = false;
@@ -843,7 +838,7 @@ This process complements the Live Trades process and write historical trades fil
                 try {
 
                     if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'writeStatusReport'");
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'writeStatusReport'");
                     }
 
                     let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
@@ -872,7 +867,7 @@ This process complements the Live Trades process and write historical trades fil
                         function onFileCreated() {
 
                             if (LOG_INFO === true) {
-                                logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
+                                logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - Content written: " + fileContent);
                             }
 
                             if (isBeginingOfMarket === true) {
@@ -903,7 +898,7 @@ This process complements the Live Trades process and write historical trades fil
                                     function onMasterFileCreated() {
 
                                         if (LOG_INFO === true) {
-                                            logger.write("[INFO] 'writeStatusReport' - Begining of market reached !!! - Content written: " + fileContent);
+                                            logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - Begining of market reached !!! - Content written: " + fileContent);
                                         }
 
                                         verifyMarketComplete(isMonthComplete, callBack);
@@ -937,7 +932,7 @@ This process complements the Live Trades process and write historical trades fil
 
                 if (isMonthComplete === true) {
 
-                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Month Completed !!! ");
+                    logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Month Completed !!! ");
 
                     /*
  
@@ -973,7 +968,7 @@ This process complements the Live Trades process and write historical trades fil
 
                             /* The first month of the market didnt create this file yet. Aborting verification. */
 
-                            logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the main status report did not exist. ");
+                            logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the main status report did not exist. ");
 
                             callBack();
 
@@ -1009,7 +1004,7 @@ This process complements the Live Trades process and write historical trades fil
 
                                 /* If any of the files do not exist, it is enough to know the market is not complete. */
 
-                                logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED  since the status report for year  " + initialYear + " and month " + initialMonth + " did not exist. ");
+                                logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED  since the status report for year  " + initialYear + " and month " + initialMonth + " did not exist. ");
 
                                 callBack();
 
@@ -1025,7 +1020,7 @@ This process complements the Live Trades process and write historical trades fil
 
                                     /* If any of the files says that month is not complete then it is enough to know the market is not complete. */
 
-                                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the status report for year  " + initialYear + " and month " + initialMonth + " did not have a complete history. ");
+                                    logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the status report for year  " + initialYear + " and month " + initialMonth + " did not have a complete history. ");
 
                                     callBack();
 
@@ -1081,7 +1076,7 @@ This process complements the Live Trades process and write historical trades fil
 
                             function onMasterFileCreated() {
 
-                                logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification SUCESSFULL . Market Completed !!! - Content written: " + fileContent);
+                                logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification SUCESSFULL . Market Completed !!! - Content written: " + fileContent);
 
                                 callBack();
 
@@ -1091,7 +1086,7 @@ This process complements the Live Trades process and write historical trades fil
 
                 } else {
 
-                    logger.write("[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED: Month is not complete. ");
+                    logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED: Month is not complete. ");
                     callBack();
 
                 }

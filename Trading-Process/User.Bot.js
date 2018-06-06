@@ -1,15 +1,9 @@
-﻿exports.newUserBot = function newUserBot(BOT, DEBUG_MODULE) {
+﻿exports.newUserBot = function newUserBot(bot, logger) {
 
     const FULL_LOG = true;
 
-    let bot = BOT;
-
-    const MODULE_NAME = 'UserBot';
+    const MODULE_NAME = 'User Bot';
     const LOG_INFO = true;
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
 
     let thisObject = {
         initialize: initialize,
@@ -58,7 +52,7 @@
 
             if (global.AT_BREAKPOINT === true) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] run -> loop -> Plot Breakpoint Hit."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Plot Breakpoint Hit."); }
 
             }
 

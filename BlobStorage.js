@@ -123,7 +123,14 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
                         if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err)); }
                         if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result)); }
                         if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response)); }
-                        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> err.code = " + err.code); }
+
+                        if (ERROR_LOG === true && logger !== undefined) {
+                            logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileReceived -> Error trying to create this file.");
+                            logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileReceived -> containerName = " + containerName);
+                            logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileReceived -> pFolderPath = " + pFolderPath);
+                            logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileReceived -> pFileName = " + pFileName);
+                            logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileReceived -> err.code = " + err.code);
+                        }
 
                         if (
                             err.code === 'ECONNRESET' ||

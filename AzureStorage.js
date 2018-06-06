@@ -131,7 +131,6 @@
 
             let responseData = '';
             let err = null;
-            let alreadyCalledBack = false;
 
             /* We add the headers. */
 
@@ -145,14 +144,9 @@
             request.on('error', onError);
 
             function onError(err) {
-                console.log("Error: ", err);
 
-                if (alreadyCalledBack === false) {
-                    alreadyCalledBack = true;
-                    callBack(err);
-                } else {
-                    console.log("Not calling back for the same problem.");
-                }
+                callBack(err);
+
             }
 
             function onResponse(response) {
@@ -186,7 +180,6 @@
             let responseData = '';
             let err = null;
             let responseCode;
-            let alreadyCalledBack = false;
 
             /* We add the headers. */
 
@@ -204,14 +197,9 @@
             request.on('error', onError);
 
             function onError(err) {
-                console.log("Error: ", err);
 
-                if (alreadyCalledBack === false) {
-                    alreadyCalledBack = true;
-                    callBack(err);
-                } else {
-                    console.log("Not calling back for the same problem.");
-                }
+                callBack(err);
+
             }
 
             function onResponse(response) {

@@ -69,19 +69,26 @@
 
                         let fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + ".json";
 
-                        cloudStorage.createTextFile(filePath, fileName, blobContent + '\r\n' + "]", onFileCreated);
+                        writeLog();
 
-                        function onFileCreated(err) {
+                        function writeLog() {
 
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = " + err.message);
-                                console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> filePath = " + filePath);
-                                console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> fileName = " + fileName);
-                                return;
+                            cloudStorage.createTextFile(filePath, fileName, blobContent + '\r\n' + "]", onFileCreated);
+
+                            function onFileCreated(err) {
+
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = " + err.message);
+                                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> filePath = " + filePath);
+                                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> fileName = " + fileName);
+
+                                    setTimeout(writeLog, 10000); // Lets retry until we make it.
+                                    return;
+                                }
+
+                                blobContent = "";
+                                thisObject = {};
                             }
-
-                            blobContent = "";
-                            thisObject = {};
                         }
 
                     } else {
@@ -122,7 +129,8 @@
 
                 if (pMessage.indexOf("[ERROR]") >= 0) {
 
-                    console.log("AACloud" + spacePad(pModule, 50) + " : " + pMessage);
+                    let now = new Date;
+                    console.log(now.toUTCString() + " AACloud" + spacePad(pModule, 15) + " : " + pMessage);
 
                 }
             }

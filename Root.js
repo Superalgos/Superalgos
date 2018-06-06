@@ -720,7 +720,10 @@ exports.newRoot = function newRoot() {
 
                                             logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+
+                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+
                                             logger.persist();
 
                                         } else {
@@ -780,7 +783,9 @@ exports.newRoot = function newRoot() {
 
                                             logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+
+                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.persist();
 
                                         } else {

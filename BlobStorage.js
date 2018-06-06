@@ -1,21 +1,19 @@
 ﻿
-exports.newBlobStorage = function newBlobStorage(BOT) {
+exports.newBlobStorage = function newBlobStorage(BOT, logger) {
 
     let FULL_LOG = true;
+    let ERROR_LOG = true;
     let LOG_FILE_CONTENT = false;
 
     let bot = BOT;
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "BlobStorage";
+    const MODULE_NAME = "Blob Storage";
+    const SECOND_TRY_WAIT_TIME = 10000;
 
     let AZURE_STORAGE = require('./AzureStorage');
-    let storage = AZURE_STORAGE.newAzureStorage(bot);
-
-    const DEBUG_MODULE = require('./DebugLog');
-    let logger;
-
-
+    let storage = AZURE_STORAGE.newAzureStorage(bot, logger);
+  
     let thisObject = {
         initialize: initialize,
         createFolder: createFolder,
@@ -36,20 +34,15 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
             containerName = pDataOwner.toLowerCase();
 
-            logger = DEBUG_MODULE.newDebugLog();
-            logger.bot = bot;
-            logger.fileName = MODULE_NAME + '.' + pDataOwner;
-            logger.initialize(disableLogging);
-
             if (pDataOwner.environment !== undefined) { // This is use for data migration from one environment to the other.
 
                 environment = pDataOwner.environment;
 
             }
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> environment = " + environment); }
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> containerName = " + containerName); }
+            if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] initialize -> environment = " + environment); }
+            if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] initialize -> containerName = " + containerName); }
 
             let readConnectionString = global.STORAGE_PERMISSIONS[environment][containerName].readConnectionString;
 
@@ -71,14 +64,14 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
         }
         catch (err) {
 
-            logger.write("[ERROR] initialize -> err = " + err.message);
+            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message); }
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
     function createFolder(pFolderPath, callBackFunction) {
 
-        if (FULL_LOG === true) { logger.write("[INFO] createFolder -> Entering function."); }
+        if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] createFolder -> Entering function."); }
 
         try {
 
@@ -89,7 +82,7 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
         }
         catch (err) {
-            logger.write("[ERROR] createFolder -> err = " + err.message);
+            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createFolder -> err = " + err.message); }
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -98,18 +91,18 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
         if (writeOnlyBlobService === undefined) {
 
-            logger.write("[ERROR] createTextFile -> initialize function not executed or failed. Can not process this request. Sorry.");
+            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }
 
         try {
 
-            if (FULL_LOG === true) {
-                logger.write("[INFO] createTextFile -> About to create a text file.");
-                logger.write("[INFO] createTextFile -> containerName = " + containerName);
-                logger.write("[INFO] createTextFile -> pFolderPath = " + pFolderPath);
-                logger.write("[INFO] createTextFile -> pFileName = " + pFileName);
+            if (FULL_LOG === true && logger !== undefined) {
+                logger.write(MODULE_NAME, "[INFO] createTextFile -> About to create a text file.");
+                logger.write(MODULE_NAME, "[INFO] createTextFile -> containerName = " + containerName);
+                logger.write(MODULE_NAME, "[INFO] createTextFile -> pFolderPath = " + pFolderPath);
+                logger.write(MODULE_NAME, "[INFO] createTextFile -> pFileName = " + pFileName);
             }
 
             writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onFileCreated);
@@ -118,18 +111,19 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                 try {
 
-                    if (FULL_LOG === true) {
-                        logger.write("[INFO] createTextFile -> onFileCreated -> Response from Azure received.");
-                        logger.write("[INFO] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
-                        logger.write("[INFO] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
-                        logger.write("[INFO] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
+                    if (FULL_LOG === true && logger !== undefined) {
+                        logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> Response from Azure received.");
+                        logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
+                        logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
+                        logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
                     }
 
                     if (err) {
 
-                        logger.write("[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
-                        logger.write("[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
-                        logger.write("[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response));
+                        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> err = " + JSON.stringify(err)); }
+                        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> result = " + JSON.stringify(result)); }
+                        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> response = " + JSON.stringify(response)); }
+                        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> err.code = " + err.code); }
 
                         if (
                             err.code === 'ECONNRESET' ||
@@ -144,14 +138,14 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                         )
                         {
 
-                            setTimeout(secondTry, 1000);
+                            setTimeout(secondTry, SECOND_TRY_WAIT_TIME);
                             return;
 
                             function secondTry() {
 
                                 try {
 
-                                    logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
+                                    logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> secondTry -> Retrying to create the file.");
 
                                     writeOnlyBlobService.createBlockBlobFromText(containerName, pFolderPath + "/" + pFileName, pFileContent, onSecondTry);
 
@@ -160,42 +154,50 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                                         try {
 
                                             if (err) {
-                                                logger.write("[ERROR] createTextFile -> onFileCreated -> secondTry -> File not created. Giving Up.");
+                                                if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> File not created. Giving Up."); }
+
+                                                if (ERROR_LOG === true && logger !== undefined) {
+                                                    logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> containerName = " + containerName);
+                                                    logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> pFolderPath = " + pFolderPath);
+                                                    logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> pFileName = " + pFileName);
+                                                    logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> secondTry -> err.code = " + err.code);
+                                                }
+
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                             } else {
-                                                logger.write("[INFO] createTextFile -> onFileCreated -> secondTry -> File succesfully created on second try.");
+                                                logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> secondTry -> File succesfully created on second try.");
                                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                             }
                                         }
                                         catch (err) {
-                                            logger.write("[ERROR] 'createTextFile' -> onFileCreated -> secondTry -> onSecondTry -> err = " + err.message);
+                                            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> onFileCreated -> secondTry -> onSecondTry -> err = " + err.message); }
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
                                 catch (err) {
-                                    logger.write("[ERROR] 'createTextFile' -> onFileCreated -> secondTry -> err = " + err.message);
+                                    if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> onFileCreated -> secondTry -> err = " + err.message); }
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
 
-                        logger.write("[ERROR] createTextFile -> onFileCreated -> Dont know what to do here. Cancelling operation. ");
+                        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] createTextFile -> onFileCreated -> Dont know what to do here. Cancelling operation. "); }
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                     } else {
-                        if (FULL_LOG === true) { logger.write("[INFO] createTextFile -> onFileCreated -> File Created."); }
+                        if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> File Created."); }
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                     }
                 }
                 catch (err) {
-                    logger.write("[ERROR] 'createTextFile' -> onFileCreated -> err = " + err.message);
+                    if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> onFileCreated -> err = " + err.message); }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
-            logger.write("[ERROR] 'createTextFile' -> err = " + err.message);
+            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> err = " + err.message); }
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -204,18 +206,18 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
         if (readOnlyBlobService === undefined) {
 
-            logger.write("[ERROR] getTextFile -> initialize function not executed or failed. Can not process this request. Sorry.");
+            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> initialize function not executed or failed. Can not process this request. Sorry."); }
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
         }
 
         try {
 
-            if (FULL_LOG === true) {
-                logger.write("[INFO] getTextFile -> About to get a text file.");
-                logger.write("[INFO] getTextFile -> containerName = " + containerName);
-                logger.write("[INFO] getTextFile -> pFolderPath = " + pFolderPath);
-                logger.write("[INFO] getTextFile -> pFileName = " + pFileName);
+            if (FULL_LOG === true && logger !== undefined) {
+                logger.write(MODULE_NAME, "[INFO] getTextFile -> About to get a text file.");
+                logger.write(MODULE_NAME, "[INFO] getTextFile -> containerName = " + containerName);
+                logger.write(MODULE_NAME, "[INFO] getTextFile -> pFolderPath = " + pFolderPath);
+                logger.write(MODULE_NAME, "[INFO] getTextFile -> pFileName = " + pFileName);
             }
 
             readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onFileReceived);
@@ -224,17 +226,25 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                 try {
 
-                    if (FULL_LOG === true) {
-                        logger.write("[INFO] getTextFile -> onFileReceived -> Response from Azure received.");
-                        logger.write("[INFO] getTextFile -> onFileReceived -> err = " + JSON.stringify(err));
-                        logger.write("[INFO] getTextFile -> onFileReceived -> response = " + JSON.stringify(response));
+                    if (FULL_LOG === true && logger !== undefined) {
+                        logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> Response from Azure received.");
+                        logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> err = " + JSON.stringify(err));
+                        logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> response = " + JSON.stringify(response));
                     }
 
-                    if (LOG_FILE_CONTENT === true) {
-                        logger.write("[INFO] getTextFile -> onFileReceived -> text = " + text);
+                    if (LOG_FILE_CONTENT === true && logger !== undefined) {
+                        logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> text = " + text);
                     }
 
                     if (err) {
+
+                        if (ERROR_LOG === true && logger !== undefined && err.code !== 'BlobNotFound') {
+                            logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> Error trying to get this file.");
+                            logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> containerName = " + containerName);
+                            logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> pFolderPath = " + pFolderPath);
+                            logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> pFileName = " + pFileName);
+                            logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> err.code = " + err.code);
+                        }
 
                         if (
                             err.code === 'ECONNRESET'           || 
@@ -250,14 +260,14 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
 
                         {
 
-                            setTimeout(secondTry, 1000);
+                            setTimeout(secondTry, SECOND_TRY_WAIT_TIME);
                             return;
 
                             function secondTry() {
 
                                 try {
 
-                                    logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
+                                    logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> secondTry -> Retrying to get the file.");
 
                                     readOnlyBlobService.getBlobToText(containerName, pFolderPath + "/" + pFileName, onSecondTry);
 
@@ -266,21 +276,29 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                                         try {
 
                                             if (err) {
-                                                logger.write("[ERROR] getTextFile -> onFileReceived -> secondTry -> File not retrieved. Giving Up.");
+                                                if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> File not retrieved. Giving Up."); }
+
+                                                if (ERROR_LOG === true && logger !== undefined) {
+                                                    logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> containerName = " + containerName);
+                                                    logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> pFolderPath = " + pFolderPath);
+                                                    logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> pFileName = " + pFileName);
+                                                    logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> secondTry -> err.code = " + err.code);
+                                                }
+
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                             } else {
-                                                logger.write("[INFO] getTextFile -> onFileReceived -> secondTry -> File succesfully retrieved on second try.");
+                                                logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> secondTry -> File succesfully retrieved on second try.");
                                                 callBackFunction(global.DEFAULT_OK_RESPONSE, text);
                                             }
                                         }
                                         catch (err) {
-                                            logger.write("[ERROR] 'getTextFile' -> onFileReceived -> secondTry -> onSecondTry -> err = " + err.message);
+                                            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> onFileReceived -> secondTry -> onSecondTry -> err = " + err.message); }
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
                                 catch (err) {
-                                    logger.write("[ERROR] 'getTextFile' -> onFileReceived -> secondTry -> err = " + err.message);
+                                    if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> onFileReceived -> secondTry -> err = " + err.message); }
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -295,10 +313,10 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                                 message: "File does not exist."
                             };
 
-                            logger.write("[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
-                            logger.write("[WARN] getTextFile -> containerName = " + containerName);
-                            logger.write("[WARN] getTextFile -> pFolderPath = " + pFolderPath);
-                            logger.write("[WARN] getTextFile -> pFileName = " + pFileName);
+                            logger.write(MODULE_NAME, "[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
+                            logger.write(MODULE_NAME, "[WARN] getTextFile -> containerName = " + containerName);
+                            logger.write(MODULE_NAME, "[WARN] getTextFile -> pFolderPath = " + pFolderPath);
+                            logger.write(MODULE_NAME, "[WARN] getTextFile -> pFileName = " + pFileName);
 
                             callBackFunction(customErr);
                             return;
@@ -314,35 +332,35 @@ exports.newBlobStorage = function newBlobStorage(BOT) {
                                 message: "Folder does not exist."
                             };
 
-                            logger.write("[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
-                            logger.write("[WARN] getTextFile -> containerName = " + containerName);
-                            logger.write("[WARN] getTextFile -> pFolderPath = " + pFolderPath);
-                            logger.write("[WARN] getTextFile -> pFileName = " + pFileName);
+                            logger.write(MODULE_NAME, "[WARN] getTextFile -> onFileReceived -> Custom Response -> message = " + customErr.message);
+                            logger.write(MODULE_NAME, "[WARN] getTextFile -> containerName = " + containerName);
+                            logger.write(MODULE_NAME, "[WARN] getTextFile -> pFolderPath = " + pFolderPath);
+                            logger.write(MODULE_NAME, "[WARN] getTextFile -> pFileName = " + pFileName);
 
                             callBackFunction(customErr);
                             return;
 
                         }
 
-                        logger.write("[ERROR] getTextFile -> onFileCreated -> err = " + JSON.stringify(err));
-                        logger.write("[ERROR] getTextFile -> onFileCreated -> response = " + JSON.stringify(response));
+                        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileCreated -> err = " + JSON.stringify(err)); }
+                        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileCreated -> response = " + JSON.stringify(response)); }
 
-                        logger.write("[ERROR] getTextFile -> onFileReceived -> Dont know what to do here. Cancelling operation. ");
+                        if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] getTextFile -> onFileReceived -> Dont know what to do here. Cancelling operation. "); }
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                     } else {
-                        if (FULL_LOG === true) { logger.write("[INFO] getTextFile -> onFileReceived -> File retrieved."); }
+                        if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> File retrieved."); }
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text);
                     }
                 }
                 catch (err) {
-                    logger.write("[ERROR] 'getTextFile' -> onFileReceived -> err = " + err.message);
+                    if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> onFileReceived -> err = " + err.message); }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
-            logger.write("[ERROR] 'getTextFile' -> err = " + err.message);
+            if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> err = " + err.message); }
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

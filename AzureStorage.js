@@ -1,4 +1,4 @@
-﻿exports.newAzureStorage = function newAzureStorage(BOT) {
+﻿exports.newAzureStorage = function newAzureStorage(BOT, logger) {
 
     let FULL_LOG = true;
     let LOG_FILE_CONTENT = false;
@@ -6,13 +6,8 @@
     let bot = BOT;
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "AzureStorage";
-
-    const DEBUG_MODULE = require('./DebugLog');
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-    logger.initialize(true);
+    const MODULE_NAME = "Azure Storage";
+    const REQUEST_TIMEOUT = 180;
 
     let thisObject = {
         createBlobService: createBlobService
@@ -128,7 +123,7 @@
             let options = {
                 host: pEndPoint,
                 port: 443,
-                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=60',
+                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=' + REQUEST_TIMEOUT,
                 method: 'GET',
                 headers: {},
                 agent: false 
@@ -182,7 +177,7 @@
             let options = {
                 host: pEndPoint,
                 port: 443,
-                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=60',
+                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=' + REQUEST_TIMEOUT,
                 method: 'PUT',
                 headers: {},
                 agent: false

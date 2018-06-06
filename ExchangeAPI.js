@@ -1,4 +1,4 @@
-﻿exports.newExchangeAPI = function newExchangeAPI(BOT, DEBUG_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿exports.newExchangeAPI = function newExchangeAPI(BOT, logger, POLONIEX_CLIENT_MODULE) {
 
     /* 
 
@@ -6,14 +6,9 @@
 
     */
 
-    const MODULE_NAME = "ExchangeAPI";
+    const MODULE_NAME = "Exchange API";
 
     let bot = BOT;
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-    logger.initialize();
 
     let thisObject = {
         initialize: initialize,
@@ -32,7 +27,7 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
@@ -40,7 +35,7 @@
 
         } catch (err) {
 
-            logger.write("[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -49,8 +44,8 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getOpenPositions -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
 
             poloniexApiClient.API.returnOpenOrders(pMarket.assetA, pMarket.assetB, onExchangeCallReturned);
 
@@ -58,9 +53,9 @@
 
                 try {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> onExchangeCallReturned -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                     poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
@@ -101,12 +96,12 @@
                     }
                 }
                 catch (err) {
-                    logger.write("[ERROR] getOpenPositions -> onExchangeCallReturned -> Error = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] getOpenPositions -> onExchangeCallReturned -> Error = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] getOpenPositions -> Error = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] getOpenPositions -> Error = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -115,8 +110,8 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getExecutedTrades -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getExecutedTrades -> pPositionId = " + pPositionId); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> pPositionId = " + pPositionId); }
 
             poloniexApiClient.API.returnOrderTrades(pPositionId, onExchangeCallReturned);
 
@@ -124,9 +119,9 @@
 
                 try {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> onExchangeCallReturned -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                     poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
@@ -174,12 +169,12 @@
                     }
                 }
                 catch (err) {
-                    logger.write("[ERROR] getExecutedTrades -> onExchangeCallReturned -> Error = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] getExecutedTrades -> onExchangeCallReturned -> Error = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] getExecutedTrades -> Error = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] getExecutedTrades -> Error = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -188,12 +183,12 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pMarket = " + JSON.stringify(pMarket)); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pType = " + pType); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pRate = " + pRate); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pAmountA = " + pAmountA); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pAmountB = " + pAmountB); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pMarket = " + JSON.stringify(pMarket)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             if (pType === "buy") {
                 poloniexApiClient.API.buy(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
@@ -205,7 +200,7 @@
                 return;
             }
 
-            logger.write("[ERROR] putPosition -> pType must be either 'buy' or 'sell'.");
+            logger.write(MODULE_NAME, "[ERROR] putPosition -> pType must be either 'buy' or 'sell'.");
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             return;
 
@@ -213,9 +208,9 @@
 
                 try {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onExchangeCallReturned -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                     poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
 
@@ -244,13 +239,13 @@
                     }
                 }
                 catch (err) {
-                    logger.write("[ERROR] putPosition -> onExchangeCallReturned -> Error = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onExchangeCallReturned -> Error = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] putPosition -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -259,17 +254,17 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
 
             poloniexApiClient.API.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
-                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
+                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                 try {
 
@@ -278,7 +273,7 @@
                     function onResponseOk() {
 
                         if (exchangeResponse.success !== 1) {
-                            logger.write("[ERROR] movePosition -> onExchangeCallReturned -> exchangeResponse.success = " + exchangeResponse.success);
+                            logger.write(MODULE_NAME, "[ERROR] movePosition -> onExchangeCallReturned -> exchangeResponse.success = " + exchangeResponse.success);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -305,13 +300,13 @@
                     }
                 }
                 catch (err) {
-                    logger.write("[ERROR] movePosition -> onExchangeCallReturned -> Error = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onExchangeCallReturned -> Error = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] movePosition -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -320,15 +315,15 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getTicker -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTicker -> Entering function."); }
 
             poloniexApiClient.API.returnTicker(onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
-                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
+                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
 
                 try {
 
@@ -368,13 +363,13 @@
                     }
                 }
                 catch (err) {
-                    logger.write("[ERROR] movePosition -> onExchangeCallReturned -> Error = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onExchangeCallReturned -> Error = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] movePosition -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

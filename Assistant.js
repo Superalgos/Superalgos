@@ -1,4 +1,4 @@
-﻿exports.newAssistant = function newAssistant(BOT, DEBUG_MODULE, UTILITIES) {
+﻿exports.newAssistant = function newAssistant(BOT, logger, UTILITIES) {
 
     /* 
 
@@ -9,11 +9,6 @@
     const MODULE_NAME = "Assistant";
 
     let bot = BOT;
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-    logger.initialize();
 
     let thisObject = {
         dataDependencies: undefined,
@@ -30,7 +25,7 @@
         sendMessage: sendMessage
     };
 
-    let utilities = UTILITIES.newCloudUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
     let openPositions = [];         // These are the open positions the bot knows it made by itself. 
@@ -47,7 +42,7 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             /* Save local values. */
 
@@ -73,8 +68,8 @@
                 }
 
                 default: {
-                    logger.write("[ERROR] initialize -> Unexpected bot.startMode.");
-                    logger.write("[ERROR] initialize -> bot.startMode = " + bot.startMode);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> Unexpected bot.startMode.");
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> bot.startMode = " + bot.startMode);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -84,7 +79,7 @@
 
                 try {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getMarketRateFromExchange -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromExchange -> Entering function."); }
 
                     exchangeAPI.getTicker(global.MARKET.assetA + '_' + global.MARKET.assetB, onTicker);
 
@@ -94,11 +89,11 @@
 
                         try {
 
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getMarketRateFromExchange -> onTicker -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromExchange -> onTicker -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) { 
 
-                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getMarketRateFromExchange -> onTicker -> We could not get the Market Price now."); }
+                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromExchange -> onTicker -> We could not get the Market Price now."); }
 
                                 callBackFunction(err);
                                 return;
@@ -112,13 +107,13 @@
                             validateExchangeSyncronicity();
 
                         } catch (err) {
-                            logger.write("[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> onTicker -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     } 
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> getMarketRateFromExchange -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -127,7 +122,7 @@
 
                 try {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getMarketRateFromIndicator -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> Entering function."); }
 
                     /* Procedure to get the current market rate. */
 
@@ -138,7 +133,7 @@
                         global.PLATFORM_CONFIG.marketRateProvider.dataSet + "-" +
                         global.PLATFORM_CONFIG.marketRateProvider.dataSetVersion;
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getMarketRateFromIndicator -> key = " + key); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> key = " + key); }
 
                     let dataSet = thisObject.dataDependencies.dataSets.get(key);
 
@@ -150,8 +145,8 @@
 
                     function onFileReceived(err, text) {
 
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> Entering function."); }
-                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> text = " + text); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> Entering function."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> text = " + text); }
 
                         let candleArray;
 
@@ -197,18 +192,18 @@
                                 }
 
                             } catch (err) {
-                                logger.write("[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
-                                logger.write("[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             }
                         } else {
-                            logger.write("[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
                             callBackFunction(err);
                         }
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> getMarketRateFromIndicator -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -217,7 +212,7 @@
 
                 try {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> validateExchangeSyncronicity -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> validateExchangeSyncronicity -> Entering function."); }
 
                     /* Procedure to validate we are in sync with the exchange. */
 
@@ -226,23 +221,23 @@
                     function onDone(err) {
                         try {
 
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Entering function."); }
 
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write("[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Execution finished well.");
+                                    logger.write(MODULE_NAME, "[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Execution finished well.");
                                     calculateProfits();
                                     return;
                                 }
                                     break;
                                 case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                    logger.write("[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> Retry Later. Requesting Execution Retry.");
+                                    logger.write(MODULE_NAME, "[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> Retry Later. Requesting Execution Retry.");
                                     callBackFunction(err);
                                     return;
                                 }
                                     break;
                                 case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                    logger.write("[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> Operation Failed. Aborting the process.");
+                                    logger.write(MODULE_NAME, "[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> Operation Failed. Aborting the process.");
                                     callBackFunction(err);
                                     return;
                                 }
@@ -250,13 +245,13 @@
                             }
 
                         } catch (err) {
-                            logger.write("[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] initialize -> validateExchangeSyncronicity -> onDone -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> onDone -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -265,7 +260,7 @@
 
                 try {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] initialize -> calculateProfits -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> calculateProfits -> Entering function."); }
 
                     /* Calculate Profits */
 
@@ -304,14 +299,14 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    logger.write("[ERROR] initialize -> calculateProfits -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> calculateProfits -> err = " + err.message);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -320,7 +315,7 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getPositionsAtExchange -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Entering function."); }
 
             /*
 
@@ -334,14 +329,14 @@
 
                 case "Live": {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getPositionsAtExchange -> Live Mode Detected."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Live Mode Detected."); }
                     exchangeAPI.getOpenPositions(global.MARKET, onResponse);
                     break;
                 }
 
                 case "Backtest": {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getPositionsAtExchange -> Backtest Mode Detected."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Backtest Mode Detected."); }
                     let exchangePositions = [];  // We simulate all positions were executed.
                     onResponse(global.DEFAULT_OK_RESPONSE, exchangePositions);
                     break;
@@ -349,14 +344,14 @@
 
                 case "Competition": {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getPositionsAtExchange -> Competition Mode Detected."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Competition Mode Detected."); }
                     exchangeAPI.getOpenPositions(global.MARKET, onResponse);
                     break;
                 }
 
                 default: {
-                    logger.write("[ERROR] getPositionsAtExchange -> Unexpected bot.startMode.");
-                    logger.write("[ERROR] getPositionsAtExchange -> bot.startMode = " + bot.startMode);
+                    logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> Unexpected bot.startMode.");
+                    logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> bot.startMode = " + bot.startMode);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -364,25 +359,25 @@
 
             function onResponse(err, pExchangePositions) {
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getPositionsAtExchange ->  onResponse -> Entering function."); }
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] getPositionsAtExchange ->  onResponse -> pExchangePositions = " + JSON.stringify(pExchangePositions)); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange ->  onResponse -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange ->  onResponse -> pExchangePositions = " + JSON.stringify(pExchangePositions)); }
 
                 switch (err.result) {
                     case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                        logger.write("[INFO] getPositionsAtExchange -> onResponse -> Execution finished well.");
+                        logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> onResponse -> Execution finished well.");
                         exchangePositions = pExchangePositions;
                         ordersExecutionCheck(callBack);
                         return;
                     }
                         break;
                     case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                        logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
+                        logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
                         callBack(err);
                         return;
                     }
                         break;
                     case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                        logger.write("[ERROR] getPositionsAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                        logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> onResponse -> Operation Failed. Aborting the process.");
                         callBack(err);
                         return;
                     }
@@ -390,7 +385,7 @@
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] getPositionsAtExchange -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -399,7 +394,7 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> Entering function."); }
 
             /*
 
@@ -443,7 +438,7 @@
 
                 try {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> Entering function."); }
 
                     let position = context.executionContext.positions[i];
                     let exchangePosition;
@@ -463,7 +458,7 @@
 
                     function positionFound() {
 
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionFound -> Entering function."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> positionFound -> Entering function."); }
 
                         /*
     
@@ -490,7 +485,7 @@
 
                     function positionNotFound() {
 
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> Entering function."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> positionNotFound -> Entering function."); }
 
                         /* Position not found: we need to know if the order was executed. */
 
@@ -502,8 +497,8 @@
 
                         try {
 
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Entering function."); }
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> pPositionId = " + pPositionId); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> pPositionId = " + pPositionId); }
 
                             /*
                 
@@ -515,7 +510,7 @@
 
                                 case "Live": {
 
-                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Live Mode Detected."); }
+                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Live Mode Detected."); }
                                     exchangeAPI.getExecutedTrades(pPositionId, onResponse);
                                     return;
 
@@ -523,7 +518,7 @@
 
                                 case "Backtest": {
 
-                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Backtest Mode Detected."); }
+                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Backtest Mode Detected."); }
 
                                     let trades = [];
 
@@ -558,21 +553,21 @@
                                         }
                                     }
 
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Position not found at Executioin Context.");
+                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Position not found at Executioin Context.");
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
 
                                 case "Competition": {
 
-                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Competition Mode Detected."); }
+                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Competition Mode Detected."); }
                                     exchangeAPI.getExecutedTrades(pPositionId, onResponse);
                                     return;
                                 }
 
                                 default: {
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Unexpected bot.startMode.");
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> bot.startMode = " + bot.startMode);
+                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Unexpected bot.startMode.");
+                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> bot.startMode = " + bot.startMode);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
@@ -581,34 +576,34 @@
                             function onResponse(err, pTrades) {
 
                                 try {
-                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Entering function."); }
+                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Entering function."); }
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                                            logger.write("[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well.");
+                                            logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well.");
                                             innerCallBack(pTrades);
                                         }
                                             break;
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Retry Later. Requesting Execution Retry.");
                                             callBack(global.DEFAULT_RETRY_RESPONSE);
                                             return;
                                         }
                                             break;
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
+                                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Operation Failed. Aborting the process.");
                                             callBack(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
                                             break;
                                     }
                                 } catch (err) {
-                                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> err = " + err.message);
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         } catch (err) {
-                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -617,8 +612,8 @@
 
                         try {
 
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
-                            if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
 
                             /*
  
@@ -641,12 +636,12 @@
 							sumAssetB = Number(sumAssetB.toFixed(8));
 
                             if (position.amountB !== sumAssetB) {
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> sumAssetB = " + sumAssetB);
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> sumAssetB = " + sumAssetB);
 
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
-                                logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> If the process was abruptally cancelled and then restarted, it is possible that now is not sincronized with the exchange.");
-                                logger.write("[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> In any case, to continue, you must manually delete the orders at the exchange.");
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
+                                logger.write(MODULE_NAME, "[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> If the process was abruptally cancelled and then restarted, it is possible that now is not sincronized with the exchange.");
+                                logger.write(MODULE_NAME, "[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> In any case, to continue, you must manually delete the orders at the exchange.");
                                 callBack(global.DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
@@ -679,7 +674,7 @@
                             next();
 
                         } catch (err) {
-                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -688,7 +683,7 @@
                     function confirmOrderWasPartiallyExecuted(pTrades) {
 
                         try {
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Entering function."); }
 
                             /*
  
@@ -716,12 +711,12 @@
                             sumAssetB = Number(sumAssetB.toFixed(8));
 
                             if (position.amountA !== sumAssetA || position.amountB !== sumAssetB ) {
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetB = " + sumAssetB);
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetB = " + sumAssetB);
 
-                                logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partially execution was done well.");
 								
 								/* There are diferences on the responses between the getPosition and getTrades that causes some issues, let's retry. */
                                 callBack(global.DEFAULT_RETRY_RESPONSE);
@@ -752,7 +747,7 @@
                             next();
 
                         } catch (err) {
-                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -762,7 +757,7 @@
 
                         try {
 
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> loopBody -> applyTradesToContext -> Entering function."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> applyTradesToContext -> Entering function."); }
 
                             /* Here we apply the trades that already happened at the exchange to the balance and available balance of the bot. We also calculate its profits. */
 
@@ -805,14 +800,14 @@
                             }
 
                         } catch (err) {
-                            logger.write("[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> applyTradesToContext -> err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] ordersExecutionCheck -> loopBody -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> err = " + err.message);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -820,7 +815,7 @@
 
             function next() {
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> next -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> next -> Entering function."); }
 
                 i++;
                 controlLoop();
@@ -829,7 +824,7 @@
 
             function controlLoop() {
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> controlLoop -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> controlLoop -> Entering function."); }
 
                 if (i < context.executionContext.positions.length) {
 
@@ -844,14 +839,14 @@
 
             function final() {
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] ordersExecutionCheck -> final -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> final -> Entering function."); }
 
                 callBack(global.DEFAULT_OK_RESPONSE);
 
             }
 
         } catch (err) {
-            logger.write("[ERROR] ordersExecutionCheck -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -859,11 +854,11 @@
     function putPosition(pType, pRate, pAmountA, pAmountB, callBackFunction) {
 
         try {
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pType = " + pType); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pRate = " + pRate); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pAmountA = " + pAmountA); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition -> pAmountB = " + pAmountB); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             /* Removing extra decimals. */
 
@@ -877,9 +872,9 @@
 
                 if (pAmountA > context.executionContext.availableBalance.assetA) {
 
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountA is grater than the Available Balance.");
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write("[ERROR] putPosition -> Input Validations -> Available Balance = " + context.executionContext.availableBalance.assetA);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA is grater than the Available Balance.");
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + context.executionContext.availableBalance.assetA);
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -894,10 +889,10 @@
 
                 if (aRate !== pAmountB) {
 
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountA / pRate !== pAmountB.");
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write("[ERROR] putPosition -> Input Validations -> pRate = " + pRate);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA / pRate !== pAmountB.");
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pRate = " + pRate);
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -913,9 +908,9 @@
 
                 if (pAmountB > context.executionContext.availableBalance.assetB) {
 
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountB is grater than the Available Balance.");
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write("[ERROR] putPosition -> Input Validations -> Available Balance = " + context.executionContext.availableBalance.assetB);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB is grater than the Available Balance.");
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + context.executionContext.availableBalance.assetB);
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -930,10 +925,10 @@
 
                 if (bRate !== pAmountA) {
 
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountB * pRate !== pAmountA.");
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write("[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write("[ERROR] putPosition -> Input Validations -> pRate = " + pRate);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB * pRate !== pAmountA.");
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pRate = " + pRate);
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -959,12 +954,12 @@
 
                     if (pRate !== marketRate) {
 
-                        logger.write("[ERROR] putPosition -> Input Validations -> putPosition Rate can not be different to marketRate while in Backtesting Mode. ");
+                        logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> putPosition Rate can not be different to marketRate while in Backtesting Mode. ");
                         onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
                     }
 
                     let positionId = Math.trunc(Math.random(1) * 1000000);
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
                     onResponse(global.DEFAULT_OK_RESPONSE, positionId);
                     return;
                 }
@@ -976,8 +971,8 @@
                 }
 
                 default: {
-                    logger.write("[ERROR] putPosition -> Unexpected bot.startMode.");
-                    logger.write("[ERROR] putPosition -> bot.startMode = " + bot.startMode);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Unexpected bot.startMode.");
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> bot.startMode = " + bot.startMode);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -986,12 +981,12 @@
             function onResponse(err, pPositionId) {
 
                 try {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition ->  onResponse -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition ->  onResponse -> pPositionId = " + pPositionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  onResponse -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  onResponse -> pPositionId = " + pPositionId); }
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                            logger.write("[INFO] putPosition -> onResponse -> Execution finished well.");
+                            logger.write(MODULE_NAME, "[INFO] putPosition -> onResponse -> Execution finished well.");
 
                             let position = {
                                 id: pPositionId,
@@ -1038,25 +1033,25 @@
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] putPosition -> onResponse -> Retry Later. Requesting Execution Retry.");
+                            logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write("[ERROR] putPosition -> onResponse -> Operation Failed. Aborting the process.");
+                            logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> Operation Failed. Aborting the process.");
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
-                    logger.write("[ERROR] putPosition -> onResponse -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] putPosition -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -1064,9 +1059,9 @@
     function movePosition(pPosition, pNewRate, callBackFunction) {
 
         try {
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> pNewRate = " + pNewRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
 
             switch (bot.startMode) {
 
@@ -1079,7 +1074,7 @@
                 case "Backtest": {
 
                     let positionId = Math.trunc(Math.random(1) * 1000000);
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
                     onResponse(global.DEFAULT_OK_RESPONSE, positionId);
                     return;
                 }
@@ -1091,8 +1086,8 @@
                 }
 
                 default: {
-                    logger.write("[ERROR] movePosition -> Unexpected bot.startMode.");
-                    logger.write("[ERROR] movePosition -> bot.startMode = " + bot.startMode);
+                    logger.write(MODULE_NAME, "[ERROR] movePosition -> Unexpected bot.startMode.");
+                    logger.write(MODULE_NAME, "[ERROR] movePosition -> bot.startMode = " + bot.startMode);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -1101,12 +1096,12 @@
             function onResponse(err, pPositionId) {
 
                 try {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onResponse -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write("[INFO] movePosition -> onResponse -> pPositionId = " + pPositionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> pPositionId = " + pPositionId); }
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                            logger.write("[INFO] movePosition -> onResponse -> Execution finished well.");
+                            logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Execution finished well.");
 
                             let newPosition = {
                                 id: pPositionId,
@@ -1149,25 +1144,25 @@
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write("[ERROR] movePosition -> onResponse -> Retry Later. Requesting Execution Retry.");
+                            logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write("[ERROR] movePosition -> onResponse -> Operation Failed. Aborting the process.");
+                            logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> Operation Failed. Aborting the process.");
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
-                    logger.write("[ERROR] movePosition -> onResponse -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] movePosition -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

@@ -1,19 +1,12 @@
 ﻿
-exports.newCloudUtilities = function newCloudUtilities(BOT) {
+exports.newCloudUtilities = function newCloudUtilities(BOT, logger) {
 
     const FULL_LOG = false;
 
     let bot = BOT;
     const ROOT_DIR = '../';
 
-    const MODULE_NAME = "CloudUtilities";
-
-
-    const DEBUG_MODULE = require('./DebugLog');
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-    logger.initialize();
+    const MODULE_NAME = "Cloud Utilities";
 
     let utilities = {
         pad: pad,
@@ -27,8 +20,8 @@ exports.newCloudUtilities = function newCloudUtilities(BOT) {
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> Entering function."); }
-            if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> path = " + path); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path); }
 
             let splittedPath = path.split("/");
 
@@ -40,23 +33,23 @@ exports.newCloudUtilities = function newCloudUtilities(BOT) {
 
             function loop() {
 
-                if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> path = " + path); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path); }
 
                 partialPath = partialPath + separator + splittedPath[i];
                 separator = "/";
 
                 i++;
 
-                if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> partialPath = " + partialPath); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> partialPath = " + partialPath); }
 
                 azureFileStorage.createFolder(partialPath, checkLoop);
 
                 function checkLoop(err) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] createFolderIfNeeded -> loop -> checkLoop -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> loop -> checkLoop -> Entering function."); }
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write("[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.message);
+                        logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.message);
                         callBackFunction(err);
                         return;
                     }
@@ -73,7 +66,7 @@ exports.newCloudUtilities = function newCloudUtilities(BOT) {
                 }
             }
         } catch (err) {
-            logger.write("[ERROR] createFolderIfNeeded -> Error = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> Error = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

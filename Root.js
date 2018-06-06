@@ -5,35 +5,35 @@ exports.newRoot = function newRoot() {
     /* Global constants definitions. */
 
     global.LOG_CONTROL = {
-        Assistant: {
+        "Assistant": {
             logInfo: true,
             logWarnings: true,
             logErrors: true,
             logContent: false,
             intensiveLogging: false
         },
-        ExchangeAPI: {
+        "Exchange API": {
             logInfo: true,
             logWarnings: true,
             logErrors: true,
             logContent: false,
             intensiveLogging: false
         },
-        StatusReport: {
+        "Status Report": {
             logInfo: true,
             logWarnings: true,
             logErrors: true,
             logContent: false,
             intensiveLogging: false
         },
-        DataSet: {
+        "Data Set": {
             logInfo: true,
             logWarnings: true,
             logErrors: true,
             logContent: false,
             intensiveLogging: false
         },
-        Context: {
+        "Context": {
             logInfo: true,
             logWarnings: true,
             logErrors: true,
@@ -200,8 +200,6 @@ exports.newRoot = function newRoot() {
 
         /* Now we will run according to what we see at the config file. */
 
-        const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
-
         /* Small Function to fix numbers into strings in a cool way. */
 
         function pad(str, max) {
@@ -216,8 +214,6 @@ exports.newRoot = function newRoot() {
         const EXTRACTION_BOT_MAIN_LOOP_MODULE = require('./ExtractionBotProcessMainLoop');
 
         /* Loop through all the processes configured to be run by this Node.js Instance. */
-
-        let logger;
 
         for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
@@ -317,24 +313,19 @@ exports.newRoot = function newRoot() {
 
                     botConfig.process = listItem.process;
                     botConfig.debug = {};
-                    botConfig.sharedLogFileMap = new Map();
-
-                    logger = DEBUG_MODULE.newDebugLog();
-                    logger.fileName = MODULE_NAME;
-                    logger.bot = botConfig;
 
                     /* Loop Counter */
 
                     botConfig.loopCounter = 0;
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> Processing item from executionList -> p = " + p); }
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> listItem.botPath = " + listItem.botPath); }
+                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Processing item from executionList -> p = " + p); }
+                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> listItem.botPath = " + listItem.botPath); }
 
                     /* File Path Root */
 
                     botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> listItem.process = " + listItem.process); }
+                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> listItem.process = " + listItem.process); }
 
                     /* Now we loop throug all the configured processes at each bots configuration until we find the one we are supposed to run at this Node.js process. */
 
@@ -345,7 +336,7 @@ exports.newRoot = function newRoot() {
                         if (botConfig.processes[i].name === listItem.process) {
 
                             processFound = true;
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
+                            if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
 
                             let processConfig = botConfig.processes[i];
 
@@ -390,8 +381,8 @@ exports.newRoot = function newRoot() {
                                         }
                                     }
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode Overwritten. "); }
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> Process found at the bot configuration file. -> processConfig.startMode = " + processConfig.startMode); }
+                                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode Overwritten. "); }
+                                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> processConfig.startMode = " + processConfig.startMode); }
 
                                 }
 
@@ -401,28 +392,27 @@ exports.newRoot = function newRoot() {
 
                                     if (processConfig.startMode.allMonths.run === "true") {
 
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> allMonths start mode detected. "); }
+                                        if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> allMonths start mode detected. "); }
 
                                         for (let year = processConfig.startMode.allMonths.maxYear; year >= processConfig.startMode.allMonths.minYear; year--) {
 
                                             for (let month = 12; month > 0; month--) {
 
-                                                botConfig.debug = {
-                                                    month: pad(month, 2),
-                                                    year: pad(year, 4)
-                                                };
-
                                                 let padMonth = pad(month, 2)
 
                                                 let newInstanceBotConfig = JSON.parse(JSON.stringify(botConfig));
-                                                newInstanceBotConfig.sharedLogFileMap = new Map();
+
+                                                newInstanceBotConfig.debug = {
+                                                    month: pad(month, 2),
+                                                    year: pad(year, 4)
+                                                };
 
                                                 let timeDelay = Math.random() * 10 * 1000; // We introduce a short delay so as to not overload the machine.
                                                 setTimeout(startProcess, timeDelay);
 
                                                 function startProcess() {
 
-                                                    if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> startProcess -> Ready to start process."); }
+                                                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> startProcess -> Ready to start process."); }
 
                                                     switch (botConfig.type) {
                                                         case 'Extraction': {
@@ -434,7 +424,7 @@ exports.newRoot = function newRoot() {
                                                             break;
                                                         }
                                                         default: {
-                                                            logger.write("[ERROR] start -> findProcess -> startProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> startProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                                         }
                                                     }
                                                 }
@@ -447,13 +437,13 @@ exports.newRoot = function newRoot() {
 
                                     if (processConfig.startMode.oneMonth.run === "true") {
 
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> oneMonth start mode detected. "); }
+                                        if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> oneMonth start mode detected. "); }
 
                                         startProcess();
 
                                         function startProcess() {
 
-                                            if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> startProcess -> Ready to start process."); }
+                                            if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> startProcess -> Ready to start process."); }
 
                                             let month = pad(processConfig.startMode.oneMonth.month, 2);
                                             let year = processConfig.startMode.oneMonth.year;
@@ -473,7 +463,7 @@ exports.newRoot = function newRoot() {
                                                     break;
                                                 }
                                                 default: {
-                                                    logger.write("[ERROR] start -> findProcess -> startProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> startProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                                 }
                                             }
                                         }
@@ -503,7 +493,7 @@ exports.newRoot = function newRoot() {
                                                 break;
                                             }
                                             default: {
-                                                logger.write("[ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                             }
                                         }
                                     }
@@ -525,7 +515,7 @@ exports.newRoot = function newRoot() {
                                                 break;
                                             }
                                             default: {
-                                                logger.write("[ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                             }
                                         }
                                     }
@@ -552,7 +542,7 @@ exports.newRoot = function newRoot() {
                                                 break;
                                             }
                                             default: {
-                                                logger.write("[ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                             }
                                         }
                                     }
@@ -580,7 +570,7 @@ exports.newRoot = function newRoot() {
                                                 break;
                                             }
                                             default: {
-                                                logger.write("[ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                             }
                                         }
                                     }
@@ -605,31 +595,38 @@ exports.newRoot = function newRoot() {
                                                 break;
                                             }
                                             default: {
-                                                logger.write("[ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                             }
                                         }
                                     }
                                 }
 
                             } catch (err) {
-                                logger.write("[ERROR] start -> findProcess -> Unexpected exception. -> err.message = " + err.message);
+                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Unexpected exception. -> err.message = " + err.message);
                             }
                         }
                     }
 
                     if (processFound === false) {
 
-                        logger.write("[ERROR] Process listed at the configuration file of AACloud not found at the configuration file of the bot. -> listItem.process = " + listItem.process);
+                        console.log(logDisplace + "Root : [ERROR] Process listed at the configuration file of AACloud not found at the configuration file of the bot. -> listItem.process = " + listItem.process);
                     }
 
                     function runExtractionBot(pBotConfig, pProcessConfig, pMonth, pYear) {
 
                         try {
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess ->runExtractionBot -> Entering function."); }
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess ->runExtractionBot -> pMonth = " + pMonth); }
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess ->runExtractionBot -> pYear = " + pYear); }
 
-                            let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotProcessMainLoop(pBotConfig);
+                            const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                            let logger;
+
+                            logger = DEBUG_MODULE.newDebugLog();
+                            logger.bot = pBotConfig;
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> pMonth = " + pMonth); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> pYear = " + pYear); }
+
+                            let extractionBotMainLoop = EXTRACTION_BOT_MAIN_LOOP_MODULE.newExtractionBotProcessMainLoop(pBotConfig, logger);
                             extractionBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
@@ -640,6 +637,8 @@ exports.newRoot = function newRoot() {
 
                                     function whenRunFinishes(err) {
 
+                                        pBotConfig.loopCounter = 0;
+
                                         let botId;
                                         if (pYear !== undefined) {
                                             botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
@@ -649,39 +648,55 @@ exports.newRoot = function newRoot() {
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                            logger.write("[INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                            logger.write("[INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(botId + " Bot execution finished sucessfully.");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+
+                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+
+                                            logger.persist();
 
                                         } else {
 
-                                            logger.write("[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                            logger.write("[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                            logger.write("[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
-                                            logger.write("[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(botId + " Bot execution finished with errors. Please check the logs. :-(");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bye.");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+
+                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
+                                            logger.persist();
                                         }
                                     }
 
                                 } else {
-                                    logger.write("[ERROR] runExtractionBot -> onInitializeReady -> err = " + err.message);
-                                    logger.write("[ERROR] runExtractionBot -> onInitializeReady -> Bot will not be started. ");
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> Bot will not be started. ");
+                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runExtractionBot -> onInitializeReady -> err = " + err.message);
+
+                                    logger.persist();
                                 }
                             }
                         }
                         catch (err) {
-                            logger.write("[ERROR] runExtractionBot -> err = " + err.message);
+                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runExtractionBot -> err = " + err.message);
                         }
                     }
 
                     function runIndicatorBot(pBotConfig, pProcessConfig, pMonth, pYear) {
 
                         try {
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> runIndicatorBot -> Entering function."); }
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> runIndicatorBot -> pMonth = " + pMonth); }
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> runIndicatorBot -> pYear = " + pYear); }
+                            const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                            let logger;
 
-                            let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotProcessMainLoop(pBotConfig);
+                            logger = DEBUG_MODULE.newDebugLog();
+                            logger.bot = pBotConfig;
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runIndicatorBot -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runIndicatorBot -> pMonth = " + pMonth); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runIndicatorBot -> pYear = " + pYear); }
+
+                            let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotProcessMainLoop(pBotConfig, logger);
                             indicatorBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
@@ -692,6 +707,8 @@ exports.newRoot = function newRoot() {
 
                                     function whenRunFinishes(err) {
 
+                                        pBotConfig.loopCounter = 0;
+
                                         let botId;
                                         if (pYear !== undefined) {
                                             botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
@@ -701,37 +718,48 @@ exports.newRoot = function newRoot() {
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                            logger.write("[INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                            logger.write("[INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(botId + " Bot execution finished sucessfully.");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                            logger.persist();
 
                                         } else {
 
-                                            logger.write("[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                            logger.write("[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                            logger.write("[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
-                                            logger.write("[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(botId + " Bot execution finished with errors. Please check the logs. :-(");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
+                                            logger.persist();
                                         }
                                     }
 
                                 } else {
-                                    logger.write("[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
-                                    logger.write("[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> Bot will not be started. ");
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> Bot will not be started. ");
+                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
+                                    logger.persist();
                                 }
                             }
                         }
                         catch (err) {
-                            logger.write("[ERROR] runIndicatorBot -> err = " + err.message);
+                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runIndicatorBot -> err = " + err.message);
+
                         }
                     }
 
                     function runTradingBot(pBotConfig, pProcessConfig) {
 
                         try {
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findProcess -> runTradingBot -> Entering function."); }
+                            const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                            let logger;
 
-                            let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotProcessMainLoop(pBotConfig);
+                            logger = DEBUG_MODULE.newDebugLog();
+                            logger.bot = pBotConfig;
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> Entering function."); }
+
+                            let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotProcessMainLoop(pBotConfig, logger);
                             tradingBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
@@ -742,40 +770,47 @@ exports.newRoot = function newRoot() {
 
                                     function whenRunFinishes(err) {
 
+                                        pBotConfig.loopCounter = 0;
+
                                         let botId;
 
                                         botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                            logger.write("[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                            logger.write("[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(botId + " Bot execution finished sucessfully.");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                            logger.persist();
 
                                         } else {
 
-                                            logger.write("[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                            logger.write("[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                            logger.write("[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bye. :-(");
-                                            logger.write("[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(botId + " Bot execution finished with errors. Please check the logs. :-(");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bye.");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
+                                            logger.persist();
                                         }
                                     }
 
                                 } else {
-                                    logger.write("[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> err = " + err.message);
-                                    logger.write("[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> Bot will not be started. ");
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> Bot will not be started. ");
+                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> err = " + err.message);
+
+                                    logger.persist();
                                 }
                             }
                         }
                         catch (err) {
-                            logger.write("[ERROR] start -> findProcess -> runTradingBot -> err = " + err.message);
+                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> err = " + err.message);
                         }
                     }
 
                 }
                 catch (err) {
-                    logger.write("[ERROR] start -> findProcess -> err.message = " + err.message);
+                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> err.message = " + err.message);
                     return;
                 }
             }

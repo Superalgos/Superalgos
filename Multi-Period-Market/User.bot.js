@@ -1,15 +1,13 @@
-﻿exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE, FILE_STORAGE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-
-    let bot = BOT;
 
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-    const MODULE_NAME = "UserBot";
+    const MODULE_NAME = "User Bot";
 
     const EXCHANGE_NAME = "Poloniex";
 
@@ -21,21 +19,17 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUMES_ONE_MIN = "One-Min";
 
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-
-    const commons = COMMONS.newCommons(bot, DEBUG_MODULE, UTILITIES);
+    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
     thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot);
-    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot);
+    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
-    let utilities = UTILITIES.newCloudUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let statusDependencies;
 
@@ -48,7 +42,7 @@
             logger.fileName = MODULE_NAME;
             logger.initialize();
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
 
@@ -58,17 +52,17 @@
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onInizialized -> Initialization Succeed."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } else {
-                    logger.write("[ERROR] initialize -> onInizialized -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
                     callBackFunction(err);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -85,7 +79,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let market = global.MARKET;
 
@@ -103,7 +97,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Entering function."); }
 
                     let thisReport;
                     let reportKey;
@@ -112,18 +106,18 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     /* We look first for Charly in order to get when the market starts. */
 
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
 
                     if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write("[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
-                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -131,14 +125,14 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        logger.write("[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency does not exist."
                         }
-                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
                     }
@@ -148,18 +142,18 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     /* Second, we get the report from Bruce, to know when the marted ends. */
 
                     reportKey = "AAMasters" + "-" + "AABruce" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" +  bot.processDatetime.getUTCFullYear() + "-" + utilities.pad(bot.processDatetime.getUTCMonth() + 1,2);
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
 
                     if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write("[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
-                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -167,13 +161,13 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency not ready."
                         }
-                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
                     }
@@ -183,18 +177,18 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     /* Finally we get our own Status Report. */
 
                     reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
 
                     if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write("[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
-                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
@@ -225,11 +219,11 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.message);
                     if (err.message === "Cannot read property 'file' of undefined") {
-                        logger.write("[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
-                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
-                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.");
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.");
                     }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
@@ -239,7 +233,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering function."); }
 
                     let n = 0   // loop Variable representing each possible period as defined at the periods array.
 
@@ -250,7 +244,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     function loopBody() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> Entering function."); }
 
                         let folderName = global.marketFilesPeriods[n][1];
 
@@ -261,21 +255,21 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         function getCandles() {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> fileName = " + fileName); }
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> filePath = " + filePath); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> fileName = " + fileName); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> filePath = " + filePath); }
 
                             oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
 
                             function onFileReceived(err, text) {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> text = " + text); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Entering function."); }
+                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> text = " + text); }
 
                                 let candlesFile;
 
@@ -288,12 +282,12 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         getVolumes();
 
                                     } catch (err) {
-                                        logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.message);
-                                        logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                     }
                                 } else {
-                                    logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.message);
                                     callBackFunction(err);
                                 }
                             }
@@ -301,21 +295,21 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         function getVolumes() {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> fileName = " + fileName); }
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> fileName = " + fileName); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
 
                             oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
 
                             function onFileReceived(err, text) {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> text = " + text); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Entering function."); }
+                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> text = " + text); }
 
                                 let volumesFile;
 
@@ -331,12 +325,12 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         controlLoop();
 
                                     } catch (err) {
-                                        logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.message);
-                                        logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                     }
                                 } else {
-                                    logger.write("[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.message);
                                     callBackFunction(err);
                                 }
                             }
@@ -346,7 +340,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     function controlLoop() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> findPreviousContent -> controlLoop -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> controlLoop -> Entering function."); }
 
                         n++;
 
@@ -362,7 +356,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     }
                 }
                 catch (err) {
-                logger.write("[ERROR] start -> findPreviousContent -> err = " + err.message);
+                logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> err = " + err.message);
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -371,7 +365,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> Entering function."); }
 
                     /*
 
@@ -396,17 +390,17 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     function advanceTime() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> advanceTime -> Entering function."); }
 
                         contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + "."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + "."); }
 
                         /* Validation that we are not going past the head of the market. */
 
                         if (contextVariables.lastCandleFile.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + "."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + "."); }
 
                             callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
                             return;
@@ -418,7 +412,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     function periodsLoop() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> Entering function."); }
 
                         /*
         
@@ -432,7 +426,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         function loopBody() {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Entering function."); }
 
                             let previousCandles;
                             let previousVolumes;
@@ -467,7 +461,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         outputCandles[n].push(candle);
 
                                     } else {
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Candle # " + i + " @ " + folderName + " discarded for closing past the current process time."); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Candle # " + i + " @ " + folderName + " discarded for closing past the current process time."); }
                                     }
                                 }
                                 allPreviousCandles[n] = []; // erasing these so as not to duplicate them.
@@ -489,7 +483,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         outputVolumes[n].push(volume);
 
                                     } else {
-                                        if (FULL_LOG === true) {logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Volume # " + i + " @ " + folderName + " discarded for closing past the current process time."); }
+                                        if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Volume # " + i + " @ " + folderName + " discarded for closing past the current process time."); }
                                     }
                                 }
                                 allPreviousVolumes[n] = []; // erasing these so as not to duplicate them.
@@ -499,15 +493,15 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             function nextCandleFile() {
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> Entering function."); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> Entering function."); }
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
                                 let filePathRoot = bot.devTeam + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> fileName = " + fileName); }
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> filePath = " + filePath); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> fileName = " + fileName); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> filePath = " + filePath); }
 
                                 bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -515,8 +509,8 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                                     try {
 
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
-                                        if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
+                                        if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
 
                                         let candlesFile;
 
@@ -525,13 +519,13 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                                 candlesFile = JSON.parse(text);
 
                                             } catch (err) {
-                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.message);
-                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 return;
                                             }
                                         } else {
-                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.message);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -605,7 +599,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         nextVolumeFile();
 
                                     } catch (err) {
-                                        logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
@@ -615,22 +609,22 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
                                     let filePathRoot = bot.devTeam + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
 
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> fileName = " + fileName); }
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> fileName = " + fileName); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> filePath = " + filePath); }
 
                                     bruceStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
                                     function onFileReceived(err, text) {
 
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function."); }
-                                        if (LOG_FILE_CONTENT === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> text = " + text); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function."); }
+                                        if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> text = " + text); }
 
                                         let volumesFile;
 
@@ -639,13 +633,13 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                                 volumesFile = JSON.parse(text);
 
                                             } catch (err) {
-                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.message);
-                                                logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 return;
                                             }
                                         } else {
-                                            logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Received -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Received -> err = " + err.message);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -700,7 +694,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         writeFiles(outputCandles[n], outputVolumes[n], folderName, controlLoop);
                                     }
                                 } catch (err) {
-                                    logger.write("[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -708,7 +702,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         function controlLoop() {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> buildCandles -> periodsLoop -> controlLoop -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> controlLoop -> Entering function."); }
 
                             n++;
 
@@ -724,14 +718,14 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     }
                 }
                 catch (err) {
-                    logger.write("[ERROR] start -> buildCandles -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function writeFiles(candles, volumes, folderName, callBack) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> Entering function."); }
 
                 /*
 
@@ -745,7 +739,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     function writeCandles() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> Entering function."); }
 
                         let separator = "";
                         let fileRecordCounter = 0;
@@ -768,26 +762,26 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                         let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
  
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
 
                         oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write("[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.message);
                                 callBackFunction(err);
                                 return;
                             }
 
                             if (LOG_FILE_CONTENT === true) {
-                                logger.write("[INFO] start -> writeFiles -> writeCandles -> onFileCreated ->  Content written = " + fileContent);
+                                logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated ->  Content written = " + fileContent);
                             }
 
-                            logger.write("[WARN] start -> writeFiles -> writeCandles -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName );
+                            logger.write(MODULE_NAME, "[WARN] start -> writeFiles -> writeCandles -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName );
 
                             writeVolumes();
                         }
@@ -795,7 +789,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                     function writeVolumes() {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> Entering function."); }
 
                         let separator = "";
                         let fileRecordCounter = 0;
@@ -818,41 +812,41 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                         let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }
 
                         oliviaStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write("[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.message);
                                 callBackFunction(err);
                                 return;
                             }
 
                             if (LOG_FILE_CONTENT === true) {
-                                logger.write("[INFO] start -> writeFiles -> writeVolumes -> onFileCreated ->  Content written = " + fileContent);
+                                logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated ->  Content written = " + fileContent);
                             }
 
-                            logger.write("[WARN] start -> writeFiles -> writeVolumes -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
+                            logger.write(MODULE_NAME, "[WARN] start -> writeFiles -> writeVolumes -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
 
                             callBack();
                         }
                     }
                 }           
                 catch (err) {
-                logger.write("[ERROR] start -> writeFiles -> err = " + err.message);
+                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> err = " + err.message);
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function writeStatusReport(lastFileDate, callBack) {
 
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
-                if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
 
                 try {
 
@@ -865,13 +859,13 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                 }
                 catch (err) {
-                    logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
-            logger.write("[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

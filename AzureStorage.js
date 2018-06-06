@@ -128,7 +128,7 @@
             let options = {
                 host: pEndPoint,
                 port: 443,
-                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=30',
+                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=60',
                 method: 'GET',
                 headers: {},
                 agent: false 
@@ -182,7 +182,7 @@
             let options = {
                 host: pEndPoint,
                 port: 443,
-                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=30',
+                path: '/' + pContainer + '/' + pBlobPath + '?' + pSAS + '&timeout=60',
                 method: 'PUT',
                 headers: {},
                 agent: false

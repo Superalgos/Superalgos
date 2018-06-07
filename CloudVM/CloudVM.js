@@ -15,6 +15,7 @@ function newCloudVM() {
     let root = newRoot();
     let intervalHandler;
     let previousBotCode = "";
+    let errorsCheckingForBotCodeChanges = 0;
 
     return thisObject;
 
@@ -25,6 +26,7 @@ function newCloudVM() {
             if (INFO_LOG === true) { logger.write("[INFO] onBotPlayPressed -> Entering function."); }
 
             window.SHALL_BOT_STOP = false;
+            errorsCheckingForBotCodeChanges = 0;
 
             window.CURRENT_ENVIRONMENT = "Develop";
             window.CURRENT_EXECUTION_AT = "Browser";
@@ -60,6 +62,7 @@ function newCloudVM() {
         if (INFO_LOG === true) { logger.write("[INFO] onBotStopPressed -> Entering function."); }
 
         window.SHALL_BOT_STOP = true; 
+        errorsCheckingForBotCodeChanges = 0;
 
     }
 
@@ -108,6 +111,15 @@ function newCloudVM() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] checkForChangesInBotCode -> err.message = " + err.message); }
+            errorsCheckingForBotCodeChanges++;
+
+            if (errorsCheckingForBotCodeChanges > 3) {
+
+                if (ERROR_LOG === true) { logger.write("[ERROR] checkForChangesInBotCode -> Giving up."); }
+
+                clearInterval(intervalHandler);
+
+            }
         }
     }
 }

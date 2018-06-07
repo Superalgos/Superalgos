@@ -11,13 +11,17 @@ function webRequire(pModulePath) {
 
     switch (pModulePath) {
 
-        case 'fs': {
+        case './AzureStorage': {
 
-            return newWebFS();
-        }
-        case 'azure-storage': {
+            let MODULE = {};
+            MODULE.newAzureStorage = newAzureStorage;
+            return MODULE;
 
-            return AzureStorage.Blob;
+            function newAzureStorage() {
+
+                return AzureStorage.Blob;
+
+            }            
         }
         case './EventHandler': {
 

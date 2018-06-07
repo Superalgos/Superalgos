@@ -11,13 +11,8 @@
     "dataSetVersion": "dataSet.V1",
     "processes": [
         {
-<<<<<<< HEAD
             "name": "Multi-Period-Market",
             "description": "Produces files with the LRC Points for the entire market.",
-=======
-            "name": "Multi-Period-Daily",
-            "description": "Produces files with the LRC Points on a daily format.",
->>>>>>> efa5470188c576eca370cc465a9a63946bdb4e8d
             "startMode": {
                 "allMonths": {
                     "run": "false",
@@ -44,7 +39,6 @@
             "statusDependencies": [
                 {
                     "devTeam": "AAVikings",
-<<<<<<< HEAD
                     "bot": "AAGauss",
                     "botVersion": {
                         "major": 1,
@@ -94,8 +88,6 @@
             "statusDependencies": [
                 {
                     "devTeam": "AAVikings",
-=======
->>>>>>> efa5470188c576eca370cc465a9a63946bdb4e8d
                     "bot": "AAGauss",
                     "botVersion": {
                         "major": 1,
@@ -134,11 +126,7 @@
                 {
                     "codeName": "Multi-Period-Daily",
                     "type": "Daily Files",
-<<<<<<< HEAD
                     "validPeriods": [ "30-min" ],
-=======
-                    "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
->>>>>>> efa5470188c576eca370cc465a9a63946bdb4e8d
                     "filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Daily/@Period/@Year/@Month/@Day",
                     "fileName": "@AssetA_@AssetB.json",
                     "dataRange": {

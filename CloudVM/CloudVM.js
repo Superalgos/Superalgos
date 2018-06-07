@@ -113,7 +113,7 @@ function newCloudVM() {
             if (ERROR_LOG === true) { logger.write("[ERROR] checkForChangesInBotCode -> err.message = " + err.message); }
             errorsCheckingForBotCodeChanges++;
 
-            if (errorsCheckingForBotCodeChanges > 3) {
+            if (errorsCheckingForBotCodeChanges > 2) {
 
                 if (ERROR_LOG === true) { logger.write("[ERROR] checkForChangesInBotCode -> Giving up."); }
 

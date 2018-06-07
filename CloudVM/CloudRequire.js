@@ -1,16 +1,9 @@
-﻿function newCloudRequire(BOT, DEBUG_MODULE) {
+﻿function newCloudRequire(bot, logger) {
 
     const INFO_LOG = true;
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "Cloud Require";
-
-    let bot = BOT;
-
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.bot = bot;
-    logger.fileName = MODULE_NAME;
-    logger.initialize();
 
     let thisObject = {
         downloadBot: downloadBot,
@@ -23,7 +16,7 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] downloadBot -> Entering function."); }
+            if (INFO_LOG === true) { logger.write(MODULE_NAME + "[INFO] downloadBot -> Entering function."); }
 
             let filePath = "Bots" + "/" + pFilePath + "/" + "User.Bot.js";
 
@@ -37,7 +30,7 @@
             }
 
         } catch (err) {
-            logger.write("[ERROR] downloadBot -> err = " + err.message);
+            logger.write(MODULE_NAME + "[ERROR] downloadBot -> err = " + err.message);
             callBackFunction(window.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -46,7 +39,7 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] downloadCommons -> Entering function."); }
+            if (INFO_LOG === true) { logger.write(MODULE_NAME + "[INFO] downloadCommons -> Entering function."); }
 
             let filePath = "Bots" + "/" + pFilePath + "/" + "Commons.js";
 
@@ -60,7 +53,7 @@
             }
 
         } catch (err) {
-            logger.write("[ERROR] downloadCommons -> err = " + err.message);
+            logger.write(MODULE_NAME + "[ERROR] downloadCommons -> err = " + err.message);
             callBackFunction(window.DEFAULT_FAIL_RESPONSE);
         }
     }

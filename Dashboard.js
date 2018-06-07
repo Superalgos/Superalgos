@@ -12,7 +12,8 @@ UI_COLOR = {
     GREEN: "188, 214, 67",
     RED: "223, 70, 60",
     PATINATED_TURQUOISE: "27,153,139",
-    TITANIUM_YELLOW: "244,228,9"
+    TITANIUM_YELLOW: "244,228,9",
+    MANGANESE_PURPLE: "91,80,122"
 };
 
 /* User Interface Fonts */

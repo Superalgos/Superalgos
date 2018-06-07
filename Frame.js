@@ -382,14 +382,14 @@ function newFrame() {
         browserCanvasContext.fill();
 
         browserCanvasContext.lineWidth = 0.1;
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.75)';
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 0.75)';
         browserCanvasContext.stroke();
 
  
 
         /* We paint the title bar now */
         
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.75)';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.75)';
         browserCanvasContext.beginPath();
 
         browserCanvasContext.moveTo(titleBarPoint1.x, titleBarPoint1.y);
@@ -403,7 +403,7 @@ function newFrame() {
         browserCanvasContext.fill();
         
         browserCanvasContext.lineWidth = 0.1;
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.75)';
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 0.75)';
         browserCanvasContext.stroke();
 
         /* print the title */

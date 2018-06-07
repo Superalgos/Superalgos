@@ -127,7 +127,7 @@ function newNote() {
             browserCanvasContext.fill();
 
             browserCanvasContext.lineWidth = 0.1;
-            browserCanvasContext.strokeStyle = 'rgba(54, 54, 54, 0.75)';
+            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 0.75)';
             browserCanvasContext.stroke();
 
             /* We paint the title bar now */
@@ -146,7 +146,7 @@ function newNote() {
             browserCanvasContext.fill();
 
             browserCanvasContext.lineWidth = 0.1;
-            browserCanvasContext.strokeStyle = 'rgba(12, 64, 148, 0.75)';
+            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.75)';
             browserCanvasContext.stroke();
 
         }

@@ -6,7 +6,13 @@
 UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",
-    WHITE: "255, 255, 255"
+    WHITE: "255, 255, 255",
+    GOLDEN_ORANGE: "240, 162, 2",
+    RUSTED_RED: "204, 88, 53",
+    GREEN: "188, 214, 67",
+    RED: "223, 70, 60",
+    PATINATED_TURQUOISE: "27,153,139",
+    TITANIUM_YELLOW: "244,228,9"
 };
 
 /* User Interface Fonts */

@@ -414,6 +414,7 @@
 
                     function loopControl(nextWaitTime) {
 
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Entering function."); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
                         /* Here we check if we must stop the loop gracefully. */
@@ -422,7 +423,9 @@
 
                         function onStop() {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Stopping the Loop Gracefully. See you next time!"); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Entering function."); }
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
 
                             logger.persist();
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -431,6 +434,8 @@
                         }
 
                         function onContinue() {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onContinue -> Entering function."); }
 
                             /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
 
@@ -494,7 +499,7 @@
                                             } else {
                                                 stopCallBack();
                                             }
-                                            break;
+                                            return;
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");

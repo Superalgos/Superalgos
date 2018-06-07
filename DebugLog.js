@@ -44,7 +44,7 @@
 
             if (global.CURRENT_EXECUTION_AT === "Browser") {
 
-                console.log("[INFO] DebugLog -> persist -> We do not persist logs while running at the Browser");
+                //console.log("[INFO] DebugLog -> persist -> We do not persist logs while running at the Browser");
                 return;
 
             }

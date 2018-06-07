@@ -105,6 +105,9 @@ LRCIndicator.prototype.calculate = function (price) {
 
 exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE) {
     const FULL_LOG = true;
+=======
+    const FULL_LOG = false;
+>>>>>>> efa5470188c576eca370cc465a9a63946bdb4e8d
     const LOG_FILE_CONTENT = false;
     const USE_PARTIAL_LAST_CANDLE = true; // When running live the last candle generated is a partial candle.
 
@@ -289,7 +292,11 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
 
                     if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> advanceTime -> Entering function."); }
 
+<<<<<<< HEAD
                     executionTime = new Date(lastCandles[2] + (ONE_MIN_IN_MILISECONDS*30));
+=======
+                    executionTime = new Date(lastCandles[10] + ONE_MIN_IN_MILISECONDS);
+>>>>>>> efa5470188c576eca370cc465a9a63946bdb4e8d
                     
                     if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> advanceTime -> New processing time @ " + executionTime.toISOString()); }
 
@@ -324,7 +331,11 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                     isTimeToRun();
 
                     function isTimeToRun() {
+<<<<<<< HEAD
                         let nextExecution = lastCandles[2] + outputPeriod;
+=======
+                        let nextExecution = lastCandles[n] + outputPeriod;
+>>>>>>> efa5470188c576eca370cc465a9a63946bdb4e8d
                         if (executionTime.valueOf() >= nextExecution) {
                             getLRCPoints();
                         } else {
@@ -597,7 +608,11 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                                         }
 
                                         // We keep a record of the last candle used for the time period
+<<<<<<< HEAD
                                         lastCandles[2] = lrcPoint[0];
+=======
+                                        lastCandles[n] = lrcPoint[0];
+>>>>>>> efa5470188c576eca370cc465a9a63946bdb4e8d
 
                                         controlLoop();
                                     }
@@ -626,7 +641,11 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                                         }
 
                                         // We keep a record of the last candle used for the time period
+<<<<<<< HEAD
                                         lastCandles[2] = lrcPoint[0];
+=======
+                                        lastCandles[n] = lrcPoint[0];
+>>>>>>> efa5470188c576eca370cc465a9a63946bdb4e8d
 
                                         controlLoop();
                                     }
@@ -650,7 +669,11 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                         loopBody();
 
                     } else {
+<<<<<<< HEAD
                         let lastOneMinuteCandle = lastCandles[2];
+=======
+                        let lastOneMinuteCandle = lastCandles[10];
+>>>>>>> efa5470188c576eca370cc465a9a63946bdb4e8d
                         writeDataRange(lastOneMinuteCandle, onWritten);
 
                         function onWritten(err) {

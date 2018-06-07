@@ -104,6 +104,7 @@ LRCIndicator.prototype.calculate = function (price) {
 }
 
 exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE) {
+<<<<<<< HEAD
     const FULL_LOG = true;
 =======
     const FULL_LOG = false;

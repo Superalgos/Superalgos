@@ -104,7 +104,7 @@ LRCIndicator.prototype.calculate = function (price) {
 }
 
 exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE) {
-    const FULL_LOG = false;
+    const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const USE_PARTIAL_LAST_CANDLE = true; // When running live the last candle generated is a partial candle.
 
@@ -289,7 +289,7 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
 
                     if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> advanceTime -> Entering function."); }
 
-                    executionTime = new Date(lastCandles[10] + ONE_MIN_IN_MILISECONDS);
+                    executionTime = new Date(lastCandles[2] + (ONE_MIN_IN_MILISECONDS*30));
                     
                     if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> advanceTime -> New processing time @ " + executionTime.toISOString()); }
 
@@ -324,7 +324,7 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                     isTimeToRun();
 
                     function isTimeToRun() {
-                        let nextExecution = lastCandles[n] + outputPeriod;
+                        let nextExecution = lastCandles[2] + outputPeriod;
                         if (executionTime.valueOf() >= nextExecution) {
                             getLRCPoints();
                         } else {
@@ -345,7 +345,7 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                         let candleArray = [];
 
                         let queryDate = new Date(executionTime);
-                        let candleFile = getDailyFile(queryDate, onDailyFileReceived);
+                        let candleFile = getDailyFile(queryDate, onDailyFileReceived); //TODO Implement remote file cache
 
                         function onDailyFileReceived(err, candleFile) {
                             if (FULL_LOG === true) { logger.write("[INFO] start -> getLRCPoints -> onDailyFileReceived."); }
@@ -597,7 +597,7 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                                         }
 
                                         // We keep a record of the last candle used for the time period
-                                        lastCandles[n] = lrcPoint[0];
+                                        lastCandles[2] = lrcPoint[0];
 
                                         controlLoop();
                                     }
@@ -626,7 +626,7 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                                         }
 
                                         // We keep a record of the last candle used for the time period
-                                        lastCandles[n] = lrcPoint[0];
+                                        lastCandles[2] = lrcPoint[0];
 
                                         controlLoop();
                                     }
@@ -650,7 +650,7 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                         loopBody();
 
                     } else {
-                        let lastOneMinuteCandle = lastCandles[10];
+                        let lastOneMinuteCandle = lastCandles[2];
                         writeDataRange(lastOneMinuteCandle, onWritten);
 
                         function onWritten(err) {

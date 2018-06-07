@@ -201,7 +201,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         browserCanvasContext.lineTo(stickPoint4.x, stickPoint4.y);
 
         browserCanvasContext.closePath();
-        browserCanvasContext.fillStyle = 'rgba(54, 54, 54, 1)';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
         browserCanvasContext.fill();
 
         browserCanvasContext.lineWidth = 1;
@@ -218,13 +218,13 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
         const OPACITY = '1';
 
-        if (currentCandle.innerCandle.direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + OPACITY + ')'; }
-        if (currentCandle.innerCandle.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, ' + OPACITY + ')'; }
-        if (currentCandle.innerCandle.direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, ' + OPACITY + ')'; }
+        if (currentCandle.innerCandle.direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + OPACITY + ')'; }
+        if (currentCandle.innerCandle.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'; }
+        if (currentCandle.innerCandle.direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'; }
 
-        if (currentCandle.innerCandle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(64, 217, 26, ' + OPACITY + ')'; }
-        if (currentCandle.innerCandle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(219, 18, 18, ' + OPACITY + ')'; }
-        if (currentCandle.innerCandle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(64, 26, 217, ' + OPACITY + ')'; }
+        if (currentCandle.innerCandle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + OPACITY + ')'; }
+        if (currentCandle.innerCandle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'; }
+        if (currentCandle.innerCandle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'; }
 
         browserCanvasContext.fill();
 
@@ -286,7 +286,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
             labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
-            browserCanvasContext.fillStyle = 'rgba(60, 60, 60, ' + opacity + ')';
+            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
         }

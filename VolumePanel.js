@@ -149,8 +149,8 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
         browserCanvasContext.closePath(); 
 
-        browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + OPACITY + ')';
-        browserCanvasContext.fillStyle = 'rgba(64, 217, 26, ' + OPACITY + ')';
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + OPACITY + ')';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + OPACITY + ')';
 
         browserCanvasContext.fill();
 
@@ -167,8 +167,8 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
         browserCanvasContext.closePath();
 
-        browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, ' + OPACITY + ')';
-        browserCanvasContext.fillStyle = 'rgba(219, 18, 18, ' + OPACITY + ')';
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')';
 
         browserCanvasContext.fill();
 
@@ -208,7 +208,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
             labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
 
-            browserCanvasContext.fillStyle = 'rgba(60, 60, 60, ' + opacity + ')';
+            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
 
         }

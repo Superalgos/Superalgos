@@ -696,21 +696,21 @@
 
                             if (dateValue >= volume.begin && dateValue <= volume.end) {
 
-                                browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 0.40)'; // Current bar accroding to time
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current bar accroding to time
 
                             } else {
 
-                                browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 0.40)';
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.40)';
                             }
 
                         } else {
 
-                            browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 0.40)';
+                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.40)';
 
                         }
 
                         browserCanvasContext.fill();
-                        browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, 0.40)';
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.40)';
                         browserCanvasContext.lineWidth = 1;
                         browserCanvasContext.stroke();
 
@@ -730,20 +730,20 @@
 
                             if (dateValue >= volume.begin && dateValue <= volume.end) {
 
-                                browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 0.40)'; // Current volume accroding to time
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current volume accroding to time
 
                             } else {
 
-                                browserCanvasContext.fillStyle = 'rgba(219, 18, 18, 0.40)';
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.40)';
                             }
 
                         } else {
 
-                            browserCanvasContext.fillStyle = 'rgba(219, 18, 18, 0.40)';
+                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.40)';
 
                         }
 
-                        browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, 0.40)';
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 0.40)';
 
                         browserCanvasContext.fill();
                         browserCanvasContext.lineWidth = 1;

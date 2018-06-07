@@ -664,7 +664,7 @@
                     browserCanvasContext.lineTo(stickPoint4.x, stickPoint4.y);
 
                     browserCanvasContext.closePath();
-                    browserCanvasContext.fillStyle = 'rgba(54, 54, 54, 1)';
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
                     browserCanvasContext.fill();
 
                     if (datetime !== undefined) {
@@ -673,14 +673,14 @@
 
                         if (dateValue >= candle.begin && dateValue <= candle.end) {
 
-                            browserCanvasContext.strokeStyle = 'rgba(255, 233, 31, 1)'; // Current candle accroding to time
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
 
                         } else {
-                            browserCanvasContext.strokeStyle = 'rgba(212, 206, 201, 1)';
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
                         }
 
                     } else {
-                        browserCanvasContext.strokeStyle = 'rgba(212, 206, 201, 1)';
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
                     }
 
                     browserCanvasContext.lineWidth = 1;
@@ -695,9 +695,9 @@
 
                     browserCanvasContext.closePath();
 
-                    if (candle.direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, 1)'; }
-                    if (candle.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, 1)'; }
-                    if (candle.direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(27, 7, 105, 1)'; }
+                    if (candle.direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)'; }
+                    if (candle.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 1)'; }
+                    if (candle.direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
 
                     if (datetime !== undefined) {
 
@@ -707,7 +707,7 @@
 
                             /* highlight the current candle */
 
-                            browserCanvasContext.fillStyle = 'rgba(255, 233, 31, 1)'; // Current candle accroding to time
+                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current candle accroding to time
 
                             let currentCandle = {
                                 bodyWidth: candlePoint2.x - candlePoint1.x,
@@ -723,16 +723,16 @@
 
                         } else {
 
-                            if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 1)'; }
-                            if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(219, 18, 18, 1)'; }
-                            if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(64, 26, 217, 1)'; }
+                            if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
+                            if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
+                            if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
                         }
 
                     } else {
 
-                        if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(64, 217, 26, 1)'; }
-                        if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(219, 18, 18, 1)'; }
-                        if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(64, 26, 217, 1)'; }
+                        if (candle.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
+                        if (candle.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
+                        if (candle.direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
 
                     }
 

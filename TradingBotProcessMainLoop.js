@@ -142,6 +142,8 @@
 
                 try {
 
+                    console.log((new Date().toISOString() + " " + bot.codeName + " " + bot.process + " Entered into Loop # " + (Number(bot.loopCounter) + 1)));
+
                     /* For each loop we want to create a new log file. */
 
                     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
@@ -865,8 +867,13 @@
 
                         if (bot.loopCounter === pLastLoop + 1) {    // This means that the next loop started but also stopped executing abruptally.
 
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> Dying loop found.");
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> pLastLoop = " + pLastLoop);
+                            console.log((new Date().toISOString() + " " + bot.codeName + " " + bot.process + " Loop # " + Number(bot.loopCounter) + " found dead. Resurrecting it now." ));
+
                             logger.persist();                       // We persist the logs of the failed execution.
                             loop();                                 // We restart the loop so that the processing can continue.
+
                         }
                     }
 

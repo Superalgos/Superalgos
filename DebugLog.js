@@ -86,8 +86,8 @@
                                     return;
                                 }
 
-                                blobContent = "";
-                                thisObject = {};
+                                //blobContent = "";
+                                //thisObject = {};
                             }
                         }
 

@@ -10,6 +10,10 @@
 
     const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
 
+    const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+    let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
+    let timeoutHandle; 
+
     let thisObject = {
         initialize: initialize,
         run: run
@@ -144,9 +148,6 @@
                     console.log((new Date().toISOString() + " " + bot.codeName + " " + bot.process + " Entered into Loop # " + (Number(bot.loopCounter) + 1)));
 
                     /* For each loop we want to create a new log file. */
-
-                    const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
-                    let logger;
 
                     logger = DEBUG_MODULE.newDebugLog();
                     logger.bot = bot;
@@ -469,7 +470,7 @@
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }                                        
                                         setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
-                                        setTimeout(loop, processConfig.normalWaitTime);
+                                        timeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                         logger.persist();
                                     }
                                 }
@@ -477,7 +478,7 @@
                                 case 'Retry': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
                                     setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
-                                    setTimeout(loop, processConfig.retryWaitTime);
+                                    timeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
                                     logger.persist();
                                 }
                                     break;
@@ -488,7 +489,7 @@
                                         return;
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
-                                        setTimeout(loop, processConfig.sleepWaitTime);
+                                        timeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
                                         logger.persist();
                                     }
                                 }
@@ -500,7 +501,7 @@
                                         return;
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
-                                        setTimeout(loop, processConfig.comaWaitTime);
+                                        timeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
                                         logger.persist();
                                     }
                                 }
@@ -518,6 +519,7 @@
                             console.log((new Date().toISOString() + " " + bot.codeName + " " + bot.process + " Loop # " + Number(bot.loopCounter) + " found dead. Resurrecting it now."));
 
                             logger.persist();                       // We persist the logs of the failed execution.
+                            clearTimeout(timeoutHandle);            // We cancel the timeout in case the original loop was still running and schedulled to reexecute.
                             loop();                                 // We restart the loop so that the processing can continue.
 
                         }

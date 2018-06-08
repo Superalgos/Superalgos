@@ -442,26 +442,26 @@
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                    logger.persist();
                                     setTimeout(loop, processConfig.normalWaitTime);
+                                    logger.persist();
                                 }
                                     break;
                                 case 'Retry': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
-                                    logger.persist();
                                     setTimeout(loop, processConfig.retryWaitTime);
+                                    logger.persist();
                                 }
                                     break;
                                 case 'Sleep': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
-                                    logger.persist();
                                     setTimeout(loop, processConfig.sleepWaitTime);
+                                    logger.persist();
                                 }
                                     break;
                                 case 'Coma': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
-                                    logger.persist();
                                     setTimeout(loop, processConfig.comaWaitTime);
+                                    logger.persist();                                    
                                 }
                                     break;
                             }

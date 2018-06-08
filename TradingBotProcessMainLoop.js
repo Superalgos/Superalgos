@@ -833,12 +833,14 @@
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Normal -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                                    setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
                                     setTimeout(loop, processConfig.normalWaitTime);
                                     logger.persist();
                                 }
                                     break;
                                 case 'Retry': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Retry -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                                    setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
                                     setTimeout(loop, processConfig.retryWaitTime);
                                     logger.persist();
                                 }
@@ -856,6 +858,15 @@
                                 }
                                     break;
                             }
+                        }
+                    }
+
+                    function checkLoopHealth(pLastLoop) {
+
+                        if (bot.loopCounter === pLastLoop + 1) {    // This means that the next loop started but also stopped executing abruptally.
+
+                            logger.persist();                       // We persist the logs of the failed execution.
+                            loop();                                 // We restart the loop so that the processing can continue.
                         }
                     }
 

@@ -461,10 +461,12 @@
                                 case 'Normal': {
                                     if (bot.runAtFixedInterval === true) {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Fixed Interval Normal exit point reached."); }
+                                        setTimeout(checkLoopHealth, bot.fixedInterval * 5, bot.loopCounter);
                                         logger.persist();
                                         return;
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }                                        
+                                        setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
                                         setTimeout(loop, processConfig.normalWaitTime);
                                         logger.persist();
                                     }
@@ -472,6 +474,7 @@
                                     break;
                                 case 'Retry': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                                    setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
                                     setTimeout(loop, processConfig.retryWaitTime);
                                     logger.persist();
                                 }
@@ -501,6 +504,15 @@
                                 }
                                     break;
                             }
+                        }
+                    }
+
+                    function checkLoopHealth(pLastLoop) {
+
+                        if (bot.loopCounter === pLastLoop + 1) {    // This means that the next loop started but also stopped executing abruptally.
+
+                            logger.persist();                       // We persist the logs of the failed execution.
+                            loop();                                 // We restart the loop so that the processing can continue.
                         }
                     }
 

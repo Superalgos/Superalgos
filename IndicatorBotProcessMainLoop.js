@@ -141,7 +141,7 @@
             function loop() {
 
                 try {
-
+                    console.log((new Date().toISOString() + " " + bot.codeName + " " + bot.process + " Entered into Loop # " + bot.loopCounter + 1));
                     /* For each loop we want to create a new log file. */
 
                     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');

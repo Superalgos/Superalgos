@@ -42,6 +42,10 @@
 
     let productsPanel;
 
+    /* Background */
+    let logo;
+    let canDrawLogo = false;
+
     return thisObject;
 
     function initialize(exchange, market, pProductsPanel, callBackFunction) {
@@ -49,6 +53,18 @@
         try {
 
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+
+            /* We load the logo we will need for the background. */
+
+            logo = new Image();
+
+            logo.onload = onImageLoad;
+
+            function onImageLoad() {
+                canDrawLogo = true;
+            }
+
+            logo.src = "Images/bitcoin-logo-background.png";
 
             /* Remember the Products Panel */
 
@@ -917,6 +933,93 @@
     function drawBackground() {
 
         if (INTENSIVE_LOG === true) { logger.write("[INFO] drawBackground -> Entering function."); }
+
+        if (canDrawLogo === false) { return; }
+
+        let backgroundLogoPoint1;
+        let backgroundLogoPoint2;
+
+        let imageHeight = 84;
+        let imageWidth = 300;
+
+        let point1 = {
+            x: viewPort.visibleArea.topLeft.x,
+            y: viewPort.visibleArea.topLeft.y
+        };
+
+        backgroundLogoPoint1 = {
+            x: getDateFromPoint(point1, thisObject.container, timeLineCoordinateSystem).valueOf(),
+            y: getRateFromPoint(point1, thisObject.container, timeLineCoordinateSystem)
+        };
+
+        let point2 = {
+            x: viewPort.visibleArea.topLeft.x + imageWidth * 2,
+            y: viewPort.visibleArea.topLeft.y
+        };
+
+        backgroundLogoPoint2 = {
+            x: getDateFromPoint(point2, thisObject.container, timeLineCoordinateSystem).valueOf(),
+            y: getRateFromPoint(point2, thisObject.container, timeLineCoordinateSystem)
+        };
+
+        let currentCorner = {
+            x: getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem).valueOf(),
+            y: getRateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem)
+        };
+
+        currentCorner.x = Math.trunc(currentCorner.x / (backgroundLogoPoint2.x - backgroundLogoPoint1.x)) * (backgroundLogoPoint2.x - backgroundLogoPoint1.x);
+
+        let rowHight = (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 4.5;
+
+        let offSet = 0;
+
+        for (let j = 0; j < 5; j++) {
+
+            if (offSet === 0) {
+
+                offSet = -imageWidth;
+
+            } else {
+                offSet = 0;
+            }
+
+            for (let i = 0; i < 6; i++) {
+
+                imagePoint = timeLineCoordinateSystem.transformThisPoint(currentCorner);
+                imagePoint = transformThisPoint(imagePoint, thisObject.container);
+
+                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
+
+            }
+        }
+
+        /* We will paint some transparent background here. */
+
+        let opacity = "0.9";
+
+        let fromPoint = {
+            x: 0,
+            y: 0
+        };
+
+        let toPoint = {
+            x: 0,
+            y: thisObject.container.frame.height
+        };
+
+        fromPoint = transformThisPoint(fromPoint, thisObject.container); 
+        toPoint = transformThisPoint(toPoint, thisObject.container); 
+
+        browserCanvasContext.beginPath();
+
+        browserCanvasContext.rect(viewPort.visibleArea.topLeft.x, fromPoint.y, viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x, toPoint.y - fromPoint.y);
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')';
+
+        browserCanvasContext.closePath();
+
+        browserCanvasContext.fill();
+
+        /* Finally the name of the market. */
 
         let fontMaxSize = 80;
         let targetLabelFontSize = fontMaxSize;

@@ -129,6 +129,7 @@ function convertTimePeriodToName(pTimePeriod) {
     }
 }
 
+
 let cloudVM = newCloudVM();
 window.AT_BREAKPOINT = false;
 

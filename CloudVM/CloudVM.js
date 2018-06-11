@@ -31,7 +31,18 @@ function newCloudVM() {
             window.CURRENT_ENVIRONMENT = "Develop";
             window.CURRENT_EXECUTION_AT = "Browser";
             window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
-            window.EXCHANGE_KEYS = ecosystem.getExchangeKeys();            
+
+            /*
+            When running at the browser, the AACloud VM will look for this data, in this case it does not contain any key or secret, since the browser only know the
+            session token the user received when he logged in.
+            */
+
+            window.EXCHANGE_KEYS = {
+                Poloniex: {
+                    Key: "",
+                    Secret: ""
+                }
+            }         
 
             root.initialize(pUI_COMMANDS, onInitialized);
 

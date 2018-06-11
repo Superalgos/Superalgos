@@ -19,7 +19,7 @@
                 filePath = '../' + 'Connection-Strings' + '/' + 'Storage.Permissions.json';
                 pEcosystemObject.STORAGE_PERMISSIONS = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-                readExchangeAPIKey();
+                readPermissions();
             }
             catch (err) {
                 console.log("[ERROR] readStoragePermissions -> err = " + err.message);
@@ -27,25 +27,18 @@
             }
         }
 
-        function readExchangeAPIKey() {
+        function readPermissions() {
 
             try {
                 let fs = require('fs');
-                let filePath = '../' + 'Exchange-Keys' + '/' + 'Secret.Keys' + '.json';
+                let filePath = '../' + 'Permissions' + '/' + 'Secrets' + '.json';
 
-                pEcosystemObject.EXCHANGE_KEYS = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                callBackFunction();
+                let permissioins = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                callBackFunction(permissioins);
             }
             catch (err) {
-                console.log("[ERROR] readExchangeAPIKey -> err = " + err.message);
+                console.log("[ERROR] readPermissions -> err = " + err.message);
                 console.log("[HINT] You need to have a file at this path -> " + filePath);
-
-                pEcosystemObject.EXCHANGE_KEYS = {
-                    Poloniex: {
-                        Key: "",
-                        Secret: ""
-                    }
-                }
 
                 callBackFunction();
             }

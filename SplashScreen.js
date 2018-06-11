@@ -67,8 +67,6 @@ function newSplashScreen() {
             opacity = opacity - 0.05;
         }
 
-        if (canDrawLogo === false) { return; }
-
         thisObject.container.frame.draw(false, false);
 
         /* Set the background. */
@@ -81,6 +79,8 @@ function newSplashScreen() {
         browserCanvasContext.closePath();
 
         browserCanvasContext.fill();
+
+        if (canDrawLogo === false) { return; }
 
         /* First the AA Logo. */
 

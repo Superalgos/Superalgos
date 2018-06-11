@@ -49,6 +49,8 @@ let isHttpServerStarted = false;
 const STORAGE = require('./Server/Storage');
 let storage = STORAGE.newStorage();
 
+let authenticatedSession;               // We do not send these keys to the browser, instead they are kept here for when they are needed.
+
 initialize();
 
 function initialize() {
@@ -93,7 +95,9 @@ function initialize() {
 
                     permissions.initialize(ecosystemObject, onInitialized);
 
-                    function onInitialized() {
+                    function onInitialized(pPermissionsSecrets) {
+
+                        authenticatedSession = pPermissionsSecrets;
 
                         const BOT_SCRIPTS = require('./Server/BotsScripts');
                         botScripts = BOT_SCRIPTS.newBotScripts();
@@ -575,55 +579,72 @@ function onBrowserRequest(request, response) {
 
         case "PoloniexAPIClient": // This is trying to access this library functionality from the broser.
             {
-                const POLONIEX_CLIENT_MODULE = require('./Exchanges/' + 'PoloniexAPIClient');
-                let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(requestParameters[3], requestParameters[4]);
 
-                switch (requestParameters[2]) {
+                /* We are going to let access the exchange only to authenticated users, that measn that we need the a valid session token. */
 
-                    case "returnOpenOrders": {
-                        poloniexApiClient.API.returnOpenOrders(requestParameters[5], requestParameters[6], onExchangeResponse);
-                        break;
+                let sessionToken = requestParameters[3]; 
+
+                for (let i = 0; i < authenticatedSession.length; i++) {
+
+                    let session = authenticatedSession[i];
+
+                    if (session.sessionToken === sessionToken) {
+
+                        let exchangeKey = session.exchangeKeys[0].key;  // 0 because we only deal with one exchange for now.
+                        let exchangeSecret = session.exchangeKeys[0].secret;  
+
+                        const POLONIEX_CLIENT_MODULE = require('./Exchanges/' + 'PoloniexAPIClient');
+                        let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(exchangeKey, exchangeSecret);
+
+                        switch (requestParameters[2]) {
+
+                            case "returnOpenOrders": {
+                                poloniexApiClient.API.returnOpenOrders(requestParameters[4], requestParameters[5], onExchangeResponse);
+                                break;
+                            }
+
+                            case "returnOrderTrades": {
+                                poloniexApiClient.API.returnOrderTrades(requestParameters[4], onExchangeResponse);
+                                break;
+                            }
+
+                            case "buy": {
+                                poloniexApiClient.API.buy(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                                break;
+                            }
+
+                            case "sell": {
+                                poloniexApiClient.API.sell(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                                break;
+                            }
+
+                            case "moveOrder": {
+                                poloniexApiClient.API.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
+                                break;
+                            }
+
+                            case "returnTicker": {
+                                poloniexApiClient.API.returnTicker(onExchangeResponse);
+                                break;
+                            }
+                        }
+
+                        function onExchangeResponse(err, exchangeResponse) {
+
+                            /* Delete these secrets before they get logged. */
+
+                            requestParameters[3] = "";
+
+                            let serverResponse = {
+                                err: err,
+                                exchangeResponse: exchangeResponse
+                            }
+
+                            respondWithContent(JSON.stringify(serverResponse), response);
+                        }
+
+                        return;
                     }
-
-                    case "returnOrderTrades": {
-                        poloniexApiClient.API.returnOrderTrades(requestParameters[5], onExchangeResponse);
-                        break;
-                    }
-
-                    case "buy": {
-                        poloniexApiClient.API.buy(requestParameters[5], requestParameters[6], requestParameters[7], requestParameters[8], onExchangeResponse);
-                        break;
-                    }
-
-                    case "sell": {
-                        poloniexApiClient.API.sell(requestParameters[5], requestParameters[6], requestParameters[7], requestParameters[8], onExchangeResponse);
-                        break;
-                    }
-
-                    case "moveOrder": {
-                        poloniexApiClient.API.moveOrder(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
-                        break;
-                    }
-
-                    case "returnTicker": {
-                        poloniexApiClient.API.returnTicker(onExchangeResponse);
-                        break;
-                    }
-                }
-
-                function onExchangeResponse(err, exchangeResponse) {
-
-                    /* Delete these secrets before they get logged. */
-
-                    requestParameters[3] = "";
-                    requestParameters[4] = "";
-
-                    let serverResponse = {
-                        err: err,
-                        exchangeResponse: exchangeResponse
-                    }
-
-                    respondWithContent(JSON.stringify(serverResponse), response);
                 }
             }
             break; 

@@ -1,10 +1,9 @@
-﻿function newPoloniexAPIClient(pKey, pSecret) {
+﻿function newPoloniexAPIClient() {  
 
     const INFO_LOG = true;
     const LOG_FILE_CONTENT = false;
 
-    let key = pKey;
-    let secret = pSecret;
+    window.SESSION_TOKEN = window.localStorage.getItem("sessionToken");
 
     let thisObject = {
         API: {
@@ -81,8 +80,7 @@
 
         let path = "PoloniexAPIClient" + "/" 
             + "returnOpenOrders" + "/" 
-            + key + "/"
-            + secret + "/"
+            + window.SESSION_TOKEN + "/"
             + pMarketAssetA + "/"
             + pMarketAssetB
             ;
@@ -101,8 +99,7 @@
 
         let path = "PoloniexAPIClient" + "/"
             + "returnOrderTrades" + "/"
-            + key + "/"
-            + secret + "/"
+            + window.SESSION_TOKEN + "/"
             + pPositionId
             ;
 
@@ -120,8 +117,7 @@
 
         let path = "PoloniexAPIClient" + "/"
             + "buy" + "/"
-            + key + "/"
-            + secret + "/"
+            + window.SESSION_TOKEN + "/"
             + pMarketAssetA + "/"
             + pMarketAssetB + "/"
             + pRate + "/"
@@ -142,8 +138,7 @@
 
         let path = "PoloniexAPIClient" + "/"
             + "sell" + "/"
-            + key + "/"
-            + secret + "/"
+            + window.SESSION_TOKEN + "/"
             + pMarketAssetA + "/"
             + pMarketAssetB + "/"
             + pRate + "/"
@@ -164,8 +159,7 @@
 
         let path = "PoloniexAPIClient" + "/"
             + "moveOrder" + "/"
-            + key + "/"
-            + secret + "/"
+            + window.SESSION_TOKEN + "/"
             + pPositionId + "/"
             + pNewRate + "/"
             + pPositionAmountB
@@ -185,8 +179,7 @@
 
         let path = "PoloniexAPIClient" + "/"
             + "returnTicker" + "/"
-            + key + "/"
-            + secret
+            + window.SESSION_TOKEN
             ;
 
         callServer(undefined, path + "/NO-LOG", onServerResponse);

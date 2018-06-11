@@ -13,7 +13,6 @@ function newEcosystem() {
         getPlotter: getPlotter,
         getPlotterModule: getPlotterModule,
         getStoragePermissions: getStoragePermissions,
-        getExchangeKeys: getExchangeKeys,
         initialize: initialize
     }
  
@@ -29,12 +28,6 @@ function newEcosystem() {
     function getStoragePermissions() {
 
         return ECOSYSTEM.STORAGE_PERMISSIONS;
-
-    }
-
-    function getExchangeKeys() {
-
-        return ECOSYSTEM.EXCHANGE_KEYS;
 
     }
 

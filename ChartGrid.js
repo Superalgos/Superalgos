@@ -8,6 +8,9 @@
 
     function draw(container, timeLineCoordinateSystem) {
 
+        rightScaleBackground();
+        leftScaleBackground();
+
         let periods = [];
         let boxes = [];
         let labels = [];
@@ -493,7 +496,9 @@
                     rightScale();
                     leftScale();
 
-                    function rightScale() {
+                    function rightScale() {                     
+
+                        /* And now the scale. */
 
                         let fontSize = 10;
 
@@ -671,6 +676,44 @@
             browserCanvasContext.rect(viewPort.visibleArea.topRight.x, TOP_SPACE_HEIGHT, 500, viewPort.visibleArea.topLeft.y - TOP_SPACE_HEIGHT);
             browserCanvasContext.closePath();
             browserCanvasContext.fill();
+        }
+
+        function rightScaleBackground() {
+
+            const RIGHT_MARGIN = 50;
+
+            /* We will paint some transparent background here. */
+
+            let opacity = "0.95";
+
+            browserCanvasContext.beginPath();
+
+            browserCanvasContext.rect(viewPort.visibleArea.topRight.x, viewPort.visibleArea.topRight.y, RIGHT_MARGIN, viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y);
+            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')';
+
+            browserCanvasContext.closePath();
+
+            browserCanvasContext.fill();
+
+        }
+
+        function leftScaleBackground() {
+
+            const LEFT_MARGIN = 50;
+
+            /* We will paint some transparent background here. */
+
+            let opacity = "0.95";
+
+            browserCanvasContext.beginPath();
+
+            browserCanvasContext.rect(0, viewPort.visibleArea.topRight.y, LEFT_MARGIN, viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y);
+            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')';
+
+            browserCanvasContext.closePath();
+
+            browserCanvasContext.fill();
+
         }
     }
 }

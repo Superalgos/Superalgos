@@ -146,7 +146,12 @@
 
                 try {
 
-                    console.log((new Date().toISOString() + " " + bot.codeName + " " + bot.process + " Entered into Loop # " + (Number(bot.loopCounter) + 1)));
+                    function pad(str, max) {
+                        str = str.toString();
+                        return str.length < max ? pad(" " + str, max) : str;
+                    }
+
+                    console.log((new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process,30) + " Entered into Loop # " + pad((Number(bot.loopCounter) + 1)),5));
 
                     /* For each loop we want to create a new log file. */
 
@@ -483,7 +488,7 @@
                             if (now - bot.loopStartTime > processConfig.normalWaitTime) {
 
                                 logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> Dead loop found -> pLastLoop = " + pLastLoop);
-                                console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + bot.codeName + " " + bot.process + " Loop # " + Number(bot.loopCounter) + " found dead. Resurrecting it now."));
+                                console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + pad(bot.codeName,20) + " " + pad(bot.process,30) + " Loop # " + pad(Number(bot.loopCounter),5) + " found dead. Resurrecting it now."));
 
                                 logger.persist();                       // We persist the logs of the failed execution.
                                 clearTimeout(timeoutHandle);            // We cancel the timeout in case the original loop was still running and schedulled to reexecute.
@@ -491,7 +496,7 @@
 
                             } else {
 
-                                console.log((new Date().toISOString() + " [WARN] run -> loop -> checkLoopHealth -> " + bot.codeName + " " + bot.process + " Loop # " + Number(bot.loopCounter) + " found delayed but still alive. No action taken."));
+                                console.log((new Date().toISOString() + " [WARN] run -> loop -> checkLoopHealth -> " + pad(bot.codeName,20) + " " + pad(bot.process,30) + " Loop # " + pad(Number(bot.loopCounter),5) + " found delayed but still alive. No action taken."));
 
                             }
                         }

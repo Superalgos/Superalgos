@@ -80,7 +80,7 @@
                             if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> err = " + JSON.stringify(err)); }
                             if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> Returning an empty JSON object string. "); }
 
-                            callBackFunction("{}");
+                            callBackFunction("");
                             return;
 
                         }

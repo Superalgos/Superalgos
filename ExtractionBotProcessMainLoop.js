@@ -154,6 +154,7 @@
                     logger.initialize();
 
                     bot.loopCounter++;
+                    bot.loopStartTime = new Date().valueOf();
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
 
@@ -512,16 +513,24 @@
 
                     function checkLoopHealth(pLastLoop) {
 
-                        if (bot.loopCounter === pLastLoop + 1) {    // This means that the next loop started but also stopped executing abruptally.
+                        if (bot.loopCounter <= pLastLoop + 1) {    // This means that the next loop started but also stopped executing abruptally.
 
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> Dying loop found.");
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> pLastLoop = " + pLastLoop);
-                            console.log((new Date().toISOString() + " " + bot.codeName + " " + bot.process + " Loop # " + Number(bot.loopCounter) + " found dead. Resurrecting it now."));
+                            let now = new Date().valueOf();
 
-                            logger.persist();                       // We persist the logs of the failed execution.
-                            clearTimeout(timeoutHandle);            // We cancel the timeout in case the original loop was still running and schedulled to reexecute.
-                            loop();                                 // We restart the loop so that the processing can continue.
+                            if (now - bot.loopStartTime > processConfig.normalWaitTime) {
 
+                                logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> Dead loop found -> pLastLoop = " + pLastLoop);
+                                console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + bot.codeName + " " + bot.process + " Loop # " + Number(bot.loopCounter) + " found dead. Resurrecting it now."));
+
+                                logger.persist();                       // We persist the logs of the failed execution.
+                                clearTimeout(timeoutHandle);            // We cancel the timeout in case the original loop was still running and schedulled to reexecute.
+                                loop();                                 // We restart the loop so that the processing can continue.
+
+                            } else {
+
+                                console.log((new Date().toISOString() + " [WARN] run -> loop -> checkLoopHealth -> " + bot.codeName + " " + bot.process + " Loop # " + Number(bot.loopCounter) + " found delayed but still alive. No action taken."));
+
+                            }
                         }
                     }
 

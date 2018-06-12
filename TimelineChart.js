@@ -43,8 +43,10 @@
     let productsPanel;
 
     /* Background */
-    let logo;
-    let canDrawLogo = false;
+    let logoAssetA;
+    let logoAssetB;
+    let canDrawLogoA = false;
+    let canDrawLogoB = false;
 
     return thisObject;
 
@@ -54,17 +56,25 @@
 
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            /* We load the logo we will need for the background. */
+            /* We load the logow we will need for the background. */
 
-            logo = new Image();
+            logoA = new Image();
+            logoB = new Image();
 
-            logo.onload = onImageLoad;
+            logoA.onload = onImageALoaded;
 
-            function onImageLoad() {
-                canDrawLogo = true;
+            function onImageALoaded() {
+                canDrawLogoA = true;
             }
 
-            logo.src = "Images/bitcoin-logo-background.png";
+            logoB.onload = onImageBLoaded;
+
+            function onImageBLoaded() {
+                canDrawLogoB = true;
+            }
+
+            logoA.src = "Images/tether-logo-background.png";
+            logoB.src = "Images/bitcoin-logo-background.png";
 
             /* Remember the Products Panel */
 
@@ -934,7 +944,7 @@
 
         if (INTENSIVE_LOG === true) { logger.write("[INFO] drawBackground -> Entering function."); }
 
-        if (canDrawLogo === false) { return; }
+        if (canDrawLogoA === false || canDrawLogoB === false)  { return; }
 
         let backgroundLogoPoint1;
         let backgroundLogoPoint2;
@@ -972,6 +982,7 @@
         let rowHight = (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 4.5;
 
         let offSet = 0;
+        let alternateLogo = "A";
 
         for (let j = 0; j < 5; j++) {
 
@@ -984,6 +995,16 @@
             }
 
             for (let i = 0; i < 6; i++) {
+
+                let logo;
+
+                if (alternateLogo === "A") {
+                    logo = logoA;
+                    alternateLogo = "B";
+                } else {
+                    logo = logoB;
+                    alternateLogo = "A";
+                }
 
                 imagePoint = timeLineCoordinateSystem.transformThisPoint(currentCorner);
                 imagePoint = transformThisPoint(imagePoint, thisObject.container);
@@ -1020,6 +1041,8 @@
         browserCanvasContext.fill();
 
         /* Finally the name of the market. */
+
+        return;
 
         let fontMaxSize = 80;
         let targetLabelFontSize = fontMaxSize;

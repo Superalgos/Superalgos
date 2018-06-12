@@ -944,7 +944,7 @@
 
         if (INTENSIVE_LOG === true) { logger.write("[INFO] drawBackground -> Entering function."); }
 
-        if (canDrawLogoA === false || canDrawLogoB === false)  { return; }
+        if (canDrawLogoA === false || canDrawLogoB === false) { return; }
 
         let backgroundLogoPoint1;
         let backgroundLogoPoint2;
@@ -963,7 +963,7 @@
         };
 
         let point2 = {
-            x: viewPort.visibleArea.topLeft.x + imageWidth * 2,
+            x: viewPort.visibleArea.topLeft.x + imageWidth * 4,
             y: viewPort.visibleArea.topLeft.y
         };
 
@@ -981,8 +981,11 @@
 
         let rowHight = (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 4.5;
 
+        imagePoint = timeLineCoordinateSystem.transformThisPoint(currentCorner);
+        imagePoint = transformThisPoint(imagePoint, thisObject.container);
+
         let offSet = 0;
-        let alternateLogo = "A";
+
 
         for (let j = 0; j < 5; j++) {
 
@@ -994,20 +997,30 @@
                 offSet = 0;
             }
 
-            for (let i = 0; i < 6; i++) {
+            for (let i = 1; i < 6; i = i + 2) {
 
-                let logo;
+                let logo = logoA;
 
-                if (alternateLogo === "A") {
-                    logo = logoA;
-                    alternateLogo = "B";
-                } else {
-                    logo = logoB;
-                    alternateLogo = "A";
-                }
+                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
 
-                imagePoint = timeLineCoordinateSystem.transformThisPoint(currentCorner);
-                imagePoint = transformThisPoint(imagePoint, thisObject.container);
+            }
+        }
+
+        offSet = 0;
+
+        for (let j = 0; j < 5; j++) {
+
+            if (offSet === 0) {
+
+                offSet = -imageWidth;
+
+            } else {
+                offSet = 0;
+            }
+
+            for (let i = 0; i < 6; i = i + 2) {
+
+                let logo = logoB;
 
                 browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
 
@@ -1039,80 +1052,6 @@
         browserCanvasContext.closePath();
 
         browserCanvasContext.fill();
-
-        /* Finally the name of the market. */
-
-        return;
-
-        let fontMaxSize = 80;
-        let targetLabelFontSize = fontMaxSize;
-        let fontSizeIncrement = 12;
-        let currentFontSize = fontMaxSize;
-
-        let market = markets.get(marketId);
-        let label = market.assetA + " " + market.assetB;
-
-        //label = '' + level; // Math.trunc(timePeriod / 1000 / 60); 
-
-        if (tooTiny() === true ) {
-            return;
-        }
-
-        let topPoint = {
-            x: 0,
-            y: 0
-        };
-
-        let bottomPoint = {
-            x: 0,
-            y: thisObject.container.frame.height
-        };
-
-        topPoint = transformThisPoint(topPoint, thisObject.container);
-        bottomPoint = transformThisPoint(bottomPoint, thisObject.container);
-
-        /* We want the label of the market to be always centered in the middle of the screen, unless the upper or lower border of the frame is visible on the screen */
-
-        let point;
-
-        if (targetLabelFontSize !== currentFontSize) {
-            if (targetLabelFontSize > currentFontSize) {
-                currentFontSize = currentFontSize + fontSizeIncrement;
-            } else {
-                currentFontSize = currentFontSize - fontSizeIncrement;
-            }
-        }
-
-        if (topPoint.y > viewPort.visibleArea.topLeft.y || bottomPoint.y < viewPort.visibleArea.bottomRight.y) {
-
-            targetLabelFontSize = fontMaxSize / 2;
-
-            point = {
-                x: 0,
-                y: thisObject.container.frame.height / 2
-            };
-
-            point = transformThisPoint(point, thisObject.container);
-
-            point = {
-                x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * FONT_ASPECT_RATIO,
-                y: point.y + currentFontSize / 2
-            };
-
-        } else {
-
-            targetLabelFontSize = fontMaxSize;
-
-            point = {
-                x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2 - label.length / 2 * currentFontSize * FONT_ASPECT_RATIO,
-                y: (viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y) / 2 + currentFontSize / 2
-            };
-
-        }
-
-        browserCanvasContext.font = currentFontSize + 'px ' + UI_FONT.SECONDARY;
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 0.07)';
-        browserCanvasContext.fillText(label, point.x, point.y);
 
     }
 

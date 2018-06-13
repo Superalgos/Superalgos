@@ -403,7 +403,7 @@
 
                 const FULL_LOG = false;
                 const LOG_FILE_CONTENT = false;
-                const MODULE_NAME = "Poloniex API ClientS";
+                const MODULE_NAME = "Poloniex API Client";
 
                 /* This function analizes the different situations we might encounter trying to access Poloniex and returns appropiate standard errors. */
 
@@ -427,6 +427,8 @@
                             stringExchangeResponse.indexOf("Internal error. Please try again") > 0))) {
 
                         logger.write(MODULE_NAME, "[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
+                        logger.write(MODULE_NAME, "[WARN] analizeResponse -> stringExchangeErr = " + stringExchangeErr);
+
                         notOkCallBack(global.DEFAULT_RETRY_RESPONSE);
                         return;
 
@@ -435,6 +437,8 @@
                         if (JSON.stringify(exchangeResponse).indexOf("error") > 0) {
 
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> Unexpected response from the Exchange.");
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + exchangeResponse);
+
                             notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -442,6 +446,8 @@
                         if (exchangeErr) {
 
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange.");
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeErr = " + exchangeErr);
+
                             notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
 

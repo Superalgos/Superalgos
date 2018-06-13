@@ -215,6 +215,8 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
 
                                             logger.persist();
+                                            clearInterval(intervalHandle);
+                                            clearTimeout(timeoutHandle);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -223,6 +225,8 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
                                             logger.persist();
+                                            clearInterval(intervalHandle);
+                                            clearTimeout(timeoutHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -231,6 +235,8 @@
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.message);
                                     logger.persist();
+                                    clearInterval(intervalHandle);
+                                    clearTimeout(timeoutHandle);
                                     callBackFunction(err);
                                 }
                             }
@@ -238,6 +244,8 @@
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.message);
                             logger.persist();
+                            clearInterval(intervalHandle);
+                            clearTimeout(timeoutHandle);
                             callBackFunction(err);
                         }
                     }
@@ -273,6 +281,8 @@
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
+                                            clearInterval(intervalHandle);
+                                            clearTimeout(timeoutHandle);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -294,6 +304,8 @@
                                                 default: {
                                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled custom response received. -> err.message = " + err.message);
                                                     logger.persist();
+                                                    clearInterval(intervalHandle);
+                                                    clearTimeout(timeoutHandle);
                                                     callBackFunction(err);
                                                     return;
                                                 }
@@ -304,6 +316,8 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
                                             logger.persist();
+                                            clearInterval(intervalHandle);
+                                            clearTimeout(timeoutHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -312,6 +326,8 @@
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot ->  onInizialized -> err = " + err.message);
                                     logger.persist();
+                                    clearInterval(intervalHandle);
+                                    clearTimeout(timeoutHandle);
                                     callBackFunction(err);
                                 }
                             }
@@ -319,6 +335,8 @@
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> err = " + err.message);
                             logger.persist();
+                            clearInterval(intervalHandle);
+                            clearTimeout(timeoutHandle);
                             callBackFunction(err);
                         }
                     }
@@ -353,6 +371,8 @@
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Operation Failed. Aborting the process.");
                                             logger.persist();
+                                            clearInterval(intervalHandle);
+                                            clearTimeout(timeoutHandle);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -374,24 +394,32 @@
                                                 case "Month before it is needed.": {
                                                     logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished -> Month before it is needed. This Loop will be terminated.");
                                                     logger.persist();
+                                                    clearInterval(intervalHandle);
+                                                    clearTimeout(timeoutHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 case "Month fully processed.": {
                                                     logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished -> Month fully processed. This Loop will be terminated.");
                                                     logger.persist();
+                                                    clearInterval(intervalHandle);
+                                                    clearTimeout(timeoutHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 case "End of the month reached.": {
                                                     logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished -> End of the month reached. This Loop will be terminated.");
                                                     logger.persist();
+                                                    clearInterval(intervalHandle);
+                                                    clearTimeout(timeoutHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 default: {
                                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled custom response received. -> err.message = " + err.message);
                                                     logger.persist();
+                                                    clearInterval(intervalHandle);
+                                                    clearTimeout(timeoutHandle);
                                                     callBackFunction(err);
                                                     return;
                                                 }
@@ -402,6 +430,8 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
 
                                             logger.persist();
+                                            clearInterval(intervalHandle);
+                                            clearTimeout(timeoutHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -410,6 +440,8 @@
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.message);
                                     logger.persist();
+                                    clearInterval(intervalHandle);
+                                    clearTimeout(timeoutHandle);
                                     callBackFunction(err);
                                 }
                             }
@@ -417,6 +449,8 @@
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = " + err.message);
                             logger.persist();
+                            clearInterval(intervalHandle);
+                            clearTimeout(timeoutHandle);
                             callBackFunction(err);
                         }
                     }
@@ -540,6 +574,7 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onInizialized -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
                                             logger.persist();
                                             clearInterval(intervalHandle);
+                                            clearTimeout(timeoutHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -555,6 +590,7 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> err.message = " + err.message);
                                             logger.persist();
                                             clearInterval(intervalHandle);
+                                            clearTimeout(timeoutHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -573,6 +609,7 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> err.message = " + err.message);
                                             logger.persist();
                                             clearInterval(intervalHandle);
+                                            clearTimeout(timeoutHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -584,6 +621,7 @@
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err.message = " + err.message);
                             logger.persist();
                             clearInterval(intervalHandle);
+                            clearTimeout(timeoutHandle);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -592,6 +630,7 @@
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.message);
                     clearInterval(intervalHandle);
+                    clearTimeout(timeoutHandle);
                     callBackFunction(err);
                 }
             }
@@ -600,6 +639,7 @@
         catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.message);
             clearInterval(intervalHandle);
+            clearTimeout(timeoutHandle);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

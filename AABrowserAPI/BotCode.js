@@ -1,4 +1,4 @@
-﻿exports.newAPI = function newAPI() {
+﻿exports.newBotCode = function newBotCode() {
 
     let thisObject = {
         saveBotCode: saveBotCode,

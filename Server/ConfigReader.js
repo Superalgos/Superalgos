@@ -18,9 +18,8 @@
 
     return thisObject;
 
-    function initialize(pEcosystem, pEcosystemObject, pServerConfig, pStorageData, callBackFunction) {
+    function initialize(pEcosystem, pEcosystemObject, pStorageData, callBackFunction) {
 
-        serverConfig = pServerConfig;
         storageData = pStorageData;
         ecosystem = pEcosystem;
         ecosystemObject = pEcosystemObject;

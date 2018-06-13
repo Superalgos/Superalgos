@@ -141,28 +141,3 @@ function downloadModule(pPath, callBackFunction) {
     }
 }
 
-function callServer(pContentToSend, pPath, callBackFunction) {
-
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-
-            callBackFunction(xhttp.responseText);
-
-        }
-    };
-
-    if (pContentToSend === undefined) {
-
-        xhttp.open("GET", pPath, true);
-        xhttp.send();
-
-    } else {
-
-        let blob = new Blob([pContentToSend], { type: 'text/plain' });
-
-        xhttp.open("POST", pPath, true);
-        xhttp.send(blob);
-
-    }
-}

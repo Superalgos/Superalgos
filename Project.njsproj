@@ -29,7 +29,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AABrowserAPI\API.js">
+    <Compile Include="AABrowserAPI\BotCode.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AABrowserAPI\UserAuthentication.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Animation.js" />

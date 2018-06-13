@@ -40,34 +40,6 @@ UI_PANEL = {
     }
 };
 
-/* Callbacks default responses. */
-
-let GLOBAL = {};
-
-GLOBAL.DEFAULT_OK_RESPONSE = {
-    result: "Ok",
-    message: "Operation Succeeded"
-};
-
-GLOBAL.DEFAULT_FAIL_RESPONSE = {
-    result: "Fail",
-    message: "Operation Failed"
-};
-
-GLOBAL.DEFAULT_RETRY_RESPONSE = {
-    result: "Retry",
-    message: "Retry Later"
-};
-
-GLOBAL.CUSTOM_OK_RESPONSE = {
-    result: "Ok, but check Message",
-    message: "Custom Message"
-};
-
-GLOBAL.CUSTOM_FAIL_RESPONSE = {
-    result: "Fail Because",
-    message: "Custom Message"
-}; 
 
 /* The Dashboard is the root object that contains all the other stuff in it. Some of that stuff is visible, some other is invisible. */
 

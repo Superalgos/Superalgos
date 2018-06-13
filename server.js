@@ -49,7 +49,8 @@ let isHttpServerStarted = false;
 const STORAGE = require('./Server/Storage');
 let storage = STORAGE.newStorage();
 
-let sessionManager;                               // This module have all authenticated active sessions.
+let sessionManager;                                 // This module have all authenticated active sessions.
+let storageAccessManager;                           // This module manages the SAS for user to access the cloud storage from the browser. 
 
 initialize();
 
@@ -64,7 +65,7 @@ function initialize() {
     const CONFIG_READER = require('./Server/ConfigReader');
     let configReader = CONFIG_READER.newConfigReader();
 
-    configReader.initialize(ecosystem, ecosystemObject, serverConfig, storageData, onInitialized);
+    configReader.initialize(ecosystem, ecosystemObject, storageData, onInitialized);
 
     function onInitialized(pServerConfig) {
 
@@ -424,21 +425,21 @@ function onBrowserRequest(request, response) {
 
         case "AABrowserAPI": // This means the Scripts folder.
             {
-                const AABROSER_API_MODULE = require('./AABrowserAPI/' + 'API');
-                let api = AABROSER_API_MODULE.newAPI();
+                switch (requestParameters[2]) {
 
-                api.initialize(serverConfig);
+                    case "saveBotCode": {
 
-                processPost(request, response, onPostReceived)
+                        const AABROSER_API_BOT_CODE = require('./AABrowserAPI/' + 'BotCode');
+                        let botCode = AABROSER_API_BOT_CODE.newBotCode();
 
-                function onPostReceived(pData) {
+                        botCode.initialize(serverConfig);
 
-                    switch (requestParameters[2]) {
+                        processPost(request, response, onPostReceived)
 
-                        case "saveBotCode": {
+                        function onPostReceived(pData) {
 
                             let devTeam = requestParameters[3];
-                            let source = requestParameters[4] + "/" +  requestParameters[5];
+                            let source = requestParameters[4] + "/" + requestParameters[5];
                             let repo = requestParameters[6];
                             let path;
 
@@ -447,15 +448,31 @@ function onBrowserRequest(request, response) {
                             } else {
                                 path = requestParameters[7];
                             }
-                            api.saveBotCode(devTeam, source, repo, path, pData, onResponse);
-                            break;
+                            botCode.saveBotCode(devTeam, source, repo, path, pData, onResponse);
+
+                            function onResponse(err, pResponse) {
+
+                                respondWithContent(JSON.stringify(pResponse), response);
+                            }
                         }
 
+                        break;
                     }
 
-                    function onResponse(err, pResponse) {
+                    case "authenticateUser": {
 
-                        respondWithContent(JSON.stringify(pResponse), response);
+                        const AABROSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication');
+                        let userAuthentication = AABROSER_API_USER_AUTHENTICATION.newUserAuthentication();
+
+                        userAuthentication.initialize();
+                        userAuthentication.authenticateUser(onFinish);
+
+                        function onFinish(err) {
+
+                            respondWithContent(JSON.stringify(err), response);
+                        }
+
+                        break;
                     }
                 }
             }
@@ -813,6 +830,14 @@ function onBrowserRequest(request, response) {
                         try {
 
                             let fileContent = file.toString();
+
+                            /* The second request parameters is the sessionToken, if it exists. */
+
+                            if (requestParameters[2] !== "" && requestParameters[2] !==  undefined) {
+
+                                fileContent.replace("<!--sessionToken-->", "<script type='text/ javascript'>window.sessionToken = '" + requestParameters[2] + "'</script>")
+
+                            }
 
                             addImages();
 

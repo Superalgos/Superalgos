@@ -45,8 +45,12 @@
     /* Background */
     let logoAssetA;
     let logoAssetB;
+    let logoExchange;
+    let logoAA;
     let canDrawLogoA = false;
     let canDrawLogoB = false;
+    let canDrawLogoExchange = false;
+    let canDrawLogoAA = false;
 
     return thisObject;
 
@@ -60,6 +64,8 @@
 
             logoA = new Image();
             logoB = new Image();
+            logoExchange = new Image();
+            logoAA = new Image();
 
             logoA.onload = onImageALoaded;
 
@@ -73,8 +79,22 @@
                 canDrawLogoB = true;
             }
 
+            logoExchange.onload = onImageExchangeLoaded;
+
+            function onImageExchangeLoaded() {
+                canDrawLogoExchange = true;
+            }
+
+            logoAA.onload = onImageAALoaded;
+
+            function onImageAALoaded() {
+                canDrawLogoAA = true;
+            }
+
             logoA.src = "Images/tether-logo-background.png";
             logoB.src = "Images/bitcoin-logo-background.png";
+            logoExchange.src = "Images/poloniex-logo-background.png";
+            logoAA.src = "Images/aa-logo-background.png";
 
             /* Remember the Products Panel */
 
@@ -944,7 +964,7 @@
 
         if (INTENSIVE_LOG === true) { logger.write("[INFO] drawBackground -> Entering function."); }
 
-        if (canDrawLogoA === false || canDrawLogoB === false) { return; }
+        if (canDrawLogoA === false || canDrawLogoB === false || canDrawLogoExchange === false || canDrawLogoAA === false) { return; }
 
         let backgroundLogoPoint1;
         let backgroundLogoPoint2;
@@ -963,7 +983,7 @@
         };
 
         let point2 = {
-            x: viewPort.visibleArea.topLeft.x + imageWidth * 4,
+            x: viewPort.visibleArea.topLeft.x + imageWidth * 8,
             y: viewPort.visibleArea.topLeft.y
         };
 
@@ -991,13 +1011,13 @@
 
             if (offSet === 0) {
 
-                offSet = -imageWidth;
+                offSet = imageWidth * 4 - imageWidth;
 
             } else {
                 offSet = 0;
             }
 
-            for (let i = 1; i < 6; i = i + 2) {
+            for (let i = 0; i < 9; i = i + 4) {
 
                 let logo = logoA;
 
@@ -1012,15 +1032,57 @@
 
             if (offSet === 0) {
 
-                offSet = -imageWidth;
+                offSet = imageWidth * 4 - imageWidth;
 
             } else {
                 offSet = 0;
             }
 
-            for (let i = 0; i < 6; i = i + 2) {
+            for (let i = 1; i < 9; i = i + 4) {
 
                 let logo = logoB;
+
+                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
+
+            }
+        }
+
+        offSet = 0;
+
+        for (let j = 0; j < 5; j++) {
+
+            if (offSet === 0) {
+
+                offSet = imageWidth * 4 - imageWidth;
+
+            } else {
+                offSet = 0;
+            }
+
+            for (let i = 2; i < 9; i = i + 4) {
+
+                let logo = logoExchange;
+
+                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
+
+            }
+        }
+
+        offSet = 0;
+
+        for (let j = 0; j < 5; j++) {
+
+            if (offSet === 0) {
+
+                offSet = imageWidth * 4 - imageWidth;
+
+            } else {
+                offSet = 0;
+            }
+
+            for (let i = 3; i < 9; i = i + 4) {
+
+                let logo = logoAA;
 
                 browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
 

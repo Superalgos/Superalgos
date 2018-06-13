@@ -1009,15 +1009,15 @@
 
         for (let j = 0; j < 5; j++) {
 
-            if (offSet === 0) {
+            if (offSet === -imageWidth * 8) {
 
-                offSet = imageWidth * 4 - imageWidth;
+                offSet = -imageWidth * 4 - imageWidth;
 
             } else {
-                offSet = 0;
+                offSet = -imageWidth * 8;
             }
 
-            for (let i = 0; i < 9; i = i + 4) {
+            for (let i = 0; i < 12; i = i + 4) {
 
                 let logo = logoA;
 
@@ -1030,15 +1030,15 @@
 
         for (let j = 0; j < 5; j++) {
 
-            if (offSet === 0) {
+            if (offSet === -imageWidth * 8) {
 
-                offSet = imageWidth * 4 - imageWidth;
+                offSet = -imageWidth * 4 - imageWidth;
 
             } else {
-                offSet = 0;
+                offSet = -imageWidth * 8;
             }
 
-            for (let i = 1; i < 9; i = i + 4) {
+            for (let i = 1; i < 12; i = i + 4) {
 
                 let logo = logoB;
 
@@ -1051,15 +1051,15 @@
 
         for (let j = 0; j < 5; j++) {
 
-            if (offSet === 0) {
+            if (offSet === -imageWidth * 8) {
 
-                offSet = imageWidth * 4 - imageWidth;
+                offSet = -imageWidth * 4 - imageWidth;
 
             } else {
-                offSet = 0;
+                offSet = -imageWidth * 8;
             }
 
-            for (let i = 2; i < 9; i = i + 4) {
+            for (let i = 2; i < 12; i = i + 4) {
 
                 let logo = logoExchange;
 
@@ -1072,15 +1072,15 @@
 
         for (let j = 0; j < 5; j++) {
 
-            if (offSet === 0) {
+            if (offSet === -imageWidth * 8) {
 
-                offSet = imageWidth * 4 - imageWidth;
+                offSet = -imageWidth * 4 - imageWidth;
 
             } else {
-                offSet = 0;
+                offSet = -imageWidth * 8;
             }
 
-            for (let i = 3; i < 9; i = i + 4) {
+            for (let i = 3; i < 12; i = i + 4) {
 
                 let logo = logoAA;
 

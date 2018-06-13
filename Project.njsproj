@@ -54,7 +54,7 @@
     <Compile Include="Server\BotsScripts.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Server\Permissions.js">
+    <Compile Include="Server\SessionManager.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudVM\CloudSupport.js">
@@ -80,6 +80,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ImageButton.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Server\StorageAccessManager.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Spaces\BottomSpace.js">

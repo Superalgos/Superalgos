@@ -49,7 +49,7 @@ let isHttpServerStarted = false;
 const STORAGE = require('./Server/Storage');
 let storage = STORAGE.newStorage();
 
-let authenticatedSession;               // We do not send these keys to the browser, instead they are kept here for when they are needed.
+let sessionManager;                               // This module have all authenticated active sessions.
 
 initialize();
 
@@ -90,25 +90,31 @@ function initialize() {
 
                 function onLoadCompeted(pHTMLCloudScripts) {
 
-                    const PERMISSIONS = require('./Server/Permissions');
-                    let permissions = PERMISSIONS.newPermissions();
+                    const SESSION_MANAGER = require('./Server/SessionManager');
+                    sessionManager = SESSION_MANAGER.newSessionManager();
 
-                    permissions.initialize(ecosystemObject, onInitialized);
+                    sessionManager.initialize(onInitialized);
 
-                    function onInitialized(pPermissionsSecrets) {
+                    function onInitialized() {
 
-                        authenticatedSession = pPermissionsSecrets;
+                        const STORAGE_ACCESS_MANAGER = require('./Server/StorageAccessManager');
+                        storageAccessManager = STORAGE_ACCESS_MANAGER.newStorageAccessManager();
 
-                        const BOT_SCRIPTS = require('./Server/BotsScripts');
-                        botScripts = BOT_SCRIPTS.newBotScripts();
-
-                        botScripts.initialize(serverConfig, onInitialized);
+                        storageAccessManager.initialize(onInitialized);
 
                         function onInitialized() {
 
-                            HTMLCloudScripts = pHTMLCloudScripts;
-                            startHtttpServer();
+                            const BOT_SCRIPTS = require('./Server/BotsScripts');
+                            botScripts = BOT_SCRIPTS.newBotScripts();
 
+                            botScripts.initialize(serverConfig, onInitialized);
+
+                            function onInitialized() {
+
+                                HTMLCloudScripts = pHTMLCloudScripts;
+                                startHtttpServer();
+
+                            }
                         }
                     }
                 }
@@ -584,67 +590,75 @@ function onBrowserRequest(request, response) {
 
                 let sessionToken = requestParameters[3]; 
 
-                for (let i = 0; i < authenticatedSession.length; i++) {
+                let session = sessionManager.getSession(sessionToken);
 
-                    let session = authenticatedSession[i];
+                if (session !== undefined) {
 
-                    if (session.sessionToken === sessionToken) {
+                    let exchangeKey = session.exchangeKeys[0].key;  // 0 because we only deal with one exchange for now.
+                    let exchangeSecret = session.exchangeKeys[0].secret;
 
-                        let exchangeKey = session.exchangeKeys[0].key;  // 0 because we only deal with one exchange for now.
-                        let exchangeSecret = session.exchangeKeys[0].secret;  
+                    const POLONIEX_CLIENT_MODULE = require('./Exchanges/' + 'PoloniexAPIClient');
+                    let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(exchangeKey, exchangeSecret);
 
-                        const POLONIEX_CLIENT_MODULE = require('./Exchanges/' + 'PoloniexAPIClient');
-                        let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(exchangeKey, exchangeSecret);
+                    switch (requestParameters[2]) {
 
-                        switch (requestParameters[2]) {
-
-                            case "returnOpenOrders": {
-                                poloniexApiClient.API.returnOpenOrders(requestParameters[4], requestParameters[5], onExchangeResponse);
-                                break;
-                            }
-
-                            case "returnOrderTrades": {
-                                poloniexApiClient.API.returnOrderTrades(requestParameters[4], onExchangeResponse);
-                                break;
-                            }
-
-                            case "buy": {
-                                poloniexApiClient.API.buy(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
-                                break;
-                            }
-
-                            case "sell": {
-                                poloniexApiClient.API.sell(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
-                                break;
-                            }
-
-                            case "moveOrder": {
-                                poloniexApiClient.API.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
-                                break;
-                            }
-
-                            case "returnTicker": {
-                                poloniexApiClient.API.returnTicker(onExchangeResponse);
-                                break;
-                            }
+                        case "returnOpenOrders": {
+                            poloniexApiClient.API.returnOpenOrders(requestParameters[4], requestParameters[5], onExchangeResponse);
+                            break;
                         }
 
-                        function onExchangeResponse(err, exchangeResponse) {
-
-                            /* Delete these secrets before they get logged. */
-
-                            requestParameters[3] = "";
-
-                            let serverResponse = {
-                                err: err,
-                                exchangeResponse: exchangeResponse
-                            }
-
-                            respondWithContent(JSON.stringify(serverResponse), response);
+                        case "returnOrderTrades": {
+                            poloniexApiClient.API.returnOrderTrades(requestParameters[4], onExchangeResponse);
+                            break;
                         }
 
-                        return;
+                        case "buy": {
+                            poloniexApiClient.API.buy(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                            break;
+                        }
+
+                        case "sell": {
+                            poloniexApiClient.API.sell(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                            break;
+                        }
+
+                        case "moveOrder": {
+                            poloniexApiClient.API.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
+                            break;
+                        }
+
+                        case "returnTicker": {
+                            poloniexApiClient.API.returnTicker(onExchangeResponse);
+                            break;
+                        }
                     }
+
+                    function onExchangeResponse(err, exchangeResponse) {
+
+                        /* Delete these secrets before they get logged. */
+
+                        requestParameters[3] = "";
+
+                        let serverResponse = {
+                            err: err,
+                            exchangeResponse: exchangeResponse
+                        }
+
+                        respondWithContent(JSON.stringify(serverResponse), response);
+                    }
+
+                    return;
+                }
+
+                else {
+
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        message: "Your session has expired. Please login again."
+                    };
+
+                    respondWithContent(JSON.stringify(customResponse), response);
+
                 }
             }
             break; 

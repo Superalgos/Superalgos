@@ -40,7 +40,7 @@
 
         // Generate headers signed by thisObject user's key and secret.
         // The secret is encapsulated and never exposed
-         function _getPrivateHeaders (parameters) {
+        function _getPrivateHeaders(parameters) {
             var paramString, signature;
 
             if (!key || !secret) {
@@ -401,8 +401,9 @@
 
             analizeResponse: function (logger, exchangeErr, exchangeResponse, notOkCallBack, okCallBack) {
 
-                const INFO_LOG = false;
+                const FULL_LOG = false;
                 const LOG_FILE_CONTENT = false;
+                const MODULE_NAME = "Poloniex API Client";
 
                 /* This function analizes the different situations we might encounter trying to access Poloniex and returns appropiate standard errors. */
 
@@ -411,8 +412,8 @@
                     let stringExchangeResponse = JSON.stringify(exchangeResponse);
                     let stringExchangeErr = JSON.stringify(exchangeErr);
 
-                    if (INFO_LOG === true) { logger.write("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
-                    if (LOG_FILE_CONTENT === true) { logger.write("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
+                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
 
                     if (stringExchangeErr.indexOf("ETIMEDOUT") > 0 ||
                         stringExchangeErr.indexOf("ENOTFOUND") > 0 ||
@@ -425,7 +426,9 @@
                             stringExchangeResponse.indexOf("Bad gateway") > 0 ||
                             stringExchangeResponse.indexOf("Internal error. Please try again") > 0))) {
 
-                        logger.write("[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
+                        logger.write(MODULE_NAME, "[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
+                        logger.write(MODULE_NAME, "[WARN] analizeResponse -> stringExchangeErr = " + stringExchangeErr);
+
                         notOkCallBack(global.DEFAULT_RETRY_RESPONSE);
                         return;
 
@@ -433,27 +436,31 @@
 
                         if (JSON.stringify(exchangeResponse).indexOf("error") > 0) {
 
-                            logger.write("[ERROR] analizeResponse -> Unexpected response from the Exchange.");
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> Unexpected response from the Exchange.");
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + exchangeResponse);
+
                             notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
 
                         if (exchangeErr) {
 
-                            logger.write("[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange.");
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange.");
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeErr = " + exchangeErr);
+
                             notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
                             return;
 
                         } else {
 
-                            logger.write("[INFO] analizeResponse -> No problem found.");
+                            logger.write(MODULE_NAME, "[INFO] analizeResponse -> No problem found.");
                             okCallBack();
                             return;
                         }
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] analizeResponse -> err.message = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] analizeResponse -> err.message = " + err.message);
                     notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }

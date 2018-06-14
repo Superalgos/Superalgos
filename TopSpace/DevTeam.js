@@ -24,11 +24,12 @@ function newDevTeam() {
 
     function initialize() {
 
-        window.DEV_TEAM = window.localStorage.getItem("devTeam");
-
-        if (window.DEV_TEAM === null) {
+        if (window.USER_PROFILE.devTeams.length === 0) {
             window.DEV_TEAM = "Not a devTeam Member";
+        } else {
+            window.DEV_TEAM = window.USER_PROFILE.devTeams[0];
         }
+
     }
 
     function getContainer(point) {

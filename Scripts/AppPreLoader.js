@@ -52,9 +52,11 @@ function loadAdvancedAlgosPlatform() {
 
     callServer(undefined, path, onServerReponded);
 
-    function onServerReponded(pResponse) {
+    function onServerReponded(pResponseFromServer) {
 
-        err = JSON.parse(pResponse);
+        let responseFromServer = JSON.parse(pResponseFromServer);
+
+        err = responseFromServer.err;
 
         if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
 
@@ -62,6 +64,8 @@ function loadAdvancedAlgosPlatform() {
             return;
 
         }
+
+        window.USER_PROFILE = responseFromServer.userProfile;
 
         loadModules();
     }

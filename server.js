@@ -465,11 +465,16 @@ function onBrowserRequest(request, response) {
                         let userAuthentication = AABROSER_API_USER_AUTHENTICATION.newUserAuthentication();
 
                         userAuthentication.initialize();
-                        userAuthentication.authenticateUser(onFinish);
+                        userAuthentication.authenticateUser(requestParameters[3], sessionManager, storageAccessManager, onFinish);
 
-                        function onFinish(err) {
+                        function onFinish(err, pUserProfile) {
 
-                            respondWithContent(JSON.stringify(err), response);
+                            let responseToBrowser = {
+                                err: err,
+                                userProfile: pUserProfile
+                            };
+
+                            respondWithContent(JSON.stringify(responseToBrowser), response);
                         }
 
                         break;

@@ -1,7 +1,7 @@
 ﻿exports.newStorageAccessManager = function newStorageAccessManager() {
 
     let thisObject = {
-        getPermissions: getPermissions,
+        getPermission: getPermission,
         initialize: initialize
     }
 
@@ -34,7 +34,7 @@
         }
     }
 
-    function getPermissions(pTeams) {
+    function getPermission(pTeam, pType, pDays) {
 
         let azure = require('azure-storage');
         let blobService = azure.createBlobService(permissions.connectionString);
@@ -43,52 +43,36 @@
         startDate.setDate(startDate.getDate() - 1);
 
         let expiryDate = new Date(startDate);
-        expiryDate.setDate(startDate.getDate() + 3);
+        expiryDate.setDate(startDate.getDate() + pDays);
 
-        for (let i = 0; i < pTeams.length; i++) {
+        let azurePermissions;
 
-            let team = pTeams[i];
-
-            if (team.readConnectionString !== undefined) {
-
-                let azurePermissions = azure.BlobUtilities.SharedAccessPermissions.READ;
-
-                let container = team.codeName;
-                let blobName = undefined;
-
-                let sharedAccessPolicy = {
-                    AccessPolicy: {
-                        Permissions: azurePermissions,
-                        Start: startDate,
-                        Expiry: expiryDate
-                    }
-                };
-
-                let sasToken = blobService.generateSharedAccessSignature(container, blobName, sharedAccessPolicy);
-                team.readConnectionString = "BlobEndpoint=https://aadevelop.blob.core.windows.net;SharedAccessSignature=" + sasToken + "";
+        switch (pType) {
+            case "READ": {
+                azurePermissions = azure.BlobUtilities.SharedAccessPermissions.READ;
+                break;
             }
-
-            if (team.writeConnectionString !== undefined) {
-
-                let azurePermissions = azure.BlobUtilities.SharedAccessPermissions.WRITE;
-
-                let container = team.codeName;
-                let blobName = undefined;
-
-                let sharedAccessPolicy = {
-                    AccessPolicy: {
-                        Permissions: azurePermissions,
-                        Start: startDate,
-                        Expiry: expiryDate
-                    }
-                };
-
-                let sasToken = blobService.generateSharedAccessSignature(container, blobName, sharedAccessPolicy);
-                team.readConnectionString = "BlobEndpoint=https://aadevelop.blob.core.windows.net;SharedAccessSignature=" + sasToken + "";
+            case "WRITE": {
+                azurePermissions = azure.BlobUtilities.SharedAccessPermissions.WRITE;
+                break;
             }
         }
+        
+        let container = team.codeName;
+        let blobName = undefined;
 
-        return pTeams;
+        let sharedAccessPolicy = {
+            AccessPolicy: {
+                Permissions: azurePermissions,
+                Start: startDate,
+                Expiry: expiryDate
+            }
+        };
+
+        let sasToken = blobService.generateSharedAccessSignature(container, blobName, sharedAccessPolicy);
+
+        return "BlobEndpoint=https://aadevelop.blob.core.windows.net;SharedAccessSignature=" + sasToken + "";
+
     }
 }
 

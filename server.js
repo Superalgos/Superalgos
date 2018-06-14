@@ -148,8 +148,28 @@ function onBrowserRequest(request, response) {
     if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> Entering function."); }
     if (CONSOLE_LOG === true && request.url.indexOf("NO-LOG") === -1) { console.log("[INFO] server -> onBrowserRequest -> request.url = " + request.url); }
 
-    var htmlResponse;
-    var requestParameters = request.url.split("/");
+    let htmlResponse;
+    let requestParameters = request.url.split("/");
+
+
+    if (requestParameters[1].indexOf("index.html") >= 0) {
+
+        /*
+        We use this to solve the problem when someone is arriving to the site with a sessionToken in the queryString. We extract here that
+        token, that will be sent later embedded into the HTML code, so that it can enter into the stardard circuit where any site can put
+        the sessionToken into their HTML code and from there the Browser app will log the user in.
+        */
+
+        let queryString = requestParameters[1].split("?");
+
+        requestParameters[1] = "";
+        requestParameters[2] = queryString[1];
+        homePage();
+
+        return;
+    }
+
+    
 
     switch (requestParameters[1]) {
 
@@ -464,8 +484,8 @@ function onBrowserRequest(request, response) {
                         const AABROSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication');
                         let userAuthentication = AABROSER_API_USER_AUTHENTICATION.newUserAuthentication();
 
-                        userAuthentication.initialize();
-                        userAuthentication.authenticateUser(requestParameters[3], sessionManager, storageAccessManager, onFinish);
+                        userAuthentication.initialize(sessionManager, storageAccessManager);
+                        userAuthentication.authenticateUser(requestParameters[3], onFinish);
 
                         function onFinish(err, pUserProfile) {
 
@@ -820,77 +840,109 @@ function onBrowserRequest(request, response) {
             break;
 
         default:
+            {
+                homePage();
+            }     
+    }
 
-            if (requestParameters[1] === "") {
+    function homePage() {
 
-                let fs = require('fs');
-                try {
-                    let fileName = 'index.html';
-                    fs.readFile(fileName, onFileRead);
+        if (requestParameters[1] === "") {
 
-                    function onFileRead(err, file) {
+            let fs = require('fs');
+            try {
+                let fileName = 'index.html';
+                fs.readFile(fileName, onFileRead);
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
+                function onFileRead(err, file) {
 
-                        try {
+                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
 
-                            let fileContent = file.toString();
+                    try {
 
-                            /* The second request parameters is the sessionToken, if it exists. */
+                        let fileContent = file.toString();
 
-                            if (requestParameters[2] !== "" && requestParameters[2] !==  undefined) {
+                        /* The second request parameters is the sessionToken, if it exists. */
 
-                                fileContent.replace("<!--sessionToken-->", "<script type='text/ javascript'>window.sessionToken = '" + requestParameters[2] + "'</script>")
+                        if (requestParameters[2] !== "" && requestParameters[2] !== undefined) {
 
-                            }
+                            fileContent = fileContent.replace("window.SESSION_TOKEN = ''", "window.SESSION_TOKEN = '" + requestParameters[2] + "'")
 
-                            addImages();
+                        }
 
-                            function addImages() {
+                        addImages();
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addImages -> Entering function."); }
+                        function addImages() {
 
-                                const htmlLine = '' + '\n' +
-                                    '    <img id="@id@" width="0" height="0" src="https://raw.githubusercontent.com/@devTeam@/@repo@/master/@image@">'
+                            if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addImages -> Entering function."); }
 
-                                let devTeams = ecosystemObject.devTeams;
+                            const htmlLine = '' + '\n' +
+                                '    <img id="@id@" width="0" height="0" src="https://raw.githubusercontent.com/@devTeam@/@repo@/master/@image@">'
 
-                                addScript(devTeams);
+                            let devTeams = ecosystemObject.devTeams;
 
-                                function addScript(pDevTeams) {
+                            addScript(devTeams);
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addImages -> addScript -> Entering function."); }
+                            function addScript(pDevTeams) {
 
-                                    for (let i = 0; i < pDevTeams.length; i++) {
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addImages -> addScript -> Entering function."); }
 
-                                        let devTeam = pDevTeams[i];
+                                for (let i = 0; i < pDevTeams.length; i++) {
 
-                                        let htmlLineCopy = htmlLine;
+                                    let devTeam = pDevTeams[i];
 
-                                        let stringToInsert;
-                                        stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                        stringToInsert = stringToInsert.replace('@repo@', devTeam.codeName + "-Dev-Team");
-                                        stringToInsert = stringToInsert.replace('@image@', devTeam.codeName + ".png");
-                                        stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + ".png");
+                                    let htmlLineCopy = htmlLine;
 
-                                        let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
-                                        let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
+                                    let stringToInsert;
+                                    stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                    stringToInsert = stringToInsert.replace('@repo@', devTeam.codeName + "-Dev-Team");
+                                    stringToInsert = stringToInsert.replace('@image@', devTeam.codeName + ".png");
+                                    stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + ".png");
 
-                                        fileContent = firstPart + stringToInsert + secondPart;
+                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
+                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
 
-                                        for (let j = 0; j < devTeam.bots.length; j++) {
+                                    fileContent = firstPart + stringToInsert + secondPart;
 
-                                            let bot = devTeam.bots[j];
+                                    for (let j = 0; j < devTeam.bots.length; j++) {
 
-                                            if (bot.profilePicture !== undefined) {
+                                        let bot = devTeam.bots[j];
+
+                                        if (bot.profilePicture !== undefined) {
+
+                                            let htmlLineCopy = htmlLine;
+
+                                            let stringToInsert;
+                                            stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                            stringToInsert = stringToInsert.replace('@repo@', bot.repo);
+                                            stringToInsert = stringToInsert.replace('@image@', bot.profilePicture);
+                                            stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + bot.profilePicture);
+
+                                            let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
+                                            let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
+
+                                            fileContent = firstPart + stringToInsert + secondPart;
+
+                                        }
+                                    }
+
+                                    for (let j = 0; j < devTeam.plotters.length; j++) {
+
+                                        let plotter = devTeam.plotters[j];
+
+                                        for (let k = 0; k < plotter.modules.length; k++) {
+
+                                            let module = plotter.modules[k];
+
+                                            if (module.profilePicture !== undefined) {
 
                                                 let htmlLineCopy = htmlLine;
 
                                                 let stringToInsert;
                                                 stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                                stringToInsert = stringToInsert.replace('@repo@', bot.repo);
-                                                stringToInsert = stringToInsert.replace('@image@', bot.profilePicture);
-                                                stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + bot.profilePicture);
+                                                stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                                stringToInsert = stringToInsert.replace('@image@', module.profilePicture);
+                                                stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + plotter.codeName + "." + module.codeName + "." + module.profilePicture);
 
                                                 let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
                                                 let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
@@ -899,53 +951,27 @@ function onBrowserRequest(request, response) {
 
                                             }
                                         }
-
-                                        for (let j = 0; j < devTeam.plotters.length; j++) {
-
-                                            let plotter = devTeam.plotters[j];
-
-                                            for (let k = 0; k < plotter.modules.length; k++) {
-
-                                                let module = plotter.modules[k];
-
-                                                if (module.profilePicture !== undefined) {
-
-                                                    let htmlLineCopy = htmlLine;
-
-                                                    let stringToInsert;
-                                                    stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                                    stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                                    stringToInsert = stringToInsert.replace('@image@', module.profilePicture);
-                                                    stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + plotter.codeName + "." + module.codeName + "." + module.profilePicture);
-
-                                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
-                                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
-
-                                                    fileContent = firstPart + stringToInsert + secondPart;
-
-                                                } 
-                                            }
-                                        }
                                     }
                                 }
                             }
-                           
-                            respondWithContent(fileContent, response);
+                        }
 
-                        }
-                        catch (err) {
-                            console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
-                        }
+                        respondWithContent(fileContent, response);
+
+                    }
+                    catch (err) {
+                        console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                     }
                 }
-                catch (err) {
-                    console.log(err);
-                }
-            } else {
-
-                respondWithFile("" + requestParameters[1], response);
-
             }
+            catch (err) {
+                console.log(err);
+            }
+        } else {
+
+            respondWithFile("" + requestParameters[1], response);
+
+        }
     }
 
     function sendResponseToBrowser(htmlResponse) {

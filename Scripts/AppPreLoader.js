@@ -45,7 +45,7 @@ function loadAdvancedAlgosPlatform() {
 
     /* The second thing to do is to send the tokenSession to the server, so that it can prepare the server side data structures needed. */
 
-    let sessionToken = window.sessionToken;
+    let sessionToken = window.SESSION_TOKEN;
     if (sessionToken === undefined) { sessionToken = ""}
 
     let path = "AABrowserAPI/authenticateUser/" + sessionToken;

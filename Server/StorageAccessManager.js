@@ -58,7 +58,7 @@
             }
         }
         
-        let container = team.codeName;
+        let container = pTeam.codeName.toLowerCase();
         let blobName = undefined;
 
         let sharedAccessPolicy = {

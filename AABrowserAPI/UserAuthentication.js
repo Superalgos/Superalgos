@@ -37,7 +37,7 @@
 
          /* The second posiibility is that the session is not found. */
 
-        let session = sessionManager.getSession(sessionToken);
+        let session = sessionManager.getSession(pSessionToken);
 
         if (session === undefined) {
 
@@ -56,7 +56,7 @@
         userProfile.userName = session.userName;
         userProfile.devTeams = session.devTeams;
 
-        for (let i = 0; i < session.devTeams.lenght; i++) {
+        for (let i = 0; i < session.devTeams.length; i++) {
 
             let devTeam = session.devTeams[i];
             let readPermission = storageAccessManager.getPermission(devTeam, "READ", MAX_STORAGE_PERMISSION_DAYS);

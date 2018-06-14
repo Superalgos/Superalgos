@@ -21,7 +21,7 @@
 
                 let sessions = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-                for (let i = 0; i < sessions.lenght; i++) {
+                for (let i = 0; i < sessions.length; i++) {
 
                     let session = sessions[i];
 

@@ -69,9 +69,20 @@
 
 /*
 
-This process is going to do the following:
+    This process is going to do the following:
 
-Read the candles and volumes from Bruce and produce a single Index File for Market Period. 
+    Read the candles and volumes from Bruce and produce a single Index File for Market Period. But this is the situation:
+
+    Bruce has a dataset organized with daily files with candles of 1 min. Olivia is writting in this process a single file for each timePeriod for the whole market.
+    Everytime this process run, must be able to resume its job and process everything pending until reaching the head of the market. So the tactic to do this is the
+    following:
+
+    1. First we need to read the last file written by this process, and load all the information into in-memory arrays. We will then append to this arrays the new
+    information we will get from Bruce.
+
+    2. We know from out status report which was the last DAY we processed from Bruce, but we must be carefull, because that day mightn not have been complete, if the
+    last run found the head of the market. That means that we have to be carefull not to append candles that are already there. To simplify what we do is to discard
+    all candles of the last processed day, and then we can process that full day again adding all the candles. 
 
 */
 
@@ -231,6 +242,11 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
             function findPreviousContent() {
 
+                /*
+                This is where we read the current files we have produced at previous runs of this same process. We just read all the content and organize it
+                in arrays and keep them in memory.
+                */
+
                 try {
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering function."); }
@@ -246,7 +262,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> Entering function."); }
 
-                        let folderName = global.marketFilesPeriods[n][1];
+                        let timePeriod = global.marketFilesPeriods[n][1];
 
                         let previousCandles;
                         let previousVolumes;
@@ -259,7 +275,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> filePath = " + filePath); }
@@ -299,7 +315,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> fileName = " + fileName); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> filePath = " + filePath); }
@@ -368,9 +384,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> Entering function."); }
 
                     /*
-
                     Firstly we prepere the arrays that will accumulate all the information for each output file.
-
                     */
 
                     let outputCandles = [];
@@ -439,9 +453,16 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                             }
 
                             const outputPeriod = global.marketFilesPeriods[n][0];
-                            const folderName = global.marketFilesPeriods[n][1];
+                            const timePeriod = global.marketFilesPeriods[n][1];
 
-                            /* Lest see if we are adding previous candles. */
+                            /*
+                            Here we are inside a Loop that is going to advance 1 day at the time, at each pass, will ready one of Bruce's daily files and
+                            add all its candles to our in memory arrays. At the first iteration of this loop, we will add the candles that we are carrying
+                            from our previous run, the ones we already have in-memory. You can see below how we discard from those candles the ones that
+                            are belonging to the first day we are processing at this run, that it is exactly the same as the last day processed the privious
+                            run. By discarding these candles, we are ready to run after that standard function that will just add ALL the candles found each
+                            day at Bruce.
+                            */
 
                             if (previousCandles !== undefined) {
 
@@ -461,7 +482,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         outputCandles[n].push(candle);
 
                                     } else {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Candle # " + i + " @ " + folderName + " discarded for closing past the current process time."); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Candle # " + i + " @ " + timePeriod + " discarded for closing past the current process time."); }
                                     }
                                 }
                                 allPreviousCandles[n] = []; // erasing these so as not to duplicate them.
@@ -483,11 +504,17 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                         outputVolumes[n].push(volume);
 
                                     } else {
-                                        if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Volume # " + i + " @ " + folderName + " discarded for closing past the current process time."); }
+                                        if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Volume # " + i + " @ " + timePeriod + " discarded for closing past the current process time."); }
                                     }
                                 }
                                 allPreviousVolumes[n] = []; // erasing these so as not to duplicate them.
                             }
+
+                            /*
+                            From here on is where every iteration of the loop fully runs. Here is where we read Bruce's files and add their content to whatever
+                            we already have in our arrays in-memory. In this way the process will run as many days needed and it should only stop when it reaches
+                            the head of the market. 
+                            */
 
                             nextCandleFile();
 
@@ -535,6 +562,11 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
 
                                         let totalOutputCandles = inputFilePeriod / outputPeriod; // this should be 2 in this case.
                                         let beginingOutputTime = contextVariables.lastCandleFile.valueOf();
+
+                                        /*
+                                        The algorithm that follows is going to agregate candles of 1 min timePeriod read from Bruce, into candles of each timePeriod
+                                        that Olivia generates. For market files those timePediods goes from 1h to 24hs.
+                                        */
 
                                         for (let i = 0; i < totalOutputCandles; i++) {
 
@@ -691,7 +723,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                                             }
                                         }
 
-                                        writeFiles(outputCandles[n], outputVolumes[n], folderName, controlLoop);
+                                        writeFiles(outputCandles[n], outputVolumes[n], timePeriod, controlLoop);
                                     }
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
@@ -723,7 +755,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                 }
             }
 
-            function writeFiles(candles, volumes, folderName, callBack) {
+            function writeFiles(candles, volumes, timePeriod, callBack) {
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> Entering function."); }
 
@@ -760,7 +792,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
  
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> filePath = " + filePath); }
@@ -810,7 +842,7 @@ Read the candles and volumes from Bruce and produce a single Index File for Mark
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                        let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                        let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> fileName = " + fileName); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> filePath = " + filePath); }

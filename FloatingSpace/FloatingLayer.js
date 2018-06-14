@@ -61,7 +61,7 @@ function newFloatingLayer() {
 
     let dyingFloatingObjects = [];
 
-    let maxTargetRepulsionForce = 0.0005;
+    let maxTargetRepulsionForce = 0.003;
     let currentHandle = 0;
 
     return thisObject;

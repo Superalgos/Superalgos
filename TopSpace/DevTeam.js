@@ -19,17 +19,42 @@ function newDevTeam() {
     container.frame.position.y = 0;
 
     container.isDraggeable = false;
+    container.isClickeable = true;
+
+    let sharedStatus;
 
     return thisObject;
 
-    function initialize() {
+    function initialize(pSharedStatus) {
+
+        sharedStatus = pSharedStatus;
 
         if (window.USER_PROFILE.devTeams.length === 0) {
             window.DEV_TEAM = "Not a devTeam Member";
         } else {
-            window.DEV_TEAM = window.USER_PROFILE.devTeams[0];
+            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
         }
 
+        thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
+    }
+
+    function onClick() {
+
+        if (sharedStatus.currentDevTeamIndex + 1 === window.USER_PROFILE.devTeams.length) {
+
+            sharedStatus.currentDevTeamIndex = 0;
+            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
+            sharedStatus.eventHandler.raiseEvent("devTeam Changed");
+            return;
+        }
+
+        if (sharedStatus.currentDevTeamIndex + 1 < window.USER_PROFILE.devTeams.length) {
+
+            sharedStatus.currentDevTeamIndex++;
+            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
+            sharedStatus.eventHandler.raiseEvent("devTeam Changed");
+            return;
+        }
     }
 
     function getContainer(point) {

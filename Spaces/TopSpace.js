@@ -31,6 +31,14 @@ function newTopSpace() {
 
     function initialize() {
 
+        let sharedStatus = {
+            currentDevTeamIndex: 0,
+            currentUserBotIndex: 0,
+            currentProcessIndex: 0,
+            currentBotType: "",
+            eventHandler: newEventHandler()
+        };
+
         thisObject.companyLogo = newCompanyLogo();
         thisObject.companyLogo.initialize();
 
@@ -38,16 +46,16 @@ function newTopSpace() {
         thisObject.endUser.initialize();
 
         thisObject.devTeam = newDevTeam();
-        thisObject.devTeam.initialize();
+        thisObject.devTeam.initialize(sharedStatus);
 
         thisObject.currentBot = newCurrentBot();
-        thisObject.currentBot.initialize();
+        thisObject.currentBot.initialize(sharedStatus);
 
         thisObject.currentProcess = newCurrentProcess();
-        thisObject.currentProcess.initialize();
+        thisObject.currentProcess.initialize(sharedStatus);
 
         thisObject.currentStartMode = newCurrentStartMode();
-        thisObject.currentStartMode.initialize();
+        thisObject.currentStartMode.initialize(sharedStatus);
 
         thisObject.playStopButton = newPlayStopButton();
         thisObject.playStopButton.initialize();

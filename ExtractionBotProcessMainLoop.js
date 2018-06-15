@@ -84,7 +84,7 @@
                                 break;
                             }
                             case "Browser": {
-                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + bot.repo;
+                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO;
                                 break;
                             }
                             default: {

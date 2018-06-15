@@ -946,6 +946,8 @@
 
                     function checkLoopHealth(pLastLoop) {
 
+                        if (bot.startMode === 'Backtest') { return;}
+
                         if (bot.loopCounter <= pLastLoop + 1) {    // This means that the next loop started but also stopped executing abruptally.
 
                             let now = new Date().valueOf();

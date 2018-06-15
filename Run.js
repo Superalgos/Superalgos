@@ -29,7 +29,7 @@ process.on('exit', function (code) {
     }
 });
 
-global.STORAGE_PERMISSIONS = {};
+global.USER_PROFILE = {};
 
 readStoragePermissions();
 
@@ -39,8 +39,23 @@ function readStoragePermissions() {
 
     try {
         let fs = require('fs');
-        filePath = '../' + 'Connection-Strings' + '/' + 'Storage.Permissions.json';
-        global.STORAGE_PERMISSIONS = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        filePath = '../' + 'User-Profile' + '/' + 'User.Profile.json';
+        global.USER_PROFILE = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+
+        /* Here we will rearrange the storage permissions array into a map, so that it can be easily consumed when needed. */
+
+        let permissionsMap = new Map;
+
+        for (i = 0; i < global.USER_PROFILE.storagePermissions.length; i++) {
+
+            let permission = global.USER_PROFILE.storagePermissions[i];
+
+            permissionsMap.set(permission[0], permission[1]);
+
+        }
+
+        global.USER_PROFILE.storagePermissions = permissionsMap;
 
         readExchangeAPIKey();
     }

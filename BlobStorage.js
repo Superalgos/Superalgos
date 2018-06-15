@@ -44,13 +44,15 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
             if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] initialize -> environment = " + environment); }
             if (FULL_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[INFO] initialize -> containerName = " + containerName); }
 
-            let readConnectionString = global.STORAGE_PERMISSIONS[environment][containerName].readConnectionString;
+            
+
+            let readConnectionString = global.USER_PROFILE.storagePermissions.get(pDataOwner + "." + "READ");
 
             if (readConnectionString !== undefined) {
                 readOnlyBlobService = storage.createBlobService(readConnectionString);
             }
 
-            let writeConnectionString = global.STORAGE_PERMISSIONS[environment][containerName].writeConnectionString;
+            let writeConnectionString = global.USER_PROFILE.storagePermissions.get(pDataOwner + "." + "WRITE");
 
             if (writeConnectionString !== undefined) {
                 writeOnlyBlobService = storage.createBlobService(writeConnectionString);

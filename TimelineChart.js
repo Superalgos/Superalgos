@@ -969,8 +969,11 @@
         let backgroundLogoPoint1;
         let backgroundLogoPoint2;
 
-        let imageHeight = 84;
-        let imageWidth = 300;
+        let imageHeight = 42;
+        let imageWidth = 150;
+
+        let MAX_COLUMNS = 16;
+        let MAX_ROWS = 7;
 
         let point1 = {
             x: viewPort.visibleArea.topLeft.x,
@@ -1007,7 +1010,7 @@
         let offSet = 0;
 
 
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < MAX_ROWS; j++) {
 
             if (offSet === -imageWidth * 8) {
 
@@ -1017,7 +1020,7 @@
                 offSet = -imageWidth * 8;
             }
 
-            for (let i = 0; i < 12; i = i + 4) {
+            for (let i = 0; i < MAX_COLUMNS; i = i + 4) {
 
                 let logo = logoA;
 
@@ -1028,7 +1031,7 @@
 
         offSet = 0;
 
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < MAX_ROWS; j++) {
 
             if (offSet === -imageWidth * 8) {
 
@@ -1038,7 +1041,7 @@
                 offSet = -imageWidth * 8;
             }
 
-            for (let i = 1; i < 12; i = i + 4) {
+            for (let i = 1; i < MAX_COLUMNS; i = i + 4) {
 
                 let logo = logoB;
 
@@ -1049,7 +1052,7 @@
 
         offSet = 0;
 
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < MAX_ROWS; j++) {
 
             if (offSet === -imageWidth * 8) {
 
@@ -1059,7 +1062,7 @@
                 offSet = -imageWidth * 8;
             }
 
-            for (let i = 2; i < 12; i = i + 4) {
+            for (let i = 2; i < MAX_COLUMNS; i = i + 4) {
 
                 let logo = logoExchange;
 
@@ -1070,7 +1073,7 @@
 
         offSet = 0;
 
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < MAX_ROWS; j++) {
 
             if (offSet === -imageWidth * 8) {
 
@@ -1080,7 +1083,7 @@
                 offSet = -imageWidth * 8;
             }
 
-            for (let i = 3; i < 12; i = i + 4) {
+            for (let i = 3; i < MAX_COLUMNS; i = i + 4) {
 
                 let logo = logoAA;
 

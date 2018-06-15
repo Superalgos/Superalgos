@@ -24,7 +24,7 @@
         let userProfile = {
             userName: "Guest",
             devTeams: [],
-            storagePermissions: new Map()
+            storagePermissions: []
         };
 
         /* The first possibility is that the sessionToken is not there. */
@@ -59,13 +59,21 @@
         for (let i = 0; i < session.devTeams.length; i++) {
 
             let devTeam = session.devTeams[i];
-            let readPermission = storageAccessManager.getPermission(devTeam, "READ", MAX_STORAGE_PERMISSION_DAYS);
-            let writePermission = storageAccessManager.getPermission(devTeam, "WRITE", MAX_STORAGE_PERMISSION_DAYS);
+            let container = devTeam.codeName.toLowerCase();
 
-            userProfile.storagePermissions.set(devTeam + "." + "READ", readPermission);
-            userProfile.storagePermissions.set(devTeam + "." + "WRITE", writePermission);
+            let readPermission = storageAccessManager.getPermission(container, "READ", MAX_STORAGE_PERMISSION_DAYS);
+            let writePermission = storageAccessManager.getPermission(container, "WRITE", MAX_STORAGE_PERMISSION_DAYS);
+
+            userProfile.storagePermissions.push([devTeam.codeName + "." + "READ", readPermission]);
+            userProfile.storagePermissions.push([devTeam.codeName + "." + "WRITE", writePermission]);
 
         }
+
+        /* In order to be able to download a bot source code, the user will need READ permissions over the Platform container. */
+
+        let container = "aaplatform";
+        let readPermission = storageAccessManager.getPermission(container, "READ", MAX_STORAGE_PERMISSION_DAYS);
+        userProfile.storagePermissions.push(["AAPlatform" + "." + "READ", readPermission]);
 
         callBackFunction(global.DEFAULT_OK_RESPONSE, userProfile);
 

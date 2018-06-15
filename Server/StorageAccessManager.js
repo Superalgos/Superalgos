@@ -34,7 +34,7 @@
         }
     }
 
-    function getPermission(pTeam, pType, pDays) {
+    function getPermission(pContainer, pType, pDays) {
 
         let azure = require('azure-storage');
         let blobService = azure.createBlobService(permissions.connectionString);
@@ -58,7 +58,6 @@
             }
         }
         
-        let container = pTeam.codeName.toLowerCase();
         let blobName = undefined;
 
         let sharedAccessPolicy = {
@@ -69,7 +68,7 @@
             }
         };
 
-        let sasToken = blobService.generateSharedAccessSignature(container, blobName, sharedAccessPolicy);
+        let sasToken = blobService.generateSharedAccessSignature(pContainer, blobName, sharedAccessPolicy);
 
         return "BlobEndpoint=https://aadevelop.blob.core.windows.net;SharedAccessSignature=" + sasToken + "";
 

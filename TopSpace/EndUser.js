@@ -26,6 +26,20 @@ function newEndUser() {
 
         window.USER_LOGGED_IN = window.USER_PROFILE.userName;
 
+        /* Here we will rearrange the storage permissions array into a map, so that it can be easily consumed when needed. */
+
+        let permissionsMap = new Map;
+
+        for (i = 0; i < window.USER_PROFILE.storagePermissions.length; i++) {
+
+            let permission = window.USER_PROFILE.storagePermissions[i];
+
+            permissionsMap.set(permission[0], permission[1]);
+
+        }
+
+        window.USER_PROFILE.storagePermissions = permissionsMap;
+
     }
 
     function getContainer(point) {

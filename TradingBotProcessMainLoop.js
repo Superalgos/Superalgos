@@ -53,7 +53,7 @@
                             break;
                         }
                         case "Browser": {
-                            filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
+                            filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
                             break;
                         }
                         default: {

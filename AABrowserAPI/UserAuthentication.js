@@ -67,6 +67,18 @@
             userProfile.storagePermissions.push([devTeam.codeName + "." + "READ", readPermission]);
             userProfile.storagePermissions.push([devTeam.codeName + "." + "WRITE", writePermission]);
 
+            /* Each devTeam potentially depends on data from other devTeams. The user will need the storage permissions to read that data. */
+
+            for (j = 0; j < devTeam.devTeamDependencies.length; j++) {
+
+                let dependecy = devTeam.devTeamDependencies[j];
+
+                let container = dependecy.toLowerCase();
+
+                let readPermission = storageAccessManager.getPermission(container, "READ", MAX_STORAGE_PERMISSION_DAYS);
+
+                userProfile.storagePermissions.push([dependecy + "." + "READ", readPermission]);
+            }
         }
 
         /* In order to be able to download a bot source code, the user will need READ permissions over the Platform container. */

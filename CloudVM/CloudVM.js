@@ -93,7 +93,7 @@ function newCloudVM() {
 
                     if (currentBotCode !== previousBotCode) {
 
-                        console.log("Bot code changes detected.");
+                        console.log("CloudVM -> Bot code changes detected.");
 
                         let path = "AABrowserAPI" + "/"
                             + "saveBotCode" + "/"
@@ -109,9 +109,18 @@ function newCloudVM() {
 
                         function onServerResponse(err) {
 
-                            if (INFO_LOG === true) { logger.write("[INFO] checkForChangesInBotCode -> onServerResponse -> Entering function."); }
-                            if (INFO_LOG === true) { logger.write("[INFO] checkForChangesInBotCode -> onServerResponse -> err = " + err); }
+                            err = JSON.parse(err);
 
+                            if (INFO_LOG === true) { logger.write("[INFO] checkForChangesInBotCode -> onServerResponse -> Entering function."); }
+
+                            if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+
+                                if (ERROR_LOG === true) { logger.write("[ERROR] checkForChangesInBotCode -> onServerResponse -> err.message = " + err.message); }
+                                console.log("CloudVM -> Changes in code NOT saved. Plase check the error log and try again.");
+                                return;
+                            }
+
+                            console.log("CloudVM -> Changes in code saved.");
                         }
                     }
                 }

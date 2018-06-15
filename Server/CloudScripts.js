@@ -42,7 +42,7 @@
         
             */
 
-            storage.getStorageData('AdvancedAlgos', 'AACloud', 'web.config.json', onDataArrived);
+            storage.getStorageData('AdvancedAlgos', 'AACloud', 'web.config.json', true, onDataArrived);
 
             function onDataArrived(pData) {
 
@@ -84,7 +84,7 @@
 
                 let webModule = pCloudWebConfig.webModules[i].name + '.js';
 
-                storage.getStorageData('AdvancedAlgos', 'AACloud', webModule, onDataArrived);
+                storage.getStorageData('AdvancedAlgos', 'AACloud', webModule, true, onDataArrived);
 
                 function onDataArrived(pData) {
 

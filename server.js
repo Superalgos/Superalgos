@@ -470,9 +470,9 @@ function onBrowserRequest(request, response) {
                             }
                             botCode.saveBotCode(devTeam, source, repo, path, pData, onResponse);
 
-                            function onResponse(err, pResponse) {
+                            function onResponse(err) {
 
-                                respondWithContent(JSON.stringify(pResponse), response);
+                                respondWithContent(JSON.stringify(err), response);
                             }
                         }
 
@@ -782,7 +782,7 @@ function onBrowserRequest(request, response) {
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
 
-                storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], onDataArrived);
+                storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
                 function onDataArrived(pData) {
 
@@ -794,7 +794,7 @@ function onBrowserRequest(request, response) {
 
         case "PlotterPanels": // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
             {
-                storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], onDataArrived);
+                storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
                 function onDataArrived(pData) {
 

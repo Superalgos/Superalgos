@@ -17,7 +17,7 @@
 
     }
 
-    function getStorageData(pOrg, pRepo, pPath, callBackFunction) {
+    function getStorageData(pOrg, pRepo, pPath, saveAtCache, callBackFunction) {
 
         try {
 
@@ -72,8 +72,12 @@
                         if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> onFileReceived -> pRepo = " + pRepo); }
                         if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> getStorageData -> onFileReceived -> pPath = " + pPath); }
 
-                        storageData.set(pOrg + '.' + pRepo + '.' + pPath, text);
+                        if (saveAtCache === true) {
 
+                            storageData.set(pOrg + '.' + pRepo + '.' + pPath, text);
+
+                        }
+                        
                         if (err !== null || text === null) {
 
                             if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> getStorageData -> onFileReceived -> Error Received from Storage Library. "); }

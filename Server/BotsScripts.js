@@ -24,7 +24,7 @@
 
     function getScript(pDevTeam, pSource, pRepo, pPath, callBackFunction) {
 
-        storage.getStorageData(pDevTeam + "/" + pSource, pRepo, pPath, onDataArrived);
+        storage.getStorageData(pDevTeam + "/" + pSource, pRepo, pPath, false, onDataArrived);
 
         function onDataArrived(pData) {
 

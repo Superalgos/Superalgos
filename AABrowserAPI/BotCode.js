@@ -65,26 +65,26 @@
 
             let blobService = storage.createBlobService(connectionString);
             let blobPath = pOrg + "/" + pRepo + "/" + pPath;
-            let blobText = nodeify(pFileContent.toString());
+            let blobText = nodify(pFileContent.toString());
 
-            blobService.createBlockBlobFromText('aaplatform', blobPath, blobText, onFileReceived);
+            blobService.createBlockBlobFromText('aaplatform', blobPath, blobText, onFileCreated);
 
-            function onFileReceived(err, text, response) {
+            function onFileCreated(err, text, response) {
 
                 try {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileReceived -> Entering function."); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileReceived -> err = " + JSON.stringify(err)); }
-                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] API -> writeData -> onFileReceived -> response = " + JSON.stringify(response)); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileReceived -> pOrg = " + pOrg); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileReceived -> pRepo = " + pRepo); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileReceived -> pPath = " + pPath); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
+                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] API -> writeData -> onFileCreated -> response = " + JSON.stringify(response)); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pOrg = " + pOrg); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pRepo = " + pRepo); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pPath = " + pPath); }
 
                     if (err !== null || text === null) {
 
-                        if (CONSOLE_LOG === true) { console.log("[ERROR] API -> writeData -> onFileReceived -> Error Received from API Library. "); }
-                        if (CONSOLE_LOG === true) { console.log("[ERROR] API -> writeData -> onFileReceived -> err = " + JSON.stringify(err)); }
-                        if (CONSOLE_LOG === true) { console.log("[ERROR] API -> writeData -> onFileReceived -> Returning an empty JSON object string. "); }
+                        if (CONSOLE_LOG === true) { console.log("[ERROR] API -> writeData -> onFileCreated -> Error Received from API Library. "); }
+                        if (CONSOLE_LOG === true) { console.log("[ERROR] API -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
+                        if (CONSOLE_LOG === true) { console.log("[ERROR] API -> writeData -> onFileCreated -> Returning an empty JSON object string. "); }
 
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
@@ -94,7 +94,7 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    console.log("[ERROR] API -> writeData -> onFileReceived -> err.message = " + err.message);
+                    console.log("[ERROR] API -> writeData -> onFileCreated -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -105,7 +105,7 @@
         }
     }
 
-    function nodeify(pData) {
+    function nodify(pData) {
 
        
         let start = pData.indexOf('function') + 9;

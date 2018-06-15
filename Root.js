@@ -258,7 +258,7 @@ exports.newRoot = function newRoot() {
                                     break;
                                 }
                                 case "Browser": {
-                                    filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + listItem.repo;  // DevTeam Members bots only are run at the browser.
+                                    filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO;  // DevTeam Members bots only are run at the browser.
 
                                     console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> Getting Bot Config from the endUser's Bot. ");
                                     console.log(logDisplace + "Root : [INFO] start -> getBotConfig -> global.USER_LOGGED_IN = " + global.USER_LOGGED_IN);

@@ -22,7 +22,6 @@
     }
   ],
   "stopGracefully": false,
-  "maxLogLoops": 5,
   "marketRateProvider": {
     "devTeam": "AAMasters",
     "bot": "AABruce",

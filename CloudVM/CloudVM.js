@@ -100,7 +100,7 @@ function newCloudVM() {
                             + window.DEV_TEAM + "/"
                             + "members" + "/"
                             + window.USER_LOGGED_IN + "/"
-                            + window.CURRENT_BOT + "/"
+                            + window.CURRENT_BOT_REPO + "/"
                             + window.CURRENT_PROCESS + "/"
                             + "User.Bot.js"
                             ;

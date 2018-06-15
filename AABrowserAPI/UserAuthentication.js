@@ -80,7 +80,7 @@
                 userProfile.storagePermissions.push([dependecy + "." + "READ", readPermission]);
             }
         }
-
+        
         /* In order to be able to download a bot source code, the user will need READ permissions over the Platform container. */
 
         let container = "aaplatform";

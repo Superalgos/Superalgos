@@ -37,8 +37,10 @@ function newCurrentBot() {
 
             if (window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length === 0) {
                 window.CURRENT_BOT = NOT_FOUND;
+                window.CURRENT_BOT_REPO = "NO REPO";
             } else {
                 window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+                window.CURRENT_BOT_REPO = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].repo;
             }
         }
 
@@ -52,6 +54,7 @@ function newCurrentBot() {
 
             sharedStatus.currentUserBotIndex = 0;
             window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+            window.CURRENT_BOT_REPO = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].repo;
             sharedStatus.eventHandler.raiseEvent("userBot Changed");
 
         } else {
@@ -67,6 +70,7 @@ function newCurrentBot() {
 
             sharedStatus.currentUserBotIndex = 0;
             window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+            window.CURRENT_BOT_REPO = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].repo;
             sharedStatus.eventHandler.raiseEvent("userBot Changed");
             return;
         }
@@ -75,6 +79,7 @@ function newCurrentBot() {
 
             sharedStatus.currentUserBotIndex++;
             window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+            window.CURRENT_BOT_REPO = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].repo;
             sharedStatus.eventHandler.raiseEvent("userBot Changed");
             return;
         }

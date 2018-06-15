@@ -24,6 +24,7 @@ function newDevTeam() {
     const NOT_FOUND = "Not a devTeam Member";
 
     let sharedStatus;
+    let label = ""
 
     return thisObject;
 
@@ -32,9 +33,10 @@ function newDevTeam() {
         sharedStatus = pSharedStatus;
 
         if (window.USER_PROFILE.devTeams.length === 0) {
-            window.DEV_TEAM = NOT_FOUND;
+            label = NOT_FOUND;
         } else {
-            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
+            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].codeName;
+            label = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
         }
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
@@ -45,7 +47,8 @@ function newDevTeam() {
         if (sharedStatus.currentDevTeamIndex + 1 === window.USER_PROFILE.devTeams.length) {
 
             sharedStatus.currentDevTeamIndex = 0;
-            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
+            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].codeName;
+            label = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
             sharedStatus.eventHandler.raiseEvent("devTeam Changed");
             return;
         }
@@ -53,7 +56,8 @@ function newDevTeam() {
         if (sharedStatus.currentDevTeamIndex + 1 < window.USER_PROFILE.devTeams.length) {
 
             sharedStatus.currentDevTeamIndex++;
-            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
+            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].codeName;
+            label = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
             sharedStatus.eventHandler.raiseEvent("devTeam Changed");
             return;
         }
@@ -83,7 +87,6 @@ function newDevTeam() {
         thisObject.container.frame.draw(false, false);
 
         let fontSize = 12;
-        let label = window.DEV_TEAM;
 
         let point = {
             x: thisObject.container.frame.width * 1 / 3,

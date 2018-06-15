@@ -71,14 +71,14 @@ function newCurrentProcess() {
 
     function onClick() {
 
-        if (sharedStatus.currentProcessIndex + 1 === window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length) {
+        if (sharedStatus.currentProcessIndex + 1 === window.CURRENT_PROCESS = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes.length) {
 
             sharedStatus.currentProcessIndex = 0;
             window.CURRENT_PROCESS = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes[sharedStatus.currentProcessIndex].name;
             return;
         }
 
-        if (sharedStatus.currentProcessIndex + 1 < window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length) {
+        if (sharedStatus.currentProcessIndex + 1 < window.CURRENT_PROCESS = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes.length) {
 
             sharedStatus.currentProcessIndex++;
             window.CURRENT_PROCESS = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes[sharedStatus.currentProcessIndex].name;

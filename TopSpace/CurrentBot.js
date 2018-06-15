@@ -63,7 +63,7 @@ function newCurrentBot() {
 
     function onClick() {
 
-        if (sharedStatus.currentUserBotIndex + 1 === window.USER_PROFILE.devTeams.length) {
+        if (sharedStatus.currentUserBotIndex + 1 === window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length) {
 
             sharedStatus.currentUserBotIndex = 0;
             window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
@@ -71,7 +71,7 @@ function newCurrentBot() {
             return;
         }
 
-        if (sharedStatus.currentUserBotIndex + 1 < window.USER_PROFILE.devTeams.length) {
+        if (sharedStatus.currentUserBotIndex + 1 < window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length) {
 
             sharedStatus.currentUserBotIndex++;
             window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;

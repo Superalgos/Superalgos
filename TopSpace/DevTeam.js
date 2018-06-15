@@ -1,14 +1,14 @@
 ﻿
 function newDevTeam() {
 
-    var thisObject = {
+    let thisObject = {
         container: undefined,
         draw: draw,
-        getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+        getContainer: getContainer,    
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     thisObject.container = container;
 
@@ -21,6 +21,8 @@ function newDevTeam() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
+    const NOT_FOUND = "Not a devTeam Member";
+
     let sharedStatus;
 
     return thisObject;
@@ -30,7 +32,7 @@ function newDevTeam() {
         sharedStatus = pSharedStatus;
 
         if (window.USER_PROFILE.devTeams.length === 0) {
-            window.DEV_TEAM = "Not a devTeam Member";
+            window.DEV_TEAM = NOT_FOUND;
         } else {
             window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
         }

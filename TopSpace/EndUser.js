@@ -1,14 +1,14 @@
 ﻿
 function newEndUser() {
 
-    var thisObject = {
+    let thisObject = {
         container: undefined,
         draw: draw,
-        getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+        getContainer: getContainer,    
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     thisObject.container = container;
 

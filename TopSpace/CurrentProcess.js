@@ -1,14 +1,14 @@
 ﻿
 function newCurrentProcess() {
 
-    var thisObject = {
+    let thisObject = {
         container: undefined,
         draw: draw,
-        getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+        getContainer: getContainer,    
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     thisObject.container = container;
 
@@ -19,15 +19,70 @@ function newCurrentProcess() {
     container.frame.position.y = 0;
 
     container.isDraggeable = false;
+    container.isClickeable = true;
+
+    const NOT_FOUND = "No Process Found";
+
+    let sharedStatus;
 
     return thisObject;
 
-    function initialize() {
+    function initialize(pSharedStatus) {
 
-        window.CURRENT_PROCESS = window.localStorage.getItem("currentProcess");
+        sharedStatus = pSharedStatus;
 
-        if (window.CURRENT_PROCESS === null) {
-            window.CURRENT_PROCESS = "";
+        if (window.USER_PROFILE.devTeams.length === 0) {
+            window.CURRENT_PROCESS = NOT_FOUND;
+        } else {
+
+            if (window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length === 0) {
+                window.CURRENT_PROCESS = NOT_FOUND;
+            } else {
+
+                if (window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes.length === 0) {
+                    window.CURRENT_PROCESS = NOT_FOUND;
+                } else {
+
+                    window.CURRENT_PROCESS = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes[sharedStatus.currentProcessIndex].name;
+
+                }
+            }
+        }
+
+        thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
+        sharedStatus.eventHandler.listenToEvent("userBot Changed", onUserBotChanged);
+    }
+
+    function onUserBotChanged() {
+
+        if ( window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length > 0) {
+
+            if (window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes.length > 0) {
+
+                sharedStatus.currentProcessIndex = 0;
+                window.CURRENT_PROCESS = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes[sharedStatus.currentProcessIndex].name;
+
+                return;
+            }   
+        }
+
+        window.CURRENT_PROCESS = NOT_FOUND;
+    }
+
+    function onClick() {
+
+        if (sharedStatus.currentProcessIndex + 1 === window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length) {
+
+            sharedStatus.currentProcessIndex = 0;
+            window.CURRENT_PROCESS = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes[sharedStatus.currentProcessIndex].name;
+            return;
+        }
+
+        if (sharedStatus.currentProcessIndex + 1 < window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length) {
+
+            sharedStatus.currentProcessIndex++;
+            window.CURRENT_PROCESS = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes[sharedStatus.currentProcessIndex].name;
+            return;
         }
     }
 

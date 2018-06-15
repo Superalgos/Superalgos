@@ -1,14 +1,14 @@
 ﻿
 function newCurrentBot() {
 
-    var thisObject = {
+    let thisObject = {
         container: undefined,
         draw: draw,
-        getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+        getContainer: getContainer,  
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     thisObject.container = container;
 
@@ -21,6 +21,8 @@ function newCurrentBot() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
+    const NOT_FOUND = "You have no Bots";
+
     let sharedStatus;
 
     return thisObject;
@@ -30,11 +32,11 @@ function newCurrentBot() {
         sharedStatus = pSharedStatus;
 
         if (window.USER_PROFILE.devTeams.length === 0) {
-            window.CURRENT_BOT = "You have no Bots";
+            window.CURRENT_BOT = NOT_FOUND;
         } else {
 
             if (window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length === 0) {
-                window.CURRENT_BOT = "You have no Bots";
+                window.CURRENT_BOT = NOT_FOUND;
             } else {
                 window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
             }
@@ -50,10 +52,11 @@ function newCurrentBot() {
 
             sharedStatus.currentUserBotIndex = 0;
             window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+            sharedStatus.eventHandler.raiseEvent("userBot Changed");
 
         } else {
 
-            window.CURRENT_BOT = "You have no Bots";
+            window.CURRENT_BOT = NOT_FOUND;
 
         }
     }
@@ -64,6 +67,7 @@ function newCurrentBot() {
 
             sharedStatus.currentUserBotIndex = 0;
             window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+            sharedStatus.eventHandler.raiseEvent("userBot Changed");
             return;
         }
 
@@ -71,6 +75,7 @@ function newCurrentBot() {
 
             sharedStatus.currentUserBotIndex++;
             window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+            sharedStatus.eventHandler.raiseEvent("userBot Changed");
             return;
         }
     }

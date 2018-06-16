@@ -105,7 +105,7 @@
 
             function onRequired(pModule) {
 
-                console.log(MODULE_NAME + ": " + path + " downloaded.");
+                //console.log(MODULE_NAME + ": " + path + " downloaded.");
                 downloadedCounter++;
 
                 if (downloadedCounter === modulesArray.length) {

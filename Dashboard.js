@@ -29,8 +29,8 @@ FONT_ASPECT_RATIO = 0.50;
 
 UI_PANEL = {
     WIDTH: {
-        SMALL: 200,
-        NORMAL: 250,
+        SMALL: 100,
+        NORMAL: 150,
         LARGE: 350
     },
     HEIGHT: {

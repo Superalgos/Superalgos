@@ -412,7 +412,27 @@ function onBrowserRequest(request, response) {
         case "Images": // This means the Scripts folder.
             {
 
-                respondWithImage('./Images/' + requestParameters[2], response);
+                let path = './Images/' + requestParameters[2];
+
+                if (requestParameters[3] !== undefined) {
+
+                    path = path + "/" + requestParameters[3];
+
+                }
+
+                if (requestParameters[4] !== undefined) {
+
+                    path = path + "/" + requestParameters[4];
+
+                }
+
+                if (requestParameters[5] !== undefined) {
+
+                    path = path + "/" + requestParameters[5];
+
+                }
+
+                respondWithImage(path, response);
 
             }
             break; 
@@ -875,7 +895,7 @@ function onBrowserRequest(request, response) {
                             if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addImages -> Entering function."); }
 
                             const htmlLine = '' + '\n' +
-                                '    <img id="@id@" width="0" height="0" src="https://raw.githubusercontent.com/@devTeam@/@repo@/master/@image@">'
+                                '    <img id="@id@" width="0" height="0" src="Images/@devTeam@/@repo@/@image@">'
 
                             let devTeams = ecosystemObject.devTeams;
 
@@ -893,7 +913,7 @@ function onBrowserRequest(request, response) {
 
                                     let stringToInsert;
                                     stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                    stringToInsert = stringToInsert.replace('@repo@', devTeam.codeName + "-Dev-Team");
+                                    stringToInsert = stringToInsert.replace('@repo@/', "");
                                     stringToInsert = stringToInsert.replace('@image@', devTeam.codeName + ".png");
                                     stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + ".png");
 

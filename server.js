@@ -124,8 +124,6 @@ function initialize() {
     }
 }
 
-
-
 function startHtttpServer() {
 
     if (CONSOLE_LOG === true) { console.log("[INFO] server -> startHtttpServer -> Entering function."); }

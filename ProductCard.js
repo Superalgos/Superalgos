@@ -391,9 +391,9 @@
         
         function drawProductLoadStatus() {
 
-            let offFillStyle = 'rgba(' + UI_COLOR.RED + ', 0.10)';
-            let onFillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.10)';
-            let loadingFillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.10)';
+            let offFillStyle = 'rgba(' + UI_COLOR.RED + ', 0.20)';
+            let onFillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.20)';
+            let loadingFillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)';
 
             switch (thisObject.status) {
 

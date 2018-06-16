@@ -387,53 +387,80 @@
             }
         }
 
+        drawProductLoadStatus();
+        
+        function drawProductLoadStatus() {
 
-        /* Now the small circle */
+            let offFillStyle = 'rgba(' + UI_COLOR.RED + ', 0.10)';
+            let onFillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.10)';
+            let loadingFillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.10)';
 
-        centerPoint = {
-            x: thisObject.container.frame.width / 2,
-            y: thisObject.container.frame.height / 2
-        };
+            switch (thisObject.status) {
 
-        /* Now the transformations. */
+                case PRODUCT_CARD_STATUS.ON:
+                    browserCanvasContext.fillStyle = onFillStyle;
+                    break;
 
-        centerPoint = thisObject.container.frame.frameThisPoint(centerPoint);
+                case PRODUCT_CARD_STATUS.OFF:
+                    browserCanvasContext.fillStyle = offFillStyle;
+                    break;
 
-        /* Lets start the drawing. */
+                case PRODUCT_CARD_STATUS.LOADING:
+                    browserCanvasContext.fillStyle = loadingFillStyle;
+                    break;
 
-        browserCanvasContext.beginPath();
-        browserCanvasContext.arc(centerPoint.x, centerPoint.y, 3, 0, 2 * Math.PI);
-        browserCanvasContext.closePath();
+            }
 
-        let offFillStyle = 'rgba(232, 28, 28, 0.75)';
-        let onFillStyle = 'rgba(45, 232, 28, 0.75)';
-        let loadingFillStyle = 'rgba(237, 227, 47, 0.75)';
+            let centerPoint = {
+                x: thisObject.container.frame.width / 2,
+                y: thisObject.container.frame.height / 2 - 13
+            };
 
-        switch (thisObject.status) {
+            let point1 = {
+                x: centerPoint.x - plotterImageSize.width / 2,
+                y: centerPoint.y - plotterImageSize.height / 2 - 7
+            };
 
-            case PRODUCT_CARD_STATUS.ON:
-                browserCanvasContext.fillStyle = onFillStyle;
-                break;
+            let point2 = {
+                x: centerPoint.x + plotterImageSize.width / 2,
+                y: centerPoint.y - plotterImageSize.height / 2 - 7
+            };
 
-            case PRODUCT_CARD_STATUS.OFF:
-                browserCanvasContext.fillStyle = offFillStyle;
-                break;
+            let point3 = {
+                x: centerPoint.x + plotterImageSize.width / 2,
+                y: centerPoint.y - plotterImageSize.height / 2 + 7
+            };
 
-            case PRODUCT_CARD_STATUS.LOADING:
-                browserCanvasContext.fillStyle = loadingFillStyle;
-                break;
+            let point4 = {
+                x: centerPoint.x - plotterImageSize.width / 2,
+                y: centerPoint.y - plotterImageSize.height / 2 + 7
+            };
+
+            /* Now the transformations. */
+
+            point1 = thisObject.container.frame.frameThisPoint(point1);
+            point2 = thisObject.container.frame.frameThisPoint(point2);
+            point3 = thisObject.container.frame.frameThisPoint(point3);
+            point4 = thisObject.container.frame.frameThisPoint(point4);
+
+            browserCanvasContext.beginPath();
+            browserCanvasContext.moveTo(point1.x, point1.y);
+            browserCanvasContext.lineTo(point2.x, point2.y);
+            browserCanvasContext.lineTo(point3.x, point3.y);
+            browserCanvasContext.lineTo(point4.x, point4.y);
+            browserCanvasContext.closePath();
+
+            browserCanvasContext.fill();
+
+            browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)';
+            browserCanvasContext.lineWidth = 0.1;
+            browserCanvasContext.stroke();
 
         }
 
-        browserCanvasContext.fill();
-
-        browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)';
-        browserCanvasContext.lineWidth = 1;
-        browserCanvasContext.stroke();
-
-        browserCanvasContext.closePath();
-
-        /* print the text */
+        /*
+        print the text
+        */
 
         let labelPoint;
         let fontSize = 10;

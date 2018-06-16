@@ -1,9 +1,9 @@
 ﻿function newPoloniexAPIClient() {  
 
     const INFO_LOG = true;
-    const LOG_FILE_CONTENT = false;
+    const LOG_FILE_CONTENT = true;
 
-    window.SESSION_TOKEN = window.localStorage.getItem("sessionToken");
+    const MODULE_NAME = "CloudVM -> Poloniex Client API";
 
     let thisObject = {
         API: {
@@ -28,8 +28,8 @@
             let stringExchangeResponse = JSON.stringify(exchangeResponse);
             let stringExchangeErr = JSON.stringify(exchangeErr);
 
-            if (INFO_LOG === true) { logger.write("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
-            if (LOG_FILE_CONTENT === true) { logger.write("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
+            if (INFO_LOG === true) { logger.write( MODULE_NAME, "[INFO] analizeResponse -> stringExchangeErr = " + stringExchangeErr); }
+            if (LOG_FILE_CONTENT === true) { logger.write( MODULE_NAME, "[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
        
             if (stringExchangeErr.indexOf("ETIMEDOUT") > 0 ||
                 stringExchangeErr.indexOf("ENOTFOUND") > 0 ||
@@ -42,35 +42,39 @@
                     stringExchangeResponse.indexOf("Bad gateway") > 0 ||
                     stringExchangeResponse.indexOf("Internal error. Please try again") > 0))) {
 
-                logger.write("[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
+                logger.write( MODULE_NAME, "[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
                 notOkCallBack(global.DEFAULT_RETRY_RESPONSE);
                 return;
 
             } else {
 
-                if (JSON.stringify(exchangeResponse).indexOf("error") > 0) {
+                if (exchangeResponse !== null && exchangeResponse !== undefined) {
 
-                    logger.write("[ERROR] analizeResponse -> Unexpected response from the Exchange.");
-                    notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
-                    return;
+                    if (JSON.stringify(exchangeResponse).indexOf("error") > 0) {
+
+                        logger.write( MODULE_NAME, "[ERROR] analizeResponse -> Unexpected response from the Exchange.");
+                        logger.write( MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + stringExchangeResponse);
+                        notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
                 }
 
                 if (exchangeErr) {
 
-                    logger.write("[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange.");
+                    logger.write( MODULE_NAME, "[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange.");
                     notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
                     return;
 
                 } else {
 
-                    logger.write("[INFO] analizeResponse -> No problem found.");
+                    logger.write( MODULE_NAME, "[INFO] analizeResponse -> No problem found.");
                     okCallBack();
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] analizeResponse -> err.message = " + err.message);
+            logger.write( MODULE_NAME, "[ERROR] analizeResponse -> err.message = " + err.message);
             notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
             return;
         }

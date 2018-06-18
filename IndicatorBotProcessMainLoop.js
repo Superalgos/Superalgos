@@ -587,11 +587,17 @@
                                     function onFileReceived(err, text) {
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                            /* 
+                                            If for any reason this config file cannot be read, we are not going to abort the loop for that. Instead we are going to assume
+                                            that there are no instructions to stop and we will keep the show running.
+                                            */
+
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> err.message = " + err.message);
-                                            logger.persist();
-                                            clearInterval(intervalHandle);
-                                            clearTimeout(timeoutHandle);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> The config file cound not be read. ");
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> We will ignore its content and continue running the loop. ");
+
+                                            continueCallBack();
                                             return;
                                         }
 

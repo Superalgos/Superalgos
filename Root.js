@@ -609,7 +609,9 @@ exports.newRoot = function newRoot() {
 
                     if (processFound === false) {
 
-                        console.log(logDisplace + "Root : [ERROR] Process listed at the configuration file of AACloud not found at the configuration file of the bot. -> listItem.process = " + listItem.process);
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> Process listed at the configuration file of AACloud not found at the configuration file of the bot.");
+                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> listItem.process = " + listItem.process);
+
                     }
 
                     function runExtractionBot(pBotConfig, pProcessConfig, pMonth, pYear) {

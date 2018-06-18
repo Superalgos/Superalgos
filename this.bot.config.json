@@ -32,7 +32,7 @@
                     "interval": 0
                 }
             },
-            "normalWaitTime": 50,
+            "normalWaitTime": 60000,
             "retryWaitTime": 10000,
             "sleepWaitTime": 3600000,
             "comaWaitTime": 86400000,
@@ -81,7 +81,7 @@
                     "interval": 0
                 }
             },
-            "normalWaitTime": 50,
+            "normalWaitTime": 60000,
             "retryWaitTime": 10000,
             "sleepWaitTime": 3600000,
             "comaWaitTime": 86400000,
@@ -126,7 +126,7 @@
                 {
                     "codeName": "Multi-Period-Daily",
                     "type": "Daily Files",
-                    "validPeriods": [ "30-min" ],
+                    "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
                     "filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Daily/@Period/@Year/@Month/@Day",
                     "fileName": "@AssetA_@AssetB.json",
                     "dataRange": {

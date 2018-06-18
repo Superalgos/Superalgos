@@ -91,7 +91,6 @@ function linreg(values_x, values_y) {
     return [m, b];
 }
 
-
 /*
  * Handle calculations
  */
@@ -103,32 +102,26 @@ LRCIndicator.prototype.calculate = function (price) {
     this.result = ((this.depth - 1) * reg[0]) + reg[1];
 }
 
-exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, BLOB_STORAGE) {
+exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const USE_PARTIAL_LAST_CANDLE = true; // When running live the last candle generated is a partial candle.
-
-    let bot = BOT;
-
-    const ONE_MIN_IN_MILISECONDS = 60 * 1000;
+    
+    const ONE_HOUR_IN_MILISECONDS = 60 * 60 * 1000;
 
     const MODULE_NAME = "User Bot";
 
     const EXCHANGE_NAME = "Poloniex";
     
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-
     thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let gaussStorage = BLOB_STORAGE.newBlobStorage(bot);
-    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot);
+    let gaussStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
-    let utilities = UTILITIES.newCloudUtilities(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let statusDependencies;
     
@@ -140,7 +133,7 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
 
             logger.fileName = MODULE_NAME;
 
-            if (FULL_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
             
             statusDependencies = pStatusDependencies;
 
@@ -150,11 +143,11 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onGaussInizialized -> Initialization Succeed."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onGaussInizialized -> Initialization Succeed."); }
                     oliviaStorage.initialize("AAMasters", onOliviaInizialized);
 
                 } else {
-                    logger.write("[ERROR] initialize -> onGaussInizialized -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onGaussInizialized -> err = " + err.message);
                     callBackFunction(err);
                 }
             }
@@ -163,17 +156,17 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
 
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] initialize -> onOliviaInizialized -> Initialization Succeed."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onOliviaInizialized -> Initialization Succeed."); }
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } else {
-                    logger.write("[ERROR] initialize -> onOliviaInizialized -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onOliviaInizialized -> err = " + err.message);
                     callBackFunction(err);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -194,14 +187,14 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
 
         try {
 
-            if (FULL_LOG === true) { logger.write("[INFO] start -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let market = global.MARKET;
             let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
             let executionTime;
-            let maxCandleTime;
             let lastCandles;
             let marketFileCache = {};
+            let lrcPointsFileCache = {};
             
             getContextVariables();
 
@@ -209,13 +202,13 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Entering function."); }
 
                     let reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
-                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
@@ -223,38 +216,36 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                     let thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write("[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency not ready."
                         }
-                        logger.write("[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
                     }
-
-                    maxCandleTime = new Date(thisReport.lastFile);
-                    
+                                        
                     reportKey = "AAVikings" + "-" + "AAGauss" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
-                        logger.write("[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
 
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
                     if (thisReport.lastCandles !== undefined) {
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> thisReport.lastCandles: " + JSON.stringify(thisReport.lastCandles)) };
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastCandles: " + JSON.stringify(thisReport.lastCandles)) };
 
                         lastCandles = thisReport.lastCandles;
                         buildLRCPoints();
 
                     } else {
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> First time running the bot."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> First time running the bot."); }
 
                         lastCandles = [];
 
@@ -262,19 +253,19 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
                             lastCandles.push(0);
                         }
 
-                        lastCandles[7] = new Date(Date.UTC(2018, 3)).valueOf();
+                        lastCandles[7] = new Date(Date.UTC(2018, 5)).valueOf();
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> getContextVariables -> Starting at: " + new Date(lastCandles[7]).toISOString()); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting at: " + new Date(lastCandles[7]).toISOString()); }
 
                         buildLRCPoints();
 
                     }
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> getContextVariables -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.message);
                     if (err.message === "Cannot read property 'file' of undefined") {
-                        logger.write("[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
-                        logger.write("[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
@@ -282,401 +273,410 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
 
             function buildLRCPoints() {
 
-                if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> Entering function."); }
+
+		let writeReport = false;
 
                 advanceTime();
 
                 function advanceTime() {
+                                        
+                    executionTime = new Date(lastCandles[7] + ONE_HOUR_IN_MILISECONDS);
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> advanceTime -> Entering function."); }
-                    
-                    executionTime = new Date(lastCandles[7] + global.marketFilesPeriods[7][0]);
-                    
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> advanceTime -> New processing time @ " + executionTime.toISOString()); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> New processing time @ " + executionTime.toISOString()); }
 
                     /* Validation that we are not going past the head of the market. */
+                    
+                    if (isExecutionOnHeadOfMarket()) {
 
-                    if (executionTime.valueOf() > maxCandleTime.valueOf()) {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> advanceTime -> Head of the market found @ " + maxCandleTime.toISOString()); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> Head of the market found @ " + executionTime.toISOString()); }
 
                         callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
                         return;
                     }
-
+                    
                     periodsLoop();
 
                 }
-            }
 
-            function periodsLoop() {
-
-                let n = 0   // loop Variable representing each possible period as defined at the periods array.
-                
-                loopBody();
-
-                function loopBody() {
-
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> periodsLoop -> loopBody -> Entering function. Time: " + executionTime.toISOString() + ". Loop: "+n); }
-
-                    const outputPeriod = global.marketFilesPeriods[n][0];
-                    const folderName = global.marketFilesPeriods[n][1];
-
-                    isTimeToRun();
-
-                    function isTimeToRun() {
-                        let nextExecution = lastCandles[n] + outputPeriod;
-                        if (executionTime.valueOf() >= nextExecution) {
-                            getLRCPoints();
-                        } else {
-                            if (FULL_LOG === true) logger.write("[INFO] start -> periodsLoop -> loopBody -> It's not time to run this period. Next Execution: " + new Date(nextExecution).toISOString());
-                            
-                            controlLoop();
-                        }
+                function isExecutionOnHeadOfMarket() {
+                    let candleBeginIndex = 4;
+                    if (marketFileCache[7] === undefined) {
+                        return false;
                     }
 
-                    function getLRCPoints() {
+                    let lastCandlePeriodOnCache = marketFileCache[7][marketFileCache[7].length - 1][candleBeginIndex];
 
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> getLRCPoints -> Entering function."); }
+                    return (executionTime.valueOf() >= lastCandlePeriodOnCache.valueOf());
+                }
 
-                        const maxLRCDepth = 63;
-                        const maxBackwardsCount = 60;
+                function periodsLoop() {
 
-                        let backwardsCount = 0;
-                        let candleArray = [];
+                    let n = 0   // loop Variable representing each possible period as defined at the periods array.
 
-                        let candleFile = getMarketFile(onMarketFileReceived); //TODO Implement remote file cache
+                    loopBody();
 
-                        function onMarketFileReceived(err, candleFile) {
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> getLRCPoints -> onMarketFileReceived."); }
+                    function loopBody() {
 
-                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                                for (let i = 0; i < candleFile.length; i++) {
-                                    let candle = {
-                                        open: undefined,
-                                        close: undefined,
-                                        min: 10000000000000,
-                                        max: 0,
-                                        begin: undefined,
-                                        end: undefined
-                                    };
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> periodsLoop -> loopBody -> Entering function. Time: " + executionTime.toISOString() + ". Loop: " + n); }
 
-                                    candle.min = candleFile[i][0];
-                                    candle.max = candleFile[i][1];
+                        const outputPeriod = global.marketFilesPeriods[n][0];
+                        const folderName = global.marketFilesPeriods[n][1];
+                        const nextExecution = lastCandles[n] + outputPeriod;
 
-                                    candle.open = candleFile[i][2];
-                                    candle.close = candleFile[i][3];
+                        isTimeToRun();
 
-                                    candle.begin = candleFile[i][4];
-                                    candle.end = candleFile[i][5];
-
-                                    if (LOG_FILE_CONTENT === true) { logger.write("[INFO] Candle Date: " + new Date(candle.begin).toISOString() + ". Process Date: " + executionTime.toISOString()); }
-
-                                    let lastCandle = executionTime.valueOf() - (outputPeriod * maxLRCDepth);
-
-                                    if (candleArray.length < maxLRCDepth && candle.begin > lastCandle && candle.begin <= executionTime.valueOf()) {
-                                        candleArray.push(candle);
-                                    }
-                                }
-
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> getLRCPoints -> Candle Array Length: " + candleArray.length); }
-
-                                if (candleArray.length >= maxLRCDepth) {
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> getLRCPoints -> All candles available proceed with LRC calculations."); }
-
-                                    let lrcPoint = performLRCCalculations(candleArray);
-                                    savePoint(lrcPoint);
-
-                                }else {
-                                    logger.write("[ERROR] start -> getLRCPoints -> Not enough history to calculate LRC, advancing time.");
-
-                                    // We keep a record of the last candle used for the time period
-                                    lastCandles[n] = lrcPoint[0];
-
-                                    controlLoop();
-                                }
+                        function isTimeToRun() {
+                            if (executionTime.valueOf() >= nextExecution && !isPeriodOnHeadOfMarket(executionTime)) {
+                                getLRCPoints();
+                            } else {
+                                setTimeout(function () { controlLoop(); }, 0);
                             }
                         }
 
-                        function getMarketFile(onMarketFileReceived) {
-                            try {
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> getLRCPoints -> getMarketFile -> Entering function."); }
+                        function getLRCPoints() {
 
-                                /**
-                                 * Let's first check if we can use our own process cache in order to reduce network requests.
-                                 * Otherwise, continue with the one from the servers.
-                                 * 
-                                 */
-                                let localDate = new Date(); 
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> Entering function."); }
 
-                                let now = new Date(Date.UTC(
-                                    localDate.getUTCFullYear(),
-                                    localDate.getUTCMonth(),
-                                    localDate.getUTCDate(),
-                                    localDate.getUTCHours(),
-                                    localDate.getUTCMinutes(),
-                                    localDate.getUTCSeconds(),
-                                    localDate.getUTCMilliseconds()));
+                            const maxLRCDepth = 63;
+                            const maxBackwardsCount = 3;
 
-                                if (marketFileCache[n] !== undefined && executionTime < (now.valueOf() - outputPeriod)){
-                                    onMarketFileReceived(global.DEFAULT_OK_RESPONSE, marketFileCache[n]);
-                                    return;
-                                }
+                            let backwardsCount = 0;
+                            let candleArray = [];
 
-                                let filePath = "AAMasters/AAOlivia.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Candles/Multi-Period-Market/" + folderName;
-                                let fileName = market.assetA + '_' + market.assetB + ".json"
+                            let candleFile = getMarketFile(onMarketFileReceived);
 
-                                oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
+                            function onMarketFileReceived(err, candleFile) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> onMarketFileReceived."); }
 
-                                function onFileReceived(err, text) {
-                                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> getLRCPoints -> getMarketFile -> onFileReceived > Entering Function."); }
+                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                    for (let i = 0; i < candleFile.length; i++) {
+                                        let candle = {
+                                            open: undefined,
+                                            close: undefined,
+                                            min: 10000000000000,
+                                            max: 0,
+                                            begin: undefined,
+                                            end: undefined
+                                        };
 
-                                        let candleFile = JSON.parse(text);
-                                        marketFileCache[n] = candleFile; // We keep a copy of the results for local use
-                                        onMarketFileReceived(global.DEFAULT_OK_RESPONSE, candleFile);
+                                        candle.min = candleFile[i][0];
+                                        candle.max = candleFile[i][1];
+
+                                        candle.open = candleFile[i][2];
+                                        candle.close = candleFile[i][3];
+
+                                        candle.begin = candleFile[i][4];
+                                        candle.end = candleFile[i][5];
+
+                                        if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] Candle Date: " + new Date(candle.begin).toISOString() + ". Process Date: " + executionTime.toISOString()); }
+
+                                        let lastCandle = executionTime.valueOf() - (outputPeriod * maxLRCDepth);
+
+                                        if (candleArray.length < maxLRCDepth && candle.begin > lastCandle && candle.begin <= executionTime.valueOf()) {
+                                            candleArray.push(candle);
+                                        }
+                                    }
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> Candle Array Length: " + candleArray.length); }
+
+                                    if (candleArray.length >= maxLRCDepth) {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> All candles available proceed with LRC calculations."); }
+
+                                        let lrcPoint = performLRCCalculations(candleArray);
+                                        savePoint(lrcPoint);
+
                                     } else {
-                                        logger.write("[ERROR] start -> getLRCPoints -> getMarketFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.");
-                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                        return;
+                                        logger.write(MODULE_NAME, "[WARN] start -> getLRCPoints -> Not enough history to calculate LRC. Moving to Next Period.");
+                                        // Move to the next period without writing report
+                                        setTimeout(function () { controlLoop(); }, 0);
                                     }
                                 }
-                            } catch (err) {
-                                logger.write("[ERROR] start -> getLRCPoints -> getMarketFile -> err = " + err.message);
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             }
-                        }
 
-                        function performLRCCalculations(candleArray) {
+                            function getMarketFile(onMarketFileReceived) {
+                                try {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> getMarketFile -> Entering function."); }
 
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> performLRCCalculations -> Entering function."); }
+                                    /**
+                                     * Let's first check if we can use our own process cache in order to reduce network requests.
+                                     * Otherwise, continue with the one from the servers.
+                                     * 
+                                     */
+                                    
+                                    if (marketFileCache[n] !== undefined) {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> getMarketFile -> Getting the file from local cache."); }
 
-                            /*
-                            * It's needed to order since it's possible that we need to get another file and it will put an older candle at the end of the array.
-                            */
-                            candleArray.sort(function (a, b) {
-                                return a.begin - b.begin;
-                            });
+                                        onMarketFileReceived(global.DEFAULT_OK_RESPONSE, marketFileCache[n]);
+                                    } else {
+                                        let filePath = "AAMasters/AAOlivia.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Candles/Multi-Period-Market/" + folderName;
+                                        let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                            if (USE_PARTIAL_LAST_CANDLE === false) candleArray = candleArray.slice(0, candleArray.length - 1);
+                                        oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
+                                    }
 
-                            let lrcPoints = [];
-                            lrcPoints.push(0); //firstCandleBeginTime               0
-                            lrcPoints.push(0); //firstCandleEndTime                 1
-                            lrcPoints.push(0); //minimumPointValue                  2
-                            lrcPoints.push(0); //middlePointValue                   3
-                            lrcPoints.push(0); //maximumPointValue                  4
+                                    function onFileReceived(err, text) {
+                                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> getMarketFile -> onFileReceived > Entering Function."); }
 
-                            if (LOG_FILE_CONTENT === true)
-                                lrcPoints.push(candleArray); //Entire candle array  5
-
-                            calculateLRC(candleArray, lrcPoints);
-
-                            let lastCandle = candleArray[0];
-                            let firstCandle = candleArray[candleArray.length - 1];
-                            lrcPoints[0] = firstCandle.begin;
-                            lrcPoints[1] = firstCandle.end;
-
-                            if (FULL_LOG === true) {
-                                logger.write("[INFO] start -> getLRCPoints -> performLRCCalculations -> LRC Points calculation results: " + JSON.stringify(lrcPoints)); }
-
-                            return lrcPoints;
-                        }
-
-                        function calculateLRC(candlesArray, lrcPoints) {
-
-                            if (FULL_LOG === true) { logger.write("[INFO] start -> getLRCPoints -> calculateLRC -> Entering function."); }
-                            
-                            let lrcMinIndicator = new LRCIndicator(15);
-                            let lrcMidIndicator = new LRCIndicator(30);
-                            let lrcMaxIndicator = new LRCIndicator(60);
-
-                            for (let i = 0; i < candlesArray.length; i++) {
-                                let tempCandle = candlesArray[i];
-                                let averagePrice = (tempCandle.min + tempCandle.max + tempCandle.open + tempCandle.close) / 4; // TODO Check which price should be take to get the LRC
-
-                                lrcMinIndicator.update(averagePrice);
-                                lrcMidIndicator.update(averagePrice);
-                                lrcMaxIndicator.update(averagePrice);
+                                            let candleFile = JSON.parse(text);
+                                            marketFileCache[n] = candleFile; // We keep a copy of the results for local use
+                                            onMarketFileReceived(global.DEFAULT_OK_RESPONSE, candleFile);
+                                        } else {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> getLRCPoints -> getMarketFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.");
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                        }
+                                    }
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> getLRCPoints -> getMarketFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                }
                             }
-                            
-                            /*
-                            * Only if there is enough history the result will be calculated
-                            */
-                            if (lrcMinIndicator.result != false && lrcMidIndicator.result != false && lrcMaxIndicator.result != false) {
-                                lrcPoints[2] = lrcMinIndicator.result;
-                                lrcPoints[3] = lrcMidIndicator.result;
-                                lrcPoints[4] = lrcMaxIndicator.result;
+
+                            function performLRCCalculations(candleArray) {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> performLRCCalculations -> Entering function."); }
+
+                                /*
+                                * It's needed to order since it's possible that we need to get another file and it will put an older candle at the end of the array.
+                                */
+                                candleArray.sort(function (a, b) {
+                                    return a.begin - b.begin;
+                                });
+
+                                if (USE_PARTIAL_LAST_CANDLE === false) candleArray = candleArray.slice(0, candleArray.length - 1);
+
+                                let lrcPoints = [];
+                                lrcPoints.push(0); //firstCandleBeginTime               0
+                                lrcPoints.push(0); //firstCandleEndTime                 1
+                                lrcPoints.push(0); //minimumPointValue                  2
+                                lrcPoints.push(0); //middlePointValue                   3
+                                lrcPoints.push(0); //maximumPointValue                  4
+
+                                if (LOG_FILE_CONTENT === true)
+                                    lrcPoints.push(candleArray); //Entire candle array  5
+
+                                calculateLRC(candleArray, lrcPoints);
+
+                                let lastCandle = candleArray[0];
+                                let firstCandle = candleArray[candleArray.length - 1];
+                                lrcPoints[0] = firstCandle.begin;
+                                lrcPoints[1] = firstCandle.end;
+
+                                if (LOG_FILE_CONTENT === true) {
+                                    logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> performLRCCalculations -> LRC Points calculation results: " + JSON.stringify(lrcPoints));
+                                }
 
                                 return lrcPoints;
-                            } else {
-                                logger.write("[ERROR] start -> getLRCPoints -> calculateLRC -> There is not enough history to calculate the LRC.");
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            }
+
+                            function calculateLRC(candlesArray, lrcPoints) {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> calculateLRC -> Entering function."); }
+
+                                let lrcMinIndicator = new LRCIndicator(15);
+                                let lrcMidIndicator = new LRCIndicator(30);
+                                let lrcMaxIndicator = new LRCIndicator(60);
+
+                                for (let i = 0; i < candlesArray.length; i++) {
+                                    let tempCandle = candlesArray[i];
+                                    let averagePrice = (tempCandle.min + tempCandle.max + tempCandle.open + tempCandle.close) / 4;
+
+                                    lrcMinIndicator.update(averagePrice);
+                                    lrcMidIndicator.update(averagePrice);
+                                    lrcMaxIndicator.update(averagePrice);
+                                }
+
+                                /*
+                                * Only if there is enough history the result will be calculated
+                                */
+                                if (lrcMinIndicator.result != false && lrcMidIndicator.result != false && lrcMaxIndicator.result != false) {
+                                    lrcPoints[2] = lrcMinIndicator.result;
+                                    lrcPoints[3] = lrcMidIndicator.result;
+                                    lrcPoints[4] = lrcMaxIndicator.result;
+
+                                    return lrcPoints;
+                                } else {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> getLRCPoints -> calculateLRC -> There is not enough history to calculate the LRC.");
+                                }
+                            }
+
+                            function savePoint(lrcPoint) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> Entering function."); }
+
+                                    let filePath = bot.filePathRoot + "/Output/LRC-Points/Multi-Period-Market/" + folderName;
+                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+                                    
+                                    if (lrcPointsFileCache[n] === undefined) {
+                                        lrcPointsFileCache[n] = [];
+                                    }
+
+                                    lrcPointsFileCache[n].push(lrcPoint);
+
+                                    lastCandles[n] = lrcPoint[0];
+
+                                    let timeToValidate = new Date(executionTime.valueOf() + outputPeriod);
+                                    if (isPeriodOnHeadOfMarket(timeToValidate)) {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> getCurrentContent -> file = " + fileName + filePath); }
+
+                                        gaussStorage.getTextFile(filePath, fileName, onFileRetrieved);
+                                    } else {
+                                        // Move to the next period without writing report
+                                        setTimeout(function () { controlLoop(); }, 0);
+                                    }
+
+                                    function onFileRetrieved(err, text) {
+
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint ->onFileRetrieved -> Entering function."); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                            if (err.message === "File does not exist.") {
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> onFileRetrieved -> Market file does not exist, creating folders."); }
+
+                                                createFile();
+                                                return;
+                                            } else {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> savePoint -> onFileRetrieved -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+                                        }
+
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> onFileRetrieved -> Market file exist, appending content."); }
+
+                                        let existingFileContent = JSON.parse(text);
+                                        let finalContent = appendLRCPoints(existingFileContent);
+                                        appendToFile(finalContent);
+                                    }
+                                    
+                                    function createFile() {
+
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> createFile -> Entering function."); }
+
+                                        let fileContent = JSON.stringify(lrcPointsFileCache[n]);
+
+                                        gaussStorage.createTextFile(filePath, fileName, fileContent, onFileCreated);
+
+                                        function onFileCreated(err) {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> onFileCreated -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> savePoint -> onFileCreated -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+
+                                            if (LOG_FILE_CONTENT === true) {
+                                                logger.write(MODULE_NAME, "[INFO] start -> savePoint -> onFileCreated ->  Content written = " + JSON.stringify(existingContent));
+                                            }
+
+                                            writeReport = true;
+                                            controlLoop();
+                                        }
+                                    }
+
+                                    function appendToFile(fileContent) {
+
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> appendToFile -> Entering function."); }
+
+                                        gaussStorage.createTextFile(filePath, fileName, JSON.stringify(fileContent), onExistingFileUpdated);
+
+                                        function onExistingFileUpdated(err) {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> onExistingFileUpdated -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> savePoint -> onExistingFileUpdated -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+
+                                            if (LOG_FILE_CONTENT === true) {
+                                                logger.write(MODULE_NAME, "[INFO] start -> savePoint -> onExistingFileUpdated ->  Content written = " + JSON.stringify(fileContent));
+                                            }
+
+                                            writeReport = true;
+                                            controlLoop();
+                                        }
+                                    }
+
+                                    function appendLRCPoints(existingLRCPoints) {
+                                        if (existingLRCPoints === undefined)
+                                            return lrcPointsFileCache[n];
+
+                                        for (i = 0; i < lrcPointsFileCache[n].length; i++) {
+                                            let lrcPoint = lrcPointsFileCache[n][i];
+                                            let lastCandleOnFile = existingLRCPoints[existingLRCPoints.length - 1];
+
+                                            if (lastCandleOnFile[0] < lrcPoint[0]) {
+                                                existingLRCPoints.push(lrcPoint);
+                                            } else {
+                                                logger.write(MODULE_NAME, "[WARN] start -> savePoint -> appendLRCPoints -> The LCR Point calculated existed on the file storage, not saving: " + JSON.stringify(lrcPoint));
+                                            }
+                                        }
+                                        return existingLRCPoints;
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> savePoint -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
                             }
                         }
 
-                        function savePoint(lrcPoint) {
+                        function isPeriodOnHeadOfMarket(timeToValidate) {
+                            let candleBeginIndex = 4
 
-                            try {
+                            if (marketFileCache[n] === undefined) {
+                                return false;
+                            }
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> savePoint -> Entering function."); }
+                            let lastCandlePeriodOnCache = marketFileCache[n][marketFileCache[n].length - 1][candleBeginIndex];
 
-                                let filePath = bot.filePathRoot + "/Output/LRC-Points/Multi-Period-Market/" + folderName;
-                                let fileName = market.assetA + '_' + market.assetB + ".json"
+                            if (FULL_LOG === true) {
+                                logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> savePoint -> Execution: " + new Date(timeToValidate).toISOString() + ". lastCandlePeriodOnCache: " + new Date(lastCandlePeriodOnCache).toISOString());
+                            }
 
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> periodsLoop -> loopBody -> getCurrentContent -> fileName = " + fileName); }
-                                if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> periodsLoop -> loopBody -> getCurrentContent -> filePath = " + filePath); }
+                            if (timeToValidate >= lastCandlePeriodOnCache) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> savePoint -> Head of the market found @ " + new Date(lastCandlePeriodOnCache).toISOString()); }
 
-                                gaussStorage.getTextFile(filePath, fileName, onFileRetrieved);
-
-                                function onFileRetrieved(err, text) {
-
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> onFileRetrieved -> Entering function."); }
-
-                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                        if (err.message === "File does not exist.") {
-                                            if (FULL_LOG === true) { logger.write("[INFO] start -> onFileRetrieved -> Market file does not exist, creating folders."); }
-
-                                            createFolders(filePath);
-                                            return;
-                                        } else {
-                                            logger.write("[ERROR] start -> onFileRetrieved -> err = " + err.message);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-                                    }
-
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> onFileRetrieved -> Market file exist, appending content."); }
-
-                                    let fileContent = JSON.parse(text);
-                                    appendToFile(fileContent);
-                                }
-
-                                function createFolders(filePath) {
-
-                                    try {
-
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> createFolders -> Entering function."); }
-
-                                        utilities.createFolderIfNeeded(filePath, gaussStorage, onFolderACreated);
-
-                                        function onFolderACreated(err) {
-
-                                            if (FULL_LOG === true) { logger.write("[INFO] start -> createFolders -> onFolderACreated -> Entering function."); }
-
-                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write("[ERROR] start -> createFolders -> onFolderACreated -> err = " + err.message);
-                                                callBackFunction(err);
-                                                return;
-                                            }
-
-                                            utilities.createFolderIfNeeded(reportFilePath, gaussStorage, onFolderCreated);
-                                        }
-
-                                        function onFolderCreated(err) {
-
-                                            if (FULL_LOG === true) { logger.write("[INFO] start -> createFolders -> onFolderCreated -> Entering function."); }
-
-                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write("[ERROR] start -> createFolders -> onFolderCreated -> err = " + err.message);
-                                                callBackFunction(err);
-                                                return;
-                                            }
-                                            createFile();
-                                        }
-
-                                    } catch (err) {
-                                        logger.write("[ERROR] start -> createFolders -> err = " + err.message);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                    }
-                                }
-
-                                function createFile() {
-
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> savePoint -> createFile -> Entering function."); }
-
-                                    let existingContent = [];
-                                    existingContent.push(lrcPoint);
-
-                                    gaussStorage.createTextFile(filePath, fileName, JSON.stringify(existingContent), onFileCreated);
-
-                                    function onFileCreated(err) {
-
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> savePoint -> onFileCreated -> Entering function."); }
-
-                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write("[ERROR] start -> savePoint -> onFileCreated -> err = " + err.message);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-
-                                        if (LOG_FILE_CONTENT === true) {
-                                            logger.write("[INFO] start -> savePoint -> onFileCreated ->  Content written = " + JSON.stringify(existingContent));
-                                        }
-
-                                        // We keep a record of the last candle used for the time period
-                                        lastCandles[n] = lrcPoint[0];
-
-                                        controlLoop();
-                                    }
-                                }
-
-                                function appendToFile(fileContent) {
-
-                                    if (FULL_LOG === true) { logger.write("[INFO] start -> savePoint -> appendToFile -> Entering function."); }
-
-                                    fileContent.push(lrcPoint);
-
-                                    gaussStorage.createTextFile(filePath, fileName, JSON.stringify(fileContent), onExistingFileUpdated);
-
-                                    function onExistingFileUpdated(err) {
-
-                                        if (FULL_LOG === true) { logger.write("[INFO] start -> savePoint -> onExistingFileUpdated -> Entering function."); }
-
-                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write("[ERROR] start -> savePoint -> onExistingFileUpdated -> err = " + err.message);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-
-                                        if (LOG_FILE_CONTENT === true) {
-                                            logger.write("[INFO] start -> savePoint -> onExistingFileUpdated ->  Content written = " + JSON.stringify(fileContent));
-                                        }
-
-                                        // We keep a record of the last candle used for the time period
-                                        lastCandles[n] = lrcPoint[0];
-
-                                        controlLoop();
-                                    }
-                                }
-                            } catch (err) {
-                                logger.write("[ERROR] start -> savePoint -> err = " + err.message);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return true;
+                            } else {
+                                return false;
                             }
                         }
                     }
-                }
 
-                function controlLoop() {
+                    function controlLoop() {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> buildLRCPoints -> periodsLoop -> controlLoop -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> periodsLoop -> controlLoop -> Entering function."); }
 
-                    n++;
+                        n++;
 
-                    if (n < global.marketFilesPeriods.length) {
-                        loopBody();
-                    } else {
-                        writeStatusReport();
+                        if (n < global.marketFilesPeriods.length) {
+                            loopBody();
+                        } else {
+                            if (writeReport) {
+                                writeReport = false;
+                                writeStatusReport(advanceTime);
+                            } else {
+                                advanceTime();
+                            }
+                        }
                     }
                 }
             }
-
-            function writeStatusReport() {
+                        
+            function writeStatusReport(callBack) {
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
 
                     let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
@@ -684,29 +684,16 @@ exports.newUserBot = function newUserBot(BOT, COMMONS, UTILITIES, DEBUG_MODULE, 
 
                     statusReport.file.lastExecution = bot.processDatetime;
                     statusReport.file.lastCandles = lastCandles;
-                    statusReport.save(onSaved);
-
-                    function onSaved(err) {
-
-                        if (FULL_LOG === true) { logger.write("[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write("[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.message);
-                            callBackFunction(err);
-                            return;
-                        }
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                    }
+                    statusReport.save(callBack);
 
                 } catch (err) {
-                    logger.write("[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            logger.write("[ERROR] start -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

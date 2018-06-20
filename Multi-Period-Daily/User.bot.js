@@ -693,10 +693,10 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                         function onVolumeDataRangeWritten(err) {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> onVolumeDataRangeWritten -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] writeDataRanges -> writeDataRanges -> onVolumeDataRangeWritten -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> onVolumeDataRangeWritten -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onVolumeDataRangeWritten -> err = " + err.message);
                                 callBack(err);
                                 return;
                             }

@@ -143,273 +143,165 @@
                 currentEndValues.push(currentEndValuesItem);
             }
 
-            let lastOliviaFiles;      // Remembers the last date that olivia wrote files.
-            marketsLoop();
 
-            /*
-    
-            At every run, the process needs to loop through all the markets at this exchange.
-            The following functions marketsLoop(), openMarket(), closeMarket() and closeAndOpenMarket() controls the serialization of this processing.
 
-            */
 
-            function marketsLoop() {
 
-                try {
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'marketsLoop'");
-                    }
 
-                    markets.getMarketsByExchange(EXCHANGE_ID, onMarketsReady);
 
-                    function onMarketsReady(marketsArray) {
+            let market = global.MARKET;
 
-                        marketQueue = JSON.parse(marketsArray);
+            /* Context Variables */
 
-                        openMarket(); // First execution and entering into the real loop.
+            let contextVariables = {
+                lastCandleFile: undefined,          // Datetime of the last file files sucessfully produced by this process.
+                firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
+                maxCandleFile: undefined            // Datetime of the last file available to be used as an input of this process.
+            };
 
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'marketsLoop' - ERROR : " + err.message;
-                    logger.write(logText);
-                }
-            }
+            getContextVariables();
 
-            function openMarket() {
-
-                // To open a Market means picking a new market from the queue.
+            function getContextVariables() {
 
                 try {
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'openMarket'");
-                    }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Entering function."); }
 
+                    let thisReport;
+                    let reportKey;
+                    let statusReport;
 
-                    if (marketQueue.length === 0) {
+                    /* We look first for Charly in order to get when the market starts. */
 
-                        if (LOG_INFO === true) {
-                            logger.write("[INFO] 'openMarket' - marketQueue.length === 0");
-                        }
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-                        const logText = "[WARN] We processed all the markets.";
-                        logger.write(logText);
+                    statusReport = statusDependencies.statusReports.get(reportKey);
 
-                        callBackFunction(nextIntervalExecution, nextIntervalLapse);
-
+                    if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
-                    if (GO_RANDOM === true) {
-                        const index = parseInt(Math.random() * (marketQueue.length - 1));
-
-                        market.id = marketQueue[index][0];
-                        market.assetA = marketQueue[index][1];
-                        market.assetB = marketQueue[index][2];
-                        market.status = marketQueue[index][3];
-
-                        marketQueue.splice(index, 1);
-                    } else {
-                        let marketRecord = marketQueue.shift();
-
-                        market.id = marketRecord[0];
-                        market.assetA = marketRecord[1];
-                        market.assetB = marketRecord[2];
-                        market.status = marketRecord[3];
-
-                        if (FORCE_MARKET > 0) {
-                            if (FORCE_MARKET !== market.id) {
-                                closeAndOpenMarket();
-                                return;
-                            }
-                        }
-                    }
-
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
-                        logger.write("[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
-                    }
-
-                    if (market.status === markets.ENABLED) {
-
-                        getStatusReport();
-
-                    } else {
-
-                        logger.write("[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
-                        closeAndOpenMarket();
+                    if (statusReport.status === "Status Report is corrupt.") {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
-
                     }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'openMarket' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
 
-            function closeMarket() {
+                    thisReport = statusDependencies.statusReports.get(reportKey).file;
 
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeMarket'");
-                }
+                    if (thisReport.lastFile === undefined) {
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
 
-            }
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency does not exist."
+                        }
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
 
-            function closeAndOpenMarket() {
+                    contextVariables.firstTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
 
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeAndOpenMarket'");
-                }
+                    /* Second, we get the report from Olivia, to know when the marted ends. */
 
-                openMarket();
-            }
+                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-            /*
+                    statusReport = statusDependencies.statusReports.get(reportKey);
 
-            The following code executes for each market.
+                    if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
 
-            */
+                    if (statusReport.status === "Status Report is corrupt.") {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
 
-            function getStatusReport() {
+                    thisReport = statusDependencies.statusReports.get(reportKey).file;
 
-                try {
+                    if (thisReport.lastFile === undefined) {
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
 
-                    let reportFilePath;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json"
-                    let firstTradeFile;
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency not ready."
+                        }
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
 
-                    getHistoricTrades();
+                    contextVariables.maxCandleFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
 
-                    function getHistoricTrades() {
+                    /* Finally we get our own Status Report. */
+
+                    reportKey = "AAMasters" + "-" + "AATom" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    statusReport = statusDependencies.statusReports.get(reportKey);
+
+                    if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    if (statusReport.status === "Status Report is corrupt.") {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+
+                    if (thisReport.lastFile !== undefined) {
+
+                        contextVariables.lastCandleFile = new Date(thisReport.lastFile);
 
                         /*
-
-                        We need to know where is the begining of the market, since that will help us know where the Index Files should start. 
-
+                        Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
+                        For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
                         */
 
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Poloniex-Historic-Trades";
+                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                        charlyAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
+                        buildStairs();
+                        return;
 
-                        function onStatusReportReceived(text) {
+                    } else {
 
-                            let statusReport;
+                        contextVariables.lastCandleFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
 
-                            try {
-
-                                statusReport = JSON.parse(text);
-
-                                firstTradeFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS);
-
-                                getOliviaStatusReport();
-
-                            } catch (err) {
-
-                                const logText = "[INFO] 'getStatusReport' - Failed to read main Historic Trades Status Report for market " + market.assetA + '_' + market.assetB + " . Skipping it. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
-                            }
-                        }
+                        buildStairs();
+                        return;
                     }
 
-                    function getOliviaStatusReport() {
-
-                        /* We need to discover the maxCandle file, which is the last file with candles we can use as input. */
-
-                        reportFilePath = EXCHANGE_NAME + "/Processes/" + "Multi-Period-Daily";
-
-                        oliviaAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
-
-                        function onStatusReportReceived(text) {
-
-                            let statusReport;
-
-                            try {
-
-                                statusReport = JSON.parse(text);
-
-                                lastOliviaFiles = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-
-                                getThisProcessReport();
-
-                            } catch (err) {
-
-                                /*
-
-                                It might happen that the file content is corrupt or it does not exist. In either case we will point our lastCandleFile
-                                to the current one.
-
-                                */
-
-                                lastOliviaFiles = new Date();
-                                getThisProcessReport();
-
-                            }
-                        }
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.message);
+                    if (err.message === "Cannot read property 'file' of undefined") {
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
-
-                    function getThisProcessReport() {
-
-                        /* If the process run and was interrupted, there should be a status report that allows us to resume execution. */
-
-                        reportFilePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
-
-                        tomAzureFileStorage.getTextFile(reportFilePath, fileName, onStatusReportReceived, true);
-
-                        function onStatusReportReceived(text) {
-
-                            let statusReport;
-                            let lastCandleFile;
-
-                            try {
-
-                                statusReport = JSON.parse(text);
-
-                                lastCandleFile = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
-
-                                lastEndValues = statusReport.lastEndValues;
-
-                                buildStairs(lastCandleFile);
-
-                            } catch (err) {
-
-                                /*
-
-                                It might happen that the file content is corrupt or it does not exist. In either case we will point our lastCandleFile
-                                to the begining of the market.
-
-                                */
-
-                                lastCandleFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
-                                lastCandleFile = new Date(lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
-
-                                buildStairs(lastCandleFile);
-
-                            }
-                        }
-                    }
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'getStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
-            function buildStairs(lastCandleFile) {
+            function buildStairs() {
 
                 let n;
-                let currentDay = lastCandleFile;
+                let currentDay = contextVariables.lastCandleFile;
                 let nextDay;
-
-
 
                 advanceTime();
 
@@ -424,7 +316,7 @@
 
                     /* Validation that we are not going past the head of the market. */
 
-                    if (currentDay.valueOf() > lastOliviaFiles.valueOf()) {
+                    if (currentDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
                         nextIntervalExecution = true;  // we request a new interval execution.
 
@@ -518,7 +410,7 @@
 
                                 } catch (err) {
 
-                                    if (nextDay.valueOf() > lastOliviaFiles.valueOf()) {
+                                    if (nextDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
                                         nextDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
                                         buildCandles();
@@ -855,7 +747,7 @@
 
                                 } catch (err) {
 
-                                    if (nextDay.valueOf() > lastOliviaFiles.valueOf()) {
+                                    if (nextDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
                                         nextDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
                                         buildVolumes();

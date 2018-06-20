@@ -67,6 +67,9 @@
             userProfile.storagePermissions.push([devTeam.codeName + "." + "READ", readPermission]);
             userProfile.storagePermissions.push([devTeam.codeName + "." + "WRITE", writePermission]);
 
+            console.log(devTeam.codeName + "." + "READ" + ":" + readPermission);
+            console.log(devTeam.codeName + "." + "WRITE" + ":" + writePermission);
+
             /* Each devTeam potentially depends on data from other devTeams. The user will need the storage permissions to read that data. */
 
             for (j = 0; j < devTeam.devTeamDependencies.length; j++) {
@@ -86,7 +89,7 @@
         let container = "aaplatform";
         let readPermission = storageAccessManager.getPermission(container, "READ", MAX_STORAGE_PERMISSION_DAYS);
         userProfile.storagePermissions.push(["AAPlatform" + "." + "READ", readPermission]);
-
+        
         callBackFunction(global.DEFAULT_OK_RESPONSE, userProfile);
 
     }

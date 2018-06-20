@@ -323,8 +323,7 @@
                         const logText = "[INFO] 'buildStairs' - Head of the market found @ " + currentDay.getUTCFullYear() + "/" + (currentDay.getUTCMonth() + 1) + "/" + currentDay.getUTCDate() + ".";
                         logger.write(logText);
 
-                        closeAndOpenMarket();
-
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
 
                     }
@@ -369,7 +368,7 @@
                             let fileName = market.assetA + '_' + market.assetB + ".json"
                             let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + folderName + "/" + dateForPath;
 
-                            oliviaAzureFileStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
 
                             function onCurrentDayFileReceived(text) {
 
@@ -383,11 +382,7 @@
                                     const logText = "[ERR] 'processCandles - getCurrentDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                     logger.write(logText);
 
-                                    closeAndOpenMarket();
-
-                                    nextIntervalExecution = true;  // we request a new interval execution.
-                                    nextIntervalLapse = 30000;
-
+                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                     return;
                                 }
                             }
@@ -399,7 +394,7 @@
                             let fileName = market.assetA + '_' + market.assetB + ".json"
                             let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + folderName + "/" + dateForPath;
 
-                            oliviaAzureFileStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
 
                             function onCurrentDayFileReceived(text) {
 
@@ -420,11 +415,7 @@
                                         const logText = "[ERR] 'processCandles - getNextDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                         logger.write(logText);
 
-                                        closeAndOpenMarket();
-
-                                        nextIntervalExecution = true;  // we request a new interval execution.
-                                        nextIntervalLapse = 30000;
-
+                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                         return;
                                     }
                                 }
@@ -475,11 +466,7 @@
                                 const logText = "[ERR] 'buildCandles' - Message: " + err.message;
                                 logger.write(logText);
 
-                                closeAndOpenMarket();
-
-                                nextIntervalExecution = true;  // we request a new interval execution.
-                                nextIntervalLapse = 30000;
-
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             }
@@ -611,11 +598,7 @@
                                 const logText = "[ERR] 'findCandleStairs' - Message: " + err.message;
                                 logger.write(logText);
 
-                                closeAndOpenMarket();
-
-                                nextIntervalExecution = true;  // we request a new interval execution.
-                                nextIntervalLapse = 30000;
-
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             }
@@ -660,11 +643,11 @@
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                                 let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
 
-                                utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
+                                utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
 
                                 function onFolderCreated() {
 
-                                    tomAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                                     function onFileCreated() {
 
@@ -680,11 +663,7 @@
                                 const logText = "[ERR] 'writeCandleStairsFile' - Message: " + err.message;
                                 logger.write(logText);
 
-                                closeAndOpenMarket();
-
-                                nextIntervalExecution = true;  // we request a new interval execution.
-                                nextIntervalLapse = 30000;
-
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             }
@@ -706,7 +685,7 @@
                             let fileName = market.assetA + '_' + market.assetB + ".json"
                             let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + folderName + "/" + dateForPath;
 
-                            oliviaAzureFileStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
 
                             function onCurrentDayFileReceived(text) {
 
@@ -720,11 +699,7 @@
                                     const logText = "[ERR] 'processVolumes - getCurrentDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                     logger.write(logText);
 
-                                    closeAndOpenMarket();
-
-                                    nextIntervalExecution = true;  // we request a new interval execution.
-                                    nextIntervalLapse = 30000;
-
+                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                     return;
                                 }
                             }
@@ -736,7 +711,7 @@
                             let fileName = market.assetA + '_' + market.assetB + ".json"
                             let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + folderName + "/" + dateForPath;
 
-                            oliviaAzureFileStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
 
                             function onCurrentDayFileReceived(text) {
 
@@ -757,11 +732,7 @@
                                         const logText = "[ERR] 'processVolumes - getNextDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                         logger.write(logText);
 
-                                        closeAndOpenMarket();
-
-                                        nextIntervalExecution = true;  // we request a new interval execution.
-                                        nextIntervalLapse = 30000;
-
+                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                         return;
                                     }
                                 }
@@ -802,11 +773,7 @@
                                 const logText = "[ERR] 'buildVolumes' - Message: " + err.message;
                                 logger.write(logText);
 
-                                closeAndOpenMarket();
-
-                                nextIntervalExecution = true;  // we request a new interval execution.
-                                nextIntervalLapse = 30000;
-
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             }
@@ -815,7 +782,6 @@
                         function findVolumesStairs() {
 
                             try {
-
 
                                 /* Finding stairs */
 
@@ -1076,11 +1042,7 @@
                                 const logText = "[ERR] 'findVolumesStairs' - Message: " + err.message;
                                 logger.write(logText);
 
-                                closeAndOpenMarket();
-
-                                nextIntervalExecution = true;  // we request a new interval execution.
-                                nextIntervalLapse = 30000;
-
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             }
@@ -1120,11 +1082,11 @@
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                                 let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
 
-                                utilities.createFolderIfNeeded(filePath, tomAzureFileStorage, onFolderCreated);
+                                utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
 
                                 function onFolderCreated() {
 
-                                    tomAzureFileStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                                     function onFileCreated() {
 
@@ -1140,11 +1102,7 @@
                                 const logText = "[ERR] 'writeVolumeStairsFile' - Message: " + err.message;
                                 logger.write(logText);
 
-                                closeAndOpenMarket();
-
-                                nextIntervalExecution = true;  // we request a new interval execution.
-                                nextIntervalLapse = 30000;
-
+                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
 
                             }
@@ -1195,8 +1153,6 @@
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
-
-
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] 'Start' - ERROR : " + err.message);

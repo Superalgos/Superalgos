@@ -117,13 +117,6 @@
                 currentEndValues.push(currentEndValuesItem);
             }
 
-
-
-
-
-
-
-
             let market = global.MARKET;
 
             /* Context Variables */
@@ -133,6 +126,9 @@
                 firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
                 maxCandleFile: undefined            // Datetime of the last file available to be used as an input of this process.
             };
+
+            let previousDay;                        // Holds the date of the previous day relative to the processing date.
+            let processDate;                         // Holds the processing date.
 
             getContextVariables();
 
@@ -243,16 +239,24 @@
                         contextVariables.lastCandleFile = new Date(thisReport.lastFile);
 
                         /*
-                        Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
-                        For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
+                        The stairs objects can span more than one day. In order not to cut these objects into two when this happens, this process will alsways read
+                        2 files. The previous one already processed, and the current one. That means that it will allways re-process the previous one, until the
+                        last moment in which the previous one turns into the current one. By doing so, we avoid breaking the objects when day changes.
+
+                        So you will se we go 2 days back. One if because of the above explanation. The second is because we enter the loop by advancing one day.
                         */
 
-                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
+                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS * 2);
 
                         buildStairs();
                         return;
 
                     } else {
+
+                        /*
+                        In the case when there is no status report, we take the date of the file with the first trades as the begining of the market. Then we will
+                        go one day back in time, so that when we enter the loop, one day will be added and we will be exactly at the date where the first trades occured.
+                        */
 
                         contextVariables.lastCandleFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
                         contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
@@ -274,27 +278,24 @@
             function buildStairs() {
 
                 let n;
-                let currentDay = contextVariables.lastCandleFile;
-                let nextDay;
+                previousDay = contextVariables.lastCandleFile;                
 
                 advanceTime();
 
                 function advanceTime() {
 
-                    currentDay = new Date(currentDay.valueOf() + ONE_DAY_IN_MILISECONDS);
-                    nextDay = new Date(currentDay.valueOf() + ONE_DAY_IN_MILISECONDS);
+                    previousDay = new Date(previousDay.valueOf() + ONE_DAY_IN_MILISECONDS);
+                    processDate = new Date(previousDay.valueOf() + ONE_DAY_IN_MILISECONDS);
 
-                    const logText = "[INFO] New current day @ " + currentDay.getUTCFullYear() + "/" + (currentDay.getUTCMonth() + 1) + "/" + currentDay.getUTCDate() + ".";
+                    const logText = "[INFO] New current day @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                     console.log(logText);
                     logger.write(MODULE_NAME, logText);
 
                     /* Validation that we are not going past the head of the market. */
 
-                    if (currentDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+                    if (previousDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
-                        nextIntervalExecution = true;  // we request a new interval execution.
-
-                        const logText = "[INFO] 'buildStairs' - Head of the market found @ " + currentDay.getUTCFullYear() + "/" + (currentDay.getUTCMonth() + 1) + "/" + currentDay.getUTCDate() + ".";
+                        const logText = "[INFO] 'buildStairs' - Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                         logger.write(MODULE_NAME, logText);
 
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -331,14 +332,14 @@
 
                         let candles = [];
                         let stairsArray = [];
-                        let currentDayFile;
-                        let nextDayFile;
+                        let previousDayFile;
+                        let processDayFile;
 
-                        getCurrentDayFile();
+                        getPreviousDayFile();
 
-                        function getCurrentDayFile() {
+                        function getPreviousDayFile() {
 
-                            let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
                             let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
@@ -350,12 +351,12 @@
 
                                 try {
 
-                                    currentDayFile = JSON.parse(text);
-                                    getNextDayFile()
+                                    previousDayFile = JSON.parse(text);
+                                    getProcessDayFile()
 
                                 } catch (err) {
 
-                                    const logText = "[ERR] 'processCandles - getCurrentDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                    const logText = "[ERR] 'processCandles - getPreviousDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                     logger.write(MODULE_NAME, logText);
 
                                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
@@ -364,9 +365,9 @@
                             }
                         }
 
-                        function getNextDayFile() {
+                        function getProcessDayFile() {
 
-                            let dateForPath = nextDay.getUTCFullYear() + '/' + utilities.pad(nextDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(nextDay.getUTCDate(), 2);
+                            let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
                             let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
@@ -378,19 +379,19 @@
 
                                 try {
 
-                                    nextDayFile = JSON.parse(text);
+                                    processDayFile = JSON.parse(text);
                                     buildCandles();
 
                                 } catch (err) {
 
-                                    if (nextDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+                                    if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
-                                        nextDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
+                                        processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
                                         buildCandles();
 
                                     } else {
 
-                                        const logText = "[ERR] 'processCandles - getNextDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                        const logText = "[ERR] 'processCandles - getProcessDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                         logger.write(MODULE_NAME, logText);
 
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
@@ -404,8 +405,8 @@
 
                             try {
 
-                                pushCandles(currentDayFile);
-                                pushCandles(nextDayFile);
+                                pushCandles(previousDayFile);
+                                pushCandles(processDayFile);
                                 findCandleStairs();
 
                                 function pushCandles(candlesFile) {
@@ -541,10 +542,10 @@
                                         if (stairs !== undefined) {
 
                                             /* As we are using two consecutives days of candles, we do want to include stairs that spans from the first
-                                            day to the second, but we do not want to include stairs that begins on the second day, since thos are to be
+                                            day to the second, but we do not want to include stairs that begins on the second day, since those are to be
                                             included when time advances one day. */
 
-                                            if (stairs.begin < nextDay.valueOf()) {
+                                            if (stairs.begin < processDate.valueOf()) {
 
                                                 /* Also, we dont want to include stairs that started in the previous day. To detect that we use the date
                                                 that we recorded on the Status Report with the end of the last stair of the previous day. */
@@ -617,7 +618,7 @@
 
                                 fileContent = "[" + fileContent + "]";
 
-                                let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                                let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                                 let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
@@ -654,14 +655,14 @@
 
                         let volumes = [];
                         let stairsArray = [];
-                        let currentDayFile;
-                        let nextDayFile;
+                        let previousDayFile;
+                        let processDayFile;
 
-                        getCurrentDayFile();
+                        getPreviousDayFile();
 
-                        function getCurrentDayFile() {
+                        function getPreviousDayFile() {
 
-                            let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
                             let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
@@ -673,12 +674,12 @@
 
                                 try {
 
-                                    currentDayFile = JSON.parse(text);
-                                    getNextDayFile()
+                                    previousDayFile = JSON.parse(text);
+                                    getProcessDayFile()
 
                                 } catch (err) {
 
-                                    const logText = "[ERR] 'processVolumes - getCurrentDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                    const logText = "[ERR] 'processVolumes - getPreviousDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                     logger.write(MODULE_NAME, logText);
 
                                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
@@ -687,9 +688,9 @@
                             }
                         }
 
-                        function getNextDayFile() {
+                        function getProcessDayFile() {
 
-                            let dateForPath = nextDay.getUTCFullYear() + '/' + utilities.pad(nextDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(nextDay.getUTCDate(), 2);
+                            let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                             let fileName = market.assetA + '_' + market.assetB + ".json"
 
                             let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
@@ -701,19 +702,19 @@
 
                                 try {
 
-                                    nextDayFile = JSON.parse(text);
+                                    processDayFile = JSON.parse(text);
                                     buildVolumes();
 
                                 } catch (err) {
 
-                                    if (nextDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+                                    if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
-                                        nextDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
+                                        processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
                                         buildVolumes();
 
                                     } else {
 
-                                        const logText = "[ERR] 'processVolumes - getNextDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                        const logText = "[ERR] 'processVolumes - getProcessDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
                                         logger.write(MODULE_NAME, logText);
 
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
@@ -727,8 +728,8 @@
 
                             try {
 
-                                pushVolumes(currentDayFile);
-                                pushVolumes(nextDayFile);
+                                pushVolumes(previousDayFile);
+                                pushVolumes(processDayFile);
                                 findVolumesStairs();
 
                                 function pushVolumes(volumesFile) {
@@ -977,7 +978,7 @@
                                             day to the second, but we do not want to include stairs that begins on the second day, since those are to be
                                             included when time advances one day. */
 
-                                            if (stairs.begin < nextDay.valueOf()) {
+                                            if (stairs.begin < processDate.valueOf()) {
 
                                                 /* Also, we dont want to include stairs that started in the previous day. To detect that we use the date
                                                 that we recorded on the Status Report with the end of the last stair of the previous day. */
@@ -1062,7 +1063,7 @@
 
                                 fileContent = "[" + fileContent + "]";
 
-                                let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                                let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                                 let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
@@ -1120,7 +1121,7 @@
                                 return;
                             }
 
-                            writeStatusReport(currentDay, switchEndValues);
+                            writeStatusReport(processDate, switchEndValues);
 
                             function switchEndValues() {
 
@@ -1139,7 +1140,7 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
-                    writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, CANDLE_STAIRS_FOLDER_NAME, onCandlesStairsDataRangeWritten);
+                    writeDataRange(contextVariables.firstTradeFile, processDate, CANDLE_STAIRS_FOLDER_NAME, onCandlesStairsDataRangeWritten);
                                                                                                      
                     function onCandlesStairsDataRangeWritten(err) {
 
@@ -1151,7 +1152,7 @@
                             return;
                         }
 
-                        writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, VOLUME_STAIRS_FOLDER_NAME, onVolumeStairsDataRangeWritten);
+                        writeDataRange(contextVariables.firstTradeFile, processDate, VOLUME_STAIRS_FOLDER_NAME, onVolumeStairsDataRangeWritten);
 
                         function onVolumeStairsDataRangeWritten(err) {
 

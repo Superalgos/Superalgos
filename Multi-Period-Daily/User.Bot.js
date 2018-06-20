@@ -27,7 +27,7 @@
     };
 
     let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    let tomStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
@@ -35,36 +35,35 @@
 
     return thisObject;
 
-    function initialize(yearAssigend, monthAssigned, callBackFunction) {
+    function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
 
         try {
 
-            /* IMPORTANT NOTE:
-
-            We are ignoring in this Interval the received Year and Month. This interval is not depending on Year Month since it procecess the whole market at once.
-
-            */
-
             logger.fileName = MODULE_NAME;
+            logger.initialize();
 
-            const logText = "[INFO] initialize - Entering function 'initialize' ";
-            console.log(logText);
-            logger.write(logText);
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            charlyAzureFileStorage.initialize("Charly");
-            oliviaAzureFileStorage.initialize("Olivia");
-            tomAzureFileStorage.initialize("Tom");
+            statusDependencies = pStatusDependencies;
 
-            markets = MARKETS_MODULE.newMarkets(bot);
-            markets.initialize(callBackFunction);
+            commons.initializeStorage(oliviaStorage, tomStorage, onInizialized);
 
+            function onInizialized(err) {
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } else {
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
+                    callBackFunction(err);
+                }
+            }
 
         } catch (err) {
-
-            const logText = "[ERROR] initialize - ' ERROR : " + err.message;
-            console.log(logText);
-            logger.write(logText);
-
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

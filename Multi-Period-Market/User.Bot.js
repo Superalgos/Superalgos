@@ -1,16 +1,15 @@
-﻿exports.newInterval = function newInterval(BOT, UTILITIES, AZURE_FILE_STORAGE, DEBUG_MODULE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
 
-    let bot = BOT;
+    const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
 
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-    const MODULE_NAME = "Interval";
-    const LOG_INFO = true;
+    const MODULE_NAME = "User Bot";
 
     const EXCHANGE_NAME = "Poloniex";
-    const EXCHANGE_ID = 1;
 
     const TRADES_FOLDER_NAME = "Trades";
 
@@ -20,28 +19,21 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUME_STAIRS_FOLDER_NAME = "Volume-Stairs";
 
-    const GO_RANDOM = false;
-    const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. *
+    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
-    const logger = DEBUG_MODULE.newDebugLog();
-    logger.fileName = MODULE_NAME;
-    logger.bot = bot;
-
-    interval = {
+    thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let markets;
+    let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    let bruceStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
-    let charlyAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let bruceAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let oliviaAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
-    let tomAzureFileStorage = AZURE_FILE_STORAGE.newAzureFileStorage(bot);
+    let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
-    let utilities = UTILITIES.newUtilities(bot);
+    let statusDependencies;
 
-    return interval;
+    return thisObject;
 
     function initialize(yearAssigend, monthAssigned, callBackFunction) {
 

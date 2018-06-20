@@ -42,6 +42,7 @@
     <Folder Include="obj\Debug" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commons.js" />
     <Compile Include="Multi-Period-Daily\User.Bot.js" />
     <Compile Include="Multi-Period-Market\User.Bot.js" />
   </ItemGroup>

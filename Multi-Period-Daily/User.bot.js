@@ -779,8 +779,8 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
         }
         catch (err) {
-            const logText = "[ERROR] 'Start' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write(MODULE_NAME, "[ERROR] 'Start' - ERROR : " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

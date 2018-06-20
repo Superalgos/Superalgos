@@ -1175,68 +1175,32 @@
                 }
             }
 
-            function writeStatusReport(currentDay, callBackFunction) {
+            function writeStatusReport(lastFileDate, callBack) {
 
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'writeStatusReport'");
-                }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
 
                 try {
 
-                    let reportFilePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
+                    let reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let thisReport = statusDependencies.statusReports.get(reportKey);
 
-                    utilities.createFolderIfNeeded(reportFilePath, tomAzureFileStorage, onFolderCreated);
-
-                    function onFolderCreated() {
-
-                        try {
-
-                            let lastFileDate = new Date();
-
-                            let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                            let report = {
-                                lastFile: {
-                                    year: currentDay.getUTCFullYear(),
-                                    month: (currentDay.getUTCMonth() + 1),
-                                    days: currentDay.getUTCDate()
-                                },
-                                lastEndValues: currentEndValues
-                            };
-
-                            let fileContent = JSON.stringify(report);
-
-                            tomAzureFileStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated() {
-
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
-                                }
-
-                                callBackFunction();
-                            }
-                        }
-                        catch (err) {
-                            const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(logText);
-                            closeMarket();
-                        }
-                    }
+                    thisReport.file.lastExecution = bot.processDatetime;
+                    thisReport.file.lastFile = lastFileDate;
+                    thisReport.save(callBack);
 
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
-
             }
+
 
         }
         catch (err) {
-            const logText = "[ERROR] 'Start' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write(MODULE_NAME, "[ERROR] 'Start' - ERROR : " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

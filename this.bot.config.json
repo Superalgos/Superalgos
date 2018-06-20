@@ -40,26 +40,6 @@
       "statusDependencies": [
         {
           "devTeam": "AAMasters",
-          "bot": "AACharly",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Poloniex-Historic-Trades",
-          "dataSetVersion": "dataSet.V1"
-        },
-        {
-          "devTeam": "AAMasters",
-          "bot": "AAOlivia",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Multi-Period-Market",
-          "dataSetVersion": "dataSet.V1"
-        },
-        {
-          "devTeam": "AAMasters",
           "bot": "AATom",
           "botVersion": {
             "major": 1,

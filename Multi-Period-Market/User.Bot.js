@@ -79,19 +79,10 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
         try {
 
-            if (LOG_INFO === true) {
-                logger.write("[INFO] Entering function 'start'");
+            if (FULL_LOG === true) {
+                logger.write(MODULE_NAME, "[INFO] Entering function 'start'");
             }
 
-            let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
-            let nextIntervalLapse;             // With this we can request the next execution wait time. 
-
-            let marketQueue;            // This is the queue of all markets to be procesesd at each interval.
-            let market = {              // This is the current market being processed after removing it from the queue.
-                id: 0,
-                assetA: "",
-                assetB: ""
-            };
 
             let periods =
                 '[' +
@@ -119,8 +110,8 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                 try {
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'marketsLoop'");
+                    if (FULL_LOG === true) {
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'marketsLoop'");
                     }
 
                     markets.getMarketsByExchange(EXCHANGE_ID, onMarketsReady);
@@ -135,7 +126,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                 }
                 catch (err) {
                     const logText = "[ERROR] 'marketsLoop' - ERROR : " + err.message;
-                    logger.write(logText);
+                    logger.write(MODULE_NAME, logText);
                 }
             }
 
@@ -145,19 +136,19 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                 try {
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] Entering function 'openMarket'");
+                    if (FULL_LOG === true) {
+                        logger.write(MODULE_NAME, "[INFO] Entering function 'openMarket'");
                     }
 
 
                     if (marketQueue.length === 0) {
 
-                        if (LOG_INFO === true) {
-                            logger.write("[INFO] 'openMarket' - marketQueue.length === 0");
+                        if (FULL_LOG === true) {
+                            logger.write(MODULE_NAME, "[INFO] 'openMarket' - marketQueue.length === 0");
                         }
 
                         const logText = "[WARN] We processed all the markets.";
-                        logger.write(logText);
+                        logger.write(MODULE_NAME, logText);
 
                         callBackFunction(nextIntervalExecution, nextIntervalLapse);
 
@@ -189,9 +180,9 @@ Read the candles and volumes from Olivia and produce for each market two files w
                         }
                     }
 
-                    if (LOG_INFO === true) {
-                        logger.write("[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
-                        logger.write("[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
+                    if (FULL_LOG === true) {
+                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
+                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
                     }
 
                     if (market.status === markets.ENABLED) {
@@ -200,7 +191,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                     } else {
 
-                        logger.write("[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
+                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
                         closeAndOpenMarket();
                         return;
 
@@ -208,23 +199,23 @@ Read the candles and volumes from Olivia and produce for each market two files w
                 }
                 catch (err) {
                     const logText = "[ERROR] 'openMarket' - ERROR : " + err.message;
-                    logger.write(logText);
+                    logger.write(MODULE_NAME, logText);
                     closeMarket();
                 }
             }
 
             function closeMarket() {
 
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeMarket'");
+                if (FULL_LOG === true) {
+                    logger.write(MODULE_NAME, "[INFO] Entering function 'closeMarket'");
                 }
 
             }
 
             function closeAndOpenMarket() {
 
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'closeAndOpenMarket'");
+                if (FULL_LOG === true) {
+                    logger.write(MODULE_NAME, "[INFO] Entering function 'closeAndOpenMarket'");
                 }
 
                 openMarket();
@@ -260,14 +251,14 @@ Read the candles and volumes from Olivia and produce for each market two files w
                 function loopBody() {
 
                     const outputPeriod = outputPeriods[n][0];
-                    const folderName = outputPeriods[n][1];
+                    const timePeriod = outputPeriods[n][1];
 
                     nextCandleFile();
 
                     function nextCandleFile() {
 
                         let fileName = market.assetA + '_' + market.assetB + ".json"
-                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + folderName;
+                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                         oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -282,7 +273,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                             } catch (err) {
 
                                 const logText = "[ERR] 'nextCandleFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(logText);
+                                logger.write(MODULE_NAME, logText);
 
                                 closeAndOpenMarket();
 
@@ -463,7 +454,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                 
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
 
                                 utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
 
@@ -475,7 +466,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                         const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
                                         console.log(logText);
-                                        logger.write(logText);
+                                        logger.write(MODULE_NAME, logText);
 
                                         nextVolumeFile();
                                     }
@@ -488,7 +479,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                     function nextVolumeFile() {
 
                         let fileName = market.assetA + '_' + market.assetB + ".json"
-                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + folderName;
+                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                         oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -503,7 +494,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                             } catch (err) {
 
                                 const logText = "[ERR] 'nextVolumeFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(logText);
+                                logger.write(MODULE_NAME, logText);
 
                                 closeAndOpenMarket();
 
@@ -781,7 +772,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName;
+                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
 
                                 utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
 
@@ -793,7 +784,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                         const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
                                         console.log(logText);
-                                        logger.write(logText);
+                                        logger.write(MODULE_NAME, logText);
 
                                         controlLoop();
                                     }
@@ -822,8 +813,8 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
             function writeStatusReport() {
 
-                if (LOG_INFO === true) {
-                    logger.write("[INFO] Entering function 'writeStatusReport'");
+                if (FULL_LOG === true) {
+                    logger.write(MODULE_NAME, "[INFO] Entering function 'writeStatusReport'");
                 }
 
                 try {
@@ -854,8 +845,8 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                             function onFileCreated() {
 
-                                if (LOG_INFO === true) {
-                                    logger.write("[INFO] 'writeStatusReport' - Content written: " + fileContent);
+                                if (FULL_LOG === true) {
+                                    logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - Content written: " + fileContent);
                                 }
 
                                 nextIntervalExecution = true;
@@ -864,7 +855,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                         }
                         catch (err) {
                             const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(logText);
+                            logger.write(MODULE_NAME, logText);
                             closeMarket();
                         }
                     }
@@ -872,7 +863,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                 }
                 catch (err) {
                     const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
+                    logger.write(MODULE_NAME, logText);
                     closeMarket();
                 }
 
@@ -881,7 +872,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
         }
         catch (err) {
             const logText = "[ERROR] 'Start' - ERROR : " + err.message;
-            logger.write(logText);
+            logger.write(MODULE_NAME, logText);
         }
     }
 };

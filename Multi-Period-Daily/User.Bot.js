@@ -79,19 +79,12 @@
 
         try {
 
-            if (LOG_INFO === true) {
-                logger.write("[INFO] Entering function 'start'");
+            if (FULL_LOG === true) {
+                logger.write(MODULE_NAME, "[INFO] Entering function 'start'");
             }
 
             let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
             let nextIntervalLapse;             // With this we can request the next execution wait time. 
-
-            let marketQueue;            // This is the queue of all markets to be procesesd at each interval.
-            let market = {              // This is the current market being processed after removing it from the queue.
-                id: 0,
-                assetA: "",
-                assetB: ""
-            };
 
             let periods =
                 '[' +
@@ -312,7 +305,7 @@
 
                     const logText = "[INFO] New current day @ " + currentDay.getUTCFullYear() + "/" + (currentDay.getUTCMonth() + 1) + "/" + currentDay.getUTCDate() + ".";
                     console.log(logText);
-                    logger.write(logText);
+                    logger.write(MODULE_NAME, logText);
 
                     /* Validation that we are not going past the head of the market. */
 
@@ -321,7 +314,7 @@
                         nextIntervalExecution = true;  // we request a new interval execution.
 
                         const logText = "[INFO] 'buildStairs' - Head of the market found @ " + currentDay.getUTCFullYear() + "/" + (currentDay.getUTCMonth() + 1) + "/" + currentDay.getUTCDate() + ".";
-                        logger.write(logText);
+                        logger.write(MODULE_NAME, logText);
 
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
@@ -349,7 +342,7 @@
 
                 function loopBody() {
 
-                    const folderName = outputPeriods[n][1];
+                    const timePeriod = outputPeriods[n][1];
 
                     processCandles();
 
@@ -366,11 +359,13 @@
 
                             let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                             let fileName = market.assetA + '_' + market.assetB + ".json"
-                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + folderName + "/" + dateForPath;
+
+                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                            let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
 
                             oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
 
-                            function onCurrentDayFileReceived(text) {
+                            function onCurrentDayFileReceived(err, text) {
 
                                 try {
 
@@ -380,7 +375,7 @@
                                 } catch (err) {
 
                                     const logText = "[ERR] 'processCandles - getCurrentDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
+                                    logger.write(MODULE_NAME, logText);
 
                                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                     return;
@@ -392,11 +387,13 @@
 
                             let dateForPath = nextDay.getUTCFullYear() + '/' + utilities.pad(nextDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(nextDay.getUTCDate(), 2);
                             let fileName = market.assetA + '_' + market.assetB + ".json"
-                            let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + folderName + "/" + dateForPath;
+
+                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                            let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
 
                             oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
 
-                            function onCurrentDayFileReceived(text) {
+                            function onCurrentDayFileReceived(err, text) {
 
                                 try {
 
@@ -413,7 +410,7 @@
                                     } else {
 
                                         const logText = "[ERR] 'processCandles - getNextDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                        logger.write(logText);
+                                        logger.write(MODULE_NAME, logText);
 
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                         return;
@@ -464,7 +461,7 @@
                             } catch (err) {
 
                                 const logText = "[ERR] 'buildCandles' - Message: " + err.message;
-                                logger.write(logText);
+                                logger.write(MODULE_NAME, logText);
 
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
@@ -596,7 +593,7 @@
                             } catch (err) {
 
                                 const logText = "[ERR] 'findCandleStairs' - Message: " + err.message;
-                                logger.write(logText);
+                                logger.write(MODULE_NAME, logText);
 
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
@@ -641,7 +638,9 @@
 
                                 let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
+
+                                let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
 
                                 utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
 
@@ -653,7 +652,7 @@
 
                                         const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
                                         console.log(logText);
-                                        logger.write(logText);
+                                        logger.write(MODULE_NAME, logText);
 
                                         processVolumes();
                                     }
@@ -661,7 +660,7 @@
                             } catch (err) {
 
                                 const logText = "[ERR] 'writeCandleStairsFile' - Message: " + err.message;
-                                logger.write(logText);
+                                logger.write(MODULE_NAME, logText);
 
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
@@ -683,11 +682,13 @@
 
                             let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                             let fileName = market.assetA + '_' + market.assetB + ".json"
-                            let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + folderName + "/" + dateForPath;
+
+                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                            let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
 
                             oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
 
-                            function onCurrentDayFileReceived(text) {
+                            function onCurrentDayFileReceived(err, text) {
 
                                 try {
 
@@ -697,7 +698,7 @@
                                 } catch (err) {
 
                                     const logText = "[ERR] 'processVolumes - getCurrentDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(logText);
+                                    logger.write(MODULE_NAME, logText);
 
                                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                     return;
@@ -709,11 +710,13 @@
 
                             let dateForPath = nextDay.getUTCFullYear() + '/' + utilities.pad(nextDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(nextDay.getUTCDate(), 2);
                             let fileName = market.assetA + '_' + market.assetB + ".json"
-                            let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + folderName + "/" + dateForPath;
+
+                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                            let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
 
                             oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
 
-                            function onCurrentDayFileReceived(text) {
+                            function onCurrentDayFileReceived(err, text) {
 
                                 try {
 
@@ -730,7 +733,7 @@
                                     } else {
 
                                         const logText = "[ERR] 'processVolumes - getNextDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                        logger.write(logText);
+                                        logger.write(MODULE_NAME, logText);
 
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                         return;
@@ -771,7 +774,7 @@
                             } catch (err) {
 
                                 const logText = "[ERR] 'buildVolumes' - Message: " + err.message;
-                                logger.write(logText);
+                                logger.write(MODULE_NAME, logText);
 
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
@@ -1040,7 +1043,7 @@
                             } catch (err) {
 
                                 const logText = "[ERR] 'findVolumesStairs' - Message: " + err.message;
-                                logger.write(logText);
+                                logger.write(MODULE_NAME, logText);
 
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
@@ -1080,7 +1083,9 @@
 
                                 let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + folderName + "/" + dateForPath;
+
+                                let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
 
                                 utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
 
@@ -1092,7 +1097,7 @@
 
                                         const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
                                         console.log(logText);
-                                        logger.write(logText);
+                                        logger.write(MODULE_NAME, logText);
 
                                         controlLoop();
                                     }
@@ -1100,7 +1105,7 @@
                             } catch (err) {
 
                                 const logText = "[ERR] 'writeVolumeStairsFile' - Message: " + err.message;
-                                logger.write(logText);
+                                logger.write(MODULE_NAME, logText);
 
                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                 return;
@@ -1121,15 +1126,114 @@
                     } else {
 
                         n = 0;
-                        writeStatusReport(currentDay, switchEndValues);
 
-                        function switchEndValues() {
+                        writeDataRanges(onWritten);
 
-                            lastEndValues = currentEndValues;
-                            advanceTime();
+                        function onWritten(err) {
 
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> controlLoop -> onWritten -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> err = " + err.message);
+                                callBack(err);
+                                return;
+                            }
+
+                            writeStatusReport(currentDay, switchEndValues);
+
+                            function switchEndValues() {
+
+                                lastEndValues = currentEndValues;
+                                advanceTime();
+
+                            }
                         }
                     }
+                }
+            }
+
+            function writeDataRanges(callBack) {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
+
+                    writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, CANDLES_STAIRS_FOLDER_NAME, onCandlesStairsDataRangeWritten);
+
+                    function onCandlesStairsDataRangeWritten(err) {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onCandlesStairsDataRangeWritten -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, VOLUME_STAIRS_FOLDER_NAME, onVolumeStairsDataRangeWritten);
+
+                        function onVolumeStairsDataRangeWritten(err) {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] writeDataRanges -> writeDataRanges -> onVolumeStairsDataRangeWritten -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onVolumeStairsDataRangeWritten -> err = " + err.message);
+                                callBack(err);
+                                return;
+                            }
+
+                            callBack(global.DEFAULT_OK_RESPONSE);
+                        }
+                    }
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRanges -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                }
+
+            }
+
+            function writeDataRange(pBegin, pEnd, pProductFolder, callBack) {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> Entering function."); }
+
+                    let dataRange = {
+                        begin: pBegin.valueOf(),
+                        end: pEnd.valueOf()
+                    };
+
+                    let fileContent = JSON.stringify(dataRange);
+
+                    let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
+                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> fileName = " + fileName); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> filePath = " + filePath); }
+
+                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                    function onFileCreated(err) {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        if (LOG_FILE_CONTENT === true) {
+                            logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
+                        }
+
+                        callBack(global.DEFAULT_OK_RESPONSE);
+                    }
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -1140,7 +1244,7 @@
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let reportKey = "AAMasters" + "-" + "AATom" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

@@ -83,25 +83,6 @@
                 logger.write(MODULE_NAME, "[INFO] Entering function 'start'");
             }
 
-            let nextIntervalExecution = false; // This tell weather the Interval module will be executed again or not. By default it will not unless some hole have been found in the current execution.
-            let nextIntervalLapse;             // With this we can request the next execution wait time. 
-
-            let periods =
-                '[' +
-                '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
-                '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
-                '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
-                '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
-                '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
-                '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
-                '[' + 05 * 60 * 1000 + ',' + '"05-min"' + ']' + ',' +
-                '[' + 04 * 60 * 1000 + ',' + '"04-min"' + ']' + ',' +
-                '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
-                '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
-                '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
-
-            const outputPeriods = JSON.parse(periods);
-
             /* One of the challenges of this process is that each imput file contains one day of candles. So if a stair spans more than one day
             then we dont want to break the stais in two pieces. What we do is that we read to candles files at the time and record at the current
             date all stairs of the day plus the ones thas spans to the second day without bigining at the second day. Then when we process the next
@@ -110,10 +91,10 @@
 
             let lastEndValues = [];
 
-            for (let i = 0; i < outputPeriods.length; i++) {
+            for (let i = 0; i < global.dailyFilePeriods.length; i++) {
 
                 let lastEndValuesItem = {
-                    timePeriod: outputPeriods[i][1],
+                    timePeriod: global.dailyFilePeriods[i][1],
                     candleStairEnd: undefined,
                     volumeBuyEnd: undefined,
                     volumeSellEnd: undefined
@@ -124,10 +105,10 @@
 
             let currentEndValues = [];
 
-            for (let i = 0; i < outputPeriods.length; i++) {
+            for (let i = 0; i < global.dailyFilePeriods.length; i++) {
 
                 let currentEndValuesItem = {
-                    timePeriod: outputPeriods[i][1],
+                    timePeriod: global.dailyFilePeriods[i][1],
                     candleStairEnd: undefined,
                     volumeBuyEnd: undefined,
                     volumeSellEnd: undefined
@@ -342,7 +323,7 @@
 
                 function loopBody() {
 
-                    const timePeriod = outputPeriods[n][1];
+                    const timePeriod = global.dailyFilePeriods[n][1];
 
                     processCandles();
 
@@ -1119,7 +1100,7 @@
 
                     n++;
 
-                    if (n < outputPeriods.length) {
+                    if (n < global.dailyFilePeriods.length) {
 
                         loopBody();
 
@@ -1158,8 +1139,8 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
-                    writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, CANDLES_STAIRS_FOLDER_NAME, onCandlesStairsDataRangeWritten);
-
+                    writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, CANDLE_STAIRS_FOLDER_NAME, onCandlesStairsDataRangeWritten);
+                                                                                                     
                     function onCandlesStairsDataRangeWritten(err) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }

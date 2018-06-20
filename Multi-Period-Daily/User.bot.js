@@ -104,7 +104,7 @@ LRCIndicator.prototype.calculate = function (price) {
 }
 
 exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
-    const FULL_LOG = true;
+    const FULL_LOG = false;
     const LOG_FILE_CONTENT = false;
     const USE_PARTIAL_LAST_CANDLE = true; // When running live the last candle generated is a partial candle.
     
@@ -194,8 +194,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
             let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
             let executionTime;
             let lastCandles;
-            let dailyFileCache = {};
-            let lrcPointsFileCache = {};
+            let dailyFileCache = new Map();
+            let lrcPointsFileCache = new Map();
             
             getContextVariables();
 
@@ -254,7 +254,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                             lastCandles.push(0);
                         }
 
-                        lastCandles[10] = new Date(Date.UTC(2018, 5)).valueOf();
+                        lastCandles[10] = new Date(Date.UTC(2015, 1, 20)).valueOf();
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting at: " + new Date(lastCandles[10]).toISOString()); }
 
@@ -304,11 +304,12 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                     let candleBeginIndex = 4;
                     let lastDayIndex = 10 + '/' + executionTime.getUTCFullYear() + "/" + utilities.pad(executionTime.getUTCMonth() + 1, 2) + "/" + utilities.pad(executionTime.getUTCDate(), 2);
 
-                    if (dailyFileCache[lastDayIndex] === undefined) {
+                    if (!dailyFileCache.has(lastDayIndex)) {
                         return false;
                     }
 
-                    let lastCandlePeriodOnCache = dailyFileCache[lastDayIndex][dailyFileCache[lastDayIndex].length - 1][candleBeginIndex];
+                    let currentFile = dailyFileCache.get(lastDayIndex);
+                    let lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
 
                     return (executionTime.valueOf() >= lastCandlePeriodOnCache.valueOf());
                 }
@@ -398,7 +399,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                         backwardsCount++;
                                     } else {
                                         logger.write(MODULE_NAME, "[WARN] start -> getLRCPoints -> Not enough history to calculate LRC. Moving to Next Period.");
-                                        // Move to the next period without writing report
+
+                                        // If the control candle is not ready, advance the execution.
+                                        if (n === 10) {
+                                            lastCandles[10] += ONE_MIN_IN_MILISECONDS;
+                                        }
                                         setTimeout(function () { controlLoop(); }, 0);
                                     }
                                 }
@@ -417,10 +422,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                     let datePath = dateTime.getUTCFullYear() + "/" + utilities.pad(dateTime.getUTCMonth() + 1, 2) + "/" + utilities.pad(dateTime.getUTCDate(), 2);
                                     let cachePosition = n + '/' + datePath;
                                                                         
-                                    if (dailyFileCache[cachePosition] !== undefined) {
+                                    if (dailyFileCache.has(cachePosition)) {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> getDailyFile -> Getting the file from local cache."); }
 
-                                        let cache = dailyFileCache[cachePosition];
+                                        let cache = dailyFileCache.get(cachePosition);
                                         onDailyFileReceived(global.DEFAULT_OK_RESPONSE, cache);
 
                                     } else {
@@ -436,11 +441,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                                             let candleFile = JSON.parse(text);
                                             
-                                            dailyFileCache[cachePosition] = candleFile;
+                                            dailyFileCache.set(cachePosition, candleFile);
                                             onDailyFileReceived(global.DEFAULT_OK_RESPONSE, candleFile);
                                         } else {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> getLRCPoints -> getDailyFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.");
-                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            logger.write(MODULE_NAME, "[WARN] start -> getLRCPoints -> getDailyFile -> onFileReceived -> Failed to get the file. Dependency not ready.");
+
+                                            // If the control candle is not ready, advance the execution.
+                                            if (n === 10) {
+                                                lastCandles[10] += ONE_MIN_IN_MILISECONDS;
+                                            }
+                                            setTimeout(function () { controlLoop(); }, 0);
                                         }
                                     }
                                 } catch (err) {
@@ -534,11 +544,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                                     let cachePosition = n + '/' + datePath;
 
-                                    if (lrcPointsFileCache[cachePosition] === undefined) {
-                                        lrcPointsFileCache[cachePosition] = [];
+                                    if (!lrcPointsFileCache.has(cachePosition)) {
+                                        lrcPointsFileCache.set(cachePosition,  []);
                                     }
                                     
-                                    lrcPointsFileCache[cachePosition].push(lrcPoint);                                    
+                                    lrcPointsFileCache.get(cachePosition).push(lrcPoint);                                    
 
                                     lastCandles[n] = lrcPoint[0];
 
@@ -581,7 +591,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> createFile -> Entering function."); }
 
-                                        let fileContent = JSON.stringify(lrcPointsFileCache[cachePosition]);
+                                        let fileContent = JSON.stringify(lrcPointsFileCache.get(cachePosition));
 
                                         gaussStorage.createTextFile(filePath, fileName, fileContent, onFileCreated);
 
@@ -629,10 +639,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                                     function appendLRCPoints(existingLRCPoints) {
                                         if (existingLRCPoints === undefined)
-                                            return lrcPointsFileCache[cachePosition];
+                                            return lrcPointsFileCache.get(cachePosition);
 
-                                        for (i = 0; i < lrcPointsFileCache[cachePosition].length; i++) {
-                                            let lrcPoint = lrcPointsFileCache[cachePosition][i];
+                                        for (i = 0; i < lrcPointsFileCache.get(cachePosition).length; i++) {
+                                            let lrcPoint = lrcPointsFileCache.get(cachePosition)[i];
                                             let lastCandleOnFile = existingLRCPoints[existingLRCPoints.length - 1];
 
                                             if (lastCandleOnFile[0] < lrcPoint[0]) {
@@ -657,8 +667,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                         let cachePosition = n + '/' + datePath;
 
                                         // Remove and go back one day
-                                        if (fileCache[cachePosition] !== undefined) {
-                                            fileCache[cachePosition] = undefined;
+                                        if (fileCache.has(cachePosition)) {
+                                            fileCache.delete(cachePosition);
                                             date.setDate(date.getDate() - 1);
                                             cleanUpCache(fileCache, date);
                                         }
@@ -675,11 +685,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                             let candleBeginIndex = 4;
                             let lastDayIndex = n + '/' + executionTime.getUTCFullYear() + "/" + utilities.pad(executionTime.getUTCMonth() + 1, 2) + "/" + utilities.pad(executionTime.getUTCDate(), 2);
 
-                            if (dailyFileCache[lastDayIndex] === undefined) {
+                            if (!dailyFileCache.has(lastDayIndex)) {
                                 return false;
                             }
-
-                            let lastCandlePeriodOnCache = dailyFileCache[lastDayIndex][dailyFileCache[lastDayIndex].length - 1][candleBeginIndex];
+                            let currentFile = dailyFileCache.get(lastDayIndex);
+                            let lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
 
                             if (FULL_LOG === true) {
                                 logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> savePoint -> Execution: " + new Date(timeToValidate).toISOString() + ". lastCandlePeriodOnCache: " + new Date(lastCandlePeriodOnCache).toISOString() + ". lastDayIndex: " + lastDayIndex);
@@ -739,7 +749,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> Entering function."); }
 
                     let dataRange = {
-                        begin: 1522540800000,//TODO: 1424373300000,
+                        begin: 1424373300000,
                         end: lastOneMinuteCandle.valueOf()
                     };
 

@@ -193,8 +193,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
             let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
             let executionTime;
             let lastCandles;
-            let marketFileCache = {};
-            let lrcPointsFileCache = {};
+            let marketFileCache = new Map();
+            let lrcPointsFileCache = new Map();
             
             getContextVariables();
 
@@ -253,7 +253,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                             lastCandles.push(0);
                         }
 
-                        lastCandles[7] = new Date(Date.UTC(2018, 5)).valueOf();
+                        lastCandles[7] = new Date(Date.UTC(2015, 1, 20)).valueOf();
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting at: " + new Date(lastCandles[7]).toISOString()); }
 
@@ -275,7 +275,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> Entering function."); }
 
-		let writeReport = false;
+		        let writeReport = false;
 
                 advanceTime();
 
@@ -301,11 +301,12 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                 function isExecutionOnHeadOfMarket() {
                     let candleBeginIndex = 4;
-                    if (marketFileCache[7] === undefined) {
+                    if (!marketFileCache.has(7)) {
                         return false;
                     }
 
-                    let lastCandlePeriodOnCache = marketFileCache[7][marketFileCache[7].length - 1][candleBeginIndex];
+                    let currentFile = marketFileCache.get(7);
+                    let lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
 
                     return (executionTime.valueOf() >= lastCandlePeriodOnCache.valueOf());
                 }
@@ -388,7 +389,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                                     } else {
                                         logger.write(MODULE_NAME, "[WARN] start -> getLRCPoints -> Not enough history to calculate LRC. Moving to Next Period.");
-                                        // Move to the next period without writing report
+                                        
+                                        // If the control candle is not ready, advance the execution.
+                                        if (n === 7) {
+                                            lastCandles[7] += ONE_HOUR_IN_MILISECONDS;
+                                        }
                                         setTimeout(function () { controlLoop(); }, 0);
                                     }
                                 }
@@ -404,10 +409,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                      * 
                                      */
                                     
-                                    if (marketFileCache[n] !== undefined) {
+                                    if (marketFileCache.has(n)) {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> getMarketFile -> Getting the file from local cache."); }
 
-                                        onMarketFileReceived(global.DEFAULT_OK_RESPONSE, marketFileCache[n]);
+                                        onMarketFileReceived(global.DEFAULT_OK_RESPONSE, marketFileCache.get(7));
                                     } else {
                                         let filePath = "AAMasters/AAOlivia.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Candles/Multi-Period-Market/" + folderName;
                                         let fileName = market.assetA + '_' + market.assetB + ".json"
@@ -420,11 +425,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> getMarketFile -> onFileReceived > Entering Function."); }
 
                                             let candleFile = JSON.parse(text);
-                                            marketFileCache[n] = candleFile; // We keep a copy of the results for local use
+                                            marketFileCache.set(n, candleFile); // We keep a copy of the results for local use
                                             onMarketFileReceived(global.DEFAULT_OK_RESPONSE, candleFile);
                                         } else {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> getLRCPoints -> getMarketFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.");
-                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                            logger.write(MODULE_NAME, "[WARN] start -> getLRCPoints -> getMarketFile -> onFileReceived -> Failed to get the file. Dependency not ready.");
+
+                                            // if the dependency is not ready advance the  control candle one period.
+                                            if (n === 7) {
+                                                lastCandles[7] += ONE_HOUR_IN_MILISECONDS;
+                                            }
+                                            setTimeout(function () { controlLoop(); }, 0);
                                         }
                                     }
                                 } catch (err) {
@@ -510,11 +520,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                     let filePath = bot.filePathRoot + "/Output/LRC-Points/Multi-Period-Market/" + folderName;
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
                                     
-                                    if (lrcPointsFileCache[n] === undefined) {
-                                        lrcPointsFileCache[n] = [];
+                                    if (!lrcPointsFileCache.has(n)) {
+                                        lrcPointsFileCache.set(n, []);
                                     }
 
-                                    lrcPointsFileCache[n].push(lrcPoint);
+                                    lrcPointsFileCache.get(n).push(lrcPoint);
 
                                     lastCandles[n] = lrcPoint[0];
 
@@ -557,7 +567,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> createFile -> Entering function."); }
 
-                                        let fileContent = JSON.stringify(lrcPointsFileCache[n]);
+                                        let fileContent = JSON.stringify(lrcPointsFileCache.get(n));
 
                                         gaussStorage.createTextFile(filePath, fileName, fileContent, onFileCreated);
 
@@ -607,10 +617,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                                     function appendLRCPoints(existingLRCPoints) {
                                         if (existingLRCPoints === undefined)
-                                            return lrcPointsFileCache[n];
+                                            return lrcPointsFileCache.get(n);
 
-                                        for (i = 0; i < lrcPointsFileCache[n].length; i++) {
-                                            let lrcPoint = lrcPointsFileCache[n][i];
+                                        for (i = 0; i < lrcPointsFileCache.get(n).length; i++) {
+                                            let lrcPoint = lrcPointsFileCache.get(n)[i];
                                             let lastCandleOnFile = existingLRCPoints[existingLRCPoints.length - 1];
 
                                             if (lastCandleOnFile[0] < lrcPoint[0]) {
@@ -632,11 +642,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                         function isPeriodOnHeadOfMarket(timeToValidate) {
                             let candleBeginIndex = 4
 
-                            if (marketFileCache[n] === undefined) {
+                            if (!marketFileCache.has(n)) {
                                 return false;
                             }
-
-                            let lastCandlePeriodOnCache = marketFileCache[n][marketFileCache[n].length - 1][candleBeginIndex];
+                            let currentFile = marketFileCache.get(n);
+                            let lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
 
                             if (FULL_LOG === true) {
                                 logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> savePoint -> Execution: " + new Date(timeToValidate).toISOString() + ". lastCandlePeriodOnCache: " + new Date(lastCandlePeriodOnCache).toISOString());

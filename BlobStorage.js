@@ -62,7 +62,16 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return;
-            }          
+
+            } else {
+
+                if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] initialize -> No READ or WRITE permissions found."); }
+                if (ERROR_LOG === true && logger !== undefined) { logger.write(MODULE_NAME, "[ERROR] initialize -> pDataOwner = " + pDataOwner); }
+
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return;
+     
+            }         
         }
         catch (err) {
 

@@ -95,16 +95,19 @@
 
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> cloud storge failed to initialize. ");
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> err.message = " + err.message);
+                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> blobContent = " + blobContent);
 
                     }
 
                 } catch (err) {
                     console.log("[ERROR] DebugLog -> persist -> onInizialized -> err = " + err.message);
+                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> blobContent = " + blobContent);
                 }
             }
 
         } catch (err) {
             console.log("[ERROR] DebugLog -> persist -> err = " + err.message);
+            console.log("[ERROR] DebugLog -> persist -> onInizialized -> blobContent = " + blobContent);
         }
     }
 
@@ -130,7 +133,7 @@
                 if (pMessage.indexOf("[ERROR]") >= 0) {
 
                     let now = new Date;
-                    console.log(now.toUTCString() + " AACloud" + spacePad(pModule, 15) + " : " + pMessage);
+                    console.log(now.toUTCString() + " AACloud " + spacePad(pModule, 20) + " : " + pMessage);
 
                 }
             }

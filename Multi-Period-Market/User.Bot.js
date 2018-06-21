@@ -138,30 +138,22 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                     oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                                    function onFileReceived(text) {
+                                    function onFileReceived(err, text) {
 
                                         try {
 
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
 
-                                            let marketFile;
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                            try {
-
-                                                marketFile = JSON.parse(text);
-
-                                            } catch (err) {
-
-                                                const logText = "[ERR] 'nextCandleFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                                logger.write(MODULE_NAME, logText);
-
-                                                closeAndOpenMarket();
-
-                                                nextIntervalExecution = true;  // we request a new interval execution.
-                                                nextIntervalLapse = 30000;
-
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                                callBackFunction(err);
                                                 return;
-                                            }
+
+                                            } 
+
+                                            let marketFile = JSON.parse(text);
 
                                             let candles = [];
                                             let stairsArray = [];
@@ -360,15 +352,23 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                                     tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                                                    function onFileCreated() {
+                                                    function onFileCreated(err) {
 
                                                         try {
 
                                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> Entering function."); }
+                                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> fileContent = " + fileContent); }
 
-                                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                                            console.log(logText);
-                                                            logger.write(MODULE_NAME, logText);
+                                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> err = " + err.message);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> filePath = " + filePath);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
+                                                                callBackFunction(err);
+                                                                return;
+
+                                                            } 
 
                                                             nextVolumeFile();
 
@@ -409,28 +409,20 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                     oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                                    function onFileReceived(text) {
+                                    function onFileReceived(err, text) {
 
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function."); }
+                                        if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> text = " + text); }
 
-                                        let marketFile;
-
-                                        try {
-
-                                            marketFile = JSON.parse(text);
-
-                                        } catch (err) {
-
-                                            const logText = "[ERR] 'nextVolumeFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                            logger.write(MODULE_NAME, logText);
-
-                                            closeAndOpenMarket();
-
-                                            nextIntervalExecution = true;  // we request a new interval execution.
-                                            nextIntervalLapse = 30000;
-
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+ 
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(err);
                                             return;
-                                        }
+
+                                        } 
+
+                                        let marketFile = JSON.parse(text);
 
                                         let volumes = [];
                                         let stairsArray = [];
@@ -723,34 +715,28 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                                 let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
 
-                                                utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
+                                                tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                                                function onFolderCreated() {
+                                                function onFileCreated(err) {
 
                                                     try {
 
-                                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFolderCreated -> Entering function."); }
+                                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> Entering function."); }
+                                                        if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> fileContent = " + fileContent); }
 
-                                                        tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                        function onFileCreated() {
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> err = " + err.message);
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> filePath = " + filePath);
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
 
-                                                            try {
+                                                            callBackFunction(err);
+                                                            return;
 
-                                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFolderCreated -> onFileCreated -> Entering function."); }
+                                                        } 
 
-                                                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                                                console.log(logText);
-                                                                logger.write(MODULE_NAME, logText);
+                                                        controlLoop();
 
-                                                                controlLoop();
-
-                                                            }
-                                                            catch (err) {
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                            }
-                                                        }
                                                     }
                                                     catch (err) {
                                                         logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> err = " + err.message);

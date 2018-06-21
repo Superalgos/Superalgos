@@ -1,6 +1,7 @@
 ﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
 
     const FULL_LOG = true;
+    const INTENSIVE_LOG = false;
     const LOG_FILE_CONTENT = false;
 
     const GMT_SECONDS = ':00.000 GMT+0000';
@@ -79,43 +80,12 @@
 
         try {
 
-            if (FULL_LOG === true) {
-                logger.write(MODULE_NAME, "[INFO] Entering function 'start'");
-            }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             /* One of the challenges of this process is that each imput file contains one day of candles. So if a stair spans more than one day
             then we dont want to break the stais in two pieces. What we do is that we read to candles files at the time and record at the current
             date all stairs of the day plus the ones thas spans to the second day without bigining at the second day. Then when we process the next
-            day, we must remember where the last stairs of each type endded, so as not to create overlapping stairs in the current day. These next
-            3 variables are stored at the status report and they are to remember where the last staris ended. */
-
-            let lastEndValues = [];
-
-            for (let i = 0; i < global.dailyFilePeriods.length; i++) {
-
-                let lastEndValuesItem = {
-                    timePeriod: global.dailyFilePeriods[i][1],
-                    candleStairEnd: undefined,
-                    volumeBuyEnd: undefined,
-                    volumeSellEnd: undefined
-                };
-
-                lastEndValues.push(lastEndValuesItem);
-            }
-
-            let currentEndValues = [];
-
-            for (let i = 0; i < global.dailyFilePeriods.length; i++) {
-
-                let currentEndValuesItem = {
-                    timePeriod: global.dailyFilePeriods[i][1],
-                    candleStairEnd: undefined,
-                    volumeBuyEnd: undefined,
-                    volumeSellEnd: undefined
-                };
-
-                currentEndValues.push(currentEndValuesItem);
-            }
+            day, we must remember where the last stairs of each type endded, so as not to create overlapping stairs in the current day. */
 
             let market = global.MARKET;
 
@@ -128,7 +98,7 @@
             };
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
-            let processDate;                         // Holds the processing date.
+            let processDate;                        // Holds the processing date.
 
             getContextVariables();
 
@@ -277,860 +247,1273 @@
 
             function buildStairs() {
 
-                let n;
-                previousDay = contextVariables.lastCandleFile;                
+                try {
 
-                advanceTime();
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> Entering function."); }
 
-                function advanceTime() {
+                    let n;
+                    previousDay = contextVariables.lastCandleFile;
 
-                    previousDay = new Date(previousDay.valueOf() + ONE_DAY_IN_MILISECONDS);
-                    processDate = new Date(previousDay.valueOf() + ONE_DAY_IN_MILISECONDS);
+                    advanceTime();
 
-                    const logText = "[INFO] New current day @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
-                    console.log(logText);
-                    logger.write(MODULE_NAME, logText);
+                    function advanceTime() {
 
-                    /* Validation that we are not going past the head of the market. */
+                        try {
 
-                    if (previousDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+                            logger.flush();
 
-                        const logText = "[INFO] 'buildStairs' - Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
-                        logger.write(MODULE_NAME, logText);
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> Entering function."); }
 
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        return;
+                            previousDay = new Date(previousDay.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            processDate = new Date(previousDay.valueOf() + ONE_DAY_IN_MILISECONDS);
 
-                    }
+                            const logText = "New current day @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> " + logText); }
 
-                    periodsLoop();
+                            /* Validation that we are not going past the head of the market. */
 
-                }
+                            if (previousDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
-                function periodsLoop() {
+                                const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> " + logText); }
 
-                    /*
-    
-                    We will iterate through all posible periods.
-    
-                    */
-
-                    n = 0   // loop Variable representing each possible period as defined at the periods array.
-
-                    loopBody();
-
-
-                }
-
-                function loopBody() {
-
-                    const timePeriod = global.dailyFilePeriods[n][1];
-
-                    processCandles();
-
-                    function processCandles() {
-
-                        let candles = [];
-                        let stairsArray = [];
-                        let previousDayFile;
-                        let processDayFile;
-
-                        getPreviousDayFile();
-
-                        function getPreviousDayFile() {
-
-                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                            let fileName = market.assetA + '_' + market.assetB + ".json"
-
-                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                            let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
-
-                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
-
-                            function onCurrentDayFileReceived(err, text) {
-
-                                try {
-
-                                    previousDayFile = JSON.parse(text);
-                                    getProcessDayFile()
-
-                                } catch (err) {
-
-                                    const logText = "[ERR] 'processCandles - getPreviousDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(MODULE_NAME, logText);
-
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                    return;
-                                }
-                            }
-                        }
-
-                        function getProcessDayFile() {
-
-                            let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                            let fileName = market.assetA + '_' + market.assetB + ".json"
-
-                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                            let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
-
-                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
-
-                            function onCurrentDayFileReceived(err, text) {
-
-                                try {
-
-                                    processDayFile = JSON.parse(text);
-                                    buildCandles();
-
-                                } catch (err) {
-
-                                    if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
-
-                                        processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
-                                        buildCandles();
-
-                                    } else {
-
-                                        const logText = "[ERR] 'processCandles - getProcessDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                        logger.write(MODULE_NAME, logText);
-
-                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                        return;
-                                    }
-                                }
-                            }
-                        }
-
-                        function buildCandles() {
-
-                            try {
-
-                                pushCandles(previousDayFile);
-                                pushCandles(processDayFile);
-                                findCandleStairs();
-
-                                function pushCandles(candlesFile) {
-
-                                    for (let i = 0; i < candlesFile.length; i++) {
-
-                                        let candle = {
-                                            open: undefined,
-                                            close: undefined,
-                                            min: 10000000000000,
-                                            max: 0,
-                                            begin: undefined,
-                                            end: undefined,
-                                            direction: undefined
-                                        };
-
-                                        candle.min = candlesFile[i][0];
-                                        candle.max = candlesFile[i][1];
-
-                                        candle.open = candlesFile[i][2];
-                                        candle.close = candlesFile[i][3];
-
-                                        candle.begin = candlesFile[i][4];
-                                        candle.end = candlesFile[i][5];
-
-                                        if (candle.open > candle.close) { candle.direction = 'down'; }
-                                        if (candle.open < candle.close) { candle.direction = 'up'; }
-                                        if (candle.open === candle.close) { candle.direction = 'side'; }
-
-                                        candles.push(candle);
-                                    }
-                                }
-
-                            } catch (err) {
-
-                                const logText = "[ERR] 'buildCandles' - Message: " + err.message;
-                                logger.write(MODULE_NAME, logText);
-
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
 
                             }
+
+                            periodsLoop();
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> advanceTime -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
+                    }
 
-                        function findCandleStairs() {
+                    function periodsLoop() {
 
-                            try {
+                        try {
 
-                                /* Finding stairs */
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> periodsLoop -> Entering function."); }
 
-                                let stairs;
+                            /*
+            
+                            We will iterate through all posible timePeriods.
+            
+                            */
 
-                                for (let i = 0; i < candles.length - 1; i++) {
+                            n = 0   // loop Variable representing each possible period as defined at the periods array.
 
-                                    let currentCandle = candles[i];
-                                    let nextCandle = candles[i + 1];
+                            loopBody();
 
-                                    if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'side') {
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
 
-                                        if (stairs === undefined) {
+                    function loopBody() {
 
-                                            stairs = {
-                                                open: undefined,
-                                                close: undefined,
-                                                min: 10000000000000,
-                                                max: 0,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                candleCount: 0,
-                                                firstMin: 0,
-                                                firstMax: 0,
-                                                lastMin: 0,
-                                                lastMax: 0
-                                            };
+                        try {
 
-                                            stairs.direction = currentCandle.direction;
-                                            stairs.candleCount = 2;
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> Entering function."); }
 
-                                            stairs.begin = currentCandle.begin;
-                                            stairs.end = nextCandle.end;
+                            const timePeriod = global.dailyFilePeriods[n][1];
 
-                                            stairs.open = currentCandle.open;
-                                            stairs.close = nextCandle.close;
+                            let endOfLastCandleStair = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
+                            let endOfLastBuyVolumeStair = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
+                            let endOfLastSellVolumeStair = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                                            if (currentCandle.min < nextCandle.min) { stairs.min = currentCandle.min; } else { stairs.min = nextCandle.min; }
-                                            if (currentCandle.max > nextCandle.max) { stairs.max = currentCandle.max; } else { stairs.max = nextCandle.max; }
+                            /*
+                            By default we set the starting date of the processDay - 2 file. If we find the file this value shoulld be overwritten by the value of the end property
+                            of the last object on the file.
+                            */
 
-                                            if (stairs.direction === 'up') {
+                            endOfLastCandleStair = endOfLastCandleStair.valueOf();
+                            endOfLastBuyVolumeStair = endOfLastBuyVolumeStair.valueOf();
+                            endOfLastSellVolumeStair = endOfLastSellVolumeStair.valueOf();
 
-                                                stairs.firstMin = currentCandle.open;
-                                                stairs.firstMax = currentCandle.close;
+                            getEndOfLastCandleStair();
 
-                                                stairs.lastMin = nextCandle.open;
-                                                stairs.lastMax = nextCandle.close;
+                            function getEndOfLastCandleStair() {
 
-                                            } else {
+                                try {
 
-                                                stairs.firstMin = currentCandle.close;
-                                                stairs.firstMax = currentCandle.open;
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastCandleStair -> Entering function."); }
 
-                                                stairs.lastMin = nextCandle.close;
-                                                stairs.lastMax = nextCandle.open;
+                                    let fileDate = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
+                                    getCandleStairsFile();
 
-                                            }
+                                    function getCandleStairsFile() {
 
+                                        try {
 
-                                        } else {
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> Entering function."); }
 
-                                            stairs.candleCount++;
-                                            stairs.end = nextCandle.end;
-                                            stairs.close = nextCandle.close;
+                                            let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
+                                            let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                            if (stairs.min < nextCandle.min) { stairs.min = currentCandle.min; }
-                                            if (stairs.max > nextCandle.max) { stairs.max = currentCandle.max; }
+                                            let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
 
-                                            if (stairs.direction === 'up') {
+                                            tomStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                                                stairs.lastMin = nextCandle.open;
-                                                stairs.lastMax = nextCandle.close;
+                                            function onFileReceived(err, text) {
 
-                                            } else {
+                                                try {
 
-                                                stairs.lastMin = nextCandle.close;
-                                                stairs.lastMax = nextCandle.open;
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> Entering function."); }
 
-                                            }
+                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> text = " + text); }
 
-                                        }
+                                                    if (
+                                                        err.result === global.CUSTOM_FAIL_RESPONSE.result &&
+                                                        (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
+                                                    ) {
 
-                                    } else {
-
-                                        if (stairs !== undefined) {
-
-                                            /* As we are using two consecutives days of candles, we do want to include stairs that spans from the first
-                                            day to the second, but we do not want to include stairs that begins on the second day, since those are to be
-                                            included when time advances one day. */
-
-                                            if (stairs.begin < processDate.valueOf()) {
-
-                                                /* Also, we dont want to include stairs that started in the previous day. To detect that we use the date
-                                                that we recorded on the Status Report with the end of the last stair of the previous day. */
-
-                                                if (lastEndValues[n].candleStairEnd !== undefined) {
-
-                                                    if (stairs.begin > lastEndValues[n].candleStairEnd) {
-
-                                                        stairsArray.push(stairs);
-                                                        currentEndValues[n].candleStairEnd = stairs.end;
-
+                                                        getEndOfLastVolumeStair();
+                                                        return;
                                                     }
-                                                } else {
 
-                                                    stairsArray.push(stairs);
-                                                    currentEndValues[n].candleStairEnd = stairs.end;
-                                                    
-                                                }
-                                            }
-                                            stairs = undefined;
-                                        }
-                                    }
-                                }
+                                                    let stairsFile = JSON.parse(text);
 
-                                writeCandleStairsFile();
+                                                    if (stairsFile.length > 0) {
 
-                            } catch (err) {
+                                                        endOfLastCandleStair = stairsFile[stairsFile.length - 1][5]; // We get from the last regord the end value. Position 5 = Stairs.end 
+                                                        getEndOfLastVolumeStair();
 
-                                const logText = "[ERR] 'findCandleStairs' - Message: " + err.message;
-                                logger.write(MODULE_NAME, logText);
-
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-
-                            }
-                        }
-
-                        function writeCandleStairsFile() {
-
-                            try {
-
-                                let separator = "";
-                                let fileRecordCounter = 0;
-
-                                let fileContent = "";
-
-                                for (i = 0; i < stairsArray.length; i++) {
-
-                                    let stairs = stairsArray[i];
-
-                                    fileContent = fileContent + separator + '[' +
-                                        stairs.open + "," +
-                                        stairs.close + "," +
-                                        stairs.min + "," +
-                                        stairs.max + "," +
-                                        stairs.begin + "," +
-                                        stairs.end + "," +
-                                        '"' + stairs.direction + '"' + "," +
-                                        stairs.candleCount + "," +
-                                        stairs.firstMin + "," +
-                                        stairs.firstMax + "," +
-                                        stairs.lastMin + "," +
-                                        stairs.lastMax + "]";
-
-                                    if (separator === "") { separator = ","; }
-
-                                    fileRecordCounter++;
-
-                                }
-
-                                fileContent = "[" + fileContent + "]";
-
-                                let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                                let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
-
-                                utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
-
-                                function onFolderCreated() {
-
-                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                    function onFileCreated() {
-
-                                        const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                        console.log(logText);
-                                        logger.write(MODULE_NAME, logText);
-
-                                        processVolumes();
-                                    }
-                                }
-                            } catch (err) {
-
-                                const logText = "[ERR] 'writeCandleStairsFile' - Message: " + err.message;
-                                logger.write(MODULE_NAME, logText);
-
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-
-                            }
-                        }
-                    }
-
-                    function processVolumes() {
-
-                        let volumes = [];
-                        let stairsArray = [];
-                        let previousDayFile;
-                        let processDayFile;
-
-                        getPreviousDayFile();
-
-                        function getPreviousDayFile() {
-
-                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                            let fileName = market.assetA + '_' + market.assetB + ".json"
-
-                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                            let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
-
-                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
-
-                            function onCurrentDayFileReceived(err, text) {
-
-                                try {
-
-                                    previousDayFile = JSON.parse(text);
-                                    getProcessDayFile()
-
-                                } catch (err) {
-
-                                    const logText = "[ERR] 'processVolumes - getPreviousDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                    logger.write(MODULE_NAME, logText);
-
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                    return;
-                                }
-                            }
-                        }
-
-                        function getProcessDayFile() {
-
-                            let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                            let fileName = market.assetA + '_' + market.assetB + ".json"
-
-                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                            let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
-
-                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
-
-                            function onCurrentDayFileReceived(err, text) {
-
-                                try {
-
-                                    processDayFile = JSON.parse(text);
-                                    buildVolumes();
-
-                                } catch (err) {
-
-                                    if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
-
-                                        processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
-                                        buildVolumes();
-
-                                    } else {
-
-                                        const logText = "[ERR] 'processVolumes - getProcessDayFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                        logger.write(MODULE_NAME, logText);
-
-                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                        return;
-                                    }
-                                }
-                            }
-                        }
-
-                        function buildVolumes() {
-
-                            try {
-
-                                pushVolumes(previousDayFile);
-                                pushVolumes(processDayFile);
-                                findVolumesStairs();
-
-                                function pushVolumes(volumesFile) {
-
-                                    for (let i = 0; i < volumesFile.length; i++) {
-
-                                        let volume = {
-                                            amountBuy: 0,
-                                            amountSell: 0,
-                                            begin: undefined,
-                                            end: undefined
-                                        };
-
-                                        volume.amountBuy = volumesFile[i][0];
-                                        volume.amountSell = volumesFile[i][1];
-
-                                        volume.begin = volumesFile[i][2];
-                                        volume.end = volumesFile[i][3];
-
-                                        volumes.push(volume);
-
-                                    }
-                                }
-                            } catch (err) {
-
-                                const logText = "[ERR] 'buildVolumes' - Message: " + err.message;
-                                logger.write(MODULE_NAME, logText);
-
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-
-                            }
-                        }
-
-                        function findVolumesStairs() {
-
-                            try {
-
-                                /* Finding stairs */
-
-                                let buyUpStairs;
-                                let buyDownStairs;
-
-                                let sellUpStairs;
-                                let sellDownStairs;
-
-                                for (let i = 0; i < volumes.length - 1; i++) {
-
-                                    let currentVolume = volumes[i];
-                                    let nextVolume = volumes[i + 1];
-
-
-                                    /* buy volume going up */
-
-                                    if (currentVolume.amountBuy < nextVolume.amountBuy) {
-
-                                        if (buyUpStairs === undefined) {
-
-                                            buyUpStairs = {
-                                                type: undefined,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                barsCount: 0,
-                                                firstAmount: 0,
-                                                lastAmount: 0
-                                            };
-
-                                            buyUpStairs.type = 'buy';
-                                            buyUpStairs.direction = 'up';
-                                            buyUpStairs.barsCount = 2;
-
-                                            buyUpStairs.begin = currentVolume.begin;
-                                            buyUpStairs.end = nextVolume.end;
-
-                                            buyUpStairs.firstAmount = currentVolume.amountBuy;
-                                            buyUpStairs.lastAmount = nextVolume.amountBuy;
-
-                                        } else {
-
-                                            buyUpStairs.barsCount++;
-                                            buyUpStairs.end = nextVolume.end;
-                                            buyUpStairs.lastAmount = nextVolume.amountBuy;
-
-                                        }
-
-                                    } else {
-
-                                        if (buyUpStairs !== undefined) {
-
-                                            if (buyUpStairs.barsCount > 2) {
-
-                                                pushToArray(buyUpStairs);
-                                            }
-
-                                            buyUpStairs = undefined;
-                                        }
-                                    }
-
-                                    /* buy volume going down */
-
-                                    if (currentVolume.amountBuy > nextVolume.amountBuy) {
-
-                                        if (buyDownStairs === undefined) {
-
-                                            buyDownStairs = {
-                                                type: undefined,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                barsCount: 0,
-                                                firstAmount: 0,
-                                                lastAmount: 0
-                                            };
-
-                                            buyDownStairs.type = 'buy';
-                                            buyDownStairs.direction = 'down';
-                                            buyDownStairs.barsCount = 2;
-
-                                            buyDownStairs.begin = currentVolume.begin;
-                                            buyDownStairs.end = nextVolume.end;
-
-                                            buyDownStairs.firstAmount = currentVolume.amountBuy;
-                                            buyDownStairs.lastAmount = nextVolume.amountBuy;
-
-                                        } else {
-
-                                            buyDownStairs.barsCount++;
-                                            buyDownStairs.end = nextVolume.end;
-                                            buyDownStairs.lastAmount = nextVolume.amountBuy;
-
-                                        }
-
-                                    } else {
-
-                                        if (buyDownStairs !== undefined) {
-
-                                            if (buyDownStairs.barsCount > 2) {
-
-                                                pushToArray(buyDownStairs);
-                                            }
-
-                                            buyDownStairs = undefined;
-                                        }
-                                    }
-
-                                    /* sell volume going up */
-
-                                    if (currentVolume.amountSell < nextVolume.amountSell) {
-
-                                        if (sellUpStairs === undefined) {
-
-                                            sellUpStairs = {
-                                                type: undefined,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                barsCount: 0,
-                                                firstAmount: 0,
-                                                lastAmount: 0
-                                            };
-
-                                            sellUpStairs.type = 'sell';
-                                            sellUpStairs.direction = 'up';
-                                            sellUpStairs.barsCount = 2;
-
-                                            sellUpStairs.begin = currentVolume.begin;
-                                            sellUpStairs.end = nextVolume.end;
-
-                                            sellUpStairs.firstAmount = currentVolume.amountSell;
-                                            sellUpStairs.lastAmount = nextVolume.amountSell;
-
-                                        } else {
-
-                                            sellUpStairs.barsCount++;
-                                            sellUpStairs.end = nextVolume.end;
-                                            sellUpStairs.lastAmount = nextVolume.amountSell;
-
-                                        }
-
-                                    } else {
-
-                                        if (sellUpStairs !== undefined) {
-
-                                            if (sellUpStairs.barsCount > 2) {
-
-                                                pushToArray(sellUpStairs);
-                                            }
-
-                                            sellUpStairs = undefined;
-                                        }
-                                    }
-
-                                    /* sell volume going down */
-
-                                    if (currentVolume.amountSell > nextVolume.amountSell) {
-
-                                        if (sellDownStairs === undefined) {
-
-                                            sellDownStairs = {
-                                                type: undefined,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                barsCount: 0,
-                                                firstAmount: 0,
-                                                lastAmount: 0
-                                            };
-
-                                            sellDownStairs.type = 'sell';
-                                            sellDownStairs.direction = 'down';
-                                            sellDownStairs.barsCount = 2;
-
-                                            sellDownStairs.begin = currentVolume.begin;
-                                            sellDownStairs.end = nextVolume.end;
-
-                                            sellDownStairs.firstAmount = currentVolume.amountSell;
-                                            sellDownStairs.lastAmount = nextVolume.amountSell;
-
-                                        } else {
-
-                                            sellDownStairs.barsCount++;
-                                            sellDownStairs.end = nextVolume.end;
-                                            sellDownStairs.lastAmount = nextVolume.amountSell;
-
-                                        }
-
-                                    } else {
-
-                                        if (sellDownStairs !== undefined) {
-
-                                            if (sellDownStairs.barsCount > 2) {
-
-                                                pushToArray(sellDownStairs);
-                                            }
-
-                                            sellDownStairs = undefined;
-                                        }
-                                    }
-
-                                    function pushToArray(stairs) {
-
-                                        if (stairs !== undefined) {
-
-                                            /* As we are using two consecutives days of candles, we do want to include stairs that spans from the first
-                                            day to the second, but we do not want to include stairs that begins on the second day, since those are to be
-                                            included when time advances one day. */
-
-                                            if (stairs.begin < processDate.valueOf()) {
-
-                                                /* Also, we dont want to include stairs that started in the previous day. To detect that we use the date
-                                                that we recorded on the Status Report with the end of the last stair of the previous day. */
-
-                                                /* Additional to that, there are two types of stais: buy and sell. */
-
-                                                if (stairs.type === 'sell') {
-
-                                                    if (lastEndValues[n].volumeSellEnd !== undefined) {
-
-                                                        if (stairs.begin > lastEndValues[n].volumeSellEnd) {
-
-                                                            stairsArray.push(stairs);
-                                                            currentEndValues[n].volumeSellEnd = stairs.end;
-                                                        }
                                                     } else {
 
-                                                        stairsArray.push(stairs);
-                                                        currentEndValues[n].volumeSellEnd = stairs.end;
+                                                        getEndOfLastVolumeStair();
+                                                        return;
+
+                                                    }
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> filePath = " + filePath);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function getEndOfLastVolumeStair() {
+
+                                try {
+
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastVolumeStair -> Entering function."); }
+
+                                    let fileDate = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
+                                    getCandleStairsFile();
+
+                                    function getCandleStairsFile() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> Entering function."); }
+
+                                            let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
+                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+
+                                            let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+
+                                            tomStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                            function onFileReceived(err, text) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> Entering function."); }
+                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> text = " + text); }
+
+                                                    if (
+                                                        err.result === global.CUSTOM_FAIL_RESPONSE.result &&
+                                                        (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
+                                                    ) {
+
+                                                        processCandles();
+                                                        return;
+                                                    }
+
+                                                    let stairsFile = JSON.parse(text);
+
+                                                    if (stairsFile.length > 0) {
+
+                                                        for (let i = 0; i < stairsFile.length; i++) {
+
+                                                            let stairs = {
+                                                                type: stairsFile[i][0],
+                                                                begin: stairsFile[i][1],
+                                                                end: stairsFile[i][2],
+                                                                direction: stairsFile[i][3],
+                                                                barsCount: stairsFile[i][4],
+                                                                firstAmount: stairsFile[i][5],
+                                                                lastAmount: stairsFile[i][6]
+                                                            };
+
+                                                            if (stairs.type === 'buy') {
+
+                                                                endOfLastBuyVolumeStair = stairs.end;
+
+                                                            } else {
+
+                                                                endOfLastSellVolumeStair = stairs.end;
+
+                                                            }
+                                                        }
+
+                                                        processCandles();
+
+                                                    } else {
+
+                                                        processCandles();
+                                                        return;
+
+                                                    }
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> filePath = " + filePath);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                }
+                                            }
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function processCandles() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> Entering function."); }
+
+                                    let candles = [];                   // Here we will put all the candles of the 2 files read.
+
+                                    let previousDayStairsArray = [];    // Here All the stairs of the previous day. 
+                                    let processDayStairsArray = [];     // Here All the stairs of the process day. 
+
+                                    let previousDayFile;
+                                    let processDayFile;
+
+                                    getCandleStairsFile();
+
+                                    function getCandleStairsFile() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getCandleStairsFile -> Entering function."); }
+
+                                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
+                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+
+                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+
+                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+
+                                            function onCurrentDayFileReceived(err, text) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> Entering function."); }
+                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> text = " + text); }
+
+                                                    previousDayFile = JSON.parse(text);
+                                                    getProcessDayFile()
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                    function getProcessDayFile() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getProcessDayFile -> Entering function."); }
+
+                                            let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+
+                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+
+                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+
+                                            function onCurrentDayFileReceived(err, text) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> Entering function."); }
+                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> text = " + text); }
+
+                                                    processDayFile = JSON.parse(text);
+                                                    buildCandles();
+
+                                                } catch (err) {
+
+                                                    if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+
+                                                        processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
+                                                        buildCandles();
+
+                                                    } else {
+
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                        return;
+                                                    }
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                    function buildCandles() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> buildCandles -> Entering function."); }
+
+                                            pushCandles(previousDayFile);
+                                            pushCandles(processDayFile);
+                                            findCandleStairs();
+
+                                            function pushCandles(candlesFile) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> buildCandles -> pushCandles -> Entering function."); }
+
+                                                    for (let i = 0; i < candlesFile.length; i++) {
+
+                                                        let candle = {
+                                                            open: undefined,
+                                                            close: undefined,
+                                                            min: 10000000000000,
+                                                            max: 0,
+                                                            begin: undefined,
+                                                            end: undefined,
+                                                            direction: undefined
+                                                        };
+
+                                                        candle.min = candlesFile[i][0];
+                                                        candle.max = candlesFile[i][1];
+
+                                                        candle.open = candlesFile[i][2];
+                                                        candle.close = candlesFile[i][3];
+
+                                                        candle.begin = candlesFile[i][4];
+                                                        candle.end = candlesFile[i][5];
+
+                                                        if (candle.open > candle.close) { candle.direction = 'down'; }
+                                                        if (candle.open < candle.close) { candle.direction = 'up'; }
+                                                        if (candle.open === candle.close) { candle.direction = 'side'; }
+
+                                                        candles.push(candle);
+                                                    }
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> buildCandles -> pushCandles -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                    return;
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> buildCandles -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                    function findCandleStairs() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> findCandleStairs -> Entering function."); }
+
+                                            /* Finding stairs */
+
+                                            let stairs;
+
+                                            for (let i = 0; i < candles.length - 1; i++) {
+
+                                                let currentCandle = candles[i];
+                                                let nextCandle = candles[i + 1];
+
+                                                if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'side') {
+
+                                                    if (stairs === undefined) {
+
+                                                        stairs = {
+                                                            open: undefined,
+                                                            close: undefined,
+                                                            min: 10000000000000,
+                                                            max: 0,
+                                                            begin: undefined,
+                                                            end: undefined,
+                                                            direction: undefined,
+                                                            candleCount: 0,
+                                                            firstMin: 0,
+                                                            firstMax: 0,
+                                                            lastMin: 0,
+                                                            lastMax: 0
+                                                        };
+
+                                                        stairs.direction = currentCandle.direction;
+                                                        stairs.candleCount = 2;
+
+                                                        stairs.begin = currentCandle.begin;
+                                                        stairs.end = nextCandle.end;
+
+                                                        stairs.open = currentCandle.open;
+                                                        stairs.close = nextCandle.close;
+
+                                                        if (currentCandle.min < nextCandle.min) { stairs.min = currentCandle.min; } else { stairs.min = nextCandle.min; }
+                                                        if (currentCandle.max > nextCandle.max) { stairs.max = currentCandle.max; } else { stairs.max = nextCandle.max; }
+
+                                                        if (stairs.direction === 'up') {
+
+                                                            stairs.firstMin = currentCandle.open;
+                                                            stairs.firstMax = currentCandle.close;
+
+                                                            stairs.lastMin = nextCandle.open;
+                                                            stairs.lastMax = nextCandle.close;
+
+                                                        } else {
+
+                                                            stairs.firstMin = currentCandle.close;
+                                                            stairs.firstMax = currentCandle.open;
+
+                                                            stairs.lastMin = nextCandle.close;
+                                                            stairs.lastMax = nextCandle.open;
+
+                                                        }
+
+
+                                                    } else {
+
+                                                        stairs.candleCount++;
+                                                        stairs.end = nextCandle.end;
+                                                        stairs.close = nextCandle.close;
+
+                                                        if (stairs.min < nextCandle.min) { stairs.min = currentCandle.min; }
+                                                        if (stairs.max > nextCandle.max) { stairs.max = currentCandle.max; }
+
+                                                        if (stairs.direction === 'up') {
+
+                                                            stairs.lastMin = nextCandle.open;
+                                                            stairs.lastMax = nextCandle.close;
+
+                                                        } else {
+
+                                                            stairs.lastMin = nextCandle.close;
+                                                            stairs.lastMax = nextCandle.open;
+
+                                                        }
+
                                                     }
 
                                                 } else {
 
-                                                    if (lastEndValues[n].volumeBuyEnd !== undefined) {
+                                                    if (stairs !== undefined) {
 
-                                                        if (stairs.begin > lastEndValues[n].volumeBuyEnd) {
+                                                        /*
+                                                        Here we detect stairs that started at process day - 2. 
+                                                        */
 
-                                                            stairsArray.push(stairs);
-                                                            currentEndValues[n].volumeBuyEnd = stairs.end;
+                                                        if (stairs.begin > endOfLastCandleStair) {
+
+                                                            if (stairs.begin >= processDate.valueOf()) {
+
+                                                                processDayStairsArray.push(stairs);
+
+                                                            } else {
+
+                                                                previousDayStairsArray.push(stairs);
+
+                                                            }
                                                         }
-                                                    } else {
 
-                                                        stairsArray.push(stairs);
-                                                        currentEndValues[n].volumeBuyEnd = stairs.end;
+                                                        stairs = undefined;
                                                     }
                                                 }
                                             }
+
+                                            writeCandleStairsFile();
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> findCandleStairs -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
                                         }
                                     }
+
+                                    function writeCandleStairsFile() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> Entering function."); }
+
+                                            writeFile(previousDayStairsArray, previousDay, onPreviousFileWritten);
+
+                                            function onPreviousFileWritten() {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> Entering function."); }
+
+                                                    writeFile(processDayStairsArray, processDate, onProcessFileWritten);
+
+                                                    function onProcessFileWritten() {
+
+                                                        try {
+
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> Entering function."); }
+
+                                                            processVolumes();
+
+                                                        } catch (err) {
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> err = " + err.message);
+                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                        }
+                                                    }
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
+                                            }
+
+                                            function writeFile(pStairs, pDate, callback) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> Entering function."); }
+
+                                                    let separator = "";
+                                                    let fileRecordCounter = 0;
+
+                                                    let fileContent = "";
+
+                                                    for (i = 0; i < pStairs.length; i++) {
+
+                                                        let stairs = pStairs[i];
+
+                                                        fileContent = fileContent + separator + '[' +
+                                                            stairs.open + "," +
+                                                            stairs.close + "," +
+                                                            stairs.min + "," +
+                                                            stairs.max + "," +
+                                                            stairs.begin + "," +
+                                                            stairs.end + "," +
+                                                            '"' + stairs.direction + '"' + "," +
+                                                            stairs.candleCount + "," +
+                                                            stairs.firstMin + "," +
+                                                            stairs.firstMax + "," +
+                                                            stairs.lastMin + "," +
+                                                            stairs.lastMax + "]";
+
+                                                        if (separator === "") { separator = ","; }
+
+                                                        fileRecordCounter++;
+
+                                                    }
+
+                                                    fileContent = "[" + fileContent + "]";
+
+                                                    let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
+                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+
+                                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                                    function onFileCreated(err) {
+
+                                                        try {
+
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> Entering function."); }
+
+                                                            if (LOG_FILE_CONTENT === true) {
+                                                                logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated ->  Content written = " + fileContent);
+                                                            }
+
+                                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                                                callBack(err);
+                                                                return;
+                                                            }
+
+                                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> " + logText); }
+
+                                                            callback();
+
+                                                        } catch (err) {
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                        }
+                                                    }
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
-                                
-                                writeVolumeStairsFile();
-
-                            } catch (err) {
-
-                                const logText = "[ERR] 'findVolumesStairs' - Message: " + err.message;
-                                logger.write(MODULE_NAME, logText);
-
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-
                             }
-                        }
 
-                        function writeVolumeStairsFile() {
+                            function processVolumes() {
 
-                            try {
+                                try {
 
-                                let separator = "";
-                                let fileRecordCounter = 0;
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> Entering function."); }
 
-                                let fileContent = "";
+                                    let volumes = [];
 
-                                for (i = 0; i < stairsArray.length; i++) {
+                                    let previousDayStairsArray = [];    // Here All the stairs of the previous day. 
+                                    let processDayStairsArray = [];     // Here All the stairs of the process day. 
 
-                                    let stairs = stairsArray[i];
+                                    let previousDayFile;
+                                    let processDayFile;
 
-                                    fileContent = fileContent + separator + '[' +
-                                        '"' + stairs.type + '"' + "," +
-                                        stairs.begin + "," +
-                                        stairs.end + "," +
-                                        '"' + stairs.direction + '"' + "," +
-                                        stairs.barsCount + "," +
-                                        stairs.firstAmount + "," +
-                                        stairs.lastAmount + "]";
+                                    getCandleStairsFile();
 
-                                    if (separator === "") { separator = ","; }
+                                    function getCandleStairsFile() {
 
-                                    fileRecordCounter++;
+                                        try {
 
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getCandleStairsFile -> Entering function."); }
+
+                                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
+                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+
+                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+
+                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+
+                                            function onCurrentDayFileReceived(err, text) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> Entering function."); }
+                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> text = " + text); }
+
+                                                    previousDayFile = JSON.parse(text);
+                                                    getProcessDayFile()
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                    function getProcessDayFile() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getProcessDayFile -> Entering function."); }
+
+                                            let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+
+                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                            let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+
+                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+
+                                            function onCurrentDayFileReceived(err, text) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> Entering function."); }
+                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> text = " + text); }
+
+                                                    processDayFile = JSON.parse(text);
+                                                    buildVolumes();
+
+                                                } catch (err) {
+
+                                                    if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+
+                                                        processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
+                                                        buildVolumes();
+
+                                                    } else {
+
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                        return;
+                                                    }
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                    function buildVolumes() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> buildVolumes -> Entering function."); }
+
+                                            pushVolumes(previousDayFile);
+                                            pushVolumes(processDayFile);
+                                            findVolumesStairs();
+
+                                            function pushVolumes(volumesFile) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> buildVolumes -> pushVolumes -> Entering function."); }
+
+                                                    for (let i = 0; i < volumesFile.length; i++) {
+
+                                                        let volume = {
+                                                            amountBuy: 0,
+                                                            amountSell: 0,
+                                                            begin: undefined,
+                                                            end: undefined
+                                                        };
+
+                                                        volume.amountBuy = volumesFile[i][0];
+                                                        volume.amountSell = volumesFile[i][1];
+
+                                                        volume.begin = volumesFile[i][2];
+                                                        volume.end = volumesFile[i][3];
+
+                                                        volumes.push(volume);
+
+                                                    }
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> buildVolumes -> pushVolumes -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> buildVolumes -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                    function findVolumesStairs() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> findVolumesStairs -> Entering function."); }
+
+                                            /* Finding stairs */
+
+                                            let buyUpStairs;
+                                            let buyDownStairs;
+
+                                            let sellUpStairs;
+                                            let sellDownStairs;
+
+                                            for (let i = 0; i < volumes.length - 1; i++) {
+
+                                                let currentVolume = volumes[i];
+                                                let nextVolume = volumes[i + 1];
+
+
+                                                /* buy volume going up */
+
+                                                if (currentVolume.amountBuy < nextVolume.amountBuy) {
+
+                                                    if (buyUpStairs === undefined) {
+
+                                                        buyUpStairs = {
+                                                            type: undefined,
+                                                            begin: undefined,
+                                                            end: undefined,
+                                                            direction: undefined,
+                                                            barsCount: 0,
+                                                            firstAmount: 0,
+                                                            lastAmount: 0
+                                                        };
+
+                                                        buyUpStairs.type = 'buy';
+                                                        buyUpStairs.direction = 'up';
+                                                        buyUpStairs.barsCount = 2;
+
+                                                        buyUpStairs.begin = currentVolume.begin;
+                                                        buyUpStairs.end = nextVolume.end;
+
+                                                        buyUpStairs.firstAmount = currentVolume.amountBuy;
+                                                        buyUpStairs.lastAmount = nextVolume.amountBuy;
+
+                                                    } else {
+
+                                                        buyUpStairs.barsCount++;
+                                                        buyUpStairs.end = nextVolume.end;
+                                                        buyUpStairs.lastAmount = nextVolume.amountBuy;
+
+                                                    }
+
+                                                } else {
+
+                                                    if (buyUpStairs !== undefined) {
+
+                                                        if (buyUpStairs.barsCount > 2) {
+
+                                                            pushToArray(buyUpStairs);
+                                                        }
+
+                                                        buyUpStairs = undefined;
+                                                    }
+                                                }
+
+                                                /* buy volume going down */
+
+                                                if (currentVolume.amountBuy > nextVolume.amountBuy) {
+
+                                                    if (buyDownStairs === undefined) {
+
+                                                        buyDownStairs = {
+                                                            type: undefined,
+                                                            begin: undefined,
+                                                            end: undefined,
+                                                            direction: undefined,
+                                                            barsCount: 0,
+                                                            firstAmount: 0,
+                                                            lastAmount: 0
+                                                        };
+
+                                                        buyDownStairs.type = 'buy';
+                                                        buyDownStairs.direction = 'down';
+                                                        buyDownStairs.barsCount = 2;
+
+                                                        buyDownStairs.begin = currentVolume.begin;
+                                                        buyDownStairs.end = nextVolume.end;
+
+                                                        buyDownStairs.firstAmount = currentVolume.amountBuy;
+                                                        buyDownStairs.lastAmount = nextVolume.amountBuy;
+
+                                                    } else {
+
+                                                        buyDownStairs.barsCount++;
+                                                        buyDownStairs.end = nextVolume.end;
+                                                        buyDownStairs.lastAmount = nextVolume.amountBuy;
+
+                                                    }
+
+                                                } else {
+
+                                                    if (buyDownStairs !== undefined) {
+
+                                                        if (buyDownStairs.barsCount > 2) {
+
+                                                            pushToArray(buyDownStairs);
+                                                        }
+
+                                                        buyDownStairs = undefined;
+                                                    }
+                                                }
+
+                                                /* sell volume going up */
+
+                                                if (currentVolume.amountSell < nextVolume.amountSell) {
+
+                                                    if (sellUpStairs === undefined) {
+
+                                                        sellUpStairs = {
+                                                            type: undefined,
+                                                            begin: undefined,
+                                                            end: undefined,
+                                                            direction: undefined,
+                                                            barsCount: 0,
+                                                            firstAmount: 0,
+                                                            lastAmount: 0
+                                                        };
+
+                                                        sellUpStairs.type = 'sell';
+                                                        sellUpStairs.direction = 'up';
+                                                        sellUpStairs.barsCount = 2;
+
+                                                        sellUpStairs.begin = currentVolume.begin;
+                                                        sellUpStairs.end = nextVolume.end;
+
+                                                        sellUpStairs.firstAmount = currentVolume.amountSell;
+                                                        sellUpStairs.lastAmount = nextVolume.amountSell;
+
+                                                    } else {
+
+                                                        sellUpStairs.barsCount++;
+                                                        sellUpStairs.end = nextVolume.end;
+                                                        sellUpStairs.lastAmount = nextVolume.amountSell;
+
+                                                    }
+
+                                                } else {
+
+                                                    if (sellUpStairs !== undefined) {
+
+                                                        if (sellUpStairs.barsCount > 2) {
+
+                                                            pushToArray(sellUpStairs);
+                                                        }
+
+                                                        sellUpStairs = undefined;
+                                                    }
+                                                }
+
+                                                /* sell volume going down */
+
+                                                if (currentVolume.amountSell > nextVolume.amountSell) {
+
+                                                    if (sellDownStairs === undefined) {
+
+                                                        sellDownStairs = {
+                                                            type: undefined,
+                                                            begin: undefined,
+                                                            end: undefined,
+                                                            direction: undefined,
+                                                            barsCount: 0,
+                                                            firstAmount: 0,
+                                                            lastAmount: 0
+                                                        };
+
+                                                        sellDownStairs.type = 'sell';
+                                                        sellDownStairs.direction = 'down';
+                                                        sellDownStairs.barsCount = 2;
+
+                                                        sellDownStairs.begin = currentVolume.begin;
+                                                        sellDownStairs.end = nextVolume.end;
+
+                                                        sellDownStairs.firstAmount = currentVolume.amountSell;
+                                                        sellDownStairs.lastAmount = nextVolume.amountSell;
+
+                                                    } else {
+
+                                                        sellDownStairs.barsCount++;
+                                                        sellDownStairs.end = nextVolume.end;
+                                                        sellDownStairs.lastAmount = nextVolume.amountSell;
+
+                                                    }
+
+                                                } else {
+
+                                                    if (sellDownStairs !== undefined) {
+
+                                                        if (sellDownStairs.barsCount > 2) {
+
+                                                            pushToArray(sellDownStairs);
+                                                        }
+
+                                                        sellDownStairs = undefined;
+                                                    }
+                                                }
+
+                                                function pushToArray(stairs) {
+
+                                                    if (INTENSIVE_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> findVolumesStairs -> pushToArray -> Entering function."); }
+
+                                                    try {
+
+                                                        if (stairs !== undefined) {
+
+                                                            /*
+                                                           Here we detect stairs that started at process day - 2. 
+                                                           */
+
+                                                            if (stairs.type === 'sell') {
+
+                                                                if (stairs.begin > endOfLastSellVolumeStair) {
+
+                                                                    if (stairs.begin >= processDate.valueOf()) {
+
+                                                                        processDayStairsArray.push(stairs);
+
+                                                                    } else {
+
+                                                                        previousDayStairsArray.push(stairs);
+
+                                                                    }
+                                                                }
+                                                            }
+                                                            else {
+
+                                                                if (stairs.begin > endOfLastBuyVolumeStair) {
+
+                                                                    if (stairs.begin >= processDate.valueOf()) {
+
+                                                                        processDayStairsArray.push(stairs);
+
+                                                                    } else {
+
+                                                                        previousDayStairsArray.push(stairs);
+
+                                                                    }
+                                                                }
+
+                                                            }
+
+                                                            stairs = undefined;
+                                                        }
+
+                                                    } catch (err) {
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> findVolumesStairs -> pushToArray -> err = " + err.message);
+                                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                    }
+                                                }
+                                            }
+
+                                            writeVolumeStairsFile();
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> findVolumesStairs -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                    function writeVolumeStairsFile() {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> Entering function."); }
+
+                                            writeFile(previousDayStairsArray, previousDay, onPreviousFileWritten);
+
+                                            function onPreviousFileWritten() {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> Entering function."); }
+
+                                                    writeFile(processDayStairsArray, processDate, onProcessFileWritten);
+
+                                                    function onProcessFileWritten() {
+
+                                                        try {
+
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> Entering function."); }
+
+                                                            controlLoop();
+
+                                                        } catch (err) {
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> err = " + err.message);
+                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                        }
+                                                    }
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
+                                            }
+
+                                            function writeFile(pStairs, pDate, callback) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> Entering function."); }
+
+                                                    let separator = "";
+                                                    let fileRecordCounter = 0;
+
+                                                    let fileContent = "";
+
+                                                    for (i = 0; i < pStairs.length; i++) {
+
+                                                        let stairs = pStairs[i];
+
+                                                        fileContent = fileContent + separator + '[' +
+                                                            '"' + stairs.type + '"' + "," +
+                                                            stairs.begin + "," +
+                                                            stairs.end + "," +
+                                                            '"' + stairs.direction + '"' + "," +
+                                                            stairs.barsCount + "," +
+                                                            stairs.firstAmount + "," +
+                                                            stairs.lastAmount + "]";
+
+                                                        if (separator === "") { separator = ","; }
+
+                                                        fileRecordCounter++;
+
+                                                    }
+
+                                                    fileContent = "[" + fileContent + "]";
+
+                                                    let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
+                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+
+                                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                                    function onFileCreated(err) {
+
+                                                        try {
+
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated -> Entering function."); }
+
+                                                            if (LOG_FILE_CONTENT === true) {
+                                                                logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated ->  Content written = " + fileContent);
+                                                            }
+
+                                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                                                callBack(err);
+                                                                return;
+                                                            }
+
+                                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated -> " + logText); }
+
+                                                            callback();
+
+                                                        } catch (err) {
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> writeFile -> onFileCreated -> err = " + err.message);
+                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                        }
+                                                    }
+
+                                                } catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> writeFile -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
+                            }
 
-                                fileContent = "[" + fileContent + "]";
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
 
-                                let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                    function controlLoop() {
 
-                                let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                        try {
 
-                                utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> controlLoop -> Entering function."); }
 
-                                function onFolderCreated() {
+                            n++;
 
-                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                            if (n < global.dailyFilePeriods.length) {
 
-                                    function onFileCreated() {
+                                loopBody();
 
-                                        const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                        console.log(logText);
-                                        logger.write(MODULE_NAME, logText);
+                            } else {
 
-                                        controlLoop();
+                                n = 0;
+
+                                writeDataRanges(onWritten);
+
+                                function onWritten(err) {
+
+                                    try {
+
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> controlLoop -> onWritten -> Entering function."); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> controlLoop -> onWritten -> err = " + err.message);
+                                            callBack(err);
+                                            return;
+                                        }
+
+                                        writeStatusReport(processDate, advanceTime);
+
+                                    } catch (err) {
+                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> controlLoop -> onWritten -> err = " + err.message);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
-                            } catch (err) {
-
-                                const logText = "[ERR] 'writeVolumeStairsFile' - Message: " + err.message;
-                                logger.write(MODULE_NAME, logText);
-
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                return;
-
                             }
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> controlLoop -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
 
-                function controlLoop() {
-
-                    n++;
-
-                    if (n < global.dailyFilePeriods.length) {
-
-                        loopBody();
-
-                    } else {
-
-                        n = 0;
-
-                        writeDataRanges(onWritten);
-
-                        function onWritten(err) {
-
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> controlLoop -> onWritten -> Entering function."); }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> err = " + err.message);
-                                callBack(err);
-                                return;
-                            }
-
-                            writeStatusReport(processDate, switchEndValues);
-
-                            function switchEndValues() {
-
-                                lastEndValues = currentEndValues;
-                                advanceTime();
-
-                            }
-                        }
-                    }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -1141,7 +1524,7 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
                     writeDataRange(contextVariables.firstTradeFile, processDate, CANDLE_STAIRS_FOLDER_NAME, onCandlesStairsDataRangeWritten);
-                                                                                                     
+
                     function onCandlesStairsDataRangeWritten(err) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
@@ -1241,7 +1624,7 @@
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] 'Start' - ERROR : " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] start -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

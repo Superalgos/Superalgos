@@ -83,149 +83,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                 logger.write(MODULE_NAME, "[INFO] Entering function 'start'");
             }
 
-
-            let periods =
-                '[' +
-                '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
-                '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
-                '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
-                '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
-                '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
-                '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
-                '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
-                '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
-
-            const outputPeriods = JSON.parse(periods);
-
-            marketsLoop(); 
-
-            /*
-    
-            At every run, the process needs to loop through all the markets at this exchange.
-            The following functions marketsLoop(), openMarket(), closeMarket() and closeAndOpenMarket() controls the serialization of this processing.
-
-            */
-
-            function marketsLoop() {
-
-                try {
-
-                    if (FULL_LOG === true) {
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'marketsLoop'");
-                    }
-
-                    markets.getMarketsByExchange(EXCHANGE_ID, onMarketsReady);
-
-                    function onMarketsReady(marketsArray) {
-
-                        marketQueue = JSON.parse(marketsArray);
-
-                        openMarket(); // First execution and entering into the real loop.
-
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'marketsLoop' - ERROR : " + err.message;
-                    logger.write(MODULE_NAME, logText);
-                }
-            }
-
-            function openMarket() {
-
-                // To open a Market means picking a new market from the queue.
-
-                try {
-
-                    if (FULL_LOG === true) {
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'openMarket'");
-                    }
-
-
-                    if (marketQueue.length === 0) {
-
-                        if (FULL_LOG === true) {
-                            logger.write(MODULE_NAME, "[INFO] 'openMarket' - marketQueue.length === 0");
-                        }
-
-                        const logText = "[WARN] We processed all the markets.";
-                        logger.write(MODULE_NAME, logText);
-
-                        callBackFunction(nextIntervalExecution, nextIntervalLapse);
-
-                        return;
-                    }
-
-                    if (GO_RANDOM === true) {
-                        const index = parseInt(Math.random() * (marketQueue.length - 1));
-
-                        market.id = marketQueue[index][0];
-                        market.assetA = marketQueue[index][1];
-                        market.assetB = marketQueue[index][2];
-                        market.status = marketQueue[index][3];
-
-                        marketQueue.splice(index, 1);
-                    } else {
-                        let marketRecord = marketQueue.shift();
-
-                        market.id = marketRecord[0];
-                        market.assetA = marketRecord[1];
-                        market.assetB = marketRecord[2];
-                        market.status = marketRecord[3];
-
-                        if (FORCE_MARKET > 0) {
-                            if (FORCE_MARKET !== market.id) {
-                                closeAndOpenMarket();
-                                return;
-                            }
-                        }
-                    }
-
-                    if (FULL_LOG === true) {
-                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
-                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
-                    }
-
-                    if (market.status === markets.ENABLED) {
-
-                        buildStairs();
-
-                    } else {
-
-                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
-                        closeAndOpenMarket();
-                        return;
-
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'openMarket' - ERROR : " + err.message;
-                    logger.write(MODULE_NAME, logText);
-                    closeMarket();
-                }
-            }
-
-            function closeMarket() {
-
-                if (FULL_LOG === true) {
-                    logger.write(MODULE_NAME, "[INFO] Entering function 'closeMarket'");
-                }
-
-            }
-
-            function closeAndOpenMarket() {
-
-                if (FULL_LOG === true) {
-                    logger.write(MODULE_NAME, "[INFO] Entering function 'closeAndOpenMarket'");
-                }
-
-                openMarket();
-            }
-
-            /*
-
-            The following code executes for each market.
-
-            */
+            buildStairs(); 
 
             function buildStairs() {
 
@@ -245,13 +103,12 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                     loopBody();
 
-
                 }
 
                 function loopBody() {
 
-                    const outputPeriod = outputPeriods[n][0];
-                    const timePeriod = outputPeriods[n][1];
+                    const outputPeriod = global.marketFilesPeriods[n][0];
+                    const timePeriod = global.marketFilesPeriods[n][1];
 
                     nextCandleFile();
 
@@ -798,77 +655,38 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                     n++;
 
-                    if (n < outputPeriods.length) {
+                    if (n < global.marketFilesPeriods.length) {
 
                         loopBody();
 
                     } else {
 
-                        writeStatusReport();
+                        writeStatusReport(lastFileDate, callBackFunction); 
 
                     }
                 }
-
             }
 
-            function writeStatusReport() {
+            function writeStatusReport(lastFileDate, callBack) {
 
-                if (FULL_LOG === true) {
-                    logger.write(MODULE_NAME, "[INFO] Entering function 'writeStatusReport'");
-                }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
 
                 try {
 
-                    let reportFilePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Processes/" + bot.process;
+                    let reportKey = "AAMasters" + "-" + "AATom" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    let thisReport = statusDependencies.statusReports.get(reportKey);
 
-                    utilities.createFolderIfNeeded(reportFilePath, tomStorage, onFolderCreated);
-
-                    function onFolderCreated() {
-
-                        try {
-
-                            let lastFileDate = new Date();
-
-                            let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
-
-                            let report = {
-                                lastFile: {
-                                    year: lastFileDate.getUTCFullYear(),
-                                    month: (lastFileDate.getUTCMonth() + 1),
-                                    days: lastFileDate.getUTCDate()
-                                }
-                            };
-
-                            let fileContent = JSON.stringify(report); 
-
-                            tomStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated() {
-
-                                if (FULL_LOG === true) {
-                                    logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - Content written: " + fileContent);
-                                }
-
-                                nextIntervalExecution = true;
-                                closeAndOpenMarket();
-                            }
-                        }
-                        catch (err) {
-                            const logText = "[ERROR] 'writeStatusReport - onFolderCreated' - ERROR : " + err.message;
-                            logger.write(MODULE_NAME, logText);
-                            closeMarket();
-                        }
-                    }
+                    thisReport.file.lastExecution = bot.processDatetime;
+                    thisReport.file.lastFile = lastFileDate;
+                    thisReport.save(callBack);
 
                 }
                 catch (err) {
-                    const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                    logger.write(MODULE_NAME, logText);
-                    closeMarket();
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
-
             }
-
         }
         catch (err) {
             const logText = "[ERROR] 'Start' - ERROR : " + err.message;

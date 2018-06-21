@@ -79,591 +79,733 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
         try {
 
-            if (FULL_LOG === true) {
-                logger.write(MODULE_NAME, "[INFO] Entering function 'start'");
-            }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             buildStairs(); 
 
             function buildStairs() {
 
-                let n;
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> Entering function."); }
 
-                periodsLoop();
+                try {
 
-                function periodsLoop() {
+                    let n;
 
-                    /*
-    
-                    We will iterate through all posible periods.
-    
-                    */
+                    periodsLoop();
 
-                    n = 0   // loop Variable representing each possible period as defined at the periods array.
+                    function periodsLoop() {
 
-                    loopBody();
+                        try {
 
-                }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> periodsLoop -> Entering function."); }
 
-                function loopBody() {
+                            /*
+            
+                            We will iterate through all posible periods.
+            
+                            */
 
-                    const outputPeriod = global.marketFilesPeriods[n][0];
-                    const timePeriod = global.marketFilesPeriods[n][1];
+                            n = 0   // loop Variable representing each possible period as defined at the periods array.
 
-                    nextCandleFile();
+                            loopBody();
 
-                    function nextCandleFile() {
+                        }
+                        catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
 
-                        let fileName = market.assetA + '_' + market.assetB + ".json"
-                        let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                    function loopBody() {
 
-                        oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
+                        try {
 
-                        function onFileReceived(text) {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> Entering function."); }
 
-                            let marketFile;
+                            const outputPeriod = global.marketFilesPeriods[n][0];
+                            const timePeriod = global.marketFilesPeriods[n][1];
 
-                            try {
+                            nextCandleFile();
 
-                                marketFile = JSON.parse(text);
+                            function nextCandleFile() {
 
-                            } catch (err) {
+                                try {
 
-                                const logText = "[ERR] 'nextCandleFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(MODULE_NAME, logText);
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> Entering function."); }
 
-                                closeAndOpenMarket();
+                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+                                    let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
-                                nextIntervalExecution = true;  // we request a new interval execution.
-                                nextIntervalLapse = 30000;
+                                    oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                                return;
-                            }
+                                    function onFileReceived(text) {
 
-                            let candles = [];
-                            let stairsArray = [];
+                                        try {
 
-                            buildCandles();
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
 
-                            function buildCandles() {
+                                            let marketFile;
 
-                                for (let i = 0; i < marketFile.length; i++) {
+                                            try {
 
-                                    let candle = {
-                                        open: undefined,
-                                        close: undefined,
-                                        min: 10000000000000,
-                                        max: 0,
-                                        begin: undefined,
-                                        end: undefined,
-                                        direction: undefined
-                                    };
+                                                marketFile = JSON.parse(text);
 
-                                    candle.min = marketFile[i][0];
-                                    candle.max = marketFile[i][1];
+                                            } catch (err) {
 
-                                    candle.open = marketFile[i][2];
-                                    candle.close = marketFile[i][3];
+                                                const logText = "[ERR] 'nextCandleFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                                logger.write(MODULE_NAME, logText);
 
-                                    candle.begin = marketFile[i][4];
-                                    candle.end = marketFile[i][5];
+                                                closeAndOpenMarket();
 
-                                    if (candle.open > candle.close) { candle.direction = 'down'; }
-                                    if (candle.open < candle.close) { candle.direction = 'up'; }
-                                    if (candle.open === candle.close) { candle.direction = 'side'; }
+                                                nextIntervalExecution = true;  // we request a new interval execution.
+                                                nextIntervalLapse = 30000;
 
-                                    candles.push(candle);
-
-                                }
-
-                                findCandleStairs();
-
-                            }
-
-                            function findCandleStairs() {
-
-                                /* Finding stairs */
-
-                                let stairs;
-
-                                for (let i = 0; i < candles.length - 1; i++) {
-
-                                    let currentCandle = candles[i];
-                                    let nextCandle = candles[i + 1];
-
-                                    if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'side') {
-
-                                        if (stairs === undefined) {
-
-                                            stairs = {
-                                                open: undefined,
-                                                close: undefined,
-                                                min: 10000000000000,
-                                                max: 0,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                candleCount: 0,
-                                                firstMin: 0,
-                                                firstMax: 0,
-                                                lastMin: 0,
-                                                lastMax: 0
-                                            };
-
-                                            stairs.direction = currentCandle.direction;
-                                            stairs.candleCount = 2;
-
-                                            stairs.begin = currentCandle.begin;
-                                            stairs.end = nextCandle.end;
-
-                                            stairs.open = currentCandle.open;
-                                            stairs.close = nextCandle.close;
-
-                                            if (currentCandle.min < nextCandle.min) { stairs.min = currentCandle.min; } else { stairs.min = nextCandle.min; }
-                                            if (currentCandle.max > nextCandle.max) { stairs.max = currentCandle.max; } else { stairs.max = nextCandle.max; }
-
-                                            if (stairs.direction === 'up') {
-
-                                                stairs.firstMin = currentCandle.open;
-                                                stairs.firstMax = currentCandle.close;
-
-                                                stairs.lastMin = nextCandle.open;
-                                                stairs.lastMax = nextCandle.close;
-
-                                            } else {
-
-                                                stairs.firstMin = currentCandle.close;
-                                                stairs.firstMax = currentCandle.open;
-
-                                                stairs.lastMin = nextCandle.close;
-                                                stairs.lastMax = nextCandle.open;
-
+                                                return;
                                             }
 
+                                            let candles = [];
+                                            let stairsArray = [];
 
-                                        } else {
+                                            buildCandles();
 
-                                            stairs.candleCount++;
-                                            stairs.end = nextCandle.end;
-                                            stairs.close = nextCandle.close;
+                                            function buildCandles() {
 
-                                            if (stairs.min < nextCandle.min) { stairs.min = currentCandle.min; }
-                                            if (stairs.max > nextCandle.max) { stairs.max = currentCandle.max; }
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> buildCandles -> Entering function."); }
 
-                                            if (stairs.direction === 'up') {
+                                                try {
 
-                                                stairs.lastMin = nextCandle.open;
-                                                stairs.lastMax = nextCandle.close;
+                                                    for (let i = 0; i < marketFile.length; i++) {
 
-                                            } else {
+                                                        let candle = {
+                                                            open: undefined,
+                                                            close: undefined,
+                                                            min: 10000000000000,
+                                                            max: 0,
+                                                            begin: undefined,
+                                                            end: undefined,
+                                                            direction: undefined
+                                                        };
 
-                                                stairs.lastMin = nextCandle.close;
-                                                stairs.lastMax = nextCandle.open;
+                                                        candle.min = marketFile[i][0];
+                                                        candle.max = marketFile[i][1];
 
+                                                        candle.open = marketFile[i][2];
+                                                        candle.close = marketFile[i][3];
+
+                                                        candle.begin = marketFile[i][4];
+                                                        candle.end = marketFile[i][5];
+
+                                                        if (candle.open > candle.close) { candle.direction = 'down'; }
+                                                        if (candle.open < candle.close) { candle.direction = 'up'; }
+                                                        if (candle.open === candle.close) { candle.direction = 'side'; }
+
+                                                        candles.push(candle);
+
+                                                    }
+
+                                                    findCandleStairs();
+
+                                                }
+                                                catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> buildCandles -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
                                             }
 
+                                            function findCandleStairs() {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> findCandleStairs -> Entering function."); }
+
+                                                    /* Finding stairs */
+
+                                                    let stairs;
+
+                                                    for (let i = 0; i < candles.length - 1; i++) {
+
+                                                        let currentCandle = candles[i];
+                                                        let nextCandle = candles[i + 1];
+
+                                                        if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'side') {
+
+                                                            if (stairs === undefined) {
+
+                                                                stairs = {
+                                                                    open: undefined,
+                                                                    close: undefined,
+                                                                    min: 10000000000000,
+                                                                    max: 0,
+                                                                    begin: undefined,
+                                                                    end: undefined,
+                                                                    direction: undefined,
+                                                                    candleCount: 0,
+                                                                    firstMin: 0,
+                                                                    firstMax: 0,
+                                                                    lastMin: 0,
+                                                                    lastMax: 0
+                                                                };
+
+                                                                stairs.direction = currentCandle.direction;
+                                                                stairs.candleCount = 2;
+
+                                                                stairs.begin = currentCandle.begin;
+                                                                stairs.end = nextCandle.end;
+
+                                                                stairs.open = currentCandle.open;
+                                                                stairs.close = nextCandle.close;
+
+                                                                if (currentCandle.min < nextCandle.min) { stairs.min = currentCandle.min; } else { stairs.min = nextCandle.min; }
+                                                                if (currentCandle.max > nextCandle.max) { stairs.max = currentCandle.max; } else { stairs.max = nextCandle.max; }
+
+                                                                if (stairs.direction === 'up') {
+
+                                                                    stairs.firstMin = currentCandle.open;
+                                                                    stairs.firstMax = currentCandle.close;
+
+                                                                    stairs.lastMin = nextCandle.open;
+                                                                    stairs.lastMax = nextCandle.close;
+
+                                                                } else {
+
+                                                                    stairs.firstMin = currentCandle.close;
+                                                                    stairs.firstMax = currentCandle.open;
+
+                                                                    stairs.lastMin = nextCandle.close;
+                                                                    stairs.lastMax = nextCandle.open;
+
+                                                                }
+
+
+                                                            } else {
+
+                                                                stairs.candleCount++;
+                                                                stairs.end = nextCandle.end;
+                                                                stairs.close = nextCandle.close;
+
+                                                                if (stairs.min < nextCandle.min) { stairs.min = currentCandle.min; }
+                                                                if (stairs.max > nextCandle.max) { stairs.max = currentCandle.max; }
+
+                                                                if (stairs.direction === 'up') {
+
+                                                                    stairs.lastMin = nextCandle.open;
+                                                                    stairs.lastMax = nextCandle.close;
+
+                                                                } else {
+
+                                                                    stairs.lastMin = nextCandle.close;
+                                                                    stairs.lastMax = nextCandle.open;
+
+                                                                }
+
+                                                            }
+
+                                                        } else {
+
+                                                            if (stairs !== undefined) {
+                                                                stairsArray.push(stairs);
+                                                                stairs = undefined;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    writeCandleStairsFile();
+                                                }
+                                                catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> findCandleStairs -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
+                                            }
+
+                                            function writeCandleStairsFile() {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> Entering function."); }
+
+                                                    let separator = "";
+                                                    let fileRecordCounter = 0;
+
+                                                    let fileContent = "";
+
+                                                    for (i = 0; i < stairsArray.length; i++) {
+
+                                                        let stairs = stairsArray[i];
+
+                                                        fileContent = fileContent + separator + '[' +
+                                                            stairs.open + "," +
+                                                            stairs.close + "," +
+                                                            stairs.min + "," +
+                                                            stairs.max + "," +
+                                                            stairs.begin + "," +
+                                                            stairs.end + "," +
+                                                            '"' + stairs.direction + '"' + "," +
+                                                            stairs.candleCount + "," +
+                                                            stairs.firstMin + "," +
+                                                            stairs.firstMax + "," +
+                                                            stairs.lastMin + "," +
+                                                            stairs.lastMax + "]";
+
+                                                        if (separator === "") { separator = ","; }
+
+                                                        fileRecordCounter++;
+
+                                                    }
+
+                                                    fileContent = "[" + fileContent + "]";
+
+                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+
+                                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                                    function onFileCreated() {
+
+                                                        try {
+
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> Entering function."); }
+
+                                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                                            console.log(logText);
+                                                            logger.write(MODULE_NAME, logText);
+
+                                                            nextVolumeFile();
+
+                                                        }
+                                                        catch (err) {
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> err = " + err.message);
+                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                        }
+                                                    }
+                                                }
+                                                catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
+                                            }
                                         }
-
-                                    } else {
-
-                                        if (stairs !== undefined) {
-                                            stairsArray.push(stairs);
-                                            stairs = undefined;
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
-
-                                writeCandleStairsFile();
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
                             }
 
-                            function writeCandleStairsFile() {
 
-                                let separator = "";
-                                let fileRecordCounter = 0;
+                            function nextVolumeFile() {
 
-                                let fileContent = "";
+                                try {
 
-                                for (i = 0; i < stairsArray.length; i++) {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> Entering function."); }
 
-                                    let stairs = stairsArray[i];
+                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+                                    let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
-                                    fileContent = fileContent + separator + '[' +
-                                        stairs.open + "," +
-                                        stairs.close + "," +
-                                        stairs.min + "," +
-                                        stairs.max + "," +
-                                        stairs.begin + "," +
-                                        stairs.end + "," +
-                                        '"' + stairs.direction + '"' + "," +
-                                        stairs.candleCount + "," +
-                                        stairs.firstMin + "," +
-                                        stairs.firstMax + "," +
-                                        stairs.lastMin + "," +
-                                        stairs.lastMax + "]";
+                                    oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
-                                    if (separator === "") { separator = ","; }
+                                    function onFileReceived(text) {
 
-                                    fileRecordCounter++;
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function."); }
 
-                                }
+                                        let marketFile;
 
-                                fileContent = "[" + fileContent + "]";
-                                
-                                let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                        try {
 
-                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                                            marketFile = JSON.parse(text);
 
-                                utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
+                                        } catch (err) {
 
-                                function onFolderCreated() {
+                                            const logText = "[ERR] 'nextVolumeFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
+                                            logger.write(MODULE_NAME, logText);
 
-                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                                            closeAndOpenMarket();
 
-                                    function onFileCreated() {
+                                            nextIntervalExecution = true;  // we request a new interval execution.
+                                            nextIntervalLapse = 30000;
 
-                                        const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                        console.log(logText);
-                                        logger.write(MODULE_NAME, logText);
+                                            return;
+                                        }
 
-                                        nextVolumeFile();
+                                        let volumes = [];
+                                        let stairsArray = [];
+
+                                        buildVolumes();
+
+                                        function buildVolumes() {
+
+                                            try {
+
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> buildVolumes -> Entering function."); }
+
+                                                for (let i = 0; i < marketFile.length; i++) {
+
+                                                    let volume = {
+                                                        amountBuy: 0,
+                                                        amountSell: 0,
+                                                        begin: undefined,
+                                                        end: undefined
+                                                    };
+
+                                                    volume.amountBuy = marketFile[i][0];
+                                                    volume.amountSell = marketFile[i][1];
+
+                                                    volume.begin = marketFile[i][2];
+                                                    volume.end = marketFile[i][3];
+
+                                                    volumes.push(volume);
+
+                                                }
+
+                                                findVolumesStairs();
+                                            }
+                                            catch (err) {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> buildVolumes -> err = " + err.message);
+                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            }
+                                        }
+
+                                        function findVolumesStairs() {
+
+                                            try {
+
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> findVolumesStairs -> Entering function."); }
+
+                                                /* Finding stairs */
+
+                                                let buyUpStairs;
+                                                let buyDownStairs;
+
+                                                let sellUpStairs;
+                                                let sellDownStairs;
+
+                                                for (let i = 0; i < volumes.length - 1; i++) {
+
+                                                    let currentVolume = volumes[i];
+                                                    let nextVolume = volumes[i + 1];
+
+
+                                                    /* buy volume going up */
+
+                                                    if (currentVolume.amountBuy < nextVolume.amountBuy) {
+
+                                                        if (buyUpStairs === undefined) {
+
+                                                            buyUpStairs = {
+                                                                type: undefined,
+                                                                begin: undefined,
+                                                                end: undefined,
+                                                                direction: undefined,
+                                                                barsCount: 0,
+                                                                firstAmount: 0,
+                                                                lastAmount: 0
+                                                            };
+
+                                                            buyUpStairs.type = 'buy';
+                                                            buyUpStairs.direction = 'up';
+                                                            buyUpStairs.barsCount = 2;
+
+                                                            buyUpStairs.begin = currentVolume.begin;
+                                                            buyUpStairs.end = nextVolume.end;
+
+                                                            buyUpStairs.firstAmount = currentVolume.amountBuy;
+                                                            buyUpStairs.lastAmount = nextVolume.amountBuy;
+
+                                                        } else {
+
+                                                            buyUpStairs.barsCount++;
+                                                            buyUpStairs.end = nextVolume.end;
+                                                            buyUpStairs.lastAmount = nextVolume.amountBuy;
+
+                                                        }
+
+                                                    } else {
+
+                                                        if (buyUpStairs !== undefined) {
+
+                                                            if (buyUpStairs.barsCount > 2) {
+
+                                                                stairsArray.push(buyUpStairs);
+                                                            }
+
+                                                            buyUpStairs = undefined;
+                                                        }
+                                                    }
+
+                                                    /* buy volume going down */
+
+                                                    if (currentVolume.amountBuy > nextVolume.amountBuy) {
+
+                                                        if (buyDownStairs === undefined) {
+
+                                                            buyDownStairs = {
+                                                                type: undefined,
+                                                                begin: undefined,
+                                                                end: undefined,
+                                                                direction: undefined,
+                                                                barsCount: 0,
+                                                                firstAmount: 0,
+                                                                lastAmount: 0
+                                                            };
+
+                                                            buyDownStairs.type = 'buy';
+                                                            buyDownStairs.direction = 'down';
+                                                            buyDownStairs.barsCount = 2;
+
+                                                            buyDownStairs.begin = currentVolume.begin;
+                                                            buyDownStairs.end = nextVolume.end;
+
+                                                            buyDownStairs.firstAmount = currentVolume.amountBuy;
+                                                            buyDownStairs.lastAmount = nextVolume.amountBuy;
+
+                                                        } else {
+
+                                                            buyDownStairs.barsCount++;
+                                                            buyDownStairs.end = nextVolume.end;
+                                                            buyDownStairs.lastAmount = nextVolume.amountBuy;
+
+                                                        }
+
+                                                    } else {
+
+                                                        if (buyDownStairs !== undefined) {
+
+                                                            if (buyDownStairs.barsCount > 2) {
+
+                                                                stairsArray.push(buyDownStairs);
+                                                            }
+
+                                                            buyDownStairs = undefined;
+                                                        }
+                                                    }
+
+                                                    /* sell volume going up */
+
+                                                    if (currentVolume.amountSell < nextVolume.amountSell) {
+
+                                                        if (sellUpStairs === undefined) {
+
+                                                            sellUpStairs = {
+                                                                type: undefined,
+                                                                begin: undefined,
+                                                                end: undefined,
+                                                                direction: undefined,
+                                                                barsCount: 0,
+                                                                firstAmount: 0,
+                                                                lastAmount: 0
+                                                            };
+
+                                                            sellUpStairs.type = 'sell';
+                                                            sellUpStairs.direction = 'up';
+                                                            sellUpStairs.barsCount = 2;
+
+                                                            sellUpStairs.begin = currentVolume.begin;
+                                                            sellUpStairs.end = nextVolume.end;
+
+                                                            sellUpStairs.firstAmount = currentVolume.amountSell;
+                                                            sellUpStairs.lastAmount = nextVolume.amountSell;
+
+                                                        } else {
+
+                                                            sellUpStairs.barsCount++;
+                                                            sellUpStairs.end = nextVolume.end;
+                                                            sellUpStairs.lastAmount = nextVolume.amountSell;
+
+                                                        }
+
+                                                    } else {
+
+                                                        if (sellUpStairs !== undefined) {
+
+                                                            if (sellUpStairs.barsCount > 2) {
+
+                                                                stairsArray.push(sellUpStairs);
+                                                            }
+
+                                                            sellUpStairs = undefined;
+                                                        }
+                                                    }
+
+                                                    /* sell volume going down */
+
+                                                    if (currentVolume.amountSell > nextVolume.amountSell) {
+
+                                                        if (sellDownStairs === undefined) {
+
+                                                            sellDownStairs = {
+                                                                type: undefined,
+                                                                begin: undefined,
+                                                                end: undefined,
+                                                                direction: undefined,
+                                                                barsCount: 0,
+                                                                firstAmount: 0,
+                                                                lastAmount: 0
+                                                            };
+
+                                                            sellDownStairs.type = 'sell';
+                                                            sellDownStairs.direction = 'down';
+                                                            sellDownStairs.barsCount = 2;
+
+                                                            sellDownStairs.begin = currentVolume.begin;
+                                                            sellDownStairs.end = nextVolume.end;
+
+                                                            sellDownStairs.firstAmount = currentVolume.amountSell;
+                                                            sellDownStairs.lastAmount = nextVolume.amountSell;
+
+                                                        } else {
+
+                                                            sellDownStairs.barsCount++;
+                                                            sellDownStairs.end = nextVolume.end;
+                                                            sellDownStairs.lastAmount = nextVolume.amountSell;
+
+                                                        }
+
+                                                    } else {
+
+                                                        if (sellDownStairs !== undefined) {
+
+                                                            if (sellDownStairs.barsCount > 2) {
+
+                                                                stairsArray.push(sellDownStairs);
+                                                            }
+
+                                                            sellDownStairs = undefined;
+                                                        }
+                                                    }
+                                                }
+
+                                                writeVolumeStairsFile();
+                                            }
+                                            catch (err) {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> findVolumesStairs -> err = " + err.message);
+                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            }
+                                        }
+
+                                        function writeVolumeStairsFile() {
+
+                                            try {
+
+                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> Entering function."); }
+
+                                                let separator = "";
+                                                let fileRecordCounter = 0;
+
+                                                let fileContent = "";
+
+                                                for (i = 0; i < stairsArray.length; i++) {
+
+                                                    let stairs = stairsArray[i];
+
+                                                    fileContent = fileContent + separator + '[' +
+                                                        '"' + stairs.type + '"' + "," +
+                                                        stairs.begin + "," +
+                                                        stairs.end + "," +
+                                                        '"' + stairs.direction + '"' + "," +
+                                                        stairs.barsCount + "," +
+                                                        stairs.firstAmount + "," +
+                                                        stairs.lastAmount + "]";
+
+                                                    if (separator === "") { separator = ","; }
+
+                                                    fileRecordCounter++;
+
+                                                }
+
+                                                fileContent = "[" + fileContent + "]";
+
+                                                let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+
+                                                utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
+
+                                                function onFolderCreated() {
+
+                                                    try {
+
+                                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFolderCreated -> Entering function."); }
+
+                                                        tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                                        function onFileCreated() {
+
+                                                            try {
+
+                                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFolderCreated -> onFileCreated -> Entering function."); }
+
+                                                                const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                                                console.log(logText);
+                                                                logger.write(MODULE_NAME, logText);
+
+                                                                controlLoop();
+
+                                                            }
+                                                            catch (err) {
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFolderCreated -> onFileCreated -> err = " + err.message);
+                                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                            }
+                                                        }
+                                                    }
+                                                    catch (err) {
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> err = " + err.message);
+                                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                    }
+                                                }
+                                            }
+                                            catch (err) {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> err = " + err.message);
+                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            }
+                                        }
                                     }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         }
-                    }
-
-                    function nextVolumeFile() {
-
-                        let fileName = market.assetA + '_' + market.assetB + ".json"
-                        let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
-
-                        oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                        function onFileReceived(text) {
-
-                            let marketFile;
-
-                            try {
-
-                                marketFile = JSON.parse(text);
-
-                            } catch (err) {
-
-                                const logText = "[ERR] 'nextVolumeFile' - Empty or corrupt candle file found at " + filePath + " for market " + market.assetA + '_' + market.assetB + " . Skipping this Market. ";
-                                logger.write(MODULE_NAME, logText);
-
-                                closeAndOpenMarket();
-
-                                nextIntervalExecution = true;  // we request a new interval execution.
-                                nextIntervalLapse = 30000;
-
-                                return;
-                            }
-
-                            let volumes = [];
-                            let stairsArray = [];
-
-                            buildVolumes();
-
-                            function buildVolumes() {
-
-                                for (let i = 0; i < marketFile.length; i++) {
-
-                                    let volume = {
-                                        amountBuy: 0,
-                                        amountSell: 0,
-                                        begin: undefined,
-                                        end: undefined
-                                    };
-
-                                    volume.amountBuy = marketFile[i][0];
-                                    volume.amountSell = marketFile[i][1];
-
-                                    volume.begin = marketFile[i][2];
-                                    volume.end = marketFile[i][3];
-
-                                    volumes.push(volume);
-
-                                }
-
-                                findVolumesStairs();
-
-                            }
-
-                            function findVolumesStairs() {
-
-                                /* Finding stairs */
-
-                                let buyUpStairs;
-                                let buyDownStairs;
-
-                                let sellUpStairs;
-                                let sellDownStairs;
-
-                                for (let i = 0; i < volumes.length - 1; i++) {
-
-                                    let currentVolume = volumes[i];
-                                    let nextVolume = volumes[i + 1];
-
-
-                                    /* buy volume going up */
-
-                                    if (currentVolume.amountBuy < nextVolume.amountBuy) {
-
-                                        if (buyUpStairs === undefined) {
-
-                                            buyUpStairs = {
-                                                type: undefined,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                barsCount: 0,
-                                                firstAmount: 0,
-                                                lastAmount: 0
-                                            };
-
-                                            buyUpStairs.type = 'buy';
-                                            buyUpStairs.direction = 'up';
-                                            buyUpStairs.barsCount = 2;
-
-                                            buyUpStairs.begin = currentVolume.begin;
-                                            buyUpStairs.end = nextVolume.end;
-
-                                            buyUpStairs.firstAmount = currentVolume.amountBuy;
-                                            buyUpStairs.lastAmount = nextVolume.amountBuy;
-
-                                        } else {
-
-                                            buyUpStairs.barsCount++;
-                                            buyUpStairs.end = nextVolume.end;
-                                            buyUpStairs.lastAmount = nextVolume.amountBuy;
-
-                                        }
-
-                                    } else {
-
-                                        if (buyUpStairs !== undefined) {
-
-                                            if (buyUpStairs.barsCount > 2) {
-
-                                                stairsArray.push(buyUpStairs);
-                                            }
-
-                                            buyUpStairs = undefined;
-                                        }
-                                    }
-
-                                    /* buy volume going down */
-
-                                    if (currentVolume.amountBuy > nextVolume.amountBuy) {
-
-                                        if (buyDownStairs === undefined) {
-
-                                            buyDownStairs = {
-                                                type: undefined,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                barsCount: 0,
-                                                firstAmount: 0,
-                                                lastAmount: 0
-                                            };
-
-                                            buyDownStairs.type = 'buy';
-                                            buyDownStairs.direction = 'down';
-                                            buyDownStairs.barsCount = 2;
-
-                                            buyDownStairs.begin = currentVolume.begin;
-                                            buyDownStairs.end = nextVolume.end;
-
-                                            buyDownStairs.firstAmount = currentVolume.amountBuy;
-                                            buyDownStairs.lastAmount = nextVolume.amountBuy;
-
-                                        } else {
-
-                                            buyDownStairs.barsCount++;
-                                            buyDownStairs.end = nextVolume.end;
-                                            buyDownStairs.lastAmount = nextVolume.amountBuy;
-
-                                        }
-
-                                    } else {
-
-                                        if (buyDownStairs !== undefined) {
-
-                                            if (buyDownStairs.barsCount > 2) {
-
-                                                stairsArray.push(buyDownStairs);
-                                            }
-
-                                            buyDownStairs = undefined;
-                                        }
-                                    }
-
-                                    /* sell volume going up */
-
-                                    if (currentVolume.amountSell < nextVolume.amountSell) {
-
-                                        if (sellUpStairs === undefined) {
-
-                                            sellUpStairs = {
-                                                type: undefined,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                barsCount: 0,
-                                                firstAmount: 0,
-                                                lastAmount: 0
-                                            };
-
-                                            sellUpStairs.type = 'sell';
-                                            sellUpStairs.direction = 'up';
-                                            sellUpStairs.barsCount = 2;
-
-                                            sellUpStairs.begin = currentVolume.begin;
-                                            sellUpStairs.end = nextVolume.end;
-
-                                            sellUpStairs.firstAmount = currentVolume.amountSell;
-                                            sellUpStairs.lastAmount = nextVolume.amountSell;
-
-                                        } else {
-
-                                            sellUpStairs.barsCount++;
-                                            sellUpStairs.end = nextVolume.end;
-                                            sellUpStairs.lastAmount = nextVolume.amountSell;
-
-                                        }
-
-                                    } else {
-
-                                        if (sellUpStairs !== undefined) {
-
-                                            if (sellUpStairs.barsCount > 2) {
-
-                                                stairsArray.push(sellUpStairs);
-                                            }
-
-                                            sellUpStairs = undefined;
-                                        }
-                                    }
-
-                                    /* sell volume going down */
-
-                                    if (currentVolume.amountSell > nextVolume.amountSell) {
-
-                                        if (sellDownStairs === undefined) {
-
-                                            sellDownStairs = {
-                                                type: undefined,
-                                                begin: undefined,
-                                                end: undefined,
-                                                direction: undefined,
-                                                barsCount: 0,
-                                                firstAmount: 0,
-                                                lastAmount: 0
-                                            };
-
-                                            sellDownStairs.type = 'sell';
-                                            sellDownStairs.direction = 'down';
-                                            sellDownStairs.barsCount = 2;
-
-                                            sellDownStairs.begin = currentVolume.begin;
-                                            sellDownStairs.end = nextVolume.end;
-
-                                            sellDownStairs.firstAmount = currentVolume.amountSell;
-                                            sellDownStairs.lastAmount = nextVolume.amountSell;
-
-                                        } else {
-
-                                            sellDownStairs.barsCount++;
-                                            sellDownStairs.end = nextVolume.end;
-                                            sellDownStairs.lastAmount = nextVolume.amountSell;
-
-                                        }
-
-                                    } else {
-
-                                        if (sellDownStairs !== undefined) {
-
-                                            if (sellDownStairs.barsCount > 2) {
-
-                                                stairsArray.push(sellDownStairs);
-                                            }
-
-                                            sellDownStairs = undefined;
-                                        }
-                                    }
-                                }
-
-                                writeVolumeStairsFile();
-                            }
-
-                            function writeVolumeStairsFile() {
-
-                                let separator = "";
-                                let fileRecordCounter = 0;
-
-                                let fileContent = "";
-
-                                for (i = 0; i < stairsArray.length; i++) {
-
-                                    let stairs = stairsArray[i];
-
-                                    fileContent = fileContent + separator + '[' +
-                                        '"' + stairs.type + '"' + "," +
-                                        stairs.begin + "," +
-                                        stairs.end + "," +
-                                        '"' + stairs.direction + '"' + "," +
-                                        stairs.barsCount + "," +
-                                        stairs.firstAmount + "," +
-                                        stairs.lastAmount + "]";
-
-                                    if (separator === "") { separator = ","; }
-
-                                    fileRecordCounter++;
-
-                                }
-
-                                fileContent = "[" + fileContent + "]";
-
-                                let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
-
-                                utilities.createFolderIfNeeded(filePath, tomStorage, onFolderCreated);
-
-                                function onFolderCreated() {
-
-                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                    function onFileCreated() {
-
-                                        const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                        console.log(logText);
-                                        logger.write(MODULE_NAME, logText);
-
-                                        controlLoop();
-                                    }
-                                }
-                            }
+                        catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
-                }
 
-                function controlLoop() {
+                    function controlLoop() {
 
-                    n++;
+                        try {
 
-                    if (n < global.marketFilesPeriods.length) {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> controlLoop -> Entering function."); }
 
-                        loopBody();
+                            n++;
 
-                    } else {
+                            if (n < global.marketFilesPeriods.length) {
 
-                        writeStatusReport(lastFileDate, callBackFunction); 
+                                loopBody();
 
+                            } else {
+
+                                writeStatusReport(lastFileDate, callBackFunction);
+
+                            }
+                        }
+                        catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> controlLoop -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
                     }
+
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -689,8 +831,8 @@ Read the candles and volumes from Olivia and produce for each market two files w
             }
         }
         catch (err) {
-            const logText = "[ERROR] 'Start' - ERROR : " + err.message;
-            logger.write(MODULE_NAME, logText);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

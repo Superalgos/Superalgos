@@ -67,13 +67,13 @@
         }
     }
 
-/*
-
-This process is going to do the following:
-
-Read the candles and volumes from Olivia and produce for each market two files with candles stairs and volumes stairs respectively.
-
-*/
+    /*
+    
+    This process is going to do the following:
+    
+    Read the candles and volumes from Olivia and produce for each market two files with candles stairs and volumes stairs respectively.
+    
+    */
 
     function start(callBackFunction) {
 
@@ -81,7 +81,9 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
-            buildStairs(); 
+            let market = global.MARKET;
+
+            buildStairs();
 
             function buildStairs() {
 
@@ -133,8 +135,10 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> Entering function."); }
 
-                                    let fileName = market.assetA + '_' + market.assetB + ".json"
-                                    let filePath = EXCHANGE_NAME + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                                     oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -151,7 +155,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                                 callBackFunction(err);
                                                 return;
 
-                                            } 
+                                            }
 
                                             let marketFile = JSON.parse(text);
 
@@ -348,7 +352,8 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                                    let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                                                     tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
@@ -368,7 +373,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                                                 callBackFunction(err);
                                                                 return;
 
-                                                            } 
+                                                            }
 
                                                             nextVolumeFile();
 
@@ -405,7 +410,9 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> Entering function."); }
 
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
-                                    let filePath = EXCHANGE_NAME + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                                     oliviaStorage.getTextFile(filePath, fileName, onFileReceived, true);
 
@@ -415,12 +422,12 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                         if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> text = " + text); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
- 
+
                                             logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.message);
                                             callBackFunction(err);
                                             return;
 
-                                        } 
+                                        }
 
                                         let marketFile = JSON.parse(text);
 
@@ -713,7 +720,8 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                                                 let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                                                let filePath = EXCHANGE_NAME + "/" + bot.name + "/" + bot.dataSetVersion + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                                                let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                                                 tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
@@ -733,7 +741,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
                                                             callBackFunction(err);
                                                             return;
 
-                                                        } 
+                                                        }
 
                                                         controlLoop();
 
@@ -778,7 +786,7 @@ Read the candles and volumes from Olivia and produce for each market two files w
 
                             } else {
 
-                                writeStatusReport(lastFileDate, callBackFunction);
+                                writeStatusReport(callBackFunction);
 
                             }
                         }
@@ -795,10 +803,9 @@ Read the candles and volumes from Olivia and produce for each market two files w
                 }
             }
 
-            function writeStatusReport(lastFileDate, callBack) {
+            function writeStatusReport(callBack) {
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
 
                 try {
 
@@ -806,7 +813,6 @@ Read the candles and volumes from Olivia and produce for each market two files w
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;
-                    thisReport.file.lastFile = lastFileDate;
                     thisReport.save(callBack);
 
                 }

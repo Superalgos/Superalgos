@@ -184,47 +184,28 @@
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> fileName = " + fileName); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> filePath = " + filePath); }
 
-            utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
+            let fileContent = JSON.stringify(thisObject.file);
 
-            function onFolderCreated(err) {
+            cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                try {
+            function onFileCreated(err) {
 
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> onFolderCreated -> Entering function."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> onFileCreated -> Entering function."); }
 
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] save -> onFolderCreated -> err = " + err.message);
-                        callBackFunction(err);
-                        return;
-                    }
-
-                    let fileContent = JSON.stringify(thisObject.file);
-
-                    cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                    function onFileCreated(err) {
-
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] save -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                            callBackFunction(err);
-                            return;
-                        }
-
-                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
-                            logger.write(MODULE_NAME, "[INFO] save -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
-                        }
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        return;
-                    }
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.message);
+                    callBackFunction(err);
+                    return;
                 }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] save -> onFolderCreated -> err = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
+                    logger.write(MODULE_NAME, "[INFO] save -> onFileCreated ->  Content written = " + fileContent);
                 }
+
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return;
             }
+
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] save -> err = " + err.message);

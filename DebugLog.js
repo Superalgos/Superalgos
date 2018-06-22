@@ -15,13 +15,16 @@
     let thisObject = {
         bot: undefined,
         write: write,
-        persist: persist,
+        flush: flush,
+        persist: persist,           // This method is executed at the end of each Main Loop.
         initialize: initialize
     };
 
-    let blobContent = "[";
+    let accumulatedLog = "[";
 
     let disableLogging;
+
+    let flushCounter = 0;
 
     return thisObject;
 
@@ -36,6 +39,17 @@
         }
     }
 
+    function flush() {
+
+        /*
+        This method will partition the loop log file into several chuncks, each time is executed. It is intended for long processes that needs to show their advance
+        and release memory used by accumulating messages in this module.
+        */
+
+        flushCounter++;
+        persist();
+    }
+
     function persist() {
 
         /* Here we actually write the content of the in-memory log to a blob */
@@ -48,6 +62,9 @@
                 return;
 
             }
+
+            let contentToPersist = accumulatedLog;
+            accumulatedLog = "[";
 
             const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
             let cloudStorage = BLOB_STORAGE.newBlobStorage(thisObject.bot);
@@ -67,13 +84,23 @@
                             filePath = filePath + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
                         }
 
-                        let fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + ".json";
+                        let fileName;
+
+                        if (flushCounter > 0) {
+
+                            fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + "." + pad(flushCounter, 4) + ".json";
+
+                        } else {
+
+                            fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + ".json";
+
+                        }
 
                         writeLog();
 
                         function writeLog() {
 
-                            cloudStorage.createTextFile(filePath, fileName, blobContent + '\r\n' + "]", onFileCreated);
+                            cloudStorage.createTextFile(filePath, fileName, contentToPersist + '\r\n' + "]", onFileCreated);
 
                             function onFileCreated(err) {
 
@@ -86,7 +113,7 @@
                                     return;
                                 }
 
-                                //blobContent = "";
+                                contentToPersist = "";
                                 //thisObject = {};
                             }
                         }
@@ -95,19 +122,19 @@
 
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> cloud storge failed to initialize. ");
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> err.message = " + err.message);
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> blobContent = " + blobContent);
+                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
 
                     }
 
                 } catch (err) {
                     console.log("[ERROR] DebugLog -> persist -> onInizialized -> err = " + err.message);
-                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> blobContent = " + blobContent);
+                    console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
                 }
             }
 
         } catch (err) {
             console.log("[ERROR] DebugLog -> persist -> err = " + err.message);
-            console.log("[ERROR] DebugLog -> persist -> onInizialized -> blobContent = " + blobContent);
+            console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
         }
     }
 
@@ -115,6 +142,8 @@
     function write(pModule, pMessage) {
 
         try {
+
+            /* console.log("AACloud" + spacePad(pModule, 50) + " : " + pMessage); */
 
             if (disableLogging === true) { return; }
 
@@ -149,7 +178,7 @@
 
             let logLine = '\r\n' + "['" + newDate + "'," + messageId + ",'" + pModule + "','" + pMessage + "']";
 
-            blobContent = blobContent + logLine;
+            accumulatedLog = accumulatedLog + logLine;
             
         } catch (err) {
             console.log("[ERROR] DebugLog -> write -> err = " + err.message);

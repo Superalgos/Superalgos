@@ -210,13 +210,19 @@
 
                         /*
                         The stairs objects can span more than one day. In order not to cut these objects into two when this happens, this process will alsways read
-                        2 files. The previous one already processed, and the current one. That means that it will allways re-process the previous one, until the
-                        last moment in which the previous one turns into the current one. By doing so, we avoid breaking the objects when day changes.
+                        3 files.
 
-                        So you will se we go 2 days back. One if because of the above explanation. The second is because we enter the loop by advancing one day.
+                        1. The first file is a stairs file corresponding to processDay -2. From there we will know where the last staris ended.
+                        2. The second is a candle or volume file corresponding to processDay -1.
+                        3. The third is a candle of volume file at processDay.
+
+                        We will recalculate 2 and 3 considering the objects already in 1, so as to make the transition between 2 and 3 smooth.
                         */
 
-                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS * 2);
+                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> thisReport.lastFile !== undefined"); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> lastCandleFile = " + lastCandleFile); }
 
                         buildStairs();
                         return;
@@ -230,6 +236,9 @@
 
                         contextVariables.lastCandleFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
                         contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> thisReport.lastFile === undefined"); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> lastCandleFile = " + lastCandleFile); }
 
                         buildStairs();
                         return;
@@ -252,7 +261,7 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> Entering function."); }
 
                     let n;
-                    previousDay = contextVariables.lastCandleFile;
+                    processDate = contextVariables.lastCandleFile;
 
                     advanceTime();
 
@@ -263,12 +272,12 @@
                             logger.flush();
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> Entering function."); }
+                            
+                            processDate = new Date(processDate.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            previousDay = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            previousDay = new Date(previousDay.valueOf() + ONE_DAY_IN_MILISECONDS);
-                            processDate = new Date(previousDay.valueOf() + ONE_DAY_IN_MILISECONDS);
-
-                            const logText = "New current day @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> " + logText); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> processDate = " + processDate); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> previousDay = " + previousDay); }
 
                             /* Validation that we are not going past the head of the market. */
 

@@ -21,7 +21,7 @@ function newCurrentBot() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
-    const NOT_FOUND = "You have no Bots";
+    const NOT_FOUND = "";
 
     let sharedStatus;
 

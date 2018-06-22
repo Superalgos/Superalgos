@@ -22,7 +22,7 @@
     function authenticateUser(pSessionToken, callBackFunction) {
 
         let userProfile = {
-            userName: "Guest",
+            userName: "",
             devTeams: [],
             storagePermissions: []
         };

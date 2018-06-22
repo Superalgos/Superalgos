@@ -21,7 +21,7 @@ function newDevTeam() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
-    const NOT_FOUND = "Not a devTeam Member";
+    const NOT_FOUND = "";
 
     let sharedStatus;
     let label = ""

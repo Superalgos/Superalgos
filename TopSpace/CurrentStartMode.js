@@ -36,6 +36,8 @@ function newCurrentStartMode() {
 
     function onClick() {
 
+        if (window.CURRENT_BOT === "") { return; }
+
         switch (window.CURRENT_START_MODE) {
 
             case "Backtest": {
@@ -73,6 +75,8 @@ function newCurrentStartMode() {
     }
 
     function draw() {
+
+        if (window.CURRENT_BOT === "") { return;}
 
         thisObject.container.frame.draw(false, false);
 

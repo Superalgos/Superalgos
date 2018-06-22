@@ -131,11 +131,7 @@ function newFileCloud() {
 
             let containerName;
 
-            if (pBot.codeName !== "AATom") {
-                containerName = pDevTeam.codeName.toLowerCase();
-            } else {
-                containerName = 'data';
-            }
+            containerName = pDevTeam.codeName.toLowerCase();
 
             blobService.getBlobToText(containerName, filePath + "/" + fileName, onFileReceived);
 

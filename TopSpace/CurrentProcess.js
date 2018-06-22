@@ -21,7 +21,7 @@ function newCurrentProcess() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
-    const NOT_FOUND = "No Process Found";
+    const NOT_FOUND = "";
 
     let sharedStatus;
 

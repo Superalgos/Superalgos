@@ -59,6 +59,8 @@ function newPlayStopButton() {
 
     function onClick() {
 
+        if (window.CURRENT_BOT === "") { return; }
+
         switch (showing) {
 
             case "Play": {
@@ -119,6 +121,8 @@ function newPlayStopButton() {
     }
 
     function draw() {
+
+        if (window.CURRENT_BOT === "") { return; }
 
         thisObject.container.frame.draw(false, false);
 

@@ -15,7 +15,7 @@
     let thisObject = {
         bot: undefined,
         write: write,
-        flush: flush,
+        newInternalLoop: newInternalLoop,
         persist: persist,           // This method is executed at the end of each Main Loop.
         initialize: initialize
     };
@@ -24,7 +24,7 @@
 
     let disableLogging;
 
-    let flushCounter = 0;
+    let internalLoopCounter = -1;
 
     return thisObject;
 
@@ -39,15 +39,17 @@
         }
     }
 
-    function flush() {
+    function newInternalLoop(pBot, pProcess) {
 
-        /*
-        This method will partition the loop log file into several chuncks, each time is executed. It is intended for long processes that needs to show their advance
-        and release memory used by accumulating messages in this module.
-        */
 
-        flushCounter++;
+        console.log(new Date().toISOString() + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30) + " Entered into Internal Loop # " + strPad(internalLoopCounter + 1, 4));
+
         persist();
+
+        function strPad(str, max) {
+            str = str.toString();
+            return str.length < max ? strPad(" " + str, max) : str;
+        }
     }
 
     function persist() {
@@ -55,6 +57,8 @@
         /* Here we actually write the content of the in-memory log to a blob */
 
         try {
+
+            internalLoopCounter++;
 
             if (global.CURRENT_EXECUTION_AT === "Browser") {
 
@@ -86,9 +90,9 @@
 
                         let fileName;
 
-                        if (flushCounter > 0) {
+                        if (internalLoopCounter >= 0) {
 
-                            fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + "." + pad(flushCounter, 4) + ".json";
+                            fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + "." + pad(internalLoopCounter, 4) + ".json";
 
                         } else {
 

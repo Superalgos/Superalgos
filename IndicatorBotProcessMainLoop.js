@@ -151,7 +151,7 @@
                         return str.length < max ? pad(" " + str, max) : str;
                     }
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Entered into Loop # " + pad(Number(bot.loopCounter) + 1, 5 ));
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Entered into Main Loop # " + pad(Number(bot.loopCounter) + 1, 8 ));
 
                     /* For each loop we want to create a new log file. */
 
@@ -255,7 +255,7 @@
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
-
+                            
                             usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE);
 
                             usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);

@@ -66,6 +66,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudUtilities.js" />
+    <Compile Include="User.Bot.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />

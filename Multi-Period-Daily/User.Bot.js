@@ -181,7 +181,7 @@
                         return;
                     }
 
-                    contextVariables.maxCandleFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
+                    contextVariables.maxCandleFile = new Date(thisReport.lastFile.valueOf());
 
                     /* Finally we get our own Status Report. */
 
@@ -219,10 +219,7 @@
                         We will recalculate 2 and 3 considering the objects already in 1, so as to make the transition between 2 and 3 smooth.
                         */
 
-                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS);
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> thisReport.lastFile !== undefined"); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> lastCandleFile = " + lastCandleFile); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile !== undefined"); }
 
                         buildStairs();
                         return;
@@ -235,10 +232,9 @@
                         */
 
                         contextVariables.lastCandleFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
-                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> thisReport.lastFile === undefined"); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> lastCandleFile = " + lastCandleFile); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastCandleFile = " + contextVariables.lastCandleFile); }
 
                         buildStairs();
                         return;
@@ -261,7 +257,8 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> Entering function."); }
 
                     let n;
-                    processDate = contextVariables.lastCandleFile;
+                    processDate = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> processDate = " + processDate); }
 
                     advanceTime();
 
@@ -269,10 +266,10 @@
 
                         try {
 
-                            logger.flush();
+                            logger.newInternalLoop(bot.codeName, bot.process);
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> Entering function."); }
-                            
+
                             processDate = new Date(processDate.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
 
@@ -281,7 +278,7 @@
 
                             /* Validation that we are not going past the head of the market. */
 
-                            if (previousDay.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+                            if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
 
                                 const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> " + logText); }

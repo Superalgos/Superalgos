@@ -125,10 +125,10 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
                     if (FULL_LOG === true && logger !== undefined) {
                         logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> Response from Azure received.");
                         logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> err = " + JSON.stringify(err));
-                        logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
                     }
 
                     if (LOG_FILE_CONTENT === true && logger !== undefined) {
+                        logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
                         logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> response = " + JSON.stringify(response));
                         logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> pFileContent = " + pFileContent);
                     }

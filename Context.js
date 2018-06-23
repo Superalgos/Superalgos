@@ -165,23 +165,6 @@
                     statusReportModule = statusDependencies.statusReports.get(key);
                     thisObject.statusReport = statusReportModule.file;
 
-                    /*
-                    The first time ever a bot is run, it will not have a status report previously saved. In that case, we need to create the basic structure of it
-                    in order to work.
-                    */
-
-                    if (thisObject.statusReport.liveRuns === undefined) {
-                        thisObject.statusReport.liveRuns = [];
-                    }
-
-                    if (thisObject.statusReport.backtestRuns === undefined) {
-                        thisObject.statusReport.backtestRuns = [];
-                    }
-
-                    if (thisObject.statusReport.competitionRuns === undefined) {
-                        thisObject.statusReport.competitionRuns = [];
-                    }
-
                     if (bot.hasTheBotJustStarted === true) { 
 
                         createConext(callBack);
@@ -268,8 +251,7 @@
                             /*
 
                             It might happen that the file content is corrupt or it does not exist. The bot can not run without an Execution Hitory,
-                            since it is risky to ignore its own history, so even for first time execution, a file with the right format
-                            is needed.
+                            since it is risky to ignore its own history unless it is its first execution in this mode ever. 
 
                             */
 
@@ -362,8 +344,8 @@
                             /*
 
                             It might happen that the file content is corrupt or it does not exist. The bot can not run without a Status Report,
-                            since it is risky to ignore its own history, so even for first time execution, a status report with the right format
-                            is needed.
+                            since it is risky to ignore its own execution history. Execpt when the bot is running for the fist time in this mode,
+                            an execution context file with the right format is needed.
 
                             */
 
@@ -391,7 +373,10 @@
 
                     /* Here, we dont know if the Status Report was ever created or not. To test that we do this. */
 
-                    if (thisObject.statusReport.liveRuns === undefined) { // This means that the Status Report does not exist.
+                    if (
+                        thisObject.statusReport.liveRuns === undefined &&
+                        thisObject.statusReport.backtestRuns === undefined &&
+                        thisObject.statusReport.competitionRuns === undefined) { // This means that the Status Report does not exist.
 
                         thisObject.statusReport = {
                             liveRuns: [],
@@ -399,6 +384,22 @@
                             competitionRuns: []
                         };
                     } 
+
+                    /*
+                    Maybe the status report exists, but the bot was never run in this mode before. We initialize what is needed. 
+                    */
+
+                    if (thisObject.statusReport.liveRuns === undefined) {
+                        thisObject.statusReport.liveRuns = [];
+                    }
+
+                    if (thisObject.statusReport.backtestRuns === undefined) {
+                        thisObject.statusReport.backtestRuns = [];
+                    }
+
+                    if (thisObject.statusReport.competitionRuns === undefined) {
+                        thisObject.statusReport.competitionRuns = [];
+                    }
 
                     switch (bot.startMode) {
 

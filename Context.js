@@ -165,6 +165,23 @@
                     statusReportModule = statusDependencies.statusReports.get(key);
                     thisObject.statusReport = statusReportModule.file;
 
+                    /*
+                    The first time ever a bot is run, it will not have a status report previously saved. In that case, we need to create the basic structure of it
+                    in order to work.
+                    */
+
+                    if (thisObject.statusReport.liveRuns === undefined) {
+                        thisObject.statusReport.liveRuns = [];
+                    }
+
+                    if (thisObject.statusReport.backtestRuns === undefined) {
+                        thisObject.statusReport.backtestRuns = [];
+                    }
+
+                    if (thisObject.statusReport.competitionRuns === undefined) {
+                        thisObject.statusReport.competitionRuns = [];
+                    }
+
                     if (bot.hasTheBotJustStarted === true) { 
 
                         createConext(callBack);

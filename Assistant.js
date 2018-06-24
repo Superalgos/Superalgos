@@ -22,7 +22,9 @@
         getProfits: getProfits,
         getMarketRate: getMarketRate,
         getTicker: getTicker,
-        sendMessage: sendMessage
+        sendMessage: sendMessage,
+        rememberThis: rememberThis,
+        remindMeOf: remindMeOf
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
@@ -1234,6 +1236,30 @@
         context.newHistoryRecord.messageRelevance = pRelevance;
         context.newHistoryRecord.messageTitle = pTitle;
         context.newHistoryRecord.messageBody = pBody;
+
+    }
+
+    function rememberThis(pKey, pValue) {
+
+        if (context.executionContext.remember === undefined) {
+
+            context.executionContext.remember = {};
+
+        }
+
+        context.executionContext.remember[pKey] = pValue;
+
+    }
+
+    function remindMeOf(pKey) {
+
+        if (context.executionContext.remember === undefined) {
+
+            context.executionContext.remember = {};
+
+        }
+
+        return context.executionContext.remember[pKey];
 
     }
 };

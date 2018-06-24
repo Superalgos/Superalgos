@@ -270,15 +270,18 @@
 
                                 }
 
-                                if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
+                                if (global.CURRENT_EXECUTION_AT === "Cloud") {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> End of Backtesting Period reached. Exiting Bot Process Loop."); }
+                                    if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
 
-                                    logger.persist();
-                                    clearInterval(intervalHandle);
-                                    clearTimeout(timeoutHandle);
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                    return;
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> End of Backtesting Period reached. Exiting Bot Process Loop."); }
+
+                                        logger.persist();
+                                        clearInterval(intervalHandle);
+                                        clearTimeout(timeoutHandle);
+                                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                        return;
+                                    }
                                 }
                             }
                             break;

@@ -21,7 +21,7 @@
 
             /* PlotterPanels */
 
-            
+            "BottomSpace/DeleteTradingHistory.js",
 
             "TopSpace/PlayStopButton.js",
             "TopSpace/CompanyLogo.js",

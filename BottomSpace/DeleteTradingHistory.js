@@ -1,6 +1,6 @@
 ﻿
 function newDeleteTradingHistory() {
-
+         
     var thisObject = {
         container: undefined,
         draw: draw,
@@ -16,7 +16,7 @@ function newDeleteTradingHistory() {
     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
 
     container.frame.position.x = 0;
-    container.frame.position.y = 0;
+    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
     container.isClickeable = true;
@@ -79,7 +79,7 @@ function newDeleteTradingHistory() {
 
         let containerName = window.DEV_TEAM.toLowerCase();
 
-        let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + "/" + "AACloud.1.1" + "/" + "Ploniex" + "/" + "dataSet.V1" + "/" + "Reports" + "/" + "Trading-Process";
+        let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Reports" + "/" + "Trading-Process";
         let fileName = "Status.Report.USDT_BTC.json";
 
         readOnlyBlobService.getBlobToText(containerName, filePath + "/" + fileName, onStatusReport);
@@ -108,11 +108,11 @@ function newDeleteTradingHistory() {
 
             }
 
-            for (let i = 0; i < runs.lenght; i++) {
+            for (let i = 0; i < runs.length; i++) {
 
                 /* For each record, we will get the execution history file. */
 
-                let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + "/" + "AACloud.1.1" + "/" + "Ploniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
+                let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
                 let fileName = "Execution.History." + window.CURRENT_START_MODE + "." + i + ".json";
 
                 readOnlyBlobService.getBlobToText(containerName, filePath + "/" + fileName, onExecutionHistory);
@@ -121,13 +121,13 @@ function newDeleteTradingHistory() {
 
                     let executionHistory = JSON.parse(text);
 
-                    for (let i = 0; i < executionHistory.lenght; i++) {
+                    for (let i = 0; i < executionHistory.length; i++) {
 
                         let executionDate = new Date(executionHistory[i]);
 
                         let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2) + "/" + pad(dateTime.getUTCHours(), 2) + "/" + pad(dateTime.getUTCMinutes(), 2);
 
-                        let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + "/" + "AACloud.1.1" + "/" + "Ploniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process" + "/" + datePath;
+                        let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process" + "/" + datePath;
                         let fileName = "Execution.Context." + window.CURRENT_START_MODE + "." + i + ".json";
 
                         readOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
@@ -175,7 +175,7 @@ function newDeleteTradingHistory() {
 
             writeOnlyBlobService.createBlockBlobFromText(containerName, filePath + "/" + fileName, fileContent, onStatusReportUpdated);
 
-            function onStatusReportUpdated() (err, text, response) {
+            function onStatusReportUpdated(err, text, response) {
 
                 console.log(filePath + "/" + fileName + " updated.");
 
@@ -183,7 +183,7 @@ function newDeleteTradingHistory() {
 
             /* Finally we delete the sequence file. */
 
-            let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + "/" + "AACloud.1.1" + "/" + "Ploniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
+            let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
             let fileName = "Execution.History." + window.CURRENT_START_MODE + "." + "Sequence" + ".json";
 
             readOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
@@ -226,12 +226,14 @@ function newDeleteTradingHistory() {
 
         if (canDrawIcon === false) { return; }
 
-        let imageHeight = 45;
-        let imageWidth = 45;
+        let breakpointsHeight = 15;
+
+        let imageHeight = 30;
+        let imageWidth = 30;
 
         let imagePoint = {
             x: 10,
-            y: thisObject.container.frame.height / 2 - imageHeight / 2
+            y: thisObject.container.frame.height / 2 - imageHeight / 2 + breakpointsHeight
         };
 
         imagePoint = thisObject.container.frame.frameThisPoint(imagePoint);

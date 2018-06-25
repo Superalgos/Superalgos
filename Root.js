@@ -6,36 +6,36 @@ exports.newRoot = function newRoot() {
 
     global.LOG_CONTROL = {
         "Assistant": {
-            logInfo: true,
-            logWarnings: true,
+            logInfo: false,
+            logWarnings: false,
             logErrors: true,
             logContent: false,
             intensiveLogging: false
         },
         "Exchange API": {
-            logInfo: true,
-            logWarnings: true,
+            logInfo: false,
+            logWarnings: false,
             logErrors: true,
             logContent: false,
             intensiveLogging: false
         },
         "Status Report": {
-            logInfo: true,
-            logWarnings: true,
+            logInfo: false,
+            logWarnings: false,
             logErrors: true,
             logContent: false,
             intensiveLogging: false
         },
         "Data Set": {
-            logInfo: true,
-            logWarnings: true,
+            logInfo: false,
+            logWarnings: false,
             logErrors: true,
             logContent: false,
             intensiveLogging: false
         },
         "Context": {
-            logInfo: true,
-            logWarnings: true,
+            logInfo: false,
+            logWarnings: false,
             logErrors: true,
             logContent: false,
             intensiveLogging: false

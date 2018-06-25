@@ -29,7 +29,7 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE);
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = " + err.message);
-            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
     
@@ -74,23 +74,28 @@
 
 			getChannelTilt(botDecision);
 				
-			function botDecision(err, channelTilt) {
-				if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> botDecision  -> LRC Channel Tilt:" + channelTilt); }
+            function botDecision(err, channelTilt) {
+                try {
+			        if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> botDecision  -> LRC Channel Tilt:" + channelTilt); }
 
-				if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> botDecision -> err = " + err.message);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
-				} else {
-					if (channelTilt == 1) {
-						createBuyPosition(callBack);
-					} else if (channelTilt == -1) {
-						createSellPosition(callBack);
-					} else {
-                        if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> botDecision -> Nothing to do, there isn't a sell or buy oportunity."); }
+			        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> botDecision -> err = " + err.message);
+                        callBack(global.DEFAULT_FAIL_RESPONSE);
+			        } else {
+				        if (channelTilt == 1) {
+					        createBuyPosition(callBack);
+				        } else if (channelTilt == -1) {
+					        createSellPosition(callBack);
+				        } else {
+                            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> botDecision -> Nothing to do, there isn't a sell or buy oportunity."); }
 							
-						callBack(global.DEFAULT_OK_RESPONSE);
-					}
-				}
+					        callBack(global.DEFAULT_OK_RESPONSE);
+				        }
+                    }
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> botDecision -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
 			}
         }
 
@@ -106,23 +111,58 @@
             getLRCPointsFile(queryDate, onLRCPointsFileReceived);
 
             function onLRCPointsFileReceived(err, lrcPointsFile) {
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> getChannelTilt -> onLRCPointsFileReceived."); }
+                try {
+                    if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> getChannelTilt -> onLRCPointsFileReceived."); }
 
-                let lastIndexLrcPointsFile = lrcPointsFile.length - 1;
-                let lastAvailableDateTime = lrcPointsFile[lastIndexLrcPointsFile][0];
+                    let lastIndexLrcPointsFile = lrcPointsFile.length - 1;
+                    let lastAvailableDateTime = lrcPointsFile[lastIndexLrcPointsFile][0];
 
-                if (bot.processDatetime.valueOf() <= lastAvailableDateTime || !isExecutionToday()) {
-                    for (let i = 0; i < lrcPointsFile.length; i++) {
-                        if (bot.processDatetime.valueOf() >= lrcPointsFile[i][0] && bot.processDatetime.valueOf() < lrcPointsFile[i][1]) {
+                    if (bot.processDatetime.valueOf() <= lastAvailableDateTime || !isExecutionToday()) {
+                        for (let i = 0; i < lrcPointsFile.length; i++) {
+                            if (bot.processDatetime.valueOf() >= lrcPointsFile[i][0] && bot.processDatetime.valueOf() < lrcPointsFile[i][1]) {
+                                lrcPoint = {
+                                    begin: lrcPointsFile[i][0],
+                                    end: lrcPointsFile[i][1],
+                                    min: lrcPointsFile[i][2],
+                                    mid: lrcPointsFile[i][3],
+                                    max: lrcPointsFile[i][4]
+                                };
+                                if (i >= 1) {
+                                    let previous = i - 1;
+                                    previousLRCPoint = {
+                                        begin: lrcPointsFile[previous][0],
+                                        end: lrcPointsFile[previous][1],
+                                        min: lrcPointsFile[previous][2],
+                                        mid: lrcPointsFile[previous][3],
+                                        max: lrcPointsFile[previous][4]
+                                    };
+
+                                    applyBotRules();
+
+                                } else {
+                                    queryDate.setDate(queryDate.getDate() - 1);
+                                    getLRCPointsFile(queryDate, onPreviousLRCPointsFileReceived);
+                                }
+                                return;
+                            }
+                        }
+
+                        logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> getChannelTilt -> onLRCPointsFileReceived. The expected LRC Point was not found.");
+                        callBack(global.DEFAULT_FAIL_RESPONSE);
+                    } else {
+                        // Running live we will process last available LRCPoint only if it's delayed 25 minutes top
+                        let maxTolerance = 25 * 60 * 1000;
+                        if (bot.processDatetime.valueOf() <= (lastAvailableDateTime + maxTolerance)) {
                             lrcPoint = {
-                                begin: lrcPointsFile[i][0],
-                                end: lrcPointsFile[i][1],
-                                min: lrcPointsFile[i][2],
-                                mid: lrcPointsFile[i][3],
-                                max: lrcPointsFile[i][4]
+                                begin: lrcPointsFile[lastIndexLrcPointsFile][0],
+                                end: lrcPointsFile[lastIndexLrcPointsFile][1],
+                                min: lrcPointsFile[lastIndexLrcPointsFile][2],
+                                mid: lrcPointsFile[lastIndexLrcPointsFile][3],
+                                max: lrcPointsFile[lastIndexLrcPointsFile][4]
                             };
-                            if (i >= 1) {
-                                let previous = i - 1;
+
+                            if (lastIndexLrcPointsFile >= 1) {
+                                let previous = lastIndexLrcPointsFile - 1;
                                 previousLRCPoint = {
                                     begin: lrcPointsFile[previous][0],
                                     end: lrcPointsFile[previous][1],
@@ -137,45 +177,15 @@
                                 queryDate.setDate(queryDate.getDate() - 1);
                                 getLRCPointsFile(queryDate, onPreviousLRCPointsFileReceived);
                             }
-                            return;
-                        }
-                    }
-
-                    logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> getChannelTilt -> onLRCPointsFileReceived. The expected LRC Point was not found.");
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
-                } else {
-                    // Running live we will process last available LRCPoint only if it's delayed 5 minutes top
-                    let maxTolerance = 5 * 60 * 1000;
-                    if (bot.processDatetime.valueOf() <= (lastAvailableDateTime + maxTolerance)) {
-                        lrcPoint = {
-                            begin: lrcPointsFile[lastIndexLrcPointsFile][0],
-                            end: lrcPointsFile[lastIndexLrcPointsFile][1],
-                            min: lrcPointsFile[lastIndexLrcPointsFile][2],
-                            mid: lrcPointsFile[lastIndexLrcPointsFile][3],
-                            max: lrcPointsFile[lastIndexLrcPointsFile][4]
-                        };
-
-                        if (lastIndexLrcPointsFile >= 1) {
-                            let previous = lastIndexLrcPointsFile - 1;
-                            previousLRCPoint = {
-                                begin: lrcPointsFile[previous][0],
-                                end: lrcPointsFile[previous][1],
-                                min: lrcPointsFile[previous][2],
-                                mid: lrcPointsFile[previous][3],
-                                max: lrcPointsFile[previous][4]
-                            };
-
-                            applyBotRules();
-
                         } else {
-                            queryDate.setDate(queryDate.getDate() - 1);
-                            getLRCPointsFile(queryDate, onPreviousLRCPointsFileReceived);
-                        }
-                    } else {
-                        if (LOG_INFO === true) logger.write(MODULE_NAME, "[WARN] start -> getChannelTilt -> onLRCPointsFileReceived. Available candle older than 5 minutes. Skeeping execution.");
+                            if (LOG_INFO === true) logger.write(MODULE_NAME, "[WARN] start -> getChannelTilt -> onLRCPointsFileReceived. Available candle older than 5 minutes. Skeeping execution.");
 
-                        callBack(global.DEFAULT_OK_RESPONSE, NO_CHANNEL); // TODO CUSTOM_OK_RESPONSE
+                            callBack(global.DEFAULT_OK_RESPONSE, NO_CHANNEL); // TODO CUSTOM_OK_RESPONSE
+                        }
                     }
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> getChannelTilt -> onLRCPointsFileReceived -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -207,20 +217,20 @@
             }
 
             function applyBotRules() {
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> LRC Point Found: " + JSON.stringify(lrcPoint)); }
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> LRC Point Found."); }
 
                 let channelTilt = NO_CHANNEL;
                 let ruleApplied = "";
 
-                if (lrcPoint.mid < lrcPoint.mid && lrcPoint.min > lrcPoint.mid && lrcPoint.mid < lrcPoint.min) {
-                    if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid > previousLRCPoint.mid && lrcPoint.mid > previousLRCPoint.max) {
+                if (lrcPoint.max < lrcPoint.mid && lrcPoint.min > lrcPoint.mid && lrcPoint.mid < lrcPoint.min) {
+                    if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid > previousLRCPoint.mid && lrcPoint.max > previousLRCPoint.max) {
                         channelTilt = CHANNEL_UP; // The channel points UP
                         ruleApplied += "Rule_1.";
                     }
                 }
 
-                if (lrcPoint.min < lrcPoint.mid && lrcPoint.mid > lrcPoint.mid && lrcPoint.mid < lrcPoint.mid) {
-                    if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid < previousLRCPoint.mid && lrcPoint.mid < previousLRCPoint.max) {
+                if (lrcPoint.min < lrcPoint.mid && lrcPoint.max > lrcPoint.mid && lrcPoint.mid < lrcPoint.max) {
+                    if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid < previousLRCPoint.mid && lrcPoint.max < previousLRCPoint.max) {
                         channelTilt = CHANNEL_DOWN; // The channel points DOWN
                         ruleApplied += "Rule_2.";
                     }
@@ -238,7 +248,7 @@
                     ruleApplied += "Rule_3b.";
                 }
 
-                let logMessage = bot.processDatetime.toISOString() + "\t" + ruleApplied + "\t" + channelTilt + "\t" + lrcPoint.min + "\t" + lrcPoint.mid + "\t" + lrcPoint.mid;
+                let logMessage = bot.processDatetime.toISOString() + "\t" + ruleApplied + "\t" + channelTilt + "\t" + lrcPoint.min + "\t" + lrcPoint.mid + "\t" + lrcPoint.max;
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> Results: " + logMessage); }
 
                 callBack(global.DEFAULT_OK_RESPONSE, channelTilt);
@@ -246,33 +256,27 @@
         }
 
         function getLRCPointsFile(dateTime, callback) {
-            try {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> getLRCPointsFile -> Entering function."); }
+			if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> getLRCPointsFile -> Entering function."); }
 
-                let periodName = "30-min";
-                let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2);
-                let filePath = "LRC-Points/Multi-Period-Daily/" + periodName + "/" + datePath;
-                let fileName = market.assetA + '_' + market.assetB + ".json"
+			let periodName = "30-min";
+			let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2);
+			let filePath = "LRC-Points/Multi-Period-Daily/" + periodName + "/" + datePath;
+			let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                gaussStorage.getTextFile(filePath, fileName, onFileReceived);
+			gaussStorage.getTextFile(filePath, fileName, onFileReceived);
 
-                function onFileReceived(err, text) {
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived > Entering Function."); }
+			function onFileReceived(err, text) {
+				if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+					if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived > Entering Function."); }
 
-                        let lrcPointsFile = JSON.parse(text);
-                        callback(global.DEFAULT_OK_RESPONSE, lrcPointsFile);
-                    } else {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.");
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        return;
-                    }
-                }
-
-            } catch (err) {
-                logger.write(MODULE_NAME, "[ERROR] start -> getChannelTilt -> getLRCPointsFile -> err = " + err.message);
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            }
+					let lrcPointsFile = JSON.parse(text);
+					callback(global.DEFAULT_OK_RESPONSE, lrcPointsFile);
+				} else {
+					logger.write(MODULE_NAME, "[ERROR] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.");
+					callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+					return;
+				}
+			}
         }
 
         function createBuyPosition(callBack) {
@@ -284,11 +288,11 @@
             let amountA = assistant.getAvailableBalance().assetA;
             let amountB = amountA / currentRate;
 				
-			if(positions.length > 0 && positions[0].type === "buy" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 5)){
+            if (positions.length > 0 && positions[0].type === "buy" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 15)){
 					
 				assistant.movePosition(positions[0], currentRate, callBack);
 					
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + currentRate.toFixed(8) + ". Position: " + JSON.stringify(positions[0])); }
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + currentRate.toFixed(8)); }
 					
 				let message = "I'm moving an existing buy position to a new rate: " + currentRate.toFixed(8);
 				assistant.sendMessage(1, "Moving Position", message);
@@ -297,8 +301,14 @@
 			} else if(assetABalance > 0){
 					
 				assistant.putPosition("buy", currentRate, amountA, amountB, callBack);
-					
-				let message = "I'm creating a new buy position at rate: " + currentRate.toFixed(8) + ". " + MARKET.assetA +" amount: " + amountA.toFixed(8) + ". " + MARKET.assetB + " amount: "  + amountB.toFixed(8);
+
+                let profitA = 0;
+                let profitB = 0;
+                if (assistant.getProfits() !== undefined) {
+                    profitA = assistant.getProfits().assetA.toFixed(8);
+                    profitB = assistant.getProfits().assetB.toFixed(8);
+                }
+                let message = "I'm creating a new buy position at rate: " + currentRate.toFixed(8) + ". Profits on this execution: " + MARKET.assetA + ": " + profitA + ". " + MARKET.assetB + ": " + profitB;
 				assistant.sendMessage(1, "Buying", message);
 										
 			} else {
@@ -317,11 +327,11 @@
             let amountB = assistant.getAvailableBalance().assetB;
             let amountA = amountB * currentRate;
 
-			if(positions.length > 0 && positions[0].type === "sell" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 5)){
+            if (positions.length > 0 && positions[0].type === "sell" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 15)){
 					
 				assistant.movePosition(positions[0], currentRate, callBack);
 					
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + currentRate.toFixed(8) + ". Position: " + JSON.stringify(positions[0])); }
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + currentRate.toFixed(8)); }
 					
 				let message = "I'm moving an existing sell position to a new rate: " + currentRate.toFixed(8);
 				assistant.sendMessage(1, "Moving Position", message);
@@ -329,10 +339,16 @@
 			}else if(assetBBalance > 0){
 					
 				assistant.putPosition("sell", currentRate, amountA, amountB, callBack);
-					
+				
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Artuditu put a new SELL Position at rate: " + currentRate + ". Amount traded asset A: " + amountA + ". Amount traded asset B: " + amountB); }
-					
-				let message = "I'm creating a new sell position at rate: " + currentRate.toFixed(8) + ". " + MARKET.assetA +" amount: " + amountA.toFixed(8) + ". " + MARKET.assetB + " amount: "  + amountB.toFixed(8);
+
+                let profitA = 0;
+                let profitB = 0;
+                if (assistant.getProfits() !== undefined) {
+                    profitA = assistant.getProfits().assetA.toFixed(8);
+                    profitB = assistant.getProfits().assetB.toFixed(8);
+                }
+                let message = "I'm creating a new sell position at rate: " + currentRate.toFixed(8) + ". Profits on this execution: " + MARKET.assetA + ": " + profitA + "  " + MARKET.assetB + ": " + profitB;
 				assistant.sendMessage(1, "Selling", message);
 					
 			} else {

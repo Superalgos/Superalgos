@@ -381,7 +381,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well.");
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well."); }
                                             initializeDataDependencies();
                                             return;
                                         }
@@ -447,7 +447,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.");
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well."); }
                                             initializeContext();
                                             return;
                                         }
@@ -512,7 +512,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeContext -> onInizialized -> Execution finished well.");
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeContext -> onInizialized -> Execution finished well."); }
                                             initializeExchangeAPI();
                                             return;
                                         }
@@ -578,7 +578,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI -> onInizialized -> Execution finished well.");
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI -> onInizialized -> Execution finished well."); }
                                             initializeAssistant();
                                             return;
                                         }
@@ -643,7 +643,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeAssistant -> onInizialized -> Execution finished well.");
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeAssistant -> onInizialized -> Execution finished well."); }
                                             initializeUserBot();
                                             return;
                                         }
@@ -709,7 +709,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot -> onInizialized -> Execution finished well.");
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot -> onInizialized -> Execution finished well."); }
                                             startUserBot();
                                             return;
                                         }
@@ -773,7 +773,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> startUserBot -> onFinished -> Execution finished well.");
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startUserBot -> onFinished -> Execution finished well."); }
                                             saveContext();
                                             return;
                                         }
@@ -837,7 +837,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext -> onFinished -> Execution finished well.");
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext -> onFinished -> Execution finished well."); }
                                             nextWaitTime = 'Normal';
                                             loopControl(nextWaitTime);
                                             return;

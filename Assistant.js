@@ -229,7 +229,7 @@
 
                             switch (err.result) {
                                 case global.DEFAULT_OK_RESPONSE.result: {
-                                    logger.write(MODULE_NAME, "[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Execution finished well.");
+                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> validateExchangeSyncronicity -> onDone -> Execution finished well."); }
                                     calculateProfits();
                                     return;
                                 }
@@ -368,7 +368,7 @@
 
                 switch (err.result) {
                     case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                        logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> onResponse -> Execution finished well.");
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> onResponse -> Execution finished well."); }
                         exchangePositions = pExchangePositions;
                         ordersExecutionCheck(callBack);
                         return;
@@ -584,7 +584,7 @@
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                                            logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well.");
+                                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well."); }
                                             innerCallBack(pTrades);
                                         }
                                             break;
@@ -990,7 +990,8 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                            logger.write(MODULE_NAME, "[INFO] putPosition -> onResponse -> Execution finished well.");
+
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onResponse -> Execution finished well."); }
 
                             let position = {
                                 id: pPositionId,
@@ -1105,7 +1106,8 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-                            logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Execution finished well.");
+
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Execution finished well."); }
 
                             let newPosition = {
                                 id: pPositionId,

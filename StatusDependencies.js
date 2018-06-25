@@ -1,6 +1,6 @@
 ﻿exports.newStatusDependencies = function newStatusDependencies(BOT, logger, STATUS_REPORT, BLOB_STORAGE, UTILITIES) {
 
-    const FULL_LOG = true;
+    const FULL_LOG = false;
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "Status Dependencies";
@@ -57,8 +57,9 @@
 
                         switch (err.message) {
                             case global.DEFAULT_OK_RESPONSE.message: {
-                                logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> bot = " + pStatusDependenciesConfig[i].bot);
-                                logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> process = " + pStatusDependenciesConfig[i].process);
+
+                                if (FULL_LOG === true) { "[INFO] initialize -> onLoad -> Execution finished well. -> bot = " + pStatusDependenciesConfig[i].bot); }
+                                if (FULL_LOG === true) { "[INFO] initialize -> onLoad -> Execution finished well. -> process = " + pStatusDependenciesConfig[i].process); }
 
                                 addReport();
                                 return;

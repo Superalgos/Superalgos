@@ -503,6 +503,8 @@
 
         try {
 
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> Entering function."); }
+
             writeExecutionContext(onDone);
 
             function onDone(err) {
@@ -510,7 +512,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
-                            logger.write(MODULE_NAME, "[INFO] saveThemAll -> onDone -> Execution finished well.");
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> onDone -> Execution finished well."); }
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }

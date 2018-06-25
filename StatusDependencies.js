@@ -58,8 +58,8 @@
                         switch (err.message) {
                             case global.DEFAULT_OK_RESPONSE.message: {
 
-                                if (FULL_LOG === true) { "[INFO] initialize -> onLoad -> Execution finished well. -> bot = " + pStatusDependenciesConfig[i].bot); }
-                                if (FULL_LOG === true) { "[INFO] initialize -> onLoad -> Execution finished well. -> process = " + pStatusDependenciesConfig[i].process); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> bot = " + pStatusDependenciesConfig[i].bot); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> process = " + pStatusDependenciesConfig[i].process); }
 
                                 addReport();
                                 return;

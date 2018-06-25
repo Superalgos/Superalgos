@@ -89,7 +89,7 @@
         let container = "aaplatform";
         let readPermission = storageAccessManager.getPermission(container, "READ", MAX_STORAGE_PERMISSION_DAYS);
         userProfile.storagePermissions.push(["AAPlatform" + "." + "READ", readPermission]);
-        
+
         callBackFunction(global.DEFAULT_OK_RESPONSE, userProfile);
 
     }

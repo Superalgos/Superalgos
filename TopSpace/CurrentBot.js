@@ -32,15 +32,17 @@ function newCurrentBot() {
         sharedStatus = pSharedStatus;
 
         if (window.USER_PROFILE.devTeams.length === 0) {
-            window.CURRENT_BOT = NOT_FOUND;
+            window.CURRENT_BOT_DISPLAY_NAME = NOT_FOUND;
         } else {
 
             if (window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length === 0) {
-                window.CURRENT_BOT = NOT_FOUND;
+                window.CURRENT_BOT_DISPLAY_NAME = NOT_FOUND;
                 window.CURRENT_BOT_REPO = "NO REPO";
+                window.CURRENT_BOT_CODE_NAME = "";
             } else {
-                window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+                window.CURRENT_BOT_DISPLAY_NAME = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
                 window.CURRENT_BOT_REPO = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].repo;
+                window.CURRENT_BOT_CODE_NAME = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].codeName;
             }
         }
 
@@ -53,13 +55,15 @@ function newCurrentBot() {
         if (window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length > 0) {
 
             sharedStatus.currentUserBotIndex = 0;
-            window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+            window.CURRENT_BOT_DISPLAY_NAME = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
             window.CURRENT_BOT_REPO = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].repo;
+            window.CURRENT_BOT_CODE_NAME = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].codeName;
+
             sharedStatus.eventHandler.raiseEvent("userBot Changed");
 
         } else {
 
-            window.CURRENT_BOT = NOT_FOUND;
+            window.CURRENT_BOT_DISPLAY_NAME = NOT_FOUND;
 
         }
     }
@@ -69,8 +73,10 @@ function newCurrentBot() {
         if (sharedStatus.currentUserBotIndex + 1 === window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length) {
 
             sharedStatus.currentUserBotIndex = 0;
-            window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+            window.CURRENT_BOT_DISPLAY_NAME = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
             window.CURRENT_BOT_REPO = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].repo;
+            window.CURRENT_BOT_CODE_NAME = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].codeName;
+
             sharedStatus.eventHandler.raiseEvent("userBot Changed");
             return;
         }
@@ -78,8 +84,10 @@ function newCurrentBot() {
         if (sharedStatus.currentUserBotIndex + 1 < window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length) {
 
             sharedStatus.currentUserBotIndex++;
-            window.CURRENT_BOT = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
+            window.CURRENT_BOT_DISPLAY_NAME = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].displayName;
             window.CURRENT_BOT_REPO = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].repo;
+            window.CURRENT_BOT_CODE_NAME = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].codeName;
+
             sharedStatus.eventHandler.raiseEvent("userBot Changed");
             return;
         }
@@ -109,7 +117,7 @@ function newCurrentBot() {
         thisObject.container.frame.draw(false, false);
 
         let fontSize = 12;
-        let label = window.CURRENT_BOT;
+        let label = window.CURRENT_BOT_DISPLAY_NAME;
 
         let point = {
             x: thisObject.container.frame.width * 1 / 3,

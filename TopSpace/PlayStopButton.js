@@ -59,7 +59,7 @@ function newPlayStopButton() {
 
     function onClick() {
 
-        if (window.CURRENT_BOT === "") { return; }
+        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
 
         switch (showing) {
 
@@ -122,7 +122,7 @@ function newPlayStopButton() {
 
     function draw() {
 
-        if (window.CURRENT_BOT === "") { return; }
+        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
 
         thisObject.container.frame.draw(false, false);
 

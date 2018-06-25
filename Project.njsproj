@@ -37,6 +37,9 @@
     </Compile>
     <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
+    <Compile Include="BottomSpace\DeleteTradingHistory.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BreakpointsBar.js">
       <SubType>Code</SubType>
     </Compile>

@@ -125,7 +125,7 @@
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
-                            logger.write(MODULE_NAME, "[INFO] initialize -> onDone -> Execution finished well.");
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onDone -> Execution finished well."); }
 
                             bot.hasTheBotJustStarted = false;
 

@@ -30,6 +30,7 @@
     <Folder Include="obj\Debug" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commons.js" />
     <Compile Include="Trading-Process\User.Bot.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />

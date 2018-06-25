@@ -20,6 +20,8 @@
         getAvailableBalance: getAvailableBalance,
         getInvestment: getInvestment,
         getProfits: getProfits,
+        getCombinedProfits: getCombinedProfits,
+        getROI: getROI, 
         getMarketRate: getMarketRate,
         getTicker: getTicker,
         sendMessage: sendMessage,
@@ -1223,6 +1225,24 @@
         return JSON.parse(JSON.stringify(context.executionContext.profits));
     }
 
+    function getCombinedProfits() {
+
+        let combinedProfits = {
+            assetA: context.newHistoryRecord.combinedProfitsA,
+            assetB: context.newHistoryRecord.combinedProfitsB
+        }
+        return JSON.parse(JSON.stringify(combinedProfits));
+    }
+
+    function getROI() {
+
+        let ROI = {
+            assetA: (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA * 100,
+            assetB: (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB * 100
+        }
+        return JSON.parse(JSON.stringify(ROI));
+    }
+    
     function getMarketRate() {
         return marketRate;
     }

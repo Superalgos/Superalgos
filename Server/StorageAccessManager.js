@@ -56,6 +56,10 @@
                 azurePermissions = azure.BlobUtilities.SharedAccessPermissions.WRITE;
                 break;
             }
+            case "DELETE": {
+                azurePermissions = azure.BlobUtilities.SharedAccessPermissions.DELETE;
+                break;
+            }
         }
         
         let blobName = undefined;

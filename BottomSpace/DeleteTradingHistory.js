@@ -64,6 +64,7 @@ function newDeleteTradingHistory() {
 
         let readOnlyBlobService;
         let writeOnlyBlobService;
+        let deleteOnlyBlobService;
 
         let readConnectionString = window.USER_PROFILE.storagePermissions.get(window.DEV_TEAM + "." + "READ");
 
@@ -77,12 +78,18 @@ function newDeleteTradingHistory() {
             writeOnlyBlobService = storage.createBlobService(writeConnectionString);
         }
 
+        let deleteConnectionString = window.USER_PROFILE.storagePermissions.get(window.DEV_TEAM + "." + "DELETE");
+
+        if (deleteConnectionString !== undefined) {
+            deleteOnlyBlobService = storage.createBlobService(deleteConnectionString);
+        }
+
         let containerName = window.DEV_TEAM.toLowerCase();
 
-        let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Reports" + "/" + "Trading-Process";
-        let fileName = "Status.Report.USDT_BTC.json";
+        let statusReportFilePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Reports" + "/" + "Trading-Process";
+        let statusReportFileName = "Status.Report.USDT_BTC.json";
 
-        readOnlyBlobService.getBlobToText(containerName, filePath + "/" + fileName, onStatusReport);
+        readOnlyBlobService.getBlobToText(containerName, statusReportFilePath + "/" + statusReportFileName, onStatusReport);
 
         function onStatusReport(err, text, response) {
 
@@ -108,6 +115,11 @@ function newDeleteTradingHistory() {
 
             }
 
+            let toBeDeleted = 0;
+            let deleted = 0;
+
+            console.log("runs = " + JSON.stringify(runs));
+
             for (let i = 0; i < runs.length; i++) {
 
                 /* For each record, we will get the execution history file. */
@@ -121,29 +133,46 @@ function newDeleteTradingHistory() {
 
                     let executionHistory = JSON.parse(text);
 
-                    for (let i = 0; i < executionHistory.length; i++) {
+                    for (let j = 0; j < executionHistory.length; j++) {
 
-                        let executionDate = new Date(executionHistory[i]);
+                        let dateTime = new Date(executionHistory[j][0]);
 
                         let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2) + "/" + pad(dateTime.getUTCHours(), 2) + "/" + pad(dateTime.getUTCMinutes(), 2);
 
                         let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process" + "/" + datePath;
                         let fileName = "Execution.Context." + window.CURRENT_START_MODE + "." + i + ".json";
 
-                        readOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
+                        deleteOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
+
+                        toBeDeleted++;
 
                         function onDeleted(err, text, response) {
 
-                            console.log(filePath + "/" + fileName + " deleted.");
+                            if (err) {
 
+                                console.log(filePath + "/" + fileName + " NOT deleted.");
+                                console.log("err.message = " + err.message);
+                            } else {
+
+                                console.log(filePath + "/" + fileName + " deleted.");
+
+                            }
+
+                            deleted++;
+
+                            if (toBeDeleted === deleted) {
+
+                                updateStatusReport();
+
+                            }
                         }
                     }
 
                     /* Now we delete the execution history file. */
 
-                    readOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
+                    deleteOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onExecutionHistoryDeleted);
 
-                    function onDeleted(err, text, response) {
+                    function onExecutionHistoryDeleted(err, text, response) {
 
                         console.log(filePath + "/" + fileName + " deleted.");
 
@@ -151,47 +180,50 @@ function newDeleteTradingHistory() {
                 }
             }
 
-            switch (window.CURRENT_START_MODE) {
+            function updateStatusReport() {
 
-                case "Live": {
-                    statusReport.liveRuns = [];
-                    break;
+                switch (window.CURRENT_START_MODE) {
+
+                    case "Live": {
+                        statusReport.liveRuns = [];
+                        break;
+                    }
+
+                    case "Backtest": {
+                        statusReport.backtestRuns = [];
+                        break;
+                    }
+
+                    case "Competition": {
+                        statusReport.competitionRuns = [];
+                        break;
+                    }
                 }
 
-                case "Backtest": {
-                    statusReport.backtestRuns= [];
-                    break;
+                /* Here is where we update the current Status Report file with the new version without records for the current Start Mode. */
+
+                let fileContent = JSON.stringify(statusReport);
+
+                writeOnlyBlobService.createBlockBlobFromText(containerName, statusReportFilePath + "/" + statusReportFileName, fileContent, onStatusReportUpdated);
+
+                function onStatusReportUpdated(err, text, response) {
+
+                    console.log(statusReportFilePath + "/" + statusReportFileName + " updated.");
+
                 }
 
-                case "Competition": {
-                    statusReport.competitionRuns = [];
-                    break;
+                /* Finally we delete the sequence file. */
+
+                let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
+                let fileName = "Execution.History." + window.CURRENT_START_MODE + "." + "Sequence" + ".json";
+
+                deleteOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
+
+                function onDeleted(err, text, response) {
+
+                    console.log(filePath + "/" + fileName + " deleted.");
+
                 }
-            }
-
-            /* Here is where we update the current Status Report file with the new version without records for the current Start Mode. */
-
-            let fileContent = JSON.stringify(statusReport);
-
-            writeOnlyBlobService.createBlockBlobFromText(containerName, filePath + "/" + fileName, fileContent, onStatusReportUpdated);
-
-            function onStatusReportUpdated(err, text, response) {
-
-                console.log(filePath + "/" + fileName + " updated.");
-
-            }
-
-            /* Finally we delete the sequence file. */
-
-            let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
-            let fileName = "Execution.History." + window.CURRENT_START_MODE + "." + "Sequence" + ".json";
-
-            readOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
-
-            function onDeleted(err, text, response) {
-
-                console.log(filePath + "/" + fileName + " deleted.");
-
             }
         }
 

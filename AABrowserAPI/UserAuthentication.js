@@ -63,12 +63,17 @@
 
             let readPermission = storageAccessManager.getPermission(container, "READ", MAX_STORAGE_PERMISSION_DAYS);
             let writePermission = storageAccessManager.getPermission(container, "WRITE", MAX_STORAGE_PERMISSION_DAYS);
+            let deletePermission = storageAccessManager.getPermission(container, "DELETE", MAX_STORAGE_PERMISSION_DAYS);
 
             userProfile.storagePermissions.push([devTeam.codeName + "." + "READ", readPermission]);
             userProfile.storagePermissions.push([devTeam.codeName + "." + "WRITE", writePermission]);
+            userProfile.storagePermissions.push([devTeam.codeName + "." + "DELETE", deletePermission]);
 
+            /*
             console.log(devTeam.codeName + "." + "READ" + ":" + readPermission);
             console.log(devTeam.codeName + "." + "WRITE" + ":" + writePermission);
+            console.log(devTeam.codeName + "." + "DELETE" + ":" + writePermission);
+            */
 
             /* Each devTeam potentially depends on data from other devTeams. The user will need the storage permissions to read that data. */
 

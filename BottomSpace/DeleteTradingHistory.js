@@ -15,7 +15,7 @@ function newDeleteTradingHistory() {
     thisObject.container.frame.width = 150;
     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
 
-    container.frame.position.x = 0;
+    container.frame.position.x = viewPort.visibleArea.topRight.x;
     container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
@@ -43,6 +43,8 @@ function newDeleteTradingHistory() {
     }
 
     function onClick() {
+
+        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
 
         /*
 
@@ -253,6 +255,8 @@ function newDeleteTradingHistory() {
     }
 
     function draw() {
+
+        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
 
         thisObject.container.frame.draw(false, false);
 

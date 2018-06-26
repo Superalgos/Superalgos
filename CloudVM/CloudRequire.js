@@ -16,7 +16,7 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write(MODULE_NAME + "[INFO] downloadBot -> Entering function."); }
+            if (INFO_LOG === true) { logger.write(MODULE_NAME, "[INFO] downloadBot -> Entering function."); }
 
             let filePath = "Bots" + "/" + pFilePath + "/" + "User.Bot.js";
 
@@ -30,7 +30,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME + "[ERROR] downloadBot -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] downloadBot -> err = " + err.message);
             callBackFunction(window.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -39,7 +39,7 @@
 
         try {
 
-            if (INFO_LOG === true) { logger.write(MODULE_NAME + "[INFO] downloadCommons -> Entering function."); }
+            if (INFO_LOG === true) { logger.write(MODULE_NAME, "[INFO] downloadCommons -> Entering function."); }
 
             let filePath = "Bots" + "/" + pFilePath + "/" + "Commons.js";
 
@@ -53,7 +53,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME + "[ERROR] downloadCommons -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] downloadCommons -> err = " + err.message);
             callBackFunction(window.DEFAULT_FAIL_RESPONSE);
         }
     }

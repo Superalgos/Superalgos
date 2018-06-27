@@ -5,7 +5,7 @@
     let thisObject = {
         authenticateUser: authenticateUser,
         initialize: initialize
-    }
+    };
 
     let sessionManager;
     let storageAccessManager;
@@ -15,7 +15,7 @@
     function initialize(pSessionManager, pStorageAccessManager) {
 
         sessionManager = pSessionManager;
-        storageAccessManager = pStorageAccessManager; 
+        storageAccessManager = pStorageAccessManager;
 
     }
 
@@ -35,7 +35,7 @@
             return;
         }
 
-         /* The second posiibility is that the session is not found. */
+        /* The second posiibility is that the session is not found. */
 
         let session = sessionManager.getSession(pSessionToken);
 
@@ -72,7 +72,7 @@
             console.log(devTeam.codeName + "." + "READ" + ":" + readPermission);
             console.log(devTeam.codeName + "." + "WRITE" + ":" + writePermission);
             console.log(devTeam.codeName + "." + "DELETE" + ":" + writePermission);
-            
+
             /* Each devTeam potentially depends on data from other devTeams. The user will need the storage permissions to read that data. */
 
             for (j = 0; j < devTeam.devTeamDependencies.length; j++) {
@@ -89,7 +89,7 @@
 
             }
         }
-        
+
         /* In order to be able to download a bot source code, the user will need READ permissions over the Platform container. */
 
         let container = "aaplatform";
@@ -99,4 +99,4 @@
         callBackFunction(global.DEFAULT_OK_RESPONSE, userProfile);
 
     }
-}
+};

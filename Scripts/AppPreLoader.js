@@ -30,6 +30,8 @@ GLOBAL.CUSTOM_FAIL_RESPONSE = {
 
 function loadAdvancedAlgosPlatform() {
 
+    console.log("AppPreLoader : " + "[INFO] loadAdvancedAlgosPlatform -> Entering function.");
+
     /* The first thing to do here is to add the canvas where all the action is going to happen. */
 
     let canvas = document.createElement('canvas');
@@ -54,6 +56,8 @@ function loadAdvancedAlgosPlatform() {
 
     function onServerReponded(pResponseFromServer) {
 
+        console.log("AppPreLoader : " + "[INFO] loadAdvancedAlgosPlatform -> onServerReponded -> Entering function.");
+
         let responseFromServer = JSON.parse(pResponseFromServer);
 
         err = responseFromServer.err;
@@ -67,12 +71,31 @@ function loadAdvancedAlgosPlatform() {
 
         window.USER_PROFILE = responseFromServer.userProfile;
 
-        loadModules();
+        loadDebugModule();
+    }
+
+    function loadDebugModule() {
+
+        console.log("AppPreLoader : " + "[INFO] loadDebugModule -> Entering function.");
+
+        let path = "WebDebugLog.js";
+
+        REQUIREJS([path], onRequired);
+
+        function onRequired(pModule) {
+
+            console.log("AppPreLoader : " + "[INFO] " + path + " downloaded.");
+
+            loadModules();
+
+        }
     }
 
     /* And Finally, we start loading all the scripts we will inmediatelly need. */
 
     function loadModules() {
+
+        console.log("AppPreLoader : " + "[INFO] loadModules -> Entering function.");
 
         let path = "Scripts/AppLoader.js";
 
@@ -80,7 +103,7 @@ function loadAdvancedAlgosPlatform() {
 
         function onRequired(pModule) {
 
-            console.log(path + " downloaded.");
+            console.log("AppPreLoader : " + "[INFO] " + path + " downloaded.");
 
             let APP_LOADER_MODULE = newAppLoader();
             APP_LOADER_MODULE.loadModules();

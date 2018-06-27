@@ -105,7 +105,6 @@ function convertTimePeriodToName(pTimePeriod) {
 let cloudVM = newCloudVM();
 window.AT_BREAKPOINT = false;
 
-const DEBUG_START_UP_DELAY = 0 //3000; // This is a waiting time in case there is a need to debug the very first steps of initialization, to be able to hit F12 on time.
 const INITIAL_DEFAULT_MARKET = 2;       // This is the market that will be shown when loading the site for the first time.
 const DEFAULT_EXCHANGE = "Poloniex";
 const DEFAULT_MARKET = {
@@ -178,31 +177,69 @@ maxDate.setDate(maxDate.getDate() + 10);
 
 const MAX_PLOTABLE_DATE = maxDate;
 
-function dashboardStart() {
+function newDashboard() {
 
-    setTimeout(start, DEBUG_START_UP_DELAY);    
-    
-}
+    const MODULE_NAME = "Dashboard";
+    const INFO_LOG = true;
+    const ERROR_LOG = true;
+    const INTENSIVE_LOG = false;
+    const logger = newWebDebugLog();
+    logger.fileName = MODULE_NAME;
 
-
-function start() {
-
-    const ID_EXCHANGE_POLONIEX = 1;
-
-    /* For now, we are supporting only one market. */
-
-    let market = {
-        id: 2,
-        assetA: "USDT",
-        assetB: "BTC"
+    let thisObject = {
+        start: start
     };
 
-    markets = new Map(); 
+    const DEBUG_START_UP_DELAY = 0 //3000; // This is a waiting time in case there is a need to debug the very first steps of initialization, to be able to hit F12 on time.
 
-    markets.set(market.id, market);
+    return thisObject;
 
-    canvas = newCanvas();
-    canvas.initialize();
+    function start() {
 
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] start -> Entering function."); }
+
+            setTimeout(delayedStart, DEBUG_START_UP_DELAY);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] start -> err = " + err); }
+
+        }
+    }
+
+
+    function delayedStart() {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] delayedStart -> Entering function."); }
+
+            const ID_EXCHANGE_POLONIEX = 1;
+
+            /* For now, we are supporting only one market. */
+
+            let market = {
+                id: 2,
+                assetA: "USDT",
+                assetB: "BTC"
+            };
+
+            markets = new Map();
+
+            markets.set(market.id, market);
+
+            canvas = newCanvas();
+            canvas.initialize();
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] delayedStart -> err = " + err); }
+
+        }
+    }
 }
+
+
 

@@ -11,6 +11,7 @@ function newCanvas() {
     const MODULE_NAME = "Canvas";
     const INFO_LOG = true;
     const ERROR_LOG = true;
+    const INTENSIVE_LOG = false;
     const logger = newWebDebugLog();
     logger.fileName = MODULE_NAME;
 
@@ -166,7 +167,7 @@ function newCanvas() {
 
                         } catch (err) {
 
-                            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onAnimationInitialized -> onFunctionAdded ->  -> err = " + err); }
+                            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> onAnimationInitialized -> onFunctionAdded -> err = " + err); }
                             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -470,7 +471,7 @@ function newCanvas() {
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] onMouseMove -> Entering function."); }
+            if (INTENSIVE_LOG === true) { logger.write("[INFO] onMouseMove -> Entering function."); }
 
             viewPort.mousePosition.x = event.pageX;
             viewPort.mousePosition.y = event.pageY;
@@ -551,7 +552,7 @@ function newCanvas() {
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] checkDrag -> Entering function."); }
+            if (INTENSIVE_LOG === true) { logger.write("[INFO] checkDrag -> Entering function."); }
 
             if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
 

@@ -17,7 +17,7 @@ function newFileCursor() {
         getExpectedFiles: getExpectedFiles,
         initialize: initialize,
         finalize: finalize
-    }
+    };
 
     let minCursorSize = 10;
     let maxCursorSize = 30;

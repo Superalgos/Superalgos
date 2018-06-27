@@ -1,9 +1,11 @@
 ﻿function newAppLoader() {
 
-    const INFO_LOG = false;
-    const LOG_FILE_CONTENT = false;
-
     const MODULE_NAME = "App Loader";
+    const INFO_LOG = true;
+    const ERROR_LOG = true;
+    const INTENSIVE_LOG = false;
+    const logger = newWebDebugLog();
+    logger.fileName = MODULE_NAME;
 
     let thisObject = {
         loadModules: loadModules
@@ -13,106 +15,136 @@
 
     function loadModules() {
 
-        let modulesArray = [    
+        try {
 
-            /* CloudWebScripts */
+            if (INFO_LOG === true) { logger.write("[INFO] loadModules -> Entering function."); }
 
-            /* Plotters */
+            let modulesArray = [
 
-            /* PlotterPanels */
+                /* CloudWebScripts */
 
-            "BottomSpace/DeleteTradingHistory.js",
+                /* Plotters */
 
-            "TopSpace/PlayStopButton.js",
-            "TopSpace/CompanyLogo.js",
-            "TopSpace/CurrentStartMode.js",
-            "TopSpace/CurrentProcess.js",
-            "TopSpace/CurrentBot.js",
-            "TopSpace/DevTeam.js",
-            "TopSpace/EndUser.js",
+                /* PlotterPanels */
 
-            "Panels/TimeControlPanel.js",
-            "Panels/ProductsPanel.js",
+                "BottomSpace/DeleteTradingHistory.js",
 
-            "Spaces/BottomSpace.js",
-            "Spaces/TopSpace.js",
-            "Spaces/PanelsSpace.js",
-            "Spaces/ChartSpace.js",
-            "Spaces/FloatingSpace.js",
+                "TopSpace/PlayStopButton.js",
+                "TopSpace/CompanyLogo.js",
+                "TopSpace/CurrentStartMode.js",
+                "TopSpace/CurrentProcess.js",
+                "TopSpace/CurrentBot.js",
+                "TopSpace/DevTeam.js",
+                "TopSpace/EndUser.js",
 
-            "Files/SingleFile.js",
-            "Files/FileCloud.js",
-            "Files/MarketFiles.js",
-            "Files/DailyFiles.js",
-            "Files/FileCursor.js",
-            "Files/FileSequence.js",
+                "Panels/TimeControlPanel.js",
+                "Panels/ProductsPanel.js",
 
-            "FloatingSpace/NoteSets.js",
-            "FloatingSpace/Note.js",
-            "FloatingSpace/ProfileBalls.js",
-            "FloatingSpace/ProfileBall.js",
-            "FloatingSpace/FloatingObject.js",
-            "FloatingSpace/FloatingLayer.js",
+                "Spaces/BottomSpace.js",
+                "Spaces/TopSpace.js",
+                "Spaces/PanelsSpace.js",
+                "Spaces/ChartSpace.js",
+                "Spaces/FloatingSpace.js",
 
-            "CloudVM/PoloniexAPIClient.js",
-            "CloudVM/CloudSupport.js",
-            "CloudVM/CloudRequire.js",
-            "CloudVM/WebFS.js",
-            "CloudVM/CloudVM.js",
+                "Files/SingleFile.js",
+                "Files/FileCloud.js",
+                "Files/MarketFiles.js",
+                "Files/DailyFiles.js",
+                "Files/FileCursor.js",
+                "Files/FileSequence.js",
 
-            "BreakpointsBar.js",
-            "WebDebugLog.js",
-            "Plotter.js",
-            "PlotterPanel.js",
+                "FloatingSpace/NoteSets.js",
+                "FloatingSpace/Note.js",
+                "FloatingSpace/ProfileBalls.js",
+                "FloatingSpace/ProfileBall.js",
+                "FloatingSpace/FloatingObject.js",
+                "FloatingSpace/FloatingLayer.js",
 
-            "ProductStorage.js",
-            "CompetitionStorage.js",
-            "ProductCard.js",
-            "Ecosystem.js",
+                "CloudVM/PoloniexAPIClient.js",
+                "CloudVM/CloudSupport.js",
+                "CloudVM/CloudRequire.js",
+                "CloudVM/WebFS.js",
+                "CloudVM/CloudVM.js",
 
-            "SplashScreen.js",
-            "Canvas.js",
-            "TextButton.js",
-            "ImageButton.js",
-            "EventHandler.js",
-            "Frame.js",
+                "BreakpointsBar.js",
+                "Plotter.js",
+                "PlotterPanel.js",
 
-            "ViewPort.js",
-            "TimeMachine.js",
-            "Candle.js",
-            "VolumeBar.js",
-            "ChartUtilities.js",
-            "TimelineChart.js",
-            "ChartGrid.js",
-            "Animation.js",
+                "ProductStorage.js",
+                "CompetitionStorage.js",
+                "ProductCard.js",
+                "Ecosystem.js",
 
-            "Container.js",
-            "Displace.js",
+                "SplashScreen.js",
+                "Canvas.js",
+                "TextButton.js",
+                "ImageButton.js",
+                "EventHandler.js",
+                "Frame.js",
 
-            "Azure/azure-storage.blob.js",
-            "TimeLineCoordinateSystem.js",
-            "Utilities.js",
-            "Dashboard.js"
-        ];
+                "ViewPort.js",
+                "TimeMachine.js",
+                "Candle.js",
+                "VolumeBar.js",
+                "ChartUtilities.js",
+                "TimelineChart.js",
+                "ChartGrid.js",
+                "Animation.js",
 
-        let downloadedCounter = 0;
+                "Container.js",
+                "Displace.js",
 
-        for (let i = 0; i < modulesArray.length; i++) {
+                "Azure/azure-storage.blob.js",
+                "TimeLineCoordinateSystem.js",
+                "Utilities.js",
+                "Dashboard.js"
+            ];
 
-            let path = modulesArray[i];
+            let downloadedCounter = 0;
 
-            REQUIREJS([path], onRequired);
+            for (let i = 0; i < modulesArray.length; i++) {
 
-            function onRequired(pModule) {
+                let path = modulesArray[i];
 
-                //console.log(MODULE_NAME + ": " + path + " downloaded.");
-                downloadedCounter++;
+                REQUIREJS([path], onRequired);
 
-                if (downloadedCounter === modulesArray.length) {
+                if (INFO_LOG === true) { logger.write("[INFO] loadModules -> Module Requested."); }
+                if (INFO_LOG === true) { logger.write("[INFO] loadModules -> path = " + path); }
+                if (INFO_LOG === true) { logger.write("[INFO] loadModules -> total requested = " + (i + 1)); }
 
-                    dashboardStart(); // This formally starts the app.
+                function onRequired(pModule) {
+
+                    try {
+
+                        if (INFO_LOG === true) { logger.write("[INFO] loadModules -> onRequired -> Entering function."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] loadModules -> onRequired -> Module Downloaded."); }
+                        if (INFO_LOG === true) { logger.write("[INFO] loadModules -> onRequired -> path = " + path); }
+
+                        downloadedCounter++;
+
+                        if (INFO_LOG === true) { logger.write("[INFO] loadModules -> onRequired -> downloadedCounter = " + downloadedCounter); }
+
+                        if (downloadedCounter === modulesArray.length) {
+
+                            if (INFO_LOG === true) { logger.write("[INFO] loadModules -> onRequired -> Starting Advanced Algos Platform."); }
+
+                            let dashboard = newDashboard();
+
+                            dashboard.start();
+                        }
+
+                    } catch (err) {
+
+                        if (ERROR_LOG === true) { logger.write("[ERROR] loadModules -> onRequired -> err = " + err); }
+
+                    }
                 }
             }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] loadModules -> err = " + err); }
+
         }
     }
 }

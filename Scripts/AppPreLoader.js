@@ -35,7 +35,11 @@ function spacePad(str, max) {
 
 function loadAdvancedAlgosPlatform() {
 
-    console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] loadAdvancedAlgosPlatform -> Entering function.");
+    const MODULE_NAME = "App Pre-Loader";
+    const INFO_LOG = false;
+    const ERROR_LOG = true;
+
+    if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadAdvancedAlgosPlatform -> Entering function."); }
 
     /* The first thing to do here is to add the canvas where all the action is going to happen. */
 
@@ -61,7 +65,7 @@ function loadAdvancedAlgosPlatform() {
 
     function onServerReponded(pResponseFromServer) {
 
-        console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] loadAdvancedAlgosPlatform -> onServerReponded -> Entering function.");
+        if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadAdvancedAlgosPlatform -> onServerReponded -> Entering function."); }
 
         let responseFromServer = JSON.parse(pResponseFromServer);
 
@@ -69,7 +73,7 @@ function loadAdvancedAlgosPlatform() {
 
         if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
 
-            console.log("Authentication Error. " + err.message);
+            if (INFO_LOG === true) { console.log("Authentication Error. " + err.message); }
             return;
 
         }
@@ -81,7 +85,7 @@ function loadAdvancedAlgosPlatform() {
 
     function loadDebugModule() {
 
-        console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] loadDebugModule -> Entering function.");
+        if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadDebugModule -> Entering function."); }
 
         let path = "WebDebugLog.js";
 
@@ -89,7 +93,7 @@ function loadAdvancedAlgosPlatform() {
 
         function onRequired(pModule) {
 
-            console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] " + path + " downloaded.");
+            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
 
             loadModules();
 
@@ -100,7 +104,7 @@ function loadAdvancedAlgosPlatform() {
 
     function loadModules() {
 
-        console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] loadModules -> Entering function.");
+        if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadModules -> Entering function."); }
 
         let path = "Scripts/AppLoader.js";
 
@@ -108,7 +112,7 @@ function loadAdvancedAlgosPlatform() {
 
         function onRequired(pModule) {
 
-            console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] " + path + " downloaded.");
+            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
 
             let APP_LOADER_MODULE = newAppLoader();
             APP_LOADER_MODULE.loadModules();

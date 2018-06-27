@@ -1,7 +1,7 @@
 ﻿function newAppLoader() {
 
     const MODULE_NAME = "App Loader";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const ERROR_LOG = true;
     const INTENSIVE_LOG = false;
     const logger = newWebDebugLog();

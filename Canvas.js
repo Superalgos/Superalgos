@@ -9,7 +9,7 @@ let splashScreenNeeded = true;
 function newCanvas() {
 
     const MODULE_NAME = "Canvas";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const ERROR_LOG = true;
     const INTENSIVE_LOG = false;
     const logger = newWebDebugLog();

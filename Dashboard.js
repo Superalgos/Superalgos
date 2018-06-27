@@ -10,7 +10,7 @@ let viewPort = newViewPort();
 function newDashboard() {
 
     const MODULE_NAME = "Dashboard";
-    const INFO_LOG = true;
+    const INFO_LOG = false;
     const ERROR_LOG = true;
     const INTENSIVE_LOG = false;
     const logger = newWebDebugLog();

@@ -292,24 +292,22 @@
 					
 				assistant.movePosition(positions[0], currentRate, callBack);
 					
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + currentRate.toFixed(8)); }
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Moving an existing position to a new rate: " + currentRate.toFixed(8)); }
 					
-				let message = "I'm moving an existing buy position to a new rate: " + currentRate.toFixed(8);
-				assistant.sendMessage(1, "Moving Position", message);
+                let message = "Moving an existing buy position to a new price: " + Number(currentRate).toLocaleString();
+				assistant.sendMessage(2, "Moving Position", message);
 
 					
 			} else if(assetABalance > 0){
 					
 				assistant.putPosition("buy", currentRate, amountA, amountB, callBack);
 
-                let profitA = 0;
-                let profitB = 0;
-                if (assistant.getProfits() !== undefined) {
-                    profitA = assistant.getProfits().assetA.toFixed(8);
-                    profitB = assistant.getProfits().assetB.toFixed(8);
+                let message = "Creating a new buy position. Price: " + Number(currentRate).toLocaleString();
+                if (assistant.getROI() !== undefined) {
+                    message += ". ROI on current execution: " + MARKET.assetA + ": " + assistant.getROI().assetA + ". " + MARKET.assetB + ": " + assistant.getROI().assetB;
+
                 }
-                let message = "I'm creating a new buy position at rate: " + currentRate.toFixed(8) + ". Profits on this execution: " + MARKET.assetA + ": " + profitA + ". " + MARKET.assetB + ": " + profitB;
-				assistant.sendMessage(1, "Buying", message);
+                assistant.sendMessage(2, "Buying", message);
 										
 			} else {
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> There is not enough available balance to buy. Available balance: " + assetABalance ); }
@@ -333,8 +331,8 @@
 					
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + currentRate.toFixed(8)); }
 					
-				let message = "I'm moving an existing sell position to a new rate: " + currentRate.toFixed(8);
-				assistant.sendMessage(1, "Moving Position", message);
+                let message = "Moving an existing sell position to a new price: " + Number(currentRate).toLocaleString();
+				assistant.sendMessage(2, "Moving Position", message);
 
 			}else if(assetBBalance > 0){
 					
@@ -342,14 +340,12 @@
 				
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Artuditu put a new SELL Position at rate: " + currentRate + ". Amount traded asset A: " + amountA + ". Amount traded asset B: " + amountB); }
 
-                let profitA = 0;
-                let profitB = 0;
-                if (assistant.getProfits() !== undefined) {
-                    profitA = assistant.getProfits().assetA.toFixed(8);
-                    profitB = assistant.getProfits().assetB.toFixed(8);
+                let message = "Creating a new sell position. Price: " + Number(currentRate).toLocaleString();
+                if (assistant.getROI() !== undefined) {
+                    message += ". ROI on current execution: " + MARKET.assetA + ": " + assistant.getROI().assetA + ". " + MARKET.assetB + ": " + assistant.getROI().assetB;
+
                 }
-                let message = "I'm creating a new sell position at rate: " + currentRate.toFixed(8) + ". Profits on this execution: " + MARKET.assetA + ": " + profitA + "  " + MARKET.assetB + ": " + profitB;
-				assistant.sendMessage(1, "Selling", message);
+                assistant.sendMessage(2, "Selling", message);
 					
 			} else {
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> There is not enough available balance to sell. Available balance: " + assetBBalance ); }

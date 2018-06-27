@@ -7,6 +7,7 @@ function newEventHandler() {
         name: undefined,                            // This is for debugging purposes only.
         parentEventHandler: undefined,              // Here we store the parent cointainer zoom object. 
         listenToEvent: listenToEvent,
+        stopListening: stopListening,
         raiseEvent: raiseEvent,
         initialize: initialize
     };
@@ -30,6 +31,35 @@ function newEventHandler() {
 
         }
 
+    }
+
+    function stopListening(pEventType, pHandler) {
+
+        if (thisObject.name !== undefined && CONSOLE_LOG === true) {
+
+            console.log("Event Handler named " + thisObject.name + " received a request to stop listening to an the event " + pEventType + " with this handler: " + pHandler);
+
+        }
+
+        for (let i = 0; i < eventHandlers.length; i++) {
+
+            let record = eventHandlers[i];
+            let eventType = record[0];
+            let handler = record[1];
+
+            if (pEventType === eventType && pHandler.toString() === handler.toString()) {
+
+                eventHandlers.splice(i, 1);
+
+                if (thisObject.name !== undefined && CONSOLE_LOG === true) {
+
+                    console.log("Evethandler found and deleted.");
+
+                }
+
+                return;
+            }
+        }
     }
 
     function raiseEvent(eventType, event) {

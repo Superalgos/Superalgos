@@ -280,22 +280,30 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                 advanceTime();
 
                 function advanceTime() {
-                                        
-                    executionTime = new Date(lastCandles[7] + ONE_HOUR_IN_MILISECONDS);
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> New processing time @ " + executionTime.toISOString()); }
-
-                    /* Validation that we are not going past the head of the market. */
+					try {
                     
-                    if (isExecutionOnHeadOfMarket()) {
+						logger.newInternalLoop(bot.codeName, bot.process);
+						
+						executionTime = new Date(lastCandles[7] + ONE_HOUR_IN_MILISECONDS);
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> Head of the market found @ " + executionTime.toISOString()); }
+						if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> New processing time @ " + executionTime.toISOString()); }
 
-                        callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
-                        return;
-                    }
-                    
-                    periodsLoop();
+						/* Validation that we are not going past the head of the market. */
+						
+						if (isExecutionOnHeadOfMarket()) {
+
+							if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> Head of the market found @ " + executionTime.toISOString()); }
+
+							callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
+							return;
+						}
+						
+						periodsLoop();
+						
+					} catch (err) {
+						logger.write(MODULE_NAME, "[ERROR] start -> advanceTime -> err = " + err.message);
+						callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+					}
 
                 }
 

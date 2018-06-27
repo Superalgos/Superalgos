@@ -27,6 +27,8 @@
 
                 /* PlotterPanels */
 
+                "Globals.js",
+
                 "BottomSpace/DeleteTradingHistory.js",
 
                 "TopSpace/PlayStopButton.js",

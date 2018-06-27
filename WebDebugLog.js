@@ -10,7 +10,11 @@ function newWebDebugLog() {
 
     function write(pText) {
 
-        console.log(thisObject.fileName + " : " + pText);
- 
+        console.log(spacePad(thisObject.fileName, 50) + " : " + pText);
+
+        function spacePad(str, max) {
+            str = str.toString();
+            return str.length < max ? spacePad(" " + str, max) : str;
+        }
     }
 }

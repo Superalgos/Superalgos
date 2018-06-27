@@ -28,9 +28,14 @@ GLOBAL.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 }; 
 
+function spacePad(str, max) {
+    str = str.toString();
+    return str.length < max ? spacePad(" " + str, max) : str;
+}
+
 function loadAdvancedAlgosPlatform() {
 
-    console.log("AppPreLoader : " + "[INFO] loadAdvancedAlgosPlatform -> Entering function.");
+    console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] loadAdvancedAlgosPlatform -> Entering function.");
 
     /* The first thing to do here is to add the canvas where all the action is going to happen. */
 
@@ -56,7 +61,7 @@ function loadAdvancedAlgosPlatform() {
 
     function onServerReponded(pResponseFromServer) {
 
-        console.log("AppPreLoader : " + "[INFO] loadAdvancedAlgosPlatform -> onServerReponded -> Entering function.");
+        console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] loadAdvancedAlgosPlatform -> onServerReponded -> Entering function.");
 
         let responseFromServer = JSON.parse(pResponseFromServer);
 
@@ -76,7 +81,7 @@ function loadAdvancedAlgosPlatform() {
 
     function loadDebugModule() {
 
-        console.log("AppPreLoader : " + "[INFO] loadDebugModule -> Entering function.");
+        console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] loadDebugModule -> Entering function.");
 
         let path = "WebDebugLog.js";
 
@@ -84,7 +89,7 @@ function loadAdvancedAlgosPlatform() {
 
         function onRequired(pModule) {
 
-            console.log("AppPreLoader : " + "[INFO] " + path + " downloaded.");
+            console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] " + path + " downloaded.");
 
             loadModules();
 
@@ -95,7 +100,7 @@ function loadAdvancedAlgosPlatform() {
 
     function loadModules() {
 
-        console.log("AppPreLoader : " + "[INFO] loadModules -> Entering function.");
+        console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] loadModules -> Entering function.");
 
         let path = "Scripts/AppLoader.js";
 
@@ -103,7 +108,7 @@ function loadAdvancedAlgosPlatform() {
 
         function onRequired(pModule) {
 
-            console.log("AppPreLoader : " + "[INFO] " + path + " downloaded.");
+            console.log(spacePad("App Pre-Loader", 50) + " : " + "[INFO] " + path + " downloaded.");
 
             let APP_LOADER_MODULE = newAppLoader();
             APP_LOADER_MODULE.loadModules();

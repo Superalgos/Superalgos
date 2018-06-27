@@ -51,6 +51,9 @@
     </Compile>
     <Compile Include="CloudVM\PoloniexAPIClient.js" />
     <Compile Include="Exchanges\PoloniexAPIClient.js" />
+    <Compile Include="Globals.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Scripts\AppLoader.js">
       <SubType>Code</SubType>
     </Compile>
@@ -182,7 +185,6 @@
     <Compile Include="EventHandler.js" />
     <Compile Include="Spaces\FloatingSpace.js" />
     <Compile Include="Frame.js" />
-    <Compile Include="Markets.js" />
     <Compile Include="Panels\ProductsPanel.js" />
     <Compile Include="Panels\TimeControlPanel.js" />
     <Compile Include="TimeLineCoordinateSystem.js" />

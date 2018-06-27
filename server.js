@@ -1,6 +1,6 @@
 /* These 2 are global variables, that is why they do not have a let or var */
 
-CONSOLE_LOG = false;
+CONSOLE_LOG = true;
 LOG_FILE_CONTENT = false;
 
 if (CONSOLE_LOG === true) { console.log("[INFO] server -> Node Server Starting."); }
@@ -1021,7 +1021,7 @@ function respondWithContent(content, response) {
 
     }
     catch (err) {
-        returnEmptyArray();
+        returnEmptyArray(response);
     }
 }
 
@@ -1052,9 +1052,9 @@ function respondWithFile(fileName, response) {
                 //console.log("File Sent: " + fileName);
                 //
             }
-            catch (err) {
-                returnEmptyArray();
+            catch (err) {                
                 console.log("[ERROR] server -> respondWithFile -> onFileRead -> File Not Found: " + fileName + " or Error = " + err);
+                returnEmptyArray();
             }
 
         }
@@ -1100,7 +1100,7 @@ function respondWithImage(fileName, response) {
     }
 }
 
-function returnEmptyArray() {
+function returnEmptyArray(response) {
 
     try {
 

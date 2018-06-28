@@ -89,40 +89,18 @@ function newDeleteTradingHistory() {
         let containerName = window.DEV_TEAM.toLowerCase();
 
         let statusReportFilePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Reports" + "/" + "Trading-Process";
-        let statusReportFileName = "Status.Report.USDT_BTC.json";
+        let statusReportFileName = window.CURRENT_START_MODE + "." + "Status.Report.USDT_BTC.json";
 
         readOnlyBlobService.getBlobToText(containerName, statusReportFilePath + "/" + statusReportFileName, onStatusReport);
 
         function onStatusReport(err, text, response) {
 
             let statusReport = JSON.parse(text);
-            let runs;
-
-            switch (window.CURRENT_START_MODE) {
-
-                case "Live": {
-                    runs = statusReport.liveRuns;
-                    break;
-                }
-
-                case "Backtest": {
-                    runs = statusReport.backtestRuns;
-                    break;
-                }
-
-                case "Competition": {
-                    runs = statusReport.competitionRuns;
-                    break;
-                }
-
-            }
 
             let toBeDeleted = 0;
             let deleted = 0;
 
-            console.log("runs = " + JSON.stringify(runs));
-
-            for (let i = 0; i < runs.length; i++) {
+            for (let i = 0; i < statusReport.runs.length; i++) {
 
                 /* For each record, we will get the execution history file. */
 
@@ -184,23 +162,7 @@ function newDeleteTradingHistory() {
 
             function updateStatusReport() {
 
-                switch (window.CURRENT_START_MODE) {
-
-                    case "Live": {
-                        statusReport.liveRuns = [];
-                        break;
-                    }
-
-                    case "Backtest": {
-                        statusReport.backtestRuns = [];
-                        break;
-                    }
-
-                    case "Competition": {
-                        statusReport.competitionRuns = [];
-                        break;
-                    }
-                }
+                statusReport.runs = [];
 
                 /* Here is where we update the current Status Report file with the new version without records for the current Start Mode. */
 

@@ -68,6 +68,8 @@
                 "CloudVM/WebFS.js",
                 "CloudVM/CloudVM.js",
 
+                "Scales/ChartGrid.js",
+
                 "BreakpointsBar.js",
                 "Plotter.js",
                 "PlotterPanel.js",
@@ -90,7 +92,7 @@
                 "VolumeBar.js",
                 "ChartUtilities.js",
                 "TimelineChart.js",
-                "ChartGrid.js",
+                
                 "Animation.js",
 
                 "Container.js",

@@ -169,7 +169,7 @@
     </Compile>
     <Compile Include="Candle.js" />
     <Compile Include="Canvas.js" />
-    <Compile Include="ChartGrid.js" />
+    <Compile Include="Scales\ChartGrid.js" />
     <Compile Include="Spaces\ChartSpace.js" />
     <Compile Include="ChartUtilities.js" />
     <Compile Include="Container.js" />
@@ -211,6 +211,7 @@
     <Folder Include="FloatingSpace\" />
     <Folder Include="AABrowserAPI\" />
     <Folder Include="BottomSpace\" />
+    <Folder Include="Scales\" />
     <Folder Include="TopSpace\" />
     <Folder Include="Scripts\" />
     <Folder Include="Server\" />

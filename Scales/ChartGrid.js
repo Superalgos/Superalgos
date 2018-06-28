@@ -1,10 +1,44 @@
 ﻿function newChartGrid() {
 
     let thisObject = {
-        draw: draw
+        container: undefined,
+        draw: draw,
+        getContainer: getContainer,  
     };
 
+    let container = newContainer();
+    container.initialize();
+    thisObject.container = container;
+
+    thisObject.container.frame.width = 200;
+    thisObject.container.frame.height = TOP_SPACE_HEIGHT;
+
+    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 3;
+    container.frame.position.y = 0;
+
+    container.isDraggeable = false;
+    container.isClickeable = true;
+
     return thisObject;
+
+    function getContainer(point) {
+
+        let container;
+
+        /* First we check if this point is inside this object UI. */
+
+        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+
+            return this.container;
+
+        } else {
+
+            /* This point does not belong to this space. */
+
+            return undefined;
+        }
+
+    }
 
     function draw(container, timeLineCoordinateSystem) {
 

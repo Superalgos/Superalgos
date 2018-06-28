@@ -845,6 +845,12 @@ function onBrowserRequest(request, response) {
             }
             break;
 
+        case "Scales":
+            {
+                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+            }
+            break;
+
         case "Files":
             {
                 respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);

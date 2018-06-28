@@ -171,33 +171,7 @@
 
                     } else {
 
-                        switch (bot.startMode) {
-
-                            case "Live": {
-
-                                runIndex = thisObject.statusReport.liveRuns.length - 1;
-                                break;
-                            }
-
-                            case "Backtest": {
-
-                                runIndex = thisObject.statusReport.backtestRuns.length - 1;
-                                break;
-                            }
-
-                            case "Competition": {
-
-                                runIndex = thisObject.statusReport.competitionRuns.length - 1;
-                                break;
-                            }
-
-                            default: {
-                                logger.write(MODULE_NAME, "[ERROR] initialize -> createConext -> Unexpected bot.startMode.");
-                                logger.write(MODULE_NAME, "[ERROR] initialize -> createConext -> bot.startMode = " + bot.startMode);
-                                callBack(global.DEFAULT_FAIL_RESPONSE);
-                                return;
-                            }
-                        }
+                        runIndex = thisObject.statusReport.runs.length - 1;
 
                         getExecutionHistory(callBack); 
 
@@ -274,34 +248,9 @@
 
                     let date;
 
-                    switch (bot.startMode) {
-
-                        case "Live": {
-                            date = new Date(thisObject.statusReport.liveRuns[runIndex].lastExecution);
-                            thisObject.statusReport.liveRuns[runIndex].lastExecution = bot.processDatetime;
-                            thisObject.statusReport.liveRuns[runIndex].endDatetime = bot.processDatetime;
-                            break;
-                        }
-
-                        case "Backtest": {
-                            date = new Date(thisObject.statusReport.backtestRuns[runIndex].lastExecution);
-                            thisObject.statusReport.backtestRuns[runIndex].lastExecution = bot.processDatetime;
-                            break;
-                        }
-
-                        case "Competition": {
-                            date = new Date(thisObject.statusReport.competitionRuns[runIndex].lastExecution);
-                            thisObject.statusReport.competitionRuns[runIndex].lastExecution = bot.processDatetime;
-                            break;
-                        }
-
-                        default: {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> Unexpected bot.startMode.");
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getExecutionContext -> bot.startMode = " + bot.startMode);
-                            callBack(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-                    }
+                    date = new Date(thisObject.statusReport.runs[runIndex].lastExecution);
+                    thisObject.statusReport.runs[runIndex].lastExecution = bot.processDatetime;
+                    thisObject.statusReport.runs[runIndex].endDatetime = bot.processDatetime;
 
                     let fileName = "Execution.Context." + bot.startMode + "." + runIndex + ".json";
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
@@ -371,84 +320,19 @@
     
                     */
 
-                    /* Here, we dont know if the Status Report was ever created or not. To test that we do this. */
+                    if (thisObject.statusReport.runs === undefined) { // This means that the Status Report does not exist.
 
-                    if (
-                        thisObject.statusReport.liveRuns === undefined &&
-                        thisObject.statusReport.backtestRuns === undefined &&
-                        thisObject.statusReport.competitionRuns === undefined) { // This means that the Status Report does not exist.
-
-                        thisObject.statusReport = {
-                            liveRuns: [],
-                            backtestRuns: [],
-                            competitionRuns: []
-                        };
+                        thisObject.statusReport.runs = [];
                     } 
 
-                    /*
-                    Maybe the status report exists, but the bot was never run in this mode before. We initialize what is needed. 
-                    */
+                    let runContent = {
+                        beginDatetime: bot.processDatetime,
+                        endDatetime: bot.processDatetime,
+                        lastExecution: bot.processDatetime
+                    };
 
-                    if (thisObject.statusReport.liveRuns === undefined) {
-                        thisObject.statusReport.liveRuns = [];
-                    }
-
-                    if (thisObject.statusReport.backtestRuns === undefined) {
-                        thisObject.statusReport.backtestRuns = [];
-                    }
-
-                    if (thisObject.statusReport.competitionRuns === undefined) {
-                        thisObject.statusReport.competitionRuns = [];
-                    }
-
-                    switch (bot.startMode) {
-
-                        case "Live": {
-
-                            let runContent = {
-                                beginDatetime: bot.processDatetime,
-                                endDatetime: bot.processDatetime,
-                                lastExecution: bot.processDatetime
-                            };
-
-                            thisObject.statusReport.liveRuns.push(runContent);
-                            runIndex = thisObject.statusReport.liveRuns.length - 1;
-                            break;
-                        }
-
-                        case "Backtest": {
-
-                            let runContent = {
-                                beginDatetime: new Date(bot.backtest.beginDatetime),
-                                endDatetime: new Date(bot.backtest.endDatetime),
-                                lastExecution: bot.processDatetime
-                            };
-
-                            thisObject.statusReport.backtestRuns.push(runContent);
-                            runIndex = thisObject.statusReport.backtestRuns.length - 1;
-                            break;
-                        }
-
-                        case "Competition": {
-
-                            let runContent = {
-                                beginDatetime: new Date(bot.competition.beginDatetime),
-                                endDatetime: new Date(bot.competition.endDatetime),
-                                lastExecution: bot.processDatetime
-                            };
-
-                            thisObject.statusReport.competitionRuns.push(runContent);
-                            runIndex = thisObject.statusReport.competitionRuns.length - 1;
-                            break;
-                        }
-
-                        default: {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> createConext -> Unexpected bot.startMode.");
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> createConext -> bot.startMode = " + bot.startMode);
-                            callBack(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-                    }
+                    thisObject.statusReport.runs.push(runContent);
+                    runIndex = thisObject.statusReport.runs.length - 1;
 
                     thisObject.executionHistory = [];
 

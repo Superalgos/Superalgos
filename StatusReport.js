@@ -91,6 +91,10 @@
             let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath = rootPath + "/Reports/" + owner.process + timePath;
+            
+            if (bot.type === 'Trading') {
+                fileName = bot.startMode + "." + fileName;
+            }
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> load -> fileName = " + fileName); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> load -> filePath = " + filePath); }
@@ -180,6 +184,10 @@
 
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath = bot.filePathRoot + "/Reports/" + owner.process + timePath;
+
+            if (bot.type === 'Trading') {
+                fileName = bot.startMode + "." + fileName;
+            }
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> fileName = " + fileName); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> filePath = " + filePath); }

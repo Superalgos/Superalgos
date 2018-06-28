@@ -2,46 +2,6 @@
 
 exports.newRoot = function newRoot() {
 
-    /* Global constants definitions. */
-
-    global.LOG_CONTROL = {
-        "Assistant": {
-            logInfo: false,
-            logWarnings: false,
-            logErrors: true,
-            logContent: false,
-            intensiveLogging: false
-        },
-        "Exchange API": {
-            logInfo: false,
-            logWarnings: false,
-            logErrors: true,
-            logContent: false,
-            intensiveLogging: false
-        },
-        "Status Report": {
-            logInfo: false,
-            logWarnings: false,
-            logErrors: true,
-            logContent: false,
-            intensiveLogging: false
-        },
-        "Data Set": {
-            logInfo: false,
-            logWarnings: false,
-            logErrors: true,
-            logContent: false,
-            intensiveLogging: false
-        },
-        "Context": {
-            logInfo: false,
-            logWarnings: false,
-            logErrors: true,
-            logContent: false,
-            intensiveLogging: false
-        }
-    };
-
     /* Callbacks default responses. */
 
     global.DEFAULT_OK_RESPONSE = {
@@ -136,6 +96,46 @@ exports.newRoot = function newRoot() {
 
         try {
             console.log(logDisplace  + "Root : [INFO] initialize -> Entering function. ");
+
+            /* Global control of logging. */
+
+            global.LOG_CONTROL = {
+                "Assistant": {
+                    logInfo: false,
+                    logWarnings: false,
+                    logErrors: true,
+                    logContent: false,
+                    intensiveLogging: false
+                },
+                "Exchange API": {
+                    logInfo: false,
+                    logWarnings: false,
+                    logErrors: true,
+                    logContent: false,
+                    intensiveLogging: false
+                },
+                "Status Report": {
+                    logInfo: false,
+                    logWarnings: false,
+                    logErrors: true,
+                    logContent: false,
+                    intensiveLogging: false
+                },
+                "Data Set": {
+                    logInfo: false,
+                    logWarnings: false,
+                    logErrors: true,
+                    logContent: false,
+                    intensiveLogging: false
+                },
+                "Context": {
+                    logInfo: false,
+                    logWarnings: false,
+                    logErrors: true,
+                    logContent: false,
+                    intensiveLogging: false
+                }
+            };
 
             UI_COMMANDS = pUI_COMMANDS;
 

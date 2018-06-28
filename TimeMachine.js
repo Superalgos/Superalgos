@@ -159,33 +159,22 @@ function newTimeMachine() {
 
         let container;
 
-        /* First we check if this point is inside this space. */
+        /* Now we see which is the inner most container that has it */
 
-        if (this.container.frame.isThisPointHere(point) === true) {
+        for (let i = 0; i < this.charts.length; i++) {
 
-            /* Now we see which is the inner most container that has it */
+            container = this.charts[i].getContainer(point);
 
-            for (let i = 0; i < this.charts.length; i++) {
+            if (container !== undefined) {
 
-                container = this.charts[i].getContainer(point);
+                /* We found an inner container which has the point. We return it. */
 
-                if (container !== undefined) {
-
-                    /* We found an inner container which has the point. We return it. */
-
-                    return container;
-                }
+                return container;
             }
-            
-            /* The point does not belong to any inner container, so we return the current container. */
-
-            return this.container;
-
-        } else {
-
-            /* This point does not belong to this space. */
-
-            return undefined;
         }
+            
+        /* The point does not belong to any inner container, so we return the current container. */
+
+        return this.container;
     }
 }

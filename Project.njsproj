@@ -54,6 +54,9 @@
     <Compile Include="Globals.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Scales\RightScale.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Scripts\AppLoader.js">
       <SubType>Code</SubType>
     </Compile>

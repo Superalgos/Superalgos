@@ -129,7 +129,8 @@ const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 
 const EARLIEST_DATE = new Date(2014, 0, 18, 4, 26, 8);
 
-const CHART_ASPECT_RATIO = 1 / 10;
+const MIN_CHART_ASPECT_RATIO = 2 / 10;
+let CHART_ASPECT_RATIO = MIN_CHART_ASPECT_RATIO;
 
 const TOP_SPACE_HEIGHT = 50;
 const BOTTOM_SPACE_HEIGHT = 50;
@@ -160,3 +161,10 @@ maxDate.setMilliseconds(0);
 maxDate.setDate(maxDate.getDate() + 10);
 
 const MAX_PLOTABLE_DATE = maxDate;
+
+/*
+We define here the size of the chartSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
+*/
+
+const CHART_SPACE_WIDTH = browserCanvas.width * 1000;
+const CHART_SPACE_HEIGHT = browserCanvas.height * 100;

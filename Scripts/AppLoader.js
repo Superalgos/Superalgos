@@ -69,6 +69,7 @@
                 "CloudVM/CloudVM.js",
 
                 "Scales/ChartGrid.js",
+                "Scales/RightScale.js",
 
                 "BreakpointsBar.js",
                 "Plotter.js",

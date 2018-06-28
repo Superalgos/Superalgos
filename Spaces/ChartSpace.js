@@ -26,8 +26,8 @@ function newChartSpace() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = browserCanvas.width * 1000;
-    thisObject.container.frame.height = browserCanvas.height * 100;
+    thisObject.container.frame.width = CHART_SPACE_WIDTH;
+    thisObject.container.frame.height = CHART_SPACE_HEIGHT;
 
     container.displacement.containerName = "Chart Space";
     container.frame.containerName = "Chart Space";
@@ -108,37 +108,25 @@ function newChartSpace() {
 
         if (INFO_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
 
-        var container;
+        let container;
 
-        /* First we check if this point is inside this space. */
+        /* Now we see which is the inner most container that has it */
 
-        if (this.container.frame.isThisPointHere(point) === true) {
+        for (var i = 0; i < this.timeMachines.length; i++) {
 
-            /* Now we see which is the inner most container that has it */
+            container = this.timeMachines[i].getContainer(point);
 
-            for (var i = 0; i < this.timeMachines.length; i++) {
+            if (container !== undefined) {
 
-                container = this.timeMachines[i].getContainer(point);
+                /* We found an inner container which has the point. We return it. */
 
-                if (container !== undefined) {
-
-                    /* We found an inner container which has the point. We return it. */
-
-                    return container;
-                }
+                return container;
             }
-
-            /* The point does not belong to any inner container, so we return the current container. */
-
-            return this.container;
-
-        } else {
-
-            /* This point does not belong to this space. */
-
-            return undefined;
         }
 
-    }
+        /* The point does not belong to any inner container, so we return the current container. */
 
+        return this.container;
+
+    }
 }

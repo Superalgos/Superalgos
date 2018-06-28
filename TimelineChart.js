@@ -27,8 +27,8 @@
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Time Period Chart";
-    container.frame.containerName = "Time Period Chart";
+    container.displacement.containerName = "Timeline Chart";
+    container.frame.containerName = "Timeline Chart";
 
     let marketId;
     let exchangeId;
@@ -110,6 +110,8 @@
             exchangeId = exchange;
 
             chartGrid = newChartGrid();
+            chartGrid.initialize();
+
             breakpointsBar = newBreakpointsBar();
             breakpointsBar.initialize(container, timeLineCoordinateSystem);
 
@@ -878,6 +880,10 @@
 
         let container;
 
+        container = chartGrid.getContainer(point);
+
+        if (container !== undefined) { return container;}
+
         container = breakpointsBar.getContainer(point);
 
         return container;
@@ -939,6 +945,8 @@
         if (productPlotters === undefined) { return; } // We need to wait
 
         if (thisObject.container.frame.isInViewPort()) {
+
+            thisObject.container.frame.height = CHART_SPACE_HEIGHT * CHART_ASPECT_RATIO;
 
             this.container.frame.draw();
 

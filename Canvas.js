@@ -1,5 +1,4 @@
 ﻿
-let browserCanvas;                 // This is the canvas object of the browser.
 let browserCanvasContext;          // The context of the canvas object.
 
 let stepsInitializationCounter = 0;         // This counter the initialization steps required to be able to turn off the splash screen.
@@ -228,14 +227,7 @@ function newCanvas() {
 
             if (INFO_LOG === true) { logger.write("[INFO] initializeBrowserCanvas -> Entering function."); }
 
-            browserCanvas = document.getElementById('canvas');
             browserCanvasContext = browserCanvas.getContext('2d');
-
-            let body = document.getElementById('body');
-
-            browserCanvas.width = window.innerWidth;
-            browserCanvas.height = window.innerHeight;
-            browserCanvas.style.border = "none";
 
             viewPort.initialize();
 
@@ -532,14 +524,25 @@ function newCanvas() {
             if (floatingObjectIndex > 0) {
 
                 canvas.floatingSpace.floatingLayer.changeTargetRepulsion(event.wheelDelta);
+                return false;  // This instructs the browser not to take the event and scroll the page. 
+            }
+
+            /* Finally we try the Chart Space. */
+
+            let chartContainer = canvas.chartSpace.getContainer({ x: event.pageX, y: event.pageY });
+
+            if (chartContainer !== undefined && chartContainer.isWheeleable === true) {
+
+                chartContainer.eventHandler.raiseEvent("Mouse Wheel", event.wheelDelta);
+                return false;  // This instructs the browser not to take the event and scroll the page. 
 
             } else {
 
+                /* If all the above fails, we fallback into applying zoom to the viewPort */
+
                 viewPort.applyZoom(delta);
-
+                return false;  // This instructs the browser not to take the event and scroll the page. 
             }
-
-            return false;  // This instructs the browser not to take the event and scroll the page. 
 
         } catch (err) {
 

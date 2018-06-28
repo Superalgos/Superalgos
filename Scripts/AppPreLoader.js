@@ -28,6 +28,8 @@ GLOBAL.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 }; 
 
+let browserCanvas;                 // This is the canvas object of the browser. 
+
 function spacePad(str, max) {
     str = str.toString();
     return str.length < max ? spacePad(" " + str, max) : str;
@@ -53,6 +55,12 @@ function loadAdvancedAlgosPlatform() {
 
     let body = document.getElementsByTagName("body")[0];
     body.appendChild(canvas);
+
+    browserCanvas = document.getElementById('canvas');
+
+    browserCanvas.width = window.innerWidth;
+    browserCanvas.height = window.innerHeight;
+    browserCanvas.style.border = "none";
 
     /* The second thing to do is to send the tokenSession to the server, so that it can prepare the server side data structures needed. */
 

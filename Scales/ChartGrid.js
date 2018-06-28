@@ -4,30 +4,46 @@
         container: undefined,
         draw: draw,
         getContainer: getContainer,  
+        initialize: initialize
     };
 
     let container = newContainer();
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = 200;
-    thisObject.container.frame.height = TOP_SPACE_HEIGHT;
+    thisObject.container.frame.width = 0;
+    thisObject.container.frame.height = 0;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 3;
+    container.frame.position.x = 0;
     container.frame.position.y = 0;
 
     container.isDraggeable = false;
     container.isClickeable = true;
 
+    let rigthScale;
+
     return thisObject;
+
+    function initialize() {
+
+        rigthScale = newRigthScale();
+        rigthScale.initialize();
+
+    }
 
     function getContainer(point) {
 
         let container;
 
-        /* First we check if this point is inside this object UI. */
+        container = rigthScale.getContainer(point);
 
-        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+        if (container !== undefined) {
+
+            return container;
+
+        }
+
+        if (thisObject.container.frame.isThisPointHere(point,  true) === true) {
 
             return this.container;
 
@@ -527,10 +543,10 @@
 
                     /* Now we put the scale on the right side of the chart */
 
-                    rightScale();
-                    leftScale();
+                    drawRigthScale();
+                    drawLeftScale();
 
-                    function rightScale() {                     
+                    function drawRigthScale() {                     
 
                         /* And now the scale. */
 
@@ -560,7 +576,7 @@
 
                     }
 
-                    function leftScale() {
+                    function drawLeftScale() {
 
                         let fontSize = 10;
 

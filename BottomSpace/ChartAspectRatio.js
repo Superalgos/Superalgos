@@ -14,7 +14,7 @@
     thisObject.container.frame.width = 50;
     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 2;
+    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width ;
     container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
@@ -44,7 +44,7 @@
             canDrawIcon = true;
         }
 
-        icon.src = "Images/scale.y.png";
+        icon.src = "Images/aspect.ratio.Y.png";
 
         thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 
@@ -104,7 +104,7 @@
         let breakpointsHeight = 15;
 
         let imageHeight = 30;
-        let imageWidth = 15;
+        let imageWidth = 30;
 
         let imagePoint = {
             x: 10,

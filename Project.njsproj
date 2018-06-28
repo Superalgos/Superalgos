@@ -43,6 +43,9 @@
     <Compile Include="BreakpointsBar.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BottomSpace\ChartAspectRatio.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CloudVM\CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>

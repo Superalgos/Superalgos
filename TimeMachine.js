@@ -61,7 +61,7 @@ function newTimeMachine() {
         timelineChart.container.parentContainer = thisObject.container;
 
         timelineChart.container.frame.width = thisObject.container.frame.width * 1;
-        timelineChart.container.frame.height = thisObject.container.frame.height * 1 * CHART_ASPECT_RATIO;
+        timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y;
 
         timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2;
         timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
@@ -116,7 +116,7 @@ function newTimeMachine() {
                 timelineChart.container.parentContainer = thisObject.container;
 
                 timelineChart.container.frame.width = thisObject.container.frame.width * 1;
-                timelineChart.container.frame.height = thisObject.container.frame.height * 1 * CHART_ASPECT_RATIO;
+                timelineChart.container.frame.height = thisObject.container.frame.height * 1 * canvas.bottomSpace.chartAspectRatio.aspectRatio.y;
 
                 timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2;
                 timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;

@@ -39,13 +39,6 @@
             pDelta = 0.1;
         }
 
-        CHART_ASPECT_RATIO = CHART_ASPECT_RATIO + pDelta;
-
-        if (CHART_ASPECT_RATIO < MIN_CHART_ASPECT_RATIO) {
-
-            CHART_ASPECT_RATIO = MIN_CHART_ASPECT_RATIO;
-
-        }
     }
 
     function getContainer(point) {

@@ -12,7 +12,7 @@ function newDeleteTradingHistory() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = 150;
+    thisObject.container.frame.width = 50;
     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
 
     container.frame.position.x = viewPort.visibleArea.topRight.x;

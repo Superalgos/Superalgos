@@ -30,6 +30,7 @@
                 "Globals.js",
 
                 "BottomSpace/DeleteTradingHistory.js",
+                "BottomSpace/ChartAspectRatio.js",
 
                 "TopSpace/PlayStopButton.js",
                 "TopSpace/CompanyLogo.js",

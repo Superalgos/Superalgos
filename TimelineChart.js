@@ -946,7 +946,8 @@
 
         if (thisObject.container.frame.isInViewPort()) {
 
-            thisObject.container.frame.height = CHART_SPACE_HEIGHT * CHART_ASPECT_RATIO;
+            thisObject.container.frame.height = CHART_SPACE_HEIGHT * canvas.bottomSpace.chartAspectRatio.aspectRatio.y;
+            recalculateScale();
 
             this.container.frame.draw();
 

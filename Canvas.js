@@ -94,6 +94,9 @@ function newCanvas() {
             thisObject.topSpace = newTopSpace();
             thisObject.topSpace.initialize();
 
+            thisObject.bottomSpace = newBottomSpace();
+            thisObject.bottomSpace.initialize();
+
             thisObject.panelsSpace = newPanelsSpace();
             thisObject.panelsSpace.initialize();
 
@@ -102,9 +105,6 @@ function newCanvas() {
 
             thisObject.chartSpace = newChartSpace();
             thisObject.chartSpace.initialize(onCharSpaceInitialized);
-
-            thisObject.bottomSpace = newBottomSpace();
-            thisObject.bottomSpace.initialize();
 
             function onCharSpaceInitialized(err) {
 
@@ -526,6 +526,17 @@ function newCanvas() {
                 canvas.floatingSpace.floatingLayer.changeTargetRepulsion(event.wheelDelta);
                 return false;  // This instructs the browser not to take the event and scroll the page. 
             }
+
+            /* We try the Bottom Space. */
+
+            let bottomContainer = canvas.bottomSpace.getContainer({ x: event.pageX, y: event.pageY });
+
+            if (bottomContainer !== undefined && bottomContainer.isWheeleable === true) {
+
+                bottomContainer.eventHandler.raiseEvent("Mouse Wheel", event.wheelDelta);
+                return false;  // This instructs the browser not to take the event and scroll the page. 
+
+            } 
 
             /* Finally we try the Chart Space. */
 

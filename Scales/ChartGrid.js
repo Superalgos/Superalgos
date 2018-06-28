@@ -67,7 +67,7 @@
 
         const basePeriod = {
             x: 8 * 60 * 60 * 1000,
-            y: timeLineCoordinateSystem.max.y / 1000 / CHART_ASPECT_RATIO
+            y: timeLineCoordinateSystem.max.y / 1000 / canvas.bottomSpace.chartAspectRatio.aspectRatio.y
         };
 
         let period = {

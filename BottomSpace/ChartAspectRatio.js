@@ -72,6 +72,9 @@
             thisObject.aspectRatio.y = MAX_Y_ASPECT_RATIO;
 
         }
+
+        thisObject.container.eventHandler.raiseEvent("Chart Aspect Ratio Changed", thisObject.aspectRatio);
+
     }
 
     function getContainer(point) {

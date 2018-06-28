@@ -552,7 +552,7 @@
 
                         let fontSize = 10;
 
-                        let label = ' ' + Math.round(j * 1000000) / 1000000;
+                        let label = ' ' + Math.round(j * 1) / 1;
                         label = Number(label).toLocaleString();
 
                         let labelPoint = {
@@ -586,7 +586,7 @@
                         */
 
                         let labelValue = (j - timeLineCoordinateSystem.max.y / 2) * 200 / timeLineCoordinateSystem.max.y; 
-                        labelValue = Math.round(labelValue * 1000000) / 1000000;
+                        labelValue = Math.round(labelValue * 1) / 1;
                         if (labelValue > 0) { labelValue = '+' + labelValue; }
                         if (parseInt(labelValue) > -10 && parseInt(labelValue) < 10) { labelValue = ' ' + labelValue; }
                         if (parseInt(labelValue) === 0) { labelValue = ' ' + labelValue; }

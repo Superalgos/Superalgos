@@ -129,6 +129,44 @@
 
             initializeCompetitionPlotters(onCompetitionPlottersInitialized);
 
+            canvas.bottomSpace.chartAspectRatio.container.eventHandler.listenToEvent("Chart Aspect Ratio Changed", onAspectRatioChanged);     
+        
+            function onAspectRatioChanged(pAspectRatio) {
+
+                thisObject.container.frame.height = CHART_SPACE_HEIGHT * pAspectRatio.y;
+                recalculateScale();
+
+                /* First the Product Plotters. */
+
+                for (let i = 0; i < productPlotters.length; i++) {
+
+                    let productPlotter = productPlotters[i];
+                    productPlotter.plotter.container.frame.width = thisObject.container.frame.width;
+                    productPlotter.plotter.container.frame.height = thisObject.container.frame.height;
+
+                    if (productPlotter.plotter.recalculateScale !== undefined) {
+
+                        productPlotter.plotter.recalculateScale();
+
+                    }
+                }
+
+                /* Then the competition plotters. */
+
+                for (let i = 0; i < competitionPlotters.length; i++) {
+
+                    let competitionPlotter = competitionPlotters[i];
+                    competitionPlotter.plotter.container.frame.width = thisObject.container.frame.width;
+                    competitionPlotter.plotter.container.frame.height = thisObject.container.frame.height;
+
+                    if (competitionPlotter.plotter.recalculateScale !== undefined) {
+
+                        competitionPlotter.plotter.recalculateScale();
+
+                    }
+                }
+            }
+
             function onCompetitionPlottersInitialized(err) {
 
                 try {
@@ -904,7 +942,6 @@
             y: nextPorwerOf10(USDT_BTC_HTH) / 4
         };
 
-
         timeLineCoordinateSystem.initialize(
             minValue,
             maxValue,
@@ -945,9 +982,6 @@
         if (productPlotters === undefined) { return; } // We need to wait
 
         if (thisObject.container.frame.isInViewPort()) {
-
-            thisObject.container.frame.height = CHART_SPACE_HEIGHT * canvas.bottomSpace.chartAspectRatio.aspectRatio.y;
-            recalculateScale();
 
             this.container.frame.draw();
 

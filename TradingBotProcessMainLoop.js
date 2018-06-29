@@ -307,28 +307,31 @@
 
                             }
 
-                            let beginDatetime = new Date(bot.competition.beginDatetime);
+                            if (global.CURRENT_EXECUTION_AT === "Cloud") {
 
-                            if (bot.processDatetime.valueOf() < beginDatetime.valueOf()) {
+                                let beginDatetime = new Date(bot.competition.beginDatetime);
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Competition not started yet. Wainting for the competition to start."); }
+                                if (bot.processDatetime.valueOf() < beginDatetime.valueOf()) {
 
-                                nextWaitTime = 'Normal';
-                                loopControl(nextWaitTime);
-                                return;
-                            }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Competition not started yet. Wainting for the competition to start."); }
 
-                            let endDatetime = new Date(bot.competition.endDatetime);
+                                    nextWaitTime = 'Normal';
+                                    loopControl(nextWaitTime);
+                                    return;
+                                }
 
-                            if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
+                                let endDatetime = new Date(bot.competition.endDatetime);
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> End of Competition Period reached. Exiting Bot Process Loop."); }
+                                if (bot.processDatetime.valueOf() > endDatetime.valueOf()) {
 
-                                logger.persist();
-                                clearInterval(intervalHandle);
-                                clearTimeout(timeoutHandle);
-                                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                return;
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> End of Competition Period reached. Exiting Bot Process Loop."); }
+
+                                    logger.persist();
+                                    clearInterval(intervalHandle);
+                                    clearTimeout(timeoutHandle);
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    return;
+                                }
                             }
 
                             break;
@@ -948,6 +951,10 @@
                     }
 
                     function checkLoopHealth(pLastLoop) {
+
+                        if (global.CURRENT_EXECUTION_AT !== "Cloud") {
+                            return;
+                        }
 
                         if (bot.startMode === 'Backtest') { return;}
 

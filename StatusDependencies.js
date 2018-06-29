@@ -1,6 +1,6 @@
 ﻿exports.newStatusDependencies = function newStatusDependencies(BOT, logger, STATUS_REPORT, BLOB_STORAGE, UTILITIES) {
 
-    const FULL_LOG = false;
+    const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "Status Dependencies";

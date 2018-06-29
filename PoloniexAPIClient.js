@@ -401,7 +401,7 @@
 
             analizeResponse: function (logger, exchangeErr, exchangeResponse, notOkCallBack, okCallBack) {
 
-                const FULL_LOG = false;
+                const FULL_LOG = true;
                 const LOG_FILE_CONTENT = false;
                 const MODULE_NAME = "Poloniex API Client";
 

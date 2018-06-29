@@ -3,7 +3,7 @@
     const ROOT_DIR = './';
 
     const MODULE_NAME = "Trading Bot Process Main Loop";
-    const FULL_LOG = false;
+    const FULL_LOG = true;
 
     let USER_BOT_MODULE;
     let COMMONS_MODULE;

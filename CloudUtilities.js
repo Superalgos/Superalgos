@@ -1,7 +1,7 @@
 ﻿
 exports.newCloudUtilities = function newCloudUtilities(BOT, logger) {
 
-    const FULL_LOG = false;
+    const FULL_LOG = true;
 
     let bot = BOT;
     const ROOT_DIR = '../';

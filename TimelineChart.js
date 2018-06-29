@@ -258,7 +258,7 @@
             /* At this current version of the platform, we will support only one competition with only one plotter. */
 
             const COMPETITION_HOST = "AAArena";
-            const COMPETITION = "First-Closed-Door";
+            const COMPETITION = "Weekend-Deathmatch";
 
             let objName = COMPETITION_HOST + "-" + COMPETITION;
             let storage = newCompetitionStorage(objName);

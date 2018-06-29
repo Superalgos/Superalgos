@@ -287,14 +287,14 @@
 
                         let convertedAssetsB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) * marketRate;
 
-                        context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA + convertedAssetsB - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
+                        context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA + convertedAssetsB - context.executionContext.investment.assetA) / context.executionContext.investment.assetA * 100;
                     }
 
                     if (context.executionContext.investment.assetB > 0) {
 
                         let convertedAssetsA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / marketRate;
 
-                        context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB + convertedAssetsA - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
+                        context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB + convertedAssetsA - context.executionContext.investment.assetB) / context.executionContext.investment.assetB * 100;
                     }
 
                     context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;

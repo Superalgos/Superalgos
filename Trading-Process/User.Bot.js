@@ -3,7 +3,7 @@
     const MODULE_NAME = "User Bot";
     const FULL_LOG = true;
     const LOG_INFO = true;
-    
+
     let thisObject = {
         initialize: initialize,
         start: start
@@ -32,11 +32,17 @@
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
-    
+
     function start(callBackFunction) {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
+        const LAST_BUY_RATE_KEY = "AAVikings" + "-" + "AAArtudito" + "-" + "Trading-Process" + "-" + "lastBuyRate";
+
         let market = global.MARKET;
+        let periodName = "30-min";
+
+        let stopLossEnabled = true;
+        let stopLossPorcentage = 0.02;
 
         /*
         This trading bot will use an strategy based on the interpretation of the Linear Regression Curve Channel.
@@ -46,8 +52,8 @@
 
         function onDone(err) {
             try {
-                switch (err.result) {                        
-                    case global.DEFAULT_OK_RESPONSE.result: { 
+                switch (err.result) {
+                    case global.DEFAULT_OK_RESPONSE.result: {
                         logger.write(MODULE_NAME, "[INFO] start -> onDone -> Execution finished well. :-)");
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
@@ -70,33 +76,33 @@
         }
 
         function businessLogic(callBack) {
-			if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> Entering function."); }
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> Entering function."); }
 
-			getChannelTilt(botDecision);
-				
+            getChannelTilt(botDecision);
+
             function botDecision(err, channelTilt) {
                 try {
-			        if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> botDecision  -> LRC Channel Tilt:" + channelTilt); }
+                    if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> botDecision  -> Entering Function."); }
 
-			        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> botDecision -> err = " + err.message);
                         callBack(global.DEFAULT_FAIL_RESPONSE);
-			        } else {
-				        if (channelTilt == 1) {
-					        createBuyPosition(callBack);
-				        } else if (channelTilt == -1) {
-					        createSellPosition(callBack);
-				        } else {
+                    } else {
+                        if (channelTilt == 1) {
+                            createBuyPosition(callBack);
+                        } else if (channelTilt == -1) {
+                            createSellPosition(callBack);
+                        } else {
                             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> botDecision -> Nothing to do, there isn't a sell or buy oportunity."); }
-							
-					        callBack(global.DEFAULT_OK_RESPONSE);
-				        }
+
+                            callBack(global.DEFAULT_OK_RESPONSE);
+                        }
                     }
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> botDecision -> err = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
-			}
+            }
         }
 
         function getChannelTilt(callBack) {
@@ -127,6 +133,7 @@
                                     mid: lrcPointsFile[i][3],
                                     max: lrcPointsFile[i][4]
                                 };
+
                                 if (i >= 1) {
                                     let previous = i - 1;
                                     previousLRCPoint = {
@@ -238,120 +245,258 @@
 
                 if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid <= previousLRCPoint.mid) {
                     // 15 AND 30 changed direction from up to down
-                    channelTilt = CHANNEL_DOWN;
-                    ruleApplied += "Rule_3a.";
+                    if (checkToSellWithStopLoss()) {
+                        channelTilt = CHANNEL_DOWN;
+                        ruleApplied += "Rule_3a.";
+                    }
                 }
 
                 if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid >= previousLRCPoint.mid) {
                     // 15 AND 30 changed direction from down to up
-                    channelTilt = CHANNEL_UP;
-                    ruleApplied += "Rule_3b.";
+                    getLastCandleFromOlivia(onLastCandleFromOliviaReceived);
+
+                    function onLastCandleFromOliviaReceived(candle) {
+                        if (candle !== undefined && candle.close >= candle.open) {
+                            //We will only fast buy if the current candle close, is greater than the open
+                            channelTilt = CHANNEL_UP;
+                            ruleApplied += "Rule_3b.";
+                        }
+
+                        let logMessage = bot.processDatetime.toISOString() + ". Rule: " + ruleApplied + "Tilt: " + channelTilt + " (" + Number(lrcPoint.min).toLocaleString() + "|" + Number(lrcPoint.mid).toLocaleString() + "|" + Number(lrcPoint.max).toLocaleString() + ")";
+                        if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> Results: " + logMessage); }
+
+                        callBack(global.DEFAULT_OK_RESPONSE, channelTilt);
+                    }
+                } else {
+
+                    let logMessage = bot.processDatetime.toISOString() + ". Rule: " + ruleApplied + "Tilt: " + channelTilt + " (" + Number(lrcPoint.min).toLocaleString() + "|" + Number(lrcPoint.mid).toLocaleString() + "|" + Number(lrcPoint.max).toLocaleString() + ")";
+                    if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> Results: " + logMessage); }
+
+                    callBack(global.DEFAULT_OK_RESPONSE, channelTilt);
                 }
+            }
 
-                let logMessage = bot.processDatetime.toISOString() + "\t" + ruleApplied + "\t" + channelTilt + "\t" + lrcPoint.min + "\t" + lrcPoint.mid + "\t" + lrcPoint.max;
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> Results: " + logMessage); }
+            function getLastCandleFromOlivia(callback) {
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> getLastCandleFromOlivia -> Entering Function."); }
 
-                callBack(global.DEFAULT_OK_RESPONSE, channelTilt);
+                let key = "AAMasters-AAOlivia-Candles-Multi-Period-Daily-dataSet.V1";
+                let oliviaStorage = assistant.dataDependencies.dataSets.get(key);
+
+                let dateTime = new Date(lrcPoint.begin);
+                let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2);
+                let filePath = "Candles/Multi-Period-Daily/" + periodName + "/" + datePath;
+                let fileName = market.assetA + '_' + market.assetB + ".json"
+
+                oliviaStorage.getTextFile(filePath, fileName, onFileReceived);
+
+                function onFileReceived(err, text) {
+                    try {
+                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] getLastCandleFromOlivia -> onFileReceived-> Entering Function."); }
+
+                            let candleFile = JSON.parse(text);
+                            let lastCandleOlivia;
+                            for (let i = 0; i < candleFile.length; i++) {
+                                if (candleFile[i][4] == lrcPoint.begin) {
+                                    lastCandleOlivia = {
+                                        open: candleFile[i][2],
+                                        close: candleFile[i][3],
+                                        min: candleFile[i][0],
+                                        max: candleFile[i][1],
+                                        begin: candleFile[i][4],
+                                        end: candleFile[i][5]
+                                    };
+                                    break;
+                                }
+                            }
+
+                            callback(lastCandleOlivia);
+                        } else {
+                            logger.write(MODULE_NAME, "[WARN] getLastCandleFromOlivia -> onFileReceived -> Failed to get the file.");
+                            callback(undefined);
+                        }
+                    } catch (err) {
+                        logger.write(MODULE_NAME, "[ERROR] getLastCandleFromOlivia -> onFileReceived -> err = " + err.message);
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                    }
+                }
+            }
+
+            function checkToSellWithStopLoss() {
+                let assetBBalance = assistant.getAvailableBalance().assetB;
+                let currentRate = assistant.getMarketRate();
+                let amountB = assistant.getAvailableBalance().assetB;
+                let amountA = amountB * currentRate;
+                let lastBuyRate = assistant.remindMeOf(LAST_BUY_RATE_KEY);
+
+                if (stopLossEnabled && assetBBalance > 0) {
+                    if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration ->  Stop Loss Enabled, checking to sell."); }
+
+                    // Get the current investment value
+                    let investment = 0;
+                    if (assistant.getAvailableBalance() !== undefined) {
+                        //Get our last buy, if any
+                        if (lastBuyRate === undefined)
+                            lastBuyRate = currentRate; // We assume we just bought
+
+                        investment = assistant.getAvailableBalance().assetB * lastBuyRate;
+                    }
+
+                    // Calculate maximum loss setup
+                    let currentLoss = amountA - investment;
+                    let stopLossValue = investment * stopLossPorcentage;
+
+                    if (currentLoss >= 0) {
+                        return true; // If we are winning sell.
+                    } else if (currentLoss < 0) {
+                        if (Math.abs(currentLoss) > stopLossValue) {
+                            let message = "Selling to avoid loss more than " + Number(stopLossPorcentage * 100).toLocaleString() + "% of our initial investment. ";
+
+                            message += "Combined ROI on current execution: ";
+                            if (assistant.getCombinedProfits().assetA > 0) {
+                                message += Number(assistant.getCombinedProfits().assetA).toLocaleString() + "%. ";
+                            } else {
+                                message += Number(assistant.getCombinedProfits().assetB).toLocaleString() + "%. ";
+                            }
+
+                            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration ->  Stop loss: " + message); }
+
+                            assistant.sendMessage(3, "Stop Loss", message);
+
+                            return true;
+
+                        } else {
+                            let currentRisk = currentLoss / investment;
+                            let message = "Not selling now. Risking " + Number(currentRisk * 100).toLocaleString() + "% of our initial investment";
+                            message += ". Last Buy: $" + Number(lastBuyRate).toLocaleString();
+                            message += ". Not selling at: $" + Number(currentRate).toLocaleString();
+
+                            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> Stop loss: " + message); }
+
+                            assistant.sendMessage(3, "Stop Loss", message);
+
+                            return false;
+                        }
+                    }
+                } else {
+                    return true;
+                }
             }
         }
 
         function getLRCPointsFile(dateTime, callback) {
-			if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> getLRCPointsFile -> Entering function."); }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> getLRCPointsFile -> Entering function."); }
 
-			let periodName = "30-min";
-			let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2);
-			let filePath = "LRC-Points/Multi-Period-Daily/" + periodName + "/" + datePath;
-			let fileName = market.assetA + '_' + market.assetB + ".json"
+            let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2);
+            let filePath = "LRC-Points/Multi-Period-Daily/" + periodName + "/" + datePath;
+            let fileName = market.assetA + '_' + market.assetB + ".json"
 
-			gaussStorage.getTextFile(filePath, fileName, onFileReceived);
+            gaussStorage.getTextFile(filePath, fileName, onFileReceived);
 
-			function onFileReceived(err, text) {
-				if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-					if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived > Entering Function."); }
+            function onFileReceived(err, text) {
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived > Entering Function."); }
 
-					let lrcPointsFile = JSON.parse(text);
-					callback(global.DEFAULT_OK_RESPONSE, lrcPointsFile);
-				} else {
-					logger.write(MODULE_NAME, "[ERROR] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.");
-					callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-					return;
-				}
-			}
+                    let lrcPointsFile = JSON.parse(text);
+
+                    callback(global.DEFAULT_OK_RESPONSE, lrcPointsFile);
+                } else {
+                    logger.write(MODULE_NAME, "[ERROR] start -> getChannelTilt -> getLRCPointsFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.");
+                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                    return;
+                }
+            }
         }
 
         function createBuyPosition(callBack) {
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Entering function."); }
-                
-			let positions = assistant.getPositions();
+
+            let positions = assistant.getPositions();
             let assetABalance = assistant.getAvailableBalance().assetA;
             let currentRate = assistant.getMarketRate();
             let amountA = assistant.getAvailableBalance().assetA;
             let amountB = amountA / currentRate;
-				
-            if (positions.length > 0 && positions[0].type === "buy" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 15)){
-					
-				assistant.movePosition(positions[0], currentRate, callBack);
-					
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Moving an existing position to a new rate: " + currentRate.toFixed(8)); }
-					
-                let message = "Moving an existing buy position to a new price: " + Number(currentRate).toLocaleString();
-				assistant.sendMessage(2, "Moving Position", message);
 
-					
-			} else if(assetABalance > 0){
-					
-				assistant.putPosition("buy", currentRate, amountA, amountB, callBack);
+            if (positions.length > 0 && positions[0].type === "buy" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 15)) {
 
-                let message = "Creating a new buy position. Price: " + Number(currentRate).toLocaleString();
-                if (assistant.getROI() !== undefined) {
-                    message += ". ROI on current execution: " + MARKET.assetA + ": " + assistant.getROI().assetA + ". " + MARKET.assetB + ": " + assistant.getROI().assetB;
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Moving an existing position to a new price: $" + Number(currentRate).toLocaleString()); }
 
+                let message = "Moving an existing buy position to a new price: $" + Number(currentRate).toLocaleString();
+                assistant.sendMessage(6, "Moving Position", message);
+
+                assistant.rememberThis(LAST_BUY_RATE_KEY, currentRate);
+
+                assistant.movePosition(positions[0], currentRate, callBack);
+
+
+            } else if (assetABalance > 0) {
+
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Artuditu put a new BUY position at price: $" + Number(currentRate).toLocaleString()); }
+
+                let message = "Creating a new buy position. Price: $" + Number(currentRate).toLocaleString();
+                if (assistant.getCombinedProfits() !== undefined) {
+                    message += ". Combined ROI on current execution: ";
+                    if (assistant.getCombinedProfits().assetA > 0) {
+                        message += Number(assistant.getCombinedProfits().assetA).toLocaleString() + "%. ";
+                    } else {
+                        message += Number(assistant.getCombinedProfits().assetB).toLocaleString() + "%. ";
+                    }
                 }
-                assistant.sendMessage(2, "Buying", message);
-										
-			} else {
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> There is not enough available balance to buy. Available balance: " + assetABalance ); }
-					
-				callBack(global.DEFAULT_OK_RESPONSE);
-			}                
+
+                assistant.sendMessage(7, "Buying", message);
+
+                assistant.rememberThis(LAST_BUY_RATE_KEY, currentRate);
+
+                assistant.putPosition("buy", currentRate, amountA, amountB, callBack);
+
+
+            } else {
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Not enough available balance to buy."); }
+
+                callBack(global.DEFAULT_OK_RESPONSE);
+            }
         }
-              
+
         function createSellPosition(callBack) {
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Entering function."); }
-                
-			let positions = assistant.getPositions();
-			let assetBBalance = assistant.getAvailableBalance().assetB;
+
+            let positions = assistant.getPositions();
+            let assetBBalance = assistant.getAvailableBalance().assetB;
             let currentRate = assistant.getMarketRate();
             let amountB = assistant.getAvailableBalance().assetB;
             let amountA = amountB * currentRate;
 
-            if (positions.length > 0 && positions[0].type === "sell" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 15)){
-					
-				assistant.movePosition(positions[0], currentRate, callBack);
-					
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + currentRate.toFixed(8)); }
-					
-                let message = "Moving an existing sell position to a new price: " + Number(currentRate).toLocaleString();
-				assistant.sendMessage(2, "Moving Position", message);
+            if (positions.length > 0 && positions[0].type === "sell" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 15)) {
 
-			}else if(assetBBalance > 0){
-					
-				assistant.putPosition("sell", currentRate, amountA, amountB, callBack);
-				
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Artuditu put a new SELL Position at rate: " + currentRate + ". Amount traded asset A: " + amountA + ". Amount traded asset B: " + amountB); }
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Artuditu is moving an existing position to a new rate: " + Number(currentRate).toLocaleString()); }
 
-                let message = "Creating a new sell position. Price: " + Number(currentRate).toLocaleString();
-                if (assistant.getROI() !== undefined) {
-                    message += ". ROI on current execution: " + MARKET.assetA + ": " + assistant.getROI().assetA + ". " + MARKET.assetB + ": " + assistant.getROI().assetB;
+                let message = "Moving an existing sell position to a new price: $" + Number(currentRate).toLocaleString();
+                assistant.sendMessage(6, "Moving Position", message);
 
+                assistant.movePosition(positions[0], currentRate, callBack);
+
+            } else if (assetBBalance > 0) {
+
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Artuditu put a new SELL position at price: $" + Number(currentRate).toLocaleString()); }
+
+                let message = "Creating a new sell position. Price: $" + Number(currentRate).toLocaleString();
+                if (assistant.getCombinedProfits() !== undefined) {
+                    message += ". Combined ROI on current execution: ";
+                    if (assistant.getCombinedProfits().assetA > 0) {
+                        message += Number(assistant.getCombinedProfits().assetA).toLocaleString() + "%. ";
+                    } else {
+                        message += Number(assistant.getCombinedProfits().assetB).toLocaleString() + "%. ";
+                    }
                 }
-                assistant.sendMessage(2, "Selling", message);
-					
-			} else {
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> There is not enough available balance to sell. Available balance: " + assetBBalance ); }
-					
-				callBack(global.DEFAULT_OK_RESPONSE);
-			}
+                assistant.sendMessage(7, "Selling", message);
+
+                assistant.putPosition("sell", currentRate, amountA, amountB, callBack);
+
+            } else {
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> There is not enough available balance to sell. Available balance: " + assetBBalance); }
+
+                callBack(global.DEFAULT_OK_RESPONSE);
+            }
         }
 
         function pad(str, max) {

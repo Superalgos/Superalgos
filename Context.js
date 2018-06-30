@@ -434,47 +434,28 @@
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> fileName = " + fileName); }
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> filePath = " + filePath); }
 
-                    utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
+                    let fileContent = JSON.stringify(thisObject.executionContext);
 
-                    function onFolderCreated(err) {
+                    cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
-                        try {
+                    function onFileCreated(err) {
 
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> Entering function."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> onFileCreated -> Entering function."); }
 
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> err = " + err.message);
-                                callBack(err);
-                                return;
-                            }
-
-                            let fileContent = JSON.stringify(thisObject.executionContext);
-
-                            cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated(err) {
-
-                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                    callBack(err);
-                                    return;
-                                }
-
-                                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
-                                    logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
-                                }
-
-                                writeExucutionHistory(callBack);
-                                return;
-                            }
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> onFileCreated -> err = " + err.message);
+                            callBack(err);
+                            return;
                         }
-                        catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> onFolderCreated -> err = " + err.message);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
+                            logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> onFileCreated ->  Content written = " + fileContent);
                         }
+
+                        writeExucutionHistory(callBack);
+                        return;
                     }
+
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExecutionContext -> err = " + err.message);
@@ -494,92 +475,73 @@
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> fileName = " + fileName); }
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> filePath = " + filePath); }
 
-                    utilities.createFolderIfNeeded(filePath, cloudStorage, onFolderCreated);
+                    let newRecord = [
+                        thisObject.newHistoryRecord.date.valueOf(),
+                        thisObject.newHistoryRecord.buyAvgRate,
+                        thisObject.newHistoryRecord.sellAvgRate,
 
-                    function onFolderCreated(err) {
+                        thisObject.newHistoryRecord.lastSellRate,
+                        thisObject.newHistoryRecord.sellExecRate,
+                        thisObject.newHistoryRecord.lastBuyRate,
+                        thisObject.newHistoryRecord.buyExecRate,
 
-                        try {
+                        thisObject.newHistoryRecord.marketRate,
+                        thisObject.newHistoryRecord.newPositions,
+                        thisObject.newHistoryRecord.newTrades,
+                        thisObject.newHistoryRecord.movedPositions,
+                        thisObject.newHistoryRecord.profitsAssetA,
+                        thisObject.newHistoryRecord.profitsAssetB,
+                        thisObject.newHistoryRecord.combinedProfitsA,
+                        thisObject.newHistoryRecord.combinedProfitsB,
 
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> Entering function."); }
+                        thisObject.newHistoryRecord.messageRelevance,
+                        thisObject.newHistoryRecord.messageTitle,
+                        thisObject.newHistoryRecord.messageBody
+                    ];
+
+                    thisObject.executionHistory.push(newRecord);
+
+                    let fileContent = JSON.stringify(thisObject.executionHistory);
+
+                    cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                    function onFileCreated(err) {
+
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> onFileCreated -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFileCreated -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
+                            logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> onFileCreated ->  Content written = " + fileContent);
+                        }
+
+                        /* Here we will write the file containing the max sequence number. */
+
+                        fileContent = runIndex;
+                        fileName = "Execution.History." + bot.startMode + "." + "Sequence" + ".json";
+                        filePath = bot.filePathRoot + "/Output/" + bot.process;
+
+                        cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onSequenceFileCreated);
+
+                        function onSequenceFileCreated(err) {
+
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> onFileCreated -> onSequenceFileCreated -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> err = " + err.message);
+                                logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFileCreated -> onSequenceFileCreated -> err = " + err.message);
                                 callBack(err);
                                 return;
                             }
 
-                            let newRecord = [
-                                thisObject.newHistoryRecord.date.valueOf(),
-                                thisObject.newHistoryRecord.buyAvgRate,
-                                thisObject.newHistoryRecord.sellAvgRate,
-
-                                thisObject.newHistoryRecord.lastSellRate,
-                                thisObject.newHistoryRecord.sellExecRate,
-                                thisObject.newHistoryRecord.lastBuyRate,
-                                thisObject.newHistoryRecord.buyExecRate,
-
-                                thisObject.newHistoryRecord.marketRate,
-                                thisObject.newHistoryRecord.newPositions,
-                                thisObject.newHistoryRecord.newTrades,
-                                thisObject.newHistoryRecord.movedPositions,
-                                thisObject.newHistoryRecord.profitsAssetA,
-                                thisObject.newHistoryRecord.profitsAssetB,
-                                thisObject.newHistoryRecord.combinedProfitsA,
-                                thisObject.newHistoryRecord.combinedProfitsB,
-
-                                thisObject.newHistoryRecord.messageRelevance,
-                                thisObject.newHistoryRecord.messageTitle,
-                                thisObject.newHistoryRecord.messageBody
-                            ];
-
-                            thisObject.executionHistory.push(newRecord);
-
-                            let fileContent = JSON.stringify(thisObject.executionHistory);
-
-                            cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated(err) {
-
-                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> Entering function."); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> err = " + err.message);
-                                    callBack(err);
-                                    return;
-                                }
-
-                                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
-                                    logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated ->  Content written = " + fileContent);
-                                }
-
-                                /* Here we will write the file containing the max sequence number. */
-
-                                fileContent = runIndex;
-                                fileName = "Execution.History." + bot.startMode + "." + "Sequence" + ".json";
-                                filePath = bot.filePathRoot + "/Output/" + bot.process;
-
-                                cloudStorage.createTextFile(filePath, fileName, fileContent + '\n', onSequenceFileCreated);
-
-                                function onSequenceFileCreated(err) {
-
-                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> onSequenceFileCreated -> Entering function."); }
-
-                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> onFileCreated -> onSequenceFileCreated -> err = " + err.message);
-                                        callBack(err);
-                                        return;
-                                    }
-
-                                    writeStatusReport(callBack);
-                                    return;
-                                }
-                            }
-                        }
-                        catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> onFolderCreated -> err = " + err.message);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            writeStatusReport(callBack);
+                            return;
                         }
                     }
+
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] saveThemAll -> writeExucutionHistory -> err = " + err.message);

@@ -800,7 +800,7 @@ function onBrowserRequest(request, response) {
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
 
-                storage.getData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
+                storage.readData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
                 function onDataArrived(pData) {
 
@@ -812,7 +812,7 @@ function onBrowserRequest(request, response) {
 
         case "PlotterPanels": // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
             {
-                storage.getData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
+                storage.readData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
                 function onDataArrived(pData) {
 

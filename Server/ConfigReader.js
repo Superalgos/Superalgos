@@ -91,7 +91,7 @@
         
                 */
 
-                storage.getData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', true, onDataArrived);
+                storage.readData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', true, onDataArrived);
 
                 function onDataArrived(pData) {
 
@@ -145,7 +145,7 @@
 
                                 requestsSent++;
 
-                                storage.getData(host.codeName + "/" + "competitions", competition.repo, competition.configFile, true, onDataArrived);
+                                storage.readData(host.codeName + "/" + "competitions", competition.repo, competition.configFile, true, onDataArrived);
 
                                 function onDataArrived(pData) {
 
@@ -202,7 +202,7 @@
 
                                 requestsSent++;
 
-                                storage.getData(host.codeName + "/" + "plotters", plotter.repo, plotter.configFile, true, onDataArrived);
+                                storage.readData(host.codeName + "/" + "plotters", plotter.repo, plotter.configFile, true, onDataArrived);
 
                                 function onDataArrived(pData) {
 
@@ -291,7 +291,7 @@
 
                                 requestsSent++;
 
-                                storage.getData(devTeam.codeName + "/" + "bots", bot.repo, bot.configFile, true, onDataArrived);
+                                storage.readData(devTeam.codeName + "/" + "bots", bot.repo, bot.configFile, true, onDataArrived);
 
                                 function onDataArrived(pData) {
 
@@ -354,7 +354,7 @@
 
                                 requestsSent++;
 
-                                storage.getData(devTeam.codeName + "/" + "plotters", plotter.repo, plotter.configFile, true, onDataArrived);
+                                storage.readData(devTeam.codeName + "/" + "plotters", plotter.repo, plotter.configFile, true, onDataArrived);
 
                                 function onDataArrived(pData) {
 

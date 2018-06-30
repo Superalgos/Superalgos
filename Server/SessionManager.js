@@ -21,7 +21,7 @@
                 let storage = STORAGE.newStorage();
 
                 storage.initialize(undefined, pServerConfig);
-                storage.getData("AdvancedAlgos", "AAPlatform", "Open.Sessions.json", false, onData);
+                storage.readData("AdvancedAlgos", "AAPlatform", "Open.Sessions.json", false, onData);
 
                 function onData(pText) {
 

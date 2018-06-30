@@ -2,7 +2,7 @@
 global.CURRENT_ENVIRONMENT = "Develop"; 
 global.CURRENT_EXECUTION_AT = "Cloud"; 
 global.SHALL_BOT_STOP = false;
-global.USER_LOGGED_IN = "Ciencias";
+global.USER_LOGGED_IN = "Ciencias"; 
 global.DEV_TEAM = "AAMasters";
 global.AT_BREAKPOINT = false; // This is used only when running at the browser. 
 

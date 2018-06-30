@@ -586,7 +586,7 @@
                         */
 
                         let labelValue = (j - timeLineCoordinateSystem.max.y / 2) * 200 / timeLineCoordinateSystem.max.y; 
-                        labelValue = Math.round(labelValue * 1) / 1;
+                        labelValue = Math.round(labelValue * 100) / 100;
                         if (labelValue > 0) { labelValue = '+' + labelValue; }
                         if (parseInt(labelValue) > -10 && parseInt(labelValue) < 10) { labelValue = ' ' + labelValue; }
                         if (parseInt(labelValue) === 0) { labelValue = ' ' + labelValue; }

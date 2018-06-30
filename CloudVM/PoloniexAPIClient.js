@@ -21,6 +21,8 @@
 
     function analizeResponse(logger, exchangeErr, exchangeResponse, notOkCallBack, okCallBack) {
 
+        /* IMPORTANT> This function is an exact copy of the one running at the cloud, with a browsery applied. In this case it means the world global -> window. */
+
         /* This function analizes the different situations we might encounter trying to access Poloniex and returns appropiate standard errors. */
 
         try {
@@ -43,7 +45,7 @@
                     stringExchangeResponse.indexOf("Internal error. Please try again") > 0))) {
 
                 logger.write( MODULE_NAME, "[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
-                notOkCallBack(global.DEFAULT_RETRY_RESPONSE);
+                notOkCallBack(window.DEFAULT_RETRY_RESPONSE);
                 return;
 
             } else {
@@ -54,7 +56,7 @@
 
                         logger.write( MODULE_NAME, "[ERROR] analizeResponse -> Unexpected response from the Exchange.");
                         logger.write( MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + stringExchangeResponse);
-                        notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
+                        notOkCallBack(window.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
                 }
@@ -62,7 +64,7 @@
                 if (exchangeErr) {
 
                     logger.write( MODULE_NAME, "[ERROR] analizeResponse -> Unexpected error trying to contact the Exchange.");
-                    notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
+                    notOkCallBack(window.DEFAULT_FAIL_RESPONSE);
                     return;
 
                 } else {
@@ -75,7 +77,7 @@
 
         } catch (err) {
             logger.write( MODULE_NAME, "[ERROR] analizeResponse -> err.message = " + err.message);
-            notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
+            notOkCallBack(window.DEFAULT_FAIL_RESPONSE);
             return;
         }
     }

@@ -55,7 +55,7 @@
                     if (JSON.stringify(exchangeResponse).indexOf("error") > 0) {
 
                         logger.write( MODULE_NAME, "[ERROR] analizeResponse -> Unexpected response from the Exchange.");
-                        logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeResponse);
+                        logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeResponse));
                         notOkCallBack(window.DEFAULT_FAIL_RESPONSE);
                         return;
                     }

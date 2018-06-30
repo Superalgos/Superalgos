@@ -94,7 +94,7 @@ function initialize() {
                     const SESSION_MANAGER = require('./Server/SessionManager');
                     sessionManager = SESSION_MANAGER.newSessionManager();
 
-                    sessionManager.initialize(onInitialized);
+                    sessionManager.initialize(serverConfig, onInitialized);
 
                     function onInitialized() {
 
@@ -800,7 +800,7 @@ function onBrowserRequest(request, response) {
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
 
-                storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
+                storage.getData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
                 function onDataArrived(pData) {
 
@@ -812,7 +812,7 @@ function onBrowserRequest(request, response) {
 
         case "PlotterPanels": // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
             {
-                storage.getStorageData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
+                storage.getData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
                 function onDataArrived(pData) {
 

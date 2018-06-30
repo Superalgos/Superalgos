@@ -9,27 +9,35 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(pServerConfig, callBackFunction) {
 
         readSessions();
 
         function readSessions() {
 
             try {
-                let fs = require('fs');
-                let filePath = '../' + 'Sessions' + '/' + 'Open.Sessions' + '.json';
 
-                let sessions = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                const STORAGE = require('../Server/Storage');
+                let storage = STORAGE.newStorage();
 
-                for (let i = 0; i < sessions.length; i++) {
+                storage.initialize(undefined, pServerConfig);
+                storage.getData("AdvancedAlgos", "AAPlatform", "Open.Sessions.json", false, onData);
 
-                    let session = sessions[i];
+                function onData(pText) {
 
-                    activeSessions.set(session.sessionToken, session);
+                    let sessions = JSON.parse(pText);
+
+                    for (let i = 0; i < sessions.length; i++) {
+
+                        let session = sessions[i];
+
+                        activeSessions.set(session.sessionToken, session);
+
+                    }
+
+                    callBackFunction();
 
                 }
-
-                callBackFunction();
             }
             catch (err) {
                 console.log("[ERROR] readSessions -> err = " + err.message);

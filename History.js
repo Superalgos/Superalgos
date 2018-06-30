@@ -16,6 +16,7 @@
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
+        recalculateScale: recalculateScale, 
         draw: draw,
         payload: {
             profile: {
@@ -31,23 +32,26 @@
 
     /* this is part of the module template */
 
-    let container = newContainer();     // Do not touch this 3 lines, they are just needed.
+    let container = newContainer();             // Do not touch this 3 lines, they are just needed.
     container.initialize();
     thisObject.container = container;
 
     let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
-    let timePeriod;                     // This will hold the current Time Period the user is at.
-    let datetime;                       // This will hold the current Datetime the user is at.
+    let timePeriod;                             // This will hold the current Time Period the user is at.
+    let datetime;                               // This will hold the current Datetime the user is at.
 
     /* these are module specific variables: */
 
     let fileSequence;                           
-    let plotElements = [];                    // This is where the elements to be plotted are stored before plotting.
-    let plotLines = [];                       // Here we store the lines of open positions.
-    let notes = [];                         // Here we store the notes with messages from the bot.
+    let plotElements = [];                      // This is where the elements to be plotted are stored before plotting.
+    let plotLines = [];                         // Here we store the lines of open positions.
+    let notes = [];                             // Here we store the notes with messages from the bot.
 
-    let notesChangedEventRaised = true;     // This controls when to raise the event that notes changed.
+    let notesChangedEventRaised = true;         // This controls when to raise the event that notes changed.
+
+    let previousNotesSetKey;
+    let currentNotesSetKey;
 
     return thisObject;
 
@@ -187,7 +191,13 @@
                 
                 /* First the small balls */
 
-                for (let i = 0; i < file.length; i++) {
+                const ONE_MIN_IN_MILISECONDS = 60 * 1000;
+                let step = timePeriod / ONE_MIN_IN_MILISECONDS;
+
+                let i = 0;
+                let lastRecordPushed = 0;
+
+                for (i = 0; i < file.length; i = i + step) {
 
                     let newHistoryRecord = {
 
@@ -215,10 +225,11 @@
                     };
 
                     history.push(newHistoryRecord);
+                    lastRecordPushed = i;
+
+                    /* Here we build the lines. */
 
                     if (timePeriod <= 1 * 60 * 1000) {
-
-                        /* Here we build the lines. */
 
                         if (newHistoryRecord.lastSellRate > 0) {
 
@@ -262,7 +273,44 @@
 
                         }
                     }
+
                 }
+
+                /* We allways want to put the last record of the file on the filterd dataset, so as to allways show the latest advance of the bot. */
+
+                i = file.length - 1;
+
+                if (lastRecordPushed !== i) {
+
+                    let newHistoryRecord = {
+
+                        date: Math.trunc(file[i][0] / 60000) * 60000 + 30000,
+                        buyAvgRate: file[i][1],
+                        sellAvgRate: file[i][2],
+
+                        lastSellRate: file[i][3],
+                        sellExecRate: file[i][4],
+                        lastBuyRate: file[i][5],
+                        buyExecRate: file[i][6],
+
+                        marketRate: file[i][7],
+                        newPositions: file[i][8],
+                        newTrades: file[i][9],
+                        movedPositions: file[i][10],
+                        profitsAssetA: file[i][11],
+                        profitsAssetB: file[i][12],
+                        combinedProfitsA: file[i][13],
+                        combinedProfitsB: file[i][14],
+
+                        messageRelevance: file[i][15],
+                        messageTitle: file[i][16],
+                        messageBody: file[i][17]
+                    };
+
+                    history.push(newHistoryRecord);
+
+                }
+
 
                 /* Second we process the text */
 
@@ -322,8 +370,9 @@
                 plotElements.push(history);
                 plotLines.push(lines);
 
-                notesChangedEventRaised = false;
             }
+
+            notesChangedEventRaised = false;
 
             thisObject.container.eventHandler.raiseEvent("History Changed", history);
 
@@ -437,8 +486,10 @@
 
                     record = history[i];
 
+                    let timestamp = Math.trunc(record.date / timePeriod) * timePeriod + timePeriod / 2;
+
                     point = {
-                        x: record.date,
+                        x: timestamp,
                         y: record.marketRate
                     };
 
@@ -468,12 +519,12 @@
 
                     browserCanvasContext.beginPath();
 
-                    browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
 
                     if (isCurrentRecord === false) {
-                        browserCanvasContext.fillStyle = 'rgba(64, 217, 26, ' + opacity + ')';
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.LIGHT + ', ' + opacity + ')';
                     } else {
-                        browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + opacity + ')';  /* highlight the current record */
                     }
 
                     browserCanvasContext.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
@@ -489,7 +540,7 @@
 
                     if (record.sellExecRate > 0) {
 
-                        opacity = '0.3';
+                        opacity = '0.5';
 
                         let point1 = {
                             x: record.date,
@@ -551,7 +602,7 @@
 
                     if (record.buyExecRate > 0) {
 
-                        opacity = '0.3';
+                        opacity = '0.5';
 
                         let point1 = {
                             x: record.date,
@@ -613,7 +664,7 @@
 
                     if (record.lastSellRate > 0) {
 
-                        opacity = '0.3';
+                        opacity = '0.5';
 
                         let point1 = {
                             x: record.date,
@@ -675,7 +726,7 @@
 
                     if (record.lastBuyRate > 0) {
 
-                        opacity = '0.3';
+                        opacity = '0.5';
 
                         let point1 = {
                             x: record.date,
@@ -790,6 +841,7 @@
 
                 /* Now we calculate the anchor position of notes. */
 
+                currentNotesSetKey = "";
 
                 for (let i = 0; i < notes.length; i++) {
 
@@ -807,18 +859,33 @@
 
                     if (note.position.x < (viewPort.visibleArea.bottomRight.x / 2) * (-1) || note.position.x > (viewPort.visibleArea.bottomRight.x) * (1.5)) {
                         note.visible = false;
+                        currentNotesSetKey = currentNotesSetKey + "0";
                     } else {
                         note.visible = true;
+                        currentNotesSetKey = currentNotesSetKey + "1";
                     }
-
                 }
 
                 if (notesChangedEventRaised === false) {
+
+                    /* In this case the event is raised because we might have a different set of notes. */
 
                     thisObject.container.eventHandler.raiseEvent("Notes Changed", notes);
                     thisObject.payload.notes = notes;
 
                     notesChangedEventRaised = true;
+                    
+                } else {
+
+                    if (currentNotesSetKey !== previousNotesSetKey) {
+
+                        /* In this case the event is raised because the visibility of some of the notes changed. */
+
+                        thisObject.container.eventHandler.raiseEvent("Notes Changed", notes);
+                        thisObject.payload.notes = notes;
+
+                        previousNotesSetKey = currentNotesSetKey;
+                    }
                 }
 
             }

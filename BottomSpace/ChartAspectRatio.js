@@ -23,7 +23,7 @@
 
     thisObject.aspectRatio = {};
 
-    const INITIAL_Y_ASPECT_RATIO = 2 / 10;
+    const INITIAL_Y_ASPECT_RATIO = 5 / 10;
     const MIN_Y_ASPECT_RATIO = 1 / 10;
     const MAX_Y_ASPECT_RATIO = 10 / 10;
 

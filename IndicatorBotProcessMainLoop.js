@@ -151,7 +151,7 @@
                         return str.length < max ? pad(" " + str, max) : str;
                     }
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Entered into Main Loop # " + pad(Number(bot.loopCounter) + 1, 8 ));
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(pMonth, 2) + "/" + pad(pYear, 4) + " Entered into Main Loop # " + pad(Number(bot.loopCounter) + 1, 8 ));
 
                     /* For each loop we want to create a new log file. */
 

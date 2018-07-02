@@ -440,6 +440,7 @@
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> JSON.stringify(exchangeErr) = " + JSON.stringify(exchangeErr));
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeErr = " + exchangeErr);
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + exchangeResponse);
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeResponse));
 
                             /* {"error":"Not enough USDT.","success":0}*/
 

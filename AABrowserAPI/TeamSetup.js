@@ -1,8 +1,5 @@
 ﻿exports.newTeamSetup = function newTeamSetup() {
 
-    CONSOLE_LOG = true;
-    LOG_FILE_CONTENT = false;
-
     let thisObject = {
         newTeam: newTeam,
         initialize: initialize
@@ -61,11 +58,24 @@
                         console.log("[ERROR] TeamSetup -> newTeam -> createContainer -> onContainerCreated -> Could not create the container. ");
                         console.log("[ERROR] TeamSetup -> newTeam -> createContainer -> onContainerCreated -> err.message = " + err.message);
 
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        if (err.message === "ContainerAlreadyExists") {
+
+                            let err = {
+                                resutl: global.CUSTOM_FAIL_RESPONSE.result,
+                                message: "Team Name already taken"
+                            };
+
+                            callBackFunction(err);
+
+                        } else {
+
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
                         return;
                     }
 
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                    addToEcosystem();
                 }
             }
 

@@ -1,6 +1,7 @@
 /* These 2 are global variables, that is why they do not have a let or var */
 
 CONSOLE_LOG = true;
+CONSOLE_ERROR_LOG = true;
 LOG_FILE_CONTENT = false;
 
 if (CONSOLE_LOG === true) { console.log("[INFO] server -> Node Server Starting."); }

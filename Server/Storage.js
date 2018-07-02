@@ -87,9 +87,9 @@
                         
                         if (err !== null || text === null) {
 
-                            if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Error Received from Storage Library. "); }
-                            if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
-                            if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Returning an empty JSON object string. "); }
+                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Error Received from Storage Library. "); }
+                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
+                            if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Returning an empty JSON object string. "); }
 
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
@@ -157,8 +157,8 @@
 
                     if (err !== null || text === null) {
 
-                        if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> Error Received from Storage Library. "); }
-                        if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> Error Received from Storage Library. "); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
 
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
@@ -180,7 +180,7 @@
     }
 
 
-    function createContainer(pContainerName, pPath, pFile, pFileContent, callBackFunction) {
+    function createContainer(pContainerName, callBackFunction) {
 
         try {
 
@@ -207,22 +207,42 @@
 
             let blobService = storage.createBlobService(connectionString);
 
-            pContainerName.toLowerCase();
+            let containerName = pContainerName.toLowerCase();
 
-            blobService.createContainer(pContainerName, onContainerCreated);
+            blobService.createContainer(containerName, onContainerCreated);
 
             function onContainerCreated(err) {
 
                 if (err) {
 
-                    if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> Error Received from Storage Library. "); }
-                    if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> err = " + JSON.stringify(err)); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> Error Received from Storage Library. "); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> err = " + JSON.stringify(err)); }
+
+
+                    /* ContainerAlreadyExists check */
+
+                    if (JSON.stringify(err).indexOf("ContainerAlreadyExists") > 0) {
+
+                        let err = {
+                            resutl: global.CUSTOM_FAIL_RESPONSE.result,
+                            message: "ContainerAlreadyExists"
+                        };
+
+                        callBackFunction(err);
+                        return;
+
+                    } else {
+
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
 
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return;
             }
 
         } catch (err) {

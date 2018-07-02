@@ -437,9 +437,26 @@
                         if (JSON.stringify(exchangeResponse).indexOf("error") > 0) {
 
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> Unexpected response from the Exchange.");
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> JSON.stringify(exchangeErr) = " + JSON.stringify(exchangeErr));
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeErr = " + exchangeErr);
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + exchangeResponse);
 
-                            notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
+                            /* {"error":"Not enough USDT.","success":0}*/
+
+                            if (JSON.stringify(exchangeResponse).indexOf("Not enough") > 0) {
+
+                                let err = {
+                                    resutl: global.CUSTOM_FAIL_RESPONSE.result,
+                                    message: exchangeResponse.error
+                                };
+
+                                notOkCallBack(err);
+
+                            } else {
+
+                                notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
+
+                            }
                             return;
                         }
 

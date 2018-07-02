@@ -3,6 +3,7 @@
     let thisObject = {
         readData: readData,
         writeData: writeData,
+        createContainer: createContainer, 
         initialize: initialize
     }
 
@@ -114,12 +115,10 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> pOrg = " + pOrg); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> pPath = " + pPath); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> pFile = " + pFile); }
-
-            if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData ->  " + pOrg + '.' + pPath + '.' + pFile + " NOT found at cache."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pOrg = " + pOrg); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pPath = " + pPath); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> pFile = " + pFile); }
 
             let storage = require('azure-storage');
             let connectionString;
@@ -149,18 +148,17 @@
 
                 try {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> Entering function."); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
-                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] API -> writeData -> onFileCreated -> response = " + JSON.stringify(response)); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pOrg = " + pOrg); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pPath = " + pPath); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pFile = " + pFile); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
+                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> response = " + JSON.stringify(response)); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> pOrg = " + pOrg); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> pPath = " + pPath); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> writeData -> onFileCreated -> pFile = " + pFile); }
 
                     if (err !== null || text === null) {
 
-                        if (CONSOLE_LOG === true) { console.log("[ERROR] API -> writeData -> onFileCreated -> Error Received from API Library. "); }
-                        if (CONSOLE_LOG === true) { console.log("[ERROR] API -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
-                        if (CONSOLE_LOG === true) { console.log("[ERROR] API -> writeData -> onFileCreated -> Returning an empty JSON object string. "); }
+                        if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> Error Received from Storage Library. "); }
+                        if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
 
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
@@ -170,13 +168,65 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 } catch (err) {
-                    console.log("[ERROR] API -> writeData -> onFileCreated -> err.message = " + err.message);
+                    console.log("[ERROR] Storage -> writeData -> onFileCreated -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         } catch (err) {
-            console.log("[ERROR] API -> writeData -> err.message = " + err.message);
+            console.log("[ERROR] Storage -> writeData -> err.message = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+
+    function createContainer(pContainerName, pPath, pFile, pFileContent, callBackFunction) {
+
+        try {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> createContainer -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> createContainer -> pContainerName = " + pContainerName); }
+
+            let storage = require('azure-storage');
+            let connectionString;
+
+            switch (serverConfig.environment) {
+
+                case "Develop": {
+
+                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
+                    break;
+                }
+
+                case "Production": {
+
+                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
+                    break;
+                }
+            }
+
+            let blobService = storage.createBlobService(connectionString);
+
+            pContainerName.toLowerCase();
+
+            blobService.createContainer(pContainerName, onContainerCreated);
+
+            function onContainerCreated(err) {
+
+                if (err) {
+
+                    if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> Error Received from Storage Library. "); }
+                    if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> createContainer -> onContainerCreated -> err = " + JSON.stringify(err)); }
+
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+            }
+
+        } catch (err) {
+            console.log("[ERROR] Storage -> createContainer -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

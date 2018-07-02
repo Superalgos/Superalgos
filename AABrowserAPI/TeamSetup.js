@@ -30,10 +30,11 @@
             /*
     
             Procedure to create a new Team, User and Bot:
-    
-            1. Add it to the Ecosystem.
-            2. Agregarlo al archivo de sessiones.  --> copiar la session local a Develop
-            3. Crear el container del nuevo devTeam.
+
+            1. Create Continer. This will also tell us if the Team name is not already in use.    FALTA ERROR HANDLING Y EN STORAGE EL LOG DE ERRORS 
+            2. Add it to the Ecosystem.
+            3. Add it to Sessions.
+            
             4. Crear el folder del nuevo devTeam en el container aaplatform.
             5. Copiar el bot a devTeam/bots  --> Cambiarle el nombre al folder
             6. Modificar la configuracion del bot reemplazando el devTeam y el Nombre.
@@ -45,7 +46,28 @@
     
             */
 
-            addToEcosystem();
+            createContainer();
+
+            function createContainer() {
+
+                if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> createContainer -> Entering function."); }
+
+                storage.createContainer(pTeamCodeName, onContainerCreated);
+
+                function onContainerCreated(err) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                        console.log("[ERROR] TeamSetup -> newTeam -> createContainer -> onContainerCreated -> Could not create the container. ");
+                        console.log("[ERROR] TeamSetup -> newTeam -> createContainer -> onContainerCreated -> err.message = " + err.message);
+
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                }
+            }
 
             function addToEcosystem() {
 
@@ -70,6 +92,7 @@
                                 return;
                             }
 
+                            pFileContent = pFileContent.trim();
                             let ecosystem = JSON.parse(pFileContent);
 
                             let newTeam = {
@@ -133,10 +156,120 @@
 
             function addToSessions() {
 
+                try {
 
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToSessions -> Entering function."); }
+
+                    storage.readData("AdvancedAlgos", "AAPlatform", "open.sessions.json", false, onDataRead);
+
+                    function onDataRead(err, pFileContent) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToSessions -> onDataRead -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                console.log("[ERROR] TeamSetup -> newTeam -> addToSessions -> onDataRead -> Could not read a file. ");
+                                console.log("[ERROR] TeamSetup -> newTeam -> addToSessions -> onDataRead -> err.message = " + err.message);
+
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            pFileContent = pFileContent.trim();
+                            let sessions = JSON.parse(pFileContent);
+                            let token = createRandomToken();
+
+                            function createRandomToken() {
+
+                                let text = "";
+                                let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+                                for (var i = 0; i < 128; i++)
+                                    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+                                return text;
+                            }
+
+                            let newSession = {
+                                sessionToken: token,
+                                userName: pUserName,
+                                devTeams: [
+                                    {
+                                        codeName: pTeamCodeName,
+                                        displayName: pTeamDisplayName,
+                                        userBots: [
+                                            {
+                                                displayName: pBotName,
+                                                codeName: pBotName,
+                                                type: "Trading",
+                                                repo: pBotName + "-Trading-Bot",
+                                                processes: [
+                                                    {
+                                                        name: "Trading-Process"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        devTeamDependencies: ["AAMasters", "AAVikings"]
+                                    }
+                                ],
+                                exchangeKeys: [
+                                    {
+                                        exchange: "Poloniex",
+                                        key: "",
+                                        secret: ""
+                                    }
+                                ]
+                            };
+
+                            sessions.push(newSession);
+
+                            let fileContent = JSON.stringify(sessions);
+
+                            storage.writeData("AdvancedAlgos", "AAPlatform", "open.sessions.json", fileContent, onDataWritten);
+
+                            function onDataWritten(err) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToSessions -> onDataRead -> onDataWritten -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        console.log("[ERROR] TeamSetup -> newTeam -> addToSessions -> onDataRead -> onDataWritten -> Could not write a file. ");
+                                        console.log("[ERROR] TeamSetup -> newTeam -> addToSessions -> onDataRead -> onDataWritten -> err.message = " + err.message);
+
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+
+                                    createContainer();
+
+                                } catch (err) {
+
+                                    console.log("[ERROR] TeamSetup -> newTeam -> addToSessions -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                }
+                            }
+
+                        } catch (err) {
+
+                            console.log("[ERROR] TeamSetup -> newTeam -> addToSessions -> onDataRead -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> newTeam -> addToSessions -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
             }
-
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
 

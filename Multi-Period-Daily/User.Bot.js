@@ -119,7 +119,7 @@
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
 
-                    if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
@@ -155,7 +155,7 @@
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
 
-                    if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
@@ -190,7 +190,7 @@
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
 
-                    if (statusReport === "undefined") { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;

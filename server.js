@@ -467,8 +467,8 @@ function onBrowserRequest(request, response) {
 
                     case "saveBotCode": {
 
-                        const AABROSER_API_BOT_CODE = require('./AABrowserAPI/' + 'BotCode');
-                        let botCode = AABROSER_API_BOT_CODE.newBotCode();
+                        const AABROWSER_API_BOT_CODE = require('./AABrowserAPI/' + 'BotCode');
+                        let botCode = AABROWSER_API_BOT_CODE.newBotCode();
 
                         botCode.initialize(serverConfig);
 
@@ -499,8 +499,8 @@ function onBrowserRequest(request, response) {
 
                     case "authenticateUser": {
 
-                        const AABROSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication');
-                        let userAuthentication = AABROSER_API_USER_AUTHENTICATION.newUserAuthentication();
+                        const AABROWSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication');
+                        let userAuthentication = AABROWSER_API_USER_AUTHENTICATION.newUserAuthentication();
 
                         userAuthentication.initialize(sessionManager, storageAccessManager);
                         userAuthentication.authenticateUser(requestParameters[3], onFinish);
@@ -515,6 +515,27 @@ function onBrowserRequest(request, response) {
                             respondWithContent(JSON.stringify(responseToBrowser), response);
                         }
 
+                        break;
+                    }
+
+                    case "teamSetup": {
+
+                        const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup');
+                        let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup();
+
+                        teamSetup.initialize(serverConfig);
+
+                        let devTeamCodeName = requestParameters[3];
+                        let devTeamDisplayName = requestParameters[4].replace("%20", " ");
+                        let userName = requestParameters[5];
+                        let botName = requestParameters[6];
+
+                        teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botName, onSetupFinished);
+
+                        function onSetupFinished(err) {
+
+                            respondWithContent(JSON.stringify(err), response);
+                        }
                         break;
                     }
                 }

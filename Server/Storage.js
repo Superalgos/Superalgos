@@ -18,31 +18,31 @@
 
     }
 
-    function readData(pOrg, pRepo, pPath, saveAtCache, callBackFunction) {
+    function readData(pOrg, pPath, pFile, saveAtCache, callBackFunction) {
 
         try {
 
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> Entering function."); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pOrg = " + pOrg); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pRepo = " + pRepo); }
             if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pPath = " + pPath); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> pFile = " + pFile); }
 
             let cacheVersion;
 
             if (storageData !== undefined) {
 
-                cacheVersion = storageData.get(pOrg + '.' + pRepo + '.' + pPath);
+                cacheVersion = storageData.get(pOrg + '.' + pPath + '.' + pFile);
             }
 
             if (cacheVersion !== undefined) {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pOrg + '.' + pRepo + '.' + pPath + " found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pOrg + '.' + pPath + '.' + pFile + " found at cache."); }
 
                 callBackFunction(cacheVersion);
 
             } else {
 
-                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pOrg + '.' + pPath + '.' + pFile + " NOT found at cache."); }
 
                 let storage = require('azure-storage');
                 let connectionString;
@@ -64,7 +64,7 @@
 
                 let blobService = storage.createBlobService(connectionString);
 
-                blobService.getBlobToText('aaplatform', pOrg + "/" + pRepo + "/" + pPath, onFileReceived);
+                blobService.getBlobToText('aaplatform', pOrg + "/" + pPath + "/" + pFile, onFileReceived);
 
 
                 function onFileReceived(err, text, response) {
@@ -75,12 +75,12 @@
                         if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
                         if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> response = " + JSON.stringify(response)); }
                         if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pOrg = " + pOrg); }
-                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pRepo = " + pRepo); }
                         if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pPath = " + pPath); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData -> onFileReceived -> pFile = " + pFile); }
 
                         if (saveAtCache === true) {
 
-                            storageData.set(pOrg + '.' + pRepo + '.' + pPath, text);
+                            storageData.set(pOrg + '.' + pPath + '.' + pFile, text);
 
                         }
                         
@@ -110,16 +110,16 @@
         }
     }
 
-    function writeData(pOrg, pRepo, pPath, pFileContent, callBackFunction) {
+    function writeData(pOrg, pPath, pFile, pFileContent, callBackFunction) {
 
         try {
 
             if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> Entering function."); }
             if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> pOrg = " + pOrg); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> pRepo = " + pRepo); }
             if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> pPath = " + pPath); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> pFile = " + pFile); }
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData ->  " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData ->  " + pOrg + '.' + pPath + '.' + pFile + " NOT found at cache."); }
 
             let storage = require('azure-storage');
             let connectionString;
@@ -140,7 +140,7 @@
             }
 
             let blobService = storage.createBlobService(connectionString);
-            let blobPath = pOrg + "/" + pRepo + "/" + pPath;
+            let blobPath = pOrg + "/" + pPath + "/" + pFile;
             let blobText = pFileContent.toString();
 
             blobService.createBlockBlobFromText('aaplatform', blobPath, blobText, onFileCreated);
@@ -153,8 +153,8 @@
                     if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> err = " + JSON.stringify(err)); }
                     if (LOG_FILE_CONTENT === true) { console.log("[INFO] API -> writeData -> onFileCreated -> response = " + JSON.stringify(response)); }
                     if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pOrg = " + pOrg); }
-                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pRepo = " + pRepo); }
                     if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pPath = " + pPath); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] API -> writeData -> onFileCreated -> pFile = " + pFile); }
 
                     if (err !== null || text === null) {
 

@@ -32,6 +32,9 @@
     <Compile Include="AABrowserAPI\BotCode.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AABrowserAPI\TeamSetup.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="AABrowserAPI\UserAuthentication.js">
       <SubType>Code</SubType>
     </Compile>

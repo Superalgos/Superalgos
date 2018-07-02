@@ -59,16 +59,18 @@
 
                         storage.initialize(storageData, serverConfig);
 
-                        callBackFunction(serverConfig);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, serverConfig);
                     }
                     catch (err) {
                         console.log("[ERROR] ConfigReader -> readAAWebConfig -> onFileRead -> File = " + fileName + " Error = " + err);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
 
                 }
             }
             catch (err) {
                 console.log("[ERROR] ConfigReader -> readAAWebConfig -> Error = " + err);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
         }
     }
@@ -93,11 +95,20 @@
 
                 storage.readData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', true, onDataArrived);
 
-                function onDataArrived(pData) {
+                function onDataArrived(err, pData) {
 
                     try {
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                            console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> Could not read a file. ");
+                            console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> err.message = " + err.message);
+
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
 
                         ecosystem = pData.toString();
                         ecosystem = ecosystem.trim(); // remove first byte with some encoding.
@@ -106,12 +117,14 @@
                         readHostsConfigs();
                     }
                     catch (err) {
-                        console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Cloud -> onDataArrived -> Error = " + err);
+                        console.log("[ERROR] ConfigReader -> loadConfigs -> readEcosystemConfig -> onDataArrived -> Error = " + err);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
             }
             catch (err) {
-                console.log("[ERROR] ConfigReader -> readEcosystemConfig -> Error = " + err);
+                console.log("[ERROR] ConfigReader -> loadConfigs -> readEcosystemConfig -> Error = " + err);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
         }
 
@@ -147,7 +160,7 @@
 
                                 storage.readData(host.codeName + "/" + "competitions", competition.repo, competition.configFile, true, onDataArrived);
 
-                                function onDataArrived(pData) {
+                                function onDataArrived(err, pData) {
 
                                     try {
 
@@ -155,6 +168,15 @@
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> competition.repo = " + competition.repo); }
                                         if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> pData = " + pData); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                            console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> Could not read a file. ");
+                                            console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
 
                                         responsesReceived++;
 
@@ -179,12 +201,14 @@
                                     }
                                     catch (err) {
                                         console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getCompetitions -> Cloud -> onDataArrived -> Error = " + err);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
                             }
                         }
                         catch (err) {
                             console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getCompetitions -> getCompetitions -> Error = " + err);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -204,7 +228,7 @@
 
                                 storage.readData(host.codeName + "/" + "plotters", plotter.repo, plotter.configFile, true, onDataArrived);
 
-                                function onDataArrived(pData) {
+                                function onDataArrived(err, pData) {
 
                                     try {
 
@@ -212,6 +236,15 @@
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> host.codeName = " + host.codeName); }
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
                                         if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> pData = " + pData); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                            console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> Could not read a file. ");
+                                            console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
 
                                         responsesReceived++;
 
@@ -236,18 +269,21 @@
                                     }
                                     catch (err) {
                                         console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getPlotters -> Cloud -> onDataArrived -> Error = " + err);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
                             }
                         }
                         catch (err) {
                             console.log("[ERROR] ConfigReader ->  readHostsConfigs -> getPlotters -> getCompetitions -> Error = " + err);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
             }
             catch (err) {
                 console.log("[ERROR] ConfigReader -> readHostsConfigs -> Error = " + err);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
         }
 
@@ -293,7 +329,7 @@
 
                                 storage.readData(devTeam.codeName + "/" + "bots", bot.repo, bot.configFile, true, onDataArrived);
 
-                                function onDataArrived(pData) {
+                                function onDataArrived(err, pData) {
 
                                     try {
 
@@ -301,6 +337,15 @@
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> bot.repo = " + bot.repo); }
                                         if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> pData = " + pData); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                            console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> Could not read a file. ");
+                                            console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
 
                                         responsesReceived++;
 
@@ -324,19 +369,21 @@
 
                                         if (requestsSent === responsesReceived) {
 
-                                            callBackFunction(ecosystem, ecosystemObject);
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE, ecosystem, ecosystemObject);
 
                                         }
 
                                     }
                                     catch (err) {
                                         console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getBots -> Cloud -> onDataArrived -> Error = " + err);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
                             }
                         }
                         catch (err) {
                             console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getBots -> Error = " + err);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -356,7 +403,7 @@
 
                                 storage.readData(devTeam.codeName + "/" + "plotters", plotter.repo, plotter.configFile, true, onDataArrived);
 
-                                function onDataArrived(pData) {
+                                function onDataArrived(err, pData) {
 
                                     try {
 
@@ -364,6 +411,15 @@
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
                                         if (CONSOLE_LOG === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> plotter.repo = " + plotter.repo); }
                                         if (LOG_FILE_CONTENT === true) { console.log("[INFO] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> pData = " + pData); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                            console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> Could not read a file. ");
+                                            console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> err.message = " + err.message);
+
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
 
                                         responsesReceived++;
 
@@ -385,12 +441,13 @@
 
                                         if (requestsSent === responsesReceived) {
 
-                                            callBackFunction(ecosystem, ecosystemObject);
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE, ecosystem, ecosystemObject);
 
                                         }
                                     }
                                     catch (err) {
                                         console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Cloud -> onDataArrived -> Error = " + err);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
                             }
@@ -398,6 +455,7 @@
                         }
                         catch (err) {
                             console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> getPlotters -> Error = " + err);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
@@ -440,15 +498,15 @@
                     }
                     catch (err) {
                         console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> addStoragePermissions -> Error = " + err);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
 
             }
             catch (err) {
                 console.log("[ERROR] ConfigReader -> readDevTeamsConfigs -> Error = " + err);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
         }
-
-
     }
 }

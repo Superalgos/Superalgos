@@ -90,23 +90,23 @@
                             if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> err = " + JSON.stringify(err)); }
                             if (CONSOLE_LOG === true) { console.log("[ERROR] Storage -> readData -> onFileReceived -> Returning an empty JSON object string. "); }
 
-                            callBackFunction("");
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
 
                         }
 
-                        callBackFunction(text);
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, text);
 
                     } catch (err) {
                         console.log("[ERROR] Storage -> readData -> onFileReceived -> err.message = " + err.message);
-                        callBackFunction("{}");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
             }
 
         } catch (err) {
             console.log("[ERROR] Storage -> readData -> err.message = " + err.message);
-            callBackFunction("{}");
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

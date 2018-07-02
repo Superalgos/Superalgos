@@ -26,11 +26,20 @@
 
         storage.readData(pDevTeam + "/" + pSource, pRepo, pPath, false, onDataArrived);
 
-        function onDataArrived(pData) {
+        function onDataArrived(err, pData) {
 
             try {
 
                 if (CONSOLE_LOG === true) { console.log("[INFO] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Entering function."); }
+
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                    console.log("[ERROR] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Could not read a file. ");
+                    console.log("[ERROR] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> err.message = " + err.message);
+
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
 
                 let data;
 
@@ -43,11 +52,12 @@
 
                 }
 
-                callBackFunction(data);
+                callBackFunction(global.DEFAULT_OK_RESPONSE, data);
 
             }
             catch (err) {
                 console.log("[ERROR] BotScripts -> retrieveScripts -> Cloud -> onDataArrived -> Error = " + err);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
         }
     }

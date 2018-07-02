@@ -27,10 +27,10 @@
 
         storage.initialize(storageData, serverConfig);
 
-        callBackFunction();
+        callBackFunction(global.DEFAULT_OK_RESPONSE);
     }
 
-    function loadCloudScripts(callBackfunction) {
+    function loadCloudScripts(callBackFunction) {
 
         try {
 
@@ -44,17 +44,26 @@
 
             storage.readData('AdvancedAlgos', 'AACloud', 'web.config.json', true, onDataArrived);
 
-            function onDataArrived(pData) {
+            function onDataArrived(err, pData) {
 
                 try {
 
                     if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> loadCloudScripts -> Cloud -> onDataArrived -> Entering function."); }
 
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                        console.log("[ERROR] CloudScripts -> loadCloudScripts -> Cloud -> onDataArrived -> Could not read a file. ");
+                        console.log("[ERROR] CloudScripts -> loadCloudScripts -> Cloud -> onDataArrived -> err.message = " + err.message);
+
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
                     let data = pData.toString();
                     data = data.trim(); // remove first byte with some encoding.
 
                     dataObject = JSON.parse(data);
-                    retrieveScripts(dataObject, callBackfunction);
+                    retrieveScripts(dataObject, callBackFunction);
                 }
                 catch (err) {
                     console.log("[ERROR] CloudScripts -> loadCloudScripts -> Cloud -> onDataArrived -> Error = " + err);
@@ -63,10 +72,11 @@
         }
         catch (err) {
             console.log("[ERROR] CloudScripts -> loadCloudScripts -> Error = " + err);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function retrieveScripts(pCloudWebConfig, callBackfunction) {
+    function retrieveScripts(pCloudWebConfig, callBackFunction) {
 
         try {
 
@@ -86,11 +96,20 @@
 
                 storage.readData('AdvancedAlgos', 'AACloud', webModule, true, onDataArrived);
 
-                function onDataArrived(pData) {
+                function onDataArrived(err, pData) {
 
                     try {
 
                         if (CONSOLE_LOG === true) { console.log("[INFO] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                            console.log("[ERROR] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> Could not read a file. ");
+                            console.log("[ERROR] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> err.message = " + err.message);
+
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
+                        }
 
                         let data = pData.toString();
                         data = data.trim(); // remove first byte with some encoding.
@@ -101,12 +120,13 @@
 
                         modulesRetrieved++;
                         if (modulesRetrieved === pCloudWebConfig.webModules.length) {
-                            createJS(callBackfunction);
+                            createJS(callBackFunction);
                         }
 
                     }
                     catch (err) {
                         console.log("[ERROR] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> Error = " + err);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
             }
@@ -125,7 +145,7 @@
                 }
             }
 
-            function createJS(callBackfunction) {
+            function createJS(callBackFunction) {
 
                 let lines = "";
                 let jsLine = '' + '\n' + '            "AACloud/@module@",'
@@ -139,12 +159,13 @@
                     lines = lines + newLink;
                 }
 
-                callBackfunction(lines);
+                callBackFunction(global.DEFAULT_OK_RESPONSE, lines);
             }
 
         }
         catch (err) {
             console.log("[ERROR] CloudScripts -> retrieveScripts -> Error = " + err);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 }

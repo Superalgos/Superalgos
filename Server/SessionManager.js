@@ -23,7 +23,16 @@
                 storage.initialize(undefined, pServerConfig);
                 storage.readData("AdvancedAlgos", "AAPlatform", "Open.Sessions.json", false, onData);
 
-                function onData(pText) {
+                function onData(err, pText) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                        console.log("[ERROR] SessionManager -> initialize -> readSessions -> onData -> Could not read a file. ");
+                        console.log("[ERROR] SessionManager -> initialize -> readSessions -> onData -> err.message = " + err.message);
+
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
 
                     let sessions = JSON.parse(pText);
 
@@ -35,7 +44,7 @@
 
                     }
 
-                    callBackFunction();
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
 
                 }
             }
@@ -43,7 +52,7 @@
                 console.log("[ERROR] readSessions -> err = " + err.message);
                 console.log("[HINT] You need to have a file at this path -> " + filePath);
 
-                callBackFunction();
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
         }
     }

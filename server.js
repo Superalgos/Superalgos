@@ -67,13 +67,29 @@ function initialize() {
 
     configReader.initialize(ecosystem, ecosystemObject, storageData, onInitialized);
 
-    function onInitialized(pServerConfig) {
+    function onInitialized(err, pServerConfig) {
+
+        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+            console.log("[ERROR] server -> initialize -> onInitialized -> err.message = " + err.message);
+            console.log("[ERROR] server -> initialize -> onInitialized -> Terminating Execution. ");
+
+            return;
+        }
 
         serverConfig = pServerConfig;
 
         configReader.loadConfigs(onConfigsLoaded);
 
-        function onConfigsLoaded(pEcosystem, pEcosystemObject) {
+        function onConfigsLoaded(err, pEcosystem, pEcosystemObject) {
+
+            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> err.message = " + err.message);
+                console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> Terminating Execution. ");
+
+                return;
+            }
 
             ecosystem = pEcosystem;
             ecosystemObject = pEcosystemObject;
@@ -85,11 +101,27 @@ function initialize() {
 
             cloudScripts.initialize(ecosystem, ecosystemObject, serverConfig, storageData, onInitialized);
 
-            function onInitialized() {
+            function onInitialized(err) {
+
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                    console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> err.message = " + err.message);
+                    console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> Terminating Execution. ");
+
+                    return;
+                }
 
                 cloudScripts.loadCloudScripts(onLoadCompeted);
 
-                function onLoadCompeted(pHTMLCloudScripts) {
+                function onLoadCompeted(err, pHTMLCloudScripts) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                        console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> onLoadCompeted -> err.message = " + err.message);
+                        console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> onLoadCompeted -> Terminating Execution. ");
+
+                        return;
+                    }
 
                     const SESSION_MANAGER = require('./Server/SessionManager');
                     sessionManager = SESSION_MANAGER.newSessionManager();
@@ -810,7 +842,16 @@ function onBrowserRequest(request, response) {
                     }
                 }
 
-                function onScriptReady(pScript) {
+                function onScriptReady(err, pScript) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                        console.log("[ERROR] server -> onBrowserRequest -> Bots -> onScriptReady -> Could not read a file. ");
+                        console.log("[ERROR] server -> onBrowserRequest -> Bots -> onScriptReady -> err.message = " + err.message);
+
+                        pScript = "/* Your bot source code could not be retrieved. */";
+
+                    }
 
                     respondWithContent(pScript, response);
 
@@ -823,7 +864,16 @@ function onBrowserRequest(request, response) {
 
                 storage.readData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
-                function onDataArrived(pData) {
+                function onDataArrived(err, pData) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                        console.log("[ERROR] server -> onBrowserRequest -> Plotters -> onDataArrived -> Could not read a file. ");
+                        console.log("[ERROR] server -> onBrowserRequest -> Plotters -> onDataArrived -> err.message = " + err.message);
+
+                        pData = "";
+
+                    }
 
                     respondWithContent(pData, response);
 
@@ -835,7 +885,16 @@ function onBrowserRequest(request, response) {
             {
                 storage.readData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
-                function onDataArrived(pData) {
+                function onDataArrived(err, pData) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                        console.log("[ERROR] server -> onBrowserRequest -> Plotters -> PlotterPanels -> Could not read a file. ");
+                        console.log("[ERROR] server -> onBrowserRequest -> Plotters -> PlotterPanels -> err.message = " + err.message);
+
+                        pData = "";
+
+                    }
 
                     respondWithContent(pData, response);
 

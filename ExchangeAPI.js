@@ -258,7 +258,17 @@
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
 
-            poloniexApiClient.API.moveOrder(pPosition.id, pNewRate, pPosition.amountB, onExchangeCallReturned);
+            let newAmount;
+
+            if (pPosition.type === "buy") {
+                newAmount = pPosition.amountA / pNewRate;
+            } else {
+                newAmount = pPosition.amountB * pNewRate;
+            }
+
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> newAmount = " + newAmount); }
+
+            poloniexApiClient.API.moveOrder(pPosition.id, pNewRate, newAmount, onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 

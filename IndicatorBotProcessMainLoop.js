@@ -12,7 +12,9 @@
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
-    let timeoutHandle; 
+
+    let nextLoopTimeoutHandle; 
+    let checkLoopHealthHandle;
 
     let thisObject = {
         initialize: initialize,
@@ -130,11 +132,11 @@
 
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
 
-            let intervalHandle;
+            let fixedTimeLoopIntervalHandle;
 
             if (bot.runAtFixedInterval === true) {
 
-                intervalHandle = setInterval(loop, bot.fixedInterval);
+                fixedTimeLoopIntervalHandle = setInterval(loop, bot.fixedInterval);
 
             } else {
 
@@ -215,8 +217,9 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
 
                                             logger.persist();
-                                            clearInterval(intervalHandle);
-                                            clearTimeout(timeoutHandle);
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -225,8 +228,9 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
                                             logger.persist();
-                                            clearInterval(intervalHandle);
-                                            clearTimeout(timeoutHandle);
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -235,8 +239,9 @@
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.message);
                                     logger.persist();
-                                    clearInterval(intervalHandle);
-                                    clearTimeout(timeoutHandle);
+                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                    clearTimeout(nextLoopTimeoutHandle);
+                                    clearTimeout(checkLoopHealthHandle);
                                     callBackFunction(err);
                                 }
                             }
@@ -244,8 +249,9 @@
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.message);
                             logger.persist();
-                            clearInterval(intervalHandle);
-                            clearTimeout(timeoutHandle);
+                            clearInterval(fixedTimeLoopIntervalHandle);
+                            clearTimeout(nextLoopTimeoutHandle);
+                            clearTimeout(checkLoopHealthHandle);
                             callBackFunction(err);
                         }
                     }
@@ -281,8 +287,9 @@
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
-                                            clearInterval(intervalHandle);
-                                            clearTimeout(timeoutHandle);
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -304,8 +311,9 @@
                                                 default: {
                                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled custom response received. -> err.message = " + err.message);
                                                     logger.persist();
-                                                    clearInterval(intervalHandle);
-                                                    clearTimeout(timeoutHandle);
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
                                                     callBackFunction(err);
                                                     return;
                                                 }
@@ -316,8 +324,9 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
 
                                             logger.persist();
-                                            clearInterval(intervalHandle);
-                                            clearTimeout(timeoutHandle);
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -326,8 +335,9 @@
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot ->  onInizialized -> err = " + err.message);
                                     logger.persist();
-                                    clearInterval(intervalHandle);
-                                    clearTimeout(timeoutHandle);
+                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                    clearTimeout(nextLoopTimeoutHandle);
+                                    clearTimeout(checkLoopHealthHandle);
                                     callBackFunction(err);
                                 }
                             }
@@ -335,8 +345,9 @@
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> err = " + err.message);
                             logger.persist();
-                            clearInterval(intervalHandle);
-                            clearTimeout(timeoutHandle);
+                            clearInterval(fixedTimeLoopIntervalHandle);
+                            clearTimeout(nextLoopTimeoutHandle);
+                            clearTimeout(checkLoopHealthHandle);
                             callBackFunction(err);
                         }
                     }
@@ -371,8 +382,9 @@
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Operation Failed. Aborting the process.");
                                             logger.persist();
-                                            clearInterval(intervalHandle);
-                                            clearTimeout(timeoutHandle);
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -394,32 +406,36 @@
                                                 case "Month before it is needed.": {
                                                     logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished -> Month before it is needed. This Loop will be terminated.");
                                                     logger.persist();
-                                                    clearInterval(intervalHandle);
-                                                    clearTimeout(timeoutHandle);
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 case "Month fully processed.": {
                                                     logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished -> Month fully processed. This Loop will be terminated.");
                                                     logger.persist();
-                                                    clearInterval(intervalHandle);
-                                                    clearTimeout(timeoutHandle);
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 case "End of the month reached.": {
                                                     logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished -> End of the month reached. This Loop will be terminated.");
                                                     logger.persist();
-                                                    clearInterval(intervalHandle);
-                                                    clearTimeout(timeoutHandle);
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 default: {
                                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled custom response received. -> err.message = " + err.message);
                                                     logger.persist();
-                                                    clearInterval(intervalHandle);
-                                                    clearTimeout(timeoutHandle);
+                                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                                    clearTimeout(nextLoopTimeoutHandle);
+                                                    clearTimeout(checkLoopHealthHandle);
                                                     callBackFunction(err);
                                                     return;
                                                 }
@@ -430,8 +446,9 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err.message = " + err.message);
 
                                             logger.persist();
-                                            clearInterval(intervalHandle);
-                                            clearTimeout(timeoutHandle);
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -440,8 +457,9 @@
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.message);
                                     logger.persist();
-                                    clearInterval(intervalHandle);
-                                    clearTimeout(timeoutHandle);
+                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                    clearTimeout(nextLoopTimeoutHandle);
+                                    clearTimeout(checkLoopHealthHandle);
                                     callBackFunction(err);
                                 }
                             }
@@ -449,8 +467,9 @@
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = " + err.message);
                             logger.persist();
-                            clearInterval(intervalHandle);
-                            clearTimeout(timeoutHandle);
+                            clearInterval(fixedTimeLoopIntervalHandle);
+                            clearTimeout(nextLoopTimeoutHandle);
+                            clearTimeout(checkLoopHealthHandle);
                             callBackFunction(err);
                         }
                     }
@@ -485,27 +504,27 @@
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                    setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
-                                    timeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
+                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.normalWaitTime * 5, bot.loopCounter);
+                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                     logger.persist();
                                 }
                                     break;
                                 case 'Retry': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
-                                    setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
-                                    timeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
+                                    checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
+                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
                                     logger.persist();
                                 }
                                     break;
                                 case 'Sleep': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
-                                    timeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
+                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
                                     logger.persist();
                                 }
                                     break;
                                 case 'Coma': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
-                                    timeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
+                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
                                     logger.persist();                                    
                                 }
                                     break;
@@ -525,7 +544,7 @@
                                 console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + pad(bot.codeName,20) + " " + pad(bot.process,30) + " Loop # " + pad(Number(bot.loopCounter),5) + " found dead. Resurrecting it now."));
 
                                 logger.persist();                       // We persist the logs of the failed execution.
-                                clearTimeout(timeoutHandle);            // We cancel the timeout in case the original loop was still running and schedulled to reexecute.
+                                clearTimeout(nextLoopTimeoutHandle);            // We cancel the timeout in case the original loop was still running and schedulled to reexecute.
                                 loop();                                 // We restart the loop so that the processing can continue.
 
                             } else {
@@ -573,8 +592,9 @@
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onInizialized -> CURRENT_EXECUTION_AT must be either 'Cloud' or 'Browser'.");
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onInizialized -> global.CURRENT_EXECUTION_AT = " + global.CURRENT_EXECUTION_AT);
                                             logger.persist();
-                                            clearInterval(intervalHandle);
-                                            clearTimeout(timeoutHandle);
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -614,8 +634,9 @@
                                         } catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> onFileReceived -> err.message = " + err.message);
                                             logger.persist();
-                                            clearInterval(intervalHandle);
-                                            clearTimeout(timeoutHandle);
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -626,8 +647,9 @@
                         catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err.message = " + err.message);
                             logger.persist();
-                            clearInterval(intervalHandle);
-                            clearTimeout(timeoutHandle);
+                            clearInterval(fixedTimeLoopIntervalHandle);
+                            clearTimeout(nextLoopTimeoutHandle);
+                            clearTimeout(checkLoopHealthHandle);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -635,8 +657,9 @@
 
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.message);
-                    clearInterval(intervalHandle);
-                    clearTimeout(timeoutHandle);
+                    clearInterval(fixedTimeLoopIntervalHandle);
+                    clearTimeout(nextLoopTimeoutHandle);
+                    clearTimeout(checkLoopHealthHandle);
                     callBackFunction(err);
                 }
             }
@@ -644,8 +667,9 @@
 
         catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.message);
-            clearInterval(intervalHandle);
-            clearTimeout(timeoutHandle);
+            clearInterval(fixedTimeLoopIntervalHandle);
+            clearTimeout(nextLoopTimeoutHandle);
+            clearTimeout(checkLoopHealthHandle);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

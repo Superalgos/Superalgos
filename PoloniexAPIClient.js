@@ -402,7 +402,7 @@
             analizeResponse: function (logger, exchangeErr, exchangeResponse, notOkCallBack, okCallBack) {
 
                 const FULL_LOG = true;
-                const LOG_FILE_CONTENT = false;
+                const LOG_FILE_CONTENT = true;
                 const MODULE_NAME = "Poloniex API Client";
 
                 /* This function analizes the different situations we might encounter trying to access Poloniex and returns appropiate standard errors. */
@@ -437,7 +437,9 @@
                         if (JSON.stringify(exchangeResponse).indexOf("error") > 0) {
 
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> Unexpected response from the Exchange.");
-                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + JSON.stringify(exchangeErr));
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> JSON.stringify(exchangeErr) = " + JSON.stringify(exchangeErr));
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeErr = " + exchangeErr);
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + exchangeResponse);
 
                             notOkCallBack(global.DEFAULT_FAIL_RESPONSE);
                             return;

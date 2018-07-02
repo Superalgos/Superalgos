@@ -32,7 +32,7 @@
             2. Add it to the Ecosystem.
             3. Add it to Sessions.
             
-            4. Crear el folder del nuevo devTeam en el container aaplatform.
+
             5. Copiar el bot a devTeam/bots  --> Cambiarle el nombre al folder
             6. Modificar la configuracion del bot reemplazando el devTeam y el Nombre.
             7. Modificar la configuracion del bot en sus status dependecies y data depedencies.   // solo si el bot va a usar otros productos.
@@ -43,7 +43,7 @@
     
             */
 
-            createContainer();
+            forkBotConfig();
 
             function createContainer() {
 
@@ -77,6 +77,221 @@
 
                     addToEcosystem();
                 }
+            }
+
+            function forkBotCode() {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkBotCode -> Entering function."); }
+
+                    storage.readData("AATemplate", "bots/BotName-Trading-Bot/Trading-Process", "User.Bot.js", false, onDataRead);
+
+                    function onDataRead(err, pFileContent) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> Could not read a file. ");
+                                console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> err.message = " + err.message);
+
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            let team = pTeamCodeName;
+                            let filePath = "bots" + "/" + pBotName + "-Trading-Bot/Trading-Process";
+                            let fileName = "User.Bot.js";
+
+                            storage.writeData(team, filePath, fileName, pFileContent, onDataWritten);
+
+                            function onDataWritten(err) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> onDataWritten -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> onDataWritten -> Could not write a file. ");
+                                        console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> onDataWritten -> err.message = " + err.message);
+
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+
+                                    let team = pTeamCodeName;
+                                    let filePath = "members" + "/" + pUserName + "/" + pBotName + "-Trading-Bot/Trading-Process";
+                                    let fileName = "User.Bot.js";
+
+                                    storage.writeData(team, filePath, fileName, pFileContent, onDataWritten);
+
+                                    function onDataWritten(err) {
+
+                                        try {
+
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> onDataWritten -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> onDataWritten -> onDataWritten -> Could not write a file. ");
+                                                console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> onDataWritten -> onDataWritten -> err.message = " + err.message);
+
+                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                return;
+                                            }
+
+                                            forkBotConfig();
+
+                                        } catch (err) {
+
+                                            console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                        }
+                                    }
+
+                                } catch (err) {
+
+                                    console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                }
+                            }
+
+                        } catch (err) {
+
+                            console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> onDataRead -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> newTeam -> forkBotCode -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+            }
+
+            function forkBotConfig() {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkBotConfig -> Entering function."); }
+
+                    storage.readData("AATemplate", "bots/BotName-Trading-Bot", "this.bot.config.json", false, onDataRead);
+
+                    function onDataRead(err, pFileContent) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> Could not read a file. ");
+                                console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> err.message = " + err.message);
+
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            let botConfig = JSON.parse(pFileContent);
+
+                            botConfig.displayName = pBotName;
+                            botConfig.codeName = pBotName;
+                            botConfig.devTeam = pTeamCodeName;
+                            botConfig.profilePicture = pBotName + ".png";
+                            botConfig.processes[0].statusDependencies[1].devTeam = pTeamCodeName;
+                            botConfig.processes[0].statusDependencies[1].bot = pBotName;
+
+                            let fileContent = JSON.stringify(botConfig);
+
+                            let team = pTeamCodeName;
+                            let filePath = "bots" + "/" + pBotName + "-Trading-Bot";
+                            let fileName = "this.bot.config.json";
+
+                            storage.writeData(team, filePath, fileName, fileContent, onDataWritten);
+
+                            function onDataWritten(err) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> onDataWritten -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> onDataWritten -> Could not write a file. ");
+                                        console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> onDataWritten -> err.message = " + err.message);
+
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+
+                                    let team = pTeamCodeName;
+                                    let filePath = "members" + "/" + pUserName + "/" + pBotName + "-Trading-Bot";
+                                    let fileName = "this.bot.config.json";
+
+                                    storage.writeData(team, filePath, fileName, fileContent, onDataWritten);
+
+                                    function onDataWritten(err) {
+
+                                        try {
+
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> onDataWritten -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> onDataWritten -> onDataWritten -> Could not write a file. ");
+                                                console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> onDataWritten -> onDataWritten -> err.message = " + err.message);
+
+                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                return;
+                                            }
+
+                                            forkAACloud();
+
+                                        } catch (err) {
+
+                                            console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                        }
+                                    }
+
+                                } catch (err) {
+
+                                    console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                }
+                            }
+
+                        } catch (err) {
+
+                            console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> onDataRead -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> newTeam -> forkBotConfig -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+            }
+
+            function forkAACloud() {
+
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+
             }
 
             function addToEcosystem() {
@@ -280,6 +495,8 @@
 
                 }
             }
+
+
 
         } catch (err) {
 

@@ -24,26 +24,7 @@
 
             if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> Entering function."); }
 
-            /*
-    
-            Procedure to create a new Team, User and Bot:
-
-            1. Create Continer. This will also tell us if the Team name is not already in use.    FALTA ERROR HANDLING Y EN STORAGE EL LOG DE ERRORS 
-            2. Add it to the Ecosystem.
-            3. Add it to Sessions.
-            
-
-            5. Copiar el bot a devTeam/bots  --> Cambiarle el nombre al folder
-            6. Modificar la configuracion del bot reemplazando el devTeam y el Nombre.
-            7. Modificar la configuracion del bot en sus status dependecies y data depedencies.   // solo si el bot va a usar otros productos.
-            8. Asegurarse de que tenga la data dependency de Bruce para poder obtener el precio del mercado en backtest.
-            9. Copiar el bot al directorio del usuario.
-            10. Copiar la configuracion del cloud al folder del nuevo team.
-            11. Modificarla configuracion de AACloud para detallar el proceso que tiene que correr.
-    
-            */
-
-            forkBotConfig();
+            createContainer();
 
             function createContainer() {
 
@@ -75,7 +56,7 @@
                         return;
                     }
 
-                    addToEcosystem();
+                    forkBotCode();
                 }
             }
 
@@ -290,74 +271,90 @@
 
             function forkAACloud() {
 
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-            }
-
-            function addToEcosystem() {
-
                 try {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToEcosystem -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkAACloud -> Entering function."); }
 
-                    storage.readData("AdvancedAlgos", "AAPlatform", "ecosystem.json", false, onDataRead);
+                    storage.readData("AATemplate", "AACloud", "this.config.json", false, onDataRead);
 
                     function onDataRead(err, pFileContent) {
 
                         try {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> Entering function."); }
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> Entering function."); }
 
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> Could not read a file. ");
-                                console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> err.message = " + err.message);
+                                console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> Could not read a file. ");
+                                console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> err.message = " + err.message);
 
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
 
-                            pFileContent = pFileContent.trim();
-                            let ecosystem = JSON.parse(pFileContent);
+                            let botConfig = JSON.parse(pFileContent);
 
-                            let newTeam = {
-                                codeName: pTeamCodeName,
-                                displayName: pTeamDisplayName,
-                                bots: [
-                                    {
-                                        "repo": pBotName + "-Trading-Bot",
-                                        "configFile": "this.bot.config.json"
-                                    }
-                                ],
-                                "plotters": []
-                            };
+                            botConfig.executionList[0].devTeam = pTeamCodeName;
+                            botConfig.executionList[0].bot = pBotName;
+                            botConfig.executionList[0].repo = pBotName + "-Trading-Bot";
 
-                            ecosystem.devTeams.push(newTeam);
+                            let fileContent = JSON.stringify(botConfig);
 
-                            let fileContent = JSON.stringify(ecosystem);
+                            let team = pTeamCodeName;
+                            let filePath = "AACloud";
+                            let fileName = "this.config.json";
 
-                            storage.writeData("AdvancedAlgos", "AAPlatform", "ecosystem.json", fileContent, onDataWritten);
+                            storage.writeData(team, filePath, fileName, fileContent, onDataWritten);
 
                             function onDataWritten(err) {
 
                                 try {
 
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> onDataWritten -> Entering function."); }
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> onDataWritten -> Entering function."); }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                        console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> onDataWritten -> Could not write a file. ");
-                                        console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                        console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> onDataWritten -> Could not write a file. ");
+                                        console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> onDataWritten -> err.message = " + err.message);
 
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return;
                                     }
 
-                                    addToSessions();
+                                    let team = pTeamCodeName;
+                                    let filePath = "members" + "/" + pUserName + "/" + "AACloud";
+                                    let fileName = "this.config.json";
+
+                                    storage.writeData(team, filePath, fileName, fileContent, onDataWritten);
+
+                                    function onDataWritten(err) {
+
+                                        try {
+
+                                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> onDataWritten -> Entering function."); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> onDataWritten -> onDataWritten -> Could not write a file. ");
+                                                console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> onDataWritten -> onDataWritten -> err.message = " + err.message);
+
+                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                return;
+                                            }
+
+                                            addToSessions();
+
+                                        } catch (err) {
+
+                                            console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                        }
+                                    }
 
                                 } catch (err) {
 
-                                    console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                    console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> onDataWritten -> err.message = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                                 }
@@ -365,7 +362,7 @@
 
                         } catch (err) {
 
-                            console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> err.message = " + err.message);
+                            console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> onDataRead -> err.message = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                         }
@@ -373,10 +370,11 @@
 
                 } catch (err) {
 
-                    console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> err.message = " + err.message);
+                    console.log("[ERROR] TeamSetup -> newTeam -> forkAACloud -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                 }
+
             }
 
             function addToSessions() {
@@ -470,7 +468,7 @@
                                         return;
                                     }
 
-                                    createContainer();
+                                    addToEcosystem();
 
                                 } catch (err) {
 
@@ -496,7 +494,90 @@
                 }
             }
 
+            function addToEcosystem() {
 
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToEcosystem -> Entering function."); }
+
+                    storage.readData("AdvancedAlgos", "AAPlatform", "ecosystem.json", false, onDataRead);
+
+                    function onDataRead(err, pFileContent) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> Could not read a file. ");
+                                console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> err.message = " + err.message);
+
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            pFileContent = pFileContent.trim();
+                            let ecosystem = JSON.parse(pFileContent);
+
+                            let newTeam = {
+                                codeName: pTeamCodeName,
+                                displayName: pTeamDisplayName,
+                                bots: [
+                                    {
+                                        "repo": pBotName + "-Trading-Bot",
+                                        "configFile": "this.bot.config.json"
+                                    }
+                                ],
+                                "plotters": []
+                            };
+
+                            ecosystem.devTeams.push(newTeam);
+
+                            let fileContent = JSON.stringify(ecosystem);
+
+                            storage.writeData("AdvancedAlgos", "AAPlatform", "ecosystem.json", fileContent, onDataWritten);
+
+                            function onDataWritten(err) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> onDataWritten -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> onDataWritten -> Could not write a file. ");
+                                        console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> onDataWritten -> err.message = " + err.message);
+
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                                } catch (err) {
+
+                                    console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                }
+                            }
+
+                        } catch (err) {
+
+                            console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> onDataRead -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> newTeam -> addToEcosystem -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+            }
 
         } catch (err) {
 

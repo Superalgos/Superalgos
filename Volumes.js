@@ -20,6 +20,7 @@
         getContainer: getContainer,
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
+        recalculateScale: recalculateScale, 
         draw: draw
     };
 
@@ -91,6 +92,14 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
         }
+    }
+
+    function recalculateScale() {
+
+        recalculateScaleX();
+        recalculate();
+        recalculateScaleY();
+
     }
 
     function getContainer(point) {

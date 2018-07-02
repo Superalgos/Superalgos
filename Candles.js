@@ -17,6 +17,7 @@
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
         draw: draw,
+        recalculateScale: recalculateScale, 
 
         /* Events declared outside the plotter. */
 

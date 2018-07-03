@@ -711,10 +711,10 @@
                             sumAssetA = sumAssetA + Number(exchangePosition.amountA);
                             sumAssetB = sumAssetB + Number(exchangePosition.amountB);
 							
-                            sumAssetA = Number(sumAssetA.toFixed(8));
-                            sumAssetB = Number(sumAssetB.toFixed(8));
+                            sumAssetA = Number(sumAssetA.toFixed(5));
+                            sumAssetB = Number(sumAssetB.toFixed(5));
 
-                            if (position.amountA !== sumAssetA || position.amountB !== sumAssetB ) {
+                            if (position.amountA.toFixed(5) !== sumAssetA || position.amountB.toFixed(5) !== sumAssetB) {
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);

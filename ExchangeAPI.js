@@ -263,7 +263,7 @@
             if (pPosition.type === "buy") {
                 newAmount = pPosition.amountA / pNewRate;
             } else {
-                newAmount = pPosition.amountB * pNewRate;
+                newAmount = pPosition.amountB;
             }
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> newAmount = " + newAmount); }

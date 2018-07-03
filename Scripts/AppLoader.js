@@ -76,6 +76,7 @@
                 "Plotter.js",
                 "PlotterPanel.js",
 
+                "PlottersManager.js",
                 "ProductStorage.js",
                 "CompetitionStorage.js",
                 "ProductCard.js",

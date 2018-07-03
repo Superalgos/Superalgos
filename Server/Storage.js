@@ -39,7 +39,7 @@
 
                 if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> readData ->  " + pOrg + '.' + pPath + '.' + pFile + " found at cache."); }
 
-                callBackFunction(cacheVersion);
+                callBackFunction(global.DEFAULT_OK_RESPONSE, cacheVersion);
 
             } else {
 

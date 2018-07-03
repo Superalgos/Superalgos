@@ -105,7 +105,7 @@ function newAnimation() {
         }
     }
 
-    function animationLoop(callBackFunction) {
+    function animationLoop() {
 
         try {
 
@@ -131,9 +131,6 @@ function newAnimation() {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] animationLoop -> err = " + err); }
 
-            if (callBackFunction !== undefined) {       // When the loop is called by the browser there will be no callBackFunction.
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
-            } 
         }
     }
 

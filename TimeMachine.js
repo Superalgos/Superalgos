@@ -66,7 +66,7 @@ function newTimeMachine() {
         timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2;
         timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-        timelineChart.initialize(1, INITIAL_DEFAULT_MARKET, productsPanel, onDefaultMarketInitialized);
+        timelineChart.initialize(productsPanel, onDefaultMarketInitialized);
 
         iteration++;
 
@@ -121,7 +121,7 @@ function newTimeMachine() {
                 timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2;
                 timelineChart.container.frame.position.y = timelineChart.container.frame.height * 1.5 * iteration;
 
-                timelineChart.initialize(1, key, productsPanel, finalSteps);
+                timelineChart.initialize(productsPanel, finalSteps);
 
                 iteration++;
 

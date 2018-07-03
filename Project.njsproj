@@ -60,6 +60,9 @@
     <Compile Include="Globals.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PlottersManager.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Scales\RightScale.js">
       <SubType>Code</SubType>
     </Compile>

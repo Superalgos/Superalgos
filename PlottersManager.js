@@ -1,6 +1,6 @@
-﻿function newTimelineChart() {
+﻿function newPlottersManager() {
 
-    const MODULE_NAME = "Timeline Chart";
+    const MODULE_NAME = "PlottersManager";
     const INFO_LOG = false;
     const INTENSIVE_LOG = false;
     const ERROR_LOG = true;
@@ -9,8 +9,6 @@
 
     let productPlotters = [];
     let competitionPlotters = [];
-
-    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();
 
     let timePeriod = INITIAL_TIME_PERIOD;
     let datetime = INITIAL_DATE;
@@ -27,8 +25,8 @@
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Timeline Chart";
-    container.frame.containerName = "Timeline Chart";
+    container.displacement.containerName = "Plotter Manager";
+    container.frame.containerName = "Plotter Manager";
 
     let chartGrid;
     let breakpointsBar;
@@ -106,12 +104,12 @@
             breakpointsBar.initialize(container, timeLineCoordinateSystem);
 
             recalculateScale();
-            
+
             //moveViewPortToCurrentDatetime();
             moveToUserPosition(container, timeLineCoordinateSystem);
             timePeriod = INITIAL_TIME_PERIOD;
             datetime = INITIAL_DATE;
-            
+
             /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 
             viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
@@ -119,8 +117,8 @@
 
             initializeCompetitionPlotters(onCompetitionPlottersInitialized);
 
-            canvas.bottomSpace.chartAspectRatio.container.eventHandler.listenToEvent("Chart Aspect Ratio Changed", onAspectRatioChanged);     
-        
+            canvas.bottomSpace.chartAspectRatio.container.eventHandler.listenToEvent("Chart Aspect Ratio Changed", onAspectRatioChanged);
+
             function onAspectRatioChanged(pAspectRatio) {
 
                 thisObject.container.frame.height = CHART_SPACE_HEIGHT * pAspectRatio.y;
@@ -471,7 +469,7 @@
             if (ERROR_LOG === true) { logger.write("[ERROR] initializeProductPlotters -> err = " + err); }
             callBack(GLOBAL.DEFAULT_FAIL_RESPONSE);
         }
-    } 
+    }
 
     function initializeProductPlotter(pProductCard, callBack) {
 
@@ -582,7 +580,7 @@
                                 //plotter.positionAtDatetime(INITIAL_DATE);
                             } catch (err) {
                                 // If the plotter does not implement this function its ok.
-                            } 
+                            }
 
                             let productPlotter = {
                                 productCard: pProductCard,
@@ -782,7 +780,7 @@
                     productPlotter.productCard.setTimePeriod(timePeriod);
                     productPlotter.storage.setTimePeriod(timePeriod);
                     productPlotter.plotter.setTimePeriod(timePeriod);
-                    
+
                 }
 
                 for (let i = 0; i < competitionPlotters.length; i++) {
@@ -883,7 +881,7 @@
             productPlotter.productCard.setDatetime(datetime);
             productPlotter.storage.setDatetime(datetime);
             productPlotter.plotter.setDatetime(datetime);
-           
+
         }
 
         for (let i = 0; i < competitionPlotters.length; i++) {
@@ -897,7 +895,7 @@
         breakpointsBar.setDatetime(datetime);
 
         thisObject.container.eventHandler.raiseEvent("Datetime Changed", datetime);
-  
+
     }
 
     function getContainer(point) {
@@ -908,7 +906,7 @@
 
         container = chartGrid.getContainer(point);
 
-        if (container !== undefined) { return container;}
+        if (container !== undefined) { return container; }
 
         container = breakpointsBar.getContainer(point);
 
@@ -1144,8 +1142,8 @@
             y: thisObject.container.frame.height
         };
 
-        fromPoint = transformThisPoint(fromPoint, thisObject.container); 
-        toPoint = transformThisPoint(toPoint, thisObject.container); 
+        fromPoint = transformThisPoint(fromPoint, thisObject.container);
+        toPoint = transformThisPoint(toPoint, thisObject.container);
 
         browserCanvasContext.beginPath();
 

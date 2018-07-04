@@ -250,25 +250,15 @@
         }
     }
 
-    function movePosition(pPosition, pNewRate, callBackFunction) {
+    function movePosition(pPosition, pNewRate, pNewAmountB, callBackFunction) {
 
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> Entering function."); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
-
-            let newAmount;
-
-            if (pPosition.type === "buy") {
-                newAmount = pPosition.amountA / pNewRate;
-            } else {
-                newAmount = pPosition.amountB;
-            }
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> newAmount = " + newAmount); }
-
-            poloniexApiClient.API.moveOrder(pPosition.id, pNewRate, newAmount, onExchangeCallReturned);
+            
+            poloniexApiClient.API.moveOrder(pPosition.id, pNewRate, pNewAmountB, onExchangeCallReturned);
 
             function onExchangeCallReturned(err, exchangeResponse) {
 

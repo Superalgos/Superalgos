@@ -130,6 +130,8 @@
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
 
+            let enableCheckLoopHealth = true; 
+
             let fixedTimeLoopIntervalHandle;
 
             if (bot.runAtFixedInterval === true) {
@@ -219,6 +221,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
+                                            enableCheckLoopHealth = false;
                                             callBackFunction(err);
                                             return;
                                         }
@@ -230,6 +233,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
+                                            enableCheckLoopHealth = false;
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -241,6 +245,7 @@
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
                                     clearTimeout(checkLoopHealthHandle);
+                                    enableCheckLoopHealth = false;
                                     callBackFunction(err);
                                 }
                             }
@@ -251,6 +256,7 @@
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
+                            enableCheckLoopHealth = false;
                             callBackFunction(err);
                         }
                     }
@@ -289,6 +295,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
+                                            enableCheckLoopHealth = false;
                                             callBackFunction(err);
                                             return;
                                         }
@@ -301,6 +308,7 @@
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
                                                     clearTimeout(checkLoopHealthHandle);
+                                                    enableCheckLoopHealth = false;
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
@@ -310,6 +318,7 @@
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
                                                     clearTimeout(checkLoopHealthHandle);
+                                                    enableCheckLoopHealth = false;
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
@@ -319,6 +328,7 @@
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
                                                     clearTimeout(checkLoopHealthHandle);
+                                                    enableCheckLoopHealth = false;
                                                     callBackFunction(err);
                                                     return;
                                                 }
@@ -332,6 +342,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
+                                            enableCheckLoopHealth = false;
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -343,6 +354,7 @@
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
                                     clearTimeout(checkLoopHealthHandle);
+                                    enableCheckLoopHealth = false;
                                     callBackFunction(err);
                                 }
                             }
@@ -353,6 +365,7 @@
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
+                            enableCheckLoopHealth = false;
                             callBackFunction(err);
                         }
                     }
@@ -390,6 +403,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
+                                            enableCheckLoopHealth = false;
                                             callBackFunction(err);
                                             return;
                                         }
@@ -414,6 +428,7 @@
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
                                                     clearTimeout(checkLoopHealthHandle);
+                                                    enableCheckLoopHealth = false;
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
@@ -423,6 +438,7 @@
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
                                                     clearTimeout(checkLoopHealthHandle);
+                                                    enableCheckLoopHealth = false;
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
@@ -432,6 +448,7 @@
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
                                                     clearTimeout(checkLoopHealthHandle);
+                                                    enableCheckLoopHealth = false;
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
@@ -441,6 +458,7 @@
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
                                                     clearTimeout(checkLoopHealthHandle);
+                                                    enableCheckLoopHealth = false;
                                                     callBackFunction(err);
                                                     return;
                                                 }
@@ -454,6 +472,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
+                                            enableCheckLoopHealth = false;
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -465,6 +484,7 @@
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
                                     clearTimeout(checkLoopHealthHandle);
+                                    enableCheckLoopHealth = false;
                                     callBackFunction(err);
                                 }
                             }
@@ -475,6 +495,7 @@
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
+                            enableCheckLoopHealth = false;
                             callBackFunction(err);
                         }
                     }
@@ -497,6 +518,7 @@
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
+                            enableCheckLoopHealth = false;
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
 
@@ -560,6 +582,12 @@
 
                     function checkLoopHealth(pLastLoop) {
 
+                        if (global.CURRENT_EXECUTION_AT !== "Cloud") {
+                            return;
+                        }
+
+                        if (enableCheckLoopHealth === false) { return; } // This gets disabled anytime the Main Loop is shut down by any condition.
+
                         if (bot.loopCounter <= pLastLoop + 1) {    // This means that the next loop started but also stopped executing abruptally.
 
                             let now = new Date().valueOf();
@@ -621,6 +649,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
+                                            enableCheckLoopHealth = false;
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -663,6 +692,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
+                                            enableCheckLoopHealth = false;
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -676,6 +706,7 @@
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
+                            enableCheckLoopHealth = false;
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
                         }
@@ -686,6 +717,7 @@
                     clearInterval(fixedTimeLoopIntervalHandle);
                     clearTimeout(nextLoopTimeoutHandle);
                     clearTimeout(checkLoopHealthHandle);
+                    enableCheckLoopHealth = false;
                     callBackFunction(err);
                 }
             }
@@ -696,6 +728,7 @@
             clearInterval(fixedTimeLoopIntervalHandle);
             clearTimeout(nextLoopTimeoutHandle);
             clearTimeout(checkLoopHealthHandle);
+            enableCheckLoopHealth = false;
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

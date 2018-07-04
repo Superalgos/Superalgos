@@ -129,8 +129,8 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
 
                     if (LOG_FILE_CONTENT === true && logger !== undefined) {
                         logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> result = " + JSON.stringify(result));
-                        logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> response = " + JSON.stringify(response));
-                        logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> pFileContent = " + pFileContent);
+                        logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileReceived -> response = " + JSON.stringify(response));
+                        logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileReceived -> pFileContent = " + pFileContent);
                     }
 
                     if (err) {

@@ -711,10 +711,10 @@
                             sumAssetA = sumAssetA + Number(exchangePosition.amountA);
                             sumAssetB = sumAssetB + Number(exchangePosition.amountB);
 							
-                            sumAssetA = Number(sumAssetA.toFixed(5));
-                            sumAssetB = Number(sumAssetB.toFixed(5));
+                            sumAssetA = Number(sumAssetA.toFixed(6)); // Fixed to 6 positions to avoid rounding issues
+                            sumAssetB = Number(sumAssetB.toFixed(8));
 
-                            if (position.amountA.toFixed(5) !== sumAssetA || position.amountB.toFixed(5) !== sumAssetB) {
+                            if (position.amountA.toFixed(6) !== sumAssetA || position.amountB !== sumAssetB ) {
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
@@ -1068,11 +1068,20 @@
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
 
+            let newAmountB;
+            if (pPosition.type === "buy") {
+                newAmountB = (pPosition.amountA / pNewRate).toFixed(7); // If it was fixed to 8 positions there could be some rounding up and there will be not enough AssetA for buying
+            } else {
+                newAmountB = pPosition.amountB;
+            }
+
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> newAmount = " + newAmount); }
+
             switch (bot.startMode) {
 
                 case "Live": {
 
-                    exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
+                    exchangeAPI.movePosition(pPosition, pNewRate, newAmountB, onResponse);
                     return;
                 }
 
@@ -1086,7 +1095,7 @@
 
                 case "Competition": {
 
-                    exchangeAPI.movePosition(pPosition, pNewRate, onResponse);
+                    exchangeAPI.movePosition(pPosition, pNewRate, newAmountB, onResponse);
                     return;
                 }
 
@@ -1113,8 +1122,8 @@
                                 id: pPositionId,
                                 type: pPosition.type,
                                 rate: pNewRate,
-                                amountA: pPosition.amountB * pNewRate,
-                                amountB: pPosition.amountB,
+                                amountA: pPosition.amountA,
+                                amountB: newAmountB,
                                 date: (bot.processDatetime.valueOf()),
                                 status: "open",
                                 trades: []

@@ -181,7 +181,7 @@
                                     if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
 
                                         marketRate = (candle.open + candle.close) / 2;
-                                        marketRate = Number(marketRate.toFixed(8));
+                                        marketRate = Number(parseFloat(marketRate).toFixed(8));
                                         context.newHistoryRecord.marketRate = marketRate;
 
                                         ticker = {
@@ -543,9 +543,9 @@
 												id: Math.trunc(Math.random(1) * 1000000),
 												type: thisPosition.type,
 												rate: thisPosition.rate.toString(),
-												amountA: Number(thisPosition.amountA.toFixed(8)).toString(),
-												amountB: Number(thisPosition.amountB.toFixed(8)).toString(),
-												fee: Number(feeRate.toFixed(8)).toString(),
+                                                amountA: Number(parseFloat(thisPosition.amountA).toFixed(8)).toString(),
+                                                amountB: Number(parseFloat(thisPosition.amountB).toFixed(8)).toString(),
+                                                fee: Number(parseFloat(feeRate).toFixed(8)).toString(),
 												date: (new Date()).valueOf()
 											}
 											
@@ -636,8 +636,8 @@
                                 sumAssetB = sumAssetB + Number(trade.amountB);
                             }
 							
-							sumAssetA = Number(sumAssetA.toFixed(8));
-							sumAssetB = Number(sumAssetB.toFixed(8));
+                            sumAssetA = Number(parseFloat(sumAssetA).toFixed(8));
+                            sumAssetB = Number(parseFloat(sumAssetB).toFixed(8));
 
                             if (position.amountB !== sumAssetB) {
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
@@ -711,10 +711,10 @@
                             sumAssetA = sumAssetA + Number(exchangePosition.amountA);
                             sumAssetB = sumAssetB + Number(exchangePosition.amountB);
 							
-                            sumAssetA = Number(sumAssetA.toFixed(6)); // Fixed to 6 positions to avoid rounding issues
-                            sumAssetB = Number(sumAssetB.toFixed(8));
+                            sumAssetA = Number(parseFloat(sumAssetA).toFixed(6)); // Fixed to 6 positions to avoid rounding issues
+                            sumAssetB = Number(parseFloat(sumAssetB).toFixed(8));
 
-                            if (position.amountA.toFixed(6) !== sumAssetA || position.amountB !== sumAssetB ) {
+                            if (parseFloat(position.amountA).toFixed(6) !== sumAssetA || position.amountB !== sumAssetB ) {
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
@@ -779,28 +779,28 @@
 								
                                 if (trade.type === 'buy') {
 									let fee = Number(trade.fee) * trade.amountB;
-									let fixedFee = Number(fee.toFixed(8));
+                                    let fixedFee = Number(parseFloat(fee).toFixed(8));
 									
 									assetA = context.executionContext.balance.assetA - Number(trade.amountA);
 									assetB = context.executionContext.balance.assetB + Number(trade.amountB) - fixedFee;
 
 									let available = context.executionContext.availableBalance.assetB + Number(trade.amountB) - fixedFee;
-                                    context.executionContext.availableBalance.assetB = Number(available.toFixed(8));
+                                    context.executionContext.availableBalance.assetB = Number(parseFloat(available).toFixed(8));
                                 }
 
                                 if (trade.type === 'sell') {
 									let fee = Number(trade.fee) * trade.amountA;
-									let fixedFee = Number(fee.toFixed(8));
+                                    let fixedFee = Number(parseFloat(fee).toFixed(8));
 									
 									assetA = context.executionContext.balance.assetA + Number(trade.amountA) - fixedFee;
 									assetB = context.executionContext.balance.assetB - Number(trade.amountB);
 									
 									let available = context.executionContext.availableBalance.assetA + Number(trade.amountA) - fixedFee;
-									context.executionContext.availableBalance.assetA = Number(available.toFixed(8));
+                                    context.executionContext.availableBalance.assetA = Number(parseFloat(available).toFixed(8));
                                 }
 								
-								context.executionContext.balance.assetA = Number(assetA.toFixed(8));
-								context.executionContext.balance.assetB = Number(assetB.toFixed(8));
+                                context.executionContext.balance.assetA = Number(parseFloat(assetA).toFixed(8));
+                                context.executionContext.balance.assetB = Number(parseFloat(assetB).toFixed(8));
                             }
 
                         } catch (err) {
@@ -866,9 +866,9 @@
 
             /* Removing extra decimals. */
 
-            pRate = Number(pRate.toFixed(8));
-            pAmountA = Number(pAmountA.toFixed(8));
-            pAmountB = Number(pAmountB.toFixed(8));
+            pRate = Number(parseFloat(pRate).toFixed(8));
+            pAmountA = Number(parseFloat(pAmountA).toFixed(8));
+            pAmountB = Number(parseFloat(pAmountB).toFixed(8));
 
             /* Validations that the limits are not surpassed. */
 
@@ -889,7 +889,7 @@
                     return;
                 }
 
-                let aRate = Number((pAmountA / pRate).toFixed(8));
+                let aRate = Number(parseFloat(pAmountA / pRate).toFixed(8));
 
                 if (aRate !== pAmountB) {
 
@@ -925,7 +925,7 @@
                     return;
                 }
 
-                let bRate = Number((pAmountB * pRate).toFixed(8));
+                let bRate = Number(parseFloat(pAmountB * pRate).toFixed(8));
 
                 if (bRate !== pAmountA) {
 
@@ -1022,14 +1022,14 @@
                             if (position.type === 'buy') {
 
                                 context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA - pAmountA;
-                                context.executionContext.availableBalance.assetA = Number(context.executionContext.availableBalance.assetA.toFixed(8));
+                                context.executionContext.availableBalance.assetA = Number(parseFloat(context.executionContext.availableBalance.assetA).toFixed(8));
                                 context.newHistoryRecord.lastBuyRate = pRate;
                             } 
 
                             if (position.type === 'sell') {
 
                                 context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB - pAmountB;
-                                context.executionContext.availableBalance.assetB = Number(context.executionContext.availableBalance.assetB.toFixed(8));
+                                context.executionContext.availableBalance.assetB = Number(parseFloat(context.executionContext.availableBalance.assetB).toFixed(8));
                                 context.newHistoryRecord.lastSellRate = pRate;
                             }
 
@@ -1070,7 +1070,7 @@
 
             let newAmountB;
             if (pPosition.type === "buy") {
-                newAmountB = (pPosition.amountA / pNewRate).toFixed(7); // If it was fixed to 8 positions there could be some rounding up and there will be not enough AssetA for buying
+                newAmountB = parseFloat(pPosition.amountA / pNewRate).toFixed(7); // If it was fixed to 8 positions there could be some rounding up and there will be not enough AssetA for buying
             } else {
                 newAmountB = pPosition.amountB;
             }

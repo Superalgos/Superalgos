@@ -7,6 +7,8 @@
     */
 
     const MODULE_NAME = "Assistant";
+	
+	var nodemailer = require('nodemailer');
 
     let bot = BOT;
 
@@ -26,7 +28,8 @@
         getTicker: getTicker,
         sendMessage: sendMessage,
         rememberThis: rememberThis,
-        remindMeOf: remindMeOf
+        remindMeOf: remindMeOf,
+        sendEmail: sendEmail
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
@@ -1271,6 +1274,10 @@
         context.newHistoryRecord.messageRelevance = pRelevance;
         context.newHistoryRecord.messageTitle = pTitle;
         context.newHistoryRecord.messageBody = pBody;
+		
+		if(pRelevance > 6){
+			sendEmail(pTitle, pBody);
+		}
 
     }
 
@@ -1298,4 +1305,34 @@
 
     }
 	
+    function sendEmail(pTitle, pBody) {
+        try {
+
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: '',
+                    pass: ''
+                }
+            });
+
+            let mailOptions = {
+                from: '',
+                to: '',
+                subject: bot.starMode + ' - ' + pTitle,
+                text: pBody
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    logger.write(MODULE_NAME, "[ERROR] sendEmail -> err = " + error);
+                } else {
+                    logger.write(MODULE_NAME, "[INFO] sendEmail -> Email sent = " + info.response);
+                }
+            });
+
+        } catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] sendEmail -> err = " + err.message);
+        }
+    }
 };

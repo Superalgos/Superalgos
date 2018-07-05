@@ -156,7 +156,8 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
                             err.code === 'EADDRINUSE' ||
                             err.code === 'AuthenticationFailed' ||
                             err.code === 'OperationTimedOut' ||
-                            err.code === 'ServerBusy'
+                            err.code === 'ServerBusy' ||
+                            err.code === 'EAI_AGAIN'
                         )
                         {
 
@@ -277,7 +278,8 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
                             err.code === 'EADDRINUSE'           || 
                             err.code === 'AuthenticationFailed' || 
                             err.code === 'OperationTimedOut'    || 
-                            err.code === 'ServerBusy'
+                            err.code === 'ServerBusy'           ||
+                            err.code === 'EAI_AGAIN'
                         )
 
                         {

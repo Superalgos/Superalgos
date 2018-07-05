@@ -1217,40 +1217,70 @@
     }
 
     function getPositions() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositions -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositions -> JSON.stringify(context.executionContext.positions) = " + JSON.stringify(context.executionContext.positions)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.positions));
     }
 
     function getBalance() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getBalance -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getBalance -> JSON.stringify(context.executionContext.balance) = " + JSON.stringify(context.executionContext.positions)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.balance));
     }
 
     function getAvailableBalance() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getAvailableBalance -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getAvailableBalance -> JSON.stringify(context.executionContext.availableBalance) = " + JSON.stringify(context.executionContext.availableBalance)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.availableBalance));
     }
 
     function getInvestment() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInvestment -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInvestment -> JSON.stringify(context.executionContext.investment) = " + JSON.stringify(context.executionContext.investment)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.investment));
     }
 
     function getProfits() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getProfits -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getProfits -> JSON.stringify(context.executionContext.profits) = " + JSON.stringify(context.executionContext.profits)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.profits));
     }
 
     function getCombinedProfits() {
 
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getCombinedProfits -> Entering function."); }
+
         let combinedProfits = {
             assetA: context.newHistoryRecord.combinedProfitsA,
             assetB: context.newHistoryRecord.combinedProfitsB
         }
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getCombinedProfits -> JSON.stringify(combinedProfits) = " + JSON.stringify(combinedProfits)); }
+
         return JSON.parse(JSON.stringify(combinedProfits));
     }
 
     function getROI() {
 
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getROI -> Entering function."); }
+
         let ROI = {
             assetA: (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA * 100,
             assetB: (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB * 100
         }
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getROI -> JSON.stringify(ROI) = " + JSON.stringify(ROI)); }
+
         return JSON.parse(JSON.stringify(ROI));
     }
     

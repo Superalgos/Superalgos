@@ -1319,7 +1319,7 @@
             let mailOptions = {
                 from: '',
                 to: '',
-                subject: bot.starMode + ' - ' + pTitle,
+                subject: bot.startMode + ' - ' + pTitle,
                 text: pBody
             };
 

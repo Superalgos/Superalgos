@@ -166,7 +166,7 @@
                 if (pMessage.indexOf("[ERROR]") >= 0) {
 
                     let now = new Date;
-                    console.log(now.toUTCString() + " AACloud " + spacePad(pModule, 20) + " : " + pMessage);
+                    console.log("Loop." + pad(thisObject.bot.loopCounter, 8) + " " + now.toUTCString() + " AACloud " + spacePad(pModule, 20) + " : " + pMessage);
 
                 }
             }

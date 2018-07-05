@@ -1075,7 +1075,7 @@
                 newAmountB = pPosition.amountB;
             }
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> newAmount = " + newAmount); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> newAmountB = " + newAmountB); }
 
             switch (bot.startMode) {
 

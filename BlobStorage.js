@@ -148,16 +148,16 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
                         }
 
                         if (
-                            err.code === 'ECONNRESET' ||
-                            err.code === 'ENOTFOUND' ||
-                            err.code === 'ESOCKETTIMEDOUT' ||
-                            err.code === 'ETIMEDOUT' ||
-                            err.code === 'ECONNREFUSED' ||
-                            err.code === 'EADDRINUSE' ||
+                            err.code === 'ECONNRESET'           ||
+                            err.code === 'ENOTFOUND'            ||
+                            err.code === 'ESOCKETTIMEDOUT'      ||
+                            err.code === 'ETIMEDOUT'            ||
+                            err.code === 'ECONNREFUSED'         ||
+                            err.code === 'EADDRINUSE'           ||
+                            err.code === 'EAI_AGAIN'            || 
                             err.code === 'AuthenticationFailed' ||
-                            err.code === 'OperationTimedOut' ||
-                            err.code === 'ServerBusy' ||
-                            err.code === 'EAI_AGAIN'
+                            err.code === 'OperationTimedOut'    ||
+                            err.code === 'ServerBusy'
                         )
                         {
 
@@ -276,12 +276,12 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
                             err.code === 'ETIMEDOUT'            || 
                             err.code === 'ECONNREFUSED'         || 
                             err.code === 'EADDRINUSE'           || 
+                            err.code === 'EAI_AGAIN'            || 
                             err.code === 'AuthenticationFailed' || 
                             err.code === 'OperationTimedOut'    || 
-                            err.code === 'ServerBusy'           ||
-                            err.code === 'EAI_AGAIN'
+                            err.code === 'ServerBusy'
                         )
-
+                            
                         {
 
                             setTimeout(secondTry, SECOND_TRY_WAIT_TIME);

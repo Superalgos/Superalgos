@@ -184,7 +184,7 @@
                                     if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
 
                                         marketRate = (candle.open + candle.close) / 2;
-                                        marketRate = Number(marketRate.toFixed(8));
+                                        marketRate = Number(parseFloat(marketRate).toFixed(8));
                                         context.newHistoryRecord.marketRate = marketRate;
 
                                         ticker = {
@@ -405,7 +405,7 @@
 
             /*
 
-            Here we check that all the positions we know we have are still at the exchange. If they are not, we will try to take appropiate
+            Here we check that all the positions we know we still have at the exchange. If they are not, we will try to take appropiate
             actions. Reasons why the positions might not be there are:
 
             1. The user / account owner closed the positions manually.
@@ -422,6 +422,8 @@
 
             */
 
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> JSON.stringify(context.executionContext.positions) = " + JSON.stringify(context.executionContext.positions)); }
+
             let openPositions = [];
 
             for (let a = 0; a < context.executionContext.positions.length; a++) {
@@ -433,7 +435,18 @@
                 }
             }
 
+            /*
+
+            This removes all orders leaving only the not executed position. Consider that we do want executed positions to be recored on the file so as to
+            have a record of their execution. But at next execution these records must be deleted bedore the new Execution Context file is created and
+            this is what we do here.
+
+            */
+
             context.executionContext.positions = openPositions;
+
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> Removing executed positions."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> JSON.stringify(context.executionContext.positions) = " + JSON.stringify(context.executionContext.positions)); }
 
             /* Now we can start checking what happened at the exchange. */
 
@@ -546,9 +559,9 @@
 												id: Math.trunc(Math.random(1) * 1000000),
 												type: thisPosition.type,
 												rate: thisPosition.rate.toString(),
-												amountA: Number(thisPosition.amountA.toFixed(8)).toString(),
-												amountB: Number(thisPosition.amountB.toFixed(8)).toString(),
-												fee: Number(feeRate.toFixed(8)).toString(),
+                                                amountA: Number(parseFloat(thisPosition.amountA).toFixed(8)).toString(),
+                                                amountB: Number(parseFloat(thisPosition.amountB).toFixed(8)).toString(),
+                                                fee: Number(parseFloat(feeRate).toFixed(8)).toString(),
 												date: (new Date()).valueOf()
 											}
 											
@@ -639,8 +652,8 @@
                                 sumAssetB = sumAssetB + Number(trade.amountB);
                             }
 							
-							sumAssetA = Number(sumAssetA.toFixed(8));
-							sumAssetB = Number(sumAssetB.toFixed(8));
+                            sumAssetA = Number(parseFloat(sumAssetA).toFixed(8));
+                            sumAssetB = Number(parseFloat(sumAssetB).toFixed(8));
 
                             if (position.amountB !== sumAssetB) {
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
@@ -714,10 +727,10 @@
                             sumAssetA = sumAssetA + Number(exchangePosition.amountA);
                             sumAssetB = sumAssetB + Number(exchangePosition.amountB);
 							
-                            sumAssetA = Number(sumAssetA.toFixed(6)); // Fixed to 6 positions to avoid rounding issues
-                            sumAssetB = Number(sumAssetB.toFixed(8));
+                            sumAssetA = Number(parseFloat(sumAssetA).toFixed(6)); // Fixed to 6 positions to avoid rounding issues
+                            sumAssetB = Number(parseFloat(sumAssetB).toFixed(8));
 
-                            if (position.amountA.toFixed(6) !== sumAssetA || position.amountB !== sumAssetB ) {
+                            if (parseFloat(position.amountA).toFixed(6) !== sumAssetA || position.amountB !== sumAssetB ) {
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
@@ -782,28 +795,28 @@
 								
                                 if (trade.type === 'buy') {
 									let fee = Number(trade.fee) * trade.amountB;
-									let fixedFee = Number(fee.toFixed(8));
+                                    let fixedFee = Number(parseFloat(fee).toFixed(8));
 									
 									assetA = context.executionContext.balance.assetA - Number(trade.amountA);
 									assetB = context.executionContext.balance.assetB + Number(trade.amountB) - fixedFee;
 
 									let available = context.executionContext.availableBalance.assetB + Number(trade.amountB) - fixedFee;
-                                    context.executionContext.availableBalance.assetB = Number(available.toFixed(8));
+                                    context.executionContext.availableBalance.assetB = Number(parseFloat(available).toFixed(8));
                                 }
 
                                 if (trade.type === 'sell') {
 									let fee = Number(trade.fee) * trade.amountA;
-									let fixedFee = Number(fee.toFixed(8));
+                                    let fixedFee = Number(parseFloat(fee).toFixed(8));
 									
 									assetA = context.executionContext.balance.assetA + Number(trade.amountA) - fixedFee;
 									assetB = context.executionContext.balance.assetB - Number(trade.amountB);
 									
 									let available = context.executionContext.availableBalance.assetA + Number(trade.amountA) - fixedFee;
-									context.executionContext.availableBalance.assetA = Number(available.toFixed(8));
+                                    context.executionContext.availableBalance.assetA = Number(parseFloat(available).toFixed(8));
                                 }
 								
-								context.executionContext.balance.assetA = Number(assetA.toFixed(8));
-								context.executionContext.balance.assetB = Number(assetB.toFixed(8));
+                                context.executionContext.balance.assetA = Number(parseFloat(assetA).toFixed(8));
+                                context.executionContext.balance.assetB = Number(parseFloat(assetB).toFixed(8));
                             }
 
                         } catch (err) {
@@ -862,17 +875,16 @@
 
         try {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             /* Removing extra decimals. */
 
             pRate = Number(parseFloat(pRate).toFixed(8));
             pAmountA = Number(parseFloat(pAmountA).toFixed(8));
             pAmountB = Number(parseFloat(pAmountB).toFixed(8));
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }            
 
             /* Validations that the limits are not surpassed. */
 
@@ -893,7 +905,7 @@
                     return;
                 }
 
-                let aRate = Number((pAmountA / pRate).toFixed(8));
+                let aRate = Number(parseFloat(pAmountA / pRate).toFixed(8));
 
                 if (aRate !== pAmountB) {
 
@@ -929,7 +941,7 @@
                     return;
                 }
 
-                let bRate = Number((pAmountB * pRate).toFixed(8));
+                let bRate = Number(parseFloat(pAmountB * pRate).toFixed(8));
 
                 if (bRate !== pAmountA) {
 
@@ -1026,14 +1038,14 @@
                             if (position.type === 'buy') {
 
                                 context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA - pAmountA;
-                                context.executionContext.availableBalance.assetA = Number(context.executionContext.availableBalance.assetA.toFixed(8));
+                                context.executionContext.availableBalance.assetA = Number(parseFloat(context.executionContext.availableBalance.assetA).toFixed(8));
                                 context.newHistoryRecord.lastBuyRate = pRate;
                             } 
 
                             if (position.type === 'sell') {
 
                                 context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB - pAmountB;
-                                context.executionContext.availableBalance.assetB = Number(context.executionContext.availableBalance.assetB.toFixed(8));
+                                context.executionContext.availableBalance.assetB = Number(parseFloat(context.executionContext.availableBalance.assetB).toFixed(8));
                                 context.newHistoryRecord.lastSellRate = pRate;
                             }
 
@@ -1224,40 +1236,70 @@
     }
 
     function getPositions() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositions -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositions -> JSON.stringify(context.executionContext.positions) = " + JSON.stringify(context.executionContext.positions)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.positions));
     }
 
     function getBalance() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getBalance -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getBalance -> JSON.stringify(context.executionContext.balance) = " + JSON.stringify(context.executionContext.positions)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.balance));
     }
 
     function getAvailableBalance() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getAvailableBalance -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getAvailableBalance -> JSON.stringify(context.executionContext.availableBalance) = " + JSON.stringify(context.executionContext.availableBalance)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.availableBalance));
     }
 
     function getInvestment() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInvestment -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getInvestment -> JSON.stringify(context.executionContext.investment) = " + JSON.stringify(context.executionContext.investment)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.investment));
     }
 
     function getProfits() {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getProfits -> Entering function."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getProfits -> JSON.stringify(context.executionContext.profits) = " + JSON.stringify(context.executionContext.profits)); }
+
         return JSON.parse(JSON.stringify(context.executionContext.profits));
     }
 
     function getCombinedProfits() {
 
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getCombinedProfits -> Entering function."); }
+
         let combinedProfits = {
             assetA: context.newHistoryRecord.combinedProfitsA,
             assetB: context.newHistoryRecord.combinedProfitsB
         }
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getCombinedProfits -> JSON.stringify(combinedProfits) = " + JSON.stringify(combinedProfits)); }
+
         return JSON.parse(JSON.stringify(combinedProfits));
     }
 
     function getROI() {
 
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getROI -> Entering function."); }
+
         let ROI = {
             assetA: (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA * 100,
             assetB: (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB * 100
         }
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getROI -> JSON.stringify(ROI) = " + JSON.stringify(ROI)); }
+
         return JSON.parse(JSON.stringify(ROI));
     }
     
@@ -1276,7 +1318,7 @@
         context.newHistoryRecord.messageBody = pBody;
 		
 		if(pRelevance > 6){
-			sendEmail(pTitle, pBody);
+			sendEmail(pTitle, pBody, false);
 		}
 
     }
@@ -1305,20 +1347,24 @@
 
     }
 	
-    function sendEmail(pTitle, pBody) {
+    function sendEmail(pTitle, pBody, pSendToAdmins) {
         try {
+            let emailList = global.EMAIL_CONFIG.distributionList;
+            if (pSendToAdmins) {
+                emailList = global.EMAIL_CONFIG.adminList;
+            }
 
             let transporter = nodemailer.createTransport({
-                service: 'gmail',
+                service: global.EMAIL_CONFIG.service,
                 auth: {
-                    user: '',
-                    pass: ''
+                    user: global.EMAIL_CONFIG.user,
+                    pass: global.EMAIL_CONFIG.pass
                 }
             });
 
             let mailOptions = {
-                from: '',
-                to: '',
+                from: global.EMAIL_CONFIG.from,
+                bcc: emailList,
                 subject: bot.startMode + ' - ' + pTitle,
                 text: pBody
             };

@@ -6,30 +6,17 @@
 
     /* 
 
-    This module allows deals with keeping the context between different executions of the bot. 
-    It deals with these 3 different files that helps the bot process remember where it is standing:
+    This module deals with keeping the context between different executions of the bot. Conceptually this context is divided in 3 main parts:
 
-    1. The Status Report.
-    2. The Execution History.
-    3. The Execution Context.
+    I.  The non-business information which helps the mechanisms of giving continuety to the bots execution over time. This information goes in a file
+        called the Status Report, and there is a module, child of this one called Status Report that deals with loading and saving the contents of that file.
 
-    */
+    II. The business information around the bot execution, including its balance, positions at exchanges, trades executed and many other things. These
+        are platform data mantained on behalf of the executing bot. All these is kept in one file per execution called the Execution Context. The collection
+        of all these files can later reconstruct the vital business information the bot had at each moment in time.
 
- 
-
-    /*
-
-    Here we will keep the last status report, to be available during the whole process. The Status Report is a file the bot process
-    reads and saves again after each execution. Its main purpose is to know when the last execution was in order to locate the execution
-    context. When the bot runs for the first time it takes some vital parameters from there and it checks them through its lifecycle to see
-    if they changed. The Status Report file can eventually be manipulated by the bot operators / developers in order to change those parameters
-    or to point the last execution to a different date. Humans are not supose to manipulate the Execution Histroy or the execution Context files.
-
-    The Execution History is basically an index with dates of all the executions the bot did across its history. It allows the bot plotter
-    to know which datetimes have informacion about the bots execution in order to display it.
-
-    The Execution Context file records all the context information of the bot at the moment of execution and the final state of all of its
-    positions on the market.
+    II. Execution of any bot cannot be guaranteed that will be on fixed interval of times. We need an index of all executions that points to the detailed files
+        with all the business informatino the bot had each time it executed. We call this index the Execution History and there is one file to store it.
 
     */
 

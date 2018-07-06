@@ -1089,7 +1089,7 @@
 
             let newAmountB;
             if (pPosition.type === "buy") {
-                newAmountB = Number((pPosition.amountA / pNewRate).toFixed(8));
+                newAmountB = Number(parseFloat(pPosition.amountA / pNewRate).toFixed(8));
             } else {
                 newAmountB = pPosition.amountB;
             }

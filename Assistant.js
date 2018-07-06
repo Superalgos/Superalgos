@@ -7,6 +7,8 @@
     */
 
     const MODULE_NAME = "Assistant";
+	
+	var nodemailer = require('nodemailer');
 
     let bot = BOT;
 
@@ -26,7 +28,8 @@
         getTicker: getTicker,
         sendMessage: sendMessage,
         rememberThis: rememberThis,
-        remindMeOf: remindMeOf
+        remindMeOf: remindMeOf,
+        sendEmail: sendEmail
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
@@ -1081,9 +1084,12 @@
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
 
+            /* Removing extra decimals. */
+            pNewRate = Number(parseFloat(pNewRate).toFixed(8));
+
             let newAmountB;
             if (pPosition.type === "buy") {
-                newAmountB = parseFloat(pPosition.amountA / pNewRate).toFixed(7); // If it was fixed to 8 positions there could be some rounding up and there will be not enough AssetA for buying
+                newAmountB = Number(parseFloat(pPosition.amountA / pNewRate).toFixed(8));
             } else {
                 newAmountB = pPosition.amountB;
             }
@@ -1310,6 +1316,10 @@
         context.newHistoryRecord.messageRelevance = pRelevance;
         context.newHistoryRecord.messageTitle = pTitle;
         context.newHistoryRecord.messageBody = pBody;
+		
+		if(pRelevance > 6){
+			sendEmail(pTitle, pBody, false);
+		}
 
     }
 
@@ -1335,5 +1345,40 @@
 
         return context.executionContext.remember[pKey];
 
+    }
+	
+    function sendEmail(pTitle, pBody, pSendToAdmins) {
+        try {
+            let emailList = global.EMAIL_CONFIG.distributionList;
+            if (pSendToAdmins) {
+                emailList = global.EMAIL_CONFIG.adminList;
+            }
+
+            let transporter = nodemailer.createTransport({
+                service: global.EMAIL_CONFIG.service,
+                auth: {
+                    user: global.EMAIL_CONFIG.user,
+                    pass: global.EMAIL_CONFIG.pass
+                }
+            });
+
+            let mailOptions = {
+                from: global.EMAIL_CONFIG.from,
+                bcc: emailList,
+                subject: bot.startMode + ' - ' + pTitle,
+                text: pBody
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    logger.write(MODULE_NAME, "[ERROR] sendEmail -> err = " + error);
+                } else {
+                    logger.write(MODULE_NAME, "[INFO] sendEmail -> Email sent = " + info.response);
+                }
+            });
+
+        } catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] sendEmail -> err = " + err.message);
+        }
     }
 };

@@ -281,7 +281,7 @@ exports.newBlobStorage = function newBlobStorage(BOT, logger) {
                             err.code === 'OperationTimedOut'    || 
                             err.code === 'ServerBusy'
                         )
-                            EAI_AGAIN
+                            
                         {
 
                             setTimeout(secondTry, SECOND_TRY_WAIT_TIME);

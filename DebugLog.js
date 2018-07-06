@@ -147,7 +147,11 @@
 
         try {
 
-            /* console.log("AACloud" + spacePad(pModule, 50) + " : " + pMessage); */
+            if (global.CURRENT_EXECUTION_AT === "IDE") {
+
+                console.log("AACloud" + spacePad(pModule, 50) + " : " + pMessage);
+
+            }
 
             if (disableLogging === true) { return; }
 

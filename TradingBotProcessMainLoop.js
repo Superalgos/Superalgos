@@ -851,6 +851,7 @@
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
                                             bot.enableCheckLoopHealth = false;
+                                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, true);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -863,6 +864,7 @@
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
                                             bot.enableCheckLoopHealth = false;
+                                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, true);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -875,6 +877,7 @@
                                     clearTimeout(nextLoopTimeoutHandle);
                                     clearTimeout(checkLoopHealthHandle);
                                     bot.enableCheckLoopHealth = false;
+                                    assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, true);
                                     callBackFunction(err);
                                 }
                             }
@@ -886,6 +889,7 @@
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
                             bot.enableCheckLoopHealth = false;
+                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, true);
                             callBackFunction(err);
                         }
                     }

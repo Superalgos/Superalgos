@@ -30,6 +30,7 @@ process.on('exit', function (code) {
 });
 
 global.USER_PROFILE = {};
+global.EMAIL_CONFIG = {};
 
 readStoragePermissions();
 
@@ -57,11 +58,28 @@ function readStoragePermissions() {
 
         global.USER_PROFILE.storagePermissions = permissionsMap;
 
-        readExchangeAPIKey();
+        readEmailConfiguration();
     }
     catch (err) {
         console.log("[ERROR] readStoragePermissions -> err = " + err.message);
         console.log("[HINT] readStoragePermissions -> You need to have a file at this path -> " + filePath);
+    }
+}
+
+function readEmailConfiguration() {
+
+    let filePath;
+
+    try {
+        let fs = require('fs');
+        filePath = '../' + 'Email-Config' + '/' + 'Email.Config.json';
+        global.EMAIL_CONFIG = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+        readExchangeAPIKey();
+    }
+    catch (err) {
+        console.log("[ERROR] readEmailConfiguration -> err = " + err.message);
+        console.log("[HINT] You need to have a file at this path -> " + filePath);
     }
 }
 

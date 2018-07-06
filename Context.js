@@ -15,7 +15,7 @@
         are platform data mantained on behalf of the executing bot. All these is kept in one file per execution called the Execution Context. The collection
         of all these files can later reconstruct the vital business information the bot had at each moment in time.
 
-    II. Execution of any bot cannot be guaranteed that will be on fixed interval of times. We need an index of all executions that points to the detailed files
+    III. Execution of any bot cannot be guaranteed that will be on fixed interval of times. We need an index of all executions that points to the detailed files
         with all the business informatino the bot had each time it executed. We call this index the Execution History and there is one file to store it.
 
     */

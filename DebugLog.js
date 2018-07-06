@@ -147,7 +147,7 @@
 
         try {
 
-            if (global.CURRENT_EXECUTION_AT = "IDE") {
+            if (global.CURRENT_EXECUTION_AT === "IDE") {
 
                 console.log("AACloud" + spacePad(pModule, 50) + " : " + pMessage);
 

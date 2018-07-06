@@ -402,7 +402,7 @@
 
             /*
 
-            Here we check that all the positions we know we have are still at the exchange. If they are not, we will try to take appropiate
+            Here we check that all the positions we know we still have at the exchange. If they are not, we will try to take appropiate
             actions. Reasons why the positions might not be there are:
 
             1. The user / account owner closed the positions manually.
@@ -419,6 +419,8 @@
 
             */
 
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> JSON.stringify(context.executionContext.positions) = " + JSON.stringify(context.executionContext.positions)); }
+
             let openPositions = [];
 
             for (let a = 0; a < context.executionContext.positions.length; a++) {
@@ -430,7 +432,18 @@
                 }
             }
 
+            /*
+
+            This removes all orders leaving only the not executed position. Consider that we do want executed positions to be recored on the file so as to
+            have a record of their execution. But at next execution these records must be deleted bedore the new Execution Context file is created and
+            this is what we do here.
+
+            */
+
             context.executionContext.positions = openPositions;
+
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> Removing executed positions."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> JSON.stringify(context.executionContext.positions) = " + JSON.stringify(context.executionContext.positions)); }
 
             /* Now we can start checking what happened at the exchange. */
 

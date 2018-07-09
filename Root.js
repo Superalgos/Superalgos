@@ -132,7 +132,7 @@ exports.newRoot = function newRoot() {
                     logInfo: true,
                     logWarnings: false,
                     logErrors: true,
-                    logContent: true,
+                    logContent: false,
                     intensiveLogging: false
                 }
             };

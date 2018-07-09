@@ -1107,7 +1107,7 @@
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
 
             /* Removing extra decimals. */
-            pNewRate = Number(parseFloat(pNewRate).toFixed(8));
+            pNewRate = parseFloat(pNewRate).toFixed(8);
 
             let newAmountB;
             if (pPosition.type === "buy") {

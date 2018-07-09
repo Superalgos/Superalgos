@@ -787,33 +787,55 @@
                                 context.newHistoryRecord.newTrades++;
 
                                 /* Calculate Balances */
-								let assetA = 0;
-								let assetB = 0;
-								
-                                if (trade.type === 'buy') {
-									let fee = Number(trade.fee) * trade.amountB;
-                                    let fixedFee = Number(parseFloat(fee).toFixed(8));
-									
-									assetA = context.executionContext.balance.assetA - Number(trade.amountA);
-									assetB = context.executionContext.balance.assetB + Number(trade.amountB) - fixedFee;
 
-									let available = context.executionContext.availableBalance.assetB + Number(trade.amountB) - fixedFee;
-                                    context.executionContext.availableBalance.assetB = Number(parseFloat(available).toFixed(8));
+                                let assetA = 0;
+                                let assetB = 0;
+
+                                if (trade.type === 'buy') {
+									
+                                    /* 
+
+                                    The fee received at each trade is the factor by which if we multiply asset B, we get the amount of Asset B extracted as fees by the exchange.
+                                    This happens with each individual trade. Remeber that one order can potentially be executed with 1 to many trades.
+
+                                    */
+
+                                    let feeAmount = parseFloat(Number(trade.fee) * Number(trade.amountB)).toFixed(8);
+
+                                    assetA = Number(trade.amountA);
+                                    assetB = Number(trade.amountB) - feeAmount;
+
+                                    context.executionContext.balance.assetA = context.executionContext.balance.assetA - assetA;
+                                    context.executionContext.balance.assetB = context.executionContext.balance.assetB + assetB;
+
+                                    context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB + assetB;
+
+                                    /* Not the available balance for asset A is not affected since it was already reduced when the order was placed. */
+
                                 }
 
                                 if (trade.type === 'sell') {
-									let fee = Number(trade.fee) * trade.amountA;
-                                    let fixedFee = Number(parseFloat(fee).toFixed(8));
-									
-									assetA = context.executionContext.balance.assetA + Number(trade.amountA) - fixedFee;
-									assetB = context.executionContext.balance.assetB - Number(trade.amountB);
-									
-									let available = context.executionContext.availableBalance.assetA + Number(trade.amountA) - fixedFee;
-                                    context.executionContext.availableBalance.assetA = Number(parseFloat(available).toFixed(8));
-                                }
-								
-                                context.executionContext.balance.assetA = Number(parseFloat(assetA).toFixed(8));
-                                context.executionContext.balance.assetB = Number(parseFloat(assetB).toFixed(8));
+
+                                    /* 
+
+                                    The fee received at each trade is the factor by which if we multiply asset A, we get the amount of Asset A extracted as fees by the exchange.
+                                    This happens with each individual trade. Remeber that one order can potentially be executed with 1 to many trades.
+
+                                    */
+
+                                    let feeAmount = parseFloat(Number(trade.fee) * Number(trade.amountA)).toFixed(8);
+
+                                    assetA = Number(trade.amountA) - feeAmount;
+									assetB = Number(trade.amountB);
+
+                                    context.executionContext.balance.assetA = context.executionContext.balance.assetA + assetA;
+                                    context.executionContext.balance.assetB = context.executionContext.balance.assetB - assetB;
+
+                                    context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA + assetA;
+
+                                    /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
+
+                                }								
                             }
 
                         } catch (err) {
@@ -1240,7 +1262,7 @@
     function getBalance() {
 
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getBalance -> Entering function."); }
-        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getBalance -> JSON.stringify(context.executionContext.balance) = " + JSON.stringify(context.executionContext.positions)); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getBalance -> JSON.stringify(context.executionContext.balance) = " + JSON.stringify(context.executionContext.balance)); }
 
         return JSON.parse(JSON.stringify(context.executionContext.balance));
     }

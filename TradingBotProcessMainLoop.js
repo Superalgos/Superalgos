@@ -247,11 +247,11 @@
                                 }
 
                                 /*
-                                We will standarize the backtesting execution time, setting the exact time at the middle of the candle or timePeriod.
+                                We will standarize the backtesting execution time, setting the exact time a fraction after the start of the candle or timePeriod.
                                 */
 
                                 let totalMiliseconds = bot.processDatetime.valueOf();
-                                totalMiliseconds = Math.trunc(totalMiliseconds / timePeriod) * timePeriod + timePeriod / 2;
+                                totalMiliseconds = Math.trunc(totalMiliseconds / timePeriod) * timePeriod + timePeriod / 6;
 
                                 bot.processDatetime = new Date(totalMiliseconds);
 
@@ -855,7 +855,7 @@
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
                                             bot.enableCheckLoopHealth = false;
-                                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, true);
+                                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, emailList = global.EMAIL_CONFIG.adminList);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -868,7 +868,7 @@
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
                                             bot.enableCheckLoopHealth = false;
-                                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, true);
+                                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, emailList = global.EMAIL_CONFIG.adminList);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -881,7 +881,7 @@
                                     clearTimeout(nextLoopTimeoutHandle);
                                     clearTimeout(checkLoopHealthHandle);
                                     bot.enableCheckLoopHealth = false;
-                                    assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, true);
+                                    assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, emailList = global.EMAIL_CONFIG.adminList);
                                     callBackFunction(err);
                                 }
                             }
@@ -893,7 +893,7 @@
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
                             bot.enableCheckLoopHealth = false;
-                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, true);
+                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, emailList = global.EMAIL_CONFIG.adminList);
                             callBackFunction(err);
                         }
                     }

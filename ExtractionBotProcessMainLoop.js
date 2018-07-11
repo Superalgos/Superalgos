@@ -588,7 +588,7 @@
 
                         if (bot.enableCheckLoopHealth === false) {
 
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
+                            logger.write(MODULE_NAME, "[WARN] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
 
                             return;
                         } // This gets disabled anytime the Main Loop is shut down by any condition.

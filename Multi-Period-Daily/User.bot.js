@@ -309,6 +309,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                 function isExecutionOnHeadOfMarket() {
                     let candleBeginIndex = 4;
+					let lastCandlePeriodOnCache;
                     let lastDayIndex = 10 + '/' + executionTime.getUTCFullYear() + "/" + utilities.pad(executionTime.getUTCMonth() + 1, 2) + "/" + utilities.pad(executionTime.getUTCDate(), 2);
 
                     if (!dailyFileCache.has(lastDayIndex)) {
@@ -316,7 +317,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                     }
 
                     let currentFile = dailyFileCache.get(lastDayIndex);
-                    let lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
+					
+					if(currentFile === undefined || currentFile[currentFile.length - 1] === undefined)
+						return false;
+					else
+						lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
 
                     return (executionTime.valueOf() >= lastCandlePeriodOnCache.valueOf());
                 }

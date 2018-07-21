@@ -85,6 +85,7 @@
             "retryWaitTime": 10000,
             "sleepWaitTime": 3600000,
             "comaWaitTime": 86400000,
+            "timePeriod": 1800000,
             "statusDependencies": [
                 {
                     "devTeam": "AAVikings",

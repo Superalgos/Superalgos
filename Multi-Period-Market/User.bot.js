@@ -309,12 +309,18 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                 function isExecutionOnHeadOfMarket() {
                     let candleBeginIndex = 4;
-                    if (!marketFileCache.has(7)) {
+					let lastCandlePeriodOnCache;
+                    
+					if (!marketFileCache.has(7)) {
                         return false;
                     }
 
                     let currentFile = marketFileCache.get(7);
-                    let lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
+					
+					if(currentFile === undefined || currentFile[currentFile.length - 1] === undefined)
+						return false;
+					else
+						lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
 
                     return (executionTime.valueOf() >= lastCandlePeriodOnCache.valueOf());
                 }

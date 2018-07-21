@@ -16,26 +16,27 @@
             "description": "Simple trading strategy to be used as a template.",
             "startMode": {
                 "live": {
-                    "run": "true",
+                    "run": "false",
                     "resumeExecution": "false"
                 },
                 "backtest": {
-                    "run": "false",
-                    "beginDatetime": "2018-06-24T18:00:00.000Z",
-                    "endDatetime": "2018-06-28T11:00:00.000Z",
-                    "waitTime": 500
+                    "run": "true",
+                    "beginDatetime": "2018-04-11T00:00:00.000Z",
+                    "endDatetime": "2018-06-17T23:59:59.000Z",
+                    "waitTime": 1
                 },
                 "competition": {
                     "run": "false",
-                    "beginDatetime": "2018-06-30T00:00:00.000Z",
-                    "endDatetime": "2018-07-01T23:59:59.000Z",
-                    "resumeExecution": "false"
+                    "beginDatetime": "2018-07-04T00:00:00.000Z",
+                    "endDatetime": "2018-07-06T23:59:59.000Z",
+                    "resumeExecution": "true"
                 }
             },
             "normalWaitTime": 60000,
             "retryWaitTime": 10000,
             "sleepWaitTime": 3600000,
             "comaWaitTime": 86400000,
+            "timePeriod": 1800000,
             "statusDependencies": [
                 {
                     "devTeam": "AAVikings",
@@ -45,6 +46,16 @@
                         "minor": 0
                     },
                     "process": "Multi-Period-Daily",
+                    "dataSetVersion": "dataSet.V1"
+                },
+                {
+                    "devTeam": "AAVikings",
+                    "bot": "AAGauss",
+                    "botVersion": {
+                        "major": 1,
+                        "minor": 0
+                    },
+                    "process": "Multi-Period-Market",
                     "dataSetVersion": "dataSet.V1"
                 },
                 {
@@ -69,6 +80,17 @@
                     "product": "LRC-Points",
                     "dataSetVersion": "dataSet.V1",
                     "dataSet": "Multi-Period-Daily"
+                },
+                {
+                    "devTeam": "AAVikings",
+                    "bot": "AAGauss",
+                    "botVersion": {
+                        "major": 1,
+                        "minor": 0
+                    },
+                    "product": "LRC-Points",
+                    "dataSetVersion": "dataSet.V1",
+                    "dataSet": "Multi-Period-Market"
                 },
                 {
                     "devTeam": "AAMasters",
@@ -174,5 +196,6 @@
                 "moduleName": "History"
             }
         }
-    ]
+    ],
+    "emailSubscriptions": "mati108@gmail.com"
 }

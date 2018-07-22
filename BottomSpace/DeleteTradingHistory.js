@@ -95,6 +95,12 @@ function newDeleteTradingHistory() {
 
         function onStatusReport(err, text, response) {
 
+            if (err.code === 'BlobNotFound') {
+
+                console.log(statusReportFilePath + "/" + statusReportFileName + " not found. No history detected for this start mode.");
+                return;
+            }
+
             let statusReport = JSON.parse(text);
 
             let toBeDeleted = 0;

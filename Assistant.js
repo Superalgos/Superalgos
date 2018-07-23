@@ -273,12 +273,14 @@
 
                     if (context.executionContext.investment.assetA > 0) {
 
-                        context.executionContext.profits.assetA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / context.executionContext.investment.assetA;
+                        context.executionContext.profits.assetA = (parseFloat(context.executionContext.balance.assetA).toFixed(8) - parseFloat(context.executionContext.investment.assetA).toFixed(8)) / parseFloat(context.executionContext.investment.assetA).toFixed(8);
+                        context.executionContext.profits.assetA = parseFloat(context.executionContext.profits.assetA).toFixed(8);
                     }
 
                     if (context.executionContext.investment.assetB > 0) {
 
-                        context.executionContext.profits.assetB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) / context.executionContext.investment.assetB;
+                        context.executionContext.profits.assetB = (parseFloat(context.executionContext.balance.assetB).toFixed(8) - parseFloat(context.executionContext.investment.assetB).toFixed(8)) / parseFloat(context.executionContext.investment.assetB).toFixed(8);
+                        context.executionContext.profits.assetB = parseFloat(context.executionContext.profits.assetB).toFixed(8);
                     }
 
                     context.newHistoryRecord.profitsAssetA = context.executionContext.profits.assetA;
@@ -288,16 +290,20 @@
 
                     if (context.executionContext.investment.assetA > 0) {
 
-                        let convertedAssetsB = (context.executionContext.balance.assetB - context.executionContext.investment.assetB) * marketRate;
+                        let convertedAssetsB = (parseFloat(context.executionContext.balance.assetB).toFixed(8) - parseFloat(context.executionContext.investment.assetB).toFixed(8)) * marketRate;
+                        convertedAssetsB = parseFloat(convertedAssetsB).toFixed(8);
 
-                        context.executionContext.combinedProfits.assetA = (context.executionContext.balance.assetA + convertedAssetsB - context.executionContext.investment.assetA) / context.executionContext.investment.assetA * 100;
+                        context.executionContext.combinedProfits.assetA = (parseFloat(context.executionContext.balance.assetA).toFixed(8) + convertedAssetsB - parseFloat(context.executionContext.investment.assetA).toFixed(8)) / parseFloat(context.executionContext.investment.assetA).toFixed(8) * 100;
+                        context.executionContext.combinedProfits.assetA = parseFloat(context.executionContext.combinedProfits.assetA).toFixed(8);
                     }
 
                     if (context.executionContext.investment.assetB > 0) {
 
-                        let convertedAssetsA = (context.executionContext.balance.assetA - context.executionContext.investment.assetA) / marketRate;
+                        let convertedAssetsA = (parseFloat(context.executionContext.balance.assetA).toFixed(8) - parseFloat(context.executionContext.investment.assetA).toFixed(8)) / marketRate;
+                        convertedAssetsA = parseFloat(convertedAssetsA).toFixed(8);
 
-                        context.executionContext.combinedProfits.assetB = (context.executionContext.balance.assetB + convertedAssetsA - context.executionContext.investment.assetB) / context.executionContext.investment.assetB * 100;
+                        context.executionContext.combinedProfits.assetB = (parseFloat(context.executionContext.balance.assetB).toFixed(8) + convertedAssetsA - parseFloat(context.executionContext.investment.assetB).toFixed(8)) / parseFloat(context.executionContext.investment.assetB).toFixed(8) * 100;
+                        context.executionContext.combinedProfits.assetB = parseFloat(context.executionContext.combinedProfits.assetB).toFixed(8);
                     }
 
                     context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;
@@ -809,10 +815,10 @@
                                     assetA = parseFloat(trade.amountA).toFixed(8);
                                     assetB = parseFloat(trade.amountB).toFixed(8) - feeAmount;
 
-                                    context.executionContext.balance.assetA = context.executionContext.balance.assetA - assetA;
-                                    context.executionContext.balance.assetB = context.executionContext.balance.assetB + assetB;
+                                    context.executionContext.balance.assetA = parseFloat(context.executionContext.balance.assetA).toFixed(8) - assetA;
+                                    context.executionContext.balance.assetB = parseFloat(context.executionContext.balance.assetB).toFixed(8) + assetB;
 
-                                    context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB + assetB;
+                                    context.executionContext.availableBalance.assetB = parseFloat(context.executionContext.availableBalance.assetB).toFixed(8) + assetB;
 
                                     /* Not the available balance for asset A is not affected since it was already reduced when the order was placed. */
 
@@ -832,10 +838,10 @@
                                     assetA = parseFloat(trade.amountA).toFixed(8) - feeAmount;
                                     assetB = parseFloat(trade.amountB).toFixed(8);
 
-                                    context.executionContext.balance.assetA = context.executionContext.balance.assetA + assetA;
-                                    context.executionContext.balance.assetB = context.executionContext.balance.assetB - assetB;
+                                    context.executionContext.balance.assetA = parseFloat(context.executionContext.balance.assetA).toFixed(8) + assetA;
+                                    context.executionContext.balance.assetB = parseFloat(context.executionContext.balance.assetB).toFixed(8) - assetB;
 
-                                    context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA + assetA;
+                                    context.executionContext.availableBalance.assetA = parseFloat(context.executionContext.availableBalance.assetA).toFixed(8) + assetA;
 
                                     /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
 
@@ -1060,14 +1066,14 @@
 
                             if (position.type === 'buy') {
 
-                                context.executionContext.availableBalance.assetA = context.executionContext.availableBalance.assetA - pAmountA;
+                                context.executionContext.availableBalance.assetA = parseFloat(context.executionContext.availableBalance.assetA).toFixed(8) - pAmountA;
                                 context.executionContext.availableBalance.assetA = parseFloat(context.executionContext.availableBalance.assetA).toFixed(8);
                                 context.newHistoryRecord.lastBuyRate = pRate;
                             } 
 
                             if (position.type === 'sell') {
 
-                                context.executionContext.availableBalance.assetB = context.executionContext.availableBalance.assetB - pAmountB;
+                                context.executionContext.availableBalance.assetB = parseFloat(context.executionContext.availableBalance.assetB).toFixed(8) - pAmountB;
                                 context.executionContext.availableBalance.assetB = parseFloat(context.executionContext.availableBalance.assetB).toFixed(8);
                                 context.newHistoryRecord.lastSellRate = pRate;
                             }

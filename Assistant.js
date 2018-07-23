@@ -29,6 +29,7 @@
         sendMessage: sendMessage,
         rememberThis: rememberThis,
         remindMeOf: remindMeOf,
+        truncDecimals: truncDecimals, 
         sendEmail: sendEmail
     };
 
@@ -184,7 +185,7 @@
                                     if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
 
                                         marketRate = (candle.open + candle.close) / 2;
-                                        marketRate = parseFloat(marketRate).toFixed(8);
+                                        marketRate = thisObject.truncDecimals(marketRate);
                                         context.newHistoryRecord.marketRate = marketRate;
 
                                         ticker = {
@@ -273,14 +274,14 @@
 
                     if (context.executionContext.investment.assetA > 0) {
 
-                        context.executionContext.profits.assetA = (parseFloat(context.executionContext.balance.assetA).toFixed(8) - parseFloat(context.executionContext.investment.assetA).toFixed(8)) / parseFloat(context.executionContext.investment.assetA).toFixed(8);
-                        context.executionContext.profits.assetA = parseFloat(context.executionContext.profits.assetA).toFixed(8);
+                        context.executionContext.profits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.investment.assetA)) / thisObject.truncDecimals(context.executionContext.investment.assetA);
+                        context.executionContext.profits.assetA = thisObject.truncDecimals(context.executionContext.profits.assetA);
                     }
 
                     if (context.executionContext.investment.assetB > 0) {
 
-                        context.executionContext.profits.assetB = (parseFloat(context.executionContext.balance.assetB).toFixed(8) - parseFloat(context.executionContext.investment.assetB).toFixed(8)) / parseFloat(context.executionContext.investment.assetB).toFixed(8);
-                        context.executionContext.profits.assetB = parseFloat(context.executionContext.profits.assetB).toFixed(8);
+                        context.executionContext.profits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.investment.assetB)) / thisObject.truncDecimals(context.executionContext.investment.assetB);
+                        context.executionContext.profits.assetB = thisObject.truncDecimals(context.executionContext.profits.assetB);
                     }
 
                     context.newHistoryRecord.profitsAssetA = context.executionContext.profits.assetA;
@@ -290,20 +291,20 @@
 
                     if (context.executionContext.investment.assetA > 0) {
 
-                        let convertedAssetsB = (parseFloat(context.executionContext.balance.assetB).toFixed(8) - parseFloat(context.executionContext.investment.assetB).toFixed(8)) * marketRate;
-                        convertedAssetsB = parseFloat(convertedAssetsB).toFixed(8);
+                        let convertedAssetsB = (thisObject.truncDecimals(context.executionContext.balance.assetB) - thisObject.truncDecimals(context.executionContext.investment.assetB)) * marketRate;
+                        convertedAssetsB = thisObject.truncDecimals(convertedAssetsB);
 
-                        context.executionContext.combinedProfits.assetA = (parseFloat(context.executionContext.balance.assetA).toFixed(8) + convertedAssetsB - parseFloat(context.executionContext.investment.assetA).toFixed(8)) / parseFloat(context.executionContext.investment.assetA).toFixed(8) * 100;
-                        context.executionContext.combinedProfits.assetA = parseFloat(context.executionContext.combinedProfits.assetA).toFixed(8);
+                        context.executionContext.combinedProfits.assetA = (thisObject.truncDecimals(context.executionContext.balance.assetA) + convertedAssetsB - thisObject.truncDecimals(context.executionContext.investment.assetA)) / thisObject.truncDecimals(context.executionContext.investment.assetA) * 100;
+                        context.executionContext.combinedProfits.assetA = thisObject.truncDecimals(context.executionContext.combinedProfits.assetA);
                     }
 
                     if (context.executionContext.investment.assetB > 0) {
 
-                        let convertedAssetsA = (parseFloat(context.executionContext.balance.assetA).toFixed(8) - parseFloat(context.executionContext.investment.assetA).toFixed(8)) / marketRate;
-                        convertedAssetsA = parseFloat(convertedAssetsA).toFixed(8);
+                        let convertedAssetsA = (thisObject.truncDecimals(context.executionContext.balance.assetA) - thisObject.truncDecimals(context.executionContext.investment.assetA)) / marketRate;
+                        convertedAssetsA = thisObject.truncDecimals(convertedAssetsA);
 
-                        context.executionContext.combinedProfits.assetB = (parseFloat(context.executionContext.balance.assetB).toFixed(8) + convertedAssetsA - parseFloat(context.executionContext.investment.assetB).toFixed(8)) / parseFloat(context.executionContext.investment.assetB).toFixed(8) * 100;
-                        context.executionContext.combinedProfits.assetB = parseFloat(context.executionContext.combinedProfits.assetB).toFixed(8);
+                        context.executionContext.combinedProfits.assetB = (thisObject.truncDecimals(context.executionContext.balance.assetB) + convertedAssetsA - thisObject.truncDecimals(context.executionContext.investment.assetB)) / thisObject.truncDecimals(context.executionContext.investment.assetB) * 100;
+                        context.executionContext.combinedProfits.assetB = thisObject.truncDecimals(context.executionContext.combinedProfits.assetB);
                     }
 
                     context.newHistoryRecord.combinedProfitsA = context.executionContext.combinedProfits.assetA;
@@ -494,7 +495,7 @@
     
                         */
 
-                        if (position.amountB === parseFloat(exchangePosition.amountB)) {
+                        if (position.amountB === thisObject.truncDecimals(exchangePosition.amountB)) {
 
                             /* Position is still there, untouched. Nothing to do here. */
 
@@ -565,9 +566,9 @@
 												id: Math.trunc(Math.random(1) * 1000000),
 												type: thisPosition.type,
 												rate: thisPosition.rate.toString(),
-                                                amountA: parseFloat(thisPosition.amountA).toFixed(8).toString(),
-                                                amountB: parseFloat(thisPosition.amountB).toFixed(8).toString(),
-                                                fee: parseFloat(feeRate).toFixed(8).toString(),
+                                                amountA: thisObject.truncDecimals(thisPosition.amountA).toString(),
+                                                amountB: thisObject.truncDecimals(thisPosition.amountB).toString(),
+                                                fee: thisObject.truncDecimals(feeRate).toString(),
 												date: (new Date()).valueOf()
 											}
 											
@@ -654,12 +655,12 @@
 
                             for (let k = 0; k < pTrades.length; k++) {
 								let trade = pTrades[k];
-                                sumAssetA = sumAssetA + parseFloat(trade.amountA).toFixed(8);
-                                sumAssetB = sumAssetB + parseFloat(trade.amountB).toFixed(8);
+                                sumAssetA = sumAssetA + thisObject.truncDecimals(trade.amountA);
+                                sumAssetB = sumAssetB + thisObject.truncDecimals(trade.amountB);
                             }
 							
-                            sumAssetA = parseFloat(sumAssetA).toFixed(8);
-                            sumAssetB = parseFloat(sumAssetB).toFixed(8);
+                            sumAssetA = thisObject.truncDecimals(sumAssetA);
+                            sumAssetB = thisObject.truncDecimals(sumAssetB);
 
                             if (position.amountB !== sumAssetB) {
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
@@ -724,19 +725,19 @@
 							
 							for (let k = 0; k < pTrades.length; k++) {
 								let trade = pTrades[k];
-                                sumAssetA = sumAssetA + parseFloat(trade.amountA);
-                                sumAssetB = sumAssetB + parseFloat(trade.amountB);
+                                sumAssetA = sumAssetA + thisObject.truncDecimals(trade.amountA);
+                                sumAssetB = sumAssetB + thisObject.truncDecimals(trade.amountB);
                             }
 							
                             /* To this we add the current position amounts. */
 							
-                            sumAssetA = sumAssetA + parseFloat(exchangePosition.amountA).toFixed(8);
-                            sumAssetB = sumAssetB + parseFloat(exchangePosition.amountB).toFixed(8);
+                            sumAssetA = sumAssetA + thisObject.truncDecimals(exchangePosition.amountA);
+                            sumAssetB = sumAssetB + thisObject.truncDecimals(exchangePosition.amountB);
 							
-                            sumAssetA = parseFloat(sumAssetA).toFixed(8);
-                            sumAssetB = parseFloat(sumAssetB).toFixed(8);
+                            sumAssetA = thisObject.truncDecimals(sumAssetA);
+                            sumAssetB = thisObject.truncDecimals(sumAssetB);
 
-                            if (parseFloat(position.amountA).toFixed(8) !== sumAssetA || position.amountB !== sumAssetB) {
+                            if (thisObject.truncDecimals(position.amountA) !== sumAssetA || position.amountB !== sumAssetB) {
 
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
@@ -810,15 +811,15 @@
 
                                     */
 
-                                    let feeAmount = parseFloat(Number(trade.fee) * Number(trade.amountB)).toFixed(8);
+                                    let feeAmount = thisObject.truncDecimals(Number(trade.fee) * Number(trade.amountB));
 
-                                    assetA = parseFloat(trade.amountA).toFixed(8);
-                                    assetB = parseFloat(trade.amountB).toFixed(8) - feeAmount;
+                                    assetA = thisObject.truncDecimals(trade.amountA);
+                                    assetB = thisObject.truncDecimals(trade.amountB) - feeAmount;
 
-                                    context.executionContext.balance.assetA = parseFloat(context.executionContext.balance.assetA).toFixed(8) - assetA;
-                                    context.executionContext.balance.assetB = parseFloat(context.executionContext.balance.assetB).toFixed(8) + assetB;
+                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA) - assetA;
+                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB) + assetB;
 
-                                    context.executionContext.availableBalance.assetB = parseFloat(context.executionContext.availableBalance.assetB).toFixed(8) + assetB;
+                                    context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB) + assetB;
 
                                     /* Not the available balance for asset A is not affected since it was already reduced when the order was placed. */
 
@@ -833,15 +834,15 @@
 
                                     */
 
-                                    let feeAmount = parseFloat(Number(trade.fee) * Number(trade.amountA)).toFixed(8);
+                                    let feeAmount = thisObject.truncDecimals(Number(trade.fee) * Number(trade.amountA));
 
-                                    assetA = parseFloat(trade.amountA).toFixed(8) - feeAmount;
-                                    assetB = parseFloat(trade.amountB).toFixed(8);
+                                    assetA = thisObject.truncDecimals(trade.amountA) - feeAmount;
+                                    assetB = thisObject.truncDecimals(trade.amountB);
 
-                                    context.executionContext.balance.assetA = parseFloat(context.executionContext.balance.assetA).toFixed(8) + assetA;
-                                    context.executionContext.balance.assetB = parseFloat(context.executionContext.balance.assetB).toFixed(8) - assetB;
+                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA) + assetA;
+                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB) - assetB;
 
-                                    context.executionContext.availableBalance.assetA = parseFloat(context.executionContext.availableBalance.assetA).toFixed(8) + assetA;
+                                    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA) + assetA;
 
                                     /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
 
@@ -911,19 +912,19 @@
 
             /* Removing extra decimals. */
 
-            pRate = parseFloat(pRate).toFixed(8);
-            pAmountA = parseFloat(pAmountA).toFixed(8);
-            pAmountB = parseFloat(pAmountB).toFixed(8);
+            pRate = thisObject.truncDecimals(pRate);
+            pAmountA = thisObject.truncDecimals(pAmountA);
+            pAmountB = thisObject.truncDecimals(pAmountB);
 
             /* Validations that the limits are not surpassed. */
 
             if (pType === 'buy') {
 
-                if (pAmountA > parseFloat(context.executionContext.availableBalance.assetA).toFixed(8)) {
+                if (pAmountA > thisObject.truncDecimals(context.executionContext.availableBalance.assetA)) {
 
                     logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA is grater than the Available Balance.");
                     logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + parseFloat(context.executionContext.availableBalance.assetA).toFixed(8));
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.assetA));
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -934,7 +935,7 @@
                     return;
                 }
 
-                let aRate = parseFloat(pAmountA / pRate).toFixed(8);
+                let aRate = thisObject.truncDecimals(pAmountA / pRate);
 
                 if (aRate !== pAmountB) {
 
@@ -955,11 +956,11 @@
 
             if (pType === 'sell') {
 
-                if (pAmountB > parseFloat(context.executionContext.availableBalance.assetB).toFixed(8)) {
+                if (pAmountB > thisObject.truncDecimals(context.executionContext.availableBalance.assetB)) {
 
                     logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB is grater than the Available Balance.");
                     logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + parseFloat(context.executionContext.availableBalance.assetB).toFixed(8));
+                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.assetB));
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -970,7 +971,7 @@
                     return;
                 }
 
-                let bRate = parseFloat(pAmountB * pRate).toFixed(8);
+                let bRate = thisObject.truncDecimals(pAmountB * pRate);
 
                 if (bRate !== pAmountA) {
 
@@ -1066,15 +1067,15 @@
 
                             if (position.type === 'buy') {
 
-                                context.executionContext.availableBalance.assetA = parseFloat(context.executionContext.availableBalance.assetA).toFixed(8) - pAmountA;
-                                context.executionContext.availableBalance.assetA = parseFloat(context.executionContext.availableBalance.assetA).toFixed(8);
+                                context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA) - pAmountA;
+                                context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA);
                                 context.newHistoryRecord.lastBuyRate = pRate;
                             } 
 
                             if (position.type === 'sell') {
 
-                                context.executionContext.availableBalance.assetB = parseFloat(context.executionContext.availableBalance.assetB).toFixed(8) - pAmountB;
-                                context.executionContext.availableBalance.assetB = parseFloat(context.executionContext.availableBalance.assetB).toFixed(8);
+                                context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB) - pAmountB;
+                                context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB);
                                 context.newHistoryRecord.lastSellRate = pRate;
                             }
 
@@ -1114,11 +1115,11 @@
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
 
             /* Removing extra decimals. */
-            pNewRate = parseFloat(pNewRate).toFixed(8);
+            pNewRate = thisObject.truncDecimals(pNewRate);
 
             let newAmountB;
             if (pPosition.type === "buy") {
-                newAmountB = parseFloat(pPosition.amountA / pNewRate).toFixed(8);
+                newAmountB = thisObject.truncDecimals(pPosition.amountA / pNewRate);
             } else {
                 newAmountB = pPosition.amountB;
             }
@@ -1409,5 +1410,11 @@
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] sendEmail -> err = " + err.message);
         }
+    }
+
+    function truncDecimals(pFloatValue) {
+
+        return parseFloat(parseFloat(pFloatValue).toFixed(8));
+
     }
 };

@@ -1342,14 +1342,11 @@
     }
 
     function sendMessage(pRelevance, pTitle, pBody) {
+        let runIndex = context.statusReport.runs.length - 1;
 
         context.newHistoryRecord.messageRelevance = pRelevance;
-        context.newHistoryRecord.messageTitle = pTitle;
+        context.newHistoryRecord.messageTitle = bot.startMode + "." + runIndex +": "+ pTitle;
         context.newHistoryRecord.messageBody = pBody;
-		
-		if(pRelevance > 6){
-			sendEmail(pTitle, pBody, false);
-		}
 
     }
 
@@ -1377,12 +1374,10 @@
 
     }
 	
-    function sendEmail(pTitle, pBody, pSendToAdmins) {
+    function sendEmail(pTitle, pBody, pTo) {
         try {
-            let emailList = global.EMAIL_CONFIG.distributionList;
-            if (pSendToAdmins) {
-                emailList = global.EMAIL_CONFIG.adminList;
-            }
+            let emailList = pTo; //TODO Pending to add spam controller
+            let runIndex = context.statusReport.runs.length - 1;
 
             let transporter = nodemailer.createTransport({
                 service: global.EMAIL_CONFIG.service,
@@ -1395,7 +1390,7 @@
             let mailOptions = {
                 from: global.EMAIL_CONFIG.from,
                 bcc: emailList,
-                subject: bot.startMode + ' - ' + pTitle,
+                subject: bot.startMode + "." + runIndex + ' - ' + pTitle,
                 text: pBody
             };
 

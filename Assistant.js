@@ -737,7 +737,7 @@
                             sumAssetA = thisObject.truncDecimals(sumAssetA);
                             sumAssetB = thisObject.truncDecimals(sumAssetB);
 
-                            if (thisObject.truncDecimals(position.amountA) !== sumAssetA || position.amountB !== sumAssetB) {
+                            if (Math.abs(thisObject.truncDecimals(position.amountA) - sumAssetA) > 0.00000001 || Math.abs(position.amountB - sumAssetB) > 0.00000001) {
 
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);

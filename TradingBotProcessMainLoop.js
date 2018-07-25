@@ -21,6 +21,7 @@
         run: run
     };
 
+    bot["botCache"] = new Map();
     let processConfig;
     let cloudStorage;
     let UI_COMMANDS; 

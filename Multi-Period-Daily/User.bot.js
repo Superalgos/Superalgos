@@ -104,7 +104,7 @@ LRCIndicator.prototype.calculate = function (price) {
 }
 
 exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
-    const FULL_LOG = false;
+    const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const USE_PARTIAL_LAST_CANDLE = true; // When running live the last candle generated is a partial candle.
     
@@ -194,6 +194,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
             let reportFilePath = EXCHANGE_NAME + "/Processes/" + bot.process;
             let executionTime;
             let lastCandles;
+            let dateForLastOliviaFile;
             let dailyFileCache = new Map();
             let lrcPointsFileCache = new Map();
             
@@ -216,7 +217,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                     let thisReport = statusDependencies.statusReports.get(reportKey).file;
 
-                    if (thisReport.lastFile === undefined) {
+                    if (thisReport === undefined || thisReport.lastExecution === undefined) {
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
 
                         let customOK = {
@@ -226,6 +227,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
+                    } else {
+                        dateForLastOliviaFile = new Date(thisReport.lastExecution);
                     }
 
                     reportKey = "AAVikings" + "-" + "AAGauss" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
@@ -284,46 +287,43 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 					try {
 						
 						logger.newInternalLoop(bot.codeName, bot.process);
-						
 						executionTime = new Date(lastCandles[10] + ONE_MIN_IN_MILISECONDS);
 
 						if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> New processing time @ " + executionTime.toISOString()); }
 
-						/* Validation that we are not going past the head of the market. */
-						
-						if (isExecutionOnHeadOfMarket()) {
-
-							if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> Head of the market found @ " + executionTime.toISOString()); }
-
-							callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
-							return;
-						}
-						
-						periodsLoop();
+                        if (isOnHeadOfMarket(executionTime, 10)) {
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                        } else {
+                            periodsLoop();
+                        }
 						
 					} catch (err) {
 						logger.write(MODULE_NAME, "[ERROR] start -> advanceTime -> err = " + err.message);
 						callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 					}
                 }
-
-                function isExecutionOnHeadOfMarket() {
+                
+                function isOnHeadOfMarket(timeToValidate, period) {
                     let candleBeginIndex = 4;
-					let lastCandlePeriodOnCache;
-                    let lastDayIndex = 10 + '/' + executionTime.getUTCFullYear() + "/" + utilities.pad(executionTime.getUTCMonth() + 1, 2) + "/" + utilities.pad(executionTime.getUTCDate(), 2);
+                    let lastCandlePeriodOnCache;
+                    let lastDayIndex = period + '/' + timeToValidate.getUTCFullYear() + "/" + utilities.pad(timeToValidate.getUTCMonth() + 1, 2) + "/" + utilities.pad(timeToValidate.getUTCDate(), 2);
 
-                    if (!dailyFileCache.has(lastDayIndex)) {
-                        return false;
+                    if (dailyFileCache.has(lastDayIndex)) {
+                        let currentFile = dailyFileCache.get(lastDayIndex);
+                        if (currentFile === undefined || currentFile[currentFile.length - 1] === undefined)
+                            return false;
+
+                        lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
+                        let isOnHead = (timeToValidate.valueOf() > lastCandlePeriodOnCache.valueOf());
+                        if (isOnHead && FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] isOnHeadOfMarket -> Head of the market found @ " + new Date(lastCandlePeriodOnCache).toISOString() + ". Execution: " + new Date(timeToValidate).toISOString()); }
+
+                        return isOnHead;
+                    } else {
+                        let isOnHead = (timeToValidate.valueOf() > dateForLastOliviaFile.valueOf());
+                        if (isOnHead && FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] isOnHeadOfMarket -> Head of the market found @ " + new Date(dateForLastOliviaFile).toISOString()+ ". Execution: " + new Date(timeToValidate).toISOString()); }
+
+                        return isOnHead;
                     }
-
-                    let currentFile = dailyFileCache.get(lastDayIndex);
-					
-					if(currentFile === undefined || currentFile[currentFile.length - 1] === undefined)
-						return false;
-					else
-						lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
-
-                    return (executionTime.valueOf() >= lastCandlePeriodOnCache.valueOf());
                 }
 
                 function periodsLoop() {
@@ -343,7 +343,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                         isTimeToRun();
 
                         function isTimeToRun() {
-                            if (executionTime.valueOf() >= nextExecution && !isPeriodOnHeadOfMarket(executionTime)) {
+                            if (executionTime.valueOf() >= nextExecution && !isOnHeadOfMarket(executionTime, n)) {
                                 getLRCPoints();
                             } else {
                                 setTimeout(function() { controlLoop(); }, 0);
@@ -565,7 +565,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                     lastCandles[n] = lrcPoint[0];
 
                                     let timeToValidate = new Date(executionTime.valueOf() + outputPeriod);
-                                    if (isPeriodOnHeadOfMarket(timeToValidate)) {
+                                    if (isOnHeadOfMarket(timeToValidate, n)) {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> getCurrentContent -> file = " + fileName + filePath); }
                                         
                                         gaussStorage.getTextFile(filePath, fileName, onFileRetrieved);
@@ -690,29 +690,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                     logger.write(MODULE_NAME, "[ERROR] start -> savePoint -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
-                            }
-                        }
-
-                        function isPeriodOnHeadOfMarket(timeToValidate) {
-                            let candleBeginIndex = 4;
-                            let lastDayIndex = n + '/' + executionTime.getUTCFullYear() + "/" + utilities.pad(executionTime.getUTCMonth() + 1, 2) + "/" + utilities.pad(executionTime.getUTCDate(), 2);
-
-                            if (!dailyFileCache.has(lastDayIndex)) {
-                                return false;
-                            }
-                            let currentFile = dailyFileCache.get(lastDayIndex);
-                            let lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
-
-                            if (FULL_LOG === true) {
-                                logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> savePoint -> Execution: " + new Date(timeToValidate).toISOString() + ". lastCandlePeriodOnCache: " + new Date(lastCandlePeriodOnCache).toISOString() + ". lastDayIndex: " + lastDayIndex);
-                            }
-
-                            if (timeToValidate >= lastCandlePeriodOnCache) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> savePoint -> Head of the market found @ " + new Date(lastCandlePeriodOnCache).toISOString()); }
-                                
-                                return true;
-                            } else {
-                                return false;
                             }
                         }
                     }

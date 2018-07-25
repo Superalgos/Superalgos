@@ -426,7 +426,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                     if (marketFileCache.has(n)) {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getLRCPoints -> getMarketFile -> Getting the file from local cache."); }
 
-                                        onMarketFileReceived(global.DEFAULT_OK_RESPONSE, marketFileCache.get(7));
+                                        onMarketFileReceived(global.DEFAULT_OK_RESPONSE, marketFileCache.get(n));
                                     } else {
                                         let filePath = "AAMasters/AAOlivia.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Candles/Multi-Period-Market/" + folderName;
                                         let fileName = market.assetA + '_' + market.assetB + ".json"
@@ -659,15 +659,19 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                             if (!marketFileCache.has(n)) {
                                 return false;
                             }
-                            let currentFile = marketFileCache.get(n);
-                            let lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
 
-                            if (FULL_LOG === true) {
-                                logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> savePoint -> Execution: " + new Date(timeToValidate).toISOString() + ". lastCandlePeriodOnCache: " + new Date(lastCandlePeriodOnCache).toISOString());
+                            let currentFile = marketFileCache.get(n);
+
+                            if (currentFile[currentFile.length - 1] === undefined) {
+                                return false;
                             }
 
+                            let lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> isPeriodOnHeadOfMarket -> Execution: " + new Date(timeToValidate).toISOString() + ". lastCandlePeriodOnCache: " + new Date(lastCandlePeriodOnCache).toISOString()); }
+
                             if (timeToValidate >= lastCandlePeriodOnCache) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> savePoint -> Head of the market found @ " + new Date(lastCandlePeriodOnCache).toISOString()); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> isPeriodOnHeadOfMarket -> Head of the market found @ " + new Date(lastCandlePeriodOnCache).toISOString()); }
 
                                 return true;
                             } else {

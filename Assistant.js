@@ -557,7 +557,7 @@
 
                                         if (thisPosition.id === pPositionId) {
 											
-											let feeRate = 0.0025; 		// Default fee
+											let feeRate = 0.002; 		// Default fee
 											
 											if (Math.random(1) < 0.5)
 												feeRate = 0.0015;		// Some times we will pay less fee
@@ -737,7 +737,9 @@
                             sumAssetA = thisObject.truncDecimals(sumAssetA);
                             sumAssetB = thisObject.truncDecimals(sumAssetB);
 
-                            if (Math.abs(thisObject.truncDecimals(position.amountA) - sumAssetA) > 0.00000001 || Math.abs(position.amountB - sumAssetB) > 0.00000001) {
+                            const EXCHANGE_PRECISION = 0.00001; // This value was determined empirically. We noticed that the sume of the trades plus the remaining order at the exchange didn't exatly matched the positions we keep at the execution context, and the only explanation found was that the exchange presicion was not big enough to make it match. So to avoid unnecesary warnings, we created this constant that filters out this situation.
+
+                            if (Math.abs(thisObject.truncDecimals(position.amountA) - sumAssetA) > EXCHANGE_PRECISION || Math.abs(position.amountB - sumAssetB) > EXCHANGE_PRECISION) {
 
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);

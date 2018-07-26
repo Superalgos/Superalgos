@@ -165,6 +165,8 @@
                             trades.push(trade);
                         }
 
+                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> onExchangeCallReturned -> trades = " + JSON.stringify(trades)); }
+
                         callBackFunction(global.DEFAULT_OK_RESPONSE, trades);
                     }
                 }

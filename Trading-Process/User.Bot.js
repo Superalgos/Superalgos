@@ -36,17 +36,17 @@
     function start(callBackFunction) {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
+        const market = global.MARKET;
         const LAST_BUY_RATE_KEY = "AAVikings" + "-" + "AAArtudito" + "-" + "Trading-Process" + "-" + "lastBuyRate";
+        const CHANNEL_DOWN = -1;
+        const CHANNEL_UP = 1;
+        const NO_CHANNEL = 0;
 
-        let market = global.MARKET;
-        let periodName = "30-min";
-
-        let stopLossEnabled = true;
-        let stopLossPorcentage = 0.02;
+        let positions = assistant.getPositions();
 
         let lastBuyRate = assistant.remindMeOf(LAST_BUY_RATE_KEY);
         if (lastBuyRate === undefined) {
-            let currentRate = assistant.getMarketRate();
+            let currentRate = assistant.getTicker().bid;
             lastBuyRate = currentRate;
             assistant.rememberThis(LAST_BUY_RATE_KEY, lastBuyRate);
         }
@@ -97,8 +97,7 @@
                         callBack(global.DEFAULT_FAIL_RESPONSE);
                     } else {
                         if (channelTilt == 1) {
-                            firstChannelTilt = 1;
-                            getSecondChannelTilt(secondTiltCheck);
+                            createBuyPosition(callBack);
                         } else if (channelTilt == -1) {
                             firstChannelTilt = -1;
                             getSecondChannelTilt(secondTiltCheck);
@@ -122,9 +121,7 @@
                         logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> secondTiltCheck -> err = " + err.message);
                         callBack(global.DEFAULT_FAIL_RESPONSE);
                     } else {
-                        if (firstChannelTilt == 1 && secondChannelTilt == 1) {
-                            createBuyPosition(callBack);
-                        }else if (firstChannelTilt == -1 && secondChannelTilt == -1) {
+                        if (firstChannelTilt == -1 && secondChannelTilt == -1) {
                             createSellPosition(callBack);
                         } else {
                             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> secondTiltCheck -> Nothing to do, there isn't a buy or sell oportunity."); }
@@ -142,9 +139,6 @@
         function getChannelTilt(callBack) {
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> getChannelTilt -> Entering function."); }
 
-            const CHANNEL_DOWN = -1;
-            const CHANNEL_UP = 1;
-            const NO_CHANNEL = 0;
             let lrcPoint, previousLRCPoint;
 
             let queryDate = new Date(bot.processDatetime);
@@ -178,7 +172,7 @@
                                         max: lrcPointsFile[previous][4]
                                     };
 
-                                    applyBotRules();
+                                    applyBotRules(lrcPoint, previousLRCPoint, callBack);
 
                                 } else {
                                     queryDate.setDate(queryDate.getDate() - 1);
@@ -188,7 +182,7 @@
                             }
                         }
 
-                        logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> getChannelTilt -> onLRCPointsFileReceived. The expected LRC Point was not found: "+bot.processDatetime.valueOf());
+                        logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> getChannelTilt -> onLRCPointsFileReceived. The expected LRC Point was not found: " + bot.processDatetime.valueOf());
                         callBack(global.DEFAULT_FAIL_RESPONSE);
                     } else {
                         // Running live we will process last available LRCPoint only if it's delayed 25 minutes top
@@ -212,7 +206,7 @@
                                     max: lrcPointsFile[previous][4]
                                 };
 
-                                applyBotRules();
+                                applyBotRules(lrcPoint, previousLRCPoint, callBack);
 
                             } else {
                                 queryDate.setDate(queryDate.getDate() - 1);
@@ -230,18 +224,6 @@
                 }
             }
 
-            function isExecutionToday() {
-                let localDate = new Date();
-                let today = new Date(Date.UTC(
-                    localDate.getUTCFullYear(),
-                    localDate.getUTCMonth(),
-                    localDate.getUTCDate()));
-
-                return (today.getUTCFullYear() === bot.processDatetime.getUTCFullYear()
-                    && today.getUTCMonth() === bot.processDatetime.getUTCMonth()
-                    && today.getUTCDate() === bot.processDatetime.getUTCDate());
-            }
-
             function onPreviousLRCPointsFileReceived(err, lrcPointsFile) {
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> onLRCPointsFileReceived."); }
 
@@ -254,106 +236,7 @@
                     max: lrcPointsFile[previous][4]
                 };
 
-                applyBotRules();
-            }
-
-            function applyBotRules() {
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> LRC Point Found."); }
-
-                let channelTilt = NO_CHANNEL;
-                let ruleApplied = "";
-
-                if (lrcPoint.max < lrcPoint.mid && lrcPoint.min > lrcPoint.mid && lrcPoint.mid < lrcPoint.min) {
-                    if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid > previousLRCPoint.mid && lrcPoint.max > previousLRCPoint.max) {
-                        // The channel points UP
-                        channelTilt = CHANNEL_UP;
-                        ruleApplied += "Rule_1.";
-                    }
-                }
-
-                if (lrcPoint.min < lrcPoint.mid && lrcPoint.max > lrcPoint.mid && lrcPoint.mid < lrcPoint.max) {
-                    if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid < previousLRCPoint.mid && lrcPoint.max < previousLRCPoint.max) {
-                        // The channel points DOWN
-                        channelTilt = CHANNEL_DOWN;
-                        ruleApplied += "Rule_2.";
-                    }
-                }
-
-                if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid <= previousLRCPoint.mid) {
-                    // 15 AND 30 changed direction from up to down
-					if(checkToSellWithStopLoss()) {
-						channelTilt = CHANNEL_DOWN;
-						ruleApplied += "Rule_3a.";
-					}
-                }
-
-                if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid >= previousLRCPoint.mid) {
-                    // 15 AND 30 changed direction from down to up
-                    channelTilt = CHANNEL_UP;
-                    ruleApplied += "Rule_3b.";
-                }
-
-                let logMessage = bot.processDatetime.toISOString() + ". First Rule: " + ruleApplied + ". Tilt: " + channelTilt + " (" + Number(lrcPoint.min).toLocaleString() + "|" + Number(lrcPoint.mid).toLocaleString() + "|" + Number(lrcPoint.max).toLocaleString() + ")";
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> Results: " + logMessage); }
-
-                callBack(global.DEFAULT_OK_RESPONSE, channelTilt);
-
-            }
-			
-			function checkToSellWithStopLoss() {
-                let allowSell = true;
-                let assetBBalance = assistant.getAvailableBalance().assetB;
-                let currentRate = assistant.getMarketRate();
-                let amountB = assistant.getAvailableBalance().assetB;
-                let amountA = amountB * currentRate;
-
-                if (stopLossEnabled) {
-                    if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> Stop Loss Enabled, checking to sell."); }
-
-                    // Get the current investment value
-                    let investment = 0;
-                    if (assistant.getAvailableBalance() !== undefined) {
-                        investment = assistant.getAvailableBalance().assetB * lastBuyRate;
-                    }
-
-                    // Calculate maximum loss setup
-                    let currentLoss = amountA - investment;
-                    let stopLossValue = investment * stopLossPorcentage;
-
-                    if (currentLoss > 0) {
-                        if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> No loss, we can sell."); }
-
-                    } else if (assetBBalance > 0) {
-                        if (Math.abs(currentLoss) > stopLossValue) {
-                            let message = "Sell to avoid loss more than " + Number(stopLossPorcentage * 100).toLocaleString() + "% of our initial investment. ";
-
-                            message += "Combined ROI on current execution: ";
-                            if (assistant.getCombinedProfits().assetA > 0) {
-                                message += Number(assistant.getCombinedProfits().assetA).toLocaleString() + "%. ";
-                            } else {
-                                message += Number(assistant.getCombinedProfits().assetB).toLocaleString() + "%. ";
-                            }
-
-                            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration ->  Stop loss, sell: " + message); }
-
-                            assistant.sendMessage(3, "Stop Loss", message);
-
-                        } else {
-                            let currentRisk = currentLoss / investment;
-                            let message = "Not sell now. Risking " + Number(currentRisk * 100).toLocaleString() + "% of our initial investment";
-                            message += ". Last Buy: $" + Number(lastBuyRate).toLocaleString();
-                            message += ". Not selling at: $" + Number(currentRate).toLocaleString();
-
-                            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> Stop loss, not sell: " + message); }
-
-                            assistant.sendMessage(3, "Stop Loss", message);
-
-                            allowSell = false;
-                        }
-                    }
-                }
-
-                return allowSell;
+                applyBotRules(lrcPoint, previousLRCPoint, callBack);
             }
 
         }
@@ -376,7 +259,7 @@
                     let lastAvailableDateTime = lrcPointsFile[lastIndexLrcPointsFile][0];
 
                     if (bot.processDatetime.valueOf() <= lastAvailableDateTime || !isExecutionToday()) {
-                        for (let i = lrcPointsFile.length-1; i >= 0; i--) {
+                        for (let i = lrcPointsFile.length - 1; i >= 0; i--) {
                             if (bot.processDatetime.valueOf() >= lrcPointsFile[i][0] && bot.processDatetime.valueOf() < lrcPointsFile[i][1]) {
                                 lrcPoint = {
                                     begin: lrcPointsFile[i][0],
@@ -396,7 +279,7 @@
                                         max: lrcPointsFile[previous][4]
                                     };
 
-                                    applyBotRules();
+                                    applyBotRules(lrcPoint, previousLRCPoint, callBack);
 
                                 } else {
                                     logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> getSecondChannelTilt -> onLRCPointsFileReceived. The expected previous LRC Point was not found.");
@@ -405,7 +288,7 @@
                             }
                         }
 
-                        logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> getSecondChannelTilt -> onLRCPointsFileReceived. The expected LRC Point was not found." + bot.processDatetime.valueOf() +". "+JSON.stringify(lrcPointsFile));
+                        logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> getSecondChannelTilt -> onLRCPointsFileReceived. The expected LRC Point was not found." + bot.processDatetime.valueOf() + ". " + JSON.stringify(lrcPointsFile));
                         callBack(global.DEFAULT_FAIL_RESPONSE);
                     } else {
                         // Running live we will process last available LRCPoint only if it's delayed 25 minutes top
@@ -429,7 +312,7 @@
                                     max: lrcPointsFile[previous][4]
                                 };
 
-                                applyBotRules();
+                                applyBotRules(lrcPoint, previousLRCPoint, callBack);
 
                             } else {
                                 logger.write(MODULE_NAME, "[ERROR] start -> businessLogic -> getSecondChannelTilt -> onLRCPointsFileReceived. The expected previous LRC Point was not found.");
@@ -446,18 +329,6 @@
                 }
             }
 
-            function isExecutionToday() {
-                let localDate = new Date();
-                let today = new Date(Date.UTC(
-                    localDate.getUTCFullYear(),
-                    localDate.getUTCMonth(),
-                    localDate.getUTCDate()));
-
-                return (today.getUTCFullYear() === bot.processDatetime.getUTCFullYear()
-                    && today.getUTCMonth() === bot.processDatetime.getUTCMonth()
-                    && today.getUTCDate() === bot.processDatetime.getUTCDate());
-            }
-
             function onPreviousLRCPointsFileReceived(err, lrcPointsFile) {
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getSecondChannelTilt -> onLRCPointsFileReceived."); }
 
@@ -470,62 +341,61 @@
                     max: lrcPointsFile[previous][4]
                 };
 
-                applyBotRules();
+                applyBotRules(lrcPoint, previousLRCPoint, callBack);
             }
+        }
 
-            function applyBotRules() {
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getSecondChannelTilt -> applyBotRules -> LRC Point Found."); }
+        function applyBotRules(lrcPoint, previousLRCPoint, callBack) {
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> applyBotRules -> Entering Function."); }
 
-                let channelTilt = NO_CHANNEL;
-                let ruleApplied = "";
+            let channelTilt = NO_CHANNEL;
+            let ruleApplied = "";
 
-                if (lrcPoint.max < lrcPoint.mid && lrcPoint.min > lrcPoint.mid && lrcPoint.mid < lrcPoint.min) {
-                    if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid > previousLRCPoint.mid && lrcPoint.max > previousLRCPoint.max) {
-                        // The channel points UP
-                        channelTilt = CHANNEL_UP;
-                        ruleApplied += "Rule_1.";
-                    }
-                }
-
-                if (lrcPoint.min < lrcPoint.mid && lrcPoint.max > lrcPoint.mid && lrcPoint.mid < lrcPoint.max) {
-                    if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid < previousLRCPoint.mid && lrcPoint.max < previousLRCPoint.max) {
-                        // The channel points DOWN
-                        channelTilt = CHANNEL_DOWN;
-                        ruleApplied += "Rule_2.";
-                    }
-                }
-
-                if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid <= previousLRCPoint.mid) {
-                    // 15 AND 30 changed direction from up to down
-                    channelTilt = CHANNEL_DOWN;
-                    ruleApplied += "Rule_3a.";
-                }
-
-                if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid >= previousLRCPoint.mid) {
-                    // 15 AND 30 changed direction from down to up
+            if (lrcPoint.max < lrcPoint.mid && lrcPoint.min > lrcPoint.mid && lrcPoint.mid < lrcPoint.min) {
+                if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid > previousLRCPoint.mid && lrcPoint.max > previousLRCPoint.max) {
+                    // The channel points UP
                     channelTilt = CHANNEL_UP;
-                    ruleApplied += "Rule_3b.";
+                    ruleApplied += "Rule_1.";
                 }
-
-                let logMessage = bot.processDatetime.toISOString() + ". Second Rule: " + ruleApplied + ". Tilt: " + channelTilt + " (" + Number(lrcPoint.min).toLocaleString() + "|" + Number(lrcPoint.mid).toLocaleString() + "|" + Number(lrcPoint.max).toLocaleString() + ")";
-                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getSecondChannelTilt -> applyBotRules -> Results: " + logMessage); }
-
-                callBack(global.DEFAULT_OK_RESPONSE, channelTilt);
-
             }
+
+            if (lrcPoint.min < lrcPoint.mid && lrcPoint.max > lrcPoint.mid && lrcPoint.mid < lrcPoint.max) {
+                if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid < previousLRCPoint.mid && lrcPoint.max < previousLRCPoint.max) {
+                    // The channel points DOWN
+                    channelTilt = CHANNEL_DOWN;
+                    ruleApplied += "Rule_2.";
+                }
+            }
+
+            if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid <= previousLRCPoint.mid) {
+                // 15 AND 30 changed direction from up to down
+                channelTilt = CHANNEL_DOWN;
+                ruleApplied += "Rule_3a.";
+            }
+
+            if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid >= previousLRCPoint.mid) {
+                // 15 AND 30 changed direction from down to up
+                channelTilt = CHANNEL_UP;
+                ruleApplied += "Rule_3b.";
+            }
+
+            let logMessage = bot.processDatetime.toISOString() + ". Rule: " + ruleApplied + ". Tilt: " + channelTilt + " (" + Number(lrcPoint.min).toLocaleString() + "|" + Number(lrcPoint.mid).toLocaleString() + "|" + Number(lrcPoint.max).toLocaleString() + ")";
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> Results: " + logMessage); }
+
+            callBack(global.DEFAULT_OK_RESPONSE, channelTilt);
         }
 
         function getLRCPointsFile(dateTime, callback) {
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> getLRCPointsFile -> Entering function."); }
 
             let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2);
-            let filePath = "LRC-Points/Multi-Period-Daily/" + periodName + "/" + datePath;
+            let filePath = "LRC-Points/Multi-Period-Daily/30-min/" + datePath;
             let fileName = market.assetA + '_' + market.assetB + ".json"
 
             if (bot.startMode === "Backtest" && bot.botCache.has(filePath)) {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> getLRCPointsFile -> Getting the file from local cache."); }
 
-                cleanUpCache(bot.botCache, "LRC-Points/Multi-Period-Daily/" + periodName , dateTime);
+                cleanUpCache(bot.botCache, "LRC-Points/Multi-Period-Daily/30-min", dateTime);
                 callback(global.DEFAULT_OK_RESPONSE, bot.botCache.get(filePath));
 
             } else {
@@ -545,7 +415,7 @@
                     return;
                 }
             }
-            
+
             function cleanUpCache(fileCache, path, dateTimeCacheFile) {
                 let date = new Date(dateTimeCacheFile);
                 date.setDate(date.getDate() - 2);
@@ -564,7 +434,7 @@
         function getLRCPointsMarketFile(callback) {
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] getLRCPointsMarketFile -> Entering function."); }
 
-            let filePath = "LRC-Points/Multi-Period-Market/01-hs";
+            let filePath = "LRC-Points/Multi-Period-Market/02-hs";
             let fileName = market.assetA + '_' + market.assetB + ".json"
 
             if (bot.startMode === "Backtest" && bot.botCache.has(filePath)) {
@@ -576,6 +446,7 @@
 
                 gaussStorage.getTextFile(filePath, fileName, onFileReceived);
             }
+
             function onFileReceived(err, text) {
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] getLRCPointsMarketFile -> onFileReceived > Entering Function."); }
@@ -594,9 +465,8 @@
         function createBuyPosition(callBack) {
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Entering function."); }
 
-            let positions = assistant.getPositions();
             let assetABalance = assistant.getAvailableBalance().assetA;
-            let currentRate = assistant.getMarketRate();
+            let currentRate = assistant.getTicker().bid;
             let amountA = assistant.getAvailableBalance().assetA;
             let amountB = Number((amountA / currentRate).toFixed(8));
 
@@ -645,9 +515,8 @@
         function createSellPosition(callBack) {
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Entering function."); }
 
-            let positions = assistant.getPositions();
             let assetBBalance = assistant.getAvailableBalance().assetB;
-            let currentRate = assistant.getMarketRate();
+            let currentRate = assistant.getTicker().bid;
             let amountB = assistant.getAvailableBalance().assetB;
             let amountA = amountB * currentRate;
 
@@ -692,5 +561,16 @@
             return str.length < max ? pad("0" + str, max) : str;
         }
 
+        function isExecutionToday() {
+            let localDate = new Date();
+            let today = new Date(Date.UTC(
+                localDate.getUTCFullYear(),
+                localDate.getUTCMonth(),
+                localDate.getUTCDate()));
+
+            return (today.getUTCFullYear() === bot.processDatetime.getUTCFullYear()
+                && today.getUTCMonth() === bot.processDatetime.getUTCMonth()
+                && today.getUTCDate() === bot.processDatetime.getUTCDate());
+        }
     }
 };

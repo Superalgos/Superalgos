@@ -361,9 +361,118 @@
                                             configObj.repo = bot.repo;
                                             configObj.configFile = bot.configFile;
 
-                                            addStoragePermissions(configObj);
+                                            addStoragePermissions(configObj);                                            
 
-                                            devTeam.bots[j] = configObj;
+                                            /* Here we will add all the possible Clones of this bot */
+
+                                            if (configObj.geneticRules !== undefined) {
+
+                                                /* Here, based on the genetic rules we will create one instance for each combination of genes */
+
+                                                let valueMatrix = [];
+
+                                                for (let i = 0; i < configObj.geneticRules.length; i++) {
+
+                                                    let rule = configObj.geneticRules[i];
+
+                                                    let possibleValues = [];
+
+                                                    for (let j = rule.lowerLimit; j <= rule.upperLimit; j++) {
+
+                                                        possibleValues.push(j);
+
+                                                    }
+
+                                                    valueMatrix.push(possibleValues);
+
+                                                }
+
+                                                /* 
+                                                Now we have all the possible genes values in a multi-dimensional matrix.
+                                                We will go thorugh each of the elements of each dimension and get each combination possible with the other dimmensions. 
+                                                */
+
+                                                let combinations = [];
+                                                let combination = [];
+                                                let dimensionIndex = 0;
+
+                                                calculateCombinations(dimensionIndex, combination);
+
+                                                function calculateCombinations(pDimensionIndex, pCombination) {
+
+                                                    let dimension = valueMatrix[pDimensionIndex];
+
+                                                    for (let j = 0; j < dimension.length; j++) {
+
+                                                        let copy = JSON.parse(JSON.stringify(pCombination));
+
+                                                        let value = dimension[j];
+                                                        copy.push(value);
+
+                                                        if (pDimensionIndex < valueMatrix.length - 1) {
+
+                                                            calculateCombinations(pDimensionIndex + 1, copy);
+
+                                                        } else {
+
+                                                            combinations.push(copy);
+
+                                                        }
+                                                    }
+                                                }
+
+                                                /* We delete the bot definition since it is going to be replaced by one definition for each of its clones. */
+
+                                                devTeam.bots.splice(j);
+
+                                                /* At this point we have an array with all the possible combinations, we just need to create an instance for each one and set the genes according to that. */
+
+                                                for (let i = 0; i < combinations.length; i++) {
+
+                                                    let botConfig = JSON.parse(JSON.stringify(configObj));
+                                                    let combination = combinations[i];
+                                                    let genes = {};
+                                                    let clonKey = "";
+
+                                                    for (let j = 0; j < botConfig.geneticRules.length; j++) {
+
+                                                        genes[botConfig.geneticRules[j].name] = combination[j];
+                                                        clonKey = clonKey + "." + combination[j];
+
+                                                    }
+
+                                                    let clonName = "Clon" + clonKey;
+                                                    let clonConfig = JSON.parse(JSON.stringify(botConfig));
+
+                                                    /* Lets adapt the bot config so as to tune it for the new clon. */
+
+                                                    clonConfig.displayName = clonConfig.displayName + " " + clonName;
+                                                    clonConfig.codeName = clonConfig.codeName + "-" + clonName;
+
+                                                    /*
+                                                    for (let j = 0; j < clonConfig.products.length; j++) {
+
+                                                        let product = clonConfig.products[j];
+
+                                                        for (let k = 0; k < product.dataSets.length; k++) {
+
+                                                            let dataSet = product.dataSets[k];
+
+                                                            dataSet.filePath = dataSet.filePath.replace("@Clon", "-" + clonName);
+                                                        }
+                                                    }
+                                                    */
+
+                                                    devTeam.bots.push(clonConfig);
+
+                                                }
+                                            } else {
+
+                                                /* If the bot does not have any genetic rules at all we do what we did before clones existed */
+
+                                                devTeam.bots[j] = configObj;
+
+                                            }
 
                                         }
 

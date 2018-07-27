@@ -88,10 +88,24 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> load -> Entering function."); }
 
-            let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
-            let filePath = rootPath + "/Reports/" + owner.process + timePath;
-            
+            let filePath;
+
+            let ownerId = owner.devTeam + "-" + owner.bot + "-" + owner.botVersion.major + "-" + owner.botVersion.minor + "-" + owner.process + "-" + owner.dataSetVersion;
+            let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
+
+            if (ownerId !== botId) {
+
+                let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
+
+                filePath = rootPath + "/Reports/" + owner.process + timePath;
+
+            } else {
+
+                filePath = bot.filePathRoot + "/Reports/" + owner.process + timePath;
+
+            }
+
             if (bot.type === 'Trading') {
                 fileName = bot.startMode + "." + fileName;
             }

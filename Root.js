@@ -386,7 +386,7 @@ exports.newRoot = function newRoot() {
 
                                 }
 
-                                /* We tesst each type of start Mode to get what to run and how. */
+                                /* We test each type of start Mode to get what to run and how. */
 
                                 if (processConfig.startMode.allMonths !== undefined) {
 
@@ -756,57 +756,157 @@ exports.newRoot = function newRoot() {
                     function runTradingBot(pBotConfig, pProcessConfig) {
 
                         try {
-                            const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
-                            let logger;
 
-                            logger = DEBUG_MODULE.newDebugLog();
-                            logger.bot = pBotConfig;
+                            if (FULL_LOG === true) { console.log(logDisplace + "[INFO] start -> findProcess -> runTradingBot -> Entering function."); }
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> Entering function."); }
+                            if (pBotConfig.geneticRules !== undefined) {
 
-                            let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotProcessMainLoop(pBotConfig, logger);
-                            tradingBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
+                                /* Here, based on the genetic rules we will create one instance for each combination of genes */
 
-                            function onInitializeReady(err) {
+                                let valueMatrix = [];
 
-                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                for (let i = 0; i < pBotConfig.geneticRules.length; i++) {
 
-                                    tradingBotMainLoop.run(whenRunFinishes);
+                                    let rule = pBotConfig.geneticRules[i];
 
-                                    function whenRunFinishes(err) {
+                                    let possibleValues = [];
 
-                                        pBotConfig.loopCounter = 0;
+                                    for (let j = rule.lowerLimit; j <= rule.upperLimit; j++) {
 
-                                        let botId;
+                                        possibleValues.push(j);
 
-                                        botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
+                                    }
 
-                                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                    valueMatrix.push(possibleValues);
 
-                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                            logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                }
 
-                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
-                                            console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                            logger.persist();
+                                /* 
+                                Now we have all the possible genes values in a multi-dimensional matrix.
+                                We will go thorugh each of the elements of each dimension and get each combination possible with the other dimmensions. 
+                                */
+
+                                let combinations = [];
+                                let combination = [];
+                                let dimensionIndex = 0;
+
+                                calculateCombinations(dimensionIndex, combination);
+
+                                function calculateCombinations(pDimensionIndex, pCombination) {
+
+                                    let dimension = valueMatrix[pDimensionIndex];
+
+                                    for (let j = 0; j < dimension.length; j++) {
+
+                                        let copy = JSON.parse(JSON.stringify(pCombination));
+
+                                        let value = dimension[j];
+                                        copy.push(value);
+
+                                        if (pDimensionIndex < valueMatrix.length - 1) {
+
+                                            calculateCombinations(pDimensionIndex + 1, copy);
 
                                         } else {
 
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bye.");
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                            console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
-                                            logger.persist();
+                                            combinations.push(copy);
+
                                         }
                                     }
+                                }
 
-                                } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> err = " + err.message);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> Bot will not be started. ");
-                                    console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> onInitializeReady -> err = " + err.message);
+                                /* At this point we have an array with all the possible combinations, we just need to create an instance for each one and set the genes according to that. */
 
-                                    logger.persist();
+                                for (let i = 0; i < combinations.length; i++) {
+
+                                    let botConfig = JSON.parse(JSON.stringify(pBotConfig));
+                                    let combination = combinations[i];
+                                    let genes = {};
+                                    let clonKey = "";
+
+                                    for (let j = 0; j < botConfig.geneticRules.length; j++) {
+
+                                        genes[botConfig.geneticRules[j].name] = combination[j];
+                                        clonKey = clonKey + "." + combination[j];
+
+                                    }
+
+                                    botConfig.filePathRoot = botConfig.filePathRoot + "/" + "Clon" + clonKey;
+                                    botConfig.instance = "Clon" + clonKey;
+                                    setTimeout(execute, i * 2 * 1000);
+
+                                    function execute() {
+                                        
+                                        createBotInstance(genes, combinations.length, botConfig);
+
+                                    }
+                                }
+                            } else {
+
+                                /* If the bot does not have any genetic rules at all */
+
+                                let genes = {};
+                                botConfig.instance = "Master";
+
+                                createBotInstance(genes, 1, botConfig);
+
+                            }
+
+
+                            function createBotInstance(pGenes, pTotalInstances, pBotConfig) {
+
+                                const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                                let logger;
+
+                                logger = DEBUG_MODULE.newDebugLog();
+                                logger.bot = pBotConfig;
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> createBotInstance -> Entering function."); }
+
+                                let tradingBotMainLoop = TRADING_BOT_MAIN_LOOP_MODULE.newTradingBotProcessMainLoop(pBotConfig, logger);
+                                tradingBotMainLoop.initialize(UI_COMMANDS, pProcessConfig, onInitializeReady);
+
+                                function onInitializeReady(err) {
+
+                                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                        tradingBotMainLoop.run(pGenes, pTotalInstances, whenRunFinishes);
+
+                                        function whenRunFinishes(err) {
+
+                                            pBotConfig.loopCounter = 0;
+
+                                            let botId;
+
+                                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.instance + "." + pBotConfig.process;
+
+                                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                                logger.write(MODULE_NAME, "[INFO] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+
+                                                console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+                                                console.log(logDisplace + "Root : [INFO] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                                logger.persist();
+
+                                            } else {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bye.");
+                                                logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                                console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
+                                                logger.persist();
+                                            }
+                                        }
+
+                                    } else {
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> Bot will not be started. ");
+                                        console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> err = " + err.message);
+
+                                        logger.persist();
+                                    }
                                 }
                             }
                         }

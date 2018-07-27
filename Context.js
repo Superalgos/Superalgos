@@ -70,15 +70,18 @@
 
     let runIndex;  // This is the index for this run and depends on the startMode. 
 
+    let totalAlgobots;
+
     return thisObject;
 
-    function initialize(pStatusDependencies, callBackFunction) {
+    function initialize(pStatusDependencies, pTotalAlgobots, callBackFunction) {
 
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
+            totalAlgobots = pTotalAlgobots;
 
             /*
 
@@ -113,8 +116,6 @@
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onDone -> Execution finished well."); }
-
-                            bot.hasTheBotJustStarted = false;
 
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
@@ -328,8 +329,8 @@
                     once we advance into multiple competitions scheme.
                     */
 
-					const INITIAL_INVESTMENT_A = 0;              // This is just for this release of the platform.
-                    const INITIAL_INVESTMENT_B = .001;              // This is just for this release of the platform.
+					const INITIAL_INVESTMENT_A = 0;                                 // This is just for this release of the platform.
+                    const INITIAL_INVESTMENT_B = .001 / totalAlgobots;              // This is just for this release of the platform.
 
                     thisObject.executionContext = {
                         investment: {                               // This is used to calculate profits. 
@@ -384,6 +385,9 @@
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> onDone -> Execution finished well."); }
+
+                            bot.hasTheBotJustStarted = false;
+
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }

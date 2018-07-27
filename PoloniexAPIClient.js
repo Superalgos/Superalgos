@@ -18,8 +18,7 @@
 
         // Module dependencies
         var crypto = require('crypto'),
-            request = require('request'),
-            nonce = require('nonce')();
+            request = require('request');
 
         // Constants
         var version = '0.0.8',
@@ -122,7 +121,7 @@
 
                 parameters || (parameters = {});
                 parameters.command = command;
-                parameters.nonce = nonce();
+                parameters.nonce = global.nonce();
 
                 options = {
                     method: 'POST',

@@ -33,6 +33,14 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
             if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
 
+            if (stringExchangeResponse === undefined) {
+
+                logger.write(MODULE_NAME, "[WARN] analizeResponse -> No response received from the exchange. Retrying Later.");
+
+                notOkCallBack(global.DEFAULT_RETRY_RESPONSE);
+                return;
+            }
+
             if (stringExchangeErr.indexOf("ETIMEDOUT") > 0 ||
                 stringExchangeErr.indexOf("ENOTFOUND") > 0 ||
                 stringExchangeErr.indexOf("ECONNREFUSED") > 0 ||

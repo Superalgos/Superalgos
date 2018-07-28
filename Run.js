@@ -32,8 +32,6 @@ process.on('exit', function (code) {
 global.USER_PROFILE = {};
 global.EMAIL_CONFIG = {};
 
-global.nonce = require('nonce')(); // We need a nonce generator that is global so that nonce is generated with a lower number in any case.
-
 readStoragePermissions();
 
 function readStoragePermissions() {

@@ -99,10 +99,10 @@ function readExchangeAPIKey() {
         console.log("[HINT] You need to have a file at this path -> " + filePath);
 
         global.EXCHANGE_KEYS = {
-            Poloniex: {
+            Poloniex: [{
                 Key: "",
                 Secret: ""
-            }
+            }]
         }
 
         startRoot();

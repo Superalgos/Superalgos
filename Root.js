@@ -836,6 +836,8 @@ exports.newRoot = function newRoot() {
                                     botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "-" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
                                     botConfig.instance = "Clon" + clonKey;
+                                    botConfig.instanceIndex = i;
+
                                     setTimeout(execute, i * Math.random() * 10 * 1000);
 
                                     function execute() {
@@ -850,6 +852,7 @@ exports.newRoot = function newRoot() {
 
                                 let genes = {};
                                 pBotConfig.instance = "Master";
+                                pBotConfig.instanceIndex = 0;
 
                                 createBotInstance(genes, 1, pBotConfig);
 

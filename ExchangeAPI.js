@@ -29,7 +29,7 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
+            poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Secret);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 

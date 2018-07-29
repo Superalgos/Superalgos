@@ -165,6 +165,9 @@ function newFileCloud() {
                         if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> fileName = " + fileName); }
                         if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> Unexpected Error Ocurred."); }
                         if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> err = " + err); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> text = " + text); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] getFile -> onFileReceived -> response = " + response); }
+
                         callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
                         return;
 

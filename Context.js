@@ -330,7 +330,7 @@
                     */
 
 					const INITIAL_INVESTMENT_A = 0;                                 // This is just for this release of the platform.
-                    const INITIAL_INVESTMENT_B = .001 / totalAlgobots;              // This is just for this release of the platform.
+                    const INITIAL_INVESTMENT_B = .002 / totalAlgobots;              // This is just for this release of the platform.
 
                     thisObject.executionContext = {
                         investment: {                               // This is used to calculate profits. 

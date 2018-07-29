@@ -50,10 +50,11 @@
                     stringExchangeResponse.indexOf("Connection timed out") > 0 ||
                     stringExchangeResponse.indexOf("Connection Error") > 0 ||
                     stringExchangeResponse.indexOf("Bad gateway") > 0 ||
+                    stringExchangeResponse.indexOf("Nonce must be greater than") > 0 ||
                     stringExchangeResponse.indexOf("Internal error. Please try again") > 0))) {
 
-                logger.write(MODULE_NAME, "[WARN] analizeResponse -> Timeout reached or connection problem while trying to access the Exchange API. Requesting new execution later.");
-                logger.write(MODULE_NAME, "[WARN] analizeResponse -> stringExchangeErr = " + stringExchangeErr);
+                logger.write(MODULE_NAME, "[ERROR] analizeResponse -> Somethng bad happened while trying to access the Exchange API. Requesting new execution later.");
+                logger.write(MODULE_NAME, "[ERROR] analizeResponse -> stringExchangeErr = " + stringExchangeErr);
 
                 notOkCallBack(window.DEFAULT_RETRY_RESPONSE);
                 return;

@@ -115,8 +115,28 @@
 
         } else {
 
-            changeStatusTo(PRODUCT_CARD_STATUS.OFF);  // This happens the first time the app is run on a new browser.
+            /*
 
+            This happens the first time the app is run on a new browser.
+
+            We will start with all product off, except for the candles chart, since something needs to be shown and allow the user to position themselves
+            on the timeline. 
+
+            For the time being, we will hard-code the name of the bot we will turn on by default, since we dont see that change in the near future.
+
+            */
+
+            const DEFAULT_ON_PRODUCT = "AAMasters-AAOlivia-Candles";
+
+            if (thisObject.code === DEFAULT_ON_PRODUCT) {
+
+                changeStatusTo(PRODUCT_CARD_STATUS.LOADING); 
+
+            } else {
+
+                changeStatusTo(PRODUCT_CARD_STATUS.OFF); 
+
+            }
         }
 
         /* Lets listen to our own events to react when we have a Mouse Click */

@@ -12,14 +12,14 @@
 
     var container = newContainer();
 
-    container.name = "Algobots Product Panel";
+    container.name = "Indicators and Algobots Product Panel";
     container.initialize();
 
     container.isDraggeable = true;
     container.isWheelable = true;
 
     thisObject.container = container;
-    thisObject.container.frame.containerName = "Algobots's Products";
+    thisObject.container.frame.containerName = "Indicators and Algobots's Products";
 
     let isInitialized = false;
     let productCards = [];

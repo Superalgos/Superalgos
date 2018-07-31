@@ -759,19 +759,19 @@ exports.newRoot = function newRoot() {
 
                             if (FULL_LOG === true) { console.log(logDisplace + "[INFO] start -> findProcess -> runTradingBot -> Entering function."); }
 
-                            if (pBotConfig.geneticRules !== undefined) {
+                            if (pBotConfig.genes !== undefined) {
 
-                                /* Here, based on the genetic rules we will create one instance for each combination of genes */
+                                /* Here, based on the gene we will create one instance for each combination of genes */
 
                                 let valueMatrix = [];
 
-                                for (let i = 0; i < pBotConfig.geneticRules.length; i++) {
+                                for (let i = 0; i < pBotConfig.genes.length; i++) {
 
-                                    let rule = pBotConfig.geneticRules[i];
+                                    let gene = pBotConfig.genes[i];
 
                                     let possibleValues = [];
 
-                                    for (let j = rule.lowerLimit; j <= rule.upperLimit; j++) {
+                                    for (let j = gene.lowerLimit; j <= gene.upperLimit; j++) {
 
                                         possibleValues.push(j);
 
@@ -824,9 +824,9 @@ exports.newRoot = function newRoot() {
                                     let genes = {};
                                     let clonKey = "";
 
-                                    for (let j = 0; j < botConfig.geneticRules.length; j++) {
+                                    for (let j = 0; j < botConfig.genes.length; j++) {
 
-                                        genes[botConfig.geneticRules[j].name] = combination[j];
+                                        genes[botConfig.genes[j].name] = combination[j];
                                         clonKey = clonKey + "." + combination[j];
 
                                     }
@@ -848,7 +848,7 @@ exports.newRoot = function newRoot() {
                                 }
                             } else {
 
-                                /* If the bot does not have any genetic rules at all */
+                                /* If the bot does not have any genes at all */
 
                                 let genes = {};
                                 pBotConfig.instance = "Master";

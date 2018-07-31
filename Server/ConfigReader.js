@@ -365,19 +365,19 @@
 
                                             /* Here we will add all the possible Clones of this bot */
 
-                                            if (configObj.geneticRules !== undefined) {
+                                            if (configObj.genes !== undefined) {
 
-                                                /* Here, based on the genetic rules we will create one instance for each combination of genes */
+                                                /* Here, based on the genes we will create one instance for each combination of genes */
 
                                                 let valueMatrix = [];
 
-                                                for (let i = 0; i < configObj.geneticRules.length; i++) {
+                                                for (let i = 0; i < configObj.genes.length; i++) {
 
-                                                    let rule = configObj.geneticRules[i];
+                                                    let gene = configObj.genes[i];
 
                                                     let possibleValues = [];
 
-                                                    for (let j = rule.lowerLimit; j <= rule.upperLimit; j++) {
+                                                    for (let j = gene.lowerLimit; j <= gene.upperLimit; j++) {
 
                                                         possibleValues.push(j);
 
@@ -434,9 +434,9 @@
                                                     let genes = {};
                                                     let clonKey = "";
 
-                                                    for (let j = 0; j < botConfig.geneticRules.length; j++) {
+                                                    for (let j = 0; j < botConfig.genes.length; j++) {
 
-                                                        genes[botConfig.geneticRules[j].name] = combination[j];
+                                                        genes[botConfig.genes[j].name] = combination[j];
                                                         clonKey = clonKey + "." + combination[j];
 
                                                     }
@@ -468,7 +468,7 @@
                                                 }
                                             } else {
 
-                                                /* If the bot does not have any genetic rules at all we do what we did before clones existed */
+                                                /* If the bot does not have any genes at all we do what we did before clones existed */
 
                                                 devTeam.bots[j] = configObj;
 

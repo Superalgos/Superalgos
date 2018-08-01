@@ -73,7 +73,7 @@
             }
 
             if (processDate.valueOf() > today.valueOf()) { // This means that is should start in less than a day from current time.
-                logger.write(MODULE_NAME, "[WARN] initialize -> Too far in the future.");
+                logger.write(MODULE_NAME, "[WARN] initialize -> Not needed now, but soon.");
 
                 let customOK = {
                     result: global.CUSTOM_OK_RESPONSE.result,
@@ -211,7 +211,7 @@
 
                     /* Next Status Report */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month; 
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month;
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
@@ -262,7 +262,7 @@
                         }
                     }
 
-                     /* Final Status Report */
+                    /* Final Status Report */
 
                     reportKey = "AAMasters" + "-" + "AABruce" + "-" + "One-Min-Daily-Candles-Volumes" + "-" + "dataSet.V1" + "-" + year + "-" + month;
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
@@ -341,7 +341,7 @@
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                             let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
-                            let filePath = bot.filePathRoot +  "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
 
                             bruceStorage.getTextFile(filePath, fileName, onFileReceived);
 
@@ -431,7 +431,7 @@
                             logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> getVolumes -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
-                    } 
+                    }
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> err = " + err.message);
@@ -460,7 +460,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering market = " + JSON.stringify(market)); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> lastCandleClose = " + lastCandleClose); }
 
-                        lastHoleFixedFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00"  + GMT_SECONDS);
+                        lastHoleFixedFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
                         lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() - ONE_DAY_IN_MILISECONDS);
 
                         lastCandleClose = 0;
@@ -700,7 +700,8 @@
                                         function onFilesWritten() {
 
                                             if (FULL_LOG === true) {
-                                                logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Head of the market reached for market " + market.assetA + '_' + market.assetB + "."); }
+                                                logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Head of the market reached for market " + market.assetA + '_' + market.assetB + ".");
+                                            }
 
                                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                                             return;
@@ -820,7 +821,7 @@
                                             logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> filePath = " + filePath);
                                             logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived ->  text = " + text);
                                             logger.write(MODULE_NAME, "[HINT] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> Empty or corrupt volume file found.");
-                                            
+
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -907,7 +908,7 @@
                             }
 
                         } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -1031,6 +1032,23 @@
 
                 try {
 
+                    if (lastTradeFile === undefined) {
+
+                        /* At the begining of a new month, it can happen for reasons not 100% clear that this variable gets undifined.
+                        Probably it is because the instance that was waiting to execute in coma state, wakes up before than Charly
+                        writting the trades of this new month. Anyway, when this happens, a different path in code is taken and this
+                        variable gets undefined. A workaround for that without further investigation of the real cause of the problem
+                        is to RETRY the execution until the normal conditions arise and everything continues working well. That is what
+                        we are going to do for now. */
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] start -> writeStatusReport -> Cannot write the status report."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] start -> writeStatusReport -> lastTradeFile = undefined."); }
+
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+
+                        return;
+                    }
+
                     let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion + "-" + year + "-" + month;
                     let statusReport = statusDependencies.statusReports.get(key);
 
@@ -1052,7 +1070,7 @@
                         fileComplete: isFileComplete
                     };
 
-                    let fileContent = JSON.stringify(statusReport); 
+                    let fileContent = JSON.stringify(statusReport);
 
                     statusReport.save(onSaved);
 

@@ -37,16 +37,21 @@
         if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
         const market = global.MARKET;
+        const LAST_SELL_RATE_KEY = "AAVikings" + "-" + "AAArtudito" + "-" + "Trading-Process" + "-" + "lastSellRate";
         const LAST_BUY_RATE_KEY = "AAVikings" + "-" + "AAArtudito" + "-" + "Trading-Process" + "-" + "lastBuyRate";
         const CHANNEL_DOWN = -1;
         const CHANNEL_UP = 1;
         const NO_CHANNEL = 0;
 
-        let positions = assistant.getPositions();
+        // Parameters
+		let targetTradeEnabled = false;
+        const TRADE_TARGET = 2.0;
+        let stopLossEnabled = false;
+        let stopLossPorcentage = 0.006;
 
         let lastBuyRate = assistant.remindMeOf(LAST_BUY_RATE_KEY);
         if (lastBuyRate === undefined) {
-            let currentRate = assistant.getTicker().bid;
+            let currentRate = assistant.getMarketRate();
             lastBuyRate = currentRate;
             assistant.rememberThis(LAST_BUY_RATE_KEY, lastBuyRate);
         }
@@ -54,6 +59,17 @@
         /*
         This trading bot will use an strategy based on the interpretation of the Linear Regression Curve Channel.
         */
+
+        let positions = assistant.getPositions();
+        let lastSellRate = assistant.remindMeOf(LAST_SELL_RATE_KEY);
+        if (targetTradeEnabled === true && assistant.getAvailableBalance().assetA > 1 && lastSellRate !== undefined) {
+            let currentROI = ((lastSellRate - assistant.getTicker().bid) / lastSellRate) * 100;
+            if (currentROI > TRADE_TARGET) {
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> Current trade ROI is greater than default target. Buying..."); }
+                createBuyPosition(onDone);
+                return;
+            }
+        }
 
         businessLogic(onDone);
 
@@ -124,7 +140,7 @@
                         if (firstChannelTilt == -1 && secondChannelTilt == -1) {
                             createSellPosition(callBack);
                         } else {
-                            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> secondTiltCheck -> Nothing to do, there isn't a buy or sell oportunity."); }
+                            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> secondTiltCheck -> Nothing to do, there isn't a sell oportunity."); }
 
                             callBack(global.DEFAULT_OK_RESPONSE);
                         }
@@ -369,8 +385,10 @@
 
             if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid <= previousLRCPoint.mid) {
                 // 15 AND 30 changed direction from up to down
-                channelTilt = CHANNEL_DOWN;
-                ruleApplied += "Rule_3a.";
+                if (checkToSellWithStopLoss()) {
+                    channelTilt = CHANNEL_DOWN;
+                    ruleApplied += "Rule_3a.";
+                }
             }
 
             if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid >= previousLRCPoint.mid) {
@@ -383,6 +401,62 @@
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> Results: " + logMessage); }
 
             callBack(global.DEFAULT_OK_RESPONSE, channelTilt);
+        }
+
+        function checkToSellWithStopLoss() {
+            let allowSell = true;
+            let assetBBalance = assistant.getAvailableBalance().assetB;
+            let currentRate = assistant.getMarketRate();
+            let amountB = assistant.getAvailableBalance().assetB;
+            let amountA = amountB * currentRate;
+
+            if (stopLossEnabled) {
+                if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> Stop Loss Enabled, checking to sell."); }
+
+                // Get the current investment value
+                let investment = 0;
+                if (assistant.getAvailableBalance() !== undefined) {
+                    investment = assistant.getAvailableBalance().assetB * lastBuyRate;
+                }
+
+                // Calculate maximum loss setup
+                let currentLoss = amountA - investment;
+                let stopLossValue = investment * stopLossPorcentage;
+
+                if (currentLoss > 0) {
+                    if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> No loss, we can sell."); }
+
+                } else if (assetBBalance > 0) {
+                    if (Math.abs(currentLoss) > stopLossValue) {
+                        let message = "Sell to avoid loss more than " + Number(stopLossPorcentage * 100).toLocaleString() + "% of our initial investment. ";
+
+                        message += "Combined ROI on current execution: ";
+                        if (assistant.getCombinedProfits().assetA > 0) {
+                            message += Number(assistant.getCombinedProfits().assetA).toLocaleString() + "%. ";
+                        } else {
+                            message += Number(assistant.getCombinedProfits().assetB).toLocaleString() + "%. ";
+                        }
+
+                        if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration ->  Stop loss, sell: " + message); }
+
+                        assistant.sendMessage(3, "Stop Loss", message);
+
+                    } else {
+                        let currentRisk = currentLoss / investment;
+                        let message = "Not sell now. Risking " + Number(currentRisk * 100).toLocaleString() + "% of our initial investment";
+                        message += ". Last Buy: $" + Number(lastBuyRate).toLocaleString();
+                        message += ". Not selling at: $" + Number(currentRate).toLocaleString();
+
+                        if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> Stop loss, not sell: " + message); }
+
+                        assistant.sendMessage(3, "Stop Loss", message);
+
+                        allowSell = false;
+                    }
+                }
+            }
+
+            return allowSell;
         }
 
         function getLRCPointsFile(dateTime, callback) {
@@ -470,11 +544,12 @@
             let amountA = assistant.getAvailableBalance().assetA;
             let amountB = Number((amountA / currentRate).toFixed(8));
 
-            if (positions.length > 0 && positions[0].type === "buy" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 10)) {
+            if (positions.length > 0 && positions[0].type === "buy" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 5)) {
 
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Moving an existing BUY position to a new price: $" + Number(currentRate).toLocaleString()); }
 
                 let message = "Moving an existing buy position to a new price: $" + Number(currentRate).toLocaleString();
+                message += ". Combined ROI on current execution: " + getCombinedProfit() + "%. ";
                 assistant.sendMessage(6, "Moving Position", message);
                 message = bot.processDatetime.toISOString() + " - " + message;
                 assistant.sendEmail("Alerts", message, bot.emailSubscriptions);
@@ -488,15 +563,7 @@
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Artuditu put a new BUY position at price: $" + Number(currentRate).toLocaleString()); }
 
                 let message = "Creating a new buy position. Price: $" + Number(currentRate).toLocaleString();
-                if (assistant.getCombinedProfits() !== undefined) {
-                    message += ". Combined ROI on current execution: ";
-                    if (assistant.getCombinedProfits().assetA > 0) {
-                        message += Number(assistant.getCombinedProfits().assetA).toLocaleString() + "%. ";
-                    } else {
-                        message += Number(assistant.getCombinedProfits().assetB).toLocaleString() + "%. ";
-                    }
-                }
-
+                message += ". Combined ROI on current execution: " + getCombinedProfit() + "%. ";
                 assistant.sendMessage(7, "Buying", message);
                 message = bot.processDatetime.toISOString() + " - " + message;
                 assistant.sendEmail("Alerts", message, bot.emailSubscriptions);
@@ -525,28 +592,24 @@
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Artuditu is moving an existing SELL position to a new price: $" + Number(currentRate).toLocaleString()); }
 
                 let message = "Moving an existing sell position to a new price: $" + Number(currentRate).toLocaleString();
+                message += ". Combined ROI on current execution: " + getCombinedProfit() + "%. ";
                 assistant.sendMessage(6, "Moving Position", message);
                 message = bot.processDatetime.toISOString() + " - " + message;
                 assistant.sendEmail("Alerts", message, bot.emailSubscriptions);
 
+                assistant.rememberThis(LAST_SELL_RATE_KEY, currentRate);
                 assistant.movePosition(positions[0], currentRate, callBack);
 
             } else if (assetBBalance > 0) {
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Artuditu put a new SELL position at price: $" + Number(currentRate).toLocaleString()); }
 
                 let message = "Creating a new sell position. Price: $" + Number(currentRate).toLocaleString();
-                if (assistant.getCombinedProfits() !== undefined) {
-                    message += ". Combined ROI on current execution: ";
-                    if (assistant.getCombinedProfits().assetA > 0) {
-                        message += Number(assistant.getCombinedProfits().assetA).toLocaleString() + "%. ";
-                    } else {
-                        message += Number(assistant.getCombinedProfits().assetB).toLocaleString() + "%. ";
-                    }
-                }
+                message += ". Combined ROI on current execution: " + getCombinedProfit() + "%. ";
                 assistant.sendMessage(7, "Selling", message);
                 message = bot.processDatetime.toISOString() + " - " + message;
                 assistant.sendEmail("Alerts", message, bot.emailSubscriptions);
 
+                assistant.rememberThis(LAST_SELL_RATE_KEY, currentRate);
                 assistant.putPosition("sell", currentRate, amountA, amountB, callBack);
 
             } else {
@@ -571,6 +634,16 @@
             return (today.getUTCFullYear() === bot.processDatetime.getUTCFullYear()
                 && today.getUTCMonth() === bot.processDatetime.getUTCMonth()
                 && today.getUTCDate() === bot.processDatetime.getUTCDate());
+        }
+
+        function getCombinedProfit() {
+            if (assistant.getCombinedProfits() !== undefined) {
+                if (assistant.getCombinedProfits().assetA > 0) {
+                    return Number(assistant.getCombinedProfits().assetA).toLocaleString();
+                } else {
+                    return Number(assistant.getCombinedProfits().assetB).toLocaleString();
+                }
+            }
         }
     }
 };

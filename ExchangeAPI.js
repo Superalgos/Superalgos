@@ -16,7 +16,8 @@
         getExecutedTrades: getExecutedTrades,
         putPosition: putPosition,
         movePosition: movePosition,
-        getTicker: getTicker
+        getTicker: getTicker,
+        getPublicTradeHistory: getPublicTradeHistory
     };
 
     let poloniexApiClient;
@@ -24,12 +25,12 @@
     return thisObject;
 
     function initialize(callBackFunction) {
-
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
+            //poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret, logger);
+            poloniexApiClient = POLONIEX_CLIENT_MODULE.newBinanceAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret, logger);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -40,147 +41,65 @@
         }
     }
 
-    function getOpenPositions(pMarket, callBackFunction) {
-
+    /*
+     * Returns the open positions ath the exchange for a given market and user account.
+     * The object returned is an array of positions:
+     * position = {
+     *           id,
+     *           type,
+     *           rate,
+     *           amountA,
+     *           amountB,
+     *           fee, (not required)
+     *           datetime
+     *       };
+     */
+    function getOpenPositions(pMarket, callBack) {
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> Entering function."); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
 
-            poloniexApiClient.API.returnOpenOrders(pMarket.assetA, pMarket.assetB, onExchangeCallReturned);
+            poloniexApiClient.API.returnOpenOrders(pMarket.assetA, pMarket.assetB, callBack);
 
-            function onExchangeCallReturned(err, exchangeResponse) {
-
-                try {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> onExchangeCallReturned -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> onExchangeCallReturned -> err = " + err); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
-
-                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
-
-                    function onResponseOk() {
-
-                        /*
-
-                        This is what we receive from the exchange. We will convert this to our standard format for later use.
-
-                        [ { orderNumber: '151918418632',
-                            type: 'sell',
-                            rate: '20000.00000000',
-                            startingAmount: '0.00010000',
-                            amount: '0.00010000',
-                            total: '2.00000000',
-                            date: '2018-02-24 11:14:17',
-                            margin: 0 } ]
-
-                        */
-
-                        let exchangePositions = [];
-
-                        for (let i = 0; i < exchangeResponse.length; i++) {
-
-                            let openPosition = {
-                                id: exchangeResponse[i].orderNumber,
-                                type: exchangeResponse[i].type,
-                                rate: exchangeResponse[i].rate,
-                                amountA: exchangeResponse[i].total,
-                                amountB: exchangeResponse[i].amount,
-                                date: (new Date(exchangeResponse[i].date)).valueOf()
-                            };
-
-                            exchangePositions.push(openPosition);
-                        }
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE, exchangePositions);
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] getOpenPositions -> onExchangeCallReturned -> Error = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] getOpenPositions -> Error = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function getExecutedTrades(pPositionId, callBackFunction) {
-
+    /*
+     * Returns the trades for a given order number.
+     * The object returned is an array of positions:
+     * position = {
+     *           id,
+     *           type,
+     *           rate,
+     *           amountA,
+     *           amountB,
+     *           fee,
+     *           datetime
+     *       };
+     */
+    function getExecutedTrades(pPositionId, callBack) {
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> Entering function."); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> pPositionId = " + pPositionId); }
 
-            poloniexApiClient.API.returnOrderTrades(pPositionId, onExchangeCallReturned);
+            poloniexApiClient.API.returnOrderTrades(pPositionId, callBack);
 
-            function onExchangeCallReturned(err, exchangeResponse) {
-
-                try {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> onExchangeCallReturned -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> onExchangeCallReturned -> err = " + err); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
-
-                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
-
-                    function onResponseOk() {
-
-                        /*
-
-                          This is what we receive from the exchange. We will convert this to our standard format for later use.
-
-                          [
-                          {
-                          "globalTradeID": 20825863,
-                          "tradeID": 147142,
-                          "currencyPair":
-                          "BTC_XVC",
-                          "type": "buy",
-                          "rate": "0.00018500",
-                          "amount": "455.34206390",
-                          "total": "0.08423828",
-                          "fee": "0.00200000",
-                          "date": "2016-03-14 01:04:36"
-                          },
-                          ...]
-
-                          */
-
-                        let trades = [];
-
-                        for (let i = 0; i < exchangeResponse.length; i++) {
-
-                            let trade = {
-                                id: exchangeResponse[i].tradeID,
-                                type: exchangeResponse[i].type,
-                                rate: exchangeResponse[i].rate,
-                                amountA: exchangeResponse[i].total,
-                                amountB: exchangeResponse[i].amount,
-                                fee: exchangeResponse[i].fee,
-                                date: (new Date(exchangeResponse[i].date)).valueOf()
-                            }
-
-                            trades.push(trade);
-                        }
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE, trades);
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] getExecutedTrades -> onExchangeCallReturned -> Error = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] getExecutedTrades -> Error = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
-
+    /*
+     * Creates a new buy or sell order.
+     * The orderNumber is returned.
+     */
+    function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBack) {
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
@@ -191,186 +110,90 @@
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             if (pType === "buy") {
-                poloniexApiClient.API.buy(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
+                poloniexApiClient.API.buy(pMarket.assetA, pMarket.assetB, pRate, pAmountB, callBack);
                 return;
             } 
 
             if (pType === "sell") {
-                poloniexApiClient.API.sell(pMarket.assetA, pMarket.assetB, pRate, pAmountB, onExchangeCallReturned);
+                poloniexApiClient.API.sell(pMarket.assetA, pMarket.assetB, pRate, pAmountB, callBack);
                 return;
             }
 
             logger.write(MODULE_NAME, "[ERROR] putPosition -> pType must be either 'buy' or 'sell'.");
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
             return;
-
-            function onExchangeCallReturned(err, exchangeResponse) {
-
-                try {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onExchangeCallReturned -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onExchangeCallReturned -> err = " + err); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
-
-                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
-
-                    function onResponseOk() {
-
-                        /*
-
-                       This is what we can receive from the exchange.
-
-                       {
-                       "orderNumber":31226040,
-                       "resultingTrades":
-                           [{
-                               "amount":"338.8732",
-                               "date":"2014-10-18 23:03:21",
-                               "rate":"0.00000173",
-                               "total":"0.00058625",
-                               "tradeID":"16164",
-                               "type":"buy"
-                           }]
-                       }
-
-                       */
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE, exchangeResponse.orderNumber);
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onExchangeCallReturned -> Error = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] putPosition -> err = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function movePosition(pPosition, pNewRate, pNewAmountB, callBackFunction) {
-
+    /*
+     * Move an existing position to the new rate.
+     * The new orderNumber is returned.
+     */
+    function movePosition(pPosition, pNewRate, pNewAmountB, callBack) {
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> Entering function."); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
             
-            poloniexApiClient.API.moveOrder(pPosition.id, pNewRate, pNewAmountB, onExchangeCallReturned);
-
-            function onExchangeCallReturned(err, exchangeResponse) {
-
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
-                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
-
-                try {
-
-                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
-
-                    function onResponseOk() {
-
-                        if (exchangeResponse.success !== 1) {
-                            logger.write(MODULE_NAME, "[ERROR] movePosition -> onExchangeCallReturned -> exchangeResponse.success = " + exchangeResponse.success);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-                        /*
-
-                       This is what we can receive from the exchange.
-
-                       {
-                       "orderNumber":31226040,
-                       "resultingTrades":
-                           [{
-                               "amount":"338.8732",
-                               "date":"2014-10-18 23:03:21",
-                               "rate":"0.00000173",
-                               "total":"0.00058625",
-                               "tradeID":"16164",
-                               "type":"buy"
-                           }]
-                       }
-
-                       */
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE, exchangeResponse.orderNumber);
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onExchangeCallReturned -> Error = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
+            poloniexApiClient.API.moveOrder(pPosition, pNewRate, pNewAmountB, callBack);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function getTicker(pMarket, callBackFunction) {
-
+    /*
+     * Returns the price for a given pair of assets.
+     * The object returned is an array of trades:
+     * ticker = {
+     *           bid,
+     *           ask,
+     *           last
+     *       };
+     */
+    function getTicker(pMarket, callBack) {
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTicker -> Entering function."); }
 
-            poloniexApiClient.API.returnTicker(onExchangeCallReturned);
-
-            function onExchangeCallReturned(err, exchangeResponse) {
-
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> Entering function."); }
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> err = " + err); }
-                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onExchangeCallReturned -> exchangeResponse = " + JSON.stringify(exchangeResponse)); }
-
-                try {
-
-                    poloniexApiClient.API.analizeResponse(logger, err, exchangeResponse, callBackFunction, onResponseOk);
-
-                    function onResponseOk() {
-
-                        /*
-
-                       This is what we can receive from the exchange.
-
-                       {"BTC_LTC":{ "last":"0.0251",
-                                    "lowestAsk":"0.02589999",
-                                    "highestBid":"0.0251",
-                                    "percentChange":"0.02390438",
-                                    "baseVolume":"6.16485315",
-                                    "quoteVolume":"245.82513926"
-                                  },
-                        "BTC_NXT":{ "last":"0.00005730",
-                                    "lowestAsk":"0.00005710",
-                                    "highestBid":"0.00004903",
-                                    "percentChange":"0.16701570",
-                                    "baseVolume":"0.45347489",
-                                    "quoteVolume":"9094"
-                                  },
-                        ... }
-
-                       */
-
-                        let ticker = {
-                            bid: Number(exchangeResponse[pMarket].highestBid),
-                            ask: Number(exchangeResponse[pMarket].lowestAsk),
-                            last: Number(exchangeResponse[pMarket].last)
-                        };
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE, ticker);
-                    }
-                }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onExchangeCallReturned -> Error = " + err.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
+            poloniexApiClient.API.returnTicker(pMarket.assetA, pMarket.assetB, callBack);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    /*
+     * Returns all the trade history from the Exchange since startTime to endTime orderd by tradeId.
+     * It's possible that the exchange doesn't support this method.
+     * The object returned is an array of trades:
+     * trade = {
+     *           tradeIdAtExchange,
+     *           marketIdAtExchange,
+     *           type,
+     *           rate,
+     *           amountA,
+     *           amountB,
+     *           datetime
+     *       };
+     */
+    function getPublicTradeHistory(assetA, assetB, startTime, endTime, callback) {
+        try {
+
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTradeHistory -> Entering function."); }
+
+            poloniexApiClient.API.returnPublicTradeHistory(assetA, assetB, startTime, endTime, callback);
+
+        } catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] getTradeHistory -> err = " + err.message);
+            callback(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

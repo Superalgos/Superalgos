@@ -89,7 +89,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromExchange -> Entering function."); }
 
-                    exchangeAPI.getTicker(global.MARKET.assetA + '_' + global.MARKET.assetB, onTicker);
+                    exchangeAPI.getTicker(global.MARKET, onTicker);
 
                     return;
 
@@ -663,10 +663,10 @@
                             sumAssetB = thisObject.truncDecimals(sumAssetB);
 
                             if (position.amountB !== sumAssetB) {
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> sumAssetB = " + sumAssetB);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> sumAssetB = " + sumAssetB);
 
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
                                 logger.write(MODULE_NAME, "[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> If the process was abruptally cancelled and then restarted, it is possible that now is not sincronized with the exchange.");
                                 logger.write(MODULE_NAME, "[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> In any case, to continue, you must manually delete the orders at the exchange.");
                                 callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -1230,6 +1230,13 @@
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
+    
+    function getPublicTradeHistory(assetA, assetB, startTime, endTime, callback) {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTradeHistory -> Entering function."); }
+
+        exchangeAPI.getPublicTradeHistory(assetA, assetB, startTime, endTime, callback);
+    }
 
     function recalculateRateAverages() {
 
@@ -1409,7 +1416,7 @@
 
     function truncDecimals(pFloatValue) {
 
-        return parseFloat(parseFloat(pFloatValue).toFixed(8));
+        return parseFloat(parseFloat(pFloatValue).toFixed(6)); //TODO Number of decimals depends on the exchange
 
     }
 };

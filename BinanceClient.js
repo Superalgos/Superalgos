@@ -1,11 +1,20 @@
-﻿exports.newPoloniexAPIClient = function newPoloniexAPIClient(pKey, pSecret, logger) {
+﻿exports.newBinanceAPIClient = function newBinanceAPIClient(pKey, pSecret, logger) {
 
-    // MAX Decimal numers: 8
+    const FULL_LOG = true;
+    const LOG_FILE_CONTENT = true;
+    const MODULE_NAME = "Binance API Client";
 
+    // MAX Decimal numers: 6
     /*
     /* ATENTION: This Library is used both a the cloud (AACloud) and also at the AAWeb on the server side without any modifications.
     /*           There is a second version, stripped of all the inner functionality that runs at AAWeb browser side, which channels the requests to the server side one.
+    /*           
+    /* Documentation @ https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md
+    /*               @ https://support.binance.com/hc/en-us/articles/115000594711-Trading-Rule
     */
+
+    let EMPTY_RESPONSE = "";
+    let NOT_IMPLEMENTED = "Method not implemented yet.";
 
     let newFunction = new API(pKey, pSecret);
 
@@ -20,15 +29,11 @@
 
         // Module dependencies
         var crypto = require('crypto'),
-            request = require('request'),
-            nonce = require('nonce')();
+            request = require('request');
 
         // Constants
-        var version = '0.0.8',
-            PUBLIC_API_URL = 'https://poloniex.com/public',
-            PRIVATE_API_URL = 'https://poloniex.com/tradingApi',
-            USER_AGENT = 'poloniex.js ' + version;
-        //USER_AGENT    = 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:26.0) Gecko/20100101 Firefox/26.0'
+        var recvWindow = '10000',
+            API_URL = 'https://api.binance.com';
 
         // Helper methods
         function joinCurrencies(currencyA, currencyB) {
@@ -37,16 +42,35 @@
                 return currencyA;
             }
 
-            return currencyA + '_' + currencyB;
+            return currencyB + '' + currencyA;
+        }
+
+        function getDate() {
+            let localDate = new Date();
+            let date = new Date(Date.UTC(
+                localDate.getUTCFullYear(),
+                localDate.getUTCMonth(),
+                localDate.getUTCDate(),
+                localDate.getUTCHours(),
+                localDate.getUTCMinutes(),
+                localDate.getUTCSeconds(),
+                localDate.getUTCMilliseconds()));
+            return date.valueOf();
+        }
+
+        function truncDecimals(pFloatValue) {
+
+            return parseFloat(parseFloat(pFloatValue).toFixed(6));
+
         }
 
         // Generate headers signed by thisObject user's key and secret.
         // The secret is encapsulated and never exposed
-        function _getPrivateHeaders(parameters) {
+        function _getSignature(parameters) {
             var paramString, signature;
 
             if (!key || !secret) {
-                throw 'Poloniex: Error. API key and secret required';
+                throw 'Binance: Error. API key and secret required';
             }
 
             // Convert to `arg1=foo&arg2=bar`
@@ -54,16 +78,15 @@
                 return encodeURIComponent(param) + '=' + encodeURIComponent(parameters[param]);
             }).join('&');
 
-            signature = crypto.createHmac('sha512', secret).update(paramString).digest('hex');
+            signature = crypto.createHmac('sha256', secret).update(paramString).digest('hex');
 
             return {
-                Key: key,
-                Sign: signature
+                signature: signature
             };
         };
 
         // Currently, thisObject fails with `Error: CERT_UNTRUSTED`
-        // Poloniex.STRICT_SSL can be set to `false` to avoid thisObject. Use with caution.
+        // Binance.STRICT_SSL can be set to `false` to avoid thisObject. Use with caution.
         // Will be removed in future, once thisObject is resolved.
         const STRICT_SSL = true;
 
@@ -77,10 +100,14 @@
                 }
 
                 options.json = true;
-                options.headers['User-Agent'] = USER_AGENT;
+                options.headers['X-MBX-APIKEY'] = key;
                 options.strictSSL = STRICT_SSL;
+                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] request -> options = " + JSON.stringify(options)); }
 
                 request(options, function (err, response, body) {
+
+                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] response -> err = " + JSON.stringify(err) + ". response: " + JSON.stringify(response) + ". body:" + JSON.stringify(body)); }
+
                     // Empty response
                     if (!err && (typeof body === 'undefined' || body === null)) {
                         err = 'Empty response';
@@ -92,8 +119,8 @@
                 return thisObject;
             },
 
-            // Make a public API request
-            _public: function (command, parameters, callback) {
+            // Make an API request MARKET_DATA or USER_STREAM: Endpoint requires sending a valid API-Key.
+            _public: function (command, parameters, callback) { 
                 var options;
 
                 if (typeof parameters === 'function') {
@@ -102,19 +129,17 @@
                 }
 
                 parameters || (parameters = {});
-                parameters.command = command;
                 options = {
                     method: 'GET',
-                    url: PUBLIC_API_URL,
+                    url: API_URL + command,
                     qs: parameters
                 };
 
-                options.qs.command = command;
                 return thisObject._request(options, callback);
             },
 
-            // Make a private API request
-            _private: function (command, parameters, callback) {
+            // Make an API request MARKET_DATA or USER_STREAM: Endpoint requires sending a valid API-Key.
+            _signed: function (command, parameters, callback) {
                 var options;
 
                 if (typeof parameters === 'function') {
@@ -123,33 +148,58 @@
                 }
 
                 parameters || (parameters = {});
-                parameters.command = command;
-                parameters.nonce = nonce();
-
                 options = {
-                    method: 'POST',
-                    url: PRIVATE_API_URL,
-                    form: parameters,
-                    headers: _getPrivateHeaders(parameters)
+                    method: 'GET',
+                    url: API_URL + command,
+                    qs: parameters
                 };
-
+                options.qs.signature = _getSignature(parameters).signature;
                 return thisObject._request(options, callback);
             },
 
-            /////
-            // PUBLIC METHODS
+            // Make an API request TRADE or USER_DATA: Endpoint requires sending a valid API-Key and signature.
+            _private: function (command, parameters, callback, pMethod) {
+                var options;
+                let method;
+
+                if (typeof parameters === 'function') {
+                    callback = parameters;
+                    parameters = {};
+                }
+
+                if (pMethod === 'DELETE') {
+                    method = pMethod;
+                } else {
+                    method = 'POST'; // Default value
+                }
+
+                parameters || (parameters = {});
+                options = {
+                    method: method,
+                    url: API_URL + command,
+                    form: parameters,
+                    qs: _getSignature(parameters)
+                };
+                
+                return thisObject._request(options, callback);
+            },
+
+            /////// NON SIGNED METHODS
 
             returnTicker: function (currencyA, currencyB, callback) {
-                thisObject._public('returnTicker', processResponse);
+                var parameters = {
+                    symbol: joinCurrencies(currencyA, currencyB)
+                };
+
+                thisObject._public('/api/v1/ticker/24hr', parameters, processResponse);
 
                 function processResponse(err, response) {
                     let ticker;
-                    let market = joinCurrencies(currencyA, currencyB);
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                         ticker = {
-                            bid: Number(response[market].highestBid),
-                            ask: Number(response[market].lowestAsk),
-                            last: Number(response[market].last)
+                            bid: Number(response.bidPrice),
+                            ask: Number(response.askPrice),
+                            last: Number(response.lastPrice)
                         };
                     }
                     callback(err, ticker);
@@ -157,96 +207,74 @@
             },
 
             return24hVolume: function (callback) {
-                return thisObject._public('return24hVolume', callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED , callback);
             },
 
             returnOrderBook: function (currencyA, currencyB, depth, callback) {
-                var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB),
-                    depth: depth
-                };
-
-                return thisObject._public('returnOrderBook', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnOrderBooks: function (depth, callback) {
-                var parameters = {
-                    currencyPair: 'all',
-                    depth: depth
-                };
-
-                return thisObject._public('returnOrderBook', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnPublicTradeHistory: function (currencyA, currencyB, start, end, callback) {
-                var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB),
-                    start: start,
-                    end: end
-                };
-
-                return thisObject._public('returnTradeHistory', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnChartData: function (currencyA, currencyB, period, start, end, callback) {
-                var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB),
-                    period: period,
-                    start: start,
-                    end: end
-                };
-
-                return thisObject._public('returnChartData', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnCurrencies: function (callback) {
-                return thisObject._public('returnCurrencies', callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnLoanOrders: function (currency, callback) {
-                return thisObject._public('returnLoanOrders', { currency: currency }, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
-            /////
-            // PRIVATE METHODS
+            /////// SIGNED METHODS
 
             returnBalances: function (callback) {
-                return thisObject._private('returnBalances', {}, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnCompleteBalances: function (callback) {
-                return thisObject._private('returnCompleteBalances', {}, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnDepositAddresses: function (callback) {
-                return thisObject._private('returnDepositAddresses', {}, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             generateNewAddress: function (currency, callback) {
-                return thisObject._private('returnDepositsWithdrawals', { currency: currency }, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnDepositsWithdrawals: function (start, end, callback) {
-                return thisObject._private('returnDepositsWithdrawals', { start: start, end: end }, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnOpenOrders: function (currencyA, currencyB, callback) {
                 var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB)
+                    symbol: joinCurrencies(currencyA, currencyB),
+                    recvWindow: recvWindow,
+                    timestamp: getDate().valueOf()
                 };
 
-                thisObject._private('returnOpenOrders', parameters, processResponse);
+                thisObject._signed('/api/v3/openOrders', parameters, processResponse);
 
                 function processResponse(err, response) {
                     let exchangePositions = [];
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                         for (let i = 0; i < response.length; i++) {
                             let openPosition = {
-                                id: response[i].orderNumber,
-                                type: response[i].type,
-                                rate: response[i].rate,
-                                amountA: response[i].total,
-                                amountB: response[i].amount,
+                                id: response[i].orderId,
+                                type: response[i].side.toLowerCase(),
+                                rate: Number(response[i].price),
+                                amountA: truncDecimals(response[i].origQty * response[i].price),
+                                amountB: Number(response[i].origQty),
                                 date: (new Date(response[i].time)).valueOf()
                             };
                             exchangePositions.push(openPosition);
@@ -257,71 +285,73 @@
             },
 
             returnTradeHistory: function (currencyA, currencyB, callback) {
-                var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB)
-                };
-
-                return thisObject._private('returnTradeHistory', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnOrderTrades: function (orderNumber, callback) {
+
                 var parameters = {
-                    orderNumber: orderNumber
+                    symbol: joinCurrencies('USDT', 'BTC'), // TODO add parameters
+                    timestamp: getDate().valueOf()
                 };
 
-                thisObject._private('returnOrderTrades', parameters, processResponse);
+                thisObject._signed('/api/v3/myTrades', parameters, processResponse);
 
                 function processResponse(err, response) {
-                    let trades = [];
+                    let exchangeTrades = [];
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                         for (let i = 0; i < response.length; i++) {
-                            let trade = {
-                                id: response[i].tradeID,
-                                type: response[i].type,
-                                rate: response[i].rate,
-                                amountA: response[i].total,
-                                amountB: response[i].amount,
-                                fee: response[i].fee,
-                                date: (new Date(response[i].date)).valueOf()
+                            if (response[i].orderId === orderNumber) {
+                                let type = "sell"
+                                if (response[i].isBuyer === true) {
+                                    type = "buy";
+                                }
+                                let trade = {
+                                    id: response[i].orderId,
+                                    type: type,
+                                    rate: Number(response[i].price),
+                                    amountA: truncDecimals(response[i].qty * response[i].price),
+                                    amountB: Number(response[i].qty),
+                                    fee: Number(response[i].commission),
+                                    date: (new Date(response[i].time)).valueOf()
+                                };
+                                exchangeTrades.push(trade);
+                                break;
                             }
-                            trades.push(trade);
                         }
                     }
-                    callback(err, trades);
+                    callback(err, exchangeTrades);
                 }
             },
 
             buy: function (currencyA, currencyB, rate, amount, callback) {
-                var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB),
-                    rate: rate,
-                    amount: amount
-                };
-
-                thisObject._private('buy', parameters, processResponse);
-
-                function processResponse(err, response) {
-                    let orderNumber;
-                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                        orderNumber = response.orderNumber;
-                    }
-                    callback(err, orderNumber);
-                }
+                thisObject._putOrder(currencyA, currencyB, rate, amount, 'BUY', callback);
             },
 
             sell: function (currencyA, currencyB, rate, amount, callback) {
+                thisObject._putOrder(currencyA, currencyB, rate, amount, 'SELL', callback);
+            },
+
+            _putOrder: function (currencyA, currencyB, rate, amount, side, callback) {
+
+                // TODO ERROR management, if total < 10 return error on sells
+
                 var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB),
-                    rate: rate,
-                    amount: amount
+                    symbol: joinCurrencies(currencyA, currencyB),
+                    side: side,
+                    type: 'LIMIT',
+                    quantity: truncDecimals(amount),
+                    price: rate,
+                    timestamp: getDate().valueOf(),
+                    timeInForce: 'GTC'
                 };
 
-                thisObject._private('sell', parameters, processResponse);
+                thisObject._private('/api/v3/order', parameters, processResponse);
 
                 function processResponse(err, response) {
                     let orderNumber;
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                        orderNumber = response.orderNumber;
+                        orderNumber = response.orderId;
                     }
                     callback(err, orderNumber);
                 }
@@ -329,159 +359,103 @@
 
             cancelOrder: function (currencyA, currencyB, orderNumber, callback) {
                 var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB),
-                    orderNumber: orderNumber
+                    symbol: joinCurrencies(currencyA, currencyB),
+                    orderId: orderNumber,
+                    timestamp: getDate().valueOf(),
                 };
 
-                return thisObject._private('cancelOrder', parameters, callback);
-            },
-
-            moveOrder: function (orderNumber, rate, amount, callback) {
-                var parameters = {
-                    orderNumber: orderNumber,
-                    rate: rate,
-                    amount: amount ? amount : null
-                };
-
-                thisObject._private('moveOrder', parameters, processResponse);
+                thisObject._private('/api/v3/order', parameters, processResponse, 'DELETE');
 
                 function processResponse(err, response) {
                     let orderNumber;
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                        orderNumber = response.orderNumber;
+                        orderNumber = response.orderId;
                     }
                     callback(err, orderNumber);
                 }
             },
 
-            withdraw: function (currency, amount, address, callback) {
-                var parameters = {
-                    currency: currency,
-                    amount: amount,
-                    address: address
-                };
+            moveOrder: function (position, rate, amount, callback) {
+                thisObject.cancelOrder('USDT', 'BTC', orderNumber, processResponse); //TODO Maybe we will need to query the order to check executedQty
 
-                return thisObject._private('withdraw', parameters, callback);
+                function processResponse(err, response) {
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                        if (position.type === "buy")
+                            thisObject.buy('USDT', 'BTC', rate, truncDecimals(amount), callback);
+                        else
+                            thisObject.sell('USDT', 'BTC', rate, truncDecimals(amount), callback);
+                    } else {
+                        callback(err);
+                    }
+                }
+            },
+
+            withdraw: function (currency, amount, address, callback) {
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnFeeInfo: function (callback) {
-                return thisObject._private('returnFeeInfo', {}, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnAvailableAccountBalances: function (account, callback) {
-                var options = {};
-                if (account) {
-                    options.account = account;
-                }
-                return thisObject._private('returnAvailableAccountBalances', options, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnTradableBalances: function (callback) {
-                return thisObject._private('returnTradableBalances', {}, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             transferBalance: function (currency, amount, fromAccount, toAccount, callback) {
-                var parameters = {
-                    currency: currency,
-                    amount: amount,
-                    fromAccount: fromAccount,
-                    toAccount: toAccount
-                };
-
-                return thisObject._private('transferBalance', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnMarginAccountSummary: function (callback) {
-                return thisObject._private('returnMarginAccountSummary', {}, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             marginBuy: function (currencyA, currencyB, rate, amount, lendingRate, callback) {
-                var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB),
-                    rate: rate,
-                    amount: amount,
-                    lendingRate: lendingRate ? lendingRate : null
-                };
-
-                return thisObject._private('marginBuy', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             marginSell: function (currencyA, currencyB, rate, amount, lendingRate, callback) {
-                var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB),
-                    rate: rate,
-                    amount: amount,
-                    lendingRate: lendingRate ? lendingRate : null
-                };
-
-                return thisObject._private('marginSell', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             getMarginPosition: function (currencyA, currencyB, callback) {
-                var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB)
-                };
-
-                return thisObject._private('getMarginPosition', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             closeMarginPosition: function (currencyA, currencyB, callback) {
-                var parameters = {
-                    currencyPair: joinCurrencies(currencyA, currencyB)
-                };
-
-                return thisObject._private('closeMarginPosition', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             createLoanOffer: function (currency, amount, duration, autoRenew, lendingRate, callback) {
-                var parameters = {
-                    currency: currency,
-                    amount: amount,
-                    duration: duration,
-                    autoRenew: autoRenew,
-                    lendingRate: lendingRate
-                };
-
-                return thisObject._private('createLoanOffer', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             cancelLoanOffer: function (orderNumber, callback) {
-                var parameters = {
-                    orderNumber: orderNumber
-                };
-
-                return thisObject._private('cancelLoanOffer', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnOpenLoanOffers: function (callback) {
-                return thisObject._private('returnOpenLoanOffers', {}, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnActiveLoans: function (callback) {
-                return thisObject._private('returnActiveLoans', {}, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             returnLendingHistory: function (start, end, limit, callback) {
-                var parameters = {
-                    start: start,
-                    end: end,
-                    limit: limit
-                };
-
-                return thisObject._private('returnLendingHistory', parameters, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             toggleAutoRenew: function (orderNumber, callback) {
-                return thisObject._private('toggleAutoRenew', { orderNumber: orderNumber }, callback);
+                analizeResponse(EMPTY_RESPONSE, NOT_IMPLEMENTED, callback);
             },
 
             analizeResponse: function (exchangeErr, exchangeResponse, callBack) {
-
-                const FULL_LOG = true;
-                const LOG_FILE_CONTENT = true;
-                const MODULE_NAME = "Poloniex API Client";
-
-                /* This function analizes the different situations we might encounter trying to access Poloniex and returns appropiate standard errors. */
+                /* This function analizes the different situations we might encounter trying to access Binance and returns appropiate standard errors. */
 
                 let stringExchangeResponse = JSON.stringify(exchangeResponse);
                 let stringExchangeErr = JSON.stringify(exchangeErr);
@@ -510,11 +484,11 @@
 
                     } else {
 
-                        if (stringExchangeResponse.indexOf("error") > 0) {
+                        if (stringExchangeResponse.indexOf("code") > 0) {
 
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> Unexpected response from the Exchange.");
                             logger.write(MODULE_NAME, "[ERROR] analizeResponse -> JSON.stringify(exchangeErr) = " + stringExchangeErr);
-                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> exchangeResponse = " + stringExchangeResponse);
+                            logger.write(MODULE_NAME, "[ERROR] analizeResponse -> JSON.stringify(exchangeResponse) = " + stringExchangeResponse);
 
                             /* {"error":"Not enough USDT.","success":0}*/
 

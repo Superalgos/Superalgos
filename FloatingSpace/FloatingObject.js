@@ -13,6 +13,7 @@ function newFloatingObject() {
         initializeMass: initializeMass,
         initializeRadius: initializeRadius,
         initializeImageSize: initializeImageSize,
+        initializeFontSize: initializeFontSize,
 
         imageId: undefined,
 
@@ -100,12 +101,15 @@ function newFloatingObject() {
 
         thisObject.targetRadius = thisObject.rawRadius * 2;
         thisObject.targetImageSize = thisObject.rawImageSize * 2;
+        thisObject.targetFontSize = thisObject.rawFontSize * 1.5;
+
     }
 
     function onMouseNotOver() {
 
         thisObject.targetRadius = thisObject.rawRadius * 1;
         thisObject.targetImageSize = thisObject.rawImageSize * 1;
+        thisObject.targetFontSize = thisObject.rawFontSize * 1;
     }
 
     function drawBackground() {
@@ -155,6 +159,19 @@ function newFloatingObject() {
         thisObject.rawImageSize = size;
         thisObject.targetImageSize = size;
         thisObject.currentImageSize = size / 3;
+
+    }
+
+    function initializeFontSize(suggestedValue) {
+
+        var size = suggestedValue;
+        if (size < 3) {
+            size = 3;
+        }
+
+        thisObject.rawFontSize = size;
+        thisObject.targetFontSize = size;
+        thisObject.currentFontSize = size / 3;
 
     }
 

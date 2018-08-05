@@ -115,7 +115,7 @@ function newProfileBall() {
             browserCanvasContext.strokeStyle = pFloatingObject.labelStrokeStyle;
 
             let labelPoint;
-            let fontSize = 10;
+            let fontSize = pFloatingObject.currentFontSize;
 
             browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
 

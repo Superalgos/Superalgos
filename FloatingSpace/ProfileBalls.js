@@ -56,6 +56,7 @@ function newProfileBalls() {
             floatingObject.initializeMass(100);
             floatingObject.initializeRadius(30);
             floatingObject.initializeImageSize(50);
+            floatingObject.initializeFontSize(10);
 
             floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 0.5)';
             floatingObject.labelStrokeStyle = 'rgba(60, 60, 60, 0.50)';

@@ -434,7 +434,17 @@ function newFloatingLayer() {
                             }
                         }
 
+                        // The fontSize also have a target.
 
+                        if (Math.abs(floatingObject.currentImageSize - floatingObject.targetImageSize) >= 0.1) {
+
+                            if (floatingObject.currentFontSize < floatingObject.targetFontSize) {
+                                floatingObject.currentFontSize = floatingObject.currentFontSize + 0.1;
+                            } else {
+                                floatingObject.currentFontSize = floatingObject.currentFontSize - 0.1;
+                            }
+                        }
+                        
                         /* Collision Control */
 
                         for (let k = i + 1; k < visibleFloatingObjects.length; k++) {

@@ -20,7 +20,7 @@ UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
-FONT_ASPECT_RATIO = 0.50;
+FONT_ASPECT_RATIO = 0.45;
 
 /* User Interface Panels */
 

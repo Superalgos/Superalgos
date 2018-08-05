@@ -127,7 +127,7 @@ function newProfileBall() {
 
                 labelPoint = {
                     x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-                    y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 5
+                    y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 10
                 };
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;
@@ -142,7 +142,7 @@ function newProfileBall() {
 
                 labelPoint = {
                     x: pFloatingObject.currentPosition.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-                    y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 10
+                    y: pFloatingObject.currentPosition.y + pFloatingObject.currentImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 15
                 };
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY;

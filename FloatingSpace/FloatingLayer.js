@@ -436,12 +436,12 @@ function newFloatingLayer() {
 
                         // The fontSize also have a target.
 
-                        if (Math.abs(floatingObject.currentImageSize - floatingObject.targetImageSize) >= 0.1) {
+                        if (Math.abs(floatingObject.currentImageSize - floatingObject.targetImageSize) >= 0.2) {
 
                             if (floatingObject.currentFontSize < floatingObject.targetFontSize) {
-                                floatingObject.currentFontSize = floatingObject.currentFontSize + 0.1;
+                                floatingObject.currentFontSize = floatingObject.currentFontSize + 0.2;
                             } else {
-                                floatingObject.currentFontSize = floatingObject.currentFontSize - 0.1;
+                                floatingObject.currentFontSize = floatingObject.currentFontSize - 0.2;
                             }
                         }
                         

@@ -99,8 +99,8 @@ function newFloatingObject() {
 
     function onMouseOver() {
 
-        thisObject.targetRadius = thisObject.rawRadius * 2;
-        thisObject.targetImageSize = thisObject.rawImageSize * 2;
+        thisObject.targetRadius = thisObject.rawRadius * 1.5;
+        thisObject.targetImageSize = thisObject.rawImageSize * 1.5;
         thisObject.targetFontSize = thisObject.rawFontSize * 1.5;
 
     }

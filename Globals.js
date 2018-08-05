@@ -165,3 +165,7 @@ We define here the size of the chartSpace. It has to bee enough big in order to 
 
 const CHART_SPACE_WIDTH = browserCanvas.width * 1000;
 const CHART_SPACE_HEIGHT = browserCanvas.height * 100;
+
+function toRadians(angle) {
+    return angle * (Math.PI / 180);
+}

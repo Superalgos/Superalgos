@@ -3,6 +3,7 @@ function newFloatingObject() {
 
     var thisObject = {
 
+        physicsLoop: physicsLoop, 
         eventHandler: undefined,
 
         payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
@@ -97,12 +98,19 @@ function newFloatingObject() {
         callBackFunction();
     }
 
+    function physicsLoop() {
+
+        underlayingObject.physicsLoop();
+
+    }
+
     function onMouseOver() {
 
         thisObject.targetRadius = thisObject.rawRadius * 1.5;
         thisObject.targetImageSize = thisObject.rawImageSize * 1.5;
         thisObject.targetFontSize = thisObject.rawFontSize * 1.5;
 
+        underlayingObject.onMouseOver();
     }
 
     function onMouseNotOver() {
@@ -110,6 +118,8 @@ function newFloatingObject() {
         thisObject.targetRadius = thisObject.rawRadius * 1;
         thisObject.targetImageSize = thisObject.rawImageSize * 1;
         thisObject.targetFontSize = thisObject.rawFontSize * 1;
+
+        underlayingObject.onMouseNotOver();
     }
 
     function drawBackground() {

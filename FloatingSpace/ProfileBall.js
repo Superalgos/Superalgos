@@ -1,20 +1,113 @@
 ﻿
 function newProfileBall() {
 
-    var thisObject = {
+    let thisObject = {
 
+        physicsLoop: physicsLoop,
+        onMouseOver: onMouseOver, 
+        onMouseNotOver: onMouseNotOver,
         drawBackground: drawBackground,
         drawForeground: drawForeground,
         initialize: initialize
 
     };
 
+    let ballStringMenu = [
+        {
+            visible: false,
+            imagePath: "Images/menu.icon.1.gif",
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+        },
+        {
+            visible: false,
+            imagePath: "Images/menu.icon.2.gif",
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20 * 1
+        },
+        {
+            visible: false,
+            imagePath: "Images/menu.icon.3.gif",
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+        },
+        {
+            visible: false,
+            imagePath: "Images/menu.icon.4.gif",
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+        }
+    ];
+
     return thisObject;
 
     function initialize(callBackFunction) {
 
+        for (let i = 0; i < ballStringMenu.length; i++) {
+
+            let menuItem = ballStringMenu[i];
+
+            menuItem.icon = new Image();
+
+            menuItem.icon.onload = onImageLoad;
+
+            function onImageLoad() {
+                menuItem.canDrawIcon = true;
+            }
+
+            menuItem.icon.src = menuItem.imagePath;
+
+        }
+
         callBackFunction();
 
+    }
+
+    function physicsLoop() {
+
+        // The menuItems also have a target.
+
+        for (let i = 0; i < ballStringMenu.length; i++) {
+
+            let menuItem = ballStringMenu[i];
+
+            if (Math.abs(menuItem.currentRadius - menuItem.targetRadius) >= 0.5) {
+
+                if (menuItem.currentRadius < menuItem.targetRadius) {
+                    menuItem.currentRadius = menuItem.currentRadius + 0.5;
+                } else {
+                    menuItem.currentRadius = menuItem.currentRadius - 0.5;
+                }
+            }
+        }
+    }
+
+    function onMouseOver() {
+
+        for (let i = 0; i < ballStringMenu.length; i++) {
+
+            let menuItem = ballStringMenu[i];
+
+            menuItem.targetRadius = menuItem.rawRadius * 1.5;
+        }
+    } 
+
+    function onMouseNotOver() {
+
+        for (let i = 0; i < ballStringMenu.length; i++) {
+
+            let menuItem = ballStringMenu[i];
+
+            menuItem.targetRadius = menuItem.rawRadius * 0 - i * 5;
+        }
     }
 
     function drawBackground(pFloatingObject) {
@@ -105,6 +198,24 @@ function newProfileBall() {
 
                 browserCanvasContext.drawImage(image, pFloatingObject.currentPosition.x - pFloatingObject.currentImageSize / 2, pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize);
 
+            }
+        }
+
+
+        /* StringBall Menu */
+
+        for (let i = 0; i < ballStringMenu.length; i++) {
+
+            let menuItem = ballStringMenu[i];
+
+            if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {               
+
+                let position = {
+                    x: pFloatingObject.currentPosition.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)) - menuItem.currentRadius,
+                    y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle)) - menuItem.currentRadius
+                };
+
+                browserCanvasContext.drawImage(menuItem.icon, position.x, position.y, menuItem.currentRadius * 2, menuItem.currentRadius * 2);
             }
         }
 

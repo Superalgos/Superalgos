@@ -339,7 +339,7 @@ function newFloatingLayer() {
                     if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> applyPhysics -> Entering function."); }
 
                     for (let i = 0; i < visibleFloatingObjects.length; i++) {
-
+                        
                         let floatingObject = visibleFloatingObjects[i];
 
                         if (INTENSIVE_LOG === true) { logger.write("[INFO] physicsLoop -> Change position based on speed."); }
@@ -436,7 +436,7 @@ function newFloatingLayer() {
 
                         // The fontSize also have a target.
 
-                        if (Math.abs(floatingObject.currentImageSize - floatingObject.targetImageSize) >= 0.2) {
+                        if (Math.abs(floatingObject.currentFontSize - floatingObject.targetFontSize) >= 0.2) {
 
                             if (floatingObject.currentFontSize < floatingObject.targetFontSize) {
                                 floatingObject.currentFontSize = floatingObject.currentFontSize + 0.2;
@@ -444,6 +444,10 @@ function newFloatingLayer() {
                                 floatingObject.currentFontSize = floatingObject.currentFontSize - 0.2;
                             }
                         }
+
+                        // We let the Floating Object animate the physics loops by itself.
+
+                        floatingObject.physicsLoop();
                         
                         /* Collision Control */
 

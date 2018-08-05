@@ -488,11 +488,94 @@ function newCanvas() {
                 dragVector.upY = event.pageY;
 
                 checkDrag();
+            } else {
+
+                onMouseOver(event);
+
             }
 
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] onMouseMove -> err = " + err); }
+
+        }
+    }
+
+    function onMouseOver(event) {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] onMouseOver -> Entering function."); }
+
+            /* First we raise the event signaling theat the mouse is potentially over another item, so that the current item can turn itself off. */
+
+            thisObject.eventHandler.raiseEvent("onMouseNotOver");
+
+            /* Then we check who is the current object underneeth the mounse. */
+
+            let point = {
+                x: event.pageX,
+                y: event.pageY
+            };
+
+            let container;
+
+            /* We check if the mouse is over an element of the Top Space / */
+
+            container = thisObject.topSpace.getContainer(point);
+
+            if (container !== undefined && container.isClickeable === true) {
+
+                container.eventHandler.raiseEvent('onMouseOver', point);
+                return;
+            }
+
+            /* We check if the mouse is over an element of the Bottom Space / */
+
+            container = thisObject.bottomSpace.getContainer(point);
+
+            if (container !== undefined && container.isClickeable === true) {
+
+                container.eventHandler.raiseEvent('onMouseOver', point);
+                return;
+            }
+
+            /* We check if the mouse is over a panel/ */
+
+            container = thisObject.panelsSpace.getContainer(point);
+
+            if (container !== undefined && container.isClickeable === true) {
+
+                container.eventHandler.raiseEvent('onMouseOver', point);
+                return;
+            }
+
+            /* We check if the mouse is over a floatingObject/ */
+
+            let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
+
+            if (floatingObjectBeingClicked >= 0) {
+
+                let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked);
+                floatingObject.eventHandler.raiseEvent('onMouseOver', point);
+
+                return;
+
+            }
+
+            /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
+
+            container = thisObject.chartSpace.getContainer(point);
+
+            if (container !== undefined && container.isClickeable === true) {
+
+                container.eventHandler.raiseEvent('onMouseOver', point);
+                return;
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] onMouseOver -> err = " + err); }
 
         }
     }

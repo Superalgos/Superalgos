@@ -3,6 +3,8 @@ function newFloatingObject() {
 
     var thisObject = {
 
+        eventHandler: undefined,
+
         payload: undefined,                     // This is a reference to an object controlled by a Plotter. The plotter can change its internal value and we will see them from here.
         type: undefined,                        // Currently there are two types of Floating Objects: Profile Balls, and Notes.
 
@@ -49,6 +51,8 @@ function newFloatingObject() {
 
     let underlayingObject;
 
+    thisObject.eventHandler = newEventHandler();
+
     return thisObject;
 
     function initialize(pType, callBackFunction) {
@@ -86,7 +90,22 @@ function newFloatingObject() {
 
         thisObject.type = pType;
 
+        thisObject.eventHandler.listenToEvent("onMouseOver", onMouseOver);
+        canvas.eventHandler.listenToEvent("onMouseNotOver", onMouseNotOver);
+
         callBackFunction();
+    }
+
+    function onMouseOver() {
+
+        thisObject.targetRadius = thisObject.rawRadius * 2;
+        thisObject.targetImageSize = thisObject.rawImageSize * 2;
+    }
+
+    function onMouseNotOver() {
+
+        thisObject.targetRadius = thisObject.rawRadius * 1;
+        thisObject.targetImageSize = thisObject.rawImageSize * 1;
     }
 
     function drawBackground() {

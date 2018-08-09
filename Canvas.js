@@ -408,7 +408,9 @@ function newCanvas() {
 
             if (floatingObjectBeingClicked >= 0) {
 
-                /* Right now we do nothing with this. */
+                let floatingObject = thisObject.floatingSpace.floatingLayer.getFloatingObject(undefined, floatingObjectBeingClicked);
+                floatingObject.eventHandler.raiseEvent('onMouseClick', point);
+
                 return;
 
             }

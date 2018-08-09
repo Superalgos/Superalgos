@@ -95,6 +95,8 @@ function newFloatingObject() {
         thisObject.eventHandler.listenToEvent("onMouseOver", onMouseOver);
         canvas.eventHandler.listenToEvent("onMouseNotOver", onMouseNotOver);
 
+        thisObject.eventHandler.listenToEvent("onMouseClick", onMouseClick);
+
         callBackFunction();
     }
 
@@ -120,6 +122,12 @@ function newFloatingObject() {
         thisObject.targetFontSize = thisObject.rawFontSize * 1;
 
         underlayingObject.onMouseNotOver();
+    }
+
+    function onMouseClick(pPoint) {
+
+        underlayingObject.onMouseClick(pPoint, thisObject);
+
     }
 
     function drawBackground() {

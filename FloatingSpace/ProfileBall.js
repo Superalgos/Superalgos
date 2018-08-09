@@ -5,6 +5,7 @@ function newProfileBall() {
 
         physicsLoop: physicsLoop,
         onMouseOver: onMouseOver, 
+        onMouseClick: onMouseClick, 
         onMouseNotOver: onMouseNotOver,
         drawBackground: drawBackground,
         drawForeground: drawForeground,
@@ -110,6 +111,51 @@ function newProfileBall() {
         }
     }
 
+    function onMouseClick(pPoint, pFloatingObject) {
+
+        /* What we need to do here is to check which menu item was clicked, if any. */
+
+        let menuItemIndex;
+
+        for (let i = 0; i < ballStringMenu.length; i++) {
+
+            let menuItem = ballStringMenu[i];
+
+            if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {
+
+                let position = {
+                    x: pFloatingObject.currentPosition.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)),
+                    y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle))
+                };
+
+                browserCanvasContext.drawImage(menuItem.icon, position.x, position.y, menuItem.currentRadius * 2, menuItem.currentRadius * 2);
+
+                let distance = Math.sqrt(Math.pow(position.x - pPoint.x, 2) + Math.pow(position.y - pPoint.y, 2));
+
+                if (distance < menuItem.currentRadius) {
+                    menuItemIndex =  i;
+                }
+            }
+        }
+
+        if (menuItemIndex !== undefined) {
+
+            switch (menuItemIndex) {
+
+                case 0: { // This menu item is to turn ON / OFF the plotting of this bot.
+
+                    break;
+                }
+
+                case 1: { // This menu item is to turn ON the Debug Log pannel for the bot.
+
+                    break;
+                }
+            }
+
+        }
+    }
+
     function drawBackground(pFloatingObject) {
 
         let point = {
@@ -208,14 +254,14 @@ function newProfileBall() {
 
             let menuItem = ballStringMenu[i];
 
-            if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {               
+            if (menuItem.canDrawIcon === true && menuItem.currentRadius > 1) {
 
                 let position = {
-                    x: pFloatingObject.currentPosition.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)) - menuItem.currentRadius,
-                    y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle)) - menuItem.currentRadius
+                    x: pFloatingObject.currentPosition.x + pFloatingObject.currentImageSize / 2 * Math.cos(toRadians(menuItem.angle)),
+                    y: pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2 * Math.sin(toRadians(menuItem.angle))
                 };
 
-                browserCanvasContext.drawImage(menuItem.icon, position.x, position.y, menuItem.currentRadius * 2, menuItem.currentRadius * 2);
+                browserCanvasContext.drawImage(menuItem.icon, position.x - menuItem.currentRadius, position.y - menuItem.currentRadius, menuItem.currentRadius * 2, menuItem.currentRadius * 2);
             }
         }
 

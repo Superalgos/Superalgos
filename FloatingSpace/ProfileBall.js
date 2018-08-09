@@ -16,7 +16,8 @@ function newProfileBall() {
     let ballStringMenu = [
         {
             visible: false,
-            imagePath: "Images/menu.icon.1.gif",
+            imagePathOn: "Images/menu.icon.on.1.gif",
+            imagePathOff: "Images/menu.icon.off.1.gif",
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -24,7 +25,8 @@ function newProfileBall() {
         },
         {
             visible: false,
-            imagePath: "Images/menu.icon.2.gif",
+            imagePathOn: "Images/menu.icon.on.2.gif",
+            imagePathOff: "Images/menu.icon.off.2.gif",
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -32,7 +34,8 @@ function newProfileBall() {
         },
         {
             visible: false,
-            imagePath: "Images/menu.icon.3.gif",
+            imagePathOn: "Images/menu.icon.on.3.gif",
+            imagePathOff: "Images/menu.icon.off.3.gif",
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -40,7 +43,8 @@ function newProfileBall() {
         },
         {
             visible: false,
-            imagePath: "Images/menu.icon.4.gif",
+            imagePathOn: "Images/menu.icon.on.4.gif",
+            imagePathOff: "Images/menu.icon.off.4.gif",
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -56,15 +60,27 @@ function newProfileBall() {
 
             let menuItem = ballStringMenu[i];
 
-            menuItem.icon = new Image();
+            menuItem.iconOn = new Image();
 
-            menuItem.icon.onload = onImageLoad;
+            menuItem.iconOn.onload = onImageLoad;
 
             function onImageLoad() {
-                menuItem.canDrawIcon = true;
+
+                menuItem.iconOff = new Image();
+
+                menuItem.iconOff.onload = onImageLoad;
+
+                function onImageLoad() {
+                    menuItem.canDrawIcon = true;
+                }
+
+                menuItem.iconOff.src = menuItem.imagePathOff;
+
             }
 
-            menuItem.icon.src = menuItem.imagePath;
+            menuItem.iconOn.src = menuItem.imagePathOn;
+
+            menuItem.icon = menuItem.iconOn; // The default value is ON.
 
         }
 
@@ -143,6 +159,22 @@ function newProfileBall() {
             switch (menuItemIndex) {
 
                 case 0: { // This menu item is to turn ON / OFF the plotting of this bot.
+
+                    if (pFloatingObject.payload.profile.plot === true) {
+
+                        pFloatingObject.payload.profile.plot = false;
+
+                        let menuItem = ballStringMenu[0];
+                        menuItem.icon = menuItem.iconOff;
+
+                    } else {
+
+                        pFloatingObject.payload.profile.plot = true;
+
+                        let menuItem = ballStringMenu[0];
+                        menuItem.icon = menuItem.iconOn;
+
+                    }
 
                     break;
                 }

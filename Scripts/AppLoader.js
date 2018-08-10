@@ -39,6 +39,7 @@
                 "TopSpace/CurrentBot.js",
                 "TopSpace/DevTeam.js",
                 "TopSpace/EndUser.js",
+                "TopSpace/Login.js",
 
                 "Panels/TimeControlPanel.js",
                 "Panels/ProductsPanel.js",

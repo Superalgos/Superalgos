@@ -1,34 +1,49 @@
 ﻿
-function newCurrentStartMode() {
+function newLogin() {
 
-    var thisObject = {
+    let thisObject = {
         container: undefined,
         draw: draw,
-        getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+        getContainer: getContainer,
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     thisObject.container = container;
 
     thisObject.container.frame.width = 200;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 2;
+    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 1;
     container.frame.position.y = 0;
 
     container.isDraggeable = false;
     container.isClickeable = true;
 
+    const LOGIN_URL = "https://advancedalgos1.eu.auth0.com/login?state=HQmR_JEnoSYS9Zz0nkCzW_zALsRJXjoQ&client=GReymhOiUQuLhDEwxlLu6PMDIa6mjVQQ&protocol=oauth2&response_type=token%20id_token&redirect_uri=https%3A%2F%2F" + window.location.host + "%2F%23&scope=openid&audience=https%3A%2F%2Fadvancedalgos1.eu.auth0.com%2Fuserinfo&nonce=7LZ5hOd6D3jFdNdtDvEqNOyOR3nZXw5A&auth0Client=eyJuYW1lIjoiYXV0aDAuanMiLCJ2ZXJzaW9uIjoiOS41LjEifQ%3D%3D"
+    const LOGOUT_URL = "/";
+
+    let currentURL;
+    let currentLabel;
+
+    let sharedStatus;
+
     return thisObject;
 
     function initialize() {
 
-        window.CURRENT_START_MODE = window.localStorage.getItem("currentStartMode");
 
-        if (window.CURRENT_START_MODE === null) {
-            window.CURRENT_START_MODE = "Backtest";
+        if (window.USER_LOGGED_IN === "") {
+
+            currentLabel = "Login";
+            currentURL = LOGIN_URL;
+
+        } else {
+
+            currentLabel = "Logout";
+            currentURL = LOGOUT_URL;
+
         }
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
@@ -36,23 +51,8 @@ function newCurrentStartMode() {
 
     function onClick() {
 
-        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
+        window.location.href = currentURL;
 
-        switch (window.CURRENT_START_MODE) {
-
-            case "Backtest": {
-                window.CURRENT_START_MODE = "Live";
-                break;
-            }
-            case "Live": {
-                window.CURRENT_START_MODE = "Competition";
-                break;
-            }
-            case "Competition": {
-                window.CURRENT_START_MODE = "Backtest";
-                break;
-            }
-        }
     }
 
     function getContainer(point) {
@@ -76,15 +76,13 @@ function newCurrentStartMode() {
 
     function draw() {
 
-        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return;}
-
         thisObject.container.frame.draw(false, false);
 
         let fontSize = 12;
-        let label = window.CURRENT_START_MODE + " Mode";
+        let label = currentLabel;
 
         let point = {
-            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize / 3,
+            x: thisObject.container.frame.width * 1 / 3,
             y: (thisObject.container.frame.height / 2) + 4
         };
 

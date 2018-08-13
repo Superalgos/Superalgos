@@ -176,8 +176,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
-                    const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'PoloniexAPIClient');
-                    const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
+                    const EXCHANGE_API = require(ROOT_DIR + 'exchange/ExchangeAPI');
                     const CONTEXT = require(ROOT_DIR + 'Context');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
@@ -608,7 +607,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
 
-                            exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, logger, POLONIEX_CLIENT_MODULE);
+                            exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, logger);
 
                             exchangeAPI.initialize(onInizialized);
 

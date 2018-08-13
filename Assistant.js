@@ -412,15 +412,15 @@
 
             /*
 
-            Here we check that all the positions we know we still have at the exchange. If they are not, we will try to take appropiate
+            Here we check that all the positions we know are still valid at the exchange. If they are not, we will try to take appropiate
             actions. Reasons why the positions might not be there are:
 
             1. The user / account owner closed the positions manually.
-            2. The exchange for some eventuality closed the positions. In some exchanges positions have an expiratin time.
+            2. The exchange for some eventuality closed the positions. In some exchanges positions have an expiration time.
             3. The orders were executed.
 
-            For as 1 and 2 are similar unexpected situations and we will stop the bot execution when we detect we are there. Number 3 is an
-            expected behaviour and we take appropiate action.
+            Situations 1 and 2 are similar unexpected and we will stop the bot execution when we detect them. Number 3 is an
+            expected behaviour and we will take appropiate action.
 
             Also, the position might still be there but it might have been partially executed. To detect that we need to compare the
             position amounts we have on file to the one we are receiving from the exchange.
@@ -445,7 +445,7 @@
             /*
 
             This removes all orders leaving only the not executed position. Consider that we do want executed positions to be recored on the file so as to
-            have a record of their execution. But at next execution these records must be deleted bedore the new Execution Context file is created and
+            have a record of their execution. But at next execution these records must be deleted before the new Execution Context file is created and
             this is what we do here.
 
             */
@@ -495,9 +495,10 @@
     
                         */
 
-                        if (position.amountB === thisObject.truncDecimals(exchangePosition.amountB)) {
+                        if (position.amountB === exchangePosition.amountB) {
 
-                            /* Position is still there, untouched. Nothing to do here. */
+                            /* Position is still there, untouched. We update the final amountA on exchange. */
+                            position.amountA = exchangePosition.amountA;
 
                             next();
                             return;
@@ -629,6 +630,7 @@
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
+
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -715,8 +717,8 @@
                             /*
  
                             To confirm everything is ok, we will add all the amounts on trades plus the remaining amounts
-                            at the order at the exchange and they must be equal to the one on file. Otherwise something very strange could
-                            have happened, in which case we will halt the bot execution.
+                            at the order at the exchange and they must be equal to the one on file. Otherwise an inconsistent
+                            state has been detected, in which case we will halt the bot execution.
  
                             */
 
@@ -737,17 +739,30 @@
                             sumAssetA = thisObject.truncDecimals(sumAssetA);
                             sumAssetB = thisObject.truncDecimals(sumAssetB);
 
-                            if (Math.abs(thisObject.truncDecimals(position.amountA) - sumAssetA) > 0.00000001 || Math.abs(position.amountB - sumAssetB) > 0.00000001) {
+                            /*
+                             * Next let's get the max decimal positions for the pair being trade returned by the exchange and validate that at least
+                             * one decimal position less than the max matches. The reason for this is because there could be some 
+                             * rounding on the exchange when there are partial executed orders that will interfiere with the exact validation.
+                             * 
+                             * IE: For Poloniex USDT/BTC the max returned decimal positions is 8, it means we will validate that the diference is less than 0.0000001
+                             */
+                            
+                            let exchangeParam = exchangeAPI.getMaxDecimalPositions();
+                            let minValue = '0.' + (1).toPrecision(exchangeParam-1).split('.').reverse().join('');
+                            let decimalPositions = parseFloat(parseFloat(minValue).toFixed(exchangeParam));
+                            
+                            if (Math.abs(position.amountA - sumAssetA) > decimalPositions || Math.abs(position.amountB - sumAssetB) > decimalPositions) {
 
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetB = " + sumAssetB);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetB = " + sumAssetB);
 
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partiall execution was done well.");
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot confirm that a partial execution was done well.");
 								
-								/* There are diferences on the responses between the getPosition and getTrades that causes some issues, let's retry. */
-                                callBack(global.DEFAULT_RETRY_RESPONSE);
+                                /* There are diferences on the responses between the getPosition and getTrades that causes some issues, let's retry. */
+
+                                callBack(global.DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
 
@@ -813,13 +828,13 @@
 
                                     let feeAmount = thisObject.truncDecimals(Number(trade.fee) * Number(trade.amountB));
 
-                                    assetA = thisObject.truncDecimals(trade.amountA);
-                                    assetB = thisObject.truncDecimals(trade.amountB) - feeAmount;
+                                    assetA = Number(trade.amountA);
+                                    assetB = Number(trade.amountB) - feeAmount;
 
-                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA) - assetA;
-                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB) + assetB;
+                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA - assetA);
+                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB + assetB);
 
-                                    context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB) + assetB;
+                                    context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB + assetB);
 
                                     /* Not the available balance for asset A is not affected since it was already reduced when the order was placed. */
 
@@ -836,13 +851,14 @@
 
                                     let feeAmount = thisObject.truncDecimals(Number(trade.fee) * Number(trade.amountA));
 
-                                    assetA = thisObject.truncDecimals(trade.amountA) - feeAmount;
-                                    assetB = thisObject.truncDecimals(trade.amountB);
+                                    assetA = Number(trade.amountA) - feeAmount;
+                                    assetB = Number(trade.amountB);
 
-                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA) + assetA;
-                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB) - assetB;
+                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA + assetA);
+                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB - assetB);
 
-                                    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA) + assetA;
+                                    let calculatedBalance = 
+                                        context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
 
                                     /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
 
@@ -1067,15 +1083,13 @@
 
                             if (position.type === 'buy') {
 
-                                context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA) - pAmountA;
-                                context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA);
+                                context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA - pAmountA);
                                 context.newHistoryRecord.lastBuyRate = pRate;
                             } 
 
                             if (position.type === 'sell') {
 
-                                context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB) - pAmountB;
-                                context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB);
+                                context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB - pAmountB);
                                 context.newHistoryRecord.lastSellRate = pRate;
                             }
 
@@ -1414,9 +1428,11 @@
         }
     }
 
-    function truncDecimals(pFloatValue) {
+    function truncDecimals(pFloatValue, pDecimals) {
 
-        return parseFloat(parseFloat(pFloatValue).toFixed(6)); //TODO Number of decimals depends on the exchange
+        if (!pDecimals) pDecimals = 8; // Default value
+
+        return parseFloat(parseFloat(pFloatValue).toFixed(pDecimals));
 
     }
 };

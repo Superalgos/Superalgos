@@ -39,6 +39,12 @@
     <Compile Include="DataSet.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="exchange\exchangeUtils.js" />
+    <Compile Include="exchange\wrappers\beautifier.js" />
+    <Compile Include="exchange\wrappers\binance.js" />
+    <Compile Include="exchange\wrappers\binanceClient.js" />
+    <Compile Include="exchange\wrappers\poloniex.js" />
+    <Compile Include="exchange\wrappers\poloniexClient.js" />
     <Compile Include="Root.js">
       <SubType>Code</SubType>
     </Compile>
@@ -52,13 +58,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DebugLog.js" />
-    <Compile Include="ExchangeAPI.js">
+    <Compile Include="exchange\ExchangeAPI.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IndicatorBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PoloniexAPIClient.js" />
     <Compile Include="Run.js" />
     <Compile Include="StatusReport.js">
       <SubType>Code</SubType>
@@ -70,7 +75,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="exchange\wrappers\binanceProperties.json" />
+    <Content Include="exchange\wrappers\poloniexProperties.json" />
     <Content Include="this.config.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="exchange\" />
+    <Folder Include="exchange\wrappers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->

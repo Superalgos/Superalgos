@@ -58,7 +58,8 @@
         sell: sell,
         movePosition: movePosition,
         getPublicTradeHistory: getPublicTradeHistory,
-        getExchangeProperties: getExchangeProperties
+        getExchangeProperties: getExchangeProperties,
+        isValidLot: isValidLot
     };
 
     return thisObject;

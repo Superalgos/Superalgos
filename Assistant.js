@@ -487,7 +487,12 @@
 
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> positionFound -> Entering function."); }
 
-                        /*
+			/* We update the final amountA based on what we got from the exchange.
+			   This is needed since the values could be different from what we calculate.
+			*/
+                        position.amountA = exchangePosition.amountA;
+                        
+			/*
     
                         We need to know if the order was partially executed. To know that, we compare the amounts on file with the ones
                         received from the exchange. If they are the same, then the order is intact. Otherwise, to confirm a partial execution,
@@ -497,8 +502,7 @@
 
                         if (position.amountB === exchangePosition.amountB) {
 
-                            /* Position is still there, untouched. We update the final amountA on exchange. */
-                            position.amountA = exchangePosition.amountA;
+                            /* Position is still there, untouched. Nothing to do here. */
 
                             next();
                             return;
@@ -558,10 +562,7 @@
 
                                         if (thisPosition.id === pPositionId) {
 											
-											let feeRate = 0.0025; 		// Default fee
-											
-											if (Math.random(1) < 0.5)
-												feeRate = 0.0015;		// Some times we will pay less fee
+											let feeRate = 0.002; 		// Default backtesting fee simulation
 											
 											let trade = {
 												id: Math.trunc(Math.random(1) * 1000000),
@@ -630,7 +631,6 @@
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
-
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> err = " + err.message);
                             callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -749,9 +749,9 @@
                             
                             let exchangeParam = exchangeAPI.getMaxDecimalPositions();
                             let minValue = '0.' + (1).toPrecision(exchangeParam-1).split('.').reverse().join('');
-                            let decimalPositions = parseFloat(parseFloat(minValue).toFixed(exchangeParam));
+                            let exchangePrecision = parseFloat(parseFloat(minValue).toFixed(exchangeParam));
                             
-                            if (Math.abs(position.amountA - sumAssetA) > decimalPositions || Math.abs(position.amountB - sumAssetB) > decimalPositions) {
+                            if (Math.abs(position.amountA - sumAssetA) > exchangePrecision || Math.abs(position.amountB - sumAssetB) > exchangePrecision) {
 
                                 logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
                                 logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
@@ -857,8 +857,8 @@
                                     context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA + assetA);
                                     context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB - assetB);
 
-                                    let calculatedBalance = 
-                                        context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
+                                    
+				    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
 
                                     /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
 

@@ -31,7 +31,8 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            let exchange = bot.products[0].exchangeList[0].name.toLowerCase() + 'Client.js'; //TODO Improve
+            //let exchange = bot.products[0].exchangeList[0].name.toLowerCase() + 'Client.js'; //TODO Define
+            let exchange = 'binanceClient.js'; //TODO Define
             let api = require('./wrappers/' + exchange);
             apiClient = api.newAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret, logger);
 
@@ -168,8 +169,8 @@
             let check = isValidOrder({
                 market: getMarketConfig(),
                 api: apiClient,
-                pAmountB: truncDecimals(pAmountB),
-                pRate: truncDecimals(pRate)
+                amount: truncDecimals(pAmountB),
+                price: truncDecimals(pRate)
             });
 
             if (check.valid) {

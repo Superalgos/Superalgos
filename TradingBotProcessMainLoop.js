@@ -132,7 +132,7 @@
         }
     }
 
-    function run(callBackFunction) {
+    function run(pGenes, pTotalAlgobots, callBackFunction) {
 
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
@@ -160,7 +160,7 @@
                         return str.length < max ? pad(" " + str, max) : str;
                     }
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Entered into Main Loop # " + pad(Number(bot.loopCounter) + 1, 8));
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.instance, 20) + " " + pad(bot.process, 30) + " Entered into Main Loop # " + pad(Number(bot.loopCounter) + 1, 8));
 
                     /* For each loop we want to create a new log file. */
 
@@ -535,7 +535,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeContext ->  Entering function."); }
 
                             context = CONTEXT.newContext(bot, logger, BLOB_STORAGE, UTILITIES, STATUS_REPORT);
-                            context.initialize(statusDependencies, onInizialized);
+                            context.initialize(statusDependencies, pTotalAlgobots, onInizialized);
 
                             function onInizialized(err) {
 
@@ -756,7 +756,7 @@
 
                             usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE);
 
-                            usertBot.initialize(assistant, onInizialized);
+                            usertBot.initialize(assistant, pGenes, onInizialized);
 
                             function onInizialized(err) {
 
@@ -1058,7 +1058,7 @@
                             if (now - bot.loopStartTime > processConfig.normalWaitTime) {
 
                                 logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> Dead loop found -> pLastLoop = " + pLastLoop);
-                                console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Loop # " + pad(Number(bot.loopCounter), 5) + " found dead. Resurrecting it now."));
+                                console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + pad(bot.codeName, 20) + " " + pad(bot.instance, 20) + " " + pad(bot.process, 30) + " Loop # " + pad(Number(bot.loopCounter), 5) + " found dead. Resurrecting it now."));
 
                                 logger.persist();                       // We persist the logs of the failed execution.
                                 clearTimeout(nextLoopTimeoutHandle);            // We cancel the timeout in case the original loop was still running and schedulled to reexecute.
@@ -1066,7 +1066,7 @@
 
                             } else {
 
-                                console.log((new Date().toISOString() + " [WARN] run -> loop -> checkLoopHealth -> " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Loop # " + pad(Number(bot.loopCounter), 5) + " found delayed but still alive. No action taken."));
+                                console.log((new Date().toISOString() + " [WARN] run -> loop -> checkLoopHealth -> " + pad(bot.codeName, 20) + " " + pad(bot.instance, 20) + " " + pad(bot.process, 30) + " Loop # " + pad(Number(bot.loopCounter), 5) + " found delayed but still alive. No action taken."));
 
                             }
                         }

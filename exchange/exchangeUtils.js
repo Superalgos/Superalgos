@@ -83,9 +83,18 @@ const includes = function(str, list) {
     return _.some(list, item => str.includes(item));
 }
 
+
+const getMarketConfig = function(exchangeProperties) {
+    return _.find(exchangeProperties.markets, (p) => {
+        return _.first(p.pair) === global.MARKET.assetA.toUpperCase() &&
+            _.last(p.pair) === global.MARKET.assetB.toUpperCase();
+    });
+}
+
 module.exports = {
     retry: retryInstance,
     includes: includes,
-    isValidOrder
+    isValidOrder,
+    getMarketConfig
 
 }

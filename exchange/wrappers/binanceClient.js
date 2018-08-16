@@ -44,7 +44,9 @@
         sell: sell,
         movePosition: movePosition,
         getPublicTradeHistory: getPublicTradeHistory,
-        getExchangeProperties: getExchangeProperties
+        getExchangeProperties: getExchangeProperties,
+        isValidPrice: isValidPrice,
+        isValidLot: isValidLot
     };
 
     return thisObject;
@@ -63,6 +65,14 @@
      */
     function getExchangeProperties() {
         return exchangeProperties;
+    }
+
+    function truncDecimals(pFloatValue) {
+
+        let decimals = 6;
+
+        return parseFloat(parseFloat(pFloatValue).toFixed(decimals));
+
     }
 
      /*

@@ -31,10 +31,10 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            //let exchange = bot.products[0].exchangeList[0].name.toLowerCase() + 'Client.js'; //TODO Define
-            let exchange = 'binanceClient.js'; //TODO Define
+            let exchange = bot.products[0].exchangeList[0].name.toLowerCase() + 'Client.js'; //TODO Define
+            //let exchange = 'binanceClient.js'; //TODO Define
             let api = require('./wrappers/' + exchange);
-            apiClient = api.newAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret, logger);
+            apiClient = api.newAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Secret, logger);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 

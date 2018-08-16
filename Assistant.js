@@ -487,17 +487,16 @@
 
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> positionFound -> Entering function."); }
 
-			/* We update the final amountA based on what we got from the exchange.
-			   This is needed since the values could be different from what we calculate.
-			*/
+                        /*
+                        We update the final amountA based on what we got from the exchange.
+                        This is needed since the values could be different from what we calculate.
+                        */
                         position.amountA = exchangePosition.amountA;
-                        
-			/*
-    
+
+                        /*
                         We need to know if the order was partially executed. To know that, we compare the amounts on file with the ones
                         received from the exchange. If they are the same, then the order is intact. Otherwise, to confirm a partial execution,
                         we will request the associated trades from the exchange.
-    
                         */
 
                         if (position.amountB === exchangePosition.amountB) {
@@ -741,16 +740,16 @@
 
                             /*
                              * Next let's get the max decimal positions for the pair being trade returned by the exchange and validate that at least
-                             * one decimal position less than the max matches. The reason for this is because there could be some 
+                             * one decimal position less than the max matches. The reason for this is because there could be some
                              * rounding on the exchange when there are partial executed orders that will interfiere with the exact validation.
-                             * 
+                             *
                              * IE: For Poloniex USDT/BTC the max returned decimal positions is 8, it means we will validate that the diference is less than 0.0000001
                              */
-                            
+
                             let exchangeParam = exchangeAPI.getMaxDecimalPositions();
                             let minValue = '0.' + (1).toPrecision(exchangeParam-1).split('.').reverse().join('');
                             let exchangePrecision = parseFloat(parseFloat(minValue).toFixed(exchangeParam));
-                            
+
                             if (Math.abs(position.amountA - sumAssetA) > exchangePrecision || Math.abs(position.amountB - sumAssetB) > exchangePrecision) {
 
                                 logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
@@ -761,7 +760,6 @@
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot confirm that a partial execution was done well.");
 								
                                 /* There are diferences on the responses between the getPosition and getTrades that causes some issues, let's retry. */
-
                                 callBack(global.DEFAULT_FAIL_RESPONSE);
                                 return;
                             }
@@ -857,8 +855,7 @@
                                     context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA + assetA);
                                     context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB - assetB);
 
-                                    
-				    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
+				                    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
 
                                     /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
 
@@ -1244,7 +1241,7 @@
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
-    
+
     function getPublicTradeHistory(assetA, assetB, startTime, endTime, callback) {
 
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTradeHistory -> Entering function."); }

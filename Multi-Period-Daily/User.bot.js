@@ -103,7 +103,7 @@ LRCIndicator.prototype.calculate = function (price) {
     this.result = ((this.depth - 1) * reg[0]) + reg[1];
 }
 
-exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE) {
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const USE_PARTIAL_LAST_CANDLE = true; // When running live the last candle generated is a partial candle.
@@ -289,7 +289,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 						logger.newInternalLoop(bot.codeName, bot.process);
 						executionTime = new Date(lastCandles[10] + ONE_MIN_IN_MILISECONDS);
 
-						if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> New processing time @ " + executionTime.toISOString()); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> New processing time @ " + executionTime.toISOString()); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> advanceTime -> Last Candles: " + JSON.stringify(lastCandles)) };
 
                         if (isOnHeadOfMarket(executionTime, 10)) {
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -310,17 +311,25 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                     if (dailyFileCache.has(lastDayIndex)) {
                         let currentFile = dailyFileCache.get(lastDayIndex);
-                        if (currentFile === undefined || currentFile[currentFile.length - 1] === undefined)
-                            return false;
+                        if (currentFile === undefined || currentFile[currentFile.length - 1] === undefined){
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] isOnHeadOfMarket -> Period " + global.dailyFilePeriods[period][1]+" on cache. Checking olivia last execution: " + new Date(dateForLastOliviaFile).toISOString()); }
+
+							let isOnHead = (timeToValidate.valueOf() > dateForLastOliviaFile.valueOf());
+                            if (isOnHead && FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] isOnHeadOfMarket -> Head of the market found on Olivia " + global.dailyFilePeriods[period][1] +" @ " + new Date(dateForLastOliviaFile).toISOString()+ ". Execution: " + new Date(timeToValidate).toISOString()); }
+
+							return isOnHead;
+						}                            
 
                         lastCandlePeriodOnCache = currentFile[currentFile.length - 1][candleBeginIndex];
                         let isOnHead = (timeToValidate.valueOf() > lastCandlePeriodOnCache.valueOf());
-                        if (isOnHead && FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] isOnHeadOfMarket -> Head of the market found @ " + new Date(lastCandlePeriodOnCache).toISOString() + ". Execution: " + new Date(timeToValidate).toISOString()); }
+                        if (isOnHead && FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] isOnHeadOfMarket -> Head of the market found on cache " + global.dailyFilePeriods[period][1] +" @ " + new Date(lastCandlePeriodOnCache).toISOString() + ". Execution: " + new Date(timeToValidate).toISOString()); }
 
                         return isOnHead;
                     } else {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] isOnHeadOfMarket -> Period " + global.dailyFilePeriods[period][1] +" not found on cache. Checking olivia last execution: " + new Date(dateForLastOliviaFile).toISOString()); }
+
                         let isOnHead = (timeToValidate.valueOf() > dateForLastOliviaFile.valueOf());
-                        if (isOnHead && FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] isOnHeadOfMarket -> Head of the market found @ " + new Date(dateForLastOliviaFile).toISOString()+ ". Execution: " + new Date(timeToValidate).toISOString()); }
+                        if (isOnHead && FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] isOnHeadOfMarket -> Head of the market found on Olivia " + global.dailyFilePeriods[period][1] +" @ " + new Date(dateForLastOliviaFile).toISOString()+ ". Execution: " + new Date(timeToValidate).toISOString()); }
 
                         return isOnHead;
                     }
@@ -343,7 +352,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                         isTimeToRun();
 
                         function isTimeToRun() {
-                            if (executionTime.valueOf() >= nextExecution && !isOnHeadOfMarket(executionTime, n)) {
+                            if (executionTime.valueOf() >= nextExecution) {
                                 getLRCPoints();
                             } else {
                                 setTimeout(function() { controlLoop(); }, 0);
@@ -410,7 +419,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                         getDailyFile(queryDate, onDailyFileReceived);
                                         backwardsCount++;
                                     } else {
-                                        logger.write(MODULE_NAME, "[WARN] start -> getLRCPoints -> Not enough history to calculate LRC. Moving to Next Period.");
+                                        logger.write(MODULE_NAME, "[WARN] start -> getLRCPoints -> Not enough history to calculate LRC.");
 
                                         // If the control candle is not ready, advance the execution.
                                         if (n === 10) {
@@ -565,7 +574,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                     lastCandles[n] = lrcPoint[0];
 
                                     let timeToValidate = new Date(executionTime.valueOf() + outputPeriod);
-                                    if (isOnHeadOfMarket(timeToValidate, n)) {
+                                    if (isOnHeadOfMarket(timeToValidate, n) || isLastDayExecution()) {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> savePoint -> getCurrentContent -> file = " + fileName + filePath); }
                                         
                                         gaussStorage.getTextFile(filePath, fileName, onFileRetrieved);
@@ -660,7 +669,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                             if (lastCandleOnFile[0] < lrcPoint[0]) {
                                                 existingLRCPoints.push(lrcPoint);
                                             } else {
-                                                logger.write(MODULE_NAME, "[WARN] start -> savePoint -> appendLRCPoints -> The LCR Point calculated existed on the file storage, not saving: " + JSON.stringify(lrcPoint));
+                                                logger.write(MODULE_NAME, "[WARN] start -> savePoint -> appendLRCPoints -> The LCR Point calculated existed on the file storage period " + folderName +", not saving: " + JSON.stringify(lrcPoint));
                                             }
                                         }
                                         return existingLRCPoints;
@@ -670,7 +679,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                         writeReport = true;
                                         cleanUpCache(lrcPointsFileCache, executionTime);
                                         cleanUpCache(dailyFileCache, executionTime);
-                                        controlLoop();
+                                        setTimeout(function () { controlLoop(); }, 0);
                                     }
 
                                     function cleanUpCache(fileCache, dateTime) {
@@ -686,6 +695,21 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                         }
                                     }
 
+                                    function isLastDayExecution() {
+                                        let date = new Date(executionTime.valueOf());
+
+                                        date.setUTCHours(23);
+                                        let lastMinute = 60 - (outputPeriod / 60 / 1000);
+                                        date.setUTCMinutes(lastMinute);
+                                        date.setUTCSeconds(0);
+                                        date.setUTCMilliseconds(0);
+
+                                        if (executionTime >= date.valueOf())
+                                            return true;
+                                        else
+                                            return false;
+                                    }
+
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> savePoint -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -696,7 +720,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
 
                     function controlLoop() {
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> periodsLoop -> controlLoop -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> periodsLoop -> controlLoop -> Entering function. Checking Period: " + global.dailyFilePeriods[n][1]); }
 
                         n++;
 
@@ -705,8 +729,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                             loopBody();
 
                         } else {
-
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> periodsLoop -> controlLoop -> Last period reached."); }
                             if (writeReport) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> periodsLoop -> controlLoop -> About to write the report."); }
                                 writeReport = false;
                                 let lastOneMinuteCandle = lastCandles[10];
                                 writeDataRange(lastOneMinuteCandle, onWritten);
@@ -724,6 +749,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_S
                                     writeStatusReport(advanceTime);
                                 }
                             } else {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildLRCPoints -> periodsLoop -> controlLoop -> Advancing time."); }
                                 advanceTime();
                             }
                         }

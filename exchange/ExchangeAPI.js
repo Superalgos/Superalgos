@@ -31,9 +31,10 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            let exchange = bot.products[0].exchangeList[0].name.toLowerCase() + 'Client.js'; //TODO Define
-            //let exchange = 'binanceClient.js'; //TODO Define
+            let exchange = global.EXCHANGE_NAME.toLowerCase() + 'Client.js';
             let api = require('./wrappers/' + exchange);
+            if (!bot.instanceIndex)
+                bot.instanceIndex = 0;
             apiClient = api.newAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Secret, logger);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -222,13 +223,13 @@
      * It's possible that the exchange doesn't support this method.
      * The object returned is an array of trades:
      * trade = {
-     *           tradeIdAtExchange,
-     *           marketIdAtExchange,
-     *           type,
-     *           rate,
-     *           amountA,
-     *           amountB,
-     *           datetime
+     *           tradeID,       String
+     *           globalTradeID, String
+     *           type,          String
+     *           rate,          Number
+     *           amountA,       Number
+     *           amountB,       Number
+     *           date       Date
      *       };
      */
     function getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack) {

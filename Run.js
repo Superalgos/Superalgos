@@ -6,6 +6,13 @@ global.USER_LOGGED_IN = "Ciencias";
 global.DEV_TEAM = "AAMasters";
 global.AT_BREAKPOINT = false; // This is used only when running at the browser. 
 
+/* Default parameters can be changed by the execution configuration */
+global.EXCHANGE_NAME = "Poloniex";
+global.MARKET = {
+    assetA: "USDT",
+    assetB: "BTC"
+};
+
 process.on('uncaughtException', function (err) {
     console.log('[INFO] Run -> uncaughtException -> err.message = ' + err.message);
     return;
@@ -75,7 +82,7 @@ function readEmailConfiguration() {
         filePath = '../' + 'Email-Config' + '/' + 'Email.Config.json';
         global.EMAIL_CONFIG = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-        readExchangeAPIKey();
+        readExecutionConfiguration();
     }
     catch (err) {
         console.log("[ERROR] readEmailConfiguration -> err = " + err.message);
@@ -83,6 +90,29 @@ function readEmailConfiguration() {
     }
 }
 
+function readExecutionConfiguration() {
+    let filePath;
+    try {
+        let fs = require('fs');
+        filePath = '../Execution-Config/Execution.Config.json';
+        let executionProperties = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        global.DEV_TEAM = executionProperties.devTeam;
+        global.EXCHANGE_NAME = executionProperties.exchangeName;
+        global.MARKET = executionProperties.market;
+        global.EXECUTION_CONFIG = {
+            executionList: executionProperties.executionList,
+            startMode: executionProperties.startMode
+        };
+
+        readExchangeAPIKey();
+    }
+    catch (err) {
+        console.log("[ERROR] readExecutionConfiguration -> err = " + err.message);
+        console.log("[HINT] You need to have a file at this path -> " + filePath);
+    }
+}
+
+//TODO Move this method inside ExchangeAPI
 function readExchangeAPIKey() {
 
     try {

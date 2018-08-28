@@ -40,13 +40,9 @@
         'ECONNRESET',
         'Connection timed out',
         'Connection Error',
-        'Order not found, or you are not the person who placed it.'
+        'Order not found, or you are not the person who placed it.',
+        'ETIMEDOUT'
     ];
-
-    // errors that might mean the API call succeeded
-    const unknownResultErrors = [
-        'ETIMEDOUT',
-    ]
 
     let API = new Poloniex(pKey, pSecret);
 
@@ -248,18 +244,18 @@
         retry(null, fetch, handle);
     }
 
-    /* //TODO Pending Review
+    /*
      * Returns all the trade history from the Exchange since startTime to endTime orderd by tradeId.
      * It's possible that the exchange doesn't support this method.
      * The object returned is an array of trades:
      * trade = {
-     *           tradeIdAtExchange,
-     *           marketIdAtExchange,
-     *           type,
-     *           rate, Number
-     *           amountA, Number
-     *           amountB, Number
-     *           datetime
+     *           tradeID,       String
+     *           globalTradeID, String
+     *           type,          String
+     *           rate,          Number
+     *           amountA,       Number
+     *           amountB,       Number
+     *           date       Date
      *       };
      */
     function getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack) {
@@ -269,13 +265,13 @@
             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                 for (let i = 0; i < response.length; i++) {
                     let trade = {
-                        tradeIdAtExchange: response[i].tradeID,
+                        tradeID: response[i].tradeID,
+                        globalTradeID: response[i].globalTradeID,
                         type: response[i].type,
                         rate: Number(response[i].rate),
-                        amountA: Number(response[i].total),
-                        amountB: Number(response[i].amount),
-                        fee: Number(response[i].fee),
-                        datetime: (new Date(response[i].date)).valueOf()
+                        total: Number(response[i].total),
+                        amount: Number(response[i].amount),
+                        date: new Date(response[i].date)
                     }
                     trades.push(trade);
                 }
@@ -283,7 +279,7 @@
             callBack(err, trades);
         };
 
-        const fetch = next => API.returnPublicTradeHistory(assetA, assetB, startTime, endTime, analizeResponse(next));
+        const fetch = next => API.returnTradeHistory(assetA, assetB, startTime, endTime, analizeResponse(next));
 
         retry(null, fetch, handle);
     }
@@ -298,20 +294,25 @@
             let error;
 
             /* This function analizes the different situations we might encounter trying to access Poloniex and returns appropiate standard errors. */
-            
+
             let stringExchangeErr = JSON.stringify(exchangeErr);
             let stringExchangeResponse = JSON.stringify(exchangeResponse);
 
             try {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
-
+                
                 if (exchangeErr) {
                     error = global.DEFAULT_FAIL_RESPONSE;
-                } else if (!exchangeResponse) {
+
+                    if (includes(exchangeErr.code, recoverableErrors)) {
+                        error.notFatal = true;
+                    }
+                } else if (!exchangeResponse || exchangeResponse === undefined) {
                     error = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
-                        message: 'Empty response'
+                        message: 'Empty response',
+                        notFatal: true
                     };
                 } else if (includes(exchangeResponse.error, ['Please complete the security check to proceed.'])) {
                     error = {
@@ -338,13 +339,7 @@
                         result: global.DEFAULT_FAIL_RESPONSE.result,
                         message: exchangeResponse.error
                     };
-                }
-
-                if (error) {
-                    if (includes(error.message, recoverableErrors)) {
-                        error.notFatal = true;
-                    }
-                }
+                }                
                 
                 return callBack(error, exchangeResponse);
             

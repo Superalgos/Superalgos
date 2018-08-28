@@ -760,7 +760,7 @@
                                 logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot confirm that a partial execution was done well.");
 								
                                 /* There are diferences on the responses between the getPosition and getTrades that causes some issues, let's retry. */
-                                callBack(global.DEFAULT_FAIL_RESPONSE);
+                                callBack(global.DEFAULT_RETRY_RESPONSE);
                                 return;
                             }
 

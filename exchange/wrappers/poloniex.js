@@ -1,4 +1,5 @@
 // Source: https://github.com/premasagar/poloniex.js
+// Documentation: https://poloniex.com/support/api/
 
 module.exports = (function () {
     'use strict';
@@ -179,6 +180,22 @@ module.exports = (function () {
             return this._public('returnLoanOrders', { currency: currency }, callback);
         },
 
+        returnTradeHistory: function (currencyA, currencyB, start, end, callback) {
+            if (arguments.length < 5) {
+                callback = start;
+                start = Date.now() / 1000 - 60 * 60;
+                end = Date.now() / 1000 + 60 * 60; // Some buffer in case of client/server time out of sync.
+            }
+
+            var parameters = {
+                currencyPair: joinCurrencies(currencyA, currencyB),
+                start: start,
+                end: end
+            };
+
+            return this._public('returnTradeHistory', parameters, callback);
+        },
+
         /////
         // PRIVATE METHODS
 
@@ -231,22 +248,6 @@ module.exports = (function () {
             };
 
             return this._private('returnOpenOrders', parameters, callback);
-        },
-
-        returnTradeHistory: function (currencyA, currencyB, start, end, callback) {
-            if (arguments.length < 5) {
-                callback = start;
-                start = Date.now() / 1000 - 60 * 60;
-                end = Date.now() / 1000 + 60 * 60; // Some buffer in case of client/server time out of sync.
-            }
-
-            var parameters = {
-                currencyPair: joinCurrencies(currencyA, currencyB),
-                start: start,
-                end: end
-            };
-
-            return this._private('returnTradeHistory', parameters, callback);
         },
 
         returnOrderTrades: function (orderNumber, callback) {

@@ -9,12 +9,13 @@
         start: start
     };
 
+    let genes;
     let assistant;          // The reference to the Traing Platform Advanced Algos Assistant.
     let gaussStorage;		// This is an example of dependency to other bots
 
     return thisObject;
 
-    function initialize(pAssistant, callBackFunction) {
+    function initialize(pAssistant, pGenes, callBackFunction) {
         try {
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
@@ -26,9 +27,51 @@
 
             gaussStorage = assistant.dataDependencies.dataSets.get(key);
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            checkGenes(pGenes, callBackFunction);
+
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> onDone -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function checkGenes(pGenes, callBackFunction) {
+
+        try {
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] checkGenes -> Entering function."); }
+
+            function getGeneticRulesByName(pName) {
+
+                for (let i = 0; i < bot.genes.length; i++) {
+
+                    let gene = bot.genes[i];
+
+                    if (gene.name === pName) {
+
+                        return gene;
+
+                    }
+                }
+
+                return undefined;
+            }
+
+            let stopLoss = getGeneticRulesByName("stopLoss");
+
+            if (pGenes.stopLoss < stopLoss.lowerLimit || pGenes.stopLoss > stopLoss.upperLimit ) {
+                logger.write(MODULE_NAME, "[ERROR] getGeneticRules -> Genes received are out of range.");
+                logger.write(MODULE_NAME, "[ERROR] getGeneticRules -> pGenes = " + JSON.stringify(pGenes));
+                logger.write(MODULE_NAME, "[ERROR] getGeneticRules -> bot.genes = " + JSON.stringify(bot.genes));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return;
+            }
+
+            genes = pGenes;
+
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+        } catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] checkGenes -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -46,8 +89,8 @@
         // Parameters
 		let targetTradeEnabled = false;
         const TRADE_TARGET = 2.0;
-        let stopLossEnabled = false;
-        let stopLossPorcentage = 0.006;
+        let stopLossEnabled = true;
+        let stopLossPorcentage = genes.stopLoss / 100;
 
         let lastBuyRate = assistant.remindMeOf(LAST_BUY_RATE_KEY);
         if (lastBuyRate === undefined) {
@@ -101,8 +144,15 @@
         function businessLogic(callBack) {
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> Entering function."); }
             let firstChannelTilt = 0;
+			
+			//Simulation for testing											
+			if (Math.random(1) <= 0.5){
+				createBuyPosition(callBack);
+			}else{
+				createSellPosition(callBack);
+			}
 
-            getChannelTilt(firstTiltCheck);
+            //getChannelTilt(firstTiltCheck);
 
             function firstTiltCheck(err, channelTilt) {
                 try {
@@ -540,11 +590,11 @@
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Entering function."); }
 
             let assetABalance = assistant.getAvailableBalance().assetA;
-            let currentRate = assistant.getTicker().bid;
+            let currentRate = assistant.getTicker().ask; // *.9
             let amountA = assistant.getAvailableBalance().assetA;
             let amountB = Number((amountA / currentRate).toFixed(8));
 
-            if (positions.length > 0 && positions[0].type === "buy" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 5)) {
+            if (positions.length > 0 && positions[0].type === "buy" && positions[0].status !== "executed" ) {
 
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createBuyPosition -> Moving an existing BUY position to a new price: $" + Number(currentRate).toLocaleString()); }
 
@@ -583,11 +633,11 @@
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Entering function."); }
 
             let assetBBalance = assistant.getAvailableBalance().assetB;
-            let currentRate = assistant.getTicker().bid;
+            let currentRate = assistant.getTicker().bid; // *1.1
             let amountB = assistant.getAvailableBalance().assetB;
             let amountA = amountB * currentRate;
 
-            if (positions.length > 0 && positions[0].type === "sell" && positions[0].status !== "executed" && (bot.processDatetime.valueOf() - positions[0].date) > (60000 * 10)) {
+            if (positions.length > 0 && positions[0].type === "sell" && positions[0].status !== "executed" ) {
 
                 if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> createSellPosition -> Artuditu is moving an existing SELL position to a new price: $" + Number(currentRate).toLocaleString()); }
 

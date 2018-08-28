@@ -10,17 +10,25 @@
     "devTeam": "AAVikings",
     "profilePicture": "Artudito.png",
     "dataSetVersion": "dataSet.V1",
+    "genes": [
+        {
+            "name": "stopLoss",
+            "description": "This represent the percentage of the stop loss configuration. It could be from 0 (disabled) to 100.",
+            "lowerLimit": 0,
+            "upperLimit": 5
+        }
+    ],
     "processes": [
         {
             "name": "Trading-Process",
             "description": "Simple trading strategy to be used as a template.",
             "startMode": {
                 "live": {
-                    "run": "false",
+                    "run": "true",
                     "resumeExecution": "false"
                 },
                 "backtest": {
-                    "run": "true",
+                    "run": "false",
                     "beginDatetime": "2018-04-11T00:00:00.000Z",
                     "endDatetime": "2018-06-17T23:59:59.000Z",
                     "waitTime": 1
@@ -32,7 +40,7 @@
                     "resumeExecution": "true"
                 }
             },
-            "normalWaitTime": 60000,
+            "normalWaitTime": 10000,
             "retryWaitTime": 10000,
             "sleepWaitTime": 3600000,
             "comaWaitTime": 86400000,
@@ -197,5 +205,5 @@
             }
         }
     ],
-    "emailSubscriptions": "mati108@gmail.com"
+    "emailSubscriptions": "vikings.alerts@gmail.com"
 }

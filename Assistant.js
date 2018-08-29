@@ -89,7 +89,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromExchange -> Entering function."); }
 
-                    exchangeAPI.getTicker(global.MARKET.assetA + '_' + global.MARKET.assetB, onTicker);
+                    exchangeAPI.getTicker(global.MARKET, onTicker);
 
                     return;
 
@@ -412,15 +412,15 @@
 
             /*
 
-            Here we check that all the positions we know we still have at the exchange. If they are not, we will try to take appropiate
+            Here we check that all the positions we know are still valid at the exchange. If they are not, we will try to take appropiate
             actions. Reasons why the positions might not be there are:
 
             1. The user / account owner closed the positions manually.
-            2. The exchange for some eventuality closed the positions. In some exchanges positions have an expiratin time.
+            2. The exchange for some eventuality closed the positions. In some exchanges positions have an expiration time.
             3. The orders were executed.
 
-            For as 1 and 2 are similar unexpected situations and we will stop the bot execution when we detect we are there. Number 3 is an
-            expected behaviour and we take appropiate action.
+            Situations 1 and 2 are similar unexpected and we will stop the bot execution when we detect them. Number 3 is an
+            expected behaviour and we will take appropiate action.
 
             Also, the position might still be there but it might have been partially executed. To detect that we need to compare the
             position amounts we have on file to the one we are receiving from the exchange.
@@ -445,7 +445,7 @@
             /*
 
             This removes all orders leaving only the not executed position. Consider that we do want executed positions to be recored on the file so as to
-            have a record of their execution. But at next execution these records must be deleted bedore the new Execution Context file is created and
+            have a record of their execution. But at next execution these records must be deleted before the new Execution Context file is created and
             this is what we do here.
 
             */
@@ -488,14 +488,18 @@
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> positionFound -> Entering function."); }
 
                         /*
-    
+                        We update the final amountA based on what we got from the exchange.
+                        This is needed since the values could be different from what we calculate.
+                        */
+                        position.amountA = exchangePosition.amountA;
+
+                        /*
                         We need to know if the order was partially executed. To know that, we compare the amounts on file with the ones
                         received from the exchange. If they are the same, then the order is intact. Otherwise, to confirm a partial execution,
                         we will request the associated trades from the exchange.
-    
                         */
 
-                        if (position.amountB === thisObject.truncDecimals(exchangePosition.amountB)) {
+                        if (position.amountB === exchangePosition.amountB) {
 
                             /* Position is still there, untouched. Nothing to do here. */
 
@@ -557,10 +561,7 @@
 
                                         if (thisPosition.id === pPositionId) {
 											
-											let feeRate = 0.002; 		// Default fee
-											
-											if (Math.random(1) < 0.5)
-												feeRate = 0.0015;		// Some times we will pay less fee
+											let feeRate = 0.002; 		// Default backtesting fee simulation
 											
 											let trade = {
 												id: Math.trunc(Math.random(1) * 1000000),
@@ -663,10 +664,10 @@
                             sumAssetB = thisObject.truncDecimals(sumAssetB);
 
                             if (position.amountB !== sumAssetB) {
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> sumAssetB = " + sumAssetB);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> position.amountB = " + position.amountB);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> sumAssetB = " + sumAssetB);
 
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Cannot be confirmed that the order was executed. It must be manually cancelled by the user or cancelled by the exchange itself.");
                                 logger.write(MODULE_NAME, "[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> If the process was abruptally cancelled and then restarted, it is possible that now is not sincronized with the exchange.");
                                 logger.write(MODULE_NAME, "[HINT] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> In any case, to continue, you must manually delete the orders at the exchange.");
                                 callBack(global.DEFAULT_FAIL_RESPONSE);
@@ -715,8 +716,8 @@
                             /*
  
                             To confirm everything is ok, we will add all the amounts on trades plus the remaining amounts
-                            at the order at the exchange and they must be equal to the one on file. Otherwise something very strange could
-                            have happened, in which case we will halt the bot execution.
+                            at the order at the exchange and they must be equal to the one on file. Otherwise an inconsistent
+                            state has been detected, in which case we will halt the bot execution.
  
                             */
 
@@ -737,18 +738,28 @@
                             sumAssetA = thisObject.truncDecimals(sumAssetA);
                             sumAssetB = thisObject.truncDecimals(sumAssetB);
 
-                            const EXCHANGE_PRECISION = 0.00001; // This value was determined empirically. We noticed that the sume of the trades plus the remaining order at the exchange didn't exatly matched the positions we keep at the execution context, and the only explanation found was that the exchange presicion was not big enough to make it match. So to avoid unnecesary warnings, we created this constant that filters out this situation.
+                            /*
+                             * Next let's get the max decimal positions for the pair being trade returned by the exchange and validate that at least
+                             * one decimal position less than the max matches. The reason for this is because there could be some
+                             * rounding on the exchange when there are partial executed orders that will interfiere with the exact validation.
+                             *
+                             * IE: For Poloniex USDT/BTC the max returned decimal positions is 8, it means we will validate that the diference is less than 0.0000001
+                             */
 
-                            if (Math.abs(thisObject.truncDecimals(position.amountA) - sumAssetA) > EXCHANGE_PRECISION || Math.abs(position.amountB - sumAssetB) > EXCHANGE_PRECISION) {
+                            let exchangeParam = exchangeAPI.getMaxDecimalPositions();
+                            let minValue = '0.' + (1).toPrecision(exchangeParam-1).split('.').reverse().join('');
+                            let exchangePrecision = parseFloat(parseFloat(minValue).toFixed(exchangeParam));
 
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetB = " + sumAssetB);
+                            if (Math.abs(position.amountA - sumAssetA) > exchangePrecision || Math.abs(position.amountB - sumAssetB) > exchangePrecision) {
 
-                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot be confirmed that a partiall execution was done well.");
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountA = " + position.amountA);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetA = " + sumAssetA);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> position.amountB = " + position.amountB);
+                                logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> sumAssetB = " + sumAssetB);
+
+                                logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Cannot confirm that a partial execution was done well.");
 								
-								/* There are diferences on the responses between the getPosition and getTrades that causes some issues, let's retry. */
+                                /* There are diferences on the responses between the getPosition and getTrades that causes some issues, let's retry. */
                                 callBack(global.DEFAULT_RETRY_RESPONSE);
                                 return;
                             }
@@ -815,13 +826,13 @@
 
                                     let feeAmount = thisObject.truncDecimals(Number(trade.fee) * Number(trade.amountB));
 
-                                    assetA = thisObject.truncDecimals(trade.amountA);
-                                    assetB = thisObject.truncDecimals(trade.amountB) - feeAmount;
+                                    assetA = Number(trade.amountA);
+                                    assetB = Number(trade.amountB) - feeAmount;
 
-                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA) - assetA;
-                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB) + assetB;
+                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA - assetA);
+                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB + assetB);
 
-                                    context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB) + assetB;
+                                    context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB + assetB);
 
                                     /* Not the available balance for asset A is not affected since it was already reduced when the order was placed. */
 
@@ -838,13 +849,13 @@
 
                                     let feeAmount = thisObject.truncDecimals(Number(trade.fee) * Number(trade.amountA));
 
-                                    assetA = thisObject.truncDecimals(trade.amountA) - feeAmount;
-                                    assetB = thisObject.truncDecimals(trade.amountB);
+                                    assetA = Number(trade.amountA) - feeAmount;
+                                    assetB = Number(trade.amountB);
 
-                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA) + assetA;
-                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB) - assetB;
+                                    context.executionContext.balance.assetA = thisObject.truncDecimals(context.executionContext.balance.assetA + assetA);
+                                    context.executionContext.balance.assetB = thisObject.truncDecimals(context.executionContext.balance.assetB - assetB);
 
-                                    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA) + assetA;
+				                    context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA + assetA);
 
                                     /* Not the available balance for asset B is not affected since it was already reduced when the order was placed. */
 
@@ -1069,15 +1080,13 @@
 
                             if (position.type === 'buy') {
 
-                                context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA) - pAmountA;
-                                context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA);
+                                context.executionContext.availableBalance.assetA = thisObject.truncDecimals(context.executionContext.availableBalance.assetA - pAmountA);
                                 context.newHistoryRecord.lastBuyRate = pRate;
                             } 
 
                             if (position.type === 'sell') {
 
-                                context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB) - pAmountB;
-                                context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB);
+                                context.executionContext.availableBalance.assetB = thisObject.truncDecimals(context.executionContext.availableBalance.assetB - pAmountB);
                                 context.newHistoryRecord.lastSellRate = pRate;
                             }
 
@@ -1231,6 +1240,13 @@
             logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function getPublicTradeHistory(assetA, assetB, startTime, endTime, callback) {
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTradeHistory -> Entering function."); }
+
+        exchangeAPI.getPublicTradeHistory(assetA, assetB, startTime, endTime, callback);
     }
 
     function recalculateRateAverages() {
@@ -1409,9 +1425,11 @@
         }
     }
 
-    function truncDecimals(pFloatValue) {
+    function truncDecimals(pFloatValue, pDecimals) {
 
-        return parseFloat(parseFloat(pFloatValue).toFixed(8));
+        if (!pDecimals) pDecimals = 8; // Default value
+
+        return parseFloat(parseFloat(pFloatValue).toFixed(pDecimals));
 
     }
 };

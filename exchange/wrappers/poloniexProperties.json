@@ -1,0 +1,3513 @@
+{
+	"currencies": ["BTC", "ETH", "XMR", "USDT"],
+	"assets": [
+    "1CR", "ABY", "AC", "ACH", "ADN", "AEON", "AERO", "AIR", "AMP", "APH",
+    "ARCH", "AUR", "AXIS", "BALLS", "BANK", "BBL", "BBR", "BCC", "BCH", "BCN",
+    "BCY", "BDC", "BDG", "BELA", "BITCNY", "BITS", "BITUSD", "BLK", "BLOCK",
+    "BLU", "BNS", "BONES", "BOST", "BTC", "BTCD", "BTCS", "BTM", "BTS",
+    "BURN", "BURST", "C2", "CACH", "CAI", "CC", "CCN", "CGA", "CHA", "CINNI",
+    "CLAM", "CNL", "CNMT", "CNOTE", "COMM", "CON", "CORG", "CRYPT", "CURE",
+    "CVC", "CYC", "DAO", "DASH", "DCR", "DGB", "DICE", "DIEM", "DIME", "DIS", "DNS",
+    "DOGE", "DRKC", "DRM", "DSH", "DVK", "EAC", "EBT", "ECC", "EFL", "EMC2",
+    "EMO", "ENC", "ETC", "ETH", "eTOK", "EXE", "EXP", "FAC", "FCN", "FCT",
+    "FIBRE", "FLAP", "FLDC", "FLO", "FLT", "FOX", "FRAC", "FRK", "FRQ", "GNO",
+    "FVZ", "FZ", "FZN", "GAME", "GAP", "GAS", "GDN", "GEMZ", "GEO", "GIAR", "GLB",
+    "GML", "GNS", "GNT", "GOLD", "GPC", "GPUC", "GRC", "GRCX", "GRS", "GUE", "H2O",
+    "HIRO", "HOT", "HUC", "HUGE", "HVC", "HYP", "HZ", "IFC", "INDEX", "IOC",
+    "ITC", "IXC", "JLH", "JPC", "JUG", "KDC", "KEY", "LBC", "LC", "LCL",
+    "LEAF", "LGC", "LOL", "LOVE", "LQD", "LSK", "LTBC", "LTC", "LTCX",
+    "MAID", "MAST", "MAX", "MCN", "MEC", "METH", "MIL", "MIN", "MINT", "MMC",
+    "MMNXT", "MMXIV", "MNTA", "MON", "MRC", "MRS", "MTS", "MUN", "MYR",
+    "MZC", "N5X", "NAS", "NAUT", "NAV", "NBT", "NEOS", "NL", "NMC", "NOBL",
+    "NOTE", "NOXT", "NRS", "NSR", "NTX", "NXT", "NXTI", "OMG", "OMNI", "OPAL",
+    "PAND", "PASC", "PAWN", "PIGGY", "PINK", "PLX", "PMC", "POT", "PPC", "PRC",
+    "PRT", "PTS", "Q2C", "QBK", "QCN", "QORA", "QTL", "RADS", "RBY", "RDD", "REP",
+    "RIC", "RZR", "SBD", "SC", "SDC", "SHIBE", "SHOPX", "SILK", "SJCX",
+    "SLR", "SMC", "SOC", "SPA", "SQL", "SRCC", "SRG", "SSD", "STEEM", "STR",
+    "SUM", "SUN", "SWARM", "SXC", "SYNC", "SYS", "TAC", "TOR", "TRUST",
+    "TWE", "UIS", "ULTC", "UNITY", "URO", "USDE", "USDT", "UTC", "UTIL",
+    "UVC", "VIA", "VOOT", "VOX", "VRC", "VTC", "WC", "WDC", "WIKI", "WOLF",
+    "X13", "XAI", "XAP", "XBC", "XC", "XCH", "XCN", "XCP", "XCR", "XDN",
+    "XDP", "XEM", "XHC", "XLB", "XMG", "XMR", "XPB", "XPM", "XRP", "XSI",
+    "XST", "XSV", "XUSD", "XVC", "XXC", "BCH", "YACC", "YANG", "YC", "YIN", "ZEC",
+		"ZRX"
+	],
+	"markets": [
+	  {
+	    "pair": [
+	      "BTC",
+	      "1CR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ABY"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "AC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ACH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ADN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "AEON"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "AERO"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "AIR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "AMP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "APH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ARCH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "AUR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "AXIS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BALLS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BANK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BBL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BBR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BCC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BCN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BCH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BCY"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BDC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BDG"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BELA"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BITCNY"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BITS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BITUSD"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BLK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BLOCK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BLU"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BNS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BONES"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BOST"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BTCD"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BTCS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BTM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BTS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BURN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "BURST"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "C2"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CACH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CAI"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CCN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CGA"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CHA"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CINNI"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CLAM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CNL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CNMT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CNOTE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "COMM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CON"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CORG"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CRYPT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CURE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CVC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "CYC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DAO"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DASH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DCR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DGB"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DICE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DIEM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DIME"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DIS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DNS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DOGE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DRKC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DRM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DSH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "DVK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "EAC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "EBT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ECC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "EFL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "EMC2"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "EMO"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ENC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ETC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ETH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "eTOK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "EXE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "EXP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FAC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FCN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FCT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FIBRE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FLAP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FLDC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FLO"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FLT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FOX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FRAC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FRK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FRQ"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FVZ"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FZ"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "FZN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GAME"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GAP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GAS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GDN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GEMZ"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GEO"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GIAR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GLB"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GML"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GNS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GOLD"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GPC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GPUC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GRC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GRCX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GRS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "GUE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "H2O"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "HIRO"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "HOT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "HUC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "HUGE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "HVC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "HYP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "HZ"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "IFC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "INDEX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "IOC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ITC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "IXC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "JLH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "JPC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "JUG"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "KDC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "KEY"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LBC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LCL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LEAF"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LGC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LOL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LOVE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LQD"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LSK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LTBC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LTC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "LTCX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MAID"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MAST"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MAX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MCN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MEC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "METH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MIL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MIN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MINT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MMC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MMNXT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MMXIV"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MNTA"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MON"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MRC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MRS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MTS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MUN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MYR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "MZC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "N5X"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NAS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NAUT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NAV"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NBT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NEOS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NMC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NOBL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NOTE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NOXT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NRS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NSR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NTX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NXT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "NXTI"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "OMG"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "OMNI"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "OPAL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PAND"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PASC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PAWN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PIGGY"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PINK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PLX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PMC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "POT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PPC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PRC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PRT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "PTS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "Q2C"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "QBK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "QCN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "QORA"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "QTL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "RADS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "RBY"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "RDD"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "REP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "RIC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "RZR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SBD"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SDC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SHIBE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SHOPX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SILK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SJCX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SLR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SMC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SOC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SPA"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SQL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SRCC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SRG"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SSD"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "STEEM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "STR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SUM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SUN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SWARM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SXC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SYNC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "SYS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "TAC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "TOR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "TRUST"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "TWE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "UIS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ULTC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "UNITY"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "URO"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "USDE"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "USDT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "UTC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "UTIL"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "UVC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "VIA"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "VOOT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "VOX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "VRC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "VTC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "WC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "WDC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "WIKI"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "WOLF"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "X13"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XAI"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XAP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XBC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XCH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XCN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XCP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XCR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XDN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XDP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XEM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XHC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XLB"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XMG"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XMR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XPB"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XPM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XRP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XSI"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XST"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XSV"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XUSD"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XVC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "XXC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "YACC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "YANG"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "YC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "YIN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ZEC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "BTC",
+	      "ZRX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "BTC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "BCH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "DASH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "ETC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "ETH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "LTC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "NXT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "REP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "STR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "XMR"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "XRP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "USDT",
+	      "ZEC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "CVC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "ETC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "BCH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "GAS"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "GNO"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "GNT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "LSK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "OMG"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "REP"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "STEEM"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "ZEC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "ETH",
+	      "ZRX"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "XMR",
+	      "BCN"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "XMR",
+	      "BLK"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "XMR",
+	      "BTCD"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "XMR",
+	      "DASH"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "XMR",
+	      "LTC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "XMR",
+	      "MAID"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "XMR",
+	      "NXT"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  },
+	  {
+	    "pair": [
+	      "XMR",
+	      "ZEC"
+	    ],
+	    "maxDecimals": 8,
+		"minimalOrder": {
+	      "amount": 0.0001,
+	      "unit": "asset"
+	    }
+	  }
+	]
+}

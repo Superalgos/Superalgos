@@ -18,7 +18,7 @@ type Query {
 type Mutation {
   authenticate(idToken: String!): Member
   createTeam(name: String!, slug: String, owner: String): Team @isAuthenticated
-  deleteTeam(id: ID!, owner: String!): Team @isOwnerOrHasRole(type: "Member", roles: ["OWNER"])
+  deleteTeam(id: ID!): Team @isOwnerOrHasRole(type: "Member", roles: ["OWNER"])
   updateProfile(data: MemberProfileInput): Member @isAuthenticated
 }
 

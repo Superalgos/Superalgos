@@ -165,7 +165,7 @@ const resolvers = {
       }, info)
     },
     async deleteTeam(parent, { id, owner }, ctx, info) {
-      ctx.db.mutation.deleteTeam({ where: { id, member: {where: { auth0id: owner } } } }, owner)
+      ctx.db.mutation.deleteTeam({ where: { id } }, info)
     }
   }
 }
@@ -234,4 +234,4 @@ const options = {
 
 server.start(options, () => console.log(`Server is running on http://localhost:4000${server.options.endpoint}`))
 
-module.exports= { createPrismaMember }
+module.exports= { createPrismaMember: createPrismaMember }

@@ -51,6 +51,9 @@ export const actions = {
       }
     }
   },
+  updateTeamView: () => [
+    action('toggleModal', '')
+  ],
   nav,
   team,
   algobot,

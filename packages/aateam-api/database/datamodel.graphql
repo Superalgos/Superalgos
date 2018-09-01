@@ -9,7 +9,7 @@ type Team {
   createdAt: DateTime!
   name: String! @unique
   slug: String! @unique
-  owner: Member! @relation (name: "TeamOwner", onDelete: CASCADE)
+  owner: Member! @relation (name: "TeamOwner", onDelete: SET_NULL)
   profile: TeamProfile
   members: [TeamMembers!]! @relation (name: "TeamMembers", onDelete: SET_NULL)
   anonymous: Boolean! @default(value: true)

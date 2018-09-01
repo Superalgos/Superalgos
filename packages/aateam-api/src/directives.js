@@ -1,12 +1,42 @@
 const _get = require('lodash.get')
 const validateAndParseIdToken = require('./helpers/validateAndParseIdToken')
-const createPrismaMember  = require('./index')
+//const createPrismaMember  = require('./index')
 
 const memberLocationOnContext = 'request.member'
 const bearerAccessToken = 'request.headers.authorization'
 
 const ctxMember = ctx => _get(ctx, memberLocationOnContext)
 const ctxToken = ctx => _get(ctx, bearerAccessToken)
+
+const createPrismaMember = async function (ctx, info, idToken) {
+  console.log('createPrismaMember', idToken)
+  const member = await ctx.db.mutation.upsertMember({
+    where: {
+      auth0id: idToken.sub,
+    },
+    create: {
+      auth0id: idToken.sub,
+      nickname: idToken.nickname,
+      profile: {
+        create: {
+          email: idToken.email,
+          avatar: idToken.picture
+        }
+      }
+    },
+    update: {
+      auth0id: idToken.sub,
+      nickname: idToken.nickname,
+      profile: {
+        update: {
+          email: idToken.email,
+          avatar: idToken.picture
+        }
+      }
+    }
+  }, info)
+  return member
+}
 
 const isLoggedIn = async ctx => {
     let member = ctxMember(ctx, memberLocationOnContext)

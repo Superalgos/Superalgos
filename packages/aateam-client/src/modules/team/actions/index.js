@@ -135,8 +135,7 @@ export const team = {
   addTeamSuccess: result => [
     action('form', { form: 'addTeamSuccess', message: 'Team Added!' }),
     action('profile', result),
-    action('createTeam.input', ''),
-    action('toggleModal', '')
+    action('createTeam.input', '')
   ],
   toggleModal: form => (state, actions) => {
     return {
@@ -178,11 +177,11 @@ export const team = {
     }),
     action('deleteTeamSubmit', id)
   ],
-  deleteTeamSubmit: ({id, owner}) => async (state, actions) => {
-    console.log('deleteTeamSubmit: ', id, owner)
+  deleteTeamSubmit: ({ id }) => async (state, actions) => {
+    console.log('deleteTeamSubmit: ', id)
     const result = await client.mutate({
       mutation: DeleteTeamMutation,
-      variables: { id: id, owner: owner },
+      variables: { id: id },
       options: {
         update: (proxy, { data: { getTeamByOwner } }) => {
           const data = proxy.readQuery({ GetTeamQuery })

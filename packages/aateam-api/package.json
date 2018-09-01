@@ -1,0 +1,26 @@
+{
+  "name": "aa-team-api",
+  "scripts": {
+    "start": "nodemon -e js,graphql -x node -r dotenv/config src/index.js",
+    "debug": "nodemon -e js,graphql -x node --inspect -r dotenv/config src/index.js",
+    "playground": "graphql playground --dotenv dotenv/config",
+    "dev": "npm-run-all --parallel debug playground"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express-jwt": "^5.3.1",
+    "graphql-import": "^0.6.0",
+    "graphql-tools": "3.1.1",
+    "graphql-yoga": "^1.16.1",
+    "jsonwebtoken": "^8.3.0",
+    "jwks-rsa": "^1.3.0",
+    "lodash.get": "^4.4.2",
+    "nodemon": "^1.18.3",
+    "prisma-binding": "2.1.4"
+  },
+  "devDependencies": {
+    "graphql-cli": "^2.16.5",
+    "npm-run-all": "4.1.3",
+    "prisma": "^1.14.0"
+  }
+}

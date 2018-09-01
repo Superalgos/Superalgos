@@ -1,0 +1,158 @@
+/** UTILITIES **/
+//1. Atomic adjustments
+//2. CSS Pre-loader
+
+/* Atomic adjustments
+// Adjust padding and margin on elements atomically
+//
+// usage: [m|p]-[size]-[position]
+// sizes: units (rem) - [0,qtr,hlf,3qtr,1,2,3,5,10]
+// positions: [t, b, l, r] - top, bottom, left, right
+//
+// example uses:
+//   add 1rem margin to top: m_t_1
+//   add 0.25rem padding to left and right: p-qtr-l p-qtr-r
+*/
+
+// $sizeUnit: rem;
+$marginKey: 'm';
+$paddingKey: 'p';
+$separator: '-';
+$spaceSizes: (
+    ('0', 0),
+    ('qtr', 0.25),
+    ('hlf', 0.5),
+    ('3qtr', 0.5),
+    ('1', 1),
+    ('2', 2),
+    ('3', 3),
+    ('4', 4),
+    ('5', 5),
+    ('7', 7),
+    ('10', 10)
+);
+$positions: (
+    ('t', 'top'),
+    ('r', 'right'),
+    ('b', 'bottom'),
+    ('l', 'left')
+);
+
+@function spaceSizeValue($key, $value) {
+    @return if($key == 'none', 0, $value + rem);
+}
+
+@each $size in $spaceSizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+    .#{$marginKey}#{$separator}#{$sizeKey} {
+        margin: spaceSizeValue($sizeKey, $sizeValue) !important;
+    }
+    .#{$paddingKey}#{$separator}#{$sizeKey} {
+        padding: spaceSizeValue($sizeKey, $sizeValue) !important;
+    }
+    @each $position in $positions {
+        $posKey: nth($position, 1);
+        $posValue: nth($position, 2);
+        .#{$marginKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+            margin-#{$posValue}: spaceSizeValue($sizeKey, $sizeValue) !important;
+        }
+        .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+            padding-#{$posValue}: spaceSizeValue($sizeKey, $sizeValue) !important;
+        }
+    }
+}
+
+/*CSS Pre-loader
+//
+// This only works with JavaScript,
+//   — no JS, loader doesn't display
+//
+*/
+
+.no-js .loader { display: none;  }
+.js .loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+ position: fixed;
+ left: 0px;
+ top: 0px;
+ width: 100%;
+ height: 100%;
+ z-index: 9999;
+ background: $red;
+}
+
+.loader {
+	position: absolute;
+	width: 78px;
+	height: 78px;
+	left: 50%;
+	top:50%;
+	margin-left: -39px;
+	margin-top: -39px;
+}
+
+.loading:before {
+	content: '';
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	top: 50%;
+	margin-top: -18px;
+	left: 50%;
+	margin-left: -18px;
+	border-width: 2px 1px;
+	border-style: solid;
+	border-color: rgb(255,255,255) rgba(247,247,247,0.3);
+	border-radius: 50%;
+	box-sizing: border-box;
+	animation: spin 3.45s infinite;
+}
+.loading:after {
+	content: '';
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	top: 50%;
+	margin-top: -3px;
+	left: 50%;
+	margin-left: -3px;
+	background-color: rgb(255,255,255);
+	border-radius: 50%;
+	box-sizing: border-box;
+	animation: pulse 6.9s infinite, borderPulse 6.9s infinite;
+}
+
+.copy2clip, .copyP2clip{
+  cursor: pointer;
+}
+#clipNotify {
+  position: fixed;
+  left: 50%;
+  bottom: 3rem;
+  width: 50%;
+  margin-left: -25%;
+  z-index: 100;
+  opacity: 0.8;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+#clipNotify textarea.textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none;
+    overflow: auto;
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: white;
+    font-weight: 600;
+
+}

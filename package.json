@@ -1,0 +1,21 @@
+{
+  "name": "AATeamModule",
+  "version": "0.0.1",
+  "description": "Advanced Algos Team Module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdvancedAlgos/AATeamModule.git.git"
+  },
+  "keywords": [
+    "Advanced Algos"
+  ],
+  "author": "Barry Low <bearcanru@gmail.com>",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/AdvancedAlgos/AATeamModule.git/issues"
+  },
+  "homepage": "https://github.com/AdvancedAlgos/AATeamModule.git#readme"
+}

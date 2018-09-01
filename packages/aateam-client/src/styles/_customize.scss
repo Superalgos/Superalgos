@@ -1,0 +1,41 @@
+$family-sans-serif: 'Saira', 'Saira Condensed', Arial, 'Arial Narrow', Calibri, Candara, Arial, sans-serif;
+
+$body-size: 14px;
+
+$radius: 0;
+$radius-small: 0;
+$radius-large: 0;
+
+$link-hover: $primary-dark;
+$link-focus: $primary-dark;
+$link-active: $primary-dark;
+
+$button-hover-color: $grey-darker;
+$button-focus: $black-ter;
+$button-active-color: $black-ter;
+
+$navbar-height: 4rem;
+$navbar-item-img-max-height: 100%;
+$navbar-background-color: $white;
+$navbar-item-hover-background-color: $grey-lighter;
+$navbar-item-hover-color: $black;
+$navbar-item-active-color: $blue;
+$navbar-item-active-background-color: transparent;
+$navbar-tab-hover-background-color: transparent;
+$navbar-dropdown-arrow: $blue;
+
+$footer-background-color: $dark;
+
+$input-color: $grey-darker;
+$input-background-color: $white;
+$input-border-color: $grey-lighter;
+$input-shadow: inset 0 1px 2px rgba($black, 0.1);
+
+$input-hover-color: $grey-darker;
+$input-hover-border-color: $grey-light;
+
+$input-focus-color: $grey-darker;
+$input-focus-border-color: $link;
+$input-focus-box-shadow-size: 0 0 0 0.125em;
+$input-focus-box-shadow-color: rgba($link, 0.25);
+

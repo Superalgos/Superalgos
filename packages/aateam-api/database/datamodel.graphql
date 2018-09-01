@@ -1,0 +1,51 @@
+enum Role {
+  OWNER
+  MANAGER
+  MEMBER
+}
+
+type Team {
+  id: ID! @unique
+  createdAt: DateTime!
+  name: String! @unique
+  slug: String! @unique
+  owner: Member! @relation (name: "TeamOwner", onDelete: CASCADE)
+  profile: TeamProfile
+  members: [TeamMembers!]! @relation (name: "TeamMembers", onDelete: SET_NULL)
+  anonymous: Boolean! @default(value: true)
+}
+
+type TeamMembers {
+  id: ID! @unique
+  member: Member @relation (name: "MemberOnTeam", onDelete: SET_NULL)
+  team: Team @relation (name: "TeamMembers", onDelete: SET_NULL)
+  role: Role @default(value: MEMBER)
+}
+
+type TeamProfile {
+  id: ID! @unique
+  createdAt: DateTime!
+  description: String
+  motto: String
+  avatar: String
+}
+
+type Member {
+  id: ID! @unique
+  nickname: String
+  teams: [TeamMembers!]! @relation (name: "MemberOnTeam", onDelete: SET_NULL)
+  profile: MemberProfile
+  auth0id: String! @unique
+  visible: Boolean! @default(value: false)
+  anonymous: Boolean! @default(value: true)
+}
+
+type MemberProfile {
+  id: ID! @unique
+  createdAt: DateTime!
+  bio: String
+  status: String
+  avatar: String
+  repo: String
+  email: String
+}

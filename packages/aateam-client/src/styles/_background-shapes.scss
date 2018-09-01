@@ -1,0 +1,181 @@
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+// 1344, 1152, 960
+$width: 100vw;
+$height: 10rem;
+
+.separator-down {
+  width: $width;
+  height: $height;
+  position: relative;
+  color: $white;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: $height solid $info;
+    border-left: $width/2 solid transparent;
+    border-right: $width/2 solid transparent;
+  }
+  @media only screen and (min-width: 1408px){
+    &:after {
+      left: -32px;
+      border-left: 704px solid transparent;
+      border-right: 704px solid transparent;
+    }
+  }
+  @media only screen and (min-width: 1216px) and (max-width: 1407px){
+    &:after {
+      left: -32px;
+      border-left: 608px solid transparent;
+      border-right: 608px solid transparent;
+    }
+  }
+  @media only screen and (min-width: 1024px) and (max-width: 1215px){
+    &:after {
+      left: -32px;
+      border-left: 512px solid transparent;
+      border-right: 512px solid transparent;
+    }
+  }
+  &.is-light{
+    color: $grey-lighter;
+    &:after {
+      border-top: $height solid $white;
+    }
+  }
+  &.is-primary {
+    &:after {
+      border-top: $height solid $primary;
+    }
+  }
+  &.is-primary.has-background-light {
+    &:after {
+      border-top: $height solid #EAE2DE;
+    }
+  }
+}
+
+.separator-up {
+  width: $width;
+  height: $height;
+  position: relative;
+  color: white;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: $height solid white;
+    border-left: $width/2 solid transparent;
+    border-right: $width/2 solid transparent;
+  }
+  @media only screen and (min-width: 1408px){
+    &:after {
+      left: -32px;
+      border-left: 704px solid transparent;
+      border-right: 704px solid transparent;
+    }
+  }
+  @media only screen and (min-width: 1216px) and (max-width: 1407px){
+    &:after {
+      left: -32px;
+      border-left: 608px solid transparent;
+      border-right: 608px solid transparent;
+    }
+  }
+  @media only screen and (min-width: 1024px) and (max-width: 1215px){
+    &:after {
+      left: -32px;
+      border-left: 512px solid transparent;
+      border-right: 512px solid transparent;
+    }
+  }
+}
+
+.chevron-down {
+  position: relative;
+  text-align: center;
+  padding: 0;
+  margin-top: -3rem;
+  margin-bottom: 0;
+  height: 17rem;
+  width: $width;
+  background: white;
+  z-index: 5;
+  .container{
+    position: relative;
+    top: 5rem;
+    z-index: 10;
+  }
+  &:before {
+    z-index: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background: $grey-lighter;
+    transform: skew(0deg, 10deg);
+  }
+  &:after {
+    z-index: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    background: $grey-lighter;
+    transform: skew(0deg, -10deg);
+  }
+}
+
+/*
+.chevron-up {
+
+  position: relative;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 6px;
+  height: $height;
+  width: $width;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    background: red;
+    transform: skew(0deg, -6deg);
+  }​
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 51%;
+    transform: skew(0deg, 6deg);
+  }
+}
+*/

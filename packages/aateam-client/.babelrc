@@ -1,0 +1,11 @@
+{
+  "presets": [
+    ["@babel/env", {
+      "modules": false
+    }]
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    ["transform-react-jsx", { "pragma": "h" }]
+  ]
+}

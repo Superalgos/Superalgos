@@ -7,7 +7,7 @@ services:
     - "4466:4466"
     environment:
       PRISMA_CONFIG: |
-        managementApiSecret: PRISMA_SECRET
+        managementApiSecret: ${PRISMA_SECRET}
         port: 4466
         databases:
           default:

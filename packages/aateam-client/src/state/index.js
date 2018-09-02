@@ -7,7 +7,7 @@ import team from '../modules/team/state'
 import algobot from '../modules/algobots/state'
 import community from '../modules/community/state'
 
-const appVersion = '0.0.7'
+const appVersion = '0.0.8'
 export const state = getStateFromStorage(appVersion) || {
   location: location.state,
   appVersion: appVersion,

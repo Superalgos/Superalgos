@@ -13,4 +13,4 @@ services:
     volumes:
       - .:/var/www/application
       - /var/www/application/node_modules
-    container_name: aateam-api
+    container_name: aateam-api-dev

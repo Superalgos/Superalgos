@@ -52,7 +52,8 @@ export const actions = {
     }
   },
   updateTeamView: () => [
-    action('toggleModal', '')
+    action('toggleModal', ''),
+    action('team.form', { form: '', message: '' })
   ],
   nav,
   team,

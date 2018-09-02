@@ -8,6 +8,7 @@ import { Dashboard } from './sections'
 import { AddTeamForm } from '../../../modules/team/views'
 
 export const DashboardWrapper = props => (state, actions) => {
+  if (state.team.form.form === 'addTeamSuccess') actions.updateTeamView()
   if (state.loggedIn) {
     const name =
       state.user.name === (undefined || null || '')

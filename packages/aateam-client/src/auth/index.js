@@ -11,7 +11,8 @@ export const AUTH_CONFIG = {
   api_audience: process.env.AUTH0_AUDIENCE,
   domain: process.env.AUTH0_DOMAIN,
   clientId: process.env.AUTH0_CLIENTID,
-  callbackUrl: process.env.AUTH0_CALLBACK_URL
+  callbackUrl: process.env.AUTH0_CALLBACK_URL,
+  logoutUrl: process.env.AUTH0_LOGOUT_URL
 }
 
 console.log(process.env.AUTH0_CLIENTID)
@@ -163,7 +164,7 @@ class Auth {
     deleteCookie('ajs_user_id')
     deleteCookie('current_tenant')
     actions.setLoggedOut()
-    lock.logout({ returnTo: 'http://0.0.0.0:5000' })
+    lock.logout({ returnTo: AUTH_CONFIG.logoutUrl })
     console.log('logout')
   }
 

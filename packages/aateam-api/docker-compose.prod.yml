@@ -1,26 +1,27 @@
 version: '3'
 services:
   node:
-    image: aateamapi/prod
+    image: aateamapi-prod:v1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     environment:
       - NODE_ENV=production
       - GENERATE_SOURCEMAP=false
-      - APP_PATH=/usr/src/app
       - COMPOSE_HTTP_TIMEOUT=2000
-      - VIRTUAL_HOST=api.algocommunity.org
-      - LETSENCRYPT_HOST=api.algocommunity.org
-      - LETSENCRYPT_EMAIL=barry@algocommunity.org
+      - VIRTUAL_HOST=teams.advancedalgos.net
+      - LETSENCRYPT_HOST=teams.advancedalgos.net
+      - LETSENCRYPT_EMAIL=support@advancedalgos.net
       - VIRTUAL_PORT=4000
     container_name: aateamapi
     tty: true
     stdin_open: true
     volumes:
-      - ./:${APP_PATH}
-      - ${APP_PATH}/build
-      - ${APP_PATH}/node_modules
-    working_dir: ${APP_PATH}
+      - ./:/var/www/app
+      - /var/www/app/node_modules
+    working_dir: /var/www/app
     restart: always
-    command: npm run start
+    command: node -r dotenv/config src/index.js
     expose:
       - 4000
       - 80

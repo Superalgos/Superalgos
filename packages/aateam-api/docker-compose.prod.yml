@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    env_file: .env
     environment:
       - NODE_ENV=production
       - GENERATE_SOURCEMAP=false

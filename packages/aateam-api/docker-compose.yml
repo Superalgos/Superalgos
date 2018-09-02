@@ -1,16 +1,50 @@
 version: '3'
-
 services:
-  app:
+  prisma:
+    image: prismagraphql/prisma:1.15.1
+    depends_on:
+    - postgres
+    restart: always
+    ports:
+    - "4466:4466"
+    environment:
+      PRISMA_CONFIG: |
+        managementApiSecret: ${PRISMA_SECRET}
+        port: 4466
+        databases:
+          default:
+            connector: postgres
+            host: postgres
+            port: 5432
+            user: prisma
+            password: prisma
+            migrations: true
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  node:
+    image: aateamapi-dev:v1
     build:
       context: .
-      dockerfile: Dockerfile
-    environment:
-     NODE_ENV: development
+      dockerfile: ./Dockerfile
+    depends_on:
+    - prisma
+    env_file: ./.env
+    container_name: aateamapi
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./:/var/www/app
+      - /var/www/app/node_modules
+    working_dir: /var/www/app
+    restart: always
+    command: node -r dotenv/config src/index.js
     ports:
       - "4000:4000"
-      - "3000:3000"
-    volumes:
-      - .:/var/www/application
-      - /var/www/application/node_modules
-    container_name: aateam-api-dev
+volumes:
+  postgres:

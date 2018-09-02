@@ -70,7 +70,7 @@ const authLink = onError(({ graphQLErrors, networkError, operation, forward }) =
     // User access token has expired
     console.log('authLink: ', graphQLErrors)
     if (graphQLErrors[0].message === 'Not logged in') {
-      // We assume we have both tokens needed to run the async request
+      // We assume we have auth0 access token needed to run the async request
       // Let's refresh token through async request
       return new Observable(observer => {
         getItem('access_token')
@@ -95,7 +95,7 @@ const authLink = onError(({ graphQLErrors, networkError, operation, forward }) =
             forward(operation).subscribe(subscriber)
           })
           .catch(error => {
-            // No refresh or client token available, we force user to login
+            // No auth0 access token available, we force user to login
             observer.error(error)
           })
       })

@@ -209,10 +209,7 @@ server.express.post(server.options.endpoint, (req, res, done) =>
 )
 
 const whitelist = [
-  'http://localhost:8000',
   'http://localhost:1337',
-  'http://localhost:3000',
-  'http://localhost:4000',
   'http://0.0.0.0:5000'
 ]
 const corsOptionsDelegate = (req, callback) => {

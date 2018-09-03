@@ -5,15 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    env_file: .env
-    environment:
-      - NODE_ENV=production
-      - GENERATE_SOURCEMAP=false
-      - COMPOSE_HTTP_TIMEOUT=2000
-      - VIRTUAL_HOST=teams.advancedalgos.net
-      - LETSENCRYPT_HOST=teams.advancedalgos.net
-      - LETSENCRYPT_EMAIL=support@advancedalgos.net
-      - VIRTUAL_PORT=4000
+    env_file: ./.env
     container_name: aateamapi
     tty: true
     stdin_open: true

@@ -2,8 +2,12 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
+
+// Allow crosss-origin requests
+app.use(cors());
 
 // Connect to the daabase
 mongoose.connect('mongodb://users-module-graphql-server:dsadTRYUtrsgg34@ds141952.mlab.com:41952/users', { useNewUrlParser: true });

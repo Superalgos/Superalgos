@@ -27,6 +27,7 @@ const UserType = new GraphQLObjectType({
     alias: {type: GraphQLString},
     firstName: {type: GraphQLString},
     lastName: {type: GraphQLString},
+    roleId: {type: GraphQLString},
     role: {
       type: RoleType,
       resolve(parent, args) {

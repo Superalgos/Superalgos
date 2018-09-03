@@ -5,6 +5,7 @@ import {ApolloProvider} from 'react-apollo';
 // Components
 
 import UserList from './components/UserList';
+import AddUser from './components/AddUser';
 
 // Apollo Client Setup
 
@@ -18,7 +19,8 @@ class App extends Component {
       <ApolloProvider client={client}>
         <div id="main">
           <h1>Advanced Algos - Users Module</h1>
-          <UserList></UserList>
+          <UserList/>
+          <AddUser/>
         </div>
       </ApolloProvider>
     );

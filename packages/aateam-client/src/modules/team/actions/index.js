@@ -39,7 +39,13 @@ export const team = {
       query: UniqueTeamnameQuery,
       variables: { name: value }
     })
-    return actions.createTeam.unique(result.data.teamByName.name === null)
+      .catch((res) => {
+        const errors = res.graphQLErrors.map((error) => {
+          return error.message
+        })
+        return actions.form({ form: 'uniqueTeamnameError', message: errors })
+      })
+    return actions.createTeam.unique(result.data.teamByName === null)
   },
   createTeam: {
     input: value => state => {
@@ -190,6 +196,12 @@ export const team = {
         }
       }
     })
+      .catch((res) => {
+        const errors = res.graphQLErrors.map((error) => {
+          return error.message
+        })
+        return actions.form({ form: 'deleteTeamError', message: errors })
+      })
 
     if (result.data.deleteTeam.id !== null) {
       return actions.deleteTeamSuccess({ name: '' })

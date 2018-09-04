@@ -5,6 +5,9 @@ import {ApolloProvider} from 'react-apollo';
 import Navbar from './components/Navbar'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import Home from './components/Home'
+import Profile from './components/Profile'
+import Browse from './components/Browse'
+import Search from './components/Search'
 import About from './components/About'
 import Contact from './components/Contact'
 import Post from './components/Post'
@@ -30,6 +33,9 @@ class App extends Component {
             <Navbar />
             <Switch>
               <Route exact path='/' component={Home}/>
+              <Route path='/profile' component={Profile} />
+              <Route path='/browse' component={Browse} />
+              <Route path='/search' component={Search} />
               <Route path='/about' component={About} />
               <Route path='/contact' component={Contact} />
               <Route path='/:post_id' component={Post} />

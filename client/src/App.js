@@ -4,6 +4,11 @@ import {ApolloProvider} from 'react-apollo';
 
 import Navbar from './components/Navbar'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
+
+// Components
+
+
+
 import Home from './components/Home'
 import Profile from './components/Profile'
 import Browse from './components/Browse'
@@ -11,11 +16,6 @@ import Search from './components/Search'
 import About from './components/About'
 import Contact from './components/Contact'
 import Post from './components/Post'
-
-// Components
-
-import UserList from './components/UserList';
-import AddUser from './components/AddUser';
 
 // Apollo Client Setup
 
@@ -42,11 +42,6 @@ class App extends Component {
             </Switch>
           </div>
 
-          <div id="main">
-            <h1>Advanced Algos - Users Module</h1>
-            <UserList/>
-            <AddUser/>
-          </div>
         </ApolloProvider>
       </BrowserRouter>
     );

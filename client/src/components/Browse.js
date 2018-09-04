@@ -5,7 +5,7 @@ const Browse = () => {
     <div>
       <div className="container">
         <h4 className="center">Browse</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae repudiandae repellat illo magni eligendi cupiditate voluptates eius nam voluptate. Incidunt nihil ullam quae quia officia quaerat, deserunt eligendi explicabo totam?</p>
+        <p>Here we will have the Browse functionality. we will allow end users to navigate through a directory like list of system users. We need to resolve pagination and be able to filter users by their role. </p>
       </div>
     </div>
   )

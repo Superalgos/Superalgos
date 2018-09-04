@@ -23,13 +23,26 @@ const client = new ApolloClient({
 class App extends Component {
   render() {
     return (
-      <ApolloProvider client={client}>
-        <div id="main">
-          <h1>Advanced Algos - Users Module</h1>
-          <UserList/>
-          <AddUser/>
-        </div>
-      </ApolloProvider>
+      <BrowserRouter>
+        <ApolloProvider client={client}>
+
+          <div className="App">
+            <Navbar />
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route path='/about' component={About} />
+              <Route path='/contact' component={Contact} />
+              <Route path='/:post_id' component={Post} />
+            </Switch>
+          </div>
+
+          <div id="main">
+            <h1>Advanced Algos - Users Module</h1>
+            <UserList/>
+            <AddUser/>
+          </div>
+        </ApolloProvider>
+      </BrowserRouter>
     );
   }
 }

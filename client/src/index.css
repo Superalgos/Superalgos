@@ -84,3 +84,37 @@ form button{
     box-sizing: border-box;
     color: #fff;
 }
+
+
+
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #eee;
+}
+
+nav a.active{
+  border-bottom: 5px solid #333;
+  transition: all ease 0.5s;
+}
+
+.container{
+  margin-top: 20px;
+}
+
+.home .post img{
+  position: absolute;
+  top: 20px;
+  left: -100px;
+  opacity: 0.6;
+}
+
+.home .post{
+  overflow: hidden;
+  padding-left: 80px;
+}

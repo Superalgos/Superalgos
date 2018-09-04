@@ -125,6 +125,12 @@ const resolvers = {
     async owner(parent, args, ctx, info) {
       console.log('resolver.query.owner ctx: ', ctxMember(ctx))
       return ctx.db.query.member({ where: { id: ctxMember(ctx).auth0id } }, info)
+        .catch((res) => {
+          console.log('createTeam error: ', res)
+          const errors = res.graphQLErrors.map((error) => {
+            return error.message
+          })
+        })
     },
     members: forwardTo('db')
   },
@@ -155,7 +161,7 @@ const resolvers = {
       return member
     },
     async createTeam(parent, { name, slug, owner }, ctx, info) {
-      ctx.db.mutation.createTeam({
+      return ctx.db.mutation.createTeam({
         data: {
           name: name,
           slug: slug,
@@ -163,9 +169,21 @@ const resolvers = {
           members: {create: {role: 'OWNER', member: {connect: {auth0id: owner}}}}
         }
       }, info)
+        .catch((res) => {
+          console.log('createTeam error: ', res)
+          const errors = res.graphQLErrors.map((error) => {
+            return error.message
+          })
+        })
     },
-    async deleteTeam(parent, { id, owner }, ctx, info) {
-      ctx.db.mutation.deleteTeam({ where: { id } }, info)
+    async deleteTeam(parent, { id }, ctx, info) {
+      return ctx.db.mutation.deleteTeam({ where: { id } }, info)
+        .catch((res) => {
+          console.log('deleteTeam error: ', res)
+          const errors = res.graphQLErrors.map((error) => {
+            return error.message
+          })
+        })
     }
   }
 }

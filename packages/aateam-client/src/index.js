@@ -8,6 +8,7 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloLink, concat, split, Observable } from 'apollo-link'
 import { onError } from 'apollo-link-error'
+import { setContext } from 'apollo-link-context'
 import { WebSocketLink } from 'apollo-link-ws'
 import { SubscriptionClient } from 'subscriptions-transport-ws'
 import { getMainDefinition } from 'apollo-utilities'
@@ -65,7 +66,7 @@ const link = split(
   httpLink
 )
 
-const authLink = onError(({ graphQLErrors, networkError, operation, forward }) => {
+const authRetryLink = onError(({ graphQLErrors, networkError, operation, forward }) => {
   if (graphQLErrors) {
     // User access token has expired
     // console.log('authLink: ', graphQLErrors) // check for error message to intercept and resend with Auth0 access token
@@ -103,14 +104,24 @@ const authLink = onError(({ graphQLErrors, networkError, operation, forward }) =
   }
 })
 
-const linkWithAuth = concat(authLink, link)
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = window.localStorage.getItem('access_token')
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      Authorization: token ? `Bearer ${token}` : ``
+    }
+  }
+})
 
 let apolloClient
 
 const cache = new InMemoryCache().restore(window.__APOLLO_STATE__)
 
 export const client = new ApolloClient({
-  link: linkWithAuth,
+  link: ApolloLink.from([authRetryLink, authLink, link]),
   cache,
   connectToDevTools: true
 })

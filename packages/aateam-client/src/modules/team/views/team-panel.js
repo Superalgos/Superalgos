@@ -26,7 +26,7 @@ export const TeamPanel = props => (state, actions) => {
   if (team[0].node.name !== '' && team[0].node.name !== null) {
     const initial = team[0].node.name.substring(0, 1)
     return (
-      <div class='section' key='teamList' class='is-marginless is-paddingless'>
+      <div class='section' key='teamPanel' class='is-marginless is-paddingless'>
         <h2 class='title is-size-4 m-t-1'>Team</h2>
         {team[0].node.profile !== null && team[0].node.profile.avatar !== '' ? (
           <div class='image is-32x32 avatar'>

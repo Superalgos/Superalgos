@@ -7,7 +7,7 @@ import { DeleteTeamMutation } from '../graphql/DeleteTeamMutation'
 
 import { client } from '../../../index'
 
-import { mergeDeep } from '../../../utils/js-helpers'
+import { mergeDeep, validObject } from '../../../utils/js-helpers'
 
 export const team = {
   form: ({ form, message }) => state => {
@@ -203,10 +203,10 @@ export const team = {
         return actions.form({ form: 'deleteTeamError', message: errors })
       })
 
-    if (result.data.deleteTeam.id !== null) {
+    if (validObject(result, 'data') && result.data.deleteTeam !== null) {
       return actions.deleteTeamSuccess({ name: '' })
     } else {
-      return actions.form({ form: 'deleteTeamError', message: 'No team found' })
+      return actions.form({ form: 'deleteTeamError', message: result })
     }
   },
   deleteTeamSuccess: profile => [

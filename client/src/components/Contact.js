@@ -3,33 +3,33 @@ import React from 'react'
 const Contact = () => {
   return (
     <div>
-    <section class="section container scrollspy" id="contact">
-      <div class="row">
-        <div class="col s12 l5">
-          <h2 class="indigo-text text-darken-4">Get in Touch</h2>
+    <section className="section container scrollspy" id="contact">
+      <div className="row">
+        <div className="col s12 l5">
+          <h2 className="indigo-text text-darken-4">Get in Touch</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
           <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
           <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
         </div>
-        <div class="col s12 l5 offset-l2">
+        <div className="col s12 l5 offset-l2">
           <form>
-            <div class="input-field">
-              <i class="material-icons prefix">email</i>
+            <div className="input-field">
+              <i className="material-icons prefix">email</i>
               <input type="email" id="email"/>
-              <label for="email">Your Email</label>
+              <label htmlFor="email">Your Email</label>
             </div>
-            <div class="input-field">
-              <i class="material-icons prefix">message</i>
-              <textarea id="message" class="materialize-textarea" cols="20" rows="20"></textarea>
-              <label for="message">Your Message</label>
+            <div className="input-field">
+              <i className="material-icons prefix">message</i>
+              <textarea id="message" className="materialize-textarea" cols="20" rows="20"></textarea>
+              <label htmlFor="message">Your Message</label>
             </div>
-            <div class="input-field">
-              <i class="material-icons prefix">date_range</i>
-              <input type="text" id="date" class="datepicker"/>
-              <label for="date">Choose a date you need me for...</label>
+            <div className="input-field">
+              <i className="material-icons prefix">date_range</i>
+              <input type="text" id="date" className="datepicker"/>
+              <label htmlFor="date">Choose a date you need me for...</label>
             </div>
-            <div class="input-field">
+            <div className="input-field">
               <p>Services required:</p>
               <p>
                 <label>
@@ -44,8 +44,8 @@ const Contact = () => {
                 </label>
               </p>
             </div>
-            <div class="input-field center">
-              <button class="btn">Submit</button>
+            <div className="input-field center">
+              <button className="btn">Submit</button>
             </div>
           </form>
         </div>

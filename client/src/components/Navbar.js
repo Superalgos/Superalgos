@@ -6,7 +6,7 @@ const Navbar = (props) => {
     <header>
       <nav className="nav-wrapper transparent">
         <div className="container">
-          <a href="http://www.advancedalgos.net" className="brand-logo">Advanced Algos Users Module</a>
+          <a href="http://www.advancedalgos.net" className="brand-logo">Users Module</a>
           <a href="" className="sidenav-trigger" data-target="mobile-menu">
             <i className="material-icons">menu</i>
           </a>
@@ -19,8 +19,8 @@ const Navbar = (props) => {
             <li><NavLink to='/about'>About</NavLink></li>
             <li><a href="http://modules.advancedalgos.net">Modules</a></li>
 
-            <li><a href="" className="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Instagram">
-              <i className="fab fa-instagram"></i>
+            <li><a href="" className="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="You Tube">
+              <i className="fab fa-youtube"></i>
             </a></li>
             <li><a href="" className="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Facebook">
               <i className="fab fa-facebook"></i>

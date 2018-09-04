@@ -2,3 +2,85 @@ body {
   background: #eee;
   font-family: "Arial";
 }
+
+#main h1{
+  color:#444;
+  text-align: center;
+}
+
+#main{
+  padding: 0px;
+  box-sizing: border-box;
+  width: 60%;
+  height: 100%;
+}
+
+#user-list{
+  color: black;
+  padding: 0;
+}
+
+#user-list-li{
+  color: pink;
+  display: inline-block;
+  margin: 12px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #889E4F;
+  box-shadow: 1px 2px 3px rgba(0,0,0,3);
+  cursor: pointer;
+  color: #880E4F;
+}
+
+form{
+    background: #fff;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+}
+
+form .field{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+form label{
+    text-align: right;
+    padding: 6px;
+}
+
+form input, form select{
+    margin: 4px 0;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+form button{
+    color: #fff;
+    font-size: 2em;
+    background: #AD1457;
+    border: 0;
+    padding: 0 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+#user-profile{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: #AD1457;
+    padding: 30px;
+    overflow: auto;
+    box-shadow: -2px -3px 5px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    color: #fff;
+}

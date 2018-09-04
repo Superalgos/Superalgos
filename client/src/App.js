@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from 'react-apollo';
 
+import Navbar from './components/Navbar'
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import Home from './components/Home'
+import About from './components/About'
+import Contact from './components/Contact'
+import Post from './components/Post'
+
 // Components
 
 import UserList from './components/UserList';

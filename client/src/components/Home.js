@@ -21,7 +21,7 @@ class Home extends Component {
               <img src={PortraitImage} alt="" className="responsive-img materialboxed"></img>
           </div>
           <div className="col s12 l6 offset-l1">
-            <h2 className="indigo-text text-darken-4">Portraits</h2>
+            <h2 className="indigo-text text-darken-4">Title 1</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
           </div>
         </div>
@@ -30,7 +30,7 @@ class Home extends Component {
               <img src={CityImage} alt="" className="responsive-img materialboxed"></img>
           </div>
           <div className="col s12 l6 offset-l1 pull-l5 right-align">
-            <h2 className="indigo-text text-darken-4">Cityscapes</h2>
+            <h2 className="indigo-text text-darken-4">Title 2</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
           </div>
         </div>
@@ -39,7 +39,7 @@ class Home extends Component {
               <img src={NatureImage} alt="" className="responsive-img materialboxed"></img>
           </div>
           <div className="col s12 l6 offset-l1">
-            <h2 className="indigo-text text-darken-4">Nature</h2>
+            <h2 className="indigo-text text-darken-4">Title 3</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
           </div>
         </div>
@@ -71,12 +71,12 @@ class Home extends Component {
               </li>
             </ul>
             <div id="photography" className="col s12">
-                <p className="flow-text indigo-text text-darken-4">Photography</p>
+                <p className="flow-text indigo-text text-darken-4">This</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
                 <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
             </div>
             <div id="editing" className="col s12">
-                <p className="flow-text indigo-text text-darken-4">Editing</p>
+                <p className="flow-text indigo-text text-darken-4">That</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
                 <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
             </div>

@@ -1,18 +1,17 @@
-body {
-  background: #eee;
-  font-family: "Arial";
-}
 
-#main h1{
-  color:#444;
-  text-align: center;
-}
+
+
 
 #main{
   padding: 0px;
   box-sizing: border-box;
   width: 60%;
   height: 100%;
+}
+
+#main h1{
+  color:#444;
+  text-align: center;
 }
 
 #user-list{
@@ -97,7 +96,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #eee;
+  background-color:rgb(255, 255, 255);
 }
 
 nav a.active{
@@ -122,12 +121,12 @@ nav a.active{
 }
 
 
-
+.module-name{
+  text-decoration-color: white;
+}
 
 header{
-  background: url(img/nav-bar.jpg);
-  background-size: cover;
-  background-position: center;
+  background-color:rgb(48, 48, 54);
   min-height: 50px;
 }
 @media screen and (max-width: 670px){
@@ -144,4 +143,10 @@ header{
 }
 .tabs .tab a:focus, .tabs .tab a:focus.active{
   background: transparent;
+}
+
+
+footer{
+  background-color:rgb(48, 48, 54);
+  min-height: 50px;
 }

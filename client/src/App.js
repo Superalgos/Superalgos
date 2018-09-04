@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from 'react-apollo';
 
-import Navbar from './components/Navbar'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
 // Components
 
-
-
+import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Profile from './components/Profile'
 import Browse from './components/Browse'
@@ -16,6 +14,7 @@ import Search from './components/Search'
 import About from './components/About'
 import Contact from './components/Contact'
 import Post from './components/Post'
+import Footer from './components/Footer'
 
 // Apollo Client Setup
 
@@ -40,6 +39,7 @@ class App extends Component {
               <Route path='/contact' component={Contact} />
               <Route path='/:post_id' component={Post} />
             </Switch>
+            <Footer/>
           </div>
 
         </ApolloProvider>

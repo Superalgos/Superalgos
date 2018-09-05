@@ -61,7 +61,7 @@ type Member {
   id: ID! @unique
   nickname: String
   team: TeamMembers @relation (name: "MemberOnTeam", onDelete: SET_NULL)
-  auth0id: String! @unique
+  authId: String! @unique
   visible: Boolean! @default(value: true)
   createdAt: DateTime!
 }

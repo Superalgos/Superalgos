@@ -6,7 +6,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+
+// icons
 import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
+import ProfileIcon from '@material-ui/icons/Person';
+import BrowseIcon from '@material-ui/icons/ImportContacts';
+import SearchIcon from '@material-ui/icons/Search';
+import ContactIcon from '@material-ui/icons/ContactMail';
+import AboutIcon from '@material-ui/icons/FormatShapes';
+import ModulesIcon from '@material-ui/icons/QueuePlayNext';
 
 import { NavLink, withRouter } from 'react-router-dom'
 
@@ -44,12 +53,14 @@ function ButtonAppBar(props) {
           <Typography variant="title" color="inherit" className={classes.flex}>
             Users Module
           </Typography>
-          <Button color="inherit" component={HomeLink}>Home</Button>
-          <Button color="inherit" component={ProfileLink}>Profile</Button>
-          <Button color="inherit" component={BrowseLink}>Browse</Button>
-          <Button color="inherit" component={SearchLink}>Search</Button>
-          <Button color="inherit" component={ContactLink}>Contact</Button>
-          <Button color="inherit" component={AboutLink}>About</Button>
+
+          <IconButton className={classes.menuButton} color="inherit" title="Home" component={HomeLink}><HomeIcon /></IconButton>
+          <IconButton className={classes.menuButton} color="inherit" title="Manage you User Profile" component={ProfileLink}><ProfileIcon /></IconButton>
+          <IconButton className={classes.menuButton} color="inherit" title="Browse the Users Directory" component={BrowseLink}><BrowseIcon /></IconButton>
+          <IconButton className={classes.menuButton} color="inherit" title="Search Users" component={SearchLink}><SearchIcon /></IconButton>
+          <IconButton className={classes.menuButton} color="inherit" title="Contact Form" component={ContactLink}><ContactIcon /></IconButton>
+          <IconButton className={classes.menuButton} color="inherit" title="About this Module" component={AboutLink}><AboutIcon /></IconButton>
+          <IconButton className={classes.menuButton} color="inherit" title="Go to another Module" component={AboutLink}><ModulesIcon /></IconButton>
         </Toolbar>
       </AppBar>
     </div>

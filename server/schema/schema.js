@@ -27,6 +27,9 @@ const UserType = new GraphQLObjectType({
     alias: {type: GraphQLString},
     firstName: {type: GraphQLString},
     lastName: {type: GraphQLString},
+    isDeveloper: {type: GraphQLString},
+    isTrader: {type: GraphQLString},
+    isDataAnalyst: {type: GraphQLString},
     roleId: {type: GraphQLString},
     role: {
       type: RoleType,
@@ -98,6 +101,9 @@ const Mutation = new GraphQLObjectType({
         alias: {type: new GraphQLNonNull(GraphQLString)},
         firstName: {type: GraphQLString},
         lastName: {type: GraphQLString},
+        isDeveloper: {type: GraphQLInt},
+        isTrader: {type: GraphQLInt},
+        isDataAnalyst: {type: GraphQLInt},
         roleId: {type: new GraphQLNonNull(GraphQLString)}
       },
       resolve(parent, args) {
@@ -106,6 +112,9 @@ const Mutation = new GraphQLObjectType({
           alias: args.alias,
           firstName: args.firstName,
           lastName: args.lastName,
+          isDeveloper: args.isDeveloper,
+          isTrader: args.isTrader,
+          isDataAnalyst: args.isDataAnalyst,
           roleId: args.roleId
         });
         return user.save();

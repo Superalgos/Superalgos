@@ -9,6 +9,9 @@ class AddUser extends Component {
       alias: '',
       firstName: '',
       lastName: '',
+      isDeveloper: '',
+      isTrader: '',
+      isDataAnalyst: '',
       idRole: ''
     };
   }
@@ -29,6 +32,9 @@ class AddUser extends Component {
           alias: this.state.alias,
           firstName: this.state.firstName,
           lastName: this.state.lastName,
+          isDeveloper: this.state.isDeveloper,
+          isTrader: this.state.isTrader,
+          isDataAnalyst: this.state.isDataAnalyst,
           roleId: this.state.roleId
         },
         refetchQueries: [{ query: getUsersQuery}] // This allow us to re run whatever queries are necesary after the mutation.
@@ -36,28 +42,57 @@ class AddUser extends Component {
     }
     render(){
         return(
-            <form id="add-user" onSubmit={this.submitForm.bind(this)}>
-                <div className="field">
-                    <label>Alias:</label>
-                    <input type="text" onChange={ (e) => this.setState({ alias:e.target.value})}/>
+          <div className="row">
+              <form className="col s12" onSubmit={this.submitForm.bind(this)}>
+                <div className="row">
+                  <div className="input-field col s6">
+                    <input id="alias" type="text" className="validate" onChange={ (e) => this.setState({ alias:e.target.value})}/>
+                    <label htmlFor="alias">Alias</label>
+                  </div>
                 </div>
-                <div className="field">
-                    <label>First Name:</label>
-                    <input type="text" onChange={ (e) => this.setState({ firstName:e.target.value})}/>
+                <div className="row">
+                  <div className="input-field col s6">
+                    <input id="firstName" type="text" className="validate" onChange={ (e) => this.setState({ firstName:e.target.value})}/>
+                    <label htmlFor="firstName">First Name</label>
+                  </div>
                 </div>
-                <div className="field">
-                    <label>Last Name:</label>
-                    <input type="text" onChange={ (e) => this.setState({ lastName:e.target.value})}/>
+                <div className="row">
+                  <div className="input-field col s6">
+                    <input id="last_name" type="text" className="validate" onChange={ (e) => this.setState({ lastName:e.target.value})}/>
+                    <label htmlFor="last_name">Last Name</label>
+                  </div>
                 </div>
-                <div className="field">
-                    <label>Main Role:</label>
-                    <select onChange={ (e) => this.setState({ roleId:e.target.value})}>                        
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input id="developer" type="checkbox" onChange={ (e) => this.setState({ isDeveloper:e.target.value})}/>
+                    <label htmlFor="developer">Developer</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input id="trader" type="checkbox" onChange={ (e) => this.setState({ isTrader:e.target.value})}/>
+                    <label htmlFor="trader">Trader</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input id="dataAnalyst" type="checkbox" onChange={ (e) => this.setState({ isDataAnalyst:e.target.value})}/>
+                    <label htmlFor="dataAnalyst">Data Analyst</label>
+                  </div>
+                </div>
+                <div className="row">
+                    <select id="role" onChange={ (e) => this.setState({ roleId:e.target.value})}>
                         { this.displayRoles() }
                     </select>
+                    <label htmlFor="role">Current Role:</label>
                 </div>
-                <button>+</button>
+                <div className="row">
+                    <button>+</button>
+                </div>
+              </form>
+            </div>
 
-            </form>
+
         );
     }
 }

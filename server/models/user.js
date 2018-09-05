@@ -5,6 +5,9 @@ const userSchema = new Schema({
 alias: String,
 firstName:String,
 lastName: String,
+isDeveloper: Boolean,
+isTrader: Boolean,
+isDataAnalyst: Boolean,
 roleId: String
 })
 

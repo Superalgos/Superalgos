@@ -36,7 +36,7 @@ const getRolesQuery = gql`
 `
 
 const addUserMutation = gql`
-mutation($alias: String!, $firstName:String, $lastName:String, $isDeveloper:String, $isTrader:String, $isDataAnalyst:String, $roleId:String!) {
+mutation($alias: String!, $firstName:String, $lastName:String, $isDeveloper:Int, $isTrader:Int, $isDataAnalyst:Int, $roleId:String!) {
     addUser (alias: $alias, firstName:$firstName, lastName: $lastName, isDeveloper: $isDeveloper, isTrader: $isTrader, isDataAnalyst: $isDataAnalyst, roleId: $roleId){
       id
       alias

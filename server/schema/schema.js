@@ -13,9 +13,10 @@ const {
 } = graphql; // Destructuring this variables from inside the package.
 
 let roles = [
-  {id: '1', name: 'Developer'},
-  {id: '2', name: 'Trader'},
-  {id: '3', name: 'Data Analyst'}
+  {id: '1', name: 'Not Defined'},
+  {id: '2', name: 'Developer'},
+  {id: '3', name: 'Trader'},
+  {id: '4', name: 'Data Analyst'}
 ];
 
 // Types
@@ -27,9 +28,9 @@ const UserType = new GraphQLObjectType({
     alias: {type: GraphQLString},
     firstName: {type: GraphQLString},
     lastName: {type: GraphQLString},
-    isDeveloper: {type: GraphQLString},
-    isTrader: {type: GraphQLString},
-    isDataAnalyst: {type: GraphQLString},
+    isDeveloper: {type: GraphQLInt},
+    isTrader: {type: GraphQLInt},
+    isDataAnalyst: {type: GraphQLInt},
     roleId: {type: GraphQLString},
     role: {
       type: RoleType,

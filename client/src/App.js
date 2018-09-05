@@ -24,10 +24,11 @@ const client = new ApolloClient({
 
 class App extends Component {
   render() {
+
     return (
       <BrowserRouter>
         <ApolloProvider client={client}>
-
+ 
           <div className="App">
             <Navbar />
             <Switch>

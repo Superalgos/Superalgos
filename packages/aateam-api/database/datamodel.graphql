@@ -30,17 +30,23 @@ type Team {
   slug: String! @unique
   profile: TeamProfile
   members: [TeamMembers!]! @relation (name: "TeamMembers", onDelete: SET_NULL)
-  visible: Boolean! @default(value: true)
   wallet: Wallet
   fb: [FinancialBeings!]! @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
-  active: Boolean! @default(value: true)
+  status: [TeamStatus!]!
+  createdAt: DateTime!
 }
 
 type TeamProfile {
-  createdAt: DateTime!
   description: String
   motto: String
   avatar: String
+  updatedAt: DateTime!
+}
+
+type TeamStatus {
+  status: Status @Default(value: inactive)
+  reason: String
+  createdAt: DateTime!
 }
 
 type TeamMembers {
@@ -48,6 +54,7 @@ type TeamMembers {
   team: Team @relation (name: "TeamMembers", onDelete: SET_NULL)
   role: Role @default(value: MEMBER)
   status: [MemberStatus!]!
+  updatedAt: DateTime!
 }
 
 type Member {
@@ -56,15 +63,18 @@ type Member {
   team: TeamMembers @relation (name: "MemberOnTeam", onDelete: SET_NULL)
   auth0id: String! @unique
   visible: Boolean! @default(value: true)
+  createdAt: DateTime!
 }
 
 type MemberStatus {
   status: Status @Default(value: inactive)
   reason: String
+  createdAt: DateTime!
 }
 
 type Wallet {
   balance: Float
+  updatedAt: DateTime!
 }
 
 type FinancialBeings {
@@ -73,9 +83,12 @@ type FinancialBeings {
   kind: FBKind
   team: Team @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
   status: [FBStatus!]!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type FBStatus {
   status: Status @Default(value: inactive)
   reason: String
+  createdAt: DateTime!
 }

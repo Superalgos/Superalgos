@@ -34,16 +34,6 @@ const Navbar = (props) => {
             <li><NavLink to='/about'>About</NavLink></li>
             <li><a href="http://modules.advancedalgos.net">Modules</a></li>
 
-            <li><a href="" className="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="You Tube">
-              <i className="fab fa-youtube"></i>
-            </a></li>
-            <li><a href="" className="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Facebook">
-              <i className="fab fa-facebook"></i>
-            </a></li>
-            <li><a href="" className="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Twitter">
-              <i className="fab fa-twitter"></i>
-            </a></li>
-
           </ul>
           <ul className="sidenav grey lighten-2" id="mobile-menu">
             <li><NavLink exact to="/">Home</NavLink></li>

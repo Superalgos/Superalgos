@@ -32,7 +32,7 @@ type Team {
   members: [TeamMembers!]! @relation (name: "TeamMembers", onDelete: SET_NULL)
   visible: Boolean! @default(value: true)
   wallet: Wallet
-  fb: FinancialBeings
+  fb: [FinancialBeings!]! @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
   active: Boolean! @default(value: true)
 }
 
@@ -47,7 +47,7 @@ type TeamMembers {
   member: Member @relation (name: "MemberOnTeam", onDelete: SET_NULL)
   team: Team @relation (name: "TeamMembers", onDelete: SET_NULL)
   role: Role @default(value: MEMBER)
-  status: [MemberStatus!]! @relation (name: "MemberStatus", onDelete: CASCADE)
+  status: [MemberStatus!]!
 }
 
 type Member {
@@ -72,9 +72,10 @@ type FinancialBeings {
   type: FBType
   kind: FBKind
   team: Team @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
+  status: [FBStatus!]!
 }
 
-type MemberStatus {
+type FBStatus {
   status: Status @Default(value: inactive)
   reason: String
 }

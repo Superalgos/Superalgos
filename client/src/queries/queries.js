@@ -9,6 +9,7 @@ const getUsersQuery = gql`
       lastName
       role {
         id
+        name
       }
     }
 }

@@ -66,7 +66,7 @@ const RootQuery = new GraphQLObjectType({
         resolve(parent,args) {
           // Code to get data from data source.
 
-          return User.findById(args.id, onRespnse);
+          return User.findById(args.id);
         }
       },
       role: {

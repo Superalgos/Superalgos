@@ -1,13 +1,12 @@
 import React from 'react'
 
-import AddUser from './AddUser';
-import UpdateUser from './UpdateUser';
+
+import ProfileTabs from './Material-UI/ProfileTabs';
 
 const Profile = () => {
   return (
     <div>
-      <AddUser/>
-      <UpdateUser/>
+      <ProfileTabs/>
     </div>
   )
 }

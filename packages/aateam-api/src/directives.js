@@ -1,6 +1,6 @@
 const _get = require('lodash.get')
 const validateAndParseIdToken = require('./helpers/validateAndParseIdToken')
-//const createPrismaMember  = require('./index')
+const createMember  = require('./index')
 
 const memberLocationOnContext = 'request.member'
 const bearerAccessToken = 'request.headers.authorization'
@@ -8,41 +8,11 @@ const bearerAccessToken = 'request.headers.authorization'
 const ctxMember = ctx => _get(ctx, memberLocationOnContext)
 const ctxToken = ctx => _get(ctx, bearerAccessToken)
 
-const createPrismaMember = async function (ctx, info, idToken) {
-  console.log('createPrismaMember', idToken)
-  const member = await ctx.db.mutation.upsertMember({
-    where: {
-      auth0id: idToken.sub,
-    },
-    create: {
-      auth0id: idToken.sub,
-      nickname: idToken.nickname,
-      profile: {
-        create: {
-          email: idToken.email,
-          avatar: idToken.picture
-        }
-      }
-    },
-    update: {
-      auth0id: idToken.sub,
-      nickname: idToken.nickname,
-      profile: {
-        update: {
-          email: idToken.email,
-          avatar: idToken.picture
-        }
-      }
-    }
-  }, info)
-  return member
-}
-
 const isLoggedIn = async ctx => {
     let member = ctxMember(ctx, memberLocationOnContext)
     let token = ctxToken(ctx, bearerAccessToken)
     let memberToken
-    console.log('authenticate.member0: ', ctx.request.headers, member, token)
+
     if (!member && token) {
       let scheme, credentials
       const tokenParts = token.split(' ')
@@ -57,21 +27,17 @@ const isLoggedIn = async ctx => {
        try {
          memberToken = await validateAndParseIdToken(token)
          const auth0id = memberToken.sub
-         console.log('authenticate.member1: ', memberToken, member)
+
          member = await ctx.db.query.member({ where: { auth0id } })
-         console.log('authenticate.member2: ', memberToken, member)
+
          if (!member) {
-           member = await createPrismaMember(ctx, memberToken)
+           member = await createMember(ctx, memberToken)
          }
        } catch (err) {
-         console.log('authenticate.validateAndParseIdToken err: ', err)
          memberToken = false
        }
      }
-      console.log('isLoggedIn token: ', await memberToken)
     }
-
-    console.log('member: ', await member)
 
     if (!member) {
       throw new Error(`Not logged in`)

@@ -11,7 +11,7 @@ const { getMember } = require('./middleware/getMember')
 const validateAndParseIdToken = require('./helpers/validateAndParseIdToken')
 const { directiveResolvers } = require('./directives')
 
-const createPrismaMember = async function (ctx, info, idToken) {
+export const createMember = async function (ctx, info, idToken) {
   console.log('createPrismaMember', idToken)
   const member = await ctx.db.mutation.upsertMember({
     where: {
@@ -123,10 +123,8 @@ const resolvers = {
      }`)
     },
     async owner(parent, args, ctx, info) {
-      console.log('resolver.query.owner ctx: ', ctxMember(ctx))
       return ctx.db.query.member({ where: { id: ctxMember(ctx).auth0id } }, info)
         .catch((res) => {
-          console.log('createTeam error: ', res)
           const errors = res.graphQLErrors.map((error) => {
             return error.message
           })
@@ -137,25 +135,22 @@ const resolvers = {
   Mutation: {
     async authenticate(parent, { idToken }, ctx, info) {
       let memberToken = null
+      
       try {
         memberToken = await validateAndParseIdToken(idToken)
-        console.log('authenticate.memberToken: ', await memberToken)
       } catch (err) {
-        console.log('authenticat.validateAndParseIdToken err: ', err)
         throw new Error(err.message)
       }
+
       const auth0id = memberToken.sub
       let member = await ctx.db.query.member({ where: { auth0id } }, info)
 
       if (!member) {
         try {
-          return createPrismaMember(ctx, info, memberToken)
+          return createMember(ctx, info, memberToken)
         } catch (error) {
-          try {
-            return createPrismaMember(ctx, info, memberToken)
-          } catch (error) {
-            throw new Error(error.message)
-          }
+          throw new Error(error.message)
+        }
         }
       }
       return member

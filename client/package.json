@@ -6,7 +6,6 @@
     "@material-ui/core": "^3.0.2",
     "@material-ui/icons": "^3.0.1",
     "apollo-boost": "^0.1.15",
-    "axios": "^0.18.0",
     "graphql": "^14.0.0",
     "react": "^16.4.2",
     "react-apollo": "^2.1.11",

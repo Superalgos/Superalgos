@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {graphql, compose} from 'react-apollo';
 import {getRolesQuery, addUserMutation, getUsersQuery} from '../queries/queries';
 
+import AddProfileButton from './Material-UI/AddProfileButton';
+
 class AddUser extends Component {
   constructor(props){
   super(props);
@@ -12,7 +14,7 @@ class AddUser extends Component {
   }
 
     submitForm(e){
-      console.log(this.state);
+       
       e.preventDefault();
       this.props.addUserMutation({
         variables: {
@@ -25,17 +27,18 @@ class AddUser extends Component {
 
     render(){
         return(
-          <div className="row">
-              <form className="col s12" onSubmit={this.submitForm.bind(this)}>
+          <div>
+              <form onSubmit={this.submitForm.bind(this)}>
                 <p>Choose an Alias that will identify you anonimously across the whole Advanced Algos ecosystem. Choose it carefully, since the the Alias can not be changed later.</p>
-                <div className="row">
-                  <div className="input-field col s6">
-                    <input id="alias" type="text" className="validate" onChange={ (e) => this.setState({ alias:e.target.value})}/>
+                <div >
+                  <div >
+                    <input id="alias" type="text" onChange={ (e) => this.setState({ alias:e.target.value})}/>
                     <label htmlFor="alias">Alias</label>
                   </div>
                 </div>
                 <div className="row">
-                    <button>Next</button>
+                    <AddProfileButton/>
+
                 </div>
               </form>
             </div>

@@ -62,7 +62,7 @@ function ButtonAppBar(props) {
           <IconButton className={classes.menuButton} color="inherit" title="About this Module" component={AboutLink}><AboutIcon /></IconButton>
           <IconButton className={classes.menuButton} color="inherit" title="Go to another Module" component={AboutLink}><ModulesIcon /></IconButton>
 
-          <LoggedInUser authId="2"/>
+          <LoggedInUser authId="999"/>
         </Toolbar>
       </AppBar>
     </div>

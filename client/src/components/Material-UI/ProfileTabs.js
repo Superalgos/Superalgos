@@ -37,6 +37,7 @@ const styles = theme => ({
 class ProfileTabs extends React.Component {
   state = {
     value: 0,
+    cureateDisabled: "false"
   };
 
   handleChange = (event, value) => {
@@ -44,12 +45,14 @@ class ProfileTabs extends React.Component {
   };
 
   updateUser = () => {
-    this.setState({ value: 1 });
+    this.setState({ value: 1, cureateDisabled: "true" });
   };
 
   render() {
     const { classes } = this.props;
     const { value } = this.state;
+    const { createDisabled } = this.state;
+    console.log(createDisabled);
 
     return (
       <div className={classes.root}>
@@ -62,7 +65,8 @@ class ProfileTabs extends React.Component {
             indicatorColor="primary"
             textColor="primary"
           >
-            <Tab label="Create Profile" icon={<AddIcon />} />
+          <Tab  label="Create Profile" icon={<AddIcon />} />
+            <Tab disabled={createDisabled} label="Create Profile" icon={<AddIcon />} />
             <Tab label="Update Profile" icon={<UpdateIcon />} />
             <Tab label="Manage Images" icon={<ImageIcon />} />
           </Tabs>

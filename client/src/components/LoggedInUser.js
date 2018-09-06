@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
 import {getUserByAuthIdQuery} from '../queries/queries';
+import {auth} from '../App';
 
 class LoggedInUser extends Component {
 
   displayLoggedInUser(){
 
     const user = this.props.data.userByAuthId;
-    console.log(this.props);
+
     if(user){
       if (user.firstName) {
         return(
@@ -24,7 +25,8 @@ class LoggedInUser extends Component {
       }
 
     } else {
-        return( <div>Login / Sign up</div> );
+      console.log(auth);
+        return( <div onClick={() => auth.login()}>Login / Sign up</div> );
     }
   }
 

@@ -43,6 +43,10 @@ class ProfileTabs extends React.Component {
     this.setState({ value });
   };
 
+  updateUser = () => {
+    this.setState({ value: 1 });
+  };
+
   render() {
     const { classes } = this.props;
     const { value } = this.state;
@@ -63,7 +67,7 @@ class ProfileTabs extends React.Component {
             <Tab label="Manage Images" icon={<ImageIcon />} />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer><AddUser/></TabContainer>}
+        {value === 0 && <TabContainer><AddUser onAdded={this.updateUser}/></TabContainer>}
         {value === 1 && <TabContainer><UpdateUser/></TabContainer>}
         {value === 2 && <TabContainer>Item Three</TabContainer>}
 

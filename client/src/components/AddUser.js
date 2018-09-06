@@ -14,7 +14,7 @@ class AddUser extends Component {
   }
 
     submitForm(e){
-       
+
       e.preventDefault();
       this.props.addUserMutation({
         variables: {
@@ -23,6 +23,7 @@ class AddUser extends Component {
         },
         refetchQueries: [{ query: getUsersQuery}] // This allow us to re run whatever queries are necesary after the mutation.
       });
+      this.props.onAdded();
     }
 
     render(){

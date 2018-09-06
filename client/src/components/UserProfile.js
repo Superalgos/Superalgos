@@ -7,7 +7,7 @@ class UserProfile extends Component {
   displayUserProfile(){
 
     const {user} = this.props.data;
-    console.log(user);
+
     if(user){
         return(
             <div>

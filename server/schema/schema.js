@@ -119,6 +119,37 @@ const Mutation = new GraphQLObjectType({
         });
         return user.save();
       }
+    },
+    updateUser:{
+      type: UserType,
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLID)},
+        alias: {type: new GraphQLNonNull(GraphQLString)},
+        firstName: {type: GraphQLString},
+        lastName: {type: GraphQLString},
+        isDeveloper: {type: GraphQLInt},
+        isTrader: {type: GraphQLInt},
+        isDataAnalyst: {type: GraphQLInt},
+        roleId: {type: new GraphQLNonNull(GraphQLString)}
+      },
+      resolve(parent, args) {
+
+        let key = {
+          _id: args.id
+        };
+
+        let updatedUser = {
+          alias: args.alias,
+          firstName: args.firstName,
+          lastName: args.lastName,
+          isDeveloper: args.isDeveloper,
+          isTrader: args.isTrader,
+          isDataAnalyst: args.isDataAnalyst,
+          roleId: args.roleId
+        };
+
+        return User.update(key, updatedUser);
+      }
     }
   }
 })

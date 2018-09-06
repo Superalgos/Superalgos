@@ -18,6 +18,9 @@ import ModulesIcon from '@material-ui/icons/QueuePlayNext';
 
 import { Link } from 'react-router-dom';
 
+// components
+import LoggedInUser from '../LoggedInUser';
+
 const AboutLink = props => <Link to="/about" {...props} />
 const ContactLink = props => <Link to="/contact" {...props} />
 const SearchLink = props => <Link to="/search" {...props} />
@@ -58,6 +61,8 @@ function ButtonAppBar(props) {
           <IconButton className={classes.menuButton} color="inherit" title="Contact Form" component={ContactLink}><ContactIcon /></IconButton>
           <IconButton className={classes.menuButton} color="inherit" title="About this Module" component={AboutLink}><AboutIcon /></IconButton>
           <IconButton className={classes.menuButton} color="inherit" title="Go to another Module" component={AboutLink}><ModulesIcon /></IconButton>
+
+          <LoggedInUser authId="2"/>
         </Toolbar>
       </AppBar>
     </div>

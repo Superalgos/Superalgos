@@ -30,6 +30,20 @@ query($id: ID){
 }
 `
 
+const getUserByAuthIdQuery = gql`
+query($authId: String){
+    userByAuthId (authId: $authId){
+      id
+      alias
+      firstName
+      lastName
+      role {
+        id
+      }
+    }
+}
+`
+
 const getRolesQuery = gql`
 {
     roles {
@@ -56,4 +70,4 @@ mutation($id: ID!, $firstName:String, $lastName:String, $isDeveloper:Int, $isTra
     }
 }
 `
-export {getUsersQuery, getRolesQuery, addUserMutation, updateUserMutation, getUserProfileQuery}
+export {getUsersQuery, getUserByAuthIdQuery, getRolesQuery, addUserMutation, updateUserMutation, getUserProfileQuery}

@@ -7,7 +7,9 @@ const getUsersQuery = gql`
       alias
       firstName
       lastName
-      roleId
+      role {
+        id
+      }
     }
 }
 `

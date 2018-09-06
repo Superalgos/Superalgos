@@ -37,8 +37,8 @@ const Footer = () => {
       </div>
       <div className="footer-copyright">
         <div className="container">
-        © 2014 Copyright Text
-        <a className="grey-text text-lighten-4 right" href="www.advancedalgos.net">Advanced Algos</a>
+        © 2018 Copyright 
+        <a className="grey-text text-lighten-4 right" href="www.advancedalgos.net">Advanced Algos Ltd.</a>
         </div>
       </div>
     </footer>

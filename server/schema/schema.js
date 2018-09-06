@@ -31,7 +31,6 @@ const UserType = new GraphQLObjectType({
     isDeveloper: {type: GraphQLInt},
     isTrader: {type: GraphQLInt},
     isDataAnalyst: {type: GraphQLInt},
-    roleId: {type: GraphQLString},
     role: {
       type: RoleType,
       resolve(parent, args) {

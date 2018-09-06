@@ -20,15 +20,20 @@ class UserList extends Component {
     } else {
       return data.users.map(user => {
         return (
-          <li id="user-list-li" key={user.id} onClick={ (e) => {this.setState({ selected: user.id})}} >{user.alias}</li>
+          <li key={user.id} onClick={ (e) => {
+            this.setState({ selected: user.id});
+            }
+          } >{user.alias}</li>
         )
       });
     }
   }
   render() {
+
     return (
+
       <div>
-        <ul id='user-list'>
+        <ul>
           {this.displayUsers()}
         </ul>
         <UserProfile userId={this.state.selected}/>

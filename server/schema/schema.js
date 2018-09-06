@@ -25,6 +25,7 @@ const UserType = new GraphQLObjectType({
   name: 'User',
   fields: () => ({
     id: { type: GraphQLID},
+    authId: { type: GraphQLString},
     alias: {type: GraphQLString},
     firstName: {type: GraphQLString},
     lastName: {type: GraphQLString},
@@ -64,7 +65,8 @@ const RootQuery = new GraphQLObjectType({
         args: {id: {type: GraphQLID}},
         resolve(parent,args) {
           // Code to get data from data source.
-          return User.findById(args.id);
+
+          return User.findById(args.id, onRespnse);
         }
       },
       role: {
@@ -99,23 +101,14 @@ const Mutation = new GraphQLObjectType({
       type: UserType,
       args: {
         alias: {type: new GraphQLNonNull(GraphQLString)},
-        firstName: {type: GraphQLString},
-        lastName: {type: GraphQLString},
-        isDeveloper: {type: GraphQLInt},
-        isTrader: {type: GraphQLInt},
-        isDataAnalyst: {type: GraphQLInt},
-        roleId: {type: new GraphQLNonNull(GraphQLString)}
+        authId: {type: new GraphQLNonNull(GraphQLString)}
       },
       resolve(parent, args) {
 
         let user = new User({
           alias: args.alias,
-          firstName: args.firstName,
-          lastName: args.lastName,
-          isDeveloper: args.isDeveloper,
-          isTrader: args.isTrader,
-          isDataAnalyst: args.isDataAnalyst,
-          roleId: args.roleId
+          authId: args.authId,
+          roleId: "1"
         });
         return user.save();
       }
@@ -124,7 +117,6 @@ const Mutation = new GraphQLObjectType({
       type: UserType,
       args: {
         id: {type: new GraphQLNonNull(GraphQLID)},
-        alias: {type: new GraphQLNonNull(GraphQLString)},
         firstName: {type: GraphQLString},
         lastName: {type: GraphQLString},
         isDeveloper: {type: GraphQLInt},
@@ -139,7 +131,6 @@ const Mutation = new GraphQLObjectType({
         };
 
         let updatedUser = {
-          alias: args.alias,
           firstName: args.firstName,
           lastName: args.lastName,
           isDeveloper: args.isDeveloper,

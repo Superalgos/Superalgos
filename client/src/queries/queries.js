@@ -22,6 +22,7 @@ query($id: ID){
       firstName
       lastName
       role {
+        id
         name
       }
     }
@@ -38,11 +39,20 @@ const getRolesQuery = gql`
 `
 
 const addUserMutation = gql`
-mutation($alias: String!, $firstName:String, $lastName:String, $isDeveloper:Int, $isTrader:Int, $isDataAnalyst:Int, $roleId:String!) {
-    addUser (alias: $alias, firstName:$firstName, lastName: $lastName, isDeveloper: $isDeveloper, isTrader: $isTrader, isDataAnalyst: $isDataAnalyst, roleId: $roleId){
+mutation($alias: String!, $authId:String!) {
+    addUser (alias: $alias, authId: $authId){
+      id
+      authId
+    }
+}
+`
+
+const updateUserMutation = gql`
+mutation($id: ID!, $firstName:String, $lastName:String, $isDeveloper:Int, $isTrader:Int, $isDataAnalyst:Int, $roleId:String!) {
+    updateUser (id: $id, firstName:$firstName, lastName: $lastName, isDeveloper: $isDeveloper, isTrader: $isTrader, isDataAnalyst: $isDataAnalyst, roleId: $roleId){
       id
       alias
     }
 }
 `
-export {getUsersQuery, getRolesQuery, addUserMutation, getUserProfileQuery}
+export {getUsersQuery, getRolesQuery, addUserMutation, updateUserMutation, getUserProfileQuery}

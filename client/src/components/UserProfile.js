@@ -5,11 +5,12 @@ import {getUserProfileQuery} from '../queries/queries';
 class UserProfile extends Component {
 
   displayUserProfile(){
+
     const {user} = this.props.data;
 
     if(user){
         return(
-            <div id="user-profile">
+            <div>
                 <h2>{ user.alias }</h2>
                 <p>{ user.firstName }</p>
                 <p>{ user.lastName }</p>
@@ -22,6 +23,7 @@ class UserProfile extends Component {
   }
 
   render() {
+
     return (
       <div>
         {this.displayUserProfile()}

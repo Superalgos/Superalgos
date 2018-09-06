@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import {graphql, compose} from 'react-apollo';
 import {getRolesQuery, addUserMutation, getUsersQuery} from '../queries/queries';
 
@@ -8,24 +7,9 @@ class AddUser extends Component {
   super(props);
   this.state = {
       alias: '',
-      firstName: '',
-      lastName: '',
-      isDeveloper: 0,
-      isTrader: 0,
-      isDataAnalyst: 0,
-      roleId: '1'
+      authId: '1'
     };
   }
-    displayRoles(){
-        var data = this.props.getRolesQuery; // When there is more than one query binded to a single componente 'data' is replaced by thename of the query given below at the binding operation.
-        if(data.loading){
-            return( <option disabled>Loading roles</option> );
-        } else {
-            return data.roles.map(role => {
-                return( <option key={ role.id } value={role.id}>{ role.name }</option> );
-            });
-        }
-    }
 
     submitForm(e){
       console.log(this.state);
@@ -33,84 +17,17 @@ class AddUser extends Component {
       this.props.addUserMutation({
         variables: {
           alias: this.state.alias,
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          isDeveloper: this.state.isDeveloper,
-          isTrader: this.state.isTrader,
-          isDataAnalyst: this.state.isDataAnalyst,
-          roleId: this.state.roleId
+          authId: this.state.authId
         },
         refetchQueries: [{ query: getUsersQuery}] // This allow us to re run whatever queries are necesary after the mutation.
       });
-    }
-
-    handleCheckBoxes(e){
-      let fieldValue;
-      if (e.target.checked === true) {
-        fieldValue = 1;
-      } else {
-        fieldValue = 0;
-
-        /* When the user unchecks one of the checkboxes, we need to make sure that that Role is not the one selected at the SELECT,
-        and if it is, then we need to automatically select another one */
-
-        let select = ReactDOM.findDOMNode(this.refs.select);
-        switch (e.target.id) {
-          case "isDeveloper":
-            if (select.value === "2") {
-              select.value = "1";
-              this.setState({ roleId: "1"});
-            }
-            break;
-
-          case "isTrader":
-            if (select.value === "3") {
-              select.value = "1";
-              this.setState({ roleId: "1"});
-            }
-            break;
-
-          case "isDataAnalyst":
-            if (select.value === "4") {
-              select.value = "1";
-              this.setState({ roleId: "1"});
-            }
-            break;
-          default:
-        }
-      }
-      this.setState({ [e.target.id]: fieldValue})
-    }
-
-    handleSelect(e){
-      let checkbox;
-      switch (e.target.value) {
-        case "2":
-          checkbox = ReactDOM.findDOMNode(this.refs.id2);
-          checkbox.checked = true;
-          this.setState({ isDeveloper: 1})
-          break;
-        case "3":
-          checkbox = ReactDOM.findDOMNode(this.refs.id3);
-          checkbox.checked = true;
-          this.setState({ isTrader: 1})
-          break;
-        case "4":
-          checkbox = ReactDOM.findDOMNode(this.refs.id4);
-          checkbox.checked = true;
-          this.setState({ isDataAnalyst: 1})
-          break;
-        default:
-      }
-
-      this.setState({ roleId:e.target.value })
     }
 
     render(){
         return(
           <div className="row">
               <form className="col s12" onSubmit={this.submitForm.bind(this)}>
-
+                <p>Choose an Alias that will identify you anonimously across the whole Advanced Algos ecosystem. Choose it carefully, since the the Alias can not be changed later.</p>
                 <div className="row">
                   <div className="input-field col s6">
                     <input id="alias" type="text" className="validate" onChange={ (e) => this.setState({ alias:e.target.value})}/>
@@ -118,49 +35,10 @@ class AddUser extends Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="input-field col s6">
-                    <input id="firstName" type="text" className="validate" onChange={ (e) => this.setState({ firstName:e.target.value})}/>
-                    <label htmlFor="firstName">First Name</label>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate" onChange={ (e) => this.setState({ lastName:e.target.value})}/>
-                    <label htmlFor="last_name">Last Name</label>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <input id="isDeveloper" type="checkbox" ref="id2" onChange={this.handleCheckBoxes.bind(this)}/>
-                    <label htmlFor="isDeveloper">Developer</label>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <input id="isTrader" type="checkbox" ref="id3" onChange={this.handleCheckBoxes.bind(this)}/>
-                    <label htmlFor="isTrader">Trader</label>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <input id="isDataAnalyst" type="checkbox" ref="id4" onChange={this.handleCheckBoxes.bind(this)}/>
-                    <label htmlFor="isDataAnalyst">Data Analyst</label>
-                  </div>
-                </div>
-                <div className="row">
-                    <select id="role" ref="select" onChange={this.handleSelect.bind(this)}>
-                        { this.displayRoles() }
-                    </select>
-                    <label htmlFor="role">Current Role:</label>
-                </div>
-
-                <div className="row">
-                    <button>+</button>
+                    <button>Next</button>
                 </div>
               </form>
             </div>
-
-
         );
     }
 }

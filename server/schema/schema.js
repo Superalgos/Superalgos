@@ -2,6 +2,8 @@ const graphql = require('graphql');
 const _ = require('lodash');
 const User = require('../models/user');
 
+const validateParseIdToken = require('../auth/validate-auth0-token');
+
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -128,6 +130,32 @@ const RootQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
+    authenticate: {
+    type: UserType,
+    args: {
+      idToken: {type: new GraphQLNonNull(GraphQLString)}
+    },
+    resolve(parent, { idToken }) {
+      let userToken = null;
+
+      return validateParseIdToken(idToken)
+      .then(result => {
+        console.log('validateParseIdToken', result);
+        const authId = result.sub;
+        const alias = result.nickname;
+
+        let user = new User({
+          alias: alias,
+          authId: authId,
+          roleId: "1"
+        });
+        console.log(authId, alias);
+        user.save();
+        return { authId, alias };
+      })
+      .catch(err => { return {error: err } })
+    }
+  },
     addUser:{
       type: UserType,
       args: {

@@ -11,8 +11,8 @@ import Typography from '@material-ui/core/Typography';
 
 // Components
 
-import AddUser from '../AddUser';
-import UpdateUser from '../UpdateUser';
+import AddUser from './AddUser';
+import UpdateUser from './UpdateUser';
 
 function TabContainer(props) {
   return (
@@ -52,7 +52,7 @@ class ProfileTabs extends React.Component {
     const { classes } = this.props;
     const { value } = this.state;
     const { createDisabled } = this.state;
-    
+
 
     return (
       <div className={classes.root}>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-import ProfileTabs from './Material-UI/ProfileTabs';
+import ProfileTabs from './ProfileTabs';
 
 const Profile = () => {
   return (

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost';
-import {ApolloProvider} from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloProvider } from 'react-apollo';
 import { ApolloLink } from 'apollo-link';
-import { HttpLink } from 'apollo-link-http'
+import { HttpLink } from 'apollo-link-http';
+import { onError } from 'apollo-link-error';
 import { setContext } from 'apollo-link-context';
 
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
@@ -23,9 +25,18 @@ import Callback from './components/Callback'
 
 import Auth from './auth/index'
 
-/*
-const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql', changeOrigin: true })
 // Apollo Client Setup
+const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql', changeOrigin: true })
+
+const errorLink= onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors)
+    graphQLErrors.map(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+      ),
+    );
+  if (networkError) console.log(`[Network error]: ${networkError}`);
+})
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -40,13 +51,15 @@ const authLink = setContext((_, { headers }) => {
 })
 
 export const client = new ApolloClient({
-  link: httpLink
+  link: ApolloLink.from([errorLink, authLink, httpLink]),
+  cache: new InMemoryCache()
 })
-*/
 
+/*
 export const client = new ApolloClient({
   uri:'http://localhost:4000/graphql'
 })
+*/
 
 export const auth = new Auth(result => console.log('auth result', result), client);
 

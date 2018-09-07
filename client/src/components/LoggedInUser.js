@@ -10,34 +10,43 @@ class LoggedInUser extends Component {
 
     const user = this.props.data.userByAuthId;
 
-
-    console.log(this.props);
-    console.log(this.props.data);
-    console.log(this.props.data.userByAuthId);
-
     if(user){
-      if (user.firstName) {
-        return(
-            <div>
-                <p><LoggedInUserMenu menuLabel={ user.firstName }/></p>
-            </div>
-        );
-      } else {
-        return(
-            <div>
-                <p>{ user.alias }</p>
-            </div>
-        );
-      }
+
+      console.log(user.firstName);
+      console.log(user.lastName );
+      console.log(user.alias);
+
+      let displayName = "No Display Name";
+
+      if (
+        user.alias !== null &&
+        user.alias !== ""
+      ) { displayName =  user.alias;}
+
+      if (
+        user.firstName !== null &&
+        user.firstName !== ""
+      ) { displayName =  user.firstName;}
+
+      if (
+        user.firstName !== null &&
+        user.firstName !== "" &&
+        user.lastName !== null &&
+        user.lastName !== ""
+      ) { displayName = user.firstName + " " + user.lastName;}
+
+      return(
+          <div>
+              <p><LoggedInUserMenu menuLabel={ displayName }/></p>
+          </div>
+      );
 
     } else {
-      console.log(auth);
         return( <div onClick={() => auth.login()}>Login / Sign up</div> );
     }
   }
 
   render() {
-
     return (
       <div>
         {this.displayLoggedInUser()}

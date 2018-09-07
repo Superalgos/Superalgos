@@ -7,6 +7,7 @@ import withState from 'recompose/withState';
 import { Link } from 'react-router-dom';
 
 import ProfileIcon from '@material-ui/icons/Person';
+import LogoutIcon from '@material-ui/icons/DirectionsWalk';
 
 const UserLink = props => <Link to="/user" {...props} />
 const WithState = toRenderProps(withState('anchorEl', 'updateAnchorEl', null));
@@ -43,7 +44,7 @@ class LoggedInUserMenu extends Component {
               </Button>
               <Menu id="render-props-menu" anchorEl={anchorEl} open={open} onClose={handleClose}>
                 <MenuItem onClick={handleClose} component={UserLink}><ProfileIcon /><div>Profile</div></MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}><LogoutIcon /><div>Logout</div></MenuItem>  
               </Menu>
             </React.Fragment>
           );

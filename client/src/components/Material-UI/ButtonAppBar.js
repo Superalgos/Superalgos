@@ -43,8 +43,20 @@ const styles = {
 
 class ButtonAppBar extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      authId: null
+    }
+  }
+
   componentDidMount() {
-    console.log('component did mount!');
+    const getUser = window.localStorage.getItem("user");
+    let user = JSON.parse(getUser)
+    const authId = user.sub;
+
+    console.log(authId);
+    this.setState({ authId: authId });
   }
 
   render() {
@@ -68,7 +80,7 @@ class ButtonAppBar extends Component {
             <IconButton className={classes.menuButton} color="inherit" title="About this Module" component={AboutLink}><AboutIcon /></IconButton>
             <IconButton className={classes.menuButton} color="inherit" title="Go to another Module" component={AboutLink}><ModulesIcon /></IconButton>
 
-            <LoggedInUser authId="999"/>
+            <LoggedInUser authId={this.state.authId}/>
           </Toolbar>
         </AppBar>
       </div>

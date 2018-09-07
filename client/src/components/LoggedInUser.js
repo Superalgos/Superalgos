@@ -8,7 +8,8 @@ class LoggedInUser extends Component {
   displayLoggedInUser(){
 
     const user = this.props.data.userByAuthId;
-
+    console.log(this.props);
+    
     if(user){
       if (user.firstName) {
         return(

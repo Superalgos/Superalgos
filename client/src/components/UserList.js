@@ -6,12 +6,14 @@ import {getUsersQuery} from '../queries/queries';
 import UserProfile from './UserProfile';
 
 class UserList extends Component {
+
   constructor(props){
     super(props);
     this.state = {
       selected: null
     }
   }
+
   displayUsers(){
     let data = this.props.data;
 
@@ -28,8 +30,8 @@ class UserList extends Component {
       });
     }
   }
-  render() {
 
+  render() {
     return (
 
       <div>

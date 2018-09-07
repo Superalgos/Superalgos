@@ -19,7 +19,7 @@ import ModulesIcon from '@material-ui/icons/QueuePlayNext';
 import { Link } from 'react-router-dom';
 
 // components
-import LoggedInUser from '../LoggedInUser';
+import LoggedInUser from './LoggedInUser';
 
 const AboutLink = props => <Link to="/about" {...props} />
 const ContactLink = props => <Link to="/contact" {...props} />
@@ -41,7 +41,7 @@ const styles = {
   },
 };
 
-class ButtonAppBar extends Component {
+class NavBar extends Component {
 
   constructor(props){
     super(props);
@@ -87,8 +87,8 @@ class ButtonAppBar extends Component {
   }
 }
 
-ButtonAppBar.propTypes = {
+NavBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ButtonAppBar);
+export default withStyles(styles)(NavBar);

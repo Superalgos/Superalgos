@@ -11,7 +11,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
 // Components
 
-import ButtonAppBar from './components/Material-UI/ButtonAppBar'
+import NavBar from './components/NavBar'
 
 import Home from './components/Home'
 import Profile from './components/Profile'
@@ -71,7 +71,7 @@ class App extends Component {
         <ApolloProvider client={client}>
 
           <div className="App">
-            <ButtonAppBar/>
+            <NavBar/>
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route path='/profile' component={Profile} />

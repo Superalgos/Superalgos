@@ -1,8 +1,8 @@
 import Auth0Lock from 'auth0-lock'
 import gql from 'graphql-tag'
 
-import { getItem, setItem, removeItem } from './local-storage'
-import { validObject, deleteCookie } from './js-helpers'
+import { getItem, setItem, removeItem } from '../utils/local-storage'
+import { validObject, deleteCookie } from '../utils/js-helpers'
 
 import { client } from '../App'
 

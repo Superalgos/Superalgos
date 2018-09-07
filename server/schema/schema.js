@@ -149,7 +149,10 @@ const Mutation = new GraphQLObjectType({
       args: {
         id: {type: new GraphQLNonNull(GraphQLID)},
         firstName: {type: GraphQLString},
+        middleName: {type: GraphQLString},
         lastName: {type: GraphQLString},
+        email: {type: GraphQLString},
+        emailVerified: {type: GraphQLInt},
         isDeveloper: {type: GraphQLInt},
         isTrader: {type: GraphQLInt},
         isDataAnalyst: {type: GraphQLInt},
@@ -163,7 +166,10 @@ const Mutation = new GraphQLObjectType({
 
         let updatedUser = {
           firstName: args.firstName,
+          middleName: args.middleName,
           lastName: args.lastName,
+          email: args.email,
+          emailVerified: args.emailVerified,
           isDeveloper: args.isDeveloper,
           isTrader: args.isTrader,
           isDataAnalyst: args.isDataAnalyst,

@@ -6,6 +6,7 @@ const getUsersQuery = gql`
       id
       alias
       firstName
+      middleName
       lastName
       role {
         id
@@ -21,7 +22,10 @@ query($id: ID){
       id
       alias
       firstName
+      middleName
       lastName
+      email
+      emailVerified
       role {
         id
         name
@@ -36,6 +40,7 @@ query($authId: String){
       id
       alias
       firstName
+      middleName
       lastName
       role {
         id
@@ -63,8 +68,8 @@ mutation($alias: String!, $authId:String!) {
 `
 
 const updateUserMutation = gql`
-mutation($id: ID!, $firstName:String, $lastName:String, $isDeveloper:Int, $isTrader:Int, $isDataAnalyst:Int, $roleId:String!) {
-    updateUser (id: $id, firstName:$firstName, lastName: $lastName, isDeveloper: $isDeveloper, isTrader: $isTrader, isDataAnalyst: $isDataAnalyst, roleId: $roleId){
+mutation($id: ID!, $firstName:String, $middleName:String, $lastName:String, $email:String, $emailVerified:Int, $isDeveloper:Int, $isTrader:Int, $isDataAnalyst:Int, $roleId:String!) {
+    updateUser (id: $id, firstName:$firstName, middleName: $middleName, lastName: $lastName, email: $email, emailVerified: $emailVerified, isDeveloper: $isDeveloper, isTrader: $isTrader, isDataAnalyst: $isDataAnalyst, roleId: $roleId){
       id
       alias
     }

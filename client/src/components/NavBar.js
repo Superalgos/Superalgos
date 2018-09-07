@@ -51,9 +51,11 @@ class NavBar extends Component {
   componentDidMount() {
     const getUser = window.localStorage.getItem("user");
     let user = JSON.parse(getUser)
-    const authId = user.sub;
 
-    this.setState({ authId: authId });
+    if (user) {
+      const authId = user.sub;
+      this.setState({ authId: authId });
+    }    
   }
 
   render() {

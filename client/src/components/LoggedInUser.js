@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
 import {getUserByAuthIdQuery} from '../queries/queries';
 import {auth} from '../App';
-import LoggedInUserMenu from './LoggedInUserMenu'
+import LoggedInUserMenu from './LoggedInUserMenu';
+import Button from '@material-ui/core/Button';
 
 class LoggedInUser extends Component {
 
@@ -42,7 +43,7 @@ class LoggedInUser extends Component {
       );
 
     } else {
-        return( <div onClick={() => auth.login()}>Login / Sign up</div> );
+        return( <div onClick={() => auth.login()}><Button color="inherit">Login / Sign up</Button></div> );
     }
   }
 

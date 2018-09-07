@@ -1,12 +1,12 @@
 import React from 'react'
 
 
-import ProfileTabs from './ProfileTabs';
+import UserTabs from './UserTabs';
 
 const User = () => {
   return (
     <div>
-      <ProfileTabs/>
+      <UserTabs/>
     </div>
   )
 }

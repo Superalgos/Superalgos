@@ -34,7 +34,7 @@ const styles = theme => ({
   },
 });
 
-class ProfileTabs extends React.Component {
+class UserTabs extends React.Component {
   state = {
     value: 0,
     cureateDisabled: "false"
@@ -80,8 +80,8 @@ class ProfileTabs extends React.Component {
   }
 }
 
-ProfileTabs.propTypes = {
+UserTabs.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ProfileTabs);
+export default withStyles(styles)(UserTabs);

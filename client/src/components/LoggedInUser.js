@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
 import {getUserByAuthIdQuery} from '../queries/queries';
 import {auth} from '../App';
+import LoggedInUserMenu from './LoggedInUserMenu'
 
 class LoggedInUser extends Component {
 
@@ -18,7 +19,7 @@ class LoggedInUser extends Component {
       if (user.firstName) {
         return(
             <div>
-                <p>{ user.firstName }</p>
+                <p><LoggedInUserMenu menuLabel={ user.firstName }/></p>
             </div>
         );
       } else {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {graphql, compose} from 'react-apollo';
 import {getRolesQuery, addUserMutation, getUsersQuery} from '../queries/queries';
 
-import AddProfileButton from './Material-UI/AddProfileButton';
+import AddUserNextButton from './AddUserNextButton';
 
 class AddUser extends Component {
   constructor(props){
@@ -38,7 +38,7 @@ class AddUser extends Component {
                   </div>
                 </div>
                 <div className="row">
-                    <AddProfileButton/>
+                    <AddUserNextButton/>
 
                 </div>
               </form>

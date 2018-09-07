@@ -12,7 +12,7 @@ const styles = theme => ({
   },
 });
 
-function AddProfileButton(props) {
+function AddUserNextButton(props) {
   const { classes } = props;
   return (
     <div>
@@ -23,8 +23,8 @@ function AddProfileButton(props) {
   );
 }
 
-AddProfileButton.propTypes = {
+AddUserNextButton.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AddProfileButton);
+export default withStyles(styles)(AddUserNextButton);

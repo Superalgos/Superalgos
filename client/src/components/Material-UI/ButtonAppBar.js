@@ -55,7 +55,6 @@ class ButtonAppBar extends Component {
     let user = JSON.parse(getUser)
     const authId = user.sub;
 
-    console.log(authId);
     this.setState({ authId: authId });
   }
 

@@ -8,8 +8,12 @@ class LoggedInUser extends Component {
   displayLoggedInUser(){
 
     const user = this.props.data.userByAuthId;
+
+
     console.log(this.props);
-    
+    console.log(this.props.data);
+    console.log(this.props.data.userByAuthId);
+
     if(user){
       if (user.firstName) {
         return(
@@ -45,7 +49,7 @@ export default graphql(getUserByAuthIdQuery, { // What follows is the way to pas
   options: (props) => {
     return {
       variables: {
-        id: props.authId
+        authId: props.authId
       }
     }
   }

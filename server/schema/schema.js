@@ -75,17 +75,22 @@ const RootQuery = new GraphQLObjectType({
           // Code to get data from data source.
 
           return new Promise((resolve, reject) => {
+
+          console.log('args.authId');
+          console.log(args.authId);
           User.findOne({authId: args.authId}, (err, user) => {
             if(err) reject(err);
             else{
+              console.log('user.authId');
+              console.log(user.authId);
+
               if (user.authId === args.authId && user.authId !== undefined) {
-                console.log(user );
-                console.log(user.authId );
-                console.log(args.authId );
+                console.log(user);
+                console.log(user);
                   return resolve(user);
-                } else {
-                  return null;
-                }
+              } else {
+                return null;
+              }
             }
           })
         })

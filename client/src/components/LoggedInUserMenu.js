@@ -4,7 +4,11 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import toRenderProps from 'recompose/toRenderProps';
 import withState from 'recompose/withState';
+import { Link } from 'react-router-dom';
 
+import ProfileIcon from '@material-ui/icons/Person';
+
+const UserLink = props => <Link to="/user" {...props} />
 const WithState = toRenderProps(withState('anchorEl', 'updateAnchorEl', null));
 
 class LoggedInUserMenu extends Component {
@@ -33,13 +37,12 @@ class LoggedInUserMenu extends Component {
                 onClick={event => {
                   updateAnchorEl(event.currentTarget);
                 }}
-                color="inherit" 
+                color="inherit"
               >
                 {this.props.menuLabel}
               </Button>
               <Menu id="render-props-menu" anchorEl={anchorEl} open={open} onClose={handleClose}>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose} component={UserLink}><ProfileIcon /><div>Profile</div></MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
               </Menu>
             </React.Fragment>

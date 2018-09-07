@@ -9,7 +9,6 @@ import IconButton from '@material-ui/core/IconButton';
 // icons
 import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
-import ProfileIcon from '@material-ui/icons/Person';
 import BrowseIcon from '@material-ui/icons/ImportContacts';
 import SearchIcon from '@material-ui/icons/Search';
 import ContactIcon from '@material-ui/icons/ContactMail';
@@ -25,7 +24,6 @@ const AboutLink = props => <Link to="/about" {...props} />
 const ContactLink = props => <Link to="/contact" {...props} />
 const SearchLink = props => <Link to="/search" {...props} />
 const BrowseLink = props => <Link to="/browse" {...props} />
-const UserLink = props => <Link to="/user" {...props} />
 const HomeLink = props => <Link to="/" {...props} />
 
 const styles = {
@@ -72,7 +70,6 @@ class NavBar extends Component {
             </Typography>
 
             <IconButton className={classes.menuButton} color="inherit" title="Home" component={HomeLink}><HomeIcon /></IconButton>
-            <IconButton className={classes.menuButton} color="inherit" title="Manage you User Profile" component={UserLink}><ProfileIcon /></IconButton>
             <IconButton className={classes.menuButton} color="inherit" title="Browse the Users Directory" component={BrowseLink}><BrowseIcon /></IconButton>
             <IconButton className={classes.menuButton} color="inherit" title="Search Users" component={SearchLink}><SearchIcon /></IconButton>
             <IconButton className={classes.menuButton} color="inherit" title="Contact Form" component={ContactLink}><ContactIcon /></IconButton>

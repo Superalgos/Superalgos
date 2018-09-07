@@ -42,6 +42,11 @@ const styles = {
 };
 
 class ButtonAppBar extends Component {
+
+  componentDidMount() {
+    console.log('component did mount!');
+  }
+
   render() {
     const { classes } = this.props;
     return (

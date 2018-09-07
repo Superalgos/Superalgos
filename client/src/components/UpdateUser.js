@@ -4,18 +4,20 @@ import {graphql, compose} from 'react-apollo';
 import {getRolesQuery, updateUserMutation, getUsersQuery} from '../queries/queries';
 
 class UpdateUser extends Component {
-  constructor(props){
-  super(props);
-  this.state = {
-      id: '5b90fc33ae71ee3798b2317d', // TODO this Id is the one that should be available to all components after the validation that the user is authenticated.
-      firstName: '',
-      lastName: '',
-      isDeveloper: 0,
-      isTrader: 0,
-      isDataAnalyst: 0,
-      roleId: '1'
-    };
-  }
+
+    constructor(props){
+    super(props);
+    this.state = {
+        id: '5b90fc33ae71ee3798b2317d', // TODO this Id is the one that should be available to all components after the validation that the user is authenticated.
+        firstName: '',
+        lastName: '',
+        isDeveloper: 0,
+        isTrader: 0,
+        isDataAnalyst: 0,
+        roleId: '1'
+      };
+    }
+    
     displayRoles(){
         var data = this.props.getRolesQuery; // When there is more than one query binded to a single componente 'data' is replaced by thename of the query given below at the binding operation.
         if(data.loading){

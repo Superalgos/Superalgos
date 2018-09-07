@@ -52,7 +52,7 @@ class ProfileTabs extends React.Component {
     const { classes } = this.props;
     const { value } = this.state;
     const { createDisabled } = this.state;
-    console.log(createDisabled);
+    
 
     return (
       <div className={classes.root}>

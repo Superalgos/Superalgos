@@ -14,7 +14,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import NavBar from './components/NavBar'
 
 import Home from './components/Home'
-import Profile from './components/Profile'
+import User from './components/User'
 import Browse from './components/Browse'
 import Search from './components/Search'
 import About from './components/About'
@@ -74,7 +74,7 @@ class App extends Component {
             <NavBar/>
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route path='/profile' component={Profile} />
+              <Route path='/user' component={User} />
               <Route path='/browse' component={Browse} />
               <Route path='/search' component={Search} />
               <Route path='/about' component={About} />

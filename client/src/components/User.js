@@ -3,7 +3,7 @@ import React from 'react'
 
 import ProfileTabs from './ProfileTabs';
 
-const Profile = () => {
+const User = () => {
   return (
     <div>
       <ProfileTabs/>
@@ -11,4 +11,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default User

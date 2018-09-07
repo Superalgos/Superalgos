@@ -1,5 +1,46 @@
 # ModuleUsers
 
+## Component Hierarchy
+
+App.js
+|
+|- NavBar
+|    |
+|    |- LoggedInUser
+|    |    |
+|    |    |- LoggedInUserMenu
+|    |    |    |
+|    |    |    |- Menu 1 - Link to User
+|    |    |    |
+|    |    |    |- Menu 2 - Link to Logout
+|    |
+|- Switch
+|    |
+|    |- User
+|    |    |
+|    |    |- UserTabs
+|    |    |    |
+|    |    |    |- Tab 1 - AddUser
+|    |    |    |
+|    |    |    |- Tab 2 - UpdateUser
+|    |
+|    |- Browse
+|    |    |
+|    |    |- UserLists
+|    |
+|    |- Search
+|    |
+|    |- About
+|    |
+|    |- Contact
+|    |
+|    |- Logout
+|    |
+|    |- Callback
+|    |
+|- Footer
+
+
 
 ## Known Improvements
 

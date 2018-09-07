@@ -10,14 +10,17 @@ class UpdateUser extends Component {
     this.state = {
         id: '5b90fc33ae71ee3798b2317d', // TODO this Id is the one that should be available to all components after the validation that the user is authenticated.
         firstName: '',
+        middleName: '',
         lastName: '',
+        email: '',
+        emailVerified: 0,
         isDeveloper: 0,
         isTrader: 0,
         isDataAnalyst: 0,
         roleId: '1'
       };
     }
-    
+
     displayRoles(){
         var data = this.props.getRolesQuery; // When there is more than one query binded to a single componente 'data' is replaced by thename of the query given below at the binding operation.
         if(data.loading){
@@ -36,7 +39,10 @@ class UpdateUser extends Component {
         variables: {
           id: this.state.id,
           firstName: this.state.firstName,
+          middleName: this.state.middleName,
           lastName: this.state.lastName,
+          email: this.state.email,
+          emailVerified: this.state.emailVerified,
           isDeveloper: this.state.isDeveloper,
           isTrader: this.state.isTrader,
           isDataAnalyst: this.state.isDataAnalyst,
@@ -121,8 +127,26 @@ class UpdateUser extends Component {
                 </div>
                 <div className="row">
                   <div className="input-field col s6">
+                    <input id="middleName" type="text" className="validate" onChange={ (e) => this.setState({ middleName:e.target.value})}/>
+                    <label htmlFor="middleName">Middle Name</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s6">
                     <input id="last_name" type="text" className="validate" onChange={ (e) => this.setState({ lastName:e.target.value})}/>
                     <label htmlFor="last_name">Last Name</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s6">
+                    <input id="email" type="text" className="validate" onChange={ (e) => this.setState({ email:e.target.value})}/>
+                    <label htmlFor="email">email</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input id="emailVerified" type="checkbox" disabled/>
+                    <label htmlFor="emailVerified">Email Verified</label>
                   </div>
                 </div>
                 <div className="row">

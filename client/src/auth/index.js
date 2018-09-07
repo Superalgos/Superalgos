@@ -13,13 +13,8 @@ console.log(process.env.AUTH0_CLIENTID)
 const AUTHENTICATE = gql`
   mutation authenticate($idToken: String!) {
     authenticate(idToken: $idToken) {
-      id
-      nickname
-      auth0id
-      profile {
-        email
-        avatar
-      }
+      alias
+      authId
     }
   }
 `

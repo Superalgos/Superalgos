@@ -1,4 +1,5 @@
 
 client/node_modules/*
 server/node_modules/*
-client/src/auth/auth0.js
+client/src/auth/Auth0.js
+server/auth/Auth0.js

@@ -15,4 +15,5 @@ isDataAnalyst: Boolean,
 roleId: String
 })
 
-module.exports = mongoose.model('User', userSchema);
+global.UserSchema = global.UserSchema || mongoose.model('User', userSchema);
+module.exports = global.UserSchema;

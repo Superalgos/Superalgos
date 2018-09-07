@@ -7,23 +7,24 @@ import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { setContext } from 'apollo-link-context';
 
-import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 // Components
 
-import NavBar from './components/NavBar'
+import NavBar from './components/NavBar';
 
-import Home from './components/Home'
-import User from './components/User'
-import Browse from './components/Browse'
-import Search from './components/Search'
-import About from './components/About'
-import Contact from './components/Contact'
-import Post from './components/Post'
-import Footer from './components/Footer'
-import Callback from './components/Callback'
+import Home from './components/Home';
+import User from './components/User';
+import Browse from './components/Browse';
+import Search from './components/Search';
+import About from './components/About';
+import Contact from './components/Contact';
+import Logout from './components/Logout';
+import Post from './components/Post';
+import Footer from './components/Footer';
+import Callback from './components/Callback';
 
-import Auth from './auth/index'
+import Auth from './auth/index';
 
 // Apollo Client Setup
 const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql', changeOrigin: true })
@@ -79,6 +80,7 @@ class App extends Component {
               <Route path='/search' component={Search} />
               <Route path='/about' component={About} />
               <Route path='/contact' component={Contact} />
+              <Route path='/logout' component={Logout} />
               <Route path='/:post_id' component={Post} />
               <Route path='/callback' render={(props) => {
                 auth.handleAuthentication(props)

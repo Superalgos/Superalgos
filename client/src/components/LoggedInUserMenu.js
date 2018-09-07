@@ -10,6 +10,8 @@ import ProfileIcon from '@material-ui/icons/Person';
 import LogoutIcon from '@material-ui/icons/DirectionsWalk';
 
 const UserLink = props => <Link to="/user" {...props} />
+const LogoutLink = props => <Link to="/logout" {...props} />
+
 const WithState = toRenderProps(withState('anchorEl', 'updateAnchorEl', null));
 
 class LoggedInUserMenu extends Component {
@@ -44,7 +46,7 @@ class LoggedInUserMenu extends Component {
               </Button>
               <Menu id="render-props-menu" anchorEl={anchorEl} open={open} onClose={handleClose}>
                 <MenuItem onClick={handleClose} component={UserLink}><ProfileIcon /><div>Profile</div></MenuItem>
-                <MenuItem onClick={handleClose}><LogoutIcon /><div>Logout</div></MenuItem>  
+                <MenuItem onClick={handleClose} component={LogoutLink}><LogoutIcon /><div>Logout</div></MenuItem>
               </Menu>
             </React.Fragment>
           );

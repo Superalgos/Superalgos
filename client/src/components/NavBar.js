@@ -61,6 +61,14 @@ class NavBar extends Component {
       }
     );
     */
+    const userStored = localStorage.getItem('user');
+    console.log(userStored);
+
+    if (userStored !== null && userStored !== undefined && userStored !== 'undefined') {
+      const user = JSON.parse(userStored);
+      const authId = user.sub;
+      this.setState({ authId: authId });
+    }
   }
   render() {
     const { classes } = this.props;

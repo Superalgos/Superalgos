@@ -1,8 +1,10 @@
+const MODULE_NAME = "schema";
+
 const graphql = require('graphql');
 const _ = require('lodash');
 const User = require('../models/user');
 
-const validateParseIdToken = require('../auth/validate-auth0-token');
+const tokenDecoder = require('../auth/TokenDecoder');
 
 const {
   GraphQLObjectType,
@@ -79,19 +81,59 @@ const RootQuery = new GraphQLObjectType({
         resolve(parent,args) {
           // Code to get data from data source.
 
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Entering function."); }
+
           return new Promise((resolve, reject) => {
 
-          User.findOne({authId: args.authId}, (err, user) => {
-            if(err) reject(err);
-            else{
+            if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> Entering function."); }
 
-              if (user.authId === args.authId && user.authId !== undefined) {
-                  return resolve(user);
-              } else {
-                return null;
+            if (args.authId === null || args.authId === undefined) {
+
+              if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> User requested not specified."); }
+              if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> args.authId = " + args.authId); }
+
+              reject({ error: "No user specified" });
+              return;
+            }
+
+            User.findOne({authId: args.authId}, onUserReceived)
+
+            function onUserReceived(err, user) {
+              if(err) {
+                if (ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> Database Error."); }
+                if (ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> err = " + err); }
+                reject(err);
+              }
+              else{
+
+                if (user === null) {
+
+                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> User not found at Database."); }
+                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> args.authId = " + args.authId); }
+
+                  resolve({});
+                  return;
+                }
+
+                if (user.authId === args.authId && user.authId !== undefined) {
+
+                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> User found at Database."); }
+                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> args.authId = " + args.authId); }
+
+                  resolve(user);
+                  return;
+
+                } else {
+
+                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> User found at Database is not the user requested."); }
+                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> args.authId = " + args.authId); }
+                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> user.authId = " + user.authId); }
+
+                  resolve({});
+                  return;
+                }
               }
             }
-          })
         })
 
         }
@@ -125,51 +167,36 @@ const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     authenticate: {
-    type: UserType,
-    args: {
-      idToken: {type: new GraphQLNonNull(GraphQLString)}
-    },
-    resolve(parent, { idToken }) {
-      let userToken = null;
-
-      return validateParseIdToken(idToken)
-      .then(authProviderResponse => {
-
-        console.log('validateParseIdToken', authProviderResponse);
-
-        const authId = authProviderResponse.sub;
-        const alias = authProviderResponse.nickname;
-        const email = authProviderResponse.email;
-        const emailVerified = authProviderResponse.email_verified;
-
-        let user = new User({
-          alias: authId,
-          authId: alias,
-          email: email,
-          emailVerified: emailVerified,
-          roleId: "1"
-        });
-
-        user.save();
-        return { authId, alias };
-      })
-      .catch(err => { return {error: err } })
-    }
-  },
-    addUser:{
       type: UserType,
       args: {
-        alias: {type: new GraphQLNonNull(GraphQLString)},
-        authId: {type: new GraphQLNonNull(GraphQLString)}
+        idToken: {type: new GraphQLNonNull(GraphQLString)}
       },
       resolve(parent, args) {
 
-        let user = new User({
-          alias: args.alias,
-          authId: args.authId,
-          roleId: "1"
+        if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> Mutation -> authenticate -> resolve -> Entering function."); }
+
+        /* In order to be able to wait for asyc calls to the database, and authorization authority, we need to return a promise to GraphQL. */
+
+        const promiseToGraphQL = new Promise((resolve, reject) => {
+
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> Mutation -> authenticate -> resolve -> Promise -> Entering function."); }
+          authenticate(args.idToken, onAuthenticated);
+
+          function onAuthenticated(err, responseToGraphQL) {
+
+            if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> Entering function."); }
+            if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> responseToGraphQL = " + JSON.stringify(responseToGraphQL)); }
+
+            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+              if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> authenticate -> onValidated -> err.message = " + err.message); }
+              reject (responseToGraphQL);
+            } else {
+              resolve (responseToGraphQL);
+            }
+          }
         });
-        return user.save();
+
+        return promiseToGraphQL;
       }
     },
     updateUser:{
@@ -209,6 +236,59 @@ const Mutation = new GraphQLObjectType({
     }
   }
 })
+
+function authenticate(encodedToken, callBackFunction) {
+
+try {
+
+    if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> Entering function."); }
+
+    let authId = "";
+    let alias = "";
+    let email = "";
+    let emailVerified = false;
+
+    tokenDecoder(encodedToken, onValidated);
+
+    function onValidated(err, decodedToken) {
+
+      if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> Entering function."); }
+
+      if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+        if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> authenticate -> onValidated -> err.message = " + err.message); }
+        callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
+        return;
+      }
+
+      authId = decodedToken.sub;
+      alias = decodedToken.nickname;
+      email = decodedToken.email;
+      emailVerified = decodedToken.email_verified;
+
+      /* The authenticated user is NOT at our module database. We need to add him. */
+
+       let newUser = new User({
+         alias: alias,
+         authId: authId,
+         email: email,
+         emailVerified: emailVerified,
+         roleId: "1"
+       });
+
+       if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> " + alias + " being added to the database"); }
+
+       newUser.save();
+
+       callBackFunction(global.DEFAULT_OK_RESPONSE, { authId, alias });
+
+    }
+  } catch(err) {
+
+    if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> authenticate -> err.message = " + err.message); }
+    callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
+
+  }
+}
 
 module.exports = new GraphQLSchema({
   query: RootQuery,

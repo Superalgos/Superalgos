@@ -11,8 +11,8 @@ class LoggedInUser extends Component {
 
     const user = this.props.data.userByAuthId;
 
-    console.log('loggedInUser');
-    console.log(user);
+    console.log('loggedInUser data', this.props.data);
+    console.log('loggedInUser', user);
 
     if(user){
 

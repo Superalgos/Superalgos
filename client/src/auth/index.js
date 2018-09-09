@@ -128,7 +128,7 @@ class Auth {
       })
 
       console.log('signinOrCreateAccount auth: ', await data)
-      setItem('user', data.data.authenticate.authId)
+      setItem('user', JSON.stringify(data.data.authenticate))
       if (window.location.href.includes(`callback`)) {
         window.location.href = '/'
       } else {

@@ -49,24 +49,13 @@ class NavBar extends Component {
   }
 
   componentDidMount() {
-    /*
-    this._asyncRequest = window.localStorage.getItem('user').then(
-      response => {
-        this._asyncRequest = null;
-        let user = JSON.parse(response)
-        if (user) {
-          const authId = user.sub;
-          this.setState({ authId: authId });
-        }
-      }
-    );
-    */
+
     const userStored = localStorage.getItem('user');
     console.log(userStored);
 
     if (userStored !== null && userStored !== undefined && userStored !== 'undefined') {
       const user = JSON.parse(userStored);
-      const authId = user.sub;
+      const authId = user.authId;
       this.setState({ authId: authId });
     }
   }

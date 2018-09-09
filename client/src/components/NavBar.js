@@ -55,7 +55,16 @@ class NavBar extends Component {
 
     if (userStored !== null && userStored !== undefined && userStored !== 'undefined') {
       const user = JSON.parse(userStored);
-      const authId = user.authId;
+
+      /* For some reason, the result of GraphQL some times varies, that is why I had to do the following hack. */
+
+      let authId;
+      if (user.authId === undefined) {
+        authId = user.sub;
+      } else {
+        authId = user.authId;
+      }
+      
       console.log("user", user);
       console.log("authid", authId);
       this.setState({ authId: authId });

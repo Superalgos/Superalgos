@@ -79,7 +79,7 @@ const RootQuery = new GraphQLObjectType({
         type: UserType,
         args: {authId: {type: GraphQLString}},
         resolve(parent,args) {
-          // Code to get data from data source. 
+          // Code to get data from data source.
 
           if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Entering function."); }
 
@@ -242,7 +242,12 @@ function findUserByAuthId(authId, callBackFunction) {
           if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> User not found at Database."); }
           if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> args.authId = " + authId); }
 
-          callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
+          let customResponse = {
+              result: global.CUSTOM_OK_RESPONSE.result,
+              message: "User Not Found"
+          };
+
+          callBackFunction(customResponse, { error: customResponse.message });
           return;
         }
 
@@ -303,22 +308,49 @@ try {
       email = decodedToken.email;
       emailVerified = decodedToken.email_verified;
 
-      /* The authenticated user is NOT at our module database. We need to add him. */
+      findUserByAuthId(authId, onUserFound);
 
-       let newUser = new User({
-         alias: alias,
-         authId: authId,
-         email: email,
-         emailVerified: emailVerified,
-         roleId: "1"
-       });
+      function onUserFound(err, user){
 
-       if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> " + alias + " being added to the database"); }
+        if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> Entering function."); }
 
-       newUser.save();
+        if (err.result === global.DEFAULT_FAIL_RESPONSE.result) {
+          if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> err.message = " + err.message); }
+          callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
+          return;
+        }
 
-       callBackFunction(global.DEFAULT_OK_RESPONSE, { authId, alias });
+        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+          if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> User already exists at database"); }
+          callBackFunction(global.DEFAULT_OK_RESPONSE, { authId: authId, alias: user.alias });
+          return;
+        }
 
+        if (
+          err.result === global.CUSTOM_OK_RESPONSE.result &&
+          err.message === "User Not Found"
+        ) {
+
+          if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> User does not exist at database"); }
+
+          /* The authenticated user is NOT at our module database. We need to add him. */
+
+           let newUser = new User({
+             alias: alias,
+             authId: authId,
+             email: email,
+             emailVerified: emailVerified,
+             roleId: "1"
+           });
+
+           if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> " + alias + " being added to the database"); }
+
+           newUser.save();
+
+           callBackFunction(global.DEFAULT_OK_RESPONSE, { authId, alias });
+
+        }
+      }
     }
   } catch(err) {
 

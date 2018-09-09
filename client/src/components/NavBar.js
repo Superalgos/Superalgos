@@ -55,7 +55,7 @@ class NavBar extends Component {
 
     if (userStored !== null && userStored !== undefined && userStored !== 'undefined') {
       const user = JSON.parse(userStored);
-      const authId = user.sub;
+      const authId = user.authId;
       console.log("user", user);
       console.log("authid", authId);
       this.setState({ authId: authId });

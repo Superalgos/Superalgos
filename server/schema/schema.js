@@ -79,62 +79,34 @@ const RootQuery = new GraphQLObjectType({
         type: UserType,
         args: {authId: {type: GraphQLString}},
         resolve(parent,args) {
-          // Code to get data from data source.
+          // Code to get data from data source. 
 
           if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Entering function."); }
 
-          return new Promise((resolve, reject) => {
+          /* In order to be able to wait for asyc calls to the database, we need to return a promise to GraphQL. */
+
+          const promiseToGraphQL = new Promise((resolve, reject) => {
 
             if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> Entering function."); }
+            if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> args.authId = " + args.authId); }
 
-            if (args.authId === null || args.authId === undefined) {
+            findUserByAuthId(args.authId, onUserFound);
 
-              if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> User requested not specified."); }
-              if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> args.authId = " + args.authId); }
+            function onUserFound(err, responseToGraphQL) {
 
-              reject({ error: "No user specified" });
-              return;
-            }
+              if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserFound -> Entering function."); }
+              if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserFound -> responseToGraphQL = " + JSON.stringify(responseToGraphQL)); }
 
-            User.findOne({authId: args.authId}, onUserReceived)
-
-            function onUserReceived(err, user) {
-              if(err) {
-                if (ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> Database Error."); }
-                if (ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> err = " + err); }
-                reject(err);
-              }
-              else{
-
-                if (user === null) {
-
-                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> User not found at Database."); }
-                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> args.authId = " + args.authId); }
-
-                  resolve({});
-                  return;
-                }
-
-                if (user.authId === args.authId && user.authId !== undefined) {
-
-                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> User found at Database."); }
-                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> args.authId = " + args.authId); }
-
-                  resolve(user);
-                  return;
-
-                } else {
-
-                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> User found at Database is not the user requested."); }
-                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> args.authId = " + args.authId); }
-                  if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserReceived -> user.authId = " + user.authId); }
-
-                  resolve({});
-                  return;
-                }
+              if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserFound -> err.message = " + err.message); }
+                reject (responseToGraphQL);
+              } else {
+                resolve (responseToGraphQL);
               }
             }
-        })
+          });
+
+          return promiseToGraphQL;
 
         }
       },
@@ -188,7 +160,7 @@ const Mutation = new GraphQLObjectType({
             if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> responseToGraphQL = " + JSON.stringify(responseToGraphQL)); }
 
             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-              if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> authenticate -> onValidated -> err.message = " + err.message); }
+              if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> err.message = " + err.message); }
               reject (responseToGraphQL);
             } else {
               resolve (responseToGraphQL);
@@ -236,6 +208,72 @@ const Mutation = new GraphQLObjectType({
     }
   }
 })
+
+
+function findUserByAuthId(authId, callBackFunction) {
+
+  try {
+
+    if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> Entering function."); }
+    if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> authId = " + authId); }
+
+    if (authId === null || authId === undefined) {
+
+      if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> User requested not specified."); }
+      if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> args.authId = " + authId); }
+
+      callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: "Bad Request" });
+      return;
+    }
+
+    User.findOne({authId: authId}, onUserReceived)
+
+    function onUserReceived(err, user) {
+
+      if(err) {
+        if (ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> Database Error."); }
+        if (ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> err = " + err); }
+        callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
+      }
+      else{
+
+        if (user === null) {
+
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> User not found at Database."); }
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> args.authId = " + authId); }
+
+          callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
+          return;
+        }
+
+        if (user.authId === authId && user.authId !== undefined) {
+
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> User found at Database."); }
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> args.authId = " + authId); }
+
+          callBackFunction(global.DEFAULT_OK_RESPONSE, user);
+          return;
+
+        } else {
+
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> User found at Database is not the user requested."); }
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> args.authId = " + authId); }
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> findUserByAuthId -> onUserReceived -> user.authId = " + user.authId); }
+
+          callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
+          return;
+        }
+      }
+    }
+  } catch(err) {
+
+    if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> findUserByAuthId -> err.message = " + err.message); }
+    callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
+
+  }
+}
+
+
 
 function authenticate(encodedToken, callBackFunction) {
 

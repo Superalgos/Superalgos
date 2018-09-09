@@ -133,17 +133,23 @@ const Mutation = new GraphQLObjectType({
       let userToken = null;
 
       return validateParseIdToken(idToken)
-      .then(result => {
-        console.log('validateParseIdToken', result);
-        const authId = result.sub;
-        const alias = result.nickname;
+      .then(authProviderResponse => {
+
+        console.log('validateParseIdToken', authProviderResponse);
+
+        const authId = authProviderResponse.sub;
+        const alias = authProviderResponse.nickname;
+        const email = authProviderResponse.email;
+        const emailVerified = authProviderResponse.email_verified;
 
         let user = new User({
-          alias: alias,
-          authId: authId,
+          alias: authId,
+          authId: alias,
+          email: email,
+          emailVerified: emailVerified,
           roleId: "1"
         });
-        console.log(authId, alias);
+
         user.save();
         return { authId, alias };
       })

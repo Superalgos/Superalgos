@@ -11,14 +11,7 @@ class LoggedInUser extends Component {
 
     const user = this.props.data.userByAuthId;
 
-    console.log('loggedInUser data', this.props.data);
-    console.log('loggedInUser', user);
-
     if(user){
-
-      console.log(user.firstName);
-      console.log(user.lastName );
-      console.log(user.alias);
 
       let displayName = "No Display Name";
 

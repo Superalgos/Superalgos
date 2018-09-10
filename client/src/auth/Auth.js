@@ -8,8 +8,6 @@ import { client } from '../App'
 
 import { AUTH_CONFIG } from './Auth0' // create by renaming Auth0.sample.js to Auth0.js and setting vars
 
-console.log(process.env.AUTH0_CLIENTID)
-
 const AUTHENTICATE = gql`
   mutation authenticate($idToken: String!) {
     authenticate(idToken: $idToken) {

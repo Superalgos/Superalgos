@@ -51,7 +51,6 @@ class NavBar extends Component {
   componentDidMount() {
 
     const userStored = localStorage.getItem('user');
-    console.log(userStored);
 
     if (userStored !== null && userStored !== undefined && userStored !== 'undefined') {
       const user = JSON.parse(userStored);
@@ -64,9 +63,7 @@ class NavBar extends Component {
       } else {
         authId = user.authId;
       }
-      
-      console.log("user", user);
-      console.log("authid", authId);
+
       this.setState({ authId: authId });
     }
   }

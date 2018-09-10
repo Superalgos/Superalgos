@@ -34,7 +34,7 @@ class LoggedInUser extends Component {
 
       return(
           <div>
-              <p><LoggedInUserMenu menuLabel={ displayName }/></p>
+              <p><LoggedInUserMenu menuLabel={ displayName } user={ this.props.data.userByAuthId }/></p>
           </div>
       );
 

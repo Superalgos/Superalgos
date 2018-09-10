@@ -115,6 +115,7 @@ class UserUpdate extends Component {
     }
 
     render(){
+      console.log("user at render", this.props);
         return(
           <div>
               <form onSubmit={this.submitForm.bind(this)}>

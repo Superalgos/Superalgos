@@ -14,7 +14,6 @@ const Footer = () => {
             <h5 className="white-text">Links</h5>
             <ul className="right hide-on-med-and-down">
               <li><NavLink exact to="/">Home</NavLink></li>
-              <li><NavLink to='/user'>Profile</NavLink></li>
               <li><NavLink to='/browse'>Browse</NavLink></li>
               <li><NavLink to='/search'>Search</NavLink></li>
               <li><NavLink to='/contact'>Contact</NavLink></li>

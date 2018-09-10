@@ -303,6 +303,13 @@ try {
         return;
       }
 
+      /*
+
+      Ok, the user was correctly authenticated. Next we need to know if this logged in user
+      has already been added to this module's database or not yet.
+
+      */
+
       authId = decodedToken.sub;
       alias = decodedToken.nickname;
       email = decodedToken.email;
@@ -322,6 +329,18 @@ try {
 
         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
           if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> User already exists at database"); }
+
+          if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> Existing User: " + JSON.stringify(user)); }
+
+          /*
+
+          Here we save the user id of the logged in user at the server Sessions map, from there it will
+          be used to validate any further transaction comming from this same user.
+
+          */
+
+          global.Sessions.set(encodedToken, user.id);
+
           callBackFunction(global.DEFAULT_OK_RESPONSE, { authId: authId, alias: user.alias });
           return;
         }
@@ -333,7 +352,13 @@ try {
 
           if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> User does not exist at database"); }
 
-          /* The authenticated user is NOT at our module database. We need to add him. */
+          /*
+
+          The authenticated user is NOT at our module database. We need to add him.
+          We will take from the authentication provider the basic information it knows about the logged in users
+          and save it as an initial set of data, which can later be modified.
+
+          */
 
            let newUser = new User({
              alias: alias,
@@ -345,10 +370,32 @@ try {
 
            if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> " + alias + " being added to the database"); }
 
-           newUser.save();
+           newUser.save(onSaved);
 
-           callBackFunction(global.DEFAULT_OK_RESPONSE, { authId, alias });
+           function onSaved(err, savedUser) {
 
+             if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> onSaved -> Entering function."); }
+
+             if (err) {
+               if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> onSaved -> err = " + err); }
+               callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
+               return;
+             }
+
+             if (global.INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> authenticate -> onValidated -> onUserFound -> onSaved -> Saved User: " + JSON.stringify(savedUser)); }
+
+             /*
+
+             Here we save the user id of the logged in user at the server Sessions map, from there it will
+             be used to validate any further transaction comming from this same user.
+
+             */
+
+             global.Sessions.set(encodedToken, savedUser.id);
+
+             callBackFunction(global.DEFAULT_OK_RESPONSE, { authId, alias });
+
+           }
         }
       }
     }

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {graphql, compose} from 'react-apollo';
 import {getRolesQuery, updateUserMutation, getUsersQuery} from '../queries/queries';
 
-class UpdateUser extends Component {
+class UserUpdate extends Component {
 
     constructor(props){
     super(props);
@@ -188,4 +188,4 @@ class UpdateUser extends Component {
 export default compose(
   graphql(getRolesQuery, {name: "getRolesQuery"}),
   graphql(updateUserMutation, {name: "updateUserMutation"})
-) (UpdateUser); // This technique binds more than one query to a single component.
+) (UserUpdate); // This technique binds more than one query to a single component.

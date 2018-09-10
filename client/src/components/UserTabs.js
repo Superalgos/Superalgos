@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 
 // Components
 
-import UpdateUser from './UpdateUser';
+import UserUpdate from './UserUpdate';
 
 function TabContainer(props) {
   return (
@@ -61,7 +61,7 @@ class UserTabs extends React.Component {
             <Tab label="Manage Images" icon={<ImageIcon />} />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer><UpdateUser/></TabContainer>}
+        {value === 0 && <TabContainer><UserUpdate/></TabContainer>}
         {value === 1 && <TabContainer>Item Three</TabContainer>}
       </div>
     );

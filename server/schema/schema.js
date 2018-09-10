@@ -4,7 +4,7 @@ const graphql = require('graphql');
 const _ = require('lodash');
 const User = require('../models/user');
 
-const tokenDecoder = require('../auth/TokenDecoder');
+const tokenDecoder = require('../auth/token-decoder');
 
 const {
   GraphQLObjectType,

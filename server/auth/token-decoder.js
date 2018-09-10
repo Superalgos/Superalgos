@@ -1,4 +1,4 @@
-const MODULE_NAME = "TokenDecoder";
+const MODULE_NAME = "token-decoder";
 
 /*
    JSON Web Token (JWT) is a compact, URL-safe means of representing

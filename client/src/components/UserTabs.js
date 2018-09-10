@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 
 // Components
 
-import AddUser from './AddUser';
 import UpdateUser from './UpdateUser';
 
 function TabContainer(props) {
@@ -36,23 +35,16 @@ const styles = theme => ({
 
 class UserTabs extends React.Component {
   state = {
-    value: 0,
-    cureateDisabled: "false"
+    value: 0
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
   };
 
-  updateUser = () => {
-    this.setState({ value: 1, cureateDisabled: "true" });
-  };
-
   render() {
     const { classes } = this.props;
     const { value } = this.state;
-    const { createDisabled } = this.state;
-
 
     return (
       <div className={classes.root}>
@@ -65,16 +57,12 @@ class UserTabs extends React.Component {
             indicatorColor="primary"
             textColor="primary"
           >
-          <Tab  label="Create Profile" icon={<AddIcon />} />
-            <Tab disabled={createDisabled} label="Create Profile" icon={<AddIcon />} />
             <Tab label="Update Profile" icon={<UpdateIcon />} />
             <Tab label="Manage Images" icon={<ImageIcon />} />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer><AddUser onAdded={this.updateUser}/></TabContainer>}
-        {value === 1 && <TabContainer><UpdateUser/></TabContainer>}
-        {value === 2 && <TabContainer>Item Three</TabContainer>}
-
+        {value === 0 && <TabContainer><UpdateUser/></TabContainer>}
+        {value === 1 && <TabContainer>Item Three</TabContainer>}
       </div>
     );
   }

@@ -116,65 +116,65 @@ class UserUpdate extends Component {
 
     render(){
         return(
-          <div className="row">
-              <form className="col s12" onSubmit={this.submitForm.bind(this)}>
+          <div>
+              <form onSubmit={this.submitForm.bind(this)}>
                 <p>Complete your profile with the following optional information. Providing your real name might help other users trust you more.</p>
-                <div className="row">
-                  <div className="input-field col s6">
-                    <input id="firstName" type="text" className="validate" onChange={ (e) => this.setState({ firstName:e.target.value})}/>
+                <div>
+                  <div>
+                    <input id="firstName" type="text" onChange={ (e) => this.setState({ firstName:e.target.value})}/>
                     <label htmlFor="firstName">First Name</label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="input-field col s6">
-                    <input id="middleName" type="text" className="validate" onChange={ (e) => this.setState({ middleName:e.target.value})}/>
+                <div>
+                  <div>
+                    <input id="middleName" type="text" onChange={ (e) => this.setState({ middleName:e.target.value})}/>
                     <label htmlFor="middleName">Middle Name</label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate" onChange={ (e) => this.setState({ lastName:e.target.value})}/>
+                <div>
+                  <div>
+                    <input id="last_name" type="text" onChange={ (e) => this.setState({ lastName:e.target.value})}/>
                     <label htmlFor="last_name">Last Name</label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="input-field col s6">
-                    <input id="email" type="text" className="validate" onChange={ (e) => this.setState({ email:e.target.value})}/>
+                <div>
+                  <div>
+                    <input id="email" type="text" onChange={ (e) => this.setState({ email:e.target.value})}/>
                     <label htmlFor="email">email</label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="input-field col s12">
+                <div>
+                  <div>
                     <input id="emailVerified" type="checkbox" disabled/>
                     <label htmlFor="emailVerified">Email Verified</label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="input-field col s12">
+                <div>
+                  <div>
                     <input id="isDeveloper" type="checkbox" ref="id2" onChange={this.handleCheckBoxes.bind(this)}/>
                     <label htmlFor="isDeveloper">Developer</label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="input-field col s12">
+                <div>
+                  <div>
                     <input id="isTrader" type="checkbox" ref="id3" onChange={this.handleCheckBoxes.bind(this)}/>
                     <label htmlFor="isTrader">Trader</label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="input-field col s12">
+                <div>
+                  <div>
                     <input id="isDataAnalyst" type="checkbox" ref="id4" onChange={this.handleCheckBoxes.bind(this)}/>
                     <label htmlFor="isDataAnalyst">Data Analyst</label>
                   </div>
                 </div>
-                <div className="row">
+                <div>
                     <select id="role" ref="select" onChange={this.handleSelect.bind(this)}>
                         { this.displayRoles() }
                     </select>
                     <label htmlFor="role">Current Role:</label>
                 </div>
 
-                <div className="row">
+                <div>
                     <button>Update</button>
                 </div>
               </form>

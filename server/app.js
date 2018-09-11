@@ -26,25 +26,26 @@ mongoose.connection.once('open', () => {
 
 /* Here we bind all requests to this endpoint to be procecced by the GraphQL Library. */
 
+app.post('/graphql', checkJwt, (err, req, res, next) => {
+    console.log('checkJwt middleware req.user: ', req.user);
+    if (err) return res.status(401).send({error: `[Authenticate Token Error] ${err.message}`});
+    next();
+  }
+);
+
 app.get('/graphql', graphqlHTTP({
   schema,
   graphiql: true
 }));
 
-app.post('/graphql', graphqlHTTP({
+app.post('/graphql', graphqlHTTP(req => ({
   schema,
   graphiql: false,
-  context: req => ({ ...req })
-}));
+  context: { user: req.user }
+  })
+));
 
-app.post('/graphql', checkJwt, (err, req, res, next) => {
-    console.log(req);
-    if (err) return res.status(401).send(`[Authenticate Token Error] ${err.message}`);
-    next();
-  }
-);
-
-app.post('/graphql', (req, res, done) => getUser(req, res, done));
+app.post('/graphql', (err, req, res, done) => getUser(req, res, done));
 
 app.listen(4000,() => {
   console.log('Now listening for requests on port 4000');

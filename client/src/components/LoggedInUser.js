@@ -43,9 +43,24 @@ class LoggedInUser extends Component {
     }
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
 
-    localStorage.setItem('loggedInUser', JSON.stringify(this.props.data.userByAuthId));
+    console.log("botton render");
+
+    if (this.loggedInUserStored !== true) {
+
+      let user = this.props.data.userByAuthId;
+
+      if (user !== undefined) {
+        localStorage.setItem('loggedInUser', JSON.stringify(this.props.data.userByAuthId));
+        console.log("setting loggedInUser from the button", this.props.data.userByAuthId);
+        this.loggedInUserStored = true;
+      }
+    }
 
     return (
       <div>

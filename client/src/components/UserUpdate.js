@@ -58,6 +58,7 @@ class UserUpdate extends Component {
       /* Before we are done, we need to update the state of the local storage. */
 
       let user = JSON.parse(localStorage.getItem("loggedInUser"));
+
       user.firstName = this.state.firstName;
       user.middleName = this.state.middleName;
       user.lastName = this.state.lastName;
@@ -150,7 +151,11 @@ console.log("component will  UNmount");
         console.log("state", this.state);
     	    if (this.defaultValuesSet === false)
     	    {
-            let user = JSON.parse(localStorage.getItem("loggedInUser"));
+            let userData = localStorage.getItem("loggedInUser");
+
+            if (userData === "undefined") { return;}
+
+            let user = JSON.parse(userData);
             console.log("user", user);
   	        this.defaultValuesSet= true;
 
@@ -164,6 +169,8 @@ console.log("component will  UNmount");
             this.refs.isDeveloper.checked = user.isDeveloper;
             this.refs.isTrader.checked = user.isTrader;
             this.refs.isDataAnalyst.checked = user.isDataAnalyst;
+            this.refs.select.value = user.role.id;
+
             this.setState({
               id: user.id,
               firstName: user.firstName,
@@ -171,7 +178,8 @@ console.log("component will  UNmount");
               lastName: user.lastName,
               isDeveloper: user.isDeveloper,
               isTrader: user.isTrader,
-              isDataAnalyst: user.isDataAnalyst
+              isDataAnalyst: user.isDataAnalyst,
+              roleId: user.role.id
             });
             console.log("setting defaults");
     	    }

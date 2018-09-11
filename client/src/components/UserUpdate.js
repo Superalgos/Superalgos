@@ -161,6 +161,7 @@ console.log("component will  UNmount");
 
             /* Now we can set the default values for the form fields. */
 
+            this.refs.alias.value = user.alias;
             this.refs.firstName.value = user.firstName;
             this.refs.middleName.value = user.middleName;
             this.refs.lastName.value = user.lastName;
@@ -170,6 +171,9 @@ console.log("component will  UNmount");
             this.refs.isTrader.checked = user.isTrader;
             this.refs.isDataAnalyst.checked = user.isDataAnalyst;
             this.refs.select.value = user.role.id;
+            console.log("select value ", this.refs.select.value);
+            console.log("select  ", this.refs.select);
+
 
             this.setState({
               id: user.id,
@@ -191,9 +195,36 @@ console.log("render");
         return(
           <div>
               <form onSubmit={this.submitForm.bind(this)}>
-
+                <p>This is your basic information we got from the social identity provider you used to sign up. This information can not be changed.</p>
+                <div>
+                  <div>
+                    <input
+                        id = "alias"
+                        type = "text"
+                        ref = "alias"
+                        disabled>
+                    </input>
+                    <label htmlFor="alias">Alias</label>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <input
+                        id = "email"
+                        type = "text"
+                        ref = "email"
+                        disabled>
+                    </input>
+                    <label htmlFor="email">Email</label>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <input id="emailVerified" type="checkbox" ref="emailVerified" disabled/>
+                    <label htmlFor="emailVerified">Email Verified</label>
+                  </div>
+                </div>
                 <p>Complete your profile with the following optional information. Providing your real name might help other users trust you more.</p>
-
                 <div>
                   <div>
                     <input
@@ -227,23 +258,7 @@ console.log("render");
                     <label htmlFor="lastName">Last Name</label>
                   </div>
                 </div>
-                <div>
-                  <div>
-                    <input
-                        id = "email"
-                        type = "text"
-                        ref = "email"
-                        disabled>
-                    </input>
-                    <label htmlFor="email">Email</label>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <input id="emailVerified" type="checkbox" ref="emailVerified" disabled/>
-                    <label htmlFor="emailVerified">Email Verified</label>
-                  </div>
-                </div>
+                <p>Check the following options to enable specialized tools designed for each role. You can allways come back and change these settings later.</p>
                 <div>
                   <div>
                     <input id="isDeveloper" type="checkbox" ref="isDeveloper" onChange={this.handleCheckBoxes.bind(this)}/>
@@ -262,6 +277,7 @@ console.log("render");
                     <label htmlFor="isDataAnalyst">Data Analyst</label>
                   </div>
                 </div>
+                <p>Select the role you would like to play now.</p>
                 <div>
                     <select id="role" ref="select" onChange={this.handleSelect.bind(this)}>
                         { this.displayRoles() }

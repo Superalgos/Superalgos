@@ -50,7 +50,7 @@ class NavBar extends Component {
 
   componentDidMount() {
 
-    const userStored = localStorage.getItem('user');
+    const userStored = localStorage.getItem('auth.user');
 
     if (userStored !== null && userStored !== undefined && userStored !== 'undefined') {
       const user = JSON.parse(userStored);

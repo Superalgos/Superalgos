@@ -12,7 +12,7 @@ class UserUpdate extends Component {
       this.defaultValuesSet = false;
 
       this.state = {
-          id: '5b90fc33ae71ee3798b2317d', // TODO this Id is the one that should be available to all components after the validation that the user is authenticated.
+          id: '',
           firstName: '',
           middleName: '',
           lastName: '',
@@ -132,12 +132,15 @@ console.log("component will  UNmount");
     componentDidUpdate ()
     	{
         console.log("component did update");
+        console.log("state", this.state);
     	    if (this.defaultValuesSet === false)
     	    {
             let user = JSON.parse(localStorage.getItem("loggedInUser"));
             console.log("user", user);
   	        this.defaultValuesSet= true;
-  	        this.refs.firstName.value = user.alias;
+  	        this.refs.email.value = user.email;
+            this.refs.emailVerified.checked = user.emailVerified;
+            this.setState({id: user.id});
             console.log("setting defaults");
     	    }
     	}
@@ -164,25 +167,40 @@ console.log("render");
                 </div>
                 <div>
                   <div>
-                    <input id="middleName" type="text" onChange={ (e) => this.setState({ middleName:e.target.value})}/>
+                    <input
+                        id = "middleName"
+                        type = "text"
+                        ref = "middleName"
+                        onBlur = { (e) => this.setState({ middleName:e.target.value})}>
+                    </input>
                     <label htmlFor="middleName">Middle Name</label>
                   </div>
                 </div>
                 <div>
                   <div>
-                    <input id="last_name" type="text" onChange={ (e) => this.setState({ lastName:e.target.value})}/>
+                    <input
+                        id = "last_name"
+                        type = "text"
+                        ref = "last_name"
+                        onBlur = { (e) => this.setState({ last_name:e.target.value})}>
+                    </input>
                     <label htmlFor="last_name">Last Name</label>
                   </div>
                 </div>
                 <div>
                   <div>
-                    <input id="email" type="text" onChange={ (e) => this.setState({ email:e.target.value})}/>
-                    <label htmlFor="email">email</label>
+                    <input
+                        id = "email"
+                        type = "text"
+                        ref = "email"
+                        disabled>
+                    </input>
+                    <label htmlFor="email">Email</label>
                   </div>
                 </div>
                 <div>
                   <div>
-                    <input id="emailVerified" type="checkbox" disabled/>
+                    <input id="emailVerified" type="checkbox" ref="emailVerified" disabled/>
                     <label htmlFor="emailVerified">Email Verified</label>
                   </div>
                 </div>

@@ -42,6 +42,8 @@ query($authId: String){
       firstName
       middleName
       lastName
+      email
+      emailVerified
       role {
         id
       }

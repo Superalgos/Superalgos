@@ -34,7 +34,7 @@ class LoggedInUser extends Component {
 
       return(
           <div>
-              <p><LoggedInUserMenu menuLabel={ displayName } user={ this.props.data.userByAuthId }/></p>
+              <p><LoggedInUserMenu menuLabel={ displayName } /></p>
           </div>
       );
 
@@ -43,7 +43,12 @@ class LoggedInUser extends Component {
     }
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
+    localStorage.setItem('loggedInUser', JSON.stringify(this.props.data.userByAuthId));
     return (
       <div>
         {this.displayLoggedInUser()}

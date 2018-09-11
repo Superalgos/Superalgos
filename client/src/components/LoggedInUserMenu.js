@@ -23,10 +23,6 @@ class LoggedInUserMenu extends Component {
     }
   }
 
-  componentDidMount(){
-    this.setState({user: this.props.user});
-  }
-
   render() {
 
     return (

@@ -66,7 +66,7 @@ class UserUpdate extends Component {
       user.isDeveloper = this.state.isDeveloper;
       user.isTrader = this.state.isTrader;
       user.isDataAnalyst = this.state.isDataAnalyst;
-      user.roleId = this.state.roleId;
+      user.role.id = this.state.roleId;
 
       localStorage.setItem("loggedInUser", JSON.stringify(user));
 

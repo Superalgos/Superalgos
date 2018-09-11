@@ -44,6 +44,9 @@ query($authId: String){
       lastName
       email
       emailVerified
+      isDeveloper
+      isDataAnalyst
+      isTrader
       role {
         id
       }

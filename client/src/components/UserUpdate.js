@@ -54,6 +54,23 @@ class UserUpdate extends Component {
         },
         refetchQueries: [{ query: getUsersQuery}] // This allow us to re run whatever queries are necesary after the mutation.
       });
+
+      /* Before we are done, we need to update the state of the local storage. */
+
+      let user = JSON.parse(localStorage.getItem("loggedInUser"));
+      user.firstName = this.state.firstName;
+      user.middleName = this.state.middleName;
+      user.lastName = this.state.lastName;
+      user.firstName = this.state.firstName;
+      user.isDeveloper = this.state.isDeveloper;
+      user.isTrader = this.state.isTrader;
+      user.isDataAnalyst = this.state.isDataAnalyst;
+      user.roleId = this.state.roleId;
+
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+      console.log("update loggedInUser", user);
+
     }
 
     handleCheckBoxes(e){
@@ -98,17 +115,17 @@ class UserUpdate extends Component {
       let checkbox;
       switch (e.target.value) {
         case "2":
-          checkbox = ReactDOM.findDOMNode(this.refs.id2);
+          checkbox = ReactDOM.findDOMNode(this.refs.isDeveloper);
           checkbox.checked = true;
           this.setState({ isDeveloper: 1})
           break;
         case "3":
-          checkbox = ReactDOM.findDOMNode(this.refs.id3);
+          checkbox = ReactDOM.findDOMNode(this.refs.isTrader);
           checkbox.checked = true;
           this.setState({ isTrader: 1})
           break;
         case "4":
-          checkbox = ReactDOM.findDOMNode(this.refs.id4);
+          checkbox = ReactDOM.findDOMNode(this.refs.isDataAnalyst);
           checkbox.checked = true;
           this.setState({ isDataAnalyst: 1})
           break;
@@ -141,12 +158,20 @@ console.log("component will  UNmount");
 
             this.refs.firstName.value = user.firstName;
             this.refs.middleName.value = user.middleName;
+            this.refs.lastName.value = user.lastName;
   	        this.refs.email.value = user.email;
             this.refs.emailVerified.checked = user.emailVerified;
+            this.refs.isDeveloper.checked = user.isDeveloper;
+            this.refs.isTrader.checked = user.isTrader;
+            this.refs.isDataAnalyst.checked = user.isDataAnalyst;
             this.setState({
               id: user.id,
               firstName: user.firstName,
-              middleName: user.middleName
+              middleName: user.middleName,
+              lastName: user.lastName,
+              isDeveloper: user.isDeveloper,
+              isTrader: user.isTrader,
+              isDataAnalyst: user.isDataAnalyst
             });
             console.log("setting defaults");
     	    }
@@ -186,12 +211,12 @@ console.log("render");
                 <div>
                   <div>
                     <input
-                        id = "last_name"
+                        id = "lastName"
                         type = "text"
-                        ref = "last_name"
-                        onBlur = { (e) => this.setState({ last_name:e.target.value})}>
+                        ref = "lastName"
+                        onBlur = { (e) => this.setState({ lastName:e.target.value})}>
                     </input>
-                    <label htmlFor="last_name">Last Name</label>
+                    <label htmlFor="lastName">Last Name</label>
                   </div>
                 </div>
                 <div>
@@ -213,19 +238,19 @@ console.log("render");
                 </div>
                 <div>
                   <div>
-                    <input id="isDeveloper" type="checkbox" ref="id2" onChange={this.handleCheckBoxes.bind(this)}/>
+                    <input id="isDeveloper" type="checkbox" ref="isDeveloper" onChange={this.handleCheckBoxes.bind(this)}/>
                     <label htmlFor="isDeveloper">Developer</label>
                   </div>
                 </div>
                 <div>
                   <div>
-                    <input id="isTrader" type="checkbox" ref="id3" onChange={this.handleCheckBoxes.bind(this)}/>
+                    <input id="isTrader" type="checkbox" ref="isTrader" onChange={this.handleCheckBoxes.bind(this)}/>
                     <label htmlFor="isTrader">Trader</label>
                   </div>
                 </div>
                 <div>
                   <div>
-                    <input id="isDataAnalyst" type="checkbox" ref="id4" onChange={this.handleCheckBoxes.bind(this)}/>
+                    <input id="isDataAnalyst" type="checkbox" ref="isDataAnalyst" onChange={this.handleCheckBoxes.bind(this)}/>
                     <label htmlFor="isDataAnalyst">Data Analyst</label>
                   </div>
                 </div>

@@ -1,3 +1,8 @@
+
+/* This module imports */
+
+const globals = require('./globals');
+const sessions = require('./sessions');
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
@@ -19,6 +24,8 @@ mongoose.connection.once('open', () => {
   console.log('Connected to database');
 })
 
+/* Here we bind all requests to this endpoint to be procecced by the GraphQL Library. */
+
 app.get('/graphql', graphqlHTTP({
   schema,
   graphiql: true
@@ -38,8 +45,6 @@ app.post('/graphql', checkJwt, (err, req, res, next) => {
 );
 
 app.post('/graphql', (req, res, done) => getUser(req, res, done));
-
-
 
 app.listen(4000,() => {
   console.log('Now listening for requests on port 4000');

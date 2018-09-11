@@ -13,10 +13,6 @@ class LoggedInUser extends Component {
 
     if(user){
 
-      console.log(user.firstName);
-      console.log(user.lastName );
-      console.log(user.alias);
-
       let displayName = "No Display Name";
 
       if (
@@ -38,7 +34,7 @@ class LoggedInUser extends Component {
 
       return(
           <div>
-              <p><LoggedInUserMenu menuLabel={ displayName }/></p>
+              <p><LoggedInUserMenu menuLabel={ displayName } user={ this.props.data.userByAuthId }/></p>
           </div>
       );
 

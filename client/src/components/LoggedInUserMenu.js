@@ -19,11 +19,16 @@ class LoggedInUserMenu extends Component {
   constructor(props){
     super(props);
     this.state = {
-      property: 'value'
+      user: {}
     }
   }
 
+  componentDidMount(){
+    this.setState({user: this.props.user});
+  }
+
   render() {
+
     return (
       <WithState>
         {({ anchorEl, updateAnchorEl }) => {

@@ -20,9 +20,9 @@ App.js
 |    |    |
 |    |    |- UserTabs
 |    |    |    |
-|    |    |    |- Tab 1 - AddUser
+|    |    |    |- Tab 1 - UserUpdate
 |    |    |    |
-|    |    |    |- Tab 2 - UpdateUser
+|    |    |    |- Tab 2 - ManageImages
 |    |
 |    |- Browse
 |    |    |

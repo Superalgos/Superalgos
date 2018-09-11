@@ -6,19 +6,25 @@ import {getRolesQuery, updateUserMutation, getUsersQuery} from '../queries/queri
 class UserUpdate extends Component {
 
     constructor(props){
-    super(props);
-    this.state = {
-        id: '5b90fc33ae71ee3798b2317d', // TODO this Id is the one that should be available to all components after the validation that the user is authenticated.
-        firstName: '',
-        middleName: '',
-        lastName: '',
-        email: '',
-        emailVerified: 0,
-        isDeveloper: 0,
-        isTrader: 0,
-        isDataAnalyst: 0,
-        roleId: '1'
-      };
+
+      super(props);
+
+      this.defaultValuesSet = false;
+
+      this.state = {
+          id: '5b90fc33ae71ee3798b2317d', // TODO this Id is the one that should be available to all components after the validation that the user is authenticated.
+          firstName: '',
+          middleName: '',
+          lastName: '',
+          email: '',
+          emailVerified: 0,
+          isDeveloper: 0,
+          isTrader: 0,
+          isDataAnalyst: 0,
+          roleId: '1'
+        };
+
+      console.log("constructor");
     }
 
     displayRoles(){
@@ -33,7 +39,7 @@ class UserUpdate extends Component {
     }
 
     submitForm(e){
-      console.log(this.state);
+      console.log("submitting this>", this.state);
       e.preventDefault();
       this.props.updateUserMutation({
         variables: {
@@ -114,15 +120,44 @@ class UserUpdate extends Component {
       this.setState({ roleId:e.target.value })
     }
 
+    componentDidMount(){
+console.log("component did mount");
+        this.setState({});
+    }
+
+    componentWillUnmount(){
+console.log("component will  UNmount");
+    }
+
+    componentDidUpdate ()
+    	{
+        console.log("component did update");
+    	    if (this.defaultValuesSet === false)
+    	    {
+            let user = JSON.parse(localStorage.getItem("loggedInUser"));
+  	        this.defaultValuesSet= true;
+  	        this.refs.firstName.value = user.alias;
+            console.log("setting defaults");
+    	    }
+    	}
+
     render(){
-      console.log("user at render", this.props);
+console.log("render");
+
         return(
           <div>
               <form onSubmit={this.submitForm.bind(this)}>
+
                 <p>Complete your profile with the following optional information. Providing your real name might help other users trust you more.</p>
+
                 <div>
                   <div>
-                    <input id="firstName" type="text" onChange={ (e) => this.setState({ firstName:e.target.value})}/>
+                    <input
+                        id = "firstName"
+                        type = "text"
+                        ref = "firstName"
+                        onBlur = { (e) => this.setState({ firstName:e.target.value})}>
+                    </input>
                     <label htmlFor="firstName">First Name</label>
                   </div>
                 </div>

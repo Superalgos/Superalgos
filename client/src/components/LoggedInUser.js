@@ -43,12 +43,10 @@ class LoggedInUser extends Component {
     }
   }
 
-  componentDidMount() {
-
-  }
-
   render() {
+
     localStorage.setItem('loggedInUser', JSON.stringify(this.props.data.userByAuthId));
+
     return (
       <div>
         {this.displayLoggedInUser()}

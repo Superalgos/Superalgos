@@ -102,7 +102,7 @@ class Auth {
       this.signinOrCreateAccount({ ...data })
       this.cb(data)
       console.log(authResult.idTokenPayload)
-      setItem('auth.user', JSON.stringify(authResult.idTokenPayload))
+      setItem('authUser', JSON.stringify(authResult.idTokenPayload))
       if (window.location.href.includes(`callback`)) {
         window.location.href = '/'
       }
@@ -126,7 +126,7 @@ class Auth {
       })
 
       console.log('signinOrCreateAccount auth: ', await data)
-      setItem('auth.user', JSON.stringify(data.data.authenticate))
+      setItem('authUser', JSON.stringify(data.data.authenticate))
       if (window.location.href.includes(`callback`)) {
         window.location.href = '/'
       } else {
@@ -143,7 +143,7 @@ class Auth {
     removeItem('access_token')
     removeItem('id_token')
     removeItem('expires_at')
-    removeItem('auth.user')
+    removeItem('authUser')
     removeItem('auth0.ssodata')
     window.localStorage.clear()
     deleteCookie('ajs_anonymous_id')
@@ -156,7 +156,7 @@ class Auth {
 
   async isAuthenticated () {
     // check session and run Auth0 SS0
-    const getUser = await getItem('auth.user')
+    const getUser = await getItem('authUser')
     let user = JSON.parse(getUser)
 
     if (validObject(user, 'exp') && new Date().getTime() < (user.exp * 1000)) {
@@ -168,7 +168,7 @@ class Auth {
     const checkSSO = await this.checkSession()
       .then(result => {
         console.log('handleAuth.checksessions: ', result)
-        setItem('auth.user', result.idTokenPayload.sub)
+        setItem('authUser', result.idTokenPayload.sub)
         // user confirmed, log into client
         this.setSession(result)
         return result.idTokenPayload

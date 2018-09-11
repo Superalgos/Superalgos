@@ -52,4 +52,12 @@ class LoggedInUser extends Component {
   }
 }
 
-export default graphql(getUserByAuthIdQuery)(LoggedInUser); // This binds the querty to the component
+export default graphql(getUserByAuthIdQuery, { // What follows is the way to pass a parameter to a query.
+  options: (props) => {
+    return {
+      variables: {
+        authId: props.authId
+      }
+    }
+  }
+})(LoggedInUser); // This binds the querty to the component

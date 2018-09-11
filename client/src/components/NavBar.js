@@ -53,7 +53,7 @@ class NavBar extends Component {
     const userStored = localStorage.getItem('user');
 
     if (userStored !== null && userStored !== undefined && userStored !== 'undefined') {
-      const user = JSON.parse(userStored);
+      const user = userStored;
 
       /* For some reason, the result of GraphQL some times varies, that is why I had to do the following hack. */
 

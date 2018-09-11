@@ -77,20 +77,28 @@ const RootQuery = new GraphQLObjectType({
       },
       userByAuthId: {
         type: UserType,
-        args: {authId: {type: GraphQLString}},
-        resolve(parent,args) {
+        // args: {authId: {type: GraphQLString}}, // Get AuthId from context rather than send from client.
+        resolve(parent, args, context) {
           // Code to get data from data source.
+          console.log('userByAuthId: ', parent, args, context);
 
           if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Entering function."); }
+          if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> context.user = " + context.user); }
 
+          if (context.user ===  undefined || context.user.sub ===  undefined || context.user.sub ===  null) {
+            if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> noContextUser -> err.message = Not Logged In"); }
+            return null;
+          }
+
+          const authId = context.user.sub;
           /* In order to be able to wait for asyc calls to the database, we need to return a promise to GraphQL. */
 
           const promiseToGraphQL = new Promise((resolve, reject) => {
 
             if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> Entering function."); }
-            if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> args.authId = " + args.authId); }
+            if (INFO_LOG === true) { console.log("[INFO] " + MODULE_NAME + " -> RootQuery -> userByAuthId -> resolve -> Promise -> args.authId = " + authId); }
 
-            findUserByAuthId(args.authId, onUserFound);
+            findUserByAuthId(authId, onUserFound);
 
             function onUserFound(err, responseToGraphQL) {
 
@@ -274,7 +282,6 @@ function findUserByAuthId(authId, callBackFunction) {
 
     if (global.ERROR_LOG === true) { console.log("[ERROR] " + MODULE_NAME + " -> findUserByAuthId -> err.message = " + err.message); }
     callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err });
-
   }
 }
 

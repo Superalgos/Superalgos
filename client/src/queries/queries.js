@@ -35,8 +35,8 @@ query($id: ID){
 `
 
 const getUserByAuthIdQuery = gql`
-query($authId: String){
-    userByAuthId (authId: $authId){
+query {
+    userByAuthId{
       id
       alias
       firstName

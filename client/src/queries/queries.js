@@ -60,23 +60,12 @@ const getRolesQuery = gql`
 }
 `
 
-const addUserMutation = gql`
-mutation($alias: String!, $authId:String!) {
-    addUser (alias: $alias, authId: $authId){
-      id
-      authId
-    }
-}
-`
-
 const updateUserMutation = gql`
 mutation(
   $id: ID!,
   $firstName:String,
   $middleName:String,
   $lastName:String,
-  $email:String,
-  $emailVerified:Int,
   $isDeveloper:Int,
   $isTrader:Int,
   $isDataAnalyst:Int,
@@ -88,8 +77,6 @@ mutation(
       firstName:$firstName,
       middleName: $middleName,
       lastName: $lastName,
-      email: $email,
-      emailVerified: $emailVerified,
       isDeveloper: $isDeveloper,
       isTrader: $isTrader,
       isDataAnalyst: $isDataAnalyst,
@@ -101,4 +88,4 @@ mutation(
     }
 }
 `
-export {getUsersQuery, getUserByAuthIdQuery, getRolesQuery, addUserMutation, updateUserMutation, getUserProfileQuery}
+export {getUsersQuery, getUserByAuthIdQuery, getRolesQuery, updateUserMutation, getUserProfileQuery}

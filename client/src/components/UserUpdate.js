@@ -47,8 +47,6 @@ class UserUpdate extends Component {
           firstName: this.state.firstName,
           middleName: this.state.middleName,
           lastName: this.state.lastName,
-          email: this.state.email,
-          emailVerified: this.state.emailVerified,
           isDeveloper: this.state.isDeveloper,
           isTrader: this.state.isTrader,
           isDataAnalyst: this.state.isDataAnalyst,
@@ -138,9 +136,18 @@ console.log("component will  UNmount");
             let user = JSON.parse(localStorage.getItem("loggedInUser"));
             console.log("user", user);
   	        this.defaultValuesSet= true;
+
+            /* Now we can set the default values for the form fields. */
+
+            this.refs.firstName.value = user.firstName;
+            this.refs.middleName.value = user.middleName;
   	        this.refs.email.value = user.email;
             this.refs.emailVerified.checked = user.emailVerified;
-            this.setState({id: user.id});
+            this.setState({
+              id: user.id,
+              firstName: user.firstName,
+              middleName: user.middleName
+            });
             console.log("setting defaults");
     	    }
     	}

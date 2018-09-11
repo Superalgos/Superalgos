@@ -135,6 +135,7 @@ console.log("component will  UNmount");
     	    if (this.defaultValuesSet === false)
     	    {
             let user = JSON.parse(localStorage.getItem("loggedInUser"));
+            console.log("user", user);
   	        this.defaultValuesSet= true;
   	        this.refs.firstName.value = user.alias;
             console.log("setting defaults");

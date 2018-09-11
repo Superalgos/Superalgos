@@ -1,0 +1,94 @@
+enum Role {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  APPLY
+  INVITE
+}
+
+enum FBType {
+  BOT
+  NET
+  ADVANCED
+}
+
+enum FBKind {
+  TRADER
+  INDICATOR
+  EXTRACTOR
+  PLOTTER
+}
+
+type Team {
+  id: ID! @unique
+  name: String! @unique
+  slug: String! @unique
+  profile: TeamProfile
+  members: [TeamMembers!]! @relation (name: "TeamMembers", onDelete: SET_NULL)
+  wallet: Wallet
+  fb: [FinancialBeings!]! @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
+  status: [TeamStatus!]!
+  createdAt: DateTime!
+}
+
+type TeamProfile {
+  description: String
+  motto: String
+  avatar: String
+  updatedAt: DateTime!
+}
+
+type TeamStatus {
+  status: Status @Default(value: inactive)
+  reason: String
+  createdAt: DateTime!
+}
+
+type TeamMembers {
+  member: Member @relation (name: "MemberOnTeam", onDelete: SET_NULL)
+  team: Team @relation (name: "TeamMembers", onDelete: SET_NULL)
+  role: Role @default(value: MEMBER)
+  status: [MemberStatus!]!
+  updatedAt: DateTime!
+}
+
+type Member {
+  id: ID! @unique
+  nickname: String
+  team: TeamMembers @relation (name: "MemberOnTeam", onDelete: SET_NULL)
+  authId: String! @unique
+  visible: Boolean! @default(value: true)
+  createdAt: DateTime!
+}
+
+type MemberStatus {
+  status: Status @Default(value: inactive)
+  reason: String
+  createdAt: DateTime!
+}
+
+type Wallet {
+  balance: Float
+  updatedAt: DateTime!
+}
+
+type FinancialBeings {
+  id: ID! @unique
+  type: FBType
+  kind: FBKind
+  team: Team @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
+  status: [FBStatus!]!
+  updatedAt: DateTime!
+  createdAt: DateTime!
+}
+
+type FBStatus {
+  status: Status @Default(value: inactive)
+  reason: String
+  createdAt: DateTime!
+}

@@ -3,6 +3,38 @@ import ReactDOM from 'react-dom';
 import {graphql, compose} from 'react-apollo';
 import {getRolesQuery, updateUserMutation, getUsersQuery} from '../queries/queries';
 
+//Material-ui
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import TextField from '@material-ui/core/TextField';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import classNames from 'classnames';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    padding: 20
+  },
+  textField: {
+      width: '60%',
+      marginLeft:'20%',
+      marginTop: 20
+    },
+  menu: {
+    width: 200,
+  },
+});
+
 class UserUpdate extends Component {
 
     constructor(props){
@@ -24,7 +56,7 @@ class UserUpdate extends Component {
           roleId: '1'
         };
 
-      console.log("constructor");
+      console.log("constructor ");
     }
 
     displayRoles(){
@@ -136,18 +168,9 @@ class UserUpdate extends Component {
       this.setState({ roleId:e.target.value })
     }
 
-    componentDidMount(){
-console.log("component did mount");
-        this.setState({});
-    }
-
-    componentWillUnmount(){
-console.log("component will  UNmount");
-    }
-
-    componentDidUpdate ()
+    componentWillMount ()
     	{
-        console.log("component did update");
+        console.log("componentWillUnmount");
         console.log("state", this.state);
     	    if (this.defaultValuesSet === false)
     	    {
@@ -160,7 +183,7 @@ console.log("component will  UNmount");
   	        this.defaultValuesSet= true;
 
             /* Now we can set the default values for the form fields. */
-
+            /*
             this.refs.alias.value = user.alias;
             this.refs.firstName.value = user.firstName;
             this.refs.middleName.value = user.middleName;
@@ -173,10 +196,13 @@ console.log("component will  UNmount");
             this.refs.select.value = user.role.id;
             console.log("select value ", this.refs.select.value);
             console.log("select  ", this.refs.select);
-
+            */
 
             this.setState({
               id: user.id,
+              alias: user.alias,
+              email: user.email,
+              emailVerified: user.emailVerified,
               firstName: user.firstName,
               middleName: user.middleName,
               lastName: user.lastName,
@@ -191,103 +217,92 @@ console.log("component will  UNmount");
 
     render(){
 console.log("render");
+console.log("props", this.props);
+console.log("State", this.state);
 
+        const { classes } = this.props;
         return(
           <div>
-              <form onSubmit={this.submitForm.bind(this)}>
+              <form className={classes.container} onSubmit={this.submitForm.bind(this)}>
                 <p>This is your basic information we got from the social identity provider you used to sign up. This information can not be changed.</p>
-                <div>
-                  <div>
-                    <input
+
+                    <TextField
                         id = "alias"
                         type = "text"
-                        ref = "alias"
+                        value = {this.state.alias}
+                        label="Alias"
+                        className={classes.textField}
                         disabled>
-                    </input>
-                    <label htmlFor="alias">Alias</label>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <input
+                    </TextField>
+
+                    <TextField
                         id = "email"
                         type = "text"
-                        ref = "email"
+                        value = {this.state.email}
+                        label = "Email"
+                        className={classes.textField}
                         disabled>
-                    </input>
-                    <label htmlFor="email">Email</label>
-                  </div>
-                </div>
-                <div>
-                  <div>
+                    </TextField>
+
                     <input id="emailVerified" type="checkbox" ref="emailVerified" disabled/>
                     <label htmlFor="emailVerified">Email Verified</label>
-                  </div>
-                </div>
+
                 <p>Complete your profile with the following optional information. Providing your real name might help other users trust you more.</p>
-                <div>
-                  <div>
-                    <input
+
+                    <TextField
                         id = "firstName"
                         type = "text"
-                        ref = "firstName"
-                        onBlur = { (e) => this.setState({ firstName:e.target.value})}>
-                    </input>
-                    <label htmlFor="firstName">First Name</label>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <input
+                        value = {this.state.firstName}
+                        label = "First Name"
+                        className={classes.textField}
+                        onChange={(e)=>this.setState({firstName:e.target.value})}
+                        >
+                    </TextField>
+
+                    <TextField
                         id = "middleName"
                         type = "text"
-                        ref = "middleName"
-                        onBlur = { (e) => this.setState({ middleName:e.target.value})}>
-                    </input>
-                    <label htmlFor="middleName">Middle Name</label>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <input
+                        value = {this.state.middleName}
+                        label = "Middle Name"
+                        className={classes.textField}
+                        onChange={(e)=>this.setState({middleName:e.target.value})}
+                        >
+                    </TextField>
+
+                    <TextField
                         id = "lastName"
                         type = "text"
-                        ref = "lastName"
-                        onBlur = { (e) => this.setState({ lastName:e.target.value})}>
-                    </input>
-                    <label htmlFor="lastName">Last Name</label>
-                  </div>
-                </div>
+                        value = {this.state.lastName}
+                        label = "First Name"
+                        className={classes.textField}
+                        onChange={(e)=>this.setState({lastName:e.target.value})}
+                        >
+                    </TextField>
+
+                    
+
                 <p>Check the following options to enable specialized tools designed for each role. You can allways come back and change these settings later.</p>
-                <div>
-                  <div>
+
                     <input id="isDeveloper" type="checkbox" ref="isDeveloper" onChange={this.handleCheckBoxes.bind(this)}/>
                     <label htmlFor="isDeveloper">Developer</label>
-                  </div>
-                </div>
-                <div>
-                  <div>
+
                     <input id="isTrader" type="checkbox" ref="isTrader" onChange={this.handleCheckBoxes.bind(this)}/>
                     <label htmlFor="isTrader">Trader</label>
-                  </div>
-                </div>
-                <div>
-                  <div>
+
                     <input id="isDataAnalyst" type="checkbox" ref="isDataAnalyst" onChange={this.handleCheckBoxes.bind(this)}/>
                     <label htmlFor="isDataAnalyst">Data Analyst</label>
-                  </div>
-                </div>
+
                 <p>Select the role you would like to play now.</p>
-                <div>
+
                     <select id="role" ref="select" onChange={this.handleSelect.bind(this)}>
                         { this.displayRoles() }
                     </select>
                     <label htmlFor="role">Current Role:</label>
-                </div>
 
-                <div>
+
+
                     <button>Update</button>
-                </div>
+
               </form>
             </div>
 
@@ -298,5 +313,6 @@ console.log("render");
 
 export default compose(
   graphql(getRolesQuery, {name: "getRolesQuery"}),
-  graphql(updateUserMutation, {name: "updateUserMutation"})
+  graphql(updateUserMutation, {name: "updateUserMutation"}),
+  withStyles(styles)
 ) (UserUpdate); // This technique binds more than one query to a single component.

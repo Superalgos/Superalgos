@@ -16,7 +16,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import Select from '@material-ui/core/Select';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import NoSsr from '@material-ui/core/NoSsr';
+
 
 const styles = theme => ({
   container: {
@@ -32,7 +32,7 @@ const styles = theme => ({
   pField: {
       width: '80%',
       marginLeft:'10%',
-      marginTop: 20
+      marginTop: 40
     },
   checkbox: {
       width: '25%',
@@ -228,8 +228,8 @@ class UserUpdate extends Component {
 
         const { classes } = this.props;
         return(
-          <div className={classes.container}>
-            <NoSsr>
+          <div>
+
               <form className={classes.container} onSubmit={this.submitForm.bind(this)}>
 
                 <p className={classes.pField}>This is your basic information we got from the social identity provider you used to sign up. This information can not be changed.</p>
@@ -363,7 +363,7 @@ class UserUpdate extends Component {
                             Update
                     </Button>
               </form>
-            </NoSsr>
+
         </div>
 
 

@@ -18,6 +18,12 @@ import Input from '@material-ui/core/Input';
 import classNames from 'classnames';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import Select from '@material-ui/core/Select';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import NoSsr from '@material-ui/core/NoSsr';
 
 const styles = theme => ({
   container: {
@@ -25,13 +31,37 @@ const styles = theme => ({
     flexWrap: 'wrap',
     padding: 20
   },
-  textField: {
+  inputField: {
       width: '60%',
       marginLeft:'20%',
       marginTop: 20
     },
+  pField: {
+      width: '80%',
+      marginLeft:'10%',
+      marginTop: 20
+    },
+  checkbox: {
+      width: '25%',
+      marginLeft:'0%',
+      marginTop: 20
+    },
   menu: {
     width: 200,
+  },
+  divider: {
+    height: theme.spacing.unit * 2,
+  },
+  root: {
+  display: 'flex',
+  flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2,
   },
 });
 
@@ -62,10 +92,14 @@ class UserUpdate extends Component {
     displayRoles(){
         var data = this.props.getRolesQuery; // When there is more than one query binded to a single componente 'data' is replaced by thename of the query given below at the binding operation.
         if(data.loading){
-            return( <option disabled>Loading roles</option> );
+            return(
+              <MenuItem><em>Loading roles</em></MenuItem>
+            );
         } else {
             return data.roles.map(role => {
-                return( <option key={ role.id } value={role.id}>{ role.name }</option> );
+                return(
+                  <MenuItem key={ role.id } value={role.id}>{ role.name }</MenuItem>
+                );
             });
         }
     }
@@ -119,22 +153,19 @@ class UserUpdate extends Component {
         let select = ReactDOM.findDOMNode(this.refs.select);
         switch (e.target.id) {
           case "isDeveloper":
-            if (select.value === "2") {
-              select.value = "1";
+            if (this.state.roleId === "2") {
               this.setState({ roleId: "1"});
             }
             break;
 
           case "isTrader":
-            if (select.value === "3") {
-              select.value = "1";
+            if (this.state.roleId  === "3") {
               this.setState({ roleId: "1"});
             }
             break;
 
           case "isDataAnalyst":
-            if (select.value === "4") {
-              select.value = "1";
+            if (this.state.roleId  === "4") {
               this.setState({ roleId: "1"});
             }
             break;
@@ -145,27 +176,30 @@ class UserUpdate extends Component {
     }
 
     handleSelect(e){
-      let checkbox;
+
+      /*
+      Whenever the select component changes its value, we need to activate the type of role selected.
+      To do so, we change the state of the corresponding type of role here.
+      */
+
       switch (e.target.value) {
         case "2":
-          checkbox = ReactDOM.findDOMNode(this.refs.isDeveloper);
-          checkbox.checked = true;
           this.setState({ isDeveloper: 1})
           break;
         case "3":
-          checkbox = ReactDOM.findDOMNode(this.refs.isTrader);
-          checkbox.checked = true;
           this.setState({ isTrader: 1})
           break;
         case "4":
-          checkbox = ReactDOM.findDOMNode(this.refs.isDataAnalyst);
-          checkbox.checked = true;
           this.setState({ isDataAnalyst: 1})
           break;
         default:
       }
 
       this.setState({ roleId:e.target.value })
+    }
+
+    rightCheckboxValue(stateValue) {
+      if (stateValue === 1) {return true} else {return false};
     }
 
     componentWillMount ()
@@ -181,22 +215,6 @@ class UserUpdate extends Component {
             let user = JSON.parse(userData);
             console.log("user", user);
   	        this.defaultValuesSet= true;
-
-            /* Now we can set the default values for the form fields. */
-            /*
-            this.refs.alias.value = user.alias;
-            this.refs.firstName.value = user.firstName;
-            this.refs.middleName.value = user.middleName;
-            this.refs.lastName.value = user.lastName;
-  	        this.refs.email.value = user.email;
-            this.refs.emailVerified.checked = user.emailVerified;
-            this.refs.isDeveloper.checked = user.isDeveloper;
-            this.refs.isTrader.checked = user.isTrader;
-            this.refs.isDataAnalyst.checked = user.isDataAnalyst;
-            this.refs.select.value = user.role.id;
-            console.log("select value ", this.refs.select.value);
-            console.log("select  ", this.refs.select);
-            */
 
             this.setState({
               id: user.id,
@@ -222,89 +240,133 @@ console.log("State", this.state);
 
         const { classes } = this.props;
         return(
-          <div>
+          <div className={classes.container}>
+            <NoSsr>
               <form className={classes.container} onSubmit={this.submitForm.bind(this)}>
-                <p>This is your basic information we got from the social identity provider you used to sign up. This information can not be changed.</p>
 
-                    <TextField
-                        id = "alias"
-                        type = "text"
-                        value = {this.state.alias}
-                        label="Alias"
-                        className={classes.textField}
-                        disabled>
-                    </TextField>
+                <p className={classes.pField}>This is your basic information we got from the social identity provider you used to sign up. This information can not be changed.</p>
 
-                    <TextField
-                        id = "email"
-                        type = "text"
-                        value = {this.state.email}
-                        label = "Email"
-                        className={classes.textField}
-                        disabled>
-                    </TextField>
+                <TextField
+                    id = "alias"
+                    type = "text"
+                    value = {this.state.alias}
+                    label="Alias"
+                    className={classes.inputField}
+                    disabled>
+                </TextField>
 
-                    <input id="emailVerified" type="checkbox" ref="emailVerified" disabled/>
-                    <label htmlFor="emailVerified">Email Verified</label>
+                <TextField
+                    id = "email"
+                    type = "text"
+                    value = {this.state.email}
+                    label = "Email"
+                    className={classes.inputField}
+                    disabled>
+                </TextField>
 
-                <p>Complete your profile with the following optional information. Providing your real name might help other users trust you more.</p>
+                <input id="emailVerified" type="checkbox" ref="emailVerified" className={classes.inputField} disabled/>
+                <label htmlFor="emailVerified" className={classes.inputField}>Email Verified</label>
 
-                    <TextField
-                        id = "firstName"
-                        type = "text"
-                        value = {this.state.firstName}
-                        label = "First Name"
-                        className={classes.textField}
-                        onChange={(e)=>this.setState({firstName:e.target.value})}
-                        >
-                    </TextField>
+                <p className={classes.pField}>TComplete your profile with the following optional information. Providing your real name might help other users trust you more.</p>
 
-                    <TextField
-                        id = "middleName"
-                        type = "text"
-                        value = {this.state.middleName}
-                        label = "Middle Name"
-                        className={classes.textField}
-                        onChange={(e)=>this.setState({middleName:e.target.value})}
-                        >
-                    </TextField>
+                <TextField
+                    id = "firstName"
+                    type = "text"
+                    value = {this.state.firstName}
+                    label = "First Name"
+                    className={classes.inputField}
+                    onChange={(e)=>this.setState({firstName:e.target.value})}
+                    >
+                </TextField>
 
-                    <TextField
-                        id = "lastName"
-                        type = "text"
-                        value = {this.state.lastName}
-                        label = "First Name"
-                        className={classes.textField}
-                        onChange={(e)=>this.setState({lastName:e.target.value})}
-                        >
-                    </TextField>
+                <TextField
+                    id = "middleName"
+                    type = "text"
+                    value = {this.state.middleName}
+                    label = "Middle Name"
+                    className={classes.inputField}
+                    onChange={(e)=>this.setState({middleName:e.target.value})}
+                    >
+                </TextField>
 
-                    
+                <TextField
+                    id = "lastName"
+                    type = "text"
+                    value = {this.state.lastName}
+                    label = "First Name"
+                    className={classes.inputField}
+                    onChange={(e)=>this.setState({lastName:e.target.value})}
+                    >
+                </TextField>
 
-                <p>Check the following options to enable specialized tools designed for each role. You can allways come back and change these settings later.</p>
+                <p className={classes.pField}>Check the following options to enable specialized tools designed for each role. You can allways come back and change these settings later.</p>
 
-                    <input id="isDeveloper" type="checkbox" ref="isDeveloper" onChange={this.handleCheckBoxes.bind(this)}/>
-                    <label htmlFor="isDeveloper">Developer</label>
+                <FormGroup row className={classes.inputField}>
+                  <FormControlLabel
+                      className={classes.checkbox}
+                      control={
+                        <Checkbox
+                          id="isDeveloper"
+                          onChange={this.handleCheckBoxes.bind(this)}
+                          checked={this.rightCheckboxValue(this.state.isDeveloper)}
+                          color="primary"
+                        />
+                      }
+                      label="Developer"
+                    />
+                    <FormControlLabel
+                      className={classes.checkbox}
+                      control={
+                        <Checkbox
+                          id="isTrader"
+                          onChange={this.handleCheckBoxes.bind(this)}
+                          checked={this.rightCheckboxValue(this.state.isTrader)}
+                          color="primary"
+                        />
+                      }
+                      label="Trader"
+                    />
+                    <FormControlLabel
+                        className={classes.checkbox}
+                        control={
+                          <Checkbox
+                            id="isDataAnalyst"
+                            onChange={this.handleCheckBoxes.bind(this)}
+                            checked={this.rightCheckboxValue(this.state.isDataAnalyst)}
+                            color="primary"
+                          />
+                        }
+                        label="Data Analyst"
+                      />
+                  </FormGroup>
 
-                    <input id="isTrader" type="checkbox" ref="isTrader" onChange={this.handleCheckBoxes.bind(this)}/>
-                    <label htmlFor="isTrader">Trader</label>
+                  <p className={classes.pField}>Your current role determines how the system is going to optimize its user interface to best serves your current needs.</p>
 
-                    <input id="isDataAnalyst" type="checkbox" ref="isDataAnalyst" onChange={this.handleCheckBoxes.bind(this)}/>
-                    <label htmlFor="isDataAnalyst">Data Analyst</label>
-
-                <p>Select the role you would like to play now.</p>
-
-                    <select id="role" ref="select" onChange={this.handleSelect.bind(this)}>
+                  <FormControl className={classes.inputField}>
+                      <InputLabel shrink htmlFor="age-label-placeholder">
+                        Current Role
+                      </InputLabel>
+                      <Select
+                        id="select"
+                        ref="select"
+                        value={this.state.roleId}
+                        onChange={this.handleSelect.bind(this)}
+                        input={<Input name="Role" id="role-label-placeholder" />}
+                        displayEmpty
+                        name="select"
+                        className={classes.selectEmpty}
+                      >
                         { this.displayRoles() }
-                    </select>
-                    <label htmlFor="role">Current Role:</label>
+                      </Select>
+                      <FormHelperText>Select from the list your current role</FormHelperText>
+                    </FormControl>
 
+                    <p className={classes.pField}><button>Update</button></p>
 
-
-                    <button>Update</button>
 
               </form>
-            </div>
+            </NoSsr>
+        </div>
 
 
         );

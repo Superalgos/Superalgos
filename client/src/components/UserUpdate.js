@@ -19,11 +19,6 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 
 
 const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    padding: 20
-  },
   inputField: {
       width: '60%',
       marginLeft:'20%',
@@ -39,20 +34,6 @@ const styles = theme => ({
       marginLeft:'0%',
       marginTop: 20
     },
-  menu: {
-    width: 200,
-  },
-  divider: {
-    height: theme.spacing.unit * 2,
-  },
-  root: {
-  display: 'flex',
-  flexWrap: 'wrap',
-  },
-  formControl: {
-    margin: theme.spacing.unit,
-    minWidth: 120,
-  },
   selectEmpty: {
     marginTop: theme.spacing.unit * 2,
   },

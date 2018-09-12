@@ -16,14 +16,20 @@ import Typography from '@material-ui/core/Typography';
 // components
 import UserProfile from './UserProfile';
 
+// Images
+
+import PortraitImage from '../img/portrait.jpg'
+
 const styles = {
   card: {
     maxWidth: 345,
+    paddingTop:'30'
   },
   media: {
-    // ⚠️ object-fit is not supported by IE11.
-    objectFit: 'cover',
-  },
+    height: 0,
+    paddingTop: '56.25%', // 16:9,
+    marginTop:'30'
+  }
 };
 
 class UserList extends Component {
@@ -51,8 +57,9 @@ class UserList extends Component {
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image="/static/images/cards/contemplative-reptile.jpg"
+                image={PortraitImage}
                 title="Contemplative Reptile"
+
               />
               <CardContent>
                 <Typography gutterBottom variant="headline" component="h2">

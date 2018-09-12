@@ -12,7 +12,18 @@ import { getMainDefinition } from 'apollo-utilities'
 import React, { Component } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
-import { NavBar, Footer, Callback, Home } from './views'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { withStyles } from '@material-ui/core/styles'
+import {
+  NavBar,
+  Footer,
+  Callback,
+  Home,
+  Dashboard,
+  theme,
+  globalStyles
+} from './views'
 
 import Auth from './auth'
 
@@ -101,16 +112,16 @@ const authRetryLink = onError(
   }
 )
 
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext(async (_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = window.localStorage.getItem('access_token')
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      Authorization: token ? `Bearer ${token}` : ``
+  await getItem('access_token').then(token => {
+    return {
+      headers: {
+        ...headers,
+        Authorization: token ? `Bearer ${token}` : ``
+      }
     }
-  }
+  })
 })
 
 const cache = new InMemoryCache().restore(window.__APOLLO_STATE__)
@@ -131,24 +142,28 @@ class App extends Component {
     return (
       <BrowserRouter>
         <ApolloProvider client={client}>
-          <div className='App'>
-            <NavBar auth={auth} />
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route
-                path='/callback'
-                render={props => {
-                  auth.handleAuthentication(props)
-                  return <Callback {...props} />
-                }}
-              />
-            </Switch>
-            <Footer />
-          </div>
+          <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+            <div className='App'>
+              <NavBar auth={auth} />
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/dashboard' component={Dashboard} />
+                <Route
+                  path='/callback'
+                  render={props => {
+                    auth.handleAuthentication(props)
+                    return <Callback {...props} />
+                  }}
+                />
+              </Switch>
+              <Footer />
+            </div>
+          </MuiThemeProvider>
         </ApolloProvider>
       </BrowserRouter>
     )
   }
 }
 
-export default App
+export default withStyles(globalStyles)(App)

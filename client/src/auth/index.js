@@ -104,7 +104,7 @@ class Auth {
       console.log(authResult.idTokenPayload)
       setItem('user', JSON.stringify(authResult.idTokenPayload))
       if (window.location.href.includes(`callback`)) {
-        window.location.href = '/'
+        window.location.href = '/dashboard'
       }
       return true
     }
@@ -128,7 +128,7 @@ class Auth {
       console.log('signinOrCreateAccount auth: ', await data)
       setItem('user', JSON.stringify(data.data.authenticate))
       if (window.location.href.includes(`callback`)) {
-        window.location.href = '/'
+        window.location.href = '/dashboard'
       } else {
         window.location.reload()
       }

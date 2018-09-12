@@ -1,88 +1,118 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import { withStyles } from '@material-ui/core/styles'
+import classNames from 'classnames'
+import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
 
-const Footer = () => {
+import aalogo from '../../assets/logos/advanced-algos/aa-logo-vert.svg'
+
+const styles = theme => ({
+  '@global': {
+    body: {
+      backgroundColor: theme.palette.common.white
+    }
+  },
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(1200 + theme.spacing.unit * 3 * 2)]: {
+      width: 1200,
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    }
+  },
+  footer: {
+    borderTop: `1px solid ${theme.palette.divider}`,
+    padding: `${theme.spacing.unit * 6}px 0`
+  },
+  footerContainer: {
+    marginRight: theme.spacing.unit * 8,
+    marginLeft: theme.spacing.unit * 8
+  },
+  footerLink: {
+    textDecoration: 'none'
+  }
+})
+
+const Footer = ({ classes }) => {
   return (
-    <footer>
-      <div className='container'>
-        <div className='row'>
-          <div className='col l6 s12'>
-            <h5 className='white-text'>Footer Content</h5>
-            <p className='grey-text text-lighten-4'>
-              You can use rows and columns here to organize your footer content.
-            </p>
-          </div>
-          <div className='col l4 offset-l2 s12'>
-            <h5 className='white-text'>Links</h5>
-            <ul className='right hide-on-med-and-down'>
-              <li>
-                <NavLink exact to='/'>
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to='/browse'>Browse</NavLink>
-              </li>
-              <li>
-                <NavLink to='/search'>Search</NavLink>
-              </li>
-              <li>
-                <NavLink to='/contact'>Contact</NavLink>
-              </li>
-              <li>
-                <NavLink to='/about'>About</NavLink>
-              </li>
-              <li>
-                <a href='http://modules.advancedalgos.net'>Modules</a>
-              </li>
-
-              <li>
-                <a
-                  href=''
-                  className='tooltipped btn-floating btn-small indigo darken-4'
-                  data-position='bottom'
-                  data-tooltip='You Tube'
-                >
-                  <i className='fab fa-youtube' />
-                </a>
-              </li>
-              <li>
-                <a
-                  href=''
-                  className='tooltipped btn-floating btn-small indigo darken-4'
-                  data-position='bottom'
-                  data-tooltip='Facebook'
-                >
-                  <i className='fab fa-facebook' />
-                </a>
-              </li>
-              <li>
-                <a
-                  href=''
-                  className='tooltipped btn-floating btn-small indigo darken-4'
-                  data-position='bottom'
-                  data-tooltip='Twitter'
-                >
-                  <i className='fab fa-twitter' />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className='footer-copyright'>
-        <div className='container'>
-          © 2018 Copyright
-          <a
-            className='grey-text text-lighten-4 right'
-            href='www.advancedalgos.net'
-          >
-            Advanced Algos Ltd.
-          </a>
-        </div>
-      </div>
+    <footer className={classNames(classes.footer, classes.layout)}>
+      <Grid
+        container
+        spacing={32}
+        justify='space-evenly'
+        className={classNames(classes.footerContainer)}
+      >
+        <Grid item xs>
+          <Typography variant='title' color='textPrimary' gutterBottom>
+            Pages
+          </Typography>
+          <NavLink to='/' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              Home
+            </Typography>
+          </NavLink>
+          <NavLink to='/' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              Teams
+            </Typography>
+          </NavLink>
+          <NavLink to='/' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              About
+            </Typography>
+          </NavLink>
+        </Grid>
+        <Grid item xs>
+          <Typography variant='title' color='textPrimary' gutterBottom>
+            Support
+          </Typography>
+          <NavLink to='/' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              Documentation
+            </Typography>
+          </NavLink>
+          <NavLink to='/' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              Telegram
+            </Typography>
+          </NavLink>
+        </Grid>
+        <Grid item xs>
+          <Typography variant='title' color='textPrimary' gutterBottom>
+            Modules
+          </Typography>
+          <NavLink to='/' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              Teams
+            </Typography>
+          </NavLink>
+          <NavLink to='/' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              Users
+            </Typography>
+          </NavLink>
+          <NavLink to='/' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              KeyVault
+            </Typography>
+          </NavLink>
+        </Grid>
+        <Grid item xs>
+          <NavLink to='/'>
+            <img src={aalogo} width={98} height={140} />
+          </NavLink>
+        </Grid>
+      </Grid>
     </footer>
   )
 }
 
-export default Footer
+Footer.propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(Footer)

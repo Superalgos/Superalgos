@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 export const UniqueTeamnameQuery = gql`
   query uniqueTeamname($name: String!) {
-    teamByName(name: $name){
+    teamByName(name: $name) {
       name
     }
   }

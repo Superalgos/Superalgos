@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import {graphql, compose} from 'react-apollo';
 import {getRolesQuery, updateUserMutation, getUsersQuery} from '../queries/queries';
 
 //Material-ui
-import PropTypes from 'prop-types';
+
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
-import classNames from 'classnames';
 import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -63,6 +56,10 @@ const styles = theme => ({
   selectEmpty: {
     marginTop: theme.spacing.unit * 2,
   },
+  button: {
+  margin: theme.spacing.unit,
+  marginLeft:'80%',
+  },
 });
 
 class UserUpdate extends Component {
@@ -85,8 +82,6 @@ class UserUpdate extends Component {
           isDataAnalyst: 0,
           roleId: '1'
         };
-
-      console.log("constructor ");
     }
 
     displayRoles(){
@@ -105,7 +100,7 @@ class UserUpdate extends Component {
     }
 
     submitForm(e){
-      console.log("submitting this>", this.state);
+
       e.preventDefault();
       this.props.updateUserMutation({
         variables: {
@@ -136,8 +131,6 @@ class UserUpdate extends Component {
 
       localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-      console.log("update loggedInUser", user);
-
     }
 
     handleCheckBoxes(e){
@@ -150,7 +143,6 @@ class UserUpdate extends Component {
         /* When the user unchecks one of the checkboxes, we need to make sure that that Role is not the one selected at the SELECT,
         and if it is, then we need to automatically select another one */
 
-        let select = ReactDOM.findDOMNode(this.refs.select);
         switch (e.target.id) {
           case "isDeveloper":
             if (this.state.roleId === "2") {
@@ -199,13 +191,14 @@ class UserUpdate extends Component {
     }
 
     rightCheckboxValue(stateValue) {
-      if (stateValue === 1) {return true} else {return false};
+      if (stateValue === 1)
+        return true
+      else
+      return false;
     }
 
     componentWillMount ()
     	{
-        console.log("componentWillUnmount");
-        console.log("state", this.state);
     	    if (this.defaultValuesSet === false)
     	    {
             let userData = localStorage.getItem("loggedInUser");
@@ -213,7 +206,6 @@ class UserUpdate extends Component {
             if (userData === "undefined") { return;}
 
             let user = JSON.parse(userData);
-            console.log("user", user);
   	        this.defaultValuesSet= true;
 
             this.setState({
@@ -229,14 +221,10 @@ class UserUpdate extends Component {
               isDataAnalyst: user.isDataAnalyst,
               roleId: user.role.id
             });
-            console.log("setting defaults");
     	    }
     	}
 
     render(){
-console.log("render");
-console.log("props", this.props);
-console.log("State", this.state);
 
         const { classes } = this.props;
         return(
@@ -371,9 +359,9 @@ console.log("State", this.state);
                       <FormHelperText>Select from the list your current role</FormHelperText>
                     </FormControl>
 
-                    <p className={classes.pField}><button>Update</button></p>
-
-
+                    <Button variant="contained" color="primary" className={classes.button} onClick={this.submitForm.bind(this)}>
+                            Update
+                    </Button>
               </form>
             </NoSsr>
         </div>

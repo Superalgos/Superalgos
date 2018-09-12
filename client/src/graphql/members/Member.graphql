@@ -1,0 +1,12 @@
+#import "./Profile.graphql"
+
+fragment MemberInfo on Member {
+  id
+  authId
+  alias
+  role
+  isActive
+  profile {
+    ...MemberProfileInfo
+  }
+}

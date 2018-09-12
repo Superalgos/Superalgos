@@ -1,0 +1,9 @@
+fragment MemberProfileInfo on MemberProfile {
+  firstName
+  lastName
+  email
+  avatar
+  role {
+    name
+  }
+}

@@ -20,6 +20,9 @@ import { Link } from 'react-router-dom';
 // components
 import LoggedInUser from './LoggedInUser';
 
+// Images
+import AALogo from '../img/aa-logo-dark-8.png'
+
 const AboutLink = props => <Link to="/about" {...props} />
 const ContactLink = props => <Link to="/contact" {...props} />
 const SearchLink = props => <Link to="/search" {...props} />
@@ -76,8 +79,9 @@ class NavBar extends Component {
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
+            <img className={classes.img} alt="complex" src={AALogo} />
             <Typography variant="title" color="inherit" className={classes.flex}>
-              Users Module
+                Users Module
             </Typography>
 
             <IconButton className={classes.menuButton} color="inherit" title="Home" component={HomeLink}><HomeIcon /></IconButton>

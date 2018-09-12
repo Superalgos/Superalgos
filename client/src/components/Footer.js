@@ -54,7 +54,7 @@ class Footer extends Component {
     return (
       <footer>
 
-          <div className={classes.links}>
+          <div className={classes.links}>            
             <Divider />
             <ul>
               <li className={classes.horizontal}>

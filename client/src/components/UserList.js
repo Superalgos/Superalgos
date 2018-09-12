@@ -20,7 +20,7 @@ import UserProfile from './UserProfile';
 
 import PortraitImage from '../img/portrait.jpg'
 
-const styles = {
+const styles = theme => ({
   card: {
     maxWidth: 345,
     paddingTop:'30'
@@ -29,8 +29,13 @@ const styles = {
     height: 0,
     paddingTop: '56.25%', // 16:9,
     marginTop:'30'
-  }
-};
+  },
+  horizontal:
+   {
+     display: 'inline',
+     margin: theme.spacing.unit,
+   },
+});
 
 class UserList extends Component {
 
@@ -50,36 +55,38 @@ class UserList extends Component {
     } else {
       return data.users.map(user => {
         return (
-          <Card key={user.id} className={classes.card}  onClick={ (e) => {
-            this.setState({ selected: user.id});
-            }
-          }>
-            <CardActionArea>
-              <CardMedia
-                className={classes.media}
-                image={PortraitImage}
-                title="Contemplative Reptile"
 
-              />
-              <CardContent>
-                <Typography gutterBottom variant="headline" component="h2">
-                  {user.alias}
-                </Typography>
-                <Typography component="p">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                  across all continents except Antarctica
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Share
-              </Button>
-              <Button size="small" color="primary">
-                Learn More
-              </Button>
-            </CardActions>
-          </Card>
+          <li key={user.id} className={classes.horizontal}>
+            <Card className={classes.card}  onClick={ (e) => {
+              this.setState({ selected: user.id});
+              }
+            }>
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image={PortraitImage}
+                  title="Contemplative Reptile"
+
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="headline" component="h2">
+                    {user.alias}
+                  </Typography>
+                  <Typography component="p">
+                    I am a computer nerd passionate about crypto trading. I entered the crypto space in 2013 and since then I ve been participating in quite a few crypto open source projects.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button size="small" color="primary">
+                  User Profile
+                </Button>
+                <Button disabled size="small" color="primary">
+                  Extended Profile
+                </Button>
+              </CardActions>
+            </Card>
+          </li>
         )
       });
     }

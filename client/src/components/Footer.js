@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import { compose } from 'recompose';
 import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 // Images
 import AALogo from '../img/aa-logo.png'
@@ -13,7 +14,28 @@ const styles = theme => ({
     display: 'block',
     maxWidth: 120,
     maxHeight: 24,
-
+  },
+  link: {
+    width: '100',
+    font: 'Courier New'
+  },
+ horizontal:
+  {
+    display: 'inline',
+    margin: theme.spacing.unit,
+  },
+  copyright: {
+    position: 'relative',
+    left: 30,
+    top: 30,
+  },
+  links: {
+    position: 'relative',
+    left: '10%',
+    top: 30,
+  },
+  button: {
+  margin: theme.spacing.unit,
   },
 });
 
@@ -31,27 +53,45 @@ class Footer extends Component {
     return (
       <footer>
 
-            <div>
-              <h5>Footer Content</h5>
-              <p>You can use rows and columns here to organize your footer content.</p>
-            </div>
-            <div>
-              <h5>Links</h5>
-              <ul>
-                <li><NavLink exact to="/">Home</NavLink></li>
-                <li><NavLink to='/browse'>Browse</NavLink></li>
-                <li><NavLink to='/search'>Search</NavLink></li>
-                <li><NavLink to='/contact'>Contact</NavLink></li>
-                <li><NavLink to='/about'>About</NavLink></li>
-                <li><a href="http://modules.advancedalgos.net">Modules</a></li>
-              </ul>
-            </div>
-
-
-          <div>
-          © 2018 Copyright <a href="www.advancedalgos.net">Advanced Algos Ltd.</a>
+          <div className={classes.links}>
+            <ul>
+              <li className={classes.horizontal}>
+                <Button color="primary" className={classes.button}>
+                  <NavLink color="inherit" exact to="/">Home</NavLink>
+                </Button>
+              </li>
+              <li className={classes.horizontal}>
+                <Button color="primary" className={classes.button}>
+                  <NavLink to='/browse'>Browse</NavLink>
+                </Button>
+              </li>
+              <li className={classes.horizontal}>
+                <Button color="primary" className={classes.button}>
+                  <NavLink to='/search'>Search</NavLink>
+                </Button>
+              </li>
+              <li className={classes.horizontal}>
+                <Button color="primary" className={classes.button}>
+                  <a href="http://www.advancedalgos.net"><img className={classes.img} alt="complex" src={AALogo} /></a>
+                </Button>
+              </li>
+              <li className={classes.horizontal}>
+                <Button color="primary" className={classes.button}>
+                  <NavLink color="inherit" exact to="/contact">Contact</NavLink>
+                </Button>
+              </li>
+              <li className={classes.horizontal}>
+                <Button color="primary" className={classes.button}>
+                  <NavLink to='/about'>About</NavLink>
+                </Button>
+              </li>
+              <li className={classes.horizontal}>
+                <Button color="primary" className={classes.button}>
+                  <a href="http://modules.advancedalgos.net">Modules</a>
+                </Button>
+              </li>
+            </ul>
           </div>
-         <img className={classes.img} alt="complex" src={AALogo} />
       </footer>
     )
   }

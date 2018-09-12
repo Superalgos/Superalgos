@@ -264,8 +264,18 @@ console.log("State", this.state);
                     disabled>
                 </TextField>
 
-                <input id="emailVerified" type="checkbox" ref="emailVerified" className={classes.inputField} disabled/>
-                <label htmlFor="emailVerified" className={classes.inputField}>Email Verified</label>
+                <FormControlLabel
+                    disabled
+                    className={classes.inputField}
+                    control={
+                      <Checkbox
+                        id="emailVerified"
+                        checked={this.rightCheckboxValue(this.state.emailVerified)}
+                        color="primary"
+                      />
+                    }
+                    label="Email Verified"
+                  />
 
                 <p className={classes.pField}>TComplete your profile with the following optional information. Providing your real name might help other users trust you more.</p>
 

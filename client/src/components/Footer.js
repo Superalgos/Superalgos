@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { compose } from 'recompose';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 
 // Images
 import AALogo from '../img/aa-logo.png'
@@ -54,6 +55,7 @@ class Footer extends Component {
       <footer>
 
           <div className={classes.links}>
+            <Divider />
             <ul>
               <li className={classes.horizontal}>
                 <Button color="primary" className={classes.button}>

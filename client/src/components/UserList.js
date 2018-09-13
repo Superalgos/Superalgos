@@ -119,7 +119,7 @@ class UserList extends Component {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Grid container justify="center" spacing={24}>
+                <Grid container justify="center" spacing={8}>
                    <Grid item>
                      <Button onClick={this.handleClickOpen}>User Profile</Button>
                      <Dialog

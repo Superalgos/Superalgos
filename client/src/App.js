@@ -148,7 +148,11 @@ class App extends Component {
               <NavBar auth={auth} />
               <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/dashboard' component={Dashboard} />
+                <Route
+                  exact
+                  path='/(dashboard|manage-teams|team-members|settings)/'
+                  component={Dashboard}
+                />
                 <Route
                   path='/callback'
                   render={props => {

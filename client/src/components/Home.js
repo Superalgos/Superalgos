@@ -31,13 +31,13 @@ class Home extends Component {
         <Grid container justify='center' spacing={24}>
           <Grid className={classes.grid} item>
             <Typography className={classes.typography} gutterBottom variant='headline' component='h2'>
-              Welcome to the User Module
+              Welcome to the Users Module
             </Typography>
             <Typography className={classes.typography} component='p'>
               This module is responsible for managing users across the Advanced Algos system. Here you can browse the Users Directory, search for users and get to their profiles. You can create your own User profile if you sign up, or manage it if you already have one by logging in.
             </Typography>
             <Typography className={classes.typography} component='p' >
-            Below, you can see some usage statistics, in this case, the total amount of users over time.
+            Below, you can see some usage statistics of this module, in this case, the total amount of users over time.
             </Typography>
             <LineChart
               xType={'time'}

@@ -10,7 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import CardActions from '@material-ui/core/CardActions'
 import Button from '@material-ui/core/Button'
 
-import aaweb from '../../assets/AlgonetWebPlatform.jpg'
+import aaweb from '../../../assets/AlgonetWebPlatform.jpg'
 
 const styles = theme => ({
   aawebMedia: {

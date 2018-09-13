@@ -12,7 +12,7 @@ const styles = theme => ({
   }
 })
 
-const Settings = ({ classes }) => (
+export const Settings = ({ classes }) => (
   <div>
     <Typography variant='display1' gutterBottom>
       Settings

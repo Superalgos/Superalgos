@@ -1,6 +1,5 @@
 const _get = require('lodash.get')
-const validateAndParseIdToken = require('./helpers/validateAndParseIdToken')
-const createMember  = require('./index')
+const { validateIdToken } = require('./validateIdToken')
 
 const memberLocationOnContext = 'request.member'
 const bearerAccessToken = 'request.headers.authorization'
@@ -8,11 +7,29 @@ const bearerAccessToken = 'request.headers.authorization'
 const ctxMember = ctx => _get(ctx, memberLocationOnContext)
 const ctxToken = ctx => _get(ctx, bearerAccessToken)
 
+const createMember = async (ctx, idToken, info) => {
+  console.log('createMember', idToken)
+  const member = await ctx.db.mutation.upsertMember({
+    where: {
+      authId: idToken.sub,
+    },
+    create: {
+      authId: idToken.sub,
+      alias: idToken.nickname
+    },
+    update: {
+      authId: idToken.sub,
+      alias: idToken.nickname
+    }
+  }, info)
+  return member
+}
+
 const isLoggedIn = async ctx => {
     let member = ctxMember(ctx, memberLocationOnContext)
     let token = ctxToken(ctx, bearerAccessToken)
     let memberToken
-
+    console.log('isLoggedIn: ', member, token)
     if (!member && token) {
       let scheme, credentials
       const tokenParts = token.split(' ')
@@ -24,21 +41,28 @@ const isLoggedIn = async ctx => {
      if (/^Bearer$/i.test(scheme)) {
        token = credentials
        //verify token
+       console.log('isLoggedIn2 : ', token)
        try {
-         memberToken = await validateAndParseIdToken(token)
-         const auth0id = memberToken.sub
+         memberToken = await validateIdToken(token)
+         const authId = memberToken.sub
+         console.log('isLoggedIn3 : ', await authId, ctx.db.query.member)
+         exists = await ctx.db.query.member({ where: { authId: authId } })
+         console.log('isLoggedIn4 : ', await exists, createMember )
+         if (!member && exists === null) {
+           member = await createMember(ctx, memberToken).then(res => {
+              console.log('isLoggedIn5 : ', res)
+              return res
+           })
 
-         member = await ctx.db.query.member({ where: { auth0id } })
-
-         if (!member) {
-           member = await createMember(ctx, memberToken)
+           return member
          }
+          return member
        } catch (err) {
          memberToken = false
        }
      }
     }
-
+    console.log('isLoggedIn5 : ', await member)
     if (!member) {
       throw new Error(`Not logged in`)
     }

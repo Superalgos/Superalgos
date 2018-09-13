@@ -12,24 +12,37 @@ type Query {
   teamById(teamId: String!): Team
   teamByOwner(ownerId: String!): TeamConnection
   owner: Member @isAuthenticated
-  member(auth0id: String!): Member @isAuthenticated
+  currentMember: Member @isAuthenticated
+  member(authId: String!): Member @isAuthenticated
 }
 
 type Mutation {
   authenticate(idToken: String!): Member
   createTeam(name: String!, slug: String, owner: String): Team @isAuthenticated
   deleteTeam(id: ID!): Team @isAuthenticated @isOwner(type: "Team")
-  updateProfile(data: MemberProfileInput): Member @isAuthenticated
 }
 
 input MemberProfileInput {
-  auth0id: String!
-  nickname: String!
-  anonymous: Boolean
-  visible: Boolean
-  avatar: String
-  email: String
-  repo: String
-  bio: String
-  status: String
+  authId: String!
+  alias: String!
+}
+
+fragment MemberInfo on Member {
+  id
+  authId
+  alias
+  isActive
+  profile {
+    ...MemberProfileInfo
+  }
+}
+
+fragment MemberProfileInfo on MemberProfile {
+  firstName
+  lastName
+  email
+  avatar
+  role {
+    name
+  }
 }

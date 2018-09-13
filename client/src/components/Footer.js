@@ -9,7 +9,10 @@ import Grid from '@material-ui/core/Grid'
 import AALogo from '../img/aa-logo.png'
 
 const styles = theme => ({
-
+  root: {
+    flexGrow: 1,
+    padding: 100
+  },
   img: {
     margin: 'auto',
     display: 'block',
@@ -33,45 +36,45 @@ class Footer extends Component {
   render () {
     const { classes } = this.props
     return (
-      <footer>
-        <Grid container justify='center' spacing={24}>
-          <Grid item>
-            <Button color='primary' className={classes.button}>
-              <NavLink color='inherit' exact to='/'>Home</NavLink>
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button color='primary' className={classes.button}>
-              <NavLink to='/browse'>Browse</NavLink>
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button color='primary' className={classes.button}>
-              <NavLink to='/search'>Search</NavLink>
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button color='primary' className={classes.button}>
-              <a href='http://www.advancedalgos.net'><img className={classes.img} alt='complex' src={AALogo} /></a>
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button color='primary' className={classes.button}>
-              <NavLink color='inherit' exact to='/contact'>Contact</NavLink>
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button color='primary' className={classes.button}>
-              <NavLink to='/about'>About</NavLink>
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button color='primary' className={classes.button}>
-              <a href='http://modules.advancedalgos.net'>Modules</a>
-            </Button>
-          </Grid>
+
+      <Grid className={classes.button} container justify='center' spacing={24}>
+        <Grid item>
+          <Button color='primary' className={classes.button}>
+            <NavLink color='inherit' exact to='/'>Home</NavLink>
+          </Button>
         </Grid>
-      </footer>
+        <Grid item>
+          <Button color='primary' className={classes.button}>
+            <NavLink to='/browse'>Browse</NavLink>
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button color='primary' className={classes.button}>
+            <NavLink to='/search'>Search</NavLink>
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button color='primary' className={classes.button}>
+            <a href='http://www.advancedalgos.net'><img className={classes.img} alt='complex' src={AALogo} /></a>
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button color='primary' className={classes.button}>
+            <NavLink color='inherit' exact to='/contact'>Contact</NavLink>
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button color='primary' className={classes.button}>
+            <NavLink to='/about'>About</NavLink>
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button color='primary' className={classes.button}>
+            <a href='http://modules.advancedalgos.net'>Modules</a>
+          </Button>
+        </Grid>
+      </Grid>
+
     )
   }
 }

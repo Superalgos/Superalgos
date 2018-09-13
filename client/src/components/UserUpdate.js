@@ -293,7 +293,7 @@ class UserUpdate extends Component {
                       id='isDeveloper'
                       onChange={this.handleCheckBoxes.bind(this)}
                       checked={this.rightCheckboxValue(this.state.isDeveloper)}
-                      color='primary'
+                      color='secondary'
                             />
                           }
                   label='Developer'
@@ -307,7 +307,7 @@ class UserUpdate extends Component {
                       id='isTrader'
                       onChange={this.handleCheckBoxes.bind(this)}
                       checked={this.rightCheckboxValue(this.state.isTrader)}
-                      color='primary'
+                      color='secondary'
                           />
                         }
                   label='Trader'
@@ -321,7 +321,7 @@ class UserUpdate extends Component {
                       id='isDataAnalyst'
                       onChange={this.handleCheckBoxes.bind(this)}
                       checked={this.rightCheckboxValue(this.state.isDataAnalyst)}
-                      color='primary'
+                      color='secondary'
                             />
                           }
                   label='Data Analyst'
@@ -353,7 +353,7 @@ class UserUpdate extends Component {
 
           <Grid container justify='center' >
             <Grid item>
-              <Button variant='contained' color='primary' className={classes.button} onClick={this.submitForm.bind(this)}>Update</Button>
+              <Button variant='contained' color='secondary' className={classes.button} onClick={this.submitForm.bind(this)}>Update</Button>
             </Grid>
           </Grid>
         </form>

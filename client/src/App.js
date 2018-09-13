@@ -74,7 +74,7 @@ export const auth = new Auth(result => console.log('auth result', result), clien
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#303036' }, // DARK.
-    secondary: { main: '#F0A202' } // GOLDEN_ORANGE.
+    secondary: { main: '#CC5835' } // RUSTED_RED.
   }
 })
 

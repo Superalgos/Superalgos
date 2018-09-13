@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 
 // icons
-import MenuIcon from '@material-ui/icons/Menu'
 import HomeIcon from '@material-ui/icons/Home'
 import BrowseIcon from '@material-ui/icons/ImportContacts'
 import SearchIcon from '@material-ui/icons/Search'
@@ -39,6 +38,12 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20
+  },
+  img: {
+    margin: 20,
+    display: 'block',
+    maxWidth: 120,
+    maxHeight: 24
   }
 }
 
@@ -75,10 +80,7 @@ class NavBar extends Component {
       <div className={classes.root}>
         <AppBar position='static'>
           <Toolbar>
-            <IconButton className={classes.menuButton} color='inherit' aria-label='Menu'>
-              <MenuIcon />
-            </IconButton>
-            <img className={classes.img} alt='complex' src={AALogo} />
+            <img className={classes.img} src={AALogo} alt='Advanced Algos' />
             <Typography variant='title' color='inherit' className={classes.flex}>
                 Users Module
             </Typography>

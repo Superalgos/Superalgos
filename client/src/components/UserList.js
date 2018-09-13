@@ -12,8 +12,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
-// Full screen dialog imports
+// Full screen dialog imports (still Material UI)
 
 import PropTypes from 'prop-types';
 import Dialog from '@material-ui/core/Dialog';
@@ -52,6 +53,9 @@ const styles = theme => ({
   flex: {
     flex: 1,
   },
+  grid: {
+    marginTop: "30",
+  },
 });
 
 function Transition(props) {
@@ -86,7 +90,7 @@ class UserList extends Component {
       return data.users.map(user => {
         return (
 
-          <li key={user.id} className={classes.horizontal}>
+          <Grid key={user.id} item>
             <Card className={classes.card}  onClick={ (e) => {
               this.setState({ selected: user.id});
               }
@@ -131,25 +135,27 @@ class UserList extends Component {
                     </AppBar>
                       <UserProfile userId={this.state.selected}/>
                   </Dialog>
-                 
+
                 <Button disabled size="small" color="primary">
                   Extended Profile
                 </Button>
               </CardActions>
             </Card>
-          </li>
+          </Grid>
         )
       });
     }
   }
 
   render() {
-
+    const { classes } = this.props;
     return (
       <div>
-        <ul>
-          {this.displayUsers()}
-        </ul>
+
+            <Grid container justify="center" spacing={24} className={classes.grid}>
+              {this.displayUsers()}
+            </Grid>
+
       </div>
     );
   }

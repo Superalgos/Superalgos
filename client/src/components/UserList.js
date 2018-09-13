@@ -30,7 +30,6 @@ import Slide from '@material-ui/core/Slide';
 import UserProfile from './UserProfile';
 
 // Images
-
 import PortraitImage from '../img/portrait.jpg'
 
 const styles = theme => ({
@@ -106,7 +105,7 @@ class UserList extends Component {
                 <CardMedia
                   className={classes.media}
                   image={PortraitImage}
-                  title="Contemplative Reptile"
+                  title="User Profile"
 
                 />
                 <CardContent>

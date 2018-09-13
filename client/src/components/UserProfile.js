@@ -7,6 +7,15 @@ import {getUserProfileQuery} from '../queries/queries'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider'
+
+// Images
+import PortraitImage from '../img/portrait.jpg'
 
 const styles = theme => ({
   root: {
@@ -15,7 +24,7 @@ const styles = theme => ({
     margin: 2
   },
   card: {
-    maxWidth: 345,
+    maxWidth: 800,
     paddingTop: '30'
   },
   media: {
@@ -23,36 +32,57 @@ const styles = theme => ({
     paddingTop: '56.25%', // 16:9,
     marginTop: '30'
   },
-  horizontal:
-  {
-    display: 'inline',
-    margin: theme.spacing.unit
-  },
-  appBar: {
-    position: 'relative'
-  },
-  flex: {
-    flex: 1
-  },
   grid: {
     paddingTop: '30',
     marginTop: '30'
+  },
+  typography: {
+    width: '100%',
+    marginTop: 20,
+    marginBottom: 20
   }
+
 })
 
 class UserProfile extends Component {
 
   displayUserProfile () {
     const {user} = this.props.data
+    const { classes } = this.props
 
     if (user) {
       return (
-        <div>
-          <h2>{ user.alias }</h2>
-          <p>{ user.firstName }</p>
-          <p>{ user.lastName }</p>
-          <p>{ user.role.name }</p>
-        </div>
+        <Grid key={user.id} item>
+
+          <Card className={classes.card} onClick={(e) => {
+            this.setState({ selected: user.id})
+          }
+          }>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={PortraitImage}
+                title='User Profile'
+
+              />
+              <CardContent>
+                <Typography className={classes.typography} gutterBottom variant='headline' component='h2'>
+                  { user.firstName } { user.lastName } ( {user.alias} )
+                </Typography>
+                <Divider />
+
+                <Typography className={classes.typography} align='left' gutterBottom variant='subheading' component='h2'>
+                  { user.role.name }
+                </Typography>
+                <Divider />
+
+                <Typography className={classes.typography} component='p'>
+                  I am a computer nerd passionate about crypto trading. I entered the crypto space in 2013 and since then I ve been participating in quite a few crypto open source projects.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
       )
     } else {
       return (<div>No User selected...</div>)

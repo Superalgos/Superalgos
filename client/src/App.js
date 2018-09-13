@@ -151,7 +151,7 @@ class App extends Component {
                 <Route
                   exact
                   path='/(dashboard|manage-teams|team-members|settings)/'
-                  component={Dashboard}
+                  render={props => <Dashboard {...props} auth={auth} />}
                 />
                 <Route
                   path='/callback'

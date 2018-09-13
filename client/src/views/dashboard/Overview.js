@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'react-apollo'
-
 import { withStyles } from '@material-ui/core/styles'
 
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 
-import { CreateTeamDialog } from './components/CreateTeam'
-import { DashTeam } from './components/DashTeam'
-import { DashEditor } from './components/DashEditor'
-
-import { CreateTeamMutation } from '../../graphql/teams/CreateTeamMutation'
+import CreateTeam from './components/CreateTeam'
+import DashTeam from './components/DashTeam'
+import DashEditor from './components/DashEditor'
 
 const styles = theme => ({
+  root: {
+    display: 'flex'
+  },
   card: {
     display: 'flex',
     width: '100%'
@@ -34,40 +33,37 @@ const styles = theme => ({
   },
   buttonRight: {
     justifyContent: 'flex-end'
+  },
+  aawebMedia: {
+    width: '100%',
+    height: 320
   }
 })
 
-export const Overview = ({ classes, createTeamMutation }) => (
-  <Grid container spacing={24}>
-    <Grid container spacing={24}>
-      <Grid item>
-        <Card className={classes.card}>
-          <div className={classes.cardDetails}>
-            <CardContent className={classes.createCardContent}>
-              <CreateTeamDialog
-                classes={classes}
-                createTeamMutation={createTeamMutation}
-              />
-            </CardContent>
-          </div>
-        </Card>
+export class Overview extends Component {
+  render () {
+    const { classes } = this.props
+    return (
+      <Grid container spacing={24}>
+        <Grid container spacing={24}>
+          <Grid item>
+            <Card className={classes.card}>
+              <div className={classes.cardDetails}>
+                <CardContent className={classes.createCardContent}>
+                  <CreateTeam classes={classes} />
+                </CardContent>
+              </div>
+            </Card>
+          </Grid>
+        </Grid>
+        <DashTeam classes={classes} />
+        <DashEditor classes={classes} />
       </Grid>
-    </Grid>
-    <DashTeam />
-    <DashEditor />
-  </Grid>
-)
-
+    )
+  }
+}
 Overview.propTypes = {
-  classes: PropTypes.object.isRequired,
-  createTeamMutation: PropTypes.object
+  classes: PropTypes.object.isRequired
 }
 
-const OverviewWithMutation = graphql(CreateTeamMutation, {
-  name: 'createTeamMutation',
-  options: props => ({
-    // Options are computed from `props` here.
-  })
-})(Overview)
-
-export default withStyles(styles)(OverviewWithMutation)
+export default withStyles(styles)(Overview)

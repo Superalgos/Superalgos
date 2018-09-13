@@ -10,7 +10,7 @@ type Query {
   teamDetails: [Team!]! @isAuthenticated
   teamByName(name: String!): Team
   teamById(teamId: String!): Team
-  teamByOwner(ownerId: String!): TeamConnection
+  teamsByOwner(ownerId: String!): TeamConnection
   owner: Member @isAuthenticated
   currentMember: Member @isAuthenticated
   member(authId: String!): Member @isAuthenticated

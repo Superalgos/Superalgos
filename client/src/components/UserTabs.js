@@ -30,6 +30,8 @@ const styles = theme => ({
     flexGrow: 1,
     width: '100%',
     backgroundColor: theme.palette.background.paper,
+    padding: 0,
+    margin: 0,
   },
 });
 

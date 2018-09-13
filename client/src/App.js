@@ -22,6 +22,7 @@ import User from './components/User'
 import Browse from './components/Browse'
 import Search from './components/Search'
 import About from './components/About'
+import Modules from './components/Modules'
 import Contact from './components/Contact'
 import Logout from './components/Logout'
 import Post from './components/Post'
@@ -92,6 +93,7 @@ class App extends Component {
                 <Route path='/browse' component={Browse} />
                 <Route path='/search' component={Search} />
                 <Route path='/about' component={About} />
+                <Route path='/modules' component={Modules} />
                 <Route path='/contact' component={Contact} />
                 <Route path='/logout' component={Logout} />
                 <Route path='/:post_id' component={Post} />

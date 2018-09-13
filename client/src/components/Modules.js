@@ -6,7 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-class About extends React.Component {
+class Modules extends React.Component {
   state = {
     open: true,
   };
@@ -45,4 +45,4 @@ class About extends React.Component {
   }
 }
 
-export default About;
+export default Modules;

@@ -22,6 +22,7 @@ import LoggedInUser from './LoggedInUser'
 // Images
 import AALogo from '../img/aa-logo-dark-8.png'
 
+const ModulesLink = props => <Link to='/modules' {...props} />
 const AboutLink = props => <Link to='/about' {...props} />
 const ContactLink = props => <Link to='/contact' {...props} />
 const SearchLink = props => <Link to='/search' {...props} />
@@ -90,7 +91,7 @@ class NavBar extends Component {
             <IconButton className={classes.menuButton} color='inherit' title='Search Users' component={SearchLink}><SearchIcon /></IconButton>
             <IconButton className={classes.menuButton} color='inherit' title='Contact Form' component={ContactLink}><ContactIcon /></IconButton>
             <IconButton className={classes.menuButton} color='inherit' title='About this Module' component={AboutLink}><AboutIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='Go to another Module' component={AboutLink}><ModulesIcon /></IconButton>
+            <IconButton className={classes.menuButton} color='inherit' title='Go to another Module' component={ModulesLink}><ModulesIcon /></IconButton>
 
             <LoggedInUser authId={this.state.authId} />
           </Toolbar>

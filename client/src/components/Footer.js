@@ -70,7 +70,7 @@ class Footer extends Component {
         </Grid>
         <Grid item>
           <Button color='primary' className={classes.button}>
-            <a href='http://modules.advancedalgos.net'>Modules</a>
+            <NavLink to='/modules'>Modules</NavLink>
           </Button>
         </Grid>
       </Grid>

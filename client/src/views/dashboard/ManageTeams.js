@@ -12,10 +12,10 @@ const styles = theme => ({
   }
 })
 
-const Settings = ({ classes }) => (
+const ManageTeams = ({ classes }) => (
   <div>
     <Typography variant='display1' gutterBottom>
-      Settings
+      Teams
     </Typography>
     <div className={classes.tableContainer}>
       <TeamTable />
@@ -23,8 +23,8 @@ const Settings = ({ classes }) => (
   </div>
 )
 
-Settings.propTypes = {
+ManageTeams.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Settings)
+export default withStyles(styles)(ManageTeams)

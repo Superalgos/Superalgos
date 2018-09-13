@@ -8,7 +8,7 @@ export const CreateTeamMutation = gql`
       name
       slug
       owner
-      members{
+      members {
         role
         member {
           authId

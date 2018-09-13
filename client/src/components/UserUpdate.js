@@ -18,6 +18,7 @@ import Select from '@material-ui/core/Select'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 
 const styles = theme => ({
   root: {
@@ -32,7 +33,7 @@ const styles = theme => ({
     marginLeft: '10%',
     marginTop: 25
   },
-  pField: {
+  typography: {
     width: '80%',
     marginLeft: '10%',
     marginTop: 40
@@ -210,10 +211,13 @@ class UserUpdate extends Component {
     const { classes } = this.props
     return (
       <Paper className={classes.root}>
-
+        <Typography className={classes.typography} variant='headline' gutterBottom>
+              Manage your User Profile
+        </Typography>
         <form onSubmit={this.submitForm.bind(this)}>
-
-          <p className={classes.pField}>This is your basic information we have gotten from the social identity provider you used to sign up. This information can not be changed.</p>
+          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+          This is your basic information we have gotten from the social identity provider you used to sign up. This information can not be changed.
+          </Typography>
 
           <TextField
             id='alias'
@@ -244,7 +248,9 @@ class UserUpdate extends Component {
             label='Email Verified'
                   />
 
-          <p className={classes.pField}>TComplete your profile with the following optional information. Providing your real name might help other users trust you more.</p>
+          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+          Complete your profile with the following optional information. Providing your real name might help other users trust you more.
+          </Typography>
 
           <TextField
             id='firstName'
@@ -273,7 +279,9 @@ class UserUpdate extends Component {
             onChange={(e) => this.setState({lastName: e.target.value})}
                      />
 
-          <p className={classes.pField}>Check the following options to enable specialized tools designed for each role. You can allways come back and change these settings later.</p>
+          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+          Check the following options to enable specialized tools designed for each role. You can allways come back and change these settings later.
+          </Typography>
 
           <FormGroup row className={classes.inputField}>
             <Grid container justify='center' >
@@ -322,7 +330,7 @@ class UserUpdate extends Component {
             </Grid>
           </FormGroup>
 
-          <p className={classes.pField}>Your current role determines how the system is going to optimize its user interface to best serves your current needs.</p>
+          <p className={classes.typography}>Your current role determines how the system is going to optimize its user interface to best serves your current needs.</p>
 
           <FormControl className={classes.inputField}>
             <InputLabel shrink htmlFor='age-label-placeholder'>

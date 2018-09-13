@@ -4,7 +4,7 @@ projects:
     extensions:
       endpoints:
         dev1:
-          url: http://0.0.0.0:4000/graphql
+          url: http://localhost:4001/graphql
 
   database:
     schemaPath: src/generated/prisma.graphql

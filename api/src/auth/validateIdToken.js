@@ -7,7 +7,7 @@ const jwks = jwksClient({
   jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
 })
 
-const validateParseIdToken = idToken =>
+const validateIdToken = idToken =>
   new Promise((resolve, reject) => {
     const { header, payload } = jwt.decode(idToken, { complete: true })
     if (!header || !header.kid || !payload) reject(new Error('Invalid Token'))
@@ -25,4 +25,4 @@ const validateParseIdToken = idToken =>
     })
   })
 
-module.exports = validateParseIdToken
+module.exports = { validateIdToken }

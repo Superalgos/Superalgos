@@ -12,7 +12,7 @@ const styles = theme => ({
   }
 })
 
-export const TeamMembers = ({ classes }) => (
+const TeamMembers = ({ classes }) => (
   <div>
     <Typography variant='display1' gutterBottom>
       Members

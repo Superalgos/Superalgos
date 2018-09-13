@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Route, Switch } from 'react-router-dom'
+import { lifecycle } from 'recompose'
 
 import { withStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
@@ -9,10 +10,10 @@ import Divider from '@material-ui/core/Divider'
 
 import { MainDrawerItems, SecondaryDrawerItems } from './components/DrawerLinks'
 
-import { Overview } from './Overview'
-import { ManageTeams } from './ManageTeams'
-import { TeamMembers } from './TeamMembers'
-import { Settings } from './Settings'
+import Overview from './Overview'
+import ManageTeams from './ManageTeams'
+import TeamMembers from './TeamMembers'
+import Settings from './Settings'
 
 const drawerWidth = 240
 
@@ -45,7 +46,7 @@ const styles = theme => ({
   appBarSpacer: theme.mixins.toolbar
 })
 
-const Dashboard = ({ classes, createTeamMutation, ...props }) => (
+const Dashboard = ({ classes }) => (
   <div className={classes.root}>
     <Drawer
       variant='permanent'
@@ -62,7 +63,7 @@ const Dashboard = ({ classes, createTeamMutation, ...props }) => (
       <div className={classes.appBarSpacer} />
       <Switch>
         <Route exact path='/dashboard' component={Overview} />
-        <Route exact path='/manage-team' component={ManageTeams} />
+        <Route exact path='/manage-teams' component={ManageTeams} />
         <Route exact path='/team-members' component={TeamMembers} />
         <Route exact path='/settings' component={Settings} />
       </Switch>
@@ -71,8 +72,18 @@ const Dashboard = ({ classes, createTeamMutation, ...props }) => (
 )
 
 Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired,
-  createTeamMutation: PropTypes.function
+  classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Dashboard)
+const DashboardCheckSession = lifecycle({
+  async componentDidMount () {
+    try {
+      const authenticated = await this.props.auth.isAuthenticated()
+      console.log('DashboardCheckSession res: ', authenticated)
+    } catch (err) {
+      console.log('DashboardCheckSession err: ', err)
+    }
+  }
+})(Dashboard)
+
+export default withStyles(styles)(DashboardCheckSession)

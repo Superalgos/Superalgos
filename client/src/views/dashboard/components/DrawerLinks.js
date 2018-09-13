@@ -13,8 +13,8 @@ import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt'
 import AndroidIcon from '@material-ui/icons/Android'
 
 const DashboardLink = props => <Link to='/dashboard' {...props} />
-const TeamsLink = props => <Link to='/manage-team' {...props} />
-const MembersLink = props => <Link to='/members' {...props} />
+const TeamsLink = props => <Link to='/manage-teams' {...props} />
+const MembersLink = props => <Link to='/team-members' {...props} />
 const SettingsLink = props => <Link to='/settings' {...props} />
 
 export const MainDrawerItems = (
@@ -35,7 +35,7 @@ export const MainDrawerItems = (
       <ListItemIcon>
         <SupervisedUserCircleIcon />
       </ListItemIcon>
-      <ListItemText primary='Members' />
+      <ListItemText primary='Team Members' />
     </ListItem>
     <ListItem button component={TeamsLink}>
       <ListItemIcon>

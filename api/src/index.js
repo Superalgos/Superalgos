@@ -83,7 +83,7 @@ const resolvers = {
     async teamByName(parent, { name }, ctx, info) {
       return ctx.db.query.team({ where: { name: name } }, `{ name }`)
     },
-    async teamByOwner(parent, { ownerId }, ctx, info) {
+    async teamsByOwner(parent, { ownerId }, ctx, info) {
       return ctx.db.query.teamsConnection({where: { owner: { authId: ownerId }}},
       `{
         edges {
@@ -91,27 +91,24 @@ const resolvers = {
             id
             name
             slug
+            owner
+            status {
+              status
+              reason
+              createdAt
+            }
+            createdAt
             profile {
               avatar
               description
               motto
-            }
-            owner {
-              authId
-              nickname
-              visible
-              profile {
-                avatar
-              }
+              updatedAt
             }
             members {
               role
               member {
-                nickname
-                visible
-                profile {
-                  avatar
-                }
+                alias
+                authId
               }
             }
           }

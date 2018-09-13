@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Typography from '@material-ui/core/Typography'
-import { withStyles } from '@material-ui/core/styles'
 
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
@@ -11,13 +10,6 @@ import CardActions from '@material-ui/core/CardActions'
 import Button from '@material-ui/core/Button'
 
 import aaweb from '../../../assets/AlgonetWebPlatform.jpg'
-
-const styles = theme => ({
-  aawebMedia: {
-    width: '100%',
-    height: 320
-  }
-})
 
 export const DashEditor = ({ classes }) => (
   <Grid item md={6}>
@@ -47,4 +39,4 @@ DashEditor.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(DashEditor)
+export default DashEditor

@@ -104,7 +104,7 @@ class Auth {
       console.log(authResult.idTokenPayload)
       setItem('user', JSON.stringify(authResult.idTokenPayload))
       if (window.location.href.includes(`callback`)) {
-        window.location.href = '/dashboard'
+        // window.location.href = '/dashboard'
       }
       return true
     }

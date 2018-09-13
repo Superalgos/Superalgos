@@ -13,6 +13,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 // Full screen dialog imports (still Material UI)
 
@@ -33,6 +34,11 @@ import UserProfile from './UserProfile';
 import PortraitImage from '../img/portrait.jpg'
 
 const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    padding: 60,
+    margin: 2,
+  },
   card: {
     maxWidth: 345,
     paddingTop:'30'
@@ -54,7 +60,8 @@ const styles = theme => ({
     flex: 1,
   },
   grid: {
-    marginTop: "30",
+    paddingTop: '30',
+    marginTop:'30'
   },
 });
 
@@ -150,13 +157,11 @@ class UserList extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
-
-            <Grid container justify="center" spacing={24} className={classes.grid}>
-              {this.displayUsers()}
-            </Grid>
-
-      </div>
+      <Paper className={classes.root}>
+        <Grid container justify="center" spacing={24}>
+          {this.displayUsers()}
+        </Grid>
+      </Paper>
     );
   }
 }

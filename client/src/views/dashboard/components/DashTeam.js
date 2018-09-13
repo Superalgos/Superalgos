@@ -4,7 +4,7 @@ import { Query } from 'react-apollo'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 
-import { DashTeamIteam } from './DashTeamIteam'
+import { DashTeamIteam } from './DashTeamItem'
 
 export const DashTeam = () => (
   <Query>

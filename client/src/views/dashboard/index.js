@@ -9,10 +9,10 @@ import Divider from '@material-ui/core/Divider'
 
 import { MainDrawerItems, SecondaryDrawerItems } from './components/DrawerLinks'
 
-import { Overview } from 'Overview'
-import { ManageTeams } from 'ManageTeams'
-import { TeamMembers } from 'TeamMembers'
-import { Settings } from 'Settings'
+import { Overview } from './Overview'
+import { ManageTeams } from './ManageTeams'
+import { TeamMembers } from './TeamMembers'
+import { Settings } from './Settings'
 
 const drawerWidth = 240
 

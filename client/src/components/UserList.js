@@ -119,33 +119,37 @@ class UserList extends Component {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-
-                  <Button onClick={this.handleClickOpen}>User Profile</Button>
-                  <Dialog
-                    fullScreen
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                    TransitionComponent={Transition}
-                  >
-                    <AppBar className={classes.appBar}>
-                      <Toolbar>
-                        <IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
-                          <CloseIcon />
-                        </IconButton>
-                        <Typography variant="title" color="inherit" className={classes.flex}>
-                          User Profile
-                        </Typography>
-                        <Button color="inherit" onClick={this.handleClose}>
-                          Close
-                        </Button>
-                      </Toolbar>
-                    </AppBar>
-                      <UserProfile userId={this.state.selected}/>
-                  </Dialog>
-
-                <Button disabled size="small" color="primary">
-                  Extended Profile
-                </Button>
+                <Grid container justify="center" spacing={24}>
+                   <Grid item>
+                     <Button onClick={this.handleClickOpen}>User Profile</Button>
+                     <Dialog
+                       fullScreen
+                       open={this.state.open}
+                       onClose={this.handleClose}
+                       TransitionComponent={Transition}
+                     >
+                       <AppBar className={classes.appBar}>
+                         <Toolbar>
+                           <IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
+                             <CloseIcon />
+                           </IconButton>
+                           <Typography variant="title" color="inherit" className={classes.flex}>
+                             User Profile
+                           </Typography>
+                           <Button color="inherit" onClick={this.handleClose}>
+                             Close
+                           </Button>
+                         </Toolbar>
+                       </AppBar>
+                         <UserProfile userId={this.state.selected}/>
+                     </Dialog>
+                   </Grid>
+                   <Grid item>
+                     <Button disabled color="primary">
+                       Extended Profile
+                     </Button>
+                   </Grid>
+                </Grid>
               </CardActions>
             </Card>
           </Grid>

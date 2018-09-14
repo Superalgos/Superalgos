@@ -3,3 +3,4 @@ client/node_modules/*
 server/node_modules/*
 client/src/auth/Auth0.js
 server/auth/Auth0.js
+server/models/MongoDB.js

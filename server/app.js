@@ -7,7 +7,7 @@ const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const schema = require('./schema/schema')
 const mongoose = require('mongoose')
-
+const mongodbConfig = require('./models/MongoDB')
 const checkJwt = require('./auth/middleware/jwt')
 
 const cors = require('cors')
@@ -18,7 +18,7 @@ const app = express()
 app.use(cors())
 
 // Connect to the database
-mongoose.connect('mongodb://users-module-graphql-server:dsadTRYUtrsgg34@ds141952.mlab.com:41952/users', { useNewUrlParser: true })
+mongoose.connect(mongodbConfig.connectionString, { useNewUrlParser: true })
 mongoose.connection.once('open', () => {
   console.log('Connected to database')
 })

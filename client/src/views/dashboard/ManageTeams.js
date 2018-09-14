@@ -17,9 +17,7 @@ const ManageTeams = ({ classes }) => (
     <Typography variant='display1' gutterBottom>
       Manage Your Teams
     </Typography>
-    <div className={classes.tableContainer}>
-      <ManageTeamsList />
-    </div>
+    <ManageTeamsList />
   </div>
 )
 

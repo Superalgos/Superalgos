@@ -1,7 +1,7 @@
 const _get = require('lodash.get')
 const { validateIdToken } = require('./validateIdToken')
 
-const memberLocationOnContext = 'request.member'
+const memberLocationOnContext = 'request.user'
 const bearerAccessToken = 'request.headers.authorization'
 
 const ctxMember = ctx => _get(ctx, memberLocationOnContext)
@@ -29,7 +29,7 @@ const isLoggedIn = async ctx => {
     let member = ctxMember(ctx, memberLocationOnContext)
     let token = ctxToken(ctx, bearerAccessToken)
     let memberToken
-    console.log('isLoggedIn: ', member, token)
+    console.log('isLoggedIn: ', ctx, member, token)
     if (!member && token) {
       let scheme, credentials
       const tokenParts = token.split(' ')

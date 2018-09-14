@@ -20,7 +20,7 @@ type Mutation {
   authenticate(idToken: String!): Member
   createTeam(name: String!, slug: String!, owner: String!): Team @isAuthenticated
   updateTeamProfile(slug: String!, owner: String!, description: String, motto: String, avatar: String): Team @isAuthenticated
-  deleteTeam(id: ID!): Team @isAuthenticated @isOwner(type: "Team")
+  deleteTeam(slug: String!): Team @isAuthenticated @isOwner(type: "Team")
 }
 
 input MemberProfileInput {

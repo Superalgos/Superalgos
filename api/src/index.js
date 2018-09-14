@@ -101,14 +101,14 @@ const resolvers = {
         })
     },
     async updateTeamProfile(parent, { slug, owner, description, motto, avatar }, ctx, info) {
-      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar}}}, where:{slug: slug}}), TEAMS_FRAGMENT)
+      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err
         })
     },
-    async deleteTeam(parent, { id }, ctx, info) {
-      return ctx.db.mutation.deleteTeam({ where: { id } }, info)
+    async deleteTeam(parent, { slug }, ctx, info) {
+      return ctx.db.mutation.deleteTeam({ where: { slug } }, info)
         .catch((res) => {
           console.log('deleteTeam error: ', res)
           const errors = res.graphQLErrors.map((error) => {

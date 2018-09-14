@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
-import TeamTable from './components/TeamTable'
+import ManageTeamsList from './components/ManageTeamsList'
 
 const styles = theme => ({
   tableContainer: {
@@ -15,10 +15,10 @@ const styles = theme => ({
 const ManageTeams = ({ classes }) => (
   <div>
     <Typography variant='display1' gutterBottom>
-      Teams
+      Manage Your Teams
     </Typography>
     <div className={classes.tableContainer}>
-      <TeamTable />
+      <ManageTeamsList />
     </div>
   </div>
 )

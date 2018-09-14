@@ -20,7 +20,7 @@ app.use(cors())
 // Connect to the database
 mongoose.connect(mongodbConfig.connectionString, { useNewUrlParser: true })
 mongoose.connection.once('open', () => {
-  console.log('Connected to database')
+  console.log('Connected to Mongo')
 })
 
 /* Here we bind all requests to this endpoint to be procecced by the GraphQL Library. */

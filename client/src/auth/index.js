@@ -103,7 +103,7 @@ class Auth {
       this.cb(data)
       console.log(authResult.idTokenPayload)
       const user = {
-        authID: authResult.idTokenPayload.sub,
+        authId: authResult.idTokenPayload.sub,
         alias: authResult.idTokenPayload.nickname
       }
       setItem('user', JSON.stringify(user))
@@ -131,8 +131,8 @@ class Auth {
 
       console.log('signinOrCreateAccount auth: ', await data)
       const user = {
-        authID: data.data.authenticate.authId,
-        alias: data.data.authenticate.authId.alias
+        authId: data.data.authenticate.authId,
+        alias: data.data.authenticate.alias
       }
       setItem('user', JSON.stringify(user))
       if (window.location.href.includes(`callback`)) {
@@ -176,7 +176,7 @@ class Auth {
       .then(result => {
         console.log('handleAuth.checksessions: ', result)
         const user = {
-          authID: result.idTokenPayload.sub,
+          authId: result.idTokenPayload.sub,
           alias: result.idTokenPayload.nickname
         }
         setItem('user', JSON.stringify(user))

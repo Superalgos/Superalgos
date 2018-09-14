@@ -5,15 +5,12 @@ import { withStateHandlers, lifecycle, compose } from 'recompose'
 
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
 
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import DashTeamItem from './DashTeamItem'
 import CreateTeamWrapper from './CreateTeamWrapper'
 
-import { checkGraphQLError } from '../../../utils/graphql-errors'
 import { isDefined, isString } from '../../../utils/js-helpers'
 import { getItem } from '../../../utils/local-storage'
 
@@ -21,12 +18,14 @@ export const DashTeam = ({ classes, user = null }) => {
   let owner
   let loader
   let authId = null
+  console.log('DashTeam: ', user)
   if (user !== null && isString(user)) {
     owner = JSON.parse(user)
     if (isDefined(owner.authId)) authId = owner.authId
   } else {
     loader = (<Typography variant='caption'>Loading...</Typography>)
   }
+  console.log('DashTeam 2: ', owner, authId)
 
   if (authId === null) {
     return (
@@ -43,6 +42,7 @@ export const DashTeam = ({ classes, user = null }) => {
       <Typography variant='display1' gutterBottom>
         Teams
       </Typography>
+      <CreateTeamWrapper />
       <Query query={GET_TEAMS_BY_OWNER} variables={{ authId }}>
         {({ loading, error, data }) => {
           console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
@@ -50,27 +50,22 @@ export const DashTeam = ({ classes, user = null }) => {
           let queryLoader
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
-              const displayMessage = checkGraphQLError(message)
               return (
-                <Typography key={i} variant='caption'>{displayMessage}</Typography>
+                <Typography key={i} variant='caption'>{message}</Typography>
               )
             })
           }
-          if (!loading) {
-            if (data.teamsByOwner.edges.length > 0) {
+          if (!loading && !error) {
+            if (data.teamsByOwner.length > 0) {
               return (
                 <Grid container spacing={24}>
-                  {!loading && data.teamsByOwner.edges.map(team => (
+                  {!loading && data.teamsByOwner.map(team => (
                     <DashTeamItem key={team.id} />
                   ))}
                   {queryLoader}
                   {errors}
                   {loader}
                 </Grid>
-              )
-            } else {
-              return (
-                <CreateTeamWrapper />
               )
             }
           } else {

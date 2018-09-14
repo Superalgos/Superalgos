@@ -7,7 +7,8 @@ const {
 } = require('prisma-binding')
 const { makeExecutableSchema } = require('graphql-tools')
 const { importSchema } = require('graphql-import')
-const { checkJwt } = require('./auth/middleware/jwt')
+
+const checkJwt = require('./auth/middleware/jwt')
 const { getMember } = require('./auth/middleware/getMember')
 const { validateIdToken } = require('./auth/validateIdToken')
 const { directiveResolvers } = require('./auth/authDirectives')
@@ -30,7 +31,7 @@ const createMember = async function (ctx, info, idToken) {
   return member
 }
 
-const ctxMember = ctx => ctx.request.member
+const ctxMember = ctx => ctx.request.user
 
 const resolvers = {
   Query: {
@@ -82,35 +83,32 @@ const resolvers = {
       return ctx.db.query.team({ where: { name: name } }, `{ name }`)
     },
     async teamsByOwner(parent, { ownerId }, ctx, info) {
-      return ctx.db.query.teamsConnection({where: { owner: { authId: ownerId }}},
+      console.log('teamsByOwner: ', ctx.user)
+      return ctx.db.query.teams({where: { owner: ownerId }},
       `{
-        edges {
-          node {
-            id
-            name
-            slug
-            owner
-            status {
-              status
-              reason
-              createdAt
-            }
+          id
+          name
+          slug
+          owner
+          status {
+            status
+            reason
             createdAt
-            profile {
-              avatar
-              description
-              motto
-              updatedAt
-            }
-            members {
-              role
-              member {
-                alias
-                authId
-              }
+          }
+          createdAt
+          profile {
+            avatar
+            description
+            motto
+            updatedAt
+          }
+          members {
+            role
+            member {
+              alias
+              authId
             }
           }
-        }
      }`)
     },
     async owner(parent, args, ctx, info) {
@@ -189,25 +187,27 @@ const schema = makeExecutableSchema({
 const server = new GraphQLServer({
   schema,
   context: req => ({
-    ...req,
-    db
+    token: req.headers,
+    user: req.user,
+    db,
+    ...req
   }),
 })
 
 server.express.use(
   server.options.endpoint,
   checkJwt,
-  (err, req, res, next) => {
-    console.log('checkJwt: ', err, req.user)
-    if (err) return res.status(401).send(err.message)
-    next()
+  function (err, req, res, next) {
+    console.log('checkJwt: ', err, req)
+    if (err) {
+      return res.status(201).send(err.message)
+    } else {
+      next()
+    }
   }
 )
 
-server.express.post(server.options.endpoint, (err, req, res, done) => {
-  console.log('getMember: ', err, req.user)
-  getMember(req, res, done, db)
-})
+server.express.post(server.options.endpoint, (req, res, done) => getUser(req, res, done, db))
 
 const whitelist = [
   'http://localhost:3000',

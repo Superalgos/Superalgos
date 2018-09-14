@@ -278,7 +278,7 @@ class UserUpdate extends Component {
     return (
       <Paper className={classes.root}>
         <Typography className={classes.typography} variant='headline' gutterBottom>
-              Manage your User Profile
+              Profile Sheet
         </Typography>
         <form onSubmit={this.submitForm.bind(this)}>
 

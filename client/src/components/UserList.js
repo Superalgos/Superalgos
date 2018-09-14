@@ -40,18 +40,20 @@ const styles = theme => ({
   },
   card: {
     maxWidth: 345,
+    minWidth: 300,
     paddingTop:'30'
   },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9,
-    marginTop:'30'
+    marginTop:'30',
+    minWidth: 300
   },
-  horizontal:
-   {
-     display: 'inline',
-     margin: theme.spacing.unit,
-   },
+  typography: {
+    maxWidth: 345,
+    minWidth: 300,
+    paddingTop:'30'
+  },
    appBar: {
   position: 'relative',
   },
@@ -94,6 +96,7 @@ class UserList extends Component {
       return ( <div> Loading Users... </div>);
     } else {
       return data.users.map(user => {
+        
         return (
 
           <Grid key={user.id} item>
@@ -112,7 +115,7 @@ class UserList extends Component {
                   <Typography gutterBottom variant="headline" component="h2">
                     {user.alias}
                   </Typography>
-                  <Typography component="p">
+                  <Typography className={classes.typography} gutterBottom>
                     {user.bio}
                   </Typography>
                 </CardContent>

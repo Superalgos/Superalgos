@@ -14,6 +14,7 @@ const { validateIdToken } = require('./auth/validateIdToken')
 const { directiveResolvers } = require('./auth/authDirectives')
 
 const TEAMS_FRAGMENT = require('./graphql/TeamsFragment')
+const TEAMS_CONNECTIONS_FRAGMENT = require('./graphql/TeamsConnectionsFragment')
 
 const createMember = async function (ctx, info, idToken) {
   console.log('createMember', idToken)
@@ -47,36 +48,7 @@ const resolvers = {
       return ctx.db.query.member({ where: { authId } }, info)
     },
     teams(parent, args, ctx, info) {
-      return ctx.db.query.teamsConnection({},
-      `{
-        edges {
-          node {
-            id
-            name
-            slug
-            owner
-            status {
-              status
-              reason
-              createdAt
-            }
-            createdAt
-            profile {
-              avatar
-              description
-              motto
-              updatedAt
-            }
-            members {
-              role
-              member {
-                alias
-                authId
-              }
-            }
-          }
-        }
-     }`)
+      return ctx.db.query.teamsConnection({}, TEAMS_CONNECTIONS_FRAGMENT)
     },
     async teamById(parent, { id }, ctx, info) {
       return ctx.db.query.team({ where: { id } }, info)
@@ -123,6 +95,13 @@ const resolvers = {
     },
     async createTeam(parent, { name, slug, owner }, ctx, info) {
       return ctx.db.mutation.createTeam({ data: { name: name, slug: slug, owner: owner, members: { create: { member:{ connect:{ authId: owner} }, role: 'OWNER' } } } }, TEAMS_FRAGMENT)
+        .catch((err) => {
+          console.log('createTeam error: ', err)
+          return err
+        })
+    },
+    async updateTeamProfile(parent, { slug, owner, description, motto, avatar }, ctx, info) {
+      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar}}}, where:{slug: slug}}), TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err

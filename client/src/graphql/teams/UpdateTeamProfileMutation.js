@@ -1,0 +1,34 @@
+/* eslint-disable no-unused-vars */
+import gql from 'graphql-tag'
+
+const CREATE_TEAM = gql`
+  mutation UpdateTeamMutation($slug: String!, $owner: String!, $description: String, $motto: String) {
+    createTeam(slug: $slug, owner: $owner, description: $description, motto: $motto) {
+      id
+      name
+      slug
+      owner
+      status {
+        status
+        reason
+        createdAt
+      }
+      createdAt
+      profile {
+        avatar
+        description
+        motto
+        updatedAt
+      }
+      members {
+        role
+        member {
+          alias
+          authId
+        }
+      }
+    }
+  }
+`
+
+export default CREATE_TEAM

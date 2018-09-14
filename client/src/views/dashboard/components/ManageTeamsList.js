@@ -6,12 +6,12 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
 
-import GET_ALL_TEAMS_QUERY from '../../../graphql/teams/GetAllTeamsQuery'
+import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { isEmpty } from '../../../utils/js-helpers'
 
-import TeamsItem from './TeamsItem'
-import TeamsDetails from './TeamsDetails'
+import ManageTeamsItem from './ManageTeamsItem'
+import ManageTeamsDetails from './ManageTeamsDetails'
 
 const styles = theme => ({
   heroContent: {
@@ -38,10 +38,10 @@ const styles = theme => ({
   }
 })
 
-export const TeamsList = ({ classes, match }) => (
-  <Query query={GET_ALL_TEAMS_QUERY} fetchPolicy='cache-and-network' >
+export const ManageTeamsList = ({ classes, match }) => (
+  <Query query={GET_TEAMS_BY_OWNER} fetchPolicy='cache-and-network' >
     {({ loading, error, data }) => {
-      console.log('GET_ALL_TEAMS: ', loading, error, data, match)
+      console.log('GET_TEAMS_BY_OWNER: ', loading, error, data, match)
       let slug = null
       if (!isEmpty(match.params) && match.params.slug) slug = match.params.slug
 
@@ -65,7 +65,7 @@ export const TeamsList = ({ classes, match }) => (
                   data.teams.edges.map(team => {
                     if (team.node.slug === slug) {
                       return (
-                        <TeamsDetails
+                        <ManageTeamsDetails
                           key={team.node.id}
                           team={team.node}
                         />
@@ -92,7 +92,7 @@ export const TeamsList = ({ classes, match }) => (
                 <Grid container spacing={40}>
                   {!loading &&
                     data.teams.edges.map(team => (
-                      <TeamsItem
+                      <ManageTeamsItem
                         key={team.node.id}
                         team={team.node}
                         classes={classes}
@@ -120,9 +120,9 @@ export const TeamsList = ({ classes, match }) => (
   </Query>
 )
 
-TeamsList.propTypes = {
+ManageTeamsList.propTypes = {
   classes: PropTypes.object.isRequired,
   match: PropTypes.object
 }
 
-export default withStyles(styles)(TeamsList)
+export default withStyles(styles)(ManageTeamsList)

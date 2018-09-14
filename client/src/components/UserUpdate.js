@@ -70,7 +70,11 @@ class UserUpdate extends Component {
       isDeveloper: 0,
       isTrader: 0,
       isDataAnalyst: 0,
-      roleId: '1'
+      roleId: '1',
+      firstNameError: false,
+      middleNameError: false,
+      lastNameError: false,
+      bioError: false
     }
   }
 
@@ -178,6 +182,46 @@ class UserUpdate extends Component {
     this.setState({ roleId: e.target.value })
   }
 
+  handleTextField (e) {
+      /*
+      We will do some basic input validations here. If something is wrong we will turn on the error sign on the textfield.
+      */
+
+    let value = e.target.value
+
+    switch (e.target.id) {
+      case 'firstName':
+        if (value.length > 30) {
+          this.setState({firstNameError: true})
+        } else {
+          this.setState({firstNameError: false, firstName: value})
+        }
+        break
+      case 'middleName':
+        if (value.length > 30) {
+          this.setState({middleNameError: true})
+        } else {
+          this.setState({middleNameError: false, middleName: value})
+        }
+        break
+      case 'lastName':
+        if (value.length > 50) {
+          this.setState({lastNameError: true})
+        } else {
+          this.setState({lastNameError: false, lastName: value})
+        }
+        break
+      case 'bio':
+        if (value.length > 250) {
+          this.setState({bioError: true})
+        } else {
+          this.setState({bioError: false, bio: value})
+        }
+        break
+      default:
+    }
+  }
+
   rightCheckboxValue (stateValue) {
     if (stateValue === 1) {
       return true
@@ -256,30 +300,33 @@ class UserUpdate extends Component {
           </Typography>
 
           <TextField
+            error={this.state.firstNameError}
             id='firstName'
             type='text'
             value={this.state.firstName}
             label='First Name'
             className={classes.inputField}
-            onChange={(e) => this.setState({firstName: e.target.value})}
+            onChange={this.handleTextField.bind(this)}
                      />
 
           <TextField
+            error={this.state.middleNameError}
             id='middleName'
             type='text'
             value={this.state.middleName}
             label='Middle Name'
             className={classes.inputField}
-            onChange={(e) => this.setState({middleName: e.target.value})}
+            onChange={this.handleTextField.bind(this)}
                      />
 
           <TextField
+            error={this.state.lastNameError}
             id='lastName'
             type='text'
             value={this.state.lastName}
-            label='First Name'
+            label='Last Name'
             className={classes.inputField}
-            onChange={(e) => this.setState({lastName: e.target.value})}
+            onChange={this.handleTextField.bind(this)}
                      />
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
@@ -287,12 +334,13 @@ class UserUpdate extends Component {
            </Typography>
 
           <TextField
+            error={this.state.bioError}
             id='bio'
             type='text'
             value={this.state.bio}
             label='Bio'
             className={classes.inputField}
-            onChange={(e) => this.setState({bio: e.target.value})}
+            onChange={this.handleTextField.bind(this)}
                      />
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
@@ -349,7 +397,7 @@ class UserUpdate extends Component {
           <p className={classes.typography}>Your current role determines how the system is going to optimize its user interface to best serves your current needs.</p>
 
           <FormControl className={classes.inputField}>
-            <InputLabel shrink htmlFor='age-label-placeholder'>
+            <InputLabel shrink htmlFor='select'>
                         Current Role
                       </InputLabel>
             <Select

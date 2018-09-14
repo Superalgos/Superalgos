@@ -1,60 +1,79 @@
-import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import toRenderProps from 'recompose/toRenderProps';
-import withState from 'recompose/withState';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import toRenderProps from 'recompose/toRenderProps'
+import withState from 'recompose/withState'
+import { Link } from 'react-router-dom'
+import {compose} from 'react-apollo'
 
-import ProfileIcon from '@material-ui/icons/Person';
-import LogoutIcon from '@material-ui/icons/DirectionsWalk';
+// Materia UI
 
-const UserLink = props => <Link to="/user" {...props} />
-const LogoutLink = props => <Link to="/logout" {...props} />
+import { withStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
 
-const WithState = toRenderProps(withState('anchorEl', 'updateAnchorEl', null));
+// Images
+import GithubLogo from '../img/github-head-negative.png'
+import ProfileIcon from '@material-ui/icons/Person'
+import LogoutIcon from '@material-ui/icons/DirectionsWalk'
+
+const UserLink = props => <Link to='/user' {...props} />
+const LogoutLink = props => <Link to='/logout' {...props} />
+
+const WithState = toRenderProps(withState('anchorEl', 'updateAnchorEl', null))
+
+const styles = {
+  img: {
+    margin: 20,
+    display: 'block',
+    maxWidth: 120,
+    maxHeight: 24
+  }
+}
 
 class LoggedInUserMenu extends Component {
 
-  constructor(props){
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       user: {}
     }
   }
 
-  render() {
-
+  render () {
+    const { classes } = this.props
     return (
       <WithState>
         {({ anchorEl, updateAnchorEl }) => {
-          const open = Boolean(anchorEl);
+          const open = Boolean(anchorEl)
           const handleClose = () => {
-            updateAnchorEl(null);
-          };
+            updateAnchorEl(null)
+          }
 
           return (
             <React.Fragment>
               <Button
                 aria-owns={open ? 'render-props-menu' : null}
-                aria-haspopup="true"
+                aria-haspopup='true'
                 onClick={event => {
-                  updateAnchorEl(event.currentTarget);
+                  updateAnchorEl(event.currentTarget)
                 }}
-                color="inherit"
+                color='inherit'
               >
+                <img className={classes.img} src={GithubLogo} alt='Github' />
                 {this.props.menuLabel}
               </Button>
-              <Menu id="render-props-menu" anchorEl={anchorEl} open={open} onClose={handleClose}>
+              <Menu id='render-props-menu' anchorEl={anchorEl} open={open} onClose={handleClose}>
                 <MenuItem onClick={handleClose} component={UserLink}><ProfileIcon /><div>Profile</div></MenuItem>
                 <MenuItem onClick={handleClose} component={LogoutLink}><LogoutIcon /><div>Logout</div></MenuItem>
               </Menu>
             </React.Fragment>
-          );
+          )
         }}
       </WithState>
-    );
+    )
   }
 }
 
-export default LoggedInUserMenu;
+export default compose(
+  withStyles(styles)
+)(LoggedInUserMenu)

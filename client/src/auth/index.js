@@ -102,7 +102,11 @@ class Auth {
       this.signinOrCreateAccount({ ...data })
       this.cb(data)
       console.log(authResult.idTokenPayload)
-      setItem('user', JSON.stringify(authResult.idTokenPayload))
+      const user = {
+        authID: authResult.idTokenPayload.sub,
+        alias: authResult.idTokenPayload.nickname
+      }
+      setItem('user', JSON.stringify(user))
       if (window.location.href.includes(`callback`)) {
         // window.location.href = '/dashboard'
       }
@@ -126,11 +130,13 @@ class Auth {
       })
 
       console.log('signinOrCreateAccount auth: ', await data)
-      setItem('user', JSON.stringify(data.data.authenticate))
+      const user = {
+        authID: data.data.authenticate.authId,
+        alias: data.data.authenticate.authId.alias
+      }
+      setItem('user', JSON.stringify(user))
       if (window.location.href.includes(`callback`)) {
         window.location.href = '/dashboard'
-      } else {
-        window.location.reload()
       }
       return data
     } catch (err) {
@@ -157,10 +163,11 @@ class Auth {
   async isAuthenticated () {
     // check session and run Auth0 SS0
     const getUser = await getItem('user')
+    const getExpires = await getItem('expires_at')
     let user = JSON.parse(getUser)
 
-    if (validObject(user, 'exp') && new Date().getTime() < user.exp * 1000) {
-      console.log('handleAuth.user exp: ', user, window.location.href)
+    if (new Date().getTime() < getExpires * 1000) {
+      console.log('handleAuth.user exp: ', user, getExpires, window.location.href)
 
       return user
     }
@@ -168,7 +175,11 @@ class Auth {
     const checkSSO = await this.checkSession()
       .then(result => {
         console.log('handleAuth.checksessions: ', result)
-        setItem('user', result.idTokenPayload.sub)
+        const user = {
+          authID: result.idTokenPayload.sub,
+          alias: result.idTokenPayload.nickname
+        }
+        setItem('user', JSON.stringify(user))
         // user confirmed, log into client
         this.setSession(result)
         return result.idTokenPayload
@@ -180,13 +191,6 @@ class Auth {
         }
         return err
       })
-    if (
-      (window.location.href.includes(`manage`) ||
-        window.location.href.includes(`profile`)) &&
-      !user
-    ) {
-      window.location.href = '/'
-    }
 
     if (/manage|profile|create|dashboard/.test(window.location.href) && !user) {
       this.login()

@@ -5,27 +5,29 @@ import { withStateHandlers, lifecycle, compose } from 'recompose'
 
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import DashTeamItem from './DashTeamItem'
+import CreateTeamWrapper from './CreateTeamWrapper'
 
+import { checkGraphQLError } from '../../../utils/graphql-errors'
 import { isDefined, isString } from '../../../utils/js-helpers'
 import { getItem } from '../../../utils/local-storage'
 
-export const DashTeam = ({ user = null }) => {
-  console.log('DashTeam 1: ', user)
+export const DashTeam = ({ classes, user = null }) => {
   let owner
   let loader
   let authId = null
   if (user !== null && isString(user)) {
     owner = JSON.parse(user)
-    if (isDefined(owner.sub)) authId = owner.sub
+    if (isDefined(owner.authId)) authId = owner.authId
   } else {
     loader = (<Typography variant='caption'>Loading...</Typography>)
   }
 
-  console.log('DashTeam 2: ', owner, authId)
   if (authId === null) {
     return (
       <Grid item md={6}>
@@ -47,21 +49,30 @@ export const DashTeam = ({ user = null }) => {
           let errors
           let queryLoader
           if (error) {
-            errors = error.graphQLErrors.map(({ message }, i) => (
-              <Typography key={i} variant='caption'>{message}</Typography>
-            ))
+            errors = error.graphQLErrors.map(({ message }, i) => {
+              const displayMessage = checkGraphQLError(message)
+              return (
+                <Typography key={i} variant='caption'>{displayMessage}</Typography>
+              )
+            })
           }
           if (!loading) {
-            return (
-              <Grid container spacing={24}>
-                {!loading && data.teamsByOwner.edges.map(team => (
-                  <DashTeamItem key={team.id} />
-                ))}
-                {queryLoader}
-                {errors}
-                {loader}
-              </Grid>
-            )
+            if (data.teamsByOwner.edges.length > 0) {
+              return (
+                <Grid container spacing={24}>
+                  {!loading && data.teamsByOwner.edges.map(team => (
+                    <DashTeamItem key={team.id} />
+                  ))}
+                  {queryLoader}
+                  {errors}
+                  {loader}
+                </Grid>
+              )
+            } else {
+              return (
+                <CreateTeamWrapper />
+              )
+            }
           } else {
             return (
               <Grid container spacing={24}>
@@ -80,7 +91,8 @@ export const DashTeam = ({ user = null }) => {
 }
 
 DashTeam.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  classes: PropTypes.object.isRequired
 }
 
 const getUserOnMount = lifecycle({

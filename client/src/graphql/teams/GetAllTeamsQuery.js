@@ -9,26 +9,24 @@ export const GetAllTeamsQuery = gql`
           id
           name
           slug
+          owner
+          status {
+            status
+            reason
+            createdAt
+          }
+          createdAt
           profile {
             avatar
             description
             motto
-          }
-          owner {
-            nickname
-            visible
-            profile {
-              avatar
-            }
+            updatedAt
           }
           members {
             role
             member {
-              nickname
-              visible
-              profile {
-                avatar
-              }
+              alias
+              authId
             }
           }
         }

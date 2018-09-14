@@ -25,8 +25,8 @@ const styles = {
   img: {
     margin: 20,
     display: 'block',
-    maxWidth: 120,
-    maxHeight: 24
+    maxWidth: 15,
+    maxHeight: 15
   }
 }
 

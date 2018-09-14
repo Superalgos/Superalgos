@@ -20,6 +20,10 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 
+// Images
+import GithubLogo from '../img/github-logo.png'
+import AALogo from '../img/aa-logo.png'
+
 const styles = theme => ({
   root: {
     width: '50%',
@@ -49,6 +53,12 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
     marginTop: theme.spacing.unit * 3
+  },
+  img: {
+    display: 'block',
+    marginTop: 20,
+    maxWidth: 120,
+    maxHeight: 24
   }
 })
 
@@ -271,8 +281,19 @@ class UserUpdate extends Component {
               Manage your User Profile
         </Typography>
         <form onSubmit={this.submitForm.bind(this)}>
+
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          This is your basic information we have gotten from the social identity provider you used to sign up. This information can not be changed.
+        Use this form to control the information you keep at the Advanced Algos system about yourself.
+        </Typography>
+
+          <Grid container justify='center' >
+            <Grid item>
+              <img className={classes.img} src={GithubLogo} alt='Github' />
+            </Grid>
+          </Grid>
+
+          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+          This is your basic information we have gotten from the identity provider you used to sign up. This information can not be changed.
           </Typography>
 
           <TextField
@@ -303,6 +324,12 @@ class UserUpdate extends Component {
                     }
             label='Email Verified'
                   />
+
+          <Grid container justify='center' >
+            <Grid item>
+              <img className={classes.img} src={AALogo} alt='Advanced Algos' />
+            </Grid>
+          </Grid>
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
           Complete your profile with the following optional information. Providing your real name might help other users trust you more.

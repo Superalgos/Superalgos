@@ -113,7 +113,7 @@ class UserList extends Component {
                     {user.alias}
                   </Typography>
                   <Typography component="p">
-                    I am a computer nerd passionate about crypto trading. I entered the crypto space in 2013 and since then I ve been participating in quite a few crypto open source projects.
+                    {user.bio}
                   </Typography>
                 </CardContent>
               </CardActionArea>

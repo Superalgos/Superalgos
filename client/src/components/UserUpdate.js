@@ -64,6 +64,7 @@ class UserUpdate extends Component {
       firstName: '',
       middleName: '',
       lastName: '',
+      bio: '',
       email: '',
       emailVerified: 0,
       isDeveloper: 0,
@@ -96,6 +97,7 @@ class UserUpdate extends Component {
         firstName: this.state.firstName,
         middleName: this.state.middleName,
         lastName: this.state.lastName,
+        bio: this.state.bio,
         isDeveloper: this.state.isDeveloper,
         isTrader: this.state.isTrader,
         isDataAnalyst: this.state.isDataAnalyst,
@@ -111,7 +113,7 @@ class UserUpdate extends Component {
     user.firstName = this.state.firstName
     user.middleName = this.state.middleName
     user.lastName = this.state.lastName
-    user.firstName = this.state.firstName
+    user.bio = this.state.bio
     user.isDeveloper = this.state.isDeveloper
     user.isTrader = this.state.isTrader
     user.isDataAnalyst = this.state.isDataAnalyst
@@ -199,6 +201,7 @@ class UserUpdate extends Component {
             firstName: user.firstName,
             middleName: user.middleName,
             lastName: user.lastName,
+            bio: user.bio,
             isDeveloper: user.isDeveloper,
             isTrader: user.isTrader,
             isDataAnalyst: user.isDataAnalyst,
@@ -277,6 +280,19 @@ class UserUpdate extends Component {
             label='First Name'
             className={classes.inputField}
             onChange={(e) => this.setState({lastName: e.target.value})}
+                     />
+
+          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+           If you wish, you can add a short paragraph with your Bio or anything you would like to communicate to whoever finds your user profile.
+           </Typography>
+
+          <TextField
+            id='bio'
+            type='text'
+            value={this.state.bio}
+            label='Bio'
+            className={classes.inputField}
+            onChange={(e) => this.setState({bio: e.target.value})}
                      />
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>

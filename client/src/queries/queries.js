@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from 'graphql-tag'
 
 const getUsersQuery = gql`
 {
@@ -8,6 +8,7 @@ const getUsersQuery = gql`
       firstName
       middleName
       lastName
+      bio
       role {
         id
         name
@@ -24,6 +25,7 @@ query($id: ID){
       firstName
       middleName
       lastName
+      bio
       email
       emailVerified
       role {
@@ -42,6 +44,7 @@ query($authId: String){
       firstName
       middleName
       lastName
+      bio
       email
       emailVerified
       isDeveloper
@@ -69,6 +72,7 @@ mutation(
   $firstName:String,
   $middleName:String,
   $lastName:String,
+  $bio:String,
   $isDeveloper:Int,
   $isTrader:Int,
   $isDataAnalyst:Int,
@@ -80,6 +84,7 @@ mutation(
       firstName:$firstName,
       middleName: $middleName,
       lastName: $lastName,
+      bio: $bio,
       isDeveloper: $isDeveloper,
       isTrader: $isTrader,
       isDataAnalyst: $isDataAnalyst,

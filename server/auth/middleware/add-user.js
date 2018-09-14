@@ -7,7 +7,7 @@ process.
 
 const mongoose = require('mongoose')
 
-const UserSchema = require('./User')
+const UserSchema = require('../../models/User')
 
 class UserMongo {
   addUser ({ authId, alias }) {

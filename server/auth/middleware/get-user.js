@@ -1,4 +1,4 @@
-const UserMongo = require('../../models/add-user')
+const UserMongo = require('./add-user')
 
 const getUser = async (req, res, next) => {
   if (!req.user) return next()

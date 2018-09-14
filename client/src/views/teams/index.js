@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
 
 import TeamsList from './components/TeamsList'
 
 const styles = theme => ({
+  root: {
+    flexGrow: 1
+  },
   '@global': {
     body: {
       backgroundColor: theme.palette.common.white
@@ -18,42 +19,27 @@ const styles = theme => ({
     width: 'auto',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 6,
     [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
       width: 900,
       marginLeft: 'auto',
       marginRight: 'auto'
     }
-  },
-  heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`
   }
 })
 
-const Teams = ({ classes }) => (
+const Teams = ({ classes, match }) => (
   <React.Fragment>
     <CssBaseline />
     <main className={classes.layout}>
-      <div className={classes.heroContent}>
-        <Typography
-          variant='display3'
-          align='center'
-          color='textPrimary'
-          gutterBottom
-        >
-          Teams
-        </Typography>
-        <Grid container spacing={24}>
-          <TeamsList classes={classes} />
-        </Grid>
-      </div>
+      <TeamsList match={match} />
     </main>
   </React.Fragment>
 )
 
 Teams.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  match: PropTypes.object
 }
 
 export default withStyles(styles)(Teams)

@@ -150,6 +150,7 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/teams' component={Teams} />
+                <Route exact path='/teams/:slug' component={Teams} />
                 <Route
                   exact
                   path='/(dashboard|manage-teams|team-members|settings)/'

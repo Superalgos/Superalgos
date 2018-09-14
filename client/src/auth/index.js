@@ -167,7 +167,12 @@ class Auth {
     let user = JSON.parse(getUser)
 
     if (new Date().getTime() < getExpires * 1000) {
-      console.log('handleAuth.user exp: ', user, getExpires, window.location.href)
+      console.log(
+        'handleAuth.user exp: ',
+        user,
+        getExpires,
+        window.location.href
+      )
 
       return user
     }

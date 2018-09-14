@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
+
+import TeamsList from './components/TeamsList'
 
 const styles = theme => ({
   '@global': {
@@ -28,7 +31,7 @@ const styles = theme => ({
   }
 })
 
-const Home = ({ classes }) => (
+const Teams = ({ classes }) => (
   <React.Fragment>
     <CssBaseline />
     <main className={classes.layout}>
@@ -41,13 +44,16 @@ const Home = ({ classes }) => (
         >
           Teams
         </Typography>
+        <Grid container spacing={24}>
+          <TeamsList classes={classes} />
+        </Grid>
       </div>
     </main>
   </React.Fragment>
 )
 
-Home.propTypes = {
+Teams.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Home)
+export default withStyles(styles)(Teams)

@@ -26,14 +26,16 @@ const CreateTeam = () => {
         let errors
         let loader
         if (loading) {
-          loader = (<Typography variant='caption'>Submitting team...</Typography>)
+          loader = <Typography variant='caption'>Submitting team...</Typography>
         }
         if (error) {
           errors = error.graphQLErrors.map(({ message }, i) => {
             const displayMessage = checkGraphQLError(message)
             console.log('createTeam error:', displayMessage)
             return (
-              <Typography key={i} variant='caption'>{message}</Typography>
+              <Typography key={i} variant='caption'>
+                {message}
+              </Typography>
             )
           })
         }

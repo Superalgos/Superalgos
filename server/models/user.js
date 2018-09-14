@@ -1,3 +1,6 @@
+
+/* This is the database schema definition for the User Collection in Mongo DB */
+
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 

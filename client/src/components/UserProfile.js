@@ -25,12 +25,14 @@ const styles = theme => ({
   },
   card: {
     maxWidth: 800,
+    minWidth: 800,
     paddingTop: '30'
   },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9,
-    marginTop: '30'
+    marginTop: '30',
+    minWidth: 800
   },
   grid: {
     paddingTop: '30',

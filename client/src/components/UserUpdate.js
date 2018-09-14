@@ -237,6 +237,15 @@ class UserUpdate extends Component {
           let user = JSON.parse(userData)
   	        this.defaultValuesSet = true
 
+          /* To avoid console warning, we need to take care of the fields that are null. */
+
+          if (user.firstName === null) { user.firstName = '' }
+          if (user.middleName === null) { user.middleName = '' }
+          if (user.lastName === null) { user.lastName = '' }
+          if (user.bio === null) { user.bio = '' }
+
+          /* Now we are ready to set the initial state. */
+
           this.setState({
             id: user.id,
             alias: user.alias,

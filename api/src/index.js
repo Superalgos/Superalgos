@@ -13,6 +13,8 @@ const { getMember } = require('./auth/middleware/getMember')
 const { validateIdToken } = require('./auth/validateIdToken')
 const { directiveResolvers } = require('./auth/authDirectives')
 
+const TEAMS_FRAGMENT = require('./graphql/TeamsFragment')
+
 const createMember = async function (ctx, info, idToken) {
   console.log('createMember', idToken)
   const member = await ctx.db.mutation.upsertMember({
@@ -84,32 +86,7 @@ const resolvers = {
     },
     async teamsByOwner(parent, { ownerId }, ctx, info) {
       console.log('teamsByOwner: ', ctx.user)
-      return ctx.db.query.teams({where: { owner: ownerId }},
-      `{
-          id
-          name
-          slug
-          owner
-          status {
-            status
-            reason
-            createdAt
-          }
-          createdAt
-          profile {
-            avatar
-            description
-            motto
-            updatedAt
-          }
-          members {
-            role
-            member {
-              alias
-              authId
-            }
-          }
-     }`)
+      return ctx.db.query.teams({where: { owner: ownerId }}, TEAMS_FRAGMENT)
     },
     async owner(parent, args, ctx, info) {
       console.log('resolver.query.owner ctx: ', ctxMember(ctx))
@@ -145,13 +122,7 @@ const resolvers = {
       return member
     },
     async createTeam(parent, { name, slug, owner }, ctx, info) {
-      return ctx.db.mutation.createTeam({
-        data: {
-          name: name,
-          slug: slug,
-          owner: owner
-        }
-      }, info)
+      return ctx.db.mutation.createTeam({ data: { name: name, slug: slug, owner: owner, members: { create: { member:{ connect:{ authId: owner} }, role: 'OWNER' } } } }, TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err

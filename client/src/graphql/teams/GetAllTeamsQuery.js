@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import gql from 'graphql-tag'
 
-export const GetAllTeamsQuery = gql`
+export const GET_ALL_TEAMS_QUERY = gql`
   query teamsQuery {
     teams {
       edges {
@@ -35,4 +35,4 @@ export const GetAllTeamsQuery = gql`
   }
 `
 
-export default GetAllTeamsQuery
+export default GET_ALL_TEAMS_QUERY

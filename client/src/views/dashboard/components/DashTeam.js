@@ -23,7 +23,7 @@ export const DashTeam = ({ classes, user = null }) => {
     owner = JSON.parse(user)
     if (isDefined(owner.authId)) authId = owner.authId
   } else {
-    loader = (<Typography variant='caption'>Loading...</Typography>)
+    loader = <Typography variant='caption'>Loading...</Typography>
   }
   console.log('DashTeam 2: ', owner, authId)
 
@@ -51,7 +51,9 @@ export const DashTeam = ({ classes, user = null }) => {
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
               return (
-                <Typography key={i} variant='caption'>{message}</Typography>
+                <Typography key={i} variant='caption'>
+                  {message}
+                </Typography>
               )
             })
           }
@@ -59,9 +61,10 @@ export const DashTeam = ({ classes, user = null }) => {
             if (data.teamsByOwner.length > 0) {
               return (
                 <Grid container spacing={24}>
-                  {!loading && data.teamsByOwner.map(team => (
-                    <DashTeamItem key={team.id} />
-                  ))}
+                  {!loading &&
+                    data.teamsByOwner.map(team => (
+                      <DashTeamItem key={team.id} team={team} />
+                    ))}
                   {queryLoader}
                   {errors}
                   {loader}
@@ -98,11 +101,9 @@ const getUserOnMount = lifecycle({
   }
 })
 
-const mapStateToProps = withStateHandlers(
-  () => ({ user: null }), {
-    user: ({ user }) => () => ({ user })
-  }
-)
+const mapStateToProps = withStateHandlers(() => ({ user: null }), {
+  user: ({ user }) => () => ({ user })
+})
 
 const DashTeamAuthId = compose(
   mapStateToProps,

@@ -21,6 +21,7 @@ import {
   Callback,
   Home,
   Dashboard,
+  Teams,
   theme,
   globalStyles
 } from './views'
@@ -148,6 +149,7 @@ class App extends Component {
               <NavBar auth={auth} />
               <Switch>
                 <Route exact path='/' component={Home} />
+                <Route exact path='/teams' component={Teams} />
                 <Route
                   exact
                   path='/(dashboard|manage-teams|team-members|settings)/'

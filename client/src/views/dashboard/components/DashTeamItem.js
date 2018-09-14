@@ -34,7 +34,7 @@ const styles = theme => ({
   }
 })
 
-export const DashTeamItem = ({ classes }) => (
+export const DashTeamItem = ({ classes, team }) => (
   <Grid item>
     <Card className={classes.card}>
       <div className={classes.cardDetails}>
@@ -44,9 +44,9 @@ export const DashTeamItem = ({ classes }) => (
           title='Image title'
         />
         <CardContent className={classes.cardContent}>
-          <Typography variant='headline'>Goodester</Typography>
+          <Typography variant='headline'>{team.name}</Typography>
           <Typography variant='subheading' color='textSecondary'>
-            09.15.2018
+            {team.createdAt}
           </Typography>
           <Typography variant='subheading' paragraph>
             Members:6
@@ -66,7 +66,8 @@ export const DashTeamItem = ({ classes }) => (
 )
 
 DashTeamItem.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  team: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(DashTeamItem)

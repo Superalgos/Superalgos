@@ -9,7 +9,6 @@ const schema = require('./schema/schema')
 const mongoose = require('mongoose')
 
 const checkJwt = require('./auth/middleware/jwt')
-const checkUser = require('./auth/middleware/check-user')
 
 const cors = require('cors')
 
@@ -41,10 +40,7 @@ app.post('/graphql', checkJwt, (err, req, res, next) => {
   console.log(req)
   if (err) return res.status(401).send(`[Authenticate Token Error] ${err.message}`)
   next()
-}
-)
-
-app.post('/graphql', (req, res, done) => checkUser(req, res, done))
+})
 
 app.listen(4000, () => {
   console.log('Now listening for requests on port 4000')

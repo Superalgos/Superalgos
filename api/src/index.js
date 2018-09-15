@@ -58,7 +58,7 @@ const resolvers = {
     },
     async teamsByOwner(parent, { ownerId }, ctx, info) {
       console.log('teamsByOwner: ', ctx.user)
-      return ctx.db.query.teams({where: { owner: ownerId }}, TEAMS_FRAGMENT)
+      return ctx.db.query.teams({where: { owner: ownerId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
     },
     async owner(parent, args, ctx, info) {
       console.log('resolver.query.owner ctx: ', ctxMember(ctx))

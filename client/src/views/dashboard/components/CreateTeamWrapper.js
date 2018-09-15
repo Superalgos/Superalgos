@@ -28,13 +28,13 @@ const styles = theme => ({
   }
 })
 
-const CreateTeamWrapper = ({ classes }) => (
+const CreateTeamWrapper = ({ classes, authId }) => (
   <Grid container spacing={24}>
     <Grid item>
       <Card className={classes.card}>
         <div className={classes.cardDetails}>
           <CardContent className={classes.createCardContent}>
-            <CreateTeam classes={classes} />
+            <CreateTeam classes={classes} authId={authId} />
           </CardContent>
         </div>
       </Card>
@@ -43,7 +43,8 @@ const CreateTeamWrapper = ({ classes }) => (
 )
 
 CreateTeamWrapper.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  authId: PropTypes.string
 }
 
 export default withStyles(styles)(CreateTeamWrapper)

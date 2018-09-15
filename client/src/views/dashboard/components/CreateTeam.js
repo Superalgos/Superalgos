@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Mutation } from 'react-apollo'
 
 import Typography from '@material-ui/core/Typography'
@@ -9,18 +10,19 @@ import { checkGraphQLError } from '../../../utils/graphql-errors'
 import CREATE_TEAM from '../../../graphql/teams/CreateTeamMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
-const CreateTeam = () => {
+const CreateTeam = ({ authId }) => {
   let input
+  console.log('CreateTeam', authId)
 
   return (
     <Mutation
       mutation={CREATE_TEAM}
-      update={(cache, { data: { createTeam } }) => {
-        const data = cache.readQuery({ query: GET_TEAMS_BY_OWNER })
-        console.log('Mutation cache update: ', createTeam, data)
-        data.getTeamsByOwner.push(createTeam)
-        cache.writeQuery({ query: GET_TEAMS_BY_OWNER, data })
-      }}
+      refetchQueries={[
+        {
+          query: GET_TEAMS_BY_OWNER,
+          variables: { authId }
+        }
+      ]}
     >
       {(createTeam, { loading, error, data }) => {
         let errors
@@ -62,11 +64,16 @@ const CreateTeam = () => {
   )
 }
 
+CreateTeam.propTypes = {
+  authId: PropTypes.any
+}
+
 const handleSubmit = async (e, createTeam, input) => {
   e.preventDefault()
   const currentUser = await getItem('user')
   let authId = JSON.parse(currentUser)
   authId = authId.authId
+  console.log('createTeam submit: ', authId)
   const name = input.value
   const slug = slugify(name)
   await createTeam({ variables: { name, slug, owner: authId } })

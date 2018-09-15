@@ -90,10 +90,28 @@ function newLogin() {
 
             /* Goes for a login / signup */
 
+            /*
             Auth0.authorize({
                 scope: 'openid profile',
                 responseType: 'id_token'
             });
+            */
+
+            let graphQLQuery = { query: '{ getTeamByOwner(owner: 4) {id name slug owner avatar}} ' };
+
+            let fechtParam1 = 'https://api.algocommunity.org/graphql';
+            let fechtParam2 = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'//,
+                    //'Authorization': 'Bearer <ACCESS_TOKEN>'
+                },
+                body: JSON.stringify(graphQLQuery),
+                }
+
+            fetch(fechtParam1, fechtParam2)
+                .then(res => res.json())
+                .then(res => console.log(res.data));
 
         } else {
 

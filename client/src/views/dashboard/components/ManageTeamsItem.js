@@ -9,6 +9,8 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
+import ManageTeamDelete from './ManageTeamDelete'
+
 export const ManageTeamsItem = ({ classes, team }) => (
   <Grid item xs={12}>
     <Card className={classes.card}>
@@ -30,9 +32,7 @@ export const ManageTeamsItem = ({ classes, team }) => (
           <Button size='small' color='primary' className={classes.buttonRight}>
             Details
           </Button>
-          <Button size='small' color='primary' className={classes.buttonRight}>
-            Edit
-          </Button>
+          <ManageTeamDelete classes={classes} slug={team.slug} />
           <Button size='small' color='primary' className={classes.buttonRight}>
             Delete
           </Button>

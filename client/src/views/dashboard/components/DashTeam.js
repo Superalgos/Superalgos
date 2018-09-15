@@ -27,7 +27,7 @@ export const DashTeam = ({ classes, user = null }) => {
   }
   console.log('DashTeam 2: ', owner, authId)
 
-  if (authId === null) {
+  if (authId === undefined || authId === null) {
     return (
       <Grid item md={6}>
         <Typography variant='display1' gutterBottom>
@@ -42,7 +42,7 @@ export const DashTeam = ({ classes, user = null }) => {
       <Typography variant='display1' gutterBottom>
         Teams
       </Typography>
-      <CreateTeamWrapper />
+      <CreateTeamWrapper authId={authId} />
       <Query query={GET_TEAMS_BY_OWNER} variables={{ authId }}>
         {({ loading, error, data }) => {
           console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)

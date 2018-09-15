@@ -11,8 +11,10 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid'
 
 const options = {
-  accept: 'image/*',
-  maxFiles: 5,
+  accept: ['image/jpeg', 'image/jpg', 'image/png'],
+  maxFiles: 1,
+  imageDim: [300, 300],
+  maxSize: 0.25 * 1024 * 1024, // 1/4 of 1 Mb 
   storeTo: {
     location: 's3',
   },
@@ -52,8 +54,7 @@ class UserImages extends React.Component {
     return (
       <div>
         <Grid container justify='center' >
-          <Grid item>
-            <img  src="https://cdn.filestackcontent.com/fzcnGsUSAuHhQquYO48I" alt='1' />
+          <Grid item>            
             <img  src={"https://cdn.filestackcontent.com/"  + this.state.avatarHandle} alt='2' />
             <Button variant='contained' color='secondary' className={classes.button}>
               <ReactFilestack

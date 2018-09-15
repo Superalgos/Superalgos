@@ -9,12 +9,32 @@
         start: start
     };
 
+    /*
+      This variable will be used during initialization to get the parameters
+      from the platform. At the moment it won't be used and we will only create
+      a single bot instance. In the future it will allow to create different
+      clones of the algonet.
+    */
+
     let genes;
-    let assistant;          // The reference to the Traing Platform Advanced Algos Assistant.
-    let gaussStorage;		// This is an example of dependency to other bots
+
+    /*
+      The reference to the Traing Platform Advanced Algos Assistant that will
+      allow to put positions on the exchange
+    */
+    let assistant;
+
+    /*
+      This is a dependency example to other bots, in this case to the the
+      LRC Indicator.
+    */
+    let gaussStorage;
 
     return thisObject;
 
+    /*
+      The initialize function should be created as follows.
+    */
     function initialize(pAssistant, pGenes, callBackFunction) {
         try {
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
@@ -129,7 +149,7 @@
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
-                    case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.						
+                    case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                         logger.write(MODULE_NAME, "[ERROR] start -> onDone -> Operation Failed. Aborting the process. err = " + err.message);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         return;
@@ -144,8 +164,8 @@
         function businessLogic(callBack) {
             if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> Entering function."); }
             let firstChannelTilt = 0;
-			
-			//Simulation for testing											
+
+			//Simulation for testing
 			if (Math.random(1) <= 0.5){
 				createBuyPosition(callBack);
 			}else{

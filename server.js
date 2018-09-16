@@ -436,8 +436,17 @@ function onBrowserRequest(request, response) {
 
         case "CloudVM": // This means the Scripts folder.
             {
+                let filePath = requestParameters[2];
 
-                respondWithFile('./CloudVM/' + requestParameters[2], response);
+                if (requestParameters[3] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[3];
+                }
+
+                if (requestParameters[4] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[4];
+                }
+
+                respondWithFile('./CloudVM/' + filePath, response);
 
             }
             break; 

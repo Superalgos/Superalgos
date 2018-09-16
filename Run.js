@@ -39,6 +39,8 @@ function readStoragePermissions() {
     let filePath;
 
     try {
+        console.log( "[INFO] Run -> readStoragePermissions -> Entering function. ");
+
         let fs = require('fs');
         filePath = '../' + 'User-Profile' + '/' + 'User.Profile.json';
         global.USER_PROFILE = JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -61,8 +63,8 @@ function readStoragePermissions() {
         readEmailConfiguration();
     }
     catch (err) {
-        console.log("[ERROR] readStoragePermissions -> err = " + err.message);
-        console.log("[HINT] readStoragePermissions -> You need to have a file at this path -> " + filePath);
+        console.log("[ERROR] Run -> readStoragePermissions -> err = " + err.message);
+        console.log("[HINT] Run -> readStoragePermissions -> You need to have a file at this path -> " + filePath);
     }
 }
 
@@ -71,6 +73,8 @@ function readEmailConfiguration() {
     let filePath;
 
     try {
+        console.log( "Run : [INFO] readEmailConfiguration -> Entering function. ");
+
         let fs = require('fs');
         filePath = '../' + 'Email-Config' + '/' + 'Email.Config.json';
         global.EMAIL_CONFIG = JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -78,14 +82,16 @@ function readEmailConfiguration() {
         readExchangeAPIKey();
     }
     catch (err) {
-        console.log("[ERROR] readEmailConfiguration -> err = " + err.message);
-        console.log("[HINT] You need to have a file at this path -> " + filePath);
+        console.log("[ERROR] Run -> readEmailConfiguration -> err = " + err.message);
+        console.log("[HINT] Run -> You need to have a file at this path -> " + filePath);
     }
 }
 
 function readExchangeAPIKey() {
 
     try {
+        console.log( "[INFO] Run -> readExchangeAPIKey -> Entering function. ");
+
         let fs = require('fs');
         let filePath = '../' + 'Exchange-Keys' + '/' + 'Secret.Keys' + '.json';
 
@@ -93,8 +99,8 @@ function readExchangeAPIKey() {
         startRoot();
     }
     catch (err) {
-        console.log("[ERROR] readExchangeAPIKey -> err = " + err.message);
-        console.log("[HINT] You need to have a file at this path -> " + filePath);
+        console.log("[ERROR] Run -> readExchangeAPIKey -> err = " + err.message);
+        console.log("[HINT] Run -> You need to have a file at this path -> " + filePath);
 
         global.EXCHANGE_KEYS = {
             Poloniex: [{
@@ -108,6 +114,8 @@ function readExchangeAPIKey() {
 }
 
 function startRoot() {
+
+    console.log( "[INFO] Run -> startRoot -> Entering function. ");
 
     const ROOT_DIR = './';
     const ROOT_MODULE = require(ROOT_DIR + 'Root');
@@ -124,6 +132,8 @@ function startRoot() {
     root.initialize(UI_COMMANDS, onInitialized);
 
     function onInitialized() {
+
+        console.log( "[INFO] Run -> startRoot -> onInitialized -> Entering function. ");
 
         root.start();
     }

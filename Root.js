@@ -146,6 +146,8 @@ exports.newRoot = function newRoot() {
 
             function onInizialized(err) {
 
+                console.log(logDisplace + "Root : [INFO] initialize -> onInizialized -> Entering function. ");
+
                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                     let filePath;
@@ -169,6 +171,8 @@ exports.newRoot = function newRoot() {
                     cloudStorage.getTextFile(filePath, fileName, onFileReceived);
 
                     function onFileReceived(err, text) {
+
+                        console.log(logDisplace + "Root : [INFO] initialize -> onInizialized -> onFileReceived -> Entering function. ");
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             console.log(logDisplace + "Root : [INFO] initialize -> onInizialized -> onFileReceived -> err = " + err.message);

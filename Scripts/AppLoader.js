@@ -64,7 +64,7 @@
                 "FloatingSpace/FloatingObject.js",
                 "FloatingSpace/FloatingLayer.js",
 
-                "CloudVM/PoloniexAPIClient.js",
+                "CloudVM/Exchange/ExchangeAPI.js",
                 "CloudVM/CloudSupport.js",
                 "CloudVM/CloudRequire.js",
                 "CloudVM/WebFS.js",

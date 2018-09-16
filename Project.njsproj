@@ -55,10 +55,9 @@
     <Compile Include="CloudVM\CloudVM.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CloudVM\PoloniexAPIClient.js" />
+    <Compile Include="CloudVM\Exchange\ExchangeAPI.js" />
     <Compile Include="Server\Exchange\ExchangeAPI.js" />
     <Compile Include="Server\Exchange\exchangeUtils.js" />
-    <Compile Include="Server\Exchange\PoloniexAPIClient.js" />
     <Compile Include="Globals.js">
       <SubType>Code</SubType>
     </Compile>
@@ -230,6 +229,7 @@
   <ItemGroup>
     <Folder Include="Azure\" />
     <Folder Include="CloudVM\" />
+    <Folder Include="CloudVM\Exchange\" />
     <Folder Include="Server\Exchange\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />

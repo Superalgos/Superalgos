@@ -697,7 +697,7 @@ function onBrowserRequest(request, response) {
             }
             break; 
 
-        case "PoloniexAPIClient": // This is trying to access this library functionality from the broser.
+        case "ExchangeAPI": // This is trying to access this library functionality from the broser.
             {
 
                 /* We are going to let access the exchange only to authenticated users, that measn that we need the a valid session token. */
@@ -711,38 +711,45 @@ function onBrowserRequest(request, response) {
                     let exchangeKey = session.exchangeKeys[0].key;  // 0 because we only deal with one exchange for now.
                     let exchangeSecret = session.exchangeKeys[0].secret;
 
-                    const POLONIEX_CLIENT_MODULE = require('./Server/Exchange/' + 'ExchangeAPI');
-                    let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(exchangeKey, exchangeSecret);
+                    global.EXCHANGE_KEYS = {
+                        "Poloniex": {
+                            "Key": exchangeKey,
+                            "Secret": exchangeSecret
+                        }
+                    }
+
+                    const EXCHANGE_API = require('./Server/Exchange/' + 'ExchangeAPI');
+                    let exchangeAPI = EXCHANGE_API.newExchangeAPI();
 
                     switch (requestParameters[2]) {
 
                         case "returnOpenOrders": {
-                            poloniexApiClient.API.returnOpenOrders(requestParameters[4], requestParameters[5], onExchangeResponse);
+                            exchangeAPI.returnOpenOrders(requestParameters[4], requestParameters[5], onExchangeResponse);
                             break;
                         }
 
                         case "returnOrderTrades": {
-                            poloniexApiClient.API.returnOrderTrades(requestParameters[4], onExchangeResponse);
+                            exchangeAPI.returnOrderTrades(requestParameters[4], onExchangeResponse);
                             break;
                         }
 
                         case "buy": {
-                            poloniexApiClient.API.buy(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                            exchangeAPI.buy(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                             break;
                         }
 
                         case "sell": {
-                            poloniexApiClient.API.sell(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                            exchangeAPI.sell(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                             break;
                         }
 
                         case "moveOrder": {
-                            poloniexApiClient.API.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
+                            exchangeAPI.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
                             break;
                         }
 
                         case "returnTicker": {
-                            poloniexApiClient.API.returnTicker(onExchangeResponse);
+                            exchangeAPI.returnTicker(onExchangeResponse);
                             break;
                         }
                     }

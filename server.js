@@ -780,9 +780,19 @@ function onBrowserRequest(request, response) {
         case "AACloud": // This means the cloud folder.
             {
 
+                let filePath = requestParameters[2];
+
+                if (requestParameters[3] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[3]
+                }
+
+                if (requestParameters[4] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[4]
+                }
+
                 let map = storageData;
 
-                let script = map.get(requestParameters[2]);
+                let script = map.get(filePath);
 
                 if (script !== undefined) {
 

@@ -92,7 +92,7 @@
 
             for (let i = 0; i < pCloudWebConfig.webModules.length; i++) {
 
-                let webModule = pCloudWebConfig.webModules[i].name + '.js';
+                let webModule = pCloudWebConfig.webModules[i].name;
 
                 storage.readData('AdvancedAlgos', 'AACloud', webModule, true, onDataArrived);
 
@@ -106,6 +106,7 @@
 
                             console.log("[ERROR] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> Could not read a file. ");
                             console.log("[ERROR] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> err.message = " + err.message);
+                            console.log("[ERROR] CloudScripts -> retrieveScripts -> Cloud -> onDataArrived -> ewebModule = " + webModule);
 
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             return;
@@ -152,7 +153,7 @@
 
                 for (let i = 0; i < pCloudWebConfig.webModules.length; i++) {
 
-                    let webModule = pCloudWebConfig.webModules[i].name + '.js';
+                    let webModule = pCloudWebConfig.webModules[i].name;
                     let htmlLineCopy = jsLine;
                     let newLink = htmlLineCopy.replace('@module@', webModule);
 

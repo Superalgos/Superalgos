@@ -451,6 +451,23 @@ function onBrowserRequest(request, response) {
             }
             break; 
 
+        case "Exchange": // This means the Exchange folder.
+            {
+                let filePath = requestParameters[2];
+
+                if (requestParameters[3] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[3];
+                }
+
+                if (requestParameters[4] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[4];
+                }
+
+                respondWithFile('./Exchange/' + filePath, response);
+
+            }
+            break; 
+
         case "Images": // This means the Scripts folder.
             {
 

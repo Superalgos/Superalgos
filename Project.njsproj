@@ -56,6 +56,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudVM\Exchange\ExchangeAPI.js" />
+    <Compile Include="Exchange\ExchangeAPI.js" />
     <Compile Include="Server\Exchange\ExchangeAPI.js" />
     <Compile Include="Server\Exchange\exchangeUtils.js" />
     <Compile Include="Globals.js">
@@ -230,6 +231,7 @@
     <Folder Include="Azure\" />
     <Folder Include="CloudVM\" />
     <Folder Include="CloudVM\Exchange\" />
+    <Folder Include="Exchange\" />
     <Folder Include="Server\Exchange\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />

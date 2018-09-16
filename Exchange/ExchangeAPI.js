@@ -7,7 +7,6 @@
 
     let thisObject = {
         API: {
-            analizeResponse: analizeResponse,
             returnOpenOrders: returnOpenOrders,
             returnOrderTrades: returnOrderTrades,
             buy: buy,

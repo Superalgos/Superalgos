@@ -71,7 +71,7 @@ function webRequire(pModulePath) {
             MODULE.newPoloniexAPIClient = newPoloniexAPIClient;
             return MODULE;
         }
-        case './ExchangeAPI': {
+        case './Exchange/ExchangeAPI': {
 
             let MODULE = {};
             MODULE.newExchangeAPI = newExchangeAPI;

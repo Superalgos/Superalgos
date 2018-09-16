@@ -32,6 +32,11 @@ function newCloudVM() {
             window.CURRENT_EXECUTION_AT = "Browser";
             window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
 
+            window.MARKET = {
+                assetA: "USDT",
+                assetB: "BTC"
+            };
+
             /*
             When running at the browser, the AACloud VM will look for this data, in this case it does not contain any key or secret, since the browser only know the
             session token the user received when he logged in.

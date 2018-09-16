@@ -171,7 +171,7 @@
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
-                    const POLONIEX_CLIENT_MODULE = require(ROOT_DIR + 'PoloniexAPIClient');
+                    const EXCHANGE_API = require(ROOT_DIR + 'exchange/ExchangeAPI');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
@@ -182,6 +182,7 @@
 
                     let userBot;
                     let statusDependencies;
+                    let exchangeAPI;
 
                     let nextWaitTime;
 
@@ -206,7 +207,7 @@
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well.");
-                                            initializeUserBot();
+                                            initializeExchangeAPI();
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -261,13 +262,87 @@
                         }
                     }
 
+                    function initializeExchangeAPI() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
+
+                            exchangeAPI = EXCHANGE_API.newExchangeAPI(bot, logger);
+
+                            exchangeAPI.initialize(onInizialized);
+
+                            function onInizialized(err) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeContext ->  onInizialized -> onInizialized -> Entering function."); }
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI -> onInizialized -> Execution finished well."); }
+                                            initializeUserBot();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
+                                            logger.persist();
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
+                                            bot.enableCheckLoopHealth = false;
+                                            callBackFunction(err);
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> onInizialized -> Unhandled err.result received. -> err.message = " + err.message);
+
+                                            logger.persist();
+                                            clearInterval(fixedTimeLoopIntervalHandle);
+                                            clearTimeout(nextLoopTimeoutHandle);
+                                            clearTimeout(checkLoopHealthHandle);
+                                            bot.enableCheckLoopHealth = false;
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeContext ->  onInizialized -> onInizialized -> err = " + err.message);
+                                    logger.persist();
+                                    clearInterval(fixedTimeLoopIntervalHandle);
+                                    clearTimeout(nextLoopTimeoutHandle);
+                                    clearTimeout(checkLoopHealthHandle);
+                                    bot.enableCheckLoopHealth = false;
+                                    callBackFunction(err);
+                                }
+                            }
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeExchangeAPI -> err = " + err.message);
+                            logger.persist();
+                            clearInterval(fixedTimeLoopIntervalHandle);
+                            clearTimeout(nextLoopTimeoutHandle);
+                            clearTimeout(checkLoopHealthHandle);
+                            bot.enableCheckLoopHealth = false;
+                            callBackFunction(err);
+                        }
+                    }
+
                     function initializeUserBot() {
 
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
 
-                            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE, STATUS_REPORT, POLONIEX_CLIENT_MODULE);
+                            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, BLOB_STORAGE, STATUS_REPORT, exchangeAPI);
 
                             usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);
 

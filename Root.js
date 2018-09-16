@@ -29,17 +29,6 @@ exports.newRoot = function newRoot() {
         message: "Custom Message"
     };
 
-    /* Current state of the art fixed parameters */
-
-    global.MARKET = {
-        assetA: "USDT",
-        assetB: "BTC",
-    };
-
-    /* Currently only one exchange is supported. */
-
-    global.EXCHANGE_NAME = "Poloniex";
-
     /* This is the Execution Datetime */
 
     global.EXECUTION_DATETIME = new Date();
@@ -222,8 +211,9 @@ exports.newRoot = function newRoot() {
         for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
             let listItem = PLATFORM_CONFIG.executionList[p];
+            let executionListItem = global.EXECUTION_CONFIG.executionList[p];
 
-            if (listItem.enabled !== "true") {
+            if (listItem.enabled !== "true" || executionListItem.enabled !== "true") {
 
                 console.log(logDisplace + "Root : [INFO] start -> Skipping process for being disabled.");
                 console.log(logDisplace + "Root : [INFO] start -> listItem.process = " + listItem.process);
@@ -527,14 +517,14 @@ exports.newRoot = function newRoot() {
 
                                 if (processConfig.startMode.live !== undefined) {
 
-                                    if (processConfig.startMode.live.run === "true") {
+                                    if (processConfig.startMode.live.run === "true" && global.EXECUTION_CONFIG.startMode.live.run === "true") {
 
                                         botConfig.startMode = "Live";
 
                                         let month = pad((new Date()).getUTCMonth() + 1, 2);
                                         let year = (new Date()).getUTCFullYear();
 
-                                        if (processConfig.startMode.live.resumeExecution === "true") {
+                                        if (processConfig.startMode.live.resumeExecution === "true" && global.EXECUTION_CONFIG.startMode.live.resumeExecution === "true") {
                                             botConfig.hasTheBotJustStarted = false;
                                         } else {
                                             botConfig.hasTheBotJustStarted = true;
@@ -554,7 +544,7 @@ exports.newRoot = function newRoot() {
 
                                 if (processConfig.startMode.backtest !== undefined) {
 
-                                    if (processConfig.startMode.backtest.run === "true") {
+                                    if (processConfig.startMode.backtest.run === "true" && global.EXECUTION_CONFIG.startMode.backtest.run === "true") {
 
                                         botConfig.startMode = "Backtest";
                                         botConfig.backtest = processConfig.startMode.backtest;
@@ -582,15 +572,15 @@ exports.newRoot = function newRoot() {
 
                                 if (processConfig.startMode.competition !== undefined) {
 
-                                    if (processConfig.startMode.competition.run === "true") {
+                                    if (processConfig.startMode.competition.run === "true" && global.EXECUTION_CONFIG.startMode.competition.run === "true") {
 
                                         botConfig.startMode = "Competition";
                                         botConfig.competition = processConfig.startMode.competition;
 
-                                        if (processConfig.startMode.competition.resumeExecution === "true") {
-                                            botConfig.hasTheBotJustStarted = false;
-                                        } else {
+                                        if (processConfig.startMode.competition.resumeExecution === "false" && global.EXECUTION_CONFIG.startMode.competition.resumeExecution === "false") {
                                             botConfig.hasTheBotJustStarted = true;
+                                        } else {
+                                            botConfig.hasTheBotJustStarted = false;
                                         }
 
                                         switch (botConfig.type) {

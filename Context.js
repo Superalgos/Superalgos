@@ -330,7 +330,7 @@
                     */
 
 					const INITIAL_INVESTMENT_A = 0;                                 // This is just for this release of the platform.
-                    const INITIAL_INVESTMENT_B = .002 / totalAlgobots;              // This is just for this release of the platform.
+                    const INITIAL_INVESTMENT_B = truncDecimals(.002 / totalAlgobots);              // This is just for this release of the platform.
 
                     thisObject.executionContext = {
                         investment: {                               // This is used to calculate profits. 
@@ -560,6 +560,14 @@
             logger.write(MODULE_NAME, "[ERROR] saveThemAll -> Error = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function truncDecimals(pFloatValue, pDecimals) {
+
+        if (!pDecimals) pDecimals = 8; // Default value
+
+        return parseFloat(parseFloat(pFloatValue).toFixed(pDecimals));
+
     }
 
 };

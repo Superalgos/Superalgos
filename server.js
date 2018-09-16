@@ -711,7 +711,7 @@ function onBrowserRequest(request, response) {
                     let exchangeKey = session.exchangeKeys[0].key;  // 0 because we only deal with one exchange for now.
                     let exchangeSecret = session.exchangeKeys[0].secret;
 
-                    const POLONIEX_CLIENT_MODULE = require('./Server/Exchange/' + 'PoloniexAPIClient');
+                    const POLONIEX_CLIENT_MODULE = require('./Server/Exchange/' + 'ExchangeAPI');
                     let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(exchangeKey, exchangeSecret);
 
                     switch (requestParameters[2]) {

@@ -56,10 +56,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudVM\PoloniexAPIClient.js" />
-    <Compile Include="Exchanges\PoloniexAPIClient.js" />
+    <Compile Include="Server\Exchange\ExchangeAPI.js" />
+    <Compile Include="Server\Exchange\exchangeUtils.js" />
+    <Compile Include="Server\Exchange\PoloniexAPIClient.js" />
     <Compile Include="Globals.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Server\Exchange\Wrappers\beautifier.js" />
+    <Compile Include="Server\Exchange\Wrappers\binance.js" />
+    <Compile Include="Server\Exchange\Wrappers\binanceClient.js" />
+    <Compile Include="Server\Exchange\Wrappers\poloniex.js" />
+    <Compile Include="Server\Exchange\Wrappers\poloniexClient.js" />
     <Compile Include="TopSpace\Login.js">
       <SubType>Code</SubType>
     </Compile>
@@ -216,17 +223,20 @@
     <Compile Include="ViewPort.js" />
     <Compile Include="VolumeBar.js" />
     <Content Include="index.html" />
+    <Content Include="Server\Exchange\Wrappers\binanceProperties.json" />
+    <Content Include="Server\Exchange\Wrappers\poloniexProperties.json" />
     <Content Include="this.server.config.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />
     <Folder Include="CloudVM\" />
-    <Folder Include="Exchanges\" />
+    <Folder Include="Server\Exchange\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
     <Folder Include="AABrowserAPI\" />
     <Folder Include="BottomSpace\" />
     <Folder Include="Scales\" />
+    <Folder Include="Server\Exchange\Wrappers\" />
     <Folder Include="TopSpace\" />
     <Folder Include="Scripts\" />
     <Folder Include="Server\" />

@@ -211,7 +211,19 @@ exports.newRoot = function newRoot() {
         for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
             let listItem = PLATFORM_CONFIG.executionList[p];
-            let executionListItem = global.EXECUTION_CONFIG.executionList[p];
+
+            /*
+              The local configuration allows to select the configuration to run
+              locally, without overwriting the server config. 
+              Here we check that the local configuration for the execution
+              exist, if it doesn't exist we will take the one on the server.
+            */
+            let executionListItem;
+            if (global.EXECUTION_CONFIG === undefined) {
+                executionListItem = listItem;
+            } else {
+                executionListItem = global.EXECUTION_CONFIG.executionList[p];
+            }
 
             if (listItem.enabled !== "true" || executionListItem.enabled !== "true") {
 

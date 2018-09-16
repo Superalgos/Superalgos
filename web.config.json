@@ -1,46 +1,70 @@
 {
   "webModules": [
     {
-      "name": "Root"
+      "name": "Root.js"
     },
     {
-      "name": "Assistant"
+      "name": "Assistant.js"
     },
     {
-      "name": "BlobStorage"
+      "name": "BlobStorage.js"
     },
     {
-      "name": "DebugLog"
+      "name": "DebugLog.js"
     },
     {
-      "name": "Context"
+      "name": "Context.js"
     },
     {
-      "name": "DataDependencies"
+      "name": "DataDependencies.js"
     },
     {
-      "name": "ExchangeAPI"
+      "name": "StatusDependencies.js"
     },
     {
-      "name": "StatusDependencies"
+      "name": "StatusReport.js"
     },
     {
-      "name": "StatusReport"
+      "name": "CloudUtilities.js"
     },
     {
-      "name": "CloudUtilities"
+      "name": "ExtractionBotProcessMainLoop.js"
     },
     {
-      "name": "ExtractionBotProcessMainLoop"
+      "name": "IndicatorBotProcessMainLoop.js"
     },
     {
-      "name": "IndicatorBotProcessMainLoop"
+      "name": "TradingBotProcessMainLoop.js"
     },
     {
-      "name": "TradingBotProcessMainLoop"
+      "name": "DataSet.js"
     },
     {
-      "name": "DataSet"
+      "name": "exchange/ExchangeAPI.js"
+    },
+    {
+      "name": "exchange/exchangeUtils.js"
+    },
+    {
+      "name": "exchange/wrappers/beautifier.js"
+    },
+    {
+      "name": "exchange/wrappers/binance.js"
+    },
+    {
+      "name": "exchange/wrappers/binanceClient.js"
+    },
+    {
+      "name": "exchange/wrappers/binanceProperties.json"
+    },
+    {
+      "name": "exchange/wrappers/poloniex.js"
+    },
+    {
+      "name": "exchange/wrappers/poloniexClient.js"
+    },
+    {
+      "name": "exchange/wrappers/poloniexProperties.json"
     }
   ]
 }

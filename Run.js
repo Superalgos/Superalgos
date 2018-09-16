@@ -1,6 +1,6 @@
 ﻿
 global.CURRENT_ENVIRONMENT = "Develop"; 
-global.CURRENT_EXECUTION_AT = "Cloud"; 
+global.CURRENT_EXECUTION_AT = "Browser"; 
 global.SHALL_BOT_STOP = false;
 global.USER_LOGGED_IN = "Ciencias"; 
 global.DEV_TEAM = "AAMasters";

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
+import { withStyles } from '@material-ui/core/styles'
 import { Mutation } from 'react-apollo'
 
 import Button from '@material-ui/core/Button'
@@ -15,6 +15,17 @@ import DELETE_TEAM from '../../../graphql/teams/DeleteTeamMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
+
+const styles = theme => ({
+  dialogContainer: {
+    display: 'block',
+    margin: '3em',
+    minWidth: 400
+  },
+  buttonRight: {
+    justifyContent: 'flex-end'
+  }
+})
 
 export class ManageTeamDelete extends Component {
   constructor (props) {
@@ -46,7 +57,7 @@ export class ManageTeamDelete extends Component {
 
   render () {
     console.log(this.props, this.props.slug)
-    const authId = this.props.authId
+    const { classes, authId } = this.props
     return (
       <Mutation
         mutation={DELETE_TEAM}
@@ -82,7 +93,7 @@ export class ManageTeamDelete extends Component {
           }
           return (
             <div>
-              <Button size='small' color='primary' className={this.props.classes.buttonRight} onClick={this.handleClickOpen}>
+              <Button size='small' color='primary' className={classes.buttonRight} onClick={this.handleClickOpen}>
                 <DeleteIcon /> Delete
               </Button>
               <Dialog
@@ -90,23 +101,25 @@ export class ManageTeamDelete extends Component {
                 onClose={this.handleClose}
                 aria-labelledby='form-dialog-title'
               >
-                <DialogTitle id='form-dialog-title'>Delete Team Team</DialogTitle>
-                <DialogContent>
-                  <Typography variant='subheading' color='primary'>DANGER - Deleting your team cannot be undone</Typography>
-                  <Typography variant='subheading'>Are you sure you want to delete this team?</Typography>
-                  {loader}
-                  {errors}
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={this.handleClose} color='primary'>
-                    Cancel
-                  </Button>
-                  <Button onClick={e => {
-                    this.handleSubmit(e, deleteTeam, this.props.slug, authId)
-                  }} color='primary'>
-                    Delete Team
-                  </Button>
-                </DialogActions>
+                <div classes={classes.dialogContainer}>
+                  <DialogTitle id='form-dialog-title'>Delete Team Team</DialogTitle>
+                  <DialogContent>
+                    <Typography variant='subheading' color='primary'>DANGER - Deleting your team cannot be undone</Typography>
+                    <Typography variant='subheading'>Are you sure you want to delete this team?</Typography>
+                    {loader}
+                    {errors}
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={this.handleClose} color='primary'>
+                      Cancel
+                    </Button>
+                    <Button onClick={e => {
+                      this.handleSubmit(e, deleteTeam, this.props.slug, authId)
+                    }} color='primary'>
+                      Delete Team
+                    </Button>
+                  </DialogActions>
+                </div>
               </Dialog>
             </div>
           )
@@ -127,4 +140,4 @@ ManageTeamDelete.propTypes = {
   authId: PropTypes.string.isRequired
 }
 
-export default withRouter(ManageTeamDelete)
+export default withStyles(styles)(ManageTeamDelete)

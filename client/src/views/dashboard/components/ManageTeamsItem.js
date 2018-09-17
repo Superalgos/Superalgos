@@ -6,9 +6,9 @@ import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
-import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
+import ManageTeamDetails from './ManageTeamDetails'
 import ManageTeamDelete from './ManageTeamDelete'
 import ManageTeamEdit from './ManageTeamEdit'
 
@@ -30,10 +30,8 @@ export const ManageTeamsItem = ({ classes, team, authId }) => (
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size='small' color='primary' className={classes.buttonRight}>
-            Details
-          </Button>
-          <ManageTeamEdit classes={classes} slug={team.slug} authId={authId} />
+          <ManageTeamDetails classes={classes} team={team} />
+          <ManageTeamEdit classes={classes} slug={team.slug} authId={authId} team={team} />
           <ManageTeamDelete classes={classes} slug={team.slug} authId={authId} />
         </CardActions>
       </div>

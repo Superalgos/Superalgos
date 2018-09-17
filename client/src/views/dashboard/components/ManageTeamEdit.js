@@ -28,11 +28,13 @@ export class ManageTeamEdit extends Component {
     this.handleClose = this.handleClose.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-
+    console.log('ManageTeamEdit', props.team)
+    const motto = props.team.profile.motto
+    const description = props.team.profile.description
     this.state = {
       open: false,
-      motto: '',
-      description: ''
+      motto: motto,
+      description: description
     }
   }
 
@@ -155,7 +157,8 @@ export class ManageTeamEdit extends Component {
 ManageTeamEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  authId: PropTypes.string
+  authId: PropTypes.string,
+  team: PropTypes.object
 }
 
 export default withRouter(ManageTeamEdit)

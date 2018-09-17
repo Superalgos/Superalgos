@@ -109,7 +109,7 @@ export class CreateTeamDialog extends Component {
                       fullWidth
                       value={this.state.name}
                       onChange={this.handleChange}
-                      error={e => this.state.errors.name !== '' || error}
+                      error={this.state.errors.name !== '' || error}
                     />
                     {this.state.errors.name !== '' && (<FormHelperText>{this.state.errors.name}</FormHelperText>)}
                     {error && (<FormHelperText>{errors}</FormHelperText>)}

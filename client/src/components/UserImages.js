@@ -5,7 +5,6 @@ import Avatar from '@material-ui/core/Avatar';
 import classNames from 'classnames';
 
 import ReactFilestack from 'filestack-react'
-import Portrait from '../img/portrait.jpg'
 
 // Material-ui
 
@@ -53,10 +52,6 @@ const styles = theme => ({
     width: '80%',
     marginLeft: '10%',
     marginTop: 40
-  },
-  button: {
-    margin: theme.spacing.unit,
-    marginTop: theme.spacing.unit * 3
   }
 })
 
@@ -69,7 +64,11 @@ class UserImages extends React.Component {
 
     this.state = {
       avatarHandle: '',
-      avatarChangeDate: ''
+      avatarChangeDate: '',
+      newAvatarHandle: '',
+      saveDisabled: true,
+      uploadToolDisabled: false,
+      showNewAvatar: false
     }
   }
 
@@ -78,17 +77,19 @@ class UserImages extends React.Component {
     this.props.updateUserImagesMutation({
       variables: {
         id: this.state.id,
-        avatarHandle: this.state.avatarHandle,
+        avatarHandle: this.state.newAvatarHandle,
         avatarChangeDate: this.state.avatarChangeDate
       },
       refetchQueries: [{ query: getUsersQuery}] // This allow us to re run whatever queries are necesary after the mutation.
     })
 
-      /* Before we are done, we need to update the state of the local storage. */
+    this.setState({saveDisabled: true})
+    
+    /* Before we are done, we need to update the state of the local storage. */
 
     let user = JSON.parse(localStorage.getItem('loggedInUser'))
 
-    user.avatarHandle = this.state.avatarHandle
+    user.avatarHandle = this.state.newAvatarHandle
     user.avatarChangeDate = this.state.avatarChangeDate
 
     localStorage.setItem('loggedInUser', JSON.stringify(user))
@@ -123,12 +124,80 @@ class UserImages extends React.Component {
     console.log(uploadResults)
 
     const handle = uploadResults.filesUploaded[0].handle
-    const currentDate = (new Date()).toString();
-    this.setState({avatarHandle: handle, avatarChangeDate: currentDate})
+
+    let localDate = new Date()
+    let currentDate = new Date(Date.UTC(
+      localDate.getUTCFullYear(),
+      localDate.getUTCMonth(),
+      localDate.getUTCDate(),
+      localDate.getUTCHours(),
+      localDate.getUTCMinutes(),
+      localDate.getUTCSeconds(),
+      localDate.getUTCMilliseconds())
+    )
+    
+    currentDate.toISOString()
+    
+    this.setState(
+      {
+        newAvatarHandle: handle, 
+        avatarChangeDate: currentDate,
+        showNewAvatar: true,
+        uploadToolDisabled: true,
+        saveDisabled: false
+      }
+    )
   }
 
   onError = () => {
     console.log('onError')
+  }
+
+
+  showCurrentAvatar() {
+     
+      const { classes } = this.props
+      return (
+        <div>
+          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+          This is your current Avatar:
+          </Typography>
+
+          <Grid container justify='center' >
+            <Grid item>
+              <Avatar
+                alt="Avatar"
+                src={"https://cdn.filestackcontent.com/"  + this.state.avatarHandle}
+                className={classNames(classes.bigAvatar)}
+              />
+            </Grid>
+          </Grid>
+        </div>
+      )
+     
+  }
+  
+  showNewAvatar() {
+    if (this.state.showNewAvatar === true) {
+      const { classes } = this.props
+      return (
+        <div>
+          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+          This is how your new avatar will look like. Press save to proceed with the change.
+          </Typography>
+
+          <Grid container justify='center' >
+            <Grid item>
+              <Avatar
+                alt="Avatar"
+                src={"https://cdn.filestackcontent.com/"  + this.state.newAvatarHandle}
+                className={classNames(classes.bigAvatar)}
+              />
+            </Grid>
+          </Grid>
+        </div>
+      )
+    }
   }
 
   render() {
@@ -140,25 +209,21 @@ class UserImages extends React.Component {
         </Typography>
         <form onSubmit={this.submitForm.bind(this)}>
 
-        <Grid container justify='center' >
-          <Grid item>
-            <Avatar
-              alt="Avatar"
-              src={Portrait}
-              className={classNames(classes.bigAvatar)}
-            />
-          </Grid>
-        </Grid>
+        {this.showCurrentAvatar()}
         
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-        This is your current Avatar. If you want, you can choose a new one by picking an image from your computer, camera or the web, and crop it with the following tool.
+        If you want, you can choose a new one by picking an image from your computer, camera or the web, and crop it with the following tool.
         </Typography>
 
           <div>
             <Grid container justify='center' >
               <Grid item>
                                  
-                <Button variant='contained' color='secondary' className={classes.button}>
+                <Button 
+                  disabled={this.state.uploadToolDisabled}
+                  variant='contained' 
+                  color='secondary' 
+                  className={classes.button}>
                   <ReactFilestack
                     apikey={'AH97QJOXTHwdBXjydQgABz'}
                     options={options}
@@ -171,23 +236,17 @@ class UserImages extends React.Component {
             </Grid>
           </div>
 
-          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          This is how your new avatar will look like. Press save to proceed with the change.
-          </Typography>
+          {this.showNewAvatar()}
 
           <Grid container justify='center' >
             <Grid item>
-              <Avatar
-                alt="Avatar"
-                src={"https://cdn.filestackcontent.com/"  + this.state.avatarHandle}
-                className={classNames(classes.bigAvatar)}
-              />
-            </Grid>
-          </Grid>
-
-          <Grid container justify='center' >
-            <Grid item>
-              <Button variant='contained' color='secondary' className={classes.button} onClick={this.submitForm.bind(this)}>Save</Button>
+              <Button 
+                disabled={this.state.saveDisabled}
+                variant='contained' 
+                color='secondary' 
+                className={classes.button} 
+                onClick={this.submitForm.bind(this)}
+                >Save</Button>
             </Grid>
           </Grid>
         </form>

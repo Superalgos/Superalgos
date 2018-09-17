@@ -59,8 +59,8 @@ class UserTabs extends React.Component {
             indicatorColor="primary"
             textColor="primary"
           >
-            <Tab label="Your User Profile" icon={<UpdateIcon />} />
-            <Tab label="Manage Images" icon={<ImageIcon />} />
+            <Tab label="Profile Sheet" icon={<UpdateIcon />} />
+            <Tab label="Profile Images" icon={<ImageIcon />} />
           </Tabs>
         </AppBar>
         {value === 0 && <TabContainer><UserUpdate/></TabContainer>}

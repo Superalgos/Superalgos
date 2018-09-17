@@ -105,7 +105,7 @@ mutation(
   $avatarChangeDate:String 
 )
   {
-    updateUser (
+    updateUserImages (
       id: $id,
       avatarHandle:$avatarHandle,
       avatarChangeDate: $avatarChangeDate 

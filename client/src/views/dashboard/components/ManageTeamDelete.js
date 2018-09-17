@@ -4,23 +4,19 @@ import { withRouter } from 'react-router-dom'
 import { Mutation } from 'react-apollo'
 
 import Button from '@material-ui/core/Button'
-import EditIcon from '@material-ui/icons/Edit'
-import TextField from '@material-ui/core/TextField'
+import DeleteIcon from '@material-ui/icons/Delete'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import { getItem } from '../../../utils/local-storage'
-
-import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutation'
+import DELETE_TEAM from '../../../graphql/teams/DeleteTeamMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
 
-export class ManageTeamEdit extends Component {
+export class ManageTeamDelete extends Component {
   constructor (props) {
     super(props)
 
@@ -36,11 +32,30 @@ export class ManageTeamEdit extends Component {
     }
   }
 
+  handleClickOpen () {
+    this.setState({ open: true })
+  }
+
+  handleClose () {
+    this.setState({ open: false })
+  }
+
+  handleChange (e) {
+    this.setState({ name: e.target.value })
+  }
+
   render () {
     console.log(this.props, this.props.slug)
+    const authId = this.props.authId
     return (
       <Mutation
-        mutation={UPDATE_TEAM_PROFILE}
+        mutation={DELETE_TEAM}
+        refetchQueries={[
+          {
+            query: GET_TEAMS_BY_OWNER,
+            variables: { authId }
+          }
+        ]}
         update={(cache, { data: { deleteTeam } }) => {
           const data = cache.readQuery({ query: GET_TEAMS_BY_OWNER })
           console.log('Mutation cache update: ', deleteTeam, data)
@@ -48,18 +63,16 @@ export class ManageTeamEdit extends Component {
           cache.writeQuery({ query: GET_TEAMS_BY_OWNER, data })
         }}
       >
-        {(updateTeamProfile, { loading, error, data }) => {
+        {(deleteTeam, { loading, error, data }) => {
           let errors
           let loader
-          let description
-          let motto
           if (loading) {
             loader = <Typography variant='caption'>Submitting team...</Typography>
           }
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
               const displayMessage = checkGraphQLError(message)
-              console.log('updateTeamProfile error:', displayMessage)
+              console.log('createTeam error:', displayMessage)
               return (
                 <Typography key={i} variant='caption'>
                   {message}
@@ -70,46 +83,17 @@ export class ManageTeamEdit extends Component {
           return (
             <div>
               <Button size='small' color='primary' className={this.props.classes.buttonRight} onClick={this.handleClickOpen}>
-                <EditIcon /> Edit
+                <DeleteIcon /> Delete
               </Button>
               <Dialog
                 open={this.state.open}
                 onClose={this.handleClose}
                 aria-labelledby='form-dialog-title'
               >
-                <DialogTitle id='form-dialog-title'>Edit Team Details</DialogTitle>
+                <DialogTitle id='form-dialog-title'>Delete Team Team</DialogTitle>
                 <DialogContent>
-                  <Typography variant='subheading'>Team Creation</Typography>
-                  <DialogContentText>Team Motto:</DialogContentText>
-                  <TextField
-                    autoFocus
-                    margin='dense'
-                    id='teammotto'
-                    label='Team Motto'
-                    type='text'
-                    fullWidth
-                    value={this.state.motto}
-                    onChange={this.handleChange}
-                    inputRef={node => {
-                      motto = node
-                    }}
-                  />
-                  <DialogContentText>Team description:</DialogContentText>
-                  <TextField
-                    autoFocus
-                    margin='dense'
-                    id='teamDescription'
-                    label='Team Description'
-                    type='text'
-                    rows={4}
-                    multiline
-                    fullWidth
-                    value={this.state.description}
-                    onChange={this.handleChange}
-                    inputRef={node => {
-                      description = node
-                    }}
-                  />
+                  <Typography variant='subheading' color='primary'>DANGER - Deleting your team cannot be undone</Typography>
+                  <Typography variant='subheading'>Are you sure you want to delete this team?</Typography>
                   {loader}
                   {errors}
                 </DialogContent>
@@ -118,9 +102,9 @@ export class ManageTeamEdit extends Component {
                     Cancel
                   </Button>
                   <Button onClick={e => {
-                    this.handleSubmit(e, updateTeamProfile, this.props.slug, description, motto)
+                    this.handleSubmit(e, deleteTeam, this.props.slug, authId)
                   }} color='primary'>
-                    Update Team
+                    Delete Team
                   </Button>
                 </DialogActions>
               </Dialog>
@@ -131,38 +115,16 @@ export class ManageTeamEdit extends Component {
     )
   }
 
-  handleClickOpen () {
-    this.setState({ open: true })
-  }
-
-  handleClose () {
-    this.setState({ open: false })
-  }
-
-  handleChange (e) {
-    switch (e.target.id) {
-      case 'motto':
-        this.setState({ motto: e.target.value })
-        break
-      case 'description':
-        this.setState({ description: e.target.value })
-        break
-      default:
-    }
-  }
-
-  async handleSubmit (e, updateTeamProfile, slug, description, motto) {
+  async handleSubmit (e, deleteTeam, slug, authId) {
     e.preventDefault()
-    const currentUser = await getItem('user')
-    let authId = JSON.parse(currentUser)
-    authId = authId.authId
-    await updateTeamProfile({ variables: { slug, owner: authId, description: description, motto: motto } })
+    await deleteTeam({ variables: { slug, owner: authId } })
   }
 }
 
-ManageTeamEdit.propTypes = {
+ManageTeamDelete.propTypes = {
   classes: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired
+  slug: PropTypes.string.isRequired,
+  authId: PropTypes.string.isRequired
 }
 
-export default withRouter(ManageTeamEdit)
+export default withRouter(ManageTeamDelete)

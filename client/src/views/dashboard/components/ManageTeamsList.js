@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import { withStateHandlers, lifecycle, compose } from 'recompose'
 
-import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -13,6 +12,8 @@ import { getItem } from '../../../utils/local-storage'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import ManageTeamsItem from './ManageTeamsItem'
+import CreateTeamDialog from './CreateTeamDialog'
+import { MessageCard } from '../../common/'
 
 const styles = theme => ({
   heroContent: {
@@ -55,53 +56,74 @@ export const ManageTeamsList = ({ classes, user = null }) => {
     if (isDefined(owner.authId)) authId = owner.authId
   }
   console.log('ManageTeamsList 2: ', owner, authId)
+  if (authId === undefined || authId === null) {
+    return (
+      <Grid container spacing={40}>
+        <Grid>
+          <MessageCard message='Loading...' />
+        </Grid>
+      </Grid>
+    )
+  } else {
+    return (
+      <Query query={GET_TEAMS_BY_OWNER} fetchPolicy='network-only' variables={{ authId }}>
+        {({ loading, error, data }) => {
+          console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
 
-  return (
-    <Query query={GET_TEAMS_BY_OWNER} fetchPolicy='network-only' variables={{ authId }}>
-      {({ loading, error, data }) => {
-        console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
-
-        let errors
-        if (error) {
-          errors = error.graphQLErrors.map(({ message }, i) => {
-            return (
-              <Typography key={i} variant='caption'>
-                {message}
-              </Typography>
-            )
-          })
-        }
-        if (!loading && !error) {
-          if (data.teamsByOwner.length > 0) {
-            return (
-              <React.Fragment>
+          let errors = null
+          if (error) {
+            errors = error.graphQLErrors.map(({ message }, i) => {
+              return (
+                <MessageCard message={message} />
+              )
+            })
+          }
+          if (!loading && !error) {
+            if (data.teamsByOwner.length > 0) {
+              return (
+                <React.Fragment>
+                  <Grid container spacing={40}>
+                    {!loading &&
+                      data.teamsByOwner.map(team => (
+                        <ManageTeamsItem
+                          key={team.id}
+                          team={team}
+                          classes={classes}
+                          authId={authId}
+                        />
+                      ))}
+                    <MessageCard message='Create another team'>
+                      <CreateTeamDialog authId={authId} />
+                    </MessageCard>
+                    {errors}
+                  </Grid>
+                </React.Fragment>
+              )
+            } else {
+              return (
                 <Grid container spacing={40}>
-                  {!loading &&
-                    data.teamsByOwner.map(team => (
-                      <ManageTeamsItem
-                        key={team.id}
-                        team={team}
-                        classes={classes}
-                      />
-                    ))}
-                  {errors}
+                  <Grid xs={10}>
+                    <MessageCard message='You don&rsquo;t have any teams. Create one!'>
+                      <CreateTeamDialog authId={authId} />
+                    </MessageCard>
+                  </Grid>
                 </Grid>
-              </React.Fragment>
+              )
+            }
+          } else {
+            return (
+              <Grid container spacing={40}>
+                <Grid xs={12}>
+                  <MessageCard message='Loading...' />
+                  if (errors !== null) (<MessageCard message={errors} />)
+                </Grid>
+              </Grid>
             )
           }
-        } else {
-          return (
-            <Grid container spacing={40}>
-              <Typography variant='subheading' gutterBottom>
-                Loading...
-              </Typography>
-              {errors}
-            </Grid>
-          )
-        }
-      }}
-    </Query>
-  )
+        }}
+      </Query>
+    )
+  }
 }
 
 ManageTeamsList.propTypes = {

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import { withStateHandlers, lifecycle, compose } from 'recompose'
+import { Link } from 'react-router-dom'
 
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
@@ -9,7 +10,8 @@ import Grid from '@material-ui/core/Grid'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import DashTeamItem from './DashTeamItem'
-import CreateTeamWrapper from './CreateTeamWrapper'
+import CreateTeamDialog from './CreateTeamDialog'
+import { MessageCard } from '../../common/'
 
 import { isDefined, isString } from '../../../utils/js-helpers'
 import { getItem } from '../../../utils/local-storage'
@@ -38,11 +40,10 @@ export const DashTeam = ({ classes, user = null }) => {
     )
   }
   return (
-    <Grid item md={6}>
+    <Grid item md={6} style={{ position: 'relative' }}>
       <Typography variant='display1' gutterBottom>
-        Teams
+        Teams <Link to='/manage-teams' className={classes.dashLink}>Manage Teams</Link>
       </Typography>
-      <CreateTeamWrapper authId={authId} />
       <Query query={GET_TEAMS_BY_OWNER} variables={{ authId }}>
         {({ loading, error, data }) => {
           console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
@@ -68,6 +69,16 @@ export const DashTeam = ({ classes, user = null }) => {
                   {queryLoader}
                   {errors}
                   {loader}
+                </Grid>
+              )
+            } else {
+              return (
+                <Grid container spacing={40}>
+                  <Grid xs={10}>
+                    <MessageCard message='No teams yet...'>
+                      <CreateTeamDialog authId={authId} />
+                    </MessageCard>
+                  </Grid>
                 </Grid>
               )
             }

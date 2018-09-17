@@ -10,8 +10,9 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
 import ManageTeamDelete from './ManageTeamDelete'
+import ManageTeamEdit from './ManageTeamEdit'
 
-export const ManageTeamsItem = ({ classes, team }) => (
+export const ManageTeamsItem = ({ classes, team, authId }) => (
   <Grid item xs={12}>
     <Card className={classes.card}>
       <div className={classes.cardDetails}>
@@ -32,10 +33,8 @@ export const ManageTeamsItem = ({ classes, team }) => (
           <Button size='small' color='primary' className={classes.buttonRight}>
             Details
           </Button>
-          <ManageTeamDelete classes={classes} slug={team.slug} />
-          <Button size='small' color='primary' className={classes.buttonRight}>
-            Delete
-          </Button>
+          <ManageTeamEdit classes={classes} slug={team.slug} authId={authId} />
+          <ManageTeamDelete classes={classes} slug={team.slug} authId={authId} />
         </CardActions>
       </div>
     </Card>
@@ -44,7 +43,8 @@ export const ManageTeamsItem = ({ classes, team }) => (
 
 ManageTeamsItem.propTypes = {
   classes: PropTypes.object.isRequired,
-  team: PropTypes.object.isRequired
+  team: PropTypes.object.isRequired,
+  authId: PropTypes.string.isRequired
 }
 
 export default ManageTeamsItem

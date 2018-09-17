@@ -34,6 +34,13 @@ const styles = theme => ({
   aawebMedia: {
     width: '100%',
     height: 320
+  },
+  dashLink: {
+    float: 'right',
+    color: '#111',
+    fontSize: 16,
+    textDecoration: 'none',
+    paddingRight: '1em'
   }
 })
 

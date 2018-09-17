@@ -55,26 +55,28 @@ const Footer = ({ classes }) => {
               Home
             </Typography>
           </NavLink>
-          <NavLink to='/' className={classNames(classes.footerLink)}>
+          <NavLink to='/teams' className={classNames(classes.footerLink)}>
             <Typography variant='subheading' color='textSecondary'>
               Teams
             </Typography>
           </NavLink>
-          <NavLink to='/' className={classNames(classes.footerLink)}>
+          <NavLink to='/about' className={classNames(classes.footerLink)}>
             <Typography variant='subheading' color='textSecondary'>
               About
             </Typography>
           </NavLink>
         </Grid>
         <Grid item xs>
-          <Typography variant='title' color='textPrimary' gutterBottom>
-            Support
-          </Typography>
-          <NavLink to='/' className={classNames(classes.footerLink)}>
+          <a href='https://t.me/advancedalgoscommunity' target='_blank>' className={classNames(classes.footerLink)}>
+            <Typography variant='title' color='textPrimary' gutterBottom>
+              Support
+            </Typography>
+          </a>
+          <a href='https://advancedalgos.net/documentation-quick-start.shtml' target='_blank>' className={classNames(classes.footerLink)}>
             <Typography variant='subheading' color='textSecondary'>
               Documentation
             </Typography>
-          </NavLink>
+          </a>
           <NavLink to='/' className={classNames(classes.footerLink)}>
             <Typography variant='subheading' color='textSecondary'>
               Telegram

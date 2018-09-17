@@ -20,6 +20,7 @@ import {
   Footer,
   Callback,
   Home,
+  About,
   Dashboard,
   Teams,
   theme,
@@ -149,6 +150,7 @@ class App extends Component {
               <NavBar auth={auth} />
               <Switch>
                 <Route exact path='/' component={Home} />
+                <Route exact path='/about' component={About} />
                 <Route exact path='/teams' component={Teams} />
                 <Route exact path='/teams/:slug' component={Teams} />
                 <Route

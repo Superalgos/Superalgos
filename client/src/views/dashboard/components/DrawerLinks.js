@@ -16,6 +16,8 @@ const DashboardLink = props => <Link to='/dashboard' {...props} />
 const TeamsLink = props => <Link to='/manage-teams' {...props} />
 const MembersLink = props => <Link to='/team-members' {...props} />
 const SettingsLink = props => <Link to='/settings' {...props} />
+const DocumentationLink = props => <a href='https://advancedalgos.net/documentation-quick-start.shtml' target='_blank' {...props} />
+const SupportLink = props => <a href='https://t.me/advancedalgoscommunity' target='_blank' {...props} />
 
 export const MainDrawerItems = (
   <div>
@@ -54,13 +56,13 @@ export const MainDrawerItems = (
 
 export const SecondaryDrawerItems = (
   <div>
-    <ListItem button>
+    <ListItem button component={DocumentationLink}>
       <ListItemIcon>
         <LibraryBooksIcon />
       </ListItemIcon>
       <ListItemText primary='Documentation' />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={SupportLink}>
       <ListItemIcon>
         <SentimentSatisfiedAltIcon />
       </ListItemIcon>

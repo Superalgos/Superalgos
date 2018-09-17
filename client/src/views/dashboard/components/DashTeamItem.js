@@ -51,9 +51,6 @@ export const DashTeamItem = ({ classes, team }) => (
           <Typography variant='subheading' paragraph>
             Members:6
           </Typography>
-          <Typography variant='subheading' color='primary'>
-            Now recruiting!
-          </Typography>
         </CardContent>
         <CardActions>
           <Button size='small' color='primary' className={classes.buttonRight}>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
 import { Mutation } from 'react-apollo'
+import { withStyles } from '@material-ui/core/styles'
 
 import Button from '@material-ui/core/Button'
 import EditIcon from '@material-ui/icons/Edit'
@@ -20,6 +20,17 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
 
+const styles = theme => ({
+  dialogContainer: {
+    display: 'block',
+    margin: '3em',
+    minWidth: 400
+  },
+  buttonRight: {
+    justifyContent: 'flex-end'
+  }
+})
+
 export class ManageTeamEdit extends Component {
   constructor (props) {
     super(props)
@@ -29,8 +40,8 @@ export class ManageTeamEdit extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     console.log('ManageTeamEdit', props.team)
-    const motto = props.team.profile.motto
-    const description = props.team.profile.description
+    const motto = props.team.profile.motto || ''
+    const description = props.team.profile.description || ''
     this.state = {
       open: false,
       motto: motto,
@@ -40,7 +51,7 @@ export class ManageTeamEdit extends Component {
 
   render () {
     console.log(this.props, this.props.slug)
-    const { authId } = this.props
+    const { classes, team, authId } = this.props
     return (
       <Mutation
         mutation={UPDATE_TEAM_PROFILE}
@@ -70,7 +81,7 @@ export class ManageTeamEdit extends Component {
           }
           return (
             <div>
-              <Button size='small' color='primary' className={this.props.classes.buttonRight} onClick={this.handleClickOpen}>
+              <Button size='small' color='primary' className={classes.buttonRight} onClick={this.handleClickOpen}>
                 <EditIcon /> Edit
               </Button>
               <Dialog
@@ -78,45 +89,55 @@ export class ManageTeamEdit extends Component {
                 onClose={this.handleClose}
                 aria-labelledby='form-dialog-title'
               >
-                <DialogTitle id='form-dialog-title'>Edit Team Details</DialogTitle>
-                <DialogContent>
-                  <Typography variant='subheading'>Team Creation</Typography>
-                  <DialogContentText>Team Motto:</DialogContentText>
-                  <TextField
-                    autoFocus
-                    margin='dense'
-                    id='motto'
-                    label='Team Motto'
-                    type='text'
-                    fullWidth
-                    value={this.state.motto}
-                    onChange={this.handleChange}
-                  />
-                  <DialogContentText>Team description:</DialogContentText>
-                  <TextField
-                    margin='dense'
-                    id='description'
-                    label='Team Description'
-                    type='text'
-                    rows={4}
-                    multiline
-                    fullWidth
-                    value={this.state.description}
-                    onChange={this.handleChange}
-                  />
-                  {loader}
-                  {errors}
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={this.handleClose} color='primary'>
-                    Cancel
-                  </Button>
-                  <Button onClick={e => {
-                    this.handleSubmit(e, updateTeamProfile, this.props.slug)
-                  }} color='primary'>
-                    Update Team
-                  </Button>
-                </DialogActions>
+                <div classes={classes.dialogContainer}>
+                  <DialogTitle id='form-dialog-title'>Edit Team Details</DialogTitle>
+                  <DialogContent>
+                    <TextField
+                      autoFocus
+                      margin='dense'
+                      id='name'
+                      label='Team Name'
+                      type='text'
+                      fullWidth
+                      disabled
+                      value={team.name}
+                    />
+                    <TextField
+                      autoFocus
+                      margin='dense'
+                      id='motto'
+                      label='Team Motto'
+                      type='text'
+                      fullWidth
+                      value={this.state.motto}
+                      onChange={this.handleChange}
+                    />
+                    <DialogContentText>Team description:</DialogContentText>
+                    <TextField
+                      margin='dense'
+                      id='description'
+                      label='Team Description'
+                      type='text'
+                      rows={4}
+                      multiline
+                      fullWidth
+                      value={this.state.description}
+                      onChange={this.handleChange}
+                    />
+                    {loader}
+                    {errors}
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={this.handleClose} color='primary'>
+                      Cancel
+                    </Button>
+                    <Button onClick={e => {
+                      this.handleSubmit(e, updateTeamProfile, this.props.slug)
+                    }} color='primary'>
+                      Update Team
+                    </Button>
+                  </DialogActions>
+                </div>
               </Dialog>
             </div>
           )
@@ -161,4 +182,4 @@ ManageTeamEdit.propTypes = {
   team: PropTypes.object
 }
 
-export default withRouter(ManageTeamEdit)
+export default withStyles(styles)(ManageTeamEdit)

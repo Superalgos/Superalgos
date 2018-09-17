@@ -366,9 +366,22 @@
         let teamImage = document.getElementById(thisObject.bot.devTeam + ".png");
 
         if (teamImage.naturalHeight !== 0) {
+
+            /* The image is rounded before being displayed. */
+
+            browserCanvasContext.save();
+            browserCanvasContext.beginPath();
+            browserCanvasContext.arc(teamImagePoint.x + devTeamImageSize / 2, teamImagePoint.y + devTeamImageSize / 2, devTeamImageSize / 2, 0, Math.PI * 2, true);
+            browserCanvasContext.closePath();
+            browserCanvasContext.clip();
             browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize);
+            browserCanvasContext.beginPath();
+            browserCanvasContext.arc(teamImagePoint.x  , teamImagePoint.y  , devTeamImageSize / 2, 0, Math.PI * 2, true);
+            browserCanvasContext.clip();
+            browserCanvasContext.closePath();
+            browserCanvasContext.restore();
         }
-        
+
         /* Second the Bot's Profile Picture. */
 
         if (thisObject.bot.profilePicture !== undefined) {

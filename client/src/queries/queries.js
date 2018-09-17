@@ -26,8 +26,7 @@ query($id: ID){
       middleName
       lastName
       bio
-      email
-      emailVerified
+      avatarHandle      
       role {
         id
         name
@@ -50,6 +49,8 @@ query($authId: String){
       isDeveloper
       isDataAnalyst
       isTrader
+      avatarHandle
+      avatarChangeDate
       role {
         id
       }

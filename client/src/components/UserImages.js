@@ -96,7 +96,6 @@ class UserImages extends React.Component {
 }
 
 export default compose(
-  graphql(getRolesQuery, {name: 'getRolesQuery'}),
   graphql(updateUserMutation, {name: 'updateUserMutation'}),
   withStyles(styles)
 )(UserImages) // This technique binds more than one query to a single component.

@@ -68,7 +68,8 @@ class UserImages extends React.Component {
       newAvatarHandle: '',
       saveDisabled: true,
       uploadToolDisabled: false,
-      showNewAvatar: false
+      showNewAvatar: false,
+      needToWait: false
     }
   }
 
@@ -108,6 +109,25 @@ class UserImages extends React.Component {
 
           if (user.avatarHandle === null) { user.avatarHandle = '' }
           if (user.avatarChangeDate === null) { user.avatarChangeDate = '' }
+
+          /* Here we will check that the user does not change the avatar more often than once a day. */
+
+          let avatarChangeDate = (new Date(user.avatarChangeDate)).valueOf()
+          let now = (new Date()).valueOf()
+          let timePassed = now - avatarChangeDate
+          let oneDay = 1000 * 60 * 60 * 24  
+
+console.log("dates", avatarChangeDate, now, timePassed, oneDay)
+          
+          if (timePassed < oneDay) {
+            this.setState({
+              needToWait: true
+            })
+          } else {
+            this.setState({
+              needToWait: false
+            })
+          }
 
           /* Now we are ready to set the initial state. */
 
@@ -200,25 +220,24 @@ class UserImages extends React.Component {
     }
   }
 
-  render() {
+  showUploadTool() {
     const { classes } = this.props
-    return (
-      <Paper className={classes.root}>
-        <Typography className={classes.typography} variant='headline' gutterBottom>
-              Profile Images
-        </Typography>
-        <form onSubmit={this.submitForm.bind(this)}>
-
-        {this.showCurrentAvatar()}
-        
+    if (this.state.needToWait === true) {      
+      return (
+        <div>
+          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+          You updated your Avatar in the last 24 hours. As a protection against denial of service attacks, the system does not allow users to update their Avatar in less than 24 hs since their last update. Please come back tomorrow.
+          </Typography>
+        </div>
+      )
+    } else {
+      return(
+        <div>
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
         If you want, you can choose a new one by picking an image from your computer, camera or the web, and crop it with the following tool.
-        </Typography>
-
-          <div>
+        </Typography>        
             <Grid container justify='center' >
-              <Grid item>
-                                 
+              <Grid item>               
                 <Button 
                   disabled={this.state.uploadToolDisabled}
                   variant='contained' 
@@ -235,9 +254,23 @@ class UserImages extends React.Component {
               </Grid>
             </Grid>
           </div>
+      )
+    }
+  }
 
+  render() {
+    const { classes } = this.props
+    return (
+      <Paper className={classes.root}>
+        <Typography className={classes.typography} variant='headline' gutterBottom>
+              Profile Images
+        </Typography>
+        <form onSubmit={this.submitForm.bind(this)}>
+
+          {this.showCurrentAvatar()}
+          {this.showUploadTool()}
           {this.showNewAvatar()}
-
+          
           <Grid container justify='center' >
             <Grid item>
               <Button 

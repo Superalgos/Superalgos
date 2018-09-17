@@ -12,19 +12,19 @@ const styles = theme => ({
   }
 })
 
-export const Settings = ({ classes }) => (
+const TeamMembers = ({ classes }) => (
   <div>
     <Typography variant='display1' gutterBottom>
-      Settings
+      Members
     </Typography>
     <div className={classes.tableContainer}>
-      <MessageCard message='Coming soon. Management settings.' />
+      <MessageCard message='Coming soon. Invite and manage team members' />
     </div>
   </div>
 )
 
-Settings.propTypes = {
+TeamMembers.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Settings)
+export default withStyles(styles)(TeamMembers)

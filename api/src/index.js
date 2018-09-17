@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { GraphQLServer } = require('graphql-yoga')
 const {
   Prisma,
@@ -6,51 +7,48 @@ const {
 } = require('prisma-binding')
 const { makeExecutableSchema } = require('graphql-tools')
 const { importSchema } = require('graphql-import')
-const { checkJwt } = require('./auth/middleware/jwt')
-const { getMember } = require('./auth/middleware/getMember')
-const validateParseIdToken = require('./auth/helpers/validate-parse-id-token')
-const { directiveResolvers } = require('./auth-directives')
 
-const ctxMember = ctx => ctx.request.member
+const checkJwt = require('./auth/middleware/jwt')
+const { getMember } = require('./auth/middleware/getMember')
+const { validateIdToken } = require('./auth/validateIdToken')
+const { directiveResolvers } = require('./auth/authDirectives')
+
+const TEAMS_FRAGMENT = require('./graphql/TeamsFragment')
+const TEAMS_CONNECTIONS_FRAGMENT = require('./graphql/TeamsConnectionsFragment')
+
+const createMember = async function (ctx, info, idToken) {
+  console.log('createMember', idToken)
+  const member = await ctx.db.mutation.upsertMember({
+    where: {
+      authId: idToken.sub,
+    },
+    create: {
+      authId: idToken.sub,
+      alias: idToken.nickname
+    },
+    update: {
+      authId: idToken.sub,
+      alias: idToken.nickname
+    }
+  }, info)
+  return member
+}
+
+const ctxMember = ctx => ctx.request.user
 
 const resolvers = {
   Query: {
-    async member(parent, { auth0id }, ctx, info) {
-      return ctx.db.query.member({ where: { auth0id } }, info)
+    async member(parent, arg, ctx, info) {
+      console.log('member: ', parent, arg)
+      return ctx.db.query.member({ where: { authId: arg.authId } }, info)
+    },
+    async currentMember(parent, args, ctx, info) {
+      console.log('currentMember: ', ctx.request.res.req.user)
+      const authId = ctx.request.res.req.user.sub
+      return ctx.db.query.member({ where: { authId } }, info)
     },
     teams(parent, args, ctx, info) {
-      return ctx.db.query.teamsConnection({},
-      `{
-        edges {
-          node {
-            id
-            name
-            slug
-            profile {
-              avatar
-              description
-              motto
-            }
-            owner {
-              nickname
-              visible
-              profile {
-                avatar
-              }
-            }
-            members {
-              role
-              member {
-                nickname
-                visible
-                profile {
-                  avatar
-                }
-              }
-            }
-          }
-        }
-     }`)
+      return ctx.db.query.teamsConnection({}, TEAMS_CONNECTIONS_FRAGMENT)
     },
     async teamById(parent, { id }, ctx, info) {
       return ctx.db.query.team({ where: { id } }, info)
@@ -58,65 +56,33 @@ const resolvers = {
     async teamByName(parent, { name }, ctx, info) {
       return ctx.db.query.team({ where: { name: name } }, `{ name }`)
     },
-    async teamByOwner(parent, { ownerId }, ctx, info) {
-      return ctx.db.query.teamsConnection({where: { owner: { auth0id: ownerId }}},
-      `{
-        edges {
-          node {
-            id
-            name
-            slug
-            profile {
-              avatar
-              description
-              motto
-            }
-            owner {
-              auth0id
-              nickname
-              visible
-              profile {
-                avatar
-              }
-            }
-            members {
-              role
-              member {
-                nickname
-                visible
-                profile {
-                  avatar
-                }
-              }
-            }
-          }
-        }
-     }`)
+    async teamsByOwner(parent, { ownerId }, ctx, info) {
+      console.log('teamsByOwner: ', ctx.user)
+      return ctx.db.query.teams({where: { owner: ownerId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
     },
     async owner(parent, args, ctx, info) {
       console.log('resolver.query.owner ctx: ', ctxMember(ctx))
-      return ctx.db.query.member({ where: { id: ctxMember(ctx).auth0id } }, info)
+      return ctx.db.query.member({ where: { id: ctxMember(ctx).authId } }, info)
         .catch((res) => {
           console.log('createTeam error: ', res)
           const errors = res.graphQLErrors.map((error) => {
             return error.message
           })
         })
-    },
-    members: forwardTo('db')
+    }
   },
   Mutation: {
     async authenticate(parent, { idToken }, ctx, info) {
       let memberToken = null
       try {
-        memberToken = await validateAndParseIdToken(idToken)
+        memberToken = await validateIdToken(idToken)
         console.log('authenticate.memberToken: ', await memberToken)
       } catch (err) {
-        console.log('authenticat.validateAndParseIdToken err: ', err)
+        console.log('authenticat.validateIdToken err: ', err)
         throw new Error(err.message)
       }
-      const auth0id = memberToken.sub
-      let member = await ctx.db.query.member({ where: { auth0id } }, info)
+      const authId = memberToken.sub
+      let member = await ctx.db.query.member({ where: { authId } }, info)
 
       if (!member) {
         try {
@@ -124,28 +90,25 @@ const resolvers = {
         } catch (error) {
           throw new Error(error.message)
         }
-        }
       }
       return member
     },
     async createTeam(parent, { name, slug, owner }, ctx, info) {
-      return ctx.db.mutation.createTeam({
-        data: {
-          name: name,
-          slug: slug,
-          owner: {connect:{auth0id: owner}},
-          members: {create: {role: 'OWNER', member: {connect: {auth0id: owner}}}}
-        }
-      }, info)
-        .catch((res) => {
-          console.log('createTeam error: ', res)
-          const errors = res.graphQLErrors.map((error) => {
-            return error.message
-          })
+      return ctx.db.mutation.createTeam({ data: { name: name, slug: slug, owner: owner, members: { create: { member:{ connect:{ authId: owner} }, role: 'OWNER' } }, profile:{create:{avatar:"a"} } } }, TEAMS_FRAGMENT)
+        .catch((err) => {
+          console.log('createTeam error: ', err)
+          return err
         })
     },
-    async deleteTeam(parent, { id }, ctx, info) {
-      return ctx.db.mutation.deleteTeam({ where: { id } }, info)
+    async updateTeamProfile(parent, { slug, owner, description, motto, avatar }, ctx, info) {
+      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
+        .catch((err) => {
+          console.log('createTeam error: ', err)
+          return err
+        })
+    },
+    async deleteTeam(parent, { slug }, ctx, info) {
+      return ctx.db.mutation.deleteTeam({ where: { slug } }, info)
         .catch((res) => {
           console.log('deleteTeam error: ', res)
           const errors = res.graphQLErrors.map((error) => {
@@ -174,27 +137,34 @@ const schema = makeExecutableSchema({
 const server = new GraphQLServer({
   schema,
   context: req => ({
-    ...req,
-    db
-  })
+    token: req.headers,
+    user: req.user,
+    db,
+    ...req
+  }),
 })
 
-server.express.post(
+server.express.use(
   server.options.endpoint,
   checkJwt,
-  (err, req, res, next) => {
-    if (err) return res.status(401).send(err.message)
-    next()
+  function (err, req, res, next) {
+    console.log('checkJwt: ', err, req)
+    if (err) {
+      return res.status(201).send(err.message)
+    } else {
+      next()
+    }
   }
 )
 
-server.express.post(server.options.endpoint, (req, res, done) =>
-  getMember(req, res, done, db)
-)
+server.express.post(server.options.endpoint, (req, res, done) => getUser(req, res, done, db))
 
 const whitelist = [
-  'http://localhost:1337',
-  'http://0.0.0.0:5000'
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'http://localhost:3002',
+  'http://localhost:4000',
+  'http://localhost:4002'
 ]
 const corsOptionsDelegate = (req, callback) => {
   var corsOptions
@@ -207,12 +177,13 @@ const corsOptionsDelegate = (req, callback) => {
 }
 
 const options = {
+  port: 4001,
   cors: corsOptionsDelegate,
   endpoint: '/graphql',
   subscriptions: '/graphql',
   playground: '/playground'
 }
 
-server.start(options, () => console.log(`Server is running on http://localhost:4000${server.options.endpoint}`))
+server.start(options, () => console.log(`Server is running on http://localhost:4001${server.options.endpoint}`))
 
-module.exports= { createPrismaMember: createPrismaMember }
+module.exports= { createMember }

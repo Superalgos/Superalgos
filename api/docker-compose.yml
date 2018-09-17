@@ -27,24 +27,5 @@ services:
       POSTGRES_PASSWORD: prisma
     volumes:
       - postgres:/var/lib/postgresql/data
-  node:
-    image: aateamapi-dev:v1
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    depends_on:
-    - prisma
-    env_file: ./.env
-    container_name: aateamapi
-    tty: true
-    stdin_open: true
-    volumes:
-      - ./:/var/www/app
-      - /var/www/app/node_modules
-    working_dir: /var/www/app
-    restart: always
-    command: node -r dotenv/config src/index.js
-    ports:
-      - "4000:4000"
 volumes:
   postgres:

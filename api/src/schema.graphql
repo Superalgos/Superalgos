@@ -1,0 +1,49 @@
+# import Query.TeamConnection, Team from "./generated/prisma.graphql"
+
+directive @isAuthenticated on QUERY | FIELD | MUTATION
+directive @hasRole(roles: [String]) on QUERY | FIELD | MUTATION
+directive @isOwner(type: String) on QUERY | MUTATION
+directive @isOwnerOrHasRole(type: String, roles: [String]) on QUERY | MUTATION
+
+type Query {
+  teams: TeamConnection
+  teamDetails: [Team!]! @isAuthenticated
+  teamByName(name: String!): Team
+  teamById(teamId: String!): Team
+  teamsByOwner(ownerId: String!): [Team!]! @isAuthenticated
+  owner: Member @isAuthenticated
+  currentMember: Member @isAuthenticated
+  member(authId: String!): Member @isAuthenticated
+}
+
+type Mutation {
+  authenticate(idToken: String!): Member
+  createTeam(name: String!, slug: String!, owner: String!): Team @isAuthenticated
+  updateTeamProfile(slug: String!, owner: String!, description: String, motto: String, avatar: String): Team @isAuthenticated
+  deleteTeam(slug: String!): Team @isAuthenticated @isOwner(type: "Team")
+}
+
+input MemberProfileInput {
+  authId: String!
+  alias: String!
+}
+
+fragment MemberInfo on Member {
+  id
+  authId
+  alias
+  isActive
+  profile {
+    ...MemberProfileInfo
+  }
+}
+
+fragment MemberProfileInfo on MemberProfile {
+  firstName
+  lastName
+  email
+  avatar
+  role {
+    name
+  }
+}

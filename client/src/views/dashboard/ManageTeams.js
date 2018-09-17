@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
-import { MessageCard } from '../common/'
+import ManageTeamsList from './components/ManageTeamsList'
 
 const styles = theme => ({
   tableContainer: {
@@ -12,19 +12,17 @@ const styles = theme => ({
   }
 })
 
-export const Settings = ({ classes }) => (
+const ManageTeams = ({ classes }) => (
   <div>
     <Typography variant='display1' gutterBottom>
-      Settings
+      Manage Your Teams
     </Typography>
-    <div className={classes.tableContainer}>
-      <MessageCard message='Coming soon. Management settings.' />
-    </div>
+    <ManageTeamsList />
   </div>
 )
 
-Settings.propTypes = {
+ManageTeams.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Settings)
+export default withStyles(styles)(ManageTeams)

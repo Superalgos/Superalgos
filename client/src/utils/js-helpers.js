@@ -19,6 +19,10 @@ export function isEmpty (obj) {
   return true
 }
 
+export function isString (value) {
+  return typeof value === 'string' || value instanceof String
+}
+
 export function validObject (object, ...keys) {
   return keys.reduce((a, b) => (a || {})[b], object) !== undefined
 }

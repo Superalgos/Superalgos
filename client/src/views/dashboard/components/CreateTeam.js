@@ -1,135 +1,100 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
-import Button from '@material-ui/core/Button'
-import AddIcon from '@material-ui/icons/Add'
-import TextField from '@material-ui/core/TextField'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
-import DialogTitle from '@material-ui/core/DialogTitle'
+import { Mutation } from 'react-apollo'
+
 import Typography from '@material-ui/core/Typography'
 
 import { getItem } from '../../../utils/local-storage'
+import { checkGraphQLError } from '../../../utils/graphql-errors'
 
-export class CreateTeamDialog extends Component {
-  constructor (props) {
-    super(props)
+import CREATE_TEAM from '../../../graphql/teams/CreateTeamMutation'
+import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
-    this.handleClickOpen = this.handleClickOpen.bind(this)
-    this.handleClose = this.handleClose.bind(this)
-    this.handlePost = this.handlePost.bind(this)
-    this.slugify = this.slugify.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+const CreateTeam = ({ authId }) => {
+  let input
+  console.log('CreateTeam', authId)
 
-    this.state = {
-      open: false,
-      name: ''
-    }
-  }
-
-  handleClickOpen () {
-    this.setState({ open: true })
-  }
-
-  handleClose () {
-    this.setState({ open: false })
-  }
-
-  handleChange (e) {
-    this.setState({ name: e.target.value })
-  }
-
-  render () {
-    console.log(this.props)
-    return (
-      <div>
-        <Button
-          variant='extendedFab'
-          aria-label='AddTeam'
-          className={this.props.classes.button}
-          onClick={this.handleClickOpen}
-        >
-          <AddIcon className={this.props.classes.extendedIcon} />
-          <Typography variant='subheading'>
-            Create A Team
-          </Typography>
-        </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby='form-dialog-title'
-        >
-          <DialogTitle id='form-dialog-title'>Subscribe</DialogTitle>
-          <DialogContent>
-            <Typography variant='subheading'>
-              Team Creation
-            </Typography>
-            <DialogContentText>
-              Name your team!
-            </DialogContentText>
-            <TextField
-              autoFocus
-              margin='dense'
-              id='teamname'
-              label='Team Name'
-              type='text'
-              fullWidth
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color='primary'>
-              Cancel
-            </Button>
-            <Button onClick={this.handlePost} color='primary'>
-              Create Team
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    )
-  }
-
-  slugify (string) {
-    const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
-    const b = 'aaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------'
-    const p = new RegExp(a.split('').join('|'), 'g')
-
-    return string.toString().toLowerCase()
-      .replace(/\s+/g, '-') // Replace spaces with -
-      .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
-      .replace(/&/g, '-and-') // Replace & with 'and'
-      .replace(/[^\w-]+/g, '') // Remove all non-word characters
-      .replace(/--+/g, '-') // Replace multiple - with single -
-      .replace(/^-+/, '') // Trim - from start of text
-      .replace(/-+$/, '') // Trim - from end of text
-  }
-
-  async handlePost (e) {
-    e.preventDefault()
-    const { name } = this.state
-    const slug = this.slugify(name)
-    const currentUser = await getItem('user')
-    let authId = JSON.parse(currentUser)
-    authId = authId.sub
-    console.log('createPage cu:', JSON.parse(currentUser))
-    await this.props.createTeamMutation({
-      variables: {
-        name,
-        slug,
-        owner: authId
-      }
-    })
-    this.setState({ open: false })
-  }
+  return (
+    <Mutation
+      mutation={CREATE_TEAM}
+      refetchQueries={[
+        {
+          query: GET_TEAMS_BY_OWNER,
+          variables: { authId }
+        }
+      ]}
+    >
+      {(createTeam, { loading, error, data }) => {
+        let errors
+        let loader
+        if (loading) {
+          loader = <Typography variant='caption'>Submitting team...</Typography>
+        }
+        if (error) {
+          errors = error.graphQLErrors.map(({ message }, i) => {
+            const displayMessage = checkGraphQLError(message)
+            console.log('createTeam error:', displayMessage)
+            return (
+              <Typography key={i} variant='caption'>
+                {message}
+              </Typography>
+            )
+          })
+        }
+        return (
+          <div>
+            <form
+              onSubmit={e => {
+                handleSubmit(e, createTeam, input)
+              }}
+            >
+              <input
+                ref={node => {
+                  input = node
+                }}
+              />
+              <button type='submit'>Create Team</button>
+            </form>
+            {loader}
+            {errors}
+          </div>
+        )
+      }}
+    </Mutation>
+  )
 }
 
-CreateTeamDialog.propTypes = {
-  classes: PropTypes.object.isRequired,
-  createTeamMutation: PropTypes.function
+CreateTeam.propTypes = {
+  authId: PropTypes.any
 }
 
-export default withRouter(CreateTeamDialog)
+const handleSubmit = async (e, createTeam, input) => {
+  e.preventDefault()
+  const currentUser = await getItem('user')
+  let authId = JSON.parse(currentUser)
+  authId = authId.authId
+  console.log('createTeam submit: ', authId)
+  const name = input.value
+  const slug = slugify(name)
+  await createTeam({ variables: { name, slug, owner: authId } })
+  input.value = ''
+}
+
+const slugify = string => {
+  const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
+  const b = 'aaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------'
+  const p = new RegExp(a.split('').join('|'), 'g')
+
+  return string
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+    .replace(/&/g, '-and-') // Replace & with 'and'
+    .replace(/[^\w-]+/g, '') // Remove all non-word characters
+    .replace(/--+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, '') // Trim - from end of text
+}
+
+export default CreateTeam

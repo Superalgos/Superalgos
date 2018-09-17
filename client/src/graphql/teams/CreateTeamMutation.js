@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 import gql from 'graphql-tag'
 
-export const CreateTeamMutation = gql`
+const CREATE_TEAM = gql`
   mutation CreateTeamMutation($name: String!, $slug: String!, $owner: String!) {
     createTeam(name: $name, slug: $slug, owner: $owner) {
       id
       name
       slug
       owner
-      members{
+      members {
         role
         member {
           authId
@@ -18,3 +18,5 @@ export const CreateTeamMutation = gql`
     }
   }
 `
+
+export default CREATE_TEAM

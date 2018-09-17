@@ -1,18 +1,35 @@
 const _get = require('lodash.get')
-const validateAndParseIdToken = require('./helpers/validateAndParseIdToken')
-const createMember  = require('./index')
+const { validateIdToken } = require('./validateIdToken')
 
-const memberLocationOnContext = 'request.member'
+const memberLocationOnContext = 'request.user'
 const bearerAccessToken = 'request.headers.authorization'
 
 const ctxMember = ctx => _get(ctx, memberLocationOnContext)
 const ctxToken = ctx => _get(ctx, bearerAccessToken)
 
+const createMember = async (ctx, idToken, info) => {
+  console.log('createMember', idToken)
+  const member = await ctx.db.mutation.upsertMember({
+    where: {
+      authId: idToken.sub,
+    },
+    create: {
+      authId: idToken.sub,
+      alias: idToken.nickname
+    },
+    update: {
+      authId: idToken.sub,
+      alias: idToken.nickname
+    }
+  }, info)
+  return member
+}
+
 const isLoggedIn = async ctx => {
     let member = ctxMember(ctx, memberLocationOnContext)
     let token = ctxToken(ctx, bearerAccessToken)
     let memberToken
-
+    console.log('isLoggedIn: ', ctx, member, token)
     if (!member && token) {
       let scheme, credentials
       const tokenParts = token.split(' ')
@@ -24,21 +41,28 @@ const isLoggedIn = async ctx => {
      if (/^Bearer$/i.test(scheme)) {
        token = credentials
        //verify token
+       console.log('isLoggedIn2 : ', token)
        try {
-         memberToken = await validateAndParseIdToken(token)
-         const auth0id = memberToken.sub
+         memberToken = await validateIdToken(token)
+         const authId = memberToken.sub
+         console.log('isLoggedIn3 : ', await authId, ctx.db.query.member)
+         exists = await ctx.db.query.member({ where: { authId: authId } })
+         console.log('isLoggedIn4 : ', await exists, createMember )
+         if (!member && exists === null) {
+           member = await createMember(ctx, memberToken).then(res => {
+              console.log('isLoggedIn5 : ', res)
+              return res
+           })
 
-         member = await ctx.db.query.member({ where: { auth0id } })
-
-         if (!member) {
-           member = await createMember(ctx, memberToken)
+           return member
          }
+          return member
        } catch (err) {
          memberToken = false
        }
      }
     }
-
+    console.log('isLoggedIn5 : ', await member)
     if (!member) {
       throw new Error(`Not logged in`)
     }
@@ -47,8 +71,8 @@ const isLoggedIn = async ctx => {
 
 
 const isRequestingMemberAlsoOwner = ({ ctx, memberId, type, typeId }) =>
-  ctx.db.exists[type]({ id: typeId, owner: { auth0id: memberId } })
-const isRequestingMember = ({ ctx, memberId }) => ctx.db.exists.Member({ auth0id: memberId })
+  ctx.db.exists[type]({ slug: typeId, owner: memberId })
+const isRequestingMember = ({ ctx, memberId }) => ctx.db.exists.Member({ authId: memberId })
 
 const directiveResolvers = {
   isAuthenticated: async (next, source, args, ctx) => {
@@ -65,12 +89,14 @@ const directiveResolvers = {
     throw new Error(`Unauthorized, incorrect role`)
   },
   isOwner: async (next, source, { type }, ctx) => {
-    const { id: typeId } =
+    console.log('directive isOwner: ', source, type, ctx)
+    const { slug: typeId } =
       source && source.id
         ? source
         : ctx.request.body.variables ? ctx.request.body.variables : { id: null }
-    const { auth0id: memberId } = await isLoggedIn(ctx)
-    console.log('directive isOwner 0: ', type, typeId, memberId)
+    const user = await isLoggedIn(ctx)
+    console.log('directive isOwner 0: ', typeId, user.sub)
+    const memberId = user.sub
     const isOwner =
       type === `Member`
         ? memberId === typeId
@@ -82,14 +108,14 @@ const directiveResolvers = {
     throw new Error(`Unauthorized, must be owner`)
   },
   isOwnerOrHasRole: async (next, source, { roles, type }, ctx, ...p) => {
-    const { auth0id: memberId } = await isLoggedIn(ctx)
+    const { authId: memberId } = await isLoggedIn(ctx)
     console.log('directive isOwnerOrHasRole 1: ', memberId, roles, type)
     if(memberId === undefined && role=== undefined) throw new Error(`Not logged in`)
     if (roles.includes(role)) {
       return next()
     }
 
-    const { auth0id: typeId } = ctx.request.body.variables
+    const { authId: typeId } = ctx.request.body.variables
     const isOwner = await isRequestingMemberAlsoOwner({
       ctx,
       memberId,

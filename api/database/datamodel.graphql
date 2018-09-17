@@ -30,6 +30,7 @@ type Team {
   slug: String! @unique
   profile: TeamProfile
   members: [TeamMembers!]! @relation (name: "TeamMembers", onDelete: SET_NULL)
+  owner: String!
   wallet: Wallet
   fb: [FinancialBeings!]! @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
   status: [TeamStatus!]!
@@ -41,6 +42,7 @@ type TeamProfile {
   motto: String
   avatar: String
   updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type TeamStatus {
@@ -59,7 +61,7 @@ type TeamMembers {
 
 type Member {
   id: ID! @unique
-  nickname: String
+  alias: String
   team: TeamMembers @relation (name: "MemberOnTeam", onDelete: SET_NULL)
   authId: String! @unique
   visible: Boolean! @default(value: true)

@@ -20,7 +20,9 @@ import {
   Footer,
   Callback,
   Home,
+  About,
   Dashboard,
+  Teams,
   theme,
   globalStyles
 } from './views'
@@ -148,7 +150,14 @@ class App extends Component {
               <NavBar auth={auth} />
               <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/dashboard' component={Dashboard} />
+                <Route exact path='/about' component={About} />
+                <Route exact path='/teams' component={Teams} />
+                <Route exact path='/teams/:slug' component={Teams} />
+                <Route
+                  exact
+                  path='/(dashboard|manage-teams|team-members|settings)/'
+                  render={props => <Dashboard {...props} auth={auth} />}
+                />
                 <Route
                   path='/callback'
                   render={props => {

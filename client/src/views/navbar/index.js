@@ -20,6 +20,8 @@ import { getItem } from '../../utils/local-storage'
 import { LoggedIn } from './LoggedIn'
 import { LoggedOut } from './LoggedOut'
 
+import AALogo from '../../assets/logos/advanced-algos/aa-logo-dark.svg'
+
 const AboutLink = props => <Link to='/about' {...props} />
 const TeamsLink = props => <Link to='/teams' {...props} />
 const DashboardLink = props => <Link to='/dashboard' {...props} />
@@ -34,6 +36,9 @@ const styles = theme => ({
   root: {
     flexGrow: 1
   },
+  colorDefault: {
+    color: '#000'
+  },
   flex: {
     flexGrow: 1
   },
@@ -46,6 +51,12 @@ const styles = theme => ({
   },
   appBar: {
     position: 'relative'
+  },
+  img: {
+    margin: 20,
+    display: 'block',
+    maxWidth: 240,
+    maxHeight: 48
   }
 })
 
@@ -71,8 +82,9 @@ class NavBar extends Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position='static' className={classes.appBar}>
+        <AppBar position='static' classes={{ root: classes.appBar, colorDefault: classes.colorDefault }}>
           <Toolbar>
+            <img className={classes.img} src={AALogo} alt='Advanced Algos' />
             <Typography
               variant='title'
               color='inherit'
@@ -89,8 +101,8 @@ class NavBar extends Component {
             >
               <HomeIcon />
             </IconButton>
-            <Button component={TeamsLink}>Teams</Button>
-            <Button component={AboutLink}>About</Button>
+            <Button component={TeamsLink} color='inherit'>Teams</Button>
+            <Button component={AboutLink} color='inherit'>About</Button>
 
             {this.state.user !== undefined && this.state.user !== null ? (
               <React.Fragment>

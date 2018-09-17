@@ -71,8 +71,8 @@ const isLoggedIn = async ctx => {
 
 
 const isRequestingMemberAlsoOwner = ({ ctx, memberId, type, typeId }) =>
-  ctx.db.exists[type]({ id: typeId, owner: { auth0id: memberId } })
-const isRequestingMember = ({ ctx, memberId }) => ctx.db.exists.Member({ auth0id: memberId })
+  ctx.db.exists[type]({ slug: typeId, owner: memberId })
+const isRequestingMember = ({ ctx, memberId }) => ctx.db.exists.Member({ authId: memberId })
 
 const directiveResolvers = {
   isAuthenticated: async (next, source, args, ctx) => {
@@ -89,12 +89,14 @@ const directiveResolvers = {
     throw new Error(`Unauthorized, incorrect role`)
   },
   isOwner: async (next, source, { type }, ctx) => {
-    const { id: typeId } =
+    console.log('directive isOwner: ', source, type, ctx)
+    const { slug: typeId } =
       source && source.id
         ? source
         : ctx.request.body.variables ? ctx.request.body.variables : { id: null }
-    const { auth0id: memberId } = await isLoggedIn(ctx)
-    console.log('directive isOwner 0: ', type, typeId, memberId)
+    const user = await isLoggedIn(ctx)
+    console.log('directive isOwner 0: ', typeId, user.sub)
+    const memberId = user.sub
     const isOwner =
       type === `Member`
         ? memberId === typeId
@@ -106,14 +108,14 @@ const directiveResolvers = {
     throw new Error(`Unauthorized, must be owner`)
   },
   isOwnerOrHasRole: async (next, source, { roles, type }, ctx, ...p) => {
-    const { auth0id: memberId } = await isLoggedIn(ctx)
+    const { authId: memberId } = await isLoggedIn(ctx)
     console.log('directive isOwnerOrHasRole 1: ', memberId, roles, type)
     if(memberId === undefined && role=== undefined) throw new Error(`Not logged in`)
     if (roles.includes(role)) {
       return next()
     }
 
-    const { auth0id: typeId } = ctx.request.body.variables
+    const { authId: typeId } = ctx.request.body.variables
     const isOwner = await isRequestingMemberAlsoOwner({
       ctx,
       memberId,

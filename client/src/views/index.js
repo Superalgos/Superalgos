@@ -8,4 +8,14 @@ import Teams from './teams'
 
 import { theme, globalStyles } from './theme'
 
-export { NavBar, Footer, Callback, Home, About, Dashboard, Teams, theme, globalStyles }
+export {
+  NavBar,
+  Footer,
+  Callback,
+  Home,
+  About,
+  Dashboard,
+  Teams,
+  theme,
+  globalStyles
+}

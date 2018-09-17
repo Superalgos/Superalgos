@@ -2,8 +2,18 @@
 import gql from 'graphql-tag'
 
 const UPDATE_TEAM_PROFILE = gql`
-  mutation UpdateTeamProfileMutation($slug: String!, $owner: String!, $description: String, $motto: String) {
-    updateTeamProfile(slug: $slug, owner: $owner, description: $description, motto: $motto) {
+  mutation UpdateTeamProfileMutation(
+    $slug: String!
+    $owner: String!
+    $description: String
+    $motto: String
+  ) {
+    updateTeamProfile(
+      slug: $slug
+      owner: $owner
+      description: $description
+      motto: $motto
+    ) {
       id
       name
       slug

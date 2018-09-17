@@ -67,12 +67,20 @@ const Footer = ({ classes }) => {
           </NavLink>
         </Grid>
         <Grid item xs>
-          <a href='https://t.me/advancedalgoscommunity' target='_blank>' className={classNames(classes.footerLink)}>
+          <a
+            href='https://t.me/advancedalgoscommunity'
+            target='_blank>'
+            className={classNames(classes.footerLink)}
+          >
             <Typography variant='title' color='textPrimary' gutterBottom>
               Support
             </Typography>
           </a>
-          <a href='https://advancedalgos.net/documentation-quick-start.shtml' target='_blank>' className={classNames(classes.footerLink)}>
+          <a
+            href='https://advancedalgos.net/documentation-quick-start.shtml'
+            target='_blank>'
+            className={classNames(classes.footerLink)}
+          >
             <Typography variant='subheading' color='textSecondary'>
               Documentation
             </Typography>

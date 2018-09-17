@@ -82,7 +82,10 @@ class NavBar extends Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position='static' classes={{ root: classes.appBar, colorDefault: classes.colorDefault }}>
+        <AppBar
+          position='static'
+          classes={{ root: classes.appBar, colorDefault: classes.colorDefault }}
+        >
           <Toolbar>
             <img className={classes.img} src={AALogo} alt='Advanced Algos' />
             <Typography
@@ -101,8 +104,12 @@ class NavBar extends Component {
             >
               <HomeIcon />
             </IconButton>
-            <Button component={TeamsLink} color='inherit'>Teams</Button>
-            <Button component={AboutLink} color='inherit'>About</Button>
+            <Button component={TeamsLink} color='inherit'>
+              Teams
+            </Button>
+            <Button component={AboutLink} color='inherit'>
+              About
+            </Button>
 
             {this.state.user !== undefined && this.state.user !== null ? (
               <React.Fragment>

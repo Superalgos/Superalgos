@@ -66,7 +66,9 @@ export class ManageTeamEdit extends Component {
           let errors
           let loader
           if (loading) {
-            loader = <Typography variant='caption'>Submitting team...</Typography>
+            loader = (
+              <Typography variant='caption'>Submitting team...</Typography>
+            )
           }
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
@@ -81,7 +83,12 @@ export class ManageTeamEdit extends Component {
           }
           return (
             <div>
-              <Button size='small' color='primary' className={classes.buttonRight} onClick={this.handleClickOpen}>
+              <Button
+                size='small'
+                color='primary'
+                className={classes.buttonRight}
+                onClick={this.handleClickOpen}
+              >
                 <EditIcon /> Edit
               </Button>
               <Dialog
@@ -90,7 +97,9 @@ export class ManageTeamEdit extends Component {
                 aria-labelledby='form-dialog-title'
               >
                 <div classes={classes.dialogContainer}>
-                  <DialogTitle id='form-dialog-title'>Edit Team Details</DialogTitle>
+                  <DialogTitle id='form-dialog-title'>
+                    Edit Team Details
+                  </DialogTitle>
                   <DialogContent>
                     <TextField
                       autoFocus
@@ -131,9 +140,12 @@ export class ManageTeamEdit extends Component {
                     <Button onClick={this.handleClose} color='primary'>
                       Cancel
                     </Button>
-                    <Button onClick={e => {
-                      this.handleSubmit(e, updateTeamProfile, this.props.slug)
-                    }} color='primary'>
+                    <Button
+                      onClick={e => {
+                        this.handleSubmit(e, updateTeamProfile, this.props.slug)
+                      }}
+                      color='primary'
+                    >
                       Update Team
                     </Button>
                   </DialogActions>
@@ -171,7 +183,15 @@ export class ManageTeamEdit extends Component {
     const currentUser = await getItem('user')
     let authId = JSON.parse(currentUser)
     authId = authId.authId
-    await updateTeamProfile({ variables: { slug, owner: authId, description: this.state.description, motto: this.state.motto } })
+    await updateTeamProfile({
+      variables: {
+        slug,
+        owner: authId,
+        description: this.state.description,
+        motto: this.state.motto
+      }
+    })
+    this.setState({ description: '', motto: '', open: false })
   }
 }
 

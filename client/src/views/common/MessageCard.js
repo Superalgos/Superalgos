@@ -27,7 +27,9 @@ export const MessageCard = ({ classes, message, children }) => (
   <Card className={classes.card}>
     <div className={classes.cardDetails}>
       <CardContent className={classes.cardContent}>
-        <Typography variant='headline' align='center' gutterBottom>{message}</Typography>
+        <Typography variant='headline' align='center' gutterBottom>
+          {message}
+        </Typography>
         {children}
       </CardContent>
     </div>

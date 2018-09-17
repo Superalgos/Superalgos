@@ -14,8 +14,6 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
-
-import { getItem } from '../../../utils/local-storage'
 import { isEmpty } from '../../../utils/js-helpers'
 
 import CREATE_TEAM from '../../../graphql/teams/CreateTeamMutation'
@@ -74,7 +72,9 @@ export class CreateTeamDialog extends Component {
           let errors
           let loader = null
           if (loading) {
-            loader = <Typography variant='subheading'>Submitting team...</Typography>
+            loader = (
+              <Typography variant='subheading'>Submitting team...</Typography>
+            )
           }
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
@@ -88,7 +88,13 @@ export class CreateTeamDialog extends Component {
           }
           return (
             <div>
-              <Button variant='fab' color='primary' aria-label='Add' className={classes.buttonRight} onClick={this.handleClickOpen}>
+              <Button
+                variant='fab'
+                color='primary'
+                aria-label='Add'
+                className={classes.buttonRight}
+                onClick={this.handleClickOpen}
+              >
                 <AddIcon />
               </Button>
               <Dialog
@@ -99,7 +105,10 @@ export class CreateTeamDialog extends Component {
                 <DialogTitle id='form-dialog-title'>Create a Team</DialogTitle>
                 <DialogContent>
                   <DialogContentText>Team Name:</DialogContentText>
-                  <FormControl required error={e => (this.state.errors.name !== '' || error)}>
+                  <FormControl
+                    required
+                    error={this.state.errors.name !== '' || error}
+                  >
                     <TextField
                       autoFocus
                       margin='dense'
@@ -111,8 +120,10 @@ export class CreateTeamDialog extends Component {
                       onChange={this.handleChange}
                       error={this.state.errors.name !== '' || error}
                     />
-                    {this.state.errors.name !== '' && (<FormHelperText>{this.state.errors.name}</FormHelperText>)}
-                    {error && (<FormHelperText>{errors}</FormHelperText>)}
+                    {this.state.errors.name !== '' && (
+                      <FormHelperText>{this.state.errors.name}</FormHelperText>
+                    )}
+                    {error && <FormHelperText>{errors}</FormHelperText>}
                     {loader}
                   </FormControl>
                 </DialogContent>
@@ -120,9 +131,12 @@ export class CreateTeamDialog extends Component {
                   <Button onClick={this.handleClose} color='primary'>
                     Cancel
                   </Button>
-                  <Button onClick={e => {
-                    this.handleSubmit(e, createTeam, this.state.name)
-                  }} color='primary'>
+                  <Button
+                    onClick={e => {
+                      this.handleSubmit(e, createTeam, this.state.name, authId)
+                    }}
+                    color='primary'
+                  >
                     Create Team
                   </Button>
                 </DialogActions>
@@ -153,15 +167,12 @@ export class CreateTeamDialog extends Component {
     }
   }
 
-  async handleSubmit (e, createTeam, name) {
+  async handleSubmit (e, createTeam, name, authId) {
     e.preventDefault()
-    const currentUser = await getItem('user')
-    let authId = JSON.parse(currentUser)
-    authId = authId.authId
     console.log('createTeam submit: ', authId, name)
     const slug = this.slugify(name)
     await createTeam({ variables: { name, slug, owner: authId } })
-    this.setState({ name: '' })
+    this.setState({ name: '', open: false })
   }
 
   validate (data) {

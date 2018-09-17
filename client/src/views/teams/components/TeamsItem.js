@@ -37,7 +37,7 @@ export const TeamsItem = ({ classes, team }) => (
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Link to={`/teams/${team.slug}`} >
+        <Link to={`/teams/${team.slug}`}>
           <Button size='small' color='primary' className={classes.buttonRight}>
             Details
           </Button>

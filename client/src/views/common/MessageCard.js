@@ -37,7 +37,7 @@ export const MessageCard = ({ classes, message, children }) => (
 MessageCard.propTypes = {
   children: PropTypes.node,
   classes: PropTypes.object.isRequired,
-  message: PropTypes.string.isRequired
+  message: PropTypes.string
 }
 
 export default withStyles(styles)(MessageCard)

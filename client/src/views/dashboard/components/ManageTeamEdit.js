@@ -38,21 +38,20 @@ export class ManageTeamEdit extends Component {
 
   render () {
     console.log(this.props, this.props.slug)
+    const { authId } = this.props
     return (
       <Mutation
         mutation={UPDATE_TEAM_PROFILE}
-        update={(cache, { data: { deleteTeam } }) => {
-          const data = cache.readQuery({ query: GET_TEAMS_BY_OWNER })
-          console.log('Mutation cache update: ', deleteTeam, data)
-          data.getTeamsByOwner.push(deleteTeam)
-          cache.writeQuery({ query: GET_TEAMS_BY_OWNER, data })
-        }}
+        refetchQueries={[
+          {
+            query: GET_TEAMS_BY_OWNER,
+            variables: { authId }
+          }
+        ]}
       >
         {(updateTeamProfile, { loading, error, data }) => {
           let errors
           let loader
-          let description
-          let motto
           if (loading) {
             loader = <Typography variant='caption'>Submitting team...</Typography>
           }
@@ -84,21 +83,17 @@ export class ManageTeamEdit extends Component {
                   <TextField
                     autoFocus
                     margin='dense'
-                    id='teammotto'
+                    id='motto'
                     label='Team Motto'
                     type='text'
                     fullWidth
                     value={this.state.motto}
                     onChange={this.handleChange}
-                    inputRef={node => {
-                      motto = node
-                    }}
                   />
                   <DialogContentText>Team description:</DialogContentText>
                   <TextField
-                    autoFocus
                     margin='dense'
-                    id='teamDescription'
+                    id='description'
                     label='Team Description'
                     type='text'
                     rows={4}
@@ -106,9 +101,6 @@ export class ManageTeamEdit extends Component {
                     fullWidth
                     value={this.state.description}
                     onChange={this.handleChange}
-                    inputRef={node => {
-                      description = node
-                    }}
                   />
                   {loader}
                   {errors}
@@ -118,7 +110,7 @@ export class ManageTeamEdit extends Component {
                     Cancel
                   </Button>
                   <Button onClick={e => {
-                    this.handleSubmit(e, updateTeamProfile, this.props.slug, description, motto)
+                    this.handleSubmit(e, updateTeamProfile, this.props.slug)
                   }} color='primary'>
                     Update Team
                   </Button>
@@ -151,18 +143,19 @@ export class ManageTeamEdit extends Component {
     }
   }
 
-  async handleSubmit (e, updateTeamProfile, slug, description, motto) {
+  async handleSubmit (e, updateTeamProfile, slug) {
     e.preventDefault()
     const currentUser = await getItem('user')
     let authId = JSON.parse(currentUser)
     authId = authId.authId
-    await updateTeamProfile({ variables: { slug, owner: authId, description: description, motto: motto } })
+    await updateTeamProfile({ variables: { slug, owner: authId, description: this.state.description, motto: this.state.motto } })
   }
 }
 
 ManageTeamEdit.propTypes = {
   classes: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired
+  slug: PropTypes.string.isRequired,
+  authId: PropTypes.string
 }
 
 export default withRouter(ManageTeamEdit)

@@ -94,7 +94,7 @@ const resolvers = {
       return member
     },
     async createTeam(parent, { name, slug, owner }, ctx, info) {
-      return ctx.db.mutation.createTeam({ data: { name: name, slug: slug, owner: owner, members: { create: { member:{ connect:{ authId: owner} }, role: 'OWNER' } } } }, TEAMS_FRAGMENT)
+      return ctx.db.mutation.createTeam({ data: { name: name, slug: slug, owner: owner, members: { create: { member:{ connect:{ authId: owner} }, role: 'OWNER' } }, profile:{create:{avatar:"a"} } } }, TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err

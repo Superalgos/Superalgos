@@ -42,6 +42,7 @@ type TeamProfile {
   motto: String
   avatar: String
   updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type TeamStatus {

@@ -102,7 +102,7 @@ export const ManageTeamsList = ({ classes, user = null }) => {
             } else {
               return (
                 <Grid container spacing={40}>
-                  <Grid xs={10}>
+                  <Grid item xs={10}>
                     <MessageCard message='You don&rsquo;t have any teams. Create one!'>
                       <CreateTeamDialog authId={authId} />
                     </MessageCard>
@@ -113,7 +113,7 @@ export const ManageTeamsList = ({ classes, user = null }) => {
           } else {
             return (
               <Grid container spacing={40}>
-                <Grid xs={12}>
+                <Grid item xs={12}>
                   <MessageCard message='Loading...' />
                   if (errors !== null) (<MessageCard message={errors} />)
                 </Grid>

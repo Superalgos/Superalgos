@@ -74,7 +74,7 @@ export const DashTeam = ({ classes, user = null }) => {
             } else {
               return (
                 <Grid container spacing={40}>
-                  <Grid xs={10}>
+                  <Grid item xs={10}>
                     <MessageCard message='No teams yet...'>
                       <CreateTeamDialog authId={authId} />
                     </MessageCard>

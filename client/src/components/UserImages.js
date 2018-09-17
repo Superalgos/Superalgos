@@ -1,8 +1,11 @@
 import React from 'react';
 import {graphql, compose} from 'react-apollo'
 import {getRolesQuery, updateUserMutation, getUsersQuery} from '../queries/queries'
+import Avatar from '@material-ui/core/Avatar';
+import classNames from 'classnames';
 
-import ReactFilestack from 'filestack-react';
+import ReactFilestack from 'filestack-react'
+import Portrait from '../img/portrait.jpg'
 
 // Material-ui
 
@@ -14,17 +17,28 @@ const options = {
   accept: ['image/jpeg', 'image/jpg', 'image/png'],
   maxFiles: 1,
   imageDim: [300, 300],
-  maxSize: 0.25 * 1024 * 1024, // 1/4 of 1 Mb 
+  maxSize: 0.25 * 1024 * 1024, // 1/4 of 1 Mb
   storeTo: {
     location: 's3',
   },
 };
 
 const styles = theme => ({
-  
+
   button: {
     margin: theme.spacing.unit,
     marginTop: theme.spacing.unit * 3
+  },
+  row: {
+  display: 'flex',
+  justifyContent: 'center',
+  },
+  avatar: {
+    margin: 10,
+  },
+  bigAvatar: {
+    width: 60,
+    height: 60,
   },
 })
 
@@ -36,7 +50,7 @@ class UserImages extends React.Component {
       avatarHandle: ''
     }
   }
-  
+
   onSuccess = (uploadResults) => {
     console.log('onSuccess')
     console.log(uploadResults)
@@ -54,7 +68,16 @@ class UserImages extends React.Component {
     return (
       <div>
         <Grid container justify='center' >
-          <Grid item>            
+          <Grid item>
+          <div className={classes.row}>
+            <Avatar alt="Remy Sharp" src={Portrait} className={classes.avatar} />
+            <Avatar
+              alt="Adelle Charles"
+              src={Portrait}
+              className={classNames(classes.avatar, classes.bigAvatar)}
+            />
+            </div>
+             
             <img  src={"https://cdn.filestackcontent.com/"  + this.state.avatarHandle} alt='2' />
             <Button variant='contained' color='secondary' className={classes.button}>
               <ReactFilestack

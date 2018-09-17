@@ -179,8 +179,6 @@ const Mutation = new GraphQLObjectType({
         isDeveloper: {type: GraphQLInt},
         isTrader: {type: GraphQLInt},
         isDataAnalyst: {type: GraphQLInt},
-        avatarHandle: {type: GraphQLString},
-        avatarChangeDate: {type: GraphQLString},
         roleId: {type: new GraphQLNonNull(GraphQLString)}
       },
       resolve (parent, args) {
@@ -196,9 +194,27 @@ const Mutation = new GraphQLObjectType({
           isDeveloper: args.isDeveloper,
           isTrader: args.isTrader,
           isDataAnalyst: args.isDataAnalyst,
-          avatarHandle: args.avatarHandle,
-          avatarChangeDate: args.avatarChangeDate,
           roleId: args.roleId
+        }
+
+        return User.update(key, updatedUser)
+      }
+    },
+    updateUserImages: {
+      type: UserType,
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLID)},
+        avatarHandle: {type: GraphQLString},
+        avatarChangeDate: {type: GraphQLString}
+      },
+      resolve (parent, args) {
+        let key = {
+          _id: args.id
+        }
+
+        let updatedUser = {
+          avatarHandle: args.avatarHandle,
+          avatarChangeDate: args.avatarChangeDate
         }
 
         return User.update(key, updatedUser)

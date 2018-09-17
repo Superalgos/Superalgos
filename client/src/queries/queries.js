@@ -97,4 +97,23 @@ mutation(
     }
 }
 `
-export {getUsersQuery, getUserByAuthIdQuery, getRolesQuery, updateUserMutation, getUserProfileQuery}
+
+const updateUserImagesMutation = gql`
+mutation(
+  $id: ID!,
+  $avatarHandle:String,
+  $avatarChangeDate:String 
+)
+  {
+    updateUser (
+      id: $id,
+      avatarHandle:$avatarHandle,
+      avatarChangeDate: $avatarChangeDate 
+    )
+    {
+      id
+      alias
+    }
+}
+`
+export {getUsersQuery, getUserByAuthIdQuery, getRolesQuery, getUserProfileQuery, updateUserMutation, updateUserImagesMutation}

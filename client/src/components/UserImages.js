@@ -184,7 +184,7 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
      
       const { classes } = this.props
 
-      if (this.state.removeCurrentAvatar === true) {
+      if (this.state.removeCurrentAvatar === false) {
 
         return (
           <div>

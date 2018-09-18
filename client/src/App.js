@@ -155,11 +155,7 @@ class App extends Component {
                 <Route exact path='/teams/:slug' component={Teams} />
                 <Route
                   exact
-<<<<<<< HEAD
-                  path='/(dashboard|manage-teams|team-members|settings)/'
-=======
                   path='/(dashboard|manage-teams|team-members|financial-beings|settings)/'
->>>>>>> feature/client-refactor-react
                   render={props => <Dashboard {...props} auth={auth} />}
                 />
                 <Route

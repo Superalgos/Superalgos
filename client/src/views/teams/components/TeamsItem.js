@@ -37,11 +37,7 @@ export const TeamsItem = ({ classes, team }) => (
         </CardContent>
       </CardActionArea>
       <CardActions>
-<<<<<<< HEAD
-        <Link to={`/teams/${team.slug}`} >
-=======
         <Link to={`/teams/${team.slug}`}>
->>>>>>> feature/client-refactor-react
           <Button size='small' color='primary' className={classes.buttonRight}>
             Details
           </Button>

@@ -15,11 +15,7 @@ const styles = theme => ({
 const TeamMembers = ({ classes }) => (
   <div>
     <Typography variant='display1' gutterBottom>
-<<<<<<< HEAD
-      Members
-=======
       Team Members
->>>>>>> feature/client-refactor-react
     </Typography>
     <div className={classes.tableContainer}>
       <MessageCard message='Coming soon. Invite and manage team members' />

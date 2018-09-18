@@ -39,11 +39,7 @@ const styles = theme => ({
 })
 
 export const TeamsList = ({ classes, match }) => (
-<<<<<<< HEAD
-  <Query query={GET_ALL_TEAMS_QUERY} fetchPolicy='cache-and-network' >
-=======
   <Query query={GET_ALL_TEAMS_QUERY} fetchPolicy='cache-and-network'>
->>>>>>> feature/client-refactor-react
     {({ loading, error, data }) => {
       console.log('GET_ALL_TEAMS: ', loading, error, data, match)
       let slug = null
@@ -69,14 +65,7 @@ export const TeamsList = ({ classes, match }) => (
                   data.teams.edges.map(team => {
                     if (team.node.slug === slug) {
                       return (
-<<<<<<< HEAD
-                        <TeamsDetails
-                          key={team.node.id}
-                          team={team.node}
-                        />
-=======
                         <TeamsDetails key={team.node.id} team={team.node} />
->>>>>>> feature/client-refactor-react
                       )
                     }
                   })}

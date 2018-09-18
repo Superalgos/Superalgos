@@ -38,16 +38,12 @@ export class ManageTeamDetails extends Component {
     const { name, members, profile, createdAt } = this.props.team
     return (
       <div>
-<<<<<<< HEAD
-        <Button size='small' color='primary' className={this.props.classes.buttonRight} onClick={this.handleClickOpen}>
-=======
         <Button
           size='small'
           color='primary'
           className={this.props.classes.buttonRight}
           onClick={this.handleClickOpen}
         >
->>>>>>> feature/client-refactor-react
           <DetailsIcon /> Details
         </Button>
         <Dialog
@@ -56,13 +52,9 @@ export class ManageTeamDetails extends Component {
           aria-labelledby='form-dialog-title'
         >
           <div classes={this.props.classes.dialogContainer}>
-<<<<<<< HEAD
-            <DialogTitle id='form-dialog-title'>{name} Team Details</DialogTitle>
-=======
             <DialogTitle id='form-dialog-title'>
               {name} Team Details
             </DialogTitle>
->>>>>>> feature/client-refactor-react
             <DialogContent>
               <Typography
                 variant='display3'
@@ -85,25 +77,18 @@ export class ManageTeamDetails extends Component {
                 Members: {members.length}
               </Typography>
               <Typography variant='subheading' color='primary'>
-<<<<<<< HEAD
-                Team Admin:
-                {
-                  members.map(member => {
-                    if (member.role === 'OWNER' || member.role === 'ADMIN') {
-                      return member.member.alias
-                    }
-                  })
-                }
-=======
                 Team Admin:&nbsp;
                 {members.map(member => {
                   if (member.role === 'OWNER' || member.role === 'ADMIN') {
-                    if (member.member !== null && member.member.alias !== undefined && member.member.alias !== null) {
+                    if (
+                      member.member !== null &&
+                      member.member.alias !== undefined &&
+                      member.member.alias !== null
+                    ) {
                       return member.member.alias
                     }
                   }
                 })}
->>>>>>> feature/client-refactor-react
               </Typography>
             </DialogContent>
             <DialogActions>

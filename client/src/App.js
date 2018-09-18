@@ -27,10 +27,15 @@ import Modules from './components/Modules'
 import Contact from './components/Contact'
 import Logout from './components/Logout'
 import Post from './components/Post'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 import Callback from './components/Callback'
 
 import Auth from './auth/Auth'
+
+import {
+//  NavBar,
+  Footer
+} from './views'
 
 // Apollo Client Setup
 const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql', changeOrigin: true })

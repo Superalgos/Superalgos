@@ -76,6 +76,12 @@ function newFileCursor() {
             beginDateRange = pBeginDateRange;
             endDateRange = pEndDateRange;
 
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> market = " + market); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> periodName = " + periodName); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> cursorDate = " + cursorDate); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> beginDateRange = " + beginDateRange); }
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> endDateRange = " + endDateRange); }
+
             setTimePeriod(pCurrentTimePeriod, pCursorDate);
 
             intervalHandle = setInterval(updateFiles , timePeriod);

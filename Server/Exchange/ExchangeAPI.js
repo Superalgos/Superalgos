@@ -1,4 +1,4 @@
-﻿exports.newExchangeAPI = function newExchangeAPI(bot, logger) {
+﻿exports.newExchangeAPI = function newExchangeAPI() {
 
     /* 
 
@@ -29,18 +29,16 @@
     function initialize(callBackFunction) {
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> Entering function."); }
 
             let exchange = global.EXCHANGE_NAME.toLowerCase() + 'Client.js';
             let api = require('./Wrappers/' + exchange);
-            if (!bot.instanceIndex)
-                bot.instanceIndex = 0;
-            apiClient = api.newAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Secret, logger);
+            apiClient = api.newAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            console.log("[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -84,12 +82,12 @@
     function getExchangeProperties() {
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExchangeProperties -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] getExchangeProperties -> Entering function."); }
 
             return apiClient.getExchangeProperties();
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] getExchangeProperties -> err = " + err.message);
+            console.log("[ERROR] getExchangeProperties -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -106,12 +104,12 @@
     function getTicker(pMarket, callBack) {
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTicker -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] getTicker -> Entering function."); }
 
             apiClient.getTicker(pMarket, callBack);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] getTicker -> err = " + err.message);
+            console.log("[ERROR] getTicker -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -124,13 +122,13 @@
     function getOpenPositions(pMarket, callBack) {
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] getOpenPositions -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
 
             apiClient.getOpenPositions(pMarket, callBack);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] getOpenPositions -> Error = " + err.message);
+            console.log("[ERROR] getOpenPositions -> Error = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -142,13 +140,13 @@
     function getExecutedTrades(pPositionId, callBack) {
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> pPositionId = " + pPositionId); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] getExecutedTrades -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] getExecutedTrades -> pPositionId = " + pPositionId); }
 
             apiClient.getExecutedTrades(pPositionId, callBack);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] getExecutedTrades -> Error = " + err.message);
+            console.log("[ERROR] getExecutedTrades -> Error = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -160,12 +158,12 @@
     function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBack) {
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pMarket = " + JSON.stringify(pMarket)); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + truncDecimals(pRate)); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + truncDecimals(pAmountA)); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + truncDecimals(pAmountB)); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] putPosition -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] putPosition -> pMarket = " + JSON.stringify(pMarket)); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] putPosition -> pType = " + pType); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] putPosition -> pRate = " + truncDecimals(pRate)); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] putPosition -> pAmountA = " + truncDecimals(pAmountA)); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] putPosition -> pAmountB = " + truncDecimals(pAmountB)); }
 
             let check = isValidOrder({
                 market: getMarketConfig(),
@@ -185,16 +183,16 @@
                     return;
                 }
                 
-                logger.write(MODULE_NAME, "[ERROR] putPosition -> pType must be either 'buy' or 'sell'.");
+                console.log("[ERROR] putPosition -> pType must be either 'buy' or 'sell'.");
                 callBack(global.DEFAULT_FAIL_RESPONSE);
 
             } else {
-                logger.write(MODULE_NAME, "[ERROR] putPosition -> The order is invalid: " + check.reason);
+                console.log("[ERROR] putPosition -> The order is invalid: " + check.reason);
                 callBack(global.DEFAULT_FAIL_RESPONSE);
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = " + err.message);
+            console.log("[ERROR] putPosition -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -206,14 +204,14 @@
     function movePosition(pPosition, pNewRate, pNewAmountB, callBack) {
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + truncDecimals(pNewRate)); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] movePosition -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] movePosition -> pNewRate = " + truncDecimals(pNewRate)); }
 
             apiClient.movePosition(pPosition, truncDecimals(pNewRate), truncDecimals(pNewAmountB), callBack);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.message);
+            console.log("[ERROR] movePosition -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -235,12 +233,12 @@
     function getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack) {
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTradeHistory -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] getTradeHistory -> Entering function."); }
 
             apiClient.getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] getTradeHistory -> err = " + err.message);
+            console.log("[ERROR] getTradeHistory -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }

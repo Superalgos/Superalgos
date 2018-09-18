@@ -737,6 +737,8 @@ function onBrowserRequest(request, response) {
                     let exchangeKey = session.exchangeKeys[0].key;  // 0 because we only deal with one exchange for now.
                     let exchangeSecret = session.exchangeKeys[0].secret;
 
+                    global.EXCHANGE_NAME = "Poloniex";
+
                     global.EXCHANGE_KEYS = {
                         "Poloniex": {
                             "Key": exchangeKey,
@@ -747,51 +749,77 @@ function onBrowserRequest(request, response) {
                     const EXCHANGE_API = require('./Server/Exchange/' + 'ExchangeAPI');
                     let exchangeAPI = EXCHANGE_API.newExchangeAPI();
 
-                    switch (requestParameters[2]) {
+                    exchangeAPI.initialize(onInizialized);
 
-                        case "returnOpenOrders": {
-                            exchangeAPI.returnOpenOrders(requestParameters[4], requestParameters[5], onExchangeResponse);
-                            break;
+                    function onInizialized(err) {
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Entering function."); }
+
+                        switch (err.result) {
+                            case global.DEFAULT_OK_RESPONSE.result: {
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI ->  onInizialized -> Execution finished well."); }
+                                callExchangeAPIMethod();
+                                return;
+                            }
+                            case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                respondWithContent("", response);
+                                return;
+                            }
+                            case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
+                                respondWithContent("", response);
+                                return;
+                            }
                         }
+                    }
+                    
+                    function callExchangeAPIMethod() {                    
+                        switch (requestParameters[2]) {
 
-                        case "returnOrderTrades": {
-                            exchangeAPI.returnOrderTrades(requestParameters[4], onExchangeResponse);
-                            break;
-                        }
+                            case "getTicker": {
+                                exchangeAPI.getTicker(global.MARKET, onExchangeResponse);
+                                break;
+                            }
 
-                        case "buy": {
-                            exchangeAPI.buy(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
-                            break;
-                        }
+                            case "getOpenPositions": {
+                                exchangeAPI.getOpenPositions(global.MARKET, onExchangeResponse);
+                                break;
+                            }
 
-                        case "sell": {
-                            exchangeAPI.sell(requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
-                            break;
-                        }
+                            case "getExecutedTrades": {
+                                exchangeAPI.getExecutedTrades(requestParameters[4], onExchangeResponse);
+                                break;
+                            }
 
-                        case "moveOrder": {
-                            exchangeAPI.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
-                            break;
-                        }
+                            case "putPosition": {
+                                exchangeAPI.putPosition(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                                break;
+                            }
 
-                        case "returnTicker": {
-                            exchangeAPI.returnTicker(onExchangeResponse);
-                            break;
+                            case "movePosition": {
+                                exchangeAPI.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
+                                break;
+                            }
+                            
+                            case "getPublicTradeHistory": {
+                                exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
+                                break;
+                            }
+
+                            case "initialize": {
+                                onExchangeResponse(global.DEFAULT_OK_RESPONSE);
+                                break;
+                            }
+                            
                         }
                     }
 
-                    function onExchangeResponse(err, exchangeResponse) {
+                    function onExchangeResponse(exchangeResponse) {
 
                         /* Delete these secrets before they get logged. */
 
-                        requestParameters[3] = "";
-
-                        let serverResponse = {
-                            err: err,
-                            exchangeResponse: exchangeResponse
-                        }
-
-                        respondWithContent(JSON.stringify(serverResponse), response);
+                        requestParameters[3] = "";                        
+                        respondWithContent(JSON.stringify(exchangeResponse), response);
                     }
 
                     return;

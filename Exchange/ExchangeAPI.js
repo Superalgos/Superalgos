@@ -3,28 +3,25 @@
     const INFO_LOG = true;
     const LOG_FILE_CONTENT = true;
 
-    const MODULE_NAME = "CloudVM -> Poloniex Client API";
-
+    const MODULE_NAME = "CloudVM -> Exchange API";
+    
     let thisObject = {
-        API: {
-            returnOpenOrders: returnOpenOrders,
-            returnOrderTrades: returnOrderTrades,
-            buy: buy,
-            sell: sell,
-            moveOrder: moveOrder,
-            returnTicker: returnTicker
-        }
+        initialize: initialize,
+        getTicker: getTicker,
+        getOpenPositions: getOpenPositions,
+        getExecutedTrades: getExecutedTrades,
+        putPosition: putPosition,
+        movePosition: movePosition,
+        getPublicTradeHistory: getPublicTradeHistory
     };
 
     return thisObject;
 
-    function returnOpenOrders(pMarketAssetA, pMarketAssetB, callBackFunction) {
+    function initialize(callBackFunction) {
 
-        let path = "ExchangeAPI" + "/" 
-            + "returnOpenOrders" + "/" 
-            + window.SESSION_TOKEN + "/"
-            + pMarketAssetA + "/"
-            + pMarketAssetB
+        let path = "ExchangeAPI" + "/"
+            + "initialize" + "/"
+            + window.SESSION_TOKEN
             ;
 
         callServer(undefined, path + "/NO-LOG", onServerResponse);
@@ -32,15 +29,49 @@
         function onServerResponse(pServerResponse) {
 
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response.err, response.exchangeResponse);
+            callBackFunction(response);
 
         }
     }
 
-    function returnOrderTrades(pPositionId, callBackFunction) {
+    function getTicker(pMarket, callBackFunction) {
 
         let path = "ExchangeAPI" + "/"
-            + "returnOrderTrades" + "/"
+            + "getTicker" + "/"
+            + window.SESSION_TOKEN
+            ;
+
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+
+            let response = JSON.parse(pServerResponse);
+            callBackFunction(response);
+
+        }
+    }
+
+    function getOpenPositions(pMarket, callBackFunction) {
+
+        let path = "ExchangeAPI" + "/"
+            + "getOpenPositions" + "/"
+            + window.SESSION_TOKEN
+            ;
+
+        callServer(undefined, path + "/NO-LOG", onServerResponse);
+
+        function onServerResponse(pServerResponse) {
+
+            let response = JSON.parse(pServerResponse);
+            callBackFunction(response);
+
+        }
+    }
+
+    function getExecutedTrades(pPositionId, callBackFunction) {
+
+        let path = "ExchangeAPI" + "/"
+            + "getExecutedTrades" + "/"
             + window.SESSION_TOKEN + "/"
             + pPositionId
             ;
@@ -50,19 +81,19 @@
         function onServerResponse(pServerResponse) {
 
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response.err, response.exchangeResponse);
+            callBackFunction(response);
 
         }
     }
-
-    function buy(pMarketAssetA, pMarketAssetB, pRate, pAmountB, callBackFunction) {
+    
+    function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
 
         let path = "ExchangeAPI" + "/"
-            + "buy" + "/"
+            + "putPosition" + "/"
             + window.SESSION_TOKEN + "/"
-            + pMarketAssetA + "/"
-            + pMarketAssetB + "/"
+            + pType + "/"
             + pRate + "/"
+            + pAmountA + "/"
             + pAmountB
             ;
 
@@ -71,36 +102,15 @@
         function onServerResponse(pServerResponse) {
 
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response.err, response.exchangeResponse);
+            callBackFunction(response);
 
         }
     }
 
-    function sell(pMarketAssetA, pMarketAssetB, pRate, pAmountB, callBackFunction) {
+    function movePosition(pPositionId, pNewRate, pPositionAmountB, callBackFunction) {
 
         let path = "ExchangeAPI" + "/"
-            + "sell" + "/"
-            + window.SESSION_TOKEN + "/"
-            + pMarketAssetA + "/"
-            + pMarketAssetB + "/"
-            + pRate + "/"
-            + pAmountB
-            ;
-
-        callServer(undefined, path + "/NO-LOG", onServerResponse);
-
-        function onServerResponse(pServerResponse) {
-
-            let response = JSON.parse(pServerResponse);
-            callBackFunction(response.err, response.exchangeResponse);
-
-        }
-    }
-
-    function moveOrder(pPositionId, pNewRate, pPositionAmountB, callBackFunction) {
-
-        let path = "ExchangeAPI" + "/"
-            + "moveOrder" + "/"
+            + "movePosition" + "/"
             + window.SESSION_TOKEN + "/"
             + pPositionId + "/"
             + pNewRate + "/"
@@ -112,16 +122,18 @@
         function onServerResponse(pServerResponse) {
 
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response.err, response.exchangeResponse);
+            callBackFunction(response);
 
         }
     }
 
-    function returnTicker(callBackFunction) {
+    function getPublicTradeHistory(pMarket, startTime, endTime, callBackFunction) {
 
         let path = "ExchangeAPI" + "/"
-            + "returnTicker" + "/"
-            + window.SESSION_TOKEN
+            + "getPublicTradeHistory" + "/"
+            + window.SESSION_TOKEN + "/"
+            + startTime + "/"
+            + endTime
             ;
 
         callServer(undefined, path + "/NO-LOG", onServerResponse);
@@ -129,7 +141,7 @@
         function onServerResponse(pServerResponse) {
 
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response.err, response.exchangeResponse);
+            callBackFunction(response);
 
         }
     }

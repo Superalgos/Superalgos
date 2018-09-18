@@ -739,6 +739,11 @@ function onBrowserRequest(request, response) {
 
                     global.EXCHANGE_NAME = "Poloniex";
 
+                    global.MARKET = {
+                        assetA: "USDT",
+                        assetB: "BTC"
+                    };
+
                     global.EXCHANGE_KEYS = {
                         "Poloniex": {
                             "Key": exchangeKey,
@@ -814,12 +819,15 @@ function onBrowserRequest(request, response) {
                         }
                     }
 
-                    function onExchangeResponse(exchangeResponse) {
+                    function onExchangeResponse(err, exchangeResponse) {
 
                         /* Delete these secrets before they get logged. */
 
-                        requestParameters[3] = "";                        
-                        respondWithContent(JSON.stringify(exchangeResponse), response);
+                        requestParameters[3] = "";
+                        if (err.result === global.DEFAULT_OK_RESPONSE.result)
+                            respondWithContent(JSON.stringify(exchangeResponse), response);
+                        else
+                            respondWithContent(JSON.stringify(err), response);
                     }
 
                     return;

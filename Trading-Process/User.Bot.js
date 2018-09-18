@@ -1,58 +1,81 @@
 exports.newUserBot = function newUserBot (bot, logger) {
+  // Variable used for logs, this will be passed to the logger instance
   const MODULE_NAME = 'User Bot'
+  // Debug log level
   const FULL_LOG = true
+  // Info log level
   const LOG_INFO = true
 
+  /*
+    This variable will be used during initialization to get the parameters
+    from the platform. At the moment it won't be used and we will only create
+    a single bot instance. In the future it will allow to create different
+    clones of the algonet.
+  */
+  let genes
+
+  /*
+    The reference to the Traing Platform Advanced Algos Assistant that will
+    allow to put positions on the exchange.
+  */
+  let assistant
+
+  /*
+    This is a dependency example to other bots, in this case to the the
+    LRC Indicator.
+  */
+  let gaussStorage
+
+  /*
+    This objects returns two public functions that will be used to integrate
+    with the platform.
+  */
   let thisObject = {
     initialize: initialize,
     start: start
   }
-
-    /*
-      This variable will be used during initialization to get the parameters
-      from the platform. At the moment it won't be used and we will only create
-      a single bot instance. In the future it will allow to create different
-      clones of the algonet.
-    */
-
-  let genes
-
-    /*
-      The reference to the Traing Platform Advanced Algos Assistant that will
-      allow to put positions on the exchange
-    */
-  let assistant
-
-    /*
-      This is a dependency example to other bots, in this case to the the
-      LRC Indicator.
-    */
-  let gaussStorage
-
   return thisObject
 
-    /*
-      The initialize function should be created as follows.
-    */
+  /*
+    The initialize function must be implemented by all trading bots.
+  */
   function initialize (pAssistant, pGenes, callBackFunction) {
     try {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] initialize -> Entering function.') }
 
+      // Integration with platform logger, when running on cloud
       logger.fileName = MODULE_NAME
 
+      /*
+        We keep a local reference to the assistant that will allow to put
+        positions on the exchange and it's created and managed by the platform
+      */
       assistant = pAssistant
 
+      /*
+        On 'assistant.dataDependencies.dataSets' we will receive the data files
+        retrieved for those defined on the bot configuration (this.bot.config.json)
+        Note that the key is:
+          TeamName-BotName-BotProductFolder-BotProcessName-BotDataSetVersion
+      */
       let key = 'AAVikings-AAGauss-LRC-Points-Multi-Period-Daily-dataSet.V1'
-
       gaussStorage = assistant.dataDependencies.dataSets.get(key)
 
-      checkGenes(pGenes, callBackFunction)
+      /*
+        Once Completed we must return the global.DEFAULT_OK_RESPONSE
+      */
+      callBackFunction(global.DEFAULT_OK_RESPONSE)
+
     } catch (err) {
       logger.write(MODULE_NAME, '[ERROR] initialize -> onDone -> err = ' + err.message)
       callBackFunction(global.DEFAULT_FAIL_RESPONSE)
     }
   }
 
+  /*
+    This function will be used to initialize the parameters for the genes,
+    it's not called at the moment and you don't need to implement it at the moment.
+  */
   function checkGenes (pGenes, callBackFunction) {
     try {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] checkGenes -> Entering function.') }
@@ -88,22 +111,31 @@ exports.newUserBot = function newUserBot (bot, logger) {
     }
   }
 
+  /*
+    The start function is called by the platform for executing the bot every
+    x number of miliseconds defined on normalWaitTime (this.bot.config.json)
+  */
   function start (callBackFunction) {
     if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> Entering function.') }
 
-    const market = global.MARKET
     const LAST_SELL_RATE_KEY = 'AAVikings' + '-' + 'AAArtudito' + '-' + 'Trading-Process' + '-' + 'lastSellRate'
     const LAST_BUY_RATE_KEY = 'AAVikings' + '-' + 'AAArtudito' + '-' + 'Trading-Process' + '-' + 'lastBuyRate'
     const CHANNEL_DOWN = -1
     const CHANNEL_UP = 1
     const NO_CHANNEL = 0
+    const market = global.MARKET
 
-        // Parameters
-    let targetTradeEnabled = false
+    // Some parameters defined locally, they are used to explore different variations.
     const TRADE_TARGET = 2.0
-    let stopLossEnabled = true
-    let stopLossPorcentage = genes.stopLoss / 100
+    let targetTradeEnabled = false
+    let stopLossEnabled = false
+    let stopLossPorcentage = 0.01
 
+    /*
+     Some variables that are stored and retrieved on every execution. They are
+     stored and managed by the assistant using a key-par value. Objects are not
+     allowed.
+   */
     let lastBuyRate = assistant.remindMeOf(LAST_BUY_RATE_KEY)
     if (lastBuyRate === undefined) {
       let currentRate = assistant.getMarketRate()
@@ -111,11 +143,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
       assistant.rememberThis(LAST_BUY_RATE_KEY, lastBuyRate)
     }
 
-        /*
-        This trading bot will use an strategy based on the interpretation of the Linear Regression Curve Channel.
-        */
-
-    let positions = assistant.getPositions()
+    // Bypass business logic and create a buy position directly based on a different rule
     let lastSellRate = assistant.remindMeOf(LAST_SELL_RATE_KEY)
     if (targetTradeEnabled === true && assistant.getAvailableBalance().assetA > 1 && lastSellRate !== undefined) {
       let currentROI = ((lastSellRate - assistant.getTicker().bid) / lastSellRate) * 100
@@ -157,14 +185,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> Entering function.') }
       let firstChannelTilt = 0
 
-			// Simulation for testing
-      if (Math.random(1) <= 0.5) {
-        createBuyPosition(callBack)
-      } else {
-        createSellPosition(callBack)
-      }
-
-            // getChannelTilt(firstTiltCheck);
+      getChannelTilt(firstTiltCheck);
 
       function firstTiltCheck (err, channelTilt) {
         try {
@@ -262,7 +283,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
             logger.write(MODULE_NAME, '[ERROR] start -> businessLogic -> getChannelTilt -> onLRCPointsFileReceived. The expected LRC Point was not found: ' + bot.processDatetime.valueOf())
             callBack(global.DEFAULT_FAIL_RESPONSE)
           } else {
-                        // Running live we will process last available LRCPoint only if it's delayed 25 minutes top
+            // Running live we will process last available LRCPoint only if it's delayed 25 minutes top
             let maxTolerance = 25 * 60 * 1000
             if (bot.processDatetime.valueOf() <= (lastAvailableDateTime + maxTolerance)) {
               lrcPoint = {
@@ -426,7 +447,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
       if (lrcPoint.max < lrcPoint.mid && lrcPoint.min > lrcPoint.mid && lrcPoint.mid < lrcPoint.min) {
         if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid > previousLRCPoint.mid && lrcPoint.max > previousLRCPoint.max) {
-                    // The channel points UP
+          // The channel points UP
           channelTilt = CHANNEL_UP
           ruleApplied += 'Rule_1.'
         }
@@ -434,14 +455,14 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
       if (lrcPoint.min < lrcPoint.mid && lrcPoint.max > lrcPoint.mid && lrcPoint.mid < lrcPoint.max) {
         if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid < previousLRCPoint.mid && lrcPoint.max < previousLRCPoint.max) {
-                    // The channel points DOWN
+          // The channel points DOWN
           channelTilt = CHANNEL_DOWN
           ruleApplied += 'Rule_2.'
         }
       }
 
       if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid <= previousLRCPoint.mid) {
-                // 15 AND 30 changed direction from up to down
+        // 15 AND 30 changed direction from up to down
         if (checkToSellWithStopLoss()) {
           channelTilt = CHANNEL_DOWN
           ruleApplied += 'Rule_3a.'
@@ -449,7 +470,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
       }
 
       if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid >= previousLRCPoint.mid) {
-                // 15 AND 30 changed direction from down to up
+        // 15 AND 30 changed direction from down to up
         channelTilt = CHANNEL_UP
         ruleApplied += 'Rule_3b.'
       }
@@ -470,13 +491,13 @@ exports.newUserBot = function newUserBot (bot, logger) {
       if (stopLossEnabled) {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> Stop Loss Enabled, checking to sell.') }
 
-                // Get the current investment value
+        // Get the current investment value
         let investment = 0
         if (assistant.getAvailableBalance() !== undefined) {
           investment = assistant.getAvailableBalance().assetB * lastBuyRate
         }
 
-                // Calculate maximum loss setup
+        // Calculate maximum loss setup
         let currentLoss = amountA - investment
         let stopLossValue = investment * stopLossPorcentage
 
@@ -550,7 +571,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
         let datePath = date.getUTCFullYear() + '/' + pad(date.getUTCMonth() + 1, 2) + '/' + pad(date.getUTCDate(), 2)
         let cachePosition = path + '/' + datePath
 
-                // Remove and go back one day
+        // Remove and go back one day
         if (fileCache.has(cachePosition)) {
           fileCache.delete(cachePosition)
           date.setDate(date.getDate() - 1)
@@ -591,6 +612,8 @@ exports.newUserBot = function newUserBot (bot, logger) {
     function createBuyPosition (callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Entering function.') }
 
+      // We get the current positions we have on the exchange
+      let positions = assistant.getPositions()
       let assetABalance = assistant.getAvailableBalance().assetA
       let currentRate = assistant.getTicker().ask // *.9
       let amountA = assistant.getAvailableBalance().assetA
@@ -604,9 +627,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
         assistant.sendMessage(6, 'Moving Position', message)
         message = bot.processDatetime.toISOString() + ' - ' + message
         assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-
         assistant.rememberThis(LAST_BUY_RATE_KEY, currentRate)
-
         assistant.movePosition(positions[0], currentRate, callBack)
       } else if (assetABalance > 0) {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Artuditu put a new BUY position at price: $' + Number(currentRate).toLocaleString()) }
@@ -616,9 +637,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
         assistant.sendMessage(7, 'Buying', message)
         message = bot.processDatetime.toISOString() + ' - ' + message
         assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-
         assistant.rememberThis(LAST_BUY_RATE_KEY, currentRate)
-
         assistant.putPosition('buy', currentRate, amountA, amountB, callBack)
       } else {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Not enough available balance to buy.') }
@@ -630,6 +649,8 @@ exports.newUserBot = function newUserBot (bot, logger) {
     function createSellPosition (callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> Entering function.') }
 
+      // We get the current positions we have on the exchange
+      let positions = assistant.getPositions()
       let assetBBalance = assistant.getAvailableBalance().assetB
       let currentRate = assistant.getTicker().bid // *1.1
       let amountB = assistant.getAvailableBalance().assetB
@@ -643,7 +664,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
         assistant.sendMessage(6, 'Moving Position', message)
         message = bot.processDatetime.toISOString() + ' - ' + message
         assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-
         assistant.rememberThis(LAST_SELL_RATE_KEY, currentRate)
         assistant.movePosition(positions[0], currentRate, callBack)
       } else if (assetBBalance > 0) {
@@ -654,7 +674,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
         assistant.sendMessage(7, 'Selling', message)
         message = bot.processDatetime.toISOString() + ' - ' + message
         assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-
         assistant.rememberThis(LAST_SELL_RATE_KEY, currentRate)
         assistant.putPosition('sell', currentRate, amountA, amountB, callBack)
       } else {

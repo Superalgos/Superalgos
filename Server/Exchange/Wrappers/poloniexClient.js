@@ -1,4 +1,4 @@
-﻿exports.newAPIClient = function newAPIClient(pKey, pSecret, logger) {
+﻿exports.newAPIClient = function newAPIClient(pKey, pSecret) {
 
     /*
     /* ATENTION: This Library is used both a the cloud (AACloud) and also at the AAWeb on the server side without any modifications.
@@ -299,8 +299,8 @@
             let stringExchangeResponse = JSON.stringify(exchangeResponse);
 
             try {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
+                if (FULL_LOG === true) { console.log("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
+                if (FULL_LOG === true) { console.log("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
                 
                 if (exchangeErr) {
                     error = global.DEFAULT_FAIL_RESPONSE;
@@ -344,7 +344,7 @@
                 return callBack(error, exchangeResponse);
             
             } catch (err) {
-                logger.write(MODULE_NAME, "[ERROR] analizeResponse -> err.message = " + err.message);
+                console.log("[ERROR] analizeResponse -> err.message = " + err.message);
                 return callBack(global.DEFAULT_FAIL_RESPONSE, exchangeResponse);
             }
         }

@@ -1,4 +1,4 @@
-﻿exports.newAPIClient = function newAPIClient(pKey, pSecret, logger) {
+﻿exports.newAPIClient = function newAPIClient(pKey, pSecret) {
 
     /*
     /* ATENTION: This Library is used both a the cloud (AACloud) and also at the AAWeb on the server side without any modifications.
@@ -256,11 +256,11 @@
             orderId: pPosition.id
         };
 
-        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] moveOrder -> Step1 - Cancelling Position: " + JSON.stringify(pPosition)); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { console.log("[INFO] moveOrder -> Step1 - Cancelling Position: " + JSON.stringify(pPosition)); }
 
         const handle = (err, response) => {
             if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] moveOrder -> Step1 Complete - Position Cancelled. Proceeding to put the new position."); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { console.log("[INFO] moveOrder -> Step1 Complete - Position Cancelled. Proceeding to put the new position."); }
 
                 if (position.type === "buy")
                     thisObject.buy(global.MARKET.assetA, global.MARKET.assetB, pNewRate, pNewAmountB, callBack);
@@ -292,7 +292,7 @@
      */
     function getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack) {
 
-	if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] getPublicTradeHistory -> Not implemented yet."); }
+	if (CONSOLE_LOG === true) { console.log("[INFO] getPublicTradeHistory -> Not implemented yet."); }
         callBack(global.DEFAULT_FAIL_RESPONSE);
     }
 
@@ -315,8 +315,8 @@
             let stringExchangeResponse = JSON.stringify(exchangeResponse);
 
             try {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
+                if (CONSOLE_LOG === true) { console.log("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
 
                 if (exchangeErr) {
                     error = global.DEFAULT_FAIL_RESPONSE;
@@ -351,7 +351,7 @@
                 return callBack(error, exchangeResponse);
             
             } catch (err) {
-                logger.write(MODULE_NAME, "[ERROR] analizeResponse -> err.message = " + err.message);
+                console.log("[ERROR] analizeResponse -> err.message = " + err.message);
                 return callBack(global.DEFAULT_FAIL_RESPONSE, exchangeResponse);
             }
         }

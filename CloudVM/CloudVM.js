@@ -32,6 +32,7 @@ function newCloudVM() {
             window.CURRENT_EXECUTION_AT = "Browser";
             window.STORAGE_PERMISSIONS = ecosystem.getStoragePermissions();
 
+            window.EXCHANGE_NAME = "Poloniex";
             window.MARKET = {
                 assetA: "USDT",
                 assetB: "BTC"

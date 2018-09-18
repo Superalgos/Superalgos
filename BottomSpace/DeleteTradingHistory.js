@@ -1,6 +1,12 @@
 ﻿
 function newDeleteTradingHistory() {
-         
+
+    const MODULE_NAME = "Delete Trading History";
+    const INFO_LOG = false;
+    const ERROR_LOG = true;
+    const logger = newWebDebugLog();
+    logger.fileName = MODULE_NAME;
+
     var thisObject = {
         container: undefined,
         draw: draw,
@@ -26,222 +32,285 @@ function newDeleteTradingHistory() {
 
     return thisObject;
 
-    function initialize() {
+    function initialize(callBackFunction) {
 
-        icon = new Image();
+        try {
 
-        icon.onload = onImageLoad;
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-        function onImageLoad() {
-            canDrawIcon = true;
+            icon = new Image();
+
+            icon.onload = onImageLoad;
+
+            function onImageLoad() {
+                canDrawIcon = true;
+            }
+
+            icon.src = "Images/trash.png";
+
+            thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
+
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
         }
-
-        icon.src = "Images/trash.png";
-
-        thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
-
     }
 
     function onClick() {
 
-        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
+        try {
 
-        /*
+            if (INFO_LOG === true) { logger.write("[INFO] onClick -> Entering function."); }
 
-        To delete the trading history we will follow these steps:
+            if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
 
-        1. Get the status report of that bot.
-        2. Iterate through all the entries for the startMode received by parameters.
-        3. For each entry, get the execution history file belonging to that entry.
-        4. Iterate on each entry of each execution history file to get the date of each execution that we will use to locate the
-           execution context file.
-        6. Delete every execution context file found.
-        7. Delete the execution history file after finishing the interation.
-        8. Delete the Sequence file belonging to the received Start Mode.
-        9. Save the Status Report without the records of this Start Mode. 
+            /*
+
+            To delete the trading history we will follow these steps:
+
+            1. Get the status report of that bot.
+            2. Iterate through all the entries for the startMode received by parameters.
+            3. For each entry, get the execution history file belonging to that entry.
+            4. Iterate on each entry of each execution history file to get the date of each execution that we will use to locate the
+               execution context file.
+            6. Delete every execution context file found.
+            7. Delete the execution history file after finishing the interation.
+            8. Delete the Sequence file belonging to the received Start Mode.
+            9. Save the Status Report without the records of this Start Mode. 
         
-        */
+            */
 
-        let storage = AzureStorage.Blob;
+            let storage = AzureStorage.Blob;
 
-        let readOnlyBlobService;
-        let writeOnlyBlobService;
-        let deleteOnlyBlobService;
+            let readOnlyBlobService;
+            let writeOnlyBlobService;
+            let deleteOnlyBlobService;
 
-        let readConnectionString = window.USER_PROFILE.storagePermissions.get(window.DEV_TEAM + "." + "READ");
+            let readConnectionString = window.USER_PROFILE.storagePermissions.get(window.DEV_TEAM + "." + "READ");
 
-        if (readConnectionString !== undefined) {
-            readOnlyBlobService = storage.createBlobService(readConnectionString);
-        }
-
-        let writeConnectionString = window.USER_PROFILE.storagePermissions.get(window.DEV_TEAM + "." + "WRITE");
-
-        if (writeConnectionString !== undefined) {
-            writeOnlyBlobService = storage.createBlobService(writeConnectionString);
-        }
-
-        let deleteConnectionString = window.USER_PROFILE.storagePermissions.get(window.DEV_TEAM + "." + "DELETE");
-
-        if (deleteConnectionString !== undefined) {
-            deleteOnlyBlobService = storage.createBlobService(deleteConnectionString);
-        }
-
-        let containerName = window.DEV_TEAM.toLowerCase();
-
-        let statusReportFilePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Reports" + "/" + "Trading-Process";
-        let statusReportFileName = window.CURRENT_START_MODE + "." + "Status.Report.USDT_BTC.json";
-
-        readOnlyBlobService.getBlobToText(containerName, statusReportFilePath + "/" + statusReportFileName, onStatusReport);
-
-        function onStatusReport(err, text, response) {
-
-            if (err.code === 'BlobNotFound') {
-
-                console.log(statusReportFilePath + "/" + statusReportFileName + " not found. No history detected for this start mode.");
-                return;
+            if (readConnectionString !== undefined) {
+                readOnlyBlobService = storage.createBlobService(readConnectionString);
             }
 
-            let statusReport = JSON.parse(text);
+            let writeConnectionString = window.USER_PROFILE.storagePermissions.get(window.DEV_TEAM + "." + "WRITE");
 
-            let toBeDeleted = 0;
-            let deleted = 0;
+            if (writeConnectionString !== undefined) {
+                writeOnlyBlobService = storage.createBlobService(writeConnectionString);
+            }
 
-            for (let i = 0; i < statusReport.runs.length; i++) {
+            let deleteConnectionString = window.USER_PROFILE.storagePermissions.get(window.DEV_TEAM + "." + "DELETE");
 
-                /* For each record, we will get the execution history file. */
+            if (deleteConnectionString !== undefined) {
+                deleteOnlyBlobService = storage.createBlobService(deleteConnectionString);
+            }
 
-                let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
-                let fileName = "Execution.History." + window.CURRENT_START_MODE + "." + i + ".json";
+            let containerName = window.DEV_TEAM.toLowerCase();
 
-                readOnlyBlobService.getBlobToText(containerName, filePath + "/" + fileName, onExecutionHistory);
+            let statusReportFilePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Reports" + "/" + "Trading-Process";
+            let statusReportFileName = window.CURRENT_START_MODE + "." + "Status.Report.USDT_BTC.json";
 
-                function onExecutionHistory(err, text, response) {
+            readOnlyBlobService.getBlobToText(containerName, statusReportFilePath + "/" + statusReportFileName, onStatusReport);
 
-                    let executionHistory = JSON.parse(text);
+            function onStatusReport(err, text, response) {
 
-                    for (let j = 0; j < executionHistory.length; j++) {
+                try {
 
-                        let dateTime = new Date(executionHistory[j][0]);
+                    if (INFO_LOG === true) { logger.write("[INFO] onClick -> onStatusReport -> Entering function."); }
 
-                        let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2) + "/" + pad(dateTime.getUTCHours(), 2) + "/" + pad(dateTime.getUTCMinutes(), 2);
+                    if (err && err.code === 'BlobNotFound') {
 
-                        let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process" + "/" + datePath;
-                        let fileName = "Execution.Context." + window.CURRENT_START_MODE + "." + i + ".json";
+                        console.log(statusReportFilePath + "/" + statusReportFileName + " not found. No history detected for this start mode.");
+                        return;
+                    }
 
-                        deleteOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
+                    let statusReport = JSON.parse(text);
 
-                        toBeDeleted++;
+                    let toBeDeleted = 0;
+                    let deleted = 0;
 
-                        function onDeleted(err, text, response) {
+                    for (let i = 0; i < statusReport.runs.length; i++) {
 
-                            if (err) {
+                        /* For each record, we will get the execution history file. */
 
-                                console.log(filePath + "/" + fileName + " NOT deleted.");
-                                console.log("err.message = " + err.message);
-                            } else {
+                        let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
+                        let fileName = "Execution.History." + window.CURRENT_START_MODE + "." + i + ".json";
 
-                                console.log(filePath + "/" + fileName + " deleted.");
+                        readOnlyBlobService.getBlobToText(containerName, filePath + "/" + fileName, onExecutionHistory);
 
+                        function onExecutionHistory(err, text, response) {
+
+                            let executionHistory = JSON.parse(text);
+
+                            for (let j = 0; j < executionHistory.length; j++) {
+
+                                let dateTime = new Date(executionHistory[j][0]);
+
+                                let datePath = dateTime.getUTCFullYear() + "/" + pad(dateTime.getUTCMonth() + 1, 2) + "/" + pad(dateTime.getUTCDate(), 2) + "/" + pad(dateTime.getUTCHours(), 2) + "/" + pad(dateTime.getUTCMinutes(), 2);
+
+                                let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process" + "/" + datePath;
+                                let fileName = "Execution.Context." + window.CURRENT_START_MODE + "." + i + ".json";
+
+                                deleteOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
+
+                                toBeDeleted++;
+
+                                function onDeleted(err, text, response) {
+
+                                    if (err) {
+
+                                        console.log(filePath + "/" + fileName + " NOT deleted.");
+                                        console.log("err.message = " + err.message);
+                                    } else {
+
+                                        console.log(filePath + "/" + fileName + " deleted.");
+
+                                    }
+
+                                    deleted++;
+
+                                    if (toBeDeleted === deleted) {
+
+                                        updateStatusReport();
+
+                                    }
+                                }
                             }
 
-                            deleted++;
+                            /* Now we delete the execution history file. */
 
-                            if (toBeDeleted === deleted) {
+                            deleteOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onExecutionHistoryDeleted);
 
-                                updateStatusReport();
+                            function onExecutionHistoryDeleted(err, text, response) {
+
+                                console.log(filePath + "/" + fileName + " deleted.");
 
                             }
                         }
                     }
 
-                    /* Now we delete the execution history file. */
+                    function updateStatusReport() {
 
-                    deleteOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onExecutionHistoryDeleted);
+                        try {
 
-                    function onExecutionHistoryDeleted(err, text, response) {
+                            if (INFO_LOG === true) { logger.write("[INFO] onClick -> onStatusReport -> updateStatusReport -> Entering function."); }
 
-                        console.log(filePath + "/" + fileName + " deleted.");
+                            statusReport.runs = [];
+
+                            /* Here is where we update the current Status Report file with the new version without records for the current Start Mode. */
+
+                            let fileContent = JSON.stringify(statusReport);
+
+                            writeOnlyBlobService.createBlockBlobFromText(containerName, statusReportFilePath + "/" + statusReportFileName, fileContent, onStatusReportUpdated);
+
+                            function onStatusReportUpdated(err, text, response) {
+
+                                console.log(statusReportFilePath + "/" + statusReportFileName + " updated.");
+
+                            }
+
+                            /* Finally we delete the sequence file. */
+
+                            let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
+                            let fileName = "Execution.History." + window.CURRENT_START_MODE + "." + "Sequence" + ".json";
+
+                            deleteOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
+
+                            function onDeleted(err, text, response) {
+
+                                console.log(filePath + "/" + fileName + " deleted.");
+
+                            }
+
+                        } catch (err) {
+
+                            if (ERROR_LOG === true) { logger.write("[ERROR] onClick -> onStatusReport -> updateStatusReport -> err.message = " + err.message); }
+
+                        }
 
                     }
-                }
-            }
 
-            function updateStatusReport() {
+                } catch (err) {
 
-                statusReport.runs = [];
-
-                /* Here is where we update the current Status Report file with the new version without records for the current Start Mode. */
-
-                let fileContent = JSON.stringify(statusReport);
-
-                writeOnlyBlobService.createBlockBlobFromText(containerName, statusReportFilePath + "/" + statusReportFileName, fileContent, onStatusReportUpdated);
-
-                function onStatusReportUpdated(err, text, response) {
-
-                    console.log(statusReportFilePath + "/" + statusReportFileName + " updated.");
-
-                }
-
-                /* Finally we delete the sequence file. */
-
-                let filePath = window.DEV_TEAM + "/" + window.CURRENT_BOT_CODE_NAME + ".1.0" + "/" + "AACloud.1.1" + "/" + "Poloniex" + "/" + "dataSet.V1" + "/" + "Output" + "/" + "Trading-Process";
-                let fileName = "Execution.History." + window.CURRENT_START_MODE + "." + "Sequence" + ".json";
-
-                deleteOnlyBlobService.deleteBlob(containerName, filePath + "/" + fileName, onDeleted);
-
-                function onDeleted(err, text, response) {
-
-                    console.log(filePath + "/" + fileName + " deleted.");
+                    if (ERROR_LOG === true) { logger.write("[ERROR] onClick -> onStatusReport -> err.message = " + err.message); }
 
                 }
             }
-        }
 
-        function pad(str, max) {
-            str = str.toString();
-            return str.length < max ? pad("0" + str, max) : str;
+            function pad(str, max) {
+                str = str.toString();
+                return str.length < max ? pad("0" + str, max) : str;
+            }
+
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] onClick -> err.message = " + err.message); }
+
         }
     }
 
     function getContainer(point) {
 
-        let container;
+        try {
 
-        /* First we check if this point is inside this object UI. */
+            if (INFO_LOG === true) { logger.write("[INFO] getContainer -> Entering function."); }
 
-        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+            let container;
 
-            return this.container;
+            /* First we check if this point is inside this object UI. */
 
-        } else {
+            if (thisObject.container.frame.isThisPointHere(point, true) === true) {
 
-            /* This point does not belong to this space. */
+                return this.container;
 
-            return undefined;
+            } else {
+
+                /* This point does not belong to this space. */
+
+                return undefined;
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] getContainer -> err.message = " + err.message); }
+
         }
-
     }
 
     function draw() {
 
-        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
+        try {
 
-        thisObject.container.frame.draw(false, false);
+            if (INFO_LOG === true) { logger.write("[INFO] draw -> Entering function."); }
 
-        if (canDrawIcon === false) { return; }
+            if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
 
-        let breakpointsHeight = 15;
+            thisObject.container.frame.draw(false, false);
 
-        let imageHeight = 30;
-        let imageWidth = 30;
+            if (canDrawIcon === false) { return; }
 
-        let imagePoint = {
-            x: 10,
-            y: thisObject.container.frame.height / 2 - imageHeight / 2 + breakpointsHeight
-        };
+            let breakpointsHeight = 15;
 
-        imagePoint = thisObject.container.frame.frameThisPoint(imagePoint);
+            let imageHeight = 30;
+            let imageWidth = 30;
 
-        browserCanvasContext.drawImage(icon, imagePoint.x, imagePoint.y, imageWidth, imageHeight);
+            let imagePoint = {
+                x: 10,
+                y: thisObject.container.frame.height / 2 - imageHeight / 2 + breakpointsHeight
+            };
+
+            imagePoint = thisObject.container.frame.frameThisPoint(imagePoint);
+
+            browserCanvasContext.drawImage(icon, imagePoint.x, imagePoint.y, imageWidth, imageHeight);
+
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err.message = " + err.message); }
+
+        }
     }
 }

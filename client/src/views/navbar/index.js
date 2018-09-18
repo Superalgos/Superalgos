@@ -82,7 +82,14 @@ class NavBar extends Component {
 
     return (
       <div className={classes.root}>
+<<<<<<< HEAD
         <AppBar position='static' classes={{ root: classes.appBar, colorDefault: classes.colorDefault }}>
+=======
+        <AppBar
+          position='static'
+          classes={{ root: classes.appBar, colorDefault: classes.colorDefault }}
+        >
+>>>>>>> feature/client-refactor-react
           <Toolbar>
             <img className={classes.img} src={AALogo} alt='Advanced Algos' />
             <Typography
@@ -90,7 +97,7 @@ class NavBar extends Component {
               color='inherit'
               className={classes.toolbarTitle}
             >
-              Teams Module
+              Teams
             </Typography>
 
             <IconButton
@@ -101,8 +108,17 @@ class NavBar extends Component {
             >
               <HomeIcon />
             </IconButton>
+<<<<<<< HEAD
             <Button component={TeamsLink} color='inherit'>Teams</Button>
             <Button component={AboutLink} color='inherit'>About</Button>
+=======
+            <Button component={TeamsLink} color='inherit'>
+              Teams
+            </Button>
+            <Button component={AboutLink} color='inherit'>
+              About
+            </Button>
+>>>>>>> feature/client-refactor-react
 
             {this.state.user !== undefined && this.state.user !== null ? (
               <React.Fragment>

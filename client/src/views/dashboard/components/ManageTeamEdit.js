@@ -66,7 +66,13 @@ export class ManageTeamEdit extends Component {
           let errors
           let loader
           if (loading) {
+<<<<<<< HEAD
             loader = <Typography variant='caption'>Submitting team...</Typography>
+=======
+            loader = (
+              <Typography variant='caption'>Submitting team...</Typography>
+            )
+>>>>>>> feature/client-refactor-react
           }
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
@@ -81,7 +87,16 @@ export class ManageTeamEdit extends Component {
           }
           return (
             <div>
+<<<<<<< HEAD
               <Button size='small' color='primary' className={classes.buttonRight} onClick={this.handleClickOpen}>
+=======
+              <Button
+                size='small'
+                color='primary'
+                className={classes.buttonRight}
+                onClick={this.handleClickOpen}
+              >
+>>>>>>> feature/client-refactor-react
                 <EditIcon /> Edit
               </Button>
               <Dialog
@@ -90,7 +105,13 @@ export class ManageTeamEdit extends Component {
                 aria-labelledby='form-dialog-title'
               >
                 <div classes={classes.dialogContainer}>
+<<<<<<< HEAD
                   <DialogTitle id='form-dialog-title'>Edit Team Details</DialogTitle>
+=======
+                  <DialogTitle id='form-dialog-title'>
+                    Edit Team Details
+                  </DialogTitle>
+>>>>>>> feature/client-refactor-react
                   <DialogContent>
                     <TextField
                       autoFocus
@@ -131,9 +152,18 @@ export class ManageTeamEdit extends Component {
                     <Button onClick={this.handleClose} color='primary'>
                       Cancel
                     </Button>
+<<<<<<< HEAD
                     <Button onClick={e => {
                       this.handleSubmit(e, updateTeamProfile, this.props.slug)
                     }} color='primary'>
+=======
+                    <Button
+                      onClick={e => {
+                        this.handleSubmit(e, updateTeamProfile, this.props.slug)
+                      }}
+                      color='primary'
+                    >
+>>>>>>> feature/client-refactor-react
                       Update Team
                     </Button>
                   </DialogActions>
@@ -171,7 +201,19 @@ export class ManageTeamEdit extends Component {
     const currentUser = await getItem('user')
     let authId = JSON.parse(currentUser)
     authId = authId.authId
+<<<<<<< HEAD
     await updateTeamProfile({ variables: { slug, owner: authId, description: this.state.description, motto: this.state.motto } })
+=======
+    await updateTeamProfile({
+      variables: {
+        slug,
+        owner: authId,
+        description: this.state.description,
+        motto: this.state.motto
+      }
+    })
+    this.setState({ description: '', motto: '', open: false })
+>>>>>>> feature/client-refactor-react
   }
 }
 

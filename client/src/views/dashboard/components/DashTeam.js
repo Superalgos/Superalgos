@@ -42,7 +42,14 @@ export const DashTeam = ({ classes, user = null }) => {
   return (
     <Grid item md={6} style={{ position: 'relative' }}>
       <Typography variant='display1' gutterBottom>
+<<<<<<< HEAD
         Teams <Link to='/manage-teams' className={classes.dashLink}>Manage Teams</Link>
+=======
+        Teams{' '}
+        <Link to='/manage-teams' className={classes.dashLink}>
+          Manage Teams
+        </Link>
+>>>>>>> feature/client-refactor-react
       </Typography>
       <Query query={GET_TEAMS_BY_OWNER} variables={{ authId }}>
         {({ loading, error, data }) => {

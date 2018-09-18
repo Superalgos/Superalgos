@@ -66,16 +66,28 @@ export const ManageTeamsList = ({ classes, user = null }) => {
     )
   } else {
     return (
+<<<<<<< HEAD
       <Query query={GET_TEAMS_BY_OWNER} fetchPolicy='network-only' variables={{ authId }}>
+=======
+      <Query
+        query={GET_TEAMS_BY_OWNER}
+        fetchPolicy='network-only'
+        variables={{ authId }}
+      >
+>>>>>>> feature/client-refactor-react
         {({ loading, error, data }) => {
           console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
 
           let errors = null
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
+<<<<<<< HEAD
               return (
                 <MessageCard message={message} />
               )
+=======
+              return <MessageCard message={message} />
+>>>>>>> feature/client-refactor-react
             })
           }
           if (!loading && !error) {
@@ -115,7 +127,11 @@ export const ManageTeamsList = ({ classes, user = null }) => {
               <Grid container spacing={40}>
                 <Grid item xs={12}>
                   <MessageCard message='Loading...' />
+<<<<<<< HEAD
                   if (errors !== null) (<MessageCard message={errors} />)
+=======
+                  {errors !== null && <MessageCard message={errors} />}
+>>>>>>> feature/client-refactor-react
                 </Grid>
               </Grid>
             )

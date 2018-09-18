@@ -63,10 +63,20 @@ const TeamsDetails = ({ classes, team }) => (
           <Typography variant='subheading' color='textSecondary'>
             {team.createdAt}
           </Typography>
+<<<<<<< HEAD
+=======
+          <Typography variant='subheading' color='textSecondary'>
+            Motto: {team.profile.motto}
+          </Typography>
+          <Typography variant='subheading' color='textSecondary'>
+            Description: {team.profile.description}
+          </Typography>
+>>>>>>> feature/client-refactor-react
           <Typography variant='subheading' paragraph gutterBottom>
             Members: {team.members.length}
           </Typography>
           <Typography variant='subheading' color='primary'>
+<<<<<<< HEAD
             Team Admin:
             {
               team.members.map(member => {
@@ -75,6 +85,14 @@ const TeamsDetails = ({ classes, team }) => (
                 }
               })
             }
+=======
+            Team Admin:&nbsp;
+            {team.members.map(member => {
+              if (member.role === 'OWNER' || member.role === 'ADMIN') {
+                return member.member.alias
+              }
+            })}
+>>>>>>> feature/client-refactor-react
           </Typography>
         </div>
       </Paper>

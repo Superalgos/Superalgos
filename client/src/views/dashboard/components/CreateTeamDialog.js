@@ -11,11 +11,16 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
+<<<<<<< HEAD
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
 import { getItem } from '../../../utils/local-storage'
+=======
+import DialogTitle from '@material-ui/core/DialogTitle'
+import Typography from '@material-ui/core/Typography'
+>>>>>>> feature/client-refactor-react
 import { isEmpty } from '../../../utils/js-helpers'
 
 import CREATE_TEAM from '../../../graphql/teams/CreateTeamMutation'
@@ -74,7 +79,13 @@ export class CreateTeamDialog extends Component {
           let errors
           let loader = null
           if (loading) {
+<<<<<<< HEAD
             loader = <Typography variant='subheading'>Submitting team...</Typography>
+=======
+            loader = (
+              <Typography variant='subheading'>Submitting team...</Typography>
+            )
+>>>>>>> feature/client-refactor-react
           }
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
@@ -88,7 +99,17 @@ export class CreateTeamDialog extends Component {
           }
           return (
             <div>
+<<<<<<< HEAD
               <Button variant='fab' color='primary' aria-label='Add' className={classes.buttonRight} onClick={this.handleClickOpen}>
+=======
+              <Button
+                variant='fab'
+                color='primary'
+                aria-label='Add'
+                className={classes.buttonRight}
+                onClick={this.handleClickOpen}
+              >
+>>>>>>> feature/client-refactor-react
                 <AddIcon />
               </Button>
               <Dialog
@@ -98,8 +119,15 @@ export class CreateTeamDialog extends Component {
               >
                 <DialogTitle id='form-dialog-title'>Create a Team</DialogTitle>
                 <DialogContent>
+<<<<<<< HEAD
                   <DialogContentText>Team Name:</DialogContentText>
                   <FormControl required error={e => (this.state.errors.name !== '' || error)}>
+=======
+                  <FormControl
+                    required
+                    error={this.state.errors.name !== '' || error}
+                  >
+>>>>>>> feature/client-refactor-react
                     <TextField
                       autoFocus
                       margin='dense'
@@ -111,8 +139,15 @@ export class CreateTeamDialog extends Component {
                       onChange={this.handleChange}
                       error={this.state.errors.name !== '' || error}
                     />
+<<<<<<< HEAD
                     {this.state.errors.name !== '' && (<FormHelperText>{this.state.errors.name}</FormHelperText>)}
                     {error && (<FormHelperText>{errors}</FormHelperText>)}
+=======
+                    {this.state.errors.name !== '' && (
+                      <FormHelperText>{this.state.errors.name}</FormHelperText>
+                    )}
+                    {error && <FormHelperText>{errors}</FormHelperText>}
+>>>>>>> feature/client-refactor-react
                     {loader}
                   </FormControl>
                 </DialogContent>
@@ -120,9 +155,18 @@ export class CreateTeamDialog extends Component {
                   <Button onClick={this.handleClose} color='primary'>
                     Cancel
                   </Button>
+<<<<<<< HEAD
                   <Button onClick={e => {
                     this.handleSubmit(e, createTeam, this.state.name)
                   }} color='primary'>
+=======
+                  <Button
+                    onClick={e => {
+                      this.handleSubmit(e, createTeam, this.state.name, authId)
+                    }}
+                    color='primary'
+                  >
+>>>>>>> feature/client-refactor-react
                     Create Team
                   </Button>
                 </DialogActions>
@@ -153,6 +197,7 @@ export class CreateTeamDialog extends Component {
     }
   }
 
+<<<<<<< HEAD
   async handleSubmit (e, createTeam, name) {
     e.preventDefault()
     const currentUser = await getItem('user')
@@ -162,6 +207,14 @@ export class CreateTeamDialog extends Component {
     const slug = this.slugify(name)
     await createTeam({ variables: { name, slug, owner: authId } })
     this.setState({ name: '' })
+=======
+  async handleSubmit (e, createTeam, name, authId) {
+    e.preventDefault()
+    console.log('createTeam submit: ', authId, name)
+    const slug = this.slugify(name)
+    await createTeam({ variables: { name, slug, owner: authId } })
+    this.setState({ name: '', open: false })
+>>>>>>> feature/client-refactor-react
   }
 
   validate (data) {

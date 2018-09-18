@@ -67,12 +67,28 @@ const Footer = ({ classes }) => {
           </NavLink>
         </Grid>
         <Grid item xs>
+<<<<<<< HEAD
           <a href='https://t.me/advancedalgoscommunity' target='_blank>' className={classNames(classes.footerLink)}>
+=======
+          <a
+            href='https://t.me/advancedalgoscommunity'
+            target='_blank>'
+            className={classNames(classes.footerLink)}
+          >
+>>>>>>> feature/client-refactor-react
             <Typography variant='title' color='textPrimary' gutterBottom>
               Support
             </Typography>
           </a>
+<<<<<<< HEAD
           <a href='https://advancedalgos.net/documentation-quick-start.shtml' target='_blank>' className={classNames(classes.footerLink)}>
+=======
+          <a
+            href='https://advancedalgos.net/documentation-quick-start.shtml'
+            target='_blank>'
+            className={classNames(classes.footerLink)}
+          >
+>>>>>>> feature/client-refactor-react
             <Typography variant='subheading' color='textSecondary'>
               Documentation
             </Typography>

@@ -37,9 +37,13 @@ export class ManageTeamDelete extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
 
     this.state = {
+<<<<<<< HEAD
       open: false,
       motto: '',
       description: ''
+=======
+      open: false
+>>>>>>> feature/client-refactor-react
     }
   }
 
@@ -67,18 +71,27 @@ export class ManageTeamDelete extends Component {
             variables: { authId }
           }
         ]}
+<<<<<<< HEAD
         update={(cache, { data: { deleteTeam } }) => {
           const data = cache.readQuery({ query: GET_TEAMS_BY_OWNER })
           console.log('Mutation cache update: ', deleteTeam, data)
           data.getTeamsByOwner.push(deleteTeam)
           cache.writeQuery({ query: GET_TEAMS_BY_OWNER, data })
         }}
+=======
+>>>>>>> feature/client-refactor-react
       >
         {(deleteTeam, { loading, error, data }) => {
           let errors
           let loader
           if (loading) {
+<<<<<<< HEAD
             loader = <Typography variant='caption'>Submitting team...</Typography>
+=======
+            loader = (
+              <Typography variant='caption'>Submitting team...</Typography>
+            )
+>>>>>>> feature/client-refactor-react
           }
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
@@ -93,7 +106,16 @@ export class ManageTeamDelete extends Component {
           }
           return (
             <div>
+<<<<<<< HEAD
               <Button size='small' color='primary' className={classes.buttonRight} onClick={this.handleClickOpen}>
+=======
+              <Button
+                size='small'
+                color='primary'
+                className={classes.buttonRight}
+                onClick={this.handleClickOpen}
+              >
+>>>>>>> feature/client-refactor-react
                 <DeleteIcon /> Delete
               </Button>
               <Dialog
@@ -102,10 +124,23 @@ export class ManageTeamDelete extends Component {
                 aria-labelledby='form-dialog-title'
               >
                 <div classes={classes.dialogContainer}>
+<<<<<<< HEAD
                   <DialogTitle id='form-dialog-title'>Delete Team Team</DialogTitle>
                   <DialogContent>
                     <Typography variant='subheading' color='primary'>DANGER - Deleting your team cannot be undone</Typography>
                     <Typography variant='subheading'>Are you sure you want to delete this team?</Typography>
+=======
+                  <DialogTitle id='form-dialog-title'>
+                    Delete Team Team
+                  </DialogTitle>
+                  <DialogContent>
+                    <Typography variant='subheading' color='primary'>
+                      DANGER - Deleting your team cannot be undone
+                    </Typography>
+                    <Typography variant='subheading'>
+                      Are you sure you want to delete this team?
+                    </Typography>
+>>>>>>> feature/client-refactor-react
                     {loader}
                     {errors}
                   </DialogContent>
@@ -113,9 +148,23 @@ export class ManageTeamDelete extends Component {
                     <Button onClick={this.handleClose} color='primary'>
                       Cancel
                     </Button>
+<<<<<<< HEAD
                     <Button onClick={e => {
                       this.handleSubmit(e, deleteTeam, this.props.slug, authId)
                     }} color='primary'>
+=======
+                    <Button
+                      onClick={e => {
+                        this.handleSubmit(
+                          e,
+                          deleteTeam,
+                          this.props.slug,
+                          authId
+                        )
+                      }}
+                      color='primary'
+                    >
+>>>>>>> feature/client-refactor-react
                       Delete Team
                     </Button>
                   </DialogActions>
@@ -131,6 +180,10 @@ export class ManageTeamDelete extends Component {
   async handleSubmit (e, deleteTeam, slug, authId) {
     e.preventDefault()
     await deleteTeam({ variables: { slug, owner: authId } })
+<<<<<<< HEAD
+=======
+    this.setState({ open: false })
+>>>>>>> feature/client-refactor-react
   }
 }
 

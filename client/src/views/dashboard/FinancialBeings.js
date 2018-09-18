@@ -12,23 +12,19 @@ const styles = theme => ({
   }
 })
 
-const TeamMembers = ({ classes }) => (
+const FinancialBeings = ({ classes }) => (
   <div>
     <Typography variant='display1' gutterBottom>
-<<<<<<< HEAD
-      Members
-=======
-      Team Members
->>>>>>> feature/client-refactor-react
+      Financial Beings
     </Typography>
     <div className={classes.tableContainer}>
-      <MessageCard message='Coming soon. Invite and manage team members' />
+      <MessageCard message='Coming soon. View your financial beings by team.' />
     </div>
   </div>
 )
 
-TeamMembers.propTypes = {
+FinancialBeings.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(TeamMembers)
+export default withStyles(styles)(FinancialBeings)

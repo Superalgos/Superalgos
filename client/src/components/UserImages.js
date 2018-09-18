@@ -69,7 +69,8 @@ class UserImages extends React.Component {
       saveDisabled: true,
       uploadToolDisabled: false,
       showNewAvatar: false,
-      needToWait: false
+      needToWait: false,
+      removeCurrentAvatar: false
     }
   }
 
@@ -84,7 +85,7 @@ class UserImages extends React.Component {
       refetchQueries: [{ query: getUsersQuery}] // This allow us to re run whatever queries are necesary after the mutation.
     })
 
-    this.setState({saveDisabled: true})
+    this.setState({saveDisabled: true, removeCurrentAvatar:true})
     
     /* Before we are done, we need to update the state of the local storage. */
 
@@ -169,31 +170,57 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
     )
   }
 
-  onError = () => {
+  onError = (err) => {
     console.log('onError')
+    console.log(err)
   }
 
+  onRemoveSuccess = (err) => {
+    console.log('onRemoveSuccess')
+    console.log(err)
+  }
 
   showCurrentAvatar() {
      
       const { classes } = this.props
-      return (
-        <div>
-          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          This is your current Avatar:
-          </Typography>
 
-          <Grid container justify='center' >
-            <Grid item>
-              <Avatar
-                alt="Avatar"
-                src={"https://cdn.filestackcontent.com/"  + this.state.avatarHandle}
-                className={classNames(classes.bigAvatar)}
-              />
+      if (this.state.removeCurrentAvatar === true) {
+
+        return (
+          <div>
+            <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+            This is your current Avatar:
+            </Typography>
+  
+            <Grid container justify='center' >
+              <Grid item>
+                <Avatar
+                  alt="Avatar"
+                  src={"https://cdn.filestackcontent.com/"  + this.state.avatarHandle}
+                  className={classNames(classes.bigAvatar)}
+                />
+              </Grid>
             </Grid>
-          </Grid>
-        </div>
-      )
+          </div>
+        )
+        
+      } else {
+
+        return (
+          <div>
+          <ReactFilestack
+            apikey={'AH97QJOXTHwdBXjydQgABz'}
+            mode="remove"
+            options={options}
+            fileHandle={this.state.avatarHandle}
+            onSuccess={this.onRemoveSuccess}
+            onError={this.onError}
+            link
+          ></ReactFilestack>
+          </div>
+        )
+      }
+      
      
   }
   

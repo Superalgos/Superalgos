@@ -19,19 +19,11 @@
 
     function initialize(callBackFunction) {
 
-        let path = "ExchangeAPI" + "/"
-            + "initialize" + "/"
-            + window.SESSION_TOKEN
-            ;
+        /* When this initialized is called from the Browser, there is no need to send it to the server since the server will
+        anyways initialize this library at each method call. */
 
-        callServer(undefined, path + "/NO-LOG", onServerResponse);
-
-        function onServerResponse(pServerResponse) {
-
-            let response = JSON.parse(pServerResponse);
-            callBackFunction(response);
-
-        }
+        callBackFunction(window.DEFAULT_OK_RESPONSE);
+       
     }
 
     function getTicker(pMarket, callBackFunction) {

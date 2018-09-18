@@ -106,7 +106,7 @@
 
             }
 
-            if (bot.type === 'Trading') {
+            if (owner.type === 'Trading') {
                 fileName = bot.startMode + "." + fileName;
             }
 

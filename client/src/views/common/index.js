@@ -1,3 +1,4 @@
 import MessageCard from './MessageCard'
+import UploadImage from './UploadImage'
 
-export { MessageCard }
+export { MessageCard, UploadImage }

@@ -20,6 +20,8 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
 
+import { UploadImage } from '../../common'
+
 const styles = theme => ({
   dialogContainer: {
     display: 'block',
@@ -101,6 +103,7 @@ export class ManageTeamEdit extends Component {
                     Edit Team Details
                   </DialogTitle>
                   <DialogContent>
+                    <UploadImage team={team} authId={authId} />
                     <TextField
                       autoFocus
                       margin='dense'

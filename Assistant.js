@@ -1394,6 +1394,15 @@
 	
     function sendEmail(pTitle, pBody, pTo) {
         try {
+
+            /**
+             Email configuration is not available when running the bot on the browser.
+            */
+            if (global.CURRENT_EXECUTION_AT === "Browser") {
+                logger.write(MODULE_NAME, "[WARN] sendEmail -> Send emails is disabled from the browser.");
+                return;
+            }
+
             let emailList = pTo; //TODO Pending to add spam controller
             let runIndex = context.statusReport.runs.length - 1;
 

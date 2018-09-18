@@ -12,6 +12,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 // Material UI
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import theme from './theme'
 
 // Components
 
@@ -69,15 +70,6 @@ export const client = new ApolloClient({
 */
 
 export const auth = new Auth(result => console.log('auth result', result), client)
-
-/* Here we change the default Material UI theme for Advanced Algos brand colors. */
-
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#303036' }, // DARK.
-    secondary: { main: '#CC5835' } // RUSTED_RED.
-  }
-})
 
 class App extends Component {
   render () {

@@ -16,6 +16,7 @@ const DashboardLink = props => <Link to='/dashboard' {...props} />
 const TeamsLink = props => <Link to='/manage-teams' {...props} />
 const MembersLink = props => <Link to='/team-members' {...props} />
 const SettingsLink = props => <Link to='/settings' {...props} />
+const FBLink = props => <Link to='/financial-beings' {...props} />
 const DocumentationLink = props => (
   <a
     href='https://advancedalgos.net/documentation-quick-start.shtml'
@@ -47,7 +48,7 @@ export const MainDrawerItems = (
       </ListItemIcon>
       <ListItemText primary='Team Members' />
     </ListItem>
-    <ListItem button component={TeamsLink}>
+    <ListItem button component={FBLink}>
       <ListItemIcon>
         <AndroidIcon />
       </ListItemIcon>

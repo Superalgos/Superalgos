@@ -11,7 +11,6 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 import { isEmpty } from '../../../utils/js-helpers'
@@ -104,7 +103,6 @@ export class CreateTeamDialog extends Component {
               >
                 <DialogTitle id='form-dialog-title'>Create a Team</DialogTitle>
                 <DialogContent>
-                  <DialogContentText>Team Name:</DialogContentText>
                   <FormControl
                     required
                     error={this.state.errors.name !== '' || error}

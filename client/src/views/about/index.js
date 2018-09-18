@@ -34,12 +34,12 @@ const About = ({ classes }) => (
     <main className={classes.layout}>
       <div className={classes.heroContent}>
         <Typography
-          variant='display3'
+          variant='display1'
           align='center'
           color='textPrimary'
           gutterBottom
         >
-          Collaborate. Innovate. Evolve.
+          Welcome to Advanced Algos Teams!
         </Typography>
         <Typography
           variant='title'
@@ -47,7 +47,33 @@ const About = ({ classes }) => (
           color='textSecondary'
           component='h3'
         >
-          Welcome to the Advanced Algos Teams Module
+          This module is responsible for managing teams and their members across the Advanced Algos system. You can browser teams and their details, and with an account, create and manage your own teams.
+        </Typography>
+        <Typography
+          align='center'
+          color='textSecondary'
+          component='p'
+        >
+          <strong>Development Status</strong><br />This module is is currently under heavy development. Implementation started 1st of September 2018 and this is the result of the 1st sprint of 2 weeks of work.
+        </Typography>
+        <Typography
+          align='center'
+          color='textSecondary'
+          component='p'
+        >
+          <strong>What can you do?</strong><br />Basic team creation and management.
+        </Typography>
+        <Typography
+          align='center'
+          color='textSecondary'
+          component='p'
+        >
+          <strong>What is next?</strong><br />
+          <ol>
+            <li> Managing team profile images.</li>
+            <li> Managing team members - inviting members and administrating roles</li>
+            <li> More detailed team profiles + allowing members to apply to recruiting teams</li>
+          </ol>
         </Typography>
       </div>
     </main>

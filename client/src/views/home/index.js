@@ -47,7 +47,7 @@ const Home = ({ classes }) => (
           color='textSecondary'
           component='h3'
         >
-          Welcome to the Advanced Algos Teams Module
+          Welcome to Advanced Algos Teams
         </Typography>
       </div>
     </main>

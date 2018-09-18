@@ -155,7 +155,7 @@ class App extends Component {
                 <Route exact path='/teams/:slug' component={Teams} />
                 <Route
                   exact
-                  path='/(dashboard|manage-teams|team-members|settings)/'
+                  path='/(dashboard|manage-teams|team-members|financial-beings|settings)/'
                   render={props => <Dashboard {...props} auth={auth} />}
                 />
                 <Route

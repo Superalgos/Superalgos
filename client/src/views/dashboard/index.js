@@ -12,6 +12,7 @@ import { MainDrawerItems, SecondaryDrawerItems } from './components/DrawerLinks'
 
 import Overview from './Overview'
 import ManageTeams from './ManageTeams'
+import FinancialBeings from './FinancialBeings'
 import TeamMembers from './TeamMembers'
 import Settings from './Settings'
 
@@ -65,6 +66,7 @@ const Dashboard = ({ classes }) => (
         <Route exact path='/dashboard' component={Overview} />
         <Route exact path='/manage-teams' component={ManageTeams} />
         <Route exact path='/team-members' component={TeamMembers} />
+        <Route exact path='/financial-beings' component={FinancialBeings} />
         <Route exact path='/settings' component={Settings} />
       </Switch>
     </main>

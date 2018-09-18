@@ -93,7 +93,7 @@ class NavBar extends Component {
               color='inherit'
               className={classes.toolbarTitle}
             >
-              Teams Module
+              Teams
             </Typography>
 
             <IconButton

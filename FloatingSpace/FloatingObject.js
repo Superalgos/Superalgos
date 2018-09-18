@@ -1,6 +1,14 @@
 ﻿
 function newFloatingObject() {
 
+    const MODULE_NAME = "Floating Object";
+    const INFO_LOG = false;
+    const INTENSIVE_LOG = false;
+    const ERROR_LOG = true;
+
+    const logger = newWebDebugLog();
+    logger.fileName = MODULE_NAME;
+
     var thisObject = {
 
         physicsLoop: physicsLoop, 
@@ -59,51 +67,71 @@ function newFloatingObject() {
 
     function initialize(pType, callBackFunction) {
 
-        switch (pType) {
+        try {
 
-            case "Profile Ball": {
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-                underlayingObject = newProfileBall();
-                underlayingObject.initialize(onInitialized);
+            switch (pType) {
 
-                function onInitialized(err) {
+                case "Profile Ball": {
+
+                    underlayingObject = newProfileBall();
+                    underlayingObject.initialize(onInitialized);
+
+                    function onInitialized(err) {
 
 
+                    }
+
+                    break;
                 }
+                case "Note": {
 
-                break;
-            }
-            case "Note": {
+                    underlayingObject = newNote();
+                    underlayingObject.initialize(onInitialized);
 
-                underlayingObject = newNote();
-                underlayingObject.initialize(onInitialized);
-
-                function onInitialized(err) {
+                    function onInitialized(err) {
 
 
+                    }
+                    break;
                 }
-                break;
-            }
-            default: {
+                default: {
 
-                break;
+                    break;
+                }
             }
+
+            thisObject.type = pType;
+
+            thisObject.eventHandler.listenToEvent("onMouseOver", onMouseOver);
+            canvas.eventHandler.listenToEvent("onMouseNotOver", onMouseNotOver);
+            thisObject.eventHandler.listenToEvent("onMouseClick", onMouseClick);
+
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
         }
-
-        thisObject.type = pType;
-
-        thisObject.eventHandler.listenToEvent("onMouseOver", onMouseOver);
-        canvas.eventHandler.listenToEvent("onMouseNotOver", onMouseNotOver);
-
-        thisObject.eventHandler.listenToEvent("onMouseClick", onMouseClick);
-
-        callBackFunction();
     }
 
-    function physicsLoop() {
+    function physicsLoop(callBackFunction) {
 
-        underlayingObject.physicsLoop();
+        try {
 
+            if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
+
+            underlayingObject.physicsLoop();
+
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> err.message = " + err.message); }
+            if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
+        }       
     }
 
     function onMouseOver() {

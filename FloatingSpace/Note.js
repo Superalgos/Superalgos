@@ -3,6 +3,10 @@ function newNote() {
 
     var thisObject = {
 
+        physicsLoop: physicsLoop,
+        onMouseOver: onMouseOver,
+        onMouseClick: onMouseClick,
+        onMouseNotOver: onMouseNotOver,
         drawBackground: drawBackground,
         drawForeground: drawForeground,
         initialize: initialize
@@ -14,6 +18,22 @@ function newNote() {
     function initialize(callBackFunction) {
 
         callBackFunction();
+
+    }
+
+    function physicsLoop() {
+
+    }
+
+    function onMouseOver() {
+
+    }
+
+    function onMouseNotOver() {
+
+    }
+
+    function onMouseClick(pPoint, pFloatingObject) {
 
     }
 

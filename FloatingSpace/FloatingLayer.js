@@ -535,8 +535,12 @@ function newFloatingLayer() {
                             }
                             case "Note": {
 
-                                payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position;
-                                payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
+                                if (floatingObject.payload.notes[floatingObject.payloadNoteIndex] !== undefined) {
+
+                                    payload.position = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position;
+                                    payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible;
+                                }
+
                                 break;
                             }
                             default: {

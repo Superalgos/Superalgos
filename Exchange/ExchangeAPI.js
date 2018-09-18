@@ -35,11 +35,12 @@
 
         callServer(undefined, path + "/NO-LOG", onServerResponse);
 
-        function onServerResponse(pServerResponse) {
-
+        function onServerResponse(pServerResponse) {                        
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response);
-
+            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+            else
+                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
         }
     }
 
@@ -53,10 +54,11 @@
         callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
-
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response);
-
+            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+            else
+                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
         }
     }
 
@@ -71,10 +73,11 @@
         callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
-
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response);
-
+            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+            else
+                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
         }
     }
     
@@ -92,10 +95,11 @@
         callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
-
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response);
-
+            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+            else
+                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
         }
     }
 
@@ -112,10 +116,11 @@
         callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
-
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response);
-
+            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+            else
+                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
         }
     }
 
@@ -131,10 +136,11 @@
         callServer(undefined, path + "/NO-LOG", onServerResponse);
 
         function onServerResponse(pServerResponse) {
-
             let response = JSON.parse(pServerResponse);
-            callBackFunction(response);
-
+            if (response.result === window.DEFAULT_FAIL_RESPONSE.result)
+                callBackFunction(window.DEFAULT_FAIL_RESPONSE);
+            else
+                callBackFunction(window.DEFAULT_OK_RESPONSE, response);
         }
     }
 }

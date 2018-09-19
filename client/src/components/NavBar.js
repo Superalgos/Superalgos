@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom'
 import LoggedInUser from './LoggedInUser'
 
 // Images
-import AALogo from '../img/aa-logo-dark-8.png'
+import AALogo from '../assets/logos/advanced-algos/aa-logo-dark.svg'
 
 const ModulesLink = props => <Link to='/modules' {...props} />
 const AboutLink = props => <Link to='/about' {...props} />
@@ -43,8 +43,8 @@ const styles = {
   img: {
     margin: 20,
     display: 'block',
-    maxWidth: 120,
-    maxHeight: 24
+    maxWidth: 240,
+    maxHeight: 48
   }
 }
 

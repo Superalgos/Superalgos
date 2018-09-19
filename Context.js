@@ -153,7 +153,9 @@
                     statusReportModule = statusDependencies.statusReports.get(key);
                     thisObject.statusReport = statusReportModule.file;
 
-                    if (bot.hasTheBotJustStarted === true) { 
+                    /* The context is created in 2 situations: 1) when at the bot config is set not to continue using the same context after a new execution. 2) when the status report does not exist. */
+
+                    if (bot.hasTheBotJustStarted === true || thisObject.statusReport.runs === undefined) { 
 
                         createConext(callBack);
 
@@ -167,6 +169,7 @@
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> getStatusReport -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> getStatusReport -> key = " + key);
                     callBack(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

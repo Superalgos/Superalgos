@@ -123,7 +123,7 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] getOpenPositions -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] poloniexClient -> getOpenPositions -> Entering function."); }
 
             const handle = (err, response) => {
                 let exchangePositions = [];
@@ -148,7 +148,7 @@
             retry(null, fetch, handle);
 
         } catch (err) {
-            console.log("[ERROR] getOpenPositions -> err = " + err.message);
+            console.log("[ERROR] poloniexClient -> getOpenPositions -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -170,7 +170,7 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] getExecutedTrades -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] poloniexClient -> getExecutedTrades -> Entering function."); }
 
             const handle = (err, response) => {
                 let trades = [];
@@ -199,7 +199,7 @@
             retry(null, fetch, handle);
 
         } catch (err) {
-            console.log("[ERROR] getExecutedTrades -> err = " + err.message);
+            console.log("[ERROR] poloniexClient -> getExecutedTrades -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -212,7 +212,7 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] buy -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] poloniexClient -> buy -> Entering function."); }
 
             const handle = (err, response) => {
                 let orderNumber;
@@ -227,7 +227,7 @@
             retry(null, fetch, handle);
 
         } catch (err) {
-            console.log("[ERROR] buy -> err = " + err.message);
+            console.log("[ERROR] poloniexClient -> buy -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -240,7 +240,7 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] sell -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] poloniexClient -> sell -> Entering function."); }
 
             const handle = (err, response) => {
                 let orderNumber;
@@ -255,7 +255,7 @@
             retry(null, fetch, handle);
 
         } catch (err) {
-                console.log("[ERROR] sell -> err = " + err.message);
+                console.log("[ERROR] poloniexClient -> sell -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -268,7 +268,7 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] movePosition -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] poloniexClient -> movePosition -> Entering function."); }
 
             const handle = (err, response) => {
                 let orderNumber;
@@ -283,7 +283,7 @@
             retry(null, fetch, handle);
 
         } catch (err) {
-            console.log("[ERROR] movePosition -> err = " + err.message);
+            console.log("[ERROR] poloniexClient -> movePosition -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -306,7 +306,7 @@
 
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] getPublicTradeHistory -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] poloniexClient -> getPublicTradeHistory -> Entering function."); }
 
             const handle = (err, response) => {
                 let trades = [];
@@ -332,7 +332,7 @@
             retry(null, fetch, handle);
 
         } catch (err) {
-            console.log("[ERROR] getPublicTradeHistory -> err = " + err.message);
+            console.log("[ERROR] poloniexClient -> getPublicTradeHistory -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -352,8 +352,8 @@
             let stringExchangeResponse = JSON.stringify(exchangeResponse);
 
             try {
-                if (FULL_LOG === true) { console.log("[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
-                if (FULL_LOG === true) { console.log("[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
+                if (FULL_LOG === true) { console.log("[INFO] poloniexClient -> analizeResponse -> exchangeErr = " + stringExchangeErr); }
+                if (FULL_LOG === true) { console.log("[INFO] poloniexClient -> analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
                 
                 if (exchangeErr) {
                     error = global.DEFAULT_FAIL_RESPONSE;
@@ -397,7 +397,7 @@
                 return callBack(error, exchangeResponse);
             
             } catch (err) {
-                console.log("[ERROR] analizeResponse -> err.message = " + err.message);
+                console.log("[ERROR] poloniexClient -> analizeResponse -> err.message = " + err.message);
                 return callBack(global.DEFAULT_FAIL_RESPONSE, exchangeResponse);
             }
         }

@@ -121,27 +121,36 @@
      */
     function getOpenPositions(pMarket, callBack) {
 
-        const handle = (err, response) => {
-            let exchangePositions = [];
-            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                for (let i = 0; i < response.length; i++) {
-                    let openPosition = {
-                        id: response[i].orderNumber,
-                        type: response[i].type,
-                        rate: Number(response[i].rate),
-                        amountA: Number(response[i].total),
-                        amountB: Number(response[i].amount),
-                        date: (new Date(response[i].time)).valueOf()
-                    };
-                    exchangePositions.push(openPosition);
+        try {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] getOpenPositions -> Entering function."); }
+
+            const handle = (err, response) => {
+                let exchangePositions = [];
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                    for (let i = 0; i < response.length; i++) {
+                        let openPosition = {
+                            id: response[i].orderNumber,
+                            type: response[i].type,
+                            rate: Number(response[i].rate),
+                            amountA: Number(response[i].total),
+                            amountB: Number(response[i].amount),
+                            date: (new Date(response[i].time)).valueOf()
+                        };
+                        exchangePositions.push(openPosition);
+                    }
                 }
-            }
-            callBack(err, exchangePositions);
-        };
+                callBack(err, exchangePositions);
+            };
 
-        const fetch = next => API.returnOpenOrders(pMarket.assetA, pMarket.assetB, analizeResponse(next));
+            const fetch = next => API.returnOpenOrders(pMarket.assetA, pMarket.assetB, analizeResponse(next));
 
-        retry(null, fetch, handle);
+            retry(null, fetch, handle);
+
+        } catch (err) {
+            console.log("[ERROR] getOpenPositions -> err = " + err.message);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
+        }
     }
 
     /*
@@ -159,31 +168,40 @@
      */
     function getExecutedTrades(pPositionId, callBack) {
 
-        const handle = (err, response) => {
-            let trades = [];
-            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                for (let i = 0; i < response.length; i++) {
-                    let trade = {
-                        id: response[i].tradeID,
-                        type: response[i].type,
-                        rate: Number(response[i].rate),
-                        amountA: Number(response[i].total),
-                        amountB: Number(response[i].amount),
-                        fee: Number(response[i].fee),
-                        date: (new Date(response[i].date)).valueOf()
+        try {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] getExecutedTrades -> Entering function."); }
+
+            const handle = (err, response) => {
+                let trades = [];
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                    for (let i = 0; i < response.length; i++) {
+                        let trade = {
+                            id: response[i].tradeID,
+                            type: response[i].type,
+                            rate: Number(response[i].rate),
+                            amountA: Number(response[i].total),
+                            amountB: Number(response[i].amount),
+                            fee: Number(response[i].fee),
+                            date: (new Date(response[i].date)).valueOf()
+                        }
+                        trades.push(trade);
                     }
-                    trades.push(trade);
+                } else if (err.result === global.CUSTOM_OK_RESPONSE.result) {
+                    // No trades found at the exchange for the position, but returning empy trades object.
+                    err = global.DEFAULT_OK_RESPONSE;
                 }
-            } else if (err.result === global.CUSTOM_OK_RESPONSE.result) {
-                // No trades found at the exchange for the position, but returning empy trades object.
-                err = global.DEFAULT_OK_RESPONSE;
-            }
-            callBack(err, trades);
-        };
+                callBack(err, trades);
+            };
 
-        const fetch = next => API.returnOrderTrades(pPositionId, analizeResponse(next));
+            const fetch = next => API.returnOrderTrades(pPositionId, analizeResponse(next));
 
-        retry(null, fetch, handle);
+            retry(null, fetch, handle);
+
+        } catch (err) {
+            console.log("[ERROR] getExecutedTrades -> err = " + err.message);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
+        }
     }
 
     /*
@@ -192,18 +210,26 @@
      */
     function buy(pCurrencyA, pCurrencyB, pRate, pAmount, callBack) {
 
-        const handle = (err, response) => {
-            let orderNumber;
-            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                orderNumber = response.orderNumber;
-            }
-            callBack(err, orderNumber);
-        };
+        try {
 
-        const fetch = next => API.buy(pCurrencyA, pCurrencyB, pRate, pAmount, analizeResponse(next));
+            if (CONSOLE_LOG === true) { console.log("[INFO] buy -> Entering function."); }
 
-        retry(null, fetch, handle);
+            const handle = (err, response) => {
+                let orderNumber;
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                    orderNumber = response.orderNumber;
+                }
+                callBack(err, orderNumber);
+            };
 
+            const fetch = next => API.buy(pCurrencyA, pCurrencyB, pRate, pAmount, analizeResponse(next));
+
+            retry(null, fetch, handle);
+
+        } catch (err) {
+            console.log("[ERROR] buy -> err = " + err.message);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
+        }
     }
 
     /*
@@ -212,17 +238,26 @@
      */
     function sell(pCurrencyA, pCurrencyB, pRate, pAmount, callBack) {
 
-        const handle = (err, response) => {
-            let orderNumber;
-            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                orderNumber = response.orderNumber;
-            }
-            callBack(err, orderNumber);
-        };
+        try {
 
-        const fetch = next => API.sell(pCurrencyA, pCurrencyB, pRate, pAmount, analizeResponse(next));
+            if (CONSOLE_LOG === true) { console.log("[INFO] sell -> Entering function."); }
 
-        retry(null, fetch, handle);
+            const handle = (err, response) => {
+                let orderNumber;
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                    orderNumber = response.orderNumber;
+                }
+                callBack(err, orderNumber);
+            };
+
+            const fetch = next => API.sell(pCurrencyA, pCurrencyB, pRate, pAmount, analizeResponse(next));
+
+            retry(null, fetch, handle);
+
+        } catch (err) {
+                console.log("[ERROR] sell -> err = " + err.message);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
+        }
     }
 
     /*
@@ -231,17 +266,26 @@
      */
     function movePosition(pPosition, pNewRate, pNewAmountB, callBack) {
 
-        const handle = (err, response) => {
-            let orderNumber;
-            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                orderNumber = response.orderNumber;
-            }
-            callBack(err, orderNumber);
-        };
+        try {
 
-        const fetch = next => API.moveOrder(pPosition.id, pNewRate, pNewAmountB, analizeResponse(next));
+            if (CONSOLE_LOG === true) { console.log("[INFO] movePosition -> Entering function."); }
 
-        retry(null, fetch, handle);
+            const handle = (err, response) => {
+                let orderNumber;
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                    orderNumber = response.orderNumber;
+                }
+                callBack(err, orderNumber);
+            };
+
+            const fetch = next => API.moveOrder(pPosition.id, pNewRate, pNewAmountB, analizeResponse(next));
+
+            retry(null, fetch, handle);
+
+        } catch (err) {
+            console.log("[ERROR] movePosition -> err = " + err.message);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
+        }
     }
 
     /*
@@ -260,28 +304,37 @@
      */
     function getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack) {
 
-        const handle = (err, response) => {
-            let trades = [];
-            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                for (let i = 0; i < response.length; i++) {
-                    let trade = {
-                        tradeID: response[i].tradeID,
-                        globalTradeID: response[i].globalTradeID,
-                        type: response[i].type,
-                        rate: Number(response[i].rate),
-                        total: Number(response[i].total),
-                        amount: Number(response[i].amount),
-                        date: new Date(response[i].date)
+        try {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] getPublicTradeHistory -> Entering function."); }
+
+            const handle = (err, response) => {
+                let trades = [];
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                    for (let i = 0; i < response.length; i++) {
+                        let trade = {
+                            tradeID: response[i].tradeID,
+                            globalTradeID: response[i].globalTradeID,
+                            type: response[i].type,
+                            rate: Number(response[i].rate),
+                            total: Number(response[i].total),
+                            amount: Number(response[i].amount),
+                            date: new Date(response[i].date)
+                        }
+                        trades.push(trade);
                     }
-                    trades.push(trade);
                 }
-            }
-            callBack(err, trades);
-        };
+                callBack(err, trades);
+            };
 
-        const fetch = next => API.returnTradeHistory(assetA, assetB, startTime, endTime, analizeResponse(next));
+            const fetch = next => API.returnTradeHistory(assetA, assetB, startTime, endTime, analizeResponse(next));
 
-        retry(null, fetch, handle);
+            retry(null, fetch, handle);
+
+        } catch (err) {
+            console.log("[ERROR] getPublicTradeHistory -> err = " + err.message);
+            callBack(global.DEFAULT_FAIL_RESPONSE);
+        }
     }
     
     function isValidLot(price, amount) {

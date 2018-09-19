@@ -184,13 +184,31 @@
 
                             let botConfig = JSON.parse(pFileContent);
 
+                            /*
+
+                            The first thing we are going to replace is the status dependency to iteself. Each trading bots reads its own status report and its
+                            dependency can be located anywhere within the status dependency array. We will scan the array for the self dependency and replace
+                            that first with the name of the new bot. After that wi will continue replacing the rest of the information.
+                            */
+
+                            for (let i = 0; i < botConfig.processes[0].statusDependencies.length; i++) {
+
+                                if (
+                                    botConfig.processes[0].statusDependencies[i].devTeam === botConfig.devTeam &&
+                                    botConfig.processes[0].statusDependencies[i].bot === botConfig.codeName
+                                ) {
+
+                                    botConfig.processes[0].statusDependencies[i].devTeam = pTeamCodeName;
+                                    botConfig.processes[0].statusDependencies[i].bot = pBotName;
+
+                                }
+                            }
+
                             botConfig.displayName = pBotName;
                             botConfig.codeName = pBotName;
                             botConfig.devTeam = pTeamCodeName;
                             botConfig.profilePicture = pBotName + ".png";
-                            botConfig.processes[0].statusDependencies[1].devTeam = pTeamCodeName;
-                            botConfig.processes[0].statusDependencies[1].bot = pBotName;
-
+                            
                             let fileContent = JSON.stringify(botConfig);
 
                             let team = pTeamCodeName;

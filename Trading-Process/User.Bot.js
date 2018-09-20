@@ -93,37 +93,15 @@ exports.newUserBot = function newUserBot (bot, logger) {
     const CHANNEL_UP = 1
     const NO_CHANNEL = 0
 
-    // Some parameters defined locally, they are used to explore different variations.
-    const TRADE_TARGET = 2.0
-    let targetTradeEnabled = false
-    let stopLossEnabled = false
-    let stopLossPorcentage = 0.01
-
     /*
-     Some variables that are stored and retrieved on every execution. They are
-     stored and managed by the assistant using a key-par value. Objects are not
-     allowed.
-   */
-    let lastBuyRate = assistant.remindMeOf(LAST_BUY_RATE_KEY)
-    if (lastBuyRate === undefined) {
-      let currentRate = assistant.getMarketRate()
-      lastBuyRate = currentRate
-      assistant.rememberThis(LAST_BUY_RATE_KEY, lastBuyRate)
-    }
-
-    // Bypass business logic and create a buy position directly based on a different rule
-    let lastSellRate = assistant.remindMeOf(LAST_SELL_RATE_KEY)
-    if (targetTradeEnabled === true && assistant.getAvailableBalance().assetA > 1 && lastSellRate !== undefined) {
-      let currentROI = ((lastSellRate - assistant.getTicker().bid) / lastSellRate) * 100
-      if (currentROI > TRADE_TARGET) {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> Current trade ROI is greater than default target. Buying...') }
-        createBuyPosition(onDone)
-        return
-      }
-    }
-
+      Here we call the main function that will check buy, sell or move conditions.
+    */
     businessLogic(onDone)
 
+    /*
+      This function will be called after we complete all validations and operations,
+      we make sure everything was ok before returning the control to the platform.
+    */
     function onDone (err) {
       try {
         switch (err.result) {
@@ -149,9 +127,12 @@ exports.newUserBot = function newUserBot (bot, logger) {
       }
     }
 
+    /*
+      We will check the direction of the channel and based on that create a buy or sell
+      position on the market.
+    */
     function businessLogic (callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> Entering function.') }
-      let firstChannelTilt = 0
 
       getChannelTilt(firstTiltCheck);
 
@@ -166,8 +147,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
             if (channelTilt == 1) {
               createBuyPosition(callBack)
             } else if (channelTilt == -1) {
-              firstChannelTilt = -1
-              getSecondChannelTilt(secondTiltCheck)
+              createSellPosition(callBack)
             } else {
               if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> firstTiltCheck -> Nothing to do, there isn't a buy or sell oportunity.") }
 
@@ -179,29 +159,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
           callBackFunction(global.DEFAULT_FAIL_RESPONSE)
         }
       }
-
-      function secondTiltCheck (err, secondChannelTilt) {
-        try {
-          if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> secondTiltCheck  -> Entering Function.') }
-
-          if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-            logger.write(MODULE_NAME, '[ERROR] start -> businessLogic -> secondTiltCheck -> err = ' + err.message)
-            callBack(global.DEFAULT_FAIL_RESPONSE)
-          } else {
-            if (firstChannelTilt == -1 && secondChannelTilt == -1) {
-              createSellPosition(callBack)
-            } else {
-              if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> secondTiltCheck -> Nothing to do, there isn't a sell oportunity.") }
-
-              callBack(global.DEFAULT_OK_RESPONSE)
-            }
-          }
-        } catch (err) {
-          logger.write(MODULE_NAME, '[ERROR] start -> businessLogic -> secondTiltCheck -> err = ' + err.message)
-          callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-        }
-      }
-    }
 
     function getChannelTilt (callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> getChannelTilt -> Entering function.') }
@@ -280,7 +237,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
             } else {
               if (LOG_INFO === true) logger.write(MODULE_NAME, '[WARN] start -> getChannelTilt -> onLRCPointsFileReceived. Available candle older than 5 minutes. Skeeping execution.')
 
-              callBack(global.DEFAULT_OK_RESPONSE, NO_CHANNEL) // TODO CUSTOM_OK_RESPONSE
+              callBack(global.DEFAULT_OK_RESPONSE, NO_CHANNEL)
             }
           }
         } catch (err) {
@@ -291,108 +248,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
       function onPreviousLRCPointsFileReceived (err, lrcPointsFile) {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> getChannelTilt -> onLRCPointsFileReceived.') }
-
-        let previous = lrcPointsFile.length - 1
-        previousLRCPoint = {
-          begin: lrcPointsFile[previous][0],
-          end: lrcPointsFile[previous][1],
-          min: lrcPointsFile[previous][2],
-          mid: lrcPointsFile[previous][3],
-          max: lrcPointsFile[previous][4]
-        }
-
-        applyBotRules(lrcPoint, previousLRCPoint, callBack)
-      }
-    }
-
-    function getSecondChannelTilt (callBack) {
-      if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> getSecondChannelTilt -> Entering function.') }
-
-      const CHANNEL_DOWN = -1
-      const CHANNEL_UP = 1
-      const NO_CHANNEL = 0
-      let lrcPoint, previousLRCPoint
-
-      getLRCPointsMarketFile(onLRCPointsFileReceived)
-
-      function onLRCPointsFileReceived (err, lrcPointsFile) {
-        try {
-          if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> getSecondChannelTilt -> onLRCPointsFileReceived.') }
-
-          let lastIndexLrcPointsFile = lrcPointsFile.length - 1
-          let lastAvailableDateTime = lrcPointsFile[lastIndexLrcPointsFile][0]
-
-          if (bot.processDatetime.valueOf() <= lastAvailableDateTime || !isExecutionToday()) {
-            for (let i = lrcPointsFile.length - 1; i >= 0; i--) {
-              if (bot.processDatetime.valueOf() >= lrcPointsFile[i][0] && bot.processDatetime.valueOf() < lrcPointsFile[i][1]) {
-                lrcPoint = {
-                  begin: lrcPointsFile[i][0],
-                  end: lrcPointsFile[i][1],
-                  min: lrcPointsFile[i][2],
-                  mid: lrcPointsFile[i][3],
-                  max: lrcPointsFile[i][4]
-                }
-
-                if (i >= 1) {
-                  let previous = i - 1
-                  previousLRCPoint = {
-                    begin: lrcPointsFile[previous][0],
-                    end: lrcPointsFile[previous][1],
-                    min: lrcPointsFile[previous][2],
-                    mid: lrcPointsFile[previous][3],
-                    max: lrcPointsFile[previous][4]
-                  }
-
-                  applyBotRules(lrcPoint, previousLRCPoint, callBack)
-                } else {
-                  logger.write(MODULE_NAME, '[ERROR] start -> businessLogic -> getSecondChannelTilt -> onLRCPointsFileReceived. The expected previous LRC Point was not found.')
-                }
-                return
-              }
-            }
-
-            logger.write(MODULE_NAME, '[ERROR] start -> businessLogic -> getSecondChannelTilt -> onLRCPointsFileReceived. The expected LRC Point was not found.' + bot.processDatetime.valueOf() + '. ' + JSON.stringify(lrcPointsFile))
-            callBack(global.DEFAULT_FAIL_RESPONSE)
-          } else {
-                        // Running live we will process last available LRCPoint only if it's delayed 25 minutes top
-            let maxTolerance = 25 * 60 * 1000
-            if (bot.processDatetime.valueOf() <= (lastAvailableDateTime + maxTolerance)) {
-              lrcPoint = {
-                begin: lrcPointsFile[lastIndexLrcPointsFile][0],
-                end: lrcPointsFile[lastIndexLrcPointsFile][1],
-                min: lrcPointsFile[lastIndexLrcPointsFile][2],
-                mid: lrcPointsFile[lastIndexLrcPointsFile][3],
-                max: lrcPointsFile[lastIndexLrcPointsFile][4]
-              }
-
-              if (lastIndexLrcPointsFile >= 1) {
-                let previous = lastIndexLrcPointsFile - 1
-                previousLRCPoint = {
-                  begin: lrcPointsFile[previous][0],
-                  end: lrcPointsFile[previous][1],
-                  min: lrcPointsFile[previous][2],
-                  mid: lrcPointsFile[previous][3],
-                  max: lrcPointsFile[previous][4]
-                }
-
-                applyBotRules(lrcPoint, previousLRCPoint, callBack)
-              } else {
-                logger.write(MODULE_NAME, '[ERROR] start -> businessLogic -> getSecondChannelTilt -> onLRCPointsFileReceived. The expected previous LRC Point was not found.')
-              }
-            } else {
-              if (LOG_INFO === true) logger.write(MODULE_NAME, '[WARN] start -> getSecondChannelTilt -> onLRCPointsFileReceived. Available candle older than 5 minutes. Skeeping execution.')
-
-              callBack(global.DEFAULT_OK_RESPONSE, NO_CHANNEL) // TODO CUSTOM_OK_RESPONSE
-            }
-          }
-        } catch (err) {
-          logger.write(MODULE_NAME, '[ERROR] start -> getSecondChannelTilt -> onLRCPointsFileReceived -> err = ' + err.message)
-          callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-        }
-      }
-
-      function onPreviousLRCPointsFileReceived (err, lrcPointsFile) {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> getSecondChannelTilt -> onLRCPointsFileReceived.') }
 
         let previous = lrcPointsFile.length - 1
         previousLRCPoint = {
@@ -431,10 +286,8 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
       if (lrcPoint.min < previousLRCPoint.min && lrcPoint.mid <= previousLRCPoint.mid) {
         // 15 AND 30 changed direction from up to down
-        if (checkToSellWithStopLoss()) {
           channelTilt = CHANNEL_DOWN
           ruleApplied += 'Rule_3a.'
-        }
       }
 
       if (lrcPoint.min > previousLRCPoint.min && lrcPoint.mid >= previousLRCPoint.mid) {
@@ -447,60 +300,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> getChannelTilt -> applyBotRules -> Results: ' + logMessage) }
 
       callBack(global.DEFAULT_OK_RESPONSE, channelTilt)
-    }
-
-    function checkToSellWithStopLoss () {
-      let allowSell = true
-      let assetBBalance = assistant.getAvailableBalance().assetB
-      let currentRate = assistant.getMarketRate()
-      let amountB = assistant.getAvailableBalance().assetB
-      let amountA = amountB * currentRate
-
-      if (stopLossEnabled) {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> Stop Loss Enabled, checking to sell.') }
-
-        // Get the current investment value
-        let investment = 0
-        if (assistant.getAvailableBalance() !== undefined) {
-          investment = assistant.getAvailableBalance().assetB * lastBuyRate
-        }
-
-        // Calculate maximum loss setup
-        let currentLoss = amountA - investment
-        let stopLossValue = investment * stopLossPorcentage
-
-        if (currentLoss > 0) {
-          if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> No loss, we can sell.') }
-        } else if (assetBBalance > 0) {
-          if (Math.abs(currentLoss) > stopLossValue) {
-            let message = 'Sell to avoid loss more than ' + Number(stopLossPorcentage * 100).toLocaleString() + '% of our initial investment. '
-
-            message += 'Combined ROI on current execution: '
-            if (assistant.getCombinedProfits().assetA > 0) {
-              message += Number(assistant.getCombinedProfits().assetA).toLocaleString() + '%. '
-            } else {
-              message += Number(assistant.getCombinedProfits().assetB).toLocaleString() + '%. '
-            }
-
-            if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration ->  Stop loss, sell: ' + message) }
-
-            assistant.sendMessage(3, 'Stop Loss', message)
-          } else {
-            let currentRisk = currentLoss / investment
-            let message = 'Not sell now. Risking ' + Number(currentRisk * 100).toLocaleString() + '% of our initial investment'
-            message += '. Last Buy: $' + Number(lastBuyRate).toLocaleString()
-            message += '. Not selling at: $' + Number(currentRate).toLocaleString()
-
-            if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> getChannelTilt -> applyBotRules -> manageStopLossConfiguration -> Stop loss, not sell: ' + message) }
-
-            assistant.sendMessage(3, 'Stop Loss', message)
-
-            allowSell = false
-          }
-        }
-      }
-
-      return allowSell
     }
 
     function getLRCPointsFile (dateTime, callback) {
@@ -548,35 +347,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
       }
     }
 
-    function getLRCPointsMarketFile (callback) {
-      if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] getLRCPointsMarketFile -> Entering function.') }
-
-      let filePath = 'LRC-Points/Multi-Period-Market/02-hs'
-      let fileName = market.assetA + '_' + market.assetB + '.json'
-
-      if (bot.startMode === 'Backtest' && bot.botCache.has(filePath)) {
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] getLRCPointsMarketFile -> Getting the file from local cache.') }
-
-        callback(global.DEFAULT_OK_RESPONSE, bot.botCache.get(filePath))
-      } else {
-        gaussStorage.getTextFile(filePath, fileName, onFileReceived)
-      }
-
-      function onFileReceived (err, text) {
-        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-          if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] getLRCPointsMarketFile -> onFileReceived > Entering Function.') }
-
-          let lrcPointsFile = JSON.parse(text)
-          bot.botCache.set(filePath, lrcPointsFile)
-          callback(global.DEFAULT_OK_RESPONSE, lrcPointsFile)
-        } else {
-          logger.write(MODULE_NAME, '[ERROR]getLRCPointsMarketFile -> onFileReceived -> Failed to get the file. Will abort the process and request a retry.')
-          callBackFunction(global.DEFAULT_RETRY_RESPONSE)
-          return
-        }
-      }
-    }
-
     function createBuyPosition (callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Entering function.') }
 
@@ -595,7 +365,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
         assistant.sendMessage(6, 'Moving Position', message)
         message = bot.processDatetime.toISOString() + ' - ' + message
         assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-        assistant.rememberThis(LAST_BUY_RATE_KEY, currentRate)
         assistant.movePosition(positions[0], currentRate, callBack)
       } else if (assetABalance > 0) {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Artuditu put a new BUY position at price: $' + Number(currentRate).toLocaleString()) }
@@ -605,7 +374,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
         assistant.sendMessage(7, 'Buying', message)
         message = bot.processDatetime.toISOString() + ' - ' + message
         assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-        assistant.rememberThis(LAST_BUY_RATE_KEY, currentRate)
         assistant.putPosition('buy', currentRate, amountA, amountB, callBack)
       } else {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Not enough available balance to buy.') }
@@ -632,7 +400,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
         assistant.sendMessage(6, 'Moving Position', message)
         message = bot.processDatetime.toISOString() + ' - ' + message
         assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-        assistant.rememberThis(LAST_SELL_RATE_KEY, currentRate)
         assistant.movePosition(positions[0], currentRate, callBack)
       } else if (assetBBalance > 0) {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> Artuditu put a new SELL position at price: $' + Number(currentRate).toLocaleString()) }
@@ -642,7 +409,6 @@ exports.newUserBot = function newUserBot (bot, logger) {
         assistant.sendMessage(7, 'Selling', message)
         message = bot.processDatetime.toISOString() + ' - ' + message
         assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-        assistant.rememberThis(LAST_SELL_RATE_KEY, currentRate)
         assistant.putPosition('sell', currentRate, amountA, amountB, callBack)
       } else {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> There is not enough available balance to sell.') }

@@ -21,6 +21,7 @@ type Mutation {
   createTeam(name: String!, slug: String!, owner: String!): Team @isAuthenticated
   updateTeamProfile(slug: String!, owner: String!, description: String, motto: String, avatar: String): Team @isAuthenticated
   deleteTeam(slug: String!): Team @isAuthenticated @isOwner(type: "Team")
+  getAzureSAS(teamSlug: String!):String
 }
 
 input MemberProfileInput {

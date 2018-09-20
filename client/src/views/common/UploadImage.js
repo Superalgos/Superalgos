@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Mutation } from 'react-apollo'
 import Dropzone from 'react-dropzone'
-// import ReactCrop from 'react-image-crop'
 import { Cropper } from 'react-image-cropper'
-// import azure from 'azure-storage'
+import * as Azure from '@azure/storage-blob'
+import { imgSrcToBlob } from 'blob-util'
 import { withStyles } from '@material-ui/core/styles'
 
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import Button from '@material-ui/core/Button'
+
+import GET_AZURE_SAS from '../../graphql/teams/GetAzureSASMutation'
 
 const styles = theme => ({
   dropzoneContainer: {
@@ -54,6 +57,8 @@ class UploadImage extends Component {
     this.getCroppedImg = this.getCroppedImg.bind(this)
     this.handleClickOpen = this.handleClickOpen.bind(this)
     this.handleClose = this.handleClose.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.saveAvatar = this.saveAvatar.bind(this)
 
     this.state = {
       open: false,
@@ -86,7 +91,21 @@ class UploadImage extends Component {
           </Dropzone>
         )}
         {this.state.cropped !== null && (
-          <img src={this.state.cropped} className={classes.cropPreview} alt='Crop Preview' />
+          <Mutation mutation={GET_AZURE_SAS} >
+            {(getAzureSAS, { loading, error, data }) => {
+              console.log('getAzureSAS: ', error, data)
+              console.log('getAzureSAS keys: ', process.env.AZURE_STORAGE_URL, process.env.AZURE_SAS)
+              if (data !== undefined && data.getAzureSAS !== null) {
+                this.saveAvatar(data.getAzureSAS, team.slug)
+              }
+              return (
+                <div>
+                  <img src={this.state.cropped} className={classes.cropPreview} alt='Crop Preview' />
+                  <Button onClick={(e) => this.handleSubmit(e, getAzureSAS, team.slug)}>Save</Button>
+                </div>
+              )
+            }}
+          </Mutation>
         )}
         {this.state.src !== null && (
           <Dialog
@@ -153,6 +172,38 @@ class UploadImage extends Component {
     this.setState({ cropped: this.cropper.crop(), open: false })
   }
 
+  async handleSubmit (e, getAzureSAS, teamSlug) {
+    e.preventDefault()
+
+    await getAzureSAS({ variables: { teamSlug } })
+  }
+
+  async saveAvatar (SASQueryParameters, teamSlug) {
+    const blob = await imgSrcToBlob(this.state.cropped, 'image/png', 'Anonymous')
+    console.log('handleSubmit0:', await blob, await blob.type)
+    const type = blob.type
+    let ext
+    if (type === 'image/jpeg') ext = 'jpg'
+    if (type === 'image/png') ext = 'png'
+    const fileName = `${teamSlug}-avatar.${ext}`
+    console.log('saveAvatar SASurl', process.env.AZURE_SAS_URL)
+    // const SASurl = `${process.env.AZURE_STORAGE_URL}?${SASQueryParameters}`
+    const SASurl = process.env.AZURE_SAS_URL
+
+    const pipeline = Azure.StorageURL.newPipeline(new Azure.AnonymousCredential())
+    const serviceURL = new Azure.ServiceURL(SASurl, pipeline)
+    console.log('getAzureSAS2: ', serviceURL)
+    const containerName = teamSlug
+    const containerURL = Azure.ContainerURL.fromServiceURL(serviceURL, containerName)
+    console.log('getAzureSAS3: ', containerURL)
+    const blockBlobURL = Azure.BlockBlobURL.fromContainerURL(containerURL, fileName)
+
+    console.log(Azure.Aborter.None, await blob, blockBlobURL)
+    const avatar = await Azure.uploadBrowserDataToBlockBlob(Azure.Aborter.None, blob, blockBlobURL)
+    console.log('saveAvatar: ', avatar)
+    return avatar
+  }
+
   onCropComplete (crop, pixelCrop) {
     console.log('onCropComplete', crop, pixelCrop, this.state)
     const cropped = this.getCroppedImg(crop, pixelCrop, this.state.src)
@@ -203,25 +254,15 @@ class UploadImage extends Component {
     this.setState({ open: false, src: null })
   }
   /*
-  saveToStorage (xhr) {
-    const blobService = azure.createBlobService()
+  async saveToStorage (file) {
+    const blobService = Azure.createBlobService()
     const container = ''
-    const Stream = require('stream')
-    const readable = new Stream.Readable()
-    readable.push(xhr.responseText)
-    readable.push(null)
 
-    blobService.createBlockBlobFromStream(
-      container,
-      this.state.accepted[0].name,
-      readable,
-      xhr.responseText.length,
-      (error, result, response) => {
-        if (error) return (<p>{error}</p>)
-        return 'Success'
-      }
-    )
-    xhr.send()
+    await uploadBrowserDataToBlockBlob(Aborter.None, file, blockBlobURL, {
+      blockSize: 4 * 1024 * 1024, // 4MB block size
+      parallelism: 20, // 20 concurrency
+      progress: ev => console.log(ev)
+    });
   }
   */
 }

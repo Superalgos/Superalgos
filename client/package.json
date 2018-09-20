@@ -67,6 +67,7 @@
     "workbox-cli": "^3.4.1"
   },
   "dependencies": {
+    "@azure/storage-blob": "^10.0.0-preview",
     "@material-ui/core": "^3.0.3",
     "@material-ui/icons": "^3.0.1",
     "apollo-cache-inmemory": "^1.2.9",
@@ -80,6 +81,7 @@
     "auth0-lock": "^11.9.0",
     "azure-storage": "^2.10.1",
     "babel-polyfill": "^6.26.0",
+    "blob-util": "^2.0.2",
     "classnames": "^2.2.6",
     "cross-fetch": "^2.2.2",
     "dotenv-webpack": "^1.5.7",

@@ -27,9 +27,9 @@ exports.newUserBot = function newUserBot (bot, logger) {
         getCombinedProfits: Get current profits
         getROI: Get current ROI
         getMarketRate: Get current market rate
-        getTicker: Gets the current highest bid and lowest ask on the exchaneg
+        getTicker: Gets the current highest bid and lowest ask on the exchange
         sendMessage: Put a visual message on the platform (it could be at different zoom levels 1-10 )
-        rememberThis: Store a string variable accross executions by key value pairs
+        rememberThis: Store a string variable across executions by key value pairs
         remindMeOf: Get an stored string value by key
         sendEmail: Send an email during execution as notifications
   */

@@ -139,7 +139,18 @@ exports.newUserBot = function newUserBot (bot, logger) {
     function businessLogic (callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> Entering function.') }
 
-      getChannelTilt(firstTiltCheck);
+      // Simulation for forcing buy or sell on each execution without checking the rules
+      let forceBuyAndSell = false
+      if(forceBuyAndSell){
+        if (Math.random(1) <= 0.5){
+          createBuyPosition(callBack);
+        }else{
+          createSellPosition(callBack);
+        }
+      }else{
+        // Here we really check the bot business logic
+        getChannelTilt(firstTiltCheck);
+      }
 
       function firstTiltCheck (err, channelTilt) {
         try {

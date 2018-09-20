@@ -3,7 +3,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
     Creating a new instance from the platform of this bot:
     - bot: An instance of the bot configuration
     - logger: An instance of the platform logger that allow both: to save logs
-        on cloud execution and browser execution
+        on cloud execution and show logs on the browser console on browser execution
   */
 
   // Variable used for logs, this will be passed to the logger instance
@@ -15,7 +15,23 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
   /*
     The reference to the Trading Platform Advanced Algos Assistant that will
-    allow to put positions on the exchange.
+    allow to:
+        dataDependencies: Retrieve all dependencies to other bots defined on the configuration
+        putPosition: Put a buy or sell position at the exchange (only limit at this point)
+        movePosition: Move an existing position
+        getPositions: Obtain all the positions existing on the exchange
+        getBalance: Obtain the total balance on the exchange known by the platform (at this point 0.001 BTC)
+        getAvailableBalance: Obtain the current available balance on the exchange known by the platform
+        getInvestment: Obtain initial investment known by the platform (at this point 0.001 BTC)
+        getProfits: Get current profits at this point in time
+        getCombinedProfits: Get current profits
+        getROI: Get current ROI
+        getMarketRate: Get current market rate
+        getTicker: Gets the current highest bid and lowest ask on the exchaneg
+        sendMessage: Put a visual message on the platform (it could be at different zoom levels 1-10 )
+        rememberThis: Store a string variable accross executions by key value pairs
+        remindMeOf: Get an stored string value by key
+        sendEmail: Send an email during execution as notifications
   */
   let assistant
 
@@ -37,10 +53,10 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
   /*
     The initialize function must be implemented by all trading bots.
-      pAssistant: the instance of the platform which methods will allow tu put getPositions
+      pAssistant: the instance of the platform which methods will allow to put getPositions
       pGenes: This variable will be used during initialization to get the parameters
         from the platform. At the moment it won't be used but in future releases
-        it will allow to create different clones of the algonet.
+        it will allow to create different clones of the Algobot, to form an Algonet.
   */
   function initialize (pAssistant, pGenes, callBackFunction) {
     try {
@@ -57,9 +73,13 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
       /*
         On 'assistant.dataDependencies.dataSets' we will receive the data files
-        retrieved for those defined on the bot configuration
+        retrieved for those defined on the bot configuration.
         Note that the key is:
           TeamName-BotName-BotProductFolder-BotProcessName-BotDataSetVersion
+
+        In this case, this particular bot will use Gauss indicator bot, other
+        indicator bots are already available. You can use any indicator you want,
+        even you can create a new one if you need.
       */
       let key = 'AAVikings-AAGauss-LRC-Points-Multi-Period-Daily-dataSet.V1'
       gaussStorage = assistant.dataDependencies.dataSets.get(key)
@@ -82,7 +102,9 @@ exports.newUserBot = function newUserBot (bot, logger) {
     if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> Entering function.') }
 
     /*
-      This breakpoint will be called once the web platform reach the graphical stop point
+      This breakpoint will be called once the web platform reach the graphical stop point.
+      You can find more details fo how this work here:
+        https://advancedalgos.net/documentation-interface.shtml
     */
   	if (global.AT_BREAKPOINT === true) {
   		if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Plot Breakpoint Hit."); }
@@ -135,6 +157,8 @@ exports.newUserBot = function newUserBot (bot, logger) {
     /*
       We will check the direction of the channel and based on that create a buy or sell
       position on the market.
+      Here is a detailed explanation of the bot:
+        https://github.com/AAVikings/AAArtudito-Trading-Bot/blob/master/README.md
     */
     function businessLogic (callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> Entering function.') }

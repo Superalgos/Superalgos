@@ -1,18 +1,17 @@
 exports.newUserBot = function newUserBot (bot, logger) {
+  /*
+    Creating a new instance from the platform of this bot:
+    - bot: An instance of the bot configuration
+    - logger: An instance of the platform logger that allow both: to save logs
+        on cloud execution and browser execution
+  */
+
   // Variable used for logs, this will be passed to the logger instance
   const MODULE_NAME = 'User Bot'
   // Debug log level
   const FULL_LOG = true
   // Info log level
   const LOG_INFO = true
-
-  /*
-    This variable will be used during initialization to get the parameters
-    from the platform. At the moment it won't be used and we will only create
-    a single bot instance. In the future it will allow to create different
-    clones of the algonet.
-  */
-  let genes
 
   /*
     The reference to the Traing Platform Advanced Algos Assistant that will
@@ -38,6 +37,10 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
   /*
     The initialize function must be implemented by all trading bots.
+      pAssistant: the instance of the platform which methods will allow tu put getPositions
+      pGenes: This variable will be used during initialization to get the parameters
+        from the platform. At the moment it won't be used but in future releases
+        it will allow to create different clones of the algonet.
   */
   function initialize (pAssistant, pGenes, callBackFunction) {
     try {
@@ -54,7 +57,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
       /*
         On 'assistant.dataDependencies.dataSets' we will receive the data files
-        retrieved for those defined on the bot configuration (this.bot.config.json)
+        retrieved for those defined on the bot configuration
         Note that the key is:
           TeamName-BotName-BotProductFolder-BotProcessName-BotDataSetVersion
       */
@@ -73,57 +76,22 @@ exports.newUserBot = function newUserBot (bot, logger) {
   }
 
   /*
-    This function will be used to initialize the parameters for the genes,
-    it's not called at the moment and you don't need to implement it at the moment.
-  */
-  function checkGenes (pGenes, callBackFunction) {
-    try {
-      if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] checkGenes -> Entering function.') }
-
-      function getGeneticRulesByName (pName) {
-        for (let i = 0; i < bot.genes.length; i++) {
-          let gene = bot.genes[i]
-
-          if (gene.name === pName) {
-            return gene
-          }
-        }
-
-        return undefined
-      }
-
-      let stopLoss = getGeneticRulesByName('stopLoss')
-
-      if (pGenes.stopLoss < stopLoss.lowerLimit || pGenes.stopLoss > stopLoss.upperLimit) {
-        logger.write(MODULE_NAME, '[ERROR] getGeneticRules -> Genes received are out of range.')
-        logger.write(MODULE_NAME, '[ERROR] getGeneticRules -> pGenes = ' + JSON.stringify(pGenes))
-        logger.write(MODULE_NAME, '[ERROR] getGeneticRules -> bot.genes = ' + JSON.stringify(bot.genes))
-        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-        return
-      }
-
-      genes = pGenes
-
-      callBackFunction(global.DEFAULT_OK_RESPONSE)
-    } catch (err) {
-      logger.write(MODULE_NAME, '[ERROR] checkGenes -> err = ' + err.message)
-      callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-    }
-  }
-
-  /*
-    The start function is called by the platform for executing the bot every
-    x number of miliseconds defined on normalWaitTime (this.bot.config.json)
+    The start function is called by the platform for executing the bot every 1 minute
   */
   function start (callBackFunction) {
     if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> Entering function.') }
 
-    const LAST_SELL_RATE_KEY = 'AAVikings' + '-' + 'AAArtudito' + '-' + 'Trading-Process' + '-' + 'lastSellRate'
-    const LAST_BUY_RATE_KEY = 'AAVikings' + '-' + 'AAArtudito' + '-' + 'Trading-Process' + '-' + 'lastBuyRate'
+    /*
+      This breakpoint will be called once the web plataform reach the graphical stop point
+    */
+  	if (global.AT_BREAKPOINT === true) {
+  		if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Plot Breakpoint Hit."); }
+  	}
+
+    const market = global.MARKET
     const CHANNEL_DOWN = -1
     const CHANNEL_UP = 1
     const NO_CHANNEL = 0
-    const market = global.MARKET
 
     // Some parameters defined locally, they are used to explore different variations.
     const TRADE_TARGET = 2.0

@@ -2,11 +2,11 @@ exports.newUserBot = function newUserBot (bot, logger) {
   /*
     Creating a new instance from the platform of this bot:
     - bot: An instance of the bot configuration
-    - logger: An instance of the platform logger that allow both: to save logs
-        on cloud execution and show logs on the browser console on browser execution
+    - logger: An instance of the platform logger that allows both: to save logs
+        on cloud execution and shows logs on the browser console on browser execution
   */
 
-  // Variable used for logs, this will be passed to the logger instance
+  // Variable used for logs, which will be passed to the logger instance
   const MODULE_NAME = 'User Bot'
   // Debug log level
   const FULL_LOG = true
@@ -17,7 +17,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
     The reference to the Trading Platform Advanced Algos Assistant that will
     allow to:
         dataDependencies: Retrieve all dependencies to other bots defined on the configuration
-        putPosition: Put a buy or sell position at the exchange (only limit at this point)
+        putPosition: Put a buy or sell position at the exchange (only limit orders at this point)
         movePosition: Move an existing position
         getPositions: Obtain all the positions existing on the exchange
         getBalance: Obtain the total balance on the exchange known by the platform (at this point 0.001 BTC)
@@ -28,9 +28,9 @@ exports.newUserBot = function newUserBot (bot, logger) {
         getROI: Get current ROI
         getMarketRate: Get current market rate
         getTicker: Gets the current highest bid and lowest ask on the exchange
-        sendMessage: Put a visual message on the platform (it could be at different zoom levels 1-10 )
+        sendMessage: Put a visual message on the platform (different zoom levels [1-10] can be handled)
         rememberThis: Store a string variable across executions by key value pairs
-        remindMeOf: Get an stored string value by key
+        remindMeOf: Get a stored string value by key
         sendEmail: Send an email during execution as notifications
   */
   let assistant
@@ -55,7 +55,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
     The initialize function must be implemented by all trading bots.
       pAssistant: the instance of the platform which methods will allow to put getPositions
       pGenes: This variable will be used during initialization to get the parameters
-        from the platform. At the moment it won't be used but in future releases
+        from the platform. At the moment it is not used but in future releases
         it will allow to create different clones of the Algobot, to form an Algonet.
   */
   function initialize (pAssistant, pGenes, callBackFunction) {
@@ -66,8 +66,8 @@ exports.newUserBot = function newUserBot (bot, logger) {
       logger.fileName = MODULE_NAME
 
       /*
-        We keep a local reference to the assistant that will allow to put
-        positions on the exchange and it's created and managed by the platform
+        We keep a local reference to the assistant that allows to put
+        positions on the exchange, created and managed by the platform
       */
       assistant = pAssistant
 
@@ -77,9 +77,9 @@ exports.newUserBot = function newUserBot (bot, logger) {
         Note that the key is:
           TeamName-BotName-BotProductFolder-BotProcessName-BotDataSetVersion
 
-        In this case, this particular bot will use Gauss indicator bot, other
-        indicator bots are already available. You can use any indicator you want,
-        even you can create a new one if you need.
+        In this case, this particular bot will use Gauss indicator; other
+        indicators are available. You can use any indicator you want,
+        or create a new one if you should need to.
       */
       let key = 'AAVikings-AAGauss-LRC-Points-Multi-Period-Daily-dataSet.V1'
       gaussStorage = assistant.dataDependencies.dataSets.get(key)
@@ -102,12 +102,12 @@ exports.newUserBot = function newUserBot (bot, logger) {
     if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> Entering function.') }
 
     /*
-      This breakpoint will be called once the web platform reach the graphical stop point.
-      You can find more details fo how this work here:
+      This breakpoint will be called once the web platform reaches the graphical stop point.
+      You can find more details on how this works here:
         https://advancedalgos.net/documentation-interface.shtml
     */
   	if (global.AT_BREAKPOINT === true) {
-  		if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Plot Breakpoint Hit."); }
+  		if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Plot Breakpoint Hit."); } // Place breakpoint in this line
   	}
 
     const market = global.MARKET
@@ -127,7 +127,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
           global.DEFAULT_OK_RESPONSE: Proceed with normal execution
           global.DEFAULT_RETRY_RESPONSE: Retry after 10 seconds
           global.DEFAULT_FAIL_RESPONSE: Finish in failure state
-            (this allow us to check the logs and fix execution errors when they occur)
+            (this allows us to check the logs and fix execution errors when they occur)
     */
     function onDone (err) {
       try {
@@ -156,7 +156,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
 
     /*
       We will check the direction of the channel and based on that create a buy or sell
-      position on the market.
+      position in the market.
       Here is a detailed explanation of the bot:
         https://github.com/AAVikings/AAArtudito-Trading-Bot/blob/master/README.md
     */
@@ -201,7 +201,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
       }
 
     /*
-      Here we will get the file from the indicator bot, that have already all values calculated.
+      Here we will get the file from the indicator bot, that already has all values calculated.
       This will provide more efficiency and allow other bots to consume the services as well.
     */
     function getChannelTilt (callBack) {
@@ -310,7 +310,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
     }
 
     /*
-      We have all the information needed to proceed applying all the rules.
+      We have all the information needed to proceed to applying all the rules.
     */
     function applyBotRules (lrcPoint, previousLRCPoint, callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> applyBotRules -> Entering Function.') }
@@ -353,7 +353,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
     }
 
     /*
-      Here we will get the file from the indicator bot, that have already all values calculated.
+      Here we will get the file from the indicator bot, that already has all values calculated.
       This will provide more efficiency and allow other bots to consume the services as well.
     */
     function getLRCPointsFile (dateTime, callback) {
@@ -364,7 +364,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
       let fileName = market.assetA + '_' + market.assetB + '.json'
 
       /*
-        bot.botCache: allow us to keep a map (key value pairs) between executions,
+        bot.botCache: allows us to keep a map (key value pairs) between executions,
           so we don't need to go to the storage to retrieve this value.
         If the value already exist on the cache we will get it from there,
         otherwise it will be retrieved from the bot storage.
@@ -376,7 +376,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
         callback(global.DEFAULT_OK_RESPONSE, bot.botCache.get(filePath))
       } else {
         /*
-          The structure of the indicator files and the file itself retrieved
+          The structure of the indicator files and the retrieved file itself 
           is explained on the indicator bot readme file.
         */
         gaussStorage.getTextFile(filePath, fileName, onFileReceived)
@@ -415,7 +415,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
       try {
           if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Entering function.') }
 
-          // We get the current positions we have on the exchange
+          // We get the current positions we have at the exchange
           let positions = assistant.getPositions()
           let assetABalance = assistant.getAvailableBalance().assetA
           let currentRate = assistant.getTicker().ask // *.9
@@ -455,7 +455,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
       try{
           if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> Entering function.') }
 
-          // We get the current positions we have on the exchange
+          // We get the current positions we have at the exchange
           let positions = assistant.getPositions()
           let assetBBalance = assistant.getAvailableBalance().assetB
           let currentRate = assistant.getTicker().bid // *1.1

@@ -174,6 +174,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
           callBackFunction(global.DEFAULT_FAIL_RESPONSE)
         }
       }
+      }
 
     /*
       Here we will get the file from the indicator bot, that have already all values calculated.
@@ -387,73 +388,83 @@ exports.newUserBot = function newUserBot (bot, logger) {
     }
 
     function createBuyPosition (callBack) {
-      if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Entering function.') }
+      try {
+          if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Entering function.') }
 
-      // We get the current positions we have on the exchange
-      let positions = assistant.getPositions()
-      let assetABalance = assistant.getAvailableBalance().assetA
-      let currentRate = assistant.getTicker().ask // *.9
-      let amountA = assistant.getAvailableBalance().assetA
-      let amountB = Number((amountA / currentRate).toFixed(8))
+          // We get the current positions we have on the exchange
+          let positions = assistant.getPositions()
+          let assetABalance = assistant.getAvailableBalance().assetA
+          let currentRate = assistant.getTicker().ask // *.9
+          let amountA = assistant.getAvailableBalance().assetA
+          let amountB = Number((amountA / currentRate).toFixed(8))
 
-      if (positions.length > 0 && positions[0].type === 'buy' && positions[0].status !== 'executed') {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Moving an existing BUY position to a new price: $' + Number(currentRate).toLocaleString()) }
+          if (positions.length > 0 && positions[0].type === 'buy' && positions[0].status !== 'executed') {
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Moving an existing BUY position to a new price: $' + Number(currentRate).toLocaleString()) }
 
-        let message = 'Moving an existing buy position to a new price: $' + Number(currentRate).toLocaleString()
-        message += '. Combined ROI on current execution: ' + getCombinedProfit() + '%. '
-        assistant.sendMessage(6, 'Moving Position', message)
-        message = bot.processDatetime.toISOString() + ' - ' + message
-        assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-        assistant.movePosition(positions[0], currentRate, callBack)
-      } else if (assetABalance > 0) {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Artuditu put a new BUY position at price: $' + Number(currentRate).toLocaleString()) }
+            let message = 'Moving an existing buy position to a new price: $' + Number(currentRate).toLocaleString()
+            message += '. Combined ROI on current execution: ' + getCombinedProfit() + '%. '
+            assistant.sendMessage(6, 'Moving Position', message)
+            message = bot.processDatetime.toISOString() + ' - ' + message
+            assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
+            assistant.movePosition(positions[0], currentRate, callBack)
+          } else if (assetABalance > 0) {
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Artuditu put a new BUY position at price: $' + Number(currentRate).toLocaleString()) }
 
-        let message = 'Creating a new buy position. Price: $' + Number(currentRate).toLocaleString()
-        message += '. Combined ROI on current execution: ' + getCombinedProfit() + '%. '
-        assistant.sendMessage(7, 'Buying', message)
-        message = bot.processDatetime.toISOString() + ' - ' + message
-        assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-        assistant.putPosition('buy', currentRate, amountA, amountB, callBack)
-      } else {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Not enough available balance to buy.') }
+            let message = 'Creating a new buy position. Price: $' + Number(currentRate).toLocaleString()
+            message += '. Combined ROI on current execution: ' + getCombinedProfit() + '%. '
+            assistant.sendMessage(7, 'Buying', message)
+            message = bot.processDatetime.toISOString() + ' - ' + message
+            assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
+            assistant.putPosition('buy', currentRate, amountA, amountB, callBack)
+          } else {
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createBuyPosition -> Not enough available balance to buy.') }
 
-        callBack(global.DEFAULT_OK_RESPONSE)
-      }
+            callBack(global.DEFAULT_OK_RESPONSE)
+          }
+        } catch (err) {
+          logger.write(MODULE_NAME, '[ERROR] start -> businessLogic -> createBuyPosition -> err = ' + err.message)
+          callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+        }
     }
 
     function createSellPosition (callBack) {
-      if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> Entering function.') }
+      try{
+          if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> Entering function.') }
 
-      // We get the current positions we have on the exchange
-      let positions = assistant.getPositions()
-      let assetBBalance = assistant.getAvailableBalance().assetB
-      let currentRate = assistant.getTicker().bid // *1.1
-      let amountB = assistant.getAvailableBalance().assetB
-      let amountA = amountB * currentRate
+          // We get the current positions we have on the exchange
+          let positions = assistant.getPositions()
+          let assetBBalance = assistant.getAvailableBalance().assetB
+          let currentRate = assistant.getTicker().bid // *1.1
+          let amountB = assistant.getAvailableBalance().assetB
+          let amountA = amountB * currentRate
 
-      if (positions.length > 0 && positions[0].type === 'sell' && positions[0].status !== 'executed') {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> Artuditu is moving an existing SELL position to a new price: $' + Number(currentRate).toLocaleString()) }
+          if (positions.length > 0 && positions[0].type === 'sell' && positions[0].status !== 'executed') {
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> Artuditu is moving an existing SELL position to a new price: $' + Number(currentRate).toLocaleString()) }
 
-        let message = 'Moving an existing sell position to a new price: $' + Number(currentRate).toLocaleString()
-        message += '. Combined ROI on current execution: ' + getCombinedProfit() + '%. '
-        assistant.sendMessage(6, 'Moving Position', message)
-        message = bot.processDatetime.toISOString() + ' - ' + message
-        assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-        assistant.movePosition(positions[0], currentRate, callBack)
-      } else if (assetBBalance > 0) {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> Artuditu put a new SELL position at price: $' + Number(currentRate).toLocaleString()) }
+            let message = 'Moving an existing sell position to a new price: $' + Number(currentRate).toLocaleString()
+            message += '. Combined ROI on current execution: ' + getCombinedProfit() + '%. '
+            assistant.sendMessage(6, 'Moving Position', message)
+            message = bot.processDatetime.toISOString() + ' - ' + message
+            assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
+            assistant.movePosition(positions[0], currentRate, callBack)
+          } else if (assetBBalance > 0) {
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> Artuditu put a new SELL position at price: $' + Number(currentRate).toLocaleString()) }
 
-        let message = 'Creating a new sell position. Price: $' + Number(currentRate).toLocaleString()
-        message += '. Combined ROI on current execution: ' + getCombinedProfit() + '%. '
-        assistant.sendMessage(7, 'Selling', message)
-        message = bot.processDatetime.toISOString() + ' - ' + message
-        assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
-        assistant.putPosition('sell', currentRate, amountA, amountB, callBack)
-      } else {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> There is not enough available balance to sell.') }
+            let message = 'Creating a new sell position. Price: $' + Number(currentRate).toLocaleString()
+            message += '. Combined ROI on current execution: ' + getCombinedProfit() + '%. '
+            assistant.sendMessage(7, 'Selling', message)
+            message = bot.processDatetime.toISOString() + ' - ' + message
+            assistant.sendEmail('Alerts', message, bot.emailSubscriptions)
+            assistant.putPosition('sell', currentRate, amountA, amountB, callBack)
+          } else {
+            if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> createSellPosition -> There is not enough available balance to sell.') }
 
-        callBack(global.DEFAULT_OK_RESPONSE)
-      }
+            callBack(global.DEFAULT_OK_RESPONSE)
+          }
+        } catch (err) {
+          logger.write(MODULE_NAME, '[ERROR] start -> businessLogic -> createBuyPosition -> err = ' + err.message)
+          callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+        }
     }
 
     function pad (str, max) {

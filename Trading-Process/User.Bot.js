@@ -14,7 +14,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
   const LOG_INFO = true
 
   /*
-    The reference to the Traing Platform Advanced Algos Assistant that will
+    The reference to the Trading Platform Advanced Algos Assistant that will
     allow to put positions on the exchange.
   */
   let assistant
@@ -82,7 +82,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
     if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> Entering function.') }
 
     /*
-      This breakpoint will be called once the web plataform reach the graphical stop point
+      This breakpoint will be called once the web platform reach the graphical stop point
     */
   	if (global.AT_BREAKPOINT === true) {
   		if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Plot Breakpoint Hit."); }
@@ -101,6 +101,11 @@ exports.newUserBot = function newUserBot (bot, logger) {
     /*
       This function will be called after we complete all validations and operations,
       we make sure everything was ok before returning the control to the platform.
+        The platform will check this 3 situations:
+          global.DEFAULT_OK_RESPONSE: Proceed with normal execution
+          global.DEFAULT_RETRY_RESPONSE: Retry after 10 seconds
+          global.DEFAULT_FAIL_RESPONSE: Finish in failure state
+            (this allow us to check the logs and fix execution errors when they occur)
     */
     function onDone (err) {
       try {
@@ -149,8 +154,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
             } else if (channelTilt == -1) {
               createSellPosition(callBack)
             } else {
-              if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> firstTiltCheck -> Nothing to do, there isn't a buy or sell oportunity.") }
-
+              if (LOG_INFO === true) { logger.write(MODULE_NAME, "[INFO] start -> businessLogic -> firstTiltCheck -> Nothing to do, there isn't a buy or sell opportunity.") }
               callBack(global.DEFAULT_OK_RESPONSE)
             }
           }
@@ -160,11 +164,14 @@ exports.newUserBot = function newUserBot (bot, logger) {
         }
       }
 
+    /*
+      Here we will get the file from the indicator bot, that have already all values calculated.
+      This will provide more efficiency and allow other bots to consume the services as well.
+    */
     function getChannelTilt (callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> getChannelTilt -> Entering function.') }
 
       let lrcPoint, previousLRCPoint
-
       let queryDate = new Date(bot.processDatetime)
       getLRCPointsFile(queryDate, onLRCPointsFileReceived)
 
@@ -235,7 +242,7 @@ exports.newUserBot = function newUserBot (bot, logger) {
                 getLRCPointsFile(queryDate, onPreviousLRCPointsFileReceived)
               }
             } else {
-              if (LOG_INFO === true) logger.write(MODULE_NAME, '[WARN] start -> getChannelTilt -> onLRCPointsFileReceived. Available candle older than 5 minutes. Skeeping execution.')
+              if (LOG_INFO === true) logger.write(MODULE_NAME, '[WARN] start -> getChannelTilt -> onLRCPointsFileReceived. Available candle older than 5 minutes. Skipping execution.')
 
               callBack(global.DEFAULT_OK_RESPONSE, NO_CHANNEL)
             }
@@ -246,6 +253,10 @@ exports.newUserBot = function newUserBot (bot, logger) {
         }
       }
 
+      /*
+        Depending on the time requested, the necessary information could be on the
+        file from the day before.
+      */
       function onPreviousLRCPointsFileReceived (err, lrcPointsFile) {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> getChannelTilt -> onLRCPointsFileReceived.') }
 
@@ -262,6 +273,9 @@ exports.newUserBot = function newUserBot (bot, logger) {
       }
     }
 
+    /*
+      We have all the information needed to proceed applying all the rules.
+    */
     function applyBotRules (lrcPoint, previousLRCPoint, callBack) {
       if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] start -> applyBotRules -> Entering Function.') }
 
@@ -302,6 +316,10 @@ exports.newUserBot = function newUserBot (bot, logger) {
       callBack(global.DEFAULT_OK_RESPONSE, channelTilt)
     }
 
+    /*
+      Here we will get the file from the indicator bot, that have already all values calculated.
+      This will provide more efficiency and allow other bots to consume the services as well.
+    */
     function getLRCPointsFile (dateTime, callback) {
       if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> getLRCPointsFile -> Entering function.') }
 
@@ -309,12 +327,22 @@ exports.newUserBot = function newUserBot (bot, logger) {
       let filePath = 'LRC-Points/Multi-Period-Daily/30-min/' + datePath
       let fileName = market.assetA + '_' + market.assetB + '.json'
 
+      /*
+        bot.botCache: allow us to keep a map (key value pairs) between executions,
+          so we don't need to go to the storage to retrieve this value.
+        If the value already exist on the cache we will get it from there,
+        otherwise it will be retrieved from the bot storage.
+      */
       if (bot.startMode === 'Backtest' && bot.botCache.has(filePath)) {
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> businessLogic -> getLRCPointsFile -> Getting the file from local cache.') }
 
         cleanUpCache(bot.botCache, 'LRC-Points/Multi-Period-Daily/30-min', dateTime)
         callback(global.DEFAULT_OK_RESPONSE, bot.botCache.get(filePath))
       } else {
+        /*
+          The structure of the indicator files and the file itself retrieved
+          is explained on the indicator bot readme file.
+        */
         gaussStorage.getTextFile(filePath, fileName, onFileReceived)
       }
 

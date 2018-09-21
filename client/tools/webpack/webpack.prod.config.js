@@ -61,11 +61,12 @@ module.exports = merge(commonConfig, {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          {loader: 'css-loader', options: { importLoaders: 2 }},
+          { loader: 'css-loader', options: { importLoaders: 2 } },
           'postcss-loader',
-          {loader: 'sass-loader'}
+          { loader: 'sass-loader' }
         ]
       }
     ]
-  }
+  },
+  target: 'web'
 })

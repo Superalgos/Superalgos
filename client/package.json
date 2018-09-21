@@ -67,6 +67,7 @@
     "workbox-cli": "^3.4.1"
   },
   "dependencies": {
+    "@azure/storage-blob": "^10.0.0-preview",
     "@material-ui/core": "^3.0.3",
     "@material-ui/icons": "^3.0.1",
     "apollo-cache-inmemory": "^1.2.9",
@@ -78,7 +79,10 @@
     "apollo-link-ws": "^1.0.8",
     "apollo-utilities": "^1.0.20",
     "auth0-lock": "^11.9.0",
+    "azure-storage": "^2.10.1",
     "babel-polyfill": "^6.26.0",
+    "blob-util": "^2.0.2",
+    "browser-image-resizer": "^1.2.0",
     "classnames": "^2.2.6",
     "cross-fetch": "^2.2.2",
     "dotenv-webpack": "^1.5.7",
@@ -88,8 +92,12 @@
     "react": "^16.5.0",
     "react-apollo": "^2.1.11",
     "react-dom": "^16.5.0",
+    "react-dropzone": "^5.1.0",
+    "react-image-crop": "^5.0.0",
+    "react-image-cropper": "^1.3.0",
     "react-router-dom": "^4.3.1",
     "recompose": "^0.30.0",
+    "sharp": "^0.20.8",
     "subscriptions-transport-ws": "^0.9.14"
   },
   "standard": {

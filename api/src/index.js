@@ -7,11 +7,32 @@ const {
 } = require('prisma-binding')
 const { makeExecutableSchema } = require('graphql-tools')
 const { importSchema } = require('graphql-import')
+const parser = require('fast-xml-parser')
 
 const checkJwt = require('./auth/middleware/jwt')
 const { getMember } = require('./auth/middleware/getMember')
 const { validateIdToken } = require('./auth/validateIdToken')
 const { directiveResolvers } = require('./auth/authDirectives')
+const {
+  createStoragePipline,
+  createServiceURL,
+  listContainers,
+  createContainer,
+  createBlob,
+  uploadBlob,
+  downloadBlob,
+  deleteBlob,
+  deleteContainer
+} = require('./storage/azure')
+//var azure = require('azure-storage')
+const Azure = require("@azure/storage-blob")
+const azureAccount = process.env.AZURE_STORAGE_ACCOUNT
+const azureKey = process.env.AZURE_STORAGE_ACCESS_KEY
+const azureStorageUrl = process.env.AZURE_STORAGE_URL
+
+var debug = require('debug')('http')
+  , http = require('http')
+  , name = 'My App';
 
 const TEAMS_FRAGMENT = require('./graphql/TeamsFragment')
 const TEAMS_CONNECTIONS_FRAGMENT = require('./graphql/TeamsConnectionsFragment')
@@ -100,8 +121,8 @@ const resolvers = {
           return err
         })
     },
-    async updateTeamProfile(parent, { slug, owner, description, motto, avatar }, ctx, info) {
-      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
+    async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {
+      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar, banner: banner}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err
@@ -115,6 +136,58 @@ const resolvers = {
             return error.message
           })
         })
+    },
+    async getAzureSAS(parent, { teamSlug }, ctx, info) {
+      // Create start and expiry times
+      let today = new Date()
+      let week = new Date()
+      week.setDate(today.getDate() + 7)
+      // Create SharedKeyCredential and attach to pipline
+      const SKC = new Azure.SharedKeyCredential(azureAccount, azureKey)
+      const pipeline = Azure.StorageURL.newPipeline(SKC)
+      // Create container URL
+      const serviceURL = new Azure.ServiceURL(azureStorageUrl, pipeline)
+      const containerName = teamSlug
+      const containerURL = Azure.ContainerURL.fromServiceURL(serviceURL, containerName)
+
+      let marker
+      let containerCheck = null
+      do {
+        const listContainersResponse = await serviceURL.listContainersSegment(
+          Azure.Aborter.None,
+          marker,
+        )
+        console.log(`ContainerCheck marker: `, listContainersResponse)
+        marker = listContainersResponse.marker;
+        for (const container of listContainersResponse.containerItems) {
+          console.log(`ContainerCheck: ${container.name} | ${containerName} | ${marker}`)
+          if(container.name === containerName){
+            containerCheck = container.name
+          }
+        }
+      } while (marker)
+      let newContainer
+      if(containerCheck === null){
+        newContainer = await containerURL.create(Azure.Aborter.None, { access: 'blob' })
+      }
+      console.log('getAzureSAS container: ', containerURL, containerCheck, newContainer)
+
+      // Set permissions for service, resource types and containers
+      const SASServicePerms = Azure.AccountSASServices.parse('b')
+      const SASResourceTypes = Azure.AccountSASResourceTypes.parse('co')
+      const SASContainerPerms = Azure.ContainerSASPermissions.parse('rwl')
+      // Generate SAS url
+      const SASQueryParameters = Azure.generateAccountSASQueryParameters(
+        {
+          version: '2017-11-09',
+          permissions: SASContainerPerms,
+          startTime: today,
+          expiryTime: week,
+          protocol: 'https',
+          services: SASServicePerms,
+          resourceTypes: SASResourceTypes
+        }, SKC )
+      return SASQueryParameters
     }
   }
 }
@@ -148,7 +221,7 @@ server.express.use(
   server.options.endpoint,
   checkJwt,
   function (err, req, res, next) {
-    console.log('checkJwt: ', err, req)
+    // console.log('checkJwt: ', err, req)
     if (err) {
       return res.status(201).send(err.message)
     } else {

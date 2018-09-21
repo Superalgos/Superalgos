@@ -42,11 +42,14 @@ export class ManageTeamEdit extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleAvatar = this.handleAvatar.bind(this)
+    this.handleBanner = this.handleBanner.bind(this)
+
     console.log('ManageTeamEdit', props.team)
     const motto = props.team.profile.motto || ''
     const description = props.team.profile.description || ''
     const avatar = props.team.profile.avatar || ''
     const banner = props.team.profile.banner || ''
+
     this.state = {
       open: false,
       motto: motto,
@@ -108,7 +111,12 @@ export class ManageTeamEdit extends Component {
                     Edit Team Details
                   </DialogTitle>
                   <DialogContent>
-                    <UploadImage team={team} authId={authId} handleAvatar={this.handleAvatar} />
+                    <UploadImage
+                      team={team}
+                      authId={authId}
+                      handleAvatar={this.handleAvatar}
+                      handleBanner={this.handleBanner}
+                    />
                     <TextField
                       autoFocus
                       margin='dense'
@@ -189,6 +197,11 @@ export class ManageTeamEdit extends Component {
   handleAvatar (avatarUrl) {
     console.log('handleAvatar: ', avatarUrl)
     this.setState({ avatar: avatarUrl })
+  }
+
+  handleBanner (bannerUrl) {
+    console.log('handleBanner: ', bannerUrl)
+    this.setState({ banner: bannerUrl })
   }
 
   async handleSubmit (e, updateTeamProfile, slug) {

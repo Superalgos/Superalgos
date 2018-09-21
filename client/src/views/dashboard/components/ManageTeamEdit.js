@@ -41,13 +41,18 @@ export class ManageTeamEdit extends Component {
     this.handleClose = this.handleClose.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleAvatar = this.handleAvatar.bind(this)
     console.log('ManageTeamEdit', props.team)
     const motto = props.team.profile.motto || ''
     const description = props.team.profile.description || ''
+    const avatar = props.team.profile.avatar || ''
+    const banner = props.team.profile.banner || ''
     this.state = {
       open: false,
       motto: motto,
-      description: description
+      description: description,
+      avatar: avatar,
+      banner: banner
     }
   }
 
@@ -103,7 +108,7 @@ export class ManageTeamEdit extends Component {
                     Edit Team Details
                   </DialogTitle>
                   <DialogContent>
-                    <UploadImage team={team} authId={authId} />
+                    <UploadImage team={team} authId={authId} handleAvatar={this.handleAvatar} />
                     <TextField
                       autoFocus
                       margin='dense'
@@ -181,7 +186,13 @@ export class ManageTeamEdit extends Component {
     }
   }
 
+  handleAvatar (avatarUrl) {
+    console.log('handleAvatar: ', avatarUrl)
+    this.setState({ avatar: avatarUrl })
+  }
+
   async handleSubmit (e, updateTeamProfile, slug) {
+    console.log('handleSubmit: ', this.state)
     e.preventDefault()
     const currentUser = await getItem('user')
     let authId = JSON.parse(currentUser)
@@ -191,7 +202,9 @@ export class ManageTeamEdit extends Component {
         slug,
         owner: authId,
         description: this.state.description,
-        motto: this.state.motto
+        motto: this.state.motto,
+        avatar: this.state.avatar,
+        banner: this.state.banner
       }
     })
     this.setState({ description: '', motto: '', open: false })

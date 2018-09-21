@@ -15,6 +15,7 @@ export const TEAMS_FRAGMENT = gql`
     createdAt
     profile {
       avatar
+      banner
       description
       motto
       updatedAt

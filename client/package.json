@@ -82,6 +82,7 @@
     "azure-storage": "^2.10.1",
     "babel-polyfill": "^6.26.0",
     "blob-util": "^2.0.2",
+    "browser-image-resizer": "^1.2.0",
     "classnames": "^2.2.6",
     "cross-fetch": "^2.2.2",
     "dotenv-webpack": "^1.5.7",

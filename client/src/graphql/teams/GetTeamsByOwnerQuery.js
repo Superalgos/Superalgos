@@ -16,6 +16,7 @@ export const GET_TEAMS_BY_OWNER = gql`
       createdAt
       profile {
         avatar
+        banner
         description
         motto
         updatedAt

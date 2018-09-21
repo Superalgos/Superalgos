@@ -121,8 +121,8 @@ const resolvers = {
           return err
         })
     },
-    async updateTeamProfile(parent, { slug, owner, description, motto, avatar }, ctx, info) {
-      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
+    async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {
+      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar, banner: banner}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err
@@ -140,8 +140,8 @@ const resolvers = {
     async getAzureSAS(parent, { teamSlug }, ctx, info) {
       // Create start and expiry times
       let today = new Date()
-      let tomorrow = new Date()
-      tomorrow.setDate(today.getDate() + 7)
+      let week = new Date()
+      week.setDate(today.getDate() + 7)
       // Create SharedKeyCredential and attach to pipline
       const SKC = new Azure.SharedKeyCredential(azureAccount, azureKey)
       const pipeline = Azure.StorageURL.newPipeline(SKC)
@@ -179,10 +179,11 @@ const resolvers = {
       // Generate SAS url
       const SASQueryParameters = Azure.generateAccountSASQueryParameters(
         {
-          containerName,
+          version: '2017-11-09',
           permissions: SASContainerPerms,
           startTime: today,
-          expiryTime: tomorrow,
+          expiryTime: week,
+          protocol: 'https',
           services: SASServicePerms,
           resourceTypes: SASResourceTypes
         }, SKC )

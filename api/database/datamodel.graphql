@@ -41,6 +41,7 @@ type TeamProfile {
   description: String
   motto: String
   avatar: String
+  banner: String
   updatedAt: DateTime!
   createdAt: DateTime!
 }

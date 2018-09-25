@@ -6,6 +6,7 @@ const Schema = mongoose.Schema
 
 const userSchema = new Schema({
   authId: String,
+  creationDate: String,
   alias: String,
   firstName: String,
   middleName: String,

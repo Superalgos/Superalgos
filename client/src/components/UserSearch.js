@@ -59,6 +59,11 @@ const styles = theme => ({
     marginLeft: '10%',
     marginTop: 25
   },
+  formTypography: {
+    width: '80%',
+    marginLeft: '10%',
+    marginTop: 40
+  },
 });
 
 class UserSearch extends Component {
@@ -175,6 +180,10 @@ class UserSearch extends Component {
       <Paper className={classes.root}>
         <form onSubmit={this.submitForm.bind(this)}>
 
+        <Typography className={classes.formTypography} variant='body1' gutterBottom align='left'>
+        Use any of these fileds to search for users.
+        </Typography>
+        
         <TextField
           error={this.state.aliasError}
           id='alias'

@@ -129,6 +129,20 @@ const RootQuery = new GraphQLObjectType({
       resolve (parent, args) {
         return roles
       }
+    },
+    usersSearch: {
+      type: new GraphQLList(UserType),
+      args: {alias: {type: GraphQLString}, firstName: {type: GraphQLString}, middleName: {type: GraphQLString}, lastName: {type: GraphQLString}},
+      resolve (parent, args) {
+        let mongoQuery = { $or: [] }
+
+        if (args.alias !== null && args.alias !== '') { mongoQuery.$or.push({alias: args.alias}) }
+        if (args.firstName !== null && args.firstName !== '') { mongoQuery.$or.push({firstName: args.firstName}) }
+        if (args.middleName !== null && args.middleName !== '') { mongoQuery.$or.push({middleName: args.middleName}) }
+        if (args.lastName !== null && args.lastName !== '') { mongoQuery.$or.push({lastName: args.lastName}) }
+
+        return User.find(mongoQuery)
+      }
     }
   }
 })

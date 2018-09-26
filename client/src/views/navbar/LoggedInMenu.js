@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import ProfileIcon from '@material-ui/icons/Person'
 import LogoutIcon from '@material-ui/icons/DirectionsWalk'
 
-const UserLink = props => <Link to='/user' {...props} />
+const UserLink = props => <Link to='/profile' {...props} />
 const LogoutLink = props => <Link to='/' {...props} />
 
 class LoggedInUserMenu extends Component {

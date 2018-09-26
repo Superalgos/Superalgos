@@ -64,8 +64,18 @@ const resolvers = {
       return ctx.db.query.member({ where: { authId: arg.authId } }, info)
     },
     async currentMember(parent, args, ctx, info) {
-      console.log('currentMember: ', ctx.request.res.req.user)
+      console.log('currentMember: ', ctx.request.res.req.user, ctx.token)
       const authId = ctx.request.res.req.user.sub
+
+      fetch('URL_GOES_HERE', {
+        method: 'post',
+        headers: new Headers({
+         'Authorization': 'Basic '+btoa('username:password'),
+         'Content-Type': 'application/x-www-form-urlencoded'
+        }),
+        body: 'A=1&B=2'
+      })
+
       return ctx.db.query.member({ where: { authId } }, info)
     },
     teams(parent, args, ctx, info) {

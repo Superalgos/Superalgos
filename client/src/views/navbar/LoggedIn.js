@@ -1,17 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'react-apollo'
+import { Query } from 'react-apollo'
 
 import LoggedInMenu from './LoggedInMenu'
+import { MessageCard } from '../common/'
 
-import { GetCurrentMember } from '../../graphql/members'
+import { UserClient } from '../../App'
+import { USER_BY_AUTHID } from '../../graphql/members'
 
 import { isDefined } from '../../utils/js-helpers'
 
 export const LoggedIn = props => {
   let { data, user, auth } = props
-  console.log('LoggedIn :', data, user)
+  console.log('LoggedIn :', data, user, auth)
   let displayName = 'No Display Name'
+  let authId = null
+  if (isDefined(user.authId)) {
+    authId = user.authId
+  }
 
   if (isDefined(user.alias)) {
     displayName = user.alias
@@ -29,12 +35,34 @@ export const LoggedIn = props => {
     displayName = user.firstName + ' ' + user.lastName
   }
 
+  if (authId === null) {
+    return (
+      <div>Loading...</div>
+    )
+  }
+
   return (
-    <div>
-      <p>
-        <LoggedInMenu menuLabel={displayName} auth={auth} />
-      </p>
-    </div>
+    <Query
+      query={USER_BY_AUTHID}
+      fetchPolicy='network-only'
+      variables={{ authId }}
+      client={UserClient}
+    >
+      {({ loading, error, data }) => {
+        console.log('USER_BY_AUTHID: ', loading, error, data)
+
+        if (error) {
+          error.graphQLErrors.map(({ message }, i) => {
+            return <MessageCard message={message} />
+          })
+        }
+        return (
+          <p>
+            <LoggedInMenu menuLabel={displayName} auth={auth} />
+          </p>
+        )
+      }}
+    </Query>
   )
 }
 
@@ -44,4 +72,4 @@ LoggedIn.propTypes = {
   auth: PropTypes.object.isRequired
 }
 
-export default graphql(GetCurrentMember)(LoggedIn) // This binds the querty to the component
+export default LoggedIn

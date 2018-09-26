@@ -142,6 +142,22 @@ class UserSearch extends Component {
     }
   }
 
+  selectButton(){
+
+if (this.props.selectButton === true) {
+
+  return(                     
+    <Button color="primary">
+                         Select
+                       </Button>
+                     )
+
+} else {
+  return(<div></div>)
+}
+    
+  }
+
   displayUsers(){
     let data = this.props.getUsersBySearchFields;
     const { classes } = this.props;
@@ -178,9 +194,7 @@ class UserSearch extends Component {
               <CardActions>
                 <Grid container justify="center" spacing={8}>
                    <Grid item>
-                     <Button color="primary">
-                       Select
-                     </Button>
+                   {this.selectButton()}
                    </Grid>
                 </Grid>
               </CardActions>

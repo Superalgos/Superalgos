@@ -1,15 +1,28 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import Drawer from '@material-ui/core/Drawer'
 import { Link } from 'react-router-dom'
 
 import ProfileIcon from '@material-ui/icons/Person'
 import LogoutIcon from '@material-ui/icons/DirectionsWalk'
 
-const UserLink = props => <Link to='/profile' {...props} />
+import UserProfile from './Profile'
+
 const LogoutLink = props => <Link to='/' {...props} />
+
+const styles = {
+  drawer: {
+    width: 250
+  },
+  fullList: {
+    width: 'auto'
+  }
+}
 
 class LoggedInUserMenu extends Component {
   constructor (props) {
@@ -18,14 +31,16 @@ class LoggedInUserMenu extends Component {
     this.handleMenu = this.handleMenu.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
+    this.toggleDrawer = this.toggleDrawer.bind(this)
 
     this.state = {
-      menu: null
+      menu: null,
+      open: false
     }
   }
 
   render () {
-    const { menuLabel } = this.props
+    const { menuLabel, user, classes } = this.props
     return (
       <React.Fragment>
         <Button
@@ -42,7 +57,7 @@ class LoggedInUserMenu extends Component {
           open={Boolean(this.state.menu)}
           onClose={this.handleClose}
         >
-          <MenuItem onClick={this.handleClose} component={UserLink}>
+          <MenuItem onClick={this.toggleDrawer}>
             <ProfileIcon />
             <div>Profile</div>
           </MenuItem>
@@ -51,6 +66,15 @@ class LoggedInUserMenu extends Component {
             <div>Logout</div>
           </MenuItem>
         </Menu>
+        <Drawer anchor='right' open={this.state.open} onClose={this.toggleDrawer} className={classes.drawer}>
+          <div
+            tabIndex={0}
+            role='button'
+            onClick={this.toggleDrawer}
+          >
+            <UserProfile user={user} toggleDrawer={this.toggleDrawer} />
+          </div>
+        </Drawer>
       </React.Fragment>
     )
   }
@@ -67,11 +91,17 @@ class LoggedInUserMenu extends Component {
     this.props.auth.logout()
     this.setState({ menu: null })
   }
+
+  toggleDrawer () {
+    this.setState({ open: !this.state.open })
+  }
 }
 
 LoggedInUserMenu.propTypes = {
+  classes: PropTypes.object.isRequired,
   menuLabel: PropTypes.string.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  user: PropTypes.object
 }
 
-export default LoggedInUserMenu
+export default withStyles(styles)(LoggedInUserMenu)

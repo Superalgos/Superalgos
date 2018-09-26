@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 
 import LoggedInMenu from './LoggedInMenu'
-import { MessageCard } from '../common/'
 
 import { UserClient } from '../../App'
 import { USER_BY_AUTHID } from '../../graphql/members'
@@ -51,14 +50,18 @@ export const LoggedIn = props => {
       {({ loading, error, data }) => {
         console.log('USER_BY_AUTHID: ', loading, error, data)
 
+        if (loading) {
+          return <div>Loading...</div>
+        }
+
         if (error) {
           error.graphQLErrors.map(({ message }, i) => {
-            return <MessageCard message={message} />
+            return <div>{message}</div>
           })
         }
         return (
           <p>
-            <LoggedInMenu menuLabel={displayName} auth={auth} />
+            <LoggedInMenu menuLabel={displayName} auth={auth} user={data.userByAuthId} />
           </p>
         )
       }}

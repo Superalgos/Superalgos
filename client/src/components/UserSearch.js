@@ -13,7 +13,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+
 import TextField from '@material-ui/core/TextField'
 
 // components
@@ -23,11 +23,6 @@ import UserProfile from './UserProfile';
 import PortraitImage from '../img/portrait.jpg'
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    padding: 60,
-    margin: 2,
-  },
   card: {
     maxWidth: 145,
     minWidth: 100,
@@ -210,7 +205,7 @@ if (this.props.selectButton === true) {
   render() {
     const { classes } = this.props;
     return (
-      <Paper className={classes.root}>
+      
         <form onSubmit={this.submitForm.bind(this)}>
 
         <Typography className={classes.formTypography} variant='body1' gutterBottom align='left'>
@@ -268,7 +263,7 @@ if (this.props.selectButton === true) {
         </Grid>
 
       </form>
-    </Paper>
+    
     );
   }
 }

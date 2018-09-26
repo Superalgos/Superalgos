@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import {graphql, compose} from 'react-apollo'
 import {getRolesQuery, updateUserMutation, getUsersQuery} from '../queries/queries'
 
+// components
+
+import UserSearch from './UserSearch'
+
 // Material-ui
 
 import { withStyles } from '@material-ui/core/styles'
@@ -21,7 +25,6 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 
 // Images
-import GithubLogo from '../img/github-logo.png'
 import AALogo from '../img/aa-logo.png'
 
 const styles = theme => ({
@@ -290,23 +293,7 @@ class UserReferrals extends Component {
         overall reputation within the project.
         </Typography>
 
-          <Grid container justify='center' >
-            <Grid item>
-              <img className={classes.img} src={GithubLogo} alt='Github' />
-            </Grid>
-          </Grid>
-
-          <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          Use the search field to find the who referred you to the project.
-          </Typography>
-
-          <TextField
-            id='search'
-            type='text'
-            value={this.state.search}
-            label='Search'
-            className={classes.inputField}
-            />
+          <UserSearch />
 
           <Grid container justify='center' >
             <Grid item>

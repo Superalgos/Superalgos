@@ -58,6 +58,23 @@ query($authId: String){
 }
 `
 
+const getUsersBySearchFields = gql`
+query(
+  $alias: String,
+  $firstName: String,
+  $middleName: String,
+  $lastName: String
+){
+    usersSearch (alias: $alias, firstName: $firstName, middleName: $middleName, lastName: $lastName){
+      id
+      alias
+      firstName
+      middleName
+      lastName
+    }
+}
+`
+
 const getRolesQuery = gql`
 {
     roles {
@@ -116,4 +133,12 @@ mutation(
     }
 }
 `
-export {getUsersQuery, getUserByAuthIdQuery, getRolesQuery, getUserProfileQuery, updateUserMutation, updateUserImagesMutation}
+export {
+  getUsersQuery,
+  getUserByAuthIdQuery,
+  getRolesQuery,
+  getUserProfileQuery,
+  getUsersBySearchFields,
+  updateUserMutation,
+  updateUserImagesMutation
+}

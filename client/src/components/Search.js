@@ -1,7 +1,7 @@
 import React from 'react'
 import UserSearch from './UserSearch'
 
-const Browse = () => {
+const Search = () => {
   return (
     <div>
       <UserSearch />
@@ -9,4 +9,4 @@ const Browse = () => {
   )
 }
 
-export default Browse
+export default Search

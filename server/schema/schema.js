@@ -141,6 +141,8 @@ const RootQuery = new GraphQLObjectType({
         if (args.middleName !== null && args.middleName !== '') { mongoQuery.$or.push({middleName: args.middleName}) }
         if (args.lastName !== null && args.lastName !== '') { mongoQuery.$or.push({lastName: args.lastName}) }
 
+        if (mongoQuery.$or.length === 0) { mongoQuery = {} }
+
         return User.find(mongoQuery)
       }
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {graphql, compose} from 'react-apollo';
-import {getUsersQuery} from '../queries/queries';
+import {getUsersBySearchFields} from '../queries/queries';
 
 // Materia UI
 
@@ -64,15 +64,22 @@ const styles = theme => ({
     marginLeft: '10%',
     marginTop: 40
   },
+  button: {
+    margin: theme.spacing.unit,
+    marginTop: theme.spacing.unit * 3
+  }
 });
 
 class UserSearch extends Component {
 
   constructor(props){
     super(props);
+ 
     this.state = {
-      selected: null,
-      open: false
+      alias: '',
+      firstName: '',
+      middleName: '',
+      lastName: '' 
     }
   }
 
@@ -86,7 +93,14 @@ class UserSearch extends Component {
 
   submitForm (e) {
     e.preventDefault()
-  }
+
+    this.props.getUsersBySearchFields.variables.alias = this.state.alias;
+    this.props.getUsersBySearchFields.variables.firstName = this.state.firstName;
+    this.props.getUsersBySearchFields.variables.middleName = this.state.middleName;
+    this.props.getUsersBySearchFields.variables.lastName = this.state.lastName;
+    
+    this.props.getUsersBySearchFields.refetch({})
+}
 
   handleTextField (e) {
       /*
@@ -127,18 +141,22 @@ class UserSearch extends Component {
       default:
     }
   }
-  
+
   displayUsers(){
-    let data = this.props.getUsersQuery;
+    let data = this.props.getUsersBySearchFields;
     const { classes } = this.props;
 
     if(data.loading){
       return ( <div> Loading Users... </div>);
     } else {
-      return data.users.map(user => {
-        
+      if(data.usersSearch === undefined) {
+        return ( <div> No Users to Display </div> )
+      } else {        
+          
+      return data.usersSearch.map(user => {
+
         return (
-            
+
           <Grid key={user.id} item>
             <Card className={classes.card}  onClick={ (e) => {
               this.setState({ selected: user.id});
@@ -172,6 +190,7 @@ class UserSearch extends Component {
         )
       });
     }
+    }
   }
 
   render() {
@@ -183,7 +202,7 @@ class UserSearch extends Component {
         <Typography className={classes.formTypography} variant='body1' gutterBottom align='left'>
         Use any of these fileds to search for users.
         </Typography>
-        
+
         <TextField
           error={this.state.aliasError}
           id='alias'
@@ -193,7 +212,7 @@ class UserSearch extends Component {
           className={classes.inputField}
           onChange={this.handleTextField.bind(this)}
                    />
-                   
+
         <TextField
           error={this.state.firstNameError}
           id='firstName'
@@ -223,11 +242,17 @@ class UserSearch extends Component {
           className={classes.inputField}
           onChange={this.handleTextField.bind(this)}
                    />
-        
+
+         <Grid container justify='center' >
+           <Grid item>
+             <Button variant='contained' color='secondary' className={classes.button} onClick={this.submitForm.bind(this)}>Search</Button>
+           </Grid>
+         </Grid>
+                   
         <Grid container className={classes.grid} justify="center" spacing={24}>
           {this.displayUsers()}
         </Grid>
-        
+
       </form>
     </Paper>
     );
@@ -235,6 +260,6 @@ class UserSearch extends Component {
 }
 
 export default compose(
-  graphql(getUsersQuery, {name: "getUsersQuery"}),
+  graphql(getUsersBySearchFields, {name: 'getUsersBySearchFields'}),
   withStyles(styles)
 ) (UserSearch); // This technique binds more than one query to a single component.

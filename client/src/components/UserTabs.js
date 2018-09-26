@@ -6,12 +6,14 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import UpdateIcon from '@material-ui/icons/Create';
 import ImageIcon from '@material-ui/icons/Wallpaper';
+import ReferralsIcon from '@material-ui/icons/DeviceHub';
 import Typography from '@material-ui/core/Typography';
 
 // Components
 
 import UserUpdate from './UserUpdate';
 import UserImages from './UserImages';
+import UserReferrals from './UserReferrals';
 
 function TabContainer(props) {
   return (
@@ -61,10 +63,12 @@ class UserTabs extends React.Component {
           >
             <Tab label="Profile Sheet" icon={<UpdateIcon />} />
             <Tab label="Profile Images" icon={<ImageIcon />} />
+            <Tab label="Referrals" icon={<ReferralsIcon />} />
           </Tabs>
         </AppBar>
         {value === 0 && <TabContainer><UserUpdate/></TabContainer>}
         {value === 1 && <TabContainer><UserImages/></TabContainer>}
+        {value === 2 && <TabContainer><UserReferrals/></TabContainer>}
       </div>
     );
   }

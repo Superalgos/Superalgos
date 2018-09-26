@@ -139,17 +139,28 @@ class UserSearch extends Component {
 
   selectButton(){
 
-if (this.props.selectButton === true) {
+  if (this.props.selectButton === true) {
 
-  return(                     
-    <Button color="primary">
-                         Select
-                       </Button>
-                     )
+    return(                     
+      <Button color="primary">
+                           Select
+                         </Button>
+                       )
 
-} else {
-  return(<div></div>)
+  } else {
+    return(<div></div>)
+  }
 }
+
+  selectText(){
+
+    if (this.props.selectButton === true) {
+
+    return(<dummy>After that press the 'Select' button on the desired user to continue.</dummy>)
+
+    } else {
+    return(<div></div>)
+    }
     
   }
 
@@ -209,7 +220,7 @@ if (this.props.selectButton === true) {
         <form onSubmit={this.submitForm.bind(this)}>
 
         <Typography className={classes.formTypography} variant='body1' gutterBottom align='left'>
-        Use any of these fileds to search for users.
+        Use any of these fileds to search for users. {this.selectText()}
         </Typography>
 
         <TextField

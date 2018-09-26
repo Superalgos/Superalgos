@@ -293,7 +293,7 @@ class UserReferrals extends Component {
         overall reputation within the project.
         </Typography>
 
-          <UserSearch />
+          <UserSearch selectButton />
 
           <Grid container justify='center' >
             <Grid item>

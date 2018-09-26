@@ -278,12 +278,16 @@ class UserReferrals extends Component {
     return (
       <Paper className={classes.root}>
         <Typography className={classes.typography} variant='headline' gutterBottom>
-              Profile Sheet
+              Referral Program
         </Typography>
         <form onSubmit={this.submitForm.bind(this)}>
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-        Use this form to control the information you keep at the Advanced Algos system about yourself.
+        We know that a group often becomes more intelligent when the number of people in the group increases.
+        To incentivize members of the community to invite more people to join we have developed this referral
+        program in which you can specify who referred you to the project, and see the members who pointed at
+        you as their referrer. Later this information will be available at your user profile and add to your
+        overall reputation within the project.
         </Typography>
 
           <Grid container justify='center' >
@@ -293,37 +297,16 @@ class UserReferrals extends Component {
           </Grid>
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          This is your basic information we have gotten from the identity provider you used to sign up. This information can not be changed.
+          Use the search field to find the who referred you to the project.
           </Typography>
 
           <TextField
-            id='alias'
+            id='search'
             type='text'
-            value={this.state.alias}
-            label='Alias'
+            value={this.state.search}
+            label='Search'
             className={classes.inputField}
-            disabled />
-
-          <TextField
-            id='email'
-            type='text'
-            value={this.state.email}
-            label='Email'
-            className={classes.inputField}
-            disabled />
-
-          <FormControlLabel
-            disabled
-            className={classes.inputField}
-            control={
-              <Checkbox
-                id='emailVerified'
-                checked={this.rightCheckboxValue(this.state.emailVerified)}
-                color='primary'
-                      />
-                    }
-            label='Email Verified'
-                  />
+            />
 
           <Grid container justify='center' >
             <Grid item>

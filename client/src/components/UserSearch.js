@@ -14,17 +14,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-
-// Full screen dialog imports (still Material UI)
-
-import PropTypes from 'prop-types';
-import Dialog from '@material-ui/core/Dialog';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-
-import CloseIcon from '@material-ui/icons/Close';
-import Slide from '@material-ui/core/Slide';
+import TextField from '@material-ui/core/TextField'
 
 // components
 import UserProfile from './UserProfile';
@@ -39,8 +29,8 @@ const styles = theme => ({
     margin: 2,
   },
   card: {
-    maxWidth: 345,
-    minWidth: 300,
+    maxWidth: 145,
+    minWidth: 100,
     paddingTop:'30'
   },
   media: {
@@ -62,13 +52,14 @@ const styles = theme => ({
   },
   grid: {
     paddingTop: '30',
-    marginTop:'30'
+    marginTop:30
+  },
+  inputField: {
+    width: '80%',
+    marginLeft: '10%',
+    marginTop: 25
   },
 });
-
-function Transition(props) {
-  return <Slide direction="up" {...props} />;
-}
 
 class UserSearch extends Component {
 
@@ -88,6 +79,50 @@ class UserSearch extends Component {
     this.setState({ open: false });
   };
 
+  submitForm (e) {
+    e.preventDefault()
+  }
+
+  handleTextField (e) {
+      /*
+      We will do some basic input validations here. If something is wrong we will turn on the error sign on the textfield.
+      */
+
+    let value = e.target.value
+
+    switch (e.target.id) {
+      case 'alias':
+        if (value.length > 30) {
+          this.setState({aliasError: true})
+        } else {
+          this.setState({aliasError: false, alias: value})
+        }
+        break
+      case 'firstName':
+        if (value.length > 30) {
+          this.setState({firstNameError: true})
+        } else {
+          this.setState({firstNameError: false, firstName: value})
+        }
+        break
+      case 'middleName':
+        if (value.length > 30) {
+          this.setState({middleNameError: true})
+        } else {
+          this.setState({middleNameError: false, middleName: value})
+        }
+        break
+      case 'lastName':
+        if (value.length > 50) {
+          this.setState({lastNameError: true})
+        } else {
+          this.setState({lastNameError: false, lastName: value})
+        }
+        break
+      default:
+    }
+  }
+  
   displayUsers(){
     let data = this.props.getUsersQuery;
     const { classes } = this.props;
@@ -98,7 +133,7 @@ class UserSearch extends Component {
       return data.users.map(user => {
         
         return (
-
+            
           <Grid key={user.id} item>
             <Card className={classes.card}  onClick={ (e) => {
               this.setState({ selected: user.id});
@@ -115,46 +150,20 @@ class UserSearch extends Component {
                   <Typography gutterBottom variant="headline" component="h2">
                     {user.alias}
                   </Typography>
-                  <Typography className={classes.typography} gutterBottom>
-                    {user.bio}
-                  </Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions>
                 <Grid container justify="center" spacing={8}>
                    <Grid item>
-                     <Button onClick={this.handleClickOpen}>User Profile</Button>
-                     <Dialog
-                       fullScreen
-                       open={this.state.open}
-                       onClose={this.handleClose}
-                       TransitionComponent={Transition}
-                     >
-                       <AppBar className={classes.appBar}>
-                         <Toolbar>
-                           <IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
-                             <CloseIcon />
-                           </IconButton>
-                           <Typography variant="title" color="inherit" className={classes.flex}>
-                             User Profile
-                           </Typography>
-                           <Button color="inherit" onClick={this.handleClose}>
-                             Close
-                           </Button>
-                         </Toolbar>
-                       </AppBar>
-                         <UserProfile userId={this.state.selected}/>
-                     </Dialog>
-                   </Grid>
-                   <Grid item>
-                     <Button disabled color="primary">
-                       Extended Profile
+                     <Button color="primary">
+                       Select
                      </Button>
                    </Grid>
                 </Grid>
               </CardActions>
             </Card>
           </Grid>
+
         )
       });
     }
@@ -164,17 +173,57 @@ class UserSearch extends Component {
     const { classes } = this.props;
     return (
       <Paper className={classes.root}>
-        <Grid container justify="center" spacing={24}>
+        <form onSubmit={this.submitForm.bind(this)}>
+
+        <TextField
+          error={this.state.aliasError}
+          id='alias'
+          type='text'
+          value={this.state.alias}
+          label='Alias'
+          className={classes.inputField}
+          onChange={this.handleTextField.bind(this)}
+                   />
+                   
+        <TextField
+          error={this.state.firstNameError}
+          id='firstName'
+          type='text'
+          value={this.state.firstName}
+          label='First Name'
+          className={classes.inputField}
+          onChange={this.handleTextField.bind(this)}
+                   />
+
+        <TextField
+          error={this.state.middleNameError}
+          id='middleName'
+          type='text'
+          value={this.state.middleName}
+          label='Middle Name'
+          className={classes.inputField}
+          onChange={this.handleTextField.bind(this)}
+                   />
+
+        <TextField
+          error={this.state.lastNameError}
+          id='lastName'
+          type='text'
+          value={this.state.lastName}
+          label='Last Name'
+          className={classes.inputField}
+          onChange={this.handleTextField.bind(this)}
+                   />
+        
+        <Grid container className={classes.grid} justify="center" spacing={24}>
           {this.displayUsers()}
         </Grid>
-      </Paper>
+        
+      </form>
+    </Paper>
     );
   }
 }
-
-UserSearch.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default compose(
   graphql(getUsersQuery, {name: "getUsersQuery"}),

@@ -72,7 +72,7 @@ class UserTabs extends React.Component {
         {value === 0 && <TabContainer><ProfileSheet/></TabContainer>}
         {value === 1 && <TabContainer><ProfileImages/></TabContainer>}
         {value === 2 && <TabContainer><YourReferrer/></TabContainer>}
-        {value === 2 && <TabContainer><YourDescendents/></TabContainer>}
+        {value === 3 && <TabContainer><YourDescendents/></TabContainer>}
       </div>
     );
   }

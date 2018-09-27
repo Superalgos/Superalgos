@@ -66,7 +66,7 @@ const styles = theme => ({
   }
 })
 
-class UserDescendents extends Component {
+class YourDescendents extends Component {
 
   constructor (props) {
     super(props)
@@ -166,4 +166,4 @@ class UserDescendents extends Component {
 export default compose(
   graphql(getUsersBySearchFields, {name: 'getUsersBySearchFields'}),
   withStyles(styles)
-)(UserDescendents) // This technique binds more than one query to a single component.
+)(YourDescendents) // This technique binds more than one query to a single component.

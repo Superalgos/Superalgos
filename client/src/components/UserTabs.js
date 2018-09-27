@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 // Components
 
 import ProfileSheet from './ProfileSheet';
-import UserImages from './UserImages';
+import ProfileImages from './ProfileImages';
 import YourReferrer from './YourReferrer';
 
 function TabContainer(props) {
@@ -67,7 +67,7 @@ class UserTabs extends React.Component {
           </Tabs>
         </AppBar>
         {value === 0 && <TabContainer><ProfileSheet/></TabContainer>}
-        {value === 1 && <TabContainer><UserImages/></TabContainer>}
+        {value === 1 && <TabContainer><ProfileImages/></TabContainer>}
         {value === 2 && <TabContainer><YourReferrer/></TabContainer>}
       </div>
     );

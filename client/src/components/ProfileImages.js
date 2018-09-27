@@ -55,11 +55,11 @@ const styles = theme => ({
   }
 })
 
-class UserImages extends React.Component {
+class ProfileImages extends React.Component {
 
   constructor (props) {
     super(props)
-    
+
     this.defaultValuesSet = false
 
     this.state = {
@@ -86,7 +86,7 @@ class UserImages extends React.Component {
     })
 
     this.setState({saveDisabled: true, removeCurrentAvatar:true})
-    
+
     /* Before we are done, we need to update the state of the local storage. */
 
     let user = JSON.parse(localStorage.getItem('loggedInUser'))
@@ -116,10 +116,10 @@ class UserImages extends React.Component {
           let avatarChangeDate = (new Date(user.avatarChangeDate)).valueOf()
           let now = (new Date()).valueOf()
           let timePassed = now - avatarChangeDate
-          let oneDay = 1000 * 60 * 60 * 24  
+          let oneDay = 1000 * 60 * 60 * 24
 
 console.log("dates", avatarChangeDate, now, timePassed, oneDay)
-          
+
           if (timePassed < oneDay) {
             this.setState({
               needToWait: true
@@ -139,7 +139,7 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
           })
           }
       }
-      
+
   onSuccess = (uploadResults) => {
     console.log('onSuccess')
     console.log(uploadResults)
@@ -156,12 +156,12 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
       localDate.getUTCSeconds(),
       localDate.getUTCMilliseconds())
     )
-    
+
     currentDate.toISOString()
-    
+
     this.setState(
       {
-        newAvatarHandle: handle, 
+        newAvatarHandle: handle,
         avatarChangeDate: currentDate,
         showNewAvatar: true,
         uploadToolDisabled: true,
@@ -181,7 +181,7 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
   }
 
   showCurrentAvatar() {
-     
+
       const { classes } = this.props
 
       if (this.state.removeCurrentAvatar === false) {
@@ -191,7 +191,7 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
             <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
             This is your current Avatar:
             </Typography>
-  
+
             <Grid container justify='center' >
               <Grid item>
                 <Avatar
@@ -203,7 +203,7 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
             </Grid>
           </div>
         )
-        
+
       } else {
 
         return (
@@ -220,10 +220,10 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
           </div>
         )
       }
-      
-     
+
+
   }
-  
+
   showNewAvatar() {
     if (this.state.showNewAvatar === true) {
       const { classes } = this.props
@@ -249,7 +249,7 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
 
   showUploadTool() {
     const { classes } = this.props
-    if (this.state.needToWait === true) {      
+    if (this.state.needToWait === true) {
       return (
         <div>
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
@@ -262,13 +262,13 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
         <div>
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
         If you want, you can choose a new one by picking an image from your computer, camera or the web, and crop it with the following tool.
-        </Typography>        
+        </Typography>
             <Grid container justify='center' >
-              <Grid item>               
-                <Button 
+              <Grid item>
+                <Button
                   disabled={this.state.uploadToolDisabled}
-                  variant='contained' 
-                  color='secondary' 
+                  variant='contained'
+                  color='secondary'
                   className={classes.button}>
                   <ReactFilestack
                     apikey={'AH97QJOXTHwdBXjydQgABz'}
@@ -297,14 +297,14 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
           {this.showCurrentAvatar()}
           {this.showUploadTool()}
           {this.showNewAvatar()}
-          
+
           <Grid container justify='center' >
             <Grid item>
-              <Button 
+              <Button
                 disabled={this.state.saveDisabled}
-                variant='contained' 
-                color='secondary' 
-                className={classes.button} 
+                variant='contained'
+                color='secondary'
+                className={classes.button}
                 onClick={this.submitForm.bind(this)}
                 >Save</Button>
             </Grid>
@@ -319,4 +319,4 @@ console.log("dates", avatarChangeDate, now, timePassed, oneDay)
 export default compose(
   graphql(updateUserImagesMutation, {name: 'updateUserImagesMutation'}),
   withStyles(styles)
-)(UserImages) // This technique binds more than one query to a single component.
+)(ProfileImages) // This technique binds more than one query to a single component.

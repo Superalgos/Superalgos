@@ -52,6 +52,24 @@ const UserType = new GraphQLObjectType({
   })
 })
 
+const DescendentType = new GraphQLObjectType({
+  name: 'Descendent',
+  fields: () => ({
+    id: { type: GraphQLID},
+    referrerId: {type: GraphQLString},
+    alias: {type: GraphQLString},
+    firstName: {type: GraphQLString},
+    middleName: {type: GraphQLString},
+    lastName: {type: GraphQLString},
+    descendents: {
+      type: new GraphQLList(DescendentType),
+      resolve (parent, args) {
+        return User.find({referrerId: parent.id})
+      }
+    }
+  })
+})
+
 const RoleType = new GraphQLObjectType({
   name: 'Role',
   fields: () => ({
@@ -148,7 +166,7 @@ const RootQuery = new GraphQLObjectType({
       }
     },
     descendents: {
-      type: new GraphQLList(UserType),
+      type: new GraphQLList(DescendentType),
       args: {id: {type: GraphQLString}},
       resolve (parent, args) {
         return User.find({referrerId: args.id})

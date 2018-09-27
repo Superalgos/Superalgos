@@ -24,9 +24,10 @@ import PortraitImage from '../img/portrait.jpg'
 
 const styles = theme => ({
   card: {
-    maxWidth: 145,
-    minWidth: 100,
-    paddingTop:'30'
+    maxWidth: 150,
+    minWidth: 150,
+    paddingTop:'30',
+    marginBottom:40
   },
   media: {
     height: 0,

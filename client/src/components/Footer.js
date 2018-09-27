@@ -11,7 +11,8 @@ import AALogo from '../img/aa-logo.png'
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    padding: 100
+    padding: 100,
+    marginTop: 40
   },
   img: {
     margin: 'auto',
@@ -37,7 +38,7 @@ class Footer extends Component {
     const { classes } = this.props
     return (
 
-      <Grid className={classes.button} container justify='center' spacing={24}>
+      <Grid className={classes.root} container justify='center' spacing={24}>
         <Grid item>
           <Button color='primary' className={classes.button}>
             <NavLink color='inherit' exact to='/'>Home</NavLink>

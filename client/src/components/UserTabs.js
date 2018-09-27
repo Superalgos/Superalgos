@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 
 import UserUpdate from './UserUpdate';
 import UserImages from './UserImages';
-import UserReferrals from './UserReferrals';
+import YourReferrer from './YourReferrer';
 
 function TabContainer(props) {
   return (
@@ -63,12 +63,12 @@ class UserTabs extends React.Component {
           >
             <Tab label="Profile Sheet" icon={<UpdateIcon />} />
             <Tab label="Profile Images" icon={<ImageIcon />} />
-            <Tab label="Referrals" icon={<ReferralsIcon />} />
+            <Tab label="Your Referrer" icon={<ReferralsIcon />} />
           </Tabs>
         </AppBar>
         {value === 0 && <TabContainer><UserUpdate/></TabContainer>}
         {value === 1 && <TabContainer><UserImages/></TabContainer>}
-        {value === 2 && <TabContainer><UserReferrals/></TabContainer>}
+        {value === 2 && <TabContainer><YourReferrer/></TabContainer>}
       </div>
     );
   }

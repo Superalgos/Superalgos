@@ -38,7 +38,7 @@ const styles = theme => ({
   }
 })
 
-class UserReferrals extends Component {
+class YourReferrer extends Component {
 
   constructor (props) {
     super(props)
@@ -143,4 +143,4 @@ class UserReferrals extends Component {
 export default compose(
   graphql(updateReferrerMutation, {name: 'updateReferrerMutation'}),
   withStyles(styles)
-)(UserReferrals) // This technique binds more than one query to a single component.
+)(YourReferrer) // This technique binds more than one query to a single component.

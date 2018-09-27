@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import {graphql, compose} from 'react-apollo'
-import {getRolesQuery, updateReferrerMutation, getUsersQuery} from '../queries/queries'
+import {updateReferrerMutation} from '../queries/queries'
 
 // components
 
 import UserSearch from './UserSearch'
+import UserProfile from './UserProfile'
 
 // Material-ui
 
 import { withStyles } from '@material-ui/core/styles'
 import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
-import Input from '@material-ui/core/Input'
 import Button from '@material-ui/core/Button'
-import Select from '@material-ui/core/Select'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 
@@ -82,6 +81,7 @@ class UserReferrals extends Component {
 
   renderMode () {
     const { classes } = this.props
+    const {user} = this.props.data
 
     if (this.state.referrerId !== '') {
       return (
@@ -90,41 +90,7 @@ class UserReferrals extends Component {
           This is the user who introduced you to the project.
           </Typography>
 
-          <TextField
-            id='alias'
-            type='text'
-            value={this.state.alias}
-            label='Alias'
-            className={classes.inputField}
-            disabled
-                     />
-
-          <TextField
-            id='firstName'
-            type='text'
-            value={this.state.firstName}
-            label='First Name'
-            className={classes.inputField}
-            disabled
-                     />
-
-          <TextField
-            id='middleName'
-            type='text'
-            value={this.state.middleName}
-            label='Middle Name'
-            className={classes.inputField}
-            disabled
-                     />
-
-          <TextField
-            id='lastName'
-            type='text'
-            value={this.state.lastName}
-            label='Last Name'
-            className={classes.inputField}
-            disabled
-                     />
+          <UserProfile userId={this.state.referrerId} />
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
            This information can not be changed.
@@ -155,9 +121,9 @@ class UserReferrals extends Component {
           if (userData === 'undefined') { return }
 
           let user = JSON.parse(userData)
-  	        this.defaultValuesSet = true
+    	        this.defaultValuesSet = true
 
-          /* Now we are ready to set the initial state. */
+            /* Now we are ready to set the initial state. */
 
           this.setState({
             id: user.id,

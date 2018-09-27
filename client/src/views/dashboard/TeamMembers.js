@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
-import { MessageCard } from '../common/'
+import ManageTeamMembersList from './components/ManageTeamMembersList'
 
 const styles = theme => ({
   tableContainer: {
@@ -17,9 +17,7 @@ const TeamMembers = ({ classes }) => (
     <Typography variant='display1' gutterBottom>
       Team Members
     </Typography>
-    <div className={classes.tableContainer}>
-      <MessageCard message='Coming soon. Invite and manage team members' />
-    </div>
+    <ManageTeamMembersList />
   </div>
 )
 

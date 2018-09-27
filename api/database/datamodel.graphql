@@ -63,7 +63,7 @@ type TeamMembers {
 type Member {
   id: ID! @unique
   alias: String
-  team: TeamMembers @relation (name: "MemberOnTeam", onDelete: SET_NULL)
+  teams: [TeamMembers!]! @relation (name: "MemberOnTeam", onDelete: SET_NULL)
   authId: String! @unique
   visible: Boolean! @default(value: true)
   createdAt: DateTime!

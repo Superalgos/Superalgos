@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Thu Sep 20 2018 16:52:44 GMT-0700 (Pacific Daylight Time)
+# timestamp: Wed Sep 26 2018 23:15:45 GMT-0700 (Pacific Daylight Time)
 
 type AggregateFBStatus {
   count: Int!
@@ -513,7 +513,7 @@ scalar Long
 type Member implements Node {
   id: ID!
   alias: String
-  team(where: TeamMembersWhereInput): TeamMembers
+  teams(where: TeamMembersWhereInput, orderBy: TeamMembersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamMembers!]
   authId: String!
   visible: Boolean!
   createdAt: DateTime!
@@ -533,15 +533,15 @@ input MemberCreateInput {
   alias: String
   authId: String!
   visible: Boolean
-  team: TeamMembersCreateOneWithoutMemberInput
+  teams: TeamMembersCreateManyWithoutMemberInput
 }
 
-input MemberCreateOneWithoutTeamInput {
-  create: MemberCreateWithoutTeamInput
+input MemberCreateOneWithoutTeamsInput {
+  create: MemberCreateWithoutTeamsInput
   connect: MemberWhereUniqueInput
 }
 
-input MemberCreateWithoutTeamInput {
+input MemberCreateWithoutTeamsInput {
   alias: String
   authId: String!
   visible: Boolean
@@ -806,27 +806,27 @@ input MemberUpdateInput {
   alias: String
   authId: String
   visible: Boolean
-  team: TeamMembersUpdateOneWithoutMemberInput
+  teams: TeamMembersUpdateManyWithoutMemberInput
 }
 
-input MemberUpdateOneWithoutTeamInput {
-  create: MemberCreateWithoutTeamInput
+input MemberUpdateOneWithoutTeamsInput {
+  create: MemberCreateWithoutTeamsInput
   connect: MemberWhereUniqueInput
   disconnect: Boolean
   delete: Boolean
-  update: MemberUpdateWithoutTeamDataInput
-  upsert: MemberUpsertWithoutTeamInput
+  update: MemberUpdateWithoutTeamsDataInput
+  upsert: MemberUpsertWithoutTeamsInput
 }
 
-input MemberUpdateWithoutTeamDataInput {
+input MemberUpdateWithoutTeamsDataInput {
   alias: String
   authId: String
   visible: Boolean
 }
 
-input MemberUpsertWithoutTeamInput {
-  update: MemberUpdateWithoutTeamDataInput!
-  create: MemberCreateWithoutTeamInput!
+input MemberUpsertWithoutTeamsInput {
+  update: MemberUpdateWithoutTeamsDataInput!
+  create: MemberCreateWithoutTeamsInput!
 }
 
 input MemberWhereInput {
@@ -984,7 +984,9 @@ input MemberWhereInput {
 
   """All values greater than or equal the given value."""
   createdAt_gte: DateTime
-  team: TeamMembersWhereInput
+  teams_every: TeamMembersWhereInput
+  teams_some: TeamMembersWhereInput
+  teams_none: TeamMembersWhereInput
 }
 
 input MemberWhereUniqueInput {
@@ -1206,17 +1208,17 @@ type TeamMembersConnection {
 
 input TeamMembersCreateInput {
   role: Role
-  member: MemberCreateOneWithoutTeamInput
+  member: MemberCreateOneWithoutTeamsInput
   team: TeamCreateOneWithoutMembersInput
   status: MemberStatusCreateManyInput
 }
 
-input TeamMembersCreateManyWithoutTeamInput {
-  create: [TeamMembersCreateWithoutTeamInput!]
+input TeamMembersCreateManyWithoutMemberInput {
+  create: [TeamMembersCreateWithoutMemberInput!]
 }
 
-input TeamMembersCreateOneWithoutMemberInput {
-  create: TeamMembersCreateWithoutMemberInput
+input TeamMembersCreateManyWithoutTeamInput {
+  create: [TeamMembersCreateWithoutTeamInput!]
 }
 
 input TeamMembersCreateWithoutMemberInput {
@@ -1227,7 +1229,7 @@ input TeamMembersCreateWithoutMemberInput {
 
 input TeamMembersCreateWithoutTeamInput {
   role: Role
-  member: MemberCreateOneWithoutTeamInput
+  member: MemberCreateOneWithoutTeamsInput
   status: MemberStatusCreateManyInput
 }
 
@@ -1297,32 +1299,17 @@ input TeamMembersSubscriptionWhereInput {
 
 input TeamMembersUpdateInput {
   role: Role
-  member: MemberUpdateOneWithoutTeamInput
+  member: MemberUpdateOneWithoutTeamsInput
   team: TeamUpdateOneWithoutMembersInput
   status: MemberStatusUpdateManyInput
+}
+
+input TeamMembersUpdateManyWithoutMemberInput {
+  create: [TeamMembersCreateWithoutMemberInput!]
 }
 
 input TeamMembersUpdateManyWithoutTeamInput {
   create: [TeamMembersCreateWithoutTeamInput!]
-}
-
-input TeamMembersUpdateOneWithoutMemberInput {
-  create: TeamMembersCreateWithoutMemberInput
-  disconnect: Boolean
-  delete: Boolean
-  update: TeamMembersUpdateWithoutMemberDataInput
-  upsert: TeamMembersUpsertWithoutMemberInput
-}
-
-input TeamMembersUpdateWithoutMemberDataInput {
-  role: Role
-  team: TeamUpdateOneWithoutMembersInput
-  status: MemberStatusUpdateManyInput
-}
-
-input TeamMembersUpsertWithoutMemberInput {
-  update: TeamMembersUpdateWithoutMemberDataInput!
-  create: TeamMembersCreateWithoutMemberInput!
 }
 
 input TeamMembersWhereInput {

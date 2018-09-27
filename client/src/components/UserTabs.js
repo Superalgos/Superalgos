@@ -4,9 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import UpdateIcon from '@material-ui/icons/Create';
-import ImageIcon from '@material-ui/icons/Wallpaper';
-import ReferralsIcon from '@material-ui/icons/DeviceHub';
+import ProfileSheetIcon from '@material-ui/icons/Create';
+import ProfileImagesIcon from '@material-ui/icons/Wallpaper';
+import YourReferrerIcon from '@material-ui/icons/AccessibilityNew';
+import DescendentsIcon from '@material-ui/icons/DeviceHub';
 import Typography from '@material-ui/core/Typography';
 
 // Components
@@ -14,6 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import ProfileSheet from './ProfileSheet';
 import ProfileImages from './ProfileImages';
 import YourReferrer from './YourReferrer';
+import YourDescendents from './YourDescendents';
 
 function TabContainer(props) {
   return (
@@ -61,14 +63,16 @@ class UserTabs extends React.Component {
             indicatorColor="primary"
             textColor="primary"
           >
-            <Tab label="Profile Sheet" icon={<UpdateIcon />} />
-            <Tab label="Profile Images" icon={<ImageIcon />} />
-            <Tab label="Your Referrer" icon={<ReferralsIcon />} />
+            <Tab label="Profile Sheet" icon={<ProfileSheetIcon />} />
+            <Tab label="Profile Images" icon={<ProfileImagesIcon />} />
+            <Tab label="Your Referrer" icon={<YourReferrerIcon />} />
+            <Tab label="Your Descendents" icon={<DescendentsIcon />} />
           </Tabs>
         </AppBar>
         {value === 0 && <TabContainer><ProfileSheet/></TabContainer>}
         {value === 1 && <TabContainer><ProfileImages/></TabContainer>}
         {value === 2 && <TabContainer><YourReferrer/></TabContainer>}
+        {value === 2 && <TabContainer><YourDescendents/></TabContainer>}
       </div>
     );
   }

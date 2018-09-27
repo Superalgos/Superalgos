@@ -16,9 +16,6 @@ import Grid from '@material-ui/core/Grid'
 
 import TextField from '@material-ui/core/TextField'
 
-// components
-import UserProfile from './UserProfile'
-
 // Images
 import PortraitImage from '../img/portrait.jpg'
 

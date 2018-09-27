@@ -6,7 +6,6 @@ import {getUserProfileQuery} from '../queries/queries'
 
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
@@ -91,7 +90,6 @@ class UserProfile extends Component {
   }
 
   render () {
-    const { classes } = this.props
     return (
       <Grid container justify='center' spacing={24}>
         {this.displayUserProfile()}

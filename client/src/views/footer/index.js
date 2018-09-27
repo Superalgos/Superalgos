@@ -114,7 +114,7 @@ const Footer = ({ classes }) => {
         </Grid>
         <Grid item xs>
           <NavLink to='/'>
-            <img src={aalogo} width={98} height={140} />
+            <img alt='' src={aalogo} width={98} height={140} />
           </NavLink>
         </Grid>
       </Grid>

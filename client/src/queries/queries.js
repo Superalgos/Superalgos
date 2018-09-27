@@ -16,7 +16,6 @@ const getUsersQuery = gql`
     }
 }
 `
-
 const getUserProfileQuery = gql`
 query($id: ID){
     user (id: $id){
@@ -34,11 +33,11 @@ query($id: ID){
     }
 }
 `
-
 const getUserByAuthIdQuery = gql`
 query($authId: String){
     userByAuthId (authId: $authId){
       id
+      referrerId
       alias
       firstName
       middleName
@@ -57,7 +56,6 @@ query($authId: String){
     }
 }
 `
-
 const getUsersBySearchFields = gql`
 query(
   $alias: String,
@@ -74,7 +72,6 @@ query(
     }
 }
 `
-
 const getRolesQuery = gql`
 {
     roles {
@@ -83,7 +80,6 @@ const getRolesQuery = gql`
     }
 }
 `
-
 const updateUserMutation = gql`
 mutation(
   $id: ID!,
@@ -114,7 +110,22 @@ mutation(
     }
 }
 `
-
+const updateReferrerMutation = gql`
+mutation(
+  $id: ID!,
+  $referrerId:String!
+)
+  {
+    updateUserReferrer (
+      id: $id,
+      referrerId:$referrerId
+    )
+    {
+      id
+      referrerId
+    }
+}
+`
 const updateUserImagesMutation = gql`
 mutation(
   $id: ID!,
@@ -140,5 +151,6 @@ export {
   getUserProfileQuery,
   getUsersBySearchFields,
   updateUserMutation,
+  updateReferrerMutation,
   updateUserImagesMutation
 }

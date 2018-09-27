@@ -144,7 +144,14 @@ const RootQuery = new GraphQLObjectType({
 
         if (mongoQuery.$or.length === 0) { mongoQuery = {} }
 
-        return User.find(mongoQuery)
+        return User.find([mongoQuery])
+      }
+    },
+    descendents: {
+      type: new GraphQLList(UserType),
+      args: {id: {type: GraphQLString}},
+      resolve (parent, args) {
+        return User.find({referrerId: args.id})
       }
     }
   }

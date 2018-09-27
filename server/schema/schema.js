@@ -30,6 +30,7 @@ const UserType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID},
     authId: { type: GraphQLString},
+    referrerId: {type: GraphQLString},
     alias: {type: GraphQLString},
     firstName: {type: GraphQLString},
     middleName: {type: GraphQLString},
@@ -231,6 +232,25 @@ const Mutation = new GraphQLObjectType({
         let updatedUser = {
           avatarHandle: args.avatarHandle,
           avatarChangeDate: args.avatarChangeDate
+        }
+
+        return User.update(key, updatedUser)
+      }
+    },
+    updateUserReferrer: {
+      type: UserType,
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLID)},
+        referrerId: {type: GraphQLString}
+      },
+      resolve (parent, args) {
+        let key = {
+          _id: args.id,
+          referrerId: null
+        }
+
+        let updatedUser = {
+          referrerId: args.referrerId
         }
 
         return User.update(key, updatedUser)

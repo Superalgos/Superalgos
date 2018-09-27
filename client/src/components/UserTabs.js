@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 
 // Components
 
-import UserUpdate from './UserUpdate';
+import ProfileSheet from './ProfileSheet';
 import UserImages from './UserImages';
 import YourReferrer from './YourReferrer';
 
@@ -66,7 +66,7 @@ class UserTabs extends React.Component {
             <Tab label="Your Referrer" icon={<ReferralsIcon />} />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer><UserUpdate/></TabContainer>}
+        {value === 0 && <TabContainer><ProfileSheet/></TabContainer>}
         {value === 1 && <TabContainer><UserImages/></TabContainer>}
         {value === 2 && <TabContainer><YourReferrer/></TabContainer>}
       </div>

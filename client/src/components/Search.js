@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UserSearch from './UserSearch'
-import {graphql, compose} from 'react-apollo'
+import {compose} from 'react-apollo'
 
 // Materia UI
 

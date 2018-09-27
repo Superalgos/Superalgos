@@ -24,15 +24,14 @@ const styles = theme => ({
     margin: 2
   },
   card: {
-    maxWidth: 800,
-    minWidth: 800,
+    width: '80%',
     paddingTop: '30'
   },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9,
     marginTop: '30',
-    minWidth: 800
+    minWidth: '80%'
   },
   grid: {
     paddingTop: '30',
@@ -94,11 +93,9 @@ class UserProfile extends Component {
   render () {
     const { classes } = this.props
     return (
-      <Paper className={classes.root}>
-        <Grid container justify='center' spacing={24}>
-          {this.displayUserProfile()}
-        </Grid>
-      </Paper>
+      <Grid container justify='center' spacing={24}>
+        {this.displayUserProfile()}
+      </Grid>
     )
   }
 }

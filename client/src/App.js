@@ -11,7 +11,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
 // Material UI
 
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { MuiThemeProvider } from '@material-ui/core/styles'
 import theme from './theme'
 
 // Components

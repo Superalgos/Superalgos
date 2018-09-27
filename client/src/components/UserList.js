@@ -143,7 +143,9 @@ class UserList extends Component {
                            </Button>
                          </Toolbar>
                        </AppBar>
+                       <Paper className={classes.root}>
                          <UserProfile userId={this.state.selected}/>
+                       </Paper>
                      </Dialog>
                    </Grid>
                    <Grid item>

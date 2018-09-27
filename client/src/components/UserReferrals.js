@@ -10,9 +10,6 @@ import UserProfile from './UserProfile'
 // Material-ui
 
 import { withStyles } from '@material-ui/core/styles'
-import MenuItem from '@material-ui/core/MenuItem'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 
@@ -59,9 +56,7 @@ class UserReferrals extends Component {
   }
 
   userSelected (referrerUser) {
-    console.log(user)
-
-    this.setState({referrer: referrerUser.id})
+    this.setState({referrerId: referrerUser.id})
 
     this.props.updateReferrerMutation({
       variables: {
@@ -81,9 +76,8 @@ class UserReferrals extends Component {
 
   renderMode () {
     const { classes } = this.props
-    const {user} = this.props.data
 
-    if (this.state.referrerId !== '') {
+    if (this.state.referrerId !== null) {
       return (
         <div>
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>

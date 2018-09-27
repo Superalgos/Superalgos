@@ -51,6 +51,12 @@ class UserReferrals extends Component {
     }
   }
 
+  userSelected (user) {
+    console.log(user)
+
+    this.setState({referrer: user.id})
+  }
+
   submitForm (e) {
     e.preventDefault()
     this.props.updateUserMutation({
@@ -136,7 +142,7 @@ class UserReferrals extends Component {
         overall reputation within the project.
         </Typography>
 
-          <UserSearch selectButton />
+          <UserSearch selectButton onSelect={this.userSelected.bind(this)} selectText="After that press the 'Select' button on the desired user to set it as your referrer. Bear in mind that this action can not be undone." />
 
         </form>
       </Paper>

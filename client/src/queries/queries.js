@@ -180,6 +180,7 @@ export {
   getRolesQuery,
   getUserProfileQuery,
   getUsersBySearchFields,
+  getDescendentsQuery,
   updateUserMutation,
   updateReferrerMutation,
   updateUserImagesMutation

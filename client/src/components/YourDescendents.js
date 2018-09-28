@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 
 // components
-import UserProfile from './UserProfile'
+import DescendentsTree from './DescendentsTree'
 
 const styles = theme => ({
   root: {
@@ -36,13 +36,32 @@ class YourDescendents extends Component {
   constructor (props) {
     super(props)
 
+    this.defaultValuesSet = false
+
     this.state = {
       id: ''
     }
   }
 
+  componentWillMount ()    	{
+    if (this.defaultValuesSet === false)    	    {
+      let userData = localStorage.getItem('loggedInUser')
+
+      if (userData === 'undefined') { return }
+
+      let user = JSON.parse(userData)
+      this.defaultValuesSet = true
+
+      /* Now we are ready to set the initial state. */
+      this.setState({
+        id: user.id
+      })
+    }
+  }
+
   render () {
     const { classes } = this.props
+
     return (
       <Paper className={classes.root}>
         <Typography className={classes.typography} variant='headline' gutterBottom>
@@ -54,6 +73,7 @@ class YourDescendents extends Component {
         your grandchildren referred your children and so on.
         </Typography>
 
+        <DescendentsTree userId={this.state.id} />
         <Grid container className={classes.grid} justify='center' spacing={24} />
       </Paper>
     )

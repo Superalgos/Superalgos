@@ -66,7 +66,7 @@ const styles = theme => ({
   }
 })
 
-class YourDescendents extends Component {
+class DescendentsTree extends Component {
 
   constructor (props) {
     super(props)
@@ -79,22 +79,22 @@ class YourDescendents extends Component {
     }
   }
 
-  displayUsers () {
-    let data = this.props.getUsersBySearchFields
+  displayDescendents () {
+    let data = this.props.data
     const { classes } = this.props
 
     if (data.loading) {
-      return (<div> Loading Users... </div>)
+      return (<div> Loading Descendents... </div>)
     } else {
-      if (data.usersSearch === undefined) {
-        return (<div> No Users to Display </div>)
+      if (data.descendents === undefined) {
+        return (<div> No Descendents to Display </div>)
       } else {
-        return data.usersSearch.map(user => {
+        return data.descendents.map(descendent => {
           return (
 
-            <Grid key={user.id} item>
+            <Grid key={descendent.id} item>
               <Card className={classes.card} onClick={(e) => {
-                this.setState({ selected: user.id})
+                this.setState({ selected: descendent.id})
               }
             }>
                 <CardActionArea>
@@ -106,15 +106,13 @@ class YourDescendents extends Component {
                 />
                   <CardContent>
                     <Typography gutterBottom variant='headline' component='h2'>
-                      {user.alias}
+                      {descendent.alias}
                     </Typography>
                   </CardContent>
                 </CardActionArea>
                 <CardActions>
                   <Grid container justify='center' spacing={8}>
-                    <Grid item>
-                      {this.selectButton(user)}
-                    </Grid>
+                    <Grid item />
                   </Grid>
                 </CardActions>
               </Card>
@@ -130,14 +128,8 @@ class YourDescendents extends Component {
     const { classes } = this.props
     return (
       <div>
-
-        <Typography className={classes.formTypography} variant='body1' gutterBottom align='left'>
-         These are your decendents within the project. Your children referred you as the one who brought them to the project, while
-         your grandchildren referred your children and so on.
-        </Typography>
-
         <Grid container className={classes.grid} justify='center' spacing={24}>
-          {this.displayUsers()}
+          {this.displayDescendents()}
         </Grid>
       </div>
     )
@@ -145,6 +137,14 @@ class YourDescendents extends Component {
 }
 
 export default compose(
-  graphql(getUsersBySearchFields, {name: 'getUsersBySearchFields'}),
+  graphql(getDescendentsQuery, { // What follows is the way to pass a parameter to a query.
+    options: (props) => {
+      return {
+        variables: {
+          name: 'getDescendentsQuery',
+          id: props.userId
+        }
+      }
+    }}),
   withStyles(styles)
-)(YourDescendents) // This technique binds more than one query to a single component.
+)(DescendentsTree) // This technique binds more than one query to a single component.

@@ -234,7 +234,7 @@ class DescendentsTree extends Component {
       <div>
       <List
        component="nav"
-       subheader={<ListSubheader component="div">Your Children</ListSubheader>}
+       subheader={<ListSubheader component="div"></ListSubheader>}
        className={classes.list}
      >
           {this.displayTopList()}

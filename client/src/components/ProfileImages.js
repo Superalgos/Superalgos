@@ -118,7 +118,7 @@ class ProfileImages extends React.Component {
           let timePassed = now - avatarChangeDate
           let oneDay = 1000 * 60 * 60 * 24
 
-console.log("dates", avatarChangeDate, now, timePassed, oneDay)
+ 
 
           if (timePassed < oneDay) {
             this.setState({

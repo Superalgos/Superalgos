@@ -14,7 +14,19 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 
-import TextField from '@material-ui/core/TextField'
+// Material UI Nestled Lists
+import ListSubheader from '@material-ui/core/ListSubheader';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Collapse from '@material-ui/core/Collapse';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import SendIcon from '@material-ui/icons/Send';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import StarBorder from '@material-ui/icons/StarBorder';
 
 // components
 import UserProfile from './UserProfile'
@@ -23,11 +35,12 @@ import UserProfile from './UserProfile'
 import PortraitImage from '../img/portrait.jpg'
 
 const styles = theme => ({
-  card: {
+  childrenCard: {
     maxWidth: 150,
     minWidth: 150,
     paddingTop: '30',
-    marginBottom: 40
+    marginBottom: 40,
+    marginLeft: 10
   },
   media: {
     height: 0,
@@ -63,7 +76,10 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
     marginTop: theme.spacing.unit * 3
-  }
+  },
+  nested: {
+    paddingLeft: theme.spacing.unit * 4,
+  },
 })
 
 class DescendentsTree extends Component {
@@ -72,37 +88,35 @@ class DescendentsTree extends Component {
     super(props)
 
     this.state = {
-      alias: '',
-      firstName: '',
-      middleName: '',
-      lastName: ''
+      id: '',
+      open: true
     }
   }
 
-  displayDescendents () {
-    let data = this.props.data
+  handleClick = () => {
+  this.setState(state => ({ open: !state.open }));
+};
+
+  displayNodeDescendents(node) {
+
     const { classes } = this.props
-
-    if (data.loading) {
-      return (<div> Loading Descendents... </div>)
-    } else {
-      if (data.descendents === undefined) {
-        return (<div> No Descendents to Display </div>)
-      } else {
-        return data.descendents.map(descendent => {
-          return (
-
-            <Grid key={descendent.id} item>
-              <Card className={classes.card} onClick={(e) => {
-                this.setState({ selected: descendent.id})
-              }
-            }>
+    return node.descendents.map(descendent => {
+    return (
+          <List component="div" disablePadding>
+            <ListItem button className={classes.nested}>
+              <ListItemIcon>
+                <StarBorder />
+              </ListItemIcon>
+              <ListItemIcon>
+                <StarBorder />
+              </ListItemIcon>
+              <Card className={classes.childrenCard}>
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
                     image={PortraitImage}
                     title='User Profile'
-
+        
                 />
                   <CardContent>
                     <Typography gutterBottom variant='headline' component='h2'>
@@ -116,8 +130,62 @@ class DescendentsTree extends Component {
                   </Grid>
                 </CardActions>
               </Card>
-            </Grid>
+            </ListItem>
+          </List>
+        )
+      }
+    )
+  }
 
+  
+  displayDescendents () {
+    let data = this.props.data
+    const { classes } = this.props
+
+    if (data.loading) {
+      return (<div> Loading Descendents... </div>)
+    } else {
+      if (data.descendents === undefined) {
+        return (<div> No Descendents to Display </div>)
+      } else {
+        return data.descendents.map(descendent => {
+          return (
+            <div>
+            
+          <ListItem button>
+          <ListItemIcon>
+            <StarBorder />
+          </ListItemIcon>
+            <Card className={classes.childrenCard}>
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image={PortraitImage}
+                  title='User Profile'
+
+              />
+                <CardContent>
+                  <Typography gutterBottom variant='headline' component='h2'>
+                    {descendent.alias}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Grid container justify='center' spacing={8}>
+                  <Grid item />
+                </Grid>
+              </CardActions>
+            </Card>
+          </ListItem>
+          <ListItem button onClick={this.handleClick}>
+            <ListItemText inset primary="Grand Children" />
+            {this.state.open ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+            {this.displayNodeDescendents(descendent)}
+          </Collapse>
+              
+            </div>
           )
         })
       }
@@ -128,9 +196,12 @@ class DescendentsTree extends Component {
     const { classes } = this.props
     return (
       <div>
-        <Grid container className={classes.grid} justify='center' spacing={24}>
+      <List
+       component="nav"
+       subheader={<ListSubheader component="div">Nested List Items</ListSubheader>}
+     >
           {this.displayDescendents()}
-        </Grid>
+        </List>
       </div>
     )
   }

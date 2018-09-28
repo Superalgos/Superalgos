@@ -14,7 +14,7 @@ const { getMember } = require('./auth/middleware/getMember')
 const { validateIdToken } = require('./auth/validateIdToken')
 const { directiveResolvers } = require('./auth/authDirectives')
 
-const { sendTeamMemberInvite } = require('./email/sendgrid')
+const { sendTeamMemberInvite, verifyInviteToken } = require('./email/sendgrid')
 
 const {
   createStoragePipline,
@@ -135,6 +135,24 @@ const resolvers = {
         }
       }
       return member
+    },
+    async verifyTeamInvite(parent, { token }, ctx, info) {
+      let verifiedToken = null
+      let team = null
+      try {
+        verifiedToken = await verifyInviteToken(token)
+        team = {
+          email: verifiedToken.email,
+          team: {
+            slug: verifiedToken.team
+          }
+        }
+        console.log('verifyTeamInvite.token: ', await verifiedToken)
+      } catch (err) {
+        console.log('verifyTeamInvite. err: ', err)
+        throw new Error(err.message)
+      }
+      return team
     },
     async createTeam(parent, { name, slug }, ctx, info) {
       const authId = ctx.request.user.sub

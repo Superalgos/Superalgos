@@ -7,7 +7,7 @@ const sendTeamMemberInvite = function(email, team) {
     const API_KEY = process.env.SG_APIKEY
     const token = jwt.sign({ email: email, team: team.slug }, API_KEY, { expiresIn: '7d' })
     let origin = 'https://teams.advancedalgos.net'
-    const params = '/activate-team-membership?token='
+    const params = '/activate-team-membership/'
     if (dev){
       origin = 'http://localhost:3001'
     }
@@ -67,4 +67,21 @@ const sendTeamMemberInvite = function(email, team) {
     return sendVerify
 }
 
-module.exports = { sendTeamMemberInvite }
+const verifyInviteToken = async function(token) {
+  const API_KEY = process.env.SG_APIKEY
+  let verifiedToken
+  try {
+      verifiedToken = await jwt.verify(token, API_KEY, {maxAge: '7d'})
+  } catch(err) {
+    if (err.name === "TokenExpiredError"){
+        throw new Error ("Error: Token Expired. Please request new invitation or apply to the team again")
+    } else {
+      throw new Error (`Error: Token error - ${err.message}`)
+    }
+  }
+
+  console.log('verifyInviteToken', verifiedToken)
+  return verifiedToken
+}
+
+module.exports = { sendTeamMemberInvite, verifyInviteToken }

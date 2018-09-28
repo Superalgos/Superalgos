@@ -19,6 +19,7 @@ import {
   NavBar,
   Footer,
   Callback,
+  AcceptTeamInvite,
   Home,
   About,
   Dashboard,
@@ -170,6 +171,11 @@ class App extends Component {
                     auth.handleAuthentication(props)
                     return <Callback {...props} />
                   }}
+                />
+                <Route
+                  exact
+                  path='/activate-team-membership'
+                  render={props => <AcceptTeamInvite {...props} auth={auth} />}
                 />
               </Switch>
               <Footer />

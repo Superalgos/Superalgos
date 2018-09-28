@@ -13,6 +13,9 @@ const checkJwt = require('./auth/middleware/jwt')
 const { getMember } = require('./auth/middleware/getMember')
 const { validateIdToken } = require('./auth/validateIdToken')
 const { directiveResolvers } = require('./auth/authDirectives')
+
+const { sendTeamMemberInvite } = require('./email/sendgrid')
+
 const {
   createStoragePipline,
   createServiceURL,
@@ -208,6 +211,12 @@ const resolvers = {
           resourceTypes: SASResourceTypes
         }, SKC )
       return SASQueryParameters
+    },
+    async sendMemberInviteSG(parent, { email, teamId }, ctx, info) {
+      let team = await ctx.db.query.team({ where: { teamId } }, info)
+      console.log(email, teamId)
+      let email = await sendTeamMemberInvite(email, team)
+      return 'Success'
     }
   }
 }

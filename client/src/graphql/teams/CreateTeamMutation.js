@@ -2,8 +2,8 @@
 import gql from 'graphql-tag'
 
 const CREATE_TEAM = gql`
-  mutation CreateTeamMutation($name: String!, $slug: String!, $owner: String!) {
-    createTeam(name: $name, slug: $slug, owner: $owner) {
+  mutation CreateTeamMutation($name: String!, $slug: String!) {
+    createTeam(name: $name, slug: $slug) {
       id
       name
       slug

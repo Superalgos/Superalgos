@@ -7,8 +7,9 @@ enum Role {
 enum Status {
   ACTIVE
   INACTIVE
-  APPLY
-  INVITE
+  APPLIED
+  INVITED
+  REMOVED
 }
 
 enum FBType {
@@ -53,11 +54,20 @@ type TeamStatus {
 }
 
 type TeamMembers {
+  id: ID! @unique
   member: Member @relation (name: "MemberOnTeam", onDelete: SET_NULL)
   team: Team @relation (name: "TeamMembers", onDelete: SET_NULL)
   role: Role @default(value: MEMBER)
-  status: [MemberStatus!]!
+  status: [TeamMemberStatus!]!
+  email: String
+  createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type TeamMemberStatus {
+  status: Status @Default(value: INACTIVE)
+  reason: String
+  createdAt: DateTime!
 }
 
 type Member {
@@ -66,11 +76,12 @@ type Member {
   teams: [TeamMembers!]! @relation (name: "MemberOnTeam", onDelete: SET_NULL)
   authId: String! @unique
   visible: Boolean! @default(value: true)
+  status: [MemberStatus!]!
   createdAt: DateTime!
 }
 
 type MemberStatus {
-  status: Status @Default(value: inactive)
+  status: Status @Default(value: INACTIVE)
   reason: String
   createdAt: DateTime!
 }

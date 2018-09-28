@@ -56,16 +56,11 @@ export class CreateTeamDialog extends Component {
   }
 
   render () {
-    const { classes, authId } = this.props
+    const { classes } = this.props
     return (
       <Mutation
         mutation={CREATE_TEAM}
-        refetchQueries={[
-          {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
-          }
-        ]}
+        refetchQueries={[{ query: GET_TEAMS_BY_OWNER }]}
       >
         {(createTeam, { loading, error, data }) => {
           let errors
@@ -131,7 +126,7 @@ export class CreateTeamDialog extends Component {
                   </Button>
                   <Button
                     onClick={e => {
-                      this.handleSubmit(e, createTeam, this.state.name, authId)
+                      this.handleSubmit(e, createTeam, this.state.name)
                     }}
                     color='primary'
                   >
@@ -169,7 +164,7 @@ export class CreateTeamDialog extends Component {
     e.preventDefault()
     console.log('createTeam submit: ', authId, name)
     const slug = this.slugify(name)
-    await createTeam({ variables: { name, slug, owner: authId } })
+    await createTeam({ variables: { name, slug } })
     this.setState({ name: '', open: false })
   }
 
@@ -198,8 +193,7 @@ export class CreateTeamDialog extends Component {
 }
 
 CreateTeamDialog.propTypes = {
-  classes: PropTypes.object.isRequired,
-  authId: PropTypes.string
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(CreateTeamDialog)

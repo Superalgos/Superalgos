@@ -55,14 +55,13 @@ export class ManageTeamDelete extends Component {
 
   render () {
     console.log(this.props, this.props.slug)
-    const { classes, authId } = this.props
+    const { classes } = this.props
     return (
       <Mutation
         mutation={DELETE_TEAM}
         refetchQueries={[
           {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
+            query: GET_TEAMS_BY_OWNER
           }
         ]}
       >
@@ -123,8 +122,7 @@ export class ManageTeamDelete extends Component {
                         this.handleSubmit(
                           e,
                           deleteTeam,
-                          this.props.slug,
-                          authId
+                          this.props.slug
                         )
                       }}
                       color='primary'
@@ -141,17 +139,16 @@ export class ManageTeamDelete extends Component {
     )
   }
 
-  async handleSubmit (e, deleteTeam, slug, authId) {
+  async handleSubmit (e, deleteTeam, slug) {
     e.preventDefault()
-    await deleteTeam({ variables: { slug, owner: authId } })
+    await deleteTeam({ variables: { slug } })
     this.setState({ open: false })
   }
 }
 
 ManageTeamDelete.propTypes = {
   classes: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired,
-  authId: PropTypes.string.isRequired
+  slug: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(ManageTeamDelete)

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
-import { withStateHandlers, lifecycle, compose } from 'recompose'
 import { Link } from 'react-router-dom'
 
 import Typography from '@material-ui/core/Typography'
@@ -13,32 +12,7 @@ import DashTeamItem from './DashTeamItem'
 import CreateTeamDialog from './CreateTeamDialog'
 import { MessageCard } from '../../common/'
 
-import { isDefined, isString } from '../../../utils/js-helpers'
-import { getItem } from '../../../utils/local-storage'
-
-export const DashTeam = ({ classes, user = null }) => {
-  let owner
-  let loader
-  let authId = null
-  console.log('DashTeam: ', user)
-  if (user !== null && isString(user)) {
-    owner = JSON.parse(user)
-    if (isDefined(owner.authId)) authId = owner.authId
-  } else {
-    loader = <Typography variant='caption'>Loading...</Typography>
-  }
-  console.log('DashTeam 2: ', owner, authId)
-
-  if (authId === undefined || authId === null) {
-    return (
-      <Grid item md={6}>
-        <Typography variant='display1' gutterBottom>
-          Teams
-        </Typography>
-        <Typography variant='caption'>Loading...</Typography>
-      </Grid>
-    )
-  }
+export const DashTeam = ({ classes }) => {
   return (
     <Grid item md={6} style={{ position: 'relative' }}>
       <Typography variant='display1' gutterBottom>
@@ -47,7 +21,7 @@ export const DashTeam = ({ classes, user = null }) => {
           Manage Teams
         </Link>
       </Typography>
-      <Query query={GET_TEAMS_BY_OWNER} variables={{ authId }}>
+      <Query query={GET_TEAMS_BY_OWNER}>
         {({ loading, error, data }) => {
           console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
           let errors
@@ -71,7 +45,6 @@ export const DashTeam = ({ classes, user = null }) => {
                     ))}
                   {queryLoader}
                   {errors}
-                  {loader}
                 </Grid>
               )
             } else {
@@ -79,7 +52,7 @@ export const DashTeam = ({ classes, user = null }) => {
                 <Grid container spacing={40}>
                   <Grid item xs={10}>
                     <MessageCard message='No teams yet...'>
-                      <CreateTeamDialog authId={authId} />
+                      <CreateTeamDialog />
                     </MessageCard>
                   </Grid>
                 </Grid>
@@ -103,25 +76,7 @@ export const DashTeam = ({ classes, user = null }) => {
 }
 
 DashTeam.propTypes = {
-  user: PropTypes.any,
   classes: PropTypes.object.isRequired
 }
 
-const getUserOnMount = lifecycle({
-  componentDidMount () {
-    getItem('user').then(user => {
-      this.setState({ user })
-    }) // Set user to state
-  }
-})
-
-const mapStateToProps = withStateHandlers(() => ({ user: null }), {
-  user: ({ user }) => () => ({ user })
-})
-
-const DashTeamAuthId = compose(
-  mapStateToProps,
-  getUserOnMount
-)(DashTeam)
-
-export default DashTeamAuthId
+export default DashTeam

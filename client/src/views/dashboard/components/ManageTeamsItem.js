@@ -39,8 +39,8 @@ export const ManageTeamsItem = ({ classes, team, authId }) => {
           </CardContent>
           <CardActions>
             <ManageTeamDetails team={team} />
-            <ManageTeamEdit slug={team.slug} authId={authId} team={team} />
-            <ManageTeamDelete slug={team.slug} authId={authId} />
+            <ManageTeamEdit slug={team.slug} team={team} />
+            <ManageTeamDelete slug={team.slug} />
           </CardActions>
         </div>
       </Card>

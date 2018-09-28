@@ -87,9 +87,18 @@ const resolvers = {
     async teamByName(parent, { name }, ctx, info) {
       return ctx.db.query.team({ where: { name: name } }, `{ name }`)
     },
-    async teamsByOwner(parent, { ownerId }, ctx, info) {
-      console.log('teamsByOwner: ', ctx.user)
-      return ctx.db.query.teams({where: { owner: ownerId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
+    async teamWithRole(parent, { teamId, role }, ctx, info) {
+      return ctx.db.query.teamsConnection({where: {AND: [{id: teamId},{members_some:{role: role}}]}, first:1}, info)
+    },
+    async teamsByOwner(parent, args, ctx, info) {
+      const authId = ctx.request.user.sub
+      return ctx.db.query.teams({where: { owner: authId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
+    },
+    async teamsByRole(parent, args, ctx, info) {
+      const authId = ctx.request.user.sub
+      let teamAdmin = await ctx.db.query.teams({where: {members_some: {OR: [{role: 'ADMIN'}, {role: 'OWNER'}], AND: [{member: {authId: authId}}]}}, orderBy: 'updatedAt_DESC'}, TEAMS_FRAGMENT)
+      console.log('teamsByRole teamAdmin: ', teamAdmin)
+      return teamAdmin
     },
     async owner(parent, args, ctx, info) {
       console.log('resolver.query.owner ctx: ', ctxMember(ctx))
@@ -124,8 +133,9 @@ const resolvers = {
       }
       return member
     },
-    async createTeam(parent, { name, slug, owner }, ctx, info) {
-      return ctx.db.mutation.createTeam({ data: { name: name, slug: slug, owner: owner, members: { create: { member:{ connect:{ authId: owner} }, role: 'OWNER' } }, profile:{create:{avatar:"a"} } } }, TEAMS_FRAGMENT)
+    async createTeam(parent, { name, slug }, ctx, info) {
+      const authId = ctx.request.user.sub
+      return ctx.db.mutation.createTeam({ data: { name: name, slug: slug, owner: authId, members: { create: { member:{ connect:{ authId: authId} }, role: 'OWNER' } }, profile:{create:{avatar:"a"} } } }, TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err

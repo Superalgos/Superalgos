@@ -13,8 +13,6 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import { getItem } from '../../../utils/local-storage'
-
 import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
@@ -61,14 +59,13 @@ export class ManageTeamEdit extends Component {
 
   render () {
     console.log(this.props, this.props.slug)
-    const { classes, team, authId } = this.props
+    const { classes, team } = this.props
     return (
       <Mutation
         mutation={UPDATE_TEAM_PROFILE}
         refetchQueries={[
           {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
+            query: GET_TEAMS_BY_OWNER
           }
         ]}
       >
@@ -113,7 +110,6 @@ export class ManageTeamEdit extends Component {
                   <DialogContent>
                     <UploadImage
                       team={team}
-                      authId={authId}
                       handleAvatar={this.handleAvatar}
                       handleBanner={this.handleBanner}
                     />
@@ -207,13 +203,10 @@ export class ManageTeamEdit extends Component {
   async handleSubmit (e, updateTeamProfile, slug) {
     console.log('handleSubmit: ', this.state)
     e.preventDefault()
-    const currentUser = await getItem('user')
-    let authId = JSON.parse(currentUser)
-    authId = authId.authId
+
     await updateTeamProfile({
       variables: {
         slug,
-        owner: authId,
         description: this.state.description,
         motto: this.state.motto,
         avatar: this.state.avatar,
@@ -227,7 +220,6 @@ export class ManageTeamEdit extends Component {
 ManageTeamEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  authId: PropTypes.string,
   team: PropTypes.object
 }
 

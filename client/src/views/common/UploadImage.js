@@ -111,7 +111,7 @@ class UploadImage extends Component {
   }
 
   render () {
-    const { classes, team, authId, handleAvatar, handleBanner } = this.props
+    const { classes, team, handleAvatar, handleBanner } = this.props
     let avatar = null
     let banner = null
     if ((team.profile !== null && team.profile.avatar !== undefined && team.profile.avatar !== null && team.profile.avatar !== 'a') || this.state.avatarImage !== null) {
@@ -128,7 +128,7 @@ class UploadImage extends Component {
     let handleImage
     this.state.edit === 'avatar' ? handleImage = handleAvatar : handleImage = handleBanner
 
-    console.log('UploadImage', team, avatar, banner, authId, this.state)
+    console.log('UploadImage', team, avatar, banner, this.state)
     return (
       <div className={classes.dropzoneContainer}>
         <Mutation mutation={GET_AZURE_SAS} >
@@ -337,7 +337,6 @@ class UploadImage extends Component {
 UploadImage.propTypes = {
   classes: PropTypes.object.isRequired,
   team: PropTypes.object,
-  authId: PropTypes.string.isRequired,
   handleAvatar: PropTypes.func.isRequired,
   handleBanner: PropTypes.func.isRequired
 }

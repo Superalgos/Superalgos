@@ -21,9 +21,15 @@ const TEAMS_CONNECTIONS_FRAGMENT = gql`{
       }
       members {
         role
+        email
         member {
           alias
           authId
+        }
+        status {
+          status
+          reason
+          createdAt
         }
       }
     }

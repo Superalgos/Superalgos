@@ -13,16 +13,21 @@ const TEAMS_FRAGMENT = gql`{
   createdAt
   profile {
     avatar
-    banner
     description
     motto
     updatedAt
   }
   members {
     role
+    email
     member {
       alias
       authId
+    }
+    status {
+      status
+      reason
+      createdAt
     }
   }
 }`

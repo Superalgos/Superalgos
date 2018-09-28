@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Thu Sep 27 2018 08:38:09 GMT-0700 (Pacific Daylight Time)
+# timestamp: Thu Sep 27 2018 22:50:26 GMT-0700 (Pacific Daylight Time)
 
 type AggregateFBStatus {
   count: Int!
@@ -1731,6 +1731,7 @@ input TeamMembersWhereInput {
 
 input TeamMembersWhereUniqueInput {
   id: ID
+  email: String
 }
 
 enum TeamOrderByInput {

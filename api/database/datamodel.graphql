@@ -59,7 +59,7 @@ type TeamMembers {
   team: Team @relation (name: "TeamMembers", onDelete: SET_NULL)
   role: Role @default(value: MEMBER)
   status: [TeamMemberStatus!]!
-  email: String
+  email: String  @unique
   createdAt: DateTime!
   updatedAt: DateTime!
 }

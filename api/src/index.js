@@ -214,6 +214,11 @@ const resolvers = {
     },
     async sendMemberInviteSG(parent, { email, teamId }, ctx, info) {
       const team = await ctx.db.query.team({ where: { id: teamId } }, TEAMS_FRAGMENT)
+      const addMember = await ctx.db.mutation.upsertTeamMembers({
+        where:{email: email},
+        create:{role:'MEMBER', email:email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invited by ${team.members[0].member.alias}`}}},
+        update:{role: 'MEMBER', email: email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invite resent by ${team.members[0].member.alias}`}}}},
+        `{ id }`)
       const sendInvite = await sendTeamMemberInvite(email, team)
       return sendInvite
     }

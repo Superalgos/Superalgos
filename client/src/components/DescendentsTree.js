@@ -29,8 +29,8 @@ import PortraitImage from '../img/portrait.jpg'
 
 const styles = theme => ({
   card: {
-    maxWidth: 150,
-    minWidth: 150,
+    maxWidth: 300,
+    minWidth: 300,
     paddingTop: '30'
   },
   media: {
@@ -162,11 +162,14 @@ class DescendentsTree extends Component {
       if (descendent.descendents.length > 0) {
         return(
           <List component="div" disablePadding>
-            <ListItem button onClick={this.handleClick}>
+            <ListItem button onClick={ () => {
+            this.setState(state => ({ [descendent.alias]: !state[descendent.alias] }));
+          }
+        }>
               <ListItemText inset primary={primaryText} />
-              {this.state.open ? <ExpandLess /> : <ExpandMore />}
+              {this.state[descendent.alias] ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
-            <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+            <Collapse in={this.state[descendent.alias]} timeout="auto" unmountOnExit>
               {this.displayNestedListItems(descendent, level + 1)}
             </Collapse>
           </List>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {graphql, compose} from 'react-apollo'
+import {compose} from 'react-apollo'
 
 // Materia UI
 

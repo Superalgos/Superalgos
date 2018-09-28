@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 
 import ManageMemberDelete from './ManageMemberDelete'
 import ManageMemberRole from './ManageMemberRole'
+import ManageMemberStatus from './ManageMemberStatus'
 import { MessageCard } from '../../common/'
 
 export const ManageMembersItem = ({ classes, member, teamId, authId }) => {
@@ -36,6 +37,9 @@ export const ManageMembersItem = ({ classes, member, teamId, authId }) => {
         <Grid item xs={4}>
           { profile !== null && member.role !== 'OWNER' && (
             <ManageMemberRole teamId={teamId} authId={profile !== null ? profile.authId : null} className={classes.buttonRight} />
+          )}
+          {(email !== null || member.role !== 'OWNER') && (
+            <ManageMemberStatus status={member.status} className={classes.buttonRight} />
           )}
           {(email !== null || member.role !== 'OWNER') && (
             <ManageMemberDelete teamId={teamId} authId={profile !== null ? profile.authId : null} email={email !== null ? email : null} className={classes.buttonRight} />

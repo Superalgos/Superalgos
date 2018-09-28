@@ -72,6 +72,36 @@ query(
     }
 }
 `
+const getDescendentsQuery = gql`
+query(
+  $id: String
+){
+    descendents (id: $id){
+      id
+      alias
+      firstName
+      middleName
+      lastName
+      referrerId
+      descendents {
+            id
+            alias
+            firstName
+            middleName
+            lastName
+            referrerId
+            descendents {
+                id
+                alias
+                firstName
+                middleName
+                lastName
+                referrerId
+      				}
+      		}
+    }
+}
+`
 const getRolesQuery = gql`
 {
     roles {

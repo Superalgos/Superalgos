@@ -132,7 +132,7 @@ class YourReferrer extends Component {
       <Paper className={classes.root}>
         <Typography className={classes.typography} variant='headline' gutterBottom>
             Your Referrer
-      </Typography>
+        </Typography>
 
         {this.renderMode()}
       </Paper>

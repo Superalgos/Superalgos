@@ -87,7 +87,7 @@ export const ManageMembersTeamItem = ({ classes, team, authId }) => {
                         </Typography>
                       </Grid>
                       <Grid item xs={1}>
-                        <InviteMemberDialog team={team} />
+                        <InviteMemberDialog teamId={team.id} />
                       </Grid>
                     </Grid>
                     <ManageMembersItem

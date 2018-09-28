@@ -213,10 +213,9 @@ const resolvers = {
       return SASQueryParameters
     },
     async sendMemberInviteSG(parent, { email, teamId }, ctx, info) {
-      let team = await ctx.db.query.team({ where: { teamId } }, info)
-      console.log(email, teamId)
-      let email = await sendTeamMemberInvite(email, team)
-      return 'Success'
+      const team = await ctx.db.query.team({ where: { id: teamId } }, TEAMS_FRAGMENT)
+      const sendInvite = await sendTeamMemberInvite(email, team)
+      return sendInvite
     }
   }
 }

@@ -15,7 +15,7 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 import { isEmpty } from '../../../utils/js-helpers'
 
-import CREATE_TEAM from '../../../graphql/teams/CreateTeamMutation'
+import SEND_MEMBER_INVITE from '../../../graphql/teams/SendMemberInvite'
 
 // import { checkGraphQLError } from '../../../utils/graphql-errors'
 
@@ -46,7 +46,6 @@ export class InviteMemberDialog extends Component {
 
     this.state = {
       open: false,
-      status: null,
       email: '',
       errors: {
         email: ''
@@ -56,85 +55,115 @@ export class InviteMemberDialog extends Component {
 
   render () {
     const { classes, teamId } = this.props
-    return (
-      <Mutation mutation={CREATE_TEAM} >
-        {(createTeam, { loading, error, data }) => {
-          let errors
-          let loader = null
-          if (loading) {
-            loader = (
-              <Typography variant='subheading'>Submitting invitation...</Typography>
-            )
-          }
-          if (error) {
-            errors = error.graphQLErrors.map(({ message }, i) => {
-              // const displayMessage = checkGraphQLError(message)
-              return (
-                <Typography key={i} variant='caption'>
-                  {message}
-                </Typography>
+
+    if (this.state.open) {
+      return (
+        <Mutation mutation={SEND_MEMBER_INVITE} >
+          {(sendMemberInvite, { loading, error, data }) => {
+            console.log('sendMemberInvite: ', data)
+            let errors
+            let loader = null
+            if (loading) {
+              loader = (
+                <Typography variant='subheading'>Submitting invitation...</Typography>
               )
-            })
-          }
-          return (
-            <div>
-              <Button
-                variant='fab'
-                color='primary'
-                aria-label='Add'
-                className={classes.buttonRight}
-                onClick={this.handleClickOpen}
-              >
-                <AddIcon />
-              </Button>
-              <Dialog
-                open={this.state.open}
-                onClose={this.handleClose}
-                aria-labelledby='form-dialog-title'
-              >
-                <DialogTitle id='form-dialog-title'>Invite a New Team Member</DialogTitle>
-                <DialogContent>
-                  <FormControl
-                    required
-                    error={this.state.errors.email !== '' || error}
-                  >
-                    <TextField
-                      autoFocus
-                      margin='dense'
-                      id='email'
-                      label='Email Address'
-                      type='text'
-                      fullWidth
-                      value={this.state.email}
-                      onChange={this.handleChange}
-                      error={this.state.errors.email !== '' || error}
-                    />
-                    {this.state.errors.email !== '' && (
-                      <FormHelperText>{this.state.errors.email}</FormHelperText>
+            }
+            if (error) {
+              errors = error.graphQLErrors.map(({ message }, i) => {
+                // const displayMessage = checkGraphQLError(message)
+                return (
+                  <Typography key={i} variant='caption'>
+                    {message}
+                  </Typography>
+                )
+              })
+            }
+            return (
+              <div>
+                <Button
+                  variant='fab'
+                  color='primary'
+                  aria-label='Add'
+                  className={classes.buttonRight}
+                  onClick={this.handleClickOpen}
+                >
+                  <AddIcon />
+                </Button>
+                <Dialog
+                  open={this.state.open}
+                  onClose={this.handleClose}
+                  aria-labelledby='form-dialog-title'
+                >
+                  <DialogTitle id='form-dialog-title'>Invite a New Team Member</DialogTitle>
+                  <DialogContent>
+                    {(data === undefined || data.sendMemberInviteSG !== 'Success') && (
+                      <FormControl
+                        required
+                        error={this.state.errors.email !== '' || (error !== undefined || error !== null)}
+                      >
+                        <TextField
+                          autoFocus
+                          margin='dense'
+                          id='email'
+                          label='Email Address'
+                          type='text'
+                          fullWidth
+                          value={this.state.email}
+                          onChange={e => this.handleChange(e)}
+                          error={this.state.errors.email !== ''}
+                        />
+                        {this.state.errors.email !== '' && (
+                          <FormHelperText>{this.state.errors.email}</FormHelperText>
+                        )}
+                        {error && <FormHelperText>{errors}</FormHelperText>}
+                        {loader}
+                      </FormControl>
                     )}
-                    {error && <FormHelperText>{errors}</FormHelperText>}
-                    {loader}
-                  </FormControl>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={this.handleClose} color='primary'>
-                    Cancel
-                  </Button>
-                  <Button
-                    onClick={e => {
-                      this.handleSubmit(e, createTeam, this.state.email, teamId)
-                    }}
-                    color='primary'
-                  >
-                    Send Invitation
-                  </Button>
-                </DialogActions>
-              </Dialog>
-            </div>
-          )
-        }}
-      </Mutation>
-    )
+                    {data !== undefined && data.sendMemberInviteSG === 'Success' && (
+                      <Typography variant='subheading'>Invitation successfully sent!</Typography>
+                    )}
+                  </DialogContent>
+                  <DialogActions>
+                    {(data === undefined || data.sendMemberInviteSG !== 'Success') && (
+                      <React.Fragment>
+                        <Button onClick={this.handleClose} color='primary'>
+                          Cancel
+                        </Button>
+                        <Button
+                          onClick={e => {
+                            this.handleSubmit(e, sendMemberInvite, this.state.email, teamId)
+                          }}
+                          color='primary'
+                        >
+                          Send Invitation
+                        </Button>
+                      </React.Fragment>
+                    )}
+                    {data !== undefined && data.sendMemberInviteSG === 'Success' && (
+                      <Button onClick={this.handleClose} color='primary'>
+                        Close
+                      </Button>
+                    )}
+                  </DialogActions>
+                </Dialog>
+              </div>
+            )
+          }}
+        </Mutation>
+      )
+    } else {
+      return (
+        <Button
+          variant='fab'
+          color='primary'
+          aria-label='Add'
+          className={classes.buttonRight}
+          onClick={this.handleClickOpen}
+        >
+          <AddIcon />
+        </Button>
+      )
+    }
   }
 
   handleClickOpen () {
@@ -148,7 +177,7 @@ export class InviteMemberDialog extends Component {
   handleChange (e) {
     const errors = this.validate(e.target.value)
     if (isEmpty(errors)) {
-      this.setState({ errors: { name: '' } })
+      this.setState({ errors: { email: '' } })
       this.setState({ email: e.target.value })
     } else {
       this.setState({ errors: errors })
@@ -156,16 +185,16 @@ export class InviteMemberDialog extends Component {
     }
   }
 
-  async handleSubmit (e, createTeam, email, teamId) {
+  async handleSubmit (e, sendMemberInvite, email, teamId) {
     e.preventDefault()
-    console.log('createTeam submit: ', email, teamId)
-    await createTeam({ variables: { email, teamId } })
-    this.setState({ email: '', status: 'sending' })
+    console.log('sendMemberInvite submit: ', email, teamId)
+    await sendMemberInvite({ variables: { email, teamId } })
+    this.setState({ email: '' })
   }
 
   validate (data) {
     const errors = {}
-    if (data === '') errors.name = 'Please enter an email address'
+    if (data === '') errors.email = 'Please enter an email address'
     return errors
   }
 }

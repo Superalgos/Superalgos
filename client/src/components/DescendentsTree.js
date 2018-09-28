@@ -63,7 +63,7 @@ const styles = theme => ({
     paddingTop: '30',
     marginTop: 30
   },
-  inputField: {
+  list: {
     width: '80%',
     marginLeft: '10%',
     marginTop: 25
@@ -101,8 +101,7 @@ class DescendentsTree extends Component {
 
     const { classes } = this.props
     return node.descendents.map(descendent => {
-    return (
-          <List component="div" disablePadding>
+    return (          
             <ListItem button className={classes.nested}>
               <ListItemIcon>
                 <StarBorder />
@@ -131,14 +130,33 @@ class DescendentsTree extends Component {
                 </CardActions>
               </Card>
             </ListItem>
-          </List>
+          
         )
       }
     )
   }
 
+  displayNestedList(descendent) {
+    const primaryText = "Children of " + descendent.alias
+    if (descendent.descendents.length > 0) {
+      return(
+        <List component="div" disablePadding>
+          <ListItem button onClick={this.handleClick}>
+            <ListItemText inset primary={primaryText} />
+            {this.state.open ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+            {this.displayNodeDescendents(descendent)}
+          </Collapse>
+        </List>
+      )
+    } else {
+      return (<div/>)
+    }
+  }
+
   
-  displayDescendents () {
+  displayTopList () {
     let data = this.props.data
     const { classes } = this.props
 
@@ -177,13 +195,8 @@ class DescendentsTree extends Component {
               </CardActions>
             </Card>
           </ListItem>
-          <ListItem button onClick={this.handleClick}>
-            <ListItemText inset primary="Grand Children" />
-            {this.state.open ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-          <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-            {this.displayNodeDescendents(descendent)}
-          </Collapse>
+          
+          {this.displayNestedList(descendent)}
               
             </div>
           )
@@ -198,9 +211,10 @@ class DescendentsTree extends Component {
       <div>
       <List
        component="nav"
-       subheader={<ListSubheader component="div">Nested List Items</ListSubheader>}
+       subheader={<ListSubheader component="div">Your Children</ListSubheader>}
+       className={classes.list}
      >
-          {this.displayDescendents()}
+          {this.displayTopList()}
         </List>
       </div>
     )

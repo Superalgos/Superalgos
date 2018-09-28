@@ -35,12 +35,10 @@ import UserProfile from './UserProfile'
 import PortraitImage from '../img/portrait.jpg'
 
 const styles = theme => ({
-  childrenCard: {
+  card: {
     maxWidth: 150,
     minWidth: 150,
-    paddingTop: '30',
-    marginBottom: 40,
-    marginLeft: 10
+    paddingTop: '30'
   },
   media: {
     height: 0,
@@ -68,11 +66,6 @@ const styles = theme => ({
     marginLeft: '10%',
     marginTop: 25
   },
-  formTypography: {
-    width: '80%',
-    marginLeft: '10%',
-    marginTop: 40
-  },
   button: {
     margin: theme.spacing.unit,
     marginTop: theme.spacing.unit * 3
@@ -97,11 +90,12 @@ class DescendentsTree extends Component {
   this.setState(state => ({ open: !state.open }));
 };
 
-  displayNodeDescendents(node) {
+  displayNestedListItems(node) {
 
     const { classes } = this.props
     return node.descendents.map(descendent => {
-    return (          
+    return (     
+        <div>     
             <ListItem button className={classes.nested}>
               <ListItemIcon>
                 <StarBorder />
@@ -109,7 +103,7 @@ class DescendentsTree extends Component {
               <ListItemIcon>
                 <StarBorder />
               </ListItemIcon>
-              <Card className={classes.childrenCard}>
+              <Card className={classes.card}>
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
@@ -130,7 +124,8 @@ class DescendentsTree extends Component {
                 </CardActions>
               </Card>
             </ListItem>
-          
+            {this.displayNestedList(descendent)}
+          </div>
         )
       }
     )
@@ -138,21 +133,23 @@ class DescendentsTree extends Component {
 
   displayNestedList(descendent) {
     const primaryText = "Children of " + descendent.alias
-    if (descendent.descendents.length > 0) {
-      return(
-        <List component="div" disablePadding>
-          <ListItem button onClick={this.handleClick}>
-            <ListItemText inset primary={primaryText} />
-            {this.state.open ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-          <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-            {this.displayNodeDescendents(descendent)}
-          </Collapse>
-        </List>
-      )
-    } else {
-      return (<div/>)
-    }
+    if (descendent.descendents !== undefined) {
+      if (descendent.descendents.length > 0) {
+        return(
+          <List component="div" disablePadding>
+            <ListItem button onClick={this.handleClick}>
+              <ListItemText inset primary={primaryText} />
+              {this.state.open ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+              {this.displayNestedListItems(descendent)}
+            </Collapse>
+          </List>
+        )
+      } else {
+        return (<div/>)
+      }
+    }    
   }
 
   
@@ -174,7 +171,7 @@ class DescendentsTree extends Component {
           <ListItemIcon>
             <StarBorder />
           </ListItemIcon>
-            <Card className={classes.childrenCard}>
+            <Card className={classes.card}>
               <CardActionArea>
                 <CardMedia
                   className={classes.media}

@@ -156,6 +156,7 @@ class UserSearch extends Component {
     if (data.loading) {
       return (<div> Loading Users... </div>)
     } else {
+      console.log(data)
       if (data.usersSearch === undefined) {
         return (<div> No Users to Display </div>)
       } else {

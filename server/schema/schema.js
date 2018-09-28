@@ -153,6 +153,8 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(UserType),
       args: {alias: {type: GraphQLString}, firstName: {type: GraphQLString}, middleName: {type: GraphQLString}, lastName: {type: GraphQLString}},
       resolve (parent, args) {
+        if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> usersSearch -> resolve -> Entering function.') }
+
         let mongoQuery = { $or: [] }
 
         if (args.alias !== null && args.alias !== '') { mongoQuery.$or.push({alias: args.alias}) }
@@ -161,14 +163,16 @@ const RootQuery = new GraphQLObjectType({
         if (args.lastName !== null && args.lastName !== '') { mongoQuery.$or.push({lastName: args.lastName}) }
 
         if (mongoQuery.$or.length === 0) { mongoQuery = {} }
-
-        return User.find([mongoQuery])
+        console.log('mongoQuery', mongoQuery)
+        return User.find(mongoQuery)
       }
     },
     descendents: {
       type: new GraphQLList(DescendentType),
       args: {id: {type: GraphQLString}},
       resolve (parent, args) {
+        if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> descendents -> resolve -> Entering function.') }
+
         return User.find({referrerId: args.id})
       }
     }

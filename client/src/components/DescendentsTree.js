@@ -90,19 +90,50 @@ class DescendentsTree extends Component {
   this.setState(state => ({ open: !state.open }));
 };
 
-  displayNestedListItems(node) {
+  displayIcons(amount) {
+
+    switch (amount) {
+      case 1: return (
+        <div>
+          <ListItemIcon>
+            <StarBorder />
+          </ListItemIcon>
+        </div>
+      )
+      case 2: return (
+        <div>
+          <ListItemIcon>
+            <StarBorder />
+          </ListItemIcon>
+          <ListItemIcon>
+            <StarBorder />
+          </ListItemIcon>
+        </div>
+      )
+      case 3: return (
+        <div>
+          <ListItemIcon>
+            <StarBorder />
+          </ListItemIcon>
+          <ListItemIcon>
+            <StarBorder />
+          </ListItemIcon>
+          <ListItemIcon>
+            <StarBorder />
+          </ListItemIcon>
+        </div>
+      )
+    }
+  }
+
+  displayNestedListItems(node, level) {
 
     const { classes } = this.props
     return node.descendents.map(descendent => {
     return (     
-        <div>     
+        <div key={descendent.alias}>     
             <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
+            {this.displayIcons(level)}
               <Card className={classes.card}>
                 <CardActionArea>
                   <CardMedia
@@ -124,14 +155,14 @@ class DescendentsTree extends Component {
                 </CardActions>
               </Card>
             </ListItem>
-            {this.displayNestedList(descendent)}
+            {this.displayNestedList(descendent, level)}
           </div>
         )
       }
     )
   }
 
-  displayNestedList(descendent) {
+  displayNestedList(descendent, level) {
     const primaryText = "Children of " + descendent.alias
     if (descendent.descendents !== undefined) {
       if (descendent.descendents.length > 0) {
@@ -142,7 +173,7 @@ class DescendentsTree extends Component {
               {this.state.open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-              {this.displayNestedListItems(descendent)}
+              {this.displayNestedListItems(descendent, level + 1)}
             </Collapse>
           </List>
         )
@@ -165,12 +196,10 @@ class DescendentsTree extends Component {
       } else {
         return data.descendents.map(descendent => {
           return (
-            <div>
+          <div key={descendent.alias}>
             
           <ListItem button>
-          <ListItemIcon>
-            <StarBorder />
-          </ListItemIcon>
+            {this.displayIcons(1)}
             <Card className={classes.card}>
               <CardActionArea>
                 <CardMedia
@@ -193,7 +222,7 @@ class DescendentsTree extends Component {
             </Card>
           </ListItem>
           
-          {this.displayNestedList(descendent)}
+          {this.displayNestedList(descendent, 1)}
               
             </div>
           )

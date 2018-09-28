@@ -26,7 +26,7 @@ type Mutation {
   getAzureSAS(teamSlug: String!):String
   sendMemberInviteSG(email: String!, teamId: String!): String
   confirmMember(token: String!): String
-  removeMember(email: String!, teamId: String!): String
+  removeTeamMember(teamId: String!, memberId: String!): String
 }
 
 fragment MemberInfo on Member {

@@ -11,7 +11,7 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import DELETE_TEAM from '../../../graphql/teams/DeleteTeamMutation'
+import REMOVE_TEAM_MEMBER from '../../../graphql/teams/RemoveTeamMemberMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
@@ -58,13 +58,8 @@ export class ManageMemberDelete extends Component {
     const { classes, teamId, authId } = this.props
     return (
       <Mutation
-        mutation={DELETE_TEAM}
-        refetchQueries={[
-          {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
-          }
-        ]}
+        mutation={REMOVE_TEAM_MEMBER}
+        refetchQueries={[{ query: GET_TEAMS_BY_OWNER }]}
       >
         {(deleteTeam, { loading, error, data }) => {
           let errors
@@ -86,7 +81,7 @@ export class ManageMemberDelete extends Component {
             })
           }
           return (
-            <div>
+            <React.Fragment>
               <Button
                 size='small'
                 color='primary'
@@ -123,7 +118,8 @@ export class ManageMemberDelete extends Component {
                         this.handleSubmit(
                           e,
                           deleteTeam,
-                          teamId
+                          teamId,
+                          authId
                         )
                       }}
                       color='primary'
@@ -133,16 +129,16 @@ export class ManageMemberDelete extends Component {
                   </DialogActions>
                 </div>
               </Dialog>
-            </div>
+            </React.Fragment>
           )
         }}
       </Mutation>
     )
   }
 
-  async handleSubmit (e, deleteTeam, teamId) {
+  async handleSubmit (e, deleteTeam, teamId, memberId) {
     e.preventDefault()
-    await deleteTeam({ variables: { teamId } })
+    await deleteTeam({ variables: { teamId, memberId } })
     this.setState({ open: false })
   }
 }
@@ -150,7 +146,7 @@ export class ManageMemberDelete extends Component {
 ManageMemberDelete.propTypes = {
   classes: PropTypes.object.isRequired,
   teamId: PropTypes.string.isRequired,
-  authId: PropTypes.string.isRequired
+  authId: PropTypes.string
 }
 
 export default withStyles(styles)(ManageMemberDelete)

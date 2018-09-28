@@ -10,8 +10,10 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField'
+import MenuItem from '@material-ui/core/MenuItem'
 
-import DELETE_TEAM from '../../../graphql/teams/DeleteTeamMutation'
+import SET_TEAM_MEMBER_ROLE from '../../../graphql/teams/SetTeamMemberRoleMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
@@ -27,6 +29,11 @@ const styles = theme => ({
   }
 })
 
+const roles = [
+  { role: 'Admin' },
+  { role: 'Member' }
+]
+
 export class ManageMemberRole extends Component {
   constructor (props) {
     super(props)
@@ -37,7 +44,8 @@ export class ManageMemberRole extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
 
     this.state = {
-      open: false
+      open: false,
+      role: ''
     }
   }
 
@@ -58,15 +66,10 @@ export class ManageMemberRole extends Component {
     const { classes, teamId, authId } = this.props
     return (
       <Mutation
-        mutation={DELETE_TEAM}
-        refetchQueries={[
-          {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
-          }
-        ]}
+        mutation={SET_TEAM_MEMBER_ROLE}
+        refetchQueries={[{ query: GET_TEAMS_BY_OWNER }]}
       >
-        {(deleteTeam, { loading, error, data }) => {
+        {(setTeamMemberRole, { loading, error, data }) => {
           let errors
           let loader
           if (loading) {
@@ -86,7 +89,7 @@ export class ManageMemberRole extends Component {
             })
           }
           return (
-            <div>
+            <React.Fragment>
               <Button
                 size='small'
                 color='primary'
@@ -108,6 +111,17 @@ export class ManageMemberRole extends Component {
                     <Typography variant='subheading'>
                       Admin members can approve new team members, send team invitations, and remove team members.
                     </Typography>
+                    <TextField
+                      select
+                      label='Team Role'
+                      value={this.state.role}
+                      onChange={(e) => this.setState({ role: e.target.value })}
+                      fullWidth
+                    >
+                      {roles.map(role => (
+                        <MenuItem key={role.role} value={role.role}>{role.role}</MenuItem>
+                      ))}
+                    </TextField>
                     {loader}
                     {errors}
                   </DialogContent>
@@ -119,8 +133,9 @@ export class ManageMemberRole extends Component {
                       onClick={e => {
                         this.handleSubmit(
                           e,
-                          deleteTeam,
-                          teamId
+                          setTeamMemberRole,
+                          teamId,
+                          authId
                         )
                       }}
                       color='primary'
@@ -130,16 +145,17 @@ export class ManageMemberRole extends Component {
                   </DialogActions>
                 </div>
               </Dialog>
-            </div>
+            </React.Fragment>
           )
         }}
       </Mutation>
     )
   }
 
-  async handleSubmit (e, deleteTeam, teamId) {
+  async handleSubmit (e, setTeamMemberRole, teamId, authId) {
     e.preventDefault()
-    await deleteTeam({ variables: { teamId } })
+    const role = this.state.role
+    await setTeamMemberRole({ variables: { teamId, memberId: authId, role: role } })
     this.setState({ open: false })
   }
 }

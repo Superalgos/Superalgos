@@ -50,8 +50,8 @@ const styles = theme => ({
     justifyContent: 'flex-start'
   },
   memberContainer: {
-    margin: 40,
-    padding: 12
+    margin: 10,
+    padding: 6
   }
 })
 
@@ -66,43 +66,40 @@ export const ManageMembersTeamItem = ({ classes, team, authId }) => {
   if (team.members.length > 0) {
     return (
       <React.Fragment>
-        { team.members.map(member => {
-          console.log('ManageMembersTeamItem: ', member)
-          return (
-            <Grid item xs={12} key={`${team.id}-${member.member.alias}`}>
-              <Card className={classes.card}>
-                <div className={classes.cardDetails}>
-                  <CardContent className={classes.cardContent}>
-                    <Grid container>
-                      <Grid item xs={2}>
-                        <CardMedia
-                          className={classes.cardMedia}
-                          image={avatar}
-                          title={team.name}
-                        />
-                      </Grid>
-                      <Grid item xs={9}>
-                        <Typography gutterBottom variant='headline' component='h2'>
-                          {team.name}
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={1}>
-                        <InviteMemberDialog teamId={team.id} />
-                      </Grid>
-                    </Grid>
-                    <ManageMembersItem
-                      member={member}
-                      teamId={team.id}
-                      authId={authId}
-                      classes={classes}
+        <Grid item xs={12} key={team.id}>
+          <Card className={classes.card}>
+            <div className={classes.cardDetails}>
+              <CardContent className={classes.cardContent}>
+                <Grid container>
+                  <Grid item xs={2}>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={avatar}
+                      title={team.name}
                     />
-                  </CardContent>
-                </div>
-              </Card>
-            </Grid>
-          )
-        })
-        }
+                  </Grid>
+                  <Grid item xs={9}>
+                    <Typography gutterBottom variant='headline' component='h2'>
+                      {team.name}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={1}>
+                    <InviteMemberDialog teamId={team.id} />
+                  </Grid>
+                </Grid>
+                {team.members.length > 0 && team.members.map((member, index) => (
+                  <ManageMembersItem
+                    member={member}
+                    teamId={team.id}
+                    authId={authId}
+                    classes={classes}
+                    key={`${team.id}-${index}`}
+                  />
+                ))}
+              </CardContent>
+            </div>
+          </Card>
+        </Grid>
       </React.Fragment>
     )
   } else {

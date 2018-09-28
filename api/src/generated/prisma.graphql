@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Thu Sep 27 2018 22:50:26 GMT-0700 (Pacific Daylight Time)
+# timestamp: Thu Sep 27 2018 23:28:16 GMT-0700 (Pacific Daylight Time)
 
 type AggregateFBStatus {
   count: Int!
@@ -1021,14 +1021,17 @@ type Mutation {
   updateTeamMembers(data: TeamMembersUpdateInput!, where: TeamMembersWhereUniqueInput!): TeamMembers
   updateMember(data: MemberUpdateInput!, where: MemberWhereUniqueInput!): Member
   updateFinancialBeings(data: FinancialBeingsUpdateInput!, where: FinancialBeingsWhereUniqueInput!): FinancialBeings
+  updateTeamMemberStatus(data: TeamMemberStatusUpdateInput!, where: TeamMemberStatusWhereUniqueInput!): TeamMemberStatus
   deleteTeam(where: TeamWhereUniqueInput!): Team
   deleteTeamMembers(where: TeamMembersWhereUniqueInput!): TeamMembers
   deleteMember(where: MemberWhereUniqueInput!): Member
   deleteFinancialBeings(where: FinancialBeingsWhereUniqueInput!): FinancialBeings
+  deleteTeamMemberStatus(where: TeamMemberStatusWhereUniqueInput!): TeamMemberStatus
   upsertTeam(where: TeamWhereUniqueInput!, create: TeamCreateInput!, update: TeamUpdateInput!): Team!
   upsertTeamMembers(where: TeamMembersWhereUniqueInput!, create: TeamMembersCreateInput!, update: TeamMembersUpdateInput!): TeamMembers!
   upsertMember(where: MemberWhereUniqueInput!, create: MemberCreateInput!, update: MemberUpdateInput!): Member!
   upsertFinancialBeings(where: FinancialBeingsWhereUniqueInput!, create: FinancialBeingsCreateInput!, update: FinancialBeingsUpdateInput!): FinancialBeings!
+  upsertTeamMemberStatus(where: TeamMemberStatusWhereUniqueInput!, create: TeamMemberStatusCreateInput!, update: TeamMemberStatusUpdateInput!): TeamMemberStatus!
   updateManyTeams(data: TeamUpdateInput!, where: TeamWhereInput): BatchPayload!
   updateManyTeamMemberses(data: TeamMembersUpdateInput!, where: TeamMembersWhereInput): BatchPayload!
   updateManyMembers(data: MemberUpdateInput!, where: MemberWhereInput): BatchPayload!
@@ -1093,6 +1096,7 @@ type Query {
   teamMembers(where: TeamMembersWhereUniqueInput!): TeamMembers
   member(where: MemberWhereUniqueInput!): Member
   financialBeings(where: FinancialBeingsWhereUniqueInput!): FinancialBeings
+  teamMemberStatus(where: TeamMemberStatusWhereUniqueInput!): TeamMemberStatus
   teamsConnection(where: TeamWhereInput, orderBy: TeamOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamConnection!
   teamMembersesConnection(where: TeamMembersWhereInput, orderBy: TeamMembersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamMembersConnection!
   membersConnection(where: MemberWhereInput, orderBy: MemberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MemberConnection!
@@ -1333,7 +1337,8 @@ input TeamMembersSubscriptionWhereInput {
   node: TeamMembersWhereInput
 }
 
-type TeamMemberStatus {
+type TeamMemberStatus implements Node {
+  id: ID!
   status: Status
   reason: String
   createdAt: DateTime!
@@ -1356,6 +1361,7 @@ input TeamMemberStatusCreateInput {
 
 input TeamMemberStatusCreateManyInput {
   create: [TeamMemberStatusCreateInput!]
+  connect: [TeamMemberStatusWhereUniqueInput!]
 }
 
 """An edge in a connection."""
@@ -1368,19 +1374,20 @@ type TeamMemberStatusEdge {
 }
 
 enum TeamMemberStatusOrderByInput {
+  id_ASC
+  id_DESC
   status_ASC
   status_DESC
   reason_ASC
   reason_DESC
   createdAt_ASC
   createdAt_DESC
-  id_ASC
-  id_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
 type TeamMemberStatusPreviousValues {
+  id: ID!
   status: Status
   reason: String
   createdAt: DateTime!
@@ -1425,6 +1432,11 @@ input TeamMemberStatusSubscriptionWhereInput {
   node: TeamMemberStatusWhereInput
 }
 
+input TeamMemberStatusUpdateDataInput {
+  status: Status
+  reason: String
+}
+
 input TeamMemberStatusUpdateInput {
   status: Status
   reason: String
@@ -1432,6 +1444,22 @@ input TeamMemberStatusUpdateInput {
 
 input TeamMemberStatusUpdateManyInput {
   create: [TeamMemberStatusCreateInput!]
+  connect: [TeamMemberStatusWhereUniqueInput!]
+  disconnect: [TeamMemberStatusWhereUniqueInput!]
+  delete: [TeamMemberStatusWhereUniqueInput!]
+  update: [TeamMemberStatusUpdateWithWhereUniqueNestedInput!]
+  upsert: [TeamMemberStatusUpsertWithWhereUniqueNestedInput!]
+}
+
+input TeamMemberStatusUpdateWithWhereUniqueNestedInput {
+  where: TeamMemberStatusWhereUniqueInput!
+  data: TeamMemberStatusUpdateDataInput!
+}
+
+input TeamMemberStatusUpsertWithWhereUniqueNestedInput {
+  where: TeamMemberStatusWhereUniqueInput!
+  update: TeamMemberStatusUpdateDataInput!
+  create: TeamMemberStatusCreateInput!
 }
 
 input TeamMemberStatusWhereInput {
@@ -1443,6 +1471,46 @@ input TeamMemberStatusWhereInput {
 
   """Logical NOT on all given filters combined by AND."""
   NOT: [TeamMemberStatusWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
   status: Status
 
   """All values that are not equal to given value."""
@@ -1515,6 +1583,10 @@ input TeamMemberStatusWhereInput {
 
   """All values greater than or equal the given value."""
   createdAt_gte: DateTime
+}
+
+input TeamMemberStatusWhereUniqueInput {
+  id: ID
 }
 
 input TeamMembersUpdateInput {

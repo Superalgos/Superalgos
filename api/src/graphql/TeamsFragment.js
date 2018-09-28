@@ -25,6 +25,7 @@ const TEAMS_FRAGMENT = gql`{
       authId
     }
     status {
+      id
       status
       reason
       createdAt

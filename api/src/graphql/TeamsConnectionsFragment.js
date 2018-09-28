@@ -27,6 +27,7 @@ const TEAMS_CONNECTIONS_FRAGMENT = gql`{
           authId
         }
         status {
+          id
           status
           reason
           createdAt

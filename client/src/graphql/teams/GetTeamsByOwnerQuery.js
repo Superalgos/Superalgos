@@ -16,16 +16,22 @@ export const GET_TEAMS_BY_OWNER = gql`
       createdAt
       profile {
         avatar
-        banner
         description
         motto
         updatedAt
       }
       members {
         role
+        email
         member {
           alias
           authId
+        }
+        status {
+          id
+          status
+          reason
+          createdAt
         }
       }
     }

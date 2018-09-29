@@ -13,18 +13,7 @@ const checkJwt = require('./auth/middleware/jwt')
 const { getMember } = require('./auth/middleware/getMember')
 const { validateIdToken } = require('./auth/validateIdToken')
 const { directiveResolvers } = require('./auth/authDirectives')
-const {
-  createStoragePipline,
-  createServiceURL,
-  listContainers,
-  createContainer,
-  createBlob,
-  uploadBlob,
-  downloadBlob,
-  deleteBlob,
-  deleteContainer
-} = require('./storage/azure')
-//var azure = require('azure-storage')
+
 const Azure = require("@azure/storage-blob")
 const azureAccount = process.env.AZURE_STORAGE_ACCOUNT
 const azureKey = process.env.AZURE_STORAGE_ACCESS_KEY
@@ -160,6 +149,7 @@ const resolvers = {
       const containerName = teamSlug
       const containerURL = Azure.ContainerURL.fromServiceURL(serviceURL, containerName)
 
+      //list container and check if already exists.
       let marker
       let containerCheck = null
       do {
@@ -167,25 +157,28 @@ const resolvers = {
           Azure.Aborter.None,
           marker,
         )
-        console.log(`ContainerCheck marker: `, listContainersResponse)
+        // console.log(`ContainerCheck marker: `, listContainersResponse)
         marker = listContainersResponse.marker;
         for (const container of listContainersResponse.containerItems) {
-          console.log(`ContainerCheck: ${container.name} | ${containerName} | ${marker}`)
+          // console.log(`ContainerCheck: ${container.name} | ${containerName} | ${marker}`)
           if(container.name === containerName){
             containerCheck = container.name
           }
         }
       } while (marker)
+
+      // if container doesn't exist, create one
       let newContainer
       if(containerCheck === null){
         newContainer = await containerURL.create(Azure.Aborter.None, { access: 'blob' })
       }
-      console.log('getAzureSAS container: ', containerURL, containerCheck, newContainer)
+      // console.log('getAzureSAS container: ', containerURL, containerCheck, newContainer)
 
       // Set permissions for service, resource types and containers
       const SASServicePerms = Azure.AccountSASServices.parse('b')
       const SASResourceTypes = Azure.AccountSASResourceTypes.parse('co')
       const SASContainerPerms = Azure.ContainerSASPermissions.parse('rwl')
+
       // Generate SAS url
       const SASQueryParameters = Azure.generateAccountSASQueryParameters(
         {

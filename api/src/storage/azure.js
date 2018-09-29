@@ -4,7 +4,7 @@ const Azure = require('@azure/storage-blob')
 * @accountName: Azure Blob Storage account name (required) - Environment variable
 * @accountKey: Azure Blob Storage storage key (required) - Environment variable
 */
-const createStoragePipline = async (accountNAme, accountKey) => {
+const createStoragePipline = async (accountName, accountKey) => {
   return Azure.StorageURL.newPipeline(
     new Azure.SharedKeyCredential(accountName, accountKey)
   )

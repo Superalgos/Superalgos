@@ -20,7 +20,8 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
 
-import { UploadImage } from '../../common'
+import { ImageUpload } from '../../common'
+import GET_AZURE_SAS from '../../graphql/teams/GetAzureSASMutation'
 
 const styles = theme => ({
   dialogContainer: {
@@ -111,11 +112,37 @@ export class ManageTeamEdit extends Component {
                     Edit Team Details
                   </DialogTitle>
                   <DialogContent>
-                    <UploadImage
-                      team={team}
-                      authId={authId}
-                      handleAvatar={this.handleAvatar}
-                      handleBanner={this.handleBanner}
+                    <ImageUpload
+                      handleURL={this.handleBanner}
+                      fileName={`${team.slug}-banner.jpg`}
+                      containerName={team.slug}
+                      existingImage={team.profile.banner}
+                      cropContainer={{ x: 10, y: 10, width: 800, height: 200 }}
+                      saveImageConfig={{
+                        quality: 0.6,
+                        maxWidth: 800,
+                        maxHeight: 200,
+                        autoRotate: true,
+                        debug: true,
+                        mimeType: 'image/jpeg'
+                      }}
+                      AZURE_SAS_QUERY={GET_AZURE_SAS}
+                    />
+                    <ImageUpload
+                      handleURL={this.handleAvatar}
+                      fileName={`${team.slug}-avatar.jpg`}
+                      containerName={team.slug}
+                      existingImage={team.profile.avatar}
+                      cropContainer={{ x: 10, y: 10, width: 200, height: 200 }}
+                      saveImageConfig={{
+                        quality: 0.6,
+                        maxWidth: 200,
+                        maxHeight: 200,
+                        autoRotate: true,
+                        debug: true,
+                        mimeType: 'image/jpeg'
+                      }}
+                      AZURE_SAS_QUERY={GET_AZURE_SAS}
                     />
                     <TextField
                       autoFocus

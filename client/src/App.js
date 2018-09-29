@@ -11,7 +11,8 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
 // Material UI
 
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { MuiThemeProvider } from '@material-ui/core/styles'
+import theme from './theme'
 
 // Components
 
@@ -26,10 +27,15 @@ import Modules from './components/Modules'
 import Contact from './components/Contact'
 import Logout from './components/Logout'
 import Post from './components/Post'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 import Callback from './components/Callback'
 
 import Auth from './auth/Auth'
+
+import {
+//  NavBar,
+  Footer
+} from './views'
 
 // Apollo Client Setup
 const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql', changeOrigin: true })
@@ -69,15 +75,6 @@ export const client = new ApolloClient({
 */
 
 export const auth = new Auth(result => console.log('auth result', result), client)
-
-/* Here we change the default Material UI theme for Advanced Algos brand colors. */
-
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#303036' }, // DARK.
-    secondary: { main: '#CC5835' } // RUSTED_RED.
-  }
-})
 
 class App extends Component {
   render () {

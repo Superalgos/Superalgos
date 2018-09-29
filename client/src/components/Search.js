@@ -1,48 +1,37 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import React, { Component } from 'react'
+import UserSearch from './UserSearch'
+import {compose} from 'react-apollo'
 
-class Search extends React.Component {
-  state = {
-    open: true,
-  };
+// Materia UI
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
+import { withStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
 
-  handleClose = () => {
-    this.setState({ open: false });
-  };
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    padding: 60,
+    margin: 2
+  }
+})
 
-  render() {
+class Search extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+    }
+  }
+  render () {
+    const { classes } = this.props
     return (
-      <div>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">{"Section under development."}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              The functionality of this section has not been developed yet. We expect to have it for October 2018. Thanks for your understanding.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary" autoFocus>
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    );
+      <Paper className={classes.root}>
+        <UserSearch />
+      </Paper>
+    )
   }
 }
 
-export default Search;
+export default compose(
+  withStyles(styles)
+)(Search)

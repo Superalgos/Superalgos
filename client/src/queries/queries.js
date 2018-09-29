@@ -16,7 +16,6 @@ const getUsersQuery = gql`
     }
 }
 `
-
 const getUserProfileQuery = gql`
 query($id: ID){
     user (id: $id){
@@ -26,8 +25,7 @@ query($id: ID){
       middleName
       lastName
       bio
-      email
-      emailVerified
+      avatarHandle      
       role {
         id
         name
@@ -35,11 +33,11 @@ query($id: ID){
     }
 }
 `
-
 const getUserByAuthIdQuery = gql`
 query($authId: String){
     userByAuthId (authId: $authId){
       id
+      referrerId
       alias
       firstName
       middleName
@@ -50,13 +48,60 @@ query($authId: String){
       isDeveloper
       isDataAnalyst
       isTrader
+      avatarHandle
+      avatarChangeDate
       role {
         id
       }
     }
 }
 `
-
+const getUsersBySearchFields = gql`
+query(
+  $alias: String,
+  $firstName: String,
+  $middleName: String,
+  $lastName: String
+){
+    usersSearch (alias: $alias, firstName: $firstName, middleName: $middleName, lastName: $lastName){
+      id
+      alias
+      firstName
+      middleName
+      lastName
+    }
+}
+`
+const getDescendentsQuery = gql`
+query(
+  $id: String
+){
+    descendents (id: $id){
+      id
+      alias
+      firstName
+      middleName
+      lastName
+      referrerId
+      descendents {
+            id
+            alias
+            firstName
+            middleName
+            lastName
+            referrerId
+            descendents {
+                id
+                alias
+                firstName
+                middleName
+                lastName
+                referrerId
+      				}
+      		}
+    }
+}
+`
 const getRolesQuery = gql`
 {
     roles {
@@ -65,7 +110,6 @@ const getRolesQuery = gql`
     }
 }
 `
-
 const updateUserMutation = gql`
 mutation(
   $id: ID!,
@@ -96,4 +140,48 @@ mutation(
     }
 }
 `
-export {getUsersQuery, getUserByAuthIdQuery, getRolesQuery, updateUserMutation, getUserProfileQuery}
+const updateReferrerMutation = gql`
+mutation(
+  $id: ID!,
+  $referrerId:String!
+)
+  {
+    updateUserReferrer (
+      id: $id,
+      referrerId:$referrerId
+    )
+    {
+      id
+      referrerId
+    }
+}
+`
+const updateUserImagesMutation = gql`
+mutation(
+  $id: ID!,
+  $avatarHandle:String,
+  $avatarChangeDate:String 
+)
+  {
+    updateUserImages (
+      id: $id,
+      avatarHandle:$avatarHandle,
+      avatarChangeDate: $avatarChangeDate 
+    )
+    {
+      id
+      alias
+    }
+}
+`
+export {
+  getUsersQuery,
+  getUserByAuthIdQuery,
+  getRolesQuery,
+  getUserProfileQuery,
+  getUsersBySearchFields,
+  getDescendentsQuery,
+  updateUserMutation,
+  updateReferrerMutation,
+  updateUserImagesMutation
+}

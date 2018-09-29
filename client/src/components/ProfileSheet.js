@@ -62,7 +62,7 @@ const styles = theme => ({
   }
 })
 
-class UserUpdate extends Component {
+class ProfileSheet extends Component {
 
   constructor (props) {
     super(props)
@@ -467,4 +467,4 @@ export default compose(
   graphql(getRolesQuery, {name: 'getRolesQuery'}),
   graphql(updateUserMutation, {name: 'updateUserMutation'}),
   withStyles(styles)
-)(UserUpdate) // This technique binds more than one query to a single component.
+)(ProfileSheet) // This technique binds more than one query to a single component.

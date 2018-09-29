@@ -30,6 +30,7 @@ const UserType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID},
     authId: { type: GraphQLString},
+    referrerId: {type: GraphQLString},
     alias: {type: GraphQLString},
     firstName: {type: GraphQLString},
     middleName: {type: GraphQLString},
@@ -40,10 +41,30 @@ const UserType = new GraphQLObjectType({
     isDeveloper: {type: GraphQLInt},
     isTrader: {type: GraphQLInt},
     isDataAnalyst: {type: GraphQLInt},
+    avatarHandle: {type: GraphQLString},
+    avatarChangeDate: {type: GraphQLString},
     role: {
       type: RoleType,
       resolve (parent, args) {
         return _.find(roles, {id: parent.roleId})
+      }
+    }
+  })
+})
+
+const DescendentType = new GraphQLObjectType({
+  name: 'Descendent',
+  fields: () => ({
+    id: { type: GraphQLID},
+    referrerId: {type: GraphQLString},
+    alias: {type: GraphQLString},
+    firstName: {type: GraphQLString},
+    middleName: {type: GraphQLString},
+    lastName: {type: GraphQLString},
+    descendents: {
+      type: new GraphQLList(DescendentType),
+      resolve (parent, args) {
+        return User.find({referrerId: parent.id})
       }
     }
   })
@@ -127,6 +148,33 @@ const RootQuery = new GraphQLObjectType({
       resolve (parent, args) {
         return roles
       }
+    },
+    usersSearch: {
+      type: new GraphQLList(UserType),
+      args: {alias: {type: GraphQLString}, firstName: {type: GraphQLString}, middleName: {type: GraphQLString}, lastName: {type: GraphQLString}},
+      resolve (parent, args) {
+        if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> usersSearch -> resolve -> Entering function.') }
+
+        let mongoQuery = { $or: [] }
+
+        if (args.alias !== null && args.alias !== '') { mongoQuery.$or.push({alias: args.alias}) }
+        if (args.firstName !== null && args.firstName !== '') { mongoQuery.$or.push({firstName: args.firstName}) }
+        if (args.middleName !== null && args.middleName !== '') { mongoQuery.$or.push({middleName: args.middleName}) }
+        if (args.lastName !== null && args.lastName !== '') { mongoQuery.$or.push({lastName: args.lastName}) }
+
+        if (mongoQuery.$or.length === 0) { mongoQuery = {} }
+
+        return User.find(mongoQuery)
+      }
+    },
+    descendents: {
+      type: new GraphQLList(DescendentType),
+      args: {id: {type: GraphQLString}},
+      resolve (parent, args) {
+        if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> descendents -> resolve -> Entering function.') }
+
+        return User.find({referrerId: args.id})
+      }
     }
   }
 })
@@ -193,6 +241,45 @@ const Mutation = new GraphQLObjectType({
           isTrader: args.isTrader,
           isDataAnalyst: args.isDataAnalyst,
           roleId: args.roleId
+        }
+
+        return User.update(key, updatedUser)
+      }
+    },
+    updateUserImages: {
+      type: UserType,
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLID)},
+        avatarHandle: {type: GraphQLString},
+        avatarChangeDate: {type: GraphQLString}
+      },
+      resolve (parent, args) {
+        let key = {
+          _id: args.id
+        }
+
+        let updatedUser = {
+          avatarHandle: args.avatarHandle,
+          avatarChangeDate: args.avatarChangeDate
+        }
+
+        return User.update(key, updatedUser)
+      }
+    },
+    updateUserReferrer: {
+      type: UserType,
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLID)},
+        referrerId: {type: GraphQLString}
+      },
+      resolve (parent, args) {
+        let key = {
+          _id: args.id,
+          referrerId: null
+        }
+
+        let updatedUser = {
+          referrerId: args.referrerId
         }
 
         return User.update(key, updatedUser)
@@ -345,9 +432,21 @@ function authenticate (encodedToken, callBackFunction) {
             return
           }
 
+          let localDate = new Date()
+          let creationDate = new Date(Date.UTC(
+            localDate.getUTCFullYear(),
+            localDate.getUTCMonth(),
+            localDate.getUTCDate(),
+            localDate.getUTCHours(),
+            localDate.getUTCMinutes(),
+            localDate.getUTCSeconds(),
+            localDate.getUTCMilliseconds())
+          )
+
           let newUser = new User({
             alias: alias,
             authId: authId,
+            creationDate: creationDate.toISOString(),
             email: email,
             emailVerified: emailVerified,
             roleId: '1'

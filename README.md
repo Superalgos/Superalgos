@@ -20,7 +20,7 @@ App.js
 |    |    |
 |    |    |- UserTabs
 |    |    |    |
-|    |    |    |- Tab 1 - UserUpdate
+|    |    |    |- Tab 1 - ProfileSheet
 |    |    |    |
 |    |    |    |- Tab 2 - ManageImages
 |    |

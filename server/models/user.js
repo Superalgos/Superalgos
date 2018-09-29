@@ -6,6 +6,8 @@ const Schema = mongoose.Schema
 
 const userSchema = new Schema({
   authId: String,
+  referrerId: String,
+  creationDate: String,
   alias: String,
   firstName: String,
   middleName: String,
@@ -16,7 +18,9 @@ const userSchema = new Schema({
   isDeveloper: Boolean,
   isTrader: Boolean,
   isDataAnalyst: Boolean,
-  roleId: String
+  roleId: String,
+  avatarHandle: String,
+  avatarChangeDate: String
 })
 
 global.UserSchema = global.UserSchema || mongoose.model('User', userSchema)

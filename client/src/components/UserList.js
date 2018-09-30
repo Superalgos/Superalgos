@@ -61,7 +61,7 @@ const styles = theme => ({
     flex: 1,
   },
   grid: {
-    paddingTop: '30',
+    paddingTop: 30,
     marginTop:'30'
   },
 });
@@ -96,7 +96,7 @@ class UserList extends Component {
       return ( <div> Loading Users... </div>);
     } else {
       return data.users.map(user => {
-        
+
         return (
 
           <Grid key={user.id} item>
@@ -165,11 +165,11 @@ class UserList extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Paper className={classes.root}>
-        <Grid container justify="center" spacing={24}>
+      <React.Fragment>
+        <Grid container justify="center" spacing={24} className={classes.root}>
           {this.displayUsers()}
         </Grid>
-      </Paper>
+      </React.Fragment>
     );
   }
 }

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import UserSearch from './UserSearch'
 import {compose} from 'react-apollo'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 // Materia UI
 
 import { withStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
 
 const styles = theme => ({
   root: {
@@ -25,13 +25,14 @@ class Search extends Component {
   render () {
     const { classes } = this.props
     return (
-      <Paper className={classes.root}>
+      <React.Fragment>
+        <CssBaseline />
         <UserSearch />
-      </Paper>
+      </React.Fragment>
     )
   }
 }
 
 export default compose(
-  withStyles(styles)
+	withStyles(styles)
 )(Search)

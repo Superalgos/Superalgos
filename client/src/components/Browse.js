@@ -1,11 +1,13 @@
 import React from 'react'
-import UserList from './UserList';
+import UserList from './UserList'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 const Browse = () => {
   return (
-    <div>
-      <UserList/>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <UserList />
+    </React.Fragment>
   )
 }
 

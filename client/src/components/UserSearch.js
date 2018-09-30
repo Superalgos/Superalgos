@@ -129,9 +129,9 @@ class UserSearch extends Component {
 
   selectText () {
     if (this.props.selectButton === true) {
-      return (<dummy>{this.props.selectText}</dummy>)
+      return (<span>{this.props.selectText}</span>)
     } else {
-      return (<div />)
+      return (<span />)
     }
   }
 

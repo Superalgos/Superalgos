@@ -82,44 +82,25 @@ class Home extends Component {
           Development Status
           </Typography>
             <Typography className={classes.typography} component='p'>
-          This module is is currently under heavy development. Implementation started 1st of September 2018 and this is the result of the 1st sprint of 2 weeks of work.
+          This module is is currently under heavy development. Implementation started 1st of September 2018 and this is the result of the 2nd sprint of 2 weeks of work each.
           </Typography>
             <Typography className={classes.typography} gutterBottom variant='headline' component='h2'>
           What can you do?
           </Typography>
             <Typography className={classes.typography} component='p'>
-          Currently you can use the Browse section to list all registered users. Clicking on View Profile you can see some more info about that user. You can signup with your Github account and manage your profile information while logged in. You will find all features under develpment with a dialog indicating it is not ready.
+          Currently you can use the Browse section to list all registered users. At the Search page you can searh for users by name. Clicking on View Profile you can see some more info about that user. You can signup with your Github account and manage your profile information while logged in. While loggedin, you can edit your profile info, define your referrer and view your descendants. You will find all features under develpment with a dialog indicating it is not ready.
           </Typography>
             <Typography className={classes.typography} gutterBottom variant='headline' component='h2'>
           What is next?
           </Typography>
             <Typography className={classes.typography} component='p'>
-          The major features for the next sprint are:
+          The major features for the 3rd sprint are:
           </Typography>
             <ul>
               <li>1. Managing profile images.</li>
               <li>2. Making sure that Auth0 integration server side is working well.</li>
               <li>3. Making sure that mutations can not be impersonated.</li>
             </ul>
-            <Typography className={classes.typography} component='p' >
-          Below, you can see some usage statistics of this module, in this case, the total amount of users over time. [data is not real yet.]
-          </Typography>
-            <LineChart
-              xType={'time'}
-              axes
-              interpolate={'cardinal'}
-              width={750}
-              height={250}
-              data={[
-                [
-            { x: '1-Sep-17', y: 2 },
-            { x: '2-Sep-17', y: 4 },
-            { x: '3-Sep-17', y: 5 },
-            { x: '4-Sep-17', y: 6 },
-            { x: '5-Sep-17', y: 7 }
-                ]
-              ]}
-      />
           </Grid>
         </Grid>
 

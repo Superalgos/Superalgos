@@ -12,7 +12,6 @@ import BrowseIcon from '@material-ui/icons/ImportContacts'
 import SearchIcon from '@material-ui/icons/Search'
 import ContactIcon from '@material-ui/icons/ContactMail'
 import AboutIcon from '@material-ui/icons/FormatShapes'
-import ModulesIcon from '@material-ui/icons/QueuePlayNext'
 
 import { Link } from 'react-router-dom'
 
@@ -22,7 +21,6 @@ import LoggedInUser from './LoggedInUser'
 // Images
 import AALogo from '../assets/logos/advanced-algos/aa-logo-dark.svg'
 
-const ModulesLink = props => <Link to='/modules' {...props} />
 const AboutLink = props => <Link to='/about' {...props} />
 const ContactLink = props => <Link to='/contact' {...props} />
 const SearchLink = props => <Link to='/search' {...props} />
@@ -83,16 +81,43 @@ class NavBar extends Component {
           <Toolbar>
             <img className={classes.img} src={AALogo} alt='Advanced Algos' />
             <Typography variant='title' color='inherit' className={classes.flex}>
-                Users
+              Users
             </Typography>
-
-            <IconButton className={classes.menuButton} color='inherit' title='Home' component={HomeLink}><HomeIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='Browse the Users Directory' component={BrowseLink}><BrowseIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='Search Users' component={SearchLink}><SearchIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='Contact Form' component={ContactLink}><ContactIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='About this Module' component={AboutLink}><AboutIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='Go to another Module' component={ModulesLink}><ModulesIcon /></IconButton>
-
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Home'
+              component={HomeLink}>
+              <HomeIcon />
+            </IconButton>
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Browse the Users Directory'
+              component={BrowseLink}>
+              <BrowseIcon />
+            </IconButton>
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Search Users'
+              component={SearchLink}>
+              <SearchIcon />
+            </IconButton>
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Contact Form'
+              component={ContactLink}>
+              <ContactIcon />
+            </IconButton>
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='About this Module'
+              component={AboutLink}>
+              <AboutIcon />
+            </IconButton>
             <LoggedInUser authId={this.state.authId} />
           </Toolbar>
         </AppBar>

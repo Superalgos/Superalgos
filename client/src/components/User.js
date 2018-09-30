@@ -1,13 +1,13 @@
 import React from 'react'
-
-
-import UserTabs from './UserTabs';
+import UserTabs from './UserTabs'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 const User = () => {
   return (
-    <div>
-      <UserTabs/>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <UserTabs />
+    </React.Fragment>
   )
 }
 

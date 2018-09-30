@@ -124,8 +124,8 @@ class DescendentsTree extends Component {
 
     const { classes } = this.props
     return node.descendents.map(descendent => {
-    return (     
-        <div key={descendent.alias}>     
+    return (
+        <div key={descendent.alias}>
             <ListItem button className={classes.nested}>
             {this.displayIcons(level)}
               <Card className={classes.card}>
@@ -134,7 +134,7 @@ class DescendentsTree extends Component {
                     className={classes.media}
                     image={PortraitImage}
                     title='User Profile'
-        
+
                 />
                   <CardContent>
                     <Typography gutterBottom variant='headline' component='h2'>
@@ -177,10 +177,10 @@ class DescendentsTree extends Component {
       } else {
         return (<div/>)
       }
-    }    
+    }
   }
 
-  
+
   displayTopList () {
     let data = this.props.data
     const { classes } = this.props
@@ -194,7 +194,7 @@ class DescendentsTree extends Component {
         return data.descendents.map(descendent => {
           return (
           <div key={descendent.alias}>
-            
+
           <ListItem button>
             {this.displayIcons(1)}
             <Card className={classes.card}>
@@ -218,9 +218,9 @@ class DescendentsTree extends Component {
               </CardActions>
             </Card>
           </ListItem>
-          
+
           {this.displayNestedList(descendent, 1)}
-              
+
             </div>
           )
         })

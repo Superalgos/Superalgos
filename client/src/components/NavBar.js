@@ -83,16 +83,43 @@ class NavBar extends Component {
           <Toolbar>
             <img className={classes.img} src={AALogo} alt='Advanced Algos' />
             <Typography variant='title' color='inherit' className={classes.flex}>
-                Users
+              Users
             </Typography>
-
-            <IconButton className={classes.menuButton} color='inherit' title='Home' component={HomeLink}><HomeIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='Browse the Users Directory' component={BrowseLink}><BrowseIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='Search Users' component={SearchLink}><SearchIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='Contact Form' component={ContactLink}><ContactIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='About this Module' component={AboutLink}><AboutIcon /></IconButton>
-            <IconButton className={classes.menuButton} color='inherit' title='Go to another Module' component={ModulesLink}><ModulesIcon /></IconButton>
-
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Home'
+              component={HomeLink}>
+              <HomeIcon />
+            </IconButton>
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Browse the Users Directory'
+              component={BrowseLink}>
+              <BrowseIcon />
+            </IconButton>
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Search Users'
+              component={SearchLink}>
+              <SearchIcon />
+            </IconButton>
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Contact Form'
+              component={ContactLink}>
+              <ContactIcon />
+            </IconButton>
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='About this Module'
+              component={AboutLink}>
+              <AboutIcon />
+            </IconButton>
             <LoggedInUser authId={this.state.authId} />
           </Toolbar>
         </AppBar>

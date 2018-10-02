@@ -54,44 +54,52 @@ function newLogin() {
 
         userAuthorization = window.location.hash.substr(1); // What comes after the # on the URL.
 
-        if (userAuthorization === "") {
+        let sessionToken = window.localStorage.getItem('sessionToken');
 
-            currentLabel = "Login / Signup";
+        if (sessionToken !== null && sessionToken !== "") {
+
+            currentLabel = "Logout";
 
         } else {
 
-            console.log(userAuthorization);
+            if (userAuthorization === "") {
 
-            Auth0.parseHash({ hash: window.location.hash }, function (err, authResult) {
-                if (err) {
-                    return console.log("Parse Hash Error", err);
-                }
+                currentLabel = "Login / Signup";
 
-                console.log("Auth0 Error", err);
-                console.log("Auth0 Result", authResult);
+            } else {
 
-                // The contents of authResult depend on which authentication parameters were used.
-                // It can include the following:
-                // authResult.accessToken - access token for the API specified by `audience`
-                // authResult.expiresIn - string with the access token's expiration time in seconds
-                // authResult.idToken - ID token JWT containing user profile information
+                console.log(userAuthorization);
 
-                currentLabel = "Logout";
+                Auth0.parseHash({ hash: window.location.hash }, function (err, authResult) {
+                    if (err) {
+                        return console.log("Parse Hash Error", err);
+                    }
 
-                let authId = authResult.idTokenPayload.sub;
+                    console.log("Auth0 Error", err);
+                    console.log("Auth0 Result", authResult);
 
-                /* Now we connect to the users module to get the users alias, first, middle and last names. */
+                    // The contents of authResult depend on which authentication parameters were used.
+                    // It can include the following:
+                    // authResult.accessToken - access token for the API specified by `audience`
+                    // authResult.expiresIn - string with the access token's expiration time in seconds
+                    // authResult.idToken - ID token JWT containing user profile information
 
-                const apolloClient = new Apollo.lib.ApolloClient({
-                    networkInterface: Apollo.lib.createNetworkInterface({
-                        uri: 'http://localhost:4000/graphql',
-                        /*uri: 'https://users-api.advancedalgos.net/graphql',*/
-                        transportBatching: true,
-                    }),
-                    connectToDevTools: true,
-                })
+                    currentLabel = "Logout";
 
-                const QUERY = Apollo.gql`
+                    let authId = authResult.idTokenPayload.sub;
+
+                    /* Now we connect to the users module to get the users alias, first, middle and last names. */
+
+                    const apolloClient = new Apollo.lib.ApolloClient({
+                        networkInterface: Apollo.lib.createNetworkInterface({
+                            uri: 'http://localhost:4000/graphql',
+                            /*uri: 'https://users-api.advancedalgos.net/graphql',*/
+                            transportBatching: true,
+                        }),
+                        connectToDevTools: true,
+                    })
+
+                    const QUERY = Apollo.gql`
                 query($authId: String){
                     userByAuthId (authId: $authId){
                         id
@@ -114,22 +122,25 @@ function newLogin() {
                         }
                     }
                 }
-                `          
+                `
 
-                apolloClient.query({
-                    query: QUERY,
-                    variables: {
-                        authId: authId
-                    }
-                })
-                    .then(response => {
-                        console.log("apolloClient data", response);
-                        let sessionToken = response.data.userByAuthId.sessionToken;
-                        window.location = "/index.html?" + sessionToken;
+                    apolloClient.query({
+                        query: QUERY,
+                        variables: {
+                            authId: authId
+                        }
                     })
-                    .catch(error => console.error("apolloClient error", error));
+                        .then(response => {
+                            console.log("apolloClient data", response);
+                            let sessionToken = response.data.userByAuthId.sessionToken;
+                            window.localStorage.setItem('sessionToken', sessionToken);
+                            window.location = "/index.html?" + sessionToken;
+                        })
+                        .catch(error => console.error("apolloClient error", error));
 
-            });
+                });
+            }
+
         }
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
@@ -137,21 +148,33 @@ function newLogin() {
 
     function onClick() {
 
-        if (userAuthorization === "") {
+        let sessionToken = window.localStorage.getItem('sessionToken');
 
-            /* Goes for a login / signup */
-            
-            Auth0.authorize({
-                scope: 'openid profile',
-                responseType: 'id_token'
-            });
-            
+        if (sessionToken !== null && sessionToken !== "") {
 
+            window.localStorage.setItem('sessionToken', "");
+            window.location = "/index.html";
+            currentLabel = "Login / Signup";
 
         } else {
 
-             /* Goes for a logout */
+            if (userAuthorization === "") {
 
+                /* Goes for a login / signup */
+
+                Auth0.authorize({
+                    scope: 'openid profile',
+                    responseType: 'id_token'
+                });
+
+            } else {
+
+                /* Goes for a logout */
+
+                window.localStorage.setItem('sessionToken', "");
+                window.location = "/index.html";
+                currentLabel = "Login / Signup";
+            }
         }
     }
 

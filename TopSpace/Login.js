@@ -84,8 +84,8 @@ function newLogin() {
 
                 const apolloClient = new Apollo.lib.ApolloClient({
                     networkInterface: Apollo.lib.createNetworkInterface({
-
-                        uri: 'https://users-api.advancedalgos.net/graphql',
+                        uri: 'http://localhost:4000/graphql',
+                        /*uri: 'https://users-api.advancedalgos.net/graphql',*/
                         transportBatching: true,
                     }),
                     connectToDevTools: true,
@@ -108,6 +108,7 @@ function newLogin() {
                         isTrader
                         avatarHandle
                         avatarChangeDate
+                        sessionToken
                         role {
                         id
                         }
@@ -121,7 +122,11 @@ function newLogin() {
                         authId: authId
                     }
                 })
-                    .then(data => console.log("apolloClient data", data))
+                    .then(response => {
+                        console.log("apolloClient data", response);
+                        let sessionToken = response.data.userByAuthId.sessionToken;
+                        window.location = "/index.html?" + sessionToken;
+                    })
                     .catch(error => console.error("apolloClient error", error));
 
             });

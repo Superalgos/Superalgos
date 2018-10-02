@@ -43,6 +43,7 @@ const UserType = new GraphQLObjectType({
     isDataAnalyst: {type: GraphQLInt},
     avatarHandle: {type: GraphQLString},
     avatarChangeDate: {type: GraphQLString},
+    sessionToken: {type: GraphQLString},
     role: {
       type: RoleType,
       resolve (parent, args) {

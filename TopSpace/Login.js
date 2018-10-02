@@ -64,11 +64,11 @@ function newLogin() {
 
             Auth0.parseHash({ hash: window.location.hash }, function (err, authResult) {
                 if (err) {
-                    return console.log(err);
+                    return console.log("Parse Hash Error", err);
                 }
 
-                console.log(err);
-                console.log(authResult);
+                console.log("Auth0 Error", err);
+                console.log("Auth0 Result", authResult);
 
                 // The contents of authResult depend on which authentication parameters were used.
                 // It can include the following:
@@ -77,6 +77,52 @@ function newLogin() {
                 // authResult.idToken - ID token JWT containing user profile information
 
                 currentLabel = "Logout";
+
+                let authId = authResult.idTokenPayload.sub;
+
+                /* Now we connect to the users module to get the users alias, first, middle and last names. */
+
+                const apolloClient = new Apollo.lib.ApolloClient({
+                    networkInterface: Apollo.lib.createNetworkInterface({
+
+                        uri: 'https://users-api.advancedalgos.net/graphql',
+                        transportBatching: true,
+                    }),
+                    connectToDevTools: true,
+                })
+
+                const QUERY = Apollo.gql`
+                query($authId: String){
+                    userByAuthId (authId: $authId){
+                        id
+                        referrerId
+                        alias
+                        firstName
+                        middleName
+                        lastName
+                        bio
+                        email
+                        emailVerified
+                        isDeveloper
+                        isDataAnalyst
+                        isTrader
+                        avatarHandle
+                        avatarChangeDate
+                        role {
+                        id
+                        }
+                    }
+                }
+                `          
+
+                apolloClient.query({
+                    query: QUERY,
+                    variables: {
+                        authId: authId
+                    }
+                })
+                    .then(data => console.log("apolloClient data", data))
+                    .catch(error => console.error("apolloClient error", error));
 
             });
         }
@@ -89,40 +135,13 @@ function newLogin() {
         if (userAuthorization === "") {
 
             /* Goes for a login / signup */
-
-            /*
+            
             Auth0.authorize({
                 scope: 'openid profile',
                 responseType: 'id_token'
             });
-            */
+            
 
-            const apolloClient = new Apollo.lib.ApolloClient({
-                networkInterface: Apollo.lib.createNetworkInterface({
-
-                    uri: 'https://users-api.advancedalgos.net/graphql',
-                    transportBatching: true,
-                }),
-                connectToDevTools: true,
-            })
-
-            const POSTS_QUERY = Apollo.gql`
-                query{
-                      users {
-                        id
-                        alias
-                        firstName
-                        middleName
-                        lastName
-                      }
-                    }
-                `
-
-            apolloClient.query({
-                query: POSTS_QUERY
-            })
-                .then(data => console.log("apolloClient data", data))
-                .catch(error => console.error("apolloClient error", error));
 
         } else {
 

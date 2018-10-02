@@ -24,7 +24,18 @@ function newEndUser() {
 
     function initialize() {
 
-        window.USER_LOGGED_IN = window.USER_PROFILE.userName;
+        let storedUser = window.localStorage.getItem('loggedInUser');
+
+        if (storedUser === null || storedUser === "") {
+
+            // User is currently not logged in.
+            window.USER_LOGGED_IN = "";
+            return;
+        }
+
+        let loggedInUser = JSON.parse(storedUser);
+
+        window.USER_LOGGED_IN = loggedInUser.alias;
 
         /* Here we will rearrange the storage permissions array into a map, so that it can be easily consumed when needed. */
 

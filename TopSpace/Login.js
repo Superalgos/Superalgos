@@ -134,6 +134,7 @@ function newLogin() {
                             console.log("apolloClient data", response);
                             let sessionToken = response.data.userByAuthId.sessionToken;
                             window.localStorage.setItem('sessionToken', sessionToken);
+                            window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.userByAuthId));
                             window.location = "/index.html?" + sessionToken;
                         })
                         .catch(error => console.error("apolloClient error", error));
@@ -153,6 +154,7 @@ function newLogin() {
         if (sessionToken !== null && sessionToken !== "") {
 
             window.localStorage.setItem('sessionToken', "");
+            window.localStorage.setItem('loggedInUser', "");
             window.location = "/index.html";
             currentLabel = "Login / Signup";
 
@@ -172,6 +174,7 @@ function newLogin() {
                 /* Goes for a logout */
 
                 window.localStorage.setItem('sessionToken', "");
+                window.localStorage.setItem('loggedInUser', "");
                 window.location = "/index.html";
                 currentLabel = "Login / Signup";
             }

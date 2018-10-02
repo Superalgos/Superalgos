@@ -96,21 +96,42 @@ const Footer = ({ classes }) => {
           <Typography variant='title' color='textPrimary' gutterBottom>
             Modules
           </Typography>
-          <NavLink to='/' className={classNames(classes.footerLink)}>
+          <a
+            href='https://develop.advancedalgos.net'
+            target='_blank>'
+            className={classNames(classes.footerLink)}
+          >
             <Typography variant='subheading' color='textSecondary'>
-              Teams
+              Platform
             </Typography>
-          </NavLink>
-          <NavLink to='/' className={classNames(classes.footerLink)}>
+          </a>
+          <a
+            href='https://users.advancedalgos.net'
+            target='_blank>'
+            className={classNames(classes.footerLink)}
+          >
             <Typography variant='subheading' color='textSecondary'>
               Users
             </Typography>
-          </NavLink>
-          <NavLink to='/' className={classNames(classes.footerLink)}>
+          </a>
+          <a
+            href='https://teams.advancedalgos.net'
+            target='_blank>'
+            className={classNames(classes.footerLink)}
+          >
             <Typography variant='subheading' color='textSecondary'>
-              KeyVault
+              Teams
             </Typography>
-          </NavLink>
+          </a>
+          <a
+            href='https://keyvault.advancedalgos.net'
+            target='_blank>'
+            className={classNames(classes.footerLink)}
+          >
+            <Typography variant='subheading' color='textSecondary'>
+              Key Vault
+            </Typography>
+          </a>
         </Grid>
         <Grid item xs>
           <NavLink to='/'>

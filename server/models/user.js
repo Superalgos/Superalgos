@@ -20,7 +20,8 @@ const userSchema = new Schema({
   isDataAnalyst: Boolean,
   roleId: String,
   avatarHandle: String,
-  avatarChangeDate: String
+  avatarChangeDate: String,
+  sessionToken: String
 })
 
 global.UserSchema = global.UserSchema || mongoose.model('User', userSchema)

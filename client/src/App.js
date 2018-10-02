@@ -64,7 +64,7 @@ wsClient.onReconnected(() => {
 })
 
 const httpLink = new HttpLink({ uri: graphqlEndpoint })
-const httpUserLink = new HttpLink({ uri: 'http://104.43.240.255:4000/graphql' })
+const httpUserLink = new HttpLink({ uri: 'https://users-api.advancedalgos.net/graphql' })
 
 const link = split(
   ({ query }) => {

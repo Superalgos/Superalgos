@@ -13,6 +13,8 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
+import { MessageCard, ImageUpload } from '@advancedalgos/web-components'
+
 import { getItem } from '../../../utils/local-storage'
 
 import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutation'
@@ -20,8 +22,7 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
 
-import { ImageUpload } from '../../common'
-import GET_AZURE_SAS from '../../graphql/teams/GetAzureSASMutation'
+import GET_AZURE_SAS from '../../../graphql/teams/GetAzureSASMutation'
 
 const styles = theme => ({
   dialogContainer: {
@@ -62,14 +63,13 @@ export class ManageTeamEdit extends Component {
 
   render () {
     console.log(this.props, this.props.slug)
-    const { classes, team, authId } = this.props
+    const { classes, team } = this.props
     return (
       <Mutation
         mutation={UPDATE_TEAM_PROFILE}
         refetchQueries={[
           {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
+            query: GET_TEAMS_BY_OWNER
           }
         ]}
       >
@@ -112,38 +112,45 @@ export class ManageTeamEdit extends Component {
                     Edit Team Details
                   </DialogTitle>
                   <DialogContent>
-                    <ImageUpload
-                      handleURL={this.handleBanner}
-                      fileName={`${team.slug}-banner.jpg`}
-                      containerName={team.slug}
-                      existingImage={team.profile.banner}
-                      cropContainer={{ x: 10, y: 10, width: 800, height: 200 }}
-                      saveImageConfig={{
-                        quality: 0.6,
-                        maxWidth: 800,
-                        maxHeight: 200,
-                        autoRotate: true,
-                        debug: true,
-                        mimeType: 'image/jpeg'
+                    <Mutation mutation={GET_AZURE_SAS} >
+                      {(getAzureSAS, { loading, error, data }) => {
+                        console.log('getAzureSAS: ', loading, error, data)
+                        const AzureStorageUrl = process.env.AZURE_STORAGE_URL
+                        const containerName = team.slug
+                        let AzureSASURL
+                        if (!loading && data !== undefined) {
+                          AzureSASURL = data.getAzureSAS
+                        } else {
+                          getAzureSAS({ variables: { teamSlug: containerName } })
+                        }
+
+                        if (loading || data === undefined) {
+                          return (<MessageCard message='Loading...' />)
+                        } else {
+                          return (
+                            <React.Fragment>
+                              <ImageUpload
+                                handleUrl={this.handleAvatar}
+                                fileName={`${team.slug}-avatar.jpg`}
+                                containerName={containerName}
+                                existingImage={team.profile.avatar}
+                                cropContainer={{ x: 10, y: 10, width: 200, height: 200 }}
+                                cropPreviewBox={{ width: 350, height: 350 }}
+                                saveImageConfig={{
+                                  quality: 0.6,
+                                  maxWidth: 200,
+                                  maxHeight: 200,
+                                  autoRotate: true,
+                                  mimeType: 'image/jpeg'
+                                }}
+                                AzureStorageUrl={AzureStorageUrl}
+                                AzureSASURL={AzureSASURL}
+                              />
+                            </React.Fragment>
+                          )
+                        }
                       }}
-                      AZURE_SAS_QUERY={GET_AZURE_SAS}
-                    />
-                    <ImageUpload
-                      handleURL={this.handleAvatar}
-                      fileName={`${team.slug}-avatar.jpg`}
-                      containerName={team.slug}
-                      existingImage={team.profile.avatar}
-                      cropContainer={{ x: 10, y: 10, width: 200, height: 200 }}
-                      saveImageConfig={{
-                        quality: 0.6,
-                        maxWidth: 200,
-                        maxHeight: 200,
-                        autoRotate: true,
-                        debug: true,
-                        mimeType: 'image/jpeg'
-                      }}
-                      AZURE_SAS_QUERY={GET_AZURE_SAS}
-                    />
+                    </Mutation>
                     <TextField
                       autoFocus
                       margin='dense'
@@ -254,7 +261,6 @@ export class ManageTeamEdit extends Component {
 ManageTeamEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  authId: PropTypes.string,
   team: PropTypes.object
 }
 

@@ -58,8 +58,8 @@ function newTopSpace() {
         thisObject.currentStartMode = newCurrentStartMode();
         thisObject.currentStartMode.initialize(sharedStatus);
 
-        //thisObject.login = newLogin();
-        //thisObject.login.initialize();
+        thisObject.login = newLogin();
+        thisObject.login.initialize();
 
         thisObject.playStopButton = newPlayStopButton();
         thisObject.playStopButton.initialize();
@@ -88,8 +88,8 @@ function newTopSpace() {
         container = thisObject.currentStartMode.getContainer(point);
         if (container !== undefined) { return container; }
 
-        //container = thisObject.login.getContainer(point);
-        //if (container !== undefined) { return container; }
+        container = thisObject.login.getContainer(point);
+        if (container !== undefined) { return container; }
 
         container = thisObject.playStopButton.getContainer(point);
         if (container !== undefined) { return container; }
@@ -111,7 +111,7 @@ function newTopSpace() {
         thisObject.currentBot.draw();
         thisObject.currentProcess.draw();
         thisObject.currentStartMode.draw();
-        //thisObject.login.draw();
+        thisObject.login.draw();
         thisObject.playStopButton.draw();
 
     }

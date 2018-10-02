@@ -97,21 +97,32 @@ function newLogin() {
             });
             */
 
-            let graphQLQuery = { query: '{ getTeamByOwner(owner: 4) {id name slug owner avatar}} ' };
+            const apolloClient = new Apollo.lib.ApolloClient({
+                networkInterface: Apollo.lib.createNetworkInterface({
 
-            let fechtParam1 = 'https://api.algocommunity.org/graphql';
-            let fechtParam2 = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'//,
-                    //'Authorization': 'Bearer <ACCESS_TOKEN>'
-                },
-                body: JSON.stringify(graphQLQuery),
-                }
+                    uri: 'https://users-api.advancedalgos.net/graphql',
+                    transportBatching: true,
+                }),
+                connectToDevTools: true,
+            })
 
-            fetch(fechtParam1, fechtParam2)
-                .then(res => res.json())
-                .then(res => console.log(res.data));
+            const POSTS_QUERY = Apollo.gql`
+                query{
+                      users {
+                        id
+                        alias
+                        firstName
+                        middleName
+                        lastName
+                      }
+                    }
+                `
+
+            apolloClient.query({
+                query: POSTS_QUERY
+            })
+                .then(data => console.log("apolloClient data", data))
+                .catch(error => console.error("apolloClient error", error));
 
         } else {
 

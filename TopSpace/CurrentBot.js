@@ -15,7 +15,7 @@ function newCurrentBot() {
     thisObject.container.frame.width = 200;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 3;
+    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 4;
     container.frame.position.y = 0;
 
     container.isDraggeable = false;

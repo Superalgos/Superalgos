@@ -15,7 +15,7 @@ function newCurrentStartMode() {
     thisObject.container.frame.width = 200;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 1;
+    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 2;
     container.frame.position.y = 0;
 
     container.isDraggeable = false;
@@ -53,6 +53,7 @@ function newCurrentStartMode() {
                 break;
             }
         }
+
     }
 
     function getContainer(point) {

@@ -92,8 +92,8 @@ function newLogin() {
 
                     const apolloClient = new Apollo.lib.ApolloClient({
                         networkInterface: Apollo.lib.createNetworkInterface({
-                            uri: 'http://localhost:4000/graphql',
-                            /*uri: 'https://users-api.advancedalgos.net/graphql',*/
+                            /*uri: 'http://localhost:4000/graphql',*/
+                            uri: 'https://users-api.advancedalgos.net/graphql',
                             transportBatching: true,
                         }),
                         connectToDevTools: true,

@@ -4,6 +4,9 @@ function newBottomSpace() {
     var thisObject = {
         deleteTradingHistory: undefined,
         chartAspectRatio: undefined,
+        UsersModule: undefined,
+        TeamsModule: undefined,
+        KeyVaultModule: undefined,
         container: undefined,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -32,6 +35,15 @@ function newBottomSpace() {
         thisObject.chartAspectRatio = newChartAspectRatio();
         thisObject.chartAspectRatio.initialize();
 
+        thisObject.UsersModule = newUsersModule();
+        thisObject.UsersModule.initialize();
+
+        thisObject.TeamsModule = newTeamsModule();
+        thisObject.TeamsModule.initialize();
+
+        thisObject.KeyVaultModule = newKeyVaultModule();
+        thisObject.KeyVaultModule.initialize();
+
     }
 
     function getContainer(point) {
@@ -42,6 +54,15 @@ function newBottomSpace() {
         if (container !== undefined) { return container; }
 
         container = thisObject.chartAspectRatio.getContainer(point);
+        if (container !== undefined) { return container; }
+
+        container = thisObject.UsersModule.getContainer(point);
+        if (container !== undefined) { return container; }
+
+        container = thisObject.TeamsModule.getContainer(point);
+        if (container !== undefined) { return container; }
+
+        container = thisObject.KeyVaultModule.getContainer(point);
         if (container !== undefined) { return container; }
 
         /* The point does not belong to any inner container, so we return the current container. */
@@ -57,6 +78,9 @@ function newBottomSpace() {
         drawBackground();
         thisObject.deleteTradingHistory.draw();
         thisObject.chartAspectRatio.draw();
+        thisObject.UsersModule.draw();
+        thisObject.TeamsModule.draw();
+        thisObject.KeyVaultModule.draw();
 
     }
 

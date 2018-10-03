@@ -57,6 +57,9 @@
     </Compile>
     <Compile Include="CloudVM\Exchange\ExchangeAPI.js" />
     <Compile Include="Exchange\ExchangeAPI.js" />
+    <Compile Include="BottomSpace\KeyVaultModule.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Server\Exchange\ExchangeAPI.js" />
     <Compile Include="Server\Exchange\exchangeUtils.js" />
     <Compile Include="Globals.js">
@@ -67,6 +70,9 @@
     <Compile Include="Server\Exchange\Wrappers\binanceClient.js" />
     <Compile Include="Server\Exchange\Wrappers\poloniex.js" />
     <Compile Include="Server\Exchange\Wrappers\poloniexClient.js" />
+    <Compile Include="BottomSpace\TeamsModule.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TopSpace\Login.js">
       <SubType>Code</SubType>
     </Compile>
@@ -141,6 +147,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TopSpace\PlayStopButton.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BottomSpace\UsersModule.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WebDebugLog.js">

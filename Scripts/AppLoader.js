@@ -31,6 +31,9 @@
 
                 "BottomSpace/DeleteTradingHistory.js",
                 "BottomSpace/ChartAspectRatio.js",
+                "BottomSpace/UsersModule.js",
+                "BottomSpace/TeamsModule.js",
+                "BottomSpace/KeyVaultModule.js",
 
                 "TopSpace/PlayStopButton.js",
                 "TopSpace/CompanyLogo.js",

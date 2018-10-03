@@ -425,7 +425,10 @@ function authenticate (encodedToken, callBackFunction) {
           let authArray = authId.split('|')
           let socialAccountProvider = authArray[0]
 
-          if (socialAccountProvider !== 'github') {
+          if (
+            socialAccountProvider !== 'github' &&
+            socialAccountProvider !== 'auth0'
+          ) {
             if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> Social Account Provider not Supoorted. ') }
             if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> socialAccountProvider = ' + socialAccountProvider) }
 

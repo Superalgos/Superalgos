@@ -44,13 +44,15 @@
             canDrawIcon = true;
         }
 
-        icon.src = "Images/aspect.ratio.Y.png";
+        icon.src = "Images/Icons/chart-scale.png";
 
         thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 
     }
 
     function onMouseWheel(pDelta) {
+
+        if (viewPort.isMinZoom() === false) { return; } // We only make this button to work at the min zoom level.
 
         if (pDelta < 0) {
             pDelta = -0.1;
@@ -100,11 +102,12 @@
         thisObject.container.frame.draw(false, false);
 
         if (canDrawIcon === false) { return; }
+        if (viewPort.isMinZoom() === false) { return; } // We only show this button at the min zoom level.
 
         let breakpointsHeight = 15;
 
-        let imageHeight = 30;
-        let imageWidth = 30;
+        let imageHeight = 15;
+        let imageWidth = 15;
 
         let imagePoint = {
             x: 10,

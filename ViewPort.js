@@ -8,6 +8,7 @@ function newViewPort() {
     const BOTTOM_MARGIN = 15 + BOTTOM_SPACE_HEIGHT;
     const LEFT_MARGIN = 50;
     const RIGHT_MARGIN = 50;
+    const MIN_ZOOM_LEVEL = -28.25
 
     let thisObject = {
         visibleArea: undefined,
@@ -17,6 +18,7 @@ function newViewPort() {
         mousePosition: undefined,
         newZoomLevel: newZoomLevel,
         applyZoom: applyZoom,
+        isMinZoom: isMinZoom,
         zoomFontSize: zoomFontSize,
         zoomThisPoint: zoomThisPoint,
         unzoomThisPoint: unzoomThisPoint,
@@ -169,6 +171,13 @@ function newViewPort() {
        return true;
    }
 
+   function isMinZoom() {
+       /* returns true is we are currently at the min zoom level. */
+
+       if (thisObject.zoomTargetLevel === MIN_ZOOM_LEVEL) { return true; } else { return false;}
+
+   }
+
     function applyZoom(amount) {
 
         //console.log("applyZoom amount: " + amount);
@@ -216,7 +225,7 @@ function newViewPort() {
             amount = amount / 4;
         }
 
-        if (thisObject.zoomTargetLevel + amount < -28.25) {
+        if (thisObject.zoomTargetLevel + amount < MIN_ZOOM_LEVEL) {
             return false;
         }
 

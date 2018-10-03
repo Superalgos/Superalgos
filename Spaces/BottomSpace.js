@@ -7,6 +7,7 @@ function newBottomSpace() {
         UsersModule: undefined,
         TeamsModule: undefined,
         KeyVaultModule: undefined,
+        playStopButton: undefined,
         container: undefined,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -44,6 +45,8 @@ function newBottomSpace() {
         thisObject.KeyVaultModule = newKeyVaultModule();
         thisObject.KeyVaultModule.initialize();
 
+        thisObject.playStopButton = newPlayStopButton();
+        thisObject.playStopButton.initialize();
     }
 
     function getContainer(point) {
@@ -65,6 +68,9 @@ function newBottomSpace() {
         container = thisObject.KeyVaultModule.getContainer(point);
         if (container !== undefined) { return container; }
 
+        container = thisObject.playStopButton.getContainer(point);
+        if (container !== undefined) { return container; }
+
         /* The point does not belong to any inner container, so we return the current container. */
 
         return thisObject.container;
@@ -81,6 +87,7 @@ function newBottomSpace() {
         thisObject.UsersModule.draw();
         thisObject.TeamsModule.draw();
         thisObject.KeyVaultModule.draw();
+        thisObject.playStopButton.draw();
 
     }
 

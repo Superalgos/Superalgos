@@ -12,7 +12,6 @@ function newTopSpace() {
         currentProcess: undefined,
         currentStartMode: undefined,
         login: undefined,
-        playStopButton: undefined,
         initialize: initialize
     };
 
@@ -61,9 +60,6 @@ function newTopSpace() {
         thisObject.login = newLogin();
         thisObject.login.initialize();
 
-        thisObject.playStopButton = newPlayStopButton();
-        thisObject.playStopButton.initialize();
-
     }
 
     function getContainer(point) {
@@ -91,9 +87,6 @@ function newTopSpace() {
         container = thisObject.login.getContainer(point);
         if (container !== undefined) { return container; }
 
-        container = thisObject.playStopButton.getContainer(point);
-        if (container !== undefined) { return container; }
-
         /* The point does not belong to any inner container, so we return the current container. */
 
         return thisObject.container;
@@ -112,7 +105,6 @@ function newTopSpace() {
         thisObject.currentProcess.draw();
         thisObject.currentStartMode.draw();
         thisObject.login.draw();
-        thisObject.playStopButton.draw();
 
     }
 

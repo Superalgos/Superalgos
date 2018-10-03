@@ -16,8 +16,8 @@ function newPlayStopButton() {
     thisObject.container.frame.width = 50;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x;
-    container.frame.position.y = 0;
+    container.frame.position.x = (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 - 10;
+    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
     container.isClickeable = true;
@@ -126,14 +126,16 @@ function newPlayStopButton() {
 
         thisObject.container.frame.draw(false, false);
 
+        let breakpointsHeight = 15;
+
         if (canDraw === false) { return; }
 
-        let imageHeight = 15;
-        let imageWidth = 15;
+        let imageHeight = 20;
+        let imageWidth = 20;
 
         let imagePoint = {
             x: thisObject.container.frame.width / 2 - imageWidth / 2,
-            y: thisObject.container.frame.height / 2 - imageHeight / 2
+            y: thisObject.container.frame.height / 2 - imageHeight / 2 + breakpointsHeight
         };
 
         imagePoint = thisObject.container.frame.frameThisPoint(imagePoint);

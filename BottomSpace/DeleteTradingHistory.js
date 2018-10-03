@@ -46,7 +46,7 @@ function newDeleteTradingHistory() {
                 canDrawIcon = true;
             }
 
-            icon.src = "Images/trash.png";
+            icon.src = "Images/Icons/trash.png";
 
             thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
 
@@ -294,8 +294,8 @@ function newDeleteTradingHistory() {
 
             let breakpointsHeight = 15;
 
-            let imageHeight = 30;
-            let imageWidth = 30;
+            let imageHeight = 15;
+            let imageWidth = 15;
 
             let imagePoint = {
                 x: 10,

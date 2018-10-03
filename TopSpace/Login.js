@@ -60,6 +60,14 @@ function newLogin() {
 
             currentLabel = "Logout";
 
+            if (window.location.search !== "?" + sessionToken ) {
+
+                /* When the user was logged in, and we navigate again to the platform url alone, we need to re-submit the token session to AAWeb */
+
+                window.location = "/index.html?" + sessionToken;
+                return;
+            }
+
         } else {
 
             if (userAuthorization === "") {

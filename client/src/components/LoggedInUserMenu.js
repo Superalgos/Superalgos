@@ -13,6 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 
 // Images
 import GithubLogo from '../img/github-head-negative.png'
+import EmailIcon from '../img/email.png'
 import ProfileIcon from '@material-ui/icons/Person'
 import LogoutIcon from '@material-ui/icons/DirectionsWalk'
 
@@ -39,6 +40,24 @@ class LoggedInUserMenu extends Component {
     }
   }
 
+  displayIdentityProvider () {
+    const { classes } = this.props
+    switch (this.props.identityProvider) {
+      case 'github':
+        return (
+          <img className={classes.img} src={GithubLogo} alt='Github' />
+        )
+        break
+      case 'auth0':
+        return (
+          <img className={classes.img} src={EmailIcon} alt='Auth0' />
+        )
+        break
+      default:
+
+    }
+  }
+
   render () {
     const { classes } = this.props
     return (
@@ -59,7 +78,7 @@ class LoggedInUserMenu extends Component {
                 }}
                 color='inherit'
               >
-                <img className={classes.img} src={GithubLogo} alt='Github' />
+                {this.displayIdentityProvider()}
                 {this.props.menuLabel}
               </Button>
               <Menu id='render-props-menu' anchorEl={anchorEl} open={open} onClose={handleClose}>

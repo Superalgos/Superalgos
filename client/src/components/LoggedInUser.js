@@ -30,9 +30,12 @@ class LoggedInUser extends Component {
         user.lastName !== ''
       ) { displayName = user.firstName + ' ' + user.lastName }
 
+      let authArray = this.props.authId.split('|')
+      let identityProvider = authArray[0]
+
       return (
         <div>
-          <p><LoggedInUserMenu menuLabel={displayName} /></p>
+          <p><LoggedInUserMenu menuLabel={displayName} identityProvider={identityProvider} /></p>
         </div>
       )
     } else {

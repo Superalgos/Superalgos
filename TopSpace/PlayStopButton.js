@@ -44,11 +44,11 @@ function newPlayStopButton() {
             canDraw = true;
         }
 
-        play.src = "Images/Play.png";
+        play.src = "Images/Icons/play.png";
 
         stop = new Image();
 
-        stop.src = "Images/Stop.png";
+        stop.src = "Images/Icons/pause.png";
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
 
@@ -128,8 +128,8 @@ function newPlayStopButton() {
 
         if (canDraw === false) { return; }
 
-        let imageHeight = 272 / 6;
-        let imageWidth = 229 / 6;
+        let imageHeight = 15;
+        let imageWidth = 15;
 
         let imagePoint = {
             x: thisObject.container.frame.width / 2 - imageWidth / 2,

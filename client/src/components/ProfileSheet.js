@@ -241,15 +241,13 @@ class ProfileSheet extends Component {
 
   componentWillMount ()    	{
     	    if (this.defaultValuesSet === false)    	    {
-          let authUserData = localStorage.getItem('authUser')
+          let authId = localStorage.getItem('authId')
           let userData = localStorage.getItem('loggedInUser')
 
-          if (userData === 'undefined' || authUserData === 'undefined') { return }
+          if (userData === 'undefined') { return }
 
           let user = JSON.parse(userData)
   	        this.defaultValuesSet = true
-
-          let authUser = JSON.parse(authUserData)
 
           /* To avoid console warning, we need to take care of the fields that are null. */
 
@@ -273,30 +271,33 @@ class ProfileSheet extends Component {
             isTrader: user.isTrader,
             isDataAnalyst: user.isDataAnalyst,
             roleId: user.role.id,
-            authId: authUser.authId
+            authId: authId
           })
     	    }
     	}
 
   displayIdentityProvider () {
     const { classes } = this.props
+    let authId = this.state.authId
+    console.log('state', this.state)
+    if (authId !== undefined) {
+      let authArray = this.state.authId.split('|')
+      let identityProvider = authArray[0]
 
-    let authArray = this.state.authId.split('|')
-    let identityProvider = authArray[0]
+      switch (identityProvider) {
+        case 'github':
+          return (
+            <img className={classes.img} src={GithubLogo} alt='Github' />
+          )
+          break
+        case 'auth0':
+          return (
+            <img className={classes.img} src={Auth0Logo} alt='Auth0' />
+          )
+          break
+        default:
 
-    switch (identityProvider) {
-      case 'github':
-        return (
-          <img className={classes.img} src={GithubLogo} alt='Github' />
-        )
-        break
-      case 'auth0':
-        return (
-          <img className={classes.img} src={Auth0Logo} alt='Auth0' />
-        )
-        break
-      default:
-
+      }
     }
   }
 

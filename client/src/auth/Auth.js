@@ -101,8 +101,9 @@ class Auth {
 
       this.signinOrCreateAccount({ ...data })
       this.cb(data)
-      console.log(authResult.idTokenPayload)
+      console.log('idTokenPayload', authResult.idTokenPayload)
       setItem('authUser', JSON.stringify(authResult.idTokenPayload))
+      setItem('authId', authResult.idTokenPayload.sub)
       if (window.location.href.includes(`callback`)) {
         window.location.href = '/'
       }
@@ -127,6 +128,7 @@ class Auth {
 
       console.log('signinOrCreateAccount auth: ', await data)
       setItem('authUser', JSON.stringify(data.data.authenticate))
+      setItem('authId', data.data.authenticate.authId)
       if (window.location.href.includes(`callback`)) {
         window.location.href = '/'
       } else {
@@ -169,6 +171,7 @@ class Auth {
       .then(result => {
         console.log('handleAuth.checksessions: ', result)
         setItem('authUser', result.idTokenPayload.sub)
+        setItem('authId', result.idTokenPayload.sub)
         // user confirmed, log into client
         this.setSession(result)
         return result.idTokenPayload

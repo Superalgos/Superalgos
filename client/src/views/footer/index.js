@@ -58,7 +58,17 @@ const Footer = ({ classes }) => {
           </NavLink>
           <NavLink to='/browse' className={classNames(classes.footerLink)}>
             <Typography variant='subheading' color='textSecondary'>
-              Users
+              Browse
+            </Typography>
+          </NavLink>
+          <NavLink to='/search' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              Search
+            </Typography>
+          </NavLink>
+          <NavLink to='/contact' className={classNames(classes.footerLink)}>
+            <Typography variant='subheading' color='textSecondary'>
+              Contact
             </Typography>
           </NavLink>
           <NavLink to='/about' className={classNames(classes.footerLink)}>
@@ -68,15 +78,11 @@ const Footer = ({ classes }) => {
           </NavLink>
         </Grid>
         <Grid item xs>
-          <a
-            href='https://t.me/advancedalgoscommunity'
-            target='_blank>'
-            className={classNames(classes.footerLink)}
-          >
-            <Typography variant='title' color='textPrimary' gutterBottom>
+
+          <Typography variant='title' color='textPrimary' gutterBottom>
               Support
             </Typography>
-          </a>
+
           <a
             href='https://advancedalgos.net/documentation-quick-start.shtml'
             target='_blank>'
@@ -86,11 +92,15 @@ const Footer = ({ classes }) => {
               Documentation
             </Typography>
           </a>
-          <NavLink to='/' className={classNames(classes.footerLink)}>
+          <a
+            href='https://t.me/advancedalgoscommunity'
+            target='_blank>'
+            className={classNames(classes.footerLink)}
+          >
             <Typography variant='subheading' color='textSecondary'>
               Telegram
             </Typography>
-          </NavLink>
+          </a>
         </Grid>
         <Grid item xs>
           <Typography variant='title' color='textPrimary' gutterBottom>

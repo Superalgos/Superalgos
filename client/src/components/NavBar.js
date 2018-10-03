@@ -56,20 +56,9 @@ class NavBar extends Component {
   }
 
   componentDidMount () {
-    const userStored = localStorage.getItem('authUser')
+    const authId = localStorage.getItem('authId')
 
-    if (userStored !== null && userStored !== undefined && userStored !== 'undefined') {
-      const user = JSON.parse(userStored)
-
-      /* For some reason, the result of GraphQL some times varies, that is why I had to do the following hack. */
-
-      let authId
-      if (user.authId === undefined) {
-        authId = user.sub
-      } else {
-        authId = user.authId
-      }
-
+    if (authId !== null && authId !== undefined && authId !== 'undefined') {
       this.setState({ authId: authId })
     }
   }

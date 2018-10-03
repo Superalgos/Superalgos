@@ -90,17 +90,7 @@ class Home extends Component {
             <Typography className={classes.typography} component='p'>
           Currently you can use the Browse section to list all registered users. At the Search page you can searh for users by name. Clicking on View Profile you can see some more info about that user. You can signup with your Github account and manage your profile information while logged in. While loggedin, you can edit your profile info, define your referrer and view your descendants. You will find all features under develpment with a dialog indicating it is not ready.
           </Typography>
-            <Typography className={classes.typography} gutterBottom variant='headline' component='h2'>
-          What is next?
-          </Typography>
-            <Typography className={classes.typography} component='p'>
-          The major features for the 3rd sprint are:
-          </Typography>
-            <ul>
-              <li>1. Managing profile images.</li>
-              <li>2. Making sure that Auth0 integration server side is working well.</li>
-              <li>3. Making sure that mutations can not be impersonated.</li>
-            </ul>
+
           </Grid>
         </Grid>
 

@@ -22,6 +22,7 @@ import Typography from '@material-ui/core/Typography'
 
 // Images
 import GithubLogo from '../img/github-logo.png'
+import Auth0Logo from '../img/auth0-logo.png'
 import AALogo from '../img/aa-logo.png'
 
 const styles = theme => ({
@@ -240,12 +241,15 @@ class ProfileSheet extends Component {
 
   componentWillMount ()    	{
     	    if (this.defaultValuesSet === false)    	    {
+          let authUserData = localStorage.getItem('authUser')
           let userData = localStorage.getItem('loggedInUser')
 
-          if (userData === 'undefined') { return }
+          if (userData === 'undefined' || authUserData === 'undefined') { return }
 
           let user = JSON.parse(userData)
   	        this.defaultValuesSet = true
+
+          let authUser = JSON.parse(authUserData)
 
           /* To avoid console warning, we need to take care of the fields that are null. */
 
@@ -268,10 +272,33 @@ class ProfileSheet extends Component {
             isDeveloper: user.isDeveloper,
             isTrader: user.isTrader,
             isDataAnalyst: user.isDataAnalyst,
-            roleId: user.role.id
+            roleId: user.role.id,
+            authId: authUser.authId
           })
     	    }
     	}
+
+  displayIdentityProvider () {
+    const { classes } = this.props
+
+    let authArray = this.state.authId.split('|')
+    let identityProvider = authArray[0]
+
+    switch (identityProvider) {
+      case 'github':
+        return (
+          <img className={classes.img} src={GithubLogo} alt='Github' />
+        )
+        break
+      case 'auth0':
+        return (
+          <img className={classes.img} src={Auth0Logo} alt='Auth0' />
+        )
+        break
+      default:
+
+    }
+  }
 
   render () {
     const { classes } = this.props
@@ -288,7 +315,7 @@ class ProfileSheet extends Component {
 
           <Grid container justify='center' >
             <Grid item>
-              <img className={classes.img} src={GithubLogo} alt='Github' />
+              {this.displayIdentityProvider()}
             </Grid>
           </Grid>
 

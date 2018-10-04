@@ -51,7 +51,7 @@ const STORAGE = require('./Server/Storage');
 let storage = STORAGE.newStorage();
 
 let sessionManager;                                 // This module have all authenticated active sessions.
-let storageAccessManager;                           // This module manages the SAS for user to access the cloud storage from the browser. 
+let storageAccessManager;                           // This module manages the SAS for user to access the cloud storage from the browser.
 
 initialize();
 
@@ -94,7 +94,7 @@ function initialize() {
 
             ecosystem = pEcosystem;
             ecosystemObject = pEcosystemObject;
-            
+
             storage.initialize(storageData, serverConfig)
 
             const CLOUD_SCRIPTS = require('./Server/CloudScripts');
@@ -200,7 +200,7 @@ function onBrowserRequest(request, response) {
         return;
     }
 
-    
+
 
     switch (requestParameters[1]) {
 
@@ -243,7 +243,7 @@ function onBrowserRequest(request, response) {
                                 '        {' + '\n' +
                                 '            plotter = newPlotterName();' + '\n' +
                                 '        }' + '\n' +
-                                '        break;' + '\n' + '\n' 
+                                '        break;' + '\n' + '\n'
 
                             let devTeams = ecosystemObject.devTeams;
                             let hosts = ecosystemObject.hosts;
@@ -399,7 +399,7 @@ function onBrowserRequest(request, response) {
                 /*
 
                 At this page we need to insert the configuration file for the whole system that we assamble before at the begining of this module
-                execution. So what we do is to load a template file with an insertion point where the configuration json is injected in. 
+                execution. So what we do is to load a template file with an insertion point where the configuration json is injected in.
 
                 */
 
@@ -415,9 +415,9 @@ function onBrowserRequest(request, response) {
                         try {
 
                             let fileContent = file.toString();
-                            let insertContent = JSON.stringify(ecosystemObject); 
+                            let insertContent = JSON.stringify(ecosystemObject);
 
-                            fileContent = fileContent.replace('"@ecosystem.json@"', insertContent); 
+                            fileContent = fileContent.replace('"@ecosystem.json@"', insertContent);
 
                             respondWithContent(fileContent, response);
 
@@ -449,7 +449,7 @@ function onBrowserRequest(request, response) {
                 respondWithFile('./CloudVM/' + filePath, response);
 
             }
-            break; 
+            break;
 
         case "Exchange": // This means the Exchange folder.
             {
@@ -466,7 +466,7 @@ function onBrowserRequest(request, response) {
                 respondWithFile('./Exchange/' + filePath, response);
 
             }
-            break; 
+            break;
 
         case "Images": // This means the Scripts folder.
             {
@@ -494,7 +494,7 @@ function onBrowserRequest(request, response) {
                 respondWithImage(path, response);
 
             }
-            break; 
+            break;
 
         case "favicon.ico": // This means the Scripts folder.
             {
@@ -502,7 +502,7 @@ function onBrowserRequest(request, response) {
                 respondWithImage('./Images/' + 'favicon.ico', response);
 
             }
-            break; 
+            break;
 
         case "BottomSpace": // This means the BottomSpace folder.
             {
@@ -510,7 +510,7 @@ function onBrowserRequest(request, response) {
                 respondWithFile('./BottomSpace/' + requestParameters[2], response);
 
             }
-            break; 
+            break;
 
         case "TopSpace": // This means the TopSpace folder.
             {
@@ -518,7 +518,7 @@ function onBrowserRequest(request, response) {
                 respondWithFile('./TopSpace/' + requestParameters[2], response);
 
             }
-            break; 
+            break;
 
         case "AABrowserAPI": // This means the Scripts folder.
             {
@@ -599,7 +599,7 @@ function onBrowserRequest(request, response) {
                     }
                 }
             }
-            break; 
+            break;
 
         case "Scripts": // This means the Scripts folder.
             {
@@ -721,7 +721,7 @@ function onBrowserRequest(request, response) {
 
                 }
             }
-            break; 
+            break;
 
         case "ExchangeAPI": // This is trying to access this library functionality from the broser.
             {
@@ -736,7 +736,7 @@ function onBrowserRequest(request, response) {
                         assetA: "USDT",
                         assetB: "BTC"
                     };
-                    
+
                     const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');
                     let exchangeAPI = EXCHANGE_API.newExchangeAPI(botDisplayName, authToken);
 
@@ -763,8 +763,8 @@ function onBrowserRequest(request, response) {
                             }
                         }
                     }
-                    
-                    function callExchangeAPIMethod() {                    
+
+                    function callExchangeAPIMethod() {
                         switch (requestParameters[3]) {
 
                             case "getTicker": {
@@ -791,7 +791,7 @@ function onBrowserRequest(request, response) {
                                 exchangeAPI.moveOrder(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                                 break;
                             }
-                            
+
                             case "getPublicTradeHistory": {
                                 exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                                 break;
@@ -801,7 +801,7 @@ function onBrowserRequest(request, response) {
                                 onExchangeResponse(global.DEFAULT_OK_RESPONSE);
                                 break;
                             }
-                            
+
                         }
                     }
 
@@ -830,8 +830,8 @@ function onBrowserRequest(request, response) {
 
                 }
             }
-            break; 
-            
+            break;
+
         case "AACloud": // This means the cloud folder.
             {
 
@@ -861,7 +861,7 @@ function onBrowserRequest(request, response) {
                     respondWithContent("", response);
                 }
             }
-            break; 
+            break;
 
         case "Bots": // This means the cloud folder.
             {
@@ -880,7 +880,7 @@ function onBrowserRequest(request, response) {
                             path = requestParameters[5];
                         }
 
-                        botScripts.getScript(devTeam, source, repo, path, onScriptReady) 
+                        botScripts.getScript(devTeam, source, repo, path, onScriptReady)
 
                         break;
                     }
@@ -923,7 +923,7 @@ function onBrowserRequest(request, response) {
 
                 }
             }
-            break; 
+            break;
 
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
@@ -945,7 +945,7 @@ function onBrowserRequest(request, response) {
 
                 }
             }
-            break; 
+            break;
 
         case "PlotterPanels": // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
             {
@@ -966,7 +966,7 @@ function onBrowserRequest(request, response) {
 
                 }
             }
-            break; 
+            break;
         case "Panels":
             {
                 respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
@@ -1012,7 +1012,7 @@ function onBrowserRequest(request, response) {
         default:
             {
                 homePage();
-            }     
+            }
     }
 
     function homePage() {
@@ -1069,8 +1069,8 @@ function onBrowserRequest(request, response) {
                                     stringToInsert = stringToInsert.replace('@image@', devTeam.codeName + ".png");
                                     stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + ".png");
 
-                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
-                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
+                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 13);
+                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 13);
 
                                     fileContent = firstPart + stringToInsert + secondPart;
 
@@ -1204,7 +1204,7 @@ function respondWithFile(fileName, response) {
                 //console.log("File Sent: " + fileName);
                 //
             }
-            catch (err) {                
+            catch (err) {
                 console.log("[ERROR] server -> respondWithFile -> onFileRead -> File Not Found: " + fileName + " or Error = " + err);
                 returnEmptyArray();
             }

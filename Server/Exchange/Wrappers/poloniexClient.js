@@ -1,4 +1,4 @@
-﻿exports.newAPIClient = function newAPIClient(pKey, pSecret) {
+﻿exports.newAPIClient = function newAPIClient(keyVaultAPI) {
 
     /*
     /* ATENTION: This Library is used both a the cloud (AACloud) and also at the AAWeb on the server side without any modifications.
@@ -44,7 +44,7 @@
         'ETIMEDOUT'
     ];
 
-    let API = new Poloniex(pKey, pSecret);
+    let API = new Poloniex(keyVaultAPI);
 
     let thisObject = {
         getTicker: getTicker,

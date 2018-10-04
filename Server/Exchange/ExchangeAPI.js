@@ -1,4 +1,4 @@
-﻿exports.newExchangeAPI = function newExchangeAPI() {
+﻿exports.newExchangeAPI = function newExchangeAPI(botDisplayName, authToken) {
 
     /* 
 
@@ -7,6 +7,7 @@
     */
     const _ = require('lodash');
     const isValidOrder = require('./exchangeUtils').isValidOrder;
+    const graphqlClient = require('graphql-client')
 
     let MODULE_NAME = "Exchange API";
 
@@ -31,16 +32,71 @@
 
             if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> initialize -> Entering function."); }
 
-            let exchange = global.EXCHANGE_NAME.toLowerCase() + 'Client.js';
+            //TODO From financial beings we get the exchange the bot is trading
+            let botExchange = 'Poloniex';
+            let exchange = botExchange.toLowerCase() + 'Client.js';
             let api = require('./Wrappers/' + exchange);
-            apiClient = api.newAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            if (!authToken) {
+                console.log("[ERROR] Exchange API -> initialize -> User Not Logged In.");
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            } else {
+                let keyVaultAPI = createKeyVaultAPIClient(authToken)
+                apiClient = api.newAPIClient(keyVaultAPI);
 
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+            }
         } catch (err) {
             console.log("[ERROR] ExchangeAPI -> initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function createKeyVaultAPIClient(authToken) {
+        if (CONSOLE_LOG === true) { console.log("[INFO] createKeyVaultAPIClient -> Entering function."); }
+
+        const keyVaultAPI = graphqlClient({
+            url: 'https://keyvault-api.advancedalgos.net/graphql',
+            headers: {
+                Authorization: 'Bearer ' + authToken
+            }
+        });
+
+        keyVaultAPI.signTransaction = function (transaction, next) {
+            let variables = {
+                botId: botDisplayName,
+                transaction: transaction
+            }
+            
+            keyVaultAPI.query(`
+                mutation($botId: String, $transaction: String!){
+                signTransaction(botId: $botId, transaction: $transaction){
+                    key,
+                    signature,
+                    date
+                }
+                }`, variables, function (req, res) {
+                    if (res.status === 401) {
+                        next(undefined, 'Error from graphql: Not authorized');
+                    }
+                }).then(res => {
+                    if (res.errors) {
+                        next(undefined, 'Error from graphql: ' + res.errors);
+                    } else {
+                        let signature = {
+                            Key: res.data.signTransaction.key,
+                            Sign: res.data.signTransaction.signature
+                        }
+                        next(signature)
+                    }
+                }).catch(error => {
+                    next(undefined, 'Error signing the message on the key vault: ' + error.message);
+                });
+        }
+
+        if (CONSOLE_LOG === true) { console.log("[INFO] createKeyVaultAPIClient -> Returning graphql client."); }
+
+        return keyVaultAPI;
     }
 
     /*  

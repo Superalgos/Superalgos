@@ -728,31 +728,17 @@ function onBrowserRequest(request, response) {
 
                 /* We are going to let access the exchange only to authenticated users, that measn that we need the a valid session token. */
 
-                let sessionToken = requestParameters[3]; 
+                let botDisplayName = requestParameters[2];
+                let authToken = requestParameters[4];
 
-                let session = sessionManager.getSession(sessionToken);
-
-                if (session !== undefined) {
-
-                    let exchangeKey = session.exchangeKeys[0].key;  // 0 because we only deal with one exchange for now.
-                    let exchangeSecret = session.exchangeKeys[0].secret;
-
-                    global.EXCHANGE_NAME = "Poloniex";
-
+                if (authToken !== undefined) {
                     global.MARKET = {
                         assetA: "USDT",
                         assetB: "BTC"
                     };
-
-                    global.EXCHANGE_KEYS = {
-                        "Poloniex": {
-                            "Key": exchangeKey,
-                            "Secret": exchangeSecret
-                        }
-                    }
-
-                    const EXCHANGE_API = require('./Server/Exchange/' + 'ExchangeAPI');
-                    let exchangeAPI = EXCHANGE_API.newExchangeAPI();
+                    
+                    const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');
+                    let exchangeAPI = EXCHANGE_API.newExchangeAPI(botDisplayName, authToken);
 
                     exchangeAPI.initialize(onInizialized);
 
@@ -779,7 +765,7 @@ function onBrowserRequest(request, response) {
                     }
                     
                     function callExchangeAPIMethod() {                    
-                        switch (requestParameters[2]) {
+                        switch (requestParameters[3]) {
 
                             case "getTicker": {
                                 exchangeAPI.getTicker(global.MARKET, onExchangeResponse);
@@ -792,22 +778,22 @@ function onBrowserRequest(request, response) {
                             }
 
                             case "getExecutedTrades": {
-                                exchangeAPI.getExecutedTrades(requestParameters[4], onExchangeResponse);
+                                exchangeAPI.getExecutedTrades(requestParameters[5], onExchangeResponse);
                                 break;
                             }
 
                             case "putPosition": {
-                                exchangeAPI.putPosition(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                                exchangeAPI.putPosition(global.MARKET, requestParameters[5], requestParameters[6], requestParameters[7], requestParameters[8], onExchangeResponse);
                                 break;
                             }
 
                             case "movePosition": {
-                                exchangeAPI.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
+                                exchangeAPI.moveOrder(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                                 break;
                             }
                             
                             case "getPublicTradeHistory": {
-                                exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
+                                exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                                 break;
                             }
 
@@ -823,7 +809,7 @@ function onBrowserRequest(request, response) {
 
                         /* Delete these secrets before they get logged. */
 
-                        requestParameters[3] = "";
+                        requestParameters[4] = "";
                         if (err.result === global.DEFAULT_OK_RESPONSE.result)
                             respondWithContent(JSON.stringify(exchangeResponse), response);
                         else
@@ -837,7 +823,7 @@ function onBrowserRequest(request, response) {
 
                     let customResponse = {
                         result: global.CUSTOM_FAIL_RESPONSE.result,
-                        message: "Your session has expired. Please login again."
+                        message: "You are not logged in."
                     };
 
                     respondWithContent(JSON.stringify(customResponse), response);

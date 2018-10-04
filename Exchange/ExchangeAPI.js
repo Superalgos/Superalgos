@@ -28,9 +28,12 @@
 
     function getTicker(pMarket, callBackFunction) {
 
+        let authToken = window.localStorage.getItem('auth0Token');
+
         let path = "ExchangeAPI" + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "getTicker" + "/"
-            + window.SESSION_TOKEN
+            + authToken
             ;
 
         callServer(undefined, path + "/NO-LOG", onServerResponse);
@@ -46,9 +49,12 @@
 
     function getOpenPositions(pMarket, callBackFunction) {
 
+        let authToken = window.localStorage.getItem('auth0Token');
+
         let path = "ExchangeAPI" + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "getOpenPositions" + "/"
-            + window.SESSION_TOKEN
+            + authToken
             ;
 
         callServer(undefined, path + "/NO-LOG", onServerResponse);
@@ -64,9 +70,12 @@
 
     function getExecutedTrades(pPositionId, callBackFunction) {
 
+        let authToken = window.localStorage.getItem('auth0Token');
+
         let path = "ExchangeAPI" + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "getExecutedTrades" + "/"
-            + window.SESSION_TOKEN + "/"
+            + authToken + "/"
             + pPositionId
             ;
 
@@ -83,9 +92,12 @@
     
     function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
 
+        let authToken = window.localStorage.getItem('auth0Token');
+
         let path = "ExchangeAPI" + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "putPosition" + "/"
-            + window.SESSION_TOKEN + "/"
+            + authToken + "/"
             + pType + "/"
             + pRate + "/"
             + pAmountA + "/"
@@ -105,9 +117,12 @@
 
     function movePosition(pPositionId, pNewRate, pPositionAmountB, callBackFunction) {
 
+        let authToken = window.localStorage.getItem('auth0Token');
+
         let path = "ExchangeAPI" + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "movePosition" + "/"
-            + window.SESSION_TOKEN + "/"
+            + authToken + "/"
             + pPositionId + "/"
             + pNewRate + "/"
             + pPositionAmountB
@@ -126,9 +141,12 @@
 
     function getPublicTradeHistory(pMarket, startTime, endTime, callBackFunction) {
 
+        let authToken = window.localStorage.getItem('auth0Token');
+
         let path = "ExchangeAPI" + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "getPublicTradeHistory" + "/"
-            + window.SESSION_TOKEN + "/"
+            + authToken + "/"
             + startTime + "/"
             + endTime
             ;

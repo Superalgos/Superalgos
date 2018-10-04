@@ -1,4 +1,4 @@
-﻿exports.newAPIClient = function newAPIClient(pKey, pSecret, logger) {
+﻿exports.newAPIClient = function newAPIClient(keyVaultAPI, logger) {
 
     /*
     /* ATENTION: This Library is used both a the cloud (AACloud) and also at the AAWeb on the server side without any modifications.
@@ -44,7 +44,7 @@
         'ETIMEDOUT'
     ];
 
-    let API = new Poloniex(pKey, pSecret);
+    let API = new Poloniex(keyVaultAPI);
 
     let thisObject = {
         getTicker: getTicker,
@@ -102,7 +102,7 @@
         };
 
         const fetch = next => API.getTicker(analizeResponse(next));
-        
+
         retry(null, fetch, handle);
     }
 
@@ -283,7 +283,7 @@
 
         retry(null, fetch, handle);
     }
-    
+
     function isValidLot(price, amount) {
         return amount * price >= 0.0001;
     }
@@ -301,7 +301,7 @@
             try {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
-                
+
                 if (exchangeErr) {
                     error = global.DEFAULT_FAIL_RESPONSE;
 
@@ -339,15 +339,15 @@
                         result: global.DEFAULT_FAIL_RESPONSE.result,
                         message: exchangeResponse.error
                     };
-                }                
-                
+                }
+
                 return callBack(error, exchangeResponse);
-            
+
             } catch (err) {
                 logger.write(MODULE_NAME, "[ERROR] analizeResponse -> err.message = " + err.message);
                 return callBack(global.DEFAULT_FAIL_RESPONSE, exchangeResponse);
             }
         }
     }
-        
+
 }

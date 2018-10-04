@@ -5,8 +5,7 @@ module.exports = (function () {
     'use strict';
 
     // Module dependencies
-    var crypto = require('crypto'),
-        request = require('request'),
+    var request = require('request'),
         nonce = require('nonce')();
 
     // Constants
@@ -27,27 +26,18 @@ module.exports = (function () {
     }
 
     // Constructor
-    function Poloniex(key, secret) {
+    function Poloniex(keyVaultAPI) {
         // Generate headers signed by this user's key and secret.
         // The secret is encapsulated and never exposed
-        this._getPrivateHeaders = function (parameters) {
+        this._getPrivateHeaders = function (parameters, next) {
             var paramString, signature;
-
-            if (!key || !secret) {
-                throw 'Poloniex: Error. API key and secret required';
-            }
 
             // Convert to `arg1=foo&arg2=bar`
             paramString = Object.keys(parameters).map(function (param) {
                 return encodeURIComponent(param) + '=' + encodeURIComponent(parameters[param]);
             }).join('&');
-
-            signature = crypto.createHmac('sha512', secret).update(paramString).digest('hex');
-
-            return {
-                Key: key,
-                Sign: signature
-            };
+            
+            keyVaultAPI.signTransaction(paramString, next);
         };
     }
 
@@ -123,11 +113,22 @@ module.exports = (function () {
             options = {
                 method: 'POST',
                 url: PRIVATE_API_URL,
-                form: parameters,
-                headers: this._getPrivateHeaders(parameters)
+                form: parameters
             };
 
-            return this._request(options, callback);
+            let headers = this._getPrivateHeaders(parameters, next)
+
+            let thisObject = this
+
+            function next(pHeaders, error) {
+                if (!error) {
+                    options.headers = pHeaders;
+                    return thisObject._request(options, callback);
+                } else {
+                    callback(error);
+                }
+                
+            }
         },
 
         /////

@@ -21,20 +21,6 @@ function newLogin() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
-    const AUTH0_CLIENT_ID = 'WQTnXt20a0t2WGl64mEcOyP4Ippo37nB';
-    const AUTH0_DOMAIN = 'advancedalgos.eu.auth0.com';
-
-    const LOGIN_URL = "https://" + AUTH0_DOMAIN + "/authorize" +
-        "?state=" +
-        "&client_id=" + AUTH0_CLIENT_ID +
-        "&response_type=id_token" +
-        "&redirect_uri=" + location.href + "index.html" +
-        "&scope=openid" +
-        "&nonce=CALCULATESOMENONCE"; 
-
-    const LOGOUT_URL = "/";
-
-    let currentURL;
     let currentLabel;
 
     let Auth0;
@@ -46,14 +32,15 @@ function newLogin() {
 
         let parameters = {
             domain: 'advancedalgos.eu.auth0.com',
+            clientID: 'WQTnXt20a0t2WGl64mEcOyP4Ippo37nB',
             redirectUri: window.location.href,
-            clientID: 'WQTnXt20a0t2WGl64mEcOyP4Ippo37nB'
+            audience: 'https://auth-dev.advancedalgos.net',
         };
 
         Auth0 = new auth0.WebAuth(parameters);
 
         userAuthorization = window.location.hash.substr(1); // What comes after the # on the URL.
-
+        
         let sessionToken = window.localStorage.getItem('sessionToken');
 
         if (sessionToken !== null && sessionToken !== "") {
@@ -76,15 +63,10 @@ function newLogin() {
 
             } else {
 
-                console.log(userAuthorization);
-
                 Auth0.parseHash({ hash: window.location.hash }, function (err, authResult) {
                     if (err) {
                         return console.log("Parse Hash Error", err);
                     }
-
-                    console.log("Auth0 Error", err);
-                    console.log("Auth0 Result", authResult);
 
                     // The contents of authResult depend on which authentication parameters were used.
                     // It can include the following:
@@ -95,6 +77,9 @@ function newLogin() {
                     currentLabel = "Logout";
 
                     let authId = authResult.idTokenPayload.sub;
+
+                    // We store the token so we can identify the user
+                    window.localStorage.setItem('auth0Token', authResult.accessToken);
 
                     /* Now we connect to the users module to get the users alias, first, middle and last names. */
 
@@ -174,7 +159,7 @@ function newLogin() {
 
                 Auth0.authorize({
                     scope: 'openid profile',
-                    responseType: 'id_token'
+                    responseType: 'token id_token'
                 });
 
             } else {

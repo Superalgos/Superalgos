@@ -40,7 +40,7 @@ function newLogin() {
         Auth0 = new auth0.WebAuth(parameters);
 
         userAuthorization = window.location.hash.substr(1); // What comes after the # on the URL.
-        
+
         let sessionToken = window.localStorage.getItem('sessionToken');
 
         if (sessionToken !== null && sessionToken !== "") {
@@ -81,56 +81,136 @@ function newLogin() {
                     // We store the token so we can identify the user
                     window.localStorage.setItem('auth0Token', authResult.accessToken);
 
-                    /* Now we connect to the users module to get the users alias, first, middle and last names. */
+                    /* Now we connect to the users and team modules
+                       to get the users alias, first, middle and last names
+                       as well as the user's teams and their team data. */
 
-                    const apolloClient = new Apollo.lib.ApolloClient({
-                        networkInterface: Apollo.lib.createNetworkInterface({
-                            /*uri: 'http://localhost:4000/graphql',*/
-                            uri: 'https://users-api.advancedalgos.net/graphql',
-                            transportBatching: true,
-                        }),
-                        connectToDevTools: true,
-                    })
+                       // To avoid race conditions, add asynchronous fetches to array
+                       let fetchDataPromises = [];
 
-                    const QUERY = Apollo.gql`
-                query($authId: String){
-                    userByAuthId (authId: $authId){
-                        id
-                        referrerId
-                        alias
-                        firstName
-                        middleName
-                        lastName
-                        bio
-                        email
-                        emailVerified
-                        isDeveloper
-                        isDataAnalyst
-                        isTrader
-                        avatarHandle
-                        avatarChangeDate
-                        sessionToken
-                        role {
-                        id
-                        }
-                    }
-                }
-                `
+                       const apolloClient = new Apollo.lib.ApolloClient({
+                           networkInterface: Apollo.lib.createNetworkInterface({
+                               /*uri: 'http://localhost:4000/graphql',*/
+                               uri: 'https://users-api.advancedalgos.net/graphql',
+                               transportBatching: true,
+                           }),
+                           connectToDevTools: true,
+                       })
 
-                    apolloClient.query({
-                        query: QUERY,
-                        variables: {
-                            authId: authId
-                        }
-                    })
-                        .then(response => {
-                            console.log("apolloClient data", response);
-                            let sessionToken = response.data.userByAuthId.sessionToken;
-                            window.localStorage.setItem('sessionToken', sessionToken);
-                            window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.userByAuthId));
-                            window.location = "/index.html?" + sessionToken;
-                        })
-                        .catch(error => console.error("apolloClient error", error));
+                       const QUERY = Apollo.gql`
+                         query($authId: String){
+                             userByAuthId (authId: $authId){
+                                 id
+                                 referrerId
+                                 alias
+                                 firstName
+                                 middleName
+                                 lastName
+                                 bio
+                                 email
+                                 emailVerified
+                                 isDeveloper
+                                 isDataAnalyst
+                                 isTrader
+                                 avatarHandle
+                                 avatarChangeDate
+                                 sessionToken
+                                 role {
+                                 id
+                                 }
+                             }
+                         }
+                         `
+                           const getUser = () => {
+                             return new Promise((resolve, reject) => {
+                               apolloClient.query({
+                                   query: QUERY,
+                                   variables: {
+                                       authId: authId
+                                   }
+                               })
+                                 .then(response => {
+                                     console.log("apolloClient data", response);
+                                     let sessionToken = response.data.userByAuthId.sessionToken;
+                                     window.localStorage.setItem('sessionToken', sessionToken);
+                                     window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.userByAuthId));
+                                     resolve({user: response.data.userByAuthId})
+                                 })
+                                 .catch(error => {
+                                   console.log("apolloClient error", error)
+                                   // reject (error)
+                                 });
+                               });
+                             }
+
+                             const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
+                               // uri: 'http://localhost:4001/graphql',
+                               uri: 'https://teams-api.advancedalgos.net/graphql'
+                             });
+
+                             networkInterfaceTeams.use([{
+                               applyMiddleware(req, next) {
+                                 req.options.headers = {
+                                   authorization: `Bearer ${authResult.accessToken}`
+                                 };
+                                 next();
+                               }
+                             }]);
+
+                             const apolloClientTeams = new Apollo.lib.ApolloClient({
+                                 networkInterface: networkInterfaceTeams,
+                                 connectToDevTools: true,
+                             });
+
+                             const TEAM_BY_OWNER_QUERY = Apollo.gql`
+                             query teamsByOwnerQuery($authId: String!) {
+                               teamsByOwner(ownerId: $authId) {
+                                 id
+                                 name
+                                 slug
+                                 profile {
+                                   avatar
+                                   banner
+                                   description
+                                   motto
+                                   updatedAt
+                                 }
+                                 members {
+                                   member {
+                                     alias
+                                   }
+                                 }
+                               }
+                             }
+                         `
+
+                         const getTeamByOwner = () => {
+                           return new Promise((resolve, reject) => {
+                             apolloClientTeams.query({
+                               query: TEAM_BY_OWNER_QUERY,
+                               variables: { authId: authId }
+                             })
+                               .then(response => {
+                                 console.log("apolloClientTeam data", response);
+                                 window.localStorage.setItem('userTeams', JSON.stringify(response.data.teamsByOwner));
+                                 resolve({teams: response.data.teamsByOwner})
+                               })
+                               .catch(error => {
+                                 console.log("apolloClientTeam error", error)
+                                 // reject (error)
+                               });
+                             })
+                           }
+
+                           fetchDataPromises.push(getUser(), getTeamByOwner());
+
+                           // When all asynchronous fetches resolve, refresh page or throw error.
+                           Promise.all(fetchDataPromises).then(result => {
+                               console.log('fetchDataPromises: ', result);
+                               window.location = "/index.html?" + sessionToken;
+                           }, err => {
+                               console.error("fetchData error", err)
+                           });
 
                 });
             }
@@ -148,6 +228,8 @@ function newLogin() {
 
             window.localStorage.setItem('sessionToken', "");
             window.localStorage.setItem('loggedInUser', "");
+            window.localStorage.setItem('userTeams', "");
+            window.localStorage.setItem('accessToken', "");
             window.location = "/index.html";
             currentLabel = "Login / Signup";
 
@@ -168,6 +250,8 @@ function newLogin() {
 
                 window.localStorage.setItem('sessionToken', "");
                 window.localStorage.setItem('loggedInUser', "");
+                window.localStorage.setItem('userTeams', "");
+            window.localStorage.setItem('accessToken', "");
                 window.location = "/index.html";
                 currentLabel = "Login / Signup";
             }

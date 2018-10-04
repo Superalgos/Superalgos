@@ -4,7 +4,7 @@ function newDevTeam() {
     let thisObject = {
         container: undefined,
         draw: draw,
-        getContainer: getContainer,    
+        getContainer: getContainer,
         initialize: initialize
     };
 
@@ -32,11 +32,15 @@ function newDevTeam() {
 
         sharedStatus = pSharedStatus;
 
-        if (window.USER_PROFILE.devTeams.length === 0) {
+        let storedTeams = window.localStorage.getItem('userTeams');
+
+        if (storedTeams === null || storedTeams.length === 0) {
+            window.TEAMS = "";
             label = NOT_FOUND;
         } else {
-            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].codeName;
-            label = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
+            storedTeams = JSON.parse(storedTeams)
+            window.TEAMS = storedTeams;
+            label = storedTeams[sharedStatus.currentDevTeamIndex].name;
         }
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
@@ -44,20 +48,20 @@ function newDevTeam() {
 
     function onClick() {
 
-        if (sharedStatus.currentDevTeamIndex + 1 === window.USER_PROFILE.devTeams.length) {
+        if (sharedStatus.currentDevTeamIndex + 1 === window.TEAMS.length) {
 
             sharedStatus.currentDevTeamIndex = 0;
-            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].codeName;
-            label = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
+            window.DEV_TEAM = window.TEAMS[sharedStatus.currentDevTeamIndex].slug;
+            label = window.TEAMS[sharedStatus.currentDevTeamIndex].name;
             sharedStatus.eventHandler.raiseEvent("devTeam Changed");
             return;
         }
 
-        if (sharedStatus.currentDevTeamIndex + 1 < window.USER_PROFILE.devTeams.length) {
+        if (sharedStatus.currentDevTeamIndex + 1 < window.TEAMS.length) {
 
             sharedStatus.currentDevTeamIndex++;
-            window.DEV_TEAM = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].codeName;
-            label = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].displayName;
+            window.DEV_TEAM = window.TEAMS[sharedStatus.currentDevTeamIndex].slug;
+            label = window.TEAMS[sharedStatus.currentDevTeamIndex].name;
             sharedStatus.eventHandler.raiseEvent("devTeam Changed");
             return;
         }

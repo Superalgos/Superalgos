@@ -11,7 +11,7 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import DashTeamItem from './DashTeamItem'
 import CreateTeamDialog from './CreateTeamDialog'
-import { MessageCard } from '../../common/'
+import { MessageCard } from '@advancedalgos/web-components'
 
 import { isDefined, isString } from '../../../utils/js-helpers'
 import { getItem } from '../../../utils/local-storage'

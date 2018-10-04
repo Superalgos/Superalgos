@@ -18,13 +18,14 @@
   "author": "Barry Low <bearcanrun@gmail.com>",
   "license": "AGPL-3.0",
   "devDependencies": {
-    "@babel/core": "^7.0.1",
+    "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^8.6.5",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
-    "babel-loader": "^8.0.2",
+    "babel-loader": "^7.1.5",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -67,6 +68,7 @@
     "workbox-cli": "^3.4.1"
   },
   "dependencies": {
+    "@advancedalgos/web-components": "0.0.5",
     "@azure/storage-blob": "^10.0.0-preview",
     "@material-ui/core": "^3.0.3",
     "@material-ui/icons": "^3.0.1",

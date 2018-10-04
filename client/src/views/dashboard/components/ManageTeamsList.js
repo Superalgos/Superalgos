@@ -4,6 +4,7 @@ import { Query } from 'react-apollo'
 import { withStateHandlers, lifecycle, compose } from 'recompose'
 
 import Grid from '@material-ui/core/Grid'
+import { MessageCard } from '@advancedalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
 import { isDefined, isString } from '../../../utils/js-helpers'
@@ -13,7 +14,6 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import ManageTeamsItem from './ManageTeamsItem'
 import CreateTeamDialog from './CreateTeamDialog'
-import { MessageCard } from '../../common/'
 
 const styles = theme => ({
   heroContent: {

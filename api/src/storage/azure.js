@@ -1,10 +1,13 @@
-const Azure = require('@azure/storage-blob')
+const Azure = require("@azure/storage-blob")
+const azureAccount = process.env.AZURE_STORAGE_ACCOUNT
+const azureKey = process.env.AZURE_STORAGE_ACCESS_KEY
+const azureStorageUrl = process.env.AZURE_STORAGE_URL
 
 /* Create Azure Storage pipeline
 * @accountName: Azure Blob Storage account name (required) - Environment variable
 * @accountKey: Azure Blob Storage storage key (required) - Environment variable
 */
-const createStoragePipline = async (accountNAme, accountKey) => {
+const createStoragePipline = async (accountName, accountKey) => {
   return Azure.StorageURL.newPipeline(
     new Azure.SharedKeyCredential(accountName, accountKey)
   )
@@ -120,6 +123,60 @@ const deleteContainer = async (containerURL) => {
   return true
 }
 
+const createSASQueryURL = async (containerName) => {
+  let today = new Date()
+  let week = new Date()
+  week.setDate(today.getDate() + 7)
+  // Create SharedKeyCredential and attach to pipline
+  const SKC = new Azure.SharedKeyCredential(azureAccount, azureKey)
+  const pipeline = Azure.StorageURL.newPipeline(SKC)
+  // Create container URL
+  const serviceURL = new Azure.ServiceURL(azureStorageUrl, pipeline)
+  const containerURL = Azure.ContainerURL.fromServiceURL(serviceURL, containerName)
+
+  //list container and check if already exists.
+  let marker
+  let containerCheck = null
+  do {
+    const listContainersResponse = await serviceURL.listContainersSegment(
+      Azure.Aborter.None,
+      marker,
+    )
+    // console.log(`ContainerCheck marker: `, listContainersResponse)
+    marker = listContainersResponse.marker;
+    for (const container of listContainersResponse.containerItems) {
+      // console.log(`ContainerCheck: ${container.name} | ${containerName} | ${marker}`)
+      if(container.name === containerName){
+        containerCheck = container.name
+      }
+    }
+  } while (marker)
+
+  // if container doesn't exist, create one
+  let newContainer
+  if(containerCheck === null){
+    newContainer = await containerURL.create(Azure.Aborter.None, { access: 'blob' })
+  }
+  console.log('createSASQueryURL container: ', containerURL, containerCheck, newContainer)
+
+  // Set permissions for service, resource types and containers
+  const SASContainerPerms = await Azure.AccountSASPermissions.parse('rwlacu')
+  const SASServicePerms = await Azure.AccountSASServices.parse('b')
+  const SASResourceTypes = await Azure.AccountSASResourceTypes.parse('co')
+  console.log('createSASQueryURL permissions: ', SASServicePerms, SASResourceTypes, SASContainerPerms)
+  // Generate SAS url
+  const SASQueryParameters = await Azure.generateBlobSASQueryParameters(
+    {
+      version: '2017-11-09',
+      protocol: 'https,http',
+      expiryTime: week,
+      permissions: 'rwlac',
+      containerName: containerName
+    }, SKC )
+    console.log('createSASQueryURL SASQueryParameters: ', containerURL.url, SASQueryParameters)
+  return SASQueryParameters
+}
+
 module.exports = {
   createStoragePipline,
   createServiceURL,
@@ -129,5 +186,6 @@ module.exports = {
   uploadBlob,
   downloadBlob,
   deleteBlob,
-  deleteContainer
+  deleteContainer,
+  createSASQueryURL
 }

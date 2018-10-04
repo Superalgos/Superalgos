@@ -1,12 +1,15 @@
 ﻿exports.newExchangeAPI = function newExchangeAPI(bot, logger) {
 
-    /* 
+    /*
 
     This module allows trading bots to connect to the exchange and do trading operations on it. So far it can only work with Poloniex.
 
     */
     const _ = require('lodash');
     const isValidOrder = require('./exchangeUtils').isValidOrder;
+    const graphqlClient = require('graphql-client')
+    const request = require('request')
+    const authOptions = require('./Auth0')
 
     let MODULE_NAME = "Exchange API";
 
@@ -31,21 +34,84 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            let exchange = global.EXCHANGE_NAME.toLowerCase() + 'Client.js';
+            // TODO integrate with financial beings module to get the exchange
+            let botExchange = 'Poloniex';
+            let exchange = botExchange.toLowerCase() + 'Client.js';
             let api = require('./Wrappers/' + exchange);
-            if (!bot.instanceIndex)
-                bot.instanceIndex = 0;
-            apiClient = api.newAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME][bot.instanceIndex].Secret, logger);
+            
+            request(authOptions, onTokenResponse);
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            function onTokenResponse(error, response, body) {
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] onTokenResponse -> Entering function."); }
 
+                if (error) {
+                    logger.write(MODULE_NAME, "[ERROR] onTokenResponse -> err = " + error.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                } else {
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] onTokenResponse -> Token Received."); }
+                    let response = JSON.parse(body)
+                    let authToken = response.access_token
+                    let keyVaultAPI = createKeyVaultAPIClient(authToken)
+                    apiClient = api.newAPIClient(keyVaultAPI, logger);
+
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                }
+            }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    /*  
+    function createKeyVaultAPIClient(authToken) {
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
+
+        const keyVaultAPI = graphqlClient({
+            //url: 'http://localhost:4002/graphql', TODO Move to properties
+            url: 'https://keyvault-api.advancedalgos.net/graphql',
+            headers: {
+                Authorization: 'Bearer ' + authToken
+            }
+        });
+
+        keyVaultAPI.signTransaction = function (transaction, next) {
+            let variables = {
+                botId: bot.displayName,
+                transaction: transaction
+            }
+
+            keyVaultAPI.query(`
+                mutation($botId: String, $transaction: String!){
+                signTransaction(botId: $botId, transaction: $transaction){
+                    key,
+                    signature,
+                    date
+                }
+                }`, variables, function (req, res) {
+                if (res.status === 401) {
+                    next(undefined, 'Error from graphql: Not authorized');
+                }
+            }).then(res => {
+                if (res.errors) {
+                    next(undefined, 'Error from graphql: ' + res.errors);
+                } else {
+                    let signature = {
+                        Key: res.data.signTransaction.key,
+                        Sign: res.data.signTransaction.signature
+                    }
+                    next(signature)
+                }
+            }).catch(error => {
+                next(undefined, 'Error signing the message on the key vault: ' + error.message);
+            });
+        }
+
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Returning graphql client."); }
+
+        return keyVaultAPI;
+    }
+
+    /*
      *  Position Object = {
      *           id,        String
      *           type,      String
@@ -55,7 +121,7 @@
      *           fee,       Number
      *           datetime   Date
      *       };
-     */    
+     */
     function truncDecimals(pFloatValue) {
         let decimals = getMaxDecimalPositions();
         return parseFloat(parseFloat(pFloatValue).toFixed(decimals));
@@ -119,7 +185,7 @@
     /*
      * Returns the open positions ath the exchange for a given market and user account.
      * The object returned is an array of positions
-     * 
+     *
      */
     function getOpenPositions(pMarket, callBack) {
         try {
@@ -184,7 +250,7 @@
                     apiClient.sell(pMarket.assetA, pMarket.assetB, truncDecimals(pRate), truncDecimals(pAmountB), callBack);
                     return;
                 }
-                
+
                 logger.write(MODULE_NAME, "[ERROR] putPosition -> pType must be either 'buy' or 'sell'.");
                 callBack(global.DEFAULT_FAIL_RESPONSE);
 

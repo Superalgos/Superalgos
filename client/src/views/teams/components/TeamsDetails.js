@@ -98,14 +98,6 @@ const TeamsDetails = ({ classes, team }) => {
             <Typography variant='subheading' paragraph gutterBottom>
               Members: {team.members.length}
             </Typography>
-            <Typography variant='subheading' color='primary'>
-              Team Admin:&nbsp;
-              {team.members.map(member => {
-                if (member.role === 'OWNER' || member.role === 'ADMIN') {
-                  return member.member.alias
-                }
-              })}
-            </Typography>
           </div>
         </Paper>
       </main>

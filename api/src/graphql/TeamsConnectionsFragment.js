@@ -15,6 +15,7 @@ const TEAMS_CONNECTIONS_FRAGMENT = gql`{
       createdAt
       profile {
         avatar
+        banner
         description
         motto
         updatedAt

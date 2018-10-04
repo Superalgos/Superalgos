@@ -7,11 +7,18 @@ const {
 } = require('prisma-binding')
 const { makeExecutableSchema } = require('graphql-tools')
 const { importSchema } = require('graphql-import')
+const parser = require('fast-xml-parser')
 
 const checkJwt = require('./auth/middleware/jwt')
 const { getMember } = require('./auth/middleware/getMember')
 const { validateIdToken } = require('./auth/validateIdToken')
 const { directiveResolvers } = require('./auth/authDirectives')
+
+const Azure = require("@azure/storage-blob")
+const { createSASQueryURL } = require('./storage/azure')
+const azureAccount = process.env.AZURE_STORAGE_ACCOUNT
+const azureKey = process.env.AZURE_STORAGE_ACCESS_KEY
+const azureStorageUrl = process.env.AZURE_STORAGE_URL
 
 const TEAMS_FRAGMENT = require('./graphql/TeamsFragment')
 const TEAMS_CONNECTIONS_FRAGMENT = require('./graphql/TeamsConnectionsFragment')
@@ -43,8 +50,18 @@ const resolvers = {
       return ctx.db.query.member({ where: { authId: arg.authId } }, info)
     },
     async currentMember(parent, args, ctx, info) {
-      console.log('currentMember: ', ctx.request.res.req.user)
+      console.log('currentMember: ', ctx.request.res.req.user, ctx.token)
       const authId = ctx.request.res.req.user.sub
+
+      fetch('URL_GOES_HERE', {
+        method: 'post',
+        headers: new Headers({
+         'Authorization': 'Basic '+btoa('username:password'),
+         'Content-Type': 'application/x-www-form-urlencoded'
+        }),
+        body: 'A=1&B=2'
+      })
+
       return ctx.db.query.member({ where: { authId } }, info)
     },
     teams(parent, args, ctx, info) {
@@ -57,7 +74,7 @@ const resolvers = {
       return ctx.db.query.team({ where: { name: name } }, `{ name }`)
     },
     async teamsByOwner(parent, { ownerId }, ctx, info) {
-      console.log('teamsByOwner: ', ctx.user)
+      console.log('teamsByOwner: ', ctx)
       return ctx.db.query.teams({where: { owner: ownerId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
     },
     async owner(parent, args, ctx, info) {
@@ -100,8 +117,8 @@ const resolvers = {
           return err
         })
     },
-    async updateTeamProfile(parent, { slug, owner, description, motto, avatar }, ctx, info) {
-      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
+    async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {
+      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar, banner: banner}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err
@@ -115,6 +132,11 @@ const resolvers = {
             return error.message
           })
         })
+    },
+    async getAzureSAS(parent, { teamSlug }, ctx, info) {
+      const SASUrl = createSASQueryURL(teamSlug)
+      console.log('createSASQueryURL: ', SASUrl)
+      return SASUrl
     }
   }
 }
@@ -148,7 +170,7 @@ server.express.use(
   server.options.endpoint,
   checkJwt,
   function (err, req, res, next) {
-    console.log('checkJwt: ', err, req)
+    // console.log('checkJwt: ', err, req)
     if (err) {
       return res.status(201).send(err.message)
     } else {
@@ -159,13 +181,26 @@ server.express.use(
 
 server.express.post(server.options.endpoint, (req, res, done) => getUser(req, res, done, db))
 
-const whitelist = [
+let whitelist = [
   'http://localhost:3000',
   'http://localhost:3001',
   'http://localhost:3002',
   'http://localhost:4000',
-  'http://localhost:4002'
+  'http://localhost:4002',
+  'http://localhost:1337'
 ]
+if(process.env.NODE_ENV === 'production'){
+  whitelist = [
+    'https://teams.advancedalgos.net',
+    'https://users.advancedalgos.net',
+    'https://users-api.advancedalgos.net',
+    'https://keyvault.advancedalgos.net',
+    'https://keyvault-api.advancedalgos.net',
+    'http://localhost:1337'
+  ]
+}
+
+
 const corsOptionsDelegate = (req, callback) => {
   var corsOptions
   if (whitelist.indexOf(req.header('Origin')) !== -1) {

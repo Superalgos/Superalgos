@@ -64,6 +64,7 @@ wsClient.onReconnected(() => {
 })
 
 const httpLink = new HttpLink({ uri: graphqlEndpoint })
+const httpUserLink = new HttpLink({ uri: 'https://users-api.advancedalgos.net/graphql' })
 
 const link = split(
   ({ query }) => {
@@ -132,6 +133,11 @@ export const client = new ApolloClient({
   link: ApolloLink.from([authRetryLink, authLink, link]),
   cache,
   connectToDevTools: true
+})
+
+export const UserClient = new ApolloClient({
+  link: ApolloLink.from([authRetryLink, authLink, httpUserLink]),
+  cache
 })
 
 export const auth = new Auth(

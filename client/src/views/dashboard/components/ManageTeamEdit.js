@@ -13,12 +13,14 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import { getItem } from '../../../utils/local-storage'
+import { MessageCard, ImageUpload } from '@advancedalgos/web-components'
 
 import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
+
+import GET_AZURE_SAS from '../../../graphql/teams/GetAzureSASMutation'
 
 const styles = theme => ({
   dialogContainer: {
@@ -39,26 +41,35 @@ export class ManageTeamEdit extends Component {
     this.handleClose = this.handleClose.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleAvatar = this.handleAvatar.bind(this)
+    this.handleBanner = this.handleBanner.bind(this)
+
     console.log('ManageTeamEdit', props.team)
     const motto = props.team.profile.motto || ''
     const description = props.team.profile.description || ''
+    const avatar = props.team.profile.avatar || ''
+    const banner = props.team.profile.banner || ''
+    this.authId = props.authId
+
     this.state = {
       open: false,
       motto: motto,
-      description: description
+      description: description,
+      avatar: avatar,
+      banner: banner
     }
   }
 
   render () {
-    console.log(this.props, this.props.slug)
-    const { classes, team, authId } = this.props
+    console.log('ManageTeamEdit ', this.props, this.props.slug, this.props.team)
+    const { classes, team } = this.props
     return (
       <Mutation
         mutation={UPDATE_TEAM_PROFILE}
         refetchQueries={[
           {
             query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
+            variables: { authId: this.authId }
           }
         ]}
       >
@@ -101,6 +112,77 @@ export class ManageTeamEdit extends Component {
                     Edit Team Details
                   </DialogTitle>
                   <DialogContent>
+                    <Mutation mutation={GET_AZURE_SAS} >
+                      {(getAzureSAS, { loading, error, data }) => {
+                        console.log('getAzureSAS: ', loading, error, data, team.profile)
+                        const AzureStorageUrl = process.env.AZURE_STORAGE_URL
+                        const containerName = team.slug
+                        let AzureSASURL
+                        if (!loading && data !== undefined) {
+                          AzureSASURL = data.getAzureSAS
+                        } else {
+                          getAzureSAS({ variables: { teamSlug: containerName } })
+                        }
+
+                        let avatar = null
+                        if (this.state.avatar !== null) avatar = this.state.avatar
+                        if (team.profile !== null && team.profile.avatar !== undefined && team.profile.avatar !== null) avatar = team.profile.avatar
+
+                        let banner = null
+                        if (this.state.banner !== null) banner = this.state.banner
+                        if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
+                        console.log('team images: ', avatar, banner)
+
+                        if (loading || data === undefined) {
+                          return (<MessageCard message='Loading...' />)
+                        } else {
+                          return (
+                            <React.Fragment>
+                              <ImageUpload
+                                key='banner'
+                                handleUrl={this.handleBanner}
+                                fileName={`${team.slug}-banner.jpg`}
+                                containerName={containerName}
+                                existingImage={banner}
+                                cropContainer={{ x: 10, y: 10, width: 800, height: 200 }}
+                                cropPreviewBox={{ width: 650, height: 200 }}
+                                saveImageConfig={{
+                                  quality: 0.6,
+                                  maxWidth: 800,
+                                  maxHeight: 200,
+                                  autoRotate: true,
+                                  mimeType: 'image/jpeg'
+                                }}
+                                AzureStorageUrl={AzureStorageUrl}
+                                AzureSASURL={AzureSASURL}
+                                cropRatio={4}
+                                debug
+                              />
+                              <ImageUpload
+                                key='avatar'
+                                handleUrl={this.handleAvatar}
+                                fileName={`${team.slug}-avatar.jpg`}
+                                containerName={containerName}
+                                existingImage={avatar}
+                                cropContainer={{ x: 10, y: 10, width: 200, height: 200 }}
+                                cropPreviewBox={{ width: 350, height: 350 }}
+                                saveImageConfig={{
+                                  quality: 0.6,
+                                  maxWidth: 200,
+                                  maxHeight: 200,
+                                  autoRotate: true,
+                                  mimeType: 'image/jpeg'
+                                }}
+                                AzureStorageUrl={AzureStorageUrl}
+                                AzureSASURL={AzureSASURL}
+                                cropRatio={1}
+                                debug
+                              />
+                            </React.Fragment>
+                          )
+                        }
+                      }}
+                    </Mutation>
                     <TextField
                       autoFocus
                       margin='dense'
@@ -178,17 +260,28 @@ export class ManageTeamEdit extends Component {
     }
   }
 
+  handleAvatar (avatarUrl) {
+    console.log('handleAvatar: ', avatarUrl)
+    this.setState({ avatar: `${avatarUrl}?${Math.random()}` })
+  }
+
+  handleBanner (bannerUrl) {
+    console.log('handleBanner: ', bannerUrl)
+    this.setState({ banner: `${bannerUrl}?${Math.random()}` })
+  }
+
   async handleSubmit (e, updateTeamProfile, slug) {
+    console.log('handleSubmit: ', this.state)
     e.preventDefault()
-    const currentUser = await getItem('user')
-    let authId = JSON.parse(currentUser)
-    authId = authId.authId
+
     await updateTeamProfile({
       variables: {
         slug,
-        owner: authId,
+        owner: this.authId,
         description: this.state.description,
-        motto: this.state.motto
+        motto: this.state.motto,
+        avatar: this.state.avatar,
+        banner: this.state.banner
       }
     })
     this.setState({ description: '', motto: '', open: false })
@@ -198,8 +291,8 @@ export class ManageTeamEdit extends Component {
 ManageTeamEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  authId: PropTypes.string,
-  team: PropTypes.object
+  team: PropTypes.object,
+  authId: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(ManageTeamEdit)

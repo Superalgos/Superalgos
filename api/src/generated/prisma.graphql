@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Wed Sep 12 2018 08:41:57 GMT-0700 (Pacific Daylight Time)
+# timestamp: Thu Sep 20 2018 16:52:44 GMT-0700 (Pacific Daylight Time)
 
 type AggregateFBStatus {
   count: Int!
@@ -1400,7 +1400,9 @@ type TeamProfile {
   description: String
   motto: String
   avatar: String
+  banner: String
   updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 """A connection to a list of items."""
@@ -1417,6 +1419,7 @@ input TeamProfileCreateInput {
   description: String
   motto: String
   avatar: String
+  banner: String
 }
 
 input TeamProfileCreateOneInput {
@@ -1439,19 +1442,23 @@ enum TeamProfileOrderByInput {
   motto_DESC
   avatar_ASC
   avatar_DESC
+  banner_ASC
+  banner_DESC
   updatedAt_ASC
   updatedAt_DESC
-  id_ASC
-  id_DESC
   createdAt_ASC
   createdAt_DESC
+  id_ASC
+  id_DESC
 }
 
 type TeamProfilePreviousValues {
   description: String
   motto: String
   avatar: String
+  banner: String
   updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type TeamProfileSubscriptionPayload {
@@ -1497,12 +1504,14 @@ input TeamProfileUpdateDataInput {
   description: String
   motto: String
   avatar: String
+  banner: String
 }
 
 input TeamProfileUpdateInput {
   description: String
   motto: String
   avatar: String
+  banner: String
 }
 
 input TeamProfileUpdateOneInput {
@@ -1647,6 +1656,46 @@ input TeamProfileWhereInput {
 
   """All values not ending with the given string."""
   avatar_not_ends_with: String
+  banner: String
+
+  """All values that are not equal to given value."""
+  banner_not: String
+
+  """All values that are contained in given list."""
+  banner_in: [String!]
+
+  """All values that are not contained in given list."""
+  banner_not_in: [String!]
+
+  """All values less than the given value."""
+  banner_lt: String
+
+  """All values less than or equal the given value."""
+  banner_lte: String
+
+  """All values greater than the given value."""
+  banner_gt: String
+
+  """All values greater than or equal the given value."""
+  banner_gte: String
+
+  """All values containing the given string."""
+  banner_contains: String
+
+  """All values not containing the given string."""
+  banner_not_contains: String
+
+  """All values starting with the given string."""
+  banner_starts_with: String
+
+  """All values not starting with the given string."""
+  banner_not_starts_with: String
+
+  """All values ending with the given string."""
+  banner_ends_with: String
+
+  """All values not ending with the given string."""
+  banner_not_ends_with: String
   updatedAt: DateTime
 
   """All values that are not equal to given value."""
@@ -1669,6 +1718,28 @@ input TeamProfileWhereInput {
 
   """All values greater than or equal the given value."""
   updatedAt_gte: DateTime
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
 }
 
 type TeamStatus {

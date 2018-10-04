@@ -7,9 +7,13 @@
     "dev": "npm-run-all --parallel debug playground"
   },
   "dependencies": {
+    "@azure/storage-blob": "^10.0.0-preview",
+    "azure-storage": "^2.10.1",
     "cors": "^2.8.4",
+    "debug": "^4.0.1",
     "dotenv": "^6.0.0",
     "express-jwt": "^5.3.1",
+    "fast-xml-parser": "^3.12.5",
     "graphql-import": "^0.6.0",
     "graphql-tag": "^2.9.2",
     "graphql-tools": "3.1.1",
@@ -23,6 +27,6 @@
   "devDependencies": {
     "graphql-cli": "^2.16.5",
     "npm-run-all": "4.1.3",
-    "prisma": "^1.16.0"
+    "prisma": "^1.16.4"
   }
 }

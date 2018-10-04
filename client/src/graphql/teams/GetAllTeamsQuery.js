@@ -18,6 +18,7 @@ export const GET_ALL_TEAMS_QUERY = gql`
           createdAt
           profile {
             avatar
+            banner
             description
             motto
             updatedAt

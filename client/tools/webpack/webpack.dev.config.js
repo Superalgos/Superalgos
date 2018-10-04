@@ -40,7 +40,8 @@ module.exports = merge(commonConfig, {
         loader: 'style-loader!css-loader!postcss-loader!sass-loader'
       }
     ]
-  }
+  },
+  target: 'web'
 })
 
 module.exports.serve = {

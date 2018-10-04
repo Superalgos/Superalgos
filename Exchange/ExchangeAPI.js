@@ -31,7 +31,7 @@
         let authToken = window.localStorage.getItem('auth0Token');
 
         let path = "ExchangeAPI" + "/"
-            + CURRENT_BOT_DISPLAY_NAME + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "getTicker" + "/"
             + authToken
             ;
@@ -52,7 +52,7 @@
         let authToken = window.localStorage.getItem('auth0Token');
 
         let path = "ExchangeAPI" + "/"
-            + CURRENT_BOT_DISPLAY_NAME + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "getOpenPositions" + "/"
             + authToken
             ;
@@ -73,7 +73,7 @@
         let authToken = window.localStorage.getItem('auth0Token');
 
         let path = "ExchangeAPI" + "/"
-            + CURRENT_BOT_DISPLAY_NAME + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "getExecutedTrades" + "/"
             + authToken + "/"
             + pPositionId
@@ -95,7 +95,7 @@
         let authToken = window.localStorage.getItem('auth0Token');
 
         let path = "ExchangeAPI" + "/"
-            + CURRENT_BOT_DISPLAY_NAME + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "putPosition" + "/"
             + authToken + "/"
             + pType + "/"
@@ -120,7 +120,7 @@
         let authToken = window.localStorage.getItem('auth0Token');
 
         let path = "ExchangeAPI" + "/"
-            + CURRENT_BOT_DISPLAY_NAME + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "movePosition" + "/"
             + authToken + "/"
             + pPositionId + "/"
@@ -144,7 +144,7 @@
         let authToken = window.localStorage.getItem('auth0Token');
 
         let path = "ExchangeAPI" + "/"
-            + CURRENT_BOT_DISPLAY_NAME + "/"
+            + CURRENT_BOT_CODE_NAME + "/"
             + "getPublicTradeHistory" + "/"
             + authToken + "/"
             + startTime + "/"

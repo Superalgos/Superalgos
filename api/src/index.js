@@ -15,13 +15,10 @@ const { validateIdToken } = require('./auth/validateIdToken')
 const { directiveResolvers } = require('./auth/authDirectives')
 
 const Azure = require("@azure/storage-blob")
+const { createSASQueryURL } = require('./storage/azure')
 const azureAccount = process.env.AZURE_STORAGE_ACCOUNT
 const azureKey = process.env.AZURE_STORAGE_ACCESS_KEY
 const azureStorageUrl = process.env.AZURE_STORAGE_URL
-
-var debug = require('debug')('http')
-  , http = require('http')
-  , name = 'My App';
 
 const TEAMS_FRAGMENT = require('./graphql/TeamsFragment')
 const TEAMS_CONNECTIONS_FRAGMENT = require('./graphql/TeamsConnectionsFragment')
@@ -77,7 +74,7 @@ const resolvers = {
       return ctx.db.query.team({ where: { name: name } }, `{ name }`)
     },
     async teamsByOwner(parent, { ownerId }, ctx, info) {
-      console.log('teamsByOwner: ', ctx.user)
+      console.log('teamsByOwner: ', ctx)
       return ctx.db.query.teams({where: { owner: ownerId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
     },
     async owner(parent, args, ctx, info) {
@@ -137,60 +134,9 @@ const resolvers = {
         })
     },
     async getAzureSAS(parent, { teamSlug }, ctx, info) {
-      // Create start and expiry times
-      let today = new Date()
-      let week = new Date()
-      week.setDate(today.getDate() + 7)
-      // Create SharedKeyCredential and attach to pipline
-      const SKC = new Azure.SharedKeyCredential(azureAccount, azureKey)
-      const pipeline = Azure.StorageURL.newPipeline(SKC)
-      // Create container URL
-      const serviceURL = new Azure.ServiceURL(azureStorageUrl, pipeline)
-      const containerName = teamSlug
-      const containerURL = Azure.ContainerURL.fromServiceURL(serviceURL, containerName)
-
-      //list container and check if already exists.
-      let marker
-      let containerCheck = null
-      do {
-        const listContainersResponse = await serviceURL.listContainersSegment(
-          Azure.Aborter.None,
-          marker,
-        )
-        // console.log(`ContainerCheck marker: `, listContainersResponse)
-        marker = listContainersResponse.marker;
-        for (const container of listContainersResponse.containerItems) {
-          // console.log(`ContainerCheck: ${container.name} | ${containerName} | ${marker}`)
-          if(container.name === containerName){
-            containerCheck = container.name
-          }
-        }
-      } while (marker)
-
-      // if container doesn't exist, create one
-      let newContainer
-      if(containerCheck === null){
-        newContainer = await containerURL.create(Azure.Aborter.None, { access: 'blob' })
-      }
-      // console.log('getAzureSAS container: ', containerURL, containerCheck, newContainer)
-
-      // Set permissions for service, resource types and containers
-      const SASServicePerms = Azure.AccountSASServices.parse('b')
-      const SASResourceTypes = Azure.AccountSASResourceTypes.parse('co')
-      const SASContainerPerms = Azure.ContainerSASPermissions.parse('rwl')
-
-      // Generate SAS url
-      const SASQueryParameters = Azure.generateAccountSASQueryParameters(
-        {
-          version: '2017-11-09',
-          permissions: SASContainerPerms,
-          startTime: today,
-          expiryTime: week,
-          protocol: 'https',
-          services: SASServicePerms,
-          resourceTypes: SASResourceTypes
-        }, SKC )
-      return SASQueryParameters
+      const SASUrl = createSASQueryURL(teamSlug)
+      console.log('createSASQueryURL: ', SASUrl)
+      return SASUrl
     }
   }
 }
@@ -235,13 +181,26 @@ server.express.use(
 
 server.express.post(server.options.endpoint, (req, res, done) => getUser(req, res, done, db))
 
-const whitelist = [
+let whitelist = [
   'http://localhost:3000',
   'http://localhost:3001',
   'http://localhost:3002',
   'http://localhost:4000',
-  'http://localhost:4002'
+  'http://localhost:4002',
+  'http://localhost:1337'
 ]
+if(process.env.NODE_ENV === 'production'){
+  whitelist = [
+    'https://teams.advancedalgos.net',
+    'https://users.advancedalgos.net',
+    'https://users-api.advancedalgos.net',
+    'https://keyvault.advancedalgos.net',
+    'https://keyvault-api.advancedalgos.net',
+    'http://localhost:1337'
+  ]
+}
+
+
 const corsOptionsDelegate = (req, callback) => {
   var corsOptions
   if (whitelist.indexOf(req.header('Origin')) !== -1) {

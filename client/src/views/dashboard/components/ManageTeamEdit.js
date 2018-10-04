@@ -15,8 +15,6 @@ import Typography from '@material-ui/core/Typography'
 
 import { MessageCard, ImageUpload } from '@advancedalgos/web-components'
 
-import { getItem } from '../../../utils/local-storage'
-
 import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
@@ -51,6 +49,7 @@ export class ManageTeamEdit extends Component {
     const description = props.team.profile.description || ''
     const avatar = props.team.profile.avatar || ''
     const banner = props.team.profile.banner || ''
+    this.authId = props.authId
 
     this.state = {
       open: false,
@@ -62,14 +61,15 @@ export class ManageTeamEdit extends Component {
   }
 
   render () {
-    console.log(this.props, this.props.slug)
+    console.log('ManageTeamEdit ', this.props, this.props.slug, this.props.team)
     const { classes, team } = this.props
     return (
       <Mutation
         mutation={UPDATE_TEAM_PROFILE}
         refetchQueries={[
           {
-            query: GET_TEAMS_BY_OWNER
+            query: GET_TEAMS_BY_OWNER,
+            variables: { authId: this.authId }
           }
         ]}
       >
@@ -114,7 +114,7 @@ export class ManageTeamEdit extends Component {
                   <DialogContent>
                     <Mutation mutation={GET_AZURE_SAS} >
                       {(getAzureSAS, { loading, error, data }) => {
-                        console.log('getAzureSAS: ', loading, error, data)
+                        console.log('getAzureSAS: ', loading, error, data, team.profile)
                         const AzureStorageUrl = process.env.AZURE_STORAGE_URL
                         const containerName = team.slug
                         let AzureSASURL
@@ -124,16 +124,46 @@ export class ManageTeamEdit extends Component {
                           getAzureSAS({ variables: { teamSlug: containerName } })
                         }
 
+                        let avatar = null
+                        if (this.state.avatar !== null) avatar = this.state.avatar
+                        if (team.profile !== null && team.profile.avatar !== undefined && team.profile.avatar !== null) avatar = team.profile.avatar
+
+                        let banner = null
+                        if (this.state.banner !== null) banner = this.state.banner
+                        if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
+                        console.log('team images: ', avatar, banner)
+
                         if (loading || data === undefined) {
                           return (<MessageCard message='Loading...' />)
                         } else {
                           return (
                             <React.Fragment>
                               <ImageUpload
+                                key='banner'
+                                handleUrl={this.handleBanner}
+                                fileName={`${team.slug}-banner.jpg`}
+                                containerName={containerName}
+                                existingImage={banner}
+                                cropContainer={{ x: 10, y: 10, width: 800, height: 200 }}
+                                cropPreviewBox={{ width: 650, height: 200 }}
+                                saveImageConfig={{
+                                  quality: 0.6,
+                                  maxWidth: 800,
+                                  maxHeight: 200,
+                                  autoRotate: true,
+                                  mimeType: 'image/jpeg'
+                                }}
+                                AzureStorageUrl={AzureStorageUrl}
+                                AzureSASURL={AzureSASURL}
+                                cropRatio={4}
+                                debug
+                              />
+                              <ImageUpload
+                                key='avatar'
                                 handleUrl={this.handleAvatar}
                                 fileName={`${team.slug}-avatar.jpg`}
                                 containerName={containerName}
-                                existingImage={team.profile.avatar}
+                                existingImage={avatar}
                                 cropContainer={{ x: 10, y: 10, width: 200, height: 200 }}
                                 cropPreviewBox={{ width: 350, height: 350 }}
                                 saveImageConfig={{
@@ -145,6 +175,8 @@ export class ManageTeamEdit extends Component {
                                 }}
                                 AzureStorageUrl={AzureStorageUrl}
                                 AzureSASURL={AzureSASURL}
+                                cropRatio={1}
+                                debug
                               />
                             </React.Fragment>
                           )
@@ -230,24 +262,22 @@ export class ManageTeamEdit extends Component {
 
   handleAvatar (avatarUrl) {
     console.log('handleAvatar: ', avatarUrl)
-    this.setState({ avatar: avatarUrl })
+    this.setState({ avatar: `${avatarUrl}?${Math.random()}` })
   }
 
   handleBanner (bannerUrl) {
     console.log('handleBanner: ', bannerUrl)
-    this.setState({ banner: bannerUrl })
+    this.setState({ banner: `${bannerUrl}?${Math.random()}` })
   }
 
   async handleSubmit (e, updateTeamProfile, slug) {
     console.log('handleSubmit: ', this.state)
     e.preventDefault()
-    const currentUser = await getItem('user')
-    let authId = JSON.parse(currentUser)
-    authId = authId.authId
+
     await updateTeamProfile({
       variables: {
         slug,
-        owner: authId,
+        owner: this.authId,
         description: this.state.description,
         motto: this.state.motto,
         avatar: this.state.avatar,
@@ -261,7 +291,8 @@ export class ManageTeamEdit extends Component {
 ManageTeamEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  team: PropTypes.object
+  team: PropTypes.object,
+  authId: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(ManageTeamEdit)

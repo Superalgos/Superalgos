@@ -68,7 +68,7 @@
     "workbox-cli": "^3.4.1"
   },
   "dependencies": {
-    "@advancedalgos/web-components": "0.0.1",
+    "@advancedalgos/web-components": "0.0.5",
     "@azure/storage-blob": "^10.0.0-preview",
     "@material-ui/core": "^3.0.3",
     "@material-ui/icons": "^3.0.1",

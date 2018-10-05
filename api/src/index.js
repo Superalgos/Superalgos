@@ -187,19 +187,15 @@ let whitelist = [
   'http://localhost:3002',
   'http://localhost:4000',
   'http://localhost:4002',
-  'http://localhost:1337'
+  'http://localhost:1337',
+  'https://teams.advancedalgos.net',
+  'https://users.advancedalgos.net',
+  'https://users-api.advancedalgos.net',
+  'https://keyvault.advancedalgos.net',
+  'https://keyvault-api.advancedalgos.net',
+  'https://aawebdevelop.azurewebsites.net',
+  'https://develop.advancedalgos.net'
 ]
-if(process.env.NODE_ENV === 'production'){
-  whitelist = [
-    'https://teams.advancedalgos.net',
-    'https://users.advancedalgos.net',
-    'https://users-api.advancedalgos.net',
-    'https://keyvault.advancedalgos.net',
-    'https://keyvault-api.advancedalgos.net',
-    'http://localhost:1337'
-  ]
-}
-
 
 const corsOptionsDelegate = (req, callback) => {
   var corsOptions

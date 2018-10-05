@@ -39,6 +39,9 @@ function newTopSpace() {
             eventHandler: newEventHandler()
         };
 
+        thisObject.login = newLogin();
+        thisObject.login.initialize();
+
         thisObject.companyLogo = newCompanyLogo();
         thisObject.companyLogo.initialize();
 
@@ -56,9 +59,6 @@ function newTopSpace() {
 
         thisObject.currentStartMode = newCurrentStartMode();
         thisObject.currentStartMode.initialize(sharedStatus);
-
-        thisObject.login = newLogin();
-        thisObject.login.initialize();
 
     }
 

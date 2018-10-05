@@ -21,7 +21,7 @@ function newDevTeam() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
-    const NOT_FOUND = "";
+    const NOT_FOUND = "Team NOT FOUND";
 
     let sharedStatus;
     let label = ""
@@ -30,11 +30,18 @@ function newDevTeam() {
 
     function initialize(pSharedStatus) {
 
+        let sessionToken = window.localStorage.getItem('sessionToken');
+
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
+
         sharedStatus = pSharedStatus;
 
         let storedTeams = window.localStorage.getItem('userTeams');
 
-        if (storedTeams === null || storedTeams.length === 0) {
+        if (storedTeams === null || storedTeams === "[]" || storedTeams === "") {
             window.TEAMS = "";
             label = NOT_FOUND;
         } else {

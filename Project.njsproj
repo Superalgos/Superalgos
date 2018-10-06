@@ -33,6 +33,7 @@
     <Compile Include="AABrowserAPI\BotCode.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AABrowserAPI\models\user.js" />
     <Compile Include="AABrowserAPI\TeamSetup.js">
       <SubType>Code</SubType>
     </Compile>
@@ -233,11 +234,15 @@
     <Compile Include="ViewPort.js" />
     <Compile Include="VolumeBar.js" />
     <Content Include="index.html" />
+    <Content Include="Json.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Server\Exchange\Wrappers\binanceProperties.json" />
     <Content Include="Server\Exchange\Wrappers\poloniexProperties.json" />
     <Content Include="this.server.config.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AABrowserAPI\models\" />
     <Folder Include="Azure\" />
     <Folder Include="CloudVM\" />
     <Folder Include="CloudVM\Exchange\" />

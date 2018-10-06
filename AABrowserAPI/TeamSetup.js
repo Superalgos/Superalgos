@@ -15,10 +15,9 @@
         storage = STORAGE.newStorage();
 
         storage.initialize(undefined, pServerConfig);
-
     }
 
-    function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotName, callBackFunction) {
+    function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotName, pAuthId, callBackFunction) {
 
         try {
 
@@ -471,6 +470,8 @@
 
                             storage.writeData("AdvancedAlgos", "AAPlatform", "open.sessions.json", fileContent, onDataWritten);
 
+                            addToUserModuleDatabase(token); // NOTE that this function is not properly inserted on the sequence, so if it fails noone will know.
+
                             function onDataWritten(err) {
 
                                 try {
@@ -507,6 +508,56 @@
                 } catch (err) {
 
                     console.log("[ERROR] TeamSetup -> newTeam -> addToSessions -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+            }
+
+            function addToUserModuleDatabase(pSessionToken) {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> addToUserModuleDatabase -> Entering function."); }
+
+
+                    const graphqlClient = require('graphql-client')
+
+                    const usersModuleAPI = graphqlClient({
+                        url: 'http://localhost:4000/graphql'
+                        //url: 'https://users-api.advancedalgos.net/graphql',
+                        //headers: {
+                        //     Authorization: 'Bearer ' + authToken
+                        //}
+                    });
+
+
+                    let variables = {
+                        authId: pAuthId,
+                        sessionToken: pSessionToken
+                    };
+
+                    usersModuleAPI.query(`
+            mutation($authId: String, $sessionToken: String){
+            updateSessionToken(authId: $authId, sessionToken: $sessionToken){
+                id
+                alias
+                }
+            }
+            `, variables, function (req, res) {
+                            if (res.status === 401) {
+                                console.log('Error trying to save the session token at the Users Module');
+                            }
+                        }).then(res => {
+                            if (res.errors) {
+                                console.log('Error trying to save the session token at the Users Module');
+                            }
+                        }).catch(error => {
+                            console.log('Error trying to save the session token at the Users Module');
+                        });
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> newTeam -> addToUserModuleDatabase -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
                 }

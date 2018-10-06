@@ -1,3 +1,4 @@
+
 /* These 2 are global variables, that is why they do not have a let or var */
 
 CONSOLE_LOG = true;
@@ -588,8 +589,9 @@ function onBrowserRequest(request, response) {
                         let devTeamDisplayName = requestParameters[4].replace("%20", " ");
                         let userName = requestParameters[5];
                         let botName = requestParameters[6];
+                        let authId = requestParameters[7];
 
-                        teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botName, onSetupFinished);
+                        teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botName, authId, onSetupFinished);
 
                         function onSetupFinished(err) {
 

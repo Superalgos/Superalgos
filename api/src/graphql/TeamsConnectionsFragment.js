@@ -15,6 +15,7 @@ const TEAMS_CONNECTIONS_FRAGMENT = gql`{
       createdAt
       profile {
         avatar
+        banner
         description
         motto
         updatedAt
@@ -28,6 +29,18 @@ const TEAMS_CONNECTIONS_FRAGMENT = gql`{
         }
         status {
           id
+          status
+          reason
+          createdAt
+        }
+      }
+      fb {
+        id
+        name
+        slug
+        avatar
+        kind
+        status {
           status
           reason
           createdAt

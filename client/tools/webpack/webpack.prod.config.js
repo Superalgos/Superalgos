@@ -12,6 +12,7 @@ const Dotenv = require('dotenv-webpack')
 
 module.exports = merge(commonConfig, {
   mode: 'production',
+  devtool: 'inline-sourcemap',
   output: {
     path: path.resolve(__dirname, '../../build'),
     filename: 'script.js'

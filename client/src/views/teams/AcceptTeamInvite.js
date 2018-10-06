@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import queryString from 'query-string'
 
-import { MessageCard } from '../common/'
+import { MessageCard } from '@advancedalgos/web-components'
 
 class AcceptTeamInvite extends Component {
   render () {

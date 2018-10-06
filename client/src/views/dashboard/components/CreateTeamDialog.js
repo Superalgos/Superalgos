@@ -21,8 +21,18 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 // import { checkGraphQLError } from '../../../utils/graphql-errors'
 
 const styles = theme => ({
+  dialogContainer: {
+    display: 'block',
+    margin: '3em',
+    minWidth: 400
+  },
   dialogStyle: {
     padding: '3em'
+  },
+  textField: {
+    width: '60%',
+    marginLeft: '20%',
+    marginBottom: 10
   },
   buttonRight: {
     // position: 'absolute',
@@ -49,9 +59,9 @@ export class CreateTeamDialog extends Component {
     this.state = {
       open: false,
       name: '',
-      errors: {
-        name: ''
-      }
+      botName: '',
+      nameError: '',
+      botNameError: ''
     }
   }
 
@@ -96,43 +106,69 @@ export class CreateTeamDialog extends Component {
                 onClose={this.handleClose}
                 aria-labelledby='form-dialog-title'
               >
-                <DialogTitle id='form-dialog-title'>Create a Team</DialogTitle>
-                <DialogContent>
-                  <FormControl
-                    required
-                    error={this.state.errors.name !== '' || error}
-                  >
-                    <TextField
-                      autoFocus
-                      margin='dense'
-                      id='teamname'
-                      label='Team Name'
-                      type='text'
-                      fullWidth
-                      value={this.state.name}
-                      onChange={this.handleChange}
-                      error={this.state.errors.name !== '' || error}
-                    />
-                    {this.state.errors.name !== '' && (
-                      <FormHelperText>{this.state.errors.name}</FormHelperText>
-                    )}
-                    {error && <FormHelperText>{errors}</FormHelperText>}
-                    {loader}
-                  </FormControl>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={this.handleClose} color='primary'>
-                    Cancel
-                  </Button>
-                  <Button
-                    onClick={e => {
-                      this.handleSubmit(e, createTeam, this.state.name)
-                    }}
-                    color='primary'
-                  >
-                    Create Team
-                  </Button>
-                </DialogActions>
+                <div classes={classes.dialogContainer}>
+                  <DialogTitle id='form-dialog-title'>Create a Team</DialogTitle>
+                  <DialogContent>
+                    <FormControl
+                      required
+                      error={this.state.nameError !== '' || this.state.botNameError !== '' || error !== null}
+                    >
+                      <Typography variant='subheading' align='center'>Create a name for your team</Typography>
+                      <TextField
+                        autoFocus
+                        margin='dense'
+                        id='name'
+                        label='Team Name'
+                        type='text'
+                        fullWidth
+                        className={classes.textField}
+                        value={this.state.name}
+                        onChange={this.handleChange}
+                        error={this.state.nameError !== ''}
+                      />
+                      {this.state.nameError !== '' && (
+                        <FormHelperText>{this.state.nameError}</FormHelperText>
+                      )}
+                      <Typography variant='subheading' align='center' ><br />
+                        Create a name for your teams bot.
+                      </Typography>
+                      <Typography align='center' >
+                        <em>(Temporary: In the future, creating multiple Financial Beings <br />
+                          will occur in a separate module)</em>
+                      </Typography>
+                      <TextField
+                        autoFocus
+                        margin='dense'
+                        id='botName'
+                        label='Team Bot Name'
+                        type='text'
+                        fullWidth
+                        className={classes.textField}
+                        value={this.state.botName}
+                        onChange={this.handleChange}
+                        error={this.state.botNameError !== ''}
+                      />
+                      {this.state.botNameError !== '' && (
+                        <FormHelperText>{this.state.botNameError}</FormHelperText>
+                      )}
+                      {error && <FormHelperText>{errors}</FormHelperText>}
+                      {loader}
+                    </FormControl>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={this.handleClose} color='primary'>
+                      Cancel
+                    </Button>
+                    <Button
+                      onClick={e => {
+                        this.handleSubmit(e, createTeam, this.state.name, this.state.botName)
+                      }}
+                      color='primary'
+                    >
+                      Create Team
+                    </Button>
+                  </DialogActions>
+                </div>
               </Dialog>
             </div>
           )
@@ -150,27 +186,50 @@ export class CreateTeamDialog extends Component {
   }
 
   handleChange (e) {
-    const errors = this.validate(e.target.value)
-    if (isEmpty(errors)) {
-      this.setState({ errors: { name: '' } })
-      this.setState({ name: e.target.value })
-    } else {
-      this.setState({ errors: errors })
-      this.setState({ name: e.target.value })
+    let id = e.target.id
+    let value = e.target.value
+    let error = this.validate({ id, value })
+    switch (id) {
+      case 'name':
+        if (!isEmpty(error)) this.setState({ nameError: error })
+        this.setState({ name: value })
+        break
+      case 'botName':
+        if (!isEmpty(error)) this.setState({ botNameError: error })
+        this.setState({ botName: value })
+        break
+      default:
     }
   }
 
-  async handleSubmit (e, createTeam, name, authId) {
+  async handleSubmit (e, createTeam, name, botName) {
     e.preventDefault()
-    console.log('createTeam submit: ', authId, name)
+    console.log('createTeam submit: ', name, botName)
     const slug = this.slugify(name)
-    await createTeam({ variables: { name, slug } })
+    const botSlug = this.slugify(name)
+    await createTeam({ variables: { name, slug, botName, botSlug } })
     this.setState({ name: '', open: false })
   }
 
   validate (data) {
     const errors = {}
-    if (data === '') errors.name = 'Please enter a team name'
+    switch (data.id) {
+      case 'name':
+        if (data.value === '') {
+          this.setState({ nameError: 'Please enter a team name' })
+        } else {
+          this.setState({ nameError: '' })
+        }
+        break
+      case 'botName':
+        if (data.value === '') {
+          this.setState({ botNameError: 'Please enter a bot name' })
+        } else {
+          this.setState({ botNameError: '' })
+        }
+        break
+      default:
+    }
     return errors
   }
 

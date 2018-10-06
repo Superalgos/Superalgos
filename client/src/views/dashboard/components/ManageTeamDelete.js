@@ -55,13 +55,14 @@ export class ManageTeamDelete extends Component {
 
   render () {
     console.log(this.props, this.props.slug)
-    const { classes } = this.props
+    const { classes, authId } = this.props
     return (
       <Mutation
         mutation={DELETE_TEAM}
         refetchQueries={[
           {
-            query: GET_TEAMS_BY_OWNER
+            query: GET_TEAMS_BY_OWNER,
+            variables: { authId }
           }
         ]}
       >
@@ -148,7 +149,8 @@ export class ManageTeamDelete extends Component {
 
 ManageTeamDelete.propTypes = {
   classes: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired
+  slug: PropTypes.string.isRequired,
+  authId: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(ManageTeamDelete)

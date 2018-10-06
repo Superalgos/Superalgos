@@ -12,7 +12,7 @@ import { getItem } from '../../../utils/local-storage'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import ManageMembersTeamItem from './ManageMembersTeamItem'
-import { MessageCard } from '../../common/'
+import { MessageCard } from '@advancedalgos/web-components'
 
 const styles = theme => ({
   heroContent: {
@@ -67,6 +67,7 @@ export const ManageTeamMembersList = ({ classes, user = null }) => {
     return (
       <Query
         query={GET_TEAMS_BY_OWNER}
+        variables={{ authId }}
         fetchPolicy='network-only'
       >
         {({ loading, error, data }) => {

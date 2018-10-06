@@ -15,6 +15,7 @@ export const TEAMS_FRAGMENT = gql`
     createdAt
     profile {
       avatar
+      banner
       description
       motto
       updatedAt
@@ -28,6 +29,18 @@ export const TEAMS_FRAGMENT = gql`
       }
       status {
         id
+        status
+        reason
+        createdAt
+      }
+    }
+    fb {
+      id
+      name
+      slug
+      avatar
+      kind
+      status {
         status
         reason
         createdAt

@@ -18,6 +18,7 @@ export const GET_ALL_TEAMS_QUERY = gql`
           createdAt
           profile {
             avatar
+            banner
             description
             motto
             updatedAt
@@ -31,6 +32,18 @@ export const GET_ALL_TEAMS_QUERY = gql`
             }
             status {
               id
+              status
+              reason
+              createdAt
+            }
+          }
+          fb {
+            id
+            name
+            slug
+            avatar
+            kind
+            status {
               status
               reason
               createdAt

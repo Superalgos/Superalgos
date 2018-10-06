@@ -1,4 +1,5 @@
 /.env
+/.env.prod
 /database/.env
 /database/docker-compose.prisma.prod.yml
 /docker-compose.prisma.prod.yml

@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import ManageMemberDelete from './ManageMemberDelete'
 import ManageMemberRole from './ManageMemberRole'
 import ManageMemberStatus from './ManageMemberStatus'
-import { MessageCard } from '../../common/'
+import { MessageCard } from '@advancedalgos/web-components'
 
 export const ManageMembersItem = ({ classes, member, teamId, authId }) => {
   console.log('ManageMembersItem', member)

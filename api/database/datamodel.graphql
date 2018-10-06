@@ -96,6 +96,9 @@ type FinancialBeings {
   id: ID! @unique
   type: FBType
   kind: FBKind
+  name: String!
+  slug: String!
+  avatar: String
   team: Team @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
   status: [FBStatus!]!
   updatedAt: DateTime!

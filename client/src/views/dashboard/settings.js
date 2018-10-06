@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
-import { MessageCard } from '../common/'
+import { MessageCard } from '@advancedalgos/web-components'
 
 const styles = theme => ({
   tableContainer: {

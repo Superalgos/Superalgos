@@ -2,8 +2,8 @@
 import gql from 'graphql-tag'
 
 export const GET_TEAMS_BY_OWNER = gql`
-  query teamsByOwnerQuery {
-    teamsByOwner {
+  query teamsByOwnerQuery($authId: String!) {
+    teamsByOwner(ownerId: $authId) {
       id
       name
       slug
@@ -16,6 +16,7 @@ export const GET_TEAMS_BY_OWNER = gql`
       createdAt
       profile {
         avatar
+        banner
         description
         motto
         updatedAt
@@ -29,6 +30,18 @@ export const GET_TEAMS_BY_OWNER = gql`
         }
         status {
           id
+          status
+          reason
+          createdAt
+        }
+      }
+      fb {
+        id
+        name
+        slug
+        avatar
+        kind
+        status {
           status
           reason
           createdAt

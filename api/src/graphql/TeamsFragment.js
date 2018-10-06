@@ -31,6 +31,18 @@ const TEAMS_FRAGMENT = gql`{
       createdAt
     }
   }
+  fb {
+    id
+    name
+    slug
+    avatar
+    kind
+    status {
+      status
+      reason
+      createdAt
+    }
+  }
 }`
 
 module.exports = TEAMS_FRAGMENT

@@ -67,6 +67,71 @@ const sendTeamMemberInvite = function(email, team) {
     return sendVerify
 }
 
+const sendTeamCreateConfirmation = function(email, teamName, botName, sessionToken) {
+    const dev = process.env.NODE_ENV === 'development' ? true : false
+    console.log('sendTeamMemberInvite', email, team)
+    const API_KEY = process.env.SG_APIKEY
+    let origin = 'https://teams.advancedalgos.net'
+    if (dev){
+      origin = 'http://localhost:3001'
+    }
+
+    const headers = {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin' : origin,
+      'Access-Control-Allow-Credentials': 'true'
+    };
+
+    const data = JSON.stringify({
+        "personalizations": [
+          {
+            "to": [
+              {
+                "email": email
+              }
+            ],
+            dynamic_template_data: {
+              "aateamdeveloplink": "https://develop.advancedalgos.net/index.html?" + sessionToken,
+              "aateamname": teamName,
+              "aabotname": botName,
+              "subject": "Team " + teamName + " has been created!"
+            },
+            "subject": "Team " + teamName + " has been created!"
+          }
+        ],
+        "from": {
+          "email": "noreply@advancedalgos.net",
+          "name": "Advanced Algos Teams"
+        },
+        "reply_to": {
+          "email": "feedback@advancedalgos.net",
+          "name": "Advanced Algos Teams"
+        },
+        "template_id": process.env.SG_TEAMCREATE_EMAILID
+      })
+
+    let sendTeamCreation = axios({
+        method: 'post',
+        url: 'https://api.sendgrid.com/v3/mail/send',
+        data: data,
+        headers:{
+            'content-type': 'application/json',
+            'authorization': 'Bearer ' + API_KEY
+        }
+    })
+    .then(function (response) {
+        if (response.status >= 200 && response.status < 300) {
+          return 'Success'
+        } else {
+          throw response.data.errors[0].message
+        }
+    })
+    .catch(function (error) {
+        return `${error.status}-${error.response.data.errors[0].message}`
+    })
+    return sendTeamCreation
+}
+
 const verifyInviteToken = async function(token) {
   const API_KEY = process.env.SG_APIKEY
   let verifiedToken
@@ -84,4 +149,4 @@ const verifyInviteToken = async function(token) {
   return verifiedToken
 }
 
-module.exports = { sendTeamMemberInvite, verifyInviteToken }
+module.exports = { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken }

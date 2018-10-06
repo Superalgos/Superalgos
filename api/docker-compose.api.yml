@@ -1,11 +1,8 @@
 version: '3'
 services:
   api:
-    image: aateamapi-dev:v1
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    env_file: ./.env
+    image: advancedalgosteamsmodule/teammodule-api:v2
+    env_file: ./.env.prod
     container_name: aateamapi
     tty: true
     stdin_open: true

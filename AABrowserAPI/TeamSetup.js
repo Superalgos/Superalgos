@@ -523,8 +523,8 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        url: 'http://localhost:4000/graphql'
-                        //url: 'https://users-api.advancedalgos.net/graphql',
+                        //url: 'http://localhost:4000/graphql'
+                        url: 'https://users-api.advancedalgos.net/graphql',
                         //headers: {
                         //     Authorization: 'Bearer ' + authToken
                         //}

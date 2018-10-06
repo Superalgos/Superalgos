@@ -67,9 +67,9 @@ const sendTeamMemberInvite = function(email, team) {
     return sendVerify
 }
 
-const sendTeamCreateConfirmation = function(email, teamName, botName, sessionToken) {
+const sendTeamCreateConfirmation = function(email, teamName, botName) {
     const dev = process.env.NODE_ENV === 'development' ? true : false
-    console.log('sendTeamMemberInvite', email, team)
+    console.log('sendTeamMemberInvite', email, teamName, botName)
     const API_KEY = process.env.SG_APIKEY
     let origin = 'https://teams.advancedalgos.net'
     if (dev){
@@ -91,7 +91,7 @@ const sendTeamCreateConfirmation = function(email, teamName, botName, sessionTok
               }
             ],
             dynamic_template_data: {
-              "aateamdeveloplink": "https://develop.advancedalgos.net/index.html?" + sessionToken,
+              "aadeveloplink": "https://develop.advancedalgos.net/index.html",
               "aateamname": teamName,
               "aabotname": botName,
               "subject": "Team " + teamName + " has been created!"

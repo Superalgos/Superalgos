@@ -145,7 +145,7 @@ const createSASQueryURL = async (containerName) => {
     // console.log(`ContainerCheck marker: `, listContainersResponse)
     marker = listContainersResponse.marker;
     for (const container of listContainersResponse.containerItems) {
-      // console.log(`ContainerCheck: ${container.name} | ${containerName} | ${marker}`)
+      console.log(`ContainerCheck: ${container.name} | ${containerName} | ${marker}`)
       if(container.name === containerName){
         containerCheck = container.name
       }

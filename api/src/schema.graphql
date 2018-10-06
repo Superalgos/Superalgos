@@ -23,7 +23,7 @@ type Mutation {
   verifyTeamInvite(token: String!): TeamMembers
   createTeam(name: String!, slug: String!, botName: String!, botSlug: String!): Team @isAuthenticated
   updateTeamProfile(slug: String!, description: String, motto: String, avatar: String, banner: String): Team @isAuthenticated
-  updateFB(teamId: String!, avatar: String): FinancialBeings @isAuthenticated
+  updateFB(fbId: String!, avatar: String): FinancialBeings @isAuthenticated
   deleteTeam(slug: String!): Team @isAuthenticated @isOwner(type: "Team")
   getAzureSAS(teamSlug: String!):String
   sendMemberInviteSG(email: String!, teamId: String!): String

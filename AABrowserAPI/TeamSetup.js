@@ -42,7 +42,7 @@
                         if (err.message === "ContainerAlreadyExists") {
 
                             let err = {
-                                resutl: global.CUSTOM_FAIL_RESPONSE.result,
+                                result: global.CUSTOM_FAIL_RESPONSE.result,
                                 message: "Team Name already taken"
                             };
 
@@ -208,7 +208,7 @@
                             botConfig.codeName = pBotName;
                             botConfig.devTeam = pTeamCodeName;
                             botConfig.profilePicture = pBotName + ".png";
-                            
+
                             let fileContent = JSON.stringify(botConfig);
 
                             let team = pTeamCodeName;

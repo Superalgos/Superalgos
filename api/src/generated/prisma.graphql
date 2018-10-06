@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Thu Sep 20 2018 16:52:44 GMT-0700 (Pacific Daylight Time)
+# timestamp: Fri Oct 05 2018 13:16:40 GMT-0700 (Pacific Daylight Time)
 
 type AggregateFBStatus {
   count: Int!
@@ -22,6 +22,10 @@ type AggregateTeam {
 }
 
 type AggregateTeamMembers {
+  count: Int!
+}
+
+type AggregateTeamMemberStatus {
   count: Int!
 }
 
@@ -245,6 +249,9 @@ type FinancialBeings implements Node {
   id: ID!
   type: FBType
   kind: FBKind
+  name: String!
+  slug: String!
+  avatar: String
   team(where: TeamWhereInput): Team
   status(where: FBStatusWhereInput, orderBy: FBStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FBStatus!]
   updatedAt: DateTime!
@@ -264,6 +271,9 @@ type FinancialBeingsConnection {
 input FinancialBeingsCreateInput {
   type: FBType
   kind: FBKind
+  name: String!
+  slug: String!
+  avatar: String
   team: TeamCreateOneWithoutFbInput
   status: FBStatusCreateManyInput
 }
@@ -276,6 +286,9 @@ input FinancialBeingsCreateManyWithoutTeamInput {
 input FinancialBeingsCreateWithoutTeamInput {
   type: FBType
   kind: FBKind
+  name: String!
+  slug: String!
+  avatar: String
   status: FBStatusCreateManyInput
 }
 
@@ -295,6 +308,12 @@ enum FinancialBeingsOrderByInput {
   type_DESC
   kind_ASC
   kind_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
+  avatar_ASC
+  avatar_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -305,6 +324,9 @@ type FinancialBeingsPreviousValues {
   id: ID!
   type: FBType
   kind: FBKind
+  name: String!
+  slug: String!
+  avatar: String
   updatedAt: DateTime!
   createdAt: DateTime!
 }
@@ -351,6 +373,9 @@ input FinancialBeingsSubscriptionWhereInput {
 input FinancialBeingsUpdateInput {
   type: FBType
   kind: FBKind
+  name: String
+  slug: String
+  avatar: String
   team: TeamUpdateOneWithoutFbInput
   status: FBStatusUpdateManyInput
 }
@@ -367,6 +392,9 @@ input FinancialBeingsUpdateManyWithoutTeamInput {
 input FinancialBeingsUpdateWithoutTeamDataInput {
   type: FBType
   kind: FBKind
+  name: String
+  slug: String
+  avatar: String
   status: FBStatusUpdateManyInput
 }
 
@@ -450,6 +478,126 @@ input FinancialBeingsWhereInput {
 
   """All values that are not contained in given list."""
   kind_not_in: [FBKind!]
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  slug: String
+
+  """All values that are not equal to given value."""
+  slug_not: String
+
+  """All values that are contained in given list."""
+  slug_in: [String!]
+
+  """All values that are not contained in given list."""
+  slug_not_in: [String!]
+
+  """All values less than the given value."""
+  slug_lt: String
+
+  """All values less than or equal the given value."""
+  slug_lte: String
+
+  """All values greater than the given value."""
+  slug_gt: String
+
+  """All values greater than or equal the given value."""
+  slug_gte: String
+
+  """All values containing the given string."""
+  slug_contains: String
+
+  """All values not containing the given string."""
+  slug_not_contains: String
+
+  """All values starting with the given string."""
+  slug_starts_with: String
+
+  """All values not starting with the given string."""
+  slug_not_starts_with: String
+
+  """All values ending with the given string."""
+  slug_ends_with: String
+
+  """All values not ending with the given string."""
+  slug_not_ends_with: String
+  avatar: String
+
+  """All values that are not equal to given value."""
+  avatar_not: String
+
+  """All values that are contained in given list."""
+  avatar_in: [String!]
+
+  """All values that are not contained in given list."""
+  avatar_not_in: [String!]
+
+  """All values less than the given value."""
+  avatar_lt: String
+
+  """All values less than or equal the given value."""
+  avatar_lte: String
+
+  """All values greater than the given value."""
+  avatar_gt: String
+
+  """All values greater than or equal the given value."""
+  avatar_gte: String
+
+  """All values containing the given string."""
+  avatar_contains: String
+
+  """All values not containing the given string."""
+  avatar_not_contains: String
+
+  """All values starting with the given string."""
+  avatar_starts_with: String
+
+  """All values not starting with the given string."""
+  avatar_not_starts_with: String
+
+  """All values ending with the given string."""
+  avatar_ends_with: String
+
+  """All values not ending with the given string."""
+  avatar_not_ends_with: String
   updatedAt: DateTime
 
   """All values that are not equal to given value."""
@@ -513,9 +661,10 @@ scalar Long
 type Member implements Node {
   id: ID!
   alias: String
-  team(where: TeamMembersWhereInput): TeamMembers
+  teams(where: TeamMembersWhereInput, orderBy: TeamMembersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamMembers!]
   authId: String!
   visible: Boolean!
+  status(where: MemberStatusWhereInput, orderBy: MemberStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [MemberStatus!]
   createdAt: DateTime!
 }
 
@@ -533,18 +682,20 @@ input MemberCreateInput {
   alias: String
   authId: String!
   visible: Boolean
-  team: TeamMembersCreateOneWithoutMemberInput
+  teams: TeamMembersCreateManyWithoutMemberInput
+  status: MemberStatusCreateManyInput
 }
 
-input MemberCreateOneWithoutTeamInput {
-  create: MemberCreateWithoutTeamInput
+input MemberCreateOneWithoutTeamsInput {
+  create: MemberCreateWithoutTeamsInput
   connect: MemberWhereUniqueInput
 }
 
-input MemberCreateWithoutTeamInput {
+input MemberCreateWithoutTeamsInput {
   alias: String
   authId: String!
   visible: Boolean
+  status: MemberStatusCreateManyInput
 }
 
 """An edge in a connection."""
@@ -806,27 +957,29 @@ input MemberUpdateInput {
   alias: String
   authId: String
   visible: Boolean
-  team: TeamMembersUpdateOneWithoutMemberInput
+  teams: TeamMembersUpdateManyWithoutMemberInput
+  status: MemberStatusUpdateManyInput
 }
 
-input MemberUpdateOneWithoutTeamInput {
-  create: MemberCreateWithoutTeamInput
+input MemberUpdateOneWithoutTeamsInput {
+  create: MemberCreateWithoutTeamsInput
   connect: MemberWhereUniqueInput
   disconnect: Boolean
   delete: Boolean
-  update: MemberUpdateWithoutTeamDataInput
-  upsert: MemberUpsertWithoutTeamInput
+  update: MemberUpdateWithoutTeamsDataInput
+  upsert: MemberUpsertWithoutTeamsInput
 }
 
-input MemberUpdateWithoutTeamDataInput {
+input MemberUpdateWithoutTeamsDataInput {
   alias: String
   authId: String
   visible: Boolean
+  status: MemberStatusUpdateManyInput
 }
 
-input MemberUpsertWithoutTeamInput {
-  update: MemberUpdateWithoutTeamDataInput!
-  create: MemberCreateWithoutTeamInput!
+input MemberUpsertWithoutTeamsInput {
+  update: MemberUpdateWithoutTeamsDataInput!
+  create: MemberCreateWithoutTeamsInput!
 }
 
 input MemberWhereInput {
@@ -984,7 +1137,12 @@ input MemberWhereInput {
 
   """All values greater than or equal the given value."""
   createdAt_gte: DateTime
-  team: TeamMembersWhereInput
+  teams_every: TeamMembersWhereInput
+  teams_some: TeamMembersWhereInput
+  teams_none: TeamMembersWhereInput
+  status_every: MemberStatusWhereInput
+  status_some: MemberStatusWhereInput
+  status_none: MemberStatusWhereInput
 }
 
 input MemberWhereUniqueInput {
@@ -999,36 +1157,45 @@ type Mutation {
   createFinancialBeings(data: FinancialBeingsCreateInput!): FinancialBeings!
   createTeamProfile(data: TeamProfileCreateInput!): TeamProfile!
   createWallet(data: WalletCreateInput!): Wallet!
-  createFBStatus(data: FBStatusCreateInput!): FBStatus!
-  createTeamStatus(data: TeamStatusCreateInput!): TeamStatus!
   createMemberStatus(data: MemberStatusCreateInput!): MemberStatus!
+  createFBStatus(data: FBStatusCreateInput!): FBStatus!
+  createTeamMemberStatus(data: TeamMemberStatusCreateInput!): TeamMemberStatus!
+  createTeamStatus(data: TeamStatusCreateInput!): TeamStatus!
   updateTeam(data: TeamUpdateInput!, where: TeamWhereUniqueInput!): Team
+  updateTeamMembers(data: TeamMembersUpdateInput!, where: TeamMembersWhereUniqueInput!): TeamMembers
   updateMember(data: MemberUpdateInput!, where: MemberWhereUniqueInput!): Member
   updateFinancialBeings(data: FinancialBeingsUpdateInput!, where: FinancialBeingsWhereUniqueInput!): FinancialBeings
+  updateTeamMemberStatus(data: TeamMemberStatusUpdateInput!, where: TeamMemberStatusWhereUniqueInput!): TeamMemberStatus
   deleteTeam(where: TeamWhereUniqueInput!): Team
+  deleteTeamMembers(where: TeamMembersWhereUniqueInput!): TeamMembers
   deleteMember(where: MemberWhereUniqueInput!): Member
   deleteFinancialBeings(where: FinancialBeingsWhereUniqueInput!): FinancialBeings
+  deleteTeamMemberStatus(where: TeamMemberStatusWhereUniqueInput!): TeamMemberStatus
   upsertTeam(where: TeamWhereUniqueInput!, create: TeamCreateInput!, update: TeamUpdateInput!): Team!
+  upsertTeamMembers(where: TeamMembersWhereUniqueInput!, create: TeamMembersCreateInput!, update: TeamMembersUpdateInput!): TeamMembers!
   upsertMember(where: MemberWhereUniqueInput!, create: MemberCreateInput!, update: MemberUpdateInput!): Member!
   upsertFinancialBeings(where: FinancialBeingsWhereUniqueInput!, create: FinancialBeingsCreateInput!, update: FinancialBeingsUpdateInput!): FinancialBeings!
+  upsertTeamMemberStatus(where: TeamMemberStatusWhereUniqueInput!, create: TeamMemberStatusCreateInput!, update: TeamMemberStatusUpdateInput!): TeamMemberStatus!
   updateManyTeams(data: TeamUpdateInput!, where: TeamWhereInput): BatchPayload!
   updateManyTeamMemberses(data: TeamMembersUpdateInput!, where: TeamMembersWhereInput): BatchPayload!
   updateManyMembers(data: MemberUpdateInput!, where: MemberWhereInput): BatchPayload!
   updateManyFinancialBeingses(data: FinancialBeingsUpdateInput!, where: FinancialBeingsWhereInput): BatchPayload!
   updateManyTeamProfiles(data: TeamProfileUpdateInput!, where: TeamProfileWhereInput): BatchPayload!
   updateManyWallets(data: WalletUpdateInput!, where: WalletWhereInput): BatchPayload!
-  updateManyFBStatuses(data: FBStatusUpdateInput!, where: FBStatusWhereInput): BatchPayload!
-  updateManyTeamStatuses(data: TeamStatusUpdateInput!, where: TeamStatusWhereInput): BatchPayload!
   updateManyMemberStatuses(data: MemberStatusUpdateInput!, where: MemberStatusWhereInput): BatchPayload!
+  updateManyFBStatuses(data: FBStatusUpdateInput!, where: FBStatusWhereInput): BatchPayload!
+  updateManyTeamMemberStatuses(data: TeamMemberStatusUpdateInput!, where: TeamMemberStatusWhereInput): BatchPayload!
+  updateManyTeamStatuses(data: TeamStatusUpdateInput!, where: TeamStatusWhereInput): BatchPayload!
   deleteManyTeams(where: TeamWhereInput): BatchPayload!
   deleteManyTeamMemberses(where: TeamMembersWhereInput): BatchPayload!
   deleteManyMembers(where: MemberWhereInput): BatchPayload!
   deleteManyFinancialBeingses(where: FinancialBeingsWhereInput): BatchPayload!
   deleteManyTeamProfiles(where: TeamProfileWhereInput): BatchPayload!
   deleteManyWallets(where: WalletWhereInput): BatchPayload!
-  deleteManyFBStatuses(where: FBStatusWhereInput): BatchPayload!
-  deleteManyTeamStatuses(where: TeamStatusWhereInput): BatchPayload!
   deleteManyMemberStatuses(where: MemberStatusWhereInput): BatchPayload!
+  deleteManyFBStatuses(where: FBStatusWhereInput): BatchPayload!
+  deleteManyTeamMemberStatuses(where: TeamMemberStatusWhereInput): BatchPayload!
+  deleteManyTeamStatuses(where: TeamStatusWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -1065,21 +1232,25 @@ type Query {
   financialBeingses(where: FinancialBeingsWhereInput, orderBy: FinancialBeingsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FinancialBeings]!
   teamProfiles(where: TeamProfileWhereInput, orderBy: TeamProfileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamProfile]!
   wallets(where: WalletWhereInput, orderBy: WalletOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Wallet]!
-  fBStatuses(where: FBStatusWhereInput, orderBy: FBStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FBStatus]!
-  teamStatuses(where: TeamStatusWhereInput, orderBy: TeamStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamStatus]!
   memberStatuses(where: MemberStatusWhereInput, orderBy: MemberStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [MemberStatus]!
+  fBStatuses(where: FBStatusWhereInput, orderBy: FBStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FBStatus]!
+  teamMemberStatuses(where: TeamMemberStatusWhereInput, orderBy: TeamMemberStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamMemberStatus]!
+  teamStatuses(where: TeamStatusWhereInput, orderBy: TeamStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamStatus]!
   team(where: TeamWhereUniqueInput!): Team
+  teamMembers(where: TeamMembersWhereUniqueInput!): TeamMembers
   member(where: MemberWhereUniqueInput!): Member
   financialBeings(where: FinancialBeingsWhereUniqueInput!): FinancialBeings
+  teamMemberStatus(where: TeamMemberStatusWhereUniqueInput!): TeamMemberStatus
   teamsConnection(where: TeamWhereInput, orderBy: TeamOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamConnection!
   teamMembersesConnection(where: TeamMembersWhereInput, orderBy: TeamMembersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamMembersConnection!
   membersConnection(where: MemberWhereInput, orderBy: MemberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MemberConnection!
   financialBeingsesConnection(where: FinancialBeingsWhereInput, orderBy: FinancialBeingsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FinancialBeingsConnection!
   teamProfilesConnection(where: TeamProfileWhereInput, orderBy: TeamProfileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamProfileConnection!
   walletsConnection(where: WalletWhereInput, orderBy: WalletOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WalletConnection!
-  fBStatusesConnection(where: FBStatusWhereInput, orderBy: FBStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FBStatusConnection!
-  teamStatusesConnection(where: TeamStatusWhereInput, orderBy: TeamStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamStatusConnection!
   memberStatusesConnection(where: MemberStatusWhereInput, orderBy: MemberStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MemberStatusConnection!
+  fBStatusesConnection(where: FBStatusWhereInput, orderBy: FBStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FBStatusConnection!
+  teamMemberStatusesConnection(where: TeamMemberStatusWhereInput, orderBy: TeamMemberStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamMemberStatusConnection!
+  teamStatusesConnection(where: TeamStatusWhereInput, orderBy: TeamStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamStatusConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -1097,8 +1268,9 @@ enum Role {
 enum Status {
   ACTIVE
   INACTIVE
-  APPLY
-  INVITE
+  APPLIED
+  INVITED
+  REMOVED
 }
 
 type Subscription {
@@ -1108,9 +1280,10 @@ type Subscription {
   financialBeings(where: FinancialBeingsSubscriptionWhereInput): FinancialBeingsSubscriptionPayload
   teamProfile(where: TeamProfileSubscriptionWhereInput): TeamProfileSubscriptionPayload
   wallet(where: WalletSubscriptionWhereInput): WalletSubscriptionPayload
-  fBStatus(where: FBStatusSubscriptionWhereInput): FBStatusSubscriptionPayload
-  teamStatus(where: TeamStatusSubscriptionWhereInput): TeamStatusSubscriptionPayload
   memberStatus(where: MemberStatusSubscriptionWhereInput): MemberStatusSubscriptionPayload
+  fBStatus(where: FBStatusSubscriptionWhereInput): FBStatusSubscriptionPayload
+  teamMemberStatus(where: TeamMemberStatusSubscriptionWhereInput): TeamMemberStatusSubscriptionPayload
+  teamStatus(where: TeamStatusSubscriptionWhereInput): TeamStatusSubscriptionPayload
 }
 
 type Team implements Node {
@@ -1186,11 +1359,14 @@ type TeamEdge {
   cursor: String!
 }
 
-type TeamMembers {
+type TeamMembers implements Node {
+  id: ID!
   member(where: MemberWhereInput): Member
   team(where: TeamWhereInput): Team
   role: Role
-  status(where: MemberStatusWhereInput, orderBy: MemberStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [MemberStatus!]
+  status(where: TeamMemberStatusWhereInput, orderBy: TeamMemberStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamMemberStatus!]
+  email: String
+  createdAt: DateTime!
   updatedAt: DateTime!
 }
 
@@ -1206,29 +1382,34 @@ type TeamMembersConnection {
 
 input TeamMembersCreateInput {
   role: Role
-  member: MemberCreateOneWithoutTeamInput
+  email: String
+  member: MemberCreateOneWithoutTeamsInput
   team: TeamCreateOneWithoutMembersInput
-  status: MemberStatusCreateManyInput
+  status: TeamMemberStatusCreateManyInput
+}
+
+input TeamMembersCreateManyWithoutMemberInput {
+  create: [TeamMembersCreateWithoutMemberInput!]
+  connect: [TeamMembersWhereUniqueInput!]
 }
 
 input TeamMembersCreateManyWithoutTeamInput {
   create: [TeamMembersCreateWithoutTeamInput!]
-}
-
-input TeamMembersCreateOneWithoutMemberInput {
-  create: TeamMembersCreateWithoutMemberInput
+  connect: [TeamMembersWhereUniqueInput!]
 }
 
 input TeamMembersCreateWithoutMemberInput {
   role: Role
+  email: String
   team: TeamCreateOneWithoutMembersInput
-  status: MemberStatusCreateManyInput
+  status: TeamMemberStatusCreateManyInput
 }
 
 input TeamMembersCreateWithoutTeamInput {
   role: Role
-  member: MemberCreateOneWithoutTeamInput
-  status: MemberStatusCreateManyInput
+  email: String
+  member: MemberCreateOneWithoutTeamsInput
+  status: TeamMemberStatusCreateManyInput
 }
 
 """An edge in a connection."""
@@ -1241,18 +1422,23 @@ type TeamMembersEdge {
 }
 
 enum TeamMembersOrderByInput {
-  role_ASC
-  role_DESC
-  updatedAt_ASC
-  updatedAt_DESC
   id_ASC
   id_DESC
+  role_ASC
+  role_DESC
+  email_ASC
+  email_DESC
   createdAt_ASC
   createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type TeamMembersPreviousValues {
+  id: ID!
   role: Role
+  email: String
+  createdAt: DateTime!
   updatedAt: DateTime!
 }
 
@@ -1295,34 +1481,318 @@ input TeamMembersSubscriptionWhereInput {
   node: TeamMembersWhereInput
 }
 
+type TeamMemberStatus implements Node {
+  id: ID!
+  status: Status
+  reason: String
+  createdAt: DateTime!
+}
+
+"""A connection to a list of items."""
+type TeamMemberStatusConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [TeamMemberStatusEdge]!
+  aggregate: AggregateTeamMemberStatus!
+}
+
+input TeamMemberStatusCreateInput {
+  status: Status
+  reason: String
+}
+
+input TeamMemberStatusCreateManyInput {
+  create: [TeamMemberStatusCreateInput!]
+  connect: [TeamMemberStatusWhereUniqueInput!]
+}
+
+"""An edge in a connection."""
+type TeamMemberStatusEdge {
+  """The item at the end of the edge."""
+  node: TeamMemberStatus!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum TeamMemberStatusOrderByInput {
+  id_ASC
+  id_DESC
+  status_ASC
+  status_DESC
+  reason_ASC
+  reason_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type TeamMemberStatusPreviousValues {
+  id: ID!
+  status: Status
+  reason: String
+  createdAt: DateTime!
+}
+
+type TeamMemberStatusSubscriptionPayload {
+  mutation: MutationType!
+  node: TeamMemberStatus
+  updatedFields: [String!]
+  previousValues: TeamMemberStatusPreviousValues
+}
+
+input TeamMemberStatusSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TeamMemberStatusSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TeamMemberStatusSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TeamMemberStatusSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: TeamMemberStatusWhereInput
+}
+
+input TeamMemberStatusUpdateDataInput {
+  status: Status
+  reason: String
+}
+
+input TeamMemberStatusUpdateInput {
+  status: Status
+  reason: String
+}
+
+input TeamMemberStatusUpdateManyInput {
+  create: [TeamMemberStatusCreateInput!]
+  connect: [TeamMemberStatusWhereUniqueInput!]
+  disconnect: [TeamMemberStatusWhereUniqueInput!]
+  delete: [TeamMemberStatusWhereUniqueInput!]
+  update: [TeamMemberStatusUpdateWithWhereUniqueNestedInput!]
+  upsert: [TeamMemberStatusUpsertWithWhereUniqueNestedInput!]
+}
+
+input TeamMemberStatusUpdateWithWhereUniqueNestedInput {
+  where: TeamMemberStatusWhereUniqueInput!
+  data: TeamMemberStatusUpdateDataInput!
+}
+
+input TeamMemberStatusUpsertWithWhereUniqueNestedInput {
+  where: TeamMemberStatusWhereUniqueInput!
+  update: TeamMemberStatusUpdateDataInput!
+  create: TeamMemberStatusCreateInput!
+}
+
+input TeamMemberStatusWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TeamMemberStatusWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TeamMemberStatusWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TeamMemberStatusWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  status: Status
+
+  """All values that are not equal to given value."""
+  status_not: Status
+
+  """All values that are contained in given list."""
+  status_in: [Status!]
+
+  """All values that are not contained in given list."""
+  status_not_in: [Status!]
+  reason: String
+
+  """All values that are not equal to given value."""
+  reason_not: String
+
+  """All values that are contained in given list."""
+  reason_in: [String!]
+
+  """All values that are not contained in given list."""
+  reason_not_in: [String!]
+
+  """All values less than the given value."""
+  reason_lt: String
+
+  """All values less than or equal the given value."""
+  reason_lte: String
+
+  """All values greater than the given value."""
+  reason_gt: String
+
+  """All values greater than or equal the given value."""
+  reason_gte: String
+
+  """All values containing the given string."""
+  reason_contains: String
+
+  """All values not containing the given string."""
+  reason_not_contains: String
+
+  """All values starting with the given string."""
+  reason_starts_with: String
+
+  """All values not starting with the given string."""
+  reason_not_starts_with: String
+
+  """All values ending with the given string."""
+  reason_ends_with: String
+
+  """All values not ending with the given string."""
+  reason_not_ends_with: String
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+}
+
+input TeamMemberStatusWhereUniqueInput {
+  id: ID
+}
+
 input TeamMembersUpdateInput {
   role: Role
-  member: MemberUpdateOneWithoutTeamInput
+  email: String
+  member: MemberUpdateOneWithoutTeamsInput
   team: TeamUpdateOneWithoutMembersInput
-  status: MemberStatusUpdateManyInput
+  status: TeamMemberStatusUpdateManyInput
+}
+
+input TeamMembersUpdateManyWithoutMemberInput {
+  create: [TeamMembersCreateWithoutMemberInput!]
+  connect: [TeamMembersWhereUniqueInput!]
+  disconnect: [TeamMembersWhereUniqueInput!]
+  delete: [TeamMembersWhereUniqueInput!]
+  update: [TeamMembersUpdateWithWhereUniqueWithoutMemberInput!]
+  upsert: [TeamMembersUpsertWithWhereUniqueWithoutMemberInput!]
 }
 
 input TeamMembersUpdateManyWithoutTeamInput {
   create: [TeamMembersCreateWithoutTeamInput!]
-}
-
-input TeamMembersUpdateOneWithoutMemberInput {
-  create: TeamMembersCreateWithoutMemberInput
-  disconnect: Boolean
-  delete: Boolean
-  update: TeamMembersUpdateWithoutMemberDataInput
-  upsert: TeamMembersUpsertWithoutMemberInput
+  connect: [TeamMembersWhereUniqueInput!]
+  disconnect: [TeamMembersWhereUniqueInput!]
+  delete: [TeamMembersWhereUniqueInput!]
+  update: [TeamMembersUpdateWithWhereUniqueWithoutTeamInput!]
+  upsert: [TeamMembersUpsertWithWhereUniqueWithoutTeamInput!]
 }
 
 input TeamMembersUpdateWithoutMemberDataInput {
   role: Role
+  email: String
   team: TeamUpdateOneWithoutMembersInput
-  status: MemberStatusUpdateManyInput
+  status: TeamMemberStatusUpdateManyInput
 }
 
-input TeamMembersUpsertWithoutMemberInput {
+input TeamMembersUpdateWithoutTeamDataInput {
+  role: Role
+  email: String
+  member: MemberUpdateOneWithoutTeamsInput
+  status: TeamMemberStatusUpdateManyInput
+}
+
+input TeamMembersUpdateWithWhereUniqueWithoutMemberInput {
+  where: TeamMembersWhereUniqueInput!
+  data: TeamMembersUpdateWithoutMemberDataInput!
+}
+
+input TeamMembersUpdateWithWhereUniqueWithoutTeamInput {
+  where: TeamMembersWhereUniqueInput!
+  data: TeamMembersUpdateWithoutTeamDataInput!
+}
+
+input TeamMembersUpsertWithWhereUniqueWithoutMemberInput {
+  where: TeamMembersWhereUniqueInput!
   update: TeamMembersUpdateWithoutMemberDataInput!
   create: TeamMembersCreateWithoutMemberInput!
+}
+
+input TeamMembersUpsertWithWhereUniqueWithoutTeamInput {
+  where: TeamMembersWhereUniqueInput!
+  update: TeamMembersUpdateWithoutTeamDataInput!
+  create: TeamMembersCreateWithoutTeamInput!
 }
 
 input TeamMembersWhereInput {
@@ -1334,6 +1804,46 @@ input TeamMembersWhereInput {
 
   """Logical NOT on all given filters combined by AND."""
   NOT: [TeamMembersWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
   role: Role
 
   """All values that are not equal to given value."""
@@ -1344,6 +1854,68 @@ input TeamMembersWhereInput {
 
   """All values that are not contained in given list."""
   role_not_in: [Role!]
+  email: String
+
+  """All values that are not equal to given value."""
+  email_not: String
+
+  """All values that are contained in given list."""
+  email_in: [String!]
+
+  """All values that are not contained in given list."""
+  email_not_in: [String!]
+
+  """All values less than the given value."""
+  email_lt: String
+
+  """All values less than or equal the given value."""
+  email_lte: String
+
+  """All values greater than the given value."""
+  email_gt: String
+
+  """All values greater than or equal the given value."""
+  email_gte: String
+
+  """All values containing the given string."""
+  email_contains: String
+
+  """All values not containing the given string."""
+  email_not_contains: String
+
+  """All values starting with the given string."""
+  email_starts_with: String
+
+  """All values not starting with the given string."""
+  email_not_starts_with: String
+
+  """All values ending with the given string."""
+  email_ends_with: String
+
+  """All values not ending with the given string."""
+  email_not_ends_with: String
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
   updatedAt: DateTime
 
   """All values that are not equal to given value."""
@@ -1368,9 +1940,14 @@ input TeamMembersWhereInput {
   updatedAt_gte: DateTime
   member: MemberWhereInput
   team: TeamWhereInput
-  status_every: MemberStatusWhereInput
-  status_some: MemberStatusWhereInput
-  status_none: MemberStatusWhereInput
+  status_every: TeamMemberStatusWhereInput
+  status_some: TeamMemberStatusWhereInput
+  status_none: TeamMemberStatusWhereInput
+}
+
+input TeamMembersWhereUniqueInput {
+  id: ID
+  email: String
 }
 
 enum TeamOrderByInput {

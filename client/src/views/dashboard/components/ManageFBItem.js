@@ -8,15 +8,13 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 
-import ManageTeamDetails from './ManageTeamDetails'
-import ManageTeamDelete from './ManageTeamDelete'
-import ManageTeamEdit from './ManageTeamEdit'
+import ManageFBEdit from './ManageFBEdit'
 
-export const ManageTeamsItem = ({ classes, team, authId }) => {
-  console.log('ManageTeamsItem', team, team.profile, team.profile.avatar)
+export const ManageFBItem = ({ classes, team, authId }) => {
+  console.log('ManageFBItem', team, team.fb[0], team.profile.avatar)
   let avatar
-  if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
-    avatar = team.profile.avatar
+  if (team.fb[0].avatar !== undefined && team.fb[0].avatar !== 'a') {
+    avatar = team.fb[0].avatar
   } else {
     avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
   }
@@ -31,16 +29,14 @@ export const ManageTeamsItem = ({ classes, team, authId }) => {
           />
           <CardContent className={classes.cardContent}>
             <Typography gutterBottom variant='headline' component='h2'>
-              {team.name}
+              {team.fb[0].name}
             </Typography>
             <Typography variant='caption' color='textSecondary'>
-              {team.createdAt} | Members: {team.members.length}
+              {team.fb[0].kind}
             </Typography>
           </CardContent>
           <CardActions>
-            <ManageTeamDetails team={team} />
-            <ManageTeamEdit slug={team.slug} team={team} authId={authId} />
-            <ManageTeamDelete slug={team.slug} authId={authId} />
+            <ManageFBEdit slug={team.slug} fb={team.fb[0]} authId={authId} />
           </CardActions>
         </div>
       </Card>
@@ -48,10 +44,10 @@ export const ManageTeamsItem = ({ classes, team, authId }) => {
   )
 }
 
-ManageTeamsItem.propTypes = {
+ManageFBItem.propTypes = {
   classes: PropTypes.object.isRequired,
   team: PropTypes.object.isRequired,
   authId: PropTypes.string.isRequired
 }
 
-export default ManageTeamsItem
+export default ManageFBItem

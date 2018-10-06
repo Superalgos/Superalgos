@@ -1,5 +1,7 @@
 import React from 'react'
 
-const Callback = () => <div>Authenticating...</div>
+import { MessageCard } from '@advancedalgos/web-components'
+
+const Callback = () => <MessageCard message='Authenticating...' />
 
 export default Callback

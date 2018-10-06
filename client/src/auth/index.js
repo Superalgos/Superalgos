@@ -16,7 +16,19 @@ const AUTHENTICATE = gql`
     }
   }
 `
-const lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, {
+
+const VERIFY_TEAM_INVITE = gql`
+  mutation verifyTeamInvite($token: String!) {
+    verifyTeamInvite(token: $token) {
+      email
+      team {
+        slug
+      }
+    }
+  }
+`
+
+export const defaultOptions = {
   oidcConformant: true,
   autoclose: true,
   auth: {
@@ -28,7 +40,27 @@ const lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, {
       scope: `openid profile email user_metadata app_metadata picture`
     }
   }
-})
+}
+
+export const inviteOptions = {
+  oidcConformant: true,
+  autoclose: false,
+  allowedConnections: ['Username-Password-Authentication'],
+  allowShowPassword: true,
+  auth: {
+    sso: false,
+    redirectUrl: window.location.origin + '/callback',
+    responseType: 'token id_token',
+    audience: `${AUTH_CONFIG.api_audience}`,
+    params: {
+      state: '',
+      scope: `email`
+    }
+  },
+  prefill: { email: '' }
+}
+
+let lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, defaultOptions)
 
 class Auth {
   constructor (cb, apolloClient) {
@@ -37,6 +69,7 @@ class Auth {
     this.apolloClient = apolloClient
     this.cb = cb.bind(this)
     this.login = this.login.bind(this)
+    this.loginInvite = this.loginInvite.bind(this)
     this.logout = this.logout.bind(this)
     this.isAuthenticated = this.isAuthenticated.bind(this)
     this.checkSession = this.checkSession.bind(this)
@@ -45,6 +78,29 @@ class Auth {
   login () {
     // Call the show method to display the widget.
     lock.show()
+  }
+
+  async loginInvite (jwt) {
+    let email
+    let team
+    try {
+      const data = await client.mutate({
+        mutation: VERIFY_TEAM_INVITE,
+        variables: { token: jwt }
+      })
+
+      console.log('loginInvite auth: ', await data.data.verifyTeamInvite)
+      setItem('invite', JSON.stringify(data.data.verifyTeamInvite))
+
+      email = data.data.verifyTeamInvite.email
+      team = data.data.verifyTeamInvite.team.slug
+    } catch (err) {
+      return console.log('loginInvite err: ', err)
+    }
+    inviteOptions.prefill.email = email
+    inviteOptions.auth.params.state = `${email}|${team}`
+    let lockInvite = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, inviteOptions)
+    lockInvite.show()
   }
 
   handleAuthentication () {

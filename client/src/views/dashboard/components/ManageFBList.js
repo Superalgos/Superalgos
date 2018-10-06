@@ -12,7 +12,7 @@ import { getItem } from '../../../utils/local-storage'
 
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
-import ManageTeamsItem from './ManageTeamsItem'
+import ManageFBItem from './ManageFBItem'
 import CreateTeamDialog from './CreateTeamDialog'
 
 const styles = theme => ({
@@ -47,7 +47,7 @@ const styles = theme => ({
   }
 })
 
-export const ManageTeamsList = ({ classes, user = null }) => {
+export const ManageFBList = ({ classes, user = null }) => {
   let owner
   let authId = null
   console.log('ManageTeamsList: ', user)
@@ -87,7 +87,7 @@ export const ManageTeamsList = ({ classes, user = null }) => {
                   <Grid container spacing={40}>
                     {!loading &&
                       data.teamsByOwner.map(team => (
-                        <ManageTeamsItem
+                        <ManageFBItem
                           key={team.id}
                           team={team}
                           classes={classes}
@@ -125,7 +125,7 @@ export const ManageTeamsList = ({ classes, user = null }) => {
   }
 }
 
-ManageTeamsList.propTypes = {
+ManageFBList.propTypes = {
   user: PropTypes.any,
   classes: PropTypes.object.isRequired
 }
@@ -142,9 +142,9 @@ const mapStateToProps = withStateHandlers(() => ({ user: null }), {
   user: ({ user }) => () => ({ user })
 })
 
-const ManageTeamsListAuthId = compose(
+const ManageFBListAuthId = compose(
   mapStateToProps,
   getUserOnMount
-)(ManageTeamsList)
+)(ManageFBList)
 
-export default withStyles(styles)(ManageTeamsListAuthId)
+export default withStyles(styles)(ManageFBListAuthId)

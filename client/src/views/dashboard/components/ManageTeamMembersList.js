@@ -4,7 +4,6 @@ import { Query } from 'react-apollo'
 import { withStateHandlers, lifecycle, compose } from 'recompose'
 
 import Grid from '@material-ui/core/Grid'
-import { MessageCard } from '@advancedalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
 import { isDefined, isString } from '../../../utils/js-helpers'
@@ -12,8 +11,8 @@ import { getItem } from '../../../utils/local-storage'
 
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
-import ManageTeamsItem from './ManageTeamsItem'
-import CreateTeamDialog from './CreateTeamDialog'
+import ManageMembersTeamItem from './ManageMembersTeamItem'
+import { MessageCard } from '@advancedalgos/web-components'
 
 const styles = theme => ({
   heroContent: {
@@ -47,7 +46,7 @@ const styles = theme => ({
   }
 })
 
-export const ManageTeamsList = ({ classes, user = null }) => {
+export const ManageTeamMembersList = ({ classes, user = null }) => {
   let owner
   let authId = null
   console.log('ManageTeamsList: ', user)
@@ -73,7 +72,6 @@ export const ManageTeamsList = ({ classes, user = null }) => {
       >
         {({ loading, error, data }) => {
           console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
-
           let errors = null
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
@@ -87,13 +85,9 @@ export const ManageTeamsList = ({ classes, user = null }) => {
                   <Grid container spacing={40}>
                     {!loading &&
                       data.teamsByOwner.map(team => (
-                        <ManageTeamsItem
-                          key={team.id}
-                          team={team}
-                          classes={classes}
-                          authId={authId}
-                        />
-                      ))}
+                        <ManageMembersTeamItem key={team.id} team={team} authId={authId} />
+                      ))
+                    }
                     {errors}
                   </Grid>
                 </React.Fragment>
@@ -102,9 +96,7 @@ export const ManageTeamsList = ({ classes, user = null }) => {
               return (
                 <Grid container spacing={40}>
                   <Grid item xs={10}>
-                    <MessageCard message='You don&rsquo;t have any teams. Create one!'>
-                      <CreateTeamDialog authId={authId} />
-                    </MessageCard>
+                    <MessageCard message='You don&rsquo;t have any members. Somethings not right...' />
                   </Grid>
                 </Grid>
               )
@@ -125,7 +117,7 @@ export const ManageTeamsList = ({ classes, user = null }) => {
   }
 }
 
-ManageTeamsList.propTypes = {
+ManageTeamMembersList.propTypes = {
   user: PropTypes.any,
   classes: PropTypes.object.isRequired
 }
@@ -142,9 +134,9 @@ const mapStateToProps = withStateHandlers(() => ({ user: null }), {
   user: ({ user }) => () => ({ user })
 })
 
-const ManageTeamsListAuthId = compose(
+const ManageTeamMembersListAuthId = compose(
   mapStateToProps,
   getUserOnMount
-)(ManageTeamsList)
+)(ManageTeamMembersList)
 
-export default withStyles(styles)(ManageTeamsListAuthId)
+export default withStyles(styles)(ManageTeamMembersListAuthId)

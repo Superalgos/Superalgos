@@ -29,7 +29,7 @@ const isLoggedIn = async ctx => {
     let member = ctxMember(ctx, memberLocationOnContext)
     let token = ctxToken(ctx, bearerAccessToken)
     let memberToken
-    console.log('isLoggedIn: ', ctx, member, token)
+    // console.log('isLoggedIn: ', ctx, member, token)
     if (!member && token) {
       let scheme, credentials
       const tokenParts = token.split(' ')
@@ -41,16 +41,16 @@ const isLoggedIn = async ctx => {
      if (/^Bearer$/i.test(scheme)) {
        token = credentials
        //verify token
-       console.log('isLoggedIn2 : ', token)
+       // console.log('isLoggedIn2 : ', token)
        try {
          memberToken = await validateIdToken(token)
          const authId = memberToken.sub
-         console.log('isLoggedIn3 : ', await authId, ctx.db.query.member)
+         // console.log('isLoggedIn3 : ', await authId, ctx.db.query.member)
          exists = await ctx.db.query.member({ where: { authId: authId } })
-         console.log('isLoggedIn4 : ', await exists, createMember )
+         // console.log('isLoggedIn4 : ', await exists, createMember )
          if (!member && exists === null) {
            member = await createMember(ctx, memberToken).then(res => {
-              console.log('isLoggedIn5 : ', res)
+              // console.log('isLoggedIn5 : ', res)
               return res
            })
 
@@ -62,7 +62,7 @@ const isLoggedIn = async ctx => {
        }
      }
     }
-    console.log('isLoggedIn5 : ', await member)
+    // console.log('isLoggedIn5 : ', await member)
     if (!member) {
       throw new Error(`Not logged in`)
     }
@@ -95,13 +95,13 @@ const directiveResolvers = {
         ? source
         : ctx.request.body.variables ? ctx.request.body.variables : { id: null }
     const user = await isLoggedIn(ctx)
-    console.log('directive isOwner 0: ', typeId, user.sub)
+    // console.log('directive isOwner 0: ', typeId, user.sub)
     const memberId = user.sub
     const isOwner =
       type === `Member`
         ? memberId === typeId
         : await isRequestingMemberAlsoOwner({ ctx, memberId, type, typeId })
-    console.log('directive isOwner 1: ', source, isOwner, type, typeId, memberId)
+    // console.log('directive isOwner 1: ', source, isOwner, type, typeId, memberId)
     if (isOwner) {
       return next()
     }

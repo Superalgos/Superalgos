@@ -23,9 +23,28 @@ export const GET_TEAMS_BY_OWNER = gql`
       }
       members {
         role
+        email
         member {
           alias
           authId
+        }
+        status {
+          id
+          status
+          reason
+          createdAt
+        }
+      }
+      fb {
+        id
+        name
+        slug
+        avatar
+        kind
+        status {
+          status
+          reason
+          createdAt
         }
       }
     }

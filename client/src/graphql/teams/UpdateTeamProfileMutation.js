@@ -4,7 +4,6 @@ import gql from 'graphql-tag'
 const UPDATE_TEAM_PROFILE = gql`
   mutation UpdateTeamProfileMutation(
     $slug: String!,
-    $owner: String!,
     $description: String,
     $motto: String,
     $avatar: String,
@@ -12,7 +11,6 @@ const UPDATE_TEAM_PROFILE = gql`
   ) {
     updateTeamProfile(
       slug: $slug,
-      owner: $owner,
       description: $description,
       motto: $motto
       avatar: $avatar,
@@ -37,9 +35,16 @@ const UPDATE_TEAM_PROFILE = gql`
       }
       members {
         role
+        email
         member {
           alias
           authId
+        }
+        status {
+          id
+          status
+          reason
+          createdAt
         }
       }
     }

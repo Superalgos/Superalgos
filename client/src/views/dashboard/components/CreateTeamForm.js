@@ -11,8 +11,6 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import { getItem } from '../../../utils/local-storage'
-
 export class CreateTeamDialog extends Component {
   constructor (props) {
     super(props)
@@ -25,7 +23,8 @@ export class CreateTeamDialog extends Component {
 
     this.state = {
       open: false,
-      name: ''
+      name: '',
+      botName: ''
     }
   }
 
@@ -38,7 +37,16 @@ export class CreateTeamDialog extends Component {
   }
 
   handleChange (e) {
-    this.setState({ name: e.target.value })
+    let value = e.target.value
+    switch (e.target.id) {
+      case 'name':
+        this.setState({ name: value })
+        break
+      case 'botName':
+        this.setState({ botName: value })
+        break
+      default:
+    }
   }
 
   render () {
@@ -71,6 +79,17 @@ export class CreateTeamDialog extends Component {
               type='text'
               fullWidth
               value={this.state.name}
+              onChange={this.handleChange}
+            />
+            <DialogContentText>Create a name for you teams bot. (Temporary: In the future, creating multiple Financial Beings will occur in a separate module)</DialogContentText>
+            <TextField
+              autoFocus
+              margin='dense'
+              id='botname'
+              label='Team Bot Name'
+              type='text'
+              fullWidth
+              value={this.state.botName}
               onChange={this.handleChange}
             />
           </DialogContent>
@@ -106,20 +125,19 @@ export class CreateTeamDialog extends Component {
 
   async handlePost (e) {
     e.preventDefault()
-    const { name } = this.state
+    const { name, botName } = this.state
     const slug = this.slugify(name)
-    const currentUser = await getItem('user')
-    let authId = JSON.parse(currentUser)
-    authId = authId.sub
-    console.log('createPage cu:', JSON.parse(currentUser))
+    const botSlug = this.slugify(botName)
+
     await this.props.createTeamMutation({
       variables: {
         name,
         slug,
-        owner: authId
+        botName,
+        botSlug
       }
     })
-    this.setState({ open: false })
+    this.setState({ open: false, name: '', botName: '' })
   }
 }
 

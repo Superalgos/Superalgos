@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography'
 
 import { MessageCard, ImageUpload } from '@advancedalgos/web-components'
 
-import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutation'
+import UPDATE_FB from '../../../graphql/teams/UpdateFBMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
@@ -33,39 +33,30 @@ const styles = theme => ({
   }
 })
 
-export class ManageTeamEdit extends Component {
+export class ManageFBEdit extends Component {
   constructor (props) {
     super(props)
 
     this.handleClickOpen = this.handleClickOpen.bind(this)
     this.handleClose = this.handleClose.bind(this)
-    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleAvatar = this.handleAvatar.bind(this)
-    this.handleBanner = this.handleBanner.bind(this)
 
-    console.log('ManageTeamEdit', props.team)
-    const motto = props.team.profile.motto || ''
-    const description = props.team.profile.description || ''
-    const avatar = props.team.profile.avatar || ''
-    const banner = props.team.profile.banner || ''
+    const avatar = props.fb.avatar || ''
     this.authId = props.authId
 
     this.state = {
       open: false,
-      motto: motto,
-      description: description,
-      avatar: avatar,
-      banner: banner
+      avatar: avatar
     }
   }
 
   render () {
-    console.log('ManageTeamEdit ', this.props, this.props.slug, this.props.team)
-    const { classes, team } = this.props
+    console.log('ManageFBEdit ', this.props, this.props.slug, this.props.fb)
+    const { classes, fb, slug } = this.props
     return (
       <Mutation
-        mutation={UPDATE_TEAM_PROFILE}
+        mutation={UPDATE_FB}
         refetchQueries={[
           {
             query: GET_TEAMS_BY_OWNER,
@@ -73,7 +64,7 @@ export class ManageTeamEdit extends Component {
           }
         ]}
       >
-        {(updateTeamProfile, { loading, error, data }) => {
+        {(updateFB, { loading, error, data }) => {
           let errors
           let loader
           if (loading) {
@@ -109,14 +100,14 @@ export class ManageTeamEdit extends Component {
               >
                 <div classes={classes.dialogContainer}>
                   <DialogTitle id='form-dialog-title'>
-                    Edit Team Details
+                    Edit Financial Being
                   </DialogTitle>
                   <DialogContent>
                     <Mutation mutation={GET_AZURE_SAS} >
                       {(getAzureSAS, { loading, error, data }) => {
-                        console.log('getAzureSAS: ', loading, error, data, team.profile)
+                        console.log('getAzureSAS: ', loading, error, data, fb)
                         const AzureStorageUrl = process.env.AZURE_STORAGE_URL
-                        const containerName = team.slug
+                        const containerName = slug
                         let AzureSASURL
                         if (!loading && data !== undefined) {
                           AzureSASURL = data.getAzureSAS
@@ -125,44 +116,20 @@ export class ManageTeamEdit extends Component {
                         }
 
                         let avatar = null
+                        if (fb.avatar !== undefined && fb.avatar !== null) avatar = fb.avatar
                         if (this.state.avatar !== null) avatar = this.state.avatar
-                        if (team.profile !== null && team.profile.avatar !== undefined && team.profile.avatar !== null) avatar = team.profile.avatar
-                        if (this.state.avatar === null && team.profile !== null && team.profile.avatar === undefined) avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
-                        let banner = null
-                        if (this.state.banner !== null) banner = this.state.banner
-                        if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
-                        if (this.state.banner === null && team.profile !== null && team.profile.banner === undefined) banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
-                        console.log('team images: ', avatar, banner)
+                        if (this.state.avatar === null && fb.avatar === undefined) avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
 
                         if (loading || data === undefined) {
                           return (<MessageCard message='Loading...' />)
                         } else {
                           return (
                             <React.Fragment>
-                              <ImageUpload
-                                key='banner'
-                                handleUrl={this.handleBanner}
-                                fileName={`${team.slug}-banner.jpg`}
-                                containerName={containerName}
-                                existingImage={banner}
-                                cropContainer={{ x: 10, y: 10, width: 800, height: 200 }}
-                                cropPreviewBox={{ width: 650, height: 200 }}
-                                saveImageConfig={{
-                                  quality: 0.6,
-                                  maxWidth: 800,
-                                  maxHeight: 200,
-                                  autoRotate: true,
-                                  mimeType: 'image/jpeg'
-                                }}
-                                AzureStorageUrl={AzureStorageUrl}
-                                AzureSASURL={AzureSASURL}
-                                cropRatio={4}
-                                debug
-                              />
+                              <DialogContentText>Update Financial Beings's Avatar</DialogContentText>
                               <ImageUpload
                                 key='avatar'
                                 handleUrl={this.handleAvatar}
-                                fileName={`${team.slug}-avatar.jpg`}
+                                fileName={`${fb.slug}-fb-avatar.jpg`}
                                 containerName={containerName}
                                 existingImage={avatar}
                                 cropContainer={{ x: 10, y: 10, width: 200, height: 200 }}
@@ -192,29 +159,7 @@ export class ManageTeamEdit extends Component {
                       type='text'
                       fullWidth
                       disabled
-                      value={team.name}
-                    />
-                    <TextField
-                      autoFocus
-                      margin='dense'
-                      id='motto'
-                      label='Team Motto'
-                      type='text'
-                      fullWidth
-                      value={this.state.motto}
-                      onChange={this.handleChange}
-                    />
-                    <DialogContentText>Team description:</DialogContentText>
-                    <TextField
-                      margin='dense'
-                      id='description'
-                      label='Team Description'
-                      type='text'
-                      rows={4}
-                      multiline
-                      fullWidth
-                      value={this.state.description}
-                      onChange={this.handleChange}
+                      value={fb.name}
                     />
                     {loader}
                     {errors}
@@ -225,11 +170,11 @@ export class ManageTeamEdit extends Component {
                     </Button>
                     <Button
                       onClick={e => {
-                        this.handleSubmit(e, updateTeamProfile, this.props.slug)
+                        this.handleSubmit(e, updateFB, fb.id, slug)
                       }}
                       color='primary'
                     >
-                      Update Team
+                      Update Financial Being
                     </Button>
                   </DialogActions>
                 </div>
@@ -249,51 +194,30 @@ export class ManageTeamEdit extends Component {
     this.setState({ open: false })
   }
 
-  handleChange (e) {
-    switch (e.target.id) {
-      case 'motto':
-        this.setState({ motto: e.target.value })
-        break
-      case 'description':
-        this.setState({ description: e.target.value })
-        break
-      default:
-    }
-  }
-
   handleAvatar (avatarUrl) {
     console.log('handleAvatar: ', avatarUrl)
     this.setState({ avatar: `${avatarUrl}?${Math.random()}` })
   }
 
-  handleBanner (bannerUrl) {
-    console.log('handleBanner: ', bannerUrl)
-    this.setState({ banner: `${bannerUrl}?${Math.random()}` })
-  }
-
-  async handleSubmit (e, updateTeamProfile, slug) {
+  async handleSubmit (e, updateFB, fbId, slug) {
     console.log('handleSubmit: ', this.state)
     e.preventDefault()
 
-    await updateTeamProfile({
+    await updateFB({
       variables: {
-        slug,
-        owner: this.authId,
-        description: this.state.description,
-        motto: this.state.motto,
-        avatar: this.state.avatar,
-        banner: this.state.banner
+        fbId,
+        avatar: this.state.avatar
       }
     })
-    this.setState({ description: '', motto: '', open: false })
+    this.setState({ open: false })
   }
 }
 
-ManageTeamEdit.propTypes = {
+ManageFBEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  team: PropTypes.object,
+  fb: PropTypes.object,
   authId: PropTypes.string.isRequired
 }
 
-export default withStyles(styles)(ManageTeamEdit)
+export default withStyles(styles)(ManageFBEdit)

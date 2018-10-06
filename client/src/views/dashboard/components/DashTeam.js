@@ -18,14 +18,11 @@ import { getItem } from '../../../utils/local-storage'
 
 export const DashTeam = ({ classes, user = null }) => {
   let owner
-  let loader
   let authId = null
   console.log('DashTeam: ', user)
   if (user !== null && isString(user)) {
     owner = JSON.parse(user)
     if (isDefined(owner.authId)) authId = owner.authId
-  } else {
-    loader = <Typography variant='caption'>Loading...</Typography>
   }
   console.log('DashTeam 2: ', owner, authId)
 
@@ -71,7 +68,6 @@ export const DashTeam = ({ classes, user = null }) => {
                     ))}
                   {queryLoader}
                   {errors}
-                  {loader}
                 </Grid>
               )
             } else {
@@ -79,7 +75,7 @@ export const DashTeam = ({ classes, user = null }) => {
                 <Grid container spacing={40}>
                   <Grid item xs={10}>
                     <MessageCard message='No teams yet...'>
-                      <CreateTeamDialog authId={authId} />
+                      <CreateTeamDialog />
                     </MessageCard>
                   </Grid>
                 </Grid>

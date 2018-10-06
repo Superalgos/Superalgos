@@ -4,14 +4,14 @@ import { withStyles } from '@material-ui/core/styles'
 import { Mutation } from 'react-apollo'
 
 import Button from '@material-ui/core/Button'
-import DeleteIcon from '@material-ui/icons/Delete'
+import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import DELETE_TEAM from '../../../graphql/teams/DeleteTeamMutation'
+import REMOVE_TEAM_MEMBER from '../../../graphql/teams/RemoveTeamMemberMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
@@ -27,7 +27,7 @@ const styles = theme => ({
   }
 })
 
-export class ManageTeamDelete extends Component {
+export class ManageMemberDelete extends Component {
   constructor (props) {
     super(props)
 
@@ -54,17 +54,12 @@ export class ManageTeamDelete extends Component {
   }
 
   render () {
-    console.log(this.props, this.props.slug)
-    const { classes, authId } = this.props
+    console.log(this.props, this.props.teamId)
+    const { classes, teamId, authId } = this.props
     return (
       <Mutation
-        mutation={DELETE_TEAM}
-        refetchQueries={[
-          {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
-          }
-        ]}
+        mutation={REMOVE_TEAM_MEMBER}
+        refetchQueries={[{ query: GET_TEAMS_BY_OWNER }]}
       >
         {(deleteTeam, { loading, error, data }) => {
           let errors
@@ -86,14 +81,14 @@ export class ManageTeamDelete extends Component {
             })
           }
           return (
-            <div>
+            <React.Fragment>
               <Button
                 size='small'
                 color='primary'
                 className={classes.buttonRight}
                 onClick={this.handleClickOpen}
               >
-                <DeleteIcon /> Delete
+                <PersonAddDisabledIcon /> Remove
               </Button>
               <Dialog
                 open={this.state.open}
@@ -102,14 +97,14 @@ export class ManageTeamDelete extends Component {
               >
                 <div classes={classes.dialogContainer}>
                   <DialogTitle id='form-dialog-title'>
-                    Delete Team Team
+                    Remove Team Member
                   </DialogTitle>
                   <DialogContent>
                     <Typography variant='subheading' color='primary'>
-                      DANGER - Deleting your team cannot be undone
+                      DANGER - Removing your team cannot be undone
                     </Typography>
                     <Typography variant='subheading'>
-                      Are you sure you want to delete this team?
+                      Are you sure you want to remove this team member?
                     </Typography>
                     {loader}
                     {errors}
@@ -123,34 +118,35 @@ export class ManageTeamDelete extends Component {
                         this.handleSubmit(
                           e,
                           deleteTeam,
-                          this.props.slug
+                          teamId,
+                          authId
                         )
                       }}
                       color='primary'
                     >
-                      Delete Team
+                      Remove Member
                     </Button>
                   </DialogActions>
                 </div>
               </Dialog>
-            </div>
+            </React.Fragment>
           )
         }}
       </Mutation>
     )
   }
 
-  async handleSubmit (e, deleteTeam, slug) {
+  async handleSubmit (e, deleteTeam, teamId, memberId) {
     e.preventDefault()
-    await deleteTeam({ variables: { slug } })
+    await deleteTeam({ variables: { teamId, memberId } })
     this.setState({ open: false })
   }
 }
 
-ManageTeamDelete.propTypes = {
+ManageMemberDelete.propTypes = {
   classes: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired,
-  authId: PropTypes.string.isRequired
+  teamId: PropTypes.string.isRequired,
+  authId: PropTypes.string
 }
 
-export default withStyles(styles)(ManageTeamDelete)
+export default withStyles(styles)(ManageMemberDelete)

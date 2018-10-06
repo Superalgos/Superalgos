@@ -4,14 +4,16 @@ import { withStyles } from '@material-ui/core/styles'
 import { Mutation } from 'react-apollo'
 
 import Button from '@material-ui/core/Button'
-import DeleteIcon from '@material-ui/icons/Delete'
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField'
+import MenuItem from '@material-ui/core/MenuItem'
 
-import DELETE_TEAM from '../../../graphql/teams/DeleteTeamMutation'
+import SET_TEAM_MEMBER_ROLE from '../../../graphql/teams/SetTeamMemberRoleMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
@@ -27,7 +29,12 @@ const styles = theme => ({
   }
 })
 
-export class ManageTeamDelete extends Component {
+const roles = [
+  { role: 'Admin' },
+  { role: 'Member' }
+]
+
+export class ManageMemberRole extends Component {
   constructor (props) {
     super(props)
 
@@ -37,7 +44,8 @@ export class ManageTeamDelete extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
 
     this.state = {
-      open: false
+      open: false,
+      role: ''
     }
   }
 
@@ -54,19 +62,14 @@ export class ManageTeamDelete extends Component {
   }
 
   render () {
-    console.log(this.props, this.props.slug)
-    const { classes, authId } = this.props
+    console.log(this.props, this.props.teamId)
+    const { classes, teamId, authId } = this.props
     return (
       <Mutation
-        mutation={DELETE_TEAM}
-        refetchQueries={[
-          {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
-          }
-        ]}
+        mutation={SET_TEAM_MEMBER_ROLE}
+        refetchQueries={[{ query: GET_TEAMS_BY_OWNER }]}
       >
-        {(deleteTeam, { loading, error, data }) => {
+        {(setTeamMemberRole, { loading, error, data }) => {
           let errors
           let loader
           if (loading) {
@@ -86,14 +89,14 @@ export class ManageTeamDelete extends Component {
             })
           }
           return (
-            <div>
+            <React.Fragment>
               <Button
                 size='small'
                 color='primary'
                 className={classes.buttonRight}
                 onClick={this.handleClickOpen}
               >
-                <DeleteIcon /> Delete
+                <AssignmentIndIcon /> Set Role
               </Button>
               <Dialog
                 open={this.state.open}
@@ -102,15 +105,23 @@ export class ManageTeamDelete extends Component {
               >
                 <div classes={classes.dialogContainer}>
                   <DialogTitle id='form-dialog-title'>
-                    Delete Team Team
+                    Set Team Member Role
                   </DialogTitle>
                   <DialogContent>
-                    <Typography variant='subheading' color='primary'>
-                      DANGER - Deleting your team cannot be undone
-                    </Typography>
                     <Typography variant='subheading'>
-                      Are you sure you want to delete this team?
+                      Admin members can approve new team members, send team invitations, and remove team members.
                     </Typography>
+                    <TextField
+                      select
+                      label='Team Role'
+                      value={this.state.role}
+                      onChange={(e) => this.setState({ role: e.target.value })}
+                      fullWidth
+                    >
+                      {roles.map(role => (
+                        <MenuItem key={role.role} value={role.role}>{role.role}</MenuItem>
+                      ))}
+                    </TextField>
                     {loader}
                     {errors}
                   </DialogContent>
@@ -122,35 +133,37 @@ export class ManageTeamDelete extends Component {
                       onClick={e => {
                         this.handleSubmit(
                           e,
-                          deleteTeam,
-                          this.props.slug
+                          setTeamMemberRole,
+                          teamId,
+                          authId
                         )
                       }}
                       color='primary'
                     >
-                      Delete Team
+                      Set Member Role
                     </Button>
                   </DialogActions>
                 </div>
               </Dialog>
-            </div>
+            </React.Fragment>
           )
         }}
       </Mutation>
     )
   }
 
-  async handleSubmit (e, deleteTeam, slug) {
+  async handleSubmit (e, setTeamMemberRole, teamId, authId) {
     e.preventDefault()
-    await deleteTeam({ variables: { slug } })
+    const role = this.state.role
+    await setTeamMemberRole({ variables: { teamId, memberId: authId, role: role } })
     this.setState({ open: false })
   }
 }
 
-ManageTeamDelete.propTypes = {
+ManageMemberRole.propTypes = {
   classes: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired,
+  teamId: PropTypes.string.isRequired,
   authId: PropTypes.string.isRequired
 }
 
-export default withStyles(styles)(ManageTeamDelete)
+export default withStyles(styles)(ManageMemberRole)

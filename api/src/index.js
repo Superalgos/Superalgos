@@ -8,6 +8,7 @@ const {
 const { makeExecutableSchema } = require('graphql-tools')
 const { importSchema } = require('graphql-import')
 const parser = require('fast-xml-parser')
+var axios = require('axios')
 
 const checkJwt = require('./auth/middleware/jwt')
 const { getMember } = require('./auth/middleware/getMember')
@@ -19,6 +20,8 @@ const { createSASQueryURL } = require('./storage/azure')
 const azureAccount = process.env.AZURE_STORAGE_ACCOUNT
 const azureKey = process.env.AZURE_STORAGE_ACCESS_KEY
 const azureStorageUrl = process.env.AZURE_STORAGE_URL
+
+const { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } = require('./email/sendgrid')
 
 const TEAMS_FRAGMENT = require('./graphql/TeamsFragment')
 const TEAMS_CONNECTIONS_FRAGMENT = require('./graphql/TeamsConnectionsFragment')
@@ -73,9 +76,17 @@ const resolvers = {
     async teamByName(parent, { name }, ctx, info) {
       return ctx.db.query.team({ where: { name: name } }, `{ name }`)
     },
+    async teamWithRole(parent, { teamId, role }, ctx, info) {
+      return ctx.db.query.teamsConnection({where: {AND: [{id: teamId},{members_some:{role: role}}]}, first:1}, info)
+    },
     async teamsByOwner(parent, { ownerId }, ctx, info) {
-      console.log('teamsByOwner: ', ctx)
       return ctx.db.query.teams({where: { owner: ownerId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
+    },
+    async teamsByRole(parent, args, ctx, info) {
+      const authId = ctx.request.user.sub
+      let teamAdmin = await ctx.db.query.teams({where: {members_some: {OR: [{role: 'ADMIN'}, {role: 'OWNER'}], AND: [{member: {authId: authId}}]}}, orderBy: 'updatedAt_DESC'}, TEAMS_FRAGMENT)
+      console.log('teamsByRole teamAdmin: ', teamAdmin)
+      return teamAdmin
     },
     async owner(parent, args, ctx, info) {
       console.log('resolver.query.owner ctx: ', ctxMember(ctx))
@@ -110,15 +121,77 @@ const resolvers = {
       }
       return member
     },
-    async createTeam(parent, { name, slug, owner }, ctx, info) {
-      return ctx.db.mutation.createTeam({ data: { name: name, slug: slug, owner: owner, members: { create: { member:{ connect:{ authId: owner} }, role: 'OWNER' } }, profile:{create:{avatar:"a"} } } }, TEAMS_FRAGMENT)
+    async sendMemberInviteSG(parent, { email, teamId }, ctx, info) {
+      const team = await ctx.db.query.team({ where: { id: teamId } }, TEAMS_FRAGMENT)
+      const addMember = await ctx.db.mutation.upsertTeamMembers({
+        where:{email: email},
+        create:{role:'MEMBER', email:email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invited by ${team.members[0].member.alias}`}}},
+        update:{role: 'MEMBER', email: email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invite resent by ${team.members[0].member.alias}`}}}},
+        `{ id }`)
+      const sendInvite = await sendTeamMemberInvite(email, team)
+      return sendInvite
+    },
+    async verifyTeamInvite(parent, { token }, ctx, info) {
+      let verifiedToken = null
+      let team = null
+      try {
+        verifiedToken = await verifyInviteToken(token)
+        team = {
+          email: verifiedToken.email,
+          team: {
+            slug: verifiedToken.team
+          }
+        }
+        console.log('verifyTeamInvite.token: ', await verifiedToken)
+      } catch (err) {
+        console.log('verifyTeamInvite. err: ', err)
+        throw new Error(err.message)
+      }
+      return team
+    },
+    async createTeam(parent, { name, slug, botName, botSlug }, ctx, info) {
+      console.log('createTeam ctx:', ctx.request.user)
+      const authId = ctx.request.user.sub
+      const encodedAuthId = encodeURI(authId)
+      const getUserModuleUser = await axios.get(`https://users-api.advancedalgos.net/graphql?query=%7B%0A%20%20userByAuthId(authId%3A%22${encodedAuthId}%22)%7B%0A%20%20%20%20id%0A%09%09email%0A%20%20%20%20alias%0A%20%20%7D%0A%7D`)
+
+      const alias = await getUserModuleUser.data.data.userByAuthId.alias
+      const email = getUserModuleUser.data.data.userByAuthId.email
+      const avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+      const banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
+/*
+      const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}`)
+      const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
+      // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+      const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}`)
+      console.log('createPlatformTeam: ', await createPlatformTeam)
+
+      // const sessionToken = getUserModuleUser.data.data.userByAuthId.id
+      update session token on user module
+      const updateUserSession = await axios.post('https://users-api.advancedalgos.net/graphql', {
+        query: 'mutation { language }'
+      })
+
+*/
+      const createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER'}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+        .catch((err) => {
+          console.log('createTeam error: ', err)
+          return err
+        })
+
+      sendTeamCreateConfirmation(email, name, botName)
+
+      return createTeam
+    },
+    async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {
+      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar, banner: banner}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err
         })
     },
-    async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {
-      return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar, banner: banner}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
+    async updateFB(parent, { fbId, avatar}, ctx, info) {
+      return ctx.db.mutation.updateFinancialBeings({data:{avatar:avatar}, where:{id:fbId}}, info)
         .catch((err) => {
           console.log('createTeam error: ', err)
           return err
@@ -187,19 +260,15 @@ let whitelist = [
   'http://localhost:3002',
   'http://localhost:4000',
   'http://localhost:4002',
-  'http://localhost:1337'
+  'http://localhost:1337',
+  'https://teams.advancedalgos.net',
+  'https://users.advancedalgos.net',
+  'https://users-api.advancedalgos.net',
+  'https://keyvault.advancedalgos.net',
+  'https://keyvault-api.advancedalgos.net',
+  'https://aawebdevelop.azurewebsites.net',
+  'https://develop.advancedalgos.net'
 ]
-if(process.env.NODE_ENV === 'production'){
-  whitelist = [
-    'https://teams.advancedalgos.net',
-    'https://users.advancedalgos.net',
-    'https://users-api.advancedalgos.net',
-    'https://keyvault.advancedalgos.net',
-    'https://keyvault-api.advancedalgos.net',
-    'http://localhost:1337'
-  ]
-}
-
 
 const corsOptionsDelegate = (req, callback) => {
   var corsOptions

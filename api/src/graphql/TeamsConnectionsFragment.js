@@ -22,9 +22,28 @@ const TEAMS_CONNECTIONS_FRAGMENT = gql`{
       }
       members {
         role
+        email
         member {
           alias
           authId
+        }
+        status {
+          id
+          status
+          reason
+          createdAt
+        }
+      }
+      fb {
+        id
+        name
+        slug
+        avatar
+        kind
+        status {
+          status
+          reason
+          createdAt
         }
       }
     }

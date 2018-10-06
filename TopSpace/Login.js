@@ -180,6 +180,18 @@ function newLogin() {
                                      alias
                                    }
                                  }
+                                 fb {
+                                    id
+                                    name
+                                    slug
+                                    avatar
+                                    kind
+                                    status {
+                                      status
+                                      reason
+                                      createdAt
+                                    }
+                                  }
                                }
                              }
                          `

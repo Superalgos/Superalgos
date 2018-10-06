@@ -43,11 +43,12 @@ function newDevTeam() {
 
         if (storedTeams === null || storedTeams === "[]" || storedTeams === "") {
             window.TEAMS = "";
+            window.DEV_TEAM = "";
             label = NOT_FOUND;
         } else {
             storedTeams = JSON.parse(storedTeams)
             window.TEAMS = storedTeams;
-            window.DEV_TEAM = storedTeams[0].slug;
+            window.DEV_TEAM = storedTeams[sharedStatus.currentDevTeamIndex].slug;
             label = storedTeams[sharedStatus.currentDevTeamIndex].name;
         }
 

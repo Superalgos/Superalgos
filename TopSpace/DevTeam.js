@@ -47,6 +47,7 @@ function newDevTeam() {
         } else {
             storedTeams = JSON.parse(storedTeams)
             window.TEAMS = storedTeams;
+            window.DEV_TEAM = storedTeams[0].slug;
             label = storedTeams[sharedStatus.currentDevTeamIndex].name;
         }
 

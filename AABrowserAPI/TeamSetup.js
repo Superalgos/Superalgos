@@ -38,7 +38,7 @@
                         console.log("[ERROR] TeamSetup -> newTeam -> createContainer -> onContainerCreated -> Could not create the container. ");
                         console.log("[ERROR] TeamSetup -> newTeam -> createContainer -> onContainerCreated -> err.message = " + err.message);
 
-                        if (err.message === "ContainerAlreadyExists") {
+                        if (err.code === "ContainerAlreadyExists") {
 
                             let err = {
                                 result: global.CUSTOM_FAIL_RESPONSE.result,

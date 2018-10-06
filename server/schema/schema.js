@@ -285,6 +285,26 @@ const Mutation = new GraphQLObjectType({
 
         return User.update(key, updatedUser)
       }
+    },
+    updateSessionToken: {
+      type: UserType,
+      args: {
+        authId: {type: GraphQLString},
+        sessionToken: {type: GraphQLString}
+      },
+      resolve (parent, args) {
+        console.log('Request Received', args)
+        let key = {
+          authId: decodeURI(args.authId)
+        }
+        console.log('Key', key)
+        console.log('decode', decodeURI(args.authId))
+        let updatedUser = {
+          sessionToken: args.sessionToken
+        }
+
+        return User.update(key, updatedUser)
+      }
     }
   }
 })

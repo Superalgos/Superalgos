@@ -585,12 +585,12 @@ function onBrowserRequest(request, response) {
 
                         teamSetup.initialize(serverConfig);
 
-                        let devTeamCodeName = requestParameters[3];
-                        let devTeamDisplayName = requestParameters[4].replace("%20", " ");
-                        let userName = requestParameters[5];
-                        let botCodeName = requestParameters[6];
-                        let botDisplayName = requestParameters[7];
-                        let authId = requestParameters[8];
+                        let devTeamCodeName = decodeURI(requestParameters[3]);
+                        let devTeamDisplayName = decodeURI(requestParameters[4]);
+                        let userName = decodeURI(requestParameters[5]);
+                        let botCodeName = decodeURI(requestParameters[6]);
+                        let botDisplayName = decodeURI(requestParameters[7]);
+                        let authId = decodeURI(requestParameters[8]);
 
                         teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, authId, onSetupFinished);
 

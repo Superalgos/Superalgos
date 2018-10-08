@@ -503,7 +503,7 @@ function newFloatingLayer() {
 
                 catch (err) {
 
-                    if (ERROR_LOG === true) { logger.write("[ERROR] physicsLoop -> drawVisibleObjects -> err.message = " + err.message); }
+                    if (ERROR_LOG === true && INTENSIVE_LOG === true) { logger.write("[ERROR] physicsLoop -> drawVisibleObjects -> err.message = " + err.message); }
 
                 }
             }

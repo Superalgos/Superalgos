@@ -66,6 +66,9 @@
     let timePeriod = INITIAL_TIME_PERIOD;
     let datetime = INITIAL_DATE;
 
+    let teamAvatar; // stores the avatar image of the team the bot portrayed at this card belongs to.
+    let teamAvatarLoaded = false;
+
     return thisObject;
 
     function initialize() {
@@ -142,6 +145,24 @@
         /* Lets listen to our own events to react when we have a Mouse Click */
 
         thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed);
+
+        /* 
+        Here we will download the images of teams uploaded at the Teams Module.
+        There might be Product Cards of bots beloging to teams not present currently at the Teams Module, in those cases
+        nothing should happen.
+        */
+
+        teamAvatar = new Image();
+
+        teamAvatar.onload = onImageLoad;
+
+        function onImageLoad() {
+            teamAvatarLoaded = true;
+        }
+
+        const STORAGE_URL = "https://algobotcommstorage.blob.core.windows.net";
+        const TEAM = thisObject.devTeam.codeName.toLowerCase();
+        teamAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "avatar.jpg";
 
     }
 
@@ -363,7 +384,13 @@
 
         teamImagePoint = thisObject.container.frame.frameThisPoint(teamImagePoint);
 
-        let teamImage = document.getElementById(thisObject.bot.devTeam + ".png");
+        let teamImage;
+
+        if (teamAvatarLoaded === false) {
+            teamImage = document.getElementById(thisObject.bot.devTeam + ".png");
+        } else {
+            teamImage = teamAvatar;
+        }
 
         if (teamImage.naturalHeight !== 0) {
 

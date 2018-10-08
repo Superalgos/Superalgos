@@ -17,7 +17,7 @@
         storage.initialize(undefined, pServerConfig);
     }
 
-    function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotName, pAuthId, callBackFunction) {
+    function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotCodeName, pBotDisplayName, pAuthId, callBackFunction) {
 
         try {
 
@@ -83,7 +83,7 @@
                             }
 
                             let team = pTeamCodeName;
-                            let filePath = "bots" + "/" + pBotName + "-Trading-Bot/Trading-Process";
+                            let filePath = "bots" + "/" + pBotCodeName + "-Trading-Bot/Trading-Process";
                             let fileName = "User.Bot.js";
 
                             storage.writeData(team, filePath, fileName, pFileContent, onDataWritten);
@@ -104,7 +104,7 @@
                                     }
 
                                     let team = pTeamCodeName;
-                                    let filePath = "members" + "/" + pUserName + "/" + pBotName + "-Trading-Bot/Trading-Process";
+                                    let filePath = "members" + "/" + pUserName + "/" + pBotCodeName + "-Trading-Bot/Trading-Process";
                                     let fileName = "User.Bot.js";
 
                                     storage.writeData(team, filePath, fileName, pFileContent, onDataWritten);
@@ -198,20 +198,20 @@
                                 ) {
 
                                     botConfig.processes[0].statusDependencies[i].devTeam = pTeamCodeName;
-                                    botConfig.processes[0].statusDependencies[i].bot = pBotName;
+                                    botConfig.processes[0].statusDependencies[i].bot = pBotCodeName;
 
                                 }
                             }
 
-                            botConfig.displayName = pBotName;
-                            botConfig.codeName = pBotName;
+                            botConfig.displayName = pBotDisplayName;
+                            botConfig.codeName = pBotCodeName;
                             botConfig.devTeam = pTeamCodeName;
-                            botConfig.profilePicture = pBotName + ".png";
+                            botConfig.profilePicture = pBotCodeName + ".png";
 
                             let fileContent = JSON.stringify(botConfig);
 
                             let team = pTeamCodeName;
-                            let filePath = "bots" + "/" + pBotName + "-Trading-Bot";
+                            let filePath = "bots" + "/" + pBotCodeName + "-Trading-Bot";
                             let fileName = "this.bot.config.json";
 
                             storage.writeData(team, filePath, fileName, fileContent, onDataWritten);
@@ -232,7 +232,7 @@
                                     }
 
                                     let team = pTeamCodeName;
-                                    let filePath = "members" + "/" + pUserName + "/" + pBotName + "-Trading-Bot";
+                                    let filePath = "members" + "/" + pUserName + "/" + pBotCodeName + "-Trading-Bot";
                                     let fileName = "this.bot.config.json";
 
                                     storage.writeData(team, filePath, fileName, fileContent, onDataWritten);
@@ -312,8 +312,8 @@
                             let botConfig = JSON.parse(pFileContent);
 
                             botConfig.executionList[0].devTeam = pTeamCodeName;
-                            botConfig.executionList[0].bot = pBotName;
-                            botConfig.executionList[0].repo = pBotName + "-Trading-Bot";
+                            botConfig.executionList[0].bot = pBotCodeName;
+                            botConfig.executionList[0].repo = pBotCodeName + "-Trading-Bot";
 
                             let fileContent = JSON.stringify(botConfig);
 
@@ -441,10 +441,10 @@
                                         displayName: pTeamDisplayName,
                                         userBots: [
                                             {
-                                                displayName: pBotName,
-                                                codeName: pBotName,
+                                                displayName: pBotDisplayName,
+                                                codeName: pBotCodeName,
                                                 type: "Trading",
-                                                repo: pBotName + "-Trading-Bot",
+                                                repo: pBotCodeName + "-Trading-Bot",
                                                 processes: [
                                                     {
                                                         name: "Trading-Process"
@@ -597,7 +597,7 @@
                                 displayName: pTeamDisplayName,
                                 bots: [
                                     {
-                                        "repo": pBotName + "-Trading-Bot",
+                                        "repo": pBotCodeName + "-Trading-Bot",
                                         "configFile": "this.bot.config.json"
                                     }
                                 ],

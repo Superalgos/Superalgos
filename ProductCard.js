@@ -69,6 +69,10 @@
     let teamAvatar; // stores the avatar image of the team the bot portrayed at this card belongs to.
     let teamAvatarLoaded = false;
 
+    /* TODO Temporary code */
+    let botAvatar; // stores the avatar image of the team the bot portrayed at this card belongs to.
+    let botAvatarLoaded = false;
+
     return thisObject;
 
     function initialize() {
@@ -162,7 +166,20 @@
 
         const STORAGE_URL = "https://algobotcommstorage.blob.core.windows.net";
         const TEAM = thisObject.devTeam.codeName.toLowerCase();
-        teamAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "avatar.jpg";
+        teamAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "banner.jpg";
+
+        /* 
+        TODO Temporary code: Here we will temporary download the images of bots uploaded at the Teams Module.
+        */
+
+        botAvatar = new Image();
+        botAvatar.onload = onImageLoadBot;
+
+        function onImageLoadBot() {
+            botAvatarLoaded = true;
+        }
+
+        botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "avatar.jpg";
 
     }
 
@@ -421,7 +438,16 @@
             botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint);
 
             let imageId = thisObject.bot.devTeam + "." + thisObject.bot.profilePicture;
-            let botImage = document.getElementById(imageId);
+            //let botImage = document.getElementById(imageId);
+
+            /* TODO Temporary code */
+            let botImage;
+
+            if (botAvatarLoaded === false) {
+                botImage = document.getElementById(imageId);
+            } else {
+                botImage = botAvatar;
+            }
 
             if (botImage.naturalHeight !== 0) {
                 browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize);

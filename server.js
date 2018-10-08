@@ -595,6 +595,14 @@ function onBrowserRequest(request, response) {
 
                         function onSetupFinished(err) {
 
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                /* We must re-load all the webserver caches.*/
+
+                                initialize();
+
+                            }
+
                             respondWithContent(JSON.stringify(err), response);
                         }
                         break;

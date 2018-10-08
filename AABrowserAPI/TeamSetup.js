@@ -537,23 +537,26 @@
                     };
 
                     usersModuleAPI.query(`
-            mutation($authId: String, $sessionToken: String){
-            updateSessionToken(authId: $authId, sessionToken: $sessionToken){
-                id
-                alias
-                }
-            }
-            `, variables, function (req, res) {
-                            if (res.status === 401) {
-                                console.log('Error trying to save the session token at the Users Module');
-                            }
-                        }).then(res => {
-                            if (res.errors) {
-                                console.log('Error trying to save the session token at the Users Module');
-                            }
-                        }).catch(error => {
-                            console.log('Error trying to save the session token at the Users Module');
-                        });
+                    mutation($authId: String, $sessionToken: String){
+                    updateSessionToken(authId: $authId, sessionToken: $sessionToken){
+                        id
+                        alias
+                        }
+                    }
+                    `, variables, function (req, res) {
+                                    if (res.status === 401) {
+                                        console.log('[ERROR] TeamSetup -> newTeam -> Error trying to save the session token at the Users Module');
+                                        console.log('[ERROR] TeamSetup -> newTeam -> res.status = 401');
+                    }
+                    }).then(res => {
+                        if (res.errors) {
+                            console.log('[ERROR] TeamSetup -> newTeam -> Error trying to save the session token at the Users Module');
+                            console.log('[ERROR] TeamSetup -> newTeam -> res.errors = ' + res.errors);
+                        }
+                    }).catch(error => {
+                        console.log('Error trying to save the session token at the Users Module');
+                        console.log('[ERROR] TeamSetup -> newTeam -> errors = ' + errors);
+                    });
 
                 } catch (err) {
 

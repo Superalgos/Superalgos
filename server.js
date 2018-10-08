@@ -588,11 +588,11 @@ function onBrowserRequest(request, response) {
                         let devTeamCodeName = requestParameters[3];
                         let devTeamDisplayName = requestParameters[4].replace("%20", " ");
                         let userName = requestParameters[5];
-                        let botDisplayName = requestParameters[6];
                         let botCodeName = requestParameters[6];
-                        let authId = requestParameters[7];
+                        let botDisplayName = requestParameters[7];
+                        let authId = requestParameters[8];
 
-                        teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botDisplayName, botCodeName, authId, onSetupFinished);
+                        teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, authId, onSetupFinished);
 
                         function onSetupFinished(err) {
 

@@ -1,0 +1,70 @@
+{
+  "name": "master-app-client",
+  "version": "0.0.1",
+  "description": "Responsible for loading all web modules and running them.",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-serve --port 3100 --config ./webpack.config.js",
+    "lint": "prettier-standard 'src/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Algoteers/MasterApp.git"
+  },
+  "author": "Advanced Algos, ltd.",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/Algoteers/MasterApp/issues"
+  },
+  "homepage": "https://github.com/Algoteers/MasterApp#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.1.5",
+    "babel-loader": "^8.0.4",
+    "connect-history-api-fallback": "^1.5.0",
+    "css-loader": "^1.0.0",
+    "dotenv-webpack": "^1.5.7",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-harddisk-plugin": "^0.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "koa-connect": "^2.0.1",
+    "node-sass": "^4.9.3",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.14.3",
+    "prettier-standard": "^8.0.1",
+    "sass-loader": "^7.1.0",
+    "script-ext-html-webpack-plugin": "^2.0.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.20.2",
+    "webpack-build": "^1.0.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.1.4",
+    "webpack-serve": "^2.0.2"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "dist/",
+      "build/"
+    ]
+  },
+  "dependencies": {
+    "@advancedalgos/key-vault-client": "0.0.5",
+    "@advancedalgos/teams-client": "0.0.8",
+    "babel-polyfill": "^6.26.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router-dom": "^4.3.1"
+  }
+}

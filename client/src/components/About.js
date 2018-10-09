@@ -34,7 +34,7 @@ class About extends React.Component {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id='alert-dialog-description'>
-              The functionality of this section has not been developed yet. We expect to have it for October 2018. Thanks for your understanding.
+              The functionality of this section has not been developed yet. We expect to have it for November 2018. Thanks for your understanding.
             </DialogContentText>
           </DialogContent>
           <DialogActions>

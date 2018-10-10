@@ -13,8 +13,8 @@ export const Master = () => (
   </BrowserRouter>
 )
 
-export const Temporary = () =>(
-  <div>Hello Advanced Alogs!</div>
+export const Temporary = () => (
+  <div>Hello Advanced Algos!</div>
 )
 
 export default Master

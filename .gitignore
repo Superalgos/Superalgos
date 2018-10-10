@@ -1,0 +1,14 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# dotenv environment variables file
+.env
+.env.prod
+
+# Visual Studio Code
+.vscode
+
+#Mac specific files
+.DS_Store

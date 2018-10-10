@@ -24,9 +24,6 @@ async function run () {
   // const usersSchema = await createRemoteSchema(process.env.USERS_API_URL)
   const keyvaultSchema = await createRemoteSchema(process.env.KEYVAULT_API_URL)
 
-  // const usersSchema = await createRemoteSchema(process.env.USERS_API_URL)
-  // const keyvaultSchema = await createRemoteSchema(process.env.KEYVAULT_API_URL)
-
   // const linkSchemaDefs =
   // `
   //   extend type User {

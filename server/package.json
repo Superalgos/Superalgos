@@ -1,0 +1,19 @@
+{
+  "name": "master-app-server",
+  "version": "0.0.1",
+  "description": "Responsible for loading all web modules and running them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Algoteers/MasterApp.git"
+  },
+  "author": "Advanced Algos, ltd.",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/Algoteers/MasterApp/issues"
+  },
+  "homepage": "https://github.com/Algoteers/MasterApp#readme"
+}

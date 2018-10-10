@@ -24,12 +24,13 @@
     "nodemon": "^1.18.4"
   },
   "dependencies": {
-    "apollo-fetch": "^0.7.0",
+    "apollo-link-http": "^1.5.5",
     "apollo-server-express": "^1.1.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
     "express": "^4.16.3",
     "graphql": "^14.0.2",
-    "graphql-tools": "^4.0.0"
+    "graphql-tools": "^4.0.0",
+    "node-fetch": "^2.2.0"
   }
 }

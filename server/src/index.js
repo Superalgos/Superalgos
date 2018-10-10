@@ -3,19 +3,26 @@ import bodyParser from 'body-parser'
 import 'dotenv/config'
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
 import { makeRemoteExecutableSchema, mergeSchemas, introspectSchema } from 'graphql-tools'
-import { createApolloFetch } from 'apollo-fetch'
+import fetch from 'node-fetch'
+import { createHttpLink } from 'apollo-link-http'
 
 async function run () {
   const createRemoteSchema = async (uri) => {
-    const fetcher = createApolloFetch({ uri })
+    const makeDatabaseServiceLink = () => createHttpLink({
+      uri: uri,
+      fetch
+    })
+    const databaseServiceSchemaDefinition = await introspectSchema(makeDatabaseServiceLink())
+
     return makeRemoteExecutableSchema({
-      schema: await introspectSchema(fetcher),
-      fetcher
+      schema: databaseServiceSchemaDefinition,
+      link: makeDatabaseServiceLink()
     })
   }
 
   const teamsSchema = await createRemoteSchema(process.env.TEAMS_API_URL)
-  console.log(teamsSchema)
+  // const usersSchema = await createRemoteSchema(process.env.USERS_API_URL)
+  const keyvaultSchema = await createRemoteSchema(process.env.KEYVAULT_API_URL)
 
   // const usersSchema = await createRemoteSchema(process.env.USERS_API_URL)
   // const keyvaultSchema = await createRemoteSchema(process.env.KEYVAULT_API_URL)
@@ -28,7 +35,7 @@ async function run () {
   // `
 
   const schema = mergeSchemas({
-    schemas: [teamsSchema]
+    schemas: [teamsSchema, keyvaultSchema]
     // schemas: [teamsSchema, usersSchema, keyvaultSchema, linkSchemaDefs],
     // resolvers: mergeInfo => ({
     //   Team: {
@@ -58,7 +65,7 @@ async function run () {
     graphiqlExpress({
       endpointURL: '/graphql',
       query: `
-      query {
+      {
         teams{
           edges{
             node{

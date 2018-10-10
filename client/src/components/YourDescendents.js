@@ -70,7 +70,8 @@ class YourDescendents extends Component {
 
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
         These are your decendents within the project. Your children referred you as the one who brought them to the project, while
-        your grandchildren referred your children and so on.
+        your grandchildren referred your children and so on. In order to be able to see your descendents, the users who you referred
+        must first point to you as your referrer.
         </Typography>
 
         <DescendentsTree userId={this.state.id} />

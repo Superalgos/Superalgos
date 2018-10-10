@@ -4,6 +4,7 @@
   "description": "Responsible for loading all web modules and running them.",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/Algoteers/MasterApp/issues"
   },
-  "homepage": "https://github.com/Algoteers/MasterApp#readme"
+  "homepage": "https://github.com/Algoteers/MasterApp#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "dotenv": "^6.1.0"
+  }
 }

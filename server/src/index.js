@@ -27,7 +27,7 @@ async function run () {
             const authId = parent.owner
             return mergeInfo.delegate(
               'query',
-              'usersModuleUserByAuthId',
+              'UsersModuleUserByAuthId',
               { authId },
               context,
               info

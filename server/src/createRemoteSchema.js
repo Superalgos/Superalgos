@@ -23,7 +23,7 @@ export const createRemoteSchema = async (uri) => {
   const link = setContext((request, previousContext) => (
     {
       headers: {
-        authorization: previousContext.graphqlContext.headers.authorization
+        authorization: previousContext.graphqlContext.headers.authorization || ''
       }
     }
   )).concat(http)

@@ -2,9 +2,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import App from './App'
+import MasterApp from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<MasterApp />, document.getElementById('root'))
 
 let frontendReloadCount = 0
 

@@ -1,20 +1,46 @@
+import { ApolloProvider } from 'react-apollo'
 import React, { Component } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
-import App from '@advancedalgos/teams-client'
-import App2 from '@advancedalgos/key-vault-client'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { withStyles } from '@material-ui/core/styles'
+import { theme, globalStyles } from './styles'
 
-export const Master = () => (
+import client from './graphql/apollo'
+import Auth from './auth'
+
+import { Header, Footer, Home, Callback } from './views'
+
+import Teams from '@advancedalgos/teams-client'
+import KeyVault from '@advancedalgos/key-vault-client'
+
+export const auth = new Auth(
+  result => console.log('auth result', result),
+  client
+)
+
+export const MasterApp = () => (
   <BrowserRouter>
-    <Switch>
-      <Route exact path='/' component={App} />
-      <Route exact path='/key-vault' component={App2} />
-    </Switch>
+    <ApolloProvider client={client}>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className='App'>
+          <Header auth={auth} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route
+              exact
+              path='/teams'
+              render={props => <Teams {...props} auth={auth} />}
+            />
+            <Route exact path='/key-vault' component={KeyVault} />
+          </Switch>
+          <Footer />
+        </div>
+      </MuiThemeProvider>
+    </ApolloProvider>
   </BrowserRouter>
 )
 
-export const Temporary = () =>(
-  <div>Hello Advanced Alogs!</div>
-)
-
-export default Master
+export default withStyles(globalStyles)(MasterApp)

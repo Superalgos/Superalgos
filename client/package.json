@@ -62,6 +62,8 @@
   "dependencies": {
     "@advancedalgos/key-vault-client": "0.0.5",
     "@advancedalgos/teams-client": "0.0.8",
+    "@material-ui/core": "^3.2.0",
+    "@material-ui/icons": "^3.0.1",
     "babel-polyfill": "^6.26.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

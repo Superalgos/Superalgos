@@ -12,6 +12,7 @@ import {
 } from 'graphql-tools'
 import fetch from 'node-fetch'
 import { createHttpLink } from 'apollo-link-http'
+import { setContext } from 'apollo-link-context'
 
 async function run () {
   const createRemoteSchema = async (uri) => {
@@ -21,9 +22,15 @@ async function run () {
     })
     const databaseServiceSchemaDefinition = await introspectSchema(makeDatabaseServiceLink())
 
+    const http = makeDatabaseServiceLink()
+
+    const link = setContext((request, previousContext) => (
+      { headers: previousContext.graphqlContext.headers }
+    )).concat(http)
+
     return makeRemoteExecutableSchema({
       schema: databaseServiceSchemaDefinition,
-      link: makeDatabaseServiceLink()
+      link: link
     })
   }
 
@@ -80,7 +87,12 @@ async function run () {
 
   const app = express()
 
-  app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }))
+  app.use('/graphql', bodyParser.json(), graphqlExpress(req => {
+    return ({
+      schema: schema,
+      context: req
+    })
+  }))
 
   app.use(
     '/graphiql',

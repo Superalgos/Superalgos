@@ -24,6 +24,7 @@
     "nodemon": "^1.18.4"
   },
   "dependencies": {
+    "apollo-link-context": "^1.0.9",
     "apollo-link-http": "^1.5.5",
     "apollo-server-express": "^1.1.0",
     "body-parser": "^1.18.3",

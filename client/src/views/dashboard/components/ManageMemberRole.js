@@ -108,7 +108,7 @@ export class ManageMemberRole extends Component {
                     Set Team Member Role
                   </DialogTitle>
                   <DialogContent>
-                    <Typography variant='subheading'>
+                    <Typography variant='subtitle1'>
                       Admin members can approve new team members, send team invitations, and remove team members.
                     </Typography>
                     <TextField

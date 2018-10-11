@@ -15,7 +15,7 @@ const styles = theme => ({
 
 const TeamMembers = ({ classes }) => (
   <div>
-    <Typography variant='display1' gutterBottom>
+    <Typography variant='h4' gutterBottom>
       Team Members
       <MessageCard message='Coming soon. Invite and manage team members.' />
     </Typography>

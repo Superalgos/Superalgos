@@ -80,7 +80,7 @@ export class CreateTeamDialog extends Component {
           let loader = null
           if (loading) {
             loader = (
-              <Typography variant='subheading'>Submitting team...</Typography>
+              <Typography variant='subtitle1'>Submitting team...</Typography>
             )
           }
           if (error) {
@@ -116,7 +116,7 @@ export class CreateTeamDialog extends Component {
                       required
                       error={this.state.nameError !== '' || this.state.botNameError !== '' || error !== null}
                     >
-                      <Typography variant='subheading' align='center'>Create a name for your team</Typography>
+                      <Typography variant='subtitle1' align='center'>Create a name for your team</Typography>
                       <TextField
                         autoFocus
                         margin='dense'
@@ -132,7 +132,7 @@ export class CreateTeamDialog extends Component {
                       {this.state.nameError !== '' && (
                         <FormHelperText>{this.state.nameError}</FormHelperText>
                       )}
-                      <Typography variant='subheading' align='center' ><br />
+                      <Typography variant='subtitle1' align='center' ><br />
                         Create a name for your teams bot.
                       </Typography>
                       <Typography align='center' >

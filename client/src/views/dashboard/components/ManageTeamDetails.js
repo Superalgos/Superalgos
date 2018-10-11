@@ -95,7 +95,7 @@ export class ManageTeamDetails extends Component {
           <div classes={classes.dialogContainer}>
             <Card className={classes.card}>
               <CardContent>
-                <Typography variant='title' id='form-dialog-title'>
+                <Typography variant='h6' id='form-dialog-title'>
                   {name} Team Details
                 </Typography>
                 <CardMedia
@@ -109,26 +109,26 @@ export class ManageTeamDetails extends Component {
                   title={`${name} ${avatar}`}
                 />
                 <Typography
-                  variant='display3'
+                  variant='h2'
                   align='center'
                   color='textPrimary'
                   gutterBottom
                 >
                   {name}
                 </Typography>
-                <Typography variant='subheading' color='textSecondary'>
+                <Typography variant='subtitle1' color='textSecondary'>
                   {createdAt}
                 </Typography>
-                <Typography variant='subheading' color='textSecondary'>
+                <Typography variant='subtitle1' color='textSecondary'>
                   Motto: {profile.motto}
                 </Typography>
-                <Typography variant='subheading' color='textSecondary'>
+                <Typography variant='subtitle1' color='textSecondary'>
                   Description: {profile.description}
                 </Typography>
-                <Typography variant='subheading' paragraph gutterBottom>
+                <Typography variant='subtitle1' paragraph gutterBottom>
                   Members: {members.length}
                 </Typography>
-                <Typography variant='subheading' color='primary'>
+                <Typography variant='subtitle1' color='primary'>
                   Team Admin:&nbsp;
                   {members.map(member => {
                     if (member.role === 'OWNER' || member.role === 'ADMIN') {

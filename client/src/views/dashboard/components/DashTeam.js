@@ -29,7 +29,7 @@ export const DashTeam = ({ classes, user = null }) => {
   if (authId === undefined || authId === null) {
     return (
       <Grid item md={6}>
-        <Typography variant='display1' gutterBottom>
+        <Typography variant='h4' gutterBottom>
           Teams
         </Typography>
         <Typography variant='caption'>Loading...</Typography>
@@ -38,7 +38,7 @@ export const DashTeam = ({ classes, user = null }) => {
   }
   return (
     <Grid item md={6} style={{ position: 'relative' }}>
-      <Typography variant='display1' gutterBottom>
+      <Typography variant='h4' gutterBottom>
         Teams{' '}
         <Link to='/manage-teams' className={classes.dashLink}>
           Manage Teams
@@ -84,7 +84,7 @@ export const DashTeam = ({ classes, user = null }) => {
           } else {
             return (
               <Grid container spacing={24}>
-                <Typography variant='subheading' gutterBottom>
+                <Typography variant='subtitle1' gutterBottom>
                   Loading...
                 </Typography>
                 {queryLoader}

@@ -30,7 +30,7 @@ export const ManageTeamsItem = ({ classes, team, authId }) => {
             title={team.name}
           />
           <CardContent className={classes.cardContent}>
-            <Typography gutterBottom variant='headline' component='h2'>
+            <Typography gutterBottom variant='h5' component='h2'>
               {team.name}
             </Typography>
             <Typography variant='caption' color='textSecondary'>

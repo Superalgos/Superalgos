@@ -79,23 +79,23 @@ const TeamsDetails = ({ classes, team }) => {
             <img src={banner} alt={team.name} className={classes.banner} />
             <img src={avatar} alt={team.name} className={classes.avatar} />
             <Typography
-              variant='display3'
+              variant='h2'
               align='center'
               color='textPrimary'
               gutterBottom
             >
               {team.name}
             </Typography>
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               {team.createdAt}
             </Typography>
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               Motto: {team.profile.motto}
             </Typography>
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               Description: {team.profile.description}
             </Typography>
-            <Typography variant='subheading' paragraph gutterBottom>
+            <Typography variant='subtitle1' paragraph gutterBottom>
               Members: {team.members.length}
             </Typography>
           </div>

@@ -5,6 +5,7 @@ import { Query } from 'react-apollo'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
+import { MessageCard } from '@advancedalgos/web-components'
 
 import GET_ALL_TEAMS_QUERY from '../../../graphql/teams/GetAllTeamsQuery'
 
@@ -78,7 +79,7 @@ export const TeamsList = ({ classes, match }) => (
               <React.Fragment>
                 <div className={classes.heroContent}>
                   <Typography
-                    variant='display3'
+                    variant='h3'
                     align='center'
                     color='textPrimary'
                     gutterBottom
@@ -105,9 +106,7 @@ export const TeamsList = ({ classes, match }) => (
       } else {
         return (
           <Grid container spacing={40}>
-            <Typography variant='subheading' gutterBottom>
-              Loading...
-            </Typography>
+            <MessageCard message='Loading...' />
             {queryLoader}
             {errors}
           </Grid>

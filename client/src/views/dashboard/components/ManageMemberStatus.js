@@ -67,12 +67,12 @@ export class ManageMemberStatus extends Component {
           <div classes={classes.dialogContainer}>
             <Card className={classes.card}>
               <CardContent>
-                <Typography variant='title' id='form-dialog-title'>
+                <Typography variant='h6' id='form-dialog-title'>
                   Member Status Details
                 </Typography>
                 {status !== null && status.map(stat => {
                   return (
-                    <Typography variant='title' id='form-dialog-title' key={stat.createdAt}>
+                    <Typography variant='h6' id='form-dialog-title' key={stat.createdAt}>
                       {stat.status} | {stat.reason} | {stat.createdAt}
                     </Typography>
                   )

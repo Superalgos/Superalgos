@@ -13,7 +13,7 @@ import aaweb from '../../../assets/AlgonetWebPlatform.jpg'
 
 export const DashEditor = ({ classes }) => (
   <Grid item md={6}>
-    <Typography variant='display1' gutterBottom>
+    <Typography variant='h4' gutterBottom>
       Develop
     </Typography>
     <Grid container spacing={24}>
@@ -25,7 +25,7 @@ export const DashEditor = ({ classes }) => (
             title='Image title'
           />
           <CardActions>
-            <Typography variant='title' color='inherit' aligh='right'>
+            <Typography variant='h6' color='inherit' aligh='right'>
               <Button>Start Developing ></Button>
             </Typography>
           </CardActions>

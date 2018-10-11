@@ -60,7 +60,7 @@ export class CreateTeamDialog extends Component {
           onClick={this.handleClickOpen}
         >
           <AddIcon className={this.props.classes.extendedIcon} />
-          <Typography variant='subheading'>Create A Team</Typography>
+          <Typography variant='subtitle1'>Create A Team</Typography>
         </Button>
         <Dialog
           open={this.state.open}
@@ -69,7 +69,7 @@ export class CreateTeamDialog extends Component {
         >
           <DialogTitle id='form-dialog-title'>Subscribe</DialogTitle>
           <DialogContent>
-            <Typography variant='subheading'>Team Creation</Typography>
+            <Typography variant='subtitle1'>Team Creation</Typography>
             <DialogContentText>Name your team!</DialogContentText>
             <TextField
               autoFocus

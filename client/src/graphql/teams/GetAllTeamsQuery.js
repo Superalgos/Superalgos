@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 export const GET_ALL_TEAMS_QUERY = gql`
   query teamsQuery {
-    teams {
+    TeamsModuleTeams {
       edges {
         node {
           id

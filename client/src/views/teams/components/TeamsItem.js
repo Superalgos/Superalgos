@@ -35,7 +35,7 @@ export const TeamsItem = ({ classes, team }) => {
             title={team.name}
           />
           <CardContent className={classes.cardContent}>
-            <Typography gutterBottom variant='headline' component='h2'>
+            <Typography gutterBottom variant='h5' component='h2'>
               {team.name}
             </Typography>
             <Typography variant='caption' color='textSecondary'>
@@ -44,7 +44,7 @@ export const TeamsItem = ({ classes, team }) => {
             <Typography variant='caption' paragraph gutterBottom>
               Members: 1
             </Typography>
-            <Typography variant='subheading' color='primary'>
+            <Typography variant='subtitle1' color='primary'>
               Now recruiting!
             </Typography>
           </CardContent>

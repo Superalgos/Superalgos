@@ -1,9 +1,9 @@
 version: '3'
 services:
   api:
-    image: advancedalgosteamsmodule/teammodule-api:v2
-    env_file: ./.env.prod
-    container_name: aateamapi
+    image: advancedalgosteamsmodule/teammodule-api:v5
+    env_file: ./.env
+    container_name: aateamapi-imagetest
     tty: true
     stdin_open: true
     volumes:

@@ -1,5 +1,4 @@
 import { ApolloClient } from 'apollo-client'
-import { ApolloProvider } from 'react-apollo'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloLink, split, Observable } from 'apollo-link'
@@ -150,38 +149,36 @@ class App extends Component {
   render () {
     return (
       <BrowserRouter>
-        <ApolloProvider client={client}>
-          <MuiThemeProvider theme={theme}>
-            <CssBaseline />
-            <div className='App'>
-              <NavBar auth={auth} />
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/about' component={About} />
-                <Route exact path='/teams' component={Teams} />
-                <Route exact path='/teams/:slug' component={Teams} />
-                <Route
-                  exact
-                  path='/(dashboard|manage-teams|team-members|financial-beings|settings)/'
-                  render={props => <Dashboard {...props} auth={auth} />}
-                />
-                <Route
-                  path='/callback'
-                  render={props => {
-                    auth.handleAuthentication(props)
-                    return <Callback {...props} />
-                  }}
-                />
-                <Route
-                  exact
-                  path='/activate-team-membership'
-                  render={props => <AcceptTeamInvite {...props} auth={auth} />}
-                />
-              </Switch>
-              <Footer />
-            </div>
-          </MuiThemeProvider>
-        </ApolloProvider>
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+          <div className='App'>
+            <NavBar auth={auth} />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/teams' component={Teams} />
+              <Route exact path='/teams/:slug' component={Teams} />
+              <Route
+                exact
+                path='/(dashboard|manage-teams|team-members|financial-beings|settings)/'
+                render={props => <Dashboard {...props} auth={auth} />}
+              />
+              <Route
+                path='/callback'
+                render={props => {
+                  auth.handleAuthentication(props)
+                  return <Callback {...props} />
+                }}
+              />
+              <Route
+                exact
+                path='/activate-team-membership'
+                render={props => <AcceptTeamInvite {...props} auth={auth} />}
+              />
+            </Switch>
+            <Footer />
+          </div>
+        </MuiThemeProvider>
       </BrowserRouter>
     )
   }

@@ -209,7 +209,7 @@ export class CreateTeamDialog extends Component {
     e.preventDefault()
     console.log('createTeam submit: ', name, botName)
     const slug = this.slugify(name)
-    const botSlug = this.slugify(name)
+    const botSlug = this.slugify(botName)
     await createTeam({ variables: { name, slug, botName, botSlug } })
     this.setState({ name: '', open: false })
   }

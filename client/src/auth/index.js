@@ -4,7 +4,7 @@ import gql from 'graphql-tag'
 import { getItem, setItem, removeItem } from '../utils/local-storage'
 import { validObject, deleteCookie } from '../utils/js-helpers'
 
-import { client } from '../App'
+import { client } from '../graphql/apollo'
 
 import { AUTH_CONFIG } from './Auth0' // create by renaming Auth0.sample.js to Auth0.js and setting vars
 

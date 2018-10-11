@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { withStyles } from '@material-ui/core/styles'
 import { theme, globalStyles } from './styles'
 
-import client from './graphql/apollo'
+import { client } from './graphql/apollo'
 import Auth from './auth'
 
 import { Header, Footer, Home, Callback } from './views'
@@ -19,7 +19,7 @@ export const auth = new Auth(
   result => console.log('auth result', result),
   client
 )
-
+console.log(Header)
 export const MasterApp = () => (
   <BrowserRouter>
     <ApolloProvider client={client}>

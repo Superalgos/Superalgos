@@ -8,7 +8,7 @@ import { WebSocketLink } from 'apollo-link-ws'
 import { SubscriptionClient } from 'subscriptions-transport-ws'
 import { getMainDefinition } from 'apollo-utilities'
 
-import { getItem } from './utils/local-storage'
+import { getItem } from '../utils/local-storage'
 
 const graphqlEndpoint =
   process.env.NODE_ENV === 'production'

@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'react-apollo'
+// import { graphql } from 'react-apollo'
 
 import LoggedInMenu from './LoggedInMenu'
-
-import { GetCurrentMember } from '../../graphql/members'
 
 import { isDefined } from '../../utils/js-helpers'
 
@@ -44,4 +42,4 @@ LoggedIn.propTypes = {
   auth: PropTypes.object.isRequired
 }
 
-export default graphql(GetCurrentMember)(LoggedIn)
+export default LoggedIn

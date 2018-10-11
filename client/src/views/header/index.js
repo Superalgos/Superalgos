@@ -89,7 +89,7 @@ class Header extends Component {
           <Toolbar>
             <img className={classes.img} src={AALogo} alt='Advanced Algos' />
             <Typography
-              variant='title'
+              variant='h6'
               color='inherit'
               className={classes.toolbarTitle}
             >

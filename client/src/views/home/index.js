@@ -34,7 +34,7 @@ const Home = ({ classes }) => (
     <main className={classes.layout}>
       <div className={classes.heroContent}>
         <Typography
-          variant='display3'
+          variant='h3'
           align='center'
           color='textPrimary'
           gutterBottom
@@ -42,7 +42,7 @@ const Home = ({ classes }) => (
           Collaborate. Innovate. Evolve.
         </Typography>
         <Typography
-          variant='title'
+          variant='h6'
           align='center'
           color='textSecondary'
           component='h3'

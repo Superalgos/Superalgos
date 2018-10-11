@@ -48,38 +48,28 @@ const Footer = ({ classes }) => {
         className={classNames(classes.footerContainer)}
       >
         <Grid item xs>
-          <Typography variant='title' color='textPrimary' gutterBottom>
+          <Typography variant='h6' color='textPrimary' gutterBottom>
             Pages
           </Typography>
           <NavLink to='/' className={classNames(classes.footerLink)}>
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               Home
             </Typography>
           </NavLink>
-          <NavLink to='/browse' className={classNames(classes.footerLink)}>
-            <Typography variant='subheading' color='textSecondary'>
-              Browse
+          <NavLink to='/teams' className={classNames(classes.footerLink)}>
+            <Typography variant='subtitle1' color='textSecondary'>
+              Teams
             </Typography>
           </NavLink>
-          <NavLink to='/search' className={classNames(classes.footerLink)}>
-            <Typography variant='subheading' color='textSecondary'>
-              Search
-            </Typography>
-          </NavLink>
-          <NavLink to='/contact' className={classNames(classes.footerLink)}>
-            <Typography variant='subheading' color='textSecondary'>
-              Contact
-            </Typography>
-          </NavLink>
-          <NavLink to='/about' className={classNames(classes.footerLink)}>
-            <Typography variant='subheading' color='textSecondary'>
-              About
+          <NavLink to='/key-vault' className={classNames(classes.footerLink)}>
+            <Typography variant='subtitle1' color='textSecondary'>
+              Key Vault
             </Typography>
           </NavLink>
         </Grid>
         <Grid item xs>
 
-          <Typography variant='title' color='textPrimary' gutterBottom>
+          <Typography variant='h6' color='textPrimary' gutterBottom>
               Support
           </Typography>
 
@@ -88,7 +78,7 @@ const Footer = ({ classes }) => {
             target='_blank>'
             className={classNames(classes.footerLink)}
           >
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               Documentation
             </Typography>
           </a>
@@ -97,13 +87,13 @@ const Footer = ({ classes }) => {
             target='_blank>'
             className={classNames(classes.footerLink)}
           >
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               Telegram
             </Typography>
           </a>
         </Grid>
         <Grid item xs>
-          <Typography variant='title' color='textPrimary' gutterBottom>
+          <Typography variant='h6' color='textPrimary' gutterBottom>
             Modules
           </Typography>
           <a
@@ -111,7 +101,7 @@ const Footer = ({ classes }) => {
             target='_blank>'
             className={classNames(classes.footerLink)}
           >
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               Platform
             </Typography>
           </a>
@@ -120,7 +110,7 @@ const Footer = ({ classes }) => {
             target='_blank>'
             className={classNames(classes.footerLink)}
           >
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               Users
             </Typography>
           </a>
@@ -129,7 +119,7 @@ const Footer = ({ classes }) => {
             target='_blank>'
             className={classNames(classes.footerLink)}
           >
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               Teams
             </Typography>
           </a>
@@ -138,7 +128,7 @@ const Footer = ({ classes }) => {
             target='_blank>'
             className={classNames(classes.footerLink)}
           >
-            <Typography variant='subheading' color='textSecondary'>
+            <Typography variant='subtitle1' color='textSecondary'>
               Key Vault
             </Typography>
           </a>

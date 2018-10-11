@@ -50,33 +50,32 @@ async function run () {
     new RenameRootFields((operation, name) => `KeyVaultModule${capitalize(name)}`)
   ])
 
-  // const linkSchemaDefs =
-  // `
-  //   extend type User {
-  //     user: User
-  //   }
-  // `
+  const linkSchemaDefs =
+  `
+    extend type TeamsModuleTeam {
+      ownerUser: UsersModuleUser
+    }
+  `
 
   const schema = mergeSchemas({
-    schemas: [transformedTeamsSchema, transformedUsersSchema, transformedKeyVaultSchema]
-    // schemas: [teamsSchema, usersSchema, keyvaultSchema, linkSchemaDefs],
-    // resolvers: mergeInfo => ({
-    //   Team: {
-    //     location: {
-    //       fragment: `fragment TeamFragment on Team {owner}`,
-    //       resolve (parent, args, context, info) {
-    //         const authId = parent.owner
-    //         return mergeInfo.delegate(
-    //           'query',
-    //           'userByAuthId',
-    //           { authId },
-    //           context,
-    //           info
-    //         )
-    //       }
-    //     }
-    //   }
-    // })
+    schemas: [transformedTeamsSchema, transformedUsersSchema, transformedKeyVaultSchema, linkSchemaDefs],
+    resolvers: mergeInfo => ({
+      TeamsModuleTeam: {
+        ownerUser: {
+          fragment: `fragment TeamFragment on TeamsModuleTeam{owner}`,
+          resolve (parent, args, context, info) {
+            const authId = parent.owner
+            return mergeInfo.delegate(
+              'query',
+              'usersModuleUserByAuthId',
+              { authId },
+              context,
+              info
+            )
+          }
+        }
+      }
+    })
   })
 
   const app = express()
@@ -89,7 +88,7 @@ async function run () {
       endpointURL: '/graphql',
       query: `
       {
-        teams{
+        TeamsModuleTeams{
           edges{
             node{
               name

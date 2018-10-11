@@ -19,13 +19,13 @@ async function run () {
 
   const schema = mergeSchemas({
     schemas: [transformedTeamsSchema, transformedUsersSchema, transformedKeyVaultSchema, linkSchemaDefs],
-    resolvers: mergeInfo => ({
+    resolvers: {
       TeamsModuleTeam: {
         ownerUser: {
           fragment: `fragment UserFragment on TeamsModuleTeam{owner}`,
           resolve (parent, args, context, info) {
             const authId = parent.owner
-            return mergeInfo.delegateToSchema({
+            return info.mergeInfo.delegateToSchema({
               schema: transformedUsersSchema,
               operation: 'query',
               fieldName: 'UsersModuleUserByAuthId',
@@ -36,7 +36,7 @@ async function run () {
           }
         }
       }
-    })
+    }
   })
 
   const app = express()

@@ -6,3 +6,7 @@
 4. Remove Apollo React.
 5. Update auth handling. Pass as props or pull from local storage.
 6. Remove header and footer.
+
+## Developing Module with Master App
+1. Navigate to your module client.
+2. Run `npm link ../../MasterApp/client`. Update relative url of your module client in relation to MasterApp client if needed. 

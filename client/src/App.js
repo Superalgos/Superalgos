@@ -13,7 +13,7 @@ import Auth from './auth'
 import { Header, Footer, Home, Callback } from './views'
 
 import Teams from '@advancedalgos/teams-client'
-import KeyVault from '@advancedalgos/key-vault-client'
+// import KeyVault from '@advancedalgos/key-vault-client'
 
 export const auth = new Auth(
   result => console.log('auth result', result),
@@ -34,7 +34,7 @@ export const MasterApp = () => (
               path='/teams'
               render={props => <Teams {...props} auth={auth} />}
             />
-            <Route exact path='/key-vault' component={KeyVault} />
+            {/* <Route exact path='/key-vault' component={KeyVault} /> */}
           </Switch>
           <Footer />
         </div>

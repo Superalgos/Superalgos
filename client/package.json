@@ -21,6 +21,8 @@
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-react-jsx": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.1.5",
@@ -64,7 +66,8 @@
   },
   "dependencies": {
     "@advancedalgos/key-vault-client": "0.0.5",
-    "@advancedalgos/teams-client": "0.0.9",
+    "@advancedalgos/teams-client": "file:.yalc/@advancedalgos/teams-client",
+    "@babel/runtime": "^7.1.2",
     "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
     "apollo-cache-inmemory": "^1.3.5",

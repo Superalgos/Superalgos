@@ -148,7 +148,7 @@ export const auth = new Auth(
 class App extends Component {
   render () {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={window.location.pathname}>
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
           <div className='App'>

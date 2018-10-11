@@ -19,7 +19,7 @@ export const auth = new Auth(
   result => console.log('auth result', result),
   client
 )
-console.log(Header)
+
 export const MasterApp = () => (
   <BrowserRouter>
     <ApolloProvider client={client}>
@@ -29,6 +29,13 @@ export const MasterApp = () => (
           <Header auth={auth} />
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route
+              path='/callback'
+              render={props => {
+                auth.handleAuthentication(props)
+                return <Callback {...props} />
+              }}
+            />
             <Route
               exact
               path='/teams'

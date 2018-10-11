@@ -10,7 +10,7 @@ import { AUTH_CONFIG } from './Auth0' // create by renaming Auth0.sample.js to A
 
 const AUTHENTICATE = gql`
   mutation authenticate($idToken: String!) {
-    authenticate(idToken: $idToken) {
+    TeamsModuleauthenticate(idToken: $idToken) {
       alias
       authId
     }

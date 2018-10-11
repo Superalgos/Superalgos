@@ -67,6 +67,7 @@
   "dependencies": {
     "@advancedalgos/key-vault-client": "0.0.5",
     "@advancedalgos/teams-client": "file:.yalc/@advancedalgos/teams-client",
+    "@advancedalgos/web-components": "0.0.10",
     "@babel/runtime": "^7.1.2",
     "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
@@ -82,6 +83,7 @@
     "babel-polyfill": "^6.26.0",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",

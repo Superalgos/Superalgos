@@ -93,7 +93,7 @@ class Header extends Component {
               color='inherit'
               className={classes.toolbarTitle}
             >
-              Teams
+              &nbsp;
             </Typography>
 
             <IconButton

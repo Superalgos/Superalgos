@@ -68,9 +68,8 @@ const Footer = ({ classes }) => {
           </NavLink>
         </Grid>
         <Grid item xs>
-
           <Typography variant='h6' color='textPrimary' gutterBottom>
-              Support
+            Support
           </Typography>
 
           <a

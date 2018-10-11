@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack-serve --port 3100 --config ./webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --mode production --config ./webpack.config.js",
     "lint": "prettier-standard 'src/**/*.js'"
   },
   "repository": {
@@ -31,6 +32,7 @@
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "connect-history-api-fallback": "^1.5.0",
     "css-loader": "^1.0.0",
+    "debug": "^4.1.0",
     "dotenv-webpack": "^1.5.7",
     "eslint": "^5.6.1",
     "eslint-config-standard": "^12.0.0",

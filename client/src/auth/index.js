@@ -1,8 +1,9 @@
 import Auth0Lock from 'auth0-lock'
 import gql from 'graphql-tag'
 
-import { getItem, setItem, removeItem } from '../utils/local-storage'
+import { getItem, setItem } from '../utils/local-storage'
 import { validObject, deleteCookie } from '../utils/js-helpers'
+import Log from '../utils/log'
 
 import { client } from '../graphql/apollo'
 
@@ -10,7 +11,7 @@ import { AUTH_CONFIG } from './Auth0' // create by renaming Auth0.sample.js to A
 
 const AUTHENTICATE = gql`
   mutation authenticate($idToken: String!) {
-    TeamsModuleauthenticate(idToken: $idToken) {
+    TeamsModuleAuthenticate(idToken: $idToken) {
       alias
       authId
     }
@@ -60,7 +61,11 @@ export const inviteOptions = {
   prefill: { email: '' }
 }
 
-let lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, defaultOptions)
+let lock = new Auth0Lock(
+  AUTH_CONFIG.clientId,
+  AUTH_CONFIG.domain,
+  defaultOptions
+)
 
 class Auth {
   constructor (cb, apolloClient) {
@@ -77,6 +82,7 @@ class Auth {
 
   login () {
     // Call the show method to display the widget.
+    Log.info('logging in')
     lock.show()
   }
 
@@ -89,17 +95,23 @@ class Auth {
         variables: { token: jwt }
       })
 
-      console.log('loginInvite auth: ', await data.data.verifyTeamInvite)
+      Log.info('auth.loginInvite')
+      Log.info(await data.data.verifyTeamInvite)
+
       setItem('invite', JSON.stringify(data.data.verifyTeamInvite))
 
       email = data.data.verifyTeamInvite.email
       team = data.data.verifyTeamInvite.team.slug
     } catch (err) {
-      return console.log('loginInvite err: ', err)
+      return Log.error(err, 'loginInvite err: ')
     }
     inviteOptions.prefill.email = email
     inviteOptions.auth.params.state = `${email}|${team}`
-    let lockInvite = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, inviteOptions)
+    let lockInvite = new Auth0Lock(
+      AUTH_CONFIG.clientId,
+      AUTH_CONFIG.domain,
+      inviteOptions
+    )
     lockInvite.show()
   }
 
@@ -151,7 +163,8 @@ class Auth {
         idToken: authResult.idToken,
         expiresAt
       }
-      console.log('setSession idTokenPayload: ', authResult.idTokenPayload)
+      Log.info('setSession idTokenPayload:')
+      Log.info(authResult.idTokenPayload)
 
       this.signinOrCreateAccount({ ...data })
       this.cb(data)
@@ -173,10 +186,11 @@ class Auth {
         mutation: AUTHENTICATE,
         variables: { idToken }
       })
-
+      Log.info('auth.signinOrCreateAccount data:')
+      Log.info(await data)
       const user = {
-        authId: data.data.authenticate.authId,
-        alias: data.data.authenticate.alias
+        authId: await data.TeamsModuleAuthenticate.authId,
+        alias: await data.TeamsModuleAuthenticate.alias
       }
       setItem('user', JSON.stringify(user))
       if (window.location.href.includes(`callback`)) {
@@ -190,11 +204,6 @@ class Auth {
 
   logout () {
     // Clear access token and ID token from local storage
-    removeItem('access_token')
-    removeItem('id_token')
-    removeItem('expires_at')
-    removeItem('authUser')
-    removeItem('auth0.ssodata')
     window.localStorage.clear()
     deleteCookie('ajs_anonymous_id')
     deleteCookie('ajs_user_id')

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { parse } from 'query-string'
+import { parse } from '../../utils/js-helpers'
 
 import { MessageCard } from '@advancedalgos/web-components'
 

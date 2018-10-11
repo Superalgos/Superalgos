@@ -1,6 +1,9 @@
 dist
 build
 node_modules
+html
+tools/docker
+tools/webpack
 .env
 .env.prod
 .env.sample

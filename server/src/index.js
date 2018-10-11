@@ -22,16 +22,17 @@ async function run () {
     resolvers: mergeInfo => ({
       TeamsModuleTeam: {
         ownerUser: {
-          fragment: `fragment TeamFragment on TeamsModuleTeam{owner}`,
+          fragment: `fragment UserFragment on TeamsModuleTeam{owner}`,
           resolve (parent, args, context, info) {
             const authId = parent.owner
-            return mergeInfo.delegate(
-              'query',
-              'UsersModuleUserByAuthId',
-              { authId },
+            return mergeInfo.delegateToSchema({
+              schema: transformedUsersSchema,
+              operation: 'query',
+              fieldName: 'UsersModuleUserByAuthId',
+              args: { authId },
               context,
               info
-            )
+            })
           }
         }
       }

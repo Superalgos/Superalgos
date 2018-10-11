@@ -1,28 +1,42 @@
-/* eslint-disable no-unused-vars */
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
-import App from './App'
+import { withStyles } from '@material-ui/core/styles'
+import {
+  AcceptTeamInvite,
+  Dashboard,
+  Teams,
+  globalStyles
+} from './views'
 
-import log from '../tools/log'
-
-ReactDOM.render(<App />, document.getElementById('root'))
-
-let frontendReloadCount = 0
-
-if (process.env.NODE_ENV === 'development') {
-  if (module.hot) {
-    module.hot.accept()
-
-    module.hot.accept('./index', () => {
-      try {
-        log.debug('Updating front-end')
-        frontendReloadCount = (frontendReloadCount || 0) + 1
-      } catch (err) {
-        log(err.stack)
-      }
-    })
+class App extends Component {
+  render () {
+    return (
+      <BrowserRouter basename={window.location.pathname}>
+        <div className='App'>
+          <Switch>
+            <Route exact path='/' component={Teams} />
+            <Route exact path='/:slug' component={Teams} />
+            <Route
+              exact
+              path='/(dashboard|manage-teams|team-members|financial-beings|settings)/'
+              render={props => <Dashboard {...props} auth={this.props.auth} />}
+            />
+            <Route
+              exact
+              path='/activate-team-membership'
+              render={props => <AcceptTeamInvite {...props} auth={this.props.auth} />}
+            />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    )
   }
 }
 
-export default App
+App.propTypes = {
+  auth: PropTypes.object
+}
+
+export default withStyles(globalStyles)(App)

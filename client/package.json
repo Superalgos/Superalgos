@@ -1,12 +1,11 @@
 {
   "name": "@advancedalgos/teams-client",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "Advanced Algos Team client-side web app",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "NODE_ENV=development PORT=3001 webpack-serve --config ./webpack.config.js",
     "build": "NODE_ENV=production webpack --mode production --config ./webpack.config.js",
-    "prepublish": "npx babel src --out-dir dist --copy-files --source-maps",
     "lint": "prettier-standard 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

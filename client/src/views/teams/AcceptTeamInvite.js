@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import queryString from 'query-string'
+import { parse } from 'query-string'
 
 import { MessageCard } from '@advancedalgos/web-components'
 
 class AcceptTeamInvite extends Component {
   render () {
     const { location, auth } = this.props
-    const param = queryString.parse(location.search)
+    const param = parse(location.search)
     console.log(param, auth)
 
     if (auth === undefined) {

@@ -2,7 +2,14 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import 'dotenv/config'
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
-import { makeRemoteExecutableSchema, mergeSchemas, introspectSchema } from 'graphql-tools'
+import {
+  makeRemoteExecutableSchema,
+  mergeSchemas,
+  introspectSchema,
+  transformSchema,
+  RenameTypes,
+  RenameRootFields
+} from 'graphql-tools'
 import fetch from 'node-fetch'
 import { createHttpLink } from 'apollo-link-http'
 
@@ -21,8 +28,27 @@ async function run () {
   }
 
   const teamsSchema = await createRemoteSchema(process.env.TEAMS_API_URL)
-  // const usersSchema = await createRemoteSchema(process.env.USERS_API_URL)
-  const keyvaultSchema = await createRemoteSchema(process.env.KEYVAULT_API_URL)
+  const usersSchema = await createRemoteSchema(process.env.USERS_API_URL)
+  const keyVaultSchema = await createRemoteSchema(process.env.KEYVAULT_API_URL)
+
+  const capitalize = (string) => {
+    return (string).charAt(0).toUpperCase() + (string).slice(1)
+  }
+
+  const transformedTeamsSchema = transformSchema(teamsSchema, [
+    new RenameTypes((name) => `TeamsModule${capitalize(name)}`),
+    new RenameRootFields((operation, name) => `TeamsModule${capitalize(name)}`)
+  ])
+
+  const transformedUsersSchema = transformSchema(usersSchema, [
+    new RenameTypes((name) => `UsersModule${capitalize(name)}`),
+    new RenameRootFields((operation, name) => `UsersModule${capitalize(name)}`)
+  ])
+
+  const transformedKeyVaultSchema = transformSchema(keyVaultSchema, [
+    new RenameTypes((name) => `KeyVaultModule${capitalize(name)}`),
+    new RenameRootFields((operation, name) => `KeyVaultModule${capitalize(name)}`)
+  ])
 
   // const linkSchemaDefs =
   // `
@@ -32,7 +58,7 @@ async function run () {
   // `
 
   const schema = mergeSchemas({
-    schemas: [teamsSchema, keyvaultSchema]
+    schemas: [transformedTeamsSchema, transformedUsersSchema, transformedKeyVaultSchema]
     // schemas: [teamsSchema, usersSchema, keyvaultSchema, linkSchemaDefs],
     // resolvers: mergeInfo => ({
     //   Team: {

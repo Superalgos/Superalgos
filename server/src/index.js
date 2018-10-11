@@ -4,39 +4,33 @@ import 'dotenv/config'
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
 import { mergeSchemas } from 'graphql-tools'
 import { createTransformedRemoteSchema } from './createRemoteSchema'
+import { teams } from './links'
 
 async function run () {
   const transformedTeamsSchema = await createTransformedRemoteSchema('TeamsModule', process.env.TEAMS_API_URL)
   const transformedUsersSchema = await createTransformedRemoteSchema('UsersModule', process.env.USERS_API_URL)
   const transformedKeyVaultSchema = await createTransformedRemoteSchema('KeyVaultModule', process.env.KEYVAULT_API_URL)
 
-  const linkSchemaDefs =
-  `
-    extend type TeamsModuleTeam {
-      ownerUser: UsersModuleUser
+  var schemas = []
+  var resolvers = {}
+
+  if (transformedTeamsSchema) {
+    schemas.push(transformedTeamsSchema)
+    if (transformedUsersSchema) {
+      schemas.push(teams.linkSchemaDefs)
+      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema))
     }
-  `
+  }
+  if (transformedUsersSchema) {
+    schemas.push(transformedUsersSchema)
+  }
+  if (transformedKeyVaultSchema) {
+    schemas.push(transformedKeyVaultSchema)
+  }
 
   const schema = mergeSchemas({
-    schemas: [transformedTeamsSchema, transformedUsersSchema, transformedKeyVaultSchema, linkSchemaDefs],
-    resolvers: {
-      TeamsModuleTeam: {
-        ownerUser: {
-          fragment: `fragment UserFragment on TeamsModuleTeam{owner}`,
-          resolve (parent, args, context, info) {
-            const authId = parent.owner
-            return info.mergeInfo.delegateToSchema({
-              schema: transformedUsersSchema,
-              operation: 'query',
-              fieldName: 'UsersModuleUserByAuthId',
-              args: { authId },
-              context,
-              info
-            })
-          }
-        }
-      }
-    }
+    schemas,
+    resolvers
   })
 
   const app = express()

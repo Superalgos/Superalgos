@@ -35,7 +35,14 @@ export const createRemoteSchema = async (uri) => {
 }
 
 export const createTransformedRemoteSchema = async (prefix, uri) => {
-  const schema = await createRemoteSchema(uri)
+  var schema
+  try {
+    schema = await createRemoteSchema(uri)
+  } catch (error) {
+    console.log(`An error occured while fetching ${prefix} schema :`)
+    console.log(error)
+    return false
+  }
   const transformedSchema = transformSchema(schema, [
     new RenameTypes((name) => prefix + capitalize(name)),
     new RenameRootFields((operation, name) => prefix + capitalize(name))

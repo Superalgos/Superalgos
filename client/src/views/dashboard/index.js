@@ -14,7 +14,7 @@ import Overview from './Overview'
 import ManageTeams from './ManageTeams'
 import FinancialBeings from './FinancialBeings'
 import TeamMembers from './TeamMembers'
-import Settings from './Settings'
+import Settings from './settings'
 
 const drawerWidth = 240
 

@@ -40,15 +40,5 @@ module.exports = merge(commonConfig, {
       }
     ]
   },
-  target: 'web'
+  target: 'web',
 })
-
-module.exports.serve = {
-  hot: {
-    port: 4536
-  },
-  host: 'localhost',
-  add: (app, middleware, options) => {
-    app.use(convert(history()))
-  }
-}

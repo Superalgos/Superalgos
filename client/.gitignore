@@ -22,3 +22,7 @@ dist/
 
 #Mac specific files
 .DS_Store
+
+#yalc npm link
+.yalc
+yalc.lock

@@ -60,8 +60,8 @@ async function run () {
     })
   )
 
-  app.listen(3000)
-  console.log('Server running. Open http://localhost:3000/graphiql to run queries.')
+  app.listen(4100)
+  console.log('Server running. Open http://localhost:4100/graphiql to run queries.')
 }
 
 try {

@@ -100,10 +100,10 @@ export class ManageMemberDelete extends Component {
                     Remove Team Member
                   </DialogTitle>
                   <DialogContent>
-                    <Typography variant='subheading' color='primary'>
+                    <Typography variant='subtitle1' color='primary'>
                       DANGER - Removing your team cannot be undone
                     </Typography>
-                    <Typography variant='subheading'>
+                    <Typography variant='subtitle1'>
                       Are you sure you want to remove this team member?
                     </Typography>
                     {loader}

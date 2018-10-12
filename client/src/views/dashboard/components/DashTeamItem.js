@@ -47,11 +47,11 @@ export const DashTeamItem = ({ classes, team }) => (
           title='Image title'
         />
         <CardContent className={classes.cardContent}>
-          <Typography variant='headline'>{team.name}</Typography>
-          <Typography variant='subheading' color='textSecondary'>
+          <Typography variant='h5'>{team.name}</Typography>
+          <Typography variant='subtitle1' color='textSecondary'>
             {team.createdAt}
           </Typography>
-          <Typography variant='subheading' paragraph>
+          <Typography variant='subtitle1' paragraph>
             Members: {team.members.length}
           </Typography>
         </CardContent>

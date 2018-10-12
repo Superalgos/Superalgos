@@ -79,7 +79,7 @@ export const ManageMembersTeamItem = ({ classes, team, authId }) => {
                     />
                   </Grid>
                   <Grid item xs={9}>
-                    <Typography gutterBottom variant='headline' component='h2'>
+                    <Typography gutterBottom variant='h5' component='h2'>
                       {team.name}
                     </Typography>
                   </Grid>

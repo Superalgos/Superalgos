@@ -14,7 +14,7 @@ const styles = theme => ({
 
 export const Settings = ({ classes }) => (
   <div>
-    <Typography variant='display1' gutterBottom>
+    <Typography variant='h4' gutterBottom>
       Settings
     </Typography>
     <div className={classes.tableContainer}>

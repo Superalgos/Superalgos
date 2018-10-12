@@ -25,7 +25,7 @@ export const ManageMembersItem = ({ classes, member, teamId, authId }) => {
     return (
       <Grid container className={classes.memberContainer}>
         <Grid item xs={4}>
-          <Typography gutterBottom variant='subheading' component='h2' align='left' >
+          <Typography gutterBottom variant='subtitle1' component='h2' align='left' >
             {profile !== null ? profile.alias : email}
           </Typography>
         </Grid>

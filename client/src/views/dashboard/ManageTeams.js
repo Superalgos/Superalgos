@@ -14,7 +14,7 @@ const styles = theme => ({
 
 const ManageTeams = ({ classes }) => (
   <div>
-    <Typography variant='display1' gutterBottom>
+    <Typography variant='h4' gutterBottom>
       Manage Your Teams
     </Typography>
     <ManageTeamsList />

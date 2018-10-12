@@ -152,27 +152,44 @@ const resolvers = {
     async createTeam(parent, { name, slug, botName, botSlug }, ctx, info) {
       console.log('createTeam ctx:', ctx.request.user)
       const authId = ctx.request.user.sub
-      const encodedAuthId = encodeURI(authId)
-      const getUserModuleUser = await axios.get(`https://users-api.advancedalgos.net/graphql?query=%7B%0A%20%20userByAuthId(authId%3A%22${encodedAuthId}%22)%7B%0A%20%20%20%20id%0A%09%09email%0A%20%20%20%20alias%0A%20%20%7D%0A%7D`)
+      const encodedAuthId = encodeURI(`:"${authId}"`)
+      const encodedURL = `https://users-api.advancedalgos.net/graphql?query=%7B%0A%20%20userByAuthId(authId${encodedAuthId})%7B%0A%20%20%20%20id%0A%09%09email%0A%20%20%20%20alias%0A%20%20%7D%0A%7D`
+      const decodedURL = decodeURI(encodedURL)
+      console.log('decoded URL: ', decodedURL)
+      const getUserModuleUser = await axios.get(encodedURL)
+        .then((result) => {
+          console.log('getUserModuleUser:', result)
+          return result
+        })
+        .catch(err =>{
+          console.log('getUserModuleUser err:', err)
+        })
 
+      console.log('getUserModuleUser:', await getUserModuleUser)
       const alias = await getUserModuleUser.data.data.userByAuthId.alias
       const email = getUserModuleUser.data.data.userByAuthId.email
       const avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
       const banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
-/*
-      const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}`)
-      const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
-      // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+
+      const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}/${authId}`)
+      // const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
+      const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
       const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}`)
+        .then((result) => {
+          console.log('createPlatformTeam:', result)
+          if(result.data.message === 'Team Name already taken'){
+            throw new Error(result.data.message)
+          }
+          return result
+        })
+        .catch(err =>{
+          console.log('createPlatformTeam err:', err)
+          throw new Error(err)
+        })
       console.log('createPlatformTeam: ', await createPlatformTeam)
-
-      // const sessionToken = getUserModuleUser.data.data.userByAuthId.id
-      update session token on user module
-      const updateUserSession = await axios.post('https://users-api.advancedalgos.net/graphql', {
-        query: 'mutation { language }'
-      })
-
-*/
+      if(createPlatformTeam === 'Error: Team Name already taken'){
+        return createPlatformTeam
+      }
       const createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER'}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
         .catch((err) => {
           console.log('createTeam error: ', err)

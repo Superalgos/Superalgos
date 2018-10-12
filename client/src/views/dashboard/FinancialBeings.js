@@ -14,7 +14,7 @@ const styles = theme => ({
 
 const FinancialBeings = ({ classes }) => (
   <div>
-    <Typography variant='display1' gutterBottom>
+    <Typography variant='h4' gutterBottom>
       Financial Beings
     </Typography>
     <ManageFBList />

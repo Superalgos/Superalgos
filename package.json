@@ -1,6 +1,6 @@
 {
   "name": "AATeamModule",
-  "version": "0.0.1",
+  "version": "2.0.1",
   "description": "Advanced Algos Team Module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,7 @@
     "Advanced Algos"
   ],
   "author": "Barry Low <bearcanru@gmail.com>",
-  "license": "AGPL-3.0",
+  "license": "SEE LICENSE IN LICENSE.MD",
   "bugs": {
     "url": "https://github.com/AdvancedAlgos/AATeamModule.git/issues"
   },

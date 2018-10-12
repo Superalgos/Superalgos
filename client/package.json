@@ -1,6 +1,6 @@
 {
   "name": "@advancedalgos/teams-client",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Advanced Algos Team client-side web app",
   "main": "src/index.js",
   "scripts": {
@@ -48,7 +48,7 @@
     "html-webpack-harddisk-plugin": "^0.2.0",
     "html-webpack-plugin": "^3.2.0",
     "koa-connect": "^2.0.1",
-    "mini-css-extract-plugin": "^0.4.3",
+    "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.3",
     "optimize-css-assets-webpack-plugin": "^4.0.3",
     "postcss-loader": "^2.1.6",
@@ -87,7 +87,7 @@
     "classnames": "^2.2.6",
     "cross-fetch": "^2.2.2",
     "dotenv-webpack": "^1.5.7",
-    "graphql": "^0.13.2",
+    "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "minilog": "^3.1.0",
     "prop-types": "^15.6.2",

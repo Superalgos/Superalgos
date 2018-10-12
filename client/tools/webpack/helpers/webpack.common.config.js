@@ -9,12 +9,17 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        include: /node_modules\\@advancedalgos/,
         loader: 'babel-loader'
       },
       {
         test: /\.js$/,
         include: /node_modules\/@advancedalgos/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {

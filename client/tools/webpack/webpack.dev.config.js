@@ -18,6 +18,10 @@ module.exports = merge(commonConfig, {
     filename: 'script.js'
   },
 
+  devServer: {
+      historyApiFallback: true,
+    },
+
   plugins: [
     new Dotenv({
       path: '.env'

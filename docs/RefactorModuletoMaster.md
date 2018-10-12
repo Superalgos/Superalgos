@@ -6,7 +6,15 @@
 4. Remove Apollo React.
 5. Update auth handling. Pass as props or pull from local storage.
 6. Remove header and footer.
+7. Update [Material-UI Typography variants](https://material-ui.com/style/typography/#migration-to-typography-v2)
 
 ## Developing Module with Master App
+
+### Setup
+The symlinks in
 1. Navigate to your module client.
-2. Run `npm link ../../MasterApp/client`. Update relative url of your module client in relation to MasterApp client if needed. 
+2. Run `npm link`
+3. Navigate `MasterApp/client`.
+4. Run `npm link [you-module-package]`. eg `npm link @advancedalgos/teams-client`
+5. Start server: `npm run dev`
+6. When a change is made in your module, after a second or two, the browser page should update without reloading.

@@ -7,6 +7,7 @@ module.exports = (api) => {
   ];
 
   const plugins = [
+    'react-hot-loader/babel',
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
     'dynamic-import-node',

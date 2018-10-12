@@ -4,7 +4,7 @@
   "description": "Responsible for loading all web modules and running them.",
   "main": "src/index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-serve --port 3100 --config ./webpack.config.js",
+    "dev": "NODE_ENV=development webpack-dev-server --hot --port 3100 --config ./webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --mode production --config ./webpack.config.js",
     "lint": "prettier-standard 'src/**/*.js'"
   },
@@ -51,13 +51,15 @@
     "postcss-loader": "^3.0.0",
     "prettier": "^1.14.3",
     "prettier-standard": "^8.0.1",
+    "react-hot-loader": "^4.3.11",
     "sass-loader": "^7.1.0",
     "script-ext-html-webpack-plugin": "^2.0.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "webpack-merge": "^4.1.4",
-    "webpack-serve": "^2.0.2"
+    "webpack-dev-server": "^3.1.9",
+    "webpack-hot-client": "^4.1.1",
+    "webpack-merge": "^4.1.4"
   },
   "standard": {
     "parser": "babel-eslint",
@@ -68,7 +70,6 @@
   },
   "dependencies": {
     "@advancedalgos/key-vault-client": "0.0.5",
-    "@advancedalgos/teams-client": "file:.yalc/@advancedalgos/teams-client",
     "@advancedalgos/web-components": "0.0.10",
     "@babel/runtime": "^7.1.2",
     "@material-ui/core": "^3.2.0",

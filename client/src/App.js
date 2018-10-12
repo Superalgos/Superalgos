@@ -1,6 +1,7 @@
 import { ApolloProvider } from 'react-apollo'
 import React, { Component } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import { hot } from 'react-hot-loader'
 
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -50,4 +51,5 @@ export const MasterApp = () => (
   </BrowserRouter>
 )
 
-export default withStyles(globalStyles)(MasterApp)
+const StyledMasterApp = withStyles(globalStyles)(MasterApp)
+export default hot(module)(StyledMasterApp)

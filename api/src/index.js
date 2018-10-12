@@ -271,6 +271,7 @@ server.express.use(
 
 server.express.post(server.options.endpoint, (req, res, done) => getUser(req, res, done, db))
 
+/*
 let whitelist = [
   'http://localhost:3000',
   'http://localhost:3001',
@@ -278,6 +279,7 @@ let whitelist = [
   'http://localhost:4000',
   'http://localhost:4002',
   'http://localhost:1337',
+  'http://localhost:4100',
   'https://teams.advancedalgos.net',
   'https://users.advancedalgos.net',
   'https://users-api.advancedalgos.net',
@@ -296,13 +298,21 @@ const corsOptionsDelegate = (req, callback) => {
   }
   callback(null, corsOptions) // callback expects two parameters: error and options
 }
+*/
+
+const corsOptions = {
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+}
 
 const options = {
   port: 4001,
-  cors: corsOptionsDelegate,
+  cors: corsOptions,
   endpoint: '/graphql',
   subscriptions: '/graphql',
-  playground: '/playground'
+  playground: '/graphiql'
 }
 
 server.start(options, () => console.log(`Server is running on http://localhost:4001${server.options.endpoint}`))

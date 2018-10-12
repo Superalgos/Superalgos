@@ -1,9 +1,9 @@
 version: '3'
 services:
-  node:
-    image: image: advancedalgosteamsmodule/teammodule-api:v6
+  api:
+    image: advancedalgosteamsmodule/teammodule-api:v6
     env_file: ./.env
-    container_name: aateamapi
+    container_name: aateamapi-imagetest
     tty: true
     stdin_open: true
     volumes:
@@ -12,10 +12,5 @@ services:
     working_dir: /var/www/app
     restart: always
     command: node -r dotenv/config src/index.js
-    expose:
-      - 4001
-    network_mode: webproxy
-networks:
-  default:
-    external:
-      name: webproxy
+    ports:
+      - "4001:4001"

@@ -29,6 +29,7 @@ Start the server:
 ```
 npm run start
 ```
+The Graphql Playground will be viewable at [http://localhost:4100/graphql](http://localhost:4100/graphql)
 
 **Setup Client**
 

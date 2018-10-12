@@ -33,6 +33,16 @@ async function run () {
     resolvers
   })
 
+  const defaultQuery = `{
+  teams_Teams{
+    edges{
+      node{
+        name
+      }
+    }
+  }
+}
+`
   const app = express()
   const server = new ApolloServer({
     schema,
@@ -46,7 +56,13 @@ async function run () {
       return response;
     },
     playground: {
-      settings: { 'editor.theme': 'light' }
+      settings: { 'editor.theme': 'light' },
+      tabs: [
+        {
+          endpoint: 'http://localhost:4100/graphql',
+          query: defaultQuery
+        }
+      ]
     }
   })
 

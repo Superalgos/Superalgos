@@ -55,7 +55,7 @@ async function run () {
   app.use(cors())
 
   app.listen(4100)
-  console.log('Server running. Open http://localhost:4100/graphiql to run queries.')
+  console.log('Server running. Open http://localhost:4100/graphql to run queries.')
 }
 
 try {

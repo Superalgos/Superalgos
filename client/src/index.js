@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import { hot } from 'react-hot-loader'
 
 import { withStyles } from '@material-ui/core/styles'
 import {
@@ -39,4 +40,5 @@ App.propTypes = {
   auth: PropTypes.object
 }
 
-export default withStyles(globalStyles)(App)
+const StyledApp = withStyles(globalStyles)(App)
+export default hot(module)(StyledApp)

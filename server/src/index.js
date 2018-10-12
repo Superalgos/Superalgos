@@ -7,9 +7,9 @@ import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams } from './links'
 
 async function run () {
-  const transformedTeamsSchema = await createTransformedRemoteSchema('TeamsModule', process.env.TEAMS_API_URL)
-  const transformedUsersSchema = await createTransformedRemoteSchema('UsersModule', process.env.USERS_API_URL)
-  const transformedKeyVaultSchema = await createTransformedRemoteSchema('KeyVaultModule', process.env.KEYVAULT_API_URL)
+  const transformedTeamsSchema = await createTransformedRemoteSchema('teams_', process.env.TEAMS_API_URL)
+  const transformedUsersSchema = await createTransformedRemoteSchema('users_', process.env.USERS_API_URL)
+  const transformedKeyVaultSchema = await createTransformedRemoteSchema('keyVault_', process.env.KEYVAULT_API_URL)
 
   var schemas = []
   var resolvers = {}
@@ -48,7 +48,7 @@ async function run () {
       endpointURL: '/graphql',
       query: `
       {
-        TeamsModuleTeams{
+        teams_Teams{
           edges{
             node{
               name

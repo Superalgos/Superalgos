@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --hot --port 3100 --config ./webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --mode production --config ./webpack.config.js",
+    "dev_win": "webpack-dev-server --hot --port 3100 --config ./webpack.config.js",
+    "build_win": "webpack --mode production --config ./webpack.config.js",
     "lint": "prettier-standard 'src/**/*.js'"
   },
   "repository": {
@@ -69,7 +71,7 @@
     ]
   },
   "dependencies": {
-    "@advancedalgos/key-vault-client": "0.0.5",
+    "@advancedalgos/key-vault-client": "0.0.6",
     "@advancedalgos/teams-client": "0.0.18",
     "@advancedalgos/web-components": "0.0.10",
     "@babel/runtime": "^7.1.2",

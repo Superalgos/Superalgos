@@ -1,14 +1,10 @@
 {
-  "name": "master-app-client",
+  "name": "master-app",
   "version": "0.0.1",
   "description": "Responsible for loading all web modules and running them.",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --hot --port 3100 --config ./webpack.config.js",
-    "build": "cross-env NODE_ENV=production webpack --mode production --config ./webpack.config.js",
-    "dev_win": "webpack-dev-server --hot --port 3100 --config ./webpack.config.js",
-    "build_win": "webpack --mode production --config ./webpack.config.js",
-    "lint": "prettier-standard 'src/**/*.js'"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -19,80 +15,5 @@
   "bugs": {
     "url": "https://github.com/Algoteers/MasterApp/issues"
   },
-  "homepage": "https://github.com/Algoteers/MasterApp#readme",
-  "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-react-jsx": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
-    "autoprefixer": "^9.1.5",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-dynamic-import-node": "^2.2.0",
-    "connect-history-api-fallback": "^1.5.0",
-    "css-loader": "^1.0.0",
-    "debug": "^4.1.0",
-    "dotenv-webpack": "^1.5.7",
-    "eslint": "^5.6.1",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-config-standard-react": "^7.0.2",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "file-loader": "^2.0.0",
-    "html-webpack-harddisk-plugin": "^0.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "koa-connect": "^2.0.1",
-    "node-sass": "^4.9.3",
-    "postcss-loader": "^3.0.0",
-    "prettier": "^1.14.3",
-    "prettier-standard": "^8.0.1",
-    "react-hot-loader": "^4.3.11",
-    "sass-loader": "^7.1.0",
-    "script-ext-html-webpack-plugin": "^2.0.1",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9",
-    "webpack-hot-client": "^4.1.1",
-    "webpack-merge": "^4.1.4"
-  },
-  "standard": {
-    "parser": "babel-eslint",
-    "ignore": [
-      "dist/",
-      "build/"
-    ]
-  },
-  "dependencies": {
-    "@advancedalgos/key-vault-client": "0.0.6",
-    "@advancedalgos/teams-client": "0.0.18",
-    "@advancedalgos/web-components": "0.0.10",
-    "@babel/runtime": "^7.1.2",
-    "@material-ui/core": "^3.2.0",
-    "@material-ui/icons": "^3.0.1",
-    "apollo-cache-inmemory": "^1.3.5",
-    "apollo-client": "^2.4.2",
-    "apollo-link": "^1.2.3",
-    "apollo-link-context": "^1.0.9",
-    "apollo-link-error": "^1.1.1",
-    "apollo-link-http": "^1.5.5",
-    "apollo-link-ws": "^1.0.9",
-    "apollo-utilities": "^1.0.21",
-    "auth0-lock": "^11.10.0",
-    "babel-polyfill": "^6.26.0",
-    "graphql": "^14.0.2",
-    "graphql-tag": "^2.10.0",
-    "prop-types": "^15.6.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-router-dom": "^4.3.1",
-    "subscriptions-transport-ws": "^0.9.15"
-  }
+  "homepage": "https://github.com/Algoteers/MasterApp#readme"
 }

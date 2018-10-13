@@ -1,12 +1,12 @@
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { ApolloLink, split, Observable } from 'apollo-link'
+import { ApolloLink, Observable } from 'apollo-link'
 import { onError } from 'apollo-link-error'
 import { setContext } from 'apollo-link-context'
 // import { WebSocketLink } from 'apollo-link-ws'
 // import { SubscriptionClient } from 'subscriptions-transport-ws'
-import { getMainDefinition } from 'apollo-utilities'
+// import { getMainDefinition } from 'apollo-utilities'
 
 import { getItem } from '../utils/local-storage'
 
@@ -45,6 +45,7 @@ wsClient.onReconnected(() => {
 */
 const httpLink = new HttpLink({ uri: graphqlEndpoint })
 
+/*
 const link = split(
   ({ query }) => {
     const { kind, operation } = getMainDefinition(query)
@@ -53,6 +54,7 @@ const link = split(
   // new WebSocketLink(wsClient),
   httpLink
 )
+*/
 
 const authRetryLink = onError(
   ({ graphQLErrors, networkError, operation, forward }) => {
@@ -109,7 +111,7 @@ const authLink = setContext(async (_, { headers }) => {
 const cache = new InMemoryCache().restore(window.__APOLLO_STATE__)
 
 export const client = new ApolloClient({
-  link: ApolloLink.from([authRetryLink, authLink, link]),
+  link: ApolloLink.from([authRetryLink, authLink, httpLink]), // replaced link with httpLink
   cache,
   connectToDevTools: true
 })

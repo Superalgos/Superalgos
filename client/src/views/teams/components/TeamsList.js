@@ -39,10 +39,10 @@ const styles = theme => ({
   }
 })
 
-export const TeamsList = ({ classes, match }) => (
-  <Query query={GET_ALL_TEAMS_QUERY} fetchPolicy='cache-and-network'>
-    {({ loading, error, data }) => {
-      console.log('GET_ALL_TEAMS: ', loading, error, data, match)
+export const TeamsList = ({ classes, match, client }) => (
+  <Query query={GET_ALL_TEAMS_QUERY} fetchPolicy='cache-and-network' client={client} >
+    {({ loading, error, data, ...props }) => {
+      console.log('GET_ALL_TEAMS: ', loading, error, data, match, props)
       let slug = null
       if (!isEmpty(match.params) && match.params.slug) slug = match.params.slug
 
@@ -58,12 +58,12 @@ export const TeamsList = ({ classes, match }) => (
         })
       }
       if (!loading && !error) {
-        if (data.teams.edges.length > 0) {
+        if (data.teams_Teams.edges.length > 0) {
           if (slug !== null) {
             return (
               <Grid container spacing={40}>
                 {!loading &&
-                  data.teams.edges.map(team => {
+                  data.teams_Teams.edges.map(team => {
                     if (team.node.slug === slug) {
                       return (
                         <TeamsDetails key={team.node.id} team={team.node} />
@@ -89,7 +89,7 @@ export const TeamsList = ({ classes, match }) => (
                 </div>
                 <Grid container spacing={40}>
                   {!loading &&
-                    data.teams.edges.map(team => (
+                    data.teams_Teams.edges.map(team => (
                       <TeamsItem
                         key={team.node.id}
                         team={team.node}
@@ -118,7 +118,8 @@ export const TeamsList = ({ classes, match }) => (
 
 TeamsList.propTypes = {
   classes: PropTypes.object.isRequired,
-  match: PropTypes.object
+  match: PropTypes.object,
+  client: PropTypes.client
 }
 
 export default withStyles(styles)(TeamsList)

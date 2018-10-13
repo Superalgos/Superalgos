@@ -73,6 +73,7 @@
   "dependencies": {
     "@advancedalgos/key-vault-client": "0.0.6",
     "@advancedalgos/teams-client": "0.0.20",
+    "@advancedalgos/users-client": "0.0.7",
     "@advancedalgos/web-components": "0.0.10",
     "@babel/runtime": "^7.1.2",
     "@material-ui/core": "^3.2.0",

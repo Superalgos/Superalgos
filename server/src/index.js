@@ -1,7 +1,7 @@
 import express from 'express'
-import bodyParser from 'body-parser'
+import cors from 'cors'
 import 'dotenv/config'
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
+import { ApolloServer } from 'apollo-server-express'
 import { mergeSchemas } from 'graphql-tools'
 import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams } from './links'
@@ -33,35 +33,45 @@ async function run () {
     resolvers
   })
 
-  const app = express()
-
-  app.use('/graphql', bodyParser.json(), graphqlExpress(req => {
-    return ({
-      schema: schema,
-      context: req
-    })
-  }))
-
-  app.use(
-    '/graphiql',
-    graphiqlExpress({
-      endpointURL: '/graphql',
-      query: `
-      {
-        teams_Teams{
-          edges{
-            node{
-              name
-            }
-          }
-        }
+  const defaultQuery = `{
+  teams_Teams{
+    edges{
+      node{
+        name
       }
-      `
-    })
-  )
+    }
+  }
+}
+`
+  const app = express()
+  const server = new ApolloServer({
+    schema,
+    context: ({ req }) => req, // placeholder until specific use case for context on Master App server
+    formatError: error => {
+      console.log(JSON.stringify(error))
+      return error;
+    },
+    formatResponse: response => {
+      console.log(JSON.stringify(response))
+      return response;
+    },
+    playground: {
+      settings: { 'editor.theme': 'light' },
+      tabs: [
+        {
+          endpoint: 'http://localhost:4100/graphql',
+          query: defaultQuery
+        }
+      ]
+    }
+  })
+
+  server.applyMiddleware({ app });
+
+  app.use(cors())
 
   app.listen(4100)
-  console.log('Server running. Open http://localhost:4100/graphiql to run queries.')
+  console.log('Server running. Open http://localhost:4100/graphql to run queries.')
 }
 
 try {

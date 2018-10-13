@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
+import { ApolloLink } from 'apollo-link'
 import {
   makeRemoteExecutableSchema,
   introspectSchema,
@@ -20,17 +21,20 @@ export const createRemoteSchema = async (uri) => {
 
   const http = makeDatabaseServiceLink()
 
-  const link = setContext((request, previousContext) => (
-    {
-      headers: {
-        authorization: previousContext.graphqlContext.headers.authorization || ''
+  const authLink = setContext((request, previousContext) => {
+    console.log(previousContext.graphqlContext.headers)
+    return (
+      {
+        headers: {
+          Authorization: previousContext.graphqlContext.headers.Authorization ? previousContext.graphqlContext.headers.Authorization : ''
+        }
       }
-    }
-  )).concat(http)
+    )
+  })
 
   return makeRemoteExecutableSchema({
     schema: databaseServiceSchemaDefinition,
-    link: link
+    link: ApolloLink.from([authLink, http])
   })
 }
 

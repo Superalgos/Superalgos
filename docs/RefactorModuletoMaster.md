@@ -7,6 +7,7 @@
 5. Update auth handling. Pass as props or pull from local storage.
 6. Remove header and footer.
 7. Update [Material-UI Typography variants](https://material-ui.com/style/typography/#migration-to-typography-v2)
+8. Add react hot module: `npm i react-hot-loader -D`
 
 ## Developing Module with Master App
 

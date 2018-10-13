@@ -1,9 +1,0 @@
-/.env
-/database/.env
-/database/docker-compose.prisma.prod.yml
-/docker-compose.prisma.prod.yml
-dist
-node_modules
-.idea
-.vscode
-*.log

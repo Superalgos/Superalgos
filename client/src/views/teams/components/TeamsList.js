@@ -39,8 +39,8 @@ const styles = theme => ({
   }
 })
 
-export const TeamsList = ({ classes, match, client }) => (
-  <Query query={GET_ALL_TEAMS_QUERY} fetchPolicy='cache-and-network' client={client} >
+export const TeamsList = ({ classes, match }) => (
+  <Query query={GET_ALL_TEAMS_QUERY} fetchPolicy='cache-and-network' >
     {({ loading, error, data, ...props }) => {
       console.log('GET_ALL_TEAMS: ', loading, error, data, match, props)
       let slug = null
@@ -118,8 +118,7 @@ export const TeamsList = ({ classes, match, client }) => (
 
 TeamsList.propTypes = {
   classes: PropTypes.object.isRequired,
-  match: PropTypes.object,
-  client: PropTypes.client
+  match: PropTypes.object
 }
 
 export default withStyles(styles)(TeamsList)

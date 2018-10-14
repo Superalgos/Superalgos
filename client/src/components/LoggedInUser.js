@@ -44,7 +44,7 @@ class LoggedInUser extends Component {
           <IconButton
 
             color='inherit'
-            title='Your Profile'
+            title='Manage your Profile'
             component={UserLink}>
             <UserIcon />
           </IconButton>

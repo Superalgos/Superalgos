@@ -29,17 +29,12 @@ const styles = {
     flexGrow: 1
   },
   flex: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginLeft: 30
   },
   menuButton: {
     marginLeft: -12,
     marginRight: 20
-  },
-  img: {
-    margin: 20,
-    display: 'block',
-    maxWidth: 240,
-    maxHeight: 48
   }
 }
 
@@ -69,12 +64,15 @@ class NavBar extends Component {
     const { classes } = this.props
     return (
       <div className={classes.root}>
-        <AppBar position='static'>
+        <AppBar position='static' color='secondary'>
           <Toolbar>
+            <Typography variant='title' color='inherit' className={classes.flex}>
+              Users
+            </Typography>
             <IconButton
               className={classes.menuButton}
               color='inherit'
-              title='Home'
+              title='Users Module Home'
               component={HomeLink}>
               <UsersIcon />
             </IconButton>
@@ -102,7 +100,7 @@ class NavBar extends Component {
             <IconButton
               className={classes.menuButton}
               color='inherit'
-              title='About this Module'
+              title='About the Users Module'
               component={AboutLink}>
               <AboutIcon />
             </IconButton>

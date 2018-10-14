@@ -75,7 +75,7 @@ const TeamsDetails = ({ classes, team }) => {
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <div className={classes.heroContent}>
-            <Link to='/teams'>&larr; Back to all teams</Link>
+            <Link to='/'>&larr; Back to all teams</Link>
             <img src={banner} alt={team.name} className={classes.banner} />
             <img src={avatar} alt={team.name} className={classes.avatar} />
             <Typography

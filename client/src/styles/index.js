@@ -5,7 +5,7 @@ import indigo from '@material-ui/core/colors/indigo'
 export const theme = createMuiTheme({
   palette: {
     primary: { main: '#303036' },
-    secondary: indigo
+    secondary: { main: '#CC5835' }   //  <--RUSTED_RED    ~  GOLDEN_ORANGE -->    #F0A202
   },
   typography: {
     fontFamily: '"Saira","Saira Condenses", sans-serif',

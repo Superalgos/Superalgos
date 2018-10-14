@@ -10,7 +10,6 @@ import Button from '@material-ui/core/Button'
 
 // icons
 import HomeIcon from '@material-ui/icons/Home'
-import DashboardIcon from '@material-ui/icons/Dashboard'
 
 import { Link } from 'react-router-dom'
 
@@ -23,8 +22,9 @@ import { LoggedOut } from './LoggedOut'
 import AALogo from '../../assets/advanced-algos/aa-logo-dark.svg'
 
 const AboutLink = props => <Link to='/about' {...props} />
-const TeamsLink = props => <Link to='/teams' {...props} />
 const UsersLink = props => <Link to='/users' {...props} />
+const TeamsLink = props => <Link to='/teams' {...props} />
+const KeyVaultLink = props => <Link to='/key-vault' {...props} />
 const DashboardLink = props => <Link to='/dashboard' {...props} />
 const HomeLink = props => <Link to='/' {...props} />
 
@@ -105,11 +105,14 @@ class Header extends Component {
             >
               <HomeIcon />
             </IconButton>
+            <Button component={UsersLink} color='inherit'>
+              Users
+            </Button>
             <Button component={TeamsLink} color='inherit'>
               Teams
             </Button>
-            <Button component={UsersLink} color='inherit'>
-              Users
+            <Button component={KeyVaultLink} color='inherit'>
+              Key Vault
             </Button>
             <Button component={AboutLink} color='inherit'>
               About
@@ -122,9 +125,7 @@ class Header extends Component {
                   color='inherit'
                   title='Dashboard'
                   component={DashboardLink}
-                >
-                  <DashboardIcon />
-                </IconButton>
+                 />
                 <LoggedIn user={user} auth={auth} styles={styles} />
               </React.Fragment>
             ) : (

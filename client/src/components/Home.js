@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { compose } from 'recompose'
 import { withStyles } from '@material-ui/core/styles'
-import {LineChart} from 'react-easy-chart'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -65,7 +64,7 @@ class Home extends Component {
               color='textSecondary'
               component='h3'
             >
-              Welcome to Advanced Algos Users Module
+              Welcome to Advanced Algos Users Module This is the Source Version 2
             </Typography>
           </div>
         </main>

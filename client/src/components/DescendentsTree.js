@@ -188,10 +188,10 @@ class DescendentsTree extends Component {
     if (data.loading) {
       return (<div> Loading Descendents... </div>)
     } else {
-      if (data.descendents === undefined) {
+      if (data.users_Descendents === undefined) {
         return (<div> No Descendents to Display </div>)
       } else {
-        return data.descendents.map(descendent => {
+        return data.users_Descendents.map(descendent => {
           return (
           <div key={descendent.alias}>
 

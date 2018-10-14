@@ -96,7 +96,7 @@ class ProfileSheet extends Component {
         <MenuItem><em>Loading roles</em></MenuItem>
       )
     } else {
-      return data.roles.map(role => {
+      return data.users_Roles.map(role => {
         return (
           <MenuItem key={role.id} value={role.id}>{ role.name }</MenuItem>
         )

@@ -89,13 +89,14 @@ class UserList extends Component {
   };
 
   displayUsers(){
+    
     let data = this.props.getUsersQuery;
     const { classes } = this.props;
 
     if(data.loading){
       return ( <div> Loading Users... </div>);
     } else {
-      return data.users.map(user => {
+      return data.users_Users.map(user => {
 
         return (
 

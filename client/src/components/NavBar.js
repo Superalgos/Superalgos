@@ -15,12 +15,6 @@ import AboutIcon from '@material-ui/icons/FormatShapes'
 
 import { Link } from 'react-router-dom'
 
-// components
-import LoggedInUser from './LoggedInUser'
-
-// Images
-import AALogo from '../assets/logos/advanced-algos/aa-logo-dark.svg'
-
 const AboutLink = props => <Link to='/about' {...props} />
 const ContactLink = props => <Link to='/contact' {...props} />
 const SearchLink = props => <Link to='/search' {...props} />
@@ -68,10 +62,6 @@ class NavBar extends Component {
       <div className={classes.root}>
         <AppBar position='static'>
           <Toolbar>
-            <img className={classes.img} src={AALogo} alt='Advanced Algos' />
-            <Typography variant='title' color='inherit' className={classes.flex}>
-              Users
-            </Typography>
             <IconButton
               className={classes.menuButton}
               color='inherit'
@@ -107,7 +97,6 @@ class NavBar extends Component {
               component={AboutLink}>
               <AboutIcon />
             </IconButton>
-            <LoggedInUser authId={this.state.authId} />
           </Toolbar>
         </AppBar>
       </div>

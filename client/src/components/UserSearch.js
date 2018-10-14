@@ -156,10 +156,10 @@ class UserSearch extends Component {
     if (data.loading) {
       return (<div> Loading Users... </div>)
     } else {
-      if (data.usersSearch === undefined) {
+      if (data.users_UsersSearch === undefined) {
         return (<div> No Users to Display </div>)
       } else {
-        return data.usersSearch.map(user => {
+        return data.users_UsersSearch.map(user => {
           return (
 
             <Grid key={user.id} item>

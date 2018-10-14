@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {graphql} from 'react-apollo'
 import {getUserByAuthIdQuery} from '../queries/queries'
 
-import LoggedInUserMenu from './LoggedInUserMenu'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 
@@ -53,9 +52,7 @@ class LoggedInUser extends Component {
       )
     } else {
       return (
-        <div>
-          <Button color='inherit'>Login / Sign up</Button>
-        </div>
+        <div />
       )
     }
   }
@@ -65,7 +62,6 @@ class LoggedInUser extends Component {
   }
 
   render () {
-    console.log('props', this.props)
     if (this.loggedInUserStored !== true) {
       let user = this.props.data.users_UserByAuthId
 

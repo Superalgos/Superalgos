@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 
 // icons
-import HomeIcon from '@material-ui/icons/Home'
+import UsersIcon from '@material-ui/icons/People'
 import BrowseIcon from '@material-ui/icons/ImportContacts'
 import SearchIcon from '@material-ui/icons/Search'
 import ContactIcon from '@material-ui/icons/ContactMail'
@@ -54,17 +54,12 @@ class NavBar extends Component {
 
   componentDidMount () {
     let user = localStorage.getItem('user')
-
-    console.log('componentDidMount user', user)
-
     let authId
 
     if (user !== null && user !== undefined && user !== 'undefined') {
       user = JSON.parse(user)
       authId = user.authId
     }
-
-    console.log('componentDidMount authId', authId)
 
     if (authId !== null && authId !== undefined && authId !== 'undefined') {
       this.setState({ authId: authId })
@@ -81,7 +76,7 @@ class NavBar extends Component {
               color='inherit'
               title='Home'
               component={HomeLink}>
-              <HomeIcon />
+              <UsersIcon />
             </IconButton>
             <IconButton
               className={classes.menuButton}

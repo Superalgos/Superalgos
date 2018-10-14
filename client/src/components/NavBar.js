@@ -16,6 +16,9 @@ import UserIcon from '@material-ui/icons/Person'
 
 import { Link } from 'react-router-dom'
 
+// components
+import LoggedInUser from './LoggedInUser'
+
 const UserLink = props => <Link to='/user' {...props} />
 const AboutLink = props => <Link to='/about' {...props} />
 const ContactLink = props => <Link to='/contact' {...props} />
@@ -52,7 +55,18 @@ class NavBar extends Component {
   }
 
   componentDidMount () {
-    const authId = localStorage.getItem('authId')
+    let user = localStorage.getItem('user')
+
+    console.log('componentDidMount user', user)
+
+    let authId
+
+    if (user !== null && user !== undefined && user !== 'undefined') {
+      user = JSON.parse(user)
+      authId = user.authId
+    }
+
+    console.log('componentDidMount authId', authId)
 
     if (authId !== null && authId !== undefined && authId !== 'undefined') {
       this.setState({ authId: authId })
@@ -106,6 +120,7 @@ class NavBar extends Component {
               component={UserLink}>
               <UserIcon />
             </IconButton>
+            <LoggedInUser authId={this.state.authId} />
           </Toolbar>
         </AppBar>
       </div>

@@ -12,9 +12,11 @@ import BrowseIcon from '@material-ui/icons/ImportContacts'
 import SearchIcon from '@material-ui/icons/Search'
 import ContactIcon from '@material-ui/icons/ContactMail'
 import AboutIcon from '@material-ui/icons/FormatShapes'
+import UserIcon from '@material-ui/icons/Person'
 
 import { Link } from 'react-router-dom'
 
+const UserLink = props => <Link to='/user' {...props} />
 const AboutLink = props => <Link to='/about' {...props} />
 const ContactLink = props => <Link to='/contact' {...props} />
 const SearchLink = props => <Link to='/search' {...props} />
@@ -96,6 +98,13 @@ class NavBar extends Component {
               title='About this Module'
               component={AboutLink}>
               <AboutIcon />
+            </IconButton>
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Your Profile'
+              component={UserLink}>
+              <UserIcon />
             </IconButton>
           </Toolbar>
         </AppBar>

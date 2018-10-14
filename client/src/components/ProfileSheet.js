@@ -244,7 +244,7 @@ class ProfileSheet extends Component {
           let authId = localStorage.getItem('authId')
           let userData = localStorage.getItem('loggedInUser')
 
-          if (userData === 'undefined') { return }
+          if (userData === 'undefined' || userData === null) { return }
 
           let user = JSON.parse(userData)
   	        this.defaultValuesSet = true

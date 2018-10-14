@@ -113,7 +113,7 @@ class UserList extends Component {
 
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="headline" component="h2">
+                  <Typography gutterBottom variant="h5" component="h2">
                     {user.alias}
                   </Typography>
                   <Typography className={classes.typography} gutterBottom>
@@ -136,7 +136,7 @@ class UserList extends Component {
                            <IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
                              <CloseIcon />
                            </IconButton>
-                           <Typography variant="title" color="inherit" className={classes.flex}>
+                           <Typography variant="h6" color="inherit" className={classes.flex}>
                              User Profile
                            </Typography>
                            <Button color="inherit" onClick={this.handleClose}>

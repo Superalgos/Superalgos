@@ -175,7 +175,7 @@ class UserSearch extends Component {
 
                 />
                   <CardContent>
-                    <Typography gutterBottom variant='headline' component='h2'>
+                    <Typography gutterBottom variant='h5' component='h2'>
                       {user.alias}
                     </Typography>
                   </CardContent>
@@ -202,7 +202,7 @@ class UserSearch extends Component {
       <div>
         <form onSubmit={this.submitForm.bind(this)}>
 
-          <Typography className={classes.formTypography} variant='body1' gutterBottom align='left'>
+          <Typography className={classes.formTypography} variant='body2' gutterBottom align='left'>
         Use any of these fileds to search for users. {this.selectText()}
           </Typography>
 

@@ -66,12 +66,12 @@ class UserProfile extends Component {
 
               />
               <CardContent>
-                <Typography className={classes.typography} gutterBottom variant='headline' component='h2'>
+                <Typography className={classes.typography} gutterBottom variant='h5' component='h2'>
                   { user.firstName } { user.lastName } ( {user.alias} )
                 </Typography>
                 <Divider />
 
-                <Typography className={classes.typography} align='left' gutterBottom variant='subheading' component='h2'>
+                <Typography className={classes.typography} align='left' gutterBottom variant='subtitle1' component='h2'>
                   { user.role.name }
                 </Typography>
                 <Divider />

@@ -5,6 +5,8 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
+import BackgroundImage from '../../assets/advanced-algos/evolution.jpg'
+
 const styles = theme => ({
   '@global': {
     body: {
@@ -12,17 +14,14 @@ const styles = theme => ({
     }
   },
   layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-      width: 900,
-      marginLeft: 'auto',
-      marginRight: 'auto'
-    }
+    backgroundImage: `url(${BackgroundImage})`,
+    width: '100%',
+    height: '100%'
   },
   heroContent: {
+    textColor: theme.palette.common.white,
     maxWidth: 600,
+    height: 800,
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`
   }

@@ -4,6 +4,13 @@ import {getUserByAuthIdQuery} from '../queries/queries'
 
 import LoggedInUserMenu from './LoggedInUserMenu'
 import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton'
+
+// icons
+import UserIcon from '@material-ui/icons/Person'
+import { Link } from 'react-router-dom'
+
+const UserLink = props => <Link to='/user' {...props} />
 
 class LoggedInUser extends Component {
 
@@ -35,7 +42,13 @@ class LoggedInUser extends Component {
 
       return (
         <div>
-          <p><LoggedInUserMenu menuLabel={displayName} identityProvider={identityProvider} /></p>
+          <IconButton
+
+            color='inherit'
+            title='Your Profile'
+            component={UserLink}>
+            <UserIcon />
+          </IconButton>
         </div>
       )
     } else {

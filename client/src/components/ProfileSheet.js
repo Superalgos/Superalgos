@@ -279,8 +279,8 @@ class ProfileSheet extends Component {
   displayIdentityProvider () {
     const { classes } = this.props
     let authId = this.state.authId
-    console.log('state', this.state)
-    if (authId !== undefined) {
+
+    if (authId !== undefined && authId !== null) {
       let authArray = this.state.authId.split('|')
       let identityProvider = authArray[0]
 

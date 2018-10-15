@@ -274,8 +274,17 @@ function newProfileBall() {
 
             if (image !== null && image !== undefined) {
 
+                browserCanvasContext.save();
+                browserCanvasContext.beginPath();
+                browserCanvasContext.arc(pFloatingObject.currentPosition.x  , pFloatingObject.currentPosition.y , pFloatingObject.currentImageSize / 2, 0, Math.PI * 2, true);
+                browserCanvasContext.closePath();
+                browserCanvasContext.clip();
                 browserCanvasContext.drawImage(image, pFloatingObject.currentPosition.x - pFloatingObject.currentImageSize / 2, pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize);
-
+                browserCanvasContext.beginPath();
+                browserCanvasContext.arc(pFloatingObject.currentPosition.x - pFloatingObject.currentImageSize / 2, pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize / 2, 0, Math.PI * 2, true);
+                browserCanvasContext.clip();
+                browserCanvasContext.closePath();
+                browserCanvasContext.restore();
             }
         }
 

@@ -294,8 +294,16 @@
                                     let bot = ecosystem.getBot(devTeam, participant.bot);
                                     let imageId = participant.devTeam + "." + participant.profilePicture;
 
+                                    const TEAM = devTeam.codeName.toLowerCase();
+                                    const STORAGE_URL = "https://algobotcommstorage.blob.core.windows.net";                                  
+
+                                    let botAvatar = new Image();
+                                    
+                                    botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "banner.jpg";
+
                                     competitionPlotter.plotter.payload[k].profile.downLabel = bot.displayName;
                                     competitionPlotter.plotter.payload[k].profile.imageId = imageId;
+                                    competitionPlotter.plotter.payload[k].profile.botAvatar = botAvatar;
 
                                     canvas.floatingSpace.profileBalls.createNewProfileBall(competitionPlotter.plotter.payload[k], onProfileBallCreated)
 

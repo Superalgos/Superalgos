@@ -11,6 +11,7 @@ import {
 } from 'graphql-tools'
 
 import { capitalize } from './utils'
+import logger from './logger'
 
 export const createRemoteSchema = async (uri) => {
   const makeDatabaseServiceLink = () => createHttpLink({
@@ -42,8 +43,7 @@ export const createTransformedRemoteSchema = async (prefix, uri) => {
   try {
     schema = await createRemoteSchema(uri)
   } catch (error) {
-    console.log(`An error occured while fetching ${prefix} schema :`)
-    console.log(error)
+    logger.error(`An error occured while fetching ${prefix} schema. Details: `, error)
     return false
   }
   const transformedSchema = transformSchema(schema, [

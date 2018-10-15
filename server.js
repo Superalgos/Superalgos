@@ -1051,7 +1051,7 @@ function onBrowserRequest(request, response) {
 
                         }
 
-                        addImages();
+                        //addImages();
 
                         function addImages() {
 

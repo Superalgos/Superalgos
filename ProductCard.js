@@ -66,6 +66,26 @@
     let timePeriod = INITIAL_TIME_PERIOD;
     let datetime = INITIAL_DATE;
 
+    /* TODO We are in a transition period in which bots and teams images might be located at different places.
+    What we are going to do then is to try to load them from both places and use the variable that finally gets an
+    image. */
+
+    /* This is the legacy image storage. */
+
+    let legacyTeamAvatar; 
+    let legacyTeamAvatarLoaded = false;
+
+    /* TODO Temporary code */
+    let legacyBotAvatar; 
+    let legacyBotAvatarLoaded = false;
+
+    /* Now the plotters images */
+
+    let legacyPlotterBanner;
+    let legacyPlotterBannerLoaded = false;
+
+    /* We are transitioning towards this */
+
     let teamAvatar; // stores the avatar image of the team the bot portrayed at this card belongs to.
     let teamAvatarLoaded = false;
 
@@ -150,11 +170,61 @@
 
         thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed);
 
+
+        /* WARNING THIS IS TEMPORARY CODE */
+
+        const LEGACY_TEAM = thisObject.devTeam.codeName;
+        const REPO = thisObject.bot.repo;
+        const PROFILE_PIC = thisObject.bot.profilePicture;
+
+        /*
+        Here we will download the images still at the legacy storage.
+        */
+
+        const WEB_URL = "https://develop.advancedalgos.net";
+
+        legacyTeamAvatar = new Image();
+
+        legacyTeamAvatar.onload = onLegacyImageLoad;
+
+        function onLegacyImageLoad() {
+            legacyTeamAvatarLoaded = true;
+        }
+        
+        legacyTeamAvatar.src = WEB_URL + "/Images/" + LEGACY_TEAM + "/" + LEGACY_TEAM + ".png";
+
+        legacyBotAvatar = new Image();
+        legacyBotAvatar.onload = onLegacyImageLoadBot;
+
+        function onLegacyImageLoadBot() {
+            legacyBotAvatarLoaded = true;
+        }
+
+        legacyBotAvatar.src = WEB_URL + "/Images/" + LEGACY_TEAM + "/" + REPO + "/" + PROFILE_PIC;
+
+        //let imageId = thisObject.product.plotter.devTeam + "." + thisObject.product.plotter.codeName + "." + thisObject.product.plotter.moduleName + "." + thisObject.product.plotter.profilePicture;
+
+        const PLOTTER_TEAM = thisObject.product.plotter.devTeam ;
+        const PLOTTER_REPO = thisObject.product.plotter.codeName;
+        const PLOTTER_PROFILE_PIC = thisObject.product.plotter.profilePicture;
+
+        legacyPlotterBanner = new Image();
+        legacyPlotterBanner.onload = onLegacyPlotterBanner;
+
+        function onLegacyPlotterBanner() {
+            legacyPlotterBannerLoaded = true;
+        }
+
+        legacyPlotterBanner.src = WEB_URL + "/Images/" + PLOTTER_TEAM + "/" + PLOTTER_REPO + "/" + PLOTTER_PROFILE_PIC;
+
         /* 
         Here we will download the images of teams uploaded at the Teams Module.
         There might be Product Cards of bots beloging to teams not present currently at the Teams Module, in those cases
         nothing should happen.
         */
+
+        const TEAM = thisObject.devTeam.codeName.toLowerCase();
+        const STORAGE_URL = "https://algobotcommstorage.blob.core.windows.net";
 
         teamAvatar = new Image();
 
@@ -163,10 +233,8 @@
         function onImageLoad() {
             teamAvatarLoaded = true;
         }
-
-        const STORAGE_URL = "https://algobotcommstorage.blob.core.windows.net";
-        const TEAM = thisObject.devTeam.codeName.toLowerCase();
-        teamAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "banner.jpg";
+         
+        teamAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "avatar.jpg";
 
         /* 
         TODO Temporary code: Here we will temporary download the images of bots uploaded at the Teams Module.
@@ -179,7 +247,7 @@
             botAvatarLoaded = true;
         }
 
-        botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "avatar.jpg";
+        botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "banner.jpg";
 
     }
 
@@ -403,28 +471,33 @@
 
         let teamImage;
 
-        if (teamAvatarLoaded === false) {
-            teamImage = document.getElementById(thisObject.bot.devTeam + ".png");
-        } else {
+        if (legacyTeamAvatarLoaded === true) {
+            teamImage = legacyTeamAvatar;
+        }
+
+        if (teamAvatarLoaded === true) {
             teamImage = teamAvatar;
+        } 
+
+        if (teamImage !== undefined) {
+            if (teamImage.naturalHeight !== 0) {
+
+                /* The image is rounded before being displayed. */
+
+                browserCanvasContext.save();
+                browserCanvasContext.beginPath();
+                browserCanvasContext.arc(teamImagePoint.x + devTeamImageSize / 2, teamImagePoint.y + devTeamImageSize / 2, devTeamImageSize / 2, 0, Math.PI * 2, true);
+                browserCanvasContext.closePath();
+                browserCanvasContext.clip();
+                browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize);
+                browserCanvasContext.beginPath();
+                browserCanvasContext.arc(teamImagePoint.x, teamImagePoint.y, devTeamImageSize / 2, 0, Math.PI * 2, true);
+                browserCanvasContext.clip();
+                browserCanvasContext.closePath();
+                browserCanvasContext.restore();
+            }
         }
 
-        if (teamImage.naturalHeight !== 0) {
-
-            /* The image is rounded before being displayed. */
-
-            browserCanvasContext.save();
-            browserCanvasContext.beginPath();
-            browserCanvasContext.arc(teamImagePoint.x + devTeamImageSize / 2, teamImagePoint.y + devTeamImageSize / 2, devTeamImageSize / 2, 0, Math.PI * 2, true);
-            browserCanvasContext.closePath();
-            browserCanvasContext.clip();
-            browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize);
-            browserCanvasContext.beginPath();
-            browserCanvasContext.arc(teamImagePoint.x  , teamImagePoint.y  , devTeamImageSize / 2, 0, Math.PI * 2, true);
-            browserCanvasContext.clip();
-            browserCanvasContext.closePath();
-            browserCanvasContext.restore();
-        }
 
         /* Second the Bot's Profile Picture. */
 
@@ -443,14 +516,31 @@
             /* TODO Temporary code */
             let botImage;
 
-            if (botAvatarLoaded === false) {
-                botImage = document.getElementById(imageId);
-            } else {
+            if (legacyBotAvatarLoaded === true) {
+                botImage = legacyBotAvatar;
+            }
+
+            if (botAvatarLoaded === true) {
                 botImage = botAvatar;
             }
 
-            if (botImage.naturalHeight !== 0) {
-                browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize);
+            if (botImage !== undefined) {
+                if (botImage.naturalHeight !== 0) {
+
+                    /* The image is rounded before being displayed. */
+
+                    browserCanvasContext.save();
+                    browserCanvasContext.beginPath();
+                    browserCanvasContext.arc(botImagePoint.x + botImageSize / 2, botImagePoint.y + botImageSize / 2, botImageSize / 2, 0, Math.PI * 2, true);
+                    browserCanvasContext.closePath();
+                    browserCanvasContext.clip();
+                    browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize);
+                    browserCanvasContext.beginPath();
+                    browserCanvasContext.arc(botImagePoint.x, botImagePoint.y, botImageSize / 2, 0, Math.PI * 2, true);
+                    browserCanvasContext.clip();
+                    browserCanvasContext.closePath();
+                    browserCanvasContext.restore();
+                }
             }
         }
 
@@ -465,8 +555,7 @@
 
             plotterImagePoint = thisObject.container.frame.frameThisPoint(plotterImagePoint);
 
-            let imageId = thisObject.product.plotter.devTeam + "." + thisObject.product.plotter.codeName + "." + thisObject.product.plotter.moduleName + "." + thisObject.product.plotter.profilePicture;
-            let plotterImage = document.getElementById(imageId);
+            let plotterImage = legacyPlotterBanner;
 
             if (plotterImage.naturalHeight !== 0) {
                 browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height);

@@ -191,7 +191,8 @@ function newFloatingLayer() {
                                     x: pFloatingObject.payload.profile.position.x,
                                     y: pFloatingObject.payload.profile.position.y
                                 },
-                                visible: pFloatingObject.payload.profile.visible
+                                visible: pFloatingObject.payload.profile.visible,
+                                botAvatar: pFloatingObject.payload.profile.botAvatar
                             }
 
                             pFloatingObject.payload = payload;

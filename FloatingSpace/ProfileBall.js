@@ -270,9 +270,9 @@ function newProfileBall() {
 
         if (pFloatingObject.payload.profile.imageId !== undefined) {
 
-            let image = document.getElementById(pFloatingObject.payload.profile.imageId);
+            let image = pFloatingObject.payload.profile.botAvatar;
 
-            if (image !== null) {
+            if (image !== null && image !== undefined) {
 
                 browserCanvasContext.drawImage(image, pFloatingObject.currentPosition.x - pFloatingObject.currentImageSize / 2, pFloatingObject.currentPosition.y - pFloatingObject.currentImageSize / 2, pFloatingObject.currentImageSize, pFloatingObject.currentImageSize);
 

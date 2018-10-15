@@ -566,7 +566,7 @@
                                 productPlotter.plotter.payload.profile.upLabel = pProductCard.product.shortDisplayName;
                                 productPlotter.plotter.payload.profile.downLabel = pProductCard.bot.displayName;
                                 productPlotter.plotter.payload.profile.imageId = imageId;
-                               // productPlotter.plotter.payload.profile.botAvatar = pProductCard.bot.avatar;
+                                productPlotter.plotter.payload.profile.botAvatar = pProductCard.bot.avatar;
 
                                 canvas.floatingSpace.profileBalls.createNewProfileBall(productPlotter.plotter.payload, onProfileBallCreated)
 

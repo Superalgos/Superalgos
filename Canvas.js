@@ -287,13 +287,13 @@ function newCanvas() {
     
             */
 
-            dragVector.downX = event.pageX;
-            dragVector.downY = event.pageY;
-
             let point = {
                 x: event.pageX,
-                y: event.pageY
+                y: event.pageY - window.TOP_MARGIN
             };
+
+            dragVector.downX = point.x;
+            dragVector.downY = point.y;
 
             let container;
 
@@ -332,7 +332,7 @@ function newCanvas() {
 
             /* We check if the mouse is over a floatingObject/ */
 
-            floatingObjectBeingDragged = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
+            floatingObjectBeingDragged = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y);
 
             if (floatingObjectBeingDragged >= 0) {
                 floatingObjectDragStarted = true;
@@ -367,7 +367,7 @@ function newCanvas() {
 
             let point = {
                 x: event.pageX,
-                y: event.pageY
+                y: event.pageY - window.TOP_MARGIN
             };
 
             let container;
@@ -404,7 +404,7 @@ function newCanvas() {
 
             /* We check if the mouse is over a floatingObject/ */
 
-            let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
+            let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y);
 
             if (floatingObjectBeingClicked >= 0) {
 
@@ -467,14 +467,19 @@ function newCanvas() {
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] onMouseMove -> Entering function."); }
 
-            viewPort.mousePosition.x = event.pageX;
-            viewPort.mousePosition.y = event.pageY;
+            let point = {
+                x: event.pageX,
+                y: event.pageY - window.TOP_MARGIN
+            };
+
+            viewPort.mousePosition.x = point.x;
+            viewPort.mousePosition.y = point.y;
 
             if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
 
                 if (floatingObjectDragStarted === true) {
 
-                    if (thisObject.floatingSpace.floatingLayer.isInsideFloatingObject(floatingObjectBeingDragged, event.pageX, event.pageY) === false) {
+                    if (thisObject.floatingSpace.floatingLayer.isInsideFloatingObject(floatingObjectBeingDragged, point.x, point.y) === false) {
 
                         /* This means that the user stop moving the mouse and the floatingObject floatingObject out of the pointer.
                         In this case we cancell the drag operation . */
@@ -486,10 +491,10 @@ function newCanvas() {
 
                 }
 
-                dragVector.upX = event.pageX;
-                dragVector.upY = event.pageY;
+                dragVector.upX = point.x;
+                dragVector.upY = point.y;
 
-                checkDrag();
+                checkDrag(event);
             } else {
 
                 onMouseOver(event);
@@ -517,7 +522,7 @@ function newCanvas() {
 
             let point = {
                 x: event.pageX,
-                y: event.pageY
+                y: event.pageY - window.TOP_MARGIN
             };
 
             let container;
@@ -554,7 +559,7 @@ function newCanvas() {
 
             /* We check if the mouse is over a floatingObject/ */
 
-            let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
+            let floatingObjectBeingClicked = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y);
 
             if (floatingObjectBeingClicked >= 0) {
 
@@ -594,7 +599,12 @@ function newCanvas() {
 
             /* We try first with panels. */
 
-            let panelContainer = canvas.panelsSpace.getContainer({ x: event.pageX, y: event.pageY });
+            let point = {
+                x: event.pageX,
+                y: event.pageY - window.TOP_MARGIN
+            };
+
+            let panelContainer = canvas.panelsSpace.getContainer({ x: point.x, y: point.y });
 
             if (panelContainer !== undefined && panelContainer.isWheelable === true) {
 
@@ -604,7 +614,7 @@ function newCanvas() {
 
             /* We try second with floating objects. */
 
-            let floatingObjectIndex = canvas.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
+            let floatingObjectIndex = canvas.floatingSpace.floatingLayer.isInside(point.x, point.y);
 
             if (floatingObjectIndex > 0) {
 
@@ -614,7 +624,7 @@ function newCanvas() {
 
             /* We try the Bottom Space. */
 
-            let bottomContainer = canvas.bottomSpace.getContainer({ x: event.pageX, y: event.pageY });
+            let bottomContainer = canvas.bottomSpace.getContainer({ x: point.x, y: point.y });
 
             if (bottomContainer !== undefined && bottomContainer.isWheeleable === true) {
 
@@ -625,7 +635,7 @@ function newCanvas() {
 
             /* Finally we try the Chart Space. */
 
-            let chartContainer = canvas.chartSpace.getContainer({ x: event.pageX, y: event.pageY });
+            let chartContainer = canvas.chartSpace.getContainer({ x: point.x, y: point.y });
 
             if (chartContainer !== undefined && chartContainer.isWheeleable === true) {
 
@@ -647,7 +657,7 @@ function newCanvas() {
         }
     }
 
-    function checkDrag() {
+    function checkDrag(event) {
 
         try {
 
@@ -655,10 +665,15 @@ function newCanvas() {
 
             if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
 
+                let point = {
+                    x: event.pageX,
+                    y: event.pageY - window.TOP_MARGIN
+                };
+
                 browserCanvas.style.cursor = "grabbing";
                 thisObject.eventHandler.raiseEvent("Dragging", undefined);
 
-                let targetFloatingObject = thisObject.floatingSpace.floatingLayer.isInside(event.pageX, event.pageY);
+                let targetFloatingObject = thisObject.floatingSpace.floatingLayer.isInside(point.x, point.y);
 
                 if (floatingObjectDragStarted) {
 

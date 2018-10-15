@@ -59,8 +59,10 @@ function loadAdvancedAlgosPlatform() {
     browserCanvas = document.getElementById('canvas');
 
     browserCanvas.width = window.innerWidth;
-    browserCanvas.height = window.innerHeight;
+    browserCanvas.height = window.innerHeight - window.TOP_MARGIN;
     browserCanvas.style.border = "none";
+
+    browserCanvas.style.top = window.TOP_MARGIN + 'px';
 
     /* The second thing to do is to send the tokenSession to the server, so that it can prepare the server side data structures needed. */
 

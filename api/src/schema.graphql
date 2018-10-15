@@ -13,6 +13,7 @@ type Query {
   teamWithRole(teamId: String!, role: String!): Team
   teamsByOwner(ownerId: String!): [Team!]! @isAuthenticated
   teamsByRole: [Team!]! @isAuthenticated
+  fbByTeamMember: Team @isAuthenticated
   owner: Member @isAuthenticated
   currentMember: Member @isAuthenticated
   member(authId: String!): Member @isAuthenticated

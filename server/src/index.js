@@ -5,6 +5,7 @@ import { ApolloServer } from 'apollo-server-express'
 import { mergeSchemas } from 'graphql-tools'
 import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams } from './links'
+import logger from './logger'
 
 async function run () {
   const transformedTeamsSchema = await createTransformedRemoteSchema('teams_', process.env.TEAMS_API_URL)
@@ -48,11 +49,11 @@ async function run () {
     schema,
     context: ({ req }) => req, // placeholder until specific use case for context on Master App server
     formatError: error => {
-      console.log(JSON.stringify(error))
+      logger.error('Error on Apolo Server: ', error)
       return error;
     },
     formatResponse: response => {
-      console.log(JSON.stringify(response))
+      logger.info('Response from Apolo Server: ', response)
       return response;
     },
     playground: {
@@ -71,11 +72,11 @@ async function run () {
   app.use(cors())
 
   app.listen(4100)
-  console.log('Server running. Open http://localhost:4100/graphql to run queries.')
+  logger.info('Server running. Open http://localhost:4100/graphql to run queries.')
 }
 
 try {
   run()
 } catch (e) {
-  console.log(e, e.message, e.stack)
+  logger.error(e, e.message, e.stack)
 }

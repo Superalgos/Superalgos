@@ -4,9 +4,6 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloLink, Observable } from 'apollo-link'
 import { onError } from 'apollo-link-error'
 import { setContext } from 'apollo-link-context'
-// import { WebSocketLink } from 'apollo-link-ws'
-// import { SubscriptionClient } from 'subscriptions-transport-ws'
-// import { getMainDefinition } from 'apollo-utilities'
 
 import { getItem } from '../utils/local-storage'
 
@@ -15,46 +12,7 @@ const graphqlEndpoint =
     ? process.env.PROD_GRAPHQL
     : process.env.DEV_GRAPHQL
 
-/*
-const wsUri = graphqlEndpoint.replace(/^http/, 'ws')
-
-const globalVar =
-  typeof global !== 'undefined'
-    ? global
-    : typeof window !== 'undefined'
-      ? window
-      : {}
-
-const webSocketImpl = globalVar.WebSocket || globalVar.MozWebSocket
-
-const wsClient = new SubscriptionClient(
-  wsUri,
-  {
-    reconnect: true
-  },
-  webSocketImpl
-)
-
-wsClient.onDisconnected(() => {
-  // console.log('onDisconnected')
-})
-
-wsClient.onReconnected(() => {
-  // console.log('onReconnected')
-})
-*/
 const httpLink = new HttpLink({ uri: graphqlEndpoint })
-
-/*
-const link = split(
-  ({ query }) => {
-    const { kind, operation } = getMainDefinition(query)
-    return kind === 'OperationDefinition' && operation === 'subscription'
-  },
-  // new WebSocketLink(wsClient),
-  httpLink
-)
-*/
 
 const authRetryLink = onError(
   ({ graphQLErrors, networkError, operation, forward }) => {
@@ -96,16 +54,15 @@ const authRetryLink = onError(
   }
 )
 
-const authLink = setContext(async (_, { headers }) => {
+const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  await getItem('access_token').then(token => {
-    return {
-      headers: {
-        ...headers,
-        Authorization: token ? `Bearer ${token}` : ``
-      }
+  const token = localStorage.getItem('access_token')
+  return {
+    headers: {
+      ...headers,
+      Authorization: token ? `Bearer ${token}` : ``
     }
-  })
+  }
 })
 
 const cache = new InMemoryCache().restore(window.__APOLLO_STATE__)

@@ -22,11 +22,10 @@ export const createRemoteSchema = async (uri) => {
   const http = makeDatabaseServiceLink()
 
   const authLink = setContext((request, previousContext) => {
-    console.log(previousContext.graphqlContext.headers)
     return (
       {
         headers: {
-          Authorization: previousContext.graphqlContext.headers.Authorization ? previousContext.graphqlContext.headers.Authorization : ''
+          Authorization: previousContext.graphqlContext.headers.authorization ? previousContext.graphqlContext.headers.authorization : ''
         }
       }
     )

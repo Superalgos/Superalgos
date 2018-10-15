@@ -26,10 +26,11 @@ const createMember = async (ctx, idToken, info) => {
 }
 
 const isLoggedIn = async ctx => {
+    console.log('isLoggedIn 0 : ', ctx.request.headers)
     let member = ctxMember(ctx, memberLocationOnContext)
     let token = ctxToken(ctx, bearerAccessToken)
     let memberToken
-    // console.log('isLoggedIn: ', ctx, member, token)
+    console.log('isLoggedIn: ', member, token)
     if (!member && token) {
       let scheme, credentials
       const tokenParts = token.split(' ')

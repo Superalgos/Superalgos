@@ -25,9 +25,12 @@ const { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } = 
 
 const TEAMS_FRAGMENT = require('./graphql/TeamsFragment')
 const TEAMS_CONNECTIONS_FRAGMENT = require('./graphql/TeamsConnectionsFragment')
+const TEAM_FB_FRAGMENT = require('./graphql/TeamFBFragment')
+
+const logger = require('./logger')
 
 const createMember = async function (ctx, info, idToken) {
-  console.log('createMember', idToken)
+  logger.info('createMember', idToken)
   const member = await ctx.db.mutation.upsertMember({
     where: {
       authId: idToken.sub,
@@ -87,6 +90,13 @@ const resolvers = {
       let teamAdmin = await ctx.db.query.teams({where: {members_some: {OR: [{role: 'ADMIN'}, {role: 'OWNER'}], AND: [{member: {authId: authId}}]}}, orderBy: 'updatedAt_DESC'}, TEAMS_FRAGMENT)
       console.log('teamsByRole teamAdmin: ', teamAdmin)
       return teamAdmin
+    },
+    async fbByTeamMember(parent, args, ctx, info) {
+      console.log('fbByTeamMember: ', args, ctx.request, ctx.request.res.req.user)
+      const authId = ctx.request.user.sub
+      let teamMemberFB = await ctx.db.query.teams({where: {members_some: {AND: [{member: {authId: authId}}]}}, orderBy: 'updatedAt_DESC'}, TEAM_FB_FRAGMENT)
+      logger.info('fbByTeamMember response: ', await teamMemberFB[0])
+      return teamMemberFB[0]
     },
     async owner(parent, args, ctx, info) {
       console.log('resolver.query.owner ctx: ', ctxMember(ctx))
@@ -260,7 +270,7 @@ server.express.use(
   server.options.endpoint,
   checkJwt,
   function (err, req, res, next) {
-    // console.log('checkJwt: ', err, req)
+    logger.info('checkJwt: ', err, req.headers, req.user)
     if (err) {
       return res.status(201).send(err.message)
     } else {

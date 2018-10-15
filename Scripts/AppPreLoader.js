@@ -53,8 +53,8 @@ function loadAdvancedAlgosPlatform() {
     canvas.style.border = "0";
     canvas.style = "position:absolute; top:0px; left:0px; z-index:1";
 
-    let body = document.getElementsByTagName("body")[0];
-    body.appendChild(canvas);
+    let canvasDiv = document.getElementById('canvasDiv');
+    canvasDiv.appendChild(canvas);
 
     browserCanvas = document.getElementById('canvas');
 

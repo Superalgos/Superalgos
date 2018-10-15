@@ -198,12 +198,11 @@
 
         function onLegacyImageLoadBot() {
             legacyBotAvatarLoaded = true;
+            thisObject.bot.avatar = legacyBotAvatar;
         }
 
         legacyBotAvatar.src = WEB_URL + "/Images/" + LEGACY_TEAM + "/" + REPO + "/" + PROFILE_PIC;
-
-        //let imageId = thisObject.product.plotter.devTeam + "." + thisObject.product.plotter.codeName + "." + thisObject.product.plotter.moduleName + "." + thisObject.product.plotter.profilePicture;
-
+        
         const PLOTTER_TEAM = thisObject.product.plotter.devTeam ;
         const PLOTTER_REPO = thisObject.product.plotter.codeName;
         const PLOTTER_PROFILE_PIC = thisObject.product.plotter.profilePicture;
@@ -245,6 +244,7 @@
 
         function onImageLoadBot() {
             botAvatarLoaded = true;
+            thisObject.bot.avatar = botAvatar;
         }
 
         botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "banner.jpg";
@@ -511,18 +511,12 @@
             botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint);
 
             let imageId = thisObject.bot.devTeam + "." + thisObject.bot.profilePicture;
-            //let botImage = document.getElementById(imageId);
 
             /* TODO Temporary code */
             let botImage;
-
-            if (legacyBotAvatarLoaded === true) {
-                botImage = legacyBotAvatar;
-            }
-
-            if (botAvatarLoaded === true) {
-                botImage = botAvatar;
-            }
+ 
+            botImage = thisObject.bot.avatar;
+           
 
             if (botImage !== undefined) {
                 if (botImage.naturalHeight !== 0) {
@@ -555,6 +549,7 @@
 
             plotterImagePoint = thisObject.container.frame.frameThisPoint(plotterImagePoint);
 
+            let imageId = thisObject.product.plotter.devTeam + "." + thisObject.product.plotter.codeName + "." + thisObject.product.plotter.moduleName + "." + thisObject.product.plotter.profilePicture;
             let plotterImage = legacyPlotterBanner;
 
             if (plotterImage.naturalHeight !== 0) {

@@ -15,6 +15,7 @@ import { Header, Footer, Home, Callback } from './views'
 
 import Teams from '@advancedalgos/teams-client'
 import KeyVault from '@advancedalgos/key-vault-client'
+import Users from '@advancedalgos/users-client'
 
 export const auth = new Auth(
   result => console.log('auth result', result),
@@ -46,6 +47,11 @@ export const MasterApp = () => (
               exact
               path='/key-vault'
               render={props => <KeyVault {...props} auth={auth} />}
+            />
+            <Route
+              exact
+              path='/users'
+              render={props => <Users {...props} auth={auth} />}
             />
           </Switch>
           <Footer />

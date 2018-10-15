@@ -85,10 +85,10 @@
                 canDrawLogoAA = true;
             }
 
-            logoA.src = "Images/tether-logo-background.png";
-            logoB.src = "Images/bitcoin-logo-background.png";
-            logoExchange.src = "Images/poloniex-logo-background.png";
-            logoAA.src = "Images/aa-logo-background.png";
+            logoA.src = window.URL_PREFIX + "Images/tether-logo-background.png";
+            logoB.src = window.URL_PREFIX + "Images/bitcoin-logo-background.png";
+            logoExchange.src = window.URL_PREFIX + "Images/poloniex-logo-background.png";
+            logoAA.src = window.URL_PREFIX + "Images/aa-logo-background.png";
 
             /* Remember the Products Panel */
 

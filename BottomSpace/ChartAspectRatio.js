@@ -44,7 +44,7 @@
             canDrawIcon = true;
         }
 
-        icon.src = "Images/Icons/chart-scale.png";
+        icon.src = window.URL_PREFIX + "Images/Icons/chart-scale.png";
 
         thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 

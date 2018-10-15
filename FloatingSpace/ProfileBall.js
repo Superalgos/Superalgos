@@ -74,11 +74,11 @@ function newProfileBall() {
                     menuItem.canDrawIcon = true;
                 }
 
-                menuItem.iconOff.src = menuItem.imagePathOff;
+                menuItem.iconOff.src = window.URL_PREFIX + menuItem.imagePathOff;
 
             }
 
-            menuItem.iconOn.src = menuItem.imagePathOn;
+            menuItem.iconOn.src = window.URL_PREFIX + menuItem.imagePathOn;
 
             menuItem.icon = menuItem.iconOn; // The default value is ON.
 

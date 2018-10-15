@@ -35,7 +35,7 @@ function newCompanyLogo() {
             canDrawLogo = true;
             }
 
-        logo.src = "Images/aa-logo-dark-8.png";
+        logo.src = window.URL_PREFIX + "Images/aa-logo-dark-8.png";
 
     }
 

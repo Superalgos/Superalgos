@@ -115,7 +115,7 @@
 
             for (let i = 0; i < modulesArray.length; i++) {
 
-                let path = modulesArray[i];
+                let path = window.URL_PREFIX + modulesArray[i];
 
                 REQUIREJS([path], onRequired);
 

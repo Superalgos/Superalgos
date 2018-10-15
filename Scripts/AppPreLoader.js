@@ -67,7 +67,7 @@ function loadAdvancedAlgosPlatform() {
     let sessionToken = window.SESSION_TOKEN;
     if (sessionToken === undefined) { sessionToken = ""}
 
-    let path = "AABrowserAPI/authenticateUser/" + sessionToken;
+    let path = window.URL_PREFIX  + "AABrowserAPI/authenticateUser/" + sessionToken;
 
     callServer(undefined, path, onServerReponded);
 
@@ -95,7 +95,7 @@ function loadAdvancedAlgosPlatform() {
 
         if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadDebugModule -> Entering function."); }
 
-        let path = "WebDebugLog.js";
+        let path = window.URL_PREFIX + "WebDebugLog.js";
 
         REQUIREJS([path], onRequired);
 
@@ -114,7 +114,7 @@ function loadAdvancedAlgosPlatform() {
 
         if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadModules -> Entering function."); }
 
-        let path = "Scripts/AppLoader.js";
+        let path = window.URL_PREFIX + "Scripts/AppLoader.js";
 
         REQUIREJS([path], onRequired);
 

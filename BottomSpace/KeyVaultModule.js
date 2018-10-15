@@ -46,7 +46,7 @@ function newKeyVaultModule() {
                 canDrawIcon = true;
             }
 
-            icon.src = "Images/Icons/key-vault-module.png";
+            icon.src = window.URL_PREFIX + "Images/Icons/key-vault-module.png";
 
             thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
 

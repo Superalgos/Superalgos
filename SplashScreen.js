@@ -49,7 +49,7 @@ function newSplashScreen() {
             canDrawLogo = true;
         }
 
-        logo.src = "Images/aa-logo.png";
+        logo.src = window.URL_PREFIX + "Images/aa-logo.png";
 
     }
 

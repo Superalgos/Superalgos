@@ -46,7 +46,7 @@ function newTeamsModule() {
                 canDrawIcon = true;
             }
 
-            icon.src = "Images/Icons/teams-module.png";
+            icon.src = window.URL_PREFIX + "Images/Icons/teams-module.png";
 
             thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
 

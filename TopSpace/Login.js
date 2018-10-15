@@ -30,6 +30,11 @@ function newLogin() {
 
     function initialize() {
 
+        if (window.EXECUTING_AT === 'Master App') {
+            currentLabel = "";
+            return;
+        }
+
         let parameters = {
             domain: 'advancedalgos.eu.auth0.com',
             clientID: 'WQTnXt20a0t2WGl64mEcOyP4Ippo37nB',

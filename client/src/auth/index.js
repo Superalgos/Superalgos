@@ -11,7 +11,7 @@ import { AUTH_CONFIG } from './Auth0' // create by renaming Auth0.sample.js to A
 
 const AUTHENTICATE = gql`
   mutation authenticate($idToken: String!) {
-    TeamsModuleAuthenticate(idToken: $idToken) {
+    teams_Authenticate(idToken: $idToken) {
       alias
       authId
     }
@@ -189,8 +189,8 @@ class Auth {
       Log.info('auth.signinOrCreateAccount data:')
       Log.info(await data)
       const user = {
-        authId: await data.TeamsModuleAuthenticate.authId,
-        alias: await data.TeamsModuleAuthenticate.alias
+        authId: await data.teams_Authenticate.authId,
+        alias: await data.teams_Authenticate.alias
       }
       setItem('user', JSON.stringify(user))
       if (window.location.href.includes(`callback`)) {

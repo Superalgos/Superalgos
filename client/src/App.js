@@ -27,7 +27,6 @@ export const MasterApp = () => (
     <ApolloProvider client={client}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <div className='App'>
           <Header auth={auth} />
           <Switch>
             <Route exact path='/' component={Home} />
@@ -45,7 +44,7 @@ export const MasterApp = () => (
             />
             <Route
               exact
-              path='/keys'
+              path='/key-vault'
               render={props => <KeyVault {...props} />}
             />
             <Route
@@ -55,7 +54,6 @@ export const MasterApp = () => (
             />
           </Switch>
           <Footer />
-        </div>
       </MuiThemeProvider>
     </ApolloProvider>
   </BrowserRouter>

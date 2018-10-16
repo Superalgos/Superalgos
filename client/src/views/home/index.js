@@ -30,12 +30,14 @@ class Home extends Component {
     window.CANVAS_VISIBLE = true
     let body = document.getElementById('body')
     body.style = 'margin: 0px; padding: 0px; border: 0px; overflow:hidden;'
+    window.HIDE_FOOTER = true
   }
 
   componentWillUnmount () {
     window.CANVAS_VISIBLE = false
     let body = document.getElementById('body')
     body.style = ''
+    window.HIDE_FOOTER = false
   }
 
   render () {

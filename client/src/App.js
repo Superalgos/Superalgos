@@ -45,7 +45,7 @@ export const MasterApp = () => (
             />
             <Route
               exact
-              path='/keys'
+              path='/key-vault'
               render={props => <KeyVault {...props} />}
             />
             <Route

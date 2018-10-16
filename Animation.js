@@ -115,13 +115,27 @@ function newAnimation() {
 
             clearBrowserCanvas();
 
-            /* We loop through the callback functions collections and execute them all. */
+            if (window.CANVAS_VISIBLE === true) {
 
-            callBackFunctions.forEach(function (callBackFunction) {
+                /* We set the canvas to its normal width and height */
 
-                callBackFunction();
+                browserCanvas.width = window.innerWidth;
+                browserCanvas.height = window.innerHeight - window.TOP_MARGIN;
 
-            });
+                /* We loop through the callback functions collections and execute them all. */
+
+                callBackFunctions.forEach(function (callBackFunction) {
+
+                    callBackFunction();
+
+                });
+
+            } else {
+
+                browserCanvas.width = 1;
+                browserCanvas.height = 1;
+
+            }
 
             /* We request the next frame to be drawn, and stablishing a loop */
 

@@ -19,7 +19,7 @@ import Contact from './components/Contact'
 class App extends Component {
   render () {
     return (
-      <BrowserRouter basename={window.location.pathname}>
+      <BrowserRouter>
         <MuiThemeProvider theme={theme}>
           <NavBar />
           <Switch>

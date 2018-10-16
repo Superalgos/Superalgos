@@ -72,7 +72,6 @@ class Header extends Component {
 
   async componentDidMount () {
     const user = await getItem('user')
-    console.log('NavBar CDM: ', user, this.state)
     this.setState({ user })
   }
 

@@ -10,8 +10,27 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,600|Saira:300,600&amp;subset=latin-ext,vietnamese" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+  <script type="text/javascript" src="https://cdn.auth0.com/js/auth0/9.7.3/auth0.min.js"></script>
+  <script src="https://unpkg.com/apollo-client-browser@1.7.0"></script>
+  <script type="text/javascript" src="http://localhost:1337/Scripts/Require.js"></script>
+  <script type="text/javascript" src="http://localhost:1337/Scripts/AppPreLoader.js"></script>
 </head>
-<body>
-  <div id="root"></div>
+<body id="body" style="margin: 0px; padding: 0px; border: 0px; overflow:hidden;" onload="
+
+
+window.SESSION_TOKEN = '';
+window.EXECUTING_AT = 'Master App';
+window.TOP_MARGIN = 85;
+window.URL_PREFIX = 'https://develop.advancedalgos.net/';
+window.URL_PREFIX = 'http://localhost:1337/';
+window.CANVAS_VISIBLE = false;
+loadAdvancedAlgosPlatform();
+
+    ">
+
+    <div id="root"></div>
+    <div id="canvasDiv"></div>
+
 </body>
 </html>

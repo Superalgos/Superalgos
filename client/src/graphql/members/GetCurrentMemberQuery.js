@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 export const GetCurrentMember = gql`
   query currentMember {
-    currentMember {
+    teams_CurrentMember {
       ...MemberInfo
     }
   }

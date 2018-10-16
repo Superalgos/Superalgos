@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 const UPDATE_FB = gql`
   mutation UpdateFBMutation($fbId: String!, $avatar: String) {
-    updateFB(fbId: $fbId, avatar: $avatar) {
+    teams_UpdateFB(fbId: $fbId, avatar: $avatar) {
       id
       name
       slug

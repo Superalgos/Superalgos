@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 export const REMOVE_TEAM_MEMBER = gql`
   mutation removeTeamMember($teamId: String!, $memberId: String!) {
-    removeTeamMember(teamId: $teamId, memberId: $memberId) {
+    teams_RemoveTeamMember(teamId: $teamId, memberId: $memberId) {
       id
     }
   }

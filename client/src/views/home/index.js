@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
-
-import BackgroundImage from '../../assets/advanced-algos/evolution.jpg'
 
 const styles = theme => ({
   '@global': {
@@ -14,7 +12,6 @@ const styles = theme => ({
     }
   },
   layout: {
-    backgroundImage: `url(${BackgroundImage})`,
     width: '100%',
     height: '100%'
   },
@@ -27,31 +24,29 @@ const styles = theme => ({
   }
 })
 
-const Home = ({ classes }) => (
-  <React.Fragment>
-    <CssBaseline />
-    <main className={classes.layout}>
-      <div className={classes.heroContent}>
-        <Typography
-          variant='h3'
-          align='center'
-          color='textPrimary'
-          gutterBottom
-        >
-          Collaborate. Innovate. Evolve.
-        </Typography>
-        <Typography
-          variant='h6'
-          align='center'
-          color='textSecondary'
-          component='h3'
-        >
-          Welcome to Advanced Algos
-        </Typography>
-      </div>
-    </main>
-  </React.Fragment>
-)
+class Home extends Component {
+
+  componentDidMount () {
+    window.CANVAS_VISIBLE = true
+    let body = document.getElementById('body')
+    body.style = 'margin: 0px; padding: 0px; border: 0px; overflow:hidden;'
+    window.HIDE_FOOTER = true
+  }
+
+  componentWillUnmount () {
+    window.CANVAS_VISIBLE = false
+    let body = document.getElementById('body')
+    body.style = ''
+    window.HIDE_FOOTER = false
+  }
+
+  render () {
+    const { classes } = this.props
+    return (
+      <React.Fragment />
+    )
+  }
+}
 
 Home.propTypes = {
   classes: PropTypes.object.isRequired

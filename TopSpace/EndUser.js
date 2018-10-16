@@ -24,6 +24,11 @@ function newEndUser() {
 
     function initialize() {
 
+        if (window.EXECUTING_AT === 'Master App') {
+            window.USER_LOGGED_IN = "";
+            return;
+        }
+
         let storedUser = window.localStorage.getItem('loggedInUser');
 
         if (storedUser === null || storedUser === "") {

@@ -27,6 +27,11 @@ function newCompanyLogo() {
 
     function initialize() {
 
+        if (window.EXECUTING_AT === 'Master App') {
+            currentLabel = "";
+            return;
+        }
+
         logo = new Image();
 
         logo.onload = onImageLoad;

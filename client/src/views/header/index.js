@@ -110,15 +110,16 @@ class Header extends Component {
             <Button component={TeamsLink} color='inherit'>
               Teams
             </Button>
-            <Button component={KeyVaultLink} color='inherit'>
-              Key Vault
-            </Button>
             <Button component={AboutLink} color='inherit'>
               About
             </Button>
 
             {this.state.user !== undefined && this.state.user !== null ? (
               <React.Fragment>
+                <Button component={KeyVaultLink} color='inherit'>
+                  Key Vault
+                </Button>
+
                 <IconButton
                   className={classes.menuButton}
                   color='inherit'

@@ -38,6 +38,10 @@ function newKeyVaultModule() {
 
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
+            if (window.EXECUTING_AT === 'Master App') {
+                return;
+            }
+
             icon = new Image();
 
             icon.onload = onImageLoad;

@@ -47,7 +47,7 @@ const styles = theme => ({
 class UserProfile extends Component {
 
   displayUserProfile () {
-    const {user} = this.props.data
+    const user = this.props.data.users_User
     const { classes } = this.props
 
     if (user) {

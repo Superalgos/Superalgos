@@ -23,7 +23,7 @@
   "devDependencies": {
     "@advancedalgos/key-vault-client": "^0.0.7",
     "@advancedalgos/teams-client": "^0.0.20",
-    "@advancedalgos/users-client": "^0.0.9",
+    "@advancedalgos/users-client": "^0.0.10",
     "@advancedalgos/web-components": "^0.0.10",
     "@babel/core": "^7.1.2",
     "autoprefixer": "^9.1.5",

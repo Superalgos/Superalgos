@@ -43,7 +43,7 @@ export const createTransformedRemoteSchema = async (prefix, uri) => {
   try {
     schema = await createRemoteSchema(uri)
   } catch (error) {
-    logger.error(`An error occured while fetching ${prefix} schema. Details: `, error)
+    logger.error(`An error occured while fetching ${prefix}, ${uri} schema. Details: ${error}`)
     return false
   }
   const transformedSchema = transformSchema(schema, [

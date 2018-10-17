@@ -102,6 +102,12 @@ export const TeamsList = ({ classes, match }) => (
               </React.Fragment>
             )
           }
+        } else {
+          return (
+            <Grid container spacing={40}>
+              <MessageCard message='No teams found' />
+            </Grid>
+          )
         }
       } else {
         return (

@@ -9,7 +9,7 @@ const UPDATE_TEAM_PROFILE = gql`
     $avatar: String,
     $banner: String
   ) {
-    updateTeamProfile(
+    teams_UpdateTeamProfile(
       slug: $slug,
       description: $description,
       motto: $motto

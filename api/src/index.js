@@ -162,13 +162,13 @@ const resolvers = {
     async createTeam(parent, { name, slug, botName, botSlug }, ctx, info) {
       console.log('createTeam ctx:', ctx.request.user)
       const authId = ctx.request.user.sub
-      const encodedAuthId = encodeURI(`:"${authId}"`)
-      const encodedURL = `https://users-api.advancedalgos.net/graphql?query=%7B%0A%20%20userByAuthId(authId${encodedAuthId})%7B%0A%20%20%20%20id%0A%09%09email%0A%20%20%20%20alias%0A%20%20%7D%0A%7D`
+      const encodedAuthId = encodeURI(authId)
+      const encodedURL = `https://users-api.advancedalgos.net/graphql?query=%7B%0A%20%20userByAuthId(authId%3A%20"${encodedAuthId}")%7B%0A%20%20%20%20id%0A%09%09email%0A%20%20%20%20alias%0A%20%20%7D%0A%7D`
       const decodedURL = decodeURI(encodedURL)
-      console.log('decoded URL: ', decodedURL)
+      console.log('createTeam URLs: ', encodedURL, decodedURL)
       const getUserModuleUser = await axios.get(encodedURL)
         .then((result) => {
-          console.log('getUserModuleUser:', result)
+          console.log('getUserModuleUser axios:', result)
           return result
         })
         .catch(err =>{
@@ -182,8 +182,8 @@ const resolvers = {
       const banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
 
       const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}/${authId}`)
-      // const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
-      const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+      const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
+      // const platformUrl = 'http://localhost:3100/AABrowserAPI/teamSetup/'
       const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}`)
         .then((result) => {
           console.log('createPlatformTeam:', result)
@@ -232,11 +232,6 @@ const resolvers = {
             return error.message
           })
         })
-    },
-    async getAzureSAS(parent, { teamSlug }, ctx, info) {
-      const SASUrl = createSASQueryURL(teamSlug)
-      console.log('createSASQueryURL: ', SASUrl)
-      return SASUrl
     }
   }
 }

@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
 import { Link } from 'react-router-dom'
-
+// const TeamDetailsLink = ({ teamSlug, ...props }) => <Link to={`/teams/${teamSlug}`} {...props} />
 export const TeamsItem = ({ classes, team }) => {
   /* let avatar
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
@@ -50,7 +50,7 @@ export const TeamsItem = ({ classes, team }) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Link to={`/${team.slug}`}>
+          <Link to={`/teams/${team.slug}`}>
             <Button size='small' color='primary' className={classes.buttonRight}>
               Details
             </Button>

@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 export const SET_TEAM_MEMBER_ROLE = gql`
   mutation setTeamMemberRole($teamId: String!, $memberId: String!, $role: String!) {
-    setTeamMemberRole(teamId: $teamId, memberId: $memberId, role: $role) {
+    teams_SetTeamMemberRole(teamId: $teamId, memberId: $memberId, role: $role) {
       id
     }
   }

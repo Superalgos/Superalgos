@@ -28,7 +28,6 @@ function newLogin() {
 
     return thisObject;
 
-    function initialize() {
     function initialize(callBackFunction) {
 
         

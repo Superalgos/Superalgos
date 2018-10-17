@@ -47,8 +47,8 @@ export class ManageTeamEdit extends Component {
     console.log('ManageTeamEdit', props.team)
     const motto = props.team.profile.motto || ''
     const description = props.team.profile.description || ''
-    const avatar = props.team.profile.avatar || ''
-    const banner = props.team.profile.banner || ''
+    const avatar = props.team.profile.avatar || null
+    const banner = props.team.profile.banner || null
     this.authId = props.authId
 
     this.state = {
@@ -119,19 +119,20 @@ export class ManageTeamEdit extends Component {
                         const containerName = team.slug
                         let AzureSASURL
                         if (!loading && data !== undefined) {
-                          AzureSASURL = data.getAzureSAS
+                          AzureSASURL = data.teams_GetAzureSAS
                         } else {
                           getAzureSAS({ variables: { teamSlug: containerName } })
                         }
 
                         let avatar = null
+                        if (this.state.avatar === null && team.profile !== null && (team.profile.avatar === undefined || team.profile.avatar === null)) avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
                         if (team.profile !== null && team.profile.avatar !== undefined && team.profile.avatar !== null) avatar = team.profile.avatar
                         if (this.state.avatar !== null) avatar = this.state.avatar
-                        if (this.state.avatar === null && team.profile !== null && team.profile.avatar === undefined) avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+
                         let banner = null
+                        if (this.state.banner === null && team.profile !== null && (team.profile.banner === undefined || team.profile.banner === null)) banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
                         if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
                         if (this.state.banner !== null) banner = this.state.banner
-                        if (this.state.banner === null && team.profile !== null && team.profile.banner === undefined) banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
                         console.log('team images: ', avatar, banner)
 
                         if (loading || data === undefined) {
@@ -145,7 +146,8 @@ export class ManageTeamEdit extends Component {
                                 fileName={`${team.slug}-banner.jpg`}
                                 containerName={containerName}
                                 existingImage={banner}
-                                cropContainer={{ x: 10, y: 10, width: 800, height: 200 }}
+                                imagePreviewConfig={{ width: 450, title: 'Change Banner' }}
+                                cropContainerConfig={{ x: 10, y: 10, width: 800, height: 200 }}
                                 cropPreviewBox={{ width: 650, height: 200 }}
                                 saveImageConfig={{
                                   quality: 0.6,
@@ -165,7 +167,8 @@ export class ManageTeamEdit extends Component {
                                 fileName={`${team.slug}-avatar.jpg`}
                                 containerName={containerName}
                                 existingImage={avatar}
-                                cropContainer={{ x: 10, y: 10, width: 200, height: 200 }}
+                                imagePreviewConfig={{ width: 200, title: 'Change Avatar' }}
+                                cropContainerConfig={{ x: 10, y: 10, width: 200, height: 200 }}
                                 cropPreviewBox={{ width: 350, height: 350 }}
                                 saveImageConfig={{
                                   quality: 0.6,

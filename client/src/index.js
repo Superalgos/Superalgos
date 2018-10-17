@@ -35,9 +35,10 @@ class App extends Component {
   }
 
   render () {
+    const { match } = this.props
     let loggedIn
     if (this.state.user !== null) {
-      loggedIn = (<TeamBar user={this.state.user} />)
+      loggedIn = (<TeamBar match={match} user={this.state.user} />)
     } else {
       loggedIn = ''
     }
@@ -46,30 +47,30 @@ class App extends Component {
         <div className='App'>
           {loggedIn}
           <Switch>
-            <Route exact path='/teams/' component={Teams} />
+            <Route exact path={`${match.path}`} component={Teams} />
             <Route
               exact
-              path='/teams/manage-teams'
+              path={`${match.path}/manage-teams`}
               render={props => <ManageTeams {...props} auth={this.props.auth} />}
             />
             <Route
               exact
-              path='/teams/team-members'
+              path={`${match.path}/team-members`}
               render={props => <TeamMembers {...props} auth={this.props.auth} />}
             />
             <Route
               exact
-              path='/teams/financial-beings'
+              path={`${match.path}/financial-beings`}
               render={props => <FinancialBeings {...props} auth={this.props.auth} />}
             />
             <Route
               exact
-              path='/teams/financial-beings'
+              path={`${match.path}/financial-beings`}
               render={props => <Settings {...props} auth={this.props.auth} />}
             />
             <Route
               exact
-              path='/teams/activate-team-membership'
+              path={`${match.path}/activate-team-membership`}
               render={props => <AcceptTeamInvite {...props} auth={this.props.auth} />}
             />
             <Route path='/teams/:slug' component={Teams} />

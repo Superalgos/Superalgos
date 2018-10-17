@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom'
 const SettingsLink = props => <Link to='/teams/settings' {...props} />
 const FBLink = props => <Link to='/teams/financial-beings' {...props} />
 const MembersLink = props => <Link to='/teams/team-members' {...props} />
-const ManageLink = props => <Link to='/teams/manage-teams' {...props} />
+const ManageLink = props => <Link {...props} />
 const ViewLink = props => <Link to='/teams' {...props} />
 
 const styles = theme => ({
@@ -60,8 +60,8 @@ const styles = theme => ({
 
 class TeamBar extends Component {
   render () {
-    const { classes, user } = this.props
-    console.log('TeamBar: ', user)
+    const { classes, user, match } = this.props
+    console.log('TeamBar: ', user, match)
     return (
       <div className={classes.root}>
         <AppBar position='static' color='secondary'>
@@ -74,7 +74,8 @@ class TeamBar extends Component {
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
               title='View all teams'
-              component={ViewLink} >
+              component={ViewLink}
+              to={`${match.url}`}>
               <SearchIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
               All Teams
             </Button>
@@ -83,7 +84,8 @@ class TeamBar extends Component {
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
               title='Manage your teams'
-              component={ManageLink} >
+              component={ManageLink}
+              to={`${match.url}/manage-teams`}>
               <GroupIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
               Your Teams
             </Button>
@@ -92,7 +94,8 @@ class TeamBar extends Component {
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
               title='Manage team members'
-              component={MembersLink} >
+              component={MembersLink}
+              to={`${match.url}/team-members`}>
               <UsersIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
               Team Members
             </Button>
@@ -101,7 +104,8 @@ class TeamBar extends Component {
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
               title='Manage Financial Beings'
-              component={FBLink} >
+              component={FBLink}
+              to={`${match.url}/financial-beings`}>
               <AdbIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
               Financial Beings
             </Button>
@@ -110,7 +114,8 @@ class TeamBar extends Component {
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
               title='Manage Financial Beings'
-              component={SettingsLink} >
+              component={SettingsLink}
+              to={`${match.url}/settings`}>
               <SettingsApplicationsIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
               Settings
             </Button>
@@ -123,7 +128,8 @@ class TeamBar extends Component {
 
 TeamBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  user: PropTypes.object
+  user: PropTypes.object,
+  match: PropTypes.object
 }
 
 export default withStyles(styles)(TeamBar)

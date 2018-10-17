@@ -12,12 +12,12 @@ const styles = theme => ({
   }
 })
 
-const ManageTeams = ({ classes }) => (
+const ManageTeams = ({ classes, ...props }) => (
   <div>
     <Typography variant='h4' gutterBottom>
       Manage Your Teams
     </Typography>
-    <ManageTeamsList />
+    <ManageTeamsList {...props} />
   </div>
 )
 

@@ -47,7 +47,7 @@ const styles = theme => ({
   }
 })
 
-export const ManageTeamsList = ({ classes, user = null }) => {
+export const ManageTeamsList = ({ classes, user = null, ...props }) => {
   let owner
   let authId = null
   console.log('ManageTeamsList: ', user)
@@ -92,6 +92,7 @@ export const ManageTeamsList = ({ classes, user = null }) => {
                           team={team}
                           classes={classes}
                           authId={authId}
+                          {...props}
                         />
                       ))}
                     {errors}

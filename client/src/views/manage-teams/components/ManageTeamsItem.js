@@ -12,7 +12,7 @@ import ManageTeamDetails from './ManageTeamDetails'
 import ManageTeamDelete from './ManageTeamDelete'
 import ManageTeamEdit from './ManageTeamEdit'
 
-export const ManageTeamsItem = ({ classes, team, authId }) => {
+export const ManageTeamsItem = ({ classes, team, authId, ...props }) => {
   console.log('ManageTeamsItem', team, team.profile, team.profile.avatar)
   let avatar
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
@@ -39,7 +39,7 @@ export const ManageTeamsItem = ({ classes, team, authId }) => {
           </CardContent>
           <CardActions>
             <ManageTeamDetails team={team} />
-            <ManageTeamEdit slug={team.slug} team={team} authId={authId} />
+            <ManageTeamEdit slug={team.slug} team={team} authId={authId} {...props} />
             <ManageTeamDelete slug={team.slug} authId={authId} />
           </CardActions>
         </div>

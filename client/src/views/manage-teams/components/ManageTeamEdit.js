@@ -61,8 +61,8 @@ export class ManageTeamEdit extends Component {
   }
 
   render () {
-    console.log('ManageTeamEdit ', this.props, this.props.slug, this.props.team)
-    const { classes, team } = this.props
+    const { classes, team, match } = this.props
+    console.log('ManageTeamEdit ', this.props, this.props.slug, this.props.team, match)
     return (
       <Mutation
         mutation={UPDATE_TEAM_PROFILE}
@@ -114,9 +114,9 @@ export class ManageTeamEdit extends Component {
                   <DialogContent>
                     <Mutation mutation={GET_AZURE_SAS} >
                       {(getAzureSAS, { loading, error, data }) => {
-                        console.log('getAzureSAS: ', loading, error, data, team.profile)
                         const AzureStorageUrl = process.env.AZURE_STORAGE_URL
                         const containerName = team.slug
+                        console.log('getAzureSAS: ', loading, error, data, containerName, AzureStorageUrl, this.props)
                         let AzureSASURL
                         if (!loading && data !== undefined) {
                           AzureSASURL = data.teams_GetAzureSAS
@@ -162,7 +162,7 @@ export class ManageTeamEdit extends Component {
                                 debug
                               />
                               <ImageUpload
-                                key='avatar'
+                                key='avatar1'
                                 handleUrl={this.handleAvatar}
                                 fileName={`${team.slug}-avatar.jpg`}
                                 containerName={containerName}
@@ -296,7 +296,8 @@ ManageTeamEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   team: PropTypes.object,
-  authId: PropTypes.string.isRequired
+  authId: PropTypes.string.isRequired,
+  match: PropTypes.object
 }
 
 export default withStyles(styles)(ManageTeamEdit)

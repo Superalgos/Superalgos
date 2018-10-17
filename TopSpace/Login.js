@@ -245,6 +245,8 @@ function newLogin() {
 
     function draw() {
 
+        return; // nothing to show.
+
         thisObject.container.frame.draw(false, false);
 
         let fontSize = 12;

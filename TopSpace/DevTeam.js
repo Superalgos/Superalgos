@@ -50,6 +50,7 @@ function newDevTeam() {
             window.TEAMS = storedTeams;
             window.DEV_TEAM = storedTeams[sharedStatus.currentDevTeamIndex].slug;
             label = storedTeams[sharedStatus.currentDevTeamIndex].name;
+            sharedStatus.eventHandler.raiseEvent("devTeam Changed");
         }
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);

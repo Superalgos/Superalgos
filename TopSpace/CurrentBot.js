@@ -118,6 +118,7 @@ function newCurrentBot() {
 
         let fontSize = 12;
         let label = window.CURRENT_BOT_DISPLAY_NAME;
+        if (label === undefined) { label = "" };
 
         let point = {
             x: thisObject.container.frame.width * 1 / 3,

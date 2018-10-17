@@ -83,6 +83,7 @@ function newCurrentStartMode() {
 
         let fontSize = 12;
         let label = window.CURRENT_START_MODE + " Mode";
+        if (label === "undefined Mode") { label = "" };
 
         let point = {
             x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize / 3,

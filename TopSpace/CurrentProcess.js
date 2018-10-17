@@ -111,6 +111,7 @@ function newCurrentProcess() {
 
         let fontSize = 12;
         let label = window.CURRENT_PROCESS;
+        if (label === undefined) { label = "" };
 
         let point = {
             x: thisObject.container.frame.width * 1 / 3,

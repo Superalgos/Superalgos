@@ -89,6 +89,7 @@ function loadAdvancedAlgosPlatform() {
         }
 
         window.USER_PROFILE = responseFromServer.userProfile;
+        console.log("window.USER_PROFILE at AppPreLoader", window.USER_PROFILE);
 
         loadDebugModule();
     }

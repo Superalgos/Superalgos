@@ -40,26 +40,26 @@ function newTopSpace() {
         };
 
         thisObject.login = newLogin();
-        thisObject.login.initialize();
+        thisObject.login.initialize(onLoginInitialized);
 
         thisObject.companyLogo = newCompanyLogo();
-        thisObject.companyLogo.initialize();
-
         thisObject.endUser = newEndUser();
-        thisObject.endUser.initialize();
-
-        thisObject.devTeam = newDevTeam();
-        thisObject.devTeam.initialize(sharedStatus);
-
         thisObject.currentBot = newCurrentBot();
-        thisObject.currentBot.initialize(sharedStatus);
-
         thisObject.currentProcess = newCurrentProcess();
-        thisObject.currentProcess.initialize(sharedStatus);
-
         thisObject.currentStartMode = newCurrentStartMode();
-        thisObject.currentStartMode.initialize(sharedStatus);
+        thisObject.devTeam = newDevTeam();
 
+
+        function onLoginInitialized() {
+
+            thisObject.companyLogo.initialize();
+            thisObject.endUser.initialize();
+            thisObject.currentBot.initialize(sharedStatus);
+            thisObject.currentProcess.initialize(sharedStatus);
+            thisObject.currentStartMode.initialize(sharedStatus);
+            thisObject.devTeam.initialize(sharedStatus);
+
+        }
     }
 
     function getContainer(point) {

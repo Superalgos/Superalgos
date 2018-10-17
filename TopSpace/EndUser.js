@@ -24,11 +24,6 @@ function newEndUser() {
 
     function initialize() {
 
-        if (window.EXECUTING_AT === 'Master App') {
-            window.USER_LOGGED_IN = "";
-            return;
-        }
-
         let storedUser = window.localStorage.getItem('loggedInUser');
 
         if (storedUser === null || storedUser === "") {
@@ -83,6 +78,7 @@ function newEndUser() {
 
         let fontSize = 12;
         let label = window.USER_LOGGED_IN;
+        if (label === undefined) { label = "" };
 
         let point = {
             x: thisObject.container.frame.width * 1 / 3,

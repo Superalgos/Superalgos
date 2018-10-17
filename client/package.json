@@ -1,6 +1,6 @@
 {
   "name": "@advancedalgos/teams-client",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "Advanced Algos Team client-side web app",
   "main": "src/index.js",
   "scripts": {

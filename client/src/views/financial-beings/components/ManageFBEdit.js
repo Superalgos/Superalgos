@@ -13,14 +13,12 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import { MessageCard, ImageUpload } from '@advancedalgos/web-components'
+import { ImageUpload } from '@advancedalgos/web-components'
 
 import UPDATE_FB from '../../../graphql/teams/UpdateFBMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
-
-import GET_AZURE_SAS from '../../../graphql/teams/GetAzureSASMutation'
 
 const styles = theme => ({
   dialogContainer: {
@@ -65,6 +63,15 @@ export class ManageFBEdit extends Component {
         ]}
       >
         {(updateFB, { loading, error, data }) => {
+          const AzureStorageUrl = process.env.AZURE_STORAGE_URL_TEAMS
+          const AzureStorageSAS = process.env.AZURE_STORAGE_SAS_TEAMS
+          const containerName = slug
+
+          let avatar = null
+          if (this.state.avatar === null && fb.avatar === undefined) avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+          if (fb.avatar !== undefined && fb.avatar !== null) avatar = fb.avatar
+          if (this.state.avatar !== null) avatar = this.state.avatar
+
           let errors
           let loader
           if (loading) {
@@ -103,54 +110,28 @@ export class ManageFBEdit extends Component {
                     Edit Financial Being
                   </DialogTitle>
                   <DialogContent>
-                    <Mutation mutation={GET_AZURE_SAS} >
-                      {(getAzureSAS, { loading, error, data }) => {
-                        console.log('getAzureSAS: ', loading, error, data, fb)
-                        const AzureStorageUrl = process.env.AZURE_STORAGE_URL
-                        const containerName = slug
-                        let AzureSASURL
-                        if (!loading && data !== undefined) {
-                          AzureSASURL = data.getAzureSAS
-                        } else {
-                          getAzureSAS({ variables: { teamSlug: containerName } })
-                        }
-
-                        let avatar = null
-                        if (fb.avatar !== undefined && fb.avatar !== null) avatar = fb.avatar
-                        if (this.state.avatar !== null) avatar = this.state.avatar
-                        if (this.state.avatar === null && fb.avatar === undefined) avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
-
-                        if (loading || data === undefined) {
-                          return (<MessageCard message='Loading...' />)
-                        } else {
-                          return (
-                            <React.Fragment>
-                              <DialogContentText>Update Financial Beings's Avatar</DialogContentText>
-                              <ImageUpload
-                                key='avatar'
-                                handleUrl={this.handleAvatar}
-                                fileName={`${fb.slug}-fb-avatar.jpg`}
-                                containerName={containerName}
-                                existingImage={avatar}
-                                cropContainer={{ x: 10, y: 10, width: 200, height: 200 }}
-                                cropPreviewBox={{ width: 350, height: 350 }}
-                                saveImageConfig={{
-                                  quality: 0.6,
-                                  maxWidth: 200,
-                                  maxHeight: 200,
-                                  autoRotate: true,
-                                  mimeType: 'image/jpeg'
-                                }}
-                                AzureStorageUrl={AzureStorageUrl}
-                                AzureSASURL={AzureSASURL}
-                                cropRatio={1}
-                                debug
-                              />
-                            </React.Fragment>
-                          )
-                        }
+                    <DialogContentText>Update Financial Beings's Avatar</DialogContentText>
+                    <ImageUpload
+                      key='avatar'
+                      handleUrl={this.handleAvatar}
+                      fileName={`${fb.slug}-fb-avatar.jpg`}
+                      containerName={containerName}
+                      existingImage={avatar}
+                      imagePreviewConfig={{ width: 200, title: 'Change FB Avatar' }}
+                      cropContainerConfig={{ x: 10, y: 10, width: 200, height: 200 }}
+                      cropPreviewBox={{ width: 350, height: 350 }}
+                      saveImageConfig={{
+                        quality: 0.6,
+                        maxWidth: 200,
+                        maxHeight: 200,
+                        autoRotate: true,
+                        mimeType: 'image/jpeg'
                       }}
-                    </Mutation>
+                      AzureStorageUrl={AzureStorageUrl}
+                      AzureSASURL={AzureStorageSAS}
+                      cropRatio={1}
+                      debug
+                    />
                     <TextField
                       autoFocus
                       margin='dense'

@@ -26,7 +26,6 @@ type Mutation {
   updateTeamProfile(slug: String!, description: String, motto: String, avatar: String, banner: String): Team @isAuthenticated
   updateFB(fbId: String!, avatar: String): FinancialBeings @isAuthenticated
   deleteTeam(slug: String!): Team @isAuthenticated @isOwner(type: "Team")
-  getAzureSAS(teamSlug: String!):String
   sendMemberInviteSG(email: String!, teamId: String!): String
   confirmMember(token: String!): String
   removeTeamMember(teamId: String!, memberId: String!): String

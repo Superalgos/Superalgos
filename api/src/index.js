@@ -232,11 +232,6 @@ const resolvers = {
             return error.message
           })
         })
-    },
-    async getAzureSAS(parent, { teamSlug }, ctx, info) {
-      const SASUrl = createSASQueryURL(teamSlug)
-      console.log('createSASQueryURL: ', SASUrl)
-      return SASUrl
     }
   }
 }

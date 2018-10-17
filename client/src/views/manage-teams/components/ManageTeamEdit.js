@@ -13,14 +13,12 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import { MessageCard, ImageUpload } from '@advancedalgos/web-components'
+import { ImageUpload } from '@advancedalgos/web-components'
 
 import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
-
-import GET_AZURE_SAS from '../../../graphql/teams/GetAzureSASMutation'
 
 const styles = theme => ({
   dialogContainer: {
@@ -74,6 +72,20 @@ export class ManageTeamEdit extends Component {
         ]}
       >
         {(updateTeamProfile, { loading, error, data }) => {
+          const AzureStorageUrl = process.env.AZURE_STORAGE_URL_TEAMS
+          const AzureStorageSAS = process.env.AZURE_STORAGE_SAS_TEAMS
+          const containerName = team.slug
+          let avatar = null
+          if (this.state.avatar === null && team.profile !== null && (team.profile.avatar === undefined || team.profile.avatar === null)) avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+          if (team.profile !== null && team.profile.avatar !== undefined && team.profile.avatar !== null) avatar = team.profile.avatar
+          if (this.state.avatar !== null) avatar = this.state.avatar
+
+          let banner = null
+          if (this.state.banner === null && team.profile !== null && (team.profile.banner === undefined || team.profile.banner === null)) banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
+          if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
+          if (this.state.banner !== null) banner = this.state.banner
+          console.log('team images: ', avatar, banner)
+
           let errors
           let loader
           if (loading) {
@@ -112,81 +124,48 @@ export class ManageTeamEdit extends Component {
                     Edit Team Details
                   </DialogTitle>
                   <DialogContent>
-                    <Mutation mutation={GET_AZURE_SAS} >
-                      {(getAzureSAS, { loading, error, data }) => {
-                        const AzureStorageUrl = process.env.AZURE_STORAGE_URL
-                        const containerName = team.slug
-                        console.log('getAzureSAS: ', loading, error, data, containerName, AzureStorageUrl, this.props)
-                        let AzureSASURL
-                        if (!loading && data !== undefined) {
-                          AzureSASURL = data.teams_GetAzureSAS
-                        } else {
-                          getAzureSAS({ variables: { teamSlug: containerName } })
-                        }
-
-                        let avatar = null
-                        if (this.state.avatar === null && team.profile !== null && (team.profile.avatar === undefined || team.profile.avatar === null)) avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
-                        if (team.profile !== null && team.profile.avatar !== undefined && team.profile.avatar !== null) avatar = team.profile.avatar
-                        if (this.state.avatar !== null) avatar = this.state.avatar
-
-                        let banner = null
-                        if (this.state.banner === null && team.profile !== null && (team.profile.banner === undefined || team.profile.banner === null)) banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
-                        if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
-                        if (this.state.banner !== null) banner = this.state.banner
-                        console.log('team images: ', avatar, banner)
-
-                        if (loading || data === undefined) {
-                          return (<MessageCard message='Loading...' />)
-                        } else {
-                          return (
-                            <React.Fragment>
-                              <ImageUpload
-                                key='banner'
-                                handleUrl={this.handleBanner}
-                                fileName={`${team.slug}-banner.jpg`}
-                                containerName={containerName}
-                                existingImage={banner}
-                                imagePreviewConfig={{ width: 450, title: 'Change Banner' }}
-                                cropContainerConfig={{ x: 10, y: 10, width: 800, height: 200 }}
-                                cropPreviewBox={{ width: 650, height: 200 }}
-                                saveImageConfig={{
-                                  quality: 0.6,
-                                  maxWidth: 800,
-                                  maxHeight: 200,
-                                  autoRotate: true,
-                                  mimeType: 'image/jpeg'
-                                }}
-                                AzureStorageUrl={AzureStorageUrl}
-                                AzureSASURL={AzureSASURL}
-                                cropRatio={4}
-                                debug
-                              />
-                              <ImageUpload
-                                key='avatar1'
-                                handleUrl={this.handleAvatar}
-                                fileName={`${team.slug}-avatar.jpg`}
-                                containerName={containerName}
-                                existingImage={avatar}
-                                imagePreviewConfig={{ width: 200, title: 'Change Avatar' }}
-                                cropContainerConfig={{ x: 10, y: 10, width: 200, height: 200 }}
-                                cropPreviewBox={{ width: 350, height: 350 }}
-                                saveImageConfig={{
-                                  quality: 0.6,
-                                  maxWidth: 200,
-                                  maxHeight: 200,
-                                  autoRotate: true,
-                                  mimeType: 'image/jpeg'
-                                }}
-                                AzureStorageUrl={AzureStorageUrl}
-                                AzureSASURL={AzureSASURL}
-                                cropRatio={1}
-                                debug
-                              />
-                            </React.Fragment>
-                          )
-                        }
+                    <ImageUpload
+                      key='banner'
+                      handleUrl={this.handleBanner}
+                      fileName={`${team.slug}-banner.jpg`}
+                      containerName={containerName}
+                      existingImage={banner}
+                      imagePreviewConfig={{ width: 450, title: 'Change Banner' }}
+                      cropContainerConfig={{ x: 10, y: 10, width: 800, height: 200 }}
+                      cropPreviewBox={{ width: 650, height: 200 }}
+                      saveImageConfig={{
+                        quality: 0.6,
+                        maxWidth: 800,
+                        maxHeight: 200,
+                        autoRotate: true,
+                        mimeType: 'image/jpeg'
                       }}
-                    </Mutation>
+                      AzureStorageUrl={AzureStorageUrl}
+                      AzureSASURL={AzureStorageSAS}
+                      cropRatio={4}
+                      debug
+                    />
+                    <ImageUpload
+                      key='avatar1'
+                      handleUrl={this.handleAvatar}
+                      fileName={`${team.slug}-avatar.jpg`}
+                      containerName={containerName}
+                      existingImage={avatar}
+                      imagePreviewConfig={{ width: 200, title: 'Change Avatar' }}
+                      cropContainerConfig={{ x: 10, y: 10, width: 200, height: 200 }}
+                      cropPreviewBox={{ width: 350, height: 350 }}
+                      saveImageConfig={{
+                        quality: 0.6,
+                        maxWidth: 200,
+                        maxHeight: 200,
+                        autoRotate: true,
+                        mimeType: 'image/jpeg'
+                      }}
+                      AzureStorageUrl={AzureStorageUrl}
+                      AzureSASURL={AzureStorageSAS}
+                      cropRatio={1}
+                      debug
+                    />
                     <TextField
                       autoFocus
                       margin='dense'

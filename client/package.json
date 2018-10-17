@@ -22,9 +22,9 @@
   "homepage": "https://github.com/Algoteers/MasterApp#readme",
   "devDependencies": {
     "@advancedalgos/key-vault-client": "^0.0.9",
-    "@advancedalgos/teams-client": "^0.0.20",
+    "@advancedalgos/teams-client": "^0.0.21",
     "@advancedalgos/users-client": "^0.0.11",
-    "@advancedalgos/web-components": "0.0.12",
+    "@advancedalgos/web-components": "^0.0.12",
     "@babel/core": "^7.1.2",
     "autoprefixer": "^9.2.0",
     "babel-loader": "^8.0.4",

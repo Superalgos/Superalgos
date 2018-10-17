@@ -1,5 +1,5 @@
 import { ApolloProvider } from 'react-apollo'
-import React, { Component } from 'react'
+import React from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import { hot } from 'react-hot-loader'
 
@@ -38,17 +38,14 @@ export const MasterApp = () => (
               }}
             />
             <Route
-              exact
               path='/teams'
               render={props => <Teams {...props} auth={auth} />}
             />
             <Route
-              exact
               path='/key-vault'
               render={props => <KeyVault {...props} />}
             />
             <Route
-              exact
               path='/users'
               render={props => <Users {...props} auth={auth} />}
             />

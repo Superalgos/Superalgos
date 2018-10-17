@@ -60,7 +60,7 @@ async function run () {
       settings: { 'editor.theme': 'light' },
       tabs: [
         {
-          endpoint: 'http://localhost:4100/graphql',
+          endpoint: process.env.GRAPHQL_API_URL,
           query: defaultQuery
         }
       ]
@@ -72,7 +72,7 @@ async function run () {
   app.use(cors())
 
   app.listen(4100)
-  logger.info('Server running. Open http://localhost:4100/graphql to run queries.')
+  logger.info(`Server running. Open ${process.env.GRAPHQL_API_URL} to run queries.`)
 }
 
 try {

@@ -2,8 +2,6 @@ const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack')
 const path = require('path')
 const merge = require('webpack-merge')
-const history = require('connect-history-api-fallback')
-const convert = require('koa-connect')
 const commonConfig = require('./helpers/webpack.common.config')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
@@ -15,12 +13,13 @@ module.exports = merge(commonConfig, {
 
   output: {
     path: path.resolve(__dirname, '../../build'),
-    filename: 'script.js'
+    filename: 'script.js',
+    publicPath: '/'
   },
 
   devServer: {
-      historyApiFallback: true,
-    },
+    historyApiFallback: true
+  },
 
   plugins: [
     new Dotenv({
@@ -44,5 +43,5 @@ module.exports = merge(commonConfig, {
       }
     ]
   },
-  target: 'web',
+  target: 'web'
 })

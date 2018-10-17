@@ -15,7 +15,8 @@ module.exports = merge(commonConfig, {
   devtool: 'inline-sourcemap',
   output: {
     path: path.resolve(__dirname, '../../build'),
-    filename: 'script.js'
+    filename: 'script.js',
+    publicPath: '/'
   },
 
   optimization: {

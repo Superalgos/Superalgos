@@ -1,27 +1,28 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
+import classNames from 'classnames'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
+import Button from '@material-ui/core/Button'
 
 // icons
+import GroupIcon from '@material-ui/icons/Group'
 import UsersIcon from '@material-ui/icons/People'
-import BrowseIcon from '@material-ui/icons/ImportContacts'
 import SearchIcon from '@material-ui/icons/Search'
-import ContactIcon from '@material-ui/icons/ContactMail'
-import AboutIcon from '@material-ui/icons/FormatShapes'
+import AdbIcon from '@material-ui/icons/Adb'
+import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications'
 
 import { Link } from 'react-router-dom'
 
-const AboutLink = props => <Link to='/about' {...props} />
-const ContactLink = props => <Link to='/contact' {...props} />
-const SearchLink = props => <Link to='/search' {...props} />
-const BrowseLink = props => <Link to='/browse' {...props} />
-const HomeLink = props => <Link to='/' {...props} />
+const SettingsLink = props => <Link to='/teams/settings' {...props} />
+const FBLink = props => <Link to='/teams/financial-beings' {...props} />
+const MembersLink = props => <Link to='/teams/team-members' {...props} />
+const ManageLink = props => <Link to='/teams/manage-teams' {...props} />
+const ViewLink = props => <Link to='/teams' {...props} />
 
-const styles = {
+const styles = theme => ({
   root: {
     flexGrow: 1
   },
@@ -32,8 +33,30 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20
+  },
+  cssRoot: {
+    color: '#FFFFFF',
+    backgroundColor: theme.palette.secondary,
+    '&:hover': {
+      backgroundColor: theme.palette.dark
+    },
+    whiteSpace: 'nowrap',
+    paddingRight: 2 * theme.spacing.unit,
+    paddingLeft: 2 * theme.spacing.unit
+  },
+  button: {
+    margin: theme.spacing.unit
+  },
+  leftIcon: {
+    marginRight: theme.spacing.unit
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit
+  },
+  iconSmall: {
+    fontSize: 20
   }
-}
+})
 
 class TeamBar extends Component {
   render () {
@@ -43,44 +66,54 @@ class TeamBar extends Component {
       <div className={classes.root}>
         <AppBar position='static' color='secondary'>
           <Toolbar>
-            <Typography variant='title' color='inherit' className={classes.flex}>
+            <Typography variant='h5' color='inherit' className={classes.flex}>
               Manage Teams
             </Typography>
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              title='Users Module Home'
-              component={HomeLink}>
-              <UsersIcon />
-            </IconButton>
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              title='Browse the Teams'
-              component={BrowseLink}>
-              <BrowseIcon />
-            </IconButton>
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              title='Search Users'
-              component={SearchLink}>
-              <SearchIcon />
-            </IconButton>
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              title='Contact Form'
-              component={ContactLink}>
-              <ContactIcon />
-            </IconButton>
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              title='About the Users Module'
-              component={AboutLink}>
-              <AboutIcon />
-            </IconButton>
+            <Button
+              variant='text'
+              size='small'
+              className={classNames(classes.button, classes.cssRoot)}
+              title='View all teams'
+              component={ViewLink} >
+              <SearchIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              All Teams
+            </Button>
+            <Button
+              variant='text'
+              size='small'
+              className={classNames(classes.button, classes.cssRoot)}
+              title='Manage your teams'
+              component={ManageLink} >
+              <GroupIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Your Teams
+            </Button>
+            <Button
+              variant='text'
+              size='small'
+              className={classNames(classes.button, classes.cssRoot)}
+              title='Manage team members'
+              component={MembersLink} >
+              <UsersIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Team Members
+            </Button>
+            <Button
+              variant='text'
+              size='small'
+              className={classNames(classes.button, classes.cssRoot)}
+              title='Manage Financial Beings'
+              component={FBLink} >
+              <AdbIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Financial Beings
+            </Button>
+            <Button
+              variant='text'
+              size='small'
+              className={classNames(classes.button, classes.cssRoot)}
+              title='Manage Financial Beings'
+              component={SettingsLink} >
+              <SettingsApplicationsIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Settings
+            </Button>
           </Toolbar>
         </AppBar>
       </div>

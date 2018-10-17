@@ -1,4 +1,5 @@
 # Advanced Algos Team Module
+[![npm client version](https://badge.fury.io/js/%40advancedalgos%2Fteams-client.svg)](https://badge.fury.io/js/%40advancedalgos%2Fteams-client)
 
 ## Introduction
 

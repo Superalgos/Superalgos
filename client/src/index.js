@@ -6,7 +6,10 @@ import { hot } from 'react-hot-loader'
 import { withStyles } from '@material-ui/core/styles'
 import {
   AcceptTeamInvite,
-  Dashboard,
+  ManageTeams,
+  TeamMembers,
+  FinancialBeings,
+  Settings,
   Teams,
   TeamBar,
   globalStyles
@@ -39,22 +42,37 @@ class App extends Component {
       loggedIn = ''
     }
     return (
-      <BrowserRouter basename={window.location.pathname}>
+      <BrowserRouter>
         <div className='App'>
           {loggedIn}
           <Switch>
-            <Route exact path='/' component={Teams} />
-            <Route exact path='/:slug' component={Teams} />
+            <Route exact path='/teams/' component={Teams} />
             <Route
               exact
-              path='/(dashboard|manage-teams|team-members|financial-beings|settings)/'
-              render={props => <Dashboard {...props} auth={this.props.auth} />}
+              path='/teams/manage-teams'
+              render={props => <ManageTeams {...props} auth={this.props.auth} />}
             />
             <Route
               exact
-              path='/activate-team-membership'
+              path='/teams/team-members'
+              render={props => <TeamMembers {...props} auth={this.props.auth} />}
+            />
+            <Route
+              exact
+              path='/teams/financial-beings'
+              render={props => <FinancialBeings {...props} auth={this.props.auth} />}
+            />
+            <Route
+              exact
+              path='/teams/financial-beings'
+              render={props => <Settings {...props} auth={this.props.auth} />}
+            />
+            <Route
+              exact
+              path='/teams/activate-team-membership'
               render={props => <AcceptTeamInvite {...props} auth={this.props.auth} />}
             />
+            <Route path='/teams/:slug' component={Teams} />
           </Switch>
         </div>
       </BrowserRouter>

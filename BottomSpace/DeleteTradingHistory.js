@@ -65,7 +65,9 @@ function newDeleteTradingHistory() {
 
             if (INFO_LOG === true) { logger.write("[INFO] onClick -> Entering function."); }
 
-            if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
+            let user = window.localStorage.getItem("user");
+
+            if (user === null) { return; }
 
             /*
 
@@ -286,7 +288,9 @@ function newDeleteTradingHistory() {
 
             if (INFO_LOG === true) { logger.write("[INFO] draw -> Entering function."); }
 
-            if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
+            let user = window.localStorage.getItem("user");
+
+            if (user === null) { return; }
 
             thisObject.container.frame.draw(false, false);
 

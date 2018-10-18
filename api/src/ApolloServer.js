@@ -52,6 +52,7 @@ export default function createApolloServer(
     schema: applyGraphQLMiddleware(schema, ...graphqlMiddlewares),
     tracing: true,
     cacheControl: true,
+    introspection: true,
     engine: engineKey ? { apiKey: engineKey } : false,
     dataSources,
     // Resolvers context in POST requests

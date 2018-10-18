@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton'
 import UserIcon from '@material-ui/icons/Person'
 import { Link } from 'react-router-dom'
 
-const UserLink = props => <Link to='/user' {...props} />
+const UserLink = props => <Link to='/users/user' {...props} />
 
 class LoggedInUser extends Component {
 

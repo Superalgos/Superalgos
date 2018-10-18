@@ -3,7 +3,6 @@ const path = require('path')
 const merge = require('webpack-merge')
 const commonConfig = require('./helpers/webpack.common.config')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
@@ -21,11 +20,6 @@ module.exports = merge(commonConfig, {
 
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: false
-      }),
       new OptimizeCSSAssetsPlugin({})
     ],
     splitChunks: {

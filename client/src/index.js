@@ -3,22 +3,21 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
 const Base = () => (
   <p>
-    base website
+    Base component
   </p>
 )
 
 const Added = () => (
   <p>
-    added website
+    Added component
   </p>
 )
 
 class App extends Component {
   render () {
     return (
-      <BrowserRouter basename={window.location.pathname}>
+      <BrowserRouter basename={this.props.match.path}>
         <Switch>
-          <p>{window.location.pathname}</p>
           <Route exact path='/' component={Base} />
           <Route path='/added' component={Added} />
         </Switch>

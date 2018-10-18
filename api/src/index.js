@@ -1,33 +1,36 @@
+import '@babel/polyfill'
 require('dotenv').config();
-const { GraphQLServer } = require('graphql-yoga')
-const {
+import express from 'express'
+import createApolloServer from './ApolloServer'
+import { formatError } from './errors'
+import {
   Prisma,
   extractFragmentReplacements,
   forwardTo
-} = require('prisma-binding')
-const { makeExecutableSchema } = require('graphql-tools')
-const { importSchema } = require('graphql-import')
-const parser = require('fast-xml-parser')
-var axios = require('axios')
+} from 'prisma-binding'
+import { makeExecutableSchema } from 'graphql-tools'
+import { importSchema } from 'graphql-import'
+import parser from 'fast-xml-parser'
+import axios from 'axios'
 
-const checkJwt = require('./auth/middleware/jwt')
-const { getMember } = require('./auth/middleware/getMember')
-const { validateIdToken } = require('./auth/validateIdToken')
-const { directiveResolvers } = require('./auth/authDirectives')
+import checkJwt from './auth/middleware/jwt'
+import { getMember } from './auth/middleware/getMember'
+import { validateIdToken } from './auth/validateIdToken'
+import { schemaDirectives } from './directives'
 
-const Azure = require("@azure/storage-blob")
-const { createSASQueryURL } = require('./storage/azure')
-const azureAccount = process.env.AZURE_STORAGE_ACCOUNT
-const azureKey = process.env.AZURE_STORAGE_ACCESS_KEY
-const azureStorageUrl = process.env.AZURE_STORAGE_URL
+import { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } from './email/sendgrid'
 
-const { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } = require('./email/sendgrid')
+import TEAMS_FRAGMENT from './graphql/TeamsFragment'
+import TEAMS_CONNECTIONS_FRAGMENT from './graphql/TeamsConnectionsFragment'
+import TEAM_FB_FRAGMENT from './graphql/TeamFBFragment'
 
-const TEAMS_FRAGMENT = require('./graphql/TeamsFragment')
-const TEAMS_CONNECTIONS_FRAGMENT = require('./graphql/TeamsConnectionsFragment')
-const TEAM_FB_FRAGMENT = require('./graphql/TeamFBFragment')
+import pubsub from './pubsub'
+import { logger } from './logger'
 
-const logger = require('./logger')
+const GRAPHQL_ENDPOINT = '/graphql'
+const GRAPHQL_SUBSCRIPTIONS = '/graphql'
+const PORT = 4001
+const NODE_ENV = 'development'
 
 const createMember = async function (ctx, info, idToken) {
   logger.info('createMember', idToken)
@@ -52,25 +55,17 @@ const ctxMember = ctx => ctx.request.user
 const resolvers = {
   Query: {
     async member(parent, arg, ctx, info) {
-      console.log('member: ', parent, arg)
+      logger.info('member: ', parent, arg)
       return ctx.db.query.member({ where: { authId: arg.authId } }, info)
     },
     async currentMember(parent, args, ctx, info) {
-      console.log('currentMember: ', ctx.request.res.req.user, ctx.token)
+      logger.info('currentMember: ', ctx.request.res.req.user, ctx.token)
       const authId = ctx.request.res.req.user.sub
-
-      fetch('URL_GOES_HERE', {
-        method: 'post',
-        headers: new Headers({
-         'Authorization': 'Basic '+btoa('username:password'),
-         'Content-Type': 'application/x-www-form-urlencoded'
-        }),
-        body: 'A=1&B=2'
-      })
 
       return ctx.db.query.member({ where: { authId } }, info)
     },
     teams(parent, args, ctx, info) {
+      logger.info('teams: ', ctx.request.res)
       return ctx.db.query.teamsConnection({}, TEAMS_CONNECTIONS_FRAGMENT)
     },
     async teamById(parent, { id }, ctx, info) {
@@ -88,21 +83,21 @@ const resolvers = {
     async teamsByRole(parent, args, ctx, info) {
       const authId = ctx.request.user.sub
       let teamAdmin = await ctx.db.query.teams({where: {members_some: {OR: [{role: 'ADMIN'}, {role: 'OWNER'}], AND: [{member: {authId: authId}}]}}, orderBy: 'updatedAt_DESC'}, TEAMS_FRAGMENT)
-      console.log('teamsByRole teamAdmin: ', teamAdmin)
+      logger.info('teamsByRole teamAdmin: ', teamAdmin)
       return teamAdmin
     },
     async fbByTeamMember(parent, args, ctx, info) {
-      console.log('fbByTeamMember: ', args, ctx.request, ctx.request.res.req.user)
+      logger.info('fbByTeamMember: ', args, ctx.request, ctx.request.res.req.user)
       const authId = ctx.request.user.sub
       let teamMemberFB = await ctx.db.query.teams({where: {members_some: {AND: [{member: {authId: authId}}]}}, orderBy: 'updatedAt_DESC'}, TEAM_FB_FRAGMENT)
       logger.info('fbByTeamMember response: ', await teamMemberFB[0])
       return teamMemberFB[0]
     },
     async owner(parent, args, ctx, info) {
-      console.log('resolver.query.owner ctx: ', ctxMember(ctx))
+      logger.info('resolver.query.owner ctx: ', ctxMember(ctx))
       return ctx.db.query.member({ where: { id: ctxMember(ctx).authId } }, info)
-        .catch((res) => {
-          console.log('createTeam error: ', res)
+        .catch(err => {
+          logger.debug('createTeam error: ', err)
           const errors = res.graphQLErrors.map((error) => {
             return error.message
           })
@@ -114,9 +109,9 @@ const resolvers = {
       let memberToken = null
       try {
         memberToken = await validateIdToken(idToken)
-        console.log('authenticate.memberToken: ', await memberToken)
+        logger.info('authenticate.memberToken: ', await memberToken)
       } catch (err) {
-        console.log('authenticat.validateIdToken err: ', err)
+        logger.debug('authenticat.validateIdToken err: ', err)
         throw new Error(err.message)
       }
       const authId = memberToken.sub
@@ -152,9 +147,9 @@ const resolvers = {
             slug: verifiedToken.team
           }
         }
-        console.log('verifyTeamInvite.token: ', await verifiedToken)
+        logger.info('verifyTeamInvite.token: ', await verifiedToken)
       } catch (err) {
-        console.log('verifyTeamInvite. err: ', err)
+        logger.debug('verifyTeamInvite. err: ', err)
         throw new Error(err.message)
       }
       return team
@@ -165,17 +160,17 @@ const resolvers = {
       const encodedAuthId = encodeURI(authId)
       const encodedURL = `https://users-api.advancedalgos.net/graphql?query=%7B%0A%20%20userByAuthId(authId%3A%20"${encodedAuthId}")%7B%0A%20%20%20%20id%0A%09%09email%0A%20%20%20%20alias%0A%20%20%7D%0A%7D`
       const decodedURL = decodeURI(encodedURL)
-      console.log('createTeam URLs: ', encodedURL, decodedURL)
+      logger.info('createTeam URLs: ', encodedURL, decodedURL)
       const getUserModuleUser = await axios.get(encodedURL)
         .then((result) => {
-          console.log('getUserModuleUser axios:', result)
+          logger.info('getUserModuleUser axios:', result)
           return result
         })
         .catch(err =>{
-          console.log('getUserModuleUser err:', err)
+          logger.debug('getUserModuleUser err:', err)
         })
 
-      console.log('getUserModuleUser:', await getUserModuleUser)
+      logger.info('getUserModuleUser:', await getUserModuleUser)
       const alias = await getUserModuleUser.data.data.userByAuthId.alias
       const email = getUserModuleUser.data.data.userByAuthId.email
       const avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
@@ -186,23 +181,23 @@ const resolvers = {
       // const platformUrl = 'http://localhost:3100/AABrowserAPI/teamSetup/'
       const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}`)
         .then((result) => {
-          console.log('createPlatformTeam:', result)
+          logger.info('createPlatformTeam:', result)
           if(result.data.message === 'Team Name already taken'){
             throw new Error(result.data.message)
           }
           return result
         })
         .catch(err =>{
-          console.log('createPlatformTeam err:', err)
+          logger.errror('createPlatformTeam err:', err)
           throw new Error(err)
         })
-      console.log('createPlatformTeam: ', await createPlatformTeam)
+      logger.info('createPlatformTeam: ', await createPlatformTeam)
       if(createPlatformTeam === 'Error: Team Name already taken'){
         return createPlatformTeam
       }
       const createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER'}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
         .catch((err) => {
-          console.log('createTeam error: ', err)
+          logger.debug('createTeam error: ', err)
           return err
         })
 
@@ -213,21 +208,21 @@ const resolvers = {
     async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {
       return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar, banner: banner}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
         .catch((err) => {
-          console.log('createTeam error: ', err)
+          logger.debug('createTeam error: ', err)
           return err
         })
     },
     async updateFB(parent, { fbId, avatar}, ctx, info) {
       return ctx.db.mutation.updateFinancialBeings({data:{avatar:avatar}, where:{id:fbId}}, info)
         .catch((err) => {
-          console.log('createTeam error: ', err)
+          logger.debug('createTeam error: ', err)
           return err
         })
     },
     async deleteTeam(parent, { slug }, ctx, info) {
       return ctx.db.mutation.deleteTeam({ where: { slug } }, info)
         .catch((res) => {
-          console.log('deleteTeam error: ', res)
+          logger.info('deleteTeam error: ', res)
           const errors = res.graphQLErrors.map((error) => {
             return error.message
           })
@@ -244,25 +239,9 @@ const db = new Prisma({
   debug: true
 })
 
-const schema = makeExecutableSchema({
-  typeDefs: importSchema('src/schema.graphql'),
-  resolvers,
-  resolverValidationOptions: { requireResolversForResolveType: false },
-  directiveResolvers
-})
+const app = express()
 
-const server = new GraphQLServer({
-  schema,
-  context: req => ({
-    token: req.headers,
-    user: req.user,
-    db,
-    ...req
-  }),
-})
-
-server.express.use(
-  server.options.endpoint,
+const connectionMiddlewares = [
   checkJwt,
   function (err, req, res, next) {
     logger.info('checkJwt: ', err, req.headers, req.user)
@@ -271,39 +250,11 @@ server.express.use(
     } else {
       next()
     }
-  }
-)
-
-server.express.post(server.options.endpoint, (req, res, done) => getUser(req, res, done, db))
-
-/*
-let whitelist = [
-  'http://localhost:3000',
-  'http://localhost:3001',
-  'http://localhost:3002',
-  'http://localhost:4000',
-  'http://localhost:4002',
-  'http://localhost:1337',
-  'http://localhost:4100',
-  'https://teams.advancedalgos.net',
-  'https://users.advancedalgos.net',
-  'https://users-api.advancedalgos.net',
-  'https://keyvault.advancedalgos.net',
-  'https://keyvault-api.advancedalgos.net',
-  'https://aawebdevelop.azurewebsites.net',
-  'https://develop.advancedalgos.net'
+  },
+  // (req, res, done) => getMember(req, res, done, db)
 ]
 
-const corsOptionsDelegate = (req, callback) => {
-  var corsOptions
-  if (whitelist.indexOf(req.header('Origin')) !== -1) {
-    corsOptions = { origin: true, credentials: true } // reflect (enable) the requested origin in the CORS response
-  } else {
-    corsOptions = { origin: false, credentials: true } // disable CORS for this request
-  }
-  callback(null, corsOptions) // callback expects two parameters: error and options
-}
-*/
+app.post(GRAPHQL_ENDPOINT, ...connectionMiddlewares)
 
 const corsOptions = {
   "origin": "*",
@@ -320,6 +271,28 @@ const options = {
   playground: '/graphiql'
 }
 
-server.start(options, () => console.log(`Server is running on http://localhost:4001${server.options.endpoint}`))
+const server = createApolloServer(app, {
+  graphqlEndpoint: GRAPHQL_ENDPOINT,
+  subscriptionsEndpoint: GRAPHQL_SUBSCRIPTIONS,
+  wsMiddlewares: connectionMiddlewares,
+  apolloServerOptions: { formatError },
+  typeDefs: importSchema('src/schema.graphql'),
+  resolvers,
+  resolverValidationOptions: { requireResolversForResolveType: false },
+  schemaDirectives,
+  context: req  => ({
+    ...req ,
+    token: req.headers,
+    user: req.user,
+    db,
+    pubsub
+  })
+})
+
+server.listen({ port: PORT }, () => {
+  logger.info(
+    `🚀 GraphQL Server is running on http://localhost:${PORT}${GRAPHQL_ENDPOINT} in "${NODE_ENV}" mode\n`
+  )
+})
 
 module.exports= { createMember }

@@ -1,39 +1,30 @@
-const { createLogger, format, transports } = require('winston')
-const { combine, timestamp, simple } = format
+import { createLogger, format, transports } from 'winston'
 
-const options = {
-  file: {
-    level: 'info',
-    filename: '../logs/app.log',
-    handleExceptions: true,
-    json: true,
-    maxsize: 5242880, // 5MB
-    maxFiles: 5,
-    colorize: false,
-    timestamp: true
-  },
-  console: {
-    level: 'debug',
-    handleExceptions: true,
-    json: false,
-    colorize: true,
-    timestamp: true
+class LoggerService {
+  constructor() {
+    const winstonTransports = [
+      new transports.Console({
+        format: format.combine(
+          format.colorize(),
+          format.timestamp({ format: 'YYYY/MM/DD HH:mm' }),
+          format.printf(
+            info => `${info.timestamp} - ${info.level}: ${info.message}`
+          )
+        ),
+      }),
+    ]
+
+    const logger = createLogger({
+      level: 'info',
+      transports: winstonTransports,
+      exceptionHandlers: winstonTransports,
+    })
+
+    return new Proxy(this, {
+      get: (target, propKey) => logger[propKey],
+    })
   }
 }
 
-const logger = createLogger({
-  level: 'info',
-  format: combine(
-    timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss'
-    }),
-    simple()
-  ),
-  transports: [
-    new transports.File(options.file),
-    new transports.Console(options.console)
-  ],
-  exitOnError: false // do not exit on handled exceptions
-})
-
-module.exports= logger
+export const logger = new LoggerService() // Default logger
+export { LoggerService }

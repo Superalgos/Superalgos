@@ -1,0 +1,16 @@
+import {
+  GraphQLObjectType,
+  GraphQLInt,
+  GraphQLString
+} from 'graphql'
+
+const RuleType = new GraphQLObjectType({
+  name: 'Rule',
+  fields: () => ({
+    number: { type: GraphQLInt },
+    title: { type: GraphQLString },
+    description: { type: GraphQLString }
+  })
+})
+
+export default RuleType

@@ -1,7 +1,7 @@
 version: '3'
 services:
   api:
-    image: advancedalgosteamsmodule/teammodule-api:v8
+    image: advancedalgosteamsmodule/teammodule-api:v9
     env_file: ./.env.prod
     container_name: aateamapi-imagetest
     tty: true
@@ -11,6 +11,6 @@ services:
       - /var/www/app/node_modules
     working_dir: /var/www/app
     restart: always
-    command: node -r dotenv/config src/index.js
+    command: node --require @babel/register --require dotenv/config src/index.js
     ports:
       - "4001:4001"

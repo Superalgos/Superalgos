@@ -26,8 +26,8 @@ const mutation = {
         host: authIdOnSession,
         displayName: args.displayName,
         description: args.description,
-        // startDatetime: args.startDatetime,
-        // finishDatetime: args.finishDatetime,
+        startDatetime: args.startDatetime,
+        finishDatetime: args.finishDatetime,
         formula: args.formula
       })
       newCompetition.codeName = slugify(newCompetition.displayName) + '-' + newCompetition._id

@@ -3,21 +3,21 @@ import {
 } from 'graphql'
 
 import HostCompetitionMutation from './HostCompetition'
-import RegisterToCompetitionMutation from './RegisterToCompetition'
-import AddRuleToCompetitionMutation from './AddRuleToCompetition'
 import EditCompetitionMutation from './EditCompetition'
-import EditRuleOfCompetitionMutation from './EditRuleOfCompetition'
+import RegisterToCompetitionMutation from './RegisterToCompetition'
 import EditParticipantOfCompetitionMutation from './EditParticipantOfCompetition'
+import AddRuleToCompetitionMutation from './AddRuleToCompetition'
+import EditRuleOfCompetitionMutation from './EditRuleOfCompetition'
 
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: Object.assign(
     HostCompetitionMutation,
-    RegisterToCompetitionMutation,
-    AddRuleToCompetitionMutation,
     EditCompetitionMutation,
-    EditRuleOfCompetitionMutation,
-    EditParticipantOfCompetitionMutation
+    RegisterToCompetitionMutation,
+    EditParticipantOfCompetitionMutation,
+    AddRuleToCompetitionMutation,
+    EditRuleOfCompetitionMutation
   )
 })
 

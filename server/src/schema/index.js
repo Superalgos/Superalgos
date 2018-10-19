@@ -3,7 +3,10 @@ import {
   GraphQLSchema
 } from 'graphql'
 
-import { HostCompetitionMutation } from './mutations'
+import {
+  HostCompetitionMutation,
+  RegisterToCompetitionMutation
+} from './mutations'
 import {
   CompetitionsQuery,
   CompetitionsByHostQuery
@@ -20,7 +23,8 @@ const RootQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: Object.assign(
-    HostCompetitionMutation
+    HostCompetitionMutation,
+    RegisterToCompetitionMutation
   )
 })
 

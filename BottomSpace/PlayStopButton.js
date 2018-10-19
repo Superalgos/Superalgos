@@ -130,7 +130,7 @@ function newPlayStopButton() {
 
         thisObject.container.frame.draw(false, false);
 
-        let breakpointsHeight = 15;
+        let breakpointsHeight = 8;
 
         if (canDraw === false) { return; }
 

@@ -16,7 +16,7 @@ function newCurrentBot() {
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
     container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 3;
-    container.frame.position.y = 0;
+    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
     container.isClickeable = true;
@@ -121,10 +121,9 @@ function newCurrentBot() {
         if (label === undefined) { label = "" };
 
         let point = {
-            x: thisObject.container.frame.width * 1 / 3,
-            y: (thisObject.container.frame.height / 2) + 4
+            x: 250,
+            y: (thisObject.container.frame.height / 2) + 12
         };
-
         point = thisObject.container.frame.frameThisPoint(point);
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;

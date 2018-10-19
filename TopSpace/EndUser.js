@@ -16,7 +16,7 @@ function newEndUser() {
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
     container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 5;
-    container.frame.position.y = 0;
+    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
 

@@ -13,4 +13,3 @@ export {
   PrizeType,
   CompetitionType
 }
-export default CompetitionType

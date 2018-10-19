@@ -78,5 +78,5 @@ async function run () {
 try {
   run()
 } catch (e) {
-  logger.error(e, e.message, e.stack)
+  logger.error(`An general error occured while running the app: ${e}, details: ${e.message}, stack: ${e.stack}`)
 }

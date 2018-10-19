@@ -23,7 +23,7 @@ function newTopSpace() {
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
     container.frame.position.x = 0;
-    container.frame.position.y = 0;
+    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
 
@@ -97,7 +97,7 @@ function newTopSpace() {
 
         thisObject.container.frame.draw(false, false);
 
-        drawBackground();
+        //drawBackground();
         thisObject.companyLogo.draw();
         thisObject.endUser.draw();
         thisObject.devTeam.draw();

@@ -12,11 +12,11 @@ function newCurrentProcess() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = 200;
+    thisObject.container.frame.width = 130;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
     container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 2;
-    container.frame.position.y = 0;
+    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
     container.isClickeable = true;
@@ -115,7 +115,7 @@ function newCurrentProcess() {
 
         let point = {
             x: thisObject.container.frame.width * 1 / 3,
-            y: (thisObject.container.frame.height / 2) + 4
+            y: (thisObject.container.frame.height / 2) + 12
         };
 
         point = thisObject.container.frame.frameThisPoint(point);

@@ -1,5 +1,6 @@
 import {
   GraphQLNonNull,
+  GraphQLInt,
   GraphQLString
 } from 'graphql'
 import { CompetitionType } from '../types'
@@ -9,8 +10,8 @@ import { slugify } from '../../utils/functions'
 const args = {
   displayName: { type: new GraphQLNonNull(GraphQLString) },
   description: { type: new GraphQLNonNull(GraphQLString) },
-  startDatetime: { type: new GraphQLNonNull(GraphQLString) },
-  finishDatetime: { type: new GraphQLNonNull(GraphQLString) },
+  startDatetime: { type: new GraphQLNonNull(GraphQLInt) },
+  finishDatetime: { type: new GraphQLNonNull(GraphQLInt) },
   formula: { type: new GraphQLNonNull(GraphQLString) }
 }
 

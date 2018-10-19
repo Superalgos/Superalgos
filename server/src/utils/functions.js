@@ -11,4 +11,6 @@ export const slugify = (text) => {
     .replace(/-+$/, '')
 }
 
-export default { capitalize, slugify }
+export const epoch = () => {
+  return Math.round(new Date().getTime() / 1000)
+}

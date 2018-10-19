@@ -1,5 +1,6 @@
 import {
   GraphQLObjectType,
+  GraphQLInt,
   GraphQLString,
   GraphQLList,
   GraphQLID
@@ -18,8 +19,8 @@ const CompetitionType = new GraphQLObjectType({
     displayName: { type: GraphQLString },
     host: { type: GraphQLString },
     description: { type: GraphQLString },
-    startDatetime: { type: GraphQLString },
-    finishDatetime: { type: GraphQLString },
+    startDatetime: { type: GraphQLInt },
+    finishDatetime: { type: GraphQLInt },
     formula: { type: GraphQLString },
     plotter: {
       type: PlotterType,

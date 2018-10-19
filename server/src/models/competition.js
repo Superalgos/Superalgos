@@ -5,8 +5,8 @@ const competitionSchema = new Schema({
   displayName: String,
   host: String,
   description: String,
-  startDatetime: Date,
-  finishDatetime: Date,
+  startDatetime: Number,
+  finishDatetime: Number,
   formula: String,
   plotter: {
     codeName: String,

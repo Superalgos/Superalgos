@@ -13,36 +13,38 @@ const args = {
   release: { type: new GraphQLNonNull(GraphQLString) }
 }
 
+const resolve = (parent, args, context) => {
+  // let authIdOnSession = context.user.sub
+  return new Promise((resolve, reject) => {
+    Competition.findOne({ codeName: args.codeName }).exec((err, competition) => {
+      if (err) reject(err)
+      else {
+        if (competition.participants.some(participant => participant.devTeam === args.devTeam)) {
+          // need to add an error message here TODO
+          resolve(competition)
+        } else {
+          competition.participants.push({
+            devTeam: args.devTeam,
+            bot: args.bot,
+            release: args.release
+          })
+          competition.save((err) => {
+            if (err) reject(err)
+            else {
+              resolve(competition)
+            }
+          })
+        }
+      }
+    })
+  })
+}
+
 const mutation = {
   registerToCompetition: {
     type: CompetitionType,
     args,
-    resolve (parent, args, context) {
-      // let authIdOnSession = context.user.sub
-      return new Promise((resolve, reject) => {
-        Competition.findOne({ codeName: args.codeName }).exec((err, competition) => {
-          if (err) reject(err)
-          else {
-            if (competition.participants.some(participant => participant.devTeam === args.devTeam)) {
-              // need to add an error message here TODO
-              resolve(competition)
-            } else {
-              competition.participants.push({
-                devTeam: args.devTeam,
-                bot: args.bot,
-                release: args.release
-              })
-              competition.save((err) => {
-                if (err) reject(err)
-                else {
-                  resolve(competition)
-                }
-              })
-            }
-          }
-        })
-      })
-    }
+    resolve
   }
 }
 

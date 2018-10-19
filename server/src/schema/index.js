@@ -9,14 +9,16 @@ import {
 } from './mutations'
 import {
   CompetitionsQuery,
-  CompetitionsByHostQuery
+  CompetitionsByHostQuery,
+  CompetitionsByDevTeamQuery
 } from './queries'
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: Object.assign(
     CompetitionsQuery,
-    CompetitionsByHostQuery
+    CompetitionsByHostQuery,
+    CompetitionsByDevTeamQuery
   )
 })
 

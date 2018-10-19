@@ -29,7 +29,7 @@ const competitionSchema = new Schema({
     }]
   }],
   participants: [{
-    id: String,
+    devTeam: String,
     bot: String,
     release: String
   }]

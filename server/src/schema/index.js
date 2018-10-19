@@ -1,34 +1,9 @@
 import {
-  GraphQLObjectType,
   GraphQLSchema
 } from 'graphql'
 
-import {
-  HostCompetitionMutation,
-  RegisterToCompetitionMutation
-} from './mutations'
-import {
-  CompetitionsQuery,
-  CompetitionsByHostQuery,
-  CompetitionsByDevTeamQuery
-} from './queries'
-
-const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',
-  fields: Object.assign(
-    CompetitionsQuery,
-    CompetitionsByHostQuery,
-    CompetitionsByDevTeamQuery
-  )
-})
-
-const Mutation = new GraphQLObjectType({
-  name: 'Mutation',
-  fields: Object.assign(
-    HostCompetitionMutation,
-    RegisterToCompetitionMutation
-  )
-})
+import Mutation from './mutations'
+import RootQuery from './queries'
 
 const Schema = new GraphQLSchema({
   query: RootQuery,

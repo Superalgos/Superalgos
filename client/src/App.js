@@ -18,7 +18,7 @@ import KeyVault from '@advancedalgos/key-vault-client'
 import Users from '@advancedalgos/users-client'
 
 export const auth = new Auth(
-  result => console.log('auth result', result),
+  result => console.log('Authentication successful.'),
   client
 )
 

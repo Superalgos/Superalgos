@@ -53,7 +53,6 @@ const styles = theme => ({
     position: 'relative'
   },
   img: {
-    margin: 20,
     display: 'block',
     maxWidth: 240,
     maxHeight: 48

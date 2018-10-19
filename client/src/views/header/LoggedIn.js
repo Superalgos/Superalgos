@@ -28,9 +28,7 @@ export const LoggedIn = props => {
 
   return (
     <div>
-      <p>
         <LoggedInMenu menuLabel={displayName} auth={auth} />
-      </p>
     </div>
   )
 }

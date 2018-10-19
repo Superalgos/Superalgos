@@ -13,10 +13,10 @@ const args = {
   release: { type: new GraphQLNonNull(GraphQLString) }
 }
 
-const resolve = (parent, args, context) => {
+const resolve = (parent, { codeName, devTeam, bot, release }, context) => {
   // let authIdOnSession = context.user.sub
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName: args.codeName }).exec((err, competition) => {
+    Competition.findOne({ codeName }).exec((err, competition) => {
       if (err) reject(err)
       else {
         if (competition.participants.some(participant => participant.devTeam === args.devTeam)) {
@@ -24,9 +24,9 @@ const resolve = (parent, args, context) => {
           resolve(competition)
         } else {
           competition.participants.push({
-            devTeam: args.devTeam,
-            bot: args.bot,
-            release: args.release
+            devTeam,
+            bot,
+            release
           })
           competition.save((err) => {
             if (err) reject(err)

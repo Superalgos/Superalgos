@@ -13,13 +13,13 @@ const args = {
   includeOld: { type: GraphQLBoolean }
 }
 
-const resolve = (parent, args, context) => {
+const resolve = (parent, { devTeam, includeOld }, context) => {
   return Competition.find(
     Object.assign(
       {
-        participants: { $elemMatch: { devTeam: args.devTeam } }
+        participants: { $elemMatch: { devTeam } }
       },
-      args.includeOld ? { finishDatetime: { $gt: epoch() } } : {}
+      includeOld ? { finishDatetime: { $gt: epoch() } } : {}
     )
   )
 }

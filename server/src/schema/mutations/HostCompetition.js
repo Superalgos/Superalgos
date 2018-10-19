@@ -15,16 +15,16 @@ const args = {
   formula: { type: new GraphQLNonNull(GraphQLString) }
 }
 
-const resolve = (parent, args, context) => {
+const resolve = (parent, { displayName, description, startDatetime, finishDatetime, formula }, context) => {
   // let authIdOnSession = context.user.sub
   let authIdOnSession = 'some-id'
   let newCompetition = new Competition({
     host: authIdOnSession,
-    displayName: args.displayName,
-    description: args.description,
-    startDatetime: args.startDatetime,
-    finishDatetime: args.finishDatetime,
-    formula: args.formula
+    displayName,
+    description,
+    startDatetime,
+    finishDatetime,
+    formula
   })
   newCompetition.codeName = slugify(newCompetition.displayName) + '-' + newCompetition._id
   return new Promise((resolve, reject) => {

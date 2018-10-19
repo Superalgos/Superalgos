@@ -11,7 +11,7 @@ import { AUTH_CONFIG } from './Auth0' // create by renaming Auth0.sample.js to A
 
 const AUTHENTICATE = gql`
   mutation authenticate($idToken: String!) {
-    teams_Authenticate(idToken: $idToken) {
+    users_Authenticate(idToken: $idToken) {
       alias
       authId
     }
@@ -132,8 +132,7 @@ class Auth {
         {
           responseType: 'token id_token',
           audience: AUTH_CONFIG.api_audience,
-          scope:
-            'openid email profile read:teams write:teams read:member write:member',
+          scope: 'openid email profile',
           connection: 'github',
           prompt: 'none'
         },
@@ -189,8 +188,8 @@ class Auth {
       Log.info('auth.signinOrCreateAccount data:')
       Log.info(response)
       const user = {
-        authId: response.data.teams_Authenticate.authId,
-        alias: response.data.teams_Authenticate.alias
+        authId: response.data.users_Authenticate.authId,
+        alias: response.data.users_Authenticate.alias
       }
       setItem('user', JSON.stringify(user))
       if (window.location.href.includes(`callback`)) {
@@ -229,6 +228,7 @@ class Auth {
       return user
     }
 
+    //TODO improve to check the session validation on client side
     const checkSSO = await this.checkSession()
       .then(result => {
         console.log('handleAuth.checksessions: ', result)

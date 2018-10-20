@@ -1,8 +1,8 @@
 import express from 'express'
+import 'dotenv/config'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import graphqlHTTP from 'express-graphql'
-import 'dotenv/config'
 import expressPlayground from 'graphql-playground-middleware-express'
 
 import schema from './schema'

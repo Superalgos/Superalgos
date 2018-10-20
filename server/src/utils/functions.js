@@ -14,3 +14,13 @@ export const slugify = (text) => {
 export const epoch = () => {
   return Math.round(new Date().getTime() / 1000)
 }
+
+export const isBetween = (value, valA, valB) => {
+  const min = valA < valB ? valA : valB
+  const max = valA > valB ? valA : valB
+  if (value >= min && value <= max) {
+    return true
+  } else {
+    return false
+  }
+}

@@ -7,16 +7,16 @@ import { CompetitionType } from '../types'
 import Competition from '../../models/competition'
 
 const args = {
-  codeName: { type: new GraphQLNonNull(GraphQLID) },
+  competitionCodeName: { type: new GraphQLNonNull(GraphQLID) },
   title: { type: new GraphQLNonNull(GraphQLString) },
   newtitle: { type: GraphQLString },
   description: { type: GraphQLString }
 }
 
-const resolve = (parent, { codeName, title, newtitle, description }, context) => {
+const resolve = (parent, { competitionCodeName, title, newtitle, description }, context) => {
   // let authIdOnSession = context.user.sub
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName }).exec((err, competition) => {
+    Competition.findOne({ codeName: competitionCodeName }).exec((err, competition) => {
       if (err) reject(err)
       else {
         let ruleIndex
@@ -46,7 +46,7 @@ const resolve = (parent, { codeName, title, newtitle, description }, context) =>
 }
 
 const mutation = {
-  editRuleOfCompetition: {
+  editRule: {
     type: CompetitionType,
     args,
     resolve

@@ -1,35 +1,31 @@
 import {
   GraphQLNonNull,
   GraphQLID,
+  GraphQLInt,
   GraphQLString
 } from 'graphql'
 import { CompetitionType } from '../types'
 import Competition from '../../models/competition'
 
 const args = {
-  codeName: { type: new GraphQLNonNull(GraphQLID) },
-  title: { type: new GraphQLNonNull(GraphQLString) },
-  description: { type: new GraphQLNonNull(GraphQLString) }
+  competitionCodeName: { type: new GraphQLNonNull(GraphQLID) },
+  position: { type: new GraphQLNonNull(GraphQLInt) },
+  algoPrize: { type: new GraphQLNonNull(GraphQLString) }
 }
 
-const resolve = (parent, { codeName, title, description }, context) => {
+const resolve = (parent, { competitionCodeName, position, algoPrize }, context) => {
   // let authIdOnSession = context.user.sub
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName }).exec((err, competition) => {
+    Competition.findOne({ codeName: competitionCodeName }).exec((err, competition) => {
       if (err) reject(err)
       else {
-        if (competition.rules.some(rule => rule.title === title)) {
+        if (competition.prizes.some(prize => prize.position === position)) {
           // need to add an error message here TODO
           resolve(competition)
         } else {
-          let number = 1
-          while (competition.rules.some(rule => rule.number === number)) {
-            number++
-          }
-          competition.rules.push({
-            number,
-            title,
-            description
+          competition.prizes.push({
+            position,
+            algoPrize
           })
           competition.save((err) => {
             if (err) reject(err)
@@ -44,7 +40,7 @@ const resolve = (parent, { codeName, title, description }, context) => {
 }
 
 const mutation = {
-  addRuleToCompetition: {
+  addPrize: {
     type: CompetitionType,
     args,
     resolve

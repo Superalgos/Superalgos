@@ -8,9 +8,14 @@ import jwt from 'express-jwt'
 import jwksRsa from 'jwks-rsa'
 
 import schema from './schema'
+const Sentry = require('@sentry/node')
 
 // Initialise express
 const app = express()
+
+// Initialising sentry
+Sentry.init({ dsn: process.env.SENTRY_DNS })
+app.use(Sentry.Handlers.requestHandler())
 
 // Allow cross origing request
 app.use(cors())
@@ -62,6 +67,9 @@ app.use('/graphql', graphqlHTTP(req => {
   }
 }))
 app.get('/playground', expressPlayground({ endpoint: '/graphql' }))
+
+// Sentry error handling middleware
+app.use(Sentry.Handlers.errorHandler())
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`)

@@ -22,11 +22,11 @@ const args = {
 
 const resolve = (parent, { codeName, displayName, description, startDatetime, finishDatetime,
   formula, plotterCodeName, plotterHost, plotterRepo, plotterModuleName }, context) => {
-  // let authIdOnSession = context.user.sub
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName }).exec((err, competition) => {
-      if (err) reject(err)
-      else {
+    Competition.findOne({ codeName, host: context.user.sub }).exec((err, competition) => {
+      if (err || !competition) {
+        reject(err)
+      } else {
         competition.displayName = displayName || competition.displayName
         competition.description = description || competition.description
         competition.startDatetime = startDatetime || competition.startDatetime

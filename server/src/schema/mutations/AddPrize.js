@@ -14,11 +14,11 @@ const args = {
 }
 
 const resolve = (parent, { competitionCodeName, position, algoPrize }, context) => {
-  // let authIdOnSession = context.user.sub
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName: competitionCodeName }).exec((err, competition) => {
-      if (err) reject(err)
-      else {
+    Competition.findOne({ codeName: competitionCodeName, host: context.user.sub }).exec((err, competition) => {
+      if (err || !competition) {
+        reject(err)
+      } else {
         if (competition.prizes.some(prize => prize.position === position)) {
           // need to add an error message here TODO
           resolve(competition)

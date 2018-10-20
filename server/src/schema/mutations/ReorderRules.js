@@ -14,11 +14,11 @@ const args = {
 }
 
 const resolve = (parent, { competitionCodeName, fromNumber, toNumber }, context) => {
-  // let authIdOnSession = context.user.sub
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName: competitionCodeName }).exec((err, competition) => {
-      if (err) reject(err)
-      else {
+    Competition.findOne({ codeName: competitionCodeName, host: context.user.sub }).exec((err, competition) => {
+      if (err || !competition) {
+        reject(err)
+      } else {
         const delta = fromNumber > toNumber ? 1 : -1
         competition.rules.forEach((part) => {
           if (part.number === fromNumber) {

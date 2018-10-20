@@ -16,10 +16,9 @@ const args = {
 }
 
 const resolve = (parent, { displayName, description, startDatetime, finishDatetime, formula }, context) => {
-  // let authIdOnSession = context.user.sub
-  let authIdOnSession = 'some-id'
+  const host = context.user.sub
   let newCompetition = new Competition({
-    host: authIdOnSession,
+    host,
     displayName,
     description,
     startDatetime,

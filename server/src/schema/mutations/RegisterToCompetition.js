@@ -14,7 +14,6 @@ const args = {
 }
 
 const resolve = (parent, { codeName, devTeam, bot, release }, context) => {
-  // let authIdOnSession = context.user.sub
   return new Promise((resolve, reject) => {
     Competition.findOne({ codeName }).exec((err, competition) => {
       if (err) reject(err)

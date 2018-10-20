@@ -8,6 +8,7 @@ import RegisterToCompetitionMutation from './RegisterToCompetition'
 import EditParticipantMutation from './EditParticipant'
 import AddRuleMutation from './AddRule'
 import EditRuleMutation from './EditRule'
+import ReorderRulesMutation from './ReorderRules'
 import AddPrizeMutation from './AddPrize'
 
 const Mutation = new GraphQLObjectType({
@@ -19,6 +20,7 @@ const Mutation = new GraphQLObjectType({
     EditParticipantMutation,
     AddRuleMutation,
     EditRuleMutation,
+    ReorderRulesMutation,
     AddPrizeMutation
   )
 })

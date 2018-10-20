@@ -4,7 +4,7 @@ import {
 
 import HostCompetitionMutation from './HostCompetition'
 import EditCompetitionMutation from './EditCompetition'
-import RegisterMutation from './Register'
+import RegisterToCompetitionMutation from './RegisterToCompetition'
 import EditParticipantMutation from './EditParticipant'
 import AddRuleMutation from './AddRule'
 import EditRuleMutation from './EditRule'
@@ -15,7 +15,7 @@ const Mutation = new GraphQLObjectType({
   fields: Object.assign(
     HostCompetitionMutation,
     EditCompetitionMutation,
-    RegisterMutation,
+    RegisterToCompetitionMutation,
     EditParticipantMutation,
     AddRuleMutation,
     EditRuleMutation,

@@ -19,7 +19,7 @@ const resolve = (parent, { host, includeOld }, context) => {
       {
         host
       },
-      includeOld ? { finishDatetime: { $gt: epoch() } } : {}
+      includeOld ? {} : { finishDatetime: { $gt: epoch() } }
     )
   )
 }

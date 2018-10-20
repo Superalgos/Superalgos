@@ -14,7 +14,7 @@ const resolve = (parent, { includeOld }, context) => {
   return Competition.find(
     Object.assign(
       {},
-      includeOld ? { finishDatetime: { $gt: epoch() } } : {}
+      includeOld ? {} : { finishDatetime: { $gt: epoch() } }
     ))
 }
 

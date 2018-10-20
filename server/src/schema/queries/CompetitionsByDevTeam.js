@@ -19,7 +19,7 @@ const resolve = (parent, { devTeam, includeOld }, context) => {
       {
         participants: { $elemMatch: { devTeam } }
       },
-      includeOld ? { finishDatetime: { $gt: epoch() } } : {}
+      includeOld ? {} : { finishDatetime: { $gt: epoch() } }
     )
   )
 }

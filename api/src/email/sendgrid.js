@@ -1,9 +1,11 @@
 var jwt = require('jsonwebtoken')
 var axios = require('axios')
 
+import { logger } from './logger'
+
 const sendTeamMemberInvite = function(email, team) {
     const dev = process.env.NODE_ENV === 'development' ? true : false
-    console.log('sendTeamMemberInvite', email, team)
+    logger.info(`sendTeamMemberInvite email|team: ${email} | ${team}`)
     const API_KEY = process.env.SG_APIKEY
     const token = jwt.sign({ email: email, team: team.slug }, API_KEY, { expiresIn: '7d' })
     let origin = 'https://teams.advancedalgos.net'
@@ -69,7 +71,7 @@ const sendTeamMemberInvite = function(email, team) {
 
 const sendTeamCreateConfirmation = function(email, teamName, botName) {
     const dev = process.env.NODE_ENV === 'development' ? true : false
-    console.log('sendTeamMemberInvite', email, teamName, botName)
+    logger.info(`sendTeamCreateConfirmation email|teamName|botName: ${email} | ${teamName} | ${botName}`)
     const API_KEY = process.env.SG_APIKEY
     let origin = 'https://teams.advancedalgos.net'
     if (dev){
@@ -144,8 +146,7 @@ const verifyInviteToken = async function(token) {
       throw new Error (`Error: Token error - ${err.message}`)
     }
   }
-
-  console.log('verifyInviteToken', verifiedToken)
+  logger.info(`verifyInviteToken: ${verifiedToken}`)
   return verifiedToken
 }
 

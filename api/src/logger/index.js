@@ -6,9 +6,9 @@ class LoggerService {
       new transports.Console({
         format: format.combine(
           format.colorize(),
-          format.timestamp({ format: 'YYYY/MM/DD HH:mm' }),
+          format.timestamp({ format: 'YY/MM/DD HH:mm' }),
           format.printf(
-            info => `${info.timestamp} - ${info.level}: ${info.message}`
+            info => `${info.timestamp} - ${info.level}: ${JSON.stringify(info.message)}`
           )
         ),
       }),

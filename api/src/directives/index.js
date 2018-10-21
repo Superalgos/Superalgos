@@ -12,7 +12,7 @@ const ctxMember = ctx => _get(ctx, memberLocationOnContext)
 const ctxToken = ctx => _get(ctx, bearerAccessToken)
 
 const createMember = async (ctx, idToken, info) => {
-  logger.info('createMember', idToken)
+  logger.info(`createMember: ${idToken}`)
   const member = await ctx.db.mutation.upsertMember({
     where: {
       authId: idToken.sub,
@@ -30,7 +30,7 @@ const createMember = async (ctx, idToken, info) => {
 }
 
 const isLoggedIn = async ctx => {
-    logger.info('isLoggedIn 0 : ', ctx.request.headers)
+    logger.info(`isLoggedIn 0: ${JSON.stringify(ctx.request.headers)}`)
     let member = ctxMember(ctx, memberLocationOnContext)
     let token = ctxToken(ctx, bearerAccessToken)
     let memberToken
@@ -46,16 +46,12 @@ const isLoggedIn = async ctx => {
      if (/^Bearer$/i.test(scheme)) {
        token = credentials
        //verify token
-       // console.log('isLoggedIn2 : ', token)
        try {
          memberToken = await validateIdToken(token)
          const authId = memberToken.sub
-         // console.log('isLoggedIn3 : ', await authId, ctx.db.query.member)
          exists = await ctx.db.query.member({ where: { authId: authId } })
-         // console.log('isLoggedIn4 : ', await exists, createMember )
          if (!member && exists === null) {
            member = await createMember(ctx, memberToken).then(res => {
-              // console.log('isLoggedIn5 : ', res)
               return res
            })
 
@@ -67,7 +63,6 @@ const isLoggedIn = async ctx => {
        }
      }
     }
-    // console.log('isLoggedIn5 : ', await member)
     if (!member) {
       throw new AuthenticationError('Access token is missing or expired')
     }
@@ -113,13 +108,11 @@ export const directiveResolvers = {
         ? source
         : ctx.request.body.variables ? ctx.request.body.variables : { id: null }
     const user = await isLoggedIn(ctx)
-    // console.log('directive isOwner 0: ', typeId, user.sub)
     const memberId = user.sub
     const isOwner =
       type === `Member`
         ? memberId === typeId
         : await isRequestingMemberAlsoOwner({ ctx, memberId, type, typeId })
-    // console.log('directive isOwner 1: ', source, isOwner, type, typeId, memberId)
     if (isOwner) {
       return next()
     }

@@ -1,7 +1,7 @@
 var jwt = require('jsonwebtoken')
 var axios = require('axios')
 
-import { logger } from './logger'
+import { logger } from '../logger'
 
 const sendTeamMemberInvite = function(email, team) {
     const dev = process.env.NODE_ENV === 'development' ? true : false

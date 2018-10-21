@@ -12,10 +12,10 @@ function newCurrentBot() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = 200;
+    thisObject.container.frame.width = 100;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 3;
+    container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 1;
     container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
@@ -121,7 +121,7 @@ function newCurrentBot() {
         if (label === undefined) { label = "" };
 
         let point = {
-            x: 250,
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize / 3,
             y: (thisObject.container.frame.height / 2) + 12
         };
         point = thisObject.container.frame.frameThisPoint(point);

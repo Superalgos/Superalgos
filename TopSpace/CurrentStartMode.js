@@ -12,10 +12,10 @@ function newCurrentStartMode() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = 130;
+    thisObject.container.frame.width = 100;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 1;
+    container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 3;
     container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;

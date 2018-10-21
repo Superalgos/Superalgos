@@ -12,10 +12,10 @@ function newCurrentProcess() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = 130;
+    thisObject.container.frame.width = 100;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 2;
+    container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 2;
     container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     container.isDraggeable = false;
@@ -114,7 +114,7 @@ function newCurrentProcess() {
         if (label === undefined) { label = "" };
 
         let point = {
-            x: thisObject.container.frame.width * 1 / 3,
+            x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize / 3,
             y: (thisObject.container.frame.height / 2) + 12
         };
 

@@ -3,6 +3,9 @@ import cors from 'cors'
 import 'dotenv/config'
 import { ApolloServer } from 'apollo-server-express'
 import { mergeSchemas } from 'graphql-tools'
+import jwt from 'express-jwt'
+import jwksRsa from 'jwks-rsa'
+
 import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams } from './links'
 import logger from './logger'
@@ -66,6 +69,31 @@ async function run () {
       ]
     }
   })
+
+  app.use('/graphql',
+    jwt({
+      secret: jwksRsa.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 1,
+        jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
+      }),
+      credentialsRequired: false,
+      audience: process.env.AUTH0_AUDIENCE,
+      issuer: process.env.AUTH0_ISSUER,
+      algorithms: [`RS256`]
+    }),
+    function (err, req, res, next) {
+      if (err.code === 'invalid_token') {
+        res.send({
+          'type': 'invalidToken',
+          'subType': err.message
+        })
+        return 0
+      }
+      return next()
+    }
+  )
 
   server.applyMiddleware({ app })
 

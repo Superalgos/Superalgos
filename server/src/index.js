@@ -50,11 +50,11 @@ async function run () {
     context: ({ req }) => req, // placeholder until specific use case for context on Master App server
     formatError: error => {
       logger.error('Error on Apolo Server: ', error)
-      return error;
+      return error
     },
     formatResponse: response => {
       logger.info('Response from Apolo Server: ', response)
-      return response;
+      return response
     },
     playground: {
       settings: { 'editor.theme': 'light' },
@@ -67,7 +67,7 @@ async function run () {
     }
   })
 
-  server.applyMiddleware({ app });
+  server.applyMiddleware({ app })
 
   app.use(cors())
 

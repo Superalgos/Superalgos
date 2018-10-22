@@ -12,7 +12,7 @@ function newCurrentProcess() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = 100;
+    thisObject.container.frame.width = 150;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
     container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 2;

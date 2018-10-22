@@ -28,7 +28,7 @@
 
     function getTicker(pMarket, callBackFunction) {
 
-        let authToken = window.localStorage.getItem('auth0Token');
+        let authToken = window.localStorage.getItem('access_token');
 
         let path = "ExchangeAPI" + "/"
             + CURRENT_BOT_CODE_NAME + "/"

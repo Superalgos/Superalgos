@@ -57,7 +57,7 @@ async function run () {
       return response
     },
     playground: {
-      settings: { 'editor.theme': 'light' },
+      settings: { 'editor.theme': 'dark' },
       tabs: [
         {
           endpoint: process.env.GRAPHQL_API_URL,

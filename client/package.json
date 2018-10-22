@@ -12,8 +12,10 @@
     "react-hot-loader": "^4.3.11"
   },
   "dependencies": {
+    "@advancedalgos/web-components": "0.0.13",
     "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
+    "classnames": "^2.2.6",
     "graphql-tag": "^2.10.0",
     "react": "^16.5.2",
     "react-apollo": "^2.2.4",

@@ -19,7 +19,10 @@ const authRetryLink = onError(
     if (graphQLErrors) {
       // User access token has expired
       // console.log('authLink: ', graphQLErrors) // check for error message to intercept and resend with Auth0 access token
-      if (graphQLErrors[0].message === 'Not logged in') {
+      if (graphQLErrors[0].message === 'Context creation failed: jwt expired')  {
+        window.localStorage.clear()
+        location.reload()
+      } else if (graphQLErrors[0].message === 'Not logged in') {
         // We assume we have auth0 access token needed to run the async request
         // Let's refresh token through async request
         return new Observable(observer => {

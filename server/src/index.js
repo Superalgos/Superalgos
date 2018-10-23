@@ -1,8 +1,11 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
-import { ApolloServer } from 'apollo-server-express'
+import { ApolloServer, ForbiddenError } from 'apollo-server-express'
 import { mergeSchemas } from 'graphql-tools'
+import jwt from 'express-jwt'
+import jwksRsa from 'jwks-rsa'
+
 import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams } from './links'
 import logger from './logger'
@@ -44,20 +47,50 @@ async function run () {
   }
 }
 `
+
   const app = express()
+
+  app.use('/graphql',
+    jwt({
+      secret: jwksRsa.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 1,
+        jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
+      }),
+      credentialsRequired: false,
+      audience: process.env.AUTH0_AUDIENCE,
+      issuer: process.env.AUTH0_ISSUER,
+      algorithms: [`RS256`]
+    }),
+    function (err, req, res, next) {
+      if (err.code === 'invalid_token') {
+        res.error = err.message
+      }
+      return next()
+    }
+  )
+
+  const context = ({ req, res }) => {
+    if (res.error) {
+      throw new ForbiddenError(res.error)
+    }
+    return req
+  }
+
   const server = new ApolloServer({
     schema,
-    context: ({ req }) => req, // placeholder until specific use case for context on Master App server
+    context,
     formatError: error => {
       logger.error('Error on Apolo Server: ', error)
-      return error;
+      return error
     },
     formatResponse: response => {
       logger.info('Response from Apolo Server: ', response)
-      return response;
+      return response
     },
     playground: {
-      settings: { 'editor.theme': 'light' },
+      settings: { 'editor.theme': 'dark' },
       tabs: [
         {
           endpoint: process.env.GRAPHQL_API_URL,
@@ -67,7 +100,7 @@ async function run () {
     }
   })
 
-  server.applyMiddleware({ app });
+  server.applyMiddleware({ app })
 
   app.use(cors())
 

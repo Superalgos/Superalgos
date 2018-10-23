@@ -18,7 +18,7 @@
     }
 
     function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotCodeName, pBotDisplayName, pAuthId, callBackFunction) {
-
+        console.log('NEW TEAM: ', pTeamCodeName, pTeamDisplayName, pUserName, pBotCodeName, pBotDisplayName, pAuthId)
         try {
 
             if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> newTeam -> Entering function."); }
@@ -37,15 +37,15 @@
 
                         console.log("[ERROR] TeamSetup -> newTeam -> createContainer -> onContainerCreated -> Could not create the container. ");
                         console.log("[ERROR] TeamSetup -> newTeam -> createContainer -> onContainerCreated -> err.message = " + err.message);
+                        
+                        if (err.message === "ContainerAlreadyExists") {
 
-                        if (err.code === "ContainerAlreadyExists") {
-
-                            let err = {
-                                result: global.CUSTOM_FAIL_RESPONSE.result,
+                            let error = {
+                                result: err.message,
                                 message: "Team Name already taken"
                             };
 
-                            callBackFunction(err);
+                            callBackFunction(error);
 
                         } else {
 

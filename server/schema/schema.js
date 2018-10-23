@@ -218,7 +218,6 @@ const Mutation = new GraphQLObjectType({
     updateUser: {
       type: UserType,
       args: {
-        id: {type: new GraphQLNonNull(GraphQLID)},
         firstName: {type: GraphQLString},
         middleName: {type: GraphQLString},
         lastName: {type: GraphQLString},
@@ -228,9 +227,9 @@ const Mutation = new GraphQLObjectType({
         isDataAnalyst: {type: GraphQLInt},
         roleId: {type: new GraphQLNonNull(GraphQLString)}
       },
-      resolve (parent, args) {
+      resolve (parent, args, context) {
         let key = {
-          _id: args.id
+          _id: context.userId
         }
 
         let updatedUser = {
@@ -247,35 +246,14 @@ const Mutation = new GraphQLObjectType({
         return User.update(key, updatedUser)
       }
     },
-    updateUserImages: {
-      type: UserType,
-      args: {
-        id: {type: new GraphQLNonNull(GraphQLID)},
-        avatarHandle: {type: GraphQLString},
-        avatarChangeDate: {type: GraphQLString}
-      },
-      resolve (parent, args) {
-        let key = {
-          _id: args.id
-        }
-
-        let updatedUser = {
-          avatarHandle: args.avatarHandle,
-          avatarChangeDate: args.avatarChangeDate
-        }
-
-        return User.update(key, updatedUser)
-      }
-    },
     updateUserReferrer: {
       type: UserType,
       args: {
-        id: {type: new GraphQLNonNull(GraphQLID)},
         referrerId: {type: GraphQLString}
       },
-      resolve (parent, args) {
+      resolve (parent, args, context) {
         let key = {
-          _id: args.id,
+          _id: context.userId,
           referrerId: null
         }
 

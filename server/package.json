@@ -1,7 +1,7 @@
 {
-  "name": "@advancedalgos/hosts-client",
+  "name": "hosts-server",
   "version": "0.0.1",
-  "description": "Advanced Algos Host client-side web app",
+  "description": "Advanced Algos Host backend API",
   "author": "",
   "license": "",
   "main": "src/index.js",

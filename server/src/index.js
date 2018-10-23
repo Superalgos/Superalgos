@@ -5,10 +5,33 @@ import { ApolloServer, ForbiddenError } from 'apollo-server-express'
 import { mergeSchemas } from 'graphql-tools'
 import jwt from 'express-jwt'
 import jwksRsa from 'jwks-rsa'
+import axios from 'axios'
 
 import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams } from './links'
 import logger from './logger'
+
+async function getUserId (authId) {
+  try {
+    const userDate = await axios({
+      url: process.env.USERS_API_URL,
+      method: 'post',
+      data: {
+        query: `
+        {
+          userByAuthId(authId: "${authId}")
+          {
+            id
+          }
+        }
+        `
+      }
+    })
+    return userDate.data.data.userByAuthId.id
+  } catch (error) {
+    return (error)
+  }
+}
 
 async function run () {
   const transformedTeamsSchema = await createTransformedRemoteSchema('teams_', process.env.TEAMS_API_URL)
@@ -47,7 +70,6 @@ async function run () {
   }
 }
 `
-
   const app = express()
 
   app.use('/graphql',
@@ -65,17 +87,40 @@ async function run () {
     }),
     function (err, req, res, next) {
       if (err.code === 'invalid_token') {
-        res.error = err.message
+        res.locals.error = err.message
       }
       return next()
     }
   )
 
-  const context = ({ req, res }) => {
-    if (res.error) {
-      throw new ForbiddenError(res.error)
+  app.use('/graphql', (req, res, next) => {
+    res.locals.userId = ''
+    if (req.user) {
+      getUserId(req.user.sub)
+        .then(data => {
+          res.locals.userId = data
+          next()
+        })
+        .catch(err => {
+          res.locals.error = err
+          next()
+        })
+    } else {
+      next()
     }
-    return req
+  })
+
+  const context = ({ req, res }) => {
+    if (res.locals.error) {
+      throw new ForbiddenError(res.locals.error)
+    }
+    const response = {
+      headers: Object.assign(
+        res.locals.userId ? { userId: res.locals.userId } : {},
+        req.headers.authorization ? { authorization: req.headers.authorization } : {}
+      )
+    }
+    return response
   }
 
   const server = new ApolloServer({

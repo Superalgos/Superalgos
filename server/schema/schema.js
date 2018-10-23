@@ -457,20 +457,12 @@ function authenticate (encodedToken, callBackFunction) {
           }
 
           let localDate = new Date()
-          let creationDate = new Date(Date.UTC(
-            localDate.getUTCFullYear(),
-            localDate.getUTCMonth(),
-            localDate.getUTCDate(),
-            localDate.getUTCHours(),
-            localDate.getUTCMinutes(),
-            localDate.getUTCSeconds(),
-            localDate.getUTCMilliseconds())
-          )
+          let creationDate = localDate.valueOf()
 
           let newUser = new User({
             alias: alias,
             authId: authId,
-            creationDate: creationDate.toISOString(),
+            creationDate: creationDate,
             email: email,
             emailVerified: emailVerified,
             roleId: '1'

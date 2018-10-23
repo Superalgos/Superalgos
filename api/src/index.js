@@ -171,26 +171,31 @@ const resolvers = {
           const avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
           const banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
 
-          const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}/${authId}`)
+          const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}/${botName}`)
           logger.info('createTeamUrl:')
           logger.info(JSON.stringify(await createTeamUrl))
 
-          const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
-          // const platformUrl = 'http://localhost:3100/AABrowserAPI/teamSetup/'
-          const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}`)
+          // const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
+          const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+          logger.info(`${platformUrl}${createTeamUrl}/${authId}`)
+          const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}/${authId}`)
             .then((result) => {
-              logger.info('createPlatformTeam:', result)
+              console.log('createPlatformTeam result:', result.data)
               if(result.data.message === 'Team Name already taken'){
-                throw new Error(result.data.message)
+                return result.data.message
+              }
+              if(result.data.result === 'Fail'){
+                return result.data.message
               }
               return result
             })
             .catch(err =>{
-              logger.errror('createPlatformTeam err:', err)
+              logger.debug('createPlatformTeam err:')
+              logger.debug(err)
               throw new Error(err)
             })
-          logger.info('createPlatformTeam: ', await createPlatformTeam)
-          if(createPlatformTeam === 'Error: Team Name already taken'){
+          console.log('createPlatformTeam returned: ', await createPlatformTeam)
+          if(await createPlatformTeam === 'Team Name already taken'){
             return createPlatformTeam
           }
           const createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible:'true', status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER'}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)

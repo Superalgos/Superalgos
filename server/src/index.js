@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
-import { ApolloServer } from 'apollo-server-express'
+import { ApolloServer, ForbiddenError } from 'apollo-server-express'
 import { mergeSchemas } from 'graphql-tools'
 import jwt from 'express-jwt'
 import jwksRsa from 'jwks-rsa'
@@ -47,10 +47,40 @@ async function run () {
   }
 }
 `
+
   const app = express()
+
+  app.use('/graphql',
+    jwt({
+      secret: jwksRsa.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 1,
+        jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
+      }),
+      credentialsRequired: false,
+      audience: process.env.AUTH0_AUDIENCE,
+      issuer: process.env.AUTH0_ISSUER,
+      algorithms: [`RS256`]
+    }),
+    function (err, req, res, next) {
+      if (err.code === 'invalid_token') {
+        res.error = err.message
+      }
+      return next()
+    }
+  )
+
+  const context = ({ req, res }) => {
+    if (res.error) {
+      throw new ForbiddenError(res.error)
+    }
+    return req
+  }
+
   const server = new ApolloServer({
     schema,
-    context: ({ req }) => req, // placeholder until specific use case for context on Master App server
+    context,
     formatError: error => {
       logger.error('Error on Apolo Server: ', error)
       return error
@@ -69,32 +99,6 @@ async function run () {
       ]
     }
   })
-
-  app.use('/graphql',
-    jwt({
-      secret: jwksRsa.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 1,
-        jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
-      }),
-      credentialsRequired: false,
-      audience: process.env.AUTH0_AUDIENCE,
-      issuer: process.env.AUTH0_ISSUER,
-      algorithms: [`RS256`]
-    }),
-    function (err, req, res, next) {
-      if (err.code === 'invalid_token') {
-        res.status(401)
-        res.send({
-          'type': 'invalidToken',
-          'subType': err.message
-        })
-        return 0
-      }
-      return next()
-    }
-  )
 
   server.applyMiddleware({ app })
 

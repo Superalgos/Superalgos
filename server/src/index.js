@@ -102,7 +102,7 @@ async function run () {
           next()
         })
         .catch(err => {
-          res.locals.error = err
+          console.log(err)
           next()
         })
     } else {

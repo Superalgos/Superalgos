@@ -94,7 +94,7 @@ async function run () {
   )
 
   app.use('/graphql', (req, res, next) => {
-    res.locals.userId = 'haha'
+    res.locals.userId = ''
     if (req.user) {
       getUserId(req.user.sub)
         .then(data => {
@@ -105,6 +105,8 @@ async function run () {
           res.locals.error = err
           next()
         })
+    } else {
+      next()
     }
   })
 

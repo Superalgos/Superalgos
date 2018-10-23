@@ -288,9 +288,12 @@ function newDeleteTradingHistory() {
 
             if (INFO_LOG === true) { logger.write("[INFO] draw -> Entering function."); }
 
-            let user = window.localStorage.getItem("user");
+            let sessionToken = window.localStorage.getItem('sessionToken');
 
-            if (user === null) { return; }
+            if (sessionToken === null || sessionToken === "") {
+                /* not logged in */
+                return;
+            }
 
             thisObject.container.frame.draw(false, false);
 

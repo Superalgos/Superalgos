@@ -34,7 +34,14 @@ function newLogin() {
         const accessToken = window.localStorage.getItem("access_token");
         let user = window.localStorage.getItem("user");
 
-        if (user === null) { return; }
+        if (user === null) {
+
+            // if there is no user that means that we are logged off, which means it is time to clean the local storage of things from the last log in.
+
+            window.localStorage.removeItem("loggedInUser");
+            window.localStorage.removeItem('sessionToken');
+            return;
+        }
 
         user = JSON.parse(user);
 

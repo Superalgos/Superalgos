@@ -124,9 +124,12 @@ function newPlayStopButton() {
 
     function draw() {
 
-        let user = window.localStorage.getItem("user");
+        let sessionToken = window.localStorage.getItem('sessionToken');
 
-        if (user === null) { return; }
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
 
         thisObject.container.frame.draw(false, false);
 

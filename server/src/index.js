@@ -65,15 +65,15 @@ async function run () {
     }),
     function (err, req, res, next) {
       if (err.code === 'invalid_token') {
-        res.error = err.message
+        res.locals.error = err.message
       }
       return next()
     }
   )
 
   const context = ({ req, res }) => {
-    if (res.error) {
-      throw new ForbiddenError(res.error)
+    if (res.locals.error) {
+      throw new ForbiddenError(res.locals.error)
     }
     return req
   }

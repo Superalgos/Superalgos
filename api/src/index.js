@@ -155,7 +155,10 @@ const resolvers = {
       return team
     },
     async createTeam(parent, { name, slug, botName, botSlug }, ctx, info) {
-      logger.info(ctx.request.user, 'createTeam ctx.request.user:')
+      logger.info('createTeam ctx.request.user:')
+      logger.info(ctx.request.user)
+      logger.info('createTeam ctx.request:')
+      logger.info(ctx.request)
       const authId = ctx.request.user.sub
 
       const encodedAuthId = encodeURI(authId)
@@ -177,6 +180,7 @@ const resolvers = {
 
           const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
           // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+          /*
           logger.info(`${platformUrl}${createTeamUrl}/${authId}`)
           const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}/${authId}`)
             .then((result) => {
@@ -198,13 +202,15 @@ const resolvers = {
           if(await createPlatformTeam === 'Team Name already taken'){
             return createPlatformTeam
           }
+          */
           const createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible:'true', status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER'}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
             .catch((err) => {
               logger.debug(err, 'createTeam error: ')
               return err
             })
 
-          sendTeamCreateConfirmation(email, name, botName)
+          // sendTeamCreateConfirmation(email, name, botName)
+
           return createTeam
         })
         .catch((err) => {

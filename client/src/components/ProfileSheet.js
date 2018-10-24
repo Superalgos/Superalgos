@@ -108,7 +108,6 @@ class ProfileSheet extends Component {
     e.preventDefault()
     this.props.updateUserMutation({
       variables: {
-        id: this.state.id,
         firstName: this.state.firstName,
         middleName: this.state.middleName,
         lastName: this.state.lastName,

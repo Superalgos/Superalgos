@@ -60,7 +60,6 @@ class YourReferrer extends Component {
 
     this.props.updateReferrerMutation({
       variables: {
-        id: this.state.id,
         referrerId: referrerUser.id
       }
     })

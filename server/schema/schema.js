@@ -3,7 +3,7 @@ const MODULE_NAME = 'schema'
 const graphql = require('graphql')
 const _ = require('lodash')
 const User = require('../models/user')
-
+const logger = require('../utils/logger')
 const tokenDecoder = require('../auth/token-decoder')
 
 const {
@@ -104,22 +104,22 @@ const RootQuery = new GraphQLObjectType({
       resolve (parent, args) {
           // Code to get data from data source.
 
-        if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Entering function.') }
+        if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Entering function.') }
 
           /* In order to be able to wait for asyc calls to the database, we need to return a promise to GraphQL. */
 
         const promiseToGraphQL = new Promise((resolve, reject) => {
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> Entering function.') }
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> args.authId = ' + args.authId) }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> Entering function.') }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> args.authId = ' + args.authId) }
 
           findUserByAuthId(args.authId, onUserFound)
 
           function onUserFound (err, responseToGraphQL) {
-            if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserFound -> Entering function.') }
-            if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserFound -> responseToGraphQL = ' + JSON.stringify(responseToGraphQL)) }
+            if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserFound -> Entering function.') }
+            if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserFound -> responseToGraphQL = ' + JSON.stringify(responseToGraphQL)) }
 
             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-              if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserFound -> err.message = ' + err.message) }
+              if (global.ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> RootQuery -> userByAuthId -> resolve -> Promise -> onUserFound -> err.message = ' + err.message) }
               reject(responseToGraphQL)
             } else {
               resolve(responseToGraphQL)
@@ -154,7 +154,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(UserType),
       args: {alias: {type: GraphQLString}, firstName: {type: GraphQLString}, middleName: {type: GraphQLString}, lastName: {type: GraphQLString}},
       resolve (parent, args) {
-        if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> usersSearch -> resolve -> Entering function.') }
+        if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> RootQuery -> usersSearch -> resolve -> Entering function.') }
 
         let mongoQuery = { $or: [] }
 
@@ -172,7 +172,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(DescendentType),
       args: {id: {type: GraphQLString}},
       resolve (parent, args) {
-        if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> RootQuery -> descendents -> resolve -> Entering function.') }
+        if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> RootQuery -> descendents -> resolve -> Entering function.') }
 
         return User.find({referrerId: args.id})
       }
@@ -191,20 +191,20 @@ const Mutation = new GraphQLObjectType({
         idToken: {type: new GraphQLNonNull(GraphQLString)}
       },
       resolve (parent, args) {
-        if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Entering function.') }
+        if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Entering function.') }
 
         /* In order to be able to wait for asyc calls to the database, and authorization authority, we need to return a promise to GraphQL. */
 
         const promiseToGraphQL = new Promise((resolve, reject) => {
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Promise -> Entering function.') }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Promise -> Entering function.') }
           authenticate(args.idToken, onAuthenticated)
 
           function onAuthenticated (err, responseToGraphQL) {
-            if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> Entering function.') }
-            if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> responseToGraphQL = ' + JSON.stringify(responseToGraphQL)) }
+            if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> Entering function.') }
+            if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> responseToGraphQL = ' + JSON.stringify(responseToGraphQL)) }
 
             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-              if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> err.message = ' + err.message) }
+              if (global.ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> Mutation -> authenticate -> resolve -> Promise -> onAuthenticated -> err.message = ' + err.message) }
               reject(responseToGraphQL)
             } else {
               resolve(responseToGraphQL)
@@ -289,12 +289,12 @@ const Mutation = new GraphQLObjectType({
 
 function findUserByAuthId (authId, callBackFunction) {
   try {
-    if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> Entering function.') }
-    if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> authId = ' + authId) }
+    if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> Entering function.') }
+    if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> authId = ' + authId) }
 
     if (authId === null || authId === undefined) {
-      if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> User requested not specified.') }
-      if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> args.authId = ' + authId) }
+      if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> User requested not specified.') }
+      if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> args.authId = ' + authId) }
 
       callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: 'Bad Request' })
       return
@@ -304,13 +304,13 @@ function findUserByAuthId (authId, callBackFunction) {
 
     function onUserReceived (err, user) {
       if (err) {
-        if (ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> Database Error.') }
-        if (ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> err = ' + err) }
+        if (ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> Database Error.') }
+        if (ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> err = ' + err) }
         callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err })
       } else {
         if (user === null) {
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> User not found at Database.') }
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> args.authId = ' + authId) }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> User not found at Database.') }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> args.authId = ' + authId) }
 
           let customResponse = {
             result: global.CUSTOM_OK_RESPONSE.result,
@@ -322,15 +322,15 @@ function findUserByAuthId (authId, callBackFunction) {
         }
 
         if (user.authId === authId && user.authId !== undefined) {
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> User found at Database.') }
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> args.authId = ' + authId) }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> User found at Database.') }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> args.authId = ' + authId) }
 
           callBackFunction(global.DEFAULT_OK_RESPONSE, user)
           return
         } else {
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> User found at Database is not the user requested.') }
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> args.authId = ' + authId) }
-          if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> user.authId = ' + user.authId) }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> User found at Database is not the user requested.') }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> args.authId = ' + authId) }
+          if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> findUserByAuthId -> onUserReceived -> user.authId = ' + user.authId) }
 
           callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err })
           return
@@ -338,14 +338,14 @@ function findUserByAuthId (authId, callBackFunction) {
       }
     }
   } catch (err) {
-    if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> findUserByAuthId -> err.message = ' + err.message) }
+    if (global.ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> findUserByAuthId -> err.message = ' + err.message) }
     callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err })
   }
 }
 
 function authenticate (encodedToken, callBackFunction) {
   try {
-    if (INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> authenticate -> Entering function.') }
+    if (INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> authenticate -> Entering function.') }
 
     let authId = ''
     let alias = ''
@@ -355,10 +355,10 @@ function authenticate (encodedToken, callBackFunction) {
     tokenDecoder(encodedToken, onValidated)
 
     function onValidated (err, decodedToken) {
-      if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> Entering function.') }
+      if (global.INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> Entering function.') }
 
       if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-        if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> err.message = ' + err.message) }
+        if (global.ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> err.message = ' + err.message) }
         callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err })
         return
       }
@@ -378,18 +378,18 @@ function authenticate (encodedToken, callBackFunction) {
       findUserByAuthId(authId, onUserFound)
 
       function onUserFound (err, user) {
-        if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> Entering function.') }
+        if (global.INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> Entering function.') }
 
         if (err.result === global.DEFAULT_FAIL_RESPONSE.result) {
-          if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> err.message = ' + err.message) }
+          if (global.ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> err.message = ' + err.message) }
           callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err })
           return
         }
 
         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-          if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> User already exists at database') }
+          if (global.INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> User already exists at database') }
 
-          if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> Existing User: ' + JSON.stringify(user)) }
+          if (global.INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> Existing User: ' + JSON.stringify(user)) }
 
           /*
 
@@ -408,7 +408,7 @@ function authenticate (encodedToken, callBackFunction) {
           err.result === global.CUSTOM_OK_RESPONSE.result &&
           err.message === 'User Not Found'
         ) {
-          if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> User does not exist at database') }
+          if (global.INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> User does not exist at database') }
 
           /*
 
@@ -427,8 +427,8 @@ function authenticate (encodedToken, callBackFunction) {
             socialAccountProvider !== 'github' &&
             socialAccountProvider !== 'auth0'
           ) {
-            if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> Social Account Provider not Supoorted. ') }
-            if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> socialAccountProvider = ' + socialAccountProvider) }
+            if (global.ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> Social Account Provider not Supoorted. ') }
+            if (global.ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> socialAccountProvider = ' + socialAccountProvider) }
 
             callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err })
             return
@@ -446,20 +446,20 @@ function authenticate (encodedToken, callBackFunction) {
             roleId: '1'
           })
 
-          if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> ' + alias + ' being added to the database') }
+          if (global.INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> ' + alias + ' being added to the database') }
 
           newUser.save(onSaved)
 
           function onSaved (err, savedUser) {
-            if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> onSaved -> Entering function.') }
+            if (global.INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> onSaved -> Entering function.') }
 
             if (err) {
-              if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> onSaved -> err = ' + err) }
+              if (global.ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> onSaved -> err = ' + err) }
               callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err })
               return
             }
 
-            if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> onSaved -> Saved User: ' + JSON.stringify(savedUser)) }
+            if (global.INFO_LOG === true) { logger.info('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> onSaved -> Saved User: ' + JSON.stringify(savedUser)) }
 
              /*
 
@@ -476,7 +476,7 @@ function authenticate (encodedToken, callBackFunction) {
       }
     }
   } catch (err) {
-    if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> authenticate -> err.message = ' + err.message) }
+    if (global.ERROR_LOG === true) { logger.error('[ERROR] ' + MODULE_NAME + ' -> authenticate -> err.message = ' + err.message) }
     callBackFunction(global.DEFAULT_FAIL_RESPONSE, { error: err })
   }
 }

@@ -30,10 +30,15 @@ app.get('/graphql', graphqlHTTP({
   graphiql: true
 }))
 
-app.post('/graphql', graphqlHTTP({
-  schema,
-  graphiql: false,
-  context: req => ({ ...req })
+app.post('/graphql', graphqlHTTP(req => {
+  return {
+    schema,
+    graphiql: false,
+    context: {
+      user: req.user,
+      userId: req.headers.userid
+    }
+  }
 }))
 
 app.post('/graphql', checkJwt, (err, req, res, next) => {

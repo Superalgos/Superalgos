@@ -7,6 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
+import classNames from 'classnames'
 
 // icons
 import HomeIcon from '@material-ui/icons/Home'
@@ -24,7 +25,6 @@ import AALogo from '../../assets/advanced-algos/aa-logo-dark.svg'
 const UsersLink = props => <Link to='/users' {...props} />
 const TeamsLink = props => <Link to='/teams' {...props} />
 const KeyVaultLink = props => <Link to='/key-vault' {...props} />
-const DashboardLink = props => <Link to='/dashboard' {...props} />
 const HomeLink = props => <Link to='/' {...props} />
 
 const styles = theme => ({
@@ -56,6 +56,9 @@ const styles = theme => ({
     display: 'block',
     maxWidth: 240,
     maxHeight: 48
+  },
+  externalLink: {
+    textDecoration: 'none'
   }
 })
 
@@ -114,18 +117,28 @@ class Header extends Component {
                 <Button component={KeyVaultLink} color='inherit'>
                   Key Vault
                 </Button>
+              </React.Fragment>
+            ) : (
+              <React.Fragment />
+            )}
 
-                <IconButton
-                  className={classes.menuButton}
-                  color='inherit'
-                  title='Dashboard'
-                  component={DashboardLink}
-                 />
+            <Button
+              href='https://www.advancedalgos.net/documentation-quick-start.shtml'
+              color='inherit'
+              target='_blank'
+            >
+            Documentation
+
+            </Button>
+
+            {this.state.user !== undefined && this.state.user !== null ? (
+              <React.Fragment>
                 <LoggedIn user={user} auth={auth} styles={styles} />
               </React.Fragment>
             ) : (
               <LoggedOut auth={auth} styles={styles} />
             )}
+
           </Toolbar>
         </AppBar>
       </div>

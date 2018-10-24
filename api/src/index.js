@@ -82,7 +82,17 @@ const resolvers = {
     },
     async teamsByRole(parent, args, ctx, info) {
       const authId = ctx.request.user.sub
-      let teamAdmin = await ctx.db.query.teams({where: {members_some: {OR: [{role: 'ADMIN'}, {role: 'OWNER'}], AND: [{member: {authId: authId}}]}}, orderBy: 'updatedAt_DESC'}, TEAMS_FRAGMENT)
+      let teamAdmin
+      try {
+        teamAdmin= await ctx.db.query.teams({where: {members_some: {AND: [{member: {authId: authId}, role_not:'MEMBER'}]}}}, TEAMS_FRAGMENT)
+      } catch (err) {
+        logger.debug('teamsByRole error: ')
+        logger.debug(err)
+        const errors = res.graphQLErrors.map((error) => {
+          return error.message
+        })
+        return errors
+      }
       logger.info('teamsByRole teamAdmin: ', teamAdmin)
       return teamAdmin
     },
@@ -179,7 +189,7 @@ const resolvers = {
 
           const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
           // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
-          /*
+
           logger.info(`${platformUrl}${createTeamUrl}/${authId}`)
           const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}/${authId}`)
             .then((result) => {
@@ -201,7 +211,7 @@ const resolvers = {
           if(await createPlatformTeam === 'Team Name already taken'){
             return createPlatformTeam
           }
-          */
+
           const existingMember = await ctx.db.query.member({ where: { authId } }, `{id}`)
             .catch((err) => {
               logger.debug(err, 'existingMember error: ')

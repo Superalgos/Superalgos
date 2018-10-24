@@ -157,8 +157,7 @@ const resolvers = {
     async createTeam(parent, { name, slug, botName, botSlug }, ctx, info) {
       logger.info('createTeam ctx.request.user:')
       logger.info(ctx.request.user)
-      logger.info('createTeam ctx.request:')
-      logger.info(ctx.request)
+
       const authId = ctx.request.user.sub
 
       const encodedAuthId = encodeURI(authId)
@@ -203,11 +202,31 @@ const resolvers = {
             return createPlatformTeam
           }
           */
-          const createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible:'true', status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER'}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+          const existingMember = await ctx.db.query.member({ where: { authId } }, `{id}`)
             .catch((err) => {
-              logger.debug(err, 'createTeam error: ')
+              logger.debug(err, 'existingMember error: ')
               return err
             })
+
+          logger.info('existingMember:')
+          logger.info(await existingMember)
+
+          let createTeam
+          if(existingMember.id !== null){
+            logger.info('createTeam with existingMember:')
+            createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Connected to Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+              .catch((err) => {
+                logger.debug(err, 'createTeamMutation error: ')
+                return err
+              })
+          } else {
+            logger.info('createTeam without existingMember:')
+            createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible:'true', status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Created with Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+              .catch((err) => {
+                logger.debug(err, 'createTeamMutation error: ')
+                return err
+              })
+          }
 
           // sendTeamCreateConfirmation(email, name, botName)
 

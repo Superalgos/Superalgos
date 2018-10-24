@@ -16,7 +16,7 @@ const args = {
 }
 
 const resolve = (parent, { displayName, description, startDatetime, finishDatetime, formula }, context) => {
-  const host = context.user.sub
+  const host = context.userId
   let newCompetition = new Competition({
     host,
     displayName,

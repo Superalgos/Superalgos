@@ -23,7 +23,7 @@ const args = {
 const resolve = (parent, { codeName, displayName, description, startDatetime, finishDatetime,
   formula, plotterCodeName, plotterHost, plotterRepo, plotterModuleName }, context) => {
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName, host: context.user.sub }).exec((err, competition) => {
+    Competition.findOne({ codeName, host: context.userId }).exec((err, competition) => {
       if (err || !competition) {
         reject(err)
       } else {

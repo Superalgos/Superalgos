@@ -15,7 +15,7 @@ const args = {
 
 const resolve = (parent, { competitionCodeName, position, algoPrize }, context) => {
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName: competitionCodeName, host: context.user.sub }).exec((err, competition) => {
+    Competition.findOne({ codeName: competitionCodeName, host: context.userId }).exec((err, competition) => {
       if (err || !competition) {
         reject(err)
       } else {

@@ -4,8 +4,6 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import graphqlHTTP from 'express-graphql'
 import expressPlayground from 'graphql-playground-middleware-express'
-import jwt from 'express-jwt'
-import jwksRsa from 'jwks-rsa'
 
 import schema from './schema'
 const Sentry = require('@sentry/node')
@@ -36,34 +34,12 @@ db.on('error', () => { console.error.bind(console, 'MongoDB connection error:') 
 db.once('open', () => { console.log('Connected to the DB.') })
 
 /* -------------------------------------------------
-------------- Authentification setup ---------------
-------------------------------------------------- */
-
-app.use('/graphql',
-  jwt({
-    secret: jwksRsa.expressJwtSecret({
-      cache: true,
-      rateLimit: true,
-      jwksRequestsPerMinute: 1,
-      jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
-    }),
-    credentialsRequired: false,
-    audience: process.env.AUTH0_AUDIENCE,
-    issuer: process.env.AUTH0_ISSUER,
-    algorithms: [`RS256`]
-  }),
-  function (req, res, next) {
-    return next()
-  }
-)
-
-/* -------------------------------------------------
 ----------------- Graphql setup --------------------
 ------------------------------------------------- */
 app.use('/graphql', graphqlHTTP(req => {
   return {
     schema: schema,
-    context: { user: req.user }
+    context: { userId: req.headers.userid }
   }
 }))
 app.get('/playground', expressPlayground({ endpoint: '/graphql' }))

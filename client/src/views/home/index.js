@@ -27,14 +27,14 @@ const styles = theme => ({
 class Home extends Component {
 
   componentDidMount () {
-    window.CANVAS_VISIBLE = true
+    window.canvasApp.visible = true
     let body = document.getElementById('body')
     body.style = 'margin: 0px; padding: 0px; border: 0px; overflow:hidden;'
     window.HIDE_FOOTER = true
   }
 
   componentWillUnmount () {
-    window.CANVAS_VISIBLE = false
+    window.canvasApp.visible = false
     let body = document.getElementById('body')
     body.style = ''
     window.HIDE_FOOTER = false

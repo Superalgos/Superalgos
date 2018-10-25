@@ -18,17 +18,22 @@
 
   <script type="text/javascript">
     function loadCanvas(){
-      window.SESSION_TOKEN = ''
-      window.EXECUTING_AT = 'Master App'
-      window.TOP_MARGIN = 25
-      window.URL_PREFIX = 'https://develop.advancedalgos.net/'
-      window.CANVAS_VISIBLE = true
+
+      window.canvasApp = {
+          sessionToken: '',
+          executingAt: 'Master App',
+          visible: true,
+          topMargin: 25,
+          urlPrefix: 'https://develop.advancedalgos.net/'   /* 'http://localhost:1337/'   */   /*  'https://develop.advancedalgos.net/'  */
+      };
+
       loadAdvancedAlgosPlatform();
     }
   </script>
 </head>
+
 <body id="body" onload="loadCanvas()">
-    <div id="root"></div>
-    <div id="canvasDiv"></div>
+    <div id="masterApp"></div>
+    <div id="canvasApp"></div>
 </body>
 </html>

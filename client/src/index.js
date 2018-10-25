@@ -7,4 +7,4 @@ if (process.env.NODE_ENV !== 'production') {
   localStorage.setItem('debug', 'advanced-algos:*')
 }
 
-ReactDOM.render(<MasterApp />, document.getElementById('root'))
+ReactDOM.render(<MasterApp />, document.getElementById('masterApp'))

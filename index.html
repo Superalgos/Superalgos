@@ -12,14 +12,22 @@
 </head>
 <body id="body" style="margin: 0px; padding: 0px; border: 0px; overflow:hidden;" onload="
 
+    window.canvasApp = {
+        sessionToken: '',
+        executingAt:  'Master App',
+        visible = true,
+        topMargin: 85,
+        urlPrefix: 'https://develop.advancedalgos.net/'   /* 'http://localhost:1337/'   */
+    }
 
-
-    window.SESSION_TOKEN = '';
+    window.canvasApp.sessionToken = '';
     window.EXECUTING_AT = 'Master App';
     window.TOP_MARGIN = 85;
     window.CANVAS_VISIBLE = true;
     window.URL_PREFIX = 'https://develop.advancedalgos.net/';
     //window.URL_PREFIX = 'http://localhost:1337/';
+
+
     loadAdvancedAlgosPlatform();
 
     ">

@@ -1047,7 +1047,7 @@ function onBrowserRequest(request, response) {
 
                         if (requestParameters[2] !== "" && requestParameters[2] !== undefined) {
 
-                            fileContent = fileContent.replace("window.SESSION_TOKEN = ''", "window.SESSION_TOKEN = '" + requestParameters[2] + "'")
+                            fileContent = fileContent.replace("window.canvasApp.sessionToken = ''", "window.canvasApp.sessionToken = '" + requestParameters[2] + "'")
 
                         }
 

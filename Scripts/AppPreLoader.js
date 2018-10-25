@@ -66,7 +66,7 @@ function loadAdvancedAlgosPlatform() {
 
     /* The second thing to do is to send the tokenSession to the server, so that it can prepare the server side data structures needed. */
 
-    let sessionToken = window.SESSION_TOKEN;
+    let sessionToken = window.canvasApp.sessionToken;
     if (sessionToken === undefined) { sessionToken = ""}
 
     let path = window.URL_PREFIX  + "AABrowserAPI/authenticateUser/" + sessionToken;

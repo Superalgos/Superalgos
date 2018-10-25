@@ -115,7 +115,7 @@ function newAnimation() {
 
             clearBrowserCanvas();
 
-            if (window.CANVAS_VISIBLE === true) {
+            if (window.canvasApp.visible === true) {
 
                 /* We set the canvas to its normal width and height */
 

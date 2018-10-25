@@ -46,7 +46,7 @@ function newDeleteTradingHistory() {
                 canDrawIcon = true;
             }
 
-            icon.src = window.URL_PREFIX + "Images/Icons/trash.png";
+            icon.src = window.canvasApp.urlPrefix + "Images/Icons/trash.png";
 
             thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
 

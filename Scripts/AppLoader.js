@@ -115,7 +115,7 @@
 
             for (let i = 0; i < modulesArray.length; i++) {
 
-                let path = window.URL_PREFIX + modulesArray[i];
+                let path = window.canvasApp.urlPrefix + modulesArray[i];
 
                 REQUIREJS([path], onRequired);
 

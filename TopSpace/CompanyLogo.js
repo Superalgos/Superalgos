@@ -40,7 +40,7 @@ function newCompanyLogo() {
             canDrawLogo = true;
             }
 
-        logo.src = window.URL_PREFIX + "Images/aa-logo-dark-8.png";
+        logo.src = window.canvasApp.urlPrefix + "Images/aa-logo-dark-8.png";
 
     }
 

@@ -44,11 +44,11 @@ function newPlayStopButton() {
             canDraw = true;
         }
 
-        play.src = window.URL_PREFIX + "Images/Icons/play.png";
+        play.src = window.canvasApp.urlPrefix + "Images/Icons/play.png";
 
         stop = new Image();
 
-        stop.src = window.URL_PREFIX + "Images/Icons/pause.png";
+        stop.src = window.canvasApp.urlPrefix + "Images/Icons/pause.png";
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
 

@@ -18,7 +18,7 @@
 
             if (INFO_LOG === true) { logger.write(MODULE_NAME, "[INFO] downloadBot -> Entering function."); }
 
-            let filePath = window.URL_PREFIX + "Bots" + "/" + pFilePath + "/" + "User.Bot.js";
+            let filePath = window.canvasApp.urlPrefix + "Bots" + "/" + pFilePath + "/" + "User.Bot.js";
 
             downloadModule(filePath, onDownloaded)
 
@@ -41,7 +41,7 @@
 
             if (INFO_LOG === true) { logger.write(MODULE_NAME, "[INFO] downloadCommons -> Entering function."); }
 
-            let filePath = window.URL_PREFIX + "Bots" + "/" + pFilePath + "/" + "Commons.js";
+            let filePath = window.canvasApp.urlPrefix + "Bots" + "/" + pFilePath + "/" + "Commons.js";
 
             downloadModule(filePath, onDownloaded)
 

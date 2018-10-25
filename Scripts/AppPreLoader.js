@@ -53,8 +53,8 @@ function loadAdvancedAlgosPlatform() {
     canvas.style.border = "0";
     canvas.style = "position:absolute; top:0px; left:0px; z-index:1";
 
-    let canvasDiv = document.getElementById('canvasDiv');
-    canvasDiv.appendChild(canvas);
+    let canvasApp = document.getElementById('canvasApp');
+    canvasApp.appendChild(canvas);
 
     browserCanvas = document.getElementById('canvas');
 
@@ -69,7 +69,7 @@ function loadAdvancedAlgosPlatform() {
     let sessionToken = window.canvasApp.sessionToken;
     if (sessionToken === undefined) { sessionToken = ""}
 
-    let path = window.URL_PREFIX  + "AABrowserAPI/authenticateUser/" + sessionToken;
+    let path = window.canvasApp.urlPrefix  + "AABrowserAPI/authenticateUser/" + sessionToken;
 
     callServer(undefined, path, onServerReponded);
 
@@ -98,7 +98,7 @@ function loadAdvancedAlgosPlatform() {
 
         if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadDebugModule -> Entering function."); }
 
-        let path = window.URL_PREFIX + "WebDebugLog.js";
+        let path = window.canvasApp.urlPrefix + "WebDebugLog.js";
 
         REQUIREJS([path], onRequired);
 
@@ -117,7 +117,7 @@ function loadAdvancedAlgosPlatform() {
 
         if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadModules -> Entering function."); }
 
-        let path = window.URL_PREFIX + "Scripts/AppLoader.js";
+        let path = window.canvasApp.urlPrefix + "Scripts/AppLoader.js";
 
         REQUIREJS([path], onRequired);
 

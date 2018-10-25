@@ -50,7 +50,7 @@ function newUsersModule() {
                 canDrawIcon = true;
             }
 
-            icon.src = window.URL_PREFIX + "Images/Icons/users-module.png";
+            icon.src = window.canvasApp.urlPrefix + "Images/Icons/users-module.png";
 
             thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
 

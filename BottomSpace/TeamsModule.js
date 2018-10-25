@@ -50,7 +50,7 @@ function newTeamsModule() {
                 canDrawIcon = true;
             }
 
-            icon.src = window.URL_PREFIX + "Images/Icons/teams-module.png";
+            icon.src = window.canvasApp.urlPrefix + "Images/Icons/teams-module.png";
 
             thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
 

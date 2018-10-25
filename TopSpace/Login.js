@@ -198,7 +198,7 @@ function newLogin() {
 
             if (sessionToken === undefined) { sessionToken = "" }
 
-            let path = window.URL_PREFIX + "AABrowserAPI/authenticateUser/" + sessionToken;
+            let path = window.canvasApp.urlPrefix + "AABrowserAPI/authenticateUser/" + sessionToken;
 
             callServer(undefined, path, onServerReponded);
 

@@ -120,7 +120,7 @@ function newAnimation() {
                 /* We set the canvas to its normal width and height */
 
                 browserCanvas.width = window.innerWidth;
-                browserCanvas.height = window.innerHeight - window.TOP_MARGIN;
+                browserCanvas.height = window.innerHeight - window.canvasApp.topMargin;
 
                 /* We loop through the callback functions collections and execute them all. */
 

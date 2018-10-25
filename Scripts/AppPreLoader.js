@@ -64,35 +64,7 @@ function loadAdvancedAlgosPlatform() {
 
     browserCanvas.style.top = window.canvasApp.topMargin + 'px';
 
-    /* The second thing to do is to send the tokenSession to the server, so that it can prepare the server side data structures needed. */
-
-    let sessionToken = window.canvasApp.sessionToken;
-    if (sessionToken === undefined) { sessionToken = ""}
-
-    let path = window.canvasApp.urlPrefix  + "AABrowserAPI/authenticateUser/" + sessionToken;
-
-    callServer(undefined, path, onServerReponded);
-
-    function onServerReponded(pResponseFromServer) {
-
-        if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadAdvancedAlgosPlatform -> onServerReponded -> Entering function."); }
-
-        let responseFromServer = JSON.parse(pResponseFromServer);
-
-        err = responseFromServer.err;
-
-        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-
-            if (INFO_LOG === true) { console.log("Authentication Error. " + err.message); }
-            return;
-
-        }
-
-        window.USER_PROFILE = responseFromServer.userProfile;
-        console.log("window.USER_PROFILE at AppPreLoader", window.USER_PROFILE);
-
-        loadDebugModule();
-    }
+    loadDebugModule();
 
     function loadDebugModule() {
 

@@ -38,7 +38,7 @@ function newUsersModule() {
 
             if (INFO_LOG === true) { logger.write("[INFO] initialize -> Entering function."); }
 
-            if (window.EXECUTING_AT === 'Master App') {
+            if (window.canvasApp.executingAt === 'Master App') {
                 return;
             }
 

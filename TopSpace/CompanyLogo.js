@@ -27,7 +27,7 @@ function newCompanyLogo() {
 
     function initialize() {
 
-        if (window.EXECUTING_AT === 'Master App') {
+        if (window.canvasApp.executingAt === 'Master App') {
             currentLabel = "";
             return;
         }

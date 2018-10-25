@@ -36,6 +36,13 @@ function newCurrentStartMode() {
 
     function onClick() {
 
+        let sessionToken = window.localStorage.getItem('sessionToken');
+
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
+
         if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
 
         switch (window.CURRENT_START_MODE) {
@@ -76,6 +83,13 @@ function newCurrentStartMode() {
     }
 
     function draw() {
+
+        let sessionToken = window.localStorage.getItem('sessionToken');
+
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
 
         if (window.CURRENT_BOT_DISPLAY_NAME === "") { return;}
 

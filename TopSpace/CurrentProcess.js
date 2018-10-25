@@ -71,6 +71,13 @@ function newCurrentProcess() {
 
     function onClick() {
 
+        let sessionToken = window.localStorage.getItem('sessionToken');
+
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
+
         if (sharedStatus.currentProcessIndex + 1 === window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes.length) {
 
             sharedStatus.currentProcessIndex = 0;
@@ -106,6 +113,13 @@ function newCurrentProcess() {
     }
 
     function draw() {
+
+        let sessionToken = window.localStorage.getItem('sessionToken');
+
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
 
         thisObject.container.frame.draw(false, false);
 

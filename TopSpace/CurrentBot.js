@@ -70,6 +70,13 @@ function newCurrentBot() {
 
     function onClick() {
 
+        let sessionToken = window.localStorage.getItem('sessionToken');
+
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
+
         if (sharedStatus.currentUserBotIndex + 1 === window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots.length) {
 
             sharedStatus.currentUserBotIndex = 0;
@@ -113,6 +120,13 @@ function newCurrentBot() {
     }
 
     function draw() {
+
+        let sessionToken = window.localStorage.getItem('sessionToken');
+
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
 
         thisObject.container.frame.draw(false, false);
 

@@ -30,6 +30,13 @@ function newDashboard() {
 
             if (INFO_LOG === true) { logger.write("[INFO] start -> Entering function."); }
 
+            /* Here we will setup the global eventHandler that will enable the Canvas App to react to events happening outside its execution scope. */
+
+            window.canvasApp.eventHandler = newEventHandler();
+            window.canvasApp.eventHandler.listenToEvent("User Profile Changed", userProfileChanged);
+
+            /* Next we start the App*/
+
             setTimeout(delayedStart, DEBUG_START_UP_DELAY);
 
         } catch (err) {
@@ -66,6 +73,22 @@ function newDashboard() {
             if (ERROR_LOG === true) { logger.write("[ERROR] delayedStart -> err = " + err); }
 
         }
+    }
+
+    function userProfileChanged() {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] userProfileChanged -> Entering function."); }
+
+            canvas.topSpace.initialize();
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] userProfileChanged -> err = " + err); }
+
+        }
+
     }
 }
 

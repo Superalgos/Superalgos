@@ -58,6 +58,13 @@ function newDevTeam() {
 
     function onClick() {
 
+        let sessionToken = window.localStorage.getItem('sessionToken');
+
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
+
         if (sharedStatus.currentDevTeamIndex + 1 === window.TEAMS.length) {
 
             sharedStatus.currentDevTeamIndex = 0;
@@ -98,6 +105,13 @@ function newDevTeam() {
     }
 
     function draw() {
+
+        let sessionToken = window.localStorage.getItem('sessionToken');
+
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
 
         thisObject.container.frame.draw(false, false);
 

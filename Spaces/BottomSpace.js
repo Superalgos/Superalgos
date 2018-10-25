@@ -4,9 +4,6 @@ function newBottomSpace() {
     var thisObject = {
         deleteTradingHistory: undefined,
         chartAspectRatio: undefined,
-        UsersModule: undefined,
-        TeamsModule: undefined,
-        KeyVaultModule: undefined,
         playStopButton: undefined,
         container: undefined,
         draw: draw,
@@ -36,15 +33,6 @@ function newBottomSpace() {
         thisObject.chartAspectRatio = newChartAspectRatio();
         thisObject.chartAspectRatio.initialize();
 
-        thisObject.UsersModule = newUsersModule();
-        thisObject.UsersModule.initialize();
-
-        thisObject.TeamsModule = newTeamsModule();
-        thisObject.TeamsModule.initialize();
-
-        thisObject.KeyVaultModule = newKeyVaultModule();
-        thisObject.KeyVaultModule.initialize();
-
         thisObject.playStopButton = newPlayStopButton();
         thisObject.playStopButton.initialize();
     }
@@ -57,15 +45,6 @@ function newBottomSpace() {
         if (container !== undefined) { return container; }
 
         container = thisObject.chartAspectRatio.getContainer(point);
-        if (container !== undefined) { return container; }
-
-        container = thisObject.UsersModule.getContainer(point);
-        if (container !== undefined) { return container; }
-
-        container = thisObject.TeamsModule.getContainer(point);
-        if (container !== undefined) { return container; }
-
-        container = thisObject.KeyVaultModule.getContainer(point);
         if (container !== undefined) { return container; }
 
         container = thisObject.playStopButton.getContainer(point);
@@ -84,9 +63,6 @@ function newBottomSpace() {
         drawBackground();
         thisObject.deleteTradingHistory.draw();
         thisObject.chartAspectRatio.draw();
-        thisObject.UsersModule.draw();
-        thisObject.TeamsModule.draw();
-        thisObject.KeyVaultModule.draw();
         thisObject.playStopButton.draw();
 
     }

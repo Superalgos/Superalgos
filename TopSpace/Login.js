@@ -23,7 +23,6 @@ function newLogin() {
 
     let currentLabel;
 
-    let Auth0;
     let userAuthorization;
 
     return thisObject;

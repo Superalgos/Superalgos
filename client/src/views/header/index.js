@@ -72,7 +72,7 @@ class Header extends Component {
   }
 
   async componentDidMount () {
-    const user = await getItem('user')
+    const user = window.localStorage.getItem('user')
     this.setState({ user })
   }
 
@@ -80,7 +80,6 @@ class Header extends Component {
     let { classes, auth } = this.props
 
     let user = JSON.parse(this.state.user)
-
     return (
       <div className={classes.root}>
         <AppBar

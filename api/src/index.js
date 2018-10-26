@@ -14,7 +14,7 @@ import parser from 'fast-xml-parser'
 import axios from 'axios'
 
 import checkJwt from './auth/middleware/jwt'
-import { getMember } from './auth/middleware/getMember'
+import { getMember, getUser } from './auth/middleware/getMember'
 import { validateIdToken } from './auth/validateIdToken'
 import { schemaDirectives } from './directives'
 
@@ -32,25 +32,25 @@ const GRAPHQL_SUBSCRIPTIONS = '/graphql'
 const PORT = 4001
 const NODE_ENV = 'development'
 
-const createMember = async function (ctx, info, idToken) {
-  logger.info('createMember', idToken)
+const createMember = async function (ctx, info, authId) {
+  logger.info('createMember', authId)
   const member = await ctx.db.mutation.upsertMember({
     where: {
-      authId: idToken.sub,
+      authId: authId,
     },
     create: {
-      authId: idToken.sub,
+      authId: authId,
       alias: idToken.nickname
     },
     update: {
-      authId: idToken.sub,
+      authId: authId,
       alias: idToken.nickname
     }
   }, info)
   return member
 }
 
-const ctxMember = ctx => ctx.request.user
+const ctxMember = ctx => ctx.user
 
 const resolvers = {
   Query: {
@@ -124,12 +124,12 @@ const resolvers = {
         logger.debug('authenticat.validateIdToken err: ', err)
         throw new Error(err.message)
       }
-      const authId = memberToken.sub
+      const authId = ctx.userId
       let member = await ctx.db.query.member({ where: { authId } }, info)
 
       if (!member) {
         try {
-          return createMember(ctx, info, memberToken)
+          return createMember(ctx, info, authId)
         } catch (error) {
           throw new Error(error.message)
         }
@@ -168,18 +168,15 @@ const resolvers = {
       logger.info('createTeam ctx.request.user:')
       logger.info(ctx.request.user)
 
-      const authId = ctx.request.user.sub
+      const authId = ctx.userId
 
-      const encodedAuthId = encodeURI(authId)
-      const encodedURL = `https://users-api.advancedalgos.net/graphql?query=%7B%0A%20%20userByAuthId(authId:%20%22${authId}%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20email%0A%20%20%20%20alias%0A%20%20%7D%0A%7D%0A`
-      const decodedURL = decodeURI(encodedURL)
       return getUser(authId)
         .then(async result => {
           logger.info('axios:')
           logger.info(result)
 
-          const alias = result.data.users_UserByAuthId.alias
-          const email = result.data.users_UserByAuthId.email
+          const alias = result.data.users_User.alias
+          const email = result.data.users_User.email
           const avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
           const banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
 
@@ -273,44 +270,7 @@ const resolvers = {
   }
 }
 
-const getUser = authId => {
-  logger.info('getUser')
-  logger.info(authId)
-  const API_URL = 'https://app-api.advancedalgos.net/graphql'
-  return new Promise(resolve => {
-    try {
-      const result = axios.post(API_URL, {
-        query: `query users_UserByAuthId($authId: String!) {
-          users_UserByAuthId(authId: $authId){
-            id
-            alias
-            email
-          }
-        }`,
-        variables: {
-          authId: authId
-        }
-      }, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(result => {
-          logger.info('getUser result')
-          logger.info(result.data)
-          resolve(result.data)
-        })
-        .catch(err => {
-          logger.info('getUser err')
-          logger.info(err)
-          throw new Error(err)
-        })
 
-    } catch (error) {
-      resolve(error)
-    }
-  })
-}
 
 const db = new Prisma({
   fragmentReplacements: extractFragmentReplacements(resolvers),
@@ -332,7 +292,7 @@ const connectionMiddlewares = [
       next()
     }
   },
-  // (req, res, done) => getMember(req, res, done, db)
+  (req, res, done) => getUser(req, res, done, db)
 ]
 
 app.post(GRAPHQL_ENDPOINT, ...connectionMiddlewares)
@@ -365,6 +325,7 @@ const server = createApolloServer(app, {
     ...req ,
     token: req.headers,
     user: req.user,
+    userId: req.headers.userid,
     db,
     pubsub
   })

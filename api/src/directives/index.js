@@ -6,6 +6,7 @@ import { AuthenticationError, ForbiddenError } from '../errors'
 import { validateIdToken } from '../auth/validateIdToken'
 
 const memberLocationOnContext = 'request.user'
+const userIdOnContext = 'req.userid'
 const bearerAccessToken = 'request.headers.authorization'
 
 const ctxMember = ctx => _get(ctx, memberLocationOnContext)
@@ -29,48 +30,18 @@ const createMember = async (ctx, idToken, info) => {
   return member
 }
 
-const isLoggedIn = async ctx => {
-    logger.info(`isLoggedIn 0: ${JSON.stringify(ctx.request.headers)}`)
-    let member = ctxMember(ctx, memberLocationOnContext)
-    let token = ctxToken(ctx, bearerAccessToken)
-    let memberToken
-    logger.info('isLoggedIn: ', member, token)
-    if (!member && token) {
-      let scheme, credentials
-      const tokenParts = token.split(' ')
-      if (tokenParts.length === 2) {
-        scheme = tokenParts[0]
-        credentials = tokenParts[1]
-      }
-
-     if (/^Bearer$/i.test(scheme)) {
-       token = credentials
-       //verify token
-       try {
-         memberToken = await validateIdToken(token)
-         const authId = memberToken.sub
-         exists = await ctx.db.query.member({ where: { authId: authId } })
-         if (!member && exists === null) {
-           member = await createMember(ctx, memberToken).then(res => {
-              return res
-           })
-
-           return member
-         }
-          return member
-       } catch (err) {
-         memberToken = false
-       }
-     }
-    }
-    if (!member) {
-      throw new AuthenticationError('Access token is missing or expired')
-    }
+const isUserId = async ctx => {
+  logger.info(`isUserId 0: ${ctx.userId}`)
+  let member = ctxMember(ctx, userIdOnContext)
+  if (!member) {
+    throw new AuthenticationError('Access token is missing or expired')
+  } else {
     return member
+  }
 }
 
-const isRequestingMemberAlsoOwner = ({ ctx, memberId, type, typeId }) =>
-  ctx.db.exists[type]({ slug: typeId, owner: memberId })
+const isRequestingMemberAlsoOwner = ({ ctx, memberId, type, teamSlug }) =>
+  ctx.db.exists[type]({ slug: teamSlug, owner: memberId })
 const isRequestingMember = ({ ctx, memberId }) => ctx.db.exists.Member({ authId: memberId })
 
 
@@ -89,12 +60,12 @@ const assertAuth = ctx => {
 // Directive resolvers (apollo v1 syntax)
 export const directiveResolvers = {
   isAuthenticated: async (next, source, args, ctx) => {
-    let result = await isLoggedIn(ctx)
+    let result = await isUserId(ctx)
     logger.info('directive isAuthenticated: ', result)
     return next(result)
   },
   hasRole: (next, source, { roles }, ctx) => {
-    const { role } = isLoggedIn(ctx)
+    const { role } = isUserId(ctx)
     logger.info('directive hasRole: ', role)
     if (roles.includes(role)) {
       return next()
@@ -107,42 +78,41 @@ export const directiveResolvers = {
       source && source.id
         ? source
         : ctx.request.body.variables ? ctx.request.body.variables : { id: null }
-    const user = await isLoggedIn(ctx)
-    const memberId = user.sub
+    const userId = await isUserId(ctx)
     const isOwner =
       type === `Member`
         ? memberId === typeId
-        : await isRequestingMemberAlsoOwner({ ctx, memberId, type, typeId })
+        : await isRequestingMemberAlsoOwner({ ctx, userId, type, typeId })
     if (isOwner) {
       return next()
     }
     throw new ForbiddenError('Insufficient permissions')
   },
   isOwnerOrHasRole: async (next, source, { roles, type }, ctx, ...p) => {
-    const { authId: memberId } = await isLoggedIn(ctx)
-    logger.info('directive isOwnerOrHasRole 1: ', memberId, roles, type)
-    if(memberId === undefined && role=== undefined) throw new Error(`Not logged in`)
+    const userId = await isUserId(ctx)
+    logger.info('directive isOwnerOrHasRole 1: ', userId, roles, type)
+    if(userId === undefined && role=== undefined) throw new Error(`Not logged in`)
     if (roles.includes(role)) {
       return next()
     }
 
-    const { authId: typeId } = ctx.request.body.variables
+    const { teamSlug } = ctx.request.body.variables
     const isOwner = await isRequestingMemberAlsoOwner({
       ctx,
-      memberId,
+      userId,
       type,
-      typeId
+      teamSlug
     })
-    logger.info('directive isOwnerOrHasRole 2: ', typeId, memberId, role, isOwner)
+    logger.info('directive isOwnerOrHasRole 2: ', teamSlug, userId, role, isOwner)
     if (isOwner) {
       return next()
     }
 
     const hasRole = await isRequestingMember({
       ctx,
-      memberId,
+      userId,
       type,
-      typeId
+      teamSlug
     })
     if(hasRole){
       return next()

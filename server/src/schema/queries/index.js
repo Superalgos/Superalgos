@@ -2,16 +2,20 @@ import {
   GraphQLObjectType
 } from 'graphql'
 
-import CompetitionsQuery from './Competitions'
-import CompetitionsByHostQuery from './CompetitionsByHost'
-import CompetitionsByDevTeamQuery from './CompetitionsByDevTeam'
+import EventsQuery from './Events'
+import EventsByHostQuery from './EventsByHost'
+import EventsByTeamQuery from './EventsByTeam'
+import FormulasQuery from './Formulas'
+import PlottersQuery from './Plotters'
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: Object.assign(
-    CompetitionsQuery,
-    CompetitionsByHostQuery,
-    CompetitionsByDevTeamQuery
+    EventsQuery,
+    EventsByHostQuery,
+    EventsByTeamQuery,
+    FormulasQuery,
+    PlottersQuery
   )
 })
 

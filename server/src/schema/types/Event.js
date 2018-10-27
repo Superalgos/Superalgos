@@ -6,22 +6,28 @@ import {
   GraphQLID
 } from 'graphql'
 import {
+  FormulaType,
   PlotterType,
   RuleType,
   ParticipantType,
   PrizeType
 } from './index'
 
-const CompetitionType = new GraphQLObjectType({
-  name: 'Competition',
+const EventType = new GraphQLObjectType({
+  name: 'Event',
   fields: () => ({
-    codeName: { type: GraphQLID },
-    displayName: { type: GraphQLString },
-    host: { type: GraphQLString },
+    designator: { type: GraphQLID },
+    name: { type: GraphQLString },
+    hostId: { type: GraphQLString },
     description: { type: GraphQLString },
     startDatetime: { type: GraphQLInt },
     finishDatetime: { type: GraphQLInt },
-    formula: { type: GraphQLString },
+    formula: {
+      type: FormulaType,
+      resolve (parent, args) {
+        return parent.formula
+      }
+    },
     plotter: {
       type: PlotterType,
       resolve (parent, args) {
@@ -49,4 +55,4 @@ const CompetitionType = new GraphQLObjectType({
   })
 })
 
-export default CompetitionType
+export default EventType

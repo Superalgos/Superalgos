@@ -1,36 +1,35 @@
 import {
   GraphQLNonNull,
   GraphQLID,
-  GraphQLInt,
-  GraphQLString
+  GraphQLInt
 } from 'graphql'
-import { CompetitionType } from '../types'
-import Competition from '../../models/competition'
+import { EventType } from '../types'
+import { Event } from '../../models'
 
 const args = {
-  competitionCodeName: { type: new GraphQLNonNull(GraphQLID) },
-  position: { type: new GraphQLNonNull(GraphQLInt) },
-  algoPrize: { type: new GraphQLNonNull(GraphQLString) }
+  eventDesignator: { type: new GraphQLNonNull(GraphQLID) },
+  rank: { type: new GraphQLNonNull(GraphQLInt) },
+  amount: { type: new GraphQLNonNull(GraphQLInt) }
 }
 
-const resolve = (parent, { competitionCodeName, position, algoPrize }, context) => {
+const resolve = (parent, { eventDesignator, rank, amount }, context) => {
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName: competitionCodeName, host: context.userId }).exec((err, competition) => {
-      if (err || !competition) {
+    Event.findOne({ designator: eventDesignator, hostId: context.userId }).exec((err, event) => {
+      if (err || !event) {
         reject(err)
       } else {
-        if (competition.prizes.some(prize => prize.position === position)) {
+        if (event.prizes.some(prize => prize.rank === rank)) {
           // need to add an error message here TODO
-          resolve(competition)
+          resolve(event)
         } else {
-          competition.prizes.push({
-            position,
-            algoPrize
+          event.prizes.push({
+            rank,
+            amount
           })
-          competition.save((err) => {
+          event.save((err) => {
             if (err) reject(err)
             else {
-              resolve(competition)
+              resolve(event)
             }
           })
         }
@@ -41,7 +40,7 @@ const resolve = (parent, { competitionCodeName, position, algoPrize }, context) 
 
 const mutation = {
   addPrize: {
-    type: CompetitionType,
+    type: EventType,
     args,
     resolve
   }

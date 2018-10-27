@@ -7,7 +7,7 @@ import {
 const RuleType = new GraphQLObjectType({
   name: 'Rule',
   fields: () => ({
-    number: { type: GraphQLInt },
+    position: { type: GraphQLInt },
     title: { type: GraphQLString },
     description: { type: GraphQLString }
   })

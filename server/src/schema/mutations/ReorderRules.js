@@ -4,34 +4,34 @@ import {
   GraphQLInt
 } from 'graphql'
 import { isBetween } from '../../utils/functions'
-import { CompetitionType } from '../types'
-import Competition from '../../models/competition'
+import { EventType } from '../types'
+import { Event } from '../../models'
 
 const args = {
-  competitionCodeName: { type: new GraphQLNonNull(GraphQLID) },
-  fromNumber: { type: new GraphQLNonNull(GraphQLInt) },
-  toNumber: { type: new GraphQLNonNull(GraphQLInt) }
+  eventDesignator: { type: new GraphQLNonNull(GraphQLID) },
+  fromPosition: { type: new GraphQLNonNull(GraphQLInt) },
+  toPosition: { type: new GraphQLNonNull(GraphQLInt) }
 }
 
-const resolve = (parent, { competitionCodeName, fromNumber, toNumber }, context) => {
+const resolve = (parent, { eventDesignator, fromPosition, toPosition }, context) => {
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName: competitionCodeName, host: context.userId }).exec((err, competition) => {
-      if (err || !competition) {
+    Event.findOne({ designator: eventDesignator, hostId: context.userId }).exec((err, event) => {
+      if (err || !event) {
         reject(err)
       } else {
-        const delta = fromNumber > toNumber ? 1 : -1
-        competition.rules.forEach((part) => {
-          if (part.number === fromNumber) {
-            part.number = toNumber
-          } else if (isBetween(part.number, fromNumber, toNumber)) {
-            part.number += delta
+        const delta = fromPosition > toPosition ? 1 : -1
+        event.rules.forEach((part) => {
+          if (part.position === fromPosition) {
+            part.position = toPosition
+          } else if (isBetween(part.position, fromPosition, toPosition)) {
+            part.position += delta
           }
         })
 
-        competition.save((err) => {
+        event.save((err) => {
           if (err) reject(err)
           else {
-            resolve(competition)
+            resolve(event)
           }
         })
       }
@@ -41,7 +41,7 @@ const resolve = (parent, { competitionCodeName, fromNumber, toNumber }, context)
 
 const mutation = {
   reorderRules: {
-    type: CompetitionType,
+    type: EventType,
     args,
     resolve
   }

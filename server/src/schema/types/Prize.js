@@ -3,17 +3,17 @@ import {
   GraphQLList,
   GraphQLInt
 } from 'graphql'
-import { OtherPrizeType } from './index'
+import { AdditionalPrizeType } from './index'
 
 const PrizeType = new GraphQLObjectType({
   name: 'Prize',
   fields: () => ({
-    position: { type: GraphQLInt },
-    algoPrize: { type: GraphQLInt },
-    otherPrizes: {
-      type: new GraphQLList(OtherPrizeType),
+    rank: { type: GraphQLInt },
+    amount: { type: GraphQLInt },
+    additional: {
+      type: new GraphQLList(AdditionalPrizeType),
       resolve (parent, args) {
-        return parent.otherPrizes
+        return parent.additional
       }
     }
   })

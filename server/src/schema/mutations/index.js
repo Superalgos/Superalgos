@@ -2,26 +2,34 @@ import {
   GraphQLObjectType
 } from 'graphql'
 
-import HostCompetitionMutation from './HostCompetition'
-import EditCompetitionMutation from './EditCompetition'
-import RegisterToCompetitionMutation from './RegisterToCompetition'
+import HostEventMutation from './HostEvent'
+import EditEventMutation from './EditEvent'
+import RegisterToEventMutation from './RegisterToEvent'
 import EditParticipantMutation from './EditParticipant'
 import AddRuleMutation from './AddRule'
 import EditRuleMutation from './EditRule'
 import ReorderRulesMutation from './ReorderRules'
 import AddPrizeMutation from './AddPrize'
+import CreateFormulaMutation from './CreateFormula'
+import CreateAndSetFormulaMutation from './CreateAndSetFormula'
+import CreatePlotterMutation from './CreatePlotter'
+import CreateAndSetPlotterMutation from './CreateAndSetPlotter'
 
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: Object.assign(
-    HostCompetitionMutation,
-    EditCompetitionMutation,
-    RegisterToCompetitionMutation,
+    HostEventMutation,
+    EditEventMutation,
+    RegisterToEventMutation,
     EditParticipantMutation,
     AddRuleMutation,
     EditRuleMutation,
     ReorderRulesMutation,
-    AddPrizeMutation
+    AddPrizeMutation,
+    CreateFormulaMutation,
+    CreateAndSetFormulaMutation,
+    CreatePlotterMutation,
+    CreateAndSetPlotterMutation
   )
 })
 

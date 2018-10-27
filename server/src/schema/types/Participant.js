@@ -6,9 +6,9 @@ import {
 const ParticipantType = new GraphQLObjectType({
   name: 'Participant',
   fields: () => ({
-    devTeam: { type: GraphQLString },
-    bot: { type: GraphQLString },
-    release: { type: GraphQLString }
+    teamId: { type: GraphQLString },
+    botId: { type: GraphQLString },
+    releaseId: { type: GraphQLString }
   })
 })
 

@@ -3,35 +3,35 @@ import {
   GraphQLID,
   GraphQLString
 } from 'graphql'
-import { CompetitionType } from '../types'
-import Competition from '../../models/competition'
+import { EventType } from '../types'
+import { Event } from '../../models'
 
 const args = {
-  competitionCodeName: { type: new GraphQLNonNull(GraphQLID) },
-  devTeam: { type: new GraphQLNonNull(GraphQLString) },
-  bot: { type: GraphQLString },
-  release: { type: GraphQLString }
+  eventDesignator: { type: new GraphQLNonNull(GraphQLID) },
+  teamId: { type: new GraphQLNonNull(GraphQLString) },
+  botId: { type: GraphQLString },
+  releaseId: { type: GraphQLString }
 }
 
-const resolve = (parent, { competitionCodeName, devTeam, bot, release }, context) => {
+const resolve = (parent, { eventDesignator, teamId, botId, releaseId }, context) => {
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName: competitionCodeName }).exec((err, competition) => {
+    Event.findOne({ designator: eventDesignator }).exec((err, event) => {
       if (err) reject(err)
       else {
         let participantIndex
-        competition.participants.find((participant, index) => {
-          if (participant.devTeam === devTeam) {
+        event.participants.find((participant, index) => {
+          if (participant.teamId === teamId) {
             participantIndex = index
           }
         })
 
-        competition.participants[participantIndex].bot = bot || competition.participants[participantIndex].bot
-        competition.participants[participantIndex].release = release || competition.participants[participantIndex].release
+        event.participants[participantIndex].botId = botId || event.participants[participantIndex].botId
+        event.participants[participantIndex].releaseId = releaseId || event.participants[participantIndex].releaseId
 
-        competition.save((err) => {
+        event.save((err) => {
           if (err) reject(err)
           else {
-            resolve(competition)
+            resolve(event)
           }
         })
       }
@@ -41,7 +41,7 @@ const resolve = (parent, { competitionCodeName, devTeam, bot, release }, context
 
 const mutation = {
   editParticipant: {
-    type: CompetitionType,
+    type: EventType,
     args,
     resolve
   }

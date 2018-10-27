@@ -3,41 +3,41 @@ import {
   GraphQLID,
   GraphQLString
 } from 'graphql'
-import { CompetitionType } from '../types'
-import Competition from '../../models/competition'
+import { EventType } from '../types'
+import { Event } from '../../models'
 
 const args = {
-  competitionCodeName: { type: new GraphQLNonNull(GraphQLID) },
+  eventDesignator: { type: new GraphQLNonNull(GraphQLID) },
   title: { type: new GraphQLNonNull(GraphQLString) },
   newtitle: { type: GraphQLString },
   description: { type: GraphQLString }
 }
 
-const resolve = (parent, { competitionCodeName, title, newtitle, description }, context) => {
+const resolve = (parent, { eventDesignator, title, newtitle, description }, context) => {
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName: competitionCodeName, host: context.userId }).exec((err, competition) => {
-      if (err || !competition) {
+    Event.findOne({ designator: eventDesignator, hostId: context.userId }).exec((err, event) => {
+      if (err || !event) {
         reject(err)
       } else {
         let ruleIndex
-        competition.rules.find((rule, index) => {
+        event.rules.find((rule, index) => {
           if (rule.title === title) {
             ruleIndex = index
           }
         })
 
-        competition.rules[ruleIndex].description = description || competition.rules[ruleIndex].description
-        if (competition.rules.some(rule => rule.title === newtitle)) {
+        event.rules[ruleIndex].description = description || event.rules[ruleIndex].description
+        if (event.rules.some(rule => rule.title === newtitle)) {
           // need to add an error message here TODO
-          resolve(competition)
+          resolve(event)
         } else {
-          competition.rules[ruleIndex].title = newtitle || competition.rules[ruleIndex].title
+          event.rules[ruleIndex].title = newtitle || event.rules[ruleIndex].title
         }
 
-        competition.save((err) => {
+        event.save((err) => {
           if (err) reject(err)
           else {
-            resolve(competition)
+            resolve(event)
           }
         })
       }
@@ -47,7 +47,7 @@ const resolve = (parent, { competitionCodeName, title, newtitle, description }, 
 
 const mutation = {
   editRule: {
-    type: CompetitionType,
+    type: EventType,
     args,
     resolve
   }

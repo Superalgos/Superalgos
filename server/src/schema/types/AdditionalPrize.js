@@ -4,7 +4,7 @@ import {
   GraphQLInt
 } from 'graphql'
 
-const OtherPrizeType = new GraphQLObjectType({
+const AdditionalPrizeType = new GraphQLObjectType({
   name: 'OtherPrize',
   fields: () => ({
     condition: { type: GraphQLString },
@@ -13,4 +13,4 @@ const OtherPrizeType = new GraphQLObjectType({
   })
 })
 
-export default OtherPrizeType
+export default AdditionalPrizeType

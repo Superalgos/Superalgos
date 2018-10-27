@@ -1,15 +1,17 @@
 import PlotterType from './Plotter'
 import RuleType from './Rule'
 import ParticipantType from './Participant'
-import OtherPrizeType from './OtherPrize'
+import AdditionalPrizeType from './AdditionalPrize'
 import PrizeType from './Prize'
-import CompetitionType from './Competition'
+import FormulaType from './Formula'
+import EventType from './Event'
 
 export {
   PlotterType,
   RuleType,
   ParticipantType,
-  OtherPrizeType,
+  AdditionalPrizeType,
   PrizeType,
-  CompetitionType
+  FormulaType,
+  EventType
 }

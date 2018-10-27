@@ -3,37 +3,37 @@ import {
   GraphQLID,
   GraphQLString
 } from 'graphql'
-import { CompetitionType } from '../types'
-import Competition from '../../models/competition'
+import { EventType } from '../types'
+import { Event } from '../../models'
 
 const args = {
-  competitionCodeName: { type: new GraphQLNonNull(GraphQLID) },
+  eventDesignator: { type: new GraphQLNonNull(GraphQLID) },
   title: { type: new GraphQLNonNull(GraphQLString) },
   description: { type: new GraphQLNonNull(GraphQLString) }
 }
 
-const resolve = (parent, { competitionCodeName, title, description }, context) => {
+const resolve = (parent, { eventDesignator, title, description }, context) => {
   return new Promise((resolve, reject) => {
-    Competition.findOne({ codeName: competitionCodeName, host: context.userId }).exec((err, competition) => {
-      if (err || !competition) {
+    Event.findOne({ designator: eventDesignator, hostId: context.userId }).exec((err, event) => {
+      if (err || !event) {
         reject(err)
       } else {
-        if (competition.rules.some(rule => rule.title === title)) {
-          resolve(competition)
+        if (event.rules.some(rule => rule.title === title)) {
+          resolve(event)
         } else {
-          let number = 1
-          while (competition.rules.some(rule => rule.number === number)) {
-            number++
+          let position = 1
+          while (event.rules.some(rule => rule.position === position)) {
+            position++
           }
-          competition.rules.push({
-            number,
+          event.rules.push({
+            position,
             title,
             description
           })
-          competition.save((err) => {
+          event.save((err) => {
             if (err) reject(err)
             else {
-              resolve(competition)
+              resolve(event)
             }
           })
         }
@@ -44,7 +44,7 @@ const resolve = (parent, { competitionCodeName, title, description }, context) =
 
 const mutation = {
   addRule: {
-    type: CompetitionType,
+    type: EventType,
     args,
     resolve
   }

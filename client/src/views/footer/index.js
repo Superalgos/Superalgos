@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+import { connect } from 'react-redux'
 
 import aalogo from '../../assets/advanced-algos/aa-logo-vert.svg'
 
@@ -51,6 +52,8 @@ class Footer extends Component {
   render () {
     let { classes } = this.props
     console.log('SHOW_FOOTER', window.SHOW_FOOTER)
+    console.log('FOOTER PROPRS', this.props)
+    const { masterApp } = this.props.context.masterApp
     if (window.SHOW_FOOTER === false) {
       return (<div />)
     } else {
@@ -163,4 +166,10 @@ Footer.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Footer)
+const mapStateToProps = (state) => {
+  return {
+    context: state.context
+  }
+}
+
+export default connect(mapStateToProps)(withStyles(styles)(Footer))

@@ -3,30 +3,30 @@ import Plotter from './plotter'
 import Formula from './formula'
 
 const eventSchema = new Schema({
-  designator: String,
-  name: String,
-  hostId: String,
+  designator: { type: String, required: true },
+  name: { type: String, required: true },
+  hostId: { type: String, required: true },
   description: String,
-  startDatetime: Number,
-  finishDatetime: Number,
+  startDatetime: { type: Number, required: true },
+  finishDatetime: { type: Number, required: true },
   formula: { type: Schema.Types.ObjectId, ref: Formula.modelName },
   plotter: { type: Schema.Types.ObjectId, ref: Plotter.modelName },
   rules: [{
-    position: Number,
-    title: String,
+    position: { type: Number, required: true },
+    title: { type: String, required: true },
     description: String
   }],
   prizes: [{
-    rank: Number,
-    amount: Number,
+    rank: { type: Number, required: true },
+    amount: { type: Number, required: true },
     additional: [{
       condition: String,
-      amount: Number,
-      asset: String
+      amount: { type: Number, required: true },
+      asset: { type: String, required: true }
     }]
   }],
   participants: [{
-    teamId: String,
+    teamId: { type: String, required: true },
     botId: String,
     releaseId: String
   }]

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
+import { connect } from 'react-redux'
 
 const styles = theme => ({
   '@global': {
@@ -30,16 +31,14 @@ class Charts extends Component {
     window.canvasApp.visible = true
     let body = document.getElementById('body')
     body.style = 'margin: 0px; padding: 0px; border: 0px; overflow:hidden;'
-    window.SHOW_FOOTER = false
-    console.log('HIDDING FOOTER')
+    this.props.hideFooter()
   }
 
   componentWillUnmount () {
     window.canvasApp.visible = false
     let body = document.getElementById('body')
     body.style = ''
-    window.SHOW_FOOTER = true
-    console.log('SHOWING FOOTER')
+    this.props.showFooter()
   }
 
   render () {
@@ -54,4 +53,17 @@ Charts.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Charts)
+const mapStateToProps = (state) => {
+  return {
+    context: state.context
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    hideFooter: () => { dispatch({type: 'HIDE_FOOTER'}) },
+    showFooter: () => { dispatch({type: 'SHOW_FOOTER'}) }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Charts))

@@ -41,20 +41,11 @@ const styles = theme => ({
 
 class Footer extends Component {
 
-  componentDidMount () {
-    console.log('componentDidMount')
-  }
-
-  componentWillUnmount () {
-    console.log('componentWillUnmount')
-  }
-
   render () {
     let { classes } = this.props
-    console.log('SHOW_FOOTER', window.SHOW_FOOTER)
-    console.log('FOOTER PROPRS', this.props)
-    const { masterApp } = this.props.context.masterApp
-    if (window.SHOW_FOOTER === false) {
+
+    const masterApp = this.props.context.masterApp
+    if (masterApp.footer.visible === false) {
       return (<div />)
     } else {
       return (

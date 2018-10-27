@@ -22,6 +22,7 @@ import { LoggedOut } from './LoggedOut'
 
 import AALogo from '../../assets/advanced-algos/aa-logo-dark.svg'
 
+const ChartsLink = props => <Link to='/charts' {...props} />
 const UsersLink = props => <Link to='/users' {...props} />
 const TeamsLink = props => <Link to='/teams' {...props} />
 const KeyVaultLink = props => <Link to='/key-vault' {...props} />
@@ -104,6 +105,10 @@ class Header extends Component {
             >
               <HomeIcon />
             </IconButton>
+
+            <Button component={ChartsLink} color='inherit'>
+              Charts
+            </Button>
             <Button component={UsersLink} color='inherit'>
               Users
             </Button>

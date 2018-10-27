@@ -26,24 +26,33 @@ const styles = theme => ({
 
 class Home extends Component {
 
-  componentDidMount () {
-    window.canvasApp.visible = true
-    let body = document.getElementById('body')
-    body.style = 'margin: 0px; padding: 0px; border: 0px; overflow:hidden;'
-    window.HIDE_FOOTER = true
-  }
-
-  componentWillUnmount () {
-    window.canvasApp.visible = false
-    let body = document.getElementById('body')
-    body.style = ''
-    window.HIDE_FOOTER = false
-  }
-
   render () {
     const { classes } = this.props
     return (
-      <React.Fragment />
+      <React.Fragment>
+        <CssBaseline />
+        <main className={classes.layout}>
+          <div className={classes.heroContent}>
+            <Typography
+              variant='display3'
+              align='center'
+              color='textPrimary'
+              gutterBottom
+            >
+              Collaborate. Innovate. Evolve.
+            </Typography>
+            <Typography
+              variant='title'
+              align='center'
+              color='textSecondary'
+              component='h3'
+            >
+              Welcome to the Advanced Algos Platform
+            </Typography>
+          </div>
+        </main>
+
+      </React.Fragment>
     )
   }
 }

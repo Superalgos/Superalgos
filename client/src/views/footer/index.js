@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
@@ -38,111 +38,124 @@ const styles = theme => ({
   }
 })
 
-const Footer = ({ classes }) => {
-  if (window.HIDE_FOOTER !== true) {
-    return (<div />)
-  } else {
-    return (
-      <footer className={classNames(classes.footer, classes.layout)}>
-        <Grid
-          container
-          spacing={32}
-          justify='space-evenly'
-          className={classNames(classes.footerContainer)}
-      >
-          <Grid item xs>
-            <Typography variant='h6' color='textPrimary' gutterBottom>
-            Pages
-          </Typography>
-            <NavLink to='/' className={classNames(classes.footerLink)}>
-              <Typography variant='subtitle1' color='textSecondary'>
-              Home
-            </Typography>
-            </NavLink>
-            <NavLink to='/teams' className={classNames(classes.footerLink)}>
-              <Typography variant='subtitle1' color='textSecondary'>
-              Teams
-            </Typography>
-            </NavLink>
-            <NavLink to='/key-vault' className={classNames(classes.footerLink)}>
-              <Typography variant='subtitle1' color='textSecondary'>
-              Key Vault
-            </Typography>
-            </NavLink>
-          </Grid>
-          <Grid item xs>
-            <Typography variant='h6' color='textPrimary' gutterBottom>
-            Support
-          </Typography>
+class Footer extends Component {
 
-            <a
-              href='https://advancedalgos.net/documentation-quick-start.shtml'
-              target='_blank>'
-              className={classNames(classes.footerLink)}
-          >
-              <Typography variant='subtitle1' color='textSecondary'>
-              Documentation
+  componentDidMount () {
+    console.log('componentDidMount')
+  }
+
+  componentWillUnmount () {
+    console.log('componentWillUnmount')
+  }
+
+  render () {
+    let { classes } = this.props
+    console.log('SHOW_FOOTER', window.SHOW_FOOTER)
+    if (window.SHOW_FOOTER === false) {
+      return (<div />)
+    } else {
+      return (
+        <footer className={classNames(classes.footer, classes.layout)}>
+          <Grid
+            container
+            spacing={32}
+            justify='space-evenly'
+            className={classNames(classes.footerContainer)}
+        >
+            <Grid item xs>
+              <Typography variant='h6' color='textPrimary' gutterBottom>
+              Pages
             </Typography>
-            </a>
-            <a
-              href='https://t.me/advancedalgoscommunity'
-              target='_blank>'
-              className={classNames(classes.footerLink)}
-          >
-              <Typography variant='subtitle1' color='textSecondary'>
-              Telegram
+              <NavLink to='/' className={classNames(classes.footerLink)}>
+                <Typography variant='subtitle1' color='textSecondary'>
+                Home
+              </Typography>
+              </NavLink>
+              <NavLink to='/teams' className={classNames(classes.footerLink)}>
+                <Typography variant='subtitle1' color='textSecondary'>
+                Teams
+              </Typography>
+              </NavLink>
+              <NavLink to='/key-vault' className={classNames(classes.footerLink)}>
+                <Typography variant='subtitle1' color='textSecondary'>
+                Key Vault
+              </Typography>
+              </NavLink>
+            </Grid>
+            <Grid item xs>
+              <Typography variant='h6' color='textPrimary' gutterBottom>
+              Support
             </Typography>
-            </a>
+
+              <a
+                href='https://advancedalgos.net/documentation-quick-start.shtml'
+                target='_blank>'
+                className={classNames(classes.footerLink)}
+            >
+                <Typography variant='subtitle1' color='textSecondary'>
+                Documentation
+              </Typography>
+              </a>
+              <a
+                href='https://t.me/advancedalgoscommunity'
+                target='_blank>'
+                className={classNames(classes.footerLink)}
+            >
+                <Typography variant='subtitle1' color='textSecondary'>
+                Telegram
+              </Typography>
+              </a>
+            </Grid>
+            <Grid item xs>
+              <Typography variant='h6' color='textPrimary' gutterBottom>
+              Modules
+            </Typography>
+              <a
+                href='https://develop.advancedalgos.net'
+                target='_blank>'
+                className={classNames(classes.footerLink)}
+            >
+                <Typography variant='subtitle1' color='textSecondary'>
+                Platform
+              </Typography>
+              </a>
+              <a
+                href='https://users.advancedalgos.net'
+                target='_blank>'
+                className={classNames(classes.footerLink)}
+            >
+                <Typography variant='subtitle1' color='textSecondary'>
+                Users
+              </Typography>
+              </a>
+              <a
+                href='https://teams.advancedalgos.net'
+                target='_blank>'
+                className={classNames(classes.footerLink)}
+            >
+                <Typography variant='subtitle1' color='textSecondary'>
+                Teams
+              </Typography>
+              </a>
+              <a
+                href='https://keyvault.advancedalgos.net'
+                target='_blank>'
+                className={classNames(classes.footerLink)}
+            >
+                <Typography variant='subtitle1' color='textSecondary'>
+                Key Vault
+              </Typography>
+              </a>
+            </Grid>
+            <Grid item xs>
+              <NavLink to='/'>
+                <img alt='' src={aalogo} width={98} height={140} />
+              </NavLink>
+            </Grid>
           </Grid>
-          <Grid item xs>
-            <Typography variant='h6' color='textPrimary' gutterBottom>
-            Modules
-          </Typography>
-            <a
-              href='https://develop.advancedalgos.net'
-              target='_blank>'
-              className={classNames(classes.footerLink)}
-          >
-              <Typography variant='subtitle1' color='textSecondary'>
-              Platform
-            </Typography>
-            </a>
-            <a
-              href='https://users.advancedalgos.net'
-              target='_blank>'
-              className={classNames(classes.footerLink)}
-          >
-              <Typography variant='subtitle1' color='textSecondary'>
-              Users
-            </Typography>
-            </a>
-            <a
-              href='https://teams.advancedalgos.net'
-              target='_blank>'
-              className={classNames(classes.footerLink)}
-          >
-              <Typography variant='subtitle1' color='textSecondary'>
-              Teams
-            </Typography>
-            </a>
-            <a
-              href='https://keyvault.advancedalgos.net'
-              target='_blank>'
-              className={classNames(classes.footerLink)}
-          >
-              <Typography variant='subtitle1' color='textSecondary'>
-              Key Vault
-            </Typography>
-            </a>
-          </Grid>
-          <Grid item xs>
-            <NavLink to='/'>
-              <img alt='' src={aalogo} width={98} height={140} />
-            </NavLink>
-          </Grid>
-        </Grid>
-      </footer>
-    )
+        </footer>
+      )
+    }
   }
 }
 

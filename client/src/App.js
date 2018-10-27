@@ -11,11 +11,11 @@ import { theme, globalStyles } from './styles'
 import { client } from './graphql/apollo'
 import Auth from './auth'
 
-import { Header, Footer, Home, Callback } from './views'
+import { Header, Footer, Home, Charts, Callback } from './views'
 
+import Users from '@advancedalgos/users-client'
 import Teams from '@advancedalgos/teams-client'
 import KeyVault from '@advancedalgos/key-vault-client'
-import Users from '@advancedalgos/users-client'
 
 export const auth = new Auth(
   result => console.log('Authentication successful.'),
@@ -27,30 +27,34 @@ export const MasterApp = () => (
     <ApolloProvider client={client}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-          <Header auth={auth} />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route
-              path='/callback'
-              render={props => {
-                auth.handleAuthentication(props)
-                return <Callback {...props} />
-              }}
+        <Header auth={auth} />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route
+            path='/callback'
+            render={props => {
+              auth.handleAuthentication(props)
+              return <Callback {...props} />
+            }}
             />
-            <Route
-              path='/teams'
-              render={props => <Teams {...props} auth={auth} />}
+          <Route
+            path='/charts'
+            render={props => <Charts {...props} auth={auth} />}
             />
-            <Route
-              path='/key-vault'
-              render={props => <KeyVault {...props} />}
+          <Route
+            path='/users'
+            render={props => <Users {...props} auth={auth} />}
             />
-            <Route
-              path='/users'
-              render={props => <Users {...props} auth={auth} />}
+          <Route
+            path='/teams'
+            render={props => <Teams {...props} auth={auth} />}
             />
-          </Switch>
-          <Footer />
+          <Route
+            path='/key-vault'
+            render={props => <KeyVault {...props} auth={auth} />}
+            />
+        </Switch>
+        <Footer />
       </MuiThemeProvider>
     </ApolloProvider>
   </BrowserRouter>

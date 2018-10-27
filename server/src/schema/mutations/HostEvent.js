@@ -3,6 +3,7 @@ import {
   GraphQLInt,
   GraphQLString
 } from 'graphql'
+import { AuthentificationError } from '../../errors'
 import { EventType } from '../types'
 import { Event } from '../../models'
 import { slugify } from '../../utils/functions'
@@ -16,6 +17,9 @@ const args = {
 
 const resolve = (parent, { name, description, startDatetime, finishDatetime }, context) => {
   const hostId = context.userId
+  if (!hostId) {
+    throw new AuthentificationError()
+  }
   let newEvent = new Event({
     hostId,
     name,

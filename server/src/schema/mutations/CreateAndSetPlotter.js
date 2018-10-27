@@ -2,6 +2,7 @@ import {
   GraphQLNonNull,
   GraphQLString
 } from 'graphql'
+import { AuthentificationError } from '../../errors'
 import { EventType } from '../types'
 import { Event, Plotter } from '../../models'
 
@@ -15,6 +16,9 @@ const args = {
 
 const resolve = (parent, { name, host, repo, moduleName, eventDesignator }, context) => {
   const ownerId = context.userId
+  if (!ownerId) {
+    throw new AuthentificationError()
+  }
   let newPlotter = new Plotter({ name, host, repo, moduleName, ownerId })
   return new Promise((resolve, reject) => {
     Event.findOne({ designator: eventDesignator, hostId: ownerId }).exec((err, event) => {

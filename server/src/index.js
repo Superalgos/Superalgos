@@ -6,7 +6,7 @@ import graphqlHTTP from 'express-graphql'
 import expressPlayground from 'graphql-playground-middleware-express'
 
 import schema from './schema'
-const Sentry = require('@sentry/node')
+import * as Sentry from '@sentry/node'
 
 // Initialise express
 const app = express()

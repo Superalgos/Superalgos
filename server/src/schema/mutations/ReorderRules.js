@@ -3,6 +3,7 @@ import {
   GraphQLID,
   GraphQLInt
 } from 'graphql'
+import { AuthentificationError } from '../../errors'
 import { isBetween } from '../../utils/functions'
 import { EventType } from '../types'
 import { Event } from '../../models'
@@ -14,6 +15,10 @@ const args = {
 }
 
 const resolve = (parent, { eventDesignator, fromPosition, toPosition }, context) => {
+  const hostId = context.userId
+  if (!hostId) {
+    throw new AuthentificationError()
+  }
   return new Promise((resolve, reject) => {
     Event.findOne({ designator: eventDesignator, hostId: context.userId }).exec((err, event) => {
       if (err || !event) {

@@ -2,6 +2,7 @@ import {
   GraphQLNonNull,
   GraphQLString
 } from 'graphql'
+import { AuthentificationError } from '../../errors'
 import { PlotterType } from '../types'
 import { Plotter } from '../../models'
 
@@ -14,6 +15,9 @@ const args = {
 
 const resolve = (parent, { name, host, repo, moduleName }, context) => {
   const ownerId = context.userId
+  if (!ownerId) {
+    throw new AuthentificationError()
+  }
   let newPlotter = new Plotter({ name, host, repo, moduleName, ownerId })
   return new Promise((resolve, reject) => {
     newPlotter.save((err) => {

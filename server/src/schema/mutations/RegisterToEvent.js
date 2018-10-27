@@ -3,6 +3,7 @@ import {
   GraphQLID,
   GraphQLString
 } from 'graphql'
+import { AuthentificationError } from '../../errors'
 import { EventType } from '../types'
 import { Event } from '../../models'
 
@@ -14,6 +15,10 @@ const args = {
 }
 
 const resolve = (parent, { designator, teamId, botId, releaseId }, context) => {
+  const hostId = context.userId
+  if (!hostId) {
+    throw new AuthentificationError()
+  }
   return new Promise((resolve, reject) => {
     Event.findOne({ designator }).exec((err, event) => {
       if (err) reject(err)

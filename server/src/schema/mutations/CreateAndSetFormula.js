@@ -2,6 +2,7 @@ import {
   GraphQLNonNull,
   GraphQLString
 } from 'graphql'
+import { AuthentificationError } from '../../errors'
 import { EventType } from '../types'
 import { Event, Formula } from '../../models'
 
@@ -12,6 +13,9 @@ const args = {
 
 const resolve = (parent, { name, eventDesignator }, context) => {
   const ownerId = context.userId
+  if (!ownerId) {
+    throw new AuthentificationError()
+  }
   let newFormula = new Formula({ name, ownerId })
   return new Promise((resolve, reject) => {
     Event.findOne({ designator: eventDesignator, hostId: ownerId }).exec((err, event) => {

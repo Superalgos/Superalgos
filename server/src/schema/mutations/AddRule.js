@@ -3,6 +3,7 @@ import {
   GraphQLID,
   GraphQLString
 } from 'graphql'
+import { AuthentificationError } from '../../errors'
 import { EventType } from '../types'
 import { Event } from '../../models'
 
@@ -13,8 +14,12 @@ const args = {
 }
 
 const resolve = (parent, { eventDesignator, title, description }, context) => {
+  const hostId = context.userId
+  if (!hostId) {
+    throw new AuthentificationError()
+  }
   return new Promise((resolve, reject) => {
-    Event.findOne({ designator: eventDesignator, hostId: context.userId }).exec((err, event) => {
+    Event.findOne({ designator: eventDesignator, hostId }).exec((err, event) => {
       if (err || !event) {
         reject(err)
       } else {

@@ -2,6 +2,7 @@ import {
   GraphQLNonNull,
   GraphQLString
 } from 'graphql'
+import { AuthentificationError } from '../../errors'
 import { FormulaType } from '../types'
 import { Formula } from '../../models'
 
@@ -11,6 +12,9 @@ const args = {
 
 const resolve = (parent, { name }, context) => {
   const ownerId = context.userId
+  if (!ownerId) {
+    throw new AuthentificationError()
+  }
   let newFormula = new Formula({ name, ownerId })
   return new Promise((resolve, reject) => {
     newFormula.save((err) => {

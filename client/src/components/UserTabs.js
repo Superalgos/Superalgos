@@ -62,6 +62,7 @@ class UserTabs extends React.Component {
             scrollButtons="off"
             indicatorColor="primary"
             textColor="primary"
+            fullWidth
           >
             <Tab label="Profile Sheet" icon={<ProfileSheetIcon />} />
             <Tab label="Profile Images" icon={<ProfileImagesIcon />} />

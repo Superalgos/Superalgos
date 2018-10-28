@@ -13,6 +13,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
 
 import TextField from '@material-ui/core/TextField'
 
@@ -20,6 +21,13 @@ import TextField from '@material-ui/core/TextField'
 import PortraitImage from '../img/portrait.jpg'
 
 const styles = theme => ({
+  root: {
+    width: '50%',
+    flexGrow: 1,
+    padding: 10,
+    marginLeft: '25%',
+    marginTop: '2%'
+  },
   card: {
     maxWidth: 150,
     minWidth: 150,
@@ -199,7 +207,7 @@ class UserSearch extends Component {
   render () {
     const { classes } = this.props
     return (
-      <div>
+      <Paper className={classes.root}>
         <form onSubmit={this.submitForm.bind(this)}>
 
           <Typography className={classes.formTypography} variant='body2' gutterBottom align='left'>
@@ -256,7 +264,7 @@ class UserSearch extends Component {
         <Grid container className={classes.grid} justify='center' spacing={24}>
           {this.displayUsers()}
         </Grid>
-      </div>
+      </Paper>
     )
   }
 }

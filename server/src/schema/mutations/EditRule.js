@@ -3,7 +3,7 @@ import {
   GraphQLID,
   GraphQLString
 } from 'graphql'
-import { AuthentificationError, DatabaseError } from '../../errors'
+import { AuthentificationError, DatabaseError, WrongArgumentsError } from '../../errors'
 import { EventType } from '../types'
 import { Event } from '../../models'
 
@@ -37,8 +37,7 @@ const resolve = (parent, { eventDesignator, title, newtitle, description }, cont
         }
         event.rules[ruleIndex].description = description || event.rules[ruleIndex].description
         if (event.rules.some(rule => rule.title === newtitle)) {
-          // need to add an error message here TODO
-          resolve(event)
+          reject(new WrongArgumentsError('There is already a rule using your new title'))
         } else {
           event.rules[ruleIndex].title = newtitle || event.rules[ruleIndex].title
         }

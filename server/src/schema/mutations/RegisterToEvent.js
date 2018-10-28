@@ -3,7 +3,7 @@ import {
   GraphQLID,
   GraphQLString
 } from 'graphql'
-import { AuthentificationError } from '../../errors'
+import { AuthentificationError, WrongArgumentsError } from '../../errors'
 import { EventType } from '../types'
 import { Event } from '../../models'
 
@@ -24,8 +24,7 @@ const resolve = (parent, { designator, teamId, botId, releaseId }, context) => {
       if (err) reject(err)
       else {
         if (event.participants.some(participant => participant.teamId === teamId)) {
-          // need to add an error message here TODO
-          resolve(event)
+          reject(new WrongArgumentsError('You are already registred'))
         } else {
           event.participants.push({
             teamId,

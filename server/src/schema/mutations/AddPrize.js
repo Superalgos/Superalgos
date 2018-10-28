@@ -3,7 +3,11 @@ import {
   GraphQLID,
   GraphQLInt
 } from 'graphql'
-import { AuthentificationError } from '../../errors'
+import {
+  AuthentificationError,
+  DatabaseError,
+  WrongArgumentsError
+} from '../../errors'
 import { EventType } from '../types'
 import { Event } from '../../models'
 
@@ -20,12 +24,13 @@ const resolve = (parent, { eventDesignator, rank, amount }, context) => {
   }
   return new Promise((resolve, reject) => {
     Event.findOne({ designator: eventDesignator, hostId }).exec((err, event) => {
-      if (err || !event) {
+      if (err) {
         reject(err)
+      } else if (!event) {
+        reject(new DatabaseError('None of the events you own respond to that designator'))
       } else {
         if (event.prizes.some(prize => prize.rank === rank)) {
-          // need to add an error message here TODO
-          resolve(event)
+          reject(new WrongArgumentsError('A prize for that rank already exists'))
         } else {
           event.prizes.push({
             rank,

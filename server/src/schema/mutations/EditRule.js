@@ -3,7 +3,7 @@ import {
   GraphQLID,
   GraphQLString
 } from 'graphql'
-import { AuthentificationError } from '../../errors'
+import { AuthentificationError, DatabaseError } from '../../errors'
 import { EventType } from '../types'
 import { Event } from '../../models'
 
@@ -21,8 +21,10 @@ const resolve = (parent, { eventDesignator, title, newtitle, description }, cont
   }
   return new Promise((resolve, reject) => {
     Event.findOne({ designator: eventDesignator, hostId }).exec((err, event) => {
-      if (err || !event) {
+      if (err) {
         reject(err)
+      } else if (!event) {
+        reject(new DatabaseError('None of the events you own respond to that designator'))
       } else {
         let ruleIndex
         event.rules.find((rule, index) => {

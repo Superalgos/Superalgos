@@ -2,7 +2,7 @@ import {
   GraphQLNonNull,
   GraphQLString
 } from 'graphql'
-import { AuthentificationError } from '../../errors'
+import { AuthentificationError, DatabaseError } from '../../errors'
 import { EventType } from '../types'
 import { Event, Plotter } from '../../models'
 
@@ -22,8 +22,10 @@ const resolve = (parent, { name, host, repo, moduleName, eventDesignator }, cont
   let newPlotter = new Plotter({ name, host, repo, moduleName, ownerId })
   return new Promise((resolve, reject) => {
     Event.findOne({ designator: eventDesignator, hostId: ownerId }).exec((err, event) => {
-      if (err || !event) {
+      if (err) {
         reject(err)
+      } else if (!event) {
+        reject(new DatabaseError('None of the events you own respond to that designator'))
       } else {
         newPlotter.save((err) => {
           if (err) reject(err)

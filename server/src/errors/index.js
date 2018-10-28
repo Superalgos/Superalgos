@@ -1,4 +1,14 @@
 export class AuthentificationError extends Error {
   code = 401
-  message = 'You have to be authentificated to ' + ( this.message || "perform this action")
+  message = 'Autentification not found, you have to be authentificated to perform this action'
+}
+
+export class DatabaseError extends Error {
+  code = 404
+  message = 'Ressource not found : ' + this.message
+}
+
+export class WrongArgumentsError extends Error {
+  code = 400
+  message = 'Wrong arguments : ' + this.message
 }

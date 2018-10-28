@@ -1,26 +1,11 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
-import { MessageCard } from '@advancedalgos/web-components'
 import { getItem } from './utils/local-storage'
 
 import TopBar from './Components/TopBar'
 import Search from './Components/Search'
-
-const Base = () => (
-  <div>
-    <p>Base component</p>
-    <MessageCard message='That can also wrap other components' >
-      <div className='loader'>Loading...</div>
-    </MessageCard>
-  </div>
-)
-
-const Added = () => (
-  <p>
-    Added component
-  </p>
-)
+import HostedEvent from './Components/HostedEvent'
 
 class App extends Component {
   constructor (props) {
@@ -35,7 +20,7 @@ class App extends Component {
 
     if (user !== null && user !== undefined && user !== 'undefined') {
       user = JSON.parse(user)
-      this.setState({ user: user })
+      this.setState({ user })
     }
   }
 
@@ -52,7 +37,7 @@ class App extends Component {
           {loggedIn}
           <Switch>
             <Route exact path='/' component={Search} />
-            <Route path='/added' component={Added} />
+            <Route path='/hosted-events' component={HostedEvent} />
           </Switch>
         </div>
       </BrowserRouter>

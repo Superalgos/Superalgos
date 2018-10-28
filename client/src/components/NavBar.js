@@ -88,7 +88,7 @@ class NavBar extends Component {
     return (
       <div className={classes.root}>
         <AppBar position='static' color='secondary'>
-          <Toolbar>
+          <Toolbar variant='dense'>
             <Typography variant='h5' color='inherit' className={classes.flex}>
               Users
             </Typography>
@@ -147,3 +147,4 @@ NavBar.propTypes = {
 }
 
 export default withStyles(styles)(NavBar)
+

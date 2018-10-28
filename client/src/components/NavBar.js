@@ -85,19 +85,18 @@ class NavBar extends Component {
 
   render () {
     const { classes, user, match } = this.props
-    console.log('NavBar: ', user, match)
     return (
       <div className={classes.root}>
         <AppBar position='static' color='secondary'>
           <Toolbar>
             <Typography variant='h5' color='inherit' className={classes.flex}>
-              Users Module
+              Users
             </Typography>
             <Button
               variant='text'
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
-              title='Users Home'
+              title='Users Module Home'
               component={HomeLink}
               to={`${match.url}`}>
               <UsersIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
@@ -148,4 +147,3 @@ NavBar.propTypes = {
 }
 
 export default withStyles(styles)(NavBar)
-

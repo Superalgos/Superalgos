@@ -10,6 +10,7 @@ import AddRuleMutation from './AddRule'
 import EditRuleMutation from './EditRule'
 import ReorderRulesMutation from './ReorderRules'
 import AddPrizeMutation from './AddPrize'
+import EditPrizeMutation from './EditPrize'
 import CreateFormulaMutation from './CreateFormula'
 import CreateAndSetFormulaMutation from './CreateAndSetFormula'
 import CreatePlotterMutation from './CreatePlotter'
@@ -26,6 +27,7 @@ const Mutation = new GraphQLObjectType({
     EditRuleMutation,
     ReorderRulesMutation,
     AddPrizeMutation,
+    EditPrizeMutation,
     CreateFormulaMutation,
     CreateAndSetFormulaMutation,
     CreatePlotterMutation,

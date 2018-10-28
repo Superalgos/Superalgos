@@ -11,6 +11,7 @@ import classNames from 'classnames'
 
 // icons
 import HomeIcon from '@material-ui/icons/Home'
+import ExitIcon from '@material-ui/icons/ExitToApp'
 
 import { Link } from 'react-router-dom'
 
@@ -125,7 +126,6 @@ class Header extends Component {
               target='_blank'
             >
             Documentation
-
             </Button>
 
             {this.state.user !== undefined && this.state.user !== null ? (
@@ -136,6 +136,14 @@ class Header extends Component {
               <LoggedOut auth={auth} styles={styles} />
             )}
 
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Exit'
+              href='http://www.advancedalgos.net/'
+            >
+              <ExitIcon />
+            </IconButton>
           </Toolbar>
         </AppBar>
       </div>

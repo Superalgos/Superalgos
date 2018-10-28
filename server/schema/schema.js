@@ -271,12 +271,10 @@ const Mutation = new GraphQLObjectType({
         sessionToken: {type: GraphQLString}
       },
       resolve (parent, args) {
-        console.log('Request Received', args)
         let key = {
           authId: decodeURI(args.authId)
         }
-        console.log('Key', key)
-        console.log('decode', decodeURI(args.authId))
+
         let updatedUser = {
           sessionToken: args.sessionToken
         }

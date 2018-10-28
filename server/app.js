@@ -9,6 +9,7 @@ const schema = require('./schema/schema')
 const mongoose = require('mongoose')
 const mongodbConfig = require('./models/MongoDB')
 const checkJwt = require('./auth/middleware/jwt')
+const logger = require('../utils/logger')
 
 const cors = require('cors')
 
@@ -20,7 +21,7 @@ app.use(cors())
 // Connect to the database
 mongoose.connect(mongodbConfig.connectionString, { useNewUrlParser: true })
 mongoose.connection.once('open', () => {
-  console.log('Connected to Mongo')
+  logger.info('Connected to Mongo')
 })
 
 /* Here we bind all requests to this endpoint to be procecced by the GraphQL Library. */
@@ -42,11 +43,10 @@ app.post('/graphql', graphqlHTTP(req => {
 }))
 
 app.post('/graphql', checkJwt, (err, req, res, next) => {
-  console.log(req)
   if (err) return res.status(401).send(`[Authenticate Token Error] ${err.message}`)
   next()
 })
 
 app.listen(4000, () => {
-  console.log('Now listening for requests on port 4000')
+  logger.info('Now listening for requests on port 4000')
 })

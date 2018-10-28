@@ -9,7 +9,7 @@ const schema = require('./schema/schema')
 const mongoose = require('mongoose')
 const mongodbConfig = require('./models/MongoDB')
 const checkJwt = require('./auth/middleware/jwt')
-const logger = require('../utils/logger')
+const logger = require('./utils/logger')
 
 const cors = require('cors')
 

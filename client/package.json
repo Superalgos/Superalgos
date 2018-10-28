@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Algoteers/MasterApp#readme",
   "devDependencies": {
-    "@advancedalgos/key-vault-client": "^0.0.12",
+    "@advancedalgos/key-vault-client": "^0.0.13",
     "@advancedalgos/teams-client": "0.0.22",
     "@advancedalgos/users-client": "^0.0.14",
     "@advancedalgos/web-components": "0.0.13",

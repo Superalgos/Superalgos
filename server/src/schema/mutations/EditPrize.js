@@ -25,7 +25,7 @@ const resolve = (parent, { eventDesignator, rank, amount }, context) => {
       } else if (!event) {
         reject(new DatabaseError('None of the events you own respond to that designator'))
       } else {
-        let prizeIndex
+        let prizeIndex = null
         event.prizes.find((prize, index) => {
           if (prize.rank === rank) {
             prizeIndex = index
@@ -33,6 +33,7 @@ const resolve = (parent, { eventDesignator, rank, amount }, context) => {
         })
         if (!prizeIndex) {
           reject(new DatabaseError('There is no prize for that index'))
+          return
         }
         event.prizes[prizeIndex].amount = amount || event.prizes[prizeIndex].amount
         event.save((err) => {

@@ -26,7 +26,7 @@ const resolve = (parent, { eventDesignator, title, newtitle, description }, cont
       } else if (!event) {
         reject(new DatabaseError('None of the events you own respond to that designator'))
       } else {
-        let ruleIndex
+        let ruleIndex = null
         event.rules.find((rule, index) => {
           if (rule.title === title) {
             ruleIndex = index
@@ -34,6 +34,7 @@ const resolve = (parent, { eventDesignator, title, newtitle, description }, cont
         })
         if (!ruleIndex) {
           reject(new DatabaseError('There is no rule with that title'))
+          return
         }
         event.rules[ruleIndex].description = description || event.rules[ruleIndex].description
         if (event.rules.some(rule => rule.title === newtitle)) {

@@ -12,3 +12,8 @@ export class WrongArgumentsError extends Error {
   code = 400
   message = 'Wrong arguments : ' + this.message
 }
+
+export class ServiceUnavailableError extends Error {
+  code = 503
+  message = 'At least one service is unresponding ' + this.message
+}

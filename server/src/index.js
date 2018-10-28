@@ -39,7 +39,10 @@ db.once('open', () => { console.log('Connected to the DB.') })
 app.use('/graphql', graphqlHTTP(req => {
   return {
     schema: schema,
-    context: { userId: req.headers.userid }
+    context: {
+      userId: req.headers.userid,
+      authorization: req.headers.authorization
+    }
   }
 }))
 app.get('/playground', expressPlayground({ endpoint: '/graphql' }))

@@ -3,7 +3,12 @@ import {
   GraphQLID,
   GraphQLString
 } from 'graphql'
-import { AuthentificationError } from '../../errors'
+import axios from 'axios'
+import {
+  AuthentificationError,
+  WrongArgumentsError,
+  ServiceUnavailableError
+} from '../../errors'
 import { EventType } from '../types'
 import { Event } from '../../models'
 
@@ -15,32 +20,59 @@ const args = {
 }
 
 const resolve = (parent, { eventDesignator, teamId, botId, releaseId }, context) => {
-  const hostId = context.userId
-  if (!hostId) {
+  const userid = context.userId
+  if (!userid) {
     throw new AuthentificationError()
   }
   return new Promise((resolve, reject) => {
-    Event.findOne({ designator: eventDesignator }).exec((err, event) => {
-      if (err) reject(err)
-      else {
-        let participantIndex
-        event.participants.find((participant, index) => {
-          if (participant.teamId === teamId) {
-            participantIndex = index
+    axios({
+      url: process.env.TEAMS_ENDPOINT,
+      method: 'post',
+      data: {
+        query: `
+          {
+            teamsByRole{
+              id
+            }
           }
-        })
-
-        event.participants[participantIndex].botId = botId || event.participants[participantIndex].botId
-        event.participants[participantIndex].releaseId = releaseId || event.participants[participantIndex].releaseId
-
-        event.save((err) => {
+        `
+      },
+      headers: {
+        userid,
+        authorization: context.authorization
+      }
+    }).then(
+      (result) => {
+        if (!result.data.data.teamsByRole.some(team => team.id === teamId)) {
+          reject(new WrongArgumentsError('You are not eligible to register this team'))
+          return
+        }
+        Event.findOne({ designator: eventDesignator }).exec((err, event) => {
           if (err) reject(err)
           else {
-            resolve(event)
+            let participantIndex
+            event.participants.find((participant, index) => {
+              if (participant.teamId === teamId) {
+                participantIndex = index
+              }
+            })
+
+            event.participants[participantIndex].botId = botId || event.participants[participantIndex].botId
+            event.participants[participantIndex].releaseId = releaseId || event.participants[participantIndex].releaseId
+
+            event.save((err) => {
+              if (err) reject(err)
+              else {
+                resolve(event)
+              }
+            })
           }
         })
+      },
+      (error) => {
+        reject(new ServiceUnavailableError(error))
       }
-    })
+    )
   })
 }
 

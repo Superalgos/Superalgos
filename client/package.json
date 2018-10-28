@@ -8,8 +8,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "devDependencies": {
-    "react-hot-loader": "^4.3.11"
+    "babel-eslint": "^10.0.1",
+    "react-hot-loader": "^4.3.11",
+    "standard": "^12.0.1"
   },
   "dependencies": {
     "@advancedalgos/web-components": "0.0.13",

@@ -31,7 +31,9 @@ const resolve = (parent, { eventDesignator, rank, amount }, context) => {
             prizeIndex = index
           }
         })
-
+        if (!prizeIndex) {
+          reject(new DatabaseError('There is no prize for that index'))
+        }
         event.prizes[prizeIndex].amount = amount || event.prizes[prizeIndex].amount
         event.save((err) => {
           if (err) reject(err)

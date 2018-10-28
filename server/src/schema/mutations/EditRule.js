@@ -32,7 +32,9 @@ const resolve = (parent, { eventDesignator, title, newtitle, description }, cont
             ruleIndex = index
           }
         })
-
+        if (!ruleIndex) {
+          reject(new DatabaseError('There is no rule with that title'))
+        }
         event.rules[ruleIndex].description = description || event.rules[ruleIndex].description
         if (event.rules.some(rule => rule.title === newtitle)) {
           // need to add an error message here TODO

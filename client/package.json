@@ -1,0 +1,31 @@
+{
+  "name": "@advancedalgos/hosts-client",
+  "version": "0.0.1",
+  "description": "Advanced Algos Host client-side web app",
+  "author": "",
+  "license": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "react-hot-loader": "^4.3.11",
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "@advancedalgos/web-components": "0.0.13",
+    "@material-ui/core": "^3.2.0",
+    "@material-ui/icons": "^3.0.1",
+    "classnames": "^2.2.6",
+    "graphql-tag": "^2.10.0",
+    "luxon": "^1.4.4",
+    "material-ui-pickers": "^1.0.1",
+    "react": "^16.5.2",
+    "react-apollo": "^2.2.4",
+    "react-router-dom": "^4.3.1"
+  }
+}

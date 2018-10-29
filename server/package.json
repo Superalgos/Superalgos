@@ -1,0 +1,34 @@
+{
+  "name": "hosts-server",
+  "version": "0.1.0",
+  "description": "Advanced Algos Host backend API",
+  "author": "",
+  "license": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "standard": {
+    "ignore": [
+      "/src/errors/index.js"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "@sentry/node": "^4.1.1",
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.0",
+    "graphql-playground-middleware-express": "^1.7.6",
+    "mongoose": "^5.3.4"
+  }
+}

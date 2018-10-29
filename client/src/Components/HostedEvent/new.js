@@ -1,22 +1,28 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { HOSTS_HOSTEVENT, HOSTS_EVENTSBYHOST } from './graphql'
+import { DateTime } from 'luxon'
 
-/*
-import classNames from 'classnames'
 import {
   Button,
   TextField
 } from '@material-ui/core'
-*/
+import { ChevronLeft, ChevronRight } from '@material-ui/icons'
+import { DateTimePicker } from 'material-ui-pickers'
 
 class New extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      name: '',
+      description: '',
+      startDatetime: DateTime.local().plus({ days: 1 }).startOf('day'),
+      finishDatetime: DateTime.local().plus({ days: 8 }).startOf('day')
+    }
+  }
+
   render () {
-    let name
-    let description
-    let startDatetime
-    let finishDatetime
-    // const { classes } = this.props
+    const { name, description, startDatetime, finishDatetime } = this.state
     return (
       <Mutation mutation={HOSTS_HOSTEVENT}
         update={(store, { data }) => {
@@ -34,37 +40,52 @@ class New extends React.Component {
               onSubmit={e => {
                 e.preventDefault()
                 hostEvent({ variables: {
-                  name: name.value,
-                  description: description.value,
-                  startDatetime: parseInt(startDatetime.value, 10),
-                  finishDatetime: parseInt(finishDatetime.value, 10)
+                  name: name,
+                  description: description,
+                  startDatetime: startDatetime.valueOf() / 1000,
+                  finishDatetime: startDatetime.valueOf() / 1000
                 } })
                 this.props.handleNewEventClose()
               }}
             >
-              <input
-                ref={node => {
-                  name = node
-                }}
+              <TextField
+                label='Name'
+                value={name}
+                onChange={(e) => this.setState({ name: e.target.value })}
+                fullWidth
               />
-              <input
-                ref={node => {
-                  description = node
-                }}
+              <TextField
+                multiline
+                label='Description'
+                value={description}
+                onChange={(e) => this.setState({ description: e.target.value })}
+                fullWidth
               />
-              <input
-                type='number'
-                ref={node => {
-                  startDatetime = node
-                }}
+              <DateTimePicker
+                autoOk
+                disablePast
+                format="DD' at 'HH:mm"
+                ampm={false}
+                showTabs={false}
+                leftArrowIcon={<ChevronLeft />}
+                rightArrowIcon={<ChevronRight />}
+                value={startDatetime}
+                onChange={(date) => this.setState({ startDatetime: date })}
+                helperText='Competition start date'
               />
-              <input
-                type='number'
-                ref={node => {
-                  finishDatetime = node
-                }}
+              <DateTimePicker
+                autoOk
+                disablePast
+                format="DD' at 'HH:mm"
+                ampm={false}
+                showTabs={false}
+                leftArrowIcon={<ChevronLeft />}
+                rightArrowIcon={<ChevronRight />}
+                value={finishDatetime}
+                onChange={(date) => this.setState({ finishDatetime: date })}
+                helperText='Competition finishing date'
               />
-              <button type='submit'>Create New Project</button>
+              <Button type='submit' variant='contained' color='secondary'>Create New Project</Button>
             </form>
             <div className='form-close' onClick={() => this.clearTempStates()} />
           </div>

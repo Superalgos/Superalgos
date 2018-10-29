@@ -14,6 +14,7 @@ import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 
 import New from './New'
+import Event from './Event'
 
 class HostedEvent extends React.Component {
   constructor (props) {
@@ -43,9 +44,7 @@ class HostedEvent extends React.Component {
             if (error) return `Error! ${error.message}`
             const list = data.hosts_EventsByHost.map((event, index) => {
               return (
-                <div key={index}>
-                  {event.name}
-                </div>
+                <Event key={index} event={event} />
               )
             })
             return (

@@ -2,6 +2,11 @@ import gql from 'graphql-tag'
 
 const fragments = `
   name
+  designator
+  startDatetime
+  finishDatetime
+  hostId
+  description
 `
 
 export const HOSTS_HOSTEVENT = gql`

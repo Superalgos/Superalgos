@@ -13,7 +13,7 @@ import {
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 
-import New from './new'
+import New from './New'
 
 class HostedEvent extends React.Component {
   constructor (props) {

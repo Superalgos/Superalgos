@@ -90,7 +90,6 @@ function newLogin() {
                     }
                 })
                     .then(response => {
-                        console.log("apolloClient data", response);
                         sessionToken = response.data.userByAuthId.sessionToken;
                          
                         window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.userByAuthId));
@@ -163,7 +162,6 @@ function newLogin() {
             variables: { authId: authId }
             })
             .then(response => {
-                console.log("apolloClientTeam data", response);
                 window.localStorage.setItem('userTeams', JSON.stringify(response.data.teamsByOwner));
                 resolve({teams: response.data.teamsByOwner})
             })
@@ -181,7 +179,6 @@ function newLogin() {
 
         // When all asynchronous fetches resolve, authenticate user or throw error.
         Promise.all(fetchDataPromises).then(result => {
-            console.log('fetchDataPromises: ', result);
 
             /* this is the time to authenticate the user at AAWeb */
 
@@ -216,8 +213,6 @@ function newLogin() {
 
                 window.USER_PROFILE = responseFromServer.userProfile;
                 window.localStorage.setItem('sessionToken', sessionToken);
-
-                console.log("window.USER_PROFILE at Login", window.USER_PROFILE);
 
                 currentLabel = "Logged In"
                 callBackFunction();

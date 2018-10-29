@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
+import { MuiPickersUtilsProvider } from 'material-ui-pickers'
+import LuxonUtils from 'material-ui-pickers/utils/luxon-utils'
+
 import { getItem } from './utils/local-storage'
 
 import TopBar from './Components/TopBar'
@@ -32,15 +35,17 @@ class App extends Component {
       loggedIn = ''
     }
     return (
-      <BrowserRouter basename={this.props.match.path}>
-        <div>
-          {loggedIn}
-          <Switch>
-            <Route exact path='/' component={Search} />
-            <Route path='/hosted-events' component={HostedEvent} />
-          </Switch>
-        </div>
-      </BrowserRouter>
+      <MuiPickersUtilsProvider utils={LuxonUtils}>
+        <BrowserRouter basename={this.props.match.path}>
+          <div>
+            {loggedIn}
+            <Switch>
+              <Route exact path='/' component={Search} />
+              <Route path='/hosted-events' component={HostedEvent} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </MuiPickersUtilsProvider>
     )
   }
 }

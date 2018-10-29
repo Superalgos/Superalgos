@@ -22,6 +22,8 @@
     "@material-ui/icons": "^3.0.1",
     "classnames": "^2.2.6",
     "graphql-tag": "^2.10.0",
+    "luxon": "^1.4.4",
+    "material-ui-pickers": "^1.0.1",
     "react": "^16.5.2",
     "react-apollo": "^2.2.4",
     "react-router-dom": "^4.3.1"

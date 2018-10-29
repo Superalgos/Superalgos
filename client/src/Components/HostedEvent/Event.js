@@ -44,7 +44,7 @@ class Event extends React.Component {
       designator,
       startDatetime,
       finishDatetime,
-      hostId,
+      host,
       description
     } = this.props.event
     return (
@@ -56,7 +56,7 @@ class Event extends React.Component {
             <Typography gutterBottom>To : {finishDatetime} </Typography>
           </Grid>
           <Grid item xs>
-            <Typography gutterBottom>Hosted by: {hostId} </Typography>
+            <Typography gutterBottom>Hosted by: {host.alias} ({host.lastName} {host.firstName}) </Typography>
             <Typography gutterBottom>Formula: </Typography>
             <Typography gutterBottom>First prize: </Typography>
           </Grid>

@@ -5,7 +5,11 @@ const fragments = `
   designator
   startDatetime
   finishDatetime
-  hostId
+  host {
+    alias
+    firstName
+    lastName
+  }
   description
 `
 

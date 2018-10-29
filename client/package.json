@@ -17,7 +17,6 @@
     "standard": "^12.0.1"
   },
   "dependencies": {
-    "@advancedalgos/web-components": "0.0.13",
     "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
     "classnames": "^2.2.6",

@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 import styles from './styles'
 
-import { showEventCalls } from '../../GraphQL/Calls/index'
+import { showEventCalls } from '../../../GraphQL/Calls/index'
 
 class Edit extends React.Component {
   render () {

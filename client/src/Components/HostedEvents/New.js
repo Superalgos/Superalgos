@@ -1,6 +1,6 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { hostedEventsCalls } from '../GraphQL/Calls/index'
+import { hostedEventsCalls } from '../../GraphQL/Calls/index'
 import { DateTime } from 'luxon'
 
 import {

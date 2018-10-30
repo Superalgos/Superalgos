@@ -12,7 +12,7 @@ import {
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 
-import { hostedEventsCalls } from '../GraphQL/Calls/index'
+import { hostedEventsCalls } from '../../GraphQL/Calls/index'
 
 import New from './New'
 import Event from './Event'

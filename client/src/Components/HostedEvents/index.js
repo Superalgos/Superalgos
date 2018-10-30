@@ -33,6 +33,12 @@ class HostedEvent extends React.Component {
     const { classes } = this.props
     return (
       <React.Fragment>
+        <Button variant='contained' color='secondary'
+          aria-label='addNewEvent' className={classes.addButton}
+          onClick={() => { this.setState({ isNewEventOpen: true }) }} >
+              Host a new event
+        </Button>
+
         <Query
           query={hostedEventsCalls.HOSTS_EVENTSBYHOST}
         >
@@ -52,28 +58,21 @@ class HostedEvent extends React.Component {
           }}
         </Query>
 
-        <React.Fragment>
-          <Button variant='contained' color='secondary'
-            aria-label='addNewEvent' className={classes.centered}
-            onClick={() => { this.setState({ isNewEventOpen: true }) }} >
-                Host another event
-          </Button>
-          <Dialog
-            open={this.state.isNewEventOpen}
-            onClose={() => { this.setState({ isNewEventOpen: false }) }}
-            aria-labelledby='addEvent-dialog-title'
-          >
-            <DialogTitle id='addEvent-dialog-title'>
-                  Host an event
-            </DialogTitle>
-            <DialogContent>
-              <DialogContentText>
-                    Here you will add just the minimal information, will be settable in the edit page of your event.
-              </DialogContentText>
-              <New handleNewEvent={this.handleNewEvent} classes={classes} />
-            </DialogContent>
-          </Dialog>
-        </React.Fragment>
+        <Dialog
+          open={this.state.isNewEventOpen}
+          onClose={() => { this.setState({ isNewEventOpen: false }) }}
+          aria-labelledby='addEvent-dialog-title'
+        >
+          <DialogTitle id='addEvent-dialog-title'>
+                Host an event
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+                  Here you will add just the minimal information, will be settable in the edit page of your event.
+            </DialogContentText>
+            <New handleNewEvent={this.handleNewEvent} classes={classes} />
+          </DialogContent>
+        </Dialog>
       </React.Fragment>
     )
   }

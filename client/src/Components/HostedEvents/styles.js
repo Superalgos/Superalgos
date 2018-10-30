@@ -13,6 +13,13 @@ const styles = theme => ({
   },
   buttonGrid: {
     marginTop: -20
+  },
+  addButton: {
+    display: 'block',
+    padding: 20,
+    marginTop: 20,
+    marginRight: 20,
+    marginLeft: 'auto'
   }
 })
 

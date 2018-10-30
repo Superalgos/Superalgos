@@ -2,6 +2,7 @@
 
     let thisObject = {
         newTeam: newTeam,
+        deleteTeam: deleteTeam, 
         initialize: initialize
     }
 
@@ -658,4 +659,497 @@
 
         }
     }
+
+    function deleteTeam(pTeamCodeName, pUserName, pBotCodeName, pAuthId, callBackFunction) {
+
+        try {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> Entering function."); }
+
+            deleteContainer();
+
+            function deleteContainer() {
+
+                if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteContainer -> Entering function."); }
+
+                storage.deleteContainer(pTeamCodeName, onContainerDeleted);
+
+                function onContainerDeleted(err) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                        console.log("[ERROR] TeamSetup -> deleteTeam -> deleteContainer -> onContainerDeleted -> Could not delete the container. ");
+                        console.log("[ERROR] TeamSetup -> deleteTeam -> deleteContainer -> onContainerDeleted -> err.message = " + err.message);
+
+                        if (err.message === "ContainerNotFound") {
+
+                            let error = {
+                                result: err.result,
+                                message: "Team does not exist"
+                            };
+
+                            deleteBotCode(); // Even if the container does not exist we will try to delete the rest of the stuff related to the team.
+
+                        } else {
+
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                        return;
+                    }
+
+                    deleteBotCode();
+                }
+            }
+
+            function deleteBotCode() {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteBotCode ->  Entering function."); }
+
+                    let team = pTeamCodeName;
+                    let filePath = "bots" + "/" + pBotCodeName + "-Trading-Bot/Trading-Process";
+                    let fileName = "User.Bot.js";
+
+                    storage.deleteBlob(team, filePath, fileName, onBlobDeleted);
+
+                    function onBlobDeleted(err) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> Could not delete a file. ");
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> err.message = " + err.message);
+
+                                // Even if this failed we will try to delete the rest of the stuff related to the team.                               
+                            }
+
+                            let team = pTeamCodeName;
+                            let filePath = "members" + "/" + pUserName + "/" + pBotCodeName + "-Trading-Bot/Trading-Process";
+                            let fileName = "User.Bot.js";
+
+                            storage.deleteBlob(team, filePath, fileName, onBlobDeleted);
+
+                            function onBlobDeleted(err) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> onBlobDeleted -> Could not delete a file. ");
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> onBlobDeleted -> err.message = " + err.message);
+
+                                        // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                    }
+
+                                    deleteBotConfig();
+
+                                } catch (err) {
+
+                                    console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                }
+                            }
+
+                        } catch (err) {
+
+                            console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  onBlobDeleted -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotCode ->  err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+  
+            }
+
+            function deleteBotConfig() {
+ 
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteBotConfig -> Entering function."); }
+
+                    let team = pTeamCodeName;
+                    let filePath = "bots" + "/" + pBotCodeName + "-Trading-Bot";
+                    let fileName = "this.bot.config.json";
+
+                    storage.deleteBlob(team, filePath, fileName, onBlobDeleted);
+
+                    function onBlobDeleted(err) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> Could not delete a file. ");
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> err.message = " + err.message);
+
+                                // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                            }
+
+                            let team = pTeamCodeName;
+                            let filePath = "members" + "/" + pUserName + "/" + pBotCodeName + "-Trading-Bot";
+                            let fileName = "this.bot.config.json";
+
+                            storage.deleteBlob(team, filePath, fileName, onBlobDeleted);
+
+                            function onBlobDeleted(err) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> onBlobDeleted -> Could not delete a file. ");
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> onBlobDeleted -> err.message = " + err.message);
+
+                                        // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                    }
+
+                                    deleteAACloud();
+
+                                } catch (err) {
+
+                                    console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                }
+                            }
+
+                        } catch (err) {
+
+                            console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> onBlobDeleted -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> deleteTeam -> deleteBotConfig -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+                   
+            }
+
+            function deleteAACloud() {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteAACloud -> Entering function."); }
+
+                    let team = pTeamCodeName;
+                    let filePath = "AACloud";
+                    let fileName = "this.config.json";
+
+                    storage.deleteBlob(team, filePath, fileName, onBlobDeleted);
+
+                    function onBlobDeleted(err) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> Could not delete a file. ");
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> err.message = " + err.message);
+
+                                // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                            }
+
+                            let team = pTeamCodeName;
+                            let filePath = "members" + "/" + pUserName + "/" + "AACloud";
+                            let fileName = "this.config.json";
+
+                            storage.deleteBlob(team, filePath, fileName, onBlobDeleted);
+
+                            function onBlobDeleted(err) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> onBlobDeleted -> Could not delete a file. ");
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> onBlobDeleted -> err.message = " + err.message);
+
+                                        // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                    }
+
+                                    removeFromSessions();
+
+                                } catch (err) {
+
+                                    console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                }
+                            }
+
+                        } catch (err) {
+
+                            console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> onBlobDeleted -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> deleteTeam -> deleteAACloud -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+
+            }
+
+            function removeFromSessions() {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> removeFromSessions -> Entering function."); }
+
+                    storage.readData("AdvancedAlgos", "AAPlatform", "open.sessions.json", false, onDataRead);
+
+                    function onDataRead(err, pFileContent) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> Could not read a file. ");
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> err.message = " + err.message);
+
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            pFileContent = pFileContent.trim();
+                            let sessions = JSON.parse(pFileContent);
+                        
+                            for (let i = 0; i < sessions.length; i++) {
+
+                                let session = sessions[i];
+
+                                if (session.userName === pUserName && session.devTeams[0].codeName === pTeamCodeName) {
+
+                                    // Found it! Deleting...
+
+                                    sessions.splice(i, 1);
+                                    break;
+                                }
+
+                            }
+
+                            let fileContent = JSON.stringify(sessions);
+
+                            storage.writeData("AdvancedAlgos", "AAPlatform", "open.sessions.json", fileContent, onDataWritten);
+
+                            removeFromUserModuleDatabase(""); // NOTE that this function is not properly inserted on the sequence, so if it fails noone will know.
+
+                            function onDataWritten(err) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> onDataWritten -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> onDataWritten -> Could not write a file. ");
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> onDataWritten -> err.message = " + err.message);
+
+                                        // Even if this failed we will try to delete the rest of the stuff related to the team.  
+                                    }
+
+                                    removeFromEcosystem();
+
+                                } catch (err) {
+
+                                    console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                }
+                            }
+
+                        } catch (err) {
+
+                            console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromSessions -> onDataRead -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromSessions -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+            }
+
+            function removeFromUserModuleDatabase(pSessionToken) {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> removeFromUserModuleDatabase -> Entering function."); }
+
+
+                    const graphqlClient = require('graphql-client')
+
+                    const usersModuleAPI = graphqlClient({
+                        //url: 'http://localhost:4000/graphql'
+                        url: 'https://users-api.advancedalgos.net/graphql',
+                        //headers: {
+                        //     Authorization: 'Bearer ' + authToken
+                        //}
+                    });
+
+
+                    let variables = {
+                        authId: pAuthId,
+                        sessionToken: pSessionToken
+                    };
+
+                    usersModuleAPI.query(`
+                    mutation($authId: String, $sessionToken: String){
+                    updateSessionToken(authId: $authId, sessionToken: $sessionToken){
+                        id
+                        alias
+                        }
+                    }
+                    `, variables, function (req, res) {
+                            if (res.status === 401) {
+                                console.log('[ERROR] TeamSetup -> deleteTeam -> Error trying to delete the session token at the Users Module');
+                                console.log('[ERROR] TeamSetup -> deleteTeam -> res.status = 401');
+                            }
+                        }).then(res => {
+                            if (res.errors) {
+                                console.log('[ERROR] TeamSetup -> deleteTeam -> Error trying to delete the session token at the Users Module');
+                                console.log('[ERROR] TeamSetup -> deleteTeam -> res.errors = ' + res.errors);
+                            }
+                        }).catch(error => {
+                            console.log('Error trying to delete the session token at the Users Module');
+                            console.log('[ERROR] TeamSetup -> deleteTeam -> errors = ' + errors);
+                        });
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromUserModuleDatabase -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+            }
+
+            function removeFromEcosystem() {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> removeFromEcosystem -> Entering function."); }
+
+                    storage.readData("AdvancedAlgos", "AAPlatform", "ecosystem.json", false, onDataRead);
+
+                    function onDataRead(err, pFileContent) {
+
+                        try {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> removeFromEcosystem -> onDataRead -> Entering function."); }
+
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromEcosystem -> onDataRead -> Could not read a file. ");
+                                console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromEcosystem -> onDataRead -> err.message = " + err.message);
+
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                return;
+                            }
+
+                            pFileContent = pFileContent.trim();
+                            let ecosystem = JSON.parse(pFileContent);
+
+                            for (let i = 0; i < ecosystem.devTeams.length; i++) {
+
+                                let team = ecosystem.devTeams[i];
+
+                                if (team.codeName === pTeamCodeName) {
+
+                                    // Found! Deleting it...
+
+                                    ecosystem.devTeams.splice(i, 1);
+                                    break;
+                                }
+                            }
+
+                            let fileContent = JSON.stringify(ecosystem);
+
+                            storage.writeData("AdvancedAlgos", "AAPlatform", "ecosystem.json", fileContent, onDataWritten);
+
+                            function onDataWritten(err) {
+
+                                try {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] TeamSetup -> deleteTeam -> removeFromEcosystem -> onDataRead -> onDataWritten -> Entering function."); }
+
+                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromEcosystem -> onDataRead -> onDataWritten -> Could not write a file. ");
+                                        console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromEcosystem -> onDataRead -> onDataWritten -> err.message = " + err.message);
+
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                                } catch (err) {
+
+                                    console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromEcosystem -> onDataRead -> onDataWritten -> err.message = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                }
+                            }
+
+                        } catch (err) {
+
+                            console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromEcosystem -> onDataRead -> err.message = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        }
+                    }
+
+                } catch (err) {
+
+                    console.log("[ERROR] TeamSetup -> deleteTeam -> removeFromEcosystem -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                }
+            }
+
+        } catch (err) {
+
+            console.log("[ERROR] TeamSetup -> deleteTeam -> err.message = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+        }
+    }
+
 }

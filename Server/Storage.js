@@ -4,6 +4,8 @@
         readData: readData,
         writeData: writeData,
         createContainer: createContainer, 
+        deleteContainer: deleteContainer, 
+        deleteBlob: deleteBlob,
         initialize: initialize
     }
 
@@ -179,6 +181,72 @@
         }
     }
 
+    function deleteBlob(pOrg, pPath, pFile, callBackFunction) {
+
+        try {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pOrg = " + pOrg); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pPath = " + pPath); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> pFile = " + pFile); }
+
+            let storage = require('azure-storage');
+            let connectionString;
+
+            switch (serverConfig.environment) {
+
+                case "Develop": {
+
+                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
+                    break;
+                }
+
+                case "Production": {
+
+                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
+                    break;
+                }
+            }
+
+            let blobService = storage.createBlobService(connectionString);
+            let blobPath = pOrg + "/" + pPath + "/" + pFile;
+
+            blobService.deleteBlob('aaplatform', blobPath, onBlobDeleted);
+
+            function onBlobDeleted(err, text, response) {
+
+                try {
+
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> Entering function."); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
+                    if (LOG_FILE_CONTENT === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> response = " + JSON.stringify(response)); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> pOrg = " + pOrg); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> pPath = " + pPath); }
+                    if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteBlob -> onBlobDeleted -> pFile = " + pFile); }
+
+                    if (err !== null || text === null) {
+
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteBlob -> onBlobDeleted -> Error Received from Storage Library. "); }
+                        if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteBlob -> onBlobDeleted -> err = " + JSON.stringify(err)); }
+
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+
+                    }
+
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } catch (err) {
+                    console.log("[ERROR] Storage -> deleteBlob -> onBlobDeleted -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+        } catch (err) {
+            console.log("[ERROR] Storage -> deleteBlob -> err.message = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
 
     function createContainer(pContainerName, callBackFunction) {
 
@@ -247,6 +315,77 @@
 
         } catch (err) {
             console.log("[ERROR] Storage -> createContainer -> err.message = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function deleteContainer(pContainerName, callBackFunction) {
+
+        try {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteContainer -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] Storage -> deleteContainer -> pContainerName = " + pContainerName); }
+
+            let storage = require('azure-storage');
+            let connectionString;
+
+            switch (serverConfig.environment) {
+
+                case "Develop": {
+
+                    connectionString = serverConfig.configAndPlugins.Develop.connectionString;
+                    break;
+                }
+
+                case "Production": {
+
+                    connectionString = serverConfig.configAndPlugins.Production.connectionString;
+                    break;
+                }
+            }
+
+            let blobService = storage.createBlobService(connectionString);
+
+            let containerName = pContainerName.toLowerCase();
+
+            blobService.deleteContainer(containerName, onContainerDeleted);
+
+            function onContainerDeleted(err) {
+
+                if (err) {
+
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteContainer -> onContainerDeleted -> Error Received from Storage Library. "); }
+                    if (CONSOLE_ERROR_LOG === true) { console.log("[ERROR] Storage -> deleteContainer -> onContainerDeleted -> err = " + JSON.stringify(err)); }
+
+
+                    /* ContainerAlreadyExists check */
+
+                    if (JSON.stringify(err).indexOf("ContainerNotFound") > 0) {
+
+                        let err = {
+                            resutl: global.CUSTOM_FAIL_RESPONSE.result,
+                            message: "ContainerNotFound"
+                        };
+
+                        callBackFunction(err);
+                        return;
+
+                    } else {
+
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return;
+                }
+
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return;
+            }
+
+        } catch (err) {
+            console.log("[ERROR] Storage -> deleteContainer -> err.message = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

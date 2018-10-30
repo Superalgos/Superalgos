@@ -33,7 +33,6 @@
     <Compile Include="AABrowserAPI\BotCode.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AABrowserAPI\models\user.js" />
     <Compile Include="AABrowserAPI\TeamSetup.js">
       <SubType>Code</SubType>
     </Compile>
@@ -233,7 +232,6 @@
     <Content Include="this.server.config.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AABrowserAPI\models\" />
     <Folder Include="Azure\" />
     <Folder Include="CloudVM\" />
     <Folder Include="CloudVM\Exchange\" />

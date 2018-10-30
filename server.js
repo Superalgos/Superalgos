@@ -578,7 +578,7 @@ function onBrowserRequest(request, response) {
                         break;
                     }
 
-                    case "teamSetup": {
+                    case "newTeam": {
 
                         const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup');
                         let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup();
@@ -593,6 +593,35 @@ function onBrowserRequest(request, response) {
                         let authId = decodeURI(requestParameters[8]);
 
                         teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, authId, onSetupFinished);
+
+                        function onSetupFinished(err) {
+
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                /* We must re-load all the webserver caches.*/
+
+                                initialize();
+
+                            }
+
+                            respondWithContent(JSON.stringify(err), response);
+                        }
+                        break;
+                    }
+
+                    case "deleteTeam": {
+
+                        const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup');
+                        let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup();
+
+                        teamSetup.initialize(serverConfig);
+
+                        let devTeamCodeName = decodeURI(requestParameters[3]);
+                        let userName = decodeURI(requestParameters[4]);
+                        let botCodeName = decodeURI(requestParameters[5]);
+                        let authId = decodeURI(requestParameters[6]);
+
+                        teamSetup.deleteTeam(devTeamCodeName, userName, botCodeName, authId, onSetupFinished);
 
                         function onSetupFinished(err) {
 

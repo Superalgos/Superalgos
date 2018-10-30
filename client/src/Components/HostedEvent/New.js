@@ -31,6 +31,7 @@ class New extends React.Component {
             query: HOSTS_EVENTSBYHOST,
             data: { hosts_EventsByHost: hostedEvents.concat([data.hosts_HostEvent]) }
           })
+          this.props.handleNewEvent(data.hosts_HostEvent)
         }
         }
       >
@@ -45,7 +46,6 @@ class New extends React.Component {
                   startDatetime: startDatetime.valueOf() / 1000,
                   finishDatetime: startDatetime.valueOf() / 1000
                 } })
-                this.props.handleNewEventClose()
               }}
             >
               <TextField

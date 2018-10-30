@@ -24,12 +24,8 @@ class HostedEvent extends React.Component {
     }
   }
 
-  handleNewEventOpen = () => {
-    this.setState({ isNewEventOpen: true })
-  };
-
-  handleNewEventClose = () => {
-    this.setState({ isNewEventOpen: false })
+  handleNewEvent = (event) => {
+    this.props.history.push(`/${event.designator}`)
   };
 
   render () {
@@ -58,12 +54,12 @@ class HostedEvent extends React.Component {
         <React.Fragment>
           <Button variant='contained' color='secondary'
             aria-label='addNewEvent' className={classes.centered}
-            onClick={this.handleNewEventOpen} >
+            onClick={() => { this.setState({ isNewEventOpen: true }) }} >
                 Host another event
           </Button>
           <Dialog
             open={this.state.isNewEventOpen}
-            onClose={this.handleNewEventClose}
+            onClose={() => { this.setState({ isNewEventOpen: false }) }}
             aria-labelledby='addEvent-dialog-title'
           >
             <DialogTitle id='addEvent-dialog-title'>
@@ -73,7 +69,7 @@ class HostedEvent extends React.Component {
               <DialogContentText>
                     Here you will add just the minimal information, will be settable in the edit page of your event.
               </DialogContentText>
-              <New handleNewEventClose={this.handleNewEventClose} classes={classes} />
+              <New handleNewEvent={this.handleNewEvent} classes={classes} />
             </DialogContent>
           </Dialog>
         </React.Fragment>

@@ -78,10 +78,13 @@ const resolvers = {
       return ctx.db.query.teamsConnection({where: {AND: [{id: teamId},{members_some:{role: role}}]}, first:1}, info)
     },
     async teamsByOwner(parent, { ownerId }, ctx, info) {
+      logger.info('teamsByOwner')
+      logger.info(ctx.req.headers)
+      logger.info(ctx.req.token)
       return ctx.db.query.teams({where: { owner: ownerId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
     },
     async teamsByRole(parent, args, ctx, info) {
-      const authId = ctx.request.user.sub
+      const authId = ctx.request.userId
       let teamAdmin
       try {
         teamAdmin= await ctx.db.query.teams({where: {members_some: {AND: [{member: {authId: authId}, role_not:'MEMBER'}]}}}, TEAMS_FRAGMENT)
@@ -98,7 +101,7 @@ const resolvers = {
     },
     async fbByTeamMember(parent, args, ctx, info) {
       logger.info('fbByTeamMember: ', args, ctx.request, ctx.request.res.req.user)
-      const authId = ctx.request.user.sub
+      const authId = ctx.request.userId
       let teamMemberFB = await ctx.db.query.teams({where: {members_some: {AND: [{member: {authId: authId}}]}}, orderBy: 'updatedAt_DESC'}, TEAM_FB_FRAGMENT)
       logger.info('fbByTeamMember response: ', await teamMemberFB[0])
       return teamMemberFB[0]
@@ -285,14 +288,18 @@ const app = express()
 const connectionMiddlewares = [
   checkJwt,
   function (err, req, res, next) {
-    logger.info('checkJwt: ', err, req.headers, req.user)
+    logger.info('checkJwt: ')
+    logger.error(err)
+    logger.info(req.headers)
+    logger.info(req.user)
     if (err) {
-      return res.status(201).send(err.message)
+      const error = err.message ? err.message : err
+      return res.status(201).send(error)
     } else {
       next()
     }
   },
-  (req, res, done) => getUser(req, res, done, db)
+  (req, res, done) => getMember(req, res, done, db)
 ]
 
 app.post(GRAPHQL_ENDPOINT, ...connectionMiddlewares)
@@ -323,9 +330,9 @@ const server = createApolloServer(app, {
   schemaDirectives,
   context: req  => ({
     ...req ,
-    token: req.headers,
-    user: req.user,
-    userId: req.headers.userid,
+    token: req.headers ? req.headers : undefined,
+    user: req.user ? req.user : undefined,
+    userId: null,
     db,
     pubsub
   })

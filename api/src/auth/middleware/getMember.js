@@ -2,6 +2,8 @@ import { logger } from '../../logger'
 
 export const getMember = async (req, res, next, db) => {
   if (!req.headers.userId) return next()
+  logger.info('getMember ')
+  logger.info(req.headers.userId)
   try {
     const member = await getUser(req.headers.userId)
     req.user = await member

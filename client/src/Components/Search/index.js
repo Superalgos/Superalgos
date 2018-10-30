@@ -16,6 +16,12 @@ import styles from './styles'
 
 import { listEventsCalls } from '../../GraphQL/Calls/index'
 
+import {
+  Future,
+  History,
+  Incoming,
+  Past
+} from './Tabs'
 import Event from './Event'
 
 function TabContainer (props) {
@@ -27,8 +33,11 @@ function TabContainer (props) {
 }
 
 class Search extends React.Component {
-  state = {
-    value: 0
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: 0
+    }
   }
 
   handleChange = (event, value) => {
@@ -39,72 +48,61 @@ class Search extends React.Component {
     const classes = this.props.classes
     const { value } = this.state
     return (
-      <React.Fragment>
-        <div className={classes.root}>
-          <AppBar position='static' color='default'>
-            <Tabs
-              value={value}
-              onChange={this.handleChange}
-              scrollable
-              scrollButtons='off'
-              indicatorColor='primary'
-              textColor='primary'
-            >
-              <Tab
-                className={classes.tabTitle}
-                label='Profile Sheet'
-                icon={<ProfileSheetIcon />}
-              />
-              <Tab
-                className={classes.tabTitle}
-                label='Profile Images'
-                icon={<ProfileImagesIcon />}
-              />
-              <Tab
-                className={classes.tabTitle}
-                label='Your Referrer'
-                icon={<YourReferrerIcon />}
-              />
-              <Tab
-                className={classes.tabTitle}
-                label='Your Descendents'
-                icon={<DescendentsIcon />}
-              />
-            </Tabs>
-          </AppBar>
-          {value === 0 && <TabContainer><p> hahah </p></TabContainer>}
-          {value === 1 && <TabContainer><p> hoho </p></TabContainer>}
-          {value === 2 && <TabContainer><p> hihi </p></TabContainer>}
-          {value === 3 && <TabContainer><p> hehe </p></TabContainer>}
-        </div>
-        <Typography
-          className={classes.title}
-          variant='display1'
-          align='center'
-          color='textPrimary'
-          gutterBottom
-        >
-          Enroll in an competition
-        </Typography>
-        <Query
-          query={listEventsCalls.HOSTS_EVENTS}
-        >
-          {({ loading, error, data }) => {
-            if (loading) return 'Loading...'
-            if (error) return `Error! ${error.message}`
-            const list = data.hosts_Events.map((event, index) => {
-              return (
-                <Event key={index} event={event} />
-              )
-            })
+      <Query
+        query={listEventsCalls.HOSTS_EVENTS}
+      >
+        {({ loading, error, data }) => {
+          if (loading) return 'Loading...'
+          if (error) return `Error! ${error.message}`
+          const list = data.hosts_Events.map((event, index) => {
             return (
-              <React.Fragment>
-                { list }
-              </React.Fragment>
+              <Event key={index} event={event} />
             )
-          }}
-        </Query>
-      </React.Fragment>
+          })
+          return (
+            <React.Fragment>
+              <div className={classes.root}>
+                <AppBar position='static' color='default'>
+                  <Tabs
+                    value={value}
+                    onChange={this.handleChange}
+                    scrollable
+                    scrollButtons='off'
+                    indicatorColor='primary'
+                    textColor='primary'
+                  >
+                    <Tab
+                      className={classes.tabTitle}
+                      label='Ongoing &amp; Incoming'
+                      icon={<ProfileSheetIcon />}
+                    />
+                    <Tab
+                      className={classes.tabTitle}
+                      label='Future'
+                      icon={<ProfileImagesIcon />}
+                    />
+                    <Tab
+                      className={classes.tabTitle}
+                      label='Your history'
+                      icon={<YourReferrerIcon />}
+                    />
+                    <Tab
+                      className={classes.tabTitle}
+                      label='Past'
+                      icon={<DescendentsIcon />}
+                    />
+                  </Tabs>
+                </AppBar>
+                {value === 0 && <TabContainer><Incoming /></TabContainer>}
+                {value === 1 && <TabContainer><Future /></TabContainer>}
+                {value === 2 && <TabContainer><History /></TabContainer>}
+                {value === 3 && <TabContainer><Past /></TabContainer>}
+              </div>
+              { list }
+            </React.Fragment>
+          )
+        }}
+      </Query>
     )
   }
 }

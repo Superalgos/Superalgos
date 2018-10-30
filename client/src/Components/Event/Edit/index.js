@@ -1,5 +1,4 @@
 import React from 'react'
-import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 
 import Typography from '@material-ui/core/Typography'
@@ -7,22 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 import styles from './styles'
 
-const HOSTS_EVENT = gql`
-  query Hosts_Event($designator: ID!){
-    hosts_Event(designator: $designator) {
-      name
-      designator
-      startDatetime
-      finishDatetime
-      host {
-        alias
-        firstName
-        lastName
-      }
-      description
-    }
-  }
-`
+import { showEventCalls } from '../../GraphQL/Calls/index'
 
 class Edit extends React.Component {
   render () {
@@ -37,7 +21,7 @@ class Edit extends React.Component {
           Enroll in an competition {this.props.match.params.slug}
         </Typography>
         <Query
-          query={HOSTS_EVENT}
+          query={showEventCalls.HOSTS_EVENT}
           variables={{ designator: this.props.match.params.slug }}
         >
           {({ loading, error, data }) => {

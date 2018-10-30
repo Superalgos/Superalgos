@@ -1,6 +1,5 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { HOSTS_EVENTSBYHOST } from './graphql'
 
 import {
   Button,
@@ -12,6 +11,8 @@ import {
 
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
+
+import { hostedEventsCalls } from '../GraphQL/Calls/index'
 
 import New from './New'
 import Event from './Event'
@@ -33,7 +34,7 @@ class HostedEvent extends React.Component {
     return (
       <React.Fragment>
         <Query
-          query={HOSTS_EVENTSBYHOST}
+          query={hostedEventsCalls.HOSTS_EVENTSBYHOST}
         >
           {({ loading, error, data }) => {
             if (loading) return 'Loading...'

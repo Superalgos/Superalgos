@@ -26,6 +26,7 @@ import AALogo from '../../assets/advanced-algos/aa-logo-dark.svg'
 const ChartsLink = props => <Link to='/charts' {...props} />
 const UsersLink = props => <Link to='/users' {...props} />
 const TeamsLink = props => <Link to='/teams' {...props} />
+const HostsLink = props => <Link to='/hosts' {...props} />
 const KeyVaultLink = props => <Link to='/key-vault' {...props} />
 const HomeLink = props => <Link to='/' {...props} />
 
@@ -115,6 +116,9 @@ class Header extends Component {
             </Button>
             <Button component={TeamsLink} color='inherit'>
               Teams
+            </Button>
+            <Button component={HostsLink} color='inherit'>
+              Hosts
             </Button>
             <Button component={KeyVaultLink} color='inherit'>
               Key Vault

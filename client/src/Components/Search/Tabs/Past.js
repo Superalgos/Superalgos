@@ -4,19 +4,31 @@ import { Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import styles from '../styles'
 
+import Event from '../Event'
+
 class Past extends React.Component {
   render () {
     const classes = this.props.classes
+    const { PastEvents } = this.props
+
+    const pastEvents = PastEvents.map((event, index) => {
+      return (
+        <Event key={index} event={event} />
+      )
+    })
     return (
-      <Typography
-        className={classes.title}
-        variant='display1'
-        align='center'
-        color='textPrimary'
-        gutterBottom
-      >
-        This will come later
-      </Typography>
+      <React.Fragment>
+        <Typography
+          className={classes.title}
+          variant='display1'
+          align='center'
+          color='textPrimary'
+          gutterBottom
+        >
+          A list of passed events
+        </Typography>
+        {pastEvents}
+      </React.Fragment>
     )
   }
 }

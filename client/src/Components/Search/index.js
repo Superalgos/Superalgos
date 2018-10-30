@@ -1,5 +1,6 @@
 import React from 'react'
 import { Query } from 'react-apollo'
+import { DateTime } from 'luxon'
 
 import {
   Typography,
@@ -24,7 +25,6 @@ import {
   Incoming,
   Past
 } from './Tabs'
-import Event from './Event'
 
 function TabContainer (props) {
   return (
@@ -56,11 +56,14 @@ class Search extends React.Component {
         {({ loading, error, data }) => {
           if (loading) return 'Loading...'
           if (error) return `Error! ${error.message}`
-          const list = data.hosts_Events.map((event, index) => {
-            return (
-              <Event key={index} event={event} />
-            )
-          })
+          const now = ~~(DateTime.local().valueOf() / 1000)
+          const inTwoWeeks = ~~(DateTime.local().plus({ weeks: 2 }).valueOf() / 1000)
+
+          const IncomingEvents = data.hosts_Events.filter(event => event.startDatetime > now && event.startDatetime < inTwoWeeks)
+          const OngoingEvents = data.hosts_Events.filter(event => event.finishDatetime > now && event.startDatetime < now)
+          const FutureEvents = data.hosts_Events.filter(event => event.startDatetime > now)
+          const PastEvents = data.hosts_Events.filter(event => event.finishDatetime < now)
+
           return (
             <React.Fragment>
               <div className={classes.root}>
@@ -95,12 +98,11 @@ class Search extends React.Component {
                     />
                   </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer><Incoming /></TabContainer>}
-                {value === 1 && <TabContainer><Future /></TabContainer>}
+                {value === 0 && <TabContainer><Incoming IncomingEvents={IncomingEvents} OngoingEvents={OngoingEvents} /></TabContainer>}
+                {value === 1 && <TabContainer><Future FutureEvents={FutureEvents} /></TabContainer>}
                 {value === 2 && <TabContainer><History /></TabContainer>}
-                {value === 3 && <TabContainer><Past /></TabContainer>}
+                {value === 3 && <TabContainer><Past PastEvents={PastEvents} /></TabContainer>}
               </div>
-              { list }
             </React.Fragment>
           )
         }}

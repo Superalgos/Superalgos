@@ -10,12 +10,12 @@ class History extends React.Component {
     return (
       <Typography
         className={classes.title}
-        variant='display1'
+        variant='h4'
         align='center'
         color='textPrimary'
         gutterBottom
       >
-        Your old competitions (maybe here, maybe not, who knows)
+        Your old events (maybe here, maybe not, who knows)
       </Typography>
     )
   }

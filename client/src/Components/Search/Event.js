@@ -7,34 +7,7 @@ import {
   Button
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    padding: 20,
-    margin: 10
-  },
-  image: {
-    width: 128,
-    height: '100%',
-    cursor: 'default'
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%'
-
-  },
-  buttonList: {
-    margin: theme.spacing.unit,
-    float: 'right'
-  },
-  buttonGrid: {
-    marginTop: -20
-  }
-
-})
+import styles from './styles'
 
 class Event extends React.Component {
   render () {
@@ -48,7 +21,7 @@ class Event extends React.Component {
       description
     } = this.props.event
     return (
-      <Paper className={classes.root}>
+      <Paper className={classes.card}>
         <Grid container spacing={16}>
           <Grid item xs>
             <Typography gutterBottom variant='headline'> {name} </Typography>

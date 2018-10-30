@@ -13,6 +13,9 @@ const styles = theme => ({
   },
   buttonGrid: {
     marginTop: -20
+  },
+  title: {
+    marginTop: 20
   }
 })
 

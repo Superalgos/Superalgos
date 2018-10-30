@@ -12,9 +12,11 @@ import Event from './Event'
 
 class Search extends React.Component {
   render () {
+    const classes = this.props.classes
     return (
       <React.Fragment>
         <Typography
+          className={classes.title}
           variant='display1'
           align='center'
           color='textPrimary'

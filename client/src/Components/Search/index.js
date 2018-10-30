@@ -1,15 +1,17 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 
-import { Typography } from '@material-ui/core'
-
-import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import ProfileSheetIcon from '@material-ui/icons/Create'
-import ProfileImagesIcon from '@material-ui/icons/Wallpaper'
-import YourReferrerIcon from '@material-ui/icons/AccessibilityNew'
-import DescendentsIcon from '@material-ui/icons/DeviceHub'
+import {
+  Typography,
+  AppBar,
+  Tabs,
+  Tab
+} from '@material-ui/core'
+import {
+  GetApp as IncomingIcon,
+  AlarmAdd as FutureIcon,
+  History as HistoryIcon
+} from '@material-ui/icons'
 
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
@@ -74,22 +76,22 @@ class Search extends React.Component {
                     <Tab
                       className={classes.tabTitle}
                       label='Ongoing &amp; Incoming'
-                      icon={<ProfileSheetIcon />}
+                      icon={<IncomingIcon />}
                     />
                     <Tab
                       className={classes.tabTitle}
                       label='Future'
-                      icon={<ProfileImagesIcon />}
+                      icon={<FutureIcon />}
                     />
                     <Tab
                       className={classes.tabTitle}
                       label='Your history'
-                      icon={<YourReferrerIcon />}
+                      icon={<HistoryIcon />}
                     />
                     <Tab
                       className={classes.tabTitle}
                       label='Past'
-                      icon={<DescendentsIcon />}
+                      icon={<HistoryIcon />}
                     />
                   </Tabs>
                 </AppBar>

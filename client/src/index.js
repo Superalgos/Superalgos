@@ -8,7 +8,7 @@ import { getItem } from './utils/local-storage'
 
 import TopBar from './Components/TopBar'
 import Search from './Components/Search'
-import HostedEvent from './Components/HostedEvent'
+import HostedEvents from './Components/HostedEvents'
 
 class App extends Component {
   constructor (props) {
@@ -41,7 +41,7 @@ class App extends Component {
             {loggedIn}
             <Switch>
               <Route exact path='/' component={Search} />
-              <Route path='/hosted-events' component={HostedEvent} />
+              <Route path='/hosted-events' component={HostedEvents} />
             </Switch>
           </div>
         </BrowserRouter>

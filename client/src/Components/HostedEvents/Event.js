@@ -73,7 +73,7 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={'/hosted-events/' + designator}
+                  to={`/event/${designator}/edit`}
                 >
                   Edit
                 </Button>

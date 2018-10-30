@@ -1,33 +1,14 @@
 import React from 'react'
-import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 
-import Typography from '@material-ui/core/Typography'
+import { Typography } from '@material-ui/core'
+
 import { withStyles } from '@material-ui/core/styles'
-
-import Competition from './Competition'
-
 import styles from './styles'
 
-const HOST_COMPETITIONS = gql`
-  query Hosts_Competitions{
-    hosts_Competitions {
-      displayName
-      host
-      startDatetime
-      finishDatetime
-      description
-      formula
-      participants {
-        devTeam
-      }
-      prizes {
-        position
-        algoPrize
-      }
-    }
-  }
-`
+import { listEventsCalls } from '../../GraphQL/Calls/index'
+
+import Event from './Event'
 
 class Search extends React.Component {
   render () {
@@ -42,14 +23,14 @@ class Search extends React.Component {
           Enroll in an competition
         </Typography>
         <Query
-          query={HOST_COMPETITIONS}
+          query={listEventsCalls.HOSTS_EVENTS}
         >
           {({ loading, error, data }) => {
             if (loading) return 'Loading...'
             if (error) return `Error! ${error.message}`
-            const list = data.hosts_Competitions.map((competition, index) => {
+            const list = data.hosts_Events.map((event, index) => {
               return (
-                <Competition key={index} competition={competition} />
+                <Event key={index} event={event} />
               )
             })
             return (

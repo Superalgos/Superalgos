@@ -73,16 +73,6 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={`/event/${designator}/edit`}
-                >
-                  Edit
-                </Button>
-                <Button
-                  className={classes.buttonList}
-                  variant='outlined'
-                  color='primary'
-                  size='small'
-                  component={Link}
                   to={'/event/' + designator}
                 >
                   Show

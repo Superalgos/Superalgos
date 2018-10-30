@@ -15,6 +15,7 @@ import { Header, Footer, Home, Charts, Callback } from './views'
 
 import Users from '@advancedalgos/users-client'
 import Teams from '@advancedalgos/teams-client'
+import Hosts from '@advancedalgos/hosts-client'
 import KeyVault from '@advancedalgos/key-vault-client'
 
 export const auth = new Auth(
@@ -48,6 +49,10 @@ export const MasterApp = () => (
           <Route
             path='/teams'
             render={props => <Teams {...props} auth={auth} />}
+            />
+          <Route
+            path='/hosts'
+            render={props => <Hosts {...props} auth={auth} />}
             />
           <Route
             path='/key-vault'

@@ -1,29 +1,23 @@
 import gql from 'graphql-tag'
+import { eventMinimalInfo } from '../Fragments'
 
-const fragments = `
-  name
-  designator
-  startDatetime
-  finishDatetime
-  host {
-    alias
-    firstName
-    lastName
-  }
-  description
-`
-
-export const HOSTS_HOSTEVENT = gql`
+const HOSTS_HOSTEVENT = gql`
   mutation Hosts_HostEvent($name: String!, $description: String!, $startDatetime: Int!, $finishDatetime: Int!) {
     hosts_HostEvent(name: $name, description: $description, startDatetime: $startDatetime, finishDatetime: $finishDatetime) {
-      ${fragments}
+      ...EventMinimalInfo
     }
   }
+  ${eventMinimalInfo}
 `
-export const HOSTS_EVENTSBYHOST = gql`
+const HOSTS_EVENTSBYHOST = gql`
   query Hosts_EventsByHost{
     hosts_EventsByHost {
-      ${fragments}
+      ...EventMinimalInfo
     }
   }
+  ${eventMinimalInfo}
 `
+export default {
+  HOSTS_HOSTEVENT,
+  HOSTS_EVENTSBYHOST
+}

@@ -7,34 +7,9 @@ import {
   Button
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
+import styles from './styles'
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    padding: 20,
-    margin: 10
-  },
-  image: {
-    width: 128,
-    height: '100%',
-    cursor: 'default'
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%'
-
-  },
-  buttonList: {
-    margin: theme.spacing.unit,
-    float: 'right'
-  },
-  buttonGrid: {
-    marginTop: -20
-  }
-
-})
+import { toLocalTime } from '../../utils'
 
 class Event extends React.Component {
   render () {
@@ -48,12 +23,12 @@ class Event extends React.Component {
       description
     } = this.props.event
     return (
-      <Paper className={classes.root}>
+      <Paper className={classes.card}>
         <Grid container spacing={16}>
           <Grid item xs>
             <Typography gutterBottom variant='headline'> {name} </Typography>
-            <Typography gutterBottom>From : {startDatetime} </Typography>
-            <Typography gutterBottom>To : {finishDatetime} </Typography>
+            <Typography gutterBottom>From : {toLocalTime(startDatetime)} </Typography>
+            <Typography gutterBottom>To : {toLocalTime(finishDatetime)} </Typography>
           </Grid>
           <Grid item xs>
             <Typography gutterBottom>Hosted by: {host.alias} ({host.lastName} {host.firstName}) </Typography>
@@ -73,7 +48,7 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={'/hosted-events/' + designator}
+                  to={`/event/${designator}/edit`}
                 >
                   Edit
                 </Button>
@@ -83,7 +58,7 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={'/events/' + designator}
+                  to={'/event/' + designator}
                 >
                   Show
                 </Button>

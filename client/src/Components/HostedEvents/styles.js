@@ -1,15 +1,4 @@
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    width: '100%',
-    backgroundColor: theme.palette.background.paper,
-    padding: 0,
-    margin: 0
-  },
-  tabTitle: {
-    width: '25%',
-    maxWidth: 'none'
-  },
   card: {
     flexGrow: 1,
     padding: 20,
@@ -25,8 +14,12 @@ const styles = theme => ({
   buttonGrid: {
     marginTop: -20
   },
-  title: {
-    marginTop: 20
+  addButton: {
+    display: 'block',
+    padding: 20,
+    marginTop: 20,
+    marginRight: 20,
+    marginLeft: 'auto'
   }
 })
 

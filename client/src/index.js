@@ -8,7 +8,9 @@ import { getItem } from './utils/local-storage'
 
 import TopBar from './Components/TopBar'
 import Search from './Components/Search'
-import HostedEvent from './Components/HostedEvent'
+import Events from './Components/Events'
+import HostedEvents from './Components/HostedEvents'
+import EditEvent from './Components/Event/Edit'
 
 class App extends Component {
   constructor (props) {
@@ -41,7 +43,10 @@ class App extends Component {
             {loggedIn}
             <Switch>
               <Route exact path='/' component={Search} />
-              <Route path='/hosted-events' component={HostedEvent} />
+              <Route path='/events' component={Events} />
+              <Route path='/event/:slug/edit' component={EditEvent} />
+              <Route path='/event/:slug' component={EditEvent} />
+              <Route path='/hosted-events' component={HostedEvents} />
             </Switch>
           </div>
         </BrowserRouter>

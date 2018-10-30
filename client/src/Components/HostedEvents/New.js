@@ -1,6 +1,6 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
-import { HOSTS_HOSTEVENT, HOSTS_EVENTSBYHOST } from './graphql'
+import { hostedEventsCalls } from '../../GraphQL/Calls/index'
 import { DateTime } from 'luxon'
 
 import {
@@ -24,13 +24,14 @@ class New extends React.Component {
   render () {
     const { name, description, startDatetime, finishDatetime } = this.state
     return (
-      <Mutation mutation={HOSTS_HOSTEVENT}
+      <Mutation mutation={hostedEventsCalls.HOSTS_HOSTEVENT}
         update={(store, { data }) => {
-          const { hosts_EventsByHost: hostedEvents } = store.readQuery({ query: HOSTS_EVENTSBYHOST })
+          const { hosts_EventsByHost: hostedEvents } = store.readQuery({ query: hostedEventsCalls.HOSTS_EVENTSBYHOST })
           store.writeQuery({
-            query: HOSTS_EVENTSBYHOST,
+            query: hostedEventsCalls.HOSTS_EVENTSBYHOST,
             data: { hosts_EventsByHost: hostedEvents.concat([data.hosts_HostEvent]) }
           })
+          this.props.handleNewEvent(data.hosts_HostEvent)
         }
         }
       >
@@ -45,7 +46,6 @@ class New extends React.Component {
                   startDatetime: startDatetime.valueOf() / 1000,
                   finishDatetime: startDatetime.valueOf() / 1000
                 } })
-                this.props.handleNewEventClose()
               }}
             >
               <TextField

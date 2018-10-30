@@ -9,6 +9,8 @@ import {
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 
+import { toLocalTime } from '../../utils'
+
 class Event extends React.Component {
   render () {
     const classes = this.props.classes
@@ -25,8 +27,8 @@ class Event extends React.Component {
         <Grid container spacing={16}>
           <Grid item xs>
             <Typography gutterBottom variant='headline'> {name} </Typography>
-            <Typography gutterBottom>From : {startDatetime} </Typography>
-            <Typography gutterBottom>To : {finishDatetime} </Typography>
+            <Typography gutterBottom>From : {toLocalTime(startDatetime)} </Typography>
+            <Typography gutterBottom>To : {toLocalTime(finishDatetime)} </Typography>
           </Grid>
           <Grid item xs>
             <Typography gutterBottom>Hosted by: {host.alias} ({host.lastName} {host.firstName}) </Typography>

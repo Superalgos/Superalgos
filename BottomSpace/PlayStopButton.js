@@ -60,7 +60,7 @@ function newPlayStopButton() {
 
     function resize() {
 
-        container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 4;
+        container.frame.position.x = (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 - 10;
         container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     }

@@ -98,8 +98,6 @@ function newDashboard() {
 
             if (INFO_LOG === true) { logger.write("[INFO] browserResized -> Entering function."); }
 
-            console.log("windows resized");
-
             browserCanvas = document.getElementById('canvas');
 
             browserCanvas.width = window.innerWidth;

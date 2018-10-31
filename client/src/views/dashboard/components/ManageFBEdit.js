@@ -20,6 +20,8 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
 
+import log from '../../../utils/log'
+
 import GET_AZURE_SAS from '../../../graphql/teams/GetAzureSASMutation'
 
 const styles = theme => ({
@@ -52,7 +54,7 @@ export class ManageFBEdit extends Component {
   }
 
   render () {
-    console.log('ManageFBEdit ', this.props, this.props.slug, this.props.fb)
+    log.debug('ManageFBEdit ', this.props, this.props.slug, this.props.fb)
     const { classes, fb, slug } = this.props
     return (
       <Mutation
@@ -75,7 +77,7 @@ export class ManageFBEdit extends Component {
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
               const displayMessage = checkGraphQLError(message)
-              console.log('updateTeamProfile error:', displayMessage)
+              log.debug('updateTeamProfile error:', displayMessage)
               return (
                 <Typography key={i} variant='caption'>
                   {message}
@@ -105,7 +107,7 @@ export class ManageFBEdit extends Component {
                   <DialogContent>
                     <Mutation mutation={GET_AZURE_SAS} >
                       {(getAzureSAS, { loading, error, data }) => {
-                        console.log('getAzureSAS: ', loading, error, data, fb)
+                        log.debug('getAzureSAS: ', loading, error, data, fb)
                         const AzureStorageUrl = process.env.AZURE_STORAGE_URL
                         const containerName = slug
                         let AzureSASURL
@@ -195,12 +197,12 @@ export class ManageFBEdit extends Component {
   }
 
   handleAvatar (avatarUrl) {
-    console.log('handleAvatar: ', avatarUrl)
+    log.debug('handleAvatar: ', avatarUrl)
     this.setState({ avatar: `${avatarUrl}?${Math.random()}` })
   }
 
   async handleSubmit (e, updateFB, fbId, slug) {
-    console.log('handleSubmit: ', this.state)
+    log.debug('handleSubmit: ', this.state)
     e.preventDefault()
 
     await updateFB({

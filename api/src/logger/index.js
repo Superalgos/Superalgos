@@ -1,6 +1,8 @@
 import { createLogger, format, transports } from 'winston'
 import { inspect } from 'util'
 
+import { AuthentificationError, DatabaseError, WrongArgumentsError, ServiceUnavailableError } from './errors'
+
 class LoggerService {
   constructor() {
     const winstonTransports = [
@@ -28,4 +30,4 @@ class LoggerService {
 }
 
 export const logger = new LoggerService() // Default logger
-export { LoggerService }
+export { LoggerService, AuthentificationError, DatabaseError, WrongArgumentsError, ServiceUnavailableError }

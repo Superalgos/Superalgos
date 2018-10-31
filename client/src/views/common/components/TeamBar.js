@@ -13,8 +13,11 @@ import UsersIcon from '@material-ui/icons/People'
 import SearchIcon from '@material-ui/icons/Search'
 import AdbIcon from '@material-ui/icons/Adb'
 import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications'
+import BugReportIcon from '@material-ui/icons/BugReport'
 
 import { Link } from 'react-router-dom'
+
+import log from '../../../utils/log'
 
 const SettingsLink = props => <Link to='/teams/settings' {...props} />
 const FBLink = props => <Link to='/teams/financial-beings' {...props} />
@@ -61,13 +64,13 @@ const styles = theme => ({
 class TeamBar extends Component {
   render () {
     const { classes, user, match } = this.props
-    console.log('TeamBar: ', user, match)
+    log.debug('TeamBar: ', user, match)
     return (
       <div className={classes.root}>
         <AppBar position='static' color='secondary'>
-          <Toolbar>
+          <Toolbar variant='dense'>
             <Typography variant='h5' color='inherit' className={classes.flex}>
-              Manage Teams
+              Teams
             </Typography>
             <Button
               variant='text'
@@ -113,11 +116,21 @@ class TeamBar extends Component {
               variant='text'
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
-              title='Manage Financial Beings'
+              title='Your Global Team Settings'
               component={SettingsLink}
               to={`${match.url}/settings`}>
               <SettingsApplicationsIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
               Settings
+            </Button>
+            <Button
+              variant='text'
+              size='small'
+              className={classNames(classes.button, classes.cssRoot)}
+              title='Report a Teams Module bug'
+              to='https://github.com/AdvancedAlgos/TeamsModule/issues'
+            >
+              <BugReportIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Report
             </Button>
           </Toolbar>
         </AppBar>

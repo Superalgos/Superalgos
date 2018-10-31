@@ -10,9 +10,11 @@ import { checkGraphQLError } from '../../../utils/graphql-errors'
 import CREATE_TEAM from '../../../graphql/teams/CreateTeamMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
+import log from '../../../utils/log'
+
 const CreateTeam = ({ authId }) => {
   let input
-  console.log('CreateTeam', authId)
+  log.debug('CreateTeam', authId)
 
   return (
     <Mutation
@@ -33,7 +35,7 @@ const CreateTeam = ({ authId }) => {
         if (error) {
           errors = error.graphQLErrors.map(({ message }, i) => {
             const displayMessage = checkGraphQLError(message)
-            console.log('createTeam error:', displayMessage)
+            log.debug('createTeam error:', displayMessage)
             return (
               <Typography key={i} variant='caption'>
                 {message}
@@ -73,7 +75,7 @@ const handleSubmit = async (e, createTeam, input) => {
   const currentUser = await getItem('user')
   let authId = JSON.parse(currentUser)
   authId = authId.authId
-  console.log('createTeam submit: ', authId)
+  log.debug('createTeam submit: ', authId)
   const name = input.value
   const slug = slugify(name)
   await createTeam({ variables: { name, slug, owner: authId } })

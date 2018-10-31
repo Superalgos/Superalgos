@@ -1,19 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
-import { withStateHandlers, lifecycle, compose } from 'recompose'
 
 import Grid from '@material-ui/core/Grid'
 import { MessageCard } from '@advancedalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
-import { isDefined, isString } from '../../../utils/js-helpers'
-import { getItem } from '../../../utils/local-storage'
-
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import ManageTeamsItem from './ManageTeamsItem'
 import CreateTeamDialog from './CreateTeamDialog'
+
+import log from '../../../utils/log'
 
 const styles = theme => ({
   heroContent: {
@@ -47,105 +45,66 @@ const styles = theme => ({
   }
 })
 
-export const ManageTeamsList = ({ classes, user = null, ...props }) => {
-  let owner
-  let authId = null
-  console.log('ManageTeamsList: ', user)
-  if (user !== null && isString(user)) {
-    owner = JSON.parse(user)
-    if (isDefined(owner.authId)) authId = owner.authId
-  }
-  console.log('ManageTeamsList 2: ', owner, authId)
-  if (authId === undefined || authId === null) {
-    return (
-      <Grid container spacing={40}>
-        <Grid>
-          <MessageCard message='Loading...' />
-        </Grid>
-      </Grid>
-    )
-  } else {
-    return (
-      <Query
-        query={GET_TEAMS_BY_OWNER}
-        variables={{ authId }}
-        fetchPolicy='network-only'
-      >
-        {({ loading, error, data }) => {
-          console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
+export const ManageTeamsList = ({ classes, user = null, ...props }) => (
+  <Query
+    query={GET_TEAMS_BY_OWNER}
+    fetchPolicy='network-only'
+  >
+    {({ loading, error, data }) => {
+      log.debug('GET_TEAMS_BY_OWNER: ', loading, error, data)
 
-          let errors = null
-          if (error) {
-            errors = error.graphQLErrors.map(({ message }, i) => {
-              return <MessageCard message={message} />
-            })
-          }
-          if (!loading && !error) {
-            if (data.teams_TeamsByOwner.length > 0) {
-              return (
-                <React.Fragment>
-                  <Grid container spacing={40}>
-                    {!loading &&
-                      data.teams_TeamsByOwner.map(team => (
-                        <ManageTeamsItem
-                          key={team.id}
-                          team={team}
-                          classes={classes}
-                          authId={authId}
-                          {...props}
-                        />
-                      ))}
-                    {errors}
-                  </Grid>
-                </React.Fragment>
-              )
-            } else {
-              return (
-                <Grid container spacing={40}>
-                  <Grid item xs={10}>
-                    <MessageCard message='You don&rsquo;t have any teams. Create one!'>
-                      <CreateTeamDialog authId={authId} />
-                    </MessageCard>
-                  </Grid>
-                </Grid>
-              )
-            }
-          } else {
-            return (
+      let errors = null
+      if (error) {
+        errors = error.graphQLErrors.map(({ message }, i) => {
+          return <MessageCard message={message} />
+        })
+      }
+      if (!loading && !error) {
+        if (data.teams_TeamsByOwner.length > 0) {
+          return (
+            <React.Fragment>
               <Grid container spacing={40}>
-                <Grid item xs={12}>
-                  <MessageCard message='Loading...' />
-                  {errors !== null && <MessageCard message={errors} />}
-                </Grid>
+                {!loading &&
+                  data.teams_TeamsByOwner.map(team => (
+                    <ManageTeamsItem
+                      key={team.id}
+                      team={team}
+                      classes={classes}
+                      {...props}
+                    />
+                  ))}
+                {errors}
               </Grid>
-            )
-          }
-        }}
-      </Query>
-    )
-  }
-}
+            </React.Fragment>
+          )
+        } else {
+          return (
+            <Grid container spacing={40}>
+              <Grid item xs={10}>
+                <MessageCard message='You don&rsquo;t have any teams. Create one!'>
+                  <CreateTeamDialog />
+                </MessageCard>
+              </Grid>
+            </Grid>
+          )
+        }
+      } else {
+        return (
+          <Grid container spacing={40}>
+            <Grid item xs={12}>
+              <MessageCard message='Loading...' />
+              {errors !== null && <MessageCard message={errors} />}
+            </Grid>
+          </Grid>
+        )
+      }
+    }}
+  </Query>
+)
 
 ManageTeamsList.propTypes = {
   user: PropTypes.any,
   classes: PropTypes.object.isRequired
 }
 
-const getUserOnMount = lifecycle({
-  componentDidMount () {
-    getItem('user').then(user => {
-      this.setState({ user })
-    }) // Set user to state
-  }
-})
-
-const mapStateToProps = withStateHandlers(() => ({ user: null }), {
-  user: ({ user }) => () => ({ user })
-})
-
-const ManageTeamsListAuthId = compose(
-  mapStateToProps,
-  getUserOnMount
-)(ManageTeamsList)
-
-export default withStyles(styles)(ManageTeamsListAuthId)
+export default withStyles(styles)(ManageTeamsList)

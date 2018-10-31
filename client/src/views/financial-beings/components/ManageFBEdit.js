@@ -20,6 +20,8 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
 
+import log from '../../../utils/log'
+
 const styles = theme => ({
   dialogContainer: {
     display: 'block',
@@ -41,7 +43,6 @@ export class ManageFBEdit extends Component {
     this.handleAvatar = this.handleAvatar.bind(this)
 
     const avatar = props.fb.avatar || ''
-    this.authId = props.authId
 
     this.state = {
       open: false,
@@ -50,15 +51,14 @@ export class ManageFBEdit extends Component {
   }
 
   render () {
-    console.log('ManageFBEdit ', this.props, this.props.slug, this.props.fb)
+    log.debug('ManageFBEdit ', this.props, this.props.slug, this.props.fb)
     const { classes, fb, slug } = this.props
     return (
       <Mutation
         mutation={UPDATE_FB}
         refetchQueries={[
           {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId: this.authId }
+            query: GET_TEAMS_BY_OWNER
           }
         ]}
       >
@@ -82,7 +82,7 @@ export class ManageFBEdit extends Component {
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
               const displayMessage = checkGraphQLError(message)
-              console.log('updateTeamProfile error:', displayMessage)
+              log.debug('updateTeamProfile error:', displayMessage)
               return (
                 <Typography key={i} variant='caption'>
                   {message}
@@ -176,12 +176,12 @@ export class ManageFBEdit extends Component {
   }
 
   handleAvatar (avatarUrl) {
-    console.log('handleAvatar: ', avatarUrl)
+    log.debug('handleAvatar: ', avatarUrl)
     this.setState({ avatar: `${avatarUrl}?${Math.random()}` })
   }
 
   async handleSubmit (e, updateFB, fbId, slug) {
-    console.log('handleSubmit: ', this.state)
+    log.debug('handleSubmit: ', this.state)
     e.preventDefault()
 
     await updateFB({
@@ -197,8 +197,7 @@ export class ManageFBEdit extends Component {
 ManageFBEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  fb: PropTypes.object,
-  authId: PropTypes.string.isRequired
+  fb: PropTypes.object
 }
 
 export default withStyles(styles)(ManageFBEdit)

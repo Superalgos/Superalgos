@@ -1,4 +1,4 @@
-# import Query.TeamConnection, Team from "./generated/prisma.graphql"
+# import Query.TeamConnection, Team from "../generated/prisma.graphql"
 
 directive @isAuthenticated on QUERY | FIELD | MUTATION
 directive @hasRole(roles: [String]) on QUERY | FIELD | MUTATION
@@ -11,12 +11,11 @@ type Query {
   teamByName(name: String!): Team
   teamById(teamId: String!): Team
   teamWithRole(teamId: String!, role: String!): Team
-  teamsByOwner(ownerId: String!): [Team!]! @isAuthenticated
+  teamsByOwner: [Team!]! @isAuthenticated
   teamsByRole: [Team!]! @isAuthenticated
   fbByTeamMember: Team @isAuthenticated
   owner: Member @isAuthenticated
-  currentMember: Member @isAuthenticated
-  member(authId: String!): Member @isAuthenticated
+  member: Member @isAuthenticated
 }
 
 type Mutation {
@@ -25,7 +24,7 @@ type Mutation {
   createTeam(name: String!, slug: String!, botName: String!, botSlug: String!): Team @isAuthenticated
   updateTeamProfile(slug: String!, description: String, motto: String, avatar: String, banner: String): Team @isAuthenticated
   updateFB(fbId: String!, avatar: String): FinancialBeings @isAuthenticated
-  deleteTeam(slug: String!): Team @isAuthenticated @isOwner(type: "Team")
+  deleteTeam(slug: String!, botSlug: String!): Team @isAuthenticated @isOwner(type: "Team")
   sendMemberInviteSG(email: String!, teamId: String!): String
   confirmMember(token: String!): String
   removeTeamMember(teamId: String!, memberId: String!): String
@@ -35,18 +34,14 @@ fragment MemberInfo on Member {
   id
   authId
   alias
-  isActive
-  profile {
-    ...MemberProfileInfo
+  visible
+  status {
+    ...MemberStatusInfo
   }
 }
 
-fragment MemberProfileInfo on MemberProfile {
-  firstName
-  lastName
-  email
-  avatar
-  role {
-    name
-  }
+fragment MemberStatusInfo on MemberStatus {
+  status
+  reason
+  createdAt
 }

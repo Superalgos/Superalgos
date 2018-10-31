@@ -16,6 +16,8 @@ import FinancialBeings from './FinancialBeings'
 import TeamMembers from './TeamMembers'
 import Settings from './settings'
 
+import log from '../../utils/log'
+
 const drawerWidth = 240
 
 const styles = theme => ({
@@ -81,9 +83,9 @@ const DashboardCheckSession = lifecycle({
   async componentDidMount () {
     try {
       const authenticated = await this.props.auth.isAuthenticated()
-      console.log('DashboardCheckSession res: ', authenticated)
+      log.debug('DashboardCheckSession res: ', authenticated)
     } catch (err) {
-      console.log('DashboardCheckSession err: ', err)
+      log.debug('DashboardCheckSession err: ', err)
     }
   }
 })(Dashboard)

@@ -9,8 +9,10 @@ import ManageMemberRole from './ManageMemberRole'
 import ManageMemberStatus from './ManageMemberStatus'
 import { MessageCard } from '@advancedalgos/web-components'
 
+import log from '../../../utils/log'
+
 export const ManageMembersItem = ({ classes, member, teamId, authId }) => {
-  console.log('ManageMembersItem', member)
+  log.debug('ManageMembersItem', member)
   let profile = null
   let email = null
   let memberStatus = null

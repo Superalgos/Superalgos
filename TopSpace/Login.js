@@ -21,6 +21,8 @@ function newLogin() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
+    const MASTER_APP_API = 'https://app-api.advancedalgos.net/graphql';
+
     let currentLabel;
 
     let userAuthorization;
@@ -50,8 +52,7 @@ function newLogin() {
 
         const apolloClient = new Apollo.lib.ApolloClient({
             networkInterface: Apollo.lib.createNetworkInterface({
-                /*uri: 'http://localhost:4000/graphql',*/
-                uri: 'https://users-api.advancedalgos.net/graphql',
+                uri: MASTER_APP_API,
                 transportBatching: true,
             }),
             connectToDevTools: true,
@@ -59,7 +60,7 @@ function newLogin() {
 
         const QUERY = Apollo.gql`
             query($authId: String){
-                userByAuthId (authId: $authId){
+                users_UserByAuthId (authId: $authId){
                     id
                     referrerId
                     alias
@@ -92,19 +93,18 @@ function newLogin() {
                     .then(response => {
                         sessionToken = response.data.userByAuthId.sessionToken;
                          
-                        window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.userByAuthId));
-                        resolve({user: response.data.userByAuthId})
+                        window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.users_UserByAuthId));
+                        resolve({ user: response.data.users_UserByAuthId})
                     })
                     .catch(error => {
-                    console.log("apolloClient error", error)
-                    // reject (error)
+                        console.log("apolloClient error getting user query", error)
+                        reject(error)
                     });
                 });
             }   
 
             const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
-            // uri: 'http://localhost:4001/graphql',
-            uri: 'https://teams-api.advancedalgos.net/graphql'
+                uri: MASTER_APP_API
             });
 
             networkInterfaceTeams.use([{
@@ -122,52 +122,51 @@ function newLogin() {
             });
 
             const TEAM_BY_OWNER_QUERY = Apollo.gql`
-            query teamsByOwnerQuery($authId: String!) {
-            teamsByOwner(ownerId: $authId) {
-                id
-                name
-                slug
-                profile {
-                avatar
-                banner
-                description
-                motto
-                updatedAt
+            query teamsByOwnerQuery {
+                teams_TeamsByOwner {
+                    id
+                    name
+                    slug
+                    profile {
+                    avatar
+                    banner
+                    description
+                    motto
+                    updatedAt
+                    }
+                    members {
+                    member {
+                        alias
+                    }
+                    }
+                    fb {
+                    id
+                    name
+                    slug
+                    avatar
+                    kind
+                    status {
+                        status
+                        reason
+                        createdAt
+                    }
+                    }
                 }
-                members {
-                member {
-                    alias
-                }
-                }
-                fb {
-                id
-                name
-                slug
-                avatar
-                kind
-                status {
-                    status
-                    reason
-                    createdAt
-                }
-                }
-            }
             }
         `
 
         const getTeamByOwner = () => {
         return new Promise((resolve, reject) => {
             apolloClientTeams.query({
-            query: TEAM_BY_OWNER_QUERY,
-            variables: { authId: authId }
+            query: TEAM_BY_OWNER_QUERY
             })
             .then(response => {
-                window.localStorage.setItem('userTeams', JSON.stringify(response.data.teamsByOwner));
-                resolve({teams: response.data.teamsByOwner})
+                window.localStorage.setItem('userTeams', JSON.stringify(response.data.teams_TeamsByOwner));
+                resolve({ teams: response.data.teams_TeamsByOwner})
             })
             .catch(error => {
-                console.log("apolloClientTeam error", error)
-                // reject (error)
+                console.log("apolloClient error getting user teams", error)
+                reject (error)
             });
             })
         }

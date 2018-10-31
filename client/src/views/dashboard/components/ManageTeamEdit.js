@@ -15,6 +15,8 @@ import Typography from '@material-ui/core/Typography'
 
 import { MessageCard, ImageUpload } from '@advancedalgos/web-components'
 
+import log from '../../../utils/log'
+
 import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
@@ -44,7 +46,7 @@ export class ManageTeamEdit extends Component {
     this.handleAvatar = this.handleAvatar.bind(this)
     this.handleBanner = this.handleBanner.bind(this)
 
-    console.log('ManageTeamEdit', props.team)
+    log.debug('ManageTeamEdit', props.team)
     const motto = props.team.profile.motto || ''
     const description = props.team.profile.description || ''
     const avatar = props.team.profile.avatar || ''
@@ -61,7 +63,7 @@ export class ManageTeamEdit extends Component {
   }
 
   render () {
-    console.log('ManageTeamEdit ', this.props, this.props.slug, this.props.team)
+    log.debug('ManageTeamEdit ', this.props, this.props.slug, this.props.team)
     const { classes, team } = this.props
     return (
       <Mutation
@@ -84,7 +86,7 @@ export class ManageTeamEdit extends Component {
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
               const displayMessage = checkGraphQLError(message)
-              console.log('updateTeamProfile error:', displayMessage)
+              log.debug('updateTeamProfile error:', displayMessage)
               return (
                 <Typography key={i} variant='caption'>
                   {message}
@@ -114,7 +116,7 @@ export class ManageTeamEdit extends Component {
                   <DialogContent>
                     <Mutation mutation={GET_AZURE_SAS} >
                       {(getAzureSAS, { loading, error, data }) => {
-                        console.log('getAzureSAS: ', loading, error, data, team.profile)
+                        log.debug('getAzureSAS: ', loading, error, data, team.profile)
                         const AzureStorageUrl = process.env.AZURE_STORAGE_URL
                         const containerName = team.slug
                         let AzureSASURL
@@ -132,7 +134,7 @@ export class ManageTeamEdit extends Component {
                         if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
                         if (this.state.banner !== null) banner = this.state.banner
                         if (this.state.banner === null && team.profile !== null && team.profile.banner === undefined) banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
-                        console.log('team images: ', avatar, banner)
+                        log.debug('team images: ', avatar, banner)
 
                         if (loading || data === undefined) {
                           return (<MessageCard message='Loading...' />)
@@ -262,17 +264,17 @@ export class ManageTeamEdit extends Component {
   }
 
   handleAvatar (avatarUrl) {
-    console.log('handleAvatar: ', avatarUrl)
+    log.debug('handleAvatar: ', avatarUrl)
     this.setState({ avatar: `${avatarUrl}?${Math.random()}` })
   }
 
   handleBanner (bannerUrl) {
-    console.log('handleBanner: ', bannerUrl)
+    log.debug('handleBanner: ', bannerUrl)
     this.setState({ banner: `${bannerUrl}?${Math.random()}` })
   }
 
   async handleSubmit (e, updateTeamProfile, slug) {
-    console.log('handleSubmit: ', this.state)
+    log.debug('handleSubmit: ', this.state)
     e.preventDefault()
 
     await updateTeamProfile({

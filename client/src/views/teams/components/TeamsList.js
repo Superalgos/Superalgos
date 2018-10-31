@@ -10,6 +10,7 @@ import { MessageCard } from '@advancedalgos/web-components'
 import GET_ALL_TEAMS_QUERY from '../../../graphql/teams/GetAllTeamsQuery'
 
 import { isEmpty } from '../../../utils/js-helpers'
+import log from '../../../utils/log'
 
 import TeamsItem from './TeamsItem'
 import TeamsDetails from './TeamsDetails'
@@ -42,7 +43,7 @@ const styles = theme => ({
 export const TeamsList = ({ classes, match }) => (
   <Query query={GET_ALL_TEAMS_QUERY} fetchPolicy='cache-and-network' >
     {({ loading, error, data, ...props }) => {
-      console.log('GET_ALL_TEAMS: ', loading, error, data, match, props)
+      log.debug('GET_ALL_TEAMS: ', loading, error, data, match, props)
       let slug = null
       if (!isEmpty(match.params) && match.params.slug) slug = match.params.slug
 

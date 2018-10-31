@@ -11,6 +11,8 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 import ManageTeamsItem from './ManageTeamsItem'
 import CreateTeamDialog from './CreateTeamDialog'
 
+import log from '../../../utils/log'
+
 const styles = theme => ({
   heroContent: {
     maxWidth: 600,
@@ -49,7 +51,7 @@ export const ManageTeamsList = ({ classes, user = null, ...props }) => (
     fetchPolicy='network-only'
   >
     {({ loading, error, data }) => {
-      console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
+      log.debug('GET_TEAMS_BY_OWNER: ', loading, error, data)
 
       let errors = null
       if (error) {

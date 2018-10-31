@@ -11,6 +11,8 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
+import log from '../../../utils/log'
+
 export class CreateTeamDialog extends Component {
   constructor (props) {
     super(props)
@@ -50,7 +52,7 @@ export class CreateTeamDialog extends Component {
   }
 
   render () {
-    console.log(this.props)
+    log.debug(this.props)
     return (
       <div>
         <Button

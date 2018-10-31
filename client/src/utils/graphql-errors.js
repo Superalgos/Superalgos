@@ -3,10 +3,10 @@ const ErrorResponse = {
 }
 
 export const checkGraphQLError = error => {
-  console.log('checkGraphQLError ', ErrorResponse)
+  log.debug('checkGraphQLError ', ErrorResponse)
   if (error.search(/unique constraint/)) {
     const field = error.substring(error.indexOf('=') + 1)
-    console.log('unique constraint', field.replace(/ +/g, ''))
+    log.debug('unique constraint', field.replace(/ +/g, ''))
   }
 }
 

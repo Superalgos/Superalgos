@@ -18,7 +18,7 @@ import { isEmpty } from '../../../utils/js-helpers'
 import CREATE_TEAM from '../../../graphql/teams/CreateTeamMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
-// import { checkGraphQLError } from '../../../utils/graphql-errors'
+import log from '../../../utils/log'
 
 const styles = theme => ({
   dialogContainer: {
@@ -207,7 +207,7 @@ export class CreateTeamDialog extends Component {
 
   async handleSubmit (e, createTeam, name, botName) {
     e.preventDefault()
-    console.log('createTeam submit: ', name, botName)
+    log.debug('createTeam submit: ', name, botName)
     const slug = this.slugify(name)
     const botSlug = this.slugify(botName)
     await createTeam({ variables: { name, slug, botName, botSlug } })

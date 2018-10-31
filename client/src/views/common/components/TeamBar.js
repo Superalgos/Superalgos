@@ -16,6 +16,8 @@ import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications'
 
 import { Link } from 'react-router-dom'
 
+import log from '../../../utils/log'
+
 const SettingsLink = props => <Link to='/teams/settings' {...props} />
 const FBLink = props => <Link to='/teams/financial-beings' {...props} />
 const MembersLink = props => <Link to='/teams/team-members' {...props} />
@@ -61,7 +63,7 @@ const styles = theme => ({
 class TeamBar extends Component {
   render () {
     const { classes, user, match } = this.props
-    console.log('TeamBar: ', user, match)
+    log.debug('TeamBar: ', user, match)
     return (
       <div className={classes.root}>
         <AppBar position='static' color='secondary'>

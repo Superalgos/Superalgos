@@ -8,6 +8,8 @@ import { withStyles } from '@material-ui/core/styles'
 
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
+import log from '../../../utils/log'
+
 import ManageFBItem from './ManageFBItem'
 
 const styles = theme => ({
@@ -48,7 +50,7 @@ export const ManageFBList = ({ classes }) => (
     fetchPolicy='network-only'
   >
     {({ loading, error, data }) => {
-      console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
+      log.debug('GET_TEAMS_BY_OWNER: ', loading, error, data)
 
       let errors = null
       if (error) {

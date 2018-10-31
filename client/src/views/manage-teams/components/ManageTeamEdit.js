@@ -19,6 +19,7 @@ import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutatio
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
+import log from '../../../utils/log'
 
 const styles = theme => ({
   dialogContainer: {
@@ -42,7 +43,7 @@ export class ManageTeamEdit extends Component {
     this.handleAvatar = this.handleAvatar.bind(this)
     this.handleBanner = this.handleBanner.bind(this)
 
-    console.log('ManageTeamEdit', props.team)
+    log.debug('ManageTeamEdit', props.team)
     const motto = props.team.profile.motto || ''
     const description = props.team.profile.description || ''
     const avatar = props.team.profile.avatar || null
@@ -59,7 +60,7 @@ export class ManageTeamEdit extends Component {
 
   render () {
     const { classes, team, match } = this.props
-    console.log('ManageTeamEdit ', this.props, this.props.slug, this.props.team, match)
+    log.debug('ManageTeamEdit ', this.props, this.props.slug, this.props.team, match)
     return (
       <Mutation
         mutation={UPDATE_TEAM_PROFILE}
@@ -82,7 +83,7 @@ export class ManageTeamEdit extends Component {
           if (this.state.banner === null && team.profile !== null && (team.profile.banner === undefined || team.profile.banner === null)) banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
           if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
           if (this.state.banner !== null) banner = this.state.banner
-          console.log('team images: ', avatar, banner)
+          log.debug('team images: ', avatar, banner)
 
           let errors
           let loader
@@ -94,7 +95,7 @@ export class ManageTeamEdit extends Component {
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
               const displayMessage = checkGraphQLError(message)
-              console.log('updateTeamProfile error:', displayMessage)
+              log.debug('updateTeamProfile error:', displayMessage)
               return (
                 <Typography key={i} variant='caption'>
                   {message}
@@ -242,17 +243,17 @@ export class ManageTeamEdit extends Component {
   }
 
   handleAvatar (avatarUrl) {
-    console.log('handleAvatar: ', avatarUrl)
+    log.debug('handleAvatar: ', avatarUrl)
     this.setState({ avatar: `${avatarUrl}?${Math.random()}` })
   }
 
   handleBanner (bannerUrl) {
-    console.log('handleBanner: ', bannerUrl)
+    log.debug('handleBanner: ', bannerUrl)
     this.setState({ banner: `${bannerUrl}?${Math.random()}` })
   }
 
   async handleSubmit (e, updateTeamProfile, slug) {
-    console.log('handleSubmit: ', this.state)
+    log.debug('handleSubmit: ', this.state)
     e.preventDefault()
 
     await updateTeamProfile({

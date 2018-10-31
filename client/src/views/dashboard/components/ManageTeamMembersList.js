@@ -14,6 +14,8 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 import ManageMembersTeamItem from './ManageMembersTeamItem'
 import { MessageCard } from '@advancedalgos/web-components'
 
+import log from '../../../utils/log'
+
 const styles = theme => ({
   heroContent: {
     maxWidth: 600,
@@ -49,12 +51,12 @@ const styles = theme => ({
 export const ManageTeamMembersList = ({ classes, user = null }) => {
   let owner
   let authId = null
-  console.log('ManageTeamsList: ', user)
+  log.debug('ManageTeamsList: ', user)
   if (user !== null && isString(user)) {
     owner = JSON.parse(user)
     if (isDefined(owner.authId)) authId = owner.authId
   }
-  console.log('ManageTeamsList 2: ', owner, authId)
+  log.debug('ManageTeamsList 2: ', owner, authId)
   if (authId === undefined || authId === null) {
     return (
       <Grid container spacing={40}>
@@ -71,7 +73,7 @@ export const ManageTeamMembersList = ({ classes, user = null }) => {
         fetchPolicy='network-only'
       >
         {({ loading, error, data }) => {
-          console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
+          log.debug('GET_TEAMS_BY_OWNER: ', loading, error, data)
           let errors = null
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {

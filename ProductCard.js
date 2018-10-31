@@ -230,7 +230,8 @@
         */
 
         const TEAM = thisObject.devTeam.codeName.toLowerCase();
-        const STORAGE_URL = "https://algobotcommstorage.blob.core.windows.net";
+        const BOT = thisObject.bot.codeName.toLowerCase();
+        const STORAGE_URL = "https://aadevelop.blob.core.windows.net/module-teams";
 
         teamAvatar = new Image();
 
@@ -256,7 +257,7 @@
             imageLoaded();
         }
 
-        botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "banner.jpg";
+        botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + BOT + "-fb-" + "avatar.jpg";
 
     }
 

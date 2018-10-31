@@ -1,4 +1,4 @@
-import { logger } from '../../logger'
+import { logger } from '../logger'
 
 export const getMember = async (req, res, next, db) => {
   if (!req.headers.userId) return next()

@@ -1,4 +1,4 @@
-# import Query.TeamConnection, Team from "./generated/prisma.graphql"
+# import Query.TeamConnection, Team from "../generated/prisma.graphql"
 
 directive @isAuthenticated on QUERY | FIELD | MUTATION
 directive @hasRole(roles: [String]) on QUERY | FIELD | MUTATION
@@ -15,8 +15,7 @@ type Query {
   teamsByRole: [Team!]! @isAuthenticated
   fbByTeamMember: Team @isAuthenticated
   owner: Member @isAuthenticated
-  currentMember: Member @isAuthenticated
-  member(authId: String!): Member @isAuthenticated
+  member: Member @isAuthenticated
 }
 
 type Mutation {
@@ -35,18 +34,14 @@ fragment MemberInfo on Member {
   id
   authId
   alias
-  isActive
-  profile {
-    ...MemberProfileInfo
+  visible
+  status {
+    ...MemberStatusInfo
   }
 }
 
-fragment MemberProfileInfo on MemberProfile {
-  firstName
-  lastName
-  email
-  avatar
-  role {
-    name
-  }
+fragment MemberStatusInfo on MemberStatus {
+  status
+  reason
+  createdAt
 }

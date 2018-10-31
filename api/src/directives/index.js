@@ -1,9 +1,6 @@
 import { SchemaDirectiveVisitor } from 'apollo-server-express'
 import _get from 'lodash.get'
-import { logger } from '../logger'
-
-import { AuthenticationError, ForbiddenError } from '../errors'
-import { validateIdToken } from '../auth/validateIdToken'
+import { logger, AuthenticationError } from '../logger'
 
 const memberLocationOnContext = 'request.user'
 const userIdOnContext = 'req.userid'
@@ -70,7 +67,7 @@ export const directiveResolvers = {
     if (roles.includes(role)) {
       return next()
     }
-    throw new ForbiddenError('Insufficient permissions')
+    throw new AuthenticationError('Insufficient permissions')
   },
   isOwner: async (next, source, { type }, ctx) => {
     logger.info('directive isOwner: ', source, type, ctx)
@@ -86,7 +83,7 @@ export const directiveResolvers = {
     if (isOwner) {
       return next()
     }
-    throw new ForbiddenError('Insufficient permissions')
+    throw new AuthenticationError('Insufficient permissions')
   },
   isOwnerOrHasRole: async (next, source, { roles, type }, ctx, ...p) => {
     const userId = await isUserId(ctx)
@@ -117,7 +114,7 @@ export const directiveResolvers = {
     if(hasRole){
       return next()
     }
-    throw new ForbiddenError('Insufficient permissions')
+    throw new AuthenticationError('Insufficient permissions')
   }
 }
 

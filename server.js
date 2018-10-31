@@ -590,9 +590,9 @@ function onBrowserRequest(request, response) {
                         let userName = decodeURI(requestParameters[5]);
                         let botCodeName = decodeURI(requestParameters[6]);
                         let botDisplayName = decodeURI(requestParameters[7]);
-                        let authId = decodeURI(requestParameters[8]);
+                        let userId = decodeURI(requestParameters[8]);
 
-                        teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, authId, onSetupFinished);
+                        teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, userId, onSetupFinished);
 
                         function onSetupFinished(err) {
 
@@ -619,9 +619,9 @@ function onBrowserRequest(request, response) {
                         let devTeamCodeName = decodeURI(requestParameters[3]);
                         let userName = decodeURI(requestParameters[4]);
                         let botCodeName = decodeURI(requestParameters[5]);
-                        let authId = decodeURI(requestParameters[6]);
+                        let userId = decodeURI(requestParameters[6]);
 
-                        teamSetup.deleteTeam(devTeamCodeName, userName, botCodeName, authId, onSetupFinished);
+                        teamSetup.deleteTeam(devTeamCodeName, userName, botCodeName, userId, onSetupFinished);
 
                         function onSetupFinished(err) {
 

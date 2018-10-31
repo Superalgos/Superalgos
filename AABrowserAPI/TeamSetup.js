@@ -18,7 +18,7 @@
         storage.initialize(undefined, pServerConfig);
     }
 
-    function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotCodeName, pBotDisplayName, pAuthId, callBackFunction) {
+    function newTeam(pTeamCodeName, pTeamDisplayName, pUserName, pBotCodeName, pBotDisplayName, pUserId, callBackFunction) {
       
         try {
 
@@ -524,8 +524,8 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        //url: 'http://localhost:4000/graphql'
-                        url: 'https://users-api.advancedalgos.net/graphql',
+                        url: 'http://localhost:4000/graphql'
+                        //url: 'https://users-api.advancedalgos.net/graphql',
                         //headers: {
                         //     Authorization: 'Bearer ' + authToken
                         //}
@@ -533,13 +533,13 @@
 
 
                     let variables = {
-                        authId: pAuthId,
+                        userId: pUserId,
                         sessionToken: pSessionToken
                     };
 
                     usersModuleAPI.query(`
-                    mutation($authId: String, $sessionToken: String){
-                    updateSessionToken(authId: $authId, sessionToken: $sessionToken){
+                    mutation($userId: String, $sessionToken: String){
+                    updateSessionToken(userId: $userId, sessionToken: $sessionToken){
                         id
                         alias
                         }
@@ -660,7 +660,7 @@
         }
     }
 
-    function deleteTeam(pTeamCodeName, pUserName, pBotCodeName, pAuthId, callBackFunction) {
+    function deleteTeam(pTeamCodeName, pUserName, pBotCodeName, pUserId, callBackFunction) {
 
         try {
 
@@ -1017,8 +1017,8 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        //url: 'http://localhost:4000/graphql'
-                        url: 'https://users-api.advancedalgos.net/graphql',
+                        url: 'http://localhost:4000/graphql'
+                        //url: 'https://users-api.advancedalgos.net/graphql',
                         //headers: {
                         //     Authorization: 'Bearer ' + authToken
                         //}
@@ -1026,13 +1026,13 @@
 
 
                     let variables = {
-                        authId: pAuthId,
+                        userId: pUserId,
                         sessionToken: pSessionToken
                     };
 
                     usersModuleAPI.query(`
-                    mutation($authId: String, $sessionToken: String){
-                    updateSessionToken(authId: $authId, sessionToken: $sessionToken){
+                    mutation($userId: String, $sessionToken: String){
+                    updateSessionToken(userId: $userId, sessionToken: $sessionToken){
                         id
                         alias
                         }

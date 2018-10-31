@@ -100,7 +100,7 @@ function newCurrentStartMode() {
         }
 
         if (window.CURRENT_BOT_DISPLAY_NAME === "") { return;}
-        label = "Competition";
+        
         thisObject.container.frame.draw(false, false);
 
         let fontSize = 12;

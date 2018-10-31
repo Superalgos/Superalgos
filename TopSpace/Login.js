@@ -91,7 +91,7 @@ function newLogin() {
                     }
                 })
                     .then(response => {
-                        sessionToken = response.data.userByAuthId.sessionToken;
+                        sessionToken = response.data.users_UserByAuthId.sessionToken;
                          
                         window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.users_UserByAuthId));
                         resolve({ user: response.data.users_UserByAuthId})

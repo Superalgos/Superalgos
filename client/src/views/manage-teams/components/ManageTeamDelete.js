@@ -123,7 +123,8 @@ export class ManageTeamDelete extends Component {
                         this.handleSubmit(
                           e,
                           deleteTeam,
-                          this.props.slug
+                          this.props.slug,
+                          this.props.botSlug
                         )
                       }}
                       color='primary'
@@ -140,16 +141,17 @@ export class ManageTeamDelete extends Component {
     )
   }
 
-  async handleSubmit (e, deleteTeam, slug) {
+  async handleSubmit (e, deleteTeam, slug, botSlug) {
     e.preventDefault()
-    await deleteTeam({ variables: { slug } })
+    await deleteTeam({ variables: { slug, botSlug } })
     this.setState({ open: false })
   }
 }
 
 ManageTeamDelete.propTypes = {
   classes: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired
+  slug: PropTypes.string.isRequired,
+  botSlug: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(ManageTeamDelete)

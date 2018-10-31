@@ -24,7 +24,7 @@ type Mutation {
   createTeam(name: String!, slug: String!, botName: String!, botSlug: String!): Team @isAuthenticated
   updateTeamProfile(slug: String!, description: String, motto: String, avatar: String, banner: String): Team @isAuthenticated
   updateFB(fbId: String!, avatar: String): FinancialBeings @isAuthenticated
-  deleteTeam(slug: String!): Team @isAuthenticated @isOwner(type: "Team")
+  deleteTeam(slug: String!, botSlug: String!): Team @isAuthenticated @isOwner(type: "Team")
   sendMemberInviteSG(email: String!, teamId: String!): String
   confirmMember(token: String!): String
   removeTeamMember(teamId: String!, memberId: String!): String

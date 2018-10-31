@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import { getUser } from '../../../middleware/getMember'
 
 import { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } from '../../../email/sendgrid'
@@ -135,13 +137,57 @@ export const resolvers = {
           return err
         })
     },
-    async deleteTeam(parent, { slug }, ctx, info) {
-      return ctx.db.mutation.deleteTeam({ where: { slug } }, info)
-        .catch((res) => {
-          logger.info('deleteTeam error: ', res)
-          const errors = res.graphQLErrors.map((error) => {
-            return error.message
-          })
+    async deleteTeam(parent, { slug, botSlug }, ctx, info) {
+      logger.info('DeleteTeam resolver')
+      const authId = ctx.request.headers.userid
+      if (!authId) {
+        throw new AuthenticationError()
+      }
+      logger.info(authId)
+      logger.info('getUser')
+      logger.info(getUser)
+
+      return getUser(authId)
+        .then(async result => {
+          logger.info('deleteTeam axios:')
+          logger.info(await result)
+
+          const alias = await result.data.users_User.alias
+          // const email = result.data.users_User.email
+          const deleteTeamUrl = encodeURI(`${slug}/${alias}/${botSlug}`)
+          logger.info('deleteTeamUrl:')
+          logger.info(JSON.stringify(await deleteTeamUrl))
+
+          const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/deleteTeam/'
+          // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+
+          logger.info(`${platformUrl}${deleteTeamUrl}/${authId}`)
+          const deletePlatformTeam = await axios.get(`${platformUrl}${deleteTeamUrl}/${authId}`)
+            .then((result) => {
+              console.log('deletePlatformTeam result:', result.data)
+              if(result.data.result === 'Fail'){
+                return result.data.message
+              }
+              return result
+            })
+            .catch(err =>{
+              logger.debug('deletePlatformTeam err:')
+              logger.debug(err)
+              throw new Error(err)
+            })
+          console.log('deletePlatformTeam returned: ', await deletePlatformTeam)
+
+          return ctx.db.mutation.deleteTeam({ where: { slug } }, info)
+            .catch((res) => {
+              logger.info('deleteTeam error: ', res)
+              const errors = res.graphQLErrors.map((error) => {
+                return error.message
+              })
+            })
+        })
+        .catch((err) => {
+          logger.debug('deleteTeam error: ')
+          return err
         })
     }
   }

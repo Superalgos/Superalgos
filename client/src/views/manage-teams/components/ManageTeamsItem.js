@@ -42,7 +42,7 @@ export const ManageTeamsItem = ({ classes, team, ...props }) => {
           <CardActions>
             <ManageTeamDetails team={team} />
             <ManageTeamEdit slug={team.slug} team={team} {...props} />
-            <ManageTeamDelete slug={team.slug} />
+            <ManageTeamDelete slug={team.slug} botSlug={team.fb[0].slug} />
           </CardActions>
         </div>
       </Card>

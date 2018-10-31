@@ -1,3 +1,5 @@
+import log from './log'
+
 const ErrorResponse = {
   'unique constraint': 'Sorry, already taken! Please create a unique '
 }

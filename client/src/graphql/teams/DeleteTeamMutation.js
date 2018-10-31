@@ -2,8 +2,8 @@
 import gql from 'graphql-tag'
 
 export const DELETE_TEAM = gql`
-  mutation deleteTeam($slug: String!) {
-    teams_DeleteTeam(slug: $slug) {
+  mutation deleteTeam($slug: String!, $botSlug: String!) {
+    teams_DeleteTeam(slug: $slug, botSlug: $botSlug) {
       id
     }
   }

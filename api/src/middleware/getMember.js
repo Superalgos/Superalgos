@@ -1,4 +1,6 @@
-import { logger } from '../logger'
+import axios from 'axios'
+
+import { logger, DatabaseError } from '../logger'
 
 export const getMember = async (req, res, next, db) => {
   if (!req.headers.userId) return next()
@@ -15,13 +17,13 @@ export const getMember = async (req, res, next, db) => {
 }
 
 export const getUser = authId => {
-  logger.info('getUser')
+  logger.info('getUser MiddleWare')
   logger.info(authId)
   const API_URL = 'https://app-api.advancedalgos.net/graphql'
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     try {
-      const result = axios.post(API_URL, {
-        query: `query users_User($userId: String!) {
+      return axios.post(API_URL, {
+        query: `query users_User($userId: ID!) {
           users_User(id: $userId){
             id
             alias
@@ -36,19 +38,18 @@ export const getUser = authId => {
             'Content-Type': 'application/json'
           }
         })
-        .then(result => {
+        .then(res => {
           logger.info('getUser result')
-          logger.info(result.data)
-          resolve(result.data)
+          logger.info(res.data)
+          resolve(res.data)
         })
         .catch(err => {
           logger.info('getUser err')
           logger.info(err)
-          throw new Error(err)
+          reject(new DatabaseError(err))
         })
-
     } catch (error) {
-      resolve(error)
+      reject(new DatabaseError(error))
     }
   })
 }

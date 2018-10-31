@@ -15,8 +15,7 @@ function newCurrentBot() {
     thisObject.container.frame.width = 150;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 1;
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+    resize();
 
     container.isDraggeable = false;
     container.isClickeable = true;
@@ -48,6 +47,15 @@ function newCurrentBot() {
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
         sharedStatus.eventHandler.listenToEvent("devTeam Changed", onDevTeamChanged);
+
+        window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
+    }
+
+    function resize() {
+
+        container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 1;
+        container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+
     }
 
     function onDevTeamChanged() {

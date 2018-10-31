@@ -14,8 +14,7 @@
     thisObject.container.frame.width = 50;
     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width ;
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+    resize();
 
     container.isDraggeable = false;
     container.isClickeable = false;
@@ -47,6 +46,15 @@
         icon.src = window.canvasApp.urlPrefix + "Images/Icons/chart-scale.png";
 
         thisObject.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
+
+        window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
+
+    }
+
+    function resize() {
+
+        container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width;
+        container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     }
 

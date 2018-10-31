@@ -16,8 +16,7 @@ function newPlayStopButton() {
     thisObject.container.frame.width = 50;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 - 10;
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+    resize();
 
     container.isDraggeable = false;
     container.isClickeable = true;
@@ -55,7 +54,17 @@ function newPlayStopButton() {
         viewPort.eventHandler.listenToEvent("Zoom Changed", onZoomChanged);
         timePeriod = INITIAL_TIME_PERIOD;
 
+        window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
+
     }
+
+    function resize() {
+
+        container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 4;
+        container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+
+    }
+
 
     function onClick() {
 

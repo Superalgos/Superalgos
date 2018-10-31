@@ -34,6 +34,7 @@ function newDashboard() {
 
             window.canvasApp.eventHandler = newEventHandler();
             window.canvasApp.eventHandler.listenToEvent("User Profile Changed", userProfileChanged);
+            window.canvasApp.eventHandler.listenToEvent("Browser Resized", browserResized);
 
             /* Next we start the App*/
 
@@ -86,6 +87,44 @@ function newDashboard() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] userProfileChanged -> err = " + err); }
+
+        }
+
+    }
+
+    function browserResized() {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] browserResized -> Entering function."); }
+
+            console.log("windows resized");
+
+            browserCanvas = document.getElementById('canvas');
+
+            browserCanvas.width = window.innerWidth;
+            browserCanvas.height = window.innerHeight - window.canvasApp.topMargin;
+
+            viewPort.initialize();
+
+
+            //canvas.topSpace.initialize();
+            //canvas.bottomSpace.resize();
+            //canvas.panelsSpace.initialize();
+
+
+
+            /*
+            canvas.floatingSpace.initialize();
+            canvas.chartSpace.initialize(onCharSpaceInitialized);
+
+            function onCharSpaceInitialized() {
+
+            }
+            */
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] browserResized -> err = " + err); }
 
         }
 

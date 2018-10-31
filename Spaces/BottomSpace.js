@@ -15,13 +15,9 @@ function newBottomSpace() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = browserCanvas.width;
-    thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
-
-    container.frame.position.x = 0;
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
-
     container.isDraggeable = false;
+
+    resize();
 
     return thisObject;
 
@@ -35,6 +31,19 @@ function newBottomSpace() {
 
         thisObject.playStopButton = newPlayStopButton();
         thisObject.playStopButton.initialize();
+
+        window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
+
+    }
+
+    function resize() {
+
+        container.frame.position.x = 0;
+        container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+
+        thisObject.container.frame.width = browserCanvas.width;
+        thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
+
     }
 
     function getContainer(point) {

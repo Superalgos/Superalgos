@@ -9,7 +9,7 @@
     <script type="text/javascript" src="Scripts/AppPreLoader.js"></script>
 
 </head>
-<body id="body" style="margin: 0px; padding: 0px; border: 0px; overflow:hidden;" onload="
+<body id="body" style="margin: 0px; padding: 0px; border: 0px; overflow:hidden;" onresize="window.canvasApp.eventHandler.raiseEvent('Browser Resized');" onload="
 
     window.canvasApp = {
         sessionToken: '',

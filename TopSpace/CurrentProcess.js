@@ -15,8 +15,7 @@ function newCurrentProcess() {
     thisObject.container.frame.width = 150;
     thisObject.container.frame.height = TOP_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 2;
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+    resize()
 
     container.isDraggeable = false;
     container.isClickeable = true;
@@ -51,6 +50,15 @@ function newCurrentProcess() {
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
         sharedStatus.eventHandler.listenToEvent("userBot Changed", onUserBotChanged);
+
+        window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
+    }
+
+    function resize() {
+
+        container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 2;
+        container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+
     }
 
     function onUserBotChanged() {

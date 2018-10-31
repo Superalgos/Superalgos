@@ -21,8 +21,7 @@ function newDeleteTradingHistory() {
     thisObject.container.frame.width = 50;
     thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
 
-    container.frame.position.x = viewPort.visibleArea.topRight.x;
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+    resize();
 
     container.isDraggeable = false;
     container.isClickeable = true;
@@ -50,14 +49,25 @@ function newDeleteTradingHistory() {
 
             thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
 
+            window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
+
             if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE); }
 
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
             if (callBackFunction !== undefined) { callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE); }
-        }
+        }        
+
     }
+
+    function resize() {
+
+        container.frame.position.x = viewPort.visibleArea.topRight.x;
+        container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+
+    }
+
 
     function onClick() {
 

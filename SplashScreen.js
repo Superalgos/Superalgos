@@ -19,8 +19,7 @@ function newSplashScreen() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = browserCanvas.width;
-    thisObject.container.frame.height = browserCanvas.height;
+    resize();
 
     container.displacement.containerName = "Splash Screen";
     container.frame.containerName = "Splash Screen";
@@ -51,7 +50,17 @@ function newSplashScreen() {
 
         logo.src = window.canvasApp.urlPrefix + "Images/aa-logo.png";
 
+        window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
+
     }
+
+    function resize() {
+
+        thisObject.container.frame.width = browserCanvas.width;
+        thisObject.container.frame.height = browserCanvas.height;
+
+    }
+
 
     function draw() {
 
@@ -64,7 +73,7 @@ function newSplashScreen() {
             if (fadeOutCounter > 20) {
                 return;
             }
-            opacity = opacity - 0.05;
+            opacity = opacity - 0.1;
         }
 
         thisObject.container.frame.draw(false, false);

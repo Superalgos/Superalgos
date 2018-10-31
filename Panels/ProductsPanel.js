@@ -104,14 +104,7 @@
 
                         }
 
-                        /* Add to the Product Array */
-
-                        productCards.push(productCard);
-
-                        /* Listen to Status Changes Events */
-
-                        productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
-                        productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
+                        productCard.container.eventHandler.listenToEvent("Images Loaded", addProductCardToArray)
 
                     }
                 }
@@ -120,6 +113,19 @@
 
         thisObject.container.eventHandler.listenToEvent("Mouse Wheel", onMouseWheel);
         isInitialized = true;
+
+    }
+
+    function addProductCardToArray(productCard) {
+
+        /* Add to the Product Array */
+
+        productCards.push(productCard);
+
+        /* Listen to Status Changes Events */
+
+        productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
+        productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 
     }
 

@@ -93,6 +93,11 @@
     let botAvatar; // stores the avatar image of the team the bot portrayed at this card belongs to.
     let botAvatarLoaded = false;
 
+    /* Add an Event Handler */
+
+    thisObject.eventHandler = newEventHandler();
+    let imagesLoaded = 0;
+
     return thisObject;
 
     function initialize() {
@@ -189,6 +194,7 @@
 
         function onLegacyImageLoad() {
             legacyTeamAvatarLoaded = true;
+            imageLoaded();
         }
         
         legacyTeamAvatar.src = WEB_URL + "/Images/" + LEGACY_TEAM + "/" + LEGACY_TEAM + ".png";
@@ -212,6 +218,7 @@
 
         function onLegacyPlotterBanner() {
             legacyPlotterBannerLoaded = true;
+            imageLoaded();
         }
 
         legacyPlotterBanner.src = WEB_URL + "/Images/" + PLOTTER_TEAM + "/" + PLOTTER_REPO + "/" + PLOTTER_PROFILE_PIC;
@@ -231,6 +238,7 @@
 
         function onImageLoad() {
             teamAvatarLoaded = true;
+            imageLoaded();
         }
          
         teamAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "avatar.jpg";
@@ -245,10 +253,24 @@
         function onImageLoadBot() {
             botAvatarLoaded = true;
             thisObject.bot.avatar = botAvatar;
+            imageLoaded();
         }
 
         botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "banner.jpg";
 
+    }
+
+    function imageLoaded() {
+
+        /* We need 2 images, one for the team and one for the bot, to consider this Card valid and able to be shown. */
+
+        imagesLoaded++;
+
+        if (imagesLoaded === 2) {
+
+            thisObject.container.eventHandler.raiseEvent("Images Loaded", thisObject);
+
+        }
     }
 
     function getContainer(point) {

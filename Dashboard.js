@@ -107,21 +107,6 @@ function newDashboard() {
 
             viewPort.initialize();
 
-
-            //canvas.topSpace.initialize();
-            //canvas.bottomSpace.resize();
-            //canvas.panelsSpace.initialize();
-
-
-
-            /*
-            canvas.floatingSpace.initialize();
-            canvas.chartSpace.initialize(onCharSpaceInitialized);
-
-            function onCharSpaceInitialized() {
-
-            }
-            */
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] browserResized -> err = " + err); }

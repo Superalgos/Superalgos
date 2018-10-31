@@ -51,7 +51,7 @@
 
     function getOpenPositions(pMarket, callBackFunction) {
 
-        let authToken = window.localStorage.getItem('auth0Token');
+        let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
@@ -72,7 +72,7 @@
 
     function getExecutedTrades(pPositionId, callBackFunction) {
 
-        let authToken = window.localStorage.getItem('auth0Token');
+        let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
@@ -94,7 +94,7 @@
     
     function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
 
-        let authToken = window.localStorage.getItem('auth0Token');
+        let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
@@ -119,7 +119,7 @@
 
     function movePosition(pPositionId, pNewRate, pPositionAmountB, callBackFunction) {
 
-        let authToken = window.localStorage.getItem('auth0Token');
+        let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
@@ -143,7 +143,7 @@
 
     function getPublicTradeHistory(pMarket, startTime, endTime, callBackFunction) {
 
-        let authToken = window.localStorage.getItem('auth0Token');
+        let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"

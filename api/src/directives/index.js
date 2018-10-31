@@ -3,9 +3,10 @@ import _get from 'lodash.get'
 import { logger, AuthenticationError } from '../logger'
 
 const memberLocationOnContext = 'request.user'
-const userIdOnContext = 'req.userid'
+const userIdOnContext = 'request.headers.userid'
 const bearerAccessToken = 'request.headers.authorization'
 
+const ctxUserId = ctx => _get(ctx, userIdOnContext)
 const ctxMember = ctx => _get(ctx, memberLocationOnContext)
 const ctxToken = ctx => _get(ctx, bearerAccessToken)
 
@@ -28,10 +29,12 @@ const createMember = async (ctx, idToken, info) => {
 }
 
 const isUserId = async ctx => {
-  logger.info(`isUserId 0: ${ctx.userId}`)
-  let member = ctxMember(ctx, userIdOnContext)
+  logger.info(`isUserId 0: ${ctx.request.headers.userid}`)
+  logger.info(`isUserId 1: ${ctx.request}`)
+  let member = await ctxUserId(ctx)
+  logger.info(member)
   if (!member) {
-    throw new AuthenticationError('Access token is missing or expired')
+    throw new AuthenticationError()
   } else {
     return member
   }
@@ -58,7 +61,8 @@ const assertAuth = ctx => {
 export const directiveResolvers = {
   isAuthenticated: async (next, source, args, ctx) => {
     let result = await isUserId(ctx)
-    logger.info('directive isAuthenticated: ', result)
+    logger.info('directive isAuthenticated: ')
+    logger.info(await result)
     return next(result)
   },
   hasRole: (next, source, { roles }, ctx) => {

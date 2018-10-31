@@ -1,6 +1,6 @@
 import { getUser } from '../../../middleware/getMember'
 
-import { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } from '../../..//email/sendgrid'
+import { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } from '../../../email/sendgrid'
 
 import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
 
@@ -40,7 +40,10 @@ export const resolvers = {
       logger.info('createTeam ctx.request.user:')
       logger.info(ctx.request.user)
 
-      const authId = ctx.userId
+      const authId = ctx.request.headers.userid
+      if (!authId) {
+        throw new AuthenticationError()
+      }
 
       return getUser(authId)
         .then(async result => {

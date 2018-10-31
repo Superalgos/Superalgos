@@ -1,12 +1,13 @@
-import { logger, AuthentificationError, DatabaseError } from '../../../logger'
+import { logger, AuthenticationError, DatabaseError } from '../../../logger'
 
 export const member = async (parent, arg, ctx, info) => {
-  logger.info(ctx.request.userId, ' --> resolver.member')
-  const authId = ctx.request.userId
+  logger.info(' --> resolver.member')
+  logger.info(ctx.request)
+  const authId = ctx.request.headers.userid
   if (!authId) {
-    throw new AuthentificationError()
+    throw new AuthenticationError()
   }
-  return ctx.db.query.member({ where: { authId: arg.authId } }, info)
+  return ctx.db.query.member({ where: { authId } }, info)
     .catch(err => {
       logger.debug('resolver.member error: ')
       logger.debug(err)
@@ -18,7 +19,7 @@ export const owner = async (parent, args, ctx, info) => {
   logger.info('resolver.query.owner ctx: ')
   const authId = ctx.request.userId
   if (!authId) {
-    return throw new AuthentificationError()
+    throw new AuthenticationError()
   }
   return ctx.db.query.member({ where: { authId: authId } }, info)
     .catch(err => {

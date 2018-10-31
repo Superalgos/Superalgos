@@ -64,7 +64,7 @@ const server = createApolloServer(app, {
     ...req ,
     token: req.headers ? req.headers : undefined,
     user: req.user ? req.user : undefined,
-    userId: null,
+    userId: (req.headers && req.headers.userid) ? req.headers.userid : undefined,
     db,
     pubsub
   })

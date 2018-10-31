@@ -267,12 +267,12 @@ const Mutation = new GraphQLObjectType({
     updateSessionToken: {
       type: UserType,
       args: {
-        authId: {type: GraphQLString},
+        userId: {type: GraphQLString},
         sessionToken: {type: GraphQLString}
       },
       resolve (parent, args) {
         let key = {
-          authId: decodeURI(args.authId)
+          _id: decodeURI(args.userId)
         }
 
         let updatedUser = {

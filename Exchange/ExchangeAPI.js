@@ -5,7 +5,7 @@
 
     const MODULE_NAME = "CloudVM -> Exchange API";
 
-    const SERVER_URL = window.canvasApp.urlPrefix;
+    const SERVER_URL = window.canvasApp.urlPrefix + "ExchangeAPI/";
     
     let thisObject = {
         initialize: initialize,

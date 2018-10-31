@@ -66,13 +66,12 @@ export class CreateTeamDialog extends Component {
   }
 
   render () {
-    const { classes, authId } = this.props
+    const { classes } = this.props
     return (
       <Mutation
         mutation={CREATE_TEAM}
         refetchQueries={[{
-          query: GET_TEAMS_BY_OWNER,
-          variables: { authId: authId }
+          query: GET_TEAMS_BY_OWNER
         }]}
       >
         {(createTeam, { loading, error, data }) => {
@@ -255,8 +254,7 @@ export class CreateTeamDialog extends Component {
 }
 
 CreateTeamDialog.propTypes = {
-  classes: PropTypes.object.isRequired,
-  authId: PropTypes.string
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(CreateTeamDialog)

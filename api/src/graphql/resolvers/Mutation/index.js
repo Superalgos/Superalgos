@@ -4,7 +4,7 @@ import { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } f
 
 import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
 
-import { logger } from '../../../logger'
+import { logger, AuthenticationError } from '../../../logger'
 
 export const resolvers = {
   Mutation: {

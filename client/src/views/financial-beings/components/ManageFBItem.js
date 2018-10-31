@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography'
 
 import ManageFBEdit from './ManageFBEdit'
 
-export const ManageFBItem = ({ classes, team, authId }) => {
+export const ManageFBItem = ({ classes, team }) => {
   console.log('ManageFBItem', team, team.fb[0], team.profile.avatar)
   let avatar
   if (team.fb[0].avatar !== undefined && team.fb[0].avatar !== 'a') {
@@ -36,7 +36,7 @@ export const ManageFBItem = ({ classes, team, authId }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <ManageFBEdit slug={team.slug} fb={team.fb[0]} authId={authId} />
+            <ManageFBEdit slug={team.slug} fb={team.fb[0]} />
           </CardActions>
         </div>
       </Card>
@@ -46,8 +46,7 @@ export const ManageFBItem = ({ classes, team, authId }) => {
 
 ManageFBItem.propTypes = {
   classes: PropTypes.object.isRequired,
-  team: PropTypes.object.isRequired,
-  authId: PropTypes.string.isRequired
+  team: PropTypes.object.isRequired
 }
 
 export default ManageFBItem

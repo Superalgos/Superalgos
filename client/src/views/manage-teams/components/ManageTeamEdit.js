@@ -47,7 +47,6 @@ export class ManageTeamEdit extends Component {
     const description = props.team.profile.description || ''
     const avatar = props.team.profile.avatar || null
     const banner = props.team.profile.banner || null
-    this.authId = props.authId
 
     this.state = {
       open: false,
@@ -66,8 +65,7 @@ export class ManageTeamEdit extends Component {
         mutation={UPDATE_TEAM_PROFILE}
         refetchQueries={[
           {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId: this.authId }
+            query: GET_TEAMS_BY_OWNER
           }
         ]}
       >
@@ -275,7 +273,6 @@ ManageTeamEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   team: PropTypes.object,
-  authId: PropTypes.string.isRequired,
   match: PropTypes.object
 }
 

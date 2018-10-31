@@ -67,7 +67,6 @@ export const ManageTeamMembersList = ({ classes, user = null }) => {
     return (
       <Query
         query={GET_TEAMS_BY_OWNER}
-        variables={{ authId }}
         fetchPolicy='network-only'
       >
         {({ loading, error, data }) => {

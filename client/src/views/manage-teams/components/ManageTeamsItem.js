@@ -12,7 +12,7 @@ import ManageTeamDetails from './ManageTeamDetails'
 import ManageTeamDelete from './ManageTeamDelete'
 import ManageTeamEdit from './ManageTeamEdit'
 
-export const ManageTeamsItem = ({ classes, team, authId, ...props }) => {
+export const ManageTeamsItem = ({ classes, team, ...props }) => {
   console.log('ManageTeamsItem', team, team.profile, team.profile.avatar)
   let avatar
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
@@ -39,8 +39,8 @@ export const ManageTeamsItem = ({ classes, team, authId, ...props }) => {
           </CardContent>
           <CardActions>
             <ManageTeamDetails team={team} />
-            <ManageTeamEdit slug={team.slug} team={team} authId={authId} {...props} />
-            <ManageTeamDelete slug={team.slug} authId={authId} />
+            <ManageTeamEdit slug={team.slug} team={team} {...props} />
+            <ManageTeamDelete slug={team.slug} />
           </CardActions>
         </div>
       </Card>
@@ -50,8 +50,7 @@ export const ManageTeamsItem = ({ classes, team, authId, ...props }) => {
 
 ManageTeamsItem.propTypes = {
   classes: PropTypes.object.isRequired,
-  team: PropTypes.object.isRequired,
-  authId: PropTypes.string.isRequired
+  team: PropTypes.object.isRequired
 }
 
 export default ManageTeamsItem

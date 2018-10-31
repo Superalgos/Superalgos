@@ -41,7 +41,6 @@ export class ManageFBEdit extends Component {
     this.handleAvatar = this.handleAvatar.bind(this)
 
     const avatar = props.fb.avatar || ''
-    this.authId = props.authId
 
     this.state = {
       open: false,
@@ -57,8 +56,7 @@ export class ManageFBEdit extends Component {
         mutation={UPDATE_FB}
         refetchQueries={[
           {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId: this.authId }
+            query: GET_TEAMS_BY_OWNER
           }
         ]}
       >
@@ -197,8 +195,7 @@ export class ManageFBEdit extends Component {
 ManageFBEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  fb: PropTypes.object,
-  authId: PropTypes.string.isRequired
+  fb: PropTypes.object
 }
 
 export default withStyles(styles)(ManageFBEdit)

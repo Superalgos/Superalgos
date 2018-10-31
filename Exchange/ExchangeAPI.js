@@ -4,6 +4,8 @@
     const LOG_FILE_CONTENT = true;
 
     const MODULE_NAME = "CloudVM -> Exchange API";
+
+    const SERVER_URL = "https://develop.advancedalgos.net/ExchangeAPI/";
     
     let thisObject = {
         initialize: initialize,
@@ -30,7 +32,7 @@
 
         let authToken = window.localStorage.getItem('access_token');
 
-        let path = "ExchangeAPI" + "/"
+        let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
             + "getTicker" + "/"
             + authToken
@@ -51,7 +53,7 @@
 
         let authToken = window.localStorage.getItem('auth0Token');
 
-        let path = "ExchangeAPI" + "/"
+        let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
             + "getOpenPositions" + "/"
             + authToken
@@ -72,7 +74,7 @@
 
         let authToken = window.localStorage.getItem('auth0Token');
 
-        let path = "ExchangeAPI" + "/"
+        let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
             + "getExecutedTrades" + "/"
             + authToken + "/"
@@ -94,7 +96,7 @@
 
         let authToken = window.localStorage.getItem('auth0Token');
 
-        let path = "ExchangeAPI" + "/"
+        let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
             + "putPosition" + "/"
             + authToken + "/"
@@ -119,7 +121,7 @@
 
         let authToken = window.localStorage.getItem('auth0Token');
 
-        let path = "ExchangeAPI" + "/"
+        let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
             + "movePosition" + "/"
             + authToken + "/"
@@ -143,7 +145,7 @@
 
         let authToken = window.localStorage.getItem('auth0Token');
 
-        let path = "ExchangeAPI" + "/"
+        let path = SERVER_URL
             + CURRENT_BOT_CODE_NAME + "/"
             + "getPublicTradeHistory" + "/"
             + authToken + "/"

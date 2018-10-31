@@ -1,7 +1,7 @@
 import { createLogger, format, transports } from 'winston'
 import { inspect } from 'util'
 
-import { AuthentificationError, DatabaseError, WrongArgumentsError, ServiceUnavailableError } from './errors'
+import { AuthenticationError, DatabaseError, WrongArgumentsError, ServiceUnavailableError } from './errors'
 
 class LoggerService {
   constructor() {
@@ -30,4 +30,4 @@ class LoggerService {
 }
 
 export const logger = new LoggerService() // Default logger
-export { LoggerService, AuthentificationError, DatabaseError, WrongArgumentsError, ServiceUnavailableError }
+export { LoggerService, AuthenticationError, DatabaseError, WrongArgumentsError, ServiceUnavailableError }

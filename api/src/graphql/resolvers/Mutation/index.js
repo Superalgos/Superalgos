@@ -61,7 +61,7 @@ export const resolvers = {
           logger.info('createTeamUrl:')
           logger.info(JSON.stringify(await createTeamUrl))
 
-          const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/teamSetup/'
+          const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/newTeam/'
           // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
 
           logger.info(`${platformUrl}${createTeamUrl}/${authId}`)

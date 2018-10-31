@@ -8,7 +8,7 @@ import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
 import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
 
-import { logger, AuthenticationError } from '../../../logger'
+import { logger, AuthenticationError, ServiceUnavailableError } from '../../../logger'
 
 export const resolvers = {
   Mutation: {
@@ -42,7 +42,7 @@ export const resolvers = {
     },
     async createTeam(parent, { name, slug, botName, botSlug }, ctx, info) {
       logger.info('createTeam ctx.request.user:')
-      logger.info(ctx.request.user)
+      logger.info(ctx.request.headers.userid)
 
       const authId = ctx.request.headers.userid
       if (!authId) {
@@ -81,7 +81,7 @@ export const resolvers = {
             .catch(err =>{
               logger.debug('createPlatformTeam err:')
               logger.debug(err)
-              throw new Error(err)
+              throw new ServiceUnavailableError(err)
             })
           console.log('createPlatformTeam returned: ', await createPlatformTeam)
           if(await createPlatformTeam === 'Team Name already taken'){

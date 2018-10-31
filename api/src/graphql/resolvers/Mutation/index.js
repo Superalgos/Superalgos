@@ -98,7 +98,7 @@ export const resolvers = {
           logger.info(await existingMember)
 
           let createTeam
-          if(existingMember.id !== null){
+          if(existingMember !== null && existingMember.id !== null){
             logger.info('createTeam with existingMember:')
             createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Connected to Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
               .catch((err) => {

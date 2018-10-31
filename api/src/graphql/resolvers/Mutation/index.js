@@ -2,6 +2,8 @@ import { getUser } from '../../../middleware/getMember'
 
 import { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } from '../../../email/sendgrid'
 
+import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment'
+import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
 import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
 
 import { logger, AuthenticationError } from '../../../logger'

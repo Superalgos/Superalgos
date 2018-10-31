@@ -9,6 +9,8 @@
     const isValidOrder = require('./exchangeUtils').isValidOrder;
     const graphqlClient = require('graphql-client')
 
+    const MASTER_APP_API = 'https://app-api.advancedalgos.net/graphql';
+
     let MODULE_NAME = "Exchange API";
 
     let thisObject = {
@@ -56,7 +58,7 @@
         if (CONSOLE_LOG === true) { console.log("[INFO] createKeyVaultAPIClient -> Entering function."); }
 
         const keyVaultAPI = graphqlClient({
-            url: 'https://keyvault-api.advancedalgos.net/graphql',
+            url: MASTER_APP_API,
             headers: {
                 Authorization: 'Bearer ' + authToken
             }
@@ -70,7 +72,7 @@
             
             keyVaultAPI.query(`
                 mutation($botId: String, $transaction: String!){
-                signTransaction(botId: $botId, transaction: $transaction){
+                keyVault_SignTransaction(botId: $botId, transaction: $transaction){
                     key,
                     signature,
                     date
@@ -84,8 +86,8 @@
                         next(undefined, 'Error from graphql: ' + res.errors);
                     } else {
                         let signature = {
-                            Key: res.data.signTransaction.key,
-                            Sign: res.data.signTransaction.signature
+                            Key: res.data.keyVault_SignTransaction.key,
+                            Sign: res.data.keyVault_SignTransaction.signature
                         }
                         next(signature)
                     }

@@ -5,7 +5,7 @@
 
     const MODULE_NAME = "CloudVM -> Exchange API";
 
-    const SERVER_URL = "https://develop.advancedalgos.net/ExchangeAPI/";
+    const SERVER_URL = window.canvasApp.urlPrefix;
     
     let thisObject = {
         initialize: initialize,

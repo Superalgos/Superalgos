@@ -32,7 +32,7 @@
   </script>
 </head>
 
-<body id="body" onload="loadCanvas()">
+<body id="body" onload="loadCanvas()" onresize="window.canvasApp.eventHandler.raiseEvent('Browser Resized')">
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
 </body>

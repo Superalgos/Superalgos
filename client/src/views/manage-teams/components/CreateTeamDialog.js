@@ -210,6 +210,7 @@ export class CreateTeamDialog extends Component {
     const slug = this.slugify(name)
     const botSlug = this.slugify(botName)
     await createTeam({ variables: { name, slug, botName, botSlug } })
+    window.canvasApp.eventHandler.raiseEvent('User Profile Changed')
     this.setState({ name: '', open: false })
   }
 

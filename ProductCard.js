@@ -186,8 +186,6 @@
         Here we will download the images still at the legacy storage.
         */
 
-        const WEB_URL = "https://develop.advancedalgos.net";
-
         legacyTeamAvatar = new Image();
 
         legacyTeamAvatar.onload = onLegacyImageLoad;
@@ -197,7 +195,7 @@
             imageLoaded();
         }
         
-        legacyTeamAvatar.src = WEB_URL + "/Images/" + LEGACY_TEAM + "/" + LEGACY_TEAM + ".png";
+        legacyTeamAvatar.src = window.canvasApp.urlPrefix + "Images/" + LEGACY_TEAM + "/" + LEGACY_TEAM + ".png";
 
         legacyBotAvatar = new Image();
         legacyBotAvatar.onload = onLegacyImageLoadBot;
@@ -207,7 +205,7 @@
             thisObject.bot.avatar = legacyBotAvatar;
         }
 
-        legacyBotAvatar.src = WEB_URL + "/Images/" + LEGACY_TEAM + "/" + REPO + "/" + PROFILE_PIC;
+        legacyBotAvatar.src = window.canvasApp.urlPrefix + "Images/" + LEGACY_TEAM + "/" + REPO + "/" + PROFILE_PIC;
         
         const PLOTTER_TEAM = thisObject.product.plotter.devTeam ;
         const PLOTTER_REPO = thisObject.product.plotter.codeName;
@@ -221,7 +219,7 @@
             imageLoaded();
         }
 
-        legacyPlotterBanner.src = WEB_URL + "/Images/" + PLOTTER_TEAM + "/" + PLOTTER_REPO + "/" + PLOTTER_PROFILE_PIC;
+        legacyPlotterBanner.src = window.canvasApp.urlPrefix + "Images/" + PLOTTER_TEAM + "/" + PLOTTER_REPO + "/" + PLOTTER_PROFILE_PIC;
 
         /* 
         Here we will download the images of teams uploaded at the Teams Module.

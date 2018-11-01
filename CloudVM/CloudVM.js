@@ -101,7 +101,8 @@ function newCloudVM() {
 
                         console.log("CloudVM -> Bot code changes detected.");
 
-                        let path = "AABrowserAPI" + "/"
+                        let path = window.canvasApp.urlPrefix
+                            + "AABrowserAPI" + "/"
                             + "saveBotCode" + "/"
                             + window.DEV_TEAM + "/"
                             + "members" + "/"

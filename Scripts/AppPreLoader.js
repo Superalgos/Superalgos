@@ -122,10 +122,17 @@ function callServer(pContentToSend, pPath, callBackFunction) {
 
     } else {
 
-        let blob = new Blob([pContentToSend], { type: 'text/plain' });
+        try {
 
-        xhttp.open("POST", pPath, true);
-        xhttp.send(blob);
+            let blob = new Blob([pContentToSend], { type: 'text/plain' });
 
+            xhttp.open("POST", pPath, true);
+            xhttp.send(blob);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR] callServer -> err.message = " & err.message); }
+
+        }
     }
 }

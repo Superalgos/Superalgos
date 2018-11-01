@@ -1,4 +1,4 @@
-import { logger, AuthenticationError } from '../../../logger'
+import { logger, AuthenticationError, DatabaseError } from '../../../logger'
 
 import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment'
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
@@ -44,10 +44,9 @@ export const teamsByRole = async (parent, args, ctx, info) => {
   } catch (err) {
     logger.debug('teamsByRole error: ')
     logger.debug(err)
-    const errors = res.graphQLErrors.map((error) => {
-      return error.message
+    const errors = err.graphQLErrors.map((error) => {
+      throw new DatabaseError(error.message)
     })
-    return errors
   }
   logger.info('teamsByRole teamAdmin: ', teamAdmin)
   return teamAdmin

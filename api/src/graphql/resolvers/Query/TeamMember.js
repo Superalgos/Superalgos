@@ -1,5 +1,7 @@
 import { logger } from '../../../logger'
 
+import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
+
 export const fbByTeamMember = async (parent, args, ctx, info) => {
   logger.info('fbByTeamMember: ', args, ctx.request, ctx.request.res.req.user)
   const authId = ctx.request.headers.userid

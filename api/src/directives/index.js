@@ -1,6 +1,6 @@
 import { SchemaDirectiveVisitor } from 'apollo-server-express'
 import _get from 'lodash.get'
-import { logger, AuthenticationError } from '../logger'
+import { logger, AuthenticationError, DatabaseError } from '../logger'
 
 const memberLocationOnContext = 'request.user'
 const userIdOnContext = 'request.headers.userid'
@@ -35,6 +35,7 @@ const isUserId = async ctx => {
   logger.info(member)
   if (!member) {
     throw new AuthenticationError()
+    return
   } else {
     return member
   }

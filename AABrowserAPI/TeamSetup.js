@@ -524,8 +524,8 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        url: 'http://localhost:4000/graphql'
-                        //url: 'https://users-api.advancedalgos.net/graphql',
+                        //url: 'http://localhost:4000/graphql'
+                        url: 'https://app-api.advancedalgos.net/graphql',
                         //headers: {
                         //     Authorization: 'Bearer ' + authToken
                         //}
@@ -539,7 +539,7 @@
 
                     usersModuleAPI.query(`
                     mutation($userId: String, $sessionToken: String){
-                    updateSessionToken(userId: $userId, sessionToken: $sessionToken){
+                    users_updateSessionToken(userId: $userId, sessionToken: $sessionToken){
                         id
                         alias
                         }
@@ -1017,8 +1017,8 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        url: 'http://localhost:4000/graphql'
-                        //url: 'https://users-api.advancedalgos.net/graphql',
+                        //url: 'http://localhost:4000/graphql'
+                        url: 'https://app-api.advancedalgos.net/graphql',
                         //headers: {
                         //     Authorization: 'Bearer ' + authToken
                         //}
@@ -1032,7 +1032,7 @@
 
                     usersModuleAPI.query(`
                     mutation($userId: String, $sessionToken: String){
-                    updateSessionToken(userId: $userId, sessionToken: $sessionToken){
+                    users_updateSessionToken(userId: $userId, sessionToken: $sessionToken){
                         id
                         alias
                         }

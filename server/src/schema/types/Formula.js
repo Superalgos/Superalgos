@@ -1,8 +1,8 @@
 import {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLBoolean
-} from 'graphql'
+  GraphQLBoolean,
+} from 'graphql';
 
 const FormulaType = new GraphQLObjectType({
   name: 'Formula',
@@ -10,8 +10,8 @@ const FormulaType = new GraphQLObjectType({
     id: { type: GraphQLString },
     ownerId: { type: GraphQLString },
     isTemplate: { type: GraphQLBoolean },
-    name: { type: GraphQLString }
-  })
-})
+    name: { type: GraphQLString },
+  }),
+});
 
-export default FormulaType
+export default FormulaType;

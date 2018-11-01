@@ -1,13 +1,13 @@
 import {
-  GraphQLSchema
-} from 'graphql'
+  GraphQLSchema,
+} from 'graphql';
 
-import Mutation from './mutations'
-import RootQuery from './queries'
+import Mutation from './mutations';
+import RootQuery from './queries';
 
 const Schema = new GraphQLSchema({
   query: RootQuery,
-  mutation: Mutation
-})
+  mutation: Mutation,
+});
 
-export default Schema
+export default Schema;

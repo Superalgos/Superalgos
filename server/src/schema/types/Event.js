@@ -3,15 +3,15 @@ import {
   GraphQLInt,
   GraphQLString,
   GraphQLList,
-  GraphQLID
-} from 'graphql'
+  GraphQLID,
+} from 'graphql';
 import {
   FormulaType,
   PlotterType,
   RuleType,
   ParticipantType,
-  PrizeType
-} from './index'
+  PrizeType,
+} from './index';
 
 const EventType = new GraphQLObjectType({
   name: 'Event',
@@ -24,35 +24,35 @@ const EventType = new GraphQLObjectType({
     finishDatetime: { type: GraphQLInt },
     formula: {
       type: FormulaType,
-      resolve (parent, args) {
-        return parent.formula
-      }
+      resolve(parent) {
+        return parent.formula;
+      },
     },
     plotter: {
       type: PlotterType,
-      resolve (parent, args) {
-        return parent.plotter
-      }
+      resolve(parent) {
+        return parent.plotter;
+      },
     },
     rules: {
       type: new GraphQLList(RuleType),
-      resolve (parent, args) {
-        return parent.rules
-      }
+      resolve(parent) {
+        return parent.rules;
+      },
     },
     participants: {
       type: new GraphQLList(ParticipantType),
-      resolve (parent, args) {
-        return parent.participants
-      }
+      resolve(parent) {
+        return parent.participants;
+      },
     },
     prizes: {
       type: new GraphQLList(PrizeType),
-      resolve (parent, args) {
-        return parent.prizes
-      }
-    }
-  })
-})
+      resolve(parent) {
+        return parent.prizes;
+      },
+    },
+  }),
+});
 
-export default EventType
+export default EventType;

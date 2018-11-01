@@ -1,4 +1,4 @@
 import teams from './teams'
-import hosts from './hosts'
+import events from './events'
 
-export { teams, hosts }
+export { teams, events }

@@ -8,7 +8,7 @@ import jwksRsa from 'jwks-rsa'
 import axios from 'axios'
 
 import { createTransformedRemoteSchema } from './createRemoteSchema'
-import { teams, hosts } from './links'
+import { teams, events } from './links'
 import logger from './logger'
 
 async function getUserId (authId) {
@@ -36,7 +36,7 @@ async function getUserId (authId) {
 async function run () {
   const transformedTeamsSchema = await createTransformedRemoteSchema('teams_', process.env.TEAMS_API_URL)
   const transformedUsersSchema = await createTransformedRemoteSchema('users_', process.env.USERS_API_URL)
-  const transformedHostsSchema = await createTransformedRemoteSchema('hosts_', process.env.HOSTS_API_URL)
+  const transformedEventsSchema = await createTransformedRemoteSchema('events_', process.env.HOSTS_API_URL)
   const transformedKeyVaultSchema = await createTransformedRemoteSchema('keyVault_', process.env.KEYVAULT_API_URL)
 
   var schemas = []
@@ -52,11 +52,11 @@ async function run () {
   if (transformedUsersSchema) {
     schemas.push(transformedUsersSchema)
   }
-  if (transformedHostsSchema) {
-    schemas.push(transformedHostsSchema)
+  if (transformedEventsSchema) {
+    schemas.push(transformedEventsSchema)
     if (transformedUsersSchema && transformedTeamsSchema) {
-      schemas.push(hosts.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, hosts.resolver(transformedUsersSchema, transformedTeamsSchema))
+      schemas.push(events.linkSchemaDefs)
+      resolvers = Object.assign(resolvers, events.resolver(transformedUsersSchema, transformedTeamsSchema))
     }
   }
   if (transformedKeyVaultSchema) {

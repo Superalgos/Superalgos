@@ -1,17 +1,17 @@
 export const linkSchemaDefs =
   `
-    extend type hosts_Event {
+    extend type events_Event {
       host: users_User
     }
-    extend type hosts_Participant {
+    extend type events_Participant {
       team: teams_Team
     }
   `
 
 export const resolver = (usersSchema, teamsSchema) => ({
-  hosts_Event: {
+  events_Event: {
     host: {
-      fragment: `fragment UserFragment on hosts_Event{hostId}`,
+      fragment: `fragment UserFragment on events_Event{hostId}`,
       resolve (parent, args, context, info) {
         return info.mergeInfo.delegateToSchema({
           schema: usersSchema,
@@ -24,9 +24,9 @@ export const resolver = (usersSchema, teamsSchema) => ({
       }
     }
   },
-  hosts_Participant: {
+  events_Participant: {
     team: {
-      fragment: `fragment TeamFragment on hosts_Participant{teamId}`,
+      fragment: `fragment TeamFragment on events_Participant{teamId}`,
       resolve (parent, args, context, info) {
         return info.mergeInfo.delegateToSchema({
           schema: teamsSchema,

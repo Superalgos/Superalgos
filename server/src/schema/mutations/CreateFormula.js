@@ -1,37 +1,38 @@
 import {
   GraphQLNonNull,
-  GraphQLString
-} from 'graphql'
-import { AuthentificationError } from '../../errors'
-import { FormulaType } from '../types'
-import { Formula } from '../../models'
+  GraphQLString,
+} from 'graphql';
+import { AuthentificationError } from '../../errors';
+import { FormulaType } from '../types';
+import { Formula } from '../../models';
 
 const args = {
-  name: { type: new GraphQLNonNull(GraphQLString) }
-}
+  name: { type: new GraphQLNonNull(GraphQLString) },
+};
 
 const resolve = (parent, { name }, context) => {
-  const ownerId = context.userId
+  const ownerId = context.userId;
   if (!ownerId) {
-    throw new AuthentificationError()
+    throw new AuthentificationError();
   }
-  let newFormula = new Formula({ name, ownerId })
-  return new Promise((resolve, reject) => {
+  const newFormula = new Formula({ name, ownerId });
+  return new Promise((res, rej) => {
     newFormula.save((err) => {
-      if (err) reject(err)
-      else {
-        resolve(newFormula)
+      if (err) {
+        rej(err);
+        return;
       }
-    })
-  })
-}
+      res(newFormula);
+    });
+  });
+};
 
 const mutation = {
   createFormula: {
     type: FormulaType,
     args,
-    resolve
-  }
-}
+    resolve,
+  },
+};
 
-export default mutation
+export default mutation;

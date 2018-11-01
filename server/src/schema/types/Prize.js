@@ -1,9 +1,9 @@
 import {
   GraphQLObjectType,
   GraphQLList,
-  GraphQLInt
-} from 'graphql'
-import { AdditionalPrizeType } from './index'
+  GraphQLInt,
+} from 'graphql';
+import { AdditionalPrizeType } from './index';
 
 const PrizeType = new GraphQLObjectType({
   name: 'Prize',
@@ -12,11 +12,11 @@ const PrizeType = new GraphQLObjectType({
     amount: { type: GraphQLInt },
     additional: {
       type: new GraphQLList(AdditionalPrizeType),
-      resolve (parent, args) {
-        return parent.additional
-      }
-    }
-  })
-})
+      resolve(parent) {
+        return parent.additional;
+      },
+    },
+  }),
+});
 
-export default PrizeType
+export default PrizeType;

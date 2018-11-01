@@ -1,9 +1,14 @@
-import mongoose, { Schema } from 'mongoose'
-import Plotter from './plotter'
-import Formula from './formula'
+import mongoose, { Schema } from 'mongoose';
+import Plotter from './plotter';
+import Formula from './formula';
+import {
+  UNPUBLISHED,
+  EventStatusEnum,
+} from '../enums/EventStatus';
 
 const eventSchema = new Schema({
   designator: { type: String, required: true },
+  status: { type: String, enum: EventStatusEnum, default: UNPUBLISHED },
   name: { type: String, required: true },
   hostId: { type: String, required: true },
   description: String,
@@ -14,7 +19,7 @@ const eventSchema = new Schema({
   rules: [{
     position: { type: Number, required: true },
     title: { type: String, required: true },
-    description: String
+    description: String,
   }],
   prizes: [{
     rank: { type: Number, required: true },
@@ -22,25 +27,25 @@ const eventSchema = new Schema({
     additional: [{
       condition: String,
       amount: { type: Number, required: true },
-      asset: { type: String, required: true }
-    }]
+      asset: { type: String, required: true },
+    }],
   }],
   participants: [{
     teamId: { type: String, required: true },
     botId: String,
-    releaseId: String
-  }]
-})
+    releaseId: String,
+  }],
+});
 
-eventSchema.pre('find', function () {
-  this.populate('formula').populate('plotter')
-})
-eventSchema.post('save', function (doc, next) {
-  doc.populate('formula').populate('plotter').execPopulate().then(function () {
-    next()
-  })
-})
+eventSchema.pre('find', function populate() {
+  this.populate('formula').populate('plotter');
+});
+eventSchema.post('save', (doc, next) => {
+  doc.populate('formula').populate('plotter').execPopulate().then(() => {
+    next();
+  });
+});
 
-const Event = mongoose.model('Event', eventSchema)
+const Event = mongoose.model('Event', eventSchema);
 
-export default Event
+export default Event;

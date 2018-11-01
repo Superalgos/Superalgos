@@ -1,13 +1,13 @@
 import {
-  GraphQLObjectType
-} from 'graphql'
+  GraphQLObjectType,
+} from 'graphql';
 
-import EventQuery from './Event'
-import EventsQuery from './Events'
-import EventsByHostQuery from './EventsByHost'
-import EventsByTeamQuery from './EventsByTeam'
-import FormulasQuery from './Formulas'
-import PlottersQuery from './Plotters'
+import EventQuery from './Event';
+import EventsQuery from './Events';
+import EventsByHostQuery from './EventsByHost';
+import EventsByTeamQuery from './EventsByTeam';
+import FormulasQuery from './Formulas';
+import PlottersQuery from './Plotters';
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -17,8 +17,8 @@ const RootQuery = new GraphQLObjectType({
     EventsByHostQuery,
     EventsByTeamQuery,
     FormulasQuery,
-    PlottersQuery
-  )
-})
+    PlottersQuery,
+  ),
+});
 
-export default RootQuery
+export default RootQuery;

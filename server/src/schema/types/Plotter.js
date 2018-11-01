@@ -1,8 +1,8 @@
 import {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLBoolean
-} from 'graphql'
+  GraphQLBoolean,
+} from 'graphql';
 
 const PlotterType = new GraphQLObjectType({
   name: 'Plotter',
@@ -13,8 +13,8 @@ const PlotterType = new GraphQLObjectType({
     name: { type: GraphQLString },
     host: { type: GraphQLString },
     repo: { type: GraphQLString },
-    moduleName: { type: GraphQLString }
-  })
-})
+    moduleName: { type: GraphQLString },
+  }),
+});
 
-export default PlotterType
+export default PlotterType;

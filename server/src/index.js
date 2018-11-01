@@ -36,7 +36,7 @@ async function getUserId (authId) {
 async function run () {
   const transformedTeamsSchema = await createTransformedRemoteSchema('teams_', process.env.TEAMS_API_URL)
   const transformedUsersSchema = await createTransformedRemoteSchema('users_', process.env.USERS_API_URL)
-  const transformedEventsSchema = await createTransformedRemoteSchema('events_', process.env.HOSTS_API_URL)
+  const transformedEventsSchema = await createTransformedRemoteSchema('events_', process.env.EVENTS_API_URL)
   const transformedKeyVaultSchema = await createTransformedRemoteSchema('keyVault_', process.env.KEYVAULT_API_URL)
 
   var schemas = []

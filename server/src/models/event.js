@@ -1,9 +1,14 @@
 import mongoose, { Schema } from 'mongoose'
 import Plotter from './plotter'
 import Formula from './formula'
+import {
+  UNPUBLISHED,
+  EventStatusEnum
+} from '../enums/EventStatus'
 
 const eventSchema = new Schema({
   designator: { type: String, required: true },
+  status: { type: String, enum: EventStatusEnum, default: UNPUBLISHED },
   name: { type: String, required: true },
   hostId: { type: String, required: true },
   description: String,

@@ -129,7 +129,7 @@ class Header extends Component {
               color='inherit'
               target='_blank'
             >
-            Documentation
+            Docs
             </Button>
 
             {this.state.user !== undefined && this.state.user !== null ? (

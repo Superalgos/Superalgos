@@ -139,7 +139,7 @@ async function run () {
       return error
     },
     formatResponse: response => {
-      logger.info('Response from Apolo Server: ', response)
+      logger.debug('Response from Apolo Server: ', response)
       return response
     },
     playground: {

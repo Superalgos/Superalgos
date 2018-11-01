@@ -539,7 +539,7 @@
 
                     usersModuleAPI.query(`
                     mutation($userId: String, $sessionToken: String){
-                    users_updateSessionToken(userId: $userId, sessionToken: $sessionToken){
+                    users_UpdateSessionToken(userId: $userId, sessionToken: $sessionToken){
                         id
                         alias
                         }
@@ -1032,7 +1032,7 @@
 
                     usersModuleAPI.query(`
                     mutation($userId: String, $sessionToken: String){
-                    users_updateSessionToken(userId: $userId, sessionToken: $sessionToken){
+                    users_UpdateSessionToken(userId: $userId, sessionToken: $sessionToken){
                         id
                         alias
                         }

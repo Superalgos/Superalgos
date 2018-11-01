@@ -190,6 +190,7 @@ export class ManageFBEdit extends Component {
         avatar: this.state.avatar
       }
     })
+    window.canvasApp.eventHandler.raiseEvent('User Profile Changed')
     this.setState({ open: false })
   }
 }

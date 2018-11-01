@@ -118,7 +118,7 @@ class Header extends Component {
               Teams
             </Button>
             <Button component={EventsLink} color='inherit'>
-              Hosts
+              Events
             </Button>
             <Button component={KeyVaultLink} color='inherit'>
               Key Vault

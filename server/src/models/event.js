@@ -37,7 +37,7 @@ const eventSchema = new Schema({
   }],
 });
 
-eventSchema.pre('find', () => {
+eventSchema.pre('find', function populate() {
   this.populate('formula').populate('plotter');
 });
 eventSchema.post('save', (doc, next) => {

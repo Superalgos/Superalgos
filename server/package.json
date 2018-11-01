@@ -1,7 +1,7 @@
 {
-  "name": "hosts-server",
+  "name": "events-server",
   "version": "0.1.0",
-  "description": "Advanced Algos Host backend API",
+  "description": "Advanced Algos Event backend API",
   "author": "",
   "license": "",
   "main": "src/index.js",

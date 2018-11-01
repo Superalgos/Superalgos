@@ -43,6 +43,14 @@ app.use('/graphql', graphqlHTTP(req => ({
     userId: req.headers.userid,
     authorization: req.headers.authorization,
   },
+  formatError(err) {
+    return {
+      message: err.message,
+      code: err.originalError && err.originalError.code,
+      locations: err.locations,
+      path: err.path,
+    };
+  },
 })));
 app.get('/playground', expressPlayground({ endpoint: '/graphql' }));
 

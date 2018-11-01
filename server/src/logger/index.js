@@ -13,7 +13,7 @@ const options = {
     timestamp: true
   },
   console: {
-    level: 'debug',
+    level: 'info',
     handleExceptions: true,
     json: false,
     colorize: true,

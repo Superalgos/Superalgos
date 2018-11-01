@@ -8,7 +8,7 @@ import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
 import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
 
-import { logger, AuthenticationError, ServiceUnavailableError } from '../../../logger'
+import { logger, AuthenticationError, ServiceUnavailableError, DatabaseError } from '../../../logger'
 
 export const resolvers = {
   Mutation: {
@@ -36,7 +36,7 @@ export const resolvers = {
         logger.info('verifyTeamInvite.token: ', await verifiedToken)
       } catch (err) {
         logger.debug('verifyTeamInvite. err: ', err)
-        throw new Error(err.message)
+        throw new DatabaseError(err.message)
       }
       return team
     },
@@ -71,17 +71,17 @@ export const resolvers = {
             .then((result) => {
               console.log('createPlatformTeam result:', result.data)
               if(result.data.message === 'Team Name already taken'){
-                return result.data.message
+                throw new DatabaseError(`${result.data.message} - Team already exists onAA Cloud`)
               }
               if(result.data.result === 'Fail'){
-                return result.data.message
+                throw new DatabaseError(`${result.data.message} - Creating team on AA Cloud has failed`)
               }
               return result
             })
             .catch(err =>{
               logger.debug('createPlatformTeam err:')
               logger.debug(err)
-              throw new ServiceUnavailableError(err)
+              throw new DatabaseError(err)
             })
           console.log('createPlatformTeam returned: ', await createPlatformTeam)
           if(await createPlatformTeam === 'Team Name already taken'){
@@ -91,11 +91,11 @@ export const resolvers = {
           const existingMember = await ctx.db.query.member({ where: { authId } }, `{id}`)
             .catch((err) => {
               logger.debug(err, 'existingMember error: ')
-              return err
+              throw new DatabaseError(err)
             })
 
-          logger.info('existingMember:')
-          logger.info(await existingMember)
+          logger.debug('existingMember:')
+          logger.debug(await existingMember)
 
           let createTeam
           if(existingMember !== null && existingMember.id !== null){
@@ -103,14 +103,14 @@ export const resolvers = {
             createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Connected to Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
               .catch((err) => {
                 logger.debug(err, 'createTeamMutation error: ')
-                return err
+                throw new DatabaseError(err)
               })
           } else {
             logger.info('createTeam without existingMember:')
             createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible:'true', status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Created with Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
               .catch((err) => {
                 logger.debug(err, 'createTeamMutation error: ')
-                return err
+                throw new DatabaseError(err)
               })
           }
 
@@ -120,21 +120,21 @@ export const resolvers = {
         })
         .catch((err) => {
           logger.debug('createTeam error: ')
-          return err
+          throw new DatabaseError(`Team Creation Error: ${err}`)
         })
     },
     async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {
       return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar, banner: banner}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
         .catch((err) => {
           logger.debug('createTeam error: ', err)
-          return err
+          throw new DatabaseError(`Team Profile Update Error: ${err}`)
         })
     },
     async updateFB(parent, { fbId, avatar}, ctx, info) {
       return ctx.db.mutation.updateFinancialBeings({data:{avatar:avatar}, where:{id:fbId}}, info)
         .catch((err) => {
           logger.debug('createTeam error: ', err)
-          return err
+          throw new DatabaseError(`Update Financial Being Error: ${err}`)
         })
     },
     async deleteTeam(parent, { slug, botSlug }, ctx, info) {
@@ -166,14 +166,14 @@ export const resolvers = {
             .then((result) => {
               console.log('deletePlatformTeam result:', result.data)
               if(result.data.result === 'Fail'){
-                return result.data.message
+                throw new DatabaseError(result.data.message)
               }
               return result
             })
             .catch(err =>{
               logger.debug('deletePlatformTeam err:')
               logger.debug(err)
-              throw new Error(err)
+              throw new DatabaseError(err)
             })
           console.log('deletePlatformTeam returned: ', await deletePlatformTeam)
 
@@ -181,13 +181,13 @@ export const resolvers = {
             .catch((res) => {
               logger.info('deleteTeam error: ', res)
               const errors = res.graphQLErrors.map((error) => {
-                return error.message
+                throw new DatabaseError(error.message)
               })
             })
         })
         .catch((err) => {
           logger.debug('deleteTeam error: ')
-          return err
+          throw new DatabaseError(err)
         })
     }
   }

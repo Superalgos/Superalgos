@@ -266,6 +266,7 @@ export class ManageTeamEdit extends Component {
         banner: this.state.banner
       }
     })
+    window.canvasApp.eventHandler.raiseEvent('User Profile Changed')
     this.setState({ description: '', motto: '', open: false })
   }
 }

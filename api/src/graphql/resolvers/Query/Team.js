@@ -1,4 +1,4 @@
-import { logger } from '../../../logger'
+import { logger, AuthenticationError, DatabaseError } from '../../../logger'
 
 import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment'
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
@@ -9,8 +9,10 @@ export const teams = async (parent, args, ctx, info) => {
   return ctx.db.query.teamsConnection({}, TEAMS_CONNECTIONS_FRAGMENT)
 }
 
-export const teamById = async (parent, { id }, ctx, info) => {
-  return ctx.db.query.team({ where: { id } }, info)
+export const teamById = async (parent, { teamId }, ctx, info) => {
+  logger.info('teamById')
+  logger.info(teamId)
+  return ctx.db.query.team({ where: { id: teamId } }, info)
 }
 
 export const teamByName = async (parent, { name }, ctx, info) => {
@@ -26,6 +28,7 @@ export const teamsByOwner = async (parent, args, ctx, info) => {
   const authId = ctx.request.headers.userid
   if (!authId) {
     throw new AuthenticationError()
+    return
   }
   return ctx.db.query.teams({where: { owner: authId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
 }
@@ -41,10 +44,9 @@ export const teamsByRole = async (parent, args, ctx, info) => {
   } catch (err) {
     logger.debug('teamsByRole error: ')
     logger.debug(err)
-    const errors = res.graphQLErrors.map((error) => {
-      return error.message
+    const errors = err.graphQLErrors.map((error) => {
+      throw new DatabaseError(error.message)
     })
-    return errors
   }
   logger.info('teamsByRole teamAdmin: ', teamAdmin)
   return teamAdmin

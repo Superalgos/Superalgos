@@ -144,6 +144,7 @@ export class ManageTeamDelete extends Component {
   async handleSubmit (e, deleteTeam, slug, botSlug) {
     e.preventDefault()
     await deleteTeam({ variables: { slug, botSlug } })
+    window.canvasApp.eventHandler.raiseEvent('User Profile Changed')
     this.setState({ open: false })
   }
 }

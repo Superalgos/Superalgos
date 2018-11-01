@@ -24,14 +24,14 @@ class New extends React.Component {
   render () {
     const { name, description, startDatetime, finishDatetime } = this.state
     return (
-      <Mutation mutation={hostedEventsCalls.HOSTS_HOSTEVENT}
+      <Mutation mutation={hostedEventsCalls.EVENTS_HOSTEVENT}
         update={(store, { data }) => {
-          const { hosts_EventsByHost: hostedEvents } = store.readQuery({ query: hostedEventsCalls.HOSTS_EVENTSBYHOST })
+          const { events_EventsByHost: hostedEvents } = store.readQuery({ query: hostedEventsCalls.EVENTS_EVENTSBYHOST })
           store.writeQuery({
-            query: hostedEventsCalls.HOSTS_EVENTSBYHOST,
-            data: { hosts_EventsByHost: hostedEvents.concat([data.hosts_HostEvent]) }
+            query: hostedEventsCalls.EVENTS_EVENTSBYHOST,
+            data: { events_EventsByHost: hostedEvents.concat([data.events_HostEvent]) }
           })
-          this.props.handleNewEvent(data.hosts_HostEvent)
+          this.props.handleNewEvent(data.events_HostEvent)
         }
         }
       >

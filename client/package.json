@@ -1,7 +1,7 @@
 {
-  "name": "@advancedalgos/hosts-client",
+  "name": "@advancedalgos/events-client",
   "version": "0.0.1",
-  "description": "Advanced Algos Host client-side web app",
+  "description": "Advanced Algos Event client-side web app",
   "author": "",
   "license": "",
   "main": "src/index.js",

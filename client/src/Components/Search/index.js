@@ -51,7 +51,7 @@ class Search extends React.Component {
     const { value } = this.state
     return (
       <Query
-        query={listEventsCalls.HOSTS_EVENTS}
+        query={listEventsCalls.EVENTS_EVENTS}
       >
         {({ loading, error, data }) => {
           if (loading) return 'Loading...'
@@ -59,10 +59,10 @@ class Search extends React.Component {
           const now = ~~(DateTime.local().valueOf() / 1000)
           const inTwoWeeks = ~~(DateTime.local().plus({ weeks: 2 }).valueOf() / 1000)
 
-          const IncomingEvents = data.hosts_Events.filter(event => event.startDatetime > now && event.startDatetime < inTwoWeeks)
-          const OngoingEvents = data.hosts_Events.filter(event => event.finishDatetime > now && event.startDatetime < now)
-          const FutureEvents = data.hosts_Events.filter(event => event.startDatetime > now)
-          const PastEvents = data.hosts_Events.filter(event => event.finishDatetime < now)
+          const IncomingEvents = data.events_Events.filter(event => event.startDatetime > now && event.startDatetime < inTwoWeeks)
+          const OngoingEvents = data.events_Events.filter(event => event.finishDatetime > now && event.startDatetime < now)
+          const FutureEvents = data.events_Events.filter(event => event.startDatetime > now)
+          const PastEvents = data.events_Events.filter(event => event.finishDatetime < now)
 
           return (
             <React.Fragment>

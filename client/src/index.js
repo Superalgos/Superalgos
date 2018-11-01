@@ -43,10 +43,10 @@ class App extends Component {
             {loggedIn}
             <Switch>
               <Route exact path='/' component={Search} />
-              <Route path='/events' component={Events} />
-              <Route path='/event/:slug/edit' component={EditEvent} />
-              <Route path='/event/:slug' component={EditEvent} />
-              <Route path='/hosted-events' component={HostedEvents} />
+              <Route path='/my' component={Events} />
+              <Route path='/exact/:slug' component={EditEvent} />
+              <Route path='/show/:slug' component={EditEvent} />
+              <Route path='/host' component={HostedEvents} />
             </Switch>
           </div>
         </BrowserRouter>

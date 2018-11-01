@@ -48,7 +48,7 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={`/event/${designator}/edit`}
+                  to={`/edit/${designator}`}
                 >
                   Edit
                 </Button>
@@ -58,7 +58,7 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={'/event/' + designator}
+                  to={'/show/' + designator}
                 >
                   Show
                 </Button>

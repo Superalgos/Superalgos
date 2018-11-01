@@ -4,7 +4,7 @@ class ClientError extends Error {
   constructor(args) {
     super(args);
     Sentry.configureScope((scope) => {
-      scope.setLevel('info');
+      scope.setLevel('debug');
     });
     Sentry.captureException(this);
   }

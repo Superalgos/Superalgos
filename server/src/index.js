@@ -47,7 +47,6 @@ app.use('/graphql', graphqlHTTP(req => ({
     return {
       message: err.message,
       code: err.originalError && err.originalError.code,
-      locations: err.locations,
       path: err.path,
     };
   },

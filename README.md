@@ -1,2 +1,2 @@
 # HostsModule
-This module manages competition hosts
+This module manages competition events

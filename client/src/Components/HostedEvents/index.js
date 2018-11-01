@@ -40,12 +40,12 @@ class HostedEvent extends React.Component {
         </Button>
 
         <Query
-          query={hostedEventsCalls.HOSTS_EVENTSBYHOST}
+          query={hostedEventsCalls.EVENTS_EVENTSBYHOST}
         >
           {({ loading, error, data }) => {
             if (loading) return 'Loading...'
             if (error) return `Error! ${error.message}`
-            const list = data.hosts_EventsByHost.map((event, index) => {
+            const list = data.events_EventsByHost.map((event, index) => {
               return (
                 <Event key={index} event={event} />
               )

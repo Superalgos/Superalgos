@@ -21,7 +21,7 @@ class Edit extends React.Component {
           Enroll in an competition {this.props.match.params.slug}
         </Typography>
         <Query
-          query={showEventCalls.HOSTS_EVENT}
+          query={showEventCalls.EVENTS_EVENT}
           variables={{ designator: this.props.match.params.slug }}
         >
           {({ loading, error, data }) => {
@@ -29,7 +29,7 @@ class Edit extends React.Component {
             if (error) return `Error! ${error.message}`
             return (
               <p>
-                {data.hosts_Event.description}
+                {data.events_Event.description}
               </p>
             )
           }}

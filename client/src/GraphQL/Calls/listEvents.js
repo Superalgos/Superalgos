@@ -1,14 +1,14 @@
 import gql from 'graphql-tag'
 import { eventMinimalInfo } from '../Fragments'
 
-const HOSTS_EVENTS = gql`
+const EVENTS_EVENTS = gql`
   query Hosts_Events{
-    hosts_Events {
+    events_Events {
       ...EventMinimalInfo
     }
   }
   ${eventMinimalInfo}
 `
 export default {
-  HOSTS_EVENTS
+  EVENTS_EVENTS
 }

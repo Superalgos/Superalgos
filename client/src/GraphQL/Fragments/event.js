@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export const eventMinimalInfo = gql`
-  fragment EventMinimalInfo on hosts_Event {
+  fragment EventMinimalInfo on events_Event {
     name
     designator
     startDatetime
@@ -16,7 +16,7 @@ export const eventMinimalInfo = gql`
 `
 
 export const eventFullInfo = gql`
-  fragment EventFullInfo on hosts_Event {
+  fragment EventFullInfo on events_Event {
     designator
     name
     host{

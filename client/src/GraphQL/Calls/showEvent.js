@@ -1,9 +1,9 @@
 import gql from 'graphql-tag'
 import { eventFullInfo } from '../Fragments'
 
-const HOSTS_EVENT = gql`
+const EVENTS_EVENT = gql`
   query Hosts_Event($designator: ID!) {
-    hosts_Event(designator: $designator) {
+    events_Event(designator: $designator) {
       ...EventFullInfo
     }
   }
@@ -11,5 +11,5 @@ const HOSTS_EVENT = gql`
 `
 
 export default {
-  HOSTS_EVENT
+  EVENTS_EVENT
 }

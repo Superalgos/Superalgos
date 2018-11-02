@@ -12,7 +12,6 @@ import UsersIcon from '@material-ui/icons/People'
 import BrowseIcon from '@material-ui/icons/ImportContacts'
 import SearchIcon from '@material-ui/icons/Search'
 import ContactIcon from '@material-ui/icons/ContactMail'
-import AboutIcon from '@material-ui/icons/FormatShapes'
 import BugReportIcon from '@material-ui/icons/BugReport'
 
 import { Link } from 'react-router-dom'
@@ -23,7 +22,6 @@ import LoggedInUser from './LoggedInUser'
 const HomeLink = props => <Link to='/users' {...props} />
 const BrowseLink = props => <Link to='/users/browse' {...props} />
 const SearchLink = props => <Link to='/users/search' {...props} />
-const AboutLink = props => <Link to='/users/about' {...props} />
 
 const styles = theme => ({
   root: {
@@ -113,16 +111,6 @@ class NavBar extends Component {
               to={`${match.url}/search`}>
               <SearchIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
               Search
-            </Button>
-            <Button
-              variant='text'
-              size='small'
-              className={classNames(classes.button, classes.cssRoot)}
-              title='About the Users Module'
-              component={AboutLink}
-              to={`${match.url}/about`}>
-              <AboutIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
-              About
             </Button>
             <Button
               variant='text'

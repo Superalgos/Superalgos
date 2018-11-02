@@ -11,7 +11,6 @@ import Home from './components/Home'
 import User from './components/User'
 import Browse from './components/Browse'
 import Search from './components/Search'
-import About from './components/About'
 import Contact from './components/Contact'
 
 import { getItem } from './utils/local-storage'
@@ -64,11 +63,6 @@ class App extends Component {
               exact
               path={`${match.path}/search`}
               render={props => <Search {...props} auth={this.props.auth} />}
-            />
-            <Route
-              exact
-              path={`${match.path}/about`}
-              render={props => <About {...props} auth={this.props.auth} />}
             />
             <Route path='/browse/:slug' component={Browse} />
           </Switch>

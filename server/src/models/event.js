@@ -6,32 +6,80 @@ import {
   EventStatusEnum,
 } from '../enums/EventStatus';
 
+const { ObjectId } = Schema.Types;
+
 const eventSchema = new Schema({
-  designator: { type: String, required: true },
-  status: { type: String, enum: EventStatusEnum, default: UNPUBLISHED },
-  name: { type: String, required: true },
-  hostId: { type: String, required: true },
+  designator: {
+    type: String,
+    required: true,
+  },
+  status: {
+    type: String,
+    enum: EventStatusEnum,
+    default: UNPUBLISHED,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  hostId: {
+    type: String,
+    required: true,
+  },
   description: String,
-  startDatetime: { type: Number, required: true },
-  finishDatetime: { type: Number, required: true },
-  formula: { type: Schema.Types.ObjectId, ref: Formula.modelName },
-  plotter: { type: Schema.Types.ObjectId, ref: Plotter.modelName },
+  startDatetime: {
+    type: Number,
+    required: true,
+  },
+  finishDatetime: {
+    type: Number,
+    required: true,
+  },
+  formula: {
+    type: ObjectId,
+    ref: Formula.modelName,
+  },
+  plotter: {
+    type: ObjectId,
+    ref: Plotter.modelName,
+  },
   rules: [{
-    position: { type: Number, required: true },
-    title: { type: String, required: true },
+    position: {
+      type: Number,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
     description: String,
   }],
   prizes: [{
-    rank: { type: Number, required: true },
-    amount: { type: Number, required: true },
+    rank: {
+      type: Number,
+      required: true,
+    },
+    amount: {
+      type: Number,
+      required: true,
+    },
     additional: [{
       condition: String,
-      amount: { type: Number, required: true },
-      asset: { type: String, required: true },
+      amount: {
+        type: Number,
+        required: true,
+      },
+      asset: {
+        type: String,
+        required: true,
+      },
     }],
   }],
   participants: [{
-    teamId: { type: String, required: true },
+    teamId: {
+      type: String,
+      required: true,
+    },
     botId: String,
     releaseId: String,
   }],

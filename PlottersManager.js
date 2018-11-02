@@ -295,7 +295,7 @@
                                     let imageId = participant.devTeam + "." + participant.profilePicture;
 
                                     const TEAM = devTeam.codeName.toLowerCase();
-                                    const STORAGE_URL = "https://algobotcommstorage.blob.core.windows.net";                                  
+                                    const STORAGE_URL = "https://aadevelop.blob.core.windows.net";                                  
 
                                     let botAvatar = new Image();
                                     

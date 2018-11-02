@@ -67,8 +67,7 @@
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
 
         const keyVaultAPI = graphqlClient({
-            //url: 'http://localhost:4002/graphql', TODO Move to properties
-            url: 'https://keyvault-api.advancedalgos.net/graphql',
+            url: 'https://app-api.advancedalgos.net/graphql',
             headers: {
                 Authorization: 'Bearer ' + authToken
             }
@@ -76,13 +75,13 @@
 
         keyVaultAPI.signTransaction = function (transaction, next) {
             let variables = {
-                botId: bot.displayName,
+                botId: bot.codeName,
                 transaction: transaction
             }
 
             keyVaultAPI.query(`
                 mutation($botId: String, $transaction: String!){
-                signTransaction(botId: $botId, transaction: $transaction){
+                keyVault_SignTransaction(botId: $botId, transaction: $transaction){
                     key,
                     signature,
                     date
@@ -96,8 +95,8 @@
                     next(undefined, 'Error from graphql: ' + res.errors);
                 } else {
                     let signature = {
-                        Key: res.data.signTransaction.key,
-                        Sign: res.data.signTransaction.signature
+                        Key: res.data.keyVault_SignTransaction.key,
+                        Sign: res.data.keyVault_SignTransaction.signature
                     }
                     next(signature)
                 }

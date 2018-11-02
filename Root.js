@@ -325,7 +325,6 @@ exports.newRoot = function newRoot() {
                     botConfig.loopCounter = 0;
 
                     if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Processing item from executionList -> p = " + p); }
-                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> listItem.botPath = " + listItem.botPath); }
 
                     /* File Path Root */
 

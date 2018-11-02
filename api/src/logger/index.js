@@ -1,9 +1,7 @@
 import { createLogger, format, transports } from 'winston'
 import { inspect } from 'util'
 
-import { AuthenticationError as ApolloAuthenticationError } from 'apollo-server-express'
-
-import { AuthenticationError, DatabaseError, WrongArgumentsError, ServiceUnavailableError } from './errors'
+import { AuthenticationError, ApolloError, DatabaseError, WrongArgumentsError, ServiceUnavailableError, ConflictError } from './errors'
 
 class LoggerService {
   constructor() {
@@ -32,4 +30,4 @@ class LoggerService {
 }
 
 export const logger = new LoggerService() // Default logger
-export { LoggerService, AuthenticationError, ApolloAuthenticationError, DatabaseError, WrongArgumentsError, ServiceUnavailableError }
+export { LoggerService, AuthenticationError, ApolloError, ConflictError, DatabaseError, WrongArgumentsError, ServiceUnavailableError }

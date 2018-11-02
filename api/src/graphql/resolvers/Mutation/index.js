@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { ApolloError } from 'apollo-server-express'
 
 import { getUser } from '../../../middleware/getMember'
 
@@ -8,7 +9,7 @@ import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
 import TEAM_FB_FRAGMENT from '../../fragments/TeamFBFragment'
 
-import { logger, AuthenticationError, ServiceUnavailableError, DatabaseError } from '../../../logger'
+import { logger, AuthenticationError, ServiceUnavailableError, DatabaseError, ConflictError } from '../../../logger'
 
 export const resolvers = {
   Mutation: {
@@ -43,85 +44,75 @@ export const resolvers = {
     async createTeam(parent, { name, slug, botName, botSlug }, ctx, info) {
       logger.info('createTeam ctx.request.user:')
       logger.info(ctx.request.headers.userid)
-
       const authId = ctx.request.headers.userid
       if (!authId) {
         throw new AuthenticationError()
       }
+      const userData = await getUser(authId)
+      logger.info('userData:')
+      logger.info(JSON.stringify(await userData))
+      const alias = await userData.data.users_User.alias
+      const email = await userData.data.users_User.email
+      const avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
+      const banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
 
-      return getUser(authId)
-        .then(async result => {
-          logger.info('axios:')
-          logger.info(result)
+      const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}/${botName}`)
+      logger.info('createTeamUrl:')
+      logger.info(JSON.stringify(await createTeamUrl))
 
-          const alias = result.data.users_User.alias
-          const email = result.data.users_User.email
-          const avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
-          const banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
+      const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/newTeam/'
+      // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
 
-          const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}/${botName}`)
-          logger.info('createTeamUrl:')
-          logger.info(JSON.stringify(await createTeamUrl))
-
-          const platformUrl = 'https://develop.advancedalgos.net/AABrowserAPI/newTeam/'
-          // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
-
-          logger.info(`${platformUrl}${createTeamUrl}/${authId}`)
-          const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}/${authId}`)
-            .then((result) => {
-              console.log('createPlatformTeam result:', result.data)
-              if(result.data.message === 'Team Name already taken'){
-                throw new DatabaseError(`${result.data.message} - Team already exists onAA Cloud`)
-              }
-              if(result.data.result === 'Fail'){
-                throw new DatabaseError(`${result.data.message} - Creating team on AA Cloud has failed`)
-              }
-              return result
-            })
-            .catch(err =>{
-              logger.debug('createPlatformTeam err:')
-              logger.debug(err)
-              throw new DatabaseError(err)
-            })
-          console.log('createPlatformTeam returned: ', await createPlatformTeam)
-          if(await createPlatformTeam === 'Team Name already taken'){
-            return createPlatformTeam
+      logger.info(`${platformUrl}${createTeamUrl}/${authId}`)
+      const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}/${authId}`)
+        .then((result) => {
+          console.log('createPlatformTeam result:', result.data)
+          if(result.data.message === 'Team Name already taken'){
+            return { error: 'Team already exist on AA Cloud.', code: 409 }
           }
-
-          const existingMember = await ctx.db.query.member({ where: { authId } }, `{id}`)
-            .catch((err) => {
-              logger.debug(err, 'existingMember error: ')
-              throw new DatabaseError(err)
-            })
-
-          logger.debug('existingMember:')
-          logger.debug(await existingMember)
-
-          let createTeam
-          if(existingMember !== null && existingMember.id !== null){
-            logger.info('createTeam with existingMember:')
-            createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Connected to Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
-              .catch((err) => {
-                logger.debug(err, 'createTeamMutation error: ')
-                throw new DatabaseError(err)
-              })
-          } else {
-            logger.info('createTeam without existingMember:')
-            createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible:'true', status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Created with Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
-              .catch((err) => {
-                logger.debug(err, 'createTeamMutation error: ')
-                throw new DatabaseError(err)
-              })
+          if(result.data.result === 'Fail'){
+            return { error: `${result.data.message} - Creating team on AA Cloud has failed`, code: 404 }
           }
-
-          // sendTeamCreateConfirmation(email, name, botName)
-
-          return createTeam
+          return result
         })
+
+      logger.info('createPlatformTeam')
+      logger.info(JSON.stringify(await createPlatformTeam))
+      logger.error(await createPlatformTeam.error)
+      logger.error(await createPlatformTeam.code)
+
+      // if (await createPlatformTeam.error && await createPlatformTeam.code === 404) throw new ApolloError(await createPlatformTeam.error, 404)
+      // if (await createPlatformTeam.error && await createPlatformTeam.code === 409) throw new ApolloError(await createPlatformTeam.error, 409)
+
+      const existingMember = await ctx.db.query.member({ where: { authId } }, `{id}`)
         .catch((err) => {
-          logger.debug('createTeam error: ')
-          throw new DatabaseError(`Team Creation Error: ${err}`)
+          logger.debug(err, 'existingMember error: ')
+          throw new DatabaseError(err)
         })
+
+      logger.debug('existingMember:')
+      logger.debug(await existingMember)
+
+      let createTeam
+      if(existingMember !== null && existingMember.id !== null){
+        logger.info('createTeam with existingMember:')
+        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {connect: {authId: authId}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Connected to Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+          .catch((err) => {
+            logger.debug(err, 'createTeamMutation error: ')
+            return new DatabaseError(err)
+          })
+      } else {
+        logger.info('createTeam without existingMember:')
+        createTeam = await ctx.db.mutation.createTeam({ data: {name: name, slug: slug, owner: authId, members: {create: {member: {create: {authId: authId, alias: alias, visible:'true', status: { create: { status: 'ACTIVE', reason: `Created team ${name}`}}}}, role: 'OWNER', status: { create: { status: 'ACTIVE', reason: `Created with Team ${name}`}}}}, profile: {create: {avatar: avatar, banner: banner}}, fb: {create: {name: botName, slug: botSlug, kind:'TRADER', avatar: avatar, status: {create: {status: 'ACTIVE', reason: "Cloned on team creation"}}}}, status: {create: {status: 'ACTIVE', reason:"Team created"}}} }, TEAMS_FRAGMENT)
+          .catch((err) => {
+            logger.debug(err, 'createTeamMutation error: ')
+            return new DatabaseError(err)
+          })
+      }
+
+      // sendTeamCreateConfirmation(email, name, botName)
+
+      return createTeam
     },
     async updateTeamProfile(parent, { slug, owner, description, motto, avatar, banner }, ctx, info) {
       return ctx.db.mutation.updateTeam({data:{profile: {update: {description: description, motto: motto, avatar: avatar, banner: banner}}}, where:{slug: slug}}, TEAMS_FRAGMENT)
@@ -138,7 +129,8 @@ export const resolvers = {
         })
     },
     async deleteTeam(parent, { slug, botSlug }, ctx, info) {
-      logger.info('DeleteTeam resolver')
+      logger.info('deleteTeam ctx.request.user:')
+      logger.info(ctx.request.headers.userid)
       const authId = ctx.request.headers.userid
       if (!authId) {
         throw new AuthenticationError()

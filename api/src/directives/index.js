@@ -76,15 +76,18 @@ export const directiveResolvers = {
   },
   isOwner: async (next, source, { type }, ctx) => {
     logger.info('directive isOwner: ', source, type, ctx)
-    const { slug: typeId } =
-      source && source.id
-        ? source
-        : ctx.request.body.variables ? ctx.request.body.variables : { id: null }
+    logger.info(ctx.request.body.variables)
+    logger.info(type)
+    const { _v0_slug: typeId } = ctx.request.body.variables ? ctx.request.body.variables : { _v0_slug: null }
+    logger.info('typeId')
+    logger.info(typeId)
     const userId = await isUserId(ctx)
     const isOwner =
       type === `Member`
         ? memberId === typeId
         : await isRequestingMemberAlsoOwner({ ctx, userId, type, typeId })
+        logger.info('isOwner')
+        logger.info(isOwner)
     if (isOwner) {
       return next()
     }

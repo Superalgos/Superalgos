@@ -75,12 +75,12 @@ export default function createApolloServer(
     subscriptions: {
       path: subscriptionsEndpoint,
       onConnect: async (connection, websocket) => {
-        const { authorization } = connection
+        const { authorization, userid } = connection
 
         let contextData = {}
         try {
           // Simulate `req` object for auth
-          const req = { headers: { authorization } }
+          const req = { headers: { authorization, userid } }
 
           // Call all middlewares in order and modify `req`
           await new Promise((resolve, reject) =>
@@ -97,11 +97,7 @@ export default function createApolloServer(
             req,
           })
         } catch (err) {
-          if (err.status !== 401) {
-            logger.error(err)
-          }
-
-          throw err
+          logger.error(err)
         }
 
         return contextData

@@ -77,7 +77,7 @@ export const resolvers = {
         })
 
       logger.info('createPlatformTeam')
-      logger.info(JSON.stringify(await createPlatformTeam))
+      logger.info(await createPlatformTeam)
       logger.error(await createPlatformTeam.error)
       logger.error(await createPlatformTeam.code)
 

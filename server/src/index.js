@@ -143,7 +143,10 @@ async function run () {
       return response
     },
     playground: {
-      settings: { 'editor.theme': 'dark' },
+      settings: {
+        'editor.theme': 'dark',
+        'editor.cursorShape': 'line'
+      },
       tabs: [
         {
           endpoint: process.env.GRAPHQL_API_URL,

@@ -295,7 +295,7 @@
                                     let imageId = participant.devTeam + "." + participant.profilePicture;
 
                                     const TEAM = devTeam.codeName.toLowerCase();
-                                    const STORAGE_URL = "https://aadevelop.blob.core.windows.net";                                  
+                                    const STORAGE_URL = "https://aadevelop.blob.core.windows.net/module-teams";                                  
 
                                     let botAvatar = new Image();
                                     

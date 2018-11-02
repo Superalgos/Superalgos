@@ -85,7 +85,8 @@ class ProfileSheet extends Component {
       firstNameError: false,
       middleNameError: false,
       lastNameError: false,
-      bioError: false
+      bioError: false,
+      updated: false
     }
   }
 
@@ -134,6 +135,8 @@ class ProfileSheet extends Component {
     user.role.id = this.state.roleId
 
     localStorage.setItem('loggedInUser', JSON.stringify(user))
+
+    this.setState({updated: true})
   }
 
   handleCheckBoxes (e) {
@@ -298,6 +301,14 @@ class ProfileSheet extends Component {
         default:
 
       }
+    }
+  }
+
+  displayButtonTitle () {
+    if (this.state.updated === true) {
+      return 'Updated'
+    } else {
+      return 'Update'
     }
   }
 
@@ -481,7 +492,13 @@ class ProfileSheet extends Component {
 
           <Grid container justify='center' >
             <Grid item>
-              <Button variant='contained' color='secondary' className={classes.button} onClick={this.submitForm.bind(this)}>Update</Button>
+              <Button
+                variant='contained'
+                color='secondary'
+                className={classes.button}
+                onClick={this.submitForm.bind(this)}
+                disabled={this.state.updated}
+              >{this.displayButtonTitle()}</Button>
             </Grid>
           </Grid>
         </form>

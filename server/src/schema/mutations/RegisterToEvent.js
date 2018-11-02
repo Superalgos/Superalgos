@@ -29,19 +29,18 @@ const resolve = (parent, {
   }
   return new Promise((res, rej) => {
     axios({
-      url: process.env.TEAMS_ENDPOINT,
+      url: process.env.GATEWAY_ENDPOINT,
       method: 'post',
       data: {
         query: `
           {
-            teamsByRole{
+            teams_TeamsByRole{
               id
             }
           }
         `,
       },
       headers: {
-        userid,
         authorization: context.authorization,
       },
     }).then(

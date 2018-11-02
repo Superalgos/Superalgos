@@ -130,7 +130,8 @@ class TeamBar extends Component {
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
               title='Report a Teams Module bug'
-              to='https://github.com/AdvancedAlgos/TeamsModule/issues'
+              href='https://github.com/AdvancedAlgos/TeamsModule/issues/new'
+              target='_blank'
             >
               <BugReportIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
               Report

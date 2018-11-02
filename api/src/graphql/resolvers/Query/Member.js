@@ -2,7 +2,7 @@ import { logger, AuthenticationError, DatabaseError } from '../../../logger'
 
 export const member = async (parent, arg, ctx, info) => {
   logger.info(' --> resolver.member')
-  logger.info(ctx.request)
+  logger.info(ctx.request.headers.userid)
   const authId = ctx.request.headers.userid
   if (!authId) {
     throw new AuthenticationError()
@@ -17,7 +17,8 @@ export const member = async (parent, arg, ctx, info) => {
 
 export const owner = async (parent, args, ctx, info) => {
   logger.info('resolver.query.owner ctx: ')
-  const authId = ctx.request.userId
+  logger.info(ctx.request.headers.userid)
+  const authId = cctx.request.headers.userid
   if (!authId) {
     throw new AuthenticationError()
   }

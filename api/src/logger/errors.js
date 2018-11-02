@@ -5,7 +5,12 @@ export class AuthenticationError extends Error {
 
 export class DatabaseError extends Error {
   code = 404
-  message = 'Resource not found : ' + this.message
+  message = `Resource Error: ${this.message}`
+}
+
+export class ApolloError extends Error {
+  code = 409
+  message = `Resource already exists: ${this.message}`
 }
 
 export class WrongArgumentsError extends Error {

@@ -16,17 +16,25 @@ export const formatError = (error) => {
   logger.info('formatError')
   logger.error(JSON.stringify(error))
   const originalError = searchOriginalError(error)
+  logger.error('originalError')
   logger.error(originalError)
-  return originalError
+  const { message, code } = originalError
+  return { message, code}
 }
 
 const searchOriginalError = (error) => {
   if (error.originalError) {
-    return searchOriginalError(error.originalError)
+    logger.error('Original Error')
+    logger.error(JSON.stringify(error.originalError))
+    return error.originalError
   }
   if (error.errors) {
+    logger.error('Errors')
+    logger.error(JSON.stringify(error.errors))
     return error.errors.map(searchOriginalError)[0]
   }
+  logger.error('searchOriginalErrors')
+  logger.error(JSON.stringify(error))
   return error;
 }
 

@@ -13,6 +13,7 @@ import BrowseIcon from '@material-ui/icons/ImportContacts'
 import SearchIcon from '@material-ui/icons/Search'
 import ContactIcon from '@material-ui/icons/ContactMail'
 import AboutIcon from '@material-ui/icons/FormatShapes'
+import BugReportIcon from '@material-ui/icons/BugReport'
 
 import { Link } from 'react-router-dom'
 
@@ -92,16 +93,7 @@ class NavBar extends Component {
             <Typography variant='h5' color='inherit' className={classes.flex}>
               Users
             </Typography>
-            <Button
-              variant='text'
-              size='small'
-              className={classNames(classes.button, classes.cssRoot)}
-              title='Users Module Home'
-              component={HomeLink}
-              to={`${match.url}`}>
-              <UsersIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
-              Home
-            </Button>
+            <LoggedInUser {...this.props} authId={this.state.authId} />
             <Button
               variant='text'
               size='small'
@@ -132,7 +124,27 @@ class NavBar extends Component {
               <AboutIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
               About
             </Button>
-            <LoggedInUser {...this.props} authId={this.state.authId} />
+            <Button
+              variant='text'
+              size='small'
+              className={classNames(classes.button, classes.cssRoot)}
+              title='Report a Users Module bug'
+              href='https://github.com/AdvancedAlgos/UsersModule/issues/new'
+              target='_blank'
+            >
+              <BugReportIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Report
+            </Button>
+            <Button
+              variant='text'
+              size='small'
+              className={classNames(classes.button, classes.cssRoot)}
+              title='Users Module Home'
+              component={HomeLink}
+              to={`${match.url}`}>
+              <UsersIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Home
+            </Button>
           </Toolbar>
         </AppBar>
       </div>

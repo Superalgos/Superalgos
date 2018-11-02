@@ -29,6 +29,10 @@ const server = new ApolloServer({
       'editor.cursorShape': 'line',
     },
   },
+  context: ({ req }) => ({
+    userId: req.headers.userid,
+    authorization: req.headers.authorization,
+  }),
   formatError: error => ({
     code: error.extensions.exception.code,
     message: error.message,

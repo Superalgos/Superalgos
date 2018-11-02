@@ -240,7 +240,8 @@ class ProfileSheet extends Component {
 
   componentWillMount ()    	{
     	    if (this.defaultValuesSet === false)    	    {
-          let authId = localStorage.getItem('authId')
+          let authUser = JSON.parse(localStorage.getItem('user'))
+          let authId = authUser.authId
           let userData = localStorage.getItem('loggedInUser')
 
           if (userData === 'undefined' || userData === null) { return }

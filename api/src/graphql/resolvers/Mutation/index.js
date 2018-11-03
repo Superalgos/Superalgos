@@ -78,7 +78,9 @@ export const resolvers = {
 
       logger.info('createPlatformTeam')
       logger.info(await createPlatformTeam)
+      logger.info('createPlatformTeam Error')
       logger.error(await createPlatformTeam.error)
+      logger.info('createPlatformTeam Code')
       logger.error(await createPlatformTeam.code)
 
       // if (await createPlatformTeam.error && await createPlatformTeam.code === 404) throw new ApolloError(await createPlatformTeam.error, 404)
@@ -110,7 +112,7 @@ export const resolvers = {
           })
       }
 
-      // sendTeamCreateConfirmation(email, name, botName)
+      sendTeamCreateConfirmation(email, name, botName)
 
       return createTeam
     },

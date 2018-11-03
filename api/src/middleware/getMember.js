@@ -46,10 +46,10 @@ export const getUser = authId => {
         .catch(err => {
           logger.info('getUser err')
           logger.info(err)
-          reject(new DatabaseError(err))
+          reject(err)
         })
     } catch (error) {
-      reject(new DatabaseError(error))
+      reject(error)
     }
   })
 }

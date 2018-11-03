@@ -147,11 +147,11 @@ async function run () {
     schema,
     context,
     formatError: error => {
-      logger.error('Error on Apolo Server: ', error)
+      logger.error('An error ocurred inside a module: %s', error)
       return error
     },
     formatResponse: response => {
-      logger.debug('Response from Apolo Server: ', response)
+      logger.debug('Response from Apolo Server: %s', response)
       return response
     },
     playground: {

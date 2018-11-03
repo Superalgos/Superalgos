@@ -10,21 +10,21 @@ const mongoose = require('mongoose')
 const mongodbConfig = require('./models/MongoDB')
 const checkJwt = require('./auth/middleware/jwt')
 const logger = require('./utils/logger')
-
 const wrongPreshared = require('./errors/notAllowed.json')
-
 const cors = require('cors')
+
+require('dotenv').config()
 
 const app = express()
 
 // Checking preshared key
 app.post('/graphql', (req, res, next) => {
   if (req.headers.preshared === process.env.PRESHARED_GATEWAY_KEY) {
-    next();
+    next()
   } else {
-    res.send(wrongPreshared);
+    res.send(wrongPreshared)
   }
-});
+})
 
 // Allow crosss-origin requests
 app.use(cors())

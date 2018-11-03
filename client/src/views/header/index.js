@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import jwtDecode from 'jwt-decode'
 
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -81,7 +82,12 @@ class Header extends Component {
 
   render () {
     let { classes, auth } = this.props
-
+    if (window.localStorage.getItem('access_token')) {
+      if (jwtDecode(window.localStorage.getItem('access_token')).exp < new Date().getTime() / 1000) {
+        window.localStorage.clear()
+        window.location.reload()
+      }
+    }
     let user = JSON.parse(this.state.user)
     return (
       <div className={classes.root}>

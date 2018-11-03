@@ -1,6 +1,7 @@
 import http from 'http'
 import { ApolloServer, makeExecutableSchema } from 'apollo-server-express'
 import { applyMiddleware as applyGraphQLMiddleware } from 'graphql-middleware'
+import { moduleAuth } from './middleware'
 import { logger } from './logger'
 
 /**
@@ -110,6 +111,7 @@ export default function createApolloServer(
 
   // Express middleware
   server.applyMiddleware({
+    moduleAuth,
     app,
     cors,
     path: graphqlEndpoint,

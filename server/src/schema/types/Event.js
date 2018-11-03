@@ -26,13 +26,13 @@ const EventType = new GraphQLObjectType({
     formula: {
       type: FormulaType,
       resolve(parent) {
-        return parent.formula;
+        return parent.formulaId;
       },
     },
     plotter: {
       type: PlotterType,
       resolve(parent) {
-        return parent.plotter;
+        return parent.plotterId;
       },
     },
     rules: {

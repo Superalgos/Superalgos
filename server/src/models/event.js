@@ -26,7 +26,9 @@ const eventSchema = new Schema({
     type: String,
     required: true,
   },
-  description: String,
+  description: {
+    type: String,
+  },
   startDatetime: {
     type: Number,
     required: true,
@@ -35,11 +37,11 @@ const eventSchema = new Schema({
     type: Number,
     required: true,
   },
-  formula: {
+  formulaId: {
     type: ObjectId,
     ref: Formula.modelName,
   },
-  plotter: {
+  plotterId: {
     type: ObjectId,
     ref: Plotter.modelName,
   },
@@ -52,7 +54,9 @@ const eventSchema = new Schema({
       type: String,
       required: true,
     },
-    description: String,
+    description: {
+      type: String,
+    },
   }],
   prizes: [{
     rank: {
@@ -86,10 +90,10 @@ const eventSchema = new Schema({
 });
 
 eventSchema.pre('find', function populate() {
-  this.populate('formula').populate('plotter');
+  this.populate('formulaId').populate('plotterId');
 });
 eventSchema.post('save', (doc, next) => {
-  doc.populate('formula').populate('plotter').execPopulate().then(() => {
+  doc.populate('formulaId').populate('plotterId').execPopulate().then(() => {
     next();
   });
 });

@@ -20,6 +20,8 @@ import { schemaDirectives } from './directives'
 import pubsub from './pubsub'
 import { logger } from './logger'
 
+import wrongPreshared from './errors/notAllowed.json'
+
 const GRAPHQL_ENDPOINT = '/graphql'
 const GRAPHQL_SUBSCRIPTIONS = '/graphql'
 const PORT = 4001
@@ -34,6 +36,14 @@ const db = new Prisma({
 })
 
 const app = express()
+
+app.post(GRAPHQL_ENDPOINT, (req, res, next) => {
+  if (req.headers.preshared === process.env.PRESHARED_GATEWAY_KEY) {
+    next();
+  } else {
+    res.send(wrongPreshared);
+  }
+});
 
 app.post(GRAPHQL_ENDPOINT)
 

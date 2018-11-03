@@ -1,13 +1,13 @@
 import {
-  GraphQLObjectType,
+  GraphQLInputObjectType,
   GraphQLNonNull,
   GraphQLString,
   GraphQLInt,
 } from 'graphql';
 
-const AdditionalPrizeType = new GraphQLObjectType({
-  name: 'AdditionalPrize',
-  description: 'Non algo complementary prize',
+const Type = new GraphQLInputObjectType({
+  name: 'AdditionalPrizeInput',
+  description: 'Payload for formula input',
   fields: () => ({
     condition: { type: GraphQLString },
     amount: { type: new GraphQLNonNull(GraphQLInt) },
@@ -15,4 +15,4 @@ const AdditionalPrizeType = new GraphQLObjectType({
   }),
 });
 
-export default AdditionalPrizeType;
+export default Type;

@@ -15,6 +15,7 @@ import {
 
 const EventType = new GraphQLObjectType({
   name: 'Event',
+  description: 'Everything you need to know about an event',
   fields: () => ({
     designator: { type: GraphQLID },
     name: { type: GraphQLString },

@@ -46,6 +46,9 @@ const authRetryLink = onError(
 
               // Retry last failed request
               forward(operation).subscribe(subscriber)
+
+              // TODO improve with redux
+              location.reload()
             })
             .catch(error => {
               // No auth0 access token available, we force user to login

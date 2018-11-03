@@ -21,7 +21,8 @@ function newLogin() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
-    const MASTER_APP_API = 'https://app-api.advancedalgos.net/graphql';
+    //window.MASTER_APP_API = 'https://app-api.advancedalgos.net/graphql';
+    window.MASTER_APP_API = 'http://localhost:4100/graphql';
 
     let currentLabel;
 
@@ -52,7 +53,7 @@ function newLogin() {
 
         const apolloClient = new Apollo.lib.ApolloClient({
             networkInterface: Apollo.lib.createNetworkInterface({
-                uri: MASTER_APP_API,
+                uri: window.MASTER_APP_API,
                 transportBatching: true,
             }),
             connectToDevTools: true,
@@ -104,7 +105,7 @@ function newLogin() {
             }   
 
             const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
-                uri: MASTER_APP_API
+                uri: window.MASTER_APP_API
             });
 
             networkInterfaceTeams.use([{

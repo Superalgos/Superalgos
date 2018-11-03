@@ -9,8 +9,9 @@
     const isValidOrder = require('./exchangeUtils').isValidOrder;
     const graphqlClient = require('graphql-client')
 
-    const MASTER_APP_API = 'https://app-api.advancedalgos.net/graphql';
-
+    //const MASTER_APP_API = 'https://app-api.advancedalgos.net/graphql';
+    const MASTER_APP_API = 'http://localhost:4100/graphql';
+    
     let MODULE_NAME = "Exchange API";
 
     let thisObject = {

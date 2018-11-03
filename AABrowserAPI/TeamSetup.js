@@ -524,7 +524,7 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        url: window.MASTER_APP_API
+                        url: window.canvasApp.urlPrefix
                     });
 
 
@@ -1013,7 +1013,7 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        url: window.MASTER_APP_API
+                        url: window.canvasApp.urlPrefix
                     });
 
 

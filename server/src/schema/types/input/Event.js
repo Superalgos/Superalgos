@@ -8,6 +8,7 @@ import InputFormulaType from './Formula';
 import InputPlotterType from './Plotter';
 import InputPrizeType from './Prize';
 import InputParticipantType from './Participant';
+import InputRuleType from './Rule';
 
 const Type = new GraphQLInputObjectType({
   name: 'EventInput',
@@ -23,6 +24,7 @@ const Type = new GraphQLInputObjectType({
     plotter: { type: InputPlotterType },
     prizes: { type: new GraphQLList(InputPrizeType) },
     participants: { type: new GraphQLList(InputParticipantType) },
+    rules: { type: new GraphQLList(InputRuleType) },
   }),
 });
 

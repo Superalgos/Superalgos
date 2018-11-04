@@ -13,6 +13,10 @@ import logger from './logger'
 
 async function getUserId (authId) {
   try {
+    if(authId === process.env.AACLOUD_ID){
+      return authId
+    }
+
     const userData = await axios({
       url: process.env.GRAPHQL_API_URL,
       method: 'post',

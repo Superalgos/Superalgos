@@ -1,28 +1,20 @@
-import {
-  GraphQLNonNull,
-  GraphQLString,
-} from 'graphql';
 import { AuthentificationError } from '../../errors';
 import { PlotterType } from '../types';
 import { Plotter } from '../../models';
+import { PlotterInputType } from '../types/input';
 
 const args = {
-  name: { type: new GraphQLNonNull(GraphQLString) },
-  host: { type: new GraphQLNonNull(GraphQLString) },
-  repo: { type: new GraphQLNonNull(GraphQLString) },
-  moduleName: { type: new GraphQLNonNull(GraphQLString) },
+  plotter: { type: PlotterInputType },
 };
 
-const resolve = (parent, {
-  name, host, repo, moduleName,
-}, context) => {
-  const ownerId = context.userId;
+const resolve = (parent, { plotter }, { userId: ownerId }) => {
   if (!ownerId) {
     throw new AuthentificationError();
   }
-  const newPlotter = new Plotter({
-    name, host, repo, moduleName, ownerId,
-  });
+
+  plotter.ownerId = ownerId;
+  const newPlotter = new Plotter(plotter);
+
   return new Promise((res, reject) => {
     newPlotter.save((err) => {
       if (err) {

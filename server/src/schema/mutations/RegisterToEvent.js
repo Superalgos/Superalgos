@@ -2,7 +2,6 @@ import 'dotenv/config';
 import {
   GraphQLNonNull,
   GraphQLID,
-  GraphQLString,
 } from 'graphql';
 import axios from 'axios';
 import {
@@ -12,19 +11,17 @@ import {
 } from '../../errors';
 import { EventType } from '../types';
 import { Event } from '../../models';
+import { ParticipantInputType } from '../types/input';
 
 const args = {
-  designator: { type: new GraphQLNonNull(GraphQLID) },
-  teamId: { type: new GraphQLNonNull(GraphQLString) },
-  botId: { type: GraphQLString },
-  releaseId: { type: GraphQLString },
+  eventId: { type: new GraphQLNonNull(GraphQLID) },
+  participant: { type: ParticipantInputType },
 };
 
-const resolve = (parent, {
-  designator, teamId, botId, releaseId,
-}, context) => {
-  const userid = context.userId;
-  if (!userid) {
+const resolve = (parent,
+  { eventId: _id, participant: { teamId, botId, releaseId } },
+  { userId, authorization }) => {
+  if (!userId) {
     throw new AuthentificationError();
   }
   return new Promise((res, rej) => {
@@ -40,16 +37,14 @@ const resolve = (parent, {
           }
         `,
       },
-      headers: {
-        authorization: context.authorization,
-      },
+      headers: { authorization },
     }).then(
       (result) => {
         if (!result.data.data.teamsByRole.some(team => team.id === teamId)) {
           rej(new WrongArgumentsError('You are not eligible to register this team'));
           return;
         }
-        Event.findOne({ designator }).exec((err, event) => {
+        Event.findOne({ _id }).exec((err, event) => {
           if (err) {
             rej(err);
             return;

@@ -9,10 +9,6 @@ import {
 const { ObjectId } = Schema.Types;
 
 const eventSchema = new Schema({
-  designator: {
-    type: String,
-    required: true,
-  },
   status: {
     type: String,
     enum: EventStatusEnum,
@@ -93,6 +89,11 @@ eventSchema.pre('find', function populate() {
   this.populate('formulaId').populate('plotterId');
 });
 eventSchema.post('save', (doc, next) => {
+  doc.populate('formulaId').populate('plotterId').execPopulate().then(() => {
+    next();
+  });
+});
+eventSchema.post('findOneAndUpdate', (doc, next) => {
   doc.populate('formulaId').populate('plotterId').execPopulate().then(() => {
     next();
   });

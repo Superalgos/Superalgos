@@ -5,7 +5,6 @@ import {
   GraphQLList,
 } from 'graphql';
 import InputPrizeType from './Prize';
-import InputParticipantType from './Participant';
 import InputRuleType from './Rule';
 
 const Type = new GraphQLInputObjectType({
@@ -19,7 +18,6 @@ const Type = new GraphQLInputObjectType({
     formulaId: { type: GraphQLString },
     plotterId: { type: GraphQLString },
     prizes: { type: new GraphQLList(InputPrizeType) },
-    participants: { type: new GraphQLList(InputParticipantType) },
     rules: { type: new GraphQLList(InputRuleType) },
   }),
 });

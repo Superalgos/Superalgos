@@ -21,7 +21,7 @@ async function getUserId (authId) {
       url: process.env.USERS_API_URL,
       method: 'post',
       headers: {
-        preshared: USERS_API_PRESHARED
+        preshared: process.env.USERS_API_PRESHARED
       },
       data: {
         query: `

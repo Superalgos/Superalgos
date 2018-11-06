@@ -12,10 +12,10 @@ class Incoming extends React.Component {
     const { IncomingEvents, OngoingEvents } = this.props;
 
     const incomingEvents = IncomingEvents.map((event, index) => (
-        <Event key={index} event={event} />
+      <Event key={index} event={event} />
     ));
     const ongoingEvents = OngoingEvents.map((event, index) => (
-        <Event key={index} event={event} />
+      <Event key={index} event={event} />
     ));
     return (
       <React.Fragment>

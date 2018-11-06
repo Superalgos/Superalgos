@@ -5,9 +5,11 @@ module.exports = {
     'plugin:react/recommended',
   ],
   rules: {
+    'max-len': ['error', 140, 2],
     'no-underscore-dangle': 'off',
     'no-param-reassign': 'off',
     'react/prop-types': 0,
+    'react/jsx-indent': ['error', 2],
   },
   settings: {
     'react': {

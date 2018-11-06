@@ -12,7 +12,7 @@ class Future extends React.Component {
     const { FutureEvents } = this.props;
 
     const futureEvents = FutureEvents.map((event, index) => (
-        <Event key={index} event={event} />
+      <Event key={index} event={event} />
     ));
     return (
       <React.Fragment>

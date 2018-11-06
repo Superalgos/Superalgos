@@ -14,7 +14,7 @@ const HostedEvent = () => (
         if (loading) return 'Loading...';
         if (error) return `Error! ${error.message}`;
         const list = data.events_EventsByHost.map((event, index) => (
-            <Event key={index} event={event} />
+          <Event key={index} event={event} />
         ));
         return (
           <React.Fragment>

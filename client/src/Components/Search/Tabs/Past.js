@@ -12,7 +12,7 @@ class Past extends React.Component {
     const { PastEvents } = this.props;
 
     const pastEvents = PastEvents.map((event, index) => (
-        <Event key={index} event={event} />
+      <Event key={index} event={event} />
     ));
     return (
       <React.Fragment>

@@ -13,13 +13,17 @@ import logger from './logger'
 
 async function getUserId (authId) {
   try {
-    const userDate = await axios({
-      url: process.env.USERS_API_URL,
+    if(authId === process.env.AACLOUD_ID){
+      return authId
+    }
+
+    const userData = await axios({
+      url: process.env.GRAPHQL_API_URL,
       method: 'post',
       data: {
         query: `
         {
-          userByAuthId(authId: "${authId}")
+          users_UserByAuthId(authId: "${authId}")
           {
             id
           }
@@ -27,7 +31,7 @@ async function getUserId (authId) {
         `
       }
     })
-    return userDate.data.data.userByAuthId.id
+    return userData.data.data.users_UserByAuthId.id
   } catch (error) {
     return (error)
   }
@@ -147,11 +151,11 @@ async function run () {
     schema,
     context,
     formatError: error => {
-      logger.error('Error on Apolo Server: ', error)
+      logger.error('An error ocurred inside a module: ' + error)
       return error
     },
     formatResponse: response => {
-      logger.debug('Response from Apolo Server: ', response)
+      logger.debug('Response from Apolo Server: ' + response)
       return response
     },
     playground: {

@@ -159,7 +159,7 @@ function newAnimation() {
         browserCanvasContext.beginPath();
 
         browserCanvasContext.rect(0, 0, browserCanvas.width, browserCanvas.height);
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + 1 + ')';
 
         browserCanvasContext.closePath();
 

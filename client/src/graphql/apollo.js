@@ -73,8 +73,23 @@ const authLink = setContext((_, { headers }) => {
 
 const cache = new InMemoryCache().restore(window.__APOLLO_STATE__)
 
+const defaultOptions = {
+  watchQuery: {
+    fetchPolicy: 'cache-and-network',
+    errorPolicy: 'all'
+  },
+  query: {
+    fetchPolicy: 'cache-and-network',
+    errorPolicy: 'all'
+  },
+  mutate: {
+    errorPolicy: 'all'
+  }
+}
+
 export const client = new ApolloClient({
   link: ApolloLink.from([authRetryLink, authLink, httpLink]), // replaced link with httpLink
   cache,
+  defaultOptions,
   connectToDevTools: true
 })

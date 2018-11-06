@@ -117,21 +117,10 @@ class Header extends Component {
                               Home
                             </Button>
                         </li>
-                        <li className='menu-item-has-children'>
+                        <li>
                           <Button component={ChartsLink} color='inherit'>
                               Charts
                             </Button>
-                          <ul className='sub-menu'>
-                            <li>
-                              <a href='https://www.advancedalgos.net/about-evolution.shtml' className='sf-with-ul'>Evolution</a>
-                            </li>
-                            <li>
-                              <a href='https://www.advancedalgos.net/about-superalgo.shtml' className='sf-with-ul'>Superalgos</a>
-                            </li>
-                            <li>
-                              <a href='https://www.advancedalgos.net/about-supermind.shtml' className='sf-with-ul'>Supermind</a>
-                            </li>
-                          </ul>
                         </li>
                         <li className='menu-item-has-children'>
                           <Button component={UsersLink} color='inherit'>

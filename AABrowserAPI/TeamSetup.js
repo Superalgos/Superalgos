@@ -6,6 +6,8 @@
         initialize: initialize
     }
 
+    const MASTER_APP_API = 'https://app-api.advancedalgos.net/graphql';
+
     let storage;
 
     return thisObject;
@@ -524,11 +526,7 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        //url: 'http://localhost:4000/graphql'
-                        url: 'https://app-api.advancedalgos.net/graphql',
-                        //headers: {
-                        //     Authorization: 'Bearer ' + authToken
-                        //}
+                        url: MASTER_APP_API
                     });
 
 
@@ -1017,11 +1015,7 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        //url: 'http://localhost:4000/graphql'
-                        url: 'https://app-api.advancedalgos.net/graphql',
-                        //headers: {
-                        //     Authorization: 'Bearer ' + authToken
-                        //}
+                        url: MASTER_APP_API
                     });
 
 

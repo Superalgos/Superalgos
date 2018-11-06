@@ -44,7 +44,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={Search} />
               <Route path='/my' component={Events} />
-              <Route path='/exact/:slug' component={EditEvent} />
+              <Route path='/edit/:slug' component={EditEvent} />
               <Route path='/show/:slug' component={EditEvent} />
               <Route path='/host' component={HostedEvents} />
             </Switch>

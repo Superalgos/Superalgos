@@ -22,7 +22,7 @@ class Edit extends React.Component {
         </Typography>
         <Query
           query={showEventCalls.EVENTS_EVENT}
-          variables={{ designator: this.props.match.params.slug }}
+          variables={{ eventId: this.props.match.params.slug }}
         >
           {({ loading, error, data }) => {
             if (loading) return 'Loading...';

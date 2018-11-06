@@ -26,7 +26,7 @@ class HostedEvent extends React.Component {
   }
 
   handleNewEvent = (event) => {
-    this.props.history.push(`/edit/${event.designator}`);
+    this.props.history.push(`/edit/${event.id}`);
   };
 
   render() {

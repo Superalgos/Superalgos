@@ -15,8 +15,8 @@ class Event extends React.Component {
   render() {
     const { classes } = this.props;
     const {
+      id,
       name,
-      designator,
       startDatetime,
       finishDatetime,
       host,
@@ -50,7 +50,7 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={`/show/${designator}`}
+                  to={`/show/${id}`}
                 >
                   Show
                 </Button>

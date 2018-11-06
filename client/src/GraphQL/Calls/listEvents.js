@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import { eventMinimalInfo } from '../Fragments';
 
 const EVENTS_EVENTS = gql`
-  query Hosts_Events{
+  query Events_Events{
     events_Events {
       ...EventMinimalInfo
     }

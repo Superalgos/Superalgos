@@ -26,16 +26,16 @@ class New extends React.Component {
       name, description, startDatetime, finishDatetime,
     } = this.state;
     return (
-      <Mutation mutation={hostedEventsCalls.EVENTS_HOSTEVENT}
+      <Mutation mutation={hostedEventsCalls.EVENTS_CREATEEVENT}
         update={(store, { data }) => {
           const { events_EventsByHost: hostedEvents } = store.readQuery({
             query: hostedEventsCalls.EVENTS_EVENTSBYHOST,
           });
           store.writeQuery({
             query: hostedEventsCalls.EVENTS_EVENTSBYHOST,
-            data: { events_EventsByHost: hostedEvents.concat([data.events_HostEvent]) },
+            data: { events_EventsByHost: hostedEvents.concat([data.events_CreateEvent]) },
           });
-          this.props.handleNewEvent(data.events_HostEvent);
+          this.props.handleNewEvent(data.events_CreateEvent);
         }
         }
       >
@@ -46,10 +46,12 @@ class New extends React.Component {
                 e.preventDefault();
                 hostEvent({
                   variables: {
-                    name,
-                    description,
-                    startDatetime: startDatetime.valueOf() / 1000,
-                    finishDatetime: startDatetime.valueOf() / 1000,
+                    event: {
+                      name,
+                      description,
+                      startDatetime: startDatetime.valueOf() / 1000,
+                      finishDatetime: startDatetime.valueOf() / 1000,
+                    },
                   },
                 });
               }}

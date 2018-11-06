@@ -6,10 +6,6 @@ const styles = theme => ({
     flexGrow: 1,
     marginLeft: 30,
   },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
   cssRoot: {
     color: '#FFFFFF',
     backgroundColor: theme.palette.secondary,
@@ -20,14 +16,8 @@ const styles = theme => ({
     paddingRight: 2 * theme.spacing.unit,
     paddingLeft: 2 * theme.spacing.unit,
   },
-  button: {
-    margin: theme.spacing.unit,
-  },
   leftIcon: {
     marginRight: theme.spacing.unit,
-  },
-  rightIcon: {
-    marginLeft: theme.spacing.unit,
   },
   iconSmall: {
     fontSize: 20,

@@ -6,12 +6,15 @@ import { hot } from 'react-hot-loader'
 import { withStyles } from '@material-ui/core/styles'
 
 // Components
-import NavBar from './components/NavBar'
 import Home from './components/Home'
 import User from './components/User'
 import Browse from './components/Browse'
 import Search from './components/Search'
-import Contact from './components/Contact'
+import ProfileSheet from './components/ProfileSheet'
+import ProfileImages from './components/ProfileImages'
+import YourReferrer from './components/YourReferrer'
+import YourDescendents from './components/YourDescendents'
+import UsersMenu from './components/Menu'
 
 import { getItem } from './utils/local-storage'
 import {
@@ -36,12 +39,10 @@ class App extends Component {
   }
 
   render () {
-    const { match } = this.props
-
+    const match = {path: '/users'}
     return (
       <BrowserRouter>
         <div className='App'>
-          <NavBar match={match} user={this.state.user} />
           <Switch>
             <Route exact path={`${match.path}`} component={Home} />
             <Route
@@ -64,7 +65,26 @@ class App extends Component {
               path={`${match.path}/search`}
               render={props => <Search {...props} auth={this.props.auth} />}
             />
-            <Route path='/browse/:slug' component={Browse} />
+            <Route
+              exact
+              path={`${match.path}/profile-sheet`}
+              render={props => <ProfileSheet {...props} auth={this.props.auth} />}
+            />
+            <Route
+              exact
+              path={`${match.path}/profile-images`}
+              render={props => <ProfileImages {...props} auth={this.props.auth} />}
+            />
+            <Route
+              exact
+              path={`${match.path}/referrer`}
+              render={props => <YourReferrer {...props} auth={this.props.auth} />}
+            />
+            <Route
+              exact
+              path={`${match.path}/descendents`}
+              render={props => <YourDescendents {...props} auth={this.props.auth} />}
+            />
           </Switch>
         </div>
       </BrowserRouter>
@@ -77,4 +97,8 @@ App.propTypes = {
 }
 
 const StyledApp = withStyles(globalStyles)(App)
+export {
+  StyledApp,
+  UsersMenu
+}
 export default hot(module)(StyledApp)

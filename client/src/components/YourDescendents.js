@@ -17,7 +17,8 @@ const styles = theme => ({
     flexGrow: 1,
     padding: 10,
     marginLeft: '25%',
-    marginTop: '2%'
+    marginTop: '5%',
+    marginBottom: '10%'
   },
   typography: {
     width: '80%',
@@ -59,14 +60,48 @@ class YourDescendents extends Component {
     }
   }
 
-  render () {
-    const { classes } = this.props
+  componentDidMount () {
+    window.dispatchEvent(new Event('load')) // This is a workaround to solve the problem that the slider does not show up
+  }
 
+  addSlider () {
+    return (
+      <section id='mainslider' className='fullwidth no_padding_container no_margin_col'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-sm-12'>
+              <div className='flexslider'>
+                <ul className='slides text-center'>
+                  <li>
+                    <img src='https://aacorporatesitedevelop.azurewebsites.net/img/photos/connect.jpg' alt='' />
+                    <div className='slide_description_wrapper slider_textblock_center'>
+                      <div className='slide_description to_animate'>
+                        <div data-animation='fadeInUp' align='center'>
+                          <div>
+                            <div>
+                              <h3>Your Descendents</h3>
+                              <h4 className='white-text'>
+                                <br />Explore here generations of people that discovered Advanced Algos because of you.
+                                  </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  addForm () {
+    const { classes } = this.props
     return (
       <Paper className={classes.root}>
-        <Typography className={classes.typography} variant='headline' gutterBottom>
-            Your Descendents
-        </Typography>
 
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
         These are your decendents within the project. Your children referred you as the one who brought them to the project, while
@@ -77,6 +112,15 @@ class YourDescendents extends Component {
         <DescendentsTree userId={this.state.id} />
         <Grid container className={classes.grid} justify='center' spacing={24} />
       </Paper>
+    )
+  }
+
+  render () {
+    return (
+      <React.Fragment>
+        {this.addSlider()}
+        {this.addForm()}
+      </React.Fragment>
     )
   }
 }

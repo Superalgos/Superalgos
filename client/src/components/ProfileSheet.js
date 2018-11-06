@@ -31,7 +31,8 @@ const styles = theme => ({
     flexGrow: 1,
     padding: 10,
     marginLeft: '25%',
-    marginTop: '2%'
+    marginTop: '5%',
+    marginBottom: '10%'
   },
   inputField: {
     width: '80%',
@@ -312,18 +313,54 @@ class ProfileSheet extends Component {
     }
   }
 
-  render () {
+  componentDidMount () {
+    window.dispatchEvent(new Event('load')) // This is a workaround to solve the problem that the slider does not show up
+  }
+
+  addSlider () {
+    return (
+      <section id='mainslider' className='fullwidth no_padding_container no_margin_col'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-sm-12'>
+              <div className='flexslider'>
+                <ul className='slides text-center'>
+                  <li>
+                    <img src='https://aacorporatesitedevelop.azurewebsites.net/img/photos/connect.jpg' alt='' />
+                    <div className='slide_description_wrapper slider_textblock_center'>
+                      <div className='slide_description to_animate'>
+                        <div data-animation='fadeInUp' align='center'>
+                          <div>
+                            <div>
+                              <h3>Profile Sheet</h3>
+                              <h4 className='white-text'>
+                                <br />Manage here your basic profile info.
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  addForm () {
     const { classes } = this.props
     return (
       <Paper className={classes.root}>
-        <Typography className={classes.typography} variant='headline' gutterBottom>
-              Profile Sheet
-        </Typography>
+
         <form onSubmit={this.submitForm.bind(this)}>
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-        Use this form to control the information you keep at the Advanced Algos system about yourself.
-        </Typography>
+      Use this form to control the information you keep at the Advanced Algos system about yourself.
+      </Typography>
 
           <Grid container justify='center' >
             <Grid item>
@@ -332,8 +369,8 @@ class ProfileSheet extends Component {
           </Grid>
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          This is your basic information we have gotten from the identity provider you used to sign up. This information can not be changed.
-          </Typography>
+        This is your basic information we have gotten from the identity provider you used to sign up. This information can not be changed.
+        </Typography>
 
           <TextField
             id='alias'
@@ -359,10 +396,10 @@ class ProfileSheet extends Component {
                 id='emailVerified'
                 checked={this.rightCheckboxValue(this.state.emailVerified)}
                 color='primary'
-                      />
-                    }
+                    />
+                  }
             label='Email Verified'
-                  />
+                />
 
           <Grid container justify='center' >
             <Grid item>
@@ -371,8 +408,8 @@ class ProfileSheet extends Component {
           </Grid>
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          Complete your profile with the following optional information. Providing your real name might help other users trust you more.
-          </Typography>
+        Complete your profile with the following optional information. Providing your real name might help other users trust you more.
+        </Typography>
 
           <TextField
             error={this.state.firstNameError}
@@ -382,7 +419,7 @@ class ProfileSheet extends Component {
             label='First Name'
             className={classes.inputField}
             onChange={this.handleTextField.bind(this)}
-                     />
+                   />
 
           <TextField
             error={this.state.middleNameError}
@@ -392,7 +429,7 @@ class ProfileSheet extends Component {
             label='Middle Name'
             className={classes.inputField}
             onChange={this.handleTextField.bind(this)}
-                     />
+                   />
 
           <TextField
             error={this.state.lastNameError}
@@ -402,11 +439,11 @@ class ProfileSheet extends Component {
             label='Last Name'
             className={classes.inputField}
             onChange={this.handleTextField.bind(this)}
-                     />
+                   />
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-           If you wish, you can add a short paragraph with your Bio or anything you would like to communicate to whoever finds your user profile.
-           </Typography>
+         If you wish, you can add a short paragraph with your Bio or anything you would like to communicate to whoever finds your user profile.
+         </Typography>
 
           <TextField
             error={this.state.bioError}
@@ -416,11 +453,11 @@ class ProfileSheet extends Component {
             label='Bio'
             className={classes.inputField}
             onChange={this.handleTextField.bind(this)}
-                     />
+                   />
 
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-          Check the following options to enable specialized tools designed for each role. You can allways come back and change these settings later.
-          </Typography>
+        Check the following options to enable specialized tools designed for each role. You can allways come back and change these settings later.
+        </Typography>
 
           <FormGroup row className={classes.inputField}>
             <Grid container justify='center' >
@@ -433,10 +470,10 @@ class ProfileSheet extends Component {
                       onChange={this.handleCheckBoxes.bind(this)}
                       checked={this.rightCheckboxValue(this.state.isDeveloper)}
                       color='secondary'
-                            />
-                          }
+                          />
+                        }
                   label='Developer'
-                        />
+                      />
               </Grid>
               <Grid item>
                 <FormControlLabel
@@ -447,10 +484,10 @@ class ProfileSheet extends Component {
                       onChange={this.handleCheckBoxes.bind(this)}
                       checked={this.rightCheckboxValue(this.state.isTrader)}
                       color='secondary'
-                          />
-                        }
+                        />
+                      }
                   label='Trader'
-                      />
+                    />
               </Grid>
               <Grid item>
                 <FormControlLabel
@@ -461,10 +498,10 @@ class ProfileSheet extends Component {
                       onChange={this.handleCheckBoxes.bind(this)}
                       checked={this.rightCheckboxValue(this.state.isDataAnalyst)}
                       color='secondary'
-                            />
-                          }
+                          />
+                        }
                   label='Data Analyst'
-                        />
+                      />
               </Grid>
             </Grid>
           </FormGroup>
@@ -473,8 +510,8 @@ class ProfileSheet extends Component {
 
           <FormControl className={classes.inputField}>
             <InputLabel shrink htmlFor='select'>
-                        Current Role
-                      </InputLabel>
+                      Current Role
+                    </InputLabel>
             <Select
               id='select'
               ref='select'
@@ -484,7 +521,7 @@ class ProfileSheet extends Component {
               displayEmpty
               name='select'
               className={classes.selectEmpty}
-                      >
+                    >
               { this.displayRoles() }
             </Select>
             <FormHelperText>Select from the list your current role</FormHelperText>
@@ -498,12 +535,19 @@ class ProfileSheet extends Component {
                 className={classes.button}
                 onClick={this.submitForm.bind(this)}
                 disabled={this.state.updated}
-              >{this.displayButtonTitle()}</Button>
+            >{this.displayButtonTitle()}</Button>
             </Grid>
           </Grid>
         </form>
       </Paper>
-
+    )
+  }
+  render () {
+    return (
+      <React.Fragment>
+        {this.addSlider()}
+        {this.addForm()}
+      </React.Fragment>
     )
   }
 }

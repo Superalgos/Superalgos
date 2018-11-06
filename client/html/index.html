@@ -35,28 +35,31 @@
 
   <script type="text/javascript">
     function loadCanvas(){
-      if (window.canvasApp.visible === undefined) {
-        window.canvasApp = {
-            sessionToken: '',
-            executingAt: 'Master App',
-            visible: false,
-            topMargin: 150,
-            urlPrefix: 'https://develop.advancedalgos.net/'  /* 'http://localhost:1337/'   */   /*  'https://develop.advancedalgos.net/'  */
-        };
 
-        loadAdvancedAlgosPlatform();
-      }
+      window.canvasApp = {
+          sessionToken: '',
+          executingAt: 'Master App',
+          visible: false,
+          topMargin: 25,
+          urlPrefix: 'https://develop.advancedalgos.net/'  /* 'http://localhost:1337/'   */   /*  'https://develop.advancedalgos.net/'  */
+      };
 
-
-      window.dispatchEvent(new Event('resize')) // This is a momentary workaround to start the slider
+      loadAdvancedAlgosPlatform();
     }
 
+    function startScripts(){
+
+      window.dispatchEvent(new Event('resize')) // This is a momentary workaround to start the slider
+      //loadCanvas()
+    }
   </script>
 </head>
 
-<body id="body" onload="loadCanvas()" onresize="window.canvasApp.eventHandler.raiseEvent('Browser Resized')">
+<body id="body" onload="startScripts()">
 
-<div id='box_wrapper' class='landing_page header_style_1 header_wrapper_height_auto slider_style_1'>
+
+
+<div id='box_wrapper' class='landing_page header_style_1 header_wrapper_height_auto slider_style_1' onresize="window.canvasApp.eventHandler.raiseEvent('Browser Resized')">
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
 </div>
@@ -134,6 +137,8 @@
 <script src="js/email-verify.js" type="text/javascript"></script>
 <script src="js/email-signup.js" type="text/javascript"></script>
 <script src="js/contact.js" type="text/javascript"></script>
+
+
 
 </body>
 </html>

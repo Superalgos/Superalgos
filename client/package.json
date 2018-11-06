@@ -23,7 +23,7 @@
   "devDependencies": {
     "@advancedalgos/key-vault-client": "^0.0.20",
     "@advancedalgos/teams-client": "0.0.24",
-    "@advancedalgos/users-client": "^0.0.16",
+    "@advancedalgos/users-client": "^0.0.15",
     "@advancedalgos/events-client": "^0.0.1",
     "@advancedalgos/web-components": "0.0.13",
     "@babel/core": "^7.1.2",

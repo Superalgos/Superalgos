@@ -6,7 +6,7 @@ import {
 } from 'graphql';
 import { EventType } from '../types';
 import { Event } from '../../models';
-import { UNPUBLISHED, ARCHIVED } from '../../enums/EventStatus';
+import { UNPUBLISHED, ARCHIVED } from '../../enums/EventState';
 
 const args = {
   teamId: { type: new GraphQLNonNull(GraphQLString) },
@@ -18,7 +18,7 @@ const resolve = (parent, { teamId, minDate, maxDate }) => Event.find(
   Object.assign(
     {
       participants: { $elemMatch: { teamId } },
-      status: { $nin: [UNPUBLISHED, ARCHIVED] },
+      state: { $nin: [UNPUBLISHED, ARCHIVED] },
     },
 
     minDate || maxDate

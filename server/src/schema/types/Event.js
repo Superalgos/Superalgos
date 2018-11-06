@@ -12,14 +12,14 @@ import {
   ParticipantType,
   PrizeType,
 } from './index';
-import EventStatusEnumType from './enum/EventStatus';
+import EventStateEnumType from './enum/EventState';
 
 const EventType = new GraphQLObjectType({
   name: 'Event',
   description: 'Everything you need to know about an event',
   fields: () => ({
     id: { type: GraphQLID },
-    status: { type: EventStatusEnumType },
+    state: { type: EventStateEnumType },
     name: { type: GraphQLString },
     hostId: { type: GraphQLString },
     description: { type: GraphQLString },

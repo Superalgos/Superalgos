@@ -6,7 +6,7 @@ export const INTERRUPTED = 'INTERRUPTED';
 export const FINISHED = 'FINISHED';
 export const ARCHIVED = 'ARCHIVED';
 
-export const EventStatusEnum = [
+export const EventStateEnum = [
   UNPUBLISHED,
   PUBLISHED,
   CANCELLED,
@@ -16,4 +16,4 @@ export const EventStatusEnum = [
   ARCHIVED,
 ];
 
-export default EventStatusEnum;
+export default EventStateEnum;

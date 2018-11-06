@@ -8,7 +8,7 @@ import RegisterToEventMutation from './RegisterToEvent';
 import EditParticipantMutation from './EditParticipant';
 import CreateFormulaMutation from './CreateFormula';
 import CreatePlotterMutation from './CreatePlotter';
-import ChangeEventStatusMutation from './ChangeEventStatus';
+import ChangeEventStateMutation from './ChangeEventState';
 
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
@@ -19,7 +19,7 @@ const Mutation = new GraphQLObjectType({
     EditParticipantMutation,
     CreateFormulaMutation,
     CreatePlotterMutation,
-    ChangeEventStatusMutation,
+    ChangeEventStateMutation,
   ),
 });
 

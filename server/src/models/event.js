@@ -3,15 +3,15 @@ import Plotter from './plotter';
 import Formula from './formula';
 import {
   UNPUBLISHED,
-  EventStatusEnum,
-} from '../enums/EventStatus';
+  EventStateEnum,
+} from '../enums/EventState';
 
 const { ObjectId } = Schema.Types;
 
 const eventSchema = new Schema({
-  status: {
+  state: {
     type: String,
-    enum: EventStatusEnum,
+    enum: EventStateEnum,
     default: UNPUBLISHED,
   },
   name: {

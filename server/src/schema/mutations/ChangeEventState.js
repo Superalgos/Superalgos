@@ -5,20 +5,20 @@ import {
 import { AuthentificationError } from '../../errors';
 import { EventType } from '../types';
 import { Event } from '../../models';
-import EventStatusEnum from '../types/enum/EventStatus';
+import EventStateEnum from '../types/enum/EventState';
 
 const args = {
   eventId: { type: new GraphQLNonNull(GraphQLID) },
-  status: { type: EventStatusEnum },
+  state: { type: EventStateEnum },
 };
 
-const resolve = (parent, { eventId: _id, status }, { userId: hostId }) => {
+const resolve = (parent, { eventId: _id, state }, { userId: hostId }) => {
   if (!hostId) {
     throw new AuthentificationError();
   }
 
   return new Promise((res, rej) => {
-    Event.findOneAndUpdate({ _id, hostId }, { status }, { new: true }, (err, modifiedEvent) => {
+    Event.findOneAndUpdate({ _id, hostId }, { state }, { new: true }, (err, modifiedEvent) => {
       if (err) {
         rej(err);
         return;
@@ -29,7 +29,7 @@ const resolve = (parent, { eventId: _id, status }, { userId: hostId }) => {
 };
 
 const mutation = {
-  changeEventStatus: {
+  changeEventState: {
     type: EventType,
     args,
     resolve,

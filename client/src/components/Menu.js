@@ -120,7 +120,6 @@ class Menu extends Component {
             className={classNames(classes.button, classes.cssRoot)}
             title='Report a Users Module bug'
             href='https://github.com/AdvancedAlgos/UsersModule/issues/new'
-            target='_blank'
         >
             <BugReportIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
           Report

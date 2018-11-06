@@ -1,4 +1,6 @@
 import React from 'react';
+import { Query } from 'react-apollo';
+
 import {
   Typography,
   FormControl,
@@ -8,9 +10,10 @@ import {
   FormHelperText,
   MenuItem,
 } from '@material-ui/core';
-
 import { withStyles } from '@material-ui/core/styles';
 import styles from '../styles';
+
+import { getOptionsCalls } from '../../../../GraphQL/Calls/index';
 
 
 class Technical extends React.Component {
@@ -25,17 +28,38 @@ class Technical extends React.Component {
           <InputLabel shrink htmlFor='select'>
             Select the formula
           </InputLabel>
-          <Select
-            value={event.formulaId}
-            input={<Input />}
-            displayEmpty
-            className={classes.selectEmpty}
-            onChange={newVal => edit('formulaId', newVal.target.value)}
-          >
-            <MenuItem key='1' value='1'>moi</MenuItem>
-            <MenuItem key='2' value='2'>toi</MenuItem>
-            <MenuItem key='3' value='3'>nous</MenuItem>
-          </Select>
+          <Query query={getOptionsCalls.EVENTS_FORMULAS} >
+            {({ loading, error, data }) => {
+              if (loading) {
+                return (
+                  <Select
+                    value='loading'
+                    input={<Input />}
+                    displayEmpty
+                    className={classes.selectEmpty}
+                    disabled
+                  >
+                    <MenuItem key='1' value='loading'>Loading possibilities...</MenuItem>
+                  </Select>
+                );
+              }
+              if (error) return `Error! ${error.message}`;
+              const selects = data.events_Formulas.map((formula, index) => (
+                <MenuItem key={index} value={formula.id}>{formula.name}</MenuItem>
+              ));
+              return (
+                <Select
+                  value={event.formulaId}
+                  input={<Input />}
+                  displayEmpty
+                  className={classes.selectEmpty}
+                  onChange={newVal => edit('formulaId', newVal.target.value)}
+                >
+                  {selects}
+                </Select>
+              );
+            }}
+          </Query>
           <FormHelperText className={classes.clickable} onClick={() => console.log('Comming soon in a modaal')}>
             To create a new formula, click here
           </FormHelperText>
@@ -44,17 +68,38 @@ class Technical extends React.Component {
           <InputLabel shrink htmlFor='select'>
             Select the Plotter
           </InputLabel>
-          <Select
-            value={event.plotterId}
-            input={<Input />}
-            displayEmpty
-            className={classes.selectEmpty}
-            onChange={newVal => edit('plotterId', newVal.target.value)}
-          >
-            <MenuItem key='1' value='1'>moi</MenuItem>
-            <MenuItem key='2' value='2'>toi</MenuItem>
-            <MenuItem key='3' value='3'>nous</MenuItem>
-          </Select>
+          <Query query={getOptionsCalls.EVENTS_PLOTTERS} >
+            {({ loading, error, data }) => {
+              if (loading) {
+                return (
+                  <Select
+                    value='loading'
+                    input={<Input />}
+                    displayEmpty
+                    className={classes.selectEmpty}
+                    disabled
+                  >
+                    <MenuItem key='1' value='loading'>Loading possibilities...</MenuItem>
+                  </Select>
+                );
+              }
+              if (error) return `Error! ${error.message}`;
+              const selects = data.events_Plotters.map((plotter, index) => (
+                <MenuItem key={index} value={plotter.id}>{plotter.name}</MenuItem>
+              ));
+              return (
+                <Select
+                  value={event.plotterId}
+                  input={<Input />}
+                  displayEmpty
+                  className={classes.selectEmpty}
+                  onChange={newVal => edit('plotterId', newVal.target.value)}
+                >
+                  {selects}
+                </Select>
+              );
+            }}
+          </Query>
           <FormHelperText> To create a new plotter, click here </FormHelperText>
         </FormControl>
       </React.Fragment>

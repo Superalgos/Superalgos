@@ -17,7 +17,7 @@ import { isEmpty } from '../../../utils/js-helpers'
 
 import SEND_MEMBER_INVITE from '../../../graphql/teams/SendMemberInvite'
 
-// import { checkGraphQLError } from '../../../utils/graphql-errors'
+import log from '../../../utils/log'
 
 const styles = theme => ({
   dialogStyle: {
@@ -60,7 +60,7 @@ export class InviteMemberDialog extends Component {
       return (
         <Mutation mutation={SEND_MEMBER_INVITE} >
           {(sendMemberInvite, { loading, error, data }) => {
-            console.log('sendMemberInvite: ', data)
+            log.debug('sendMemberInvite: ', data)
             let errors
             let loader = null
             if (loading) {
@@ -187,7 +187,7 @@ export class InviteMemberDialog extends Component {
 
   async handleSubmit (e, sendMemberInvite, email, teamId) {
     e.preventDefault()
-    console.log('sendMemberInvite submit: ', email, teamId)
+    log.debug('sendMemberInvite submit: ', email, teamId)
     await sendMemberInvite({ variables: { email, teamId } })
     this.setState({ email: '' })
   }

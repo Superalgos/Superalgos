@@ -1,16 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
-import { withStateHandlers, lifecycle, compose } from 'recompose'
 
 import Grid from '@material-ui/core/Grid'
 import { MessageCard } from '@advancedalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
-import { isDefined, isString } from '../../../utils/js-helpers'
-import { getItem } from '../../../utils/local-storage'
-
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
+
+import log from '../../../utils/log'
 
 import ManageFBItem from './ManageFBItem'
 
@@ -46,94 +44,63 @@ const styles = theme => ({
   }
 })
 
-export const ManageFBList = ({ classes, user = null }) => {
-  let owner
-  let authId = null
-  console.log('ManageTeamsList: ', user)
-  if (user !== null && isString(user)) {
-    owner = JSON.parse(user)
-    if (isDefined(owner.authId)) authId = owner.authId
-  }
-  console.log('ManageTeamsList 2: ', owner, authId)
-  if (authId === undefined || authId === null) {
-    return (
-      <Grid container spacing={40}>
-        <Grid>
-          <MessageCard message='Loading...' />
-        </Grid>
-      </Grid>
-    )
-  } else {
-    return (
-      <Query
-        query={GET_TEAMS_BY_OWNER}
-        variables={{ authId }}
-        fetchPolicy='network-only'
-      >
-        {({ loading, error, data }) => {
-          console.log('GET_TEAMS_BY_OWNER: ', loading, error, data)
+export const ManageFBList = ({ classes }) => (
+  <Query
+    query={GET_TEAMS_BY_OWNER}
+    fetchPolicy='network-only'
+  >
+    {({ loading, error, data }) => {
+      log.debug('GET_TEAMS_BY_OWNER: ', loading, error, data)
 
-          let errors = null
-          if (error) {
-            errors = error.graphQLErrors.map(({ message }, i) => {
-              return <MessageCard message={message} />
-            })
-          }
-          if (!loading && !error) {
-            if (data.teams_TeamsByOwner.length > 0) {
-              return (
-                <React.Fragment>
-                  <Grid container spacing={40}>
-                    {!loading &&
-                      data.teams_TeamsByOwner.map(team => (
-                        <ManageFBItem
-                          key={team.id}
-                          team={team}
-                          classes={classes}
-                          authId={authId}
-                        />
-                      ))}
-                    {errors}
-                  </Grid>
-                </React.Fragment>
-              )
-            }
-          } else {
-            return (
+      let errors = null
+      if (error) {
+        errors = error.graphQLErrors.map(({ message }, i) => {
+          return <MessageCard message={message} />
+        })
+      }
+      if (!loading && !error) {
+        if (data.teams_TeamsByOwner.length > 0) {
+          return (
+            <React.Fragment>
               <Grid container spacing={40}>
-                <Grid item xs={12}>
-                  <MessageCard message='Loading...' />
-                  {errors !== null && <MessageCard message={errors} />}
-                </Grid>
+                {!loading &&
+                  data.teams_TeamsByOwner.map(team => (
+                    <ManageFBItem
+                      key={team.id}
+                      team={team}
+                      classes={classes}
+                    />
+                  ))}
+                {errors}
               </Grid>
-            )
-          }
-        }}
-      </Query>
-    )
-  }
-}
+            </React.Fragment>
+          )
+        } else {
+          return (
+            <Grid container spacing={40}>
+              <Grid item xs={12}>
+                <MessageCard message='No financial beings yet — Create a team first!' />
+                {errors !== null && <MessageCard message={errors} />}
+              </Grid>
+            </Grid>
+          )
+        }
+      } else {
+        return (
+          <Grid container spacing={40}>
+            <Grid item xs={12}>
+              <MessageCard message='Loading...' />
+              {errors !== null && <MessageCard message={errors} />}
+            </Grid>
+          </Grid>
+        )
+      }
+    }}
+  </Query>
+)
 
 ManageFBList.propTypes = {
-  user: PropTypes.any,
   classes: PropTypes.object.isRequired
 }
 
-const getUserOnMount = lifecycle({
-  componentDidMount () {
-    getItem('user').then(user => {
-      this.setState({ user })
-    }) // Set user to state
-  }
-})
-
-const mapStateToProps = withStateHandlers(() => ({ user: null }), {
-  user: ({ user }) => () => ({ user })
-})
-
-const ManageFBListAuthId = compose(
-  mapStateToProps,
-  getUserOnMount
-)(ManageFBList)
-
-export default withStyles(styles)(ManageFBListAuthId)
+export default withStyles(styles)(ManageFBList)

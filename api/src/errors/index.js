@@ -1,4 +1,5 @@
 import { ApolloError } from 'apollo-server-express'
+import { inspect } from 'util'
 import { logger } from '../logger'
 
 export {
@@ -10,12 +11,32 @@ export {
   ValidationError,
 } from 'apollo-server-express'
 
-export function formatError(error) {
+export const formatError = (error) => {
   // This can be used to send errors to third
   // party services like Sentry or Stackdriver
-  logger.error(error)
+  logger.info('formatError')
+  logger.error(JSON.parse(JSON.stringify(inspect(error))))
+  const originalError = searchOriginalError(error)
+  logger.error('originalError')
+  logger.error(originalError)
+  const { message, code } = originalError
+  return { message, code}
+}
 
-  return error
+const searchOriginalError = (error) => {
+  if (error.originalError) {
+    logger.error('Original Error')
+    logger.error(error.originalError)
+    return error.originalError
+  }
+  if (error.errors) {
+    logger.error('Errors')
+    logger.error(JSON.parse(JSON.stringify(inspect(error.errors))))
+    return error.errors.map(searchOriginalError)[0]
+  }
+  logger.error('searchOriginalErrors')
+  logger.error(JSON.parse(JSON.stringify(inspect(error))))
+  return error;
 }
 
 // Define custom Apollo errors here

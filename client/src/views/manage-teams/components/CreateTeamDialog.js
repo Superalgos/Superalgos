@@ -18,7 +18,7 @@ import { isEmpty } from '../../../utils/js-helpers'
 import CREATE_TEAM from '../../../graphql/teams/CreateTeamMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
-// import { checkGraphQLError } from '../../../utils/graphql-errors'
+import log from '../../../utils/log'
 
 const styles = theme => ({
   dialogContainer: {
@@ -66,13 +66,12 @@ export class CreateTeamDialog extends Component {
   }
 
   render () {
-    const { classes, authId } = this.props
+    const { classes } = this.props
     return (
       <Mutation
         mutation={CREATE_TEAM}
         refetchQueries={[{
-          query: GET_TEAMS_BY_OWNER,
-          variables: { authId: authId }
+          query: GET_TEAMS_BY_OWNER
         }]}
       >
         {(createTeam, { loading, error, data }) => {
@@ -207,10 +206,11 @@ export class CreateTeamDialog extends Component {
 
   async handleSubmit (e, createTeam, name, botName) {
     e.preventDefault()
-    console.log('createTeam submit: ', name, botName)
+    log.debug('createTeam submit: ', name, botName)
     const slug = this.slugify(name)
     const botSlug = this.slugify(botName)
     await createTeam({ variables: { name, slug, botName, botSlug } })
+    window.canvasApp.eventHandler.raiseEvent('User Profile Changed')
     this.setState({ name: '', open: false })
   }
 
@@ -255,8 +255,7 @@ export class CreateTeamDialog extends Component {
 }
 
 CreateTeamDialog.propTypes = {
-  classes: PropTypes.object.isRequired,
-  authId: PropTypes.string
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(CreateTeamDialog)

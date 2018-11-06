@@ -12,15 +12,31 @@ import GroupIcon from '@material-ui/icons/Group'
 import UsersIcon from '@material-ui/icons/People'
 import SearchIcon from '@material-ui/icons/Search'
 import AdbIcon from '@material-ui/icons/Adb'
-import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications'
+// import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications'
+import BugReportIcon from '@material-ui/icons/BugReport'
 
 import { Link } from 'react-router-dom'
 
-const SettingsLink = props => <Link to='/teams/settings' {...props} />
+import log from '../../../utils/log'
+
+// const SettingsLink = props => <Link to='/teams/settings' {...props} />
 const FBLink = props => <Link to='/teams/financial-beings' {...props} />
 const MembersLink = props => <Link to='/teams/team-members' {...props} />
 const ManageLink = props => <Link {...props} />
 const ViewLink = props => <Link to='/teams' {...props} />
+
+/*
+<Button
+  variant='text'
+  size='small'
+  className={classNames(classes.button, classes.cssRoot)}
+  title='Your Global Team Settings'
+  component={SettingsLink}
+  to={`${match.url}/settings`}>
+  <SettingsApplicationsIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+  Settings
+</Button>
+*/
 
 const styles = theme => ({
   root: {
@@ -61,13 +77,13 @@ const styles = theme => ({
 class TeamBar extends Component {
   render () {
     const { classes, user, match } = this.props
-    console.log('TeamBar: ', user, match)
+    log.debug('TeamBar: ', user, match)
     return (
       <div className={classes.root}>
         <AppBar position='static' color='secondary'>
-          <Toolbar>
+          <Toolbar variant='dense'>
             <Typography variant='h5' color='inherit' className={classes.flex}>
-              Manage Teams
+              Teams
             </Typography>
             <Button
               variant='text'
@@ -113,11 +129,12 @@ class TeamBar extends Component {
               variant='text'
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
-              title='Manage Financial Beings'
-              component={SettingsLink}
-              to={`${match.url}/settings`}>
-              <SettingsApplicationsIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
-              Settings
+              title='Report a Teams Module bug'
+              href='https://github.com/AdvancedAlgos/TeamsModule/issues/new'
+              target='_blank'
+            >
+              <BugReportIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Report
             </Button>
           </Toolbar>
         </AppBar>

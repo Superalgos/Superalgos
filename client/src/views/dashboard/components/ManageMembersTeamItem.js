@@ -12,6 +12,8 @@ import InviteMemberDialog from './InviteMemberDialog'
 import ManageMembersItem from './ManageMembersItem'
 import { MessageCard } from '@advancedalgos/web-components'
 
+import log from '../../../utils/log'
+
 const styles = theme => ({
   heroContent: {
     maxWidth: 600,
@@ -56,7 +58,7 @@ const styles = theme => ({
 })
 
 export const ManageMembersTeamItem = ({ classes, team, authId }) => {
-  console.log('ManageMembersItem', team, team.profile, team.profile.avatar)
+  log.debug('ManageMembersItem', team, team.profile, team.profile.avatar)
   let avatar
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
     avatar = team.profile.avatar

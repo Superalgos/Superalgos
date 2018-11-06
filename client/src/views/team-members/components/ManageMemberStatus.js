@@ -10,6 +10,8 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
 
+import log from '../../../utils/log'
+
 const styles = theme => ({
   dialogContainer: {
     display: 'block',
@@ -47,7 +49,7 @@ export class ManageMemberStatus extends Component {
   }
 
   render () {
-    console.log(this.props, this.props.status)
+    log.debug(this.props, this.props.status)
     const { classes, status } = this.props
     return (
       <div>

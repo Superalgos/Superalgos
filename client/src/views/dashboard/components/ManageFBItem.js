@@ -10,8 +10,10 @@ import Typography from '@material-ui/core/Typography'
 
 import ManageFBEdit from './ManageFBEdit'
 
+import log from '../../../utils/log'
+
 export const ManageFBItem = ({ classes, team, authId }) => {
-  console.log('ManageFBItem', team, team.fb[0], team.profile.avatar)
+  log.debug('ManageFBItem', team, team.fb[0], team.profile.avatar)
   let avatar
   if (team.fb[0].avatar !== undefined && team.fb[0].avatar !== 'a') {
     avatar = team.fb[0].avatar

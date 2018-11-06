@@ -15,6 +15,7 @@ import REMOVE_TEAM_MEMBER from '../../../graphql/teams/RemoveTeamMemberMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
+import log from '../../../utils/log'
 
 const styles = theme => ({
   dialogContainer: {
@@ -54,7 +55,7 @@ export class ManageMemberDelete extends Component {
   }
 
   render () {
-    console.log(this.props, this.props.teamId)
+    log.debug(this.props, this.props.teamId)
     const { classes, teamId, authId } = this.props
     return (
       <Mutation
@@ -72,7 +73,7 @@ export class ManageMemberDelete extends Component {
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
               const displayMessage = checkGraphQLError(message)
-              console.log('createTeam error:', displayMessage)
+              log.debug('createTeam error:', displayMessage)
               return (
                 <Typography key={i} variant='caption'>
                   {message}

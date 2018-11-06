@@ -12,8 +12,10 @@ import ManageTeamDetails from './ManageTeamDetails'
 import ManageTeamDelete from './ManageTeamDelete'
 import ManageTeamEdit from './ManageTeamEdit'
 
+import log from '../../../utils/log'
+
 export const ManageTeamsItem = ({ classes, team, authId }) => {
-  console.log('ManageTeamsItem', team, team.profile, team.profile.avatar)
+  log.debug('ManageTeamsItem', team, team.profile, team.profile.avatar)
   let avatar
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
     avatar = team.profile.avatar

@@ -15,6 +15,7 @@ import DELETE_TEAM from '../../../graphql/teams/DeleteTeamMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import { checkGraphQLError } from '../../../utils/graphql-errors'
+import log from '../../../utils/log'
 
 const styles = theme => ({
   dialogContainer: {
@@ -54,15 +55,14 @@ export class ManageTeamDelete extends Component {
   }
 
   render () {
-    console.log(this.props, this.props.slug)
-    const { classes, authId } = this.props
+    log.debug(this.props, this.props.slug)
+    const { classes } = this.props
     return (
       <Mutation
         mutation={DELETE_TEAM}
         refetchQueries={[
           {
-            query: GET_TEAMS_BY_OWNER,
-            variables: { authId }
+            query: GET_TEAMS_BY_OWNER
           }
         ]}
       >
@@ -77,7 +77,7 @@ export class ManageTeamDelete extends Component {
           if (error) {
             errors = error.graphQLErrors.map(({ message }, i) => {
               const displayMessage = checkGraphQLError(message)
-              console.log('createTeam error:', displayMessage)
+              log.debug('createTeam error:', displayMessage)
               return (
                 <Typography key={i} variant='caption'>
                   {message}
@@ -123,7 +123,8 @@ export class ManageTeamDelete extends Component {
                         this.handleSubmit(
                           e,
                           deleteTeam,
-                          this.props.slug
+                          this.props.slug,
+                          this.props.botSlug
                         )
                       }}
                       color='primary'
@@ -140,9 +141,10 @@ export class ManageTeamDelete extends Component {
     )
   }
 
-  async handleSubmit (e, deleteTeam, slug) {
+  async handleSubmit (e, deleteTeam, slug, botSlug) {
     e.preventDefault()
-    await deleteTeam({ variables: { slug } })
+    await deleteTeam({ variables: { slug, botSlug } })
+    window.canvasApp.eventHandler.raiseEvent('User Profile Changed')
     this.setState({ open: false })
   }
 }
@@ -150,7 +152,7 @@ export class ManageTeamDelete extends Component {
 ManageTeamDelete.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
-  authId: PropTypes.string.isRequired
+  botSlug: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(ManageTeamDelete)

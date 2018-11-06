@@ -1,4 +1,4 @@
-const gql = require('graphql-tag')
+import gql from 'graphql-tag'
 
 const TEAM_FB_FRAGMENT = gql`{
   id

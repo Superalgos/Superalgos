@@ -2,8 +2,8 @@
 import gql from 'graphql-tag'
 
 export const GET_TEAMS_BY_OWNER = gql`
-  query teamsByOwnerQuery($authId: String!) {
-    teams_TeamsByOwner(ownerId: $authId) {
+  query teamsByOwnerQuery {
+    teams_TeamsByOwner {
       id
       name
       slug

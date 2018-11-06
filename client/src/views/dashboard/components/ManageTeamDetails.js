@@ -11,6 +11,8 @@ import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
 import CardMedia from '@material-ui/core/CardMedia'
 
+import log from '../../../utils/log'
+
 const styles = theme => ({
   dialogContainer: {
     display: 'block',
@@ -62,7 +64,7 @@ export class ManageTeamDetails extends Component {
   }
 
   render () {
-    console.log(this.props.team)
+    log.debug(this.props.team)
     const { classes } = this.props
     const { name, members, profile, createdAt } = this.props.team
     let avatar

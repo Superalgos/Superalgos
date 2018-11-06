@@ -38,9 +38,6 @@ export const TeamsItem = ({ classes, team }) => {
             <Typography gutterBottom variant='h5' component='h2'>
               {team.name}
             </Typography>
-            <Typography variant='caption' color='textSecondary'>
-              {team.createdAt}
-            </Typography>
             <Typography variant='caption' paragraph gutterBottom>
               Members: 1
             </Typography>

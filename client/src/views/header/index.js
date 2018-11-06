@@ -7,7 +7,6 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
-import classNames from 'classnames'
 
 // icons
 import HomeIcon from '@material-ui/icons/Home'
@@ -15,20 +14,12 @@ import ExitIcon from '@material-ui/icons/ExitToApp'
 
 import { Link } from 'react-router-dom'
 
-import { getItem } from '../../utils/local-storage'
-
 // components
 import { LoggedIn } from './LoggedIn'
 import { LoggedOut } from './LoggedOut'
 
+import allMenus from './imports'
 import AALogo from '../../assets/advanced-algos/aa-logo-dark.svg'
-
-const ChartsLink = props => <Link to='/charts' {...props} />
-const UsersLink = props => <Link to='/users' {...props} />
-const TeamsLink = props => <Link to='/teams' {...props} />
-const EventsLink = props => <Link to='/events' {...props} />
-const KeyVaultLink = props => <Link to='/key-vault' {...props} />
-const HomeLink = props => <Link to='/' {...props} />
 
 const styles = theme => ({
   '@global': {
@@ -62,6 +53,25 @@ const styles = theme => ({
   },
   externalLink: {
     textDecoration: 'none'
+  },
+  dropdownContent: {
+    display: 'none',
+    position: 'absolute',
+    backgroundColor: '#f1f1f1',
+    minWidth: '160px',
+    boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+    zIndex: 1
+  },
+  dropdownContentShown: {
+    display: 'block',
+    position: 'absolute',
+    backgroundColor: '#f1f1f1',
+    minWidth: '160px',
+    boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+    zIndex: 1
+  },
+  dropdownButtons: {
+    display: 'block'
   }
 })
 
@@ -70,7 +80,7 @@ class Header extends Component {
     super(props)
     this.state = {
       user: null,
-      open: false
+      open: null
     }
   }
 
@@ -81,8 +91,32 @@ class Header extends Component {
 
   render () {
     let { classes, auth } = this.props
+    let { open } = this.state
 
     let user = JSON.parse(this.state.user)
+
+    const menus = allMenus.map((menu, index) => {
+      return (
+        <div className='dropdown'
+          onMouseEnter={() => this.setState({ open: index })}
+          onMouseLeave={() => this.setState({ open: null })}
+        >
+          <Button component={Link} to={menu.to} color='inherit'>
+            {menu.title}
+          </Button>
+          <div className={open === index ? classes.dropdownContentShown : classes.dropdownContent} >
+            {
+              menu.submenus.map((submenu, index) => {
+                // const Icon = submenu.icon
+                return (
+                  <Button component={Link} to={submenu.to} className={classes.dropdownButtons}>{submenu.title}</Button>
+                )
+              })}
+          </div>
+        </div>
+      )
+    })
+
     return (
       <div className={classes.root}>
         <AppBar
@@ -103,26 +137,17 @@ class Header extends Component {
               className={classes.menuButton}
               color='inherit'
               title='Home'
-              component={HomeLink}
+              component={Link}
+              to='/'
             >
               <HomeIcon />
             </IconButton>
 
-            <Button component={ChartsLink} color='inherit'>
+            <Button component={Link} to='/charts' color='inherit'>
               Charts
             </Button>
-            <Button component={UsersLink} color='inherit'>
-              Users
-            </Button>
-            <Button component={TeamsLink} color='inherit'>
-              Teams
-            </Button>
-            <Button component={EventsLink} color='inherit'>
-              Events
-            </Button>
-            <Button component={KeyVaultLink} color='inherit'>
-              Key Vault
-            </Button>
+
+            { menus }
 
             <Button
               href='https://www.advancedalgos.net/documentation-quick-start.shtml'

@@ -111,16 +111,16 @@ function newAnimation() {
 
             if (INFO_LOG === true) { logger.write("[INFO] animationLoop -> Entering function."); }
 
-            /* First thing is to clear the actual canvas */
-
-            clearBrowserCanvas();
-
             if (window.canvasApp.visible === true) {
 
                 /* We set the canvas to its normal width and height */
 
                 browserCanvas.width = window.innerWidth;
                 browserCanvas.height = window.innerHeight - window.canvasApp.topMargin;
+
+                /* First thing is to clear the actual canvas */
+
+                clearBrowserCanvas();
 
                 /* We loop through the callback functions collections and execute them all. */
 
@@ -152,18 +152,14 @@ function newAnimation() {
 
         if (INFO_LOG === true) { logger.write("[INFO] clearBrowserCanvas -> Entering function."); }
 
-        browserCanvasContext.clearRect(0, 0, browserCanvas.width, browserCanvas.height);
-
-        /* Set the background. */
-
         browserCanvasContext.beginPath();
 
         browserCanvasContext.rect(0, 0, browserCanvas.width, browserCanvas.height);
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + 1 + ')';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)';
 
         browserCanvasContext.closePath();
-
         browserCanvasContext.fill();
+
     }
 }
 

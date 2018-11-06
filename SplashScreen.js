@@ -109,7 +109,7 @@ function newSplashScreen() {
         /* Second the % of Advance. */
 
         let label = '' + Math.trunc(stepsInitializationCounter)  + ' %';
-        stepsInitializationCounter = stepsInitializationCounter + 0.1;
+        stepsInitializationCounter = stepsInitializationCounter + 0.5;
 
         if (stepsInitializationCounter > 99) {
 

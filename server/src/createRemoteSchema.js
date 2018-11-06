@@ -13,9 +13,12 @@ import {
 import { capitalize } from './utils'
 import logger from './logger'
 
-export const createRemoteSchema = async (uri) => {
+export const createRemoteSchema = async (uri, preshared_key) => {
   const makeDatabaseServiceLink = () => createHttpLink({
     uri: uri,
+    headers: {
+      preshared: preshared_key
+    },
     fetch
   })
   const databaseServiceSchemaDefinition = await introspectSchema(makeDatabaseServiceLink())
@@ -26,7 +29,8 @@ export const createRemoteSchema = async (uri) => {
     return (
       {
         headers: {
-          Authorization: previousContext.graphqlContext.headers.authorization ? previousContext.graphqlContext.headers.authorization : ''
+          Authorization: previousContext.graphqlContext.headers.authorization ? previousContext.graphqlContext.headers.authorization : '',
+          UserId: previousContext.graphqlContext.headers.userId ? previousContext.graphqlContext.headers.userId : ''
         }
       }
     )
@@ -38,10 +42,10 @@ export const createRemoteSchema = async (uri) => {
   })
 }
 
-export const createTransformedRemoteSchema = async (prefix, uri) => {
+export const createTransformedRemoteSchema = async (prefix, uri, preshared_key) => {
   var schema
   try {
-    schema = await createRemoteSchema(uri)
+    schema = await createRemoteSchema(uri, preshared_key)
   } catch (error) {
     logger.error(`An error occured while fetching ${prefix}, ${uri} schema. Details: ${error}`)
     return false

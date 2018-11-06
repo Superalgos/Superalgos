@@ -21,9 +21,10 @@
   },
   "homepage": "https://github.com/Algoteers/MasterApp#readme",
   "devDependencies": {
-    "@advancedalgos/key-vault-client": "^0.0.9",
-    "@advancedalgos/teams-client": "0.0.22",
-    "@advancedalgos/users-client": "^0.0.12",
+    "@advancedalgos/key-vault-client": "^0.0.20",
+    "@advancedalgos/teams-client": "0.0.24",
+    "@advancedalgos/users-client": "^0.0.15",
+    "@advancedalgos/events-client": "^0.0.1",
     "@advancedalgos/web-components": "0.0.13",
     "@babel/core": "^7.1.2",
     "autoprefixer": "^9.2.0",
@@ -74,6 +75,7 @@
     "classnames": "^2.2.6",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
+    "jwt-decode": "^2.2.0",
     "mini-css-extract-plugin": "^0.4.4",
     "npm": "^6.4.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
@@ -81,7 +83,9 @@
     "react": "^16.5.2",
     "react-apollo": "^2.2.4",
     "react-dom": "^16.5.2",
+    "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
     "uglifyjs-webpack-plugin": "^2.0.1"
   }
 }

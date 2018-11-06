@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import jwtDecode from 'jwt-decode'
 
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -7,9 +8,11 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
+import classNames from 'classnames'
 
 // icons
 import HomeIcon from '@material-ui/icons/Home'
+import ExitIcon from '@material-ui/icons/ExitToApp'
 
 import { Link } from 'react-router-dom'
 
@@ -21,10 +24,11 @@ import { LoggedOut } from './LoggedOut'
 
 import AALogo from '../../assets/advanced-algos/aa-logo-dark.svg'
 
+const ChartsLink = props => <Link to='/charts' {...props} />
 const UsersLink = props => <Link to='/users' {...props} />
 const TeamsLink = props => <Link to='/teams' {...props} />
+const EventsLink = props => <Link to='/events' {...props} />
 const KeyVaultLink = props => <Link to='/key-vault' {...props} />
-const DashboardLink = props => <Link to='/dashboard' {...props} />
 const HomeLink = props => <Link to='/' {...props} />
 
 const styles = theme => ({
@@ -56,6 +60,9 @@ const styles = theme => ({
     display: 'block',
     maxWidth: 240,
     maxHeight: 48
+  },
+  externalLink: {
+    textDecoration: 'none'
   }
 })
 
@@ -69,15 +76,19 @@ class Header extends Component {
   }
 
   async componentDidMount () {
-    const user = await getItem('user')
+    const user = window.localStorage.getItem('user')
     this.setState({ user })
   }
 
   render () {
     let { classes, auth } = this.props
-
+    if (window.localStorage.getItem('access_token')) {
+      if (jwtDecode(window.localStorage.getItem('access_token')).exp < new Date().getTime() / 1000) {
+        window.localStorage.clear()
+        window.location.reload()
+      }
+    }
     let user = JSON.parse(this.state.user)
-
     return (
       <div className={classes.root}>
         <AppBar
@@ -102,30 +113,47 @@ class Header extends Component {
             >
               <HomeIcon />
             </IconButton>
+
+            <Button component={ChartsLink} color='inherit'>
+              Charts
+            </Button>
             <Button component={UsersLink} color='inherit'>
               Users
             </Button>
             <Button component={TeamsLink} color='inherit'>
               Teams
             </Button>
+            <Button component={EventsLink} color='inherit'>
+              Events
+            </Button>
+            <Button component={KeyVaultLink} color='inherit'>
+              Key Vault
+            </Button>
+
+            <Button
+              href='https://www.advancedalgos.net/documentation-quick-start.shtml'
+              color='inherit'
+              target='_blank'
+            >
+            Docs
+            </Button>
 
             {this.state.user !== undefined && this.state.user !== null ? (
               <React.Fragment>
-                <Button component={KeyVaultLink} color='inherit'>
-                  Key Vault
-                </Button>
-
-                <IconButton
-                  className={classes.menuButton}
-                  color='inherit'
-                  title='Dashboard'
-                  component={DashboardLink}
-                 />
                 <LoggedIn user={user} auth={auth} styles={styles} />
               </React.Fragment>
             ) : (
               <LoggedOut auth={auth} styles={styles} />
             )}
+
+            <IconButton
+              className={classes.menuButton}
+              color='inherit'
+              title='Exit'
+              href='http://www.advancedalgos.net/'
+            >
+              <ExitIcon />
+            </IconButton>
           </Toolbar>
         </AppBar>
       </div>

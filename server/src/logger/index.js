@@ -1,4 +1,6 @@
-const { createLogger, format, transports } = require('winston')
+import { createLogger, format, transports } from 'winston'
+import { inspect } from 'util'
+
 const { combine, timestamp, simple } = format
 
 const options = {
@@ -13,21 +15,21 @@ const options = {
     timestamp: true
   },
   console: {
-    level: 'debug',
+    level: 'info',
     handleExceptions: true,
     json: false,
     colorize: true,
-    timestamp: true
   }
 }
 
 const logger = createLogger({
   level: 'info',
-  format: combine(
-    timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss'
-    }),
-    simple()
+  format: format.combine(
+          format.colorize(),
+          format.timestamp({ format: 'YY/MM/DD HH:mm' }),
+          format.printf(
+            info => `${info.timestamp} - ${info.level}: ${JSON.parse(JSON.stringify(inspect(info.message)))}`
+          )
   ),
   transports: [
     new transports.File(options.file),

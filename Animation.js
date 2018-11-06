@@ -154,6 +154,16 @@ function newAnimation() {
 
         browserCanvasContext.clearRect(0, 0, browserCanvas.width, browserCanvas.height);
 
+        /* Set the background. */
+
+        browserCanvasContext.beginPath();
+
+        browserCanvasContext.rect(0, 0, browserCanvas.width, browserCanvas.height);
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')';
+
+        browserCanvasContext.closePath();
+
+        browserCanvasContext.fill();
     }
 }
 

@@ -1,16 +1,22 @@
-import GamesIcon from '@material-ui/icons/Games';
-import SearchIcon from '@material-ui/icons/Search';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import {
+  Search,
+  GamepadRounded,
+  AccessibilityNew,
+  LibraryAdd,
+} from '@material-ui/icons';
 
 const data = [
   {
-    title: 'Look for an event', to: '/', icon: SearchIcon, text: '',
+    title: 'Look for an event', to: '/', icon: Search, text: '',
   },
   {
-    title: 'Events you are enrolled in', to: '/my', icon: GamesIcon, text: '',
+    title: 'Events you are enrolled in', to: '/my', icon: GamepadRounded, text: '',
   },
   {
-    title: 'Host your own competition', to: '/host', icon: LibraryAddIcon, text: '',
+    title: 'Your hosted competition', to: '/host', icon: AccessibilityNew, text: '',
+  },
+  {
+    title: 'Host a new competition', to: '/create', icon: LibraryAdd, text: '',
   },
 ];
 

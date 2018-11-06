@@ -8,9 +8,12 @@ import {
 } from '@material-ui/core';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import { DateTimePicker } from 'material-ui-pickers';
-import { hostedEventsCalls } from '../../GraphQL/Calls/index';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './styles';
 
-class New extends React.Component {
+import { hostedEventsCalls } from '../../../GraphQL/Calls';
+
+class Create extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,14 +31,7 @@ class New extends React.Component {
     return (
       <Mutation mutation={hostedEventsCalls.EVENTS_CREATEEVENT}
         update={(store, { data }) => {
-          const { events_EventsByHost: hostedEvents } = store.readQuery({
-            query: hostedEventsCalls.EVENTS_EVENTSBYHOST,
-          });
-          store.writeQuery({
-            query: hostedEventsCalls.EVENTS_EVENTSBYHOST,
-            data: { events_EventsByHost: hostedEvents.concat([data.events_CreateEvent]) },
-          });
-          this.props.handleNewEvent(data.events_CreateEvent);
+          this.props.history.push(`/edit/${data.events_CreateEvent.id}`);
         }
         }
       >
@@ -103,4 +99,4 @@ class New extends React.Component {
   }
 }
 
-export default New;
+export default withStyles(styles)(Create);

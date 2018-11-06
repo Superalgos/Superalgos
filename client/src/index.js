@@ -11,6 +11,7 @@ import Search from './Components/Search';
 import Events from './Components/Events';
 import HostedEvents from './Components/HostedEvents';
 import EditEvent from './Components/Event/Edit';
+import CreateEvent from './Components/Event/Create';
 
 class App extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={Search} />
               <Route path='/my' component={Events} />
+              <Route path='/create' component={CreateEvent} />
               <Route path='/edit/:slug' component={EditEvent} />
               <Route path='/show/:slug' component={EditEvent} />
               <Route path='/host' component={HostedEvents} />

@@ -10,6 +10,9 @@ const styles = theme => ({
     width: '25%',
     maxWidth: 'none',
   },
+  clickable: {
+    cursor: 'pointer',
+  },
   card: {
     flexGrow: 1,
     padding: 20,

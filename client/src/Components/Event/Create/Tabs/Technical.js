@@ -15,7 +15,7 @@ import styles from '../styles';
 
 class Technical extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, event, edit } = this.props;
     return (
       <React.Fragment>
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
@@ -26,36 +26,36 @@ class Technical extends React.Component {
             Select the formula
           </InputLabel>
           <Select
-            id='select'
-            value='1'
-            input={<Input name='Role' id='role-label-placeholder' />}
+            value={event.formulaId}
+            input={<Input />}
             displayEmpty
-            name='select'
             className={classes.selectEmpty}
+            onChange={newVal => edit('formulaId', newVal.target.value)}
           >
             <MenuItem key='1' value='1'>moi</MenuItem>
             <MenuItem key='2' value='2'>toi</MenuItem>
             <MenuItem key='3' value='3'>nous</MenuItem>
           </Select>
-          <FormHelperText> For new formula, select {'"'}create new{'"'} </FormHelperText>
+          <FormHelperText className={classes.clickable} onClick={() => console.log('Comming soon in a modaal')}>
+            To create a new formula, click here
+          </FormHelperText>
         </FormControl>
         <FormControl className={classes.inputField}>
           <InputLabel shrink htmlFor='select'>
             Select the Plotter
           </InputLabel>
           <Select
-            id='select'
-            value='1'
-            input={<Input name='Role' id='role-label-placeholder' />}
+            value={event.plotterId}
+            input={<Input />}
             displayEmpty
-            name='select'
             className={classes.selectEmpty}
+            onChange={newVal => edit('plotterId', newVal.target.value)}
           >
             <MenuItem key='1' value='1'>moi</MenuItem>
             <MenuItem key='2' value='2'>toi</MenuItem>
             <MenuItem key='3' value='3'>nous</MenuItem>
           </Select>
-          <FormHelperText> For new plotter, select {'"'}create new{'"'} </FormHelperText>
+          <FormHelperText> To create a new plotter, click here </FormHelperText>
         </FormControl>
       </React.Fragment>
     );

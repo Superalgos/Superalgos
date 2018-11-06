@@ -4,6 +4,7 @@ import {
 } from 'graphql';
 import { EventType } from '../types';
 import { Event } from '../../models';
+import { UNPUBLISHED, ARCHIVED } from '../../enums/EventStatus';
 
 const args = {
   minDate: { type: GraphQLInt },
@@ -12,6 +13,7 @@ const args = {
 
 const resolve = (parent, { minDate, maxDate }) => Event.find(
   Object.assign(
+    { status: { $nin: [UNPUBLISHED, ARCHIVED] } },
     minDate || maxDate
       ? {
         startDatetime:

@@ -175,7 +175,7 @@ class UserSearch extends Component {
 
                 />
                   <CardContent>
-                    <Typography gutterBottom variant='h5' component='h2'>
+                    <Typography gutterBottom component='h2'>
                       {user.alias}
                     </Typography>
                   </CardContent>

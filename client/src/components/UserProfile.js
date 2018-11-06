@@ -23,7 +23,8 @@ const styles = theme => ({
     margin: 2
   },
   card: {
-    width: '80%',
+    maxWidth: 500,
+    minWidth: 500,
     paddingTop: '30'
   },
   media: {
@@ -46,6 +47,51 @@ const styles = theme => ({
 
 class UserProfile extends Component {
 
+  displayNames () {
+    const user = this.props.data.users_User
+    const { classes } = this.props
+
+    if (user.firstName !== null && user.lastName !== null) {
+      return (
+        <Typography className={classes.typography} gutterBottom variant='h5' component='h2'>
+          { user.firstName + ' ' + user.lastName}
+        </Typography>
+      )
+    }
+  }
+
+  displayRole () {
+    const user = this.props.data.users_User
+    const { classes } = this.props
+
+    if (user.role.name !== null && user.role.name !== 'Not Defined') {
+      return (
+        <div>
+          <Divider />
+          <Typography className={classes.typography} align='left' gutterBottom variant='subtitle1' component='h2'>
+            { user.role.name }
+          </Typography>
+        </div>
+      )
+    }
+  }
+
+  displayBio () {
+    const user = this.props.data.users_User
+    const { classes } = this.props
+
+    if (user.bio !== null && user.bio !== '') {
+      return (
+        <div>
+          <Divider />
+          <Typography className={classes.typography} component='p'>
+            { user.bio }
+          </Typography>
+        </div>
+      )
+    }
+  }
+
   displayUserProfile () {
     const user = this.props.data.users_User
     const { classes } = this.props
@@ -66,19 +112,16 @@ class UserProfile extends Component {
 
               />
               <CardContent>
-                <Typography className={classes.typography} gutterBottom variant='h5' component='h2'>
-                  { user.firstName } { user.lastName } ( {user.alias} )
-                </Typography>
-                <Divider />
 
-                <Typography className={classes.typography} align='left' gutterBottom variant='subtitle1' component='h2'>
-                  { user.role.name }
-                </Typography>
-                <Divider />
+                {this.displayNames()}
 
-                <Typography className={classes.typography} component='p'>
-                  { user.bio }
+                <Typography className={classes.typography} gutterBottom variant='h6' component='h3'>
+                  {user.alias}
                 </Typography>
+
+                {this.displayRole()}
+                {this.displayBio()}
+
               </CardContent>
             </CardActionArea>
           </Card>

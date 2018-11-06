@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import UserSearch from './UserSearch'
 import {compose} from 'react-apollo'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import Paper from '@material-ui/core/Paper'
 
 // Materia UI
 
@@ -9,9 +10,11 @@ import { withStyles } from '@material-ui/core/styles'
 
 const styles = theme => ({
   root: {
+    width: '50%',
     flexGrow: 1,
-    padding: 60,
-    margin: 2
+    padding: 10,
+    marginLeft: '25%',
+    marginTop: '2%'
   }
 })
 
@@ -23,10 +26,13 @@ class Search extends Component {
     }
   }
   render () {
+    const { classes } = this.props
     return (
       <React.Fragment>
         <CssBaseline />
-        <UserSearch />
+        <Paper className={classes.root}>
+          <UserSearch />
+        </Paper>
       </React.Fragment>
     )
   }

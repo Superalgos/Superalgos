@@ -12,7 +12,7 @@ import UsersIcon from '@material-ui/icons/People'
 import BrowseIcon from '@material-ui/icons/ImportContacts'
 import SearchIcon from '@material-ui/icons/Search'
 import ContactIcon from '@material-ui/icons/ContactMail'
-import AboutIcon from '@material-ui/icons/FormatShapes'
+import BugReportIcon from '@material-ui/icons/BugReport'
 
 import { Link } from 'react-router-dom'
 
@@ -22,7 +22,6 @@ import LoggedInUser from './LoggedInUser'
 const HomeLink = props => <Link to='/users' {...props} />
 const BrowseLink = props => <Link to='/users/browse' {...props} />
 const SearchLink = props => <Link to='/users/search' {...props} />
-const AboutLink = props => <Link to='/users/about' {...props} />
 
 const styles = theme => ({
   root: {
@@ -85,24 +84,14 @@ class NavBar extends Component {
 
   render () {
     const { classes, user, match } = this.props
-    console.log('NavBar: ', user, match)
     return (
       <div className={classes.root}>
         <AppBar position='static' color='secondary'>
-          <Toolbar>
+          <Toolbar variant='dense'>
             <Typography variant='h5' color='inherit' className={classes.flex}>
-              Users Module
+              Users
             </Typography>
-            <Button
-              variant='text'
-              size='small'
-              className={classNames(classes.button, classes.cssRoot)}
-              title='Users Home'
-              component={HomeLink}
-              to={`${match.url}`}>
-              <UsersIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
-              Home
-            </Button>
+            <LoggedInUser {...this.props} authId={this.state.authId} />
             <Button
               variant='text'
               size='small'
@@ -127,13 +116,23 @@ class NavBar extends Component {
               variant='text'
               size='small'
               className={classNames(classes.button, classes.cssRoot)}
-              title='About the Users Module'
-              component={AboutLink}
-              to={`${match.url}/about`}>
-              <AboutIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
-              About
+              title='Report a Users Module bug'
+              href='https://github.com/AdvancedAlgos/UsersModule/issues/new'
+              target='_blank'
+            >
+              <BugReportIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Report
             </Button>
-            <LoggedInUser {...this.props} authId={this.state.authId} />
+            <Button
+              variant='text'
+              size='small'
+              className={classNames(classes.button, classes.cssRoot)}
+              title='Users Module Home'
+              component={HomeLink}
+              to={`${match.url}`}>
+              <UsersIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+              Home
+            </Button>
           </Toolbar>
         </AppBar>
       </div>

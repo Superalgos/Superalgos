@@ -112,7 +112,6 @@ const getRolesQuery = gql`
 `
 const updateUserMutation = gql`
 mutation(
-  $id: ID!,
   $firstName:String,
   $middleName:String,
   $lastName:String,
@@ -124,7 +123,6 @@ mutation(
 )
   {
     users_UpdateUser (
-      id: $id,
       firstName:$firstName,
       middleName: $middleName,
       lastName: $lastName,
@@ -142,35 +140,15 @@ mutation(
 `
 const updateReferrerMutation = gql`
 mutation(
-  $id: ID!,
   $referrerId:String!
 )
   {
     users_UpdateUserReferrer (
-      id: $id,
       referrerId:$referrerId
     )
     {
       id
       referrerId
-    }
-}
-`
-const updateUserImagesMutation = gql`
-mutation(
-  $id: ID!,
-  $avatarHandle:String,
-  $avatarChangeDate:String 
-)
-  {
-    users_UpdateUserImages (
-      id: $id,
-      avatarHandle:$avatarHandle,
-      avatarChangeDate: $avatarChangeDate 
-    )
-    {
-      id
-      alias
     }
 }
 `
@@ -182,6 +160,5 @@ export {
   getUsersBySearchFields,
   getDescendentsQuery,
   updateUserMutation,
-  updateReferrerMutation,
-  updateUserImagesMutation
+  updateReferrerMutation
 }

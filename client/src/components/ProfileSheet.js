@@ -85,7 +85,8 @@ class ProfileSheet extends Component {
       firstNameError: false,
       middleNameError: false,
       lastNameError: false,
-      bioError: false
+      bioError: false,
+      updated: false
     }
   }
 
@@ -108,7 +109,6 @@ class ProfileSheet extends Component {
     e.preventDefault()
     this.props.updateUserMutation({
       variables: {
-        id: this.state.id,
         firstName: this.state.firstName,
         middleName: this.state.middleName,
         lastName: this.state.lastName,
@@ -135,6 +135,8 @@ class ProfileSheet extends Component {
     user.role.id = this.state.roleId
 
     localStorage.setItem('loggedInUser', JSON.stringify(user))
+
+    this.setState({updated: true})
   }
 
   handleCheckBoxes (e) {
@@ -241,7 +243,8 @@ class ProfileSheet extends Component {
 
   componentWillMount ()    	{
     	    if (this.defaultValuesSet === false)    	    {
-          let authId = localStorage.getItem('authId')
+          let authUser = JSON.parse(localStorage.getItem('user'))
+          let authId = authUser.authId
           let userData = localStorage.getItem('loggedInUser')
 
           if (userData === 'undefined' || userData === null) { return }
@@ -298,6 +301,14 @@ class ProfileSheet extends Component {
         default:
 
       }
+    }
+  }
+
+  displayButtonTitle () {
+    if (this.state.updated === true) {
+      return 'Updated'
+    } else {
+      return 'Update'
     }
   }
 
@@ -481,7 +492,13 @@ class ProfileSheet extends Component {
 
           <Grid container justify='center' >
             <Grid item>
-              <Button variant='contained' color='secondary' className={classes.button} onClick={this.submitForm.bind(this)}>Update</Button>
+              <Button
+                variant='contained'
+                color='secondary'
+                className={classes.button}
+                onClick={this.submitForm.bind(this)}
+                disabled={this.state.updated}
+              >{this.displayButtonTitle()}</Button>
             </Grid>
           </Grid>
         </form>

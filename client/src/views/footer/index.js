@@ -49,105 +49,59 @@ class Footer extends Component {
       return (<div />)
     } else {
       return (
-        <footer className={classNames(classes.footer, classes.layout)}>
-          <Grid
-            container
-            spacing={32}
-            justify='space-evenly'
-            className={classNames(classes.footerContainer)}
-        >
-            <Grid item xs>
-              <Typography variant='h6' color='textPrimary' gutterBottom>
-              Pages
-            </Typography>
-              <NavLink to='/' className={classNames(classes.footerLink)}>
-                <Typography variant='subtitle1' color='textSecondary'>
-                Home
-              </Typography>
-              </NavLink>
-              <NavLink to='/teams' className={classNames(classes.footerLink)}>
-                <Typography variant='subtitle1' color='textSecondary'>
-                Teams
-              </Typography>
-              </NavLink>
-              <NavLink to='/key-vault' className={classNames(classes.footerLink)}>
-                <Typography variant='subtitle1' color='textSecondary'>
-                Key Vault
-              </Typography>
-              </NavLink>
-            </Grid>
-            <Grid item xs>
-              <Typography variant='h6' color='textPrimary' gutterBottom>
-              Support
-            </Typography>
+        <React.Fragment>
+          <footer id='footer' className='dark_section footerStyleDark'><hr />
+            <div className='container'>
+              <div className='row margintop-25'>
+                <div className='col-md-4 col-sm-4 '>
+                  <div className='logo'>
+                    <a href='index.shtml'>
+                      <img src='img/logos/advanced-algos/aa-logo-dark.svg' alt='Advanced Algos Ltd. Logo' />
+                    </a>
+                  </div>
+                  <div className='logo_descr'>
+                    <p><strong>Advanced Algos Ltd.</strong><br />Ground Floor, Palace Court, Church Street,<br />St. Julians&nbsp;STJ3049, Malta</p>
+                    <p><a href='legal-privacy-statement.shtml'>Privacy Statement</a> | <a href='legal-terms-of-service.shtml'>Terms of Service</a></p>
+                  </div>
+                </div>
 
-              <a
-                href='https://advancedalgos.net/documentation-quick-start.shtml'
-                target='_blank>'
-                className={classNames(classes.footerLink)}
-            >
-                <Typography variant='subtitle1' color='textSecondary'>
-                Documentation
-              </Typography>
-              </a>
-              <a
-                href='https://t.me/advancedalgoscommunity'
-                target='_blank>'
-                className={classNames(classes.footerLink)}
-            >
-                <Typography variant='subtitle1' color='textSecondary'>
-                Telegram
-              </Typography>
-              </a>
-            </Grid>
-            <Grid item xs>
-              <Typography variant='h6' color='textPrimary' gutterBottom>
-              Modules
-            </Typography>
-              <a
-                href='https://develop.advancedalgos.net'
-                target='_blank>'
-                className={classNames(classes.footerLink)}
-            >
-                <Typography variant='subtitle1' color='textSecondary'>
-                Platform
-              </Typography>
-              </a>
-              <a
-                href='https://users.advancedalgos.net'
-                target='_blank>'
-                className={classNames(classes.footerLink)}
-            >
-                <Typography variant='subtitle1' color='textSecondary'>
-                Users
-              </Typography>
-              </a>
-              <a
-                href='https://teams.advancedalgos.net'
-                target='_blank>'
-                className={classNames(classes.footerLink)}
-            >
-                <Typography variant='subtitle1' color='textSecondary'>
-                Teams
-              </Typography>
-              </a>
-              <a
-                href='https://keyvault.advancedalgos.net'
-                target='_blank>'
-                className={classNames(classes.footerLink)}
-            >
-                <Typography variant='subtitle1' color='textSecondary'>
-                Key Vault
-              </Typography>
-              </a>
-            </Grid>
-            <Grid item xs>
-              <NavLink to='/'>
-                <img alt='' src={aalogo} width={98} height={140} />
-              </NavLink>
-            </Grid>
-          </Grid>
-        </footer>
+                <div className='col-md-2 col-sm-2' />
+
+                <div className='col-md-6 col-sm-6'>
+                  <div className='signup-form-container'>
+                    <h3 className='sc_title margintop20'>Stay in touch!</h3>
+                    <p>Opt-in our mailing list to stay up to date with the Advanced Algos Project.</p>
+                    <form id='email-signup' action='#' className='form-inline'>
+                      <div className='message display-none'>Thank you for your interest! We'll keep you informed</div>
+                      <div className='form-group'>
+                        <input className='btn btn-lg' name='email' id='signup_email' type='email' placeholder='Enter your email' required />
+                        <button id='email-submit' className='btn btn-info btn-lg' type='submit'><span className='glyphicon glyphicon-refresh animate-spin display-none' /> Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                  <p>Meet us on Social Networks:</p>
+                  <div className='socPage widgetWrap'>
+                    <ul>
+                      <li><a className='fab fa-telegram-plane' href='https://t.me/advancedalgoscommunity' title='Join us on Telgram' /></li>
+                      <li><a className='fab fa-twitter' href='https://twitter.com/advancedalgos' title='Follow us on Twitter' /></li>
+                      <li><a className='fab fa-facebook-f' href='https://www.facebook.com/Advanced-Algos-173249670001615/' title='Meet us on Facebook' /></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+
+          <section id='copyright' className='dark_section copyWrap no_padding_container'>
+            <div className='container'>
+              <div className='row copy'>
+                <div className='col-sm-6 margin_bottom_micro'>
+                  <p>&copy; Advanced Algos Ltd. 2018 | All Rights Reserved</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </React.Fragment>
       )
     }
   }

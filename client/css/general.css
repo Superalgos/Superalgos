@@ -1,0 +1,980 @@
+/* Classter skin for the theme
+------------------------------------------------------------------------- */
+
+/* Theme Color
+------------------------------------------------------------------------- */
+
+.post_text_area > a,
+.post_text_area p > a,
+.post_text_area span > a,
+.post_text_area div > a { color: #000000; }
+
+a:hover,
+.theme_accent,
+.theme_accent:before,
+.topTabsWrap .speedBar a:hover,
+.topWrap .topMenuStyleLine > ul > li ul li a:hover,
+.topWrap .topMenuStyleLine .current-menu-item > a,
+.topWrap .topMenuStyleLine .current-menu-ancestor > a,
+.topWrap .topMenuStyleLine > ul li a:hover,
+.topWrap .topMenuStyleLine > ul li.sfHover > a,
+.infoPost a:hover,
+.tabsButton ul li a:hover,
+.popularFiltr ul li a:hover,
+.isotopeFiltr ul li a:hover,
+.widget_popular_posts article h3:before,
+.widgetTabs .widget_popular_posts article .post_info .post_date a:hover,
+.sidebar .widget_popular_posts article .post_info .post_date a:hover,
+.sidebar .widget_recent_posts article .post_info .post_date a:hover,
+.main .widgetWrap a:hover,
+.main .widgetWrap a:hover span,
+.widgetWrap a:hover span,
+.roundButton:hover a,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.nav_pages_parts > a:hover,
+.nav_comments > a:hover,
+.comments_list a.comment-edit-link:hover,
+.calendar tbody td.today a:hover,
+blockquote.sc_quote_title a:hover,
+blockquote.sc_quote_style_1 a:hover,
+blockquote.sc_quote_style_2 a:hover,
+.postLink a,
+.masonry article .masonryInfo a:hover,
+.masonry article .masonryInfo span.infoTags a:hover,
+.relatedPostWrap article .relatedInfo a:hover,
+.relatedPostWrap article .relatedInfo span.infoTags a:hover,
+.infoPost span.infoTags a:hover,
+.page404 p a,
+.page404 .searchAnimation.sFocus .searchIcon,
+.copyWrap a,
+.comments .commBody li.commItem .replyWrap .posted a:hover,
+.comments .commBody li.commItem h4 a:hover,
+.ratingItem span:before,
+.reviewBlock .totalRating,
+.widget_area .contactInfo .fContact:before,
+.footerStyleLight .widget_area article .post_title:before,
+.footerStyleLight .widget_area article .post_info a:hover,
+.footerStyleLight .widget_area article .post_info .post_date a:hover,
+.sc_list_style_arrows li:before,
+.sc_list_style_arrows li a:hover,
+.sc_list_style_iconed li a:hover,
+.sc_accordion.sc_accordion_style_2 .sc_accordion_item .sc_accordion_title,
+.sc_accordion.sc_accordion_style_2 .sc_accordion_item .sc_accordion_title:before,
+.sc_toggles.sc_toggles_style_2 .sc_toggles_item.sc_active .sc_toggles_title,
+.sc_toggles.sc_toggles_style_2 .sc_toggles_item.sc_active .sc_toggles_title:before,
+.sc_tabs .sc_tabs_titles li a:hover,
+.sc_highlight.sc_highlight_style_2,
+.sc_price_item .sc_price_money,
+.sc_price_item .sc_price_penny,
+.sc_pricing_table .sc_pricing_columns ul li .sc_icon,
+.sc_title_icon,
+.sc_scroll_controls .flex-direction-nav a:hover:before,
+.sc_testimonials_style_1 .flex-direction-nav a:hover:before,
+.sc_testimonials_style_3 .flex-direction-nav a:hover:before,
+.sc_testimonials_style_3 .flex-direction-nav a:active:before,
+.pagination .pageLibrary > li.libPage > .pageFocusBlock .flex-direction-nav a:hover:before,
+.topWrap .usermenu_area ul.usermenu_list li.usermenu_currency > a:hover,
+.topWrap .usermenu_area ul.usermenu_list li.usermenu_currency.sfHover > a,
+.topWrap .usermenu_area ul.usermenu_list li ul li a:hover,
+.topWrap .usermenu_area ul.usermenu_list li.usermenu_cart .widget_area ul li a:hover,
+.topWrap .usermenu_area a:hover,
+.topWrap .usermenu_area .sfHover a,
+.sidemenu_wrap .usermenu_area ul.usermenu_list li.usermenu_currency > a:hover,
+.sidemenu_wrap .usermenu_area ul.usermenu_list li.usermenu_currency.sfHover > a,
+.sidemenu_wrap .usermenu_area ul.usermenu_list li ul li a:hover,
+.sidemenu_wrap .usermenu_area ul.usermenu_list li.usermenu_cart .widget_area ul li a:hover,
+.sc_blogger a:hover,
+.sc_blogger.style_date .load_more:before,
+.sc_blogger.style_accordion .sc_blogger_info .comments_number,
+.widgetTabs .widgetTop ul > li:not(.tabs):before, 
+.widgetTabs .widgetTop ul > li:not(.tabs) > a:hover, 
+.widgetTabs .widgetTop ul > li:not(.tabs) > a:hover span,
+.widgetTabs .widgetTop.widget_popular_posts article .post_title:before,
+.swpRightPos .tabsMenuBody a:hover,
+.swpRightPos .tabsMenuBody a:hover:before,
+.swpRightPos .panelmenu_area .current-menu-item > a,
+.swpRightPos .panelmenu_area .current-menu-ancestor > a,
+.swpRightPos .panelmenu_area > ul li a:hover,
+.swpRightPos .panelmenu_area > ul li.sfHover > a,
+.swpRightPos .panelmenu_area .current-menu-item.dropMenu:before,
+.swpRightPos .panelmenu_area .current-menu-ancestor.dropMenu:before,
+.swpRightPos .panelmenu_area li.liHover.dropMenu:before,
+.topWrap .search:not(.searchOpen):hover:before,
+.topWrap .search .searchSubmit:hover .icoSearch:before,
+.user-popUp .formItems.loginFormBody .remember .forgotPwd,
+.user-popUp .formItems.loginFormBody .loginProblem,
+.user-popUp .formItems.registerFormBody .i-agree a,
+.sc_slider_pagination_area .flex-control-nav.manual .slide_info .slide_title,
+#toc .toc_item.current .toc_icon,
+#toc .toc_item:hover .toc_icon,
+.openResponsiveMenu:hover,
+.openResponsiveMenu:hover:before,
+/*sidebarStyleLight*/
+.sidebarStyleLight .widgetWrap ul li.liHover:before,
+.sidebarStyleLight .widgetWrap  a:hover,
+.sidebarStyleLight .widgetWrap  a:active,
+.sidebarStyleLight.widget_area .widgetWrap a:hover span,
+.sidebarStyleLight.widget_area .widgetWrap a:hover,
+.sidebarStyleLight.widget_area .widgetWrap ul > li > a:hover,
+.sidebarStyleLight.widget_area .widgetWrap ul > li > a:hover span,
+.sidebarStyleLight.widget_area ul.tabs > li.ui-state-active > a,
+.sidebarStyleLight .widgetWrap .tagcloud a:hover,
+.sidebarStyleLight .widgetWrap .tagcloud a:active,
+.sidebarStyleLight.widget_area a:hover,
+.sidebarStyleLight.widget_area a:hover span,
+.sidebarStyleLight.widget_area .ui-state-active a,
+.sidebarStyleLight.widget_area .widgetWrap ul li a:hover,
+.sidebarStyleLight.widget_area .widget_twitter ul li:before,
+.sidebarStyleLight .calendar tfoot th a:before,
+.sidebarStyleLight.widget_area table.calendar tfoot a:hover,
+.sidebarStyleLight.widget_area article span:before,
+.sidebarStyleLight.widget_area .widgetWrap ul > li.dropMenu:hover:before,
+.sidebarStyleLight.widget_area .widgetWrap ul > li.dropMenu.dropOpen:before,
+.sc_pricing_light .sc_pricing_columns:hover ul.columnsAnimate .sc_pricing_title,
+.sc_pricing_light .sc_pricing_columns.active ul.columnsAnimate .sc_pricing_title,
+.sc_pricing_light .sc_pricing_columns.active ul.columnsAnimate .sc_pricing_data > span,
+.sc_pricing_light .sc_pricing_columns:hover ul.columnsAnimate .sc_pricing_data > span,
+.postSharing > ul > li> a:before,
+.post .tagsWrap .post_cats a:hover,
+.post .tagsWrap .post_tags a:hover,
+.post_text_area .tagsWrap .post_cats a:hover,
+.post_text_area .tagsWrap .post_tags a:hover,
+.infoPost > span:before,
+.infoPost > span a:before,
+.comments .commBody li.commItem .replyWrap a:hover,
+.relatedPostWrap .no_indent_style article .wrap a:hover,
+.postLink a:hover,
+.portfolBlock ul li a:hover,
+.swpRightPos .searchBlock .searchSubmit:hover:before,
+.twitBlock .sc_slider .swiper-slide a:hover,
+.twitBlockWrap .twitterAuthor a:hover,
+.relatedPostWrap.sc_blogger article .relatedInfo a:hover,
+.sc_timeline_info a:hover,
+.woocommerce ul.products li.product .added_to_cart,
+.woocommerce-page ul.products li.product .added_to_cart,
+.woocommerce .woocommerce-breadcrumb a:hover,
+.woocommerce-page .woocommerce-breadcrumb a:hover,
+.woocommerce .star-rating span:before,
+.woocommerce-page .star-rating span:before,
+.woocommerce a.reset_variations,
+.woocommerce-page a.reset_variations,
+.shipping-calculator-button:hover,
+ul#mainmenu .menu-panel.thumb_title > li > ul > li > ul li a:before,
+.topWrap .sidebar_cart .widget_shopping_cart_content .buttons .button:hover,
+.topWrap .sidebar_cart ul.cart_list li > a:hover,
+.footerContentWrap .googlemap_button:after,
+li:hover .topMenuStyleLine ul#mainmenu .menu-panel ul.columns > li > a,
+#toTop:hover:after,
+.sc_accordion.sc_accordion_style_2 .sc_accordion_item .sc_accordion_title a,
+.sc_accordion.sc_accordion_style_2 .sc_accordion_item .sc_accordion_title a:before,
+.support_page ol li a,
+.woocommerce-top-navigation a:hover,
+.default_color:hover,
+.footerStyleLight .widget_twitter ul li:before,
+.footerStyleLight .widgetWrap  a:hover,
+.footerStyleLight .widgetWrap  a:active
+{ color:#f55858; }
+
+
+/* do not change */
+.widgetWrap ul li:before,
+.widget_area .widgetWrap ul > li,
+.sidebarStyleLight.widget_area article .post_info,
+.sidebarStyleLight.widget_area article .post_info a,
+.post_text_area .tagsWrap .post_cats,
+.post_text_area .tagsWrap .post_cats a,
+.post_text_area .tagsWrap .post_tags,
+.post_text_area .tagsWrap .post_tags a,
+.infoPost > span,
+.infoPost > span a,
+.isotopeFiltr ul a,
+.sc_blogger.style_date .sc_blogger_item .sc_blogger_info
+{ color: #acb4b6; }
+
+/* do not change */
+.sidebarStyleLight.widget_area .widgetWrap ul > li
+{ color: #5a6266; }
+
+.theme_accent_3,
+.theme_accent_3:before,
+.widgetWrap ul li.liHover:before,
+.widgetWrap  a:hover,
+.widgetWrap  a:active,
+.sidebarStyleDark.widget_area a:hover,
+.sidebarStyleDark.widget_area a:hover span,
+.widget_area .widgetWrap ul > li > a:hover,
+.widget_area .widgetWrap ul > li > a:hover span,
+.widget_area ul.tabs > li.ui-state-active > a,
+aside.widgetWrap .tagcloud a:hover,
+aside.widgetWrap .tagcloud a:active,
+.sidebarStyleDark.widget_area a:hover,
+.sidebarStyleDark.widget_area .ui-state-active a,
+.sidebarStyleDark.widget_area .widgetWrap ul li a:hover,
+.sidebarStyleDark.widget_area .widget_twitter ul li:before,
+.sidebarStyleDark .calendar tfoot th a:before,
+.sidebarStyleDark.widget_area table.calendar tfoot a:hover,
+.sidebarStyleDark.widget_area .widgetWrap ul > li.dropMenu:hover:before,
+.sidebarStyleDark.widget_area .widgetWrap ul > li.dropMenu.dropOpen:before,
+.copyWrap .copy .copyright a,
+.widget_area article span:before,
+.twitBlock .sc_slider .swiper-slide a,
+.twitBlock .sc_slider .swiper-slide .twitterIco:before,
+.menuSearch .searchSubmit:hover:before,
+.sidemenu_wrap .sidemenu_area .current-menu-item > a,
+.sidemenu_wrap .sidemenu_area .current-menu-ancestor > a,
+.sidemenu_wrap .sidemenu_area > ul li a:hover,
+.sidemenu_wrap .sidemenu_area > ul li.sfHover > a,
+.sidemenu_wrap .sidemenu_area .current-menu-item.dropMenu:before,
+.sidemenu_wrap .sidemenu_area .current-menu-ancestor.dropMenu:before,
+.sidemenu_wrap .sidemenu_area li.liHover.dropMenu:before,
+.twitBlock .sc_slider .swiper-slide a,
+.twitBlockWrap .twitterAuthor a,
+.woocommerce ul.cart_list li > .amount, 
+.woocommerce ul.product_list_widget li > .amount, 
+.woocommerce-page ul.cart_list li > .amount, 
+.woocommerce-page ul.product_list_widget li > .amount,
+.woocommerce ul.cart_list li span .amount, 
+.woocommerce ul.product_list_widget li span .amount, 
+.woocommerce-page ul.cart_list li span .amount, 
+.woocommerce-page ul.product_list_widget li span .amount,
+.woocommerce ul.cart_list li ins .amount, 
+.woocommerce ul.product_list_widget li ins .amount, 
+.woocommerce-page ul.cart_list li ins .amount, 
+.woocommerce-page ul.product_list_widget li ins .amount,
+.woocommerce .sidebarStyleDark.widget_area .widget_price_filter .price_slider_amount .button:hover,
+.woocommerce-page .sidebarStyleDark.widget_area .widget_price_filter .price_slider_amount .button:hover,
+.woocommerce .sidebarStyleDark.widget_area.widget_area aside.widgetWrap.woocommerce .button:hover,
+.woocommerce-page .sidebarStyleDark.widget_area.widget_area aside.widgetWrap.woocommerce .button:hover,
+.woocommerce div.product span.price,
+.woocommerce div.product p.price,
+.woocommerce #content div.product span.price,
+.woocommerce #content div.product p.price,
+.woocommerce-page div.product span.price,
+.woocommerce-page div.product p.price,
+.woocommerce-page #content div.product span.price,
+.woocommerce-page #content div.product p.price,
+.woocommerce .sidebarStyleDark.widget_area .widget_layered_nav ul li.chosen a,
+.woocommerce-page .sidebarStyleDark.widget_area .widget_layered_nav ul li.chosen a,
+#sidebar_main.sidebarStyleDark .widget_layered_nav ul li.chosen a:before,
+#sidebar_main.sidebarStyleDark .widget_layered_nav ul li a:hover:before,
+#sidebar_main.sidebarStyleDark .widget_layered_nav_filters ul li a:hover:before,
+#sidebar_main.sidebarStyleDark .widget_layered_nav_filters ul li.chosen a:before,
+.sidebarStyleDark.widget_area .widgetWrap a:hover,
+.sidebarStyleDark.widget_area .widgetWrap .post_info a:hover,
+.woocommerce.widget_shopping_cart .total .amount,
+.woocommerce .widget_shopping_cart .total .amount,
+.woocommerce-page.widget_shopping_cart .total .amount,
+.woocommerce-page .widget_shopping_cart .total .amount,
+.woocommerce ul.products li.product .price > .amount,
+.woocommerce ul.products li.product .price del .amount,
+.woocommerce ul.products li.product .price ins .amount,
+.woocommerce ul.products li.product .price,
+.woocommerce-page ul.products li.product .price,
+.widget_twitter ul li:before,
+.sidebarStyleDark.widget_area .widgetWrap a:hover,
+.calendar tfoot th a:before
+{ color: #05d1d4; }
+
+
+.sidebarStyleDark.widget_area a:hover span,
+.woocommerce div.product p.price
+{ color: #05d1d4 !important; }
+
+
+.theme_accent_2, 
+.theme_accent_2:before,
+.sc_tooltip_parent,
+.hoverIncrease .hoverIcon:hover:before,
+.sc_video_player .sc_video_play_button:hover:after,
+.sc_video_player:active .sc_video_play_button:hover:after,
+.sc_accordion.sc_accordion_style_1 .sc_accordion_item .sc_accordion_title a,
+.sc_toggles.sc_toggles_style_1 .sc_toggles_item.sc_active .sc_toggles_title,
+.sc_team_item .sc_team_item_avatar .sc_team_item_socials li a:hover,
+.hoverIncrease .hoverIcon:hover:before,
+.hoverIncrease .hoverLink:hover:before,
+.sc_team .sc_team_item .sc_team_item_avatar .sc_team_item_socials li a:hover,
+.support_page .transparent_section a
+{ color:#0f75bc; }
+
+
+.relatedPostWrap.sc_blogger article a.readmore_blogger:hover
+{ color:#0f75bc !important; }
+
+
+.roundButton.border:hover > a,
+.squareButton.border > a:hover,
+.squareButton.border > a:active,
+.squareButton.border > button:hover,
+.squareButton.border > button:active,
+.revlink.border:hover,
+.revlink.border:active
+{ color: #ffc455 !important; }
+
+
+.sc_pricing_dark .sc_pricing_columns:hover ul.columnsAnimate .sc_pricing_data > span,
+.sc_pricing_dark .sc_pricing_columns:hover ul.columnsAnimate .sc_pricing_title,
+.sc_pricing_dark .sc_pricing_columns.active ul.columnsAnimate .sc_pricing_data > span,
+.sc_pricing_dark .sc_pricing_columns.active ul.columnsAnimate .sc_pricing_title,
+.postLink a,
+.theme_accent_1,
+.theme_accent_1:before
+{ color: #ffc455; }
+
+
+.roundButton.border_1:hover > a,
+.squareButton.border_1 > a:hover,
+.squareButton.border_1 > a:active,
+.squareButton.border_1 > button:hover,
+.squareButton.border_1 > button:active,
+.topWrap .topMenuStyleLine > ul > li ul li a:hover, 
+.flip-clock-wrapper ul li a div div.inn,
+.woocommerce .woocommerce-info a:after,
+.woocommerce-page .woocommerce-info a:after,
+.woocommerce .woocommerce-info a,
+.woocommerce-page .woocommerce-info a,
+.woocommerce p.stars a:hover.star-1:after,
+.woocommerce p.stars a:hover.star-1.active:after,
+.woocommerce-page p.stars a:hover.star-1:after,
+.woocommerce-page p.stars a.star-1.active:after,
+.woocommerce p.stars a:hover.star-2:after,
+.woocommerce p.stars a.star-2.active:after,
+.woocommerce-page p.stars a:hover.star-2:after,
+.woocommerce-page p.stars a.star-2.active:after,
+.woocommerce p.stars a:hover.star-3:after,
+.woocommerce p.stars a.star-3.active:after,
+.woocommerce-page p.stars a:hover.star-3:after,
+.woocommerce-page p.stars a.star-3.active:after,
+.woocommerce p.stars a:hover.star-4:after,
+.woocommerce p.stars a.star-4.active:after,
+.woocommerce-page p.stars a:hover.star-4:after,
+.woocommerce-page p.stars a.star-4.active:after,
+.woocommerce p.stars a.star-5:hover:after,
+.woocommerce p.stars a.star-5.active:after,
+.woocommerce-page p.stars a:hover.star-5:after,
+.woocommerce-page p.stars a.star-5.active:after,
+.woocommerce .widget_shopping_cart .cart_list li a.remove:hover,
+.woocommerce.widget_shopping_cart .cart_list li a.remove:hover,
+.menuTopWrap li.active:after, 
+.menuTopWrap li:hover::after, 
+.openResponsiveMenu:hover, 
+.openResponsiveMenu:hover::before,     
+.openResponsiveMenu:hover, 
+.openResponsiveMenu:hover:before, 
+.search:hover::before, 
+.topWrap .search:not(.searchOpen):hover:before, 
+.topWrap .search .searchSubmit:hover .icoSearch:before, 
+.sc_timeline_info a:hover,
+.post_text_area p > b + span.sc_highlight,
+.post_text_area p > b + span.sc_highlight + a + span > del
+{ color:#f55858 !important; }
+
+
+
+/* do not change */
+blockquote.sc_quote_style_1 cite,
+blockquote.sc_quote_style_1 cite a,
+.sc_quote_style_1 .sc_quote_title,
+.sc_quote_style_1 .sc_quote_title a,
+.copyWrap .copy .copyright a:hover,
+.footerStyleLight .socPage a:hover
+{ color: #fff; }
+
+/* do not change */
+blockquote.sc_quote_style_2 cite,
+blockquote.sc_quote_style_2 cite a,
+.sc_quote_style_2 .sc_quote_title,
+.sc_quote_style_2 .sc_quote_title a,
+.sc_accordion.sc_accordion_style_1 .sc_accordion_item .sc_accordion_title a.collapsed,
+.sc_toggles.sc_toggles_style_1 .sc_toggles_item .sc_toggles_title,
+.squareButton.border > a,
+.squareButton.border > button,
+.roundButton.border > a,
+.squareButton.border_1 > a,
+.squareButton.border_1 > button,
+.roundButton.border_1 > a,
+.sc_skills_bar.sc_skills_horizontal .sc_skills_total
+{ color: #acb4b6; }
+
+/* woocommerce - no linear gradient*/
+.woocommerce #review_form #respond .form-submit input,
+.woocommerce-page #review_form #respond .form-submit input,
+.woocommerce table.cart a.remove:hover,
+.woocommerce #content table.cart a.remove:hover,
+.woocommerce-page table.cart a.remove:hover,
+.woocommerce-page #content table.cart a.remove:hover,
+.topWrap .sidebar_cart .widget_shopping_cart_content .buttons .button.checkout {
+    background: -moz-linear-gradient(transparent,transparent);
+    background: -webkit-linear-gradient(transparent,transparent);
+    background: -o-linear-gradient(transparent,transparent);
+    background: -ms-linear-gradient(transparent,transparent);
+    background: linear-gradient(transparent,transparent);
+}
+
+/* BG */
+.theme_accent_bgc, 
+.theme_accent_bgc:before,
+.sc_video_player:active .sc_video_play_button:after,
+input[type="submit"]:active,
+input[type="button"]:active,
+.squareButton.active > span,
+.squareButton.active > a,
+.squareButton.ui-state-active > a,
+.squareButton.active > button,
+.squareButton.ui-state-active > button,
+.roundButton > a:active,
+.squareButton > a:active,
+.squareButton.global > a,
+.squareButton > button:active,
+.squareButton.global > button,
+.nav_pages_parts > span.page_num,
+.nav_comments > span.current,
+ul > li.likeActive:active > a,
+.masonry article .status,
+.portfolio .isotopeElement .folioShowBlock:before,
+.post .postStatus,
+.itemPageFull .itemDescriptionWrap .toggleButton:active,
+.footerWrap .footerWidget .sc_video_player:active .sc_video_play_button:after,
+.topMenuStyleLine > ul .menu-panel,
+.sliderLogo .elastislide-wrapper nav span:active:before,
+.sc_dropcaps.sc_dropcaps_style_1 .sc_dropcap,
+.sc_highlight.sc_highlight_style_1,
+.sc_title_bg,
+.sc_testimonials_style_1 .flex-direction-nav a:active,
+.sc_testimonials_style_3 .sc_testimonials_items,
+.sc_testimonials_style_3 .flex-direction-nav li,
+.sc_testimonials_style_3 .flex-direction-nav a,
+.pagination .pageLibrary > li.libPage > .pageFocusBlock .flex-direction-nav a:active,
+.sc_popup_light:before,
+.global_bg,
+.widgetTabs .widgetTop .tagcloud a:hover,
+.widgetTabs .widgetTop .tagcloud a:active,
+.fullScreenSlider.globalColor .sliderHomeBullets .rsContent:before,
+.fullScreenSlider .sliderHomeBullets .rsContent .slide-3 .order p span,
+ul.sc_list_style_disk li:before,
+.sc_slider_pagination_area .flex-control-nav.manual .slide_date,
+.sc_contact_form_custom .bubble label:hover,
+.sc_contact_form_custom .bubble label.selected,
+.topWrap .cart a.cart_button,
+/*sidebarStyleLight*/
+.sidebarStyleLight .widget_socials .socPage ul li a:hover,
+.sidebarStyleLight.widget_area .instagram-pics li a:after,
+.sidebarStyleLight.widget_area .flickr_images .flickr_badge_image a:after,
+.sidebarStyleLight .calendar tbody td a:hover,
+.sidebarStyleLight .calendar tbody td a:hover,
+.sidebarStyleLight .calendar tbody td.today > span,
+.sidebarStyleLight .calendar tbody td.today a,
+.footerStyleLight .contactFooter .contactShare ul li a:hover,
+.footerContentWrap .googlemap_button,
+.page404 .titleError > span,
+.isotopeFiltr ul a .data_count,
+.isotopeFiltr ul a .data_count:before,
+.woocommerce #review_form #respond .form-submit input,
+.woocommerce-page #review_form #respond .form-submit input,
+.woocommerce table.cart a.remove:hover,
+.woocommerce #content table.cart a.remove:hover,
+.woocommerce-page table.cart a.remove:hover,
+.woocommerce-page #content table.cart a.remove:hover,
+.topWrap .sidebar_cart .widget_shopping_cart_content .buttons .button.checkout,
+.footerStyleLight .widget_socials .socPage ul li a:hover
+{ background-color:#f55858; }
+
+
+.sc_pricing_light .sc_pricing_columns:hover ul.columnsAnimate .sc_button > a,
+.sc_pricing_light .sc_pricing_columns.active ul.columnsAnimate .sc_button > a,
+.woocommerce #payment #place_order,
+.woocommerce-page #payment #place_order,
+.woocommerce .woocommerce-message a.button,
+.woocommerce .woocommerce-error a.button,
+.woocommerce .woocommerce-info a.button,
+.woocommerce-page .woocommerce-message a.button,
+.woocommerce-page .woocommerce-error a.button,
+.woocommerce-page .woocommerce-info a.button
+{ background-color:#f55858 !important; }
+
+
+.sc_pricing_dark .sc_pricing_columns .sc_button > a:hover,
+.sc_pricing_dark .sc_pricing_columns.active .sc_button > a,
+.sc_pricing_dark .sc_pricing_columns .sc_button > a:active,
+.sc_pricing_dark .sc_pricing_columns:hover ul.columnsAnimate .sc_button > a,
+.woocommerce form .button,
+.woocommerce-page form .button
+{ background-color:#ffc455 !important; }
+
+.theme_accent_2_bgc,
+.theme_accent_2_bgc:before,
+.sc_tooltip_parent .sc_tooltip,
+.sc_tooltip_parent .sc_tooltip:before,
+.sc_dropcaps.sc_dropcaps_style_3 .sc_dropcap,
+.hoverIncrease .hoverShadow,
+.sc_accordion.sc_accordion_style_1 .sc_accordion_item .sc_accordion_title:before,
+.sc_toggles.sc_toggles_style_1 .sc_toggles_item .sc_toggles_title:before,
+.squareButton.accent_2 > a,
+.squareButton.accent_2 > button,
+.sc_skills_bar .sc_skills_item .sc_skills_count,
+.sc_skills_counter .sc_skills_item.sc_skills_style_3 .sc_skills_count,
+.sc_skills_counter .sc_skills_item.sc_skills_style_4 .sc_skills_count,
+.sc_skills_counter .sc_skills_item.sc_skills_style_4 .sc_skills_info,
+.relatedPostWrap .wrap:before,
+.relatedPostWrap.sc_blogger .wrap:hover:before,
+.portfolioWrap .isotopePadding:before,
+#pagination .squareButton.active span,
+#pagination .squareButton a:hover,
+#pagination .squareButton a:active,
+#pagination .squareButton button:hover,
+#pagination .squareButton button:active,
+#viewmore_link:hover,
+#viewmore_link:active,
+.user-popUp .formItems .formList li .sendEnter,
+.user-popUp ul.loginHeadTab li.ui-tabs-active:before,
+.sc_timeline.style_date .sc_timeline_item .sc_timeline_date,
+.sc_blogger.sc_blogger_vertical.style_date.sc_scroll_controls ul.flex-direction-nav li a:hover,
+/*woocommerce*/
+.woocommerce .widget_area aside.widgetWrap.woocommerce .button,
+.woocommerce-page .widget_area aside.widgetWrap.woocommerce  .button,
+.woocommerce nav.woocommerce-pagination ul li span.current,
+.woocommerce nav.woocommerce-pagination ul li a:hover,
+.woocommerce nav.woocommerce-pagination ul li a:focus,
+.woocommerce #content nav.woocommerce-pagination ul li span.current,
+.woocommerce #content nav.woocommerce-pagination ul li a:hover,
+.woocommerce #content nav.woocommerce-pagination ul li a:focus,
+.woocommerce-page nav.woocommerce-pagination ul li span.current,
+.woocommerce-page nav.woocommerce-pagination ul li a:hover,
+.woocommerce-page nav.woocommerce-pagination ul li a:focus,
+.woocommerce-page #content nav.woocommerce-pagination ul li span.current,
+.woocommerce-page #content nav.woocommerce-pagination ul li a:hover,
+.woocommerce-page #content nav.woocommerce-pagination ul li a:focus,
+#timeline_section [class*="swiper-button-"]:hover,
+.sidemenu_wrap .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.sidemenu_wrap .mCSB_scrollTools_onDrag .mCSB_dragger_bar
+{ background-color:#0f75bc; }
+
+.theme_accent_2_bg,
+.theme_accent_2_bg:before
+{ background:#0f75bc; }
+
+.swiper-scrollbar-drag,
+a.sc_icon.bg_icon.sc_icon_round:hover,
+a.sc_icon.no_bg_icon.sc_icon_round:hover
+{ background-color:#0f75bc !important; }
+
+.theme_accent_3_bgc,
+.theme_accent_3_bgc:before,
+.sc_dropcaps.sc_dropcaps_style_2 .sc_dropcap,
+.squareButton.accent_3 > a,
+.squareButton.accent_3 > button,
+.copyWrap .socPage ul li a:hover,
+.sidebarStyleDark .widget_socials .socPage ul li a:hover,
+.widget_socials .socPage ul li a:hover,
+.widget_area .instagram-pics li a:after,
+.widget_area .flickr_images .flickr_badge_image a:after,
+.calendar tbody td a:hover,
+.footerStyleDark .contactFooter .contactShare ul li a:hover,
+ul > li.share > ul.shareDrop > li > a:hover,
+.author .socPage ul li a:hover,
+.sc_team .sc_team_item .sc_team_item_avatar:after,
+.calendar tbody td a:hover,
+.calendar tbody td.today > span,
+.footerStyleDark .widget_socials .socPage ul li a:hover
+{ background-color:#05d1d4; }
+
+.theme_accent_3_bg,
+.theme_accent_3_bg:before
+{ background:#05d1d4; }
+
+.sc_dropcaps.sc_dropcaps_style_4 .sc_dropcap,
+.squareButton.accent_1 > a,
+.squareButton.accent_1 > button,
+.theme_accent_1_bgc,
+.theme_accent_1_bgc:before,
+.revlink.filled,
+.sc_highlight.sc_highlight_style_3
+{ background-color:#ffc455; }
+
+
+.theme_accent_1_bg,
+.theme_accent_1_bg:before
+{ background:#ffc455; }
+
+
+/* do not change */
+.sc_dropcaps.sc_dropcaps_style_5 .sc_dropcap,
+ul > li.share > ul.shareDrop,
+.sidemenu_wrap .sidemenu_button,
+.sidemenu_wrap .menuTranform .mCSB_container,
+.menuTranform:before
+{ background-color:#232a34; }
+
+.squareButton.global > a:hover,
+.squareButton.global > a:active,
+.squareButton.global > button:hover,
+.squareButton.global > button:active,
+.topWrap .sidebar_cart .widget_shopping_cart_content .buttons .button.checkout:hover,
+.topWrap .cart .cart_button:hover
+{ background-color: rgba(245, 88, 88, 0.7) !important; }
+
+
+.squareButton.accent_1 > a:hover,
+.squareButton.accent_1 > a:active,
+.squareButton.accent_1 > button:hover,
+.squareButton.accent_1 > button:active,
+.revlink.filled:hover,
+.revlink.filled:active
+{ background-color: rgba(255, 196, 85, 0.7) !important; }/*go*/
+
+
+.sc_slider_flex .sc_slider_info,
+.sc_slider_swiper .sc_slider_info,
+.squareButton.accent_2 > a:hover,
+.squareButton.accent_2 > a:active,
+.squareButton.accent_2 > button:hover,
+.squareButton.accent_2 > button:active,
+.user-popUp .formItems .formList li .sendEnter:hover,
+.user-popUp .formItems .formList li .sendEnter:active
+{ background-color: rgba(57, 32, 113, 0.7) !important; }
+
+
+.squareButton.accent_3 > a:hover,
+.squareButton.accent_3 > a:active,
+.squareButton.gray > a:hover,
+.squareButton.gray > a:active,
+.squareButton.accent_3 > button:hover,
+.squareButton.accent_3 > button:active,
+.squareButton.gray > button:hover,
+.squareButton.gray > button:active
+{ background-color: rgba(5, 209, 212, 0.7);}
+
+
+/* do not change */
+.squareButton.dark > a:hover,
+.squareButton.dark > a:active,
+.squareButton.dark > button:hover,
+.squareButton.dark > button:active
+{ background-color: rgba(20, 26, 34, 0.8);}
+
+
+/* do not change */
+.sc_dropcaps.sc_dropcaps_style_6 .sc_dropcap,
+blockquote.sc_quote_style_2,
+.sc_accordion.sc_accordion_style_1 .sc_accordion_item .sc_accordion_title,
+.sc_accordion.sc_accordion_style_2 .sc_accordion_item .sc_accordion_title:before,
+.sc_toggles.sc_toggles_style_1 .sc_toggles_item .sc_toggles_title,
+.sc_toggles.sc_toggles_style_2 .sc_toggles_item .sc_toggles_title:before,
+.twitBlock .sc_slider .flex-direction-nav li a,
+.squareButton.gray > a,
+.squareButton.gray > button,
+.sidebarStyleLight,
+.pagination > ul > li a,
+#viewmore_link,
+.portfolioWrap .isotopePadding .portfolioInfo,
+.post .portfolBlock,
+.topWrap .topMenuStyleLine > ul > li ul {
+    background-color:rgba(0, 0, 0, 0.6);
+}
+
+
+.squareButton.border > a:hover,
+.squareButton.border > a:active,
+.squareButton.border > button:hover,
+.squareButton.border > button:active,
+.sc_pricing_dark .sc_pricing_columns:hover ul.columnsAnimate,
+.sc_pricing_dark .sc_pricing_columns.active ul.columnsAnimate,
+.revlink.border:hover,
+.revlink.border:active
+{ border-color: #ffc455; }
+
+
+.theme_accent_border,
+.squareButton.border_1 > a:hover,
+.squareButton.border_1 > a:active,
+.squareButton.border_1 > button:hover,
+.squareButton.border_1 > button:active,
+.sidebarStyleLight .widgetWrap .tagcloud a:hover,
+.sidebarStyleLight .widgetWrap .tagcloud a:active,
+.sidebarStyleLight.widget_area .tabs_area ul.tabs > li > a:hover,
+.sidebarStyleLight.widget_area .tagcloud a:hover,
+.sidebarStyleLight.widget_area .tagcloud a:active,
+.sidebarStyleLight.widget_area ul.tabs > li.ui-state-active > a,
+.sidebarStyleLight.widget_area .calendar tbody a:hover,
+.sc_pricing_light .sc_pricing_columns:hover ul.columnsAnimate,
+.sc_pricing_light .sc_pricing_columns.active ul.columnsAnimate,
+#toc .toc_item.current,
+#toc .toc_item:hover,
+.topWrap .search:not(.searchOpen):hover,
+.upToScroll a.addBookmark:hover,
+.sc_scroll_controls .flex-direction-nav a:active,
+.sc_testimonials_style_1 .flex-direction-nav a:active,
+.pagination .flex-direction-nav a:active
+.sc_scroll_controls .flex-direction-nav a:hover,
+.topWrap .sidebar_cart .widget_shopping_cart_content .buttons .button:hover,
+.openResponsiveMenu:hover,
+.openResponsiveMenu:hover:before
+{ border-color: #f55858; }
+
+
+/* do not change */
+.topSearchShow .topWrap .search:not(.searchOpen):hover { border-color: transparent; }
+
+
+.widgetWrap .tagcloud a:hover,
+.widgetWrap .tagcloud a:active,
+.widget_area .tabs_area ul.tabs > li > a:hover,
+.sidebarStyleDark.widget_area .tagcloud a:hover,
+.sidebarStyleDark.widget_area .tagcloud a:active,
+.widget_area ul.tabs > li.ui-state-active > a,
+.woocommerce .sidebarStyleDark.widget_area .widget_price_filter .price_slider_amount .button:hover,
+.woocommerce-page .sidebarStyleDark.widget_area .widget_price_filter .price_slider_amount .button:hover,
+.woocommerce .sidebarStyleDark.widget_area aside.widgetWrap.woocommerce .button:hover,
+.woocommerce-page .sidebarStyleDark.widget_area aside.widgetWrap.woocommerce .button:hover,
+#sidebar_main.sidebarStyleDark.widget_area .widget_layered_nav ul li a:hover:before,
+.woocommerce #sidebar_main .sidebarStyleDark.widget_area .widget_layered_nav ul li.chosen a:before,
+.woocommerce-page #sidebar_main.sidebarStyleDark.widget_area .widget_layered_nav ul li.chosen a:before,
+#sidebar_main.sidebarStyleDark .widget_layered_nav_filters ul li.chosen a:before,
+#sidebar_main.sidebarStyleDark .widget_layered_nav_filters ul li a:hover:before
+{ border-color: #05d1d4; }
+
+
+/* do not change */
+.widget_area select,
+.sidebarStyleDark.widget_area .tagcloud a,
+.widget_area .search-form,
+.widget_area .calendar tbody a,
+.widget_area .tabs_area ul.tabs a,
+.menuSearch .search-form,
+.sc_blogger.sc_blogger_vertical.style_date.sc_scroll_controls ul.flex-direction-nav li a,
+.jq-selectbox__select,
+.jq-selectbox__dropdown,
+header.fixedTopMenu .topWrap
+{ border-color: rgba(210, 217, 224, 0.5); }
+
+.widget_area .tabs_area ul.tabs a
+{ color: #797e84; }
+
+.sidebarStyleLight.widget_area .tabs_area ul.tabs a
+{ color: #5a6266; }
+
+.sidebarStyleLight.widget_area select,
+.sidebarStyleLight.widget_area .tagcloud a,
+.sidebarStyleLight.widget_area .search-form,
+.sidebarStyleLight.widget_area .calendar tbody a,
+.sidebarStyleLight.widget_area .tabs_area ul.tabs a,
+.sidebarStyleLight.widget_area .jq-selectbox__select,
+.sidebarStyleLight.widget_area .jq-selectbox__dropdown,
+.woocommerce .sidebarStyleLight.widget_area .widget_layered_nav ul li.chosen a,
+.woocommerce-page .sidebarStyleLight.widget_area .widget_layered_nav ul li.chosen a,
+#sidebar_main.sidebarStyleLight .widget_layered_nav ul li.chosen a:before,
+#sidebar_main.sidebarStyleLight .widget_layered_nav ul li a:hover:before,
+#sidebar_main.sidebarStyleLight .widget_layered_nav_filters ul li a:hover:before,
+#sidebar_main.sidebarStyleLight .widget_layered_nav_filters ul li.chosen a:before
+{ border-color: #dcdfe0; }
+
+
+blockquote.sc_quote_style_2
+{ border-left-color: #0f75bc; }
+
+
+/* do not change */
+.mejs-controls .mejs-play button:hover:before,
+.mejs-controls .mejs-pause button:hover:before,
+.mejs-controls .mejs-mute button:hover:before,
+.mejs-controls .mejs-unmute button:hover:before,
+.sc_team .sc_team_item .sc_team_item_position,
+.infoPost .post_author
+{ color: #232a34; }
+
+
+.sc_table table tr:hover { background-color: rgba(5, 209, 212, 0.15);}
+
+
+.theme_accent_bg,
+.theme_accent_bg:before
+ { background:#f55858; }
+
+
+.sc_image_shape_round:hover figcaption,
+.post .sc_image_shape_round:hover figcaption
+{ background: rgba(57, 32, 113, 0.6); }
+
+
+.mejs-container, .mejs-embed, .mejs-embed body, .mejs-container .mejs-controls { background:transparent !important; }
+.mejs-controls .mejs-volume-button .mejs-volume-slider { background: rgba(57, 32, 113, 0.6) !important; }
+.top_panel_above .fullScreenSlider .topWrap { background-color: transparent; }
+.topWrap.styleShadedGray { background-color: #f5f7f9; }
+
+.sc_slider_flex .flex-direction-nav li,
+.sc_slider_swiper .flex-direction-nav li
+{ background-color: rgba(255, 255, 255, 0.7) !important; }
+
+.sc_slider_flex ul.flex-direction-nav li:hover,
+.sc_slider_chop ul.flex-direction-nav li:hover,
+.sc_slider_swiper ul.flex-direction-nav li:hover
+{ background-color: rgba(255, 255, 255, 1) !important; }
+
+
+.postSharing > ul > li > a:active,
+.postSharing > ul > li > span:active,
+.roundButton > a:active,
+.nav_pages_parts > span.page_num,
+.nav_comments > span.current,
+.itemPageFull .itemDescriptionWrap .toggleButton:active,
+.footerWidget .sc_video_player:active .sc_video_play_button:after,
+.sliderLogo .elastislide-wrapper nav span:active:before,
+pre.code,
+.sc_tooltip_parent
+{ border-color:#0f75bc; }
+
+
+::selection { color: #fff; background-color:#f55858;}
+::-moz-selection { color: #fff; background-color:#f55858;}
+
+
+
+/* WooCommerce colors */
+
+.woocommerce .widget_price_filter .price_slider_amount .button:hover,
+.woocommerce-page .widget_price_filter .price_slider_amount .button:hover,
+.woocommerce .widget_area aside.widgetWrap.woocommerce .button:hover,
+.woocommerce-page .widget_area aside.widgetWrap.woocommerce  .button:hover
+{ background: rgba(57, 32, 113, 0.7) !important; }
+
+.woocommerce .widget_price_filter .price_slider_amount .button,
+.woocommerce-page .widget_price_filter .price_slider_amount .button
+{ background:#0f75bc !important; }
+
+.woocommerce #review_form #respond .form-submit input:hover,
+.woocommerce-page #review_form #respond .form-submit input:hover,
+.woocommerce #payment #place_order:hover,
+.woocommerce-page #payment #place_order:hover,
+.woocommerce .woocommerce-message a.button:hover,
+.woocommerce .woocommerce-error a.button:hover,
+.woocommerce .woocommerce-info a.button:hover,
+.woocommerce-page .woocommerce-message a.button:hover,
+.woocommerce-page .woocommerce-error a.button:hover,
+.woocommerce-page .woocommerce-info a.button:hover
+{ background: rgba(245, 88, 88, 0.7) !important; }
+
+.woocommerce #content table.cart td.actions .button,
+.woocommerce table.cart td.actions .button,
+.woocommerce #content table.cart td.actions .button,
+.woocommerce table.cart td.actions .button,
+.woocommerce .shipping-calculator-form .button,
+.woocommerce .shipping-calculator-form .button,
+.return-to-shop .button,
+.return-to-shop .button
+{
+    background: -moz-linear-gradient(transparent,transparent) !important;
+    background: -webkit-linear-gradient(transparent,transparent) !important;
+    background: -o-linear-gradient(transparent,transparent) !important;
+    background: -ms-linear-gradient(transparent,transparent) !important;
+    background: linear-gradient(transparent,transparent) !important;
+    background-color: #f5f7f9 !important; color: #5a6266;
+}
+
+.woocommerce #content table.cart td.actions .button:hover,
+.woocommerce table.cart td.actions .button:hover,
+.woocommerce #content table.cart td.actions .button:active,
+.woocommerce table.cart td.actions .button:active,
+.woocommerce #content table.cart td.actions .button.checkout-button,
+.woocommerce table.cart td.actions .button.checkout-button,
+.woocommerce .shipping-calculator-form .button:hover,
+.woocommerce .shipping-calculator-form .button:active,
+.return-to-shop .button:hover,
+.return-to-shop .button:active,
+.wc-proceed-to-checkout .checkout-button
+{
+    background: -moz-linear-gradient(transparent,transparent) !important;
+    background: -webkit-linear-gradient(transparent,transparent) !important;
+    background: -o-linear-gradient(transparent,transparent) !important;
+    background: -ms-linear-gradient(transparent,transparent) !important;
+    background: linear-gradient(transparent,transparent) !important;
+    background-color: #05d1d4 !important; color: #ffffff !important;
+}
+
+.woocommerce ul.products li.product:hover .button,
+.woocommerce-page ul.products li.product:hover .button
+{ background: rgba(5, 209, 212, 0.7);}
+
+.woocommerce #content table.cart td.actions .button.checkout-button:hover,
+.woocommerce table.cart td.actions .button.checkout-button:hover,
+.wc-proceed-to-checkout .checkout-button:hover
+{ background: rgba(5, 209, 212, 0.7) !important; }
+
+.woocommerce .woocommerce-message:before,
+.woocommerce-page .woocommerce-message:before,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
+.woocommerce-page .widget_price_filter .ui-slider .ui-slider-range
+{ background-color: #acb4b6; }
+
+.woocommerce div.product form.cart .button,
+.woocommerce #content div.product form.cart .button,
+.woocommerce-page div.product form.cart .button,
+.woocommerce-page #content div.product form.cart .button
+{
+    background: -moz-linear-gradient(transparent,transparent) !important;
+    background: -webkit-linear-gradient(transparent,transparent) !important;
+    background: -o-linear-gradient(transparent,transparent) !important;
+    background: -ms-linear-gradient(transparent,transparent) !important;
+    background: linear-gradient(transparent,transparent) !important;
+    background-color: #05d1d4 !important;
+}
+
+.woocommerce div.product form.cart .button:hover,
+.woocommerce #content div.product form.cart .button:hover,
+.woocommerce-page div.product form.cart .button:hover,
+.woocommerce-page #content div.product form.cart .button:hover {
+    background: rgba(5, 209, 212, 0.7) !important;
+    text-shadow: none !important;
+}
+
+.woocommerce form .button:hover,
+.woocommerce-page form .button:hover
+{ background: rgba(255, 196, 85, 0.7) !important; color: #ffffff; }
+
+
+
+/* do not change */
+.sc_title.theme_accent_bgc,
+.sc_title.theme_accent_1_bgc,
+.sc_title.theme_accent_2_bgc,
+.sc_title.theme_accent_3_bgc {
+    background-color: transparent;
+}
+.sc_title.theme_accent_bg,
+.sc_title.theme_accent_1_bg,
+.sc_title.theme_accent_2_bg,
+.sc_title.theme_accent_3_bg {
+    background: transparent;
+}
+
+.sc_pricing_dark .sc_button > a {
+  color: #ffffff;
+  background-color: #232a34 !important;
+}
+
+.sc_title_icon.sc_title_bg {
+  color: #fff;
+}
+
+.search:before,
+.icon-shopping:before,
+.search .searchForm .searchSubmit .icoSearch:before{
+    color: rgba(210, 217, 224, 0.9); 
+}
+
+.squareButton > button {
+    border: none !important;
+}
+.squareButton.gray > a,
+.squareButton.gray > button {
+    color: #5a6266;
+}
+
+.squareButton > a,
+.squareButton > a:hover,
+.squareButton.gray > a:hover,
+.squareButton > button,
+.squareButton > button:hover,
+.squareButton.gray > button:hover{
+  color: #fff;
+}
+

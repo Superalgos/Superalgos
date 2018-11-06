@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import jwtDecode from 'jwt-decode'
 
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -20,6 +21,9 @@ import { getItem } from '../../utils/local-storage'
 // components
 import { LoggedIn } from './LoggedIn'
 import { LoggedOut } from './LoggedOut'
+
+// menues
+import {UsersMenu} from '@advancedalgos/users-client'
 
 import AALogo from '../../assets/advanced-algos/aa-logo-dark.svg'
 
@@ -77,80 +81,162 @@ class Header extends Component {
   async componentDidMount () {
     const user = window.localStorage.getItem('user')
     this.setState({ user })
+    frontManualStart()  // This call is necesary to start the jQuery based scripts that deals with the Responsive Header.
   }
 
   render () {
     let { classes, auth } = this.props
-
+    if (window.localStorage.getItem('access_token')) {
+      if (jwtDecode(window.localStorage.getItem('access_token')).exp < new Date().getTime() / 1000) {
+        window.localStorage.clear()
+        window.location.reload()
+      }
+    }
     let user = JSON.parse(this.state.user)
     return (
-      <div className={classes.root}>
-        <AppBar
-          position='static'
-          classes={{ root: classes.appBar, colorDefault: classes.colorDefault }}
-        >
-          <Toolbar>
-            <img className={classes.img} src={AALogo} alt='Advanced Algos' />
-            <Typography
-              variant='h6'
-              color='inherit'
-              className={classes.toolbarTitle}
-            >
-              &nbsp;
-            </Typography>
+      <React.Fragment>
+        <div className={classes.root}>
 
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              title='Home'
-              component={HomeLink}
-            >
-              <HomeIcon />
-            </IconButton>
+          <AppBar
+            position='static'
+            classes={{ root: classes.appBar, colorDefault: classes.colorDefault }}
+      >
 
-            <Button component={ChartsLink} color='inherit'>
-              Charts
-            </Button>
-            <Button component={UsersLink} color='inherit'>
-              Users
-            </Button>
-            <Button component={TeamsLink} color='inherit'>
-              Teams
-            </Button>
-            <Button component={EventsLink} color='inherit'>
-              Events
-            </Button>
-            <Button component={KeyVaultLink} color='inherit'>
-              Key Vault
-            </Button>
+            <header id='header' className='light_section'>
+              <div className='container'>
+                <div className='row'>
+                  <div className='col-sm-12 topWrap styleShaded'>
+                    <div className='logo logo_left with_text'>
+                      <a href='https://www.advancedalgos.net/index.shtml' className='navbar-brand'><img src='https://www.advancedalgos.net/img/logos/advanced-algos/aa-logo-dark.svg' alt='Advanced Algos Logo' className='logo_main' /></a>
+                    </div>
+                    <a href='#' className='openResponsiveMenu'>Menu</a>
+                    <nav id='mainmenu_wrapper' className='menuTopWrap topMenuStyleLine'>
+                      <ul id='mainmenu' className='nav sf-menu inited '>
+                        <li>
+                          <Button component={HomeLink} color='inherit'>
+                              Home
+                            </Button>
+                        </li>
+                        <li className='menu-item-has-children'>
+                          <Button component={ChartsLink} color='inherit'>
+                              Charts
+                            </Button>
+                          <ul className='sub-menu'>
+                            <li>
+                              <a href='https://www.advancedalgos.net/about-evolution.shtml' className='sf-with-ul'>Evolution</a>
+                            </li>
+                            <li>
+                              <a href='https://www.advancedalgos.net/about-superalgo.shtml' className='sf-with-ul'>Superalgos</a>
+                            </li>
+                            <li>
+                              <a href='https://www.advancedalgos.net/about-supermind.shtml' className='sf-with-ul'>Supermind</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li className='menu-item-has-children'>
+                          <Button component={UsersLink} color='inherit'>
+                              Users
+                            </Button>
+                          <UsersMenu />
+                        </li>
+                        <li className='menu-item-has-children'>
+                          <Button component={TeamsLink} color='inherit'>
+                              Teams
+                            </Button>
+                          <ul className='sub-menu'>
+                            <li className='menu-item-has-children'>
+                              <a href='developers-system-modules.shtml'>System Modules</a>
+                              <ul>
+                                <li>
+                                  <a href='#'>Module A</a>
+                                </li>
+                                <li>
+                                  <a href='#'>Module B</a>
+                                </li>
+                                <li className='menu-item-has-children'>
+                                  <a href='#'>Module C</a>
+                                  <ul>
+                                    <li><a href='#'>Module C1</a></li>
+                                    <li><a href='#'>Module C2</a></li>
+                                    <li><a href='#'>Module C3</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href='developers-breed-compete.shtml'>Breed &amp; Compete</a>
+                            </li>
+                            <li>
+                              <a href='documentation-quick-start.shtml'>Documentation</a>
+                            </li>
+                          </ul>
 
-            <Button
-              href='https://www.advancedalgos.net/documentation-quick-start.shtml'
-              color='inherit'
-              target='_blank'
-            >
-            Docs
-            </Button>
+                        </li>
+                        <li className='menu-item-has-children'>
+                          <Button component={EventsLink} color='inherit'>
+                            Events
+                          </Button>
+                          <ul className='sub-menu'>
+                            <li>
+                              <a href='https://www.advancedalgos.net/competition.shtml' className='sf-with-ul'>The <span className='red_text'>ALGO</span> Arena</a>
+                            </li>
+                            <li className='menu-item-has-children'>
+                              <a href='#'>Current Events</a>
+                              <ul className='sub-menu'>
+                                <li>
+                                  <a href='https://www.advancedalgos.net/competition-bitcoin-argentina-fb-group.shtml' className='sf-with-ul'>Bitcoin Argentina</a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <li className='menu-item-has-children'>
+                          <Button component={KeyVaultLink} color='inherit'>
+                            Key Vault
+                          </Button>
+                          <ul className='sub-menu'>
+                            <li>
+                              <a href='https://www.advancedalgos.net/competition.shtml' className='sf-with-ul'>The <span className='red_text'>ALGO</span> Arena</a>
+                            </li>
+                            <li className='menu-item-has-children'>
+                              <a href='#'>Current Events</a>
+                              <ul className='sub-menu'>
+                                <li>
+                                  <a href='https://www.advancedalgos.net/competition-bitcoin-argentina-fb-group.shtml' className='sf-with-ul'>Bitcoin Argentina</a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <Button
+                            href='https://www.advancedalgos.net/documentation-quick-start.shtml'
+                            color='inherit'
+                              >
+                              Docs
+                              </Button>
+                        </li>
+                        <li>
+                          {this.state.user !== undefined && this.state.user !== null ? (
+                            <React.Fragment>
+                              <LoggedIn user={user} auth={auth} styles={styles} />
+                            </React.Fragment>
+                            ) : (
+                              <LoggedOut auth={auth} styles={styles} />
+                            )}
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </header>
 
-            {this.state.user !== undefined && this.state.user !== null ? (
-              <React.Fragment>
-                <LoggedIn user={user} auth={auth} styles={styles} />
-              </React.Fragment>
-            ) : (
-              <LoggedOut auth={auth} styles={styles} />
-            )}
+          </AppBar>
 
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              title='Exit'
-              href='http://www.advancedalgos.net/'
-            >
-              <ExitIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-      </div>
+        </div>
+      </React.Fragment>
+
     )
   }
 }

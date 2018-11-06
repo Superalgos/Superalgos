@@ -40,10 +40,6 @@ module.exports = merge(commonConfig, {
       {
         test: /\.s?[ac]ss$/,
         loader: 'style-loader!css-loader!postcss-loader!sass-loader'
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=public/fonts/[name].[ext]'
       }
     ]
   },

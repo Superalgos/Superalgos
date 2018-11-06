@@ -18,15 +18,6 @@ import Teams from '@advancedalgos/teams-client'
 import Events from '@advancedalgos/events-client'
 import KeyVault from '@advancedalgos/key-vault-client'
 
-// The following are the style sheets needed for the Header, Responsive Menu, and Footer. It also impacts html at the body.
-import '../css/bootstrap.css'
-import '../css/saira.css'
-import '../css/shortcodes.css'
-import '../css/responsive.css'
-import '../css/fontawesome.css'
-import '../css/general.css'
-import '../css/fonts.css'
-
 export const auth = new Auth(
   result => console.log('Authentication successful.'),
   client

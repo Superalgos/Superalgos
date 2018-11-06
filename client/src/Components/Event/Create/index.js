@@ -3,31 +3,18 @@ import { Mutation } from 'react-apollo';
 import { DateTime } from 'luxon';
 
 import {
-  TextField,
-  FormControl,
-  InputLabel,
-  Input,
-  Button,
-  MenuItem,
-  FormGroup,
-  Select,
-  FormHelperText,
   Paper,
-  Grid,
   Typography,
   AppBar,
   Tabs,
   Tab,
 } from '@material-ui/core';
 import {
-  ChevronLeft,
-  ChevronRight,
   Face as BasicIcon,
   Alarm as TechnicalIcon,
   Group as TeamAndServerIcon,
   PresentToAll as PresentationIcon,
 } from '@material-ui/icons';
-import { DateTimePicker } from 'material-ui-pickers';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 
@@ -60,13 +47,21 @@ class Create extends React.Component {
     };
   }
 
-  handleChange = (event, value) => {
+  handleTabChange = (event, value) => {
     this.setState({ value });
+  }
+
+  handleEventChange = (newType, newVal) => {
+    this.setState({ [newType]: newVal });
   }
 
   render() {
     const {
-      name, description, startDatetime, finishDatetime, value,
+      name,
+      description,
+      startDatetime,
+      finishDatetime,
+      value,
     } = this.state;
     const { classes } = this.props;
     return (
@@ -81,7 +76,7 @@ class Create extends React.Component {
             <AppBar position='static' color='default'>
               <Tabs
               value={value}
-              onChange={this.handleChange}
+              onChange={this.handleTabChange}
               scrollable
               scrollButtons='off'
               indicatorColor='primary'
@@ -124,119 +119,23 @@ class Create extends React.Component {
                         name,
                         description,
                         startDatetime: startDatetime.valueOf() / 1000,
-                        finishDatetime: startDatetime.valueOf() / 1000,
+                        finishDatetime: finishDatetime.valueOf() / 1000,
                       },
                     },
                   });
                 }}
               >
                 {value === 0 && <TabContainer>
-                  <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-                These are the basic information you need to input in order to create an event.
-                There might be some heavy changes in the near future as the application is still at a very early stage.
-                  </Typography>
-
-                  <TextField
-                label='Public id'
-                value='Your public ID will be generated automatically'
-                className={classes.inputField}
-                disabled
-              />
-
-                  <TextField
-                label='Name'
-                value={name}
-                className={classes.inputField}
-              />
-                  <TextField
-                multiline
-                label='Description'
-                value={description}
-                className={classes.inputField}
-              />
-
-                  <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-                The dates are purely indicative, as it is important for you to make sure everything is
-                ready before manually triggering the beginning and end of the event.
-                If you are confident use the scheduler to start it for you(incoming).
-                  </Typography>
-
-                  <FormGroup row className={classes.inputField}>
-                    <Grid container justify='space-around' >
-                      <Grid item>
-                        <DateTimePicker
-                      autoOk
-                      disablePast
-                      format="DD' at 'HH:mm"
-                      ampm={false}
-                      showTabs={false}
-                      leftArrowIcon={<ChevronLeft />}
-                      rightArrowIcon={<ChevronRight />}
-                      value={startDatetime}
-                      helperText='Competition start date'
-                    />
-                      </Grid>
-                      <Grid item>
-                        <DateTimePicker
-                      autoOk
-                      disablePast
-                      format="DD' at 'HH:mm"
-                      ampm={false}
-                      showTabs={false}
-                      leftArrowIcon={<ChevronLeft />}
-                      rightArrowIcon={<ChevronRight />}
-                      value={finishDatetime}
-                      helperText='Competition finishing date'
-                    />
-                      </Grid>
-                    </Grid>
-                  </FormGroup>
-
-                  <FormControl className={classes.inputField}>
-                    <InputLabel shrink htmlFor='select'>
-                  Select the formula
-                    </InputLabel>
-                    <Select
-                  id='select'
-                  value='1'
-                  input={<Input name='Role' id='role-label-placeholder' />}
-                  displayEmpty
-                  name='select'
-                  className={classes.selectEmpty}
-                >
-                      <MenuItem key='1' value='1'>moi</MenuItem>
-                      <MenuItem key='2' value='2'>toi</MenuItem>
-                      <MenuItem key='3' value='3'>nous</MenuItem>
-                    </Select>
-                    <FormHelperText> For new formula, select {'"'}create new{'"'} </FormHelperText>
-                  </FormControl>
-                  <FormControl className={classes.inputField}>
-                    <InputLabel shrink htmlFor='select'>
-                  Select the Plotter
-                    </InputLabel>
-                    <Select
-                  id='select'
-                  value='1'
-                  input={<Input name='Role' id='role-label-placeholder' />}
-                  displayEmpty
-                  name='select'
-                  className={classes.selectEmpty}
-                >
-                      <MenuItem key='1' value='1'>moi</MenuItem>
-                      <MenuItem key='2' value='2'>toi</MenuItem>
-                      <MenuItem key='3' value='3'>nous</MenuItem>
-                    </Select>
-                    <FormHelperText> For new plotter, select {'"'}create new{'"'} </FormHelperText>
-                  </FormControl>
-                  <Grid container justify='center' >
-                    <Grid item>
-                      <Button className={classes.bottomButton} type='submit' variant='contained' color='secondary'>
-                        Create New Project
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </TabContainer>
-              }
+                  <Basic
+                    event={{
+                      name,
+                      description,
+                      startDatetime,
+                      finishDatetime,
+                    }}
+                    edit={(newType, newVal) => this.handleEventChange(newType, newVal)}
+                  />
+                </TabContainer>}
                 {value === 1 && <TabContainer><Technical /></TabContainer>}
                 {value === 2 && <TabContainer><TeamsServer /></TabContainer>}
                 {value === 3 && <TabContainer><PresentationPage /></TabContainer>}

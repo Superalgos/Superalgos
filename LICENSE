@@ -1,4 +1,4 @@
-COPYRIGHT NOTICE
+﻿COPYRIGHT NOTICE
 
 © Copyright 2018 Advanced Algos LTD.
 
@@ -7,7 +7,7 @@ LICENSE NOTICE
 
 Advanced Algos LTD. is a startup, currently at a very early stage. Because certain aspects of 
 the business are still not clearly defined, we have chosen to --temporarily-- grant a 
-restrictive license for the use of this module, until those business aspects are clarified 
+restrictive license for the use of this repository, until those business aspects are clarified 
 and a proper open source license can be granted.
 
 Advanced Algos LTD. is publishing the code of this software for several reasons. However, 
@@ -20,9 +20,9 @@ The reasons for opening up the code of this module at this stage are the followi
     to be able to understand what this module does and how. Opening up the code of this module 
     allows anyone to take a close look.
 
-  * We welcome contributions from the community. Contributions may be compensated on a case 
-    by case basis with ALGO tokens. Contributors     agree to provide an express grant of patent
-    rights for their contributions.
+  * We welcome contributions from the community. Contributions are regarded as voluntary work. 
+    There may be incentives in place for certain kinds of contributions. Contact us to learn more.
+    Contributors agree to provide an express grant of patent rights for their contributions.
 
 
 LICENSE WORDING
@@ -32,12 +32,11 @@ Advanced Algos LTD. grants a limited license for the following uses:
 1. CODE REVIEW AND AUDITS. You are granted permission to clone this repository to analyze, 
    review or audit the code.
 
-2. COLLABORATING WITH ADVANCED ALGOS LTD. You are granted permission to fork the this repository 
+2. COLLABORATING WITH ADVANCED ALGOS LTD. You are granted permission to fork this repository 
    with the sole purpose of correcting bugs and developing functionality in agreement with 
    Advanced Algos LTD. By contributing to this repository you explicitely agree to the terms 
    detailed in CONTRIBUTING.MD.
 
-PLEASE SEE CONTRIBUTING.MD FOR MORE DETAILS ON THE IMPLICATIONS SURROUNDING YOUR CONTRIBUTIONS 
-TO THIS REPOSITORY.
+PLEASE SEE CONTRIBUTING.MD FOR MORE DETAILS ON THE IMPLICATIONS SURROUNDING YOUR CONTRIBUTIONS TO THIS REPOSITORY.
 
 

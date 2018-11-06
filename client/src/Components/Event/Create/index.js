@@ -44,6 +44,8 @@ class Create extends React.Component {
       description: '',
       startDatetime: DateTime.local().plus({ days: 1 }).startOf('day'),
       finishDatetime: DateTime.local().plus({ days: 8 }).startOf('day'),
+      formulaId: '',
+      plotterId: '',
     };
   }
 
@@ -62,6 +64,8 @@ class Create extends React.Component {
       startDatetime,
       finishDatetime,
       value,
+      formulaId,
+      plotterId,
     } = this.state;
     const { classes } = this.props;
     return (
@@ -136,7 +140,15 @@ class Create extends React.Component {
                     edit={(newType, newVal) => this.handleEventChange(newType, newVal)}
                   />
                 </TabContainer>}
-                {value === 1 && <TabContainer><Technical /></TabContainer>}
+                {value === 1 && <TabContainer>
+                  <Technical
+                    event={{
+                      formulaId,
+                      plotterId,
+                    }}
+                    edit={(newType, newVal) => this.handleEventChange(newType, newVal)}
+                  />
+                </TabContainer>}
                 {value === 2 && <TabContainer><TeamsServer /></TabContainer>}
                 {value === 3 && <TabContainer><PresentationPage /></TabContainer>}
               </form>

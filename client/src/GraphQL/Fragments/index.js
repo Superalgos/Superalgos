@@ -1,9 +1,9 @@
 import {
   eventMinimalInfo,
-  eventFullInfo
-} from './event'
+  eventFullInfo,
+} from './event';
 
 export {
   eventMinimalInfo,
-  eventFullInfo
-}
+  eventFullInfo,
+};

@@ -1,5 +1,5 @@
-import gql from 'graphql-tag'
-import { eventFullInfo } from '../Fragments'
+import gql from 'graphql-tag';
+import { eventFullInfo } from '../Fragments';
 
 const EVENTS_EVENT = gql`
   query Hosts_Event($designator: ID!) {
@@ -8,8 +8,8 @@ const EVENTS_EVENT = gql`
     }
   }
   ${eventFullInfo}
-`
+`;
 
 export default {
-  EVENTS_EVENT
-}
+  EVENTS_EVENT,
+};

@@ -1,26 +1,22 @@
-import React from 'react'
-import { Typography } from '@material-ui/core'
+import React from 'react';
+import { Typography } from '@material-ui/core';
 
-import { withStyles } from '@material-ui/core/styles'
-import styles from '../styles'
+import { withStyles } from '@material-ui/core/styles';
+import styles from '../styles';
 
-import Event from '../Event'
+import Event from '../Event';
 
 class Incoming extends React.Component {
-  render () {
-    const classes = this.props.classes
-    const { IncomingEvents, OngoingEvents } = this.props
+  render() {
+    const { classes } = this.props;
+    const { IncomingEvents, OngoingEvents } = this.props;
 
-    const incomingEvents = IncomingEvents.map((event, index) => {
-      return (
+    const incomingEvents = IncomingEvents.map((event, index) => (
         <Event key={index} event={event} />
-      )
-    })
-    const ongoingEvents = OngoingEvents.map((event, index) => {
-      return (
+    ));
+    const ongoingEvents = OngoingEvents.map((event, index) => (
         <Event key={index} event={event} />
-      )
-    })
+    ));
     return (
       <React.Fragment>
         <Typography
@@ -49,8 +45,8 @@ class Incoming extends React.Component {
         </Typography>
         {incomingEvents}
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(Incoming)
+export default withStyles(styles)(Incoming);

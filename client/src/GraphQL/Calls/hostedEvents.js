@@ -1,5 +1,5 @@
-import gql from 'graphql-tag'
-import { eventMinimalInfo } from '../Fragments'
+import gql from 'graphql-tag';
+import { eventMinimalInfo } from '../Fragments';
 
 const EVENTS_HOSTEVENT = gql`
   mutation Hosts_HostEvent($name: String!, $description: String!, $startDatetime: Int!, $finishDatetime: Int!) {
@@ -8,7 +8,7 @@ const EVENTS_HOSTEVENT = gql`
     }
   }
   ${eventMinimalInfo}
-`
+`;
 const EVENTS_EVENTSBYHOST = gql`
   query Hosts_EventsByHost{
     events_EventsByHost {
@@ -16,8 +16,8 @@ const EVENTS_EVENTSBYHOST = gql`
     }
   }
   ${eventMinimalInfo}
-`
+`;
 export default {
   EVENTS_HOSTEVENT,
-  EVENTS_EVENTSBYHOST
-}
+  EVENTS_EVENTSBYHOST,
+};

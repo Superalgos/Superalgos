@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export const eventMinimalInfo = gql`
   fragment EventMinimalInfo on events_Event {
@@ -13,7 +13,7 @@ export const eventMinimalInfo = gql`
     }
     description
   }
-`
+`;
 
 export const eventFullInfo = gql`
   fragment EventFullInfo on events_Event {
@@ -58,4 +58,4 @@ export const eventFullInfo = gql`
       }
     }
   }
-`
+`;

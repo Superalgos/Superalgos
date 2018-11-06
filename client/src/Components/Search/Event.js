@@ -1,27 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Grid, Paper,
   Typography,
-  Button
-} from '@material-ui/core'
-import { withStyles } from '@material-ui/core/styles'
-import styles from './styles'
+  Button,
+} from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './styles';
 
-import { toLocalTime } from '../../utils'
+import { toLocalTime } from '../../utils';
 
 class Event extends React.Component {
-  render () {
-    const classes = this.props.classes
+  render() {
+    const { classes } = this.props;
     const {
       name,
       designator,
       startDatetime,
       finishDatetime,
       host,
-      description
-    } = this.props.event
+      description,
+    } = this.props.event;
     return (
       <Paper className={classes.card}>
         <Grid container spacing={16}>
@@ -31,7 +31,9 @@ class Event extends React.Component {
             <Typography gutterBottom>To : {toLocalTime(finishDatetime)} </Typography>
           </Grid>
           <Grid item xs>
-            <Typography gutterBottom>Hosted by: {host.alias} ({host.lastName} {host.firstName}) </Typography>
+            <Typography gutterBottom>
+              Hosted by: {host.alias} ({host.lastName} {host.firstName})
+            </Typography>
             <Typography gutterBottom>Formula: </Typography>
             <Typography gutterBottom>First prize: </Typography>
           </Grid>
@@ -48,7 +50,7 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={'/show/' + designator}
+                  to={`/show/${designator}`}
                 >
                   Show
                 </Button>
@@ -57,8 +59,8 @@ class Event extends React.Component {
           </Grid>
         </Grid>
       </Paper>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(Event)
+export default withStyles(styles)(Event);

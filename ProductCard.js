@@ -241,7 +241,7 @@
         }
          
         teamAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "avatar.jpg";
-
+        console.log("TEAM NAME", TEAM);
         /* 
         TODO Temporary code: Here we will temporary download the images of bots uploaded at the Teams Module.
         */

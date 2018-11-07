@@ -238,12 +238,15 @@ function newDashboard() {
             }
         `
 
+            let teams;
+
             const getTeams = () => {
                 return new Promise((resolve, reject) => {
                     apolloClientTeams.query({
                         query: ALL_TEAMS_QUERY
                     })
-                    .then(response => {
+                        .then(response => {
+                            teams = response.data.teams_Teams;
                         window.localStorage.setItem('Teams', JSON.stringify(response.data.teams_Teams));
                         resolve({ teams: response.data.teams_Teams })
                     })
@@ -263,7 +266,28 @@ function newDashboard() {
             // When all asynchronous fetches resolve, authenticate user or throw error.
             Promise.all(fetchDataPromises).then(result => {
 
-                /* All good */
+                /* All good, we will go through the results creating a map with all the Images URLs */
+
+
+                console.log("TEAMS", teams);
+
+                let teamProfileImages = new Map();
+                let fbProfileImages = new Map();
+
+                for (let i = 0; i < teams.edges.lenght; i++) {
+
+                    let team = teams.edges[i].node;
+
+                    teamProfileImages.set(team.slug, team.profile.avatar)
+                    fbProfileImages.set(team.fb[0].slug, team.fb[0].avatar)
+
+                }
+
+                console.log("TEAM PROFILES", JSON.stringify(teamProfileImages));
+                console.log("FB PROFILES", JSON.stringify(fbProfileImages));
+
+                window.canvasApp.context.teamProfileImages = teamProfileImages;
+                window.canvasApp.context.fbProfileImages = fbProfileImages;
 
                 callBack();
 

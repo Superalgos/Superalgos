@@ -147,7 +147,7 @@ class Footer extends Component {
                 <img alt='' src={aalogo} width={'100%'} height={'auto'} />
               </NavLink>
               <Grid container className={classes.descriptionLeft} direction='column'>
-                <Typography variant='subtitle2' className={classes.textLight} ><strong>Advanced Algos Ltd. {width}</strong></Typography>
+                <Typography variant='subtitle2' className={classes.textLight} ><strong>Advanced Algos Ltd.</strong></Typography>
                 <Typography variant='subtitle1' className={classes.textLight} gutterBottom>Ground Floor, Palace Court, Church Street,<br />St. Julians&nbsp;STJ3049, Malta</Typography>
                 <Typography variant='subtitle1' className={classes.textLight}>
                   <Link to='legal-privacy-statement.shtml' className={classes.linkLight}>Privacy Statement</Link> | <a href='legal-terms-of-service.shtml' className={classes.linkLight}>Terms of Service</a>
@@ -205,7 +205,7 @@ class Footer extends Component {
 
 Footer.propTypes = {
   classes: PropTypes.object.isRequired,
-  width: PropTypes.object
+  width: PropTypes.string
 }
 
 const mapStateToProps = (state) => {

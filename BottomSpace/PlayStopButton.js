@@ -14,7 +14,7 @@ function newPlayStopButton() {
     thisObject.container = container;
 
     thisObject.container.frame.width = 50;
-    thisObject.container.frame.height = TOP_SPACE_HEIGHT;
+    thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
 
     resize();
 
@@ -145,7 +145,7 @@ function newPlayStopButton() {
 
         thisObject.container.frame.draw(false, false);
 
-        let breakpointsHeight = 8;
+        let breakpointsHeight = 14;
 
         if (canDraw === false) { return; }
 

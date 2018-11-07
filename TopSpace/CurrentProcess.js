@@ -13,7 +13,7 @@ function newCurrentProcess() {
     thisObject.container = container;
 
     thisObject.container.frame.width = 150;
-    thisObject.container.frame.height = TOP_SPACE_HEIGHT;
+    thisObject.container.frame.height = BOTTOM_SPACE_HEIGHT;
 
     resize()
 
@@ -131,13 +131,14 @@ function newCurrentProcess() {
 
         thisObject.container.frame.draw(false, false);
 
+        let breakpointsHeight = 14;
         let fontSize = 12;
         let label = window.CURRENT_PROCESS;
         if (label === undefined) { label = "" };
 
         let point = {
             x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize / 3,
-            y: (thisObject.container.frame.height / 2) + 12
+            y: thisObject.container.frame.height / 2 + fontSize / 2 + breakpointsHeight
         };
 
         point = thisObject.container.frame.frameThisPoint(point);

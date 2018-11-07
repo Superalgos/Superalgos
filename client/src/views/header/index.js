@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import { withStyles } from '@material-ui/core/styles'
 import withWidth from '@material-ui/core/withWidth'
@@ -14,7 +15,8 @@ import HomeIcon from '@material-ui/icons/Home'
 import ExitIcon from '@material-ui/icons/ExitToApp'
 import MenuIcon from '@material-ui/icons/Menu'
 
-import { Link } from 'react-router-dom'
+// styles
+import styles from './styles'
 
 // components
 import { LoggedIn } from './LoggedIn'
@@ -22,66 +24,6 @@ import { LoggedOut } from './LoggedOut'
 
 import allMenus from './imports'
 import AALogo from '../../assets/advanced-algos/aa-logo-dark.svg'
-
-const styles = theme => ({
-  '@global': {
-    body: {
-      backgroundColor: theme.palette.common.white
-    }
-  },
-  root: {
-    flexGrow: 1
-  },
-  colorDefault: {
-    color: '#000'
-  },
-  flex: {
-    flexGrow: 1
-  },
-  toolbarTitle: {
-    flex: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  },
-  appBar: {
-    position: 'relative'
-  },
-  img: {
-    display: 'block',
-    maxWidth: 240,
-    maxHeight: 48
-  },
-  externalLink: {
-    textDecoration: 'none'
-  },
-  dropdownContent: {
-    display: 'none',
-    position: 'absolute',
-    backgroundColor: '#f1f1f1',
-    minWidth: '160px',
-    boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-    zIndex: 1
-  },
-  dropdownContentShown: {
-    display: 'block',
-    position: 'absolute',
-    backgroundColor: '#f1f1f1',
-    minWidth: '160px',
-    boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-    zIndex: 1
-  },
-  dropdownButtons: {
-    display: 'block'
-  },
-  mobileMenu: {
-    color: theme.palette.common.white,
-    boxShadow: 'none',
-    border: `1px solid ${theme.palette.common.white}`,
-    background: 'none'
-  }
-})
 
 class Header extends Component {
   constructor (props) {

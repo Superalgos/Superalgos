@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { withStyles } from '@material-ui/core/styles'
+import withWidth from '@material-ui/core/withWidth'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -11,6 +12,7 @@ import Button from '@material-ui/core/Button'
 // icons
 import HomeIcon from '@material-ui/icons/Home'
 import ExitIcon from '@material-ui/icons/ExitToApp'
+import MenuIcon from '@material-ui/icons/Menu'
 
 import { Link } from 'react-router-dom'
 
@@ -72,15 +74,23 @@ const styles = theme => ({
   },
   dropdownButtons: {
     display: 'block'
+  },
+  mobileMenu: {
+    color: theme.palette.common.white,
+    boxShadow: 'none',
+    border: `1px solid ${theme.palette.common.white}`,
+    background: 'none'
   }
 })
 
 class Header extends Component {
   constructor (props) {
     super(props)
+    this.toggleMenu = this.toggleMenu.bind(this)
     this.state = {
       user: null,
-      open: null
+      open: null,
+      mobileOpen: false
     }
   }
 
@@ -90,7 +100,7 @@ class Header extends Component {
   }
 
   render () {
-    let { classes, auth } = this.props
+    let { classes, auth, width } = this.props
     let { open } = this.state
 
     let user = JSON.parse(this.state.user)
@@ -103,6 +113,34 @@ class Header extends Component {
         >
           <Button component={Link} to={menu.to} color='inherit'>
             {menu.title}
+          </Button>
+          <div className={open === index ? classes.dropdownContentShown : classes.dropdownContent} >
+            {
+              menu.submenus.map((submenu, index) => {
+                // const Icon = submenu.icon
+                return (
+                  <Button component={Link} to={submenu.to} className={classes.dropdownButtons}>{submenu.title}</Button>
+                )
+              })}
+          </div>
+        </div>
+      )
+    })
+
+    const mobileMenusButton = (
+      <Button onClick={() => this.toggleMenu} className={classes.mobileMenu} variant='extendedFab' >
+        <MenuIcon /> MENU
+      </Button>
+    )
+
+    const mobileMenus = allMenus.map((menu, index) => {
+      return (
+        <div className='dropdown'
+          onMouseEnter={() => this.setState({ open: index })}
+          onMouseLeave={() => this.setState({ open: null })}
+        >
+          <Button component={Link} to={menu.to} color='inherit'>
+            Mobile {menu.title}
           </Button>
           <div className={open === index ? classes.dropdownContentShown : classes.dropdownContent} >
             {
@@ -132,57 +170,67 @@ class Header extends Component {
             >
               &nbsp;
             </Typography>
-
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              title='Home'
-              component={Link}
-              to='/'
-            >
-              <HomeIcon />
-            </IconButton>
-
-            <Button component={Link} to='/charts' color='inherit'>
-              Charts
-            </Button>
-
-            { menus }
-
-            <Button
-              href='https://www.advancedalgos.net/documentation-quick-start.shtml'
-              color='inherit'
-              target='_blank'
-            >
-            Docs
-            </Button>
-
-            {this.state.user !== undefined && this.state.user !== null ? (
+            {(width !== 'xs' && width !== 'sm') &&
               <React.Fragment>
-                <LoggedIn user={user} auth={auth} styles={styles} />
-              </React.Fragment>
-            ) : (
-              <LoggedOut auth={auth} styles={styles} />
-            )}
+                <IconButton
+                  className={classes.menuButton}
+                  color='inherit'
+                  title='Home'
+                  component={Link}
+                  to='/'
+                >
+                  <HomeIcon />
+                </IconButton>
 
-            <IconButton
-              className={classes.menuButton}
-              color='inherit'
-              title='Exit'
-              href='http://www.advancedalgos.net/'
-            >
-              <ExitIcon />
-            </IconButton>
+                <Button component={Link} to='/charts' color='inherit'>
+                  Charts
+                </Button>
+
+                <Button
+                  href='https://www.advancedalgos.net/documentation-quick-start.shtml'
+                  color='inherit'
+                  target='_blank'
+                >
+                Docs
+                </Button>
+
+                {this.state.user !== undefined && this.state.user !== null ? (
+                  <React.Fragment>
+                    <LoggedIn user={user} auth={auth} styles={styles} />
+                  </React.Fragment>
+                ) : (
+                  <LoggedOut auth={auth} styles={styles} />
+                )}
+
+                <IconButton
+                  className={classes.menuButton}
+                  color='inherit'
+                  title='Exit'
+                  href='http://www.advancedalgos.net/'
+                >
+                  <ExitIcon />
+                </IconButton>
+              </React.Fragment>
+            }
+            { (width === 'xs' || width === 'sm') ? mobileMenusButton : menus }
+            { (width === 'xs' || width === 'sm') && this.state.mobileOpen ? mobileMenus : '' }
           </Toolbar>
         </AppBar>
       </div>
     )
   }
+
+  toggleMenu () {
+    this.setState({ mobileOpen: !this.state.mobileOpen })
+  }
 }
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  width: PropTypes.string
 }
 
-export default withStyles(styles)(Header)
+const HeaderWithStyles = withStyles(styles)(Header)
+
+export default withWidth()(HeaderWithStyles)

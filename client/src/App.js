@@ -11,7 +11,7 @@ import { theme, globalStyles } from './styles'
 import { client } from './graphql/apollo'
 import Auth from './auth'
 
-import { Header, Footer, Home, Charts, Callback } from './views'
+import { Layout, Home, Charts, Callback } from './views'
 
 import Users from '@advancedalgos/users-client'
 import Teams from '@advancedalgos/teams-client'
@@ -28,8 +28,7 @@ export const MasterApp = (props) => (
     <ApolloProvider client={client}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <Header auth={auth} />
-        <div className={props.classes.mainContainer}>
+        <Layout auth={auth}>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route
@@ -60,8 +59,7 @@ export const MasterApp = (props) => (
               render={props => <KeyVault {...props} auth={auth} />}
             />
           </Switch>
-        </div>
-        <Footer />
+        </Layout>
       </MuiThemeProvider>
     </ApolloProvider>
   </BrowserRouter>

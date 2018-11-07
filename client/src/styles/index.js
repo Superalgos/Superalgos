@@ -66,9 +66,6 @@ export const globalStyles = theme => ({
     [theme.breakpoints.up('sm')]: {
       paddingBottom: theme.spacing.unit * 2
     }
-  },
-  mainContainer: {
-    minHeight: 'calc(100vh - 420px)'
   }
 })
 

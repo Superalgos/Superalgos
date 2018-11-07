@@ -240,8 +240,9 @@
             imageLoaded();
         }
          
-        teamAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "avatar.jpg";
+        teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM);
         console.log("TEAM NAME", TEAM);
+        console.log("TEAM AVATAR", window.canvasApp.context.teamProfileImages.get(TEAM));
         /* 
         TODO Temporary code: Here we will temporary download the images of bots uploaded at the Teams Module.
         */
@@ -254,8 +255,9 @@
             thisObject.bot.avatar = botAvatar;
             imageLoaded();
         }
-
-        botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + BOT + "-fb-" + "avatar.jpg";
+        console.log("BOT NAME", BOT);
+        console.log("BOT AVATAR", window.canvasApp.context.fbProfileImages.get(TEAM + "-" + BOT));
+        botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + "-" + BOT);
 
     }
 

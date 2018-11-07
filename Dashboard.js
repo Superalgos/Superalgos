@@ -274,17 +274,20 @@ function newDashboard() {
                 let teamProfileImages = new Map();
                 let fbProfileImages = new Map();
 
-                for (let i = 0; i < teams.edges.lenght; i++) {
+                for (let i = 0; i < teams.edges.length; i++) {
 
                     let team = teams.edges[i].node;
 
-                    teamProfileImages.set(team.slug, team.profile.avatar)
-                    fbProfileImages.set(team.fb[0].slug, team.fb[0].avatar)
+                    teamProfileImages.set(team.slug, team.profile.avatar);
+                    console.log("TEAM SET", team.slug, team.profile.avatar);
 
+                    if (team.fb.length > 0) {
+
+                        fbProfileImages.set(team.slug + "-" + team.fb[0].slug, team.fb[0].avatar);
+                        console.log("BOT SET", team.slug + "-" + team.fb[0].slug, team.fb[0].avatar);
+
+                    }
                 }
-
-                console.log("TEAM PROFILES", JSON.stringify(teamProfileImages));
-                console.log("FB PROFILES", JSON.stringify(fbProfileImages));
 
                 window.canvasApp.context.teamProfileImages = teamProfileImages;
                 window.canvasApp.context.fbProfileImages = fbProfileImages;

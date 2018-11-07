@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 import LuxonUtils from 'material-ui-pickers/utils/luxon-utils';
@@ -39,19 +39,15 @@ class App extends Component {
     }
     return (
       <MuiPickersUtilsProvider utils={LuxonUtils}>
-        <BrowserRouter basename={this.props.match.path}>
-          <div>
-            {loggedIn}
-            <Switch>
-              <Route exact path='/' component={Search} />
-              <Route path='/my' component={Events} />
-              <Route path='/create' component={CreateEvent} />
-              <Route path='/edit/:slug' component={EditEvent} />
-              <Route path='/show/:slug' component={EditEvent} />
-              <Route path='/host' component={HostedEvents} />
-            </Switch>
-          </div>
-        </BrowserRouter>
+        {loggedIn}
+        <Switch>
+          <Route exact path='/events/' component={Search} />
+          <Route path='/events/my' component={Events} />
+          <Route path='/events/create' component={CreateEvent} />
+          <Route path='/events/edit/:slug' component={EditEvent} />
+          <Route path='/events/show/:slug' component={EditEvent} />
+          <Route path='/events/host' component={HostedEvents} />
+        </Switch>
       </MuiPickersUtilsProvider>
     );
   }

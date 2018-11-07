@@ -71,7 +71,7 @@ class Create extends React.Component {
     return (
       <Mutation mutation={hostedEventsCalls.EVENTS_CREATEEVENT}
         update={(store, { data }) => {
-          this.props.history.push(`/edit/${data.events_CreateEvent.id}`);
+          this.props.history.push(`/events/edit/${data.events_CreateEvent.id}`);
         }
         }
       >

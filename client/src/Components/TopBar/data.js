@@ -7,16 +7,16 @@ import {
 
 const data = [
   {
-    title: 'Look for an event', to: '/', icon: Search, text: '',
+    title: 'Look for an event', to: '/events/', icon: Search, text: '',
   },
   {
-    title: 'Events you are enrolled in', to: '/my', icon: GamepadRounded, text: '',
+    title: 'Events you are enrolled in', to: '/events/my', icon: GamepadRounded, text: '',
   },
   {
-    title: 'Your hosted competition', to: '/host', icon: AccessibilityNew, text: '',
+    title: 'Your hosted competition', to: '/events/host', icon: AccessibilityNew, text: '',
   },
   {
-    title: 'Host a new competition', to: '/create', icon: LibraryAdd, text: '',
+    title: 'Host a new competition', to: '/events/create', icon: LibraryAdd, text: '',
   },
 ];
 

@@ -50,7 +50,7 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={`/edit/${id}`}
+                  to={`/events/edit/${id}`}
                 >
                   Edit
                 </Button>
@@ -60,7 +60,7 @@ class Event extends React.Component {
                   color='primary'
                   size='small'
                   component={Link}
-                  to={`/show/${id}`}
+                  to={`/events/show/${id}`}
                 >
                   Show
                 </Button>

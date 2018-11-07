@@ -245,7 +245,6 @@
             function onImageLoad() {
                 teamAvatarLoaded = true;
                 imageLoaded();
-                console.log("TEAM IMAGE LOADED", teamAvatar.src);
             }
 
             teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM);
@@ -257,7 +256,6 @@
                 botAvatarLoaded = true;
                 thisObject.bot.avatar = botAvatar;
                 imageLoaded();
-                console.log("BOT IMAGE LOADED", botAvatar.src);
             }
 
             botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + "-" + BOT);

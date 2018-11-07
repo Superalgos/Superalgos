@@ -295,11 +295,11 @@
                                     let imageId = participant.devTeam + "." + participant.profilePicture;
 
                                     const TEAM = devTeam.codeName.toLowerCase();
-                                    const STORAGE_URL = "https://aadevelop.blob.core.windows.net/module-teams";                                  
+                                    const BOT =  bot.codeName.toLowerCase();                              
 
                                     let botAvatar = new Image();
                                     
-                                    botAvatar.src = STORAGE_URL + "/" + TEAM + "/" + TEAM + "-" + "banner.jpg";
+                                    botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + "-" + BOT);
 
                                     competitionPlotter.plotter.payload[k].profile.downLabel = bot.displayName;
                                     competitionPlotter.plotter.payload[k].profile.imageId = imageId;

@@ -127,7 +127,6 @@
         productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
         productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 
-        console.log("ADDING TO PRODUCT ARRAY", productCard.code, productCards.length)
     }
 
     function onMouseWheel(pDelta) {

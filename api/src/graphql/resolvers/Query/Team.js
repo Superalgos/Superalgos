@@ -20,6 +20,8 @@ export const teamByName = async (parent, { name }, ctx, info) => {
 }
 
 export const teamBySlug= async (parent, { slug }, ctx, info) => {
+  logger.info('teamsBySlug')
+  logger.info(`slug: ${slug}`)
   return ctx.db.query.team({ where: { slug: slug } }, TEAMS_FRAGMENT)
 }
 

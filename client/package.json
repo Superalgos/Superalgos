@@ -84,6 +84,7 @@
     "classnames": "^2.2.6",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
+    "jwt-decode": "^2.2.0",
     "mini-css-extract-plugin": "^0.4.4",
     "npm": "^6.4.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",

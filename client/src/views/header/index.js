@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import jwtDecode from 'jwt-decode'
 
 import { withStyles } from '@material-ui/core/styles'
 import withWidth from '@material-ui/core/withWidth'
@@ -45,6 +46,12 @@ class Header extends Component {
     let { classes, auth, width } = this.props
     let { open } = this.state
 
+    if (window.localStorage.getItem('access_token')) {
+      if (jwtDecode(window.localStorage.getItem('access_token')).exp < new Date().getTime() / 1000) {
+        window.localStorage.clear()
+        window.location.reload()
+      }
+    }
     let user = JSON.parse(this.state.user)
 
     const menus = allMenus.map((menu, index) => {

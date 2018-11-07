@@ -27,6 +27,10 @@
     let visibleProductCards = [];
     let firstVisibleCard = 1;
 
+    /* Needed Variables */
+
+    var lastY = 5;
+
     return thisObject;
 
     function initialize() {
@@ -40,10 +44,6 @@
         };
 
         thisObject.container.frame.position = position;
-
-        /* Needed Variables */
-
-        var lastY = 5;
 
         /* First thing is to build the productCards array */
 
@@ -84,26 +84,6 @@
                         productCard.container.parentContainer = thisObject.container;
                         productCard.container.isWheelable = true;
 
-                        /* Positioning within thisObject Panel */
-
-                        let position = {
-                            x: 10,
-                            y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
-                        };
-
-                        productCard.container.frame.position.x = position.x;
-                        productCard.container.frame.position.y = position.y + lastY;
-
-                        lastY = lastY + productCard.container.frame.height;
-
-                        /* Add to Visible Product Array */
-
-                        if (lastY < thisObject.container.frame.height) {
-
-                            visibleProductCards.push(productCard);
-
-                        }
-
                         productCard.container.eventHandler.listenToEvent("Images Loaded", addProductCardToArray)
 
                     }
@@ -118,15 +98,36 @@
 
     function addProductCardToArray(productCard) {
 
+        /* Positioning within thisObject Panel */
+
+        let position = {
+            x: 10,
+            y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+        };
+
+        productCard.container.frame.position.x = position.x;
+        productCard.container.frame.position.y = position.y + lastY;
+
+        lastY = lastY + productCard.container.frame.height;
+
         /* Add to the Product Array */
 
         productCards.push(productCard);
+
+        /* Add to Visible Product Array */
+
+        if (productCard.container.frame.position.y + productCard.container.frame.height < thisObject.container.frame.height) {
+
+            visibleProductCards.push(productCard);
+
+        }
 
         /* Listen to Status Changes Events */
 
         productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
         productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 
+        console.log("ADDING TO PRODUCT ARRAY", productCard.code, productCards.length)
     }
 
     function onMouseWheel(pDelta) {

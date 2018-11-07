@@ -36,9 +36,17 @@ function newDashboard() {
             window.canvasApp.eventHandler.listenToEvent("User Profile Changed", userProfileChanged);
             window.canvasApp.eventHandler.listenToEvent("Browser Resized", browserResized);
 
-            /* Next we start the App*/
+            loadImages(onImagesLoaded);
 
-            setTimeout(delayedStart, DEBUG_START_UP_DELAY);
+            function onImagesLoaded() {
+
+                if (INFO_LOG === true) { logger.write("[INFO] start -> onImagesLoaded -> Entering function."); }
+
+                /* Next we start the App*/
+
+                setTimeout(delayedStart, DEBUG_START_UP_DELAY);
+
+            }
 
         } catch (err) {
 
@@ -108,6 +116,165 @@ function newDashboard() {
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] browserResized -> err = " + err); }
+
+        }
+
+    }
+
+    function loadImages(callBack) {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] loadImages -> Entering function."); }
+
+            const accessToken = "";
+
+            /*
+            Soon, we will need to get images from the Financial Beings Module. I live this core here as a sample for that:
+
+            const apolloClient = new Apollo.lib.ApolloClient({
+                networkInterface: Apollo.lib.createNetworkInterface({
+                    uri: window.canvasApp.graphQL.masterAppApiUrl,
+                    transportBatching: true,
+                }),
+                connectToDevTools: true,
+            })
+
+            const QUERY = Apollo.gql`
+            query($authId: String){
+                users_UserByAuthId (authId: $authId){
+                    id
+                    referrerId
+                    alias
+                    firstName
+                    middleName
+                    lastName
+                    bio
+                    email
+                    emailVerified
+                    isDeveloper
+                    isDataAnalyst
+                    isTrader
+                    avatarHandle
+                    avatarChangeDate
+                    sessionToken
+                    role {
+                    id
+                    }
+                }
+            }
+            `
+            const getUser = () => {
+                return new Promise((resolve, reject) => {
+                    apolloClient.query({
+                        query: QUERY,
+                        variables: {
+                            authId: authId
+                        }
+                    })
+                        .then(response => {
+                            sessionToken = response.data.users_UserByAuthId.sessionToken;
+
+                            window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.users_UserByAuthId));
+                            resolve({ user: response.data.users_UserByAuthId })
+                        })
+                        .catch(error => {
+                            console.log("apolloClient error getting user query", error)
+                            reject(error)
+                        });
+                });
+            }
+
+            */
+
+            const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
+                uri: window.canvasApp.graphQL.masterAppApiUrl
+            });
+
+            networkInterfaceTeams.use([{
+                applyMiddleware(req, next) {
+                    req.options.headers = {
+                        authorization: `Bearer ${accessToken}`
+                    };
+                    next();
+                }
+            }]);
+            
+            const apolloClientTeams = new Apollo.lib.ApolloClient({
+                networkInterface: networkInterfaceTeams,
+                connectToDevTools: true,
+            });
+
+            const ALL_TEAMS_QUERY = Apollo.gql`
+            {
+              teams_Teams{
+                edges{
+                  node{
+                    id
+                    name
+                    slug
+                    profile {
+                    avatar
+                    banner
+                    description
+                    motto
+                    updatedAt
+                    }
+                    fb {
+                        id
+                        name
+                        slug
+                        avatar
+                        kind
+                        status {
+                            status
+                            reason
+                            createdAt
+                        }
+                      }
+                  }
+                }
+              }
+            }
+        `
+
+            const getTeams = () => {
+                return new Promise((resolve, reject) => {
+                    apolloClientTeams.query({
+                        query: ALL_TEAMS_QUERY
+                    })
+                    .then(response => {
+                        window.localStorage.setItem('Teams', JSON.stringify(response.data.teams_Teams));
+                        resolve({ teams: response.data.teams_Teams })
+                    })
+                        .catch(err => {
+                        if (ERROR_LOG === true) { logger.write("[ERROR] loadImages -> getTeams -> Error fetching data from Teams Module."); }
+                        if (ERROR_LOG === true) { logger.write("[ERROR] loadImages -> getTeams -> err = " + err); }
+                        reject(err)
+                    });
+                })
+            }
+
+            // To avoid race conditions, add asynchronous fetches to array
+            let fetchDataPromises = [];
+
+            fetchDataPromises.push(/*getUser(),*/ getTeams());   //   <-- Here we must add the function calll to the Financial Beings module.
+
+            // When all asynchronous fetches resolve, authenticate user or throw error.
+            Promise.all(fetchDataPromises).then(result => {
+
+                /* All good */
+
+                callBack();
+
+            }, err => {
+                if (ERROR_LOG === true) { logger.write("[ERROR] loadImages -> Error fetching data from Teams Module."); }
+                if (ERROR_LOG === true) { logger.write("[ERROR] loadImages -> err = " + err); }
+            });
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] loadImages -> err = " + err); }
 
         }
 

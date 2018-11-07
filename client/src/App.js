@@ -23,42 +23,44 @@ export const auth = new Auth(
   client
 )
 
-export const MasterApp = () => (
+export const MasterApp = (props) => (
   <BrowserRouter>
     <ApolloProvider client={client}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <Header auth={auth} />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route
-            path='/callback'
-            render={props => {
-              auth.handleAuthentication(props)
-              return <Callback {...props} />
-            }}
+        <div className={props.classes.mainContainer}>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route
+              path='/callback'
+              render={props => {
+                auth.handleAuthentication(props)
+                return <Callback {...props} />
+              }}
             />
-          <Route
-            path='/charts'
-            render={props => <Charts {...props} auth={auth} />}
+            <Route
+              path='/charts'
+              render={props => <Charts {...props} auth={auth} />}
             />
-          <Route
-            path='/users'
-            render={props => <Users {...props} auth={auth} />}
+            <Route
+              path='/users'
+              render={props => <Users {...props} auth={auth} />}
             />
-          <Route
-            path='/teams'
-            render={props => <Teams {...props} auth={auth} />}
+            <Route
+              path='/teams'
+              render={props => <Teams {...props} auth={auth} />}
             />
-          <Route
-            path='/events'
-            render={props => <Events {...props} auth={auth} />}
+            <Route
+              path='/events'
+              render={props => <Events {...props} auth={auth} />}
             />
-          <Route
-            path='/key-vault'
-            render={props => <KeyVault {...props} auth={auth} />}
+            <Route
+              path='/key-vault'
+              render={props => <KeyVault {...props} auth={auth} />}
             />
-        </Switch>
+          </Switch>
+        </div>
         <Footer />
       </MuiThemeProvider>
     </ApolloProvider>

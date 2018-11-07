@@ -166,6 +166,8 @@ class Header extends Component {
                   Charts
                 </Button>
 
+                { menus }
+
                 <Button
                   href='https://www.advancedalgos.net/documentation-quick-start.shtml'
                   color='inherit'
@@ -192,7 +194,7 @@ class Header extends Component {
                 </IconButton>
               </React.Fragment>
             }
-            { (width === 'xs' || width === 'sm') ? mobileMenusButton : menus }
+            { (width === 'xs' || width === 'sm') ? mobileMenusButton : '' }
             { (width === 'xs' || width === 'sm') && this.state.mobileOpen ? menus : '' }
           </Toolbar>
         </AppBar>

@@ -88,14 +88,18 @@ function newBottomSpace() {
         zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint);
 
         let breakpointsHeight = 15;
+        const RED_LINE_HIGHT = 5;
 
         browserCanvasContext.beginPath();
-
-        browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, zeroPoint.x + thisObject.container.frame.width, zeroPoint.y + thisObject.container.frame.height - breakpointsHeight);
+        browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width,  thisObject.container.frame.height  );
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK +  ', ' + opacity + ')';
-
         browserCanvasContext.closePath();
+        browserCanvasContext.fill();
 
+        browserCanvasContext.beginPath();
+        browserCanvasContext.rect(zeroPoint.x, zeroPoint.y + breakpointsHeight, thisObject.container.frame.width,RED_LINE_HIGHT);
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')';
+        browserCanvasContext.closePath();
         browserCanvasContext.fill();
     }
 }

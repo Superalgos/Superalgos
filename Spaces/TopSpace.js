@@ -97,7 +97,7 @@ function newTopSpace() {
 
         thisObject.container.frame.draw(false, false);
 
-        //drawBackground();
+        drawBackground();
         thisObject.companyLogo.draw();
         thisObject.endUser.draw();
         thisObject.devTeam.draw();
@@ -115,7 +115,7 @@ function newTopSpace() {
         browserCanvasContext.beginPath();
 
         browserCanvasContext.rect(0, 0, thisObject.container.frame.width, thisObject.container.frame.height);
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')';
 
         browserCanvasContext.closePath();
 

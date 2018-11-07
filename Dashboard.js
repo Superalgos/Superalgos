@@ -268,9 +268,6 @@ function newDashboard() {
 
                 /* All good, we will go through the results creating a map with all the Images URLs */
 
-
-                console.log("TEAMS", teams);
-
                 let teamProfileImages = new Map();
                 let fbProfileImages = new Map();
 
@@ -279,12 +276,10 @@ function newDashboard() {
                     let team = teams.edges[i].node;
 
                     teamProfileImages.set(team.slug, team.profile.avatar);
-                    console.log("TEAM SET", team.slug, team.profile.avatar);
 
                     if (team.fb.length > 0) {
 
                         fbProfileImages.set(team.slug + "-" + team.fb[0].slug, team.fb[0].avatar);
-                        console.log("BOT SET", team.slug + "-" + team.fb[0].slug, team.fb[0].avatar);
 
                     }
                 }

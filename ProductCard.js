@@ -182,32 +182,9 @@
         const REPO = thisObject.bot.repo;
         const PROFILE_PIC = thisObject.bot.profilePicture;
 
-        /*
-        Here we will download the images still at the legacy storage.
-        */
+        /* The plotter banner, comes from the Legacy Location so far, no matter if the Team is at the Teams Modules or not. */
 
-        legacyTeamAvatar = new Image();
-
-        legacyTeamAvatar.onload = onLegacyImageLoad;
-
-        function onLegacyImageLoad() {
-            legacyTeamAvatarLoaded = true;
-            imageLoaded();
-        }
-        
-        legacyTeamAvatar.src = window.canvasApp.urlPrefix + "Images/" + LEGACY_TEAM + "/" + LEGACY_TEAM + ".png";
-
-        legacyBotAvatar = new Image();
-        legacyBotAvatar.onload = onLegacyImageLoadBot;
-
-        function onLegacyImageLoadBot() {
-            legacyBotAvatarLoaded = true;
-            thisObject.bot.avatar = legacyBotAvatar;
-        }
-
-        legacyBotAvatar.src = window.canvasApp.urlPrefix + "Images/" + LEGACY_TEAM + "/" + REPO + "/" + PROFILE_PIC;
-        
-        const PLOTTER_TEAM = thisObject.product.plotter.devTeam ;
+        const PLOTTER_TEAM = thisObject.product.plotter.devTeam;
         const PLOTTER_REPO = thisObject.product.plotter.codeName;
         const PLOTTER_PROFILE_PIC = thisObject.product.plotter.profilePicture;
 
@@ -216,49 +193,76 @@
 
         function onLegacyPlotterBanner() {
             legacyPlotterBannerLoaded = true;
-            imageLoaded();
         }
 
         legacyPlotterBanner.src = window.canvasApp.urlPrefix + "Images/" + PLOTTER_TEAM + "/" + PLOTTER_REPO + "/" + PLOTTER_PROFILE_PIC;
 
-        /* 
-        Here we will download the images of teams uploaded at the Teams Module.
-        There might be Product Cards of bots beloging to teams not present currently at the Teams Module, in those cases
-        nothing should happen.
-        */
-
         const TEAM = thisObject.devTeam.codeName.toLowerCase();
         const BOT = thisObject.bot.codeName.toLowerCase();
-        const STORAGE_URL = "https://aadevelop.blob.core.windows.net/module-teams";
 
-        teamAvatar = new Image();
+        if (window.canvasApp.context.teamProfileImages.get(TEAM) === undefined) { // This means this Team is a Lecay Team, still not at any Module. 
 
-        teamAvatar.onload = onImageLoad;
+            /*
+            Here we will download the images still at the legacy storage.
+            */
 
-        function onImageLoad() {
-            teamAvatarLoaded = true;
-            imageLoaded();
+            legacyTeamAvatar = new Image();
+
+            legacyTeamAvatar.onload = onLegacyImageLoad;
+
+            function onLegacyImageLoad() {
+                legacyTeamAvatarLoaded = true;
+                imageLoaded();
+            }
+
+            legacyTeamAvatar.src = window.canvasApp.urlPrefix + "Images/" + LEGACY_TEAM + "/" + LEGACY_TEAM + ".png";
+
+            legacyBotAvatar = new Image();
+            legacyBotAvatar.onload = onLegacyImageLoadBot;
+
+            function onLegacyImageLoadBot() {
+                legacyBotAvatarLoaded = true;
+                thisObject.bot.avatar = legacyBotAvatar;
+                imageLoaded();
+            }
+
+            legacyBotAvatar.src = window.canvasApp.urlPrefix + "Images/" + LEGACY_TEAM + "/" + REPO + "/" + PROFILE_PIC;
+
         }
-         
-        teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM);
-        console.log("TEAM NAME", TEAM);
-        console.log("TEAM AVATAR", window.canvasApp.context.teamProfileImages.get(TEAM));
-        /* 
-        TODO Temporary code: Here we will temporary download the images of bots uploaded at the Teams Module.
-        */
 
-        botAvatar = new Image();
-        botAvatar.onload = onImageLoadBot;
+        else {
 
-        function onImageLoadBot() {
-            botAvatarLoaded = true;
-            thisObject.bot.avatar = botAvatar;
-            imageLoaded();
+            /* 
+               Here we will download the images of teams uploaded at the Teams Module.
+               There might be Product Cards of bots beloging to teams not present currently at the Teams Module, in those cases
+               nothing should happen.
+           */
+
+            teamAvatar = new Image();
+
+            teamAvatar.onload = onImageLoad;
+
+            function onImageLoad() {
+                teamAvatarLoaded = true;
+                imageLoaded();
+                console.log("TEAM IMAGE LOADED", teamAvatar.src);
+            }
+
+            teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM);
+
+            botAvatar = new Image();
+            botAvatar.onload = onImageLoadBot;
+
+            function onImageLoadBot() {
+                botAvatarLoaded = true;
+                thisObject.bot.avatar = botAvatar;
+                imageLoaded();
+                console.log("BOT IMAGE LOADED", botAvatar.src);
+            }
+
+            botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + "-" + BOT);
+
         }
-        console.log("BOT NAME", BOT);
-        console.log("BOT AVATAR", window.canvasApp.context.fbProfileImages.get(TEAM + "-" + BOT));
-        botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + "-" + BOT);
-
     }
 
     function imageLoaded() {
@@ -575,8 +579,10 @@
             let imageId = thisObject.product.plotter.devTeam + "." + thisObject.product.plotter.codeName + "." + thisObject.product.plotter.moduleName + "." + thisObject.product.plotter.profilePicture;
             let plotterImage = legacyPlotterBanner;
 
-            if (plotterImage.naturalHeight !== 0) {
-                browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height);
+            if (plotterImage !== undefined) {
+                if (plotterImage.naturalHeight !== 0) {
+                    browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height);
+                }
             }
         }
 

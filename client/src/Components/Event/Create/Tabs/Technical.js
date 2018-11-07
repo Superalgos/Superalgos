@@ -9,6 +9,8 @@ import {
   Select,
   FormHelperText,
   MenuItem,
+  Grid,
+  Button,
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import styles from '../styles';
@@ -102,6 +104,13 @@ class Technical extends React.Component {
           </Query>
           <FormHelperText> To create a new plotter, click here </FormHelperText>
         </FormControl>
+        <Grid container justify='center' >
+          <Grid item>
+            <Button className={classes.bottomButton} type='submit' variant='contained' color='secondary'>
+              Create the event
+            </Button>
+          </Grid>
+        </Grid>
       </React.Fragment>
     );
   }

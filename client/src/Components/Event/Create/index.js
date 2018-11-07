@@ -124,6 +124,8 @@ class Create extends React.Component {
                         description,
                         startDatetime: startDatetime.valueOf() / 1000,
                         finishDatetime: finishDatetime.valueOf() / 1000,
+                        formulaId,
+                        plotterId,
                       },
                     },
                   });

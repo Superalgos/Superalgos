@@ -10,12 +10,12 @@ if (dev){
 }
 
 export default {
-  async sgSendNewsletterVerify(parent, { email }, ctx, info){
+  async sendgrid_NewsletterSignup(parent, { token }, ctx, info) {
+    
+  },
+  async sendgrid_NewsletterSignupVerify(parent, { email }, ctx, info){
 
   },
-  async sgNewsletterSignup(parent, { token }, ctx, info) {
-  },
-
-  async sgContact(parent, { email, subject, message }, ctx, info) {
+  async sendgrid_Contact(parent, { email, subject, message }, ctx, info) {
   },
 }

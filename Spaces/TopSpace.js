@@ -19,11 +19,7 @@ function newTopSpace() {
     container.initialize();
     thisObject.container = container;
 
-    thisObject.container.frame.width = browserCanvas.width;
-    thisObject.container.frame.height = TOP_SPACE_HEIGHT;
-
-    container.frame.position.x = 0;
-    container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+    resize();
 
     container.isDraggeable = false;
 
@@ -49,6 +45,7 @@ function newTopSpace() {
         thisObject.currentStartMode = newCurrentStartMode();
         thisObject.devTeam = newDevTeam();
 
+        window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
 
         function onLoginInitialized() {
 
@@ -58,8 +55,18 @@ function newTopSpace() {
             thisObject.currentProcess.initialize(sharedStatus);
             thisObject.currentStartMode.initialize(sharedStatus);
             thisObject.devTeam.initialize(sharedStatus);
-
+          
         }
+    }
+
+    function resize() {
+
+        thisObject.container.frame.width = browserCanvas.width;
+        thisObject.container.frame.height = TOP_SPACE_HEIGHT;
+
+        container.frame.position.x = 0;
+        container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
+
     }
 
     function getContainer(point) {

@@ -19,6 +19,10 @@ export const teamByName = async (parent, { name }, ctx, info) => {
   return ctx.db.query.team({ where: { name: name } }, TEAMS_FRAGMENT)
 }
 
+export const teamBySlug= async (parent, { slug }, ctx, info) => {
+  return ctx.db.query.team({ where: { slug: slug } }, TEAMS_FRAGMENT)
+}
+
 export const teamWithRole = async (parent, { teamId, role }, ctx, info) => {
   return ctx.db.query.teamsConnection({where: {AND: [{id: teamId},{members_some:{role: role}}]}, first:1}, info)
 }

@@ -9,6 +9,7 @@ type Query {
   teams: TeamConnection
   teamDetails: [Team!]! @isAuthenticated
   teamByName(name: String!): Team
+  teamBySlug(slug: String!): Team
   teamById(teamId: String!): Team
   teamWithRole(teamId: String!, role: String!): Team
   teamsByOwner: [Team!]! @isAuthenticated

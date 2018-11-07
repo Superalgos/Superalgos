@@ -116,10 +116,10 @@ class Header extends Component {
           </Button>
           <div className={open === index ? classes.dropdownContentShown : classes.dropdownContent} >
             {
-              menu.submenus.map((submenu, index) => {
+              menu.submenus.map((submenu, subindex) => {
                 // const Icon = submenu.icon
                 return (
-                  <Button component={Link} to={submenu.to} className={classes.dropdownButtons}>{submenu.title}</Button>
+                  <Button key={subindex} component={Link} to={submenu.to} className={classes.dropdownButtons}>{submenu.title}</Button>
                 )
               })}
           </div>

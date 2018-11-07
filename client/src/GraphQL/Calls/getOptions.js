@@ -20,8 +20,8 @@ const EVENTS_PLOTTERS = gql`
 `;
 
 const EVENTS_CREATEFORMULA = gql`
-  mutation Events_CreateEvent($event:events_EventInput!) {
-    events_CreateEvent(event: $event) {
+  mutation Events_CreateFormula($formula: events_FormulaInput!) {
+    events_CreateFormula(formula: $formula) {
       ...FormulaInfo
     }
   }
@@ -29,7 +29,7 @@ const EVENTS_CREATEFORMULA = gql`
 `;
 
 const EVENTS_CREATEPLOTTER = gql`
-  mutation Events_CreatePlotter($plotter:events_PlotterInput!) {
+  mutation Events_CreatePlotter($plotter: events_PlotterInput!) {
     events_CreatePlotter(plotter: $plotter) {
       ...PlotterInfo
     }

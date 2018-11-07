@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import { eventMinimalInfo } from '../Fragments';
 
 const EVENTS_CREATEEVENT = gql`
-  mutation Events_CreateEvent($event:events_EventInput!) {
+  mutation Events_CreateEvent($event: events_EventInput!) {
     events_CreateEvent(event: $event) {
       ...EventMinimalInfo
     }

@@ -16,7 +16,7 @@ export const teamById = async (parent, { teamId }, ctx, info) => {
 }
 
 export const teamByName = async (parent, { name }, ctx, info) => {
-  return ctx.db.query.team({ where: { name: name } }, `{ name }`)
+  return ctx.db.query.team({ where: { name: name } }, TEAMS_FRAGMENT)
 }
 
 export const teamWithRole = async (parent, { teamId, role }, ctx, info) => {

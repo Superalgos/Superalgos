@@ -345,6 +345,7 @@
 
         let MAX_COLUMNS = 16;
         let MAX_ROWS = 7;
+        let Y_TOP_MARGIN = 30;
 
         let point1 = {
             x: viewPort.visibleArea.topLeft.x,
@@ -395,7 +396,7 @@
 
                 let logo = logoA;
 
-                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
+                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight);
 
             }
         }
@@ -416,7 +417,7 @@
 
                 let logo = logoB;
 
-                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
+                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight);
 
             }
         }
@@ -437,7 +438,7 @@
 
                 let logo = logoExchange;
 
-                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
+                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight);
 
             }
         }
@@ -458,7 +459,7 @@
 
                 let logo = logoAA;
 
-                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight, imageWidth, imageHeight);
+                browserCanvasContext.drawImage(logo, imagePoint.x + i * imageWidth * 2 + offSet, imagePoint.y + j * rowHight + Y_TOP_MARGIN, imageWidth, imageHeight);
 
             }
         }

@@ -20,7 +20,7 @@ export const ManageTeamsItem = ({ classes, team, ...props }) => {
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
     avatar = team.profile.avatar
   } else {
-    avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+    avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
   }
   return (
     <Grid item xs={12}>

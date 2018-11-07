@@ -107,7 +107,9 @@ class Header extends Component {
 
     const menus = allMenus.map((menu, index) => {
       return (
-        <div className='dropdown'
+        <div
+          key={index}
+          className='dropdown'
           onMouseEnter={() => this.setState({ open: index })}
           onMouseLeave={() => this.setState({ open: null })}
         >
@@ -132,28 +134,6 @@ class Header extends Component {
         <MenuIcon /> MENU
       </Button>
     )
-
-    const mobileMenus = allMenus.map((menu, index) => {
-      return (
-        <div className='dropdown'
-          onMouseEnter={() => this.setState({ open: index })}
-          onMouseLeave={() => this.setState({ open: null })}
-        >
-          <Button component={Link} to={menu.to} color='inherit'>
-            Mobile {menu.title}
-          </Button>
-          <div className={open === index ? classes.dropdownContentShown : classes.dropdownContent} >
-            {
-              menu.submenus.map((submenu, index) => {
-                // const Icon = submenu.icon
-                return (
-                  <Button component={Link} to={submenu.to} className={classes.dropdownButtons}>{submenu.title}</Button>
-                )
-              })}
-          </div>
-        </div>
-      )
-    })
 
     return (
       <div className={classes.root}>
@@ -213,7 +193,7 @@ class Header extends Component {
               </React.Fragment>
             }
             { (width === 'xs' || width === 'sm') ? mobileMenusButton : menus }
-            { (width === 'xs' || width === 'sm') && this.state.mobileOpen ? mobileMenus : '' }
+            { (width === 'xs' || width === 'sm') && this.state.mobileOpen ? menus : '' }
           </Toolbar>
         </AppBar>
       </div>

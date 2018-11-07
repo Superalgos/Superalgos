@@ -13,14 +13,29 @@ import {
   Button,
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import styles from '../styles';
+import styles from '../../styles';
 
-import { getOptionsCalls } from '../../../../GraphQL/Calls/index';
+import { getOptionsCalls } from '../../../../../GraphQL/Calls/index';
 
+import NewPlotter from './NewPlotter';
+import NewFormula from './NewFormula';
 
 class Technical extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isNewFormulaOpen: false,
+      isNewPlotterOpen: false,
+    };
+  }
+
+  closeDialogs = () => {
+    this.setState({ isNewFormulaOpen: false, isNewPlotterOpen: false });
+  }
+
   render() {
     const { classes, event, edit } = this.props;
+    const { isNewPlotterOpen, isNewFormulaOpen } = this.state;
     return (
       <React.Fragment>
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
@@ -50,19 +65,22 @@ class Technical extends React.Component {
                 <MenuItem key={index} value={formula.id}>{formula.name}</MenuItem>
               ));
               return (
-                <Select
-                  value={event.formulaId}
-                  input={<Input />}
-                  displayEmpty
-                  className={classes.selectEmpty}
-                  onChange={newVal => edit('formulaId', newVal.target.value)}
-                >
-                  {selects}
-                </Select>
+                <React.Fragment>
+                  <Select
+                    value={event.formulaId}
+                    input={<Input />}
+                    displayEmpty
+                    className={classes.selectEmpty}
+                    onChange={newVal => edit('formulaId', newVal.target.value)}
+                  >
+                    {selects}
+                  </Select>
+                  { isNewFormulaOpen ? <NewFormula closeDialogs={() => this.closeDialogs()} /> : ''}
+                </React.Fragment>
               );
             }}
           </Query>
-          <FormHelperText className={classes.clickable} onClick={() => console.log('Comming soon in a modaal')}>
+          <FormHelperText className={classes.clickable} onClick={() => { this.setState({ isNewFormulaOpen: true }); }}>
             To create a new formula, click here
           </FormHelperText>
         </FormControl>
@@ -90,19 +108,24 @@ class Technical extends React.Component {
                 <MenuItem key={index} value={plotter.id}>{plotter.name}</MenuItem>
               ));
               return (
-                <Select
-                  value={event.plotterId}
-                  input={<Input />}
-                  displayEmpty
-                  className={classes.selectEmpty}
-                  onChange={newVal => edit('plotterId', newVal.target.value)}
-                >
-                  {selects}
-                </Select>
+                <React.Fragment>
+                  <Select
+                    value={event.plotterId}
+                    input={<Input />}
+                    displayEmpty
+                    className={classes.selectEmpty}
+                    onChange={newVal => edit('plotterId', newVal.target.value)}
+                  >
+                    {selects}
+                  </Select>
+                  { isNewPlotterOpen ? <NewPlotter closeDialogs={() => this.closeDialogs()} /> : ''}
+                </React.Fragment>
               );
             }}
           </Query>
-          <FormHelperText> To create a new plotter, click here </FormHelperText>
+          <FormHelperText className={classes.clickable} onClick={() => { this.setState({ isNewPlotterOpen: true }); }} >
+            To create a new plotter, click here
+          </FormHelperText>
         </FormControl>
         <Grid container justify='center' >
           <Grid item>

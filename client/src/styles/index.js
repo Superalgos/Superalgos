@@ -1,11 +1,15 @@
 import { createMuiTheme } from '@material-ui/core/styles'
-import indigo from '@material-ui/core/colors/indigo'
-// import red from '@material-ui/core/colors/red'
 
 export const theme = createMuiTheme({
   palette: {
-    primary: { main: '#303036' },
-    secondary: { main: '#CC5835' }   //  <--RUSTED_RED    ~  GOLDEN_ORANGE -->    #F0A202
+    primary: {
+      main: '#303036',
+      light: '#acb4b6'
+    },
+    secondary: {
+      main: '#CC5835',
+      light: '#e3493c'
+    } // <--RUSTED_RED    ~  GOLDEN_ORANGE -->    #F0A202
   },
   typography: {
     fontFamily: '"Saira","Saira Condenses", sans-serif',
@@ -62,11 +66,6 @@ export const globalStyles = theme => ({
     [theme.breakpoints.up('sm')]: {
       paddingBottom: theme.spacing.unit * 2
     }
-  },
-  footer: {
-    marginTop: theme.spacing.unit * 8,
-    borderTop: `1px solid ${theme.palette.divider}`,
-    padding: `${theme.spacing.unit * 6}px 0`
   }
 })
 

@@ -7,7 +7,7 @@ import LoggedInMenu from './LoggedInMenu'
 import { isDefined } from '../../utils/js-helpers'
 
 export const LoggedIn = props => {
-  let { data, user, auth } = props
+  let { user, auth } = props
   let displayName = 'No Display Name'
 
   if (isDefined(user.alias)) {
@@ -28,13 +28,12 @@ export const LoggedIn = props => {
 
   return (
     <div>
-        <LoggedInMenu menuLabel={displayName} auth={auth} />
+      <LoggedInMenu menuLabel={displayName} auth={auth} />
     </div>
   )
 }
 
 LoggedIn.propTypes = {
-  data: PropTypes.object,
   user: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 }

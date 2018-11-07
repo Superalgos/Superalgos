@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
 
@@ -26,7 +23,6 @@ const styles = theme => ({
 })
 
 class Charts extends Component {
-
   componentDidMount () {
     window.canvasApp.visible = true
     let body = document.getElementById('body')
@@ -42,15 +38,10 @@ class Charts extends Component {
   }
 
   render () {
-    const { classes } = this.props
     return (
       <React.Fragment />
     )
   }
-}
-
-Charts.propTypes = {
-  classes: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => {
@@ -61,8 +52,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    hideFooter: () => { dispatch({type: 'HIDE_FOOTER'}) },
-    showFooter: () => { dispatch({type: 'SHOW_FOOTER'}) }
+    hideFooter: () => { dispatch({ type: 'HIDE_FOOTER' }) },
+    showFooter: () => { dispatch({ type: 'SHOW_FOOTER' }) }
   }
 }
 

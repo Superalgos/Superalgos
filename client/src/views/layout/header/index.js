@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
+import withWidth from '@material-ui/core/withWidth'
 
 // icons
 import ExitIcon from '@material-ui/icons/ExitToApp'
@@ -38,11 +39,19 @@ class Header extends Component {
     this.setState({ mobileOpen: !this.state.mobileOpen })
   }
 
-  toggleMenuOpen (index) {
-    if (this.state.openedMenu === index) {
+  toggleMenuOpen (index, allowed) {
+    if (allowed) {
+      if (this.state.openedMenu === index) {
+        this.setState({ openedMenu: null })
+      } else {
+        this.setState({ openedMenu: index })
+      }
+    }
+  }
+
+  mouseLeave (allowed) {
+    if (allowed) {
       this.setState({ openedMenu: null })
-    } else {
-      this.setState({ openedMenu: index })
     }
   }
 
@@ -61,6 +70,7 @@ class Header extends Component {
   }
 
   render () {
+    const bigScreen = (this.props.width === 'lg' || this.props.width === 'xl')
     let { auth } = this.props
     let { onTop, mobileOpen, openedMenu } = this.state
     if (window.localStorage.getItem('access_token')) {
@@ -73,8 +83,13 @@ class Header extends Component {
 
     const menus = allMenus.map(({ to, title, submenus }, index) => {
       return (
-        <li key={index} className={openedMenu === index ? 'primaryLink hasChildren selected' : 'primaryLink hasChildren'}>
-          <Link to={to} onClick={() => this.toggleMenuOpen(index)}> {title} </Link>
+        <li
+          onMouseEnter={() => this.toggleMenuOpen(index, bigScreen)}
+          onMouseLeave={() => this.mouseLeave(bigScreen)}
+          key={index}
+          className={openedMenu === index ? 'primaryLink hasChildren selected' : 'primaryLink hasChildren'}
+        >
+          <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
           <ul className='subMenu'>
             {
               submenus.map(({ icon: Icon, to: subTo, title: subTitle }, subindex) => {
@@ -107,8 +122,10 @@ class Header extends Component {
                 <LoggedIn
                   user={user}
                   auth={auth}
+                  bigScreen={bigScreen}
                   openedMenu={openedMenu}
-                  toggleMenuOpen={(keyValue) => this.toggleMenuOpen(keyValue)}
+                  toggleMenuOpen={(keyValue, allowedValue) => this.toggleMenuOpen(keyValue, allowedValue)}
+                  mouseLeave={(allowedValue) => this.mouseLeave(allowedValue)}
                   closeAll={() => this.closeAll()}
                 />
               ) : (
@@ -132,4 +149,4 @@ Header.propTypes = {
   auth: PropTypes.object.isRequired
 }
 
-export default Header
+export default withWidth()(Header)

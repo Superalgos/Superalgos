@@ -19,7 +19,7 @@ body{
   }
 }
 
-$break-big: 1300px;
+$break-big: 1280px;
 $break-middle: 992px;
 $break-small: 768px;
 $break-extra-small: 532px;
@@ -158,7 +158,7 @@ header.menu{
       }
     }
     nav.links{
-      @media screen and (max-width: $break-big) {
+      @media screen and (max-width: $break-big - 1) {
         display: none;
         &.openedMobile{
           display: block;

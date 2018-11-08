@@ -12,12 +12,12 @@ export const resolver = (usersSchema, teamsSchema) => ({
   events_Event: {
     host: {
       fragment: `fragment UserFragment on events_Event{hostId}`,
-      resolve (parent, args, context, info) {
+      resolve ({hostId : id}, args, context, info) {
         return info.mergeInfo.delegateToSchema({
           schema: usersSchema,
           operation: 'query',
           fieldName: 'users_User',
-          args: { id: parent.hostId },
+          args: { id },
           context,
           info
         })
@@ -27,12 +27,12 @@ export const resolver = (usersSchema, teamsSchema) => ({
   events_Participant: {
     team: {
       fragment: `fragment TeamFragment on events_Participant{teamId}`,
-      resolve (parent, args, context, info) {
+      resolve ({teamId}, args, context, info) {
         return info.mergeInfo.delegateToSchema({
           schema: teamsSchema,
           operation: 'query',
           fieldName: 'teams_TeamById',
-          args: { teamId: parent.teamId },
+          args: { teamId },
           context,
           info
         })

@@ -18,12 +18,15 @@ async function getUserId (authId) {
     }
 
     const userData = await axios({
-      url: process.env.GRAPHQL_API_URL,
+      url: process.env.USERS_API_URL,
       method: 'post',
+      headers: {
+        preshared: process.env.USERS_API_PRESHARED
+      },
       data: {
         query: `
         {
-          users_UserByAuthId(authId: "${authId}")
+          userByAuthId(authId: "${authId}")
           {
             id
           }
@@ -31,7 +34,7 @@ async function getUserId (authId) {
         `
       }
     })
-    return userData.data.data.users_UserByAuthId.id
+    return userData.data.data.userByAuthId.id
   } catch (error) {
     return (error)
   }

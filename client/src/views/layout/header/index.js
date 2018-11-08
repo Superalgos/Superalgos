@@ -21,6 +21,7 @@ class Header extends Component {
     this.state = {
       onTop: true,
       mobileOpen: false,
+      openedMenu: null,
       user: null
     }
   }
@@ -37,6 +38,18 @@ class Header extends Component {
     this.setState({ mobileOpen: !this.state.mobileOpen })
   }
 
+  toggleMenuOpen (index) {
+    if (this.state.openedMenu === index) {
+      this.setState({ openedMenu: null })
+    } else {
+      this.setState({ openedMenu: index })
+    }
+  }
+
+  closeAll () {
+    this.setState({ openedMenu: null, mobileOpen: false })
+  }
+
   componentDidMount () {
     window.addEventListener('scroll', () => this.handleScroll())
     const user = window.localStorage.getItem('user')
@@ -49,8 +62,7 @@ class Header extends Component {
 
   render () {
     let { auth } = this.props
-    let { onTop, mobileOpen } = this.state
-
+    let { onTop, mobileOpen, openedMenu } = this.state
     if (window.localStorage.getItem('access_token')) {
       if (jwtDecode(window.localStorage.getItem('access_token')).exp < new Date().getTime() / 1000) {
         window.localStorage.clear()
@@ -61,13 +73,13 @@ class Header extends Component {
 
     const menus = allMenus.map(({ to, title, submenus }, index) => {
       return (
-        <li key={index} className='primaryLink hasChildren'>
-          <Link to={to}> {title} </Link>
+        <li key={index} className={openedMenu === index ? 'primaryLink hasChildren selected' : 'primaryLink hasChildren'}>
+          <Link to={to} onClick={() => this.toggleMenuOpen(index)}> {title} </Link>
           <ul className='subMenu'>
             {
               submenus.map(({ icon: Icon, to: subTo, title: subTitle }, subindex) => {
                 return (
-                  <li key={subindex}><Link to={subTo}> <Icon /> {subTitle} </Link></li>
+                  <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <Icon /> {subTitle} </Link></li>
                 )
               })}
           </ul>
@@ -82,7 +94,7 @@ class Header extends Component {
           <div className={mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'} onClick={() => this.toggleMobileOpen()}>
             Menu
           </div>
-          <nav className='links'>
+          <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
             <ul className='primaryMenu'>
               <li className='primaryLink'>
                 <Link to='/'> Charts </Link>
@@ -92,7 +104,13 @@ class Header extends Component {
                 <a href='https://www.advancedalgos.net/documentation-quick-start.shtml'> Docs </a>
               </li>
               {this.state.user !== undefined && this.state.user !== null ? (
-                <LoggedIn user={user} auth={auth} />
+                <LoggedIn
+                  user={user}
+                  auth={auth}
+                  openedMenu={openedMenu}
+                  toggleMenuOpen={(keyValue) => this.toggleMenuOpen(keyValue)}
+                  closeAll={() => this.closeAll()}
+                />
               ) : (
 
                 <li className='primaryLink'>

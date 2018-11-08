@@ -57,10 +57,12 @@ header.menu{
         margin-bottom: ( $height-not-top - $mobile-handle-height ) / 2 ;
       }
       nav.links{
-        ul.primaryMenu{
-          li.primaryLink{
-            padding-top: ( $height-not-top - $text-height ) / 2;
-            padding-bottom: ( $height-not-top - $text-height ) / 2;
+        @media screen and (min-width: $break-big) {
+          ul.primaryMenu{
+            li.primaryLink{
+              padding-top: ( $height-not-top - $text-height ) / 2;
+              padding-bottom: ( $height-not-top - $text-height ) / 2;
+            }
           }
         }
       }
@@ -98,7 +100,7 @@ header.menu{
       margin-top: ( $height-large-device - $image-height-big ) / 2 ;
       height: $image-height-big;
     }
-    .openedMobile{
+    .mobileHandle.openedMobile{
       &:before{
         content: "";
         position: absolute;
@@ -158,61 +160,104 @@ header.menu{
     nav.links{
       @media screen and (max-width: $break-big) {
         display: none;
-        &.mobileShow{
+        &.openedMobile{
           display: block;
         }
-      }
-      float: right;
-      ul.primaryMenu{
-        margin: 0 4px 0 0;
-        list-style: none;
-
-        font-family: 'Saira';
-        font-size: 12px;
-        font-weight: 700;
-        line-height: $text-height;
-        text-transform: uppercase;
-        li.primaryLink{
-          transition: $transition-time;
-          display: block;
-          float: left;
-          position: relative;
-          padding-top: ( $height-large-device - $text-height ) / 2;
-          padding-bottom: ( $height-large-device - $text-height ) / 2;
-          padding-right: 21px;
-          padding-left: 21px;
-          a{
-            color: white;
-            text-decoration: none;
-            &:hover{
-              color: $advanced-algos-red;
-            }
-          }
-          ul.subMenu{
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-
-            padding: 18px 30px;
-            list-style: none;
-            font-family: 'Saira';
-            font-size: 12px;
-            font-weight: 300;
-            line-height: $text-height;
-
+        ul.primaryMenu{
+          padding-left: 20px;
+          padding-right: 20px;
+          background-color: rgba(0, 0, 0, 0.6);
+          font-family: 'Saira';
+          font-size: 12px;
+          font-weight: 700;
+          line-height: $text-height;
+          text-transform: uppercase;
+          list-style: none;
+          li.primaryLink{
             min-width: 240px;
-            background-color: rgba(0, 0, 0, 0.6);
-            li{
-              height: 30px;
+            min-height: 50px;
+            border-bottom: 1px solid white;
+            &:last-child{
+              border-bottom: 0;
             }
-          }
-          &:hover{
-            &>a{
-              color: $advanced-algos-red;
+            a{
+              text-transform: uppercase;
+              display: block;
+              font-size: 13px;
+              height: 50px;
+              line-height: 50px;
+              font-weight: 700;
+              letter-spacing: 1px;
+              padding: 0 40px 0 30px;
+              text-decoration: none;
+              color: white;
             }
             ul.subMenu{
-              display: block;
+              display: none;
+              list-style: none;
+            }
+            &.selected{
+              ul.subMenu{
+                display: block;
+              }
+            }
+          }
+        }
+      }
+      @media screen and (min-width: $break-big) {
+        display: block;
+        float: right;
+        ul.primaryMenu{
+          margin: 0 4px 0 0;
+          list-style: none;
+
+          font-family: 'Saira';
+          font-size: 12px;
+          font-weight: 700;
+          line-height: $text-height;
+          text-transform: uppercase;
+          li.primaryLink{
+            transition: $transition-time;
+            display: block;
+            float: left;
+            position: relative;
+            padding-top: ( $height-large-device - $text-height ) / 2;
+            padding-bottom: ( $height-large-device - $text-height ) / 2;
+            padding-right: 21px;
+            padding-left: 21px;
+            a{
+              color: white;
+              text-decoration: none;
+              &.selected{
+                color: $advanced-algos-red;
+              }
+            }
+            ul.subMenu{
+              display: none;
+              position: absolute;
+              top: 100%;
+              left: 0;
+
+              padding: 18px 30px;
+              list-style: none;
+              font-family: 'Saira';
+              font-size: 12px;
+              font-weight: 300;
+              line-height: $text-height;
+
+              min-width: 240px;
+              background-color: rgba(0, 0, 0, 0.6);
+              li{
+                height: 30px;
+              }
+            }
+            &.selected{
+              &>a{
+                color: $advanced-algos-red;
+              }
+              ul.subMenu{
+                display: block;
+              }
             }
           }
         }

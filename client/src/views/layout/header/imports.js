@@ -7,7 +7,7 @@ import {
 
 const usersMenus = {
   title: 'Users',
-  to: '/events',
+  to: '/users',
   submenus: [
     { title: 'Your profile', to: '/users/user', icon: Search },
     { title: 'Directory', to: '/users/browse', icon: GamepadRounded },
@@ -42,7 +42,7 @@ const eventsMenus = {
 
 const keyvaultMenus = {
   title: 'Key Vault',
-  to: '/events',
+  to: '/key-vault',
   submenus: [
     { title: 'Manage keys', to: '/key-vault/browse', icon: Search },
     { title: 'Add key', to: '/key-vault/addKey', icon: GamepadRounded },

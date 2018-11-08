@@ -20,6 +20,7 @@ class Header extends Component {
     super(props)
     this.state = {
       onTop: true,
+      mobileOpen: false,
       user: null
     }
   }
@@ -30,6 +31,10 @@ class Header extends Component {
     } else {
       this.setState({ onTop: true })
     }
+  }
+
+  toggleMobileOpen () {
+    this.setState({ mobileOpen: !this.state.mobileOpen })
   }
 
   componentDidMount () {
@@ -44,7 +49,7 @@ class Header extends Component {
 
   render () {
     let { auth } = this.props
-    let { onTop } = this.state
+    let { onTop, mobileOpen } = this.state
 
     if (window.localStorage.getItem('access_token')) {
       if (jwtDecode(window.localStorage.getItem('access_token')).exp < new Date().getTime() / 1000) {
@@ -74,7 +79,7 @@ class Header extends Component {
       <header className={onTop ? 'menu' : 'menu notOnTop'}>
         <div className='container'>
           <Link to='/'> <img className='logo' src={AALogo} alt='Advanced Algos' /> </Link>
-          <div className='mobileHandle'>
+          <div className={mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'} onClick={() => this.toggleMobileOpen()}>
             Menu
           </div>
           <nav className='links'>

@@ -98,8 +98,7 @@ header.menu{
       margin-top: ( $height-large-device - $image-height-big ) / 2 ;
       height: $image-height-big;
     }
-    .mobileHandle{
-      transition: $transition-time;
+    .openedMobile{
       &:before{
         content: "";
         position: absolute;
@@ -107,11 +106,32 @@ header.menu{
         top: 17px;
         width: 1em;
         height: 0.15em;
-        background: rgba(210, 217, 224, 0.9);;
+        background: $advanced-algos-red;
+        box-shadow:
+        0 0.25em 0 0 $advanced-algos-red,
+        0 0.5em 0 0 $advanced-algos-red;
+      }
+    }
+    .mobileHandle:not(.openedMobile){
+      &:before{
+        content: "";
+        position: absolute;
+        left: 16px;
+        top: 17px;
+        width: 1em;
+        height: 0.15em;
+        background: rgba(210, 217, 224, 0.9);
         box-shadow:
         0 0.25em 0 0 rgba(210, 217, 224, 0.9),
         0 0.5em 0 0 rgba(210, 217, 224, 0.9);
       }
+    }
+    .mobileHandle{
+      &.openedMobile{
+        color: $advanced-algos-red;
+        border: 1px solid $advanced-algos-red;
+      }
+      transition: $transition-time;
       display: block;
       height: $mobile-handle-height;
       line-height: $mobile-handle-height;

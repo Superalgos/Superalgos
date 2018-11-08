@@ -9,13 +9,12 @@ export const resolver = (usersSchema) => ({
   teams_Team: {
     ownerUser: {
       fragment: `fragment UserFragment on teams_Team{owner}`,
-      resolve (parent, args, context, info) {
-        const authId = parent.owner
+      resolve ({owner: id}, args, context, info) {
         return info.mergeInfo.delegateToSchema({
           schema: usersSchema,
           operation: 'query',
-          fieldName: 'users_UserByAuthId',
-          args: { authId },
+          fieldName: 'users_User',
+          args: { id },
           context,
           info
         })

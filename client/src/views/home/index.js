@@ -25,7 +25,6 @@ const styles = theme => ({
 })
 
 class Home extends Component {
-
   render () {
     const { classes } = this.props
     return (
@@ -34,7 +33,7 @@ class Home extends Component {
         <main className={classes.layout}>
           <div className={classes.heroContent}>
             <Typography
-              variant='display3'
+              variant='h2'
               align='center'
               color='textPrimary'
               gutterBottom
@@ -42,7 +41,7 @@ class Home extends Component {
               Collaborate. Innovate. Evolve.
             </Typography>
             <Typography
-              variant='title'
+              variant='h6'
               align='center'
               color='textSecondary'
               component='h3'

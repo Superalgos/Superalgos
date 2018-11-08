@@ -228,7 +228,7 @@ class Auth {
       return user
     }
 
-    //TODO improve to check the session validation on client side
+    // TODO improve to check the session validation on client side
     const checkSSO = await this.checkSession()
       .then(result => {
         console.log('handleAuth.checksessions: ', result)

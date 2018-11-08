@@ -32,10 +32,10 @@ const eventsMenus = {
   title: 'Events',
   to: '/events',
   submenus: [
-    { title: 'Look for an event', to: '/events', icon: Search },
-    { title: 'Events you are enrolled in', to: '/events/my', icon: GamepadRounded },
-    { title: 'Your hosted competition', to: '/events/host', icon: AccessibilityNew },
-    { title: 'Host a new competition', to: '/events/create', icon: LibraryAdd },
+    { title: 'All events', to: '/events', icon: Search },
+    { title: 'Your events', to: '/events/my', icon: GamepadRounded },
+    { title: 'Your hosted events', to: '/events/host', icon: AccessibilityNew },
+    { title: 'Host an event', to: '/events/create', icon: LibraryAdd },
     { title: 'Report', to: '/report/events', icon: LibraryAdd }
   ]
 }

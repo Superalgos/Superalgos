@@ -1,26 +1,38 @@
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
+const styles = () => ({
+  rootBig: {
+    backgroundImage: 'url(https://aacorporatesitedevelop.azurewebsites.net/img/photos/connect.jpg)',
+    width: '100%',
+    height: '100vh',
   },
-  flex: {
-    flexGrow: 1,
-    marginLeft: 30,
+  rootMedium: {
+    backgroundImage: 'url(https://aacorporatesitedevelop.azurewebsites.net/img/photos/connect.jpg)',
+    width: '100%',
+    height: '50vh',
   },
-  cssRoot: {
-    color: '#FFFFFF',
-    backgroundColor: theme.palette.secondary,
-    '&:hover': {
-      backgroundColor: theme.palette.dark,
-    },
-    whiteSpace: 'nowrap',
-    paddingRight: 2 * theme.spacing.unit,
-    paddingLeft: 2 * theme.spacing.unit,
+  rootSmall: {
+    backgroundImage: 'url(https://aacorporatesitedevelop.azurewebsites.net/img/photos/connect.jpg)',
+    width: '100%',
+    height: '220px',
   },
-  leftIcon: {
-    marginRight: theme.spacing.unit,
+  captions: {
+    position: 'relative',
+    top: '50%',
+    transform: 'translateY(-50%)',
   },
-  iconSmall: {
-    fontSize: 20,
+  title: {
+    fontFamily: 'Saira',
+    color: 'white',
+    fontSize: '64px',
+    lineHeight: '78px',
+    fontWeight: 100,
+  },
+  text: {
+    fontFamily: 'Saira',
+    color: 'white',
+    fontSize: '20px',
+    lineHeight: '30px',
+    fontWeight: 600,
+    padding: '20px 0 0.5em 0',
   },
 });
 

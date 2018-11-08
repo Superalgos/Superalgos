@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import LoggedInMenu from './LoggedInMenu'
 
-import { isDefined } from '../../utils/js-helpers'
+import { isDefined } from '../../../utils/js-helpers'
 
 export const LoggedIn = props => {
   let { user, auth } = props

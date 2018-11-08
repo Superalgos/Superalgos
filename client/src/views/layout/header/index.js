@@ -24,7 +24,7 @@ import { LoggedIn } from './LoggedIn'
 import { LoggedOut } from './LoggedOut'
 
 import allMenus from './imports'
-import AALogo from '../../assets/advanced-algos/aa-logo-dark.svg'
+import AALogo from '../../../assets/advanced-algos/aa-logo-dark.svg'
 
 class Header extends Component {
   constructor (props) {

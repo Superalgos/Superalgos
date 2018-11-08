@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import Footer from '../footer'
-import Header from '../header'
+import Footer from './footer'
+import Header from './header'
 
 // styles
 import styles from './styles'

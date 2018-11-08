@@ -19,7 +19,7 @@ const authRetryLink = onError(
     if (graphQLErrors) {
       // User access token has expired
       // console.log('authLink: ', graphQLErrors) // check for error message to intercept and resend with Auth0 access token
-      if (graphQLErrors[0].message === 'Context creation failed: jwt expired')  {
+      if (graphQLErrors[0].message === 'Context creation failed: jwt expired') {
         window.localStorage.clear()
         location.reload()
       } else if (graphQLErrors[0].message === 'Not logged in') {
@@ -73,8 +73,23 @@ const authLink = setContext((_, { headers }) => {
 
 const cache = new InMemoryCache().restore(window.__APOLLO_STATE__)
 
+const defaultOptions = {
+  watchQuery: {
+    fetchPolicy: 'cache-and-network',
+    errorPolicy: 'all'
+  },
+  query: {
+    fetchPolicy: 'cache-and-network',
+    errorPolicy: 'all'
+  },
+  mutate: {
+    errorPolicy: 'all'
+  }
+}
+
 export const client = new ApolloClient({
   link: ApolloLink.from([authRetryLink, authLink, httpLink]), // replaced link with httpLink
   cache,
+  defaultOptions,
   connectToDevTools: true
 })

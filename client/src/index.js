@@ -9,7 +9,7 @@ import rootReducer from './reducers/rootReducer'
 const store = createStore(rootReducer)
 
 if (process.env.NODE_ENV !== 'production') {
-  localStorage.setItem('debug', 'advanced-algos:*')
+  window.localStorage.setItem('debug', 'advanced-algos:*')
 }
 
 ReactDOM.render(<Provider store={store}><MasterApp /></Provider>, document.getElementById('masterApp'))

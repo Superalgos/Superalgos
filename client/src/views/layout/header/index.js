@@ -74,6 +74,9 @@ class Header extends Component {
       <header className={onTop ? 'menu' : 'menu notOnTop'}>
         <div className='container'>
           <Link to='/'> <img className='logo' src={AALogo} alt='Advanced Algos' /> </Link>
+          <div className='mobileHandle'>
+            Menu
+          </div>
           <nav className='links'>
             <ul className='primaryMenu'>
               <li className='primaryLink'>

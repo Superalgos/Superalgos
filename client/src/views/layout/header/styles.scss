@@ -22,9 +22,10 @@ body{
 $break-big: 1300px;
 $break-middle: 992px;
 $break-small: 768px;
+$break-extra-small: 532px;
 
 $height-large-device: 131px;
-$height-small-device: 181px;
+$height-small-device: 220px;
 
 $height-not-top: 87px;
 
@@ -32,6 +33,8 @@ $image-height-big: 75px;
 $image-height-small: 45px;
 
 $text-height: 25px;
+
+$mobile-handle-height: 45px;
 
 $transition-time: 0.3s;
 
@@ -49,6 +52,10 @@ header.menu{
         margin-top: ( $height-not-top - $image-height-small ) / 2;
         height: $image-height-small;
       }
+      .mobileHandle{
+        margin-top: ( $height-not-top - $mobile-handle-height ) / 2 ;
+        margin-bottom: ( $height-not-top - $mobile-handle-height ) / 2 ;
+      }
       nav.links{
         ul.primaryMenu{
           li.primaryLink{
@@ -64,7 +71,7 @@ header.menu{
   width: 100vw;
   z-index: 125;
 
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: $break-extra-small) {
     height: $height-small-device;
   }
   .container{
@@ -86,13 +93,55 @@ header.menu{
     padding-right: 15px;
     margin-left: auto;
     margin-right: auto;
-
     img.logo{
       transition: $transition-time;
       margin-top: ( $height-large-device - $image-height-big ) / 2 ;
       height: $image-height-big;
     }
+    .mobileHandle{
+      transition: $transition-time;
+      &:before{
+        content: "";
+        position: absolute;
+        left: 16px;
+        top: 17px;
+        width: 1em;
+        height: 0.15em;
+        background: rgba(210, 217, 224, 0.9);;
+        box-shadow:
+        0 0.25em 0 0 rgba(210, 217, 224, 0.9),
+        0 0.5em 0 0 rgba(210, 217, 224, 0.9);
+      }
+      display: block;
+      height: $mobile-handle-height;
+      line-height: $mobile-handle-height;
+      border: 1px solid rgba(210, 217, 224, 0.5);
+      text-transform: uppercase;
+      color: rgba(210, 217, 224, 0.9);
+      text-align: center;
+      float: right;
+      width: auto;
+      clear: none;
+      margin-top: ( $height-large-device - $mobile-handle-height ) / 2 ;
+      margin-bottom: ( $height-large-device - $mobile-handle-height ) / 2 ;
+      margin-left: 0;
+      margin-right: 20px;
+      margin: 41px 0 42px 20px;
+      padding: 0 18px 0 40px;
+      position: relative;
+      text-decoration: none;
+      border-radius: 31px;
+      @media screen and (min-width: $break-big) {
+        display: none;
+      }
+    }
     nav.links{
+      @media screen and (max-width: $break-big) {
+        display: none;
+        &.mobileShow{
+          display: block;
+        }
+      }
       float: right;
       ul.primaryMenu{
         margin: 0 4px 0 0;

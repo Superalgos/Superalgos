@@ -1,8 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-// import { graphql } from 'react-apollo'
-
-import LoggedInMenu from './LoggedInMenu'
+import { Link } from 'react-router-dom'
 
 import { isDefined } from '../../../utils/js-helpers'
 
@@ -27,15 +24,15 @@ export const LoggedIn = props => {
   }
 
   return (
-    <div>
-      <LoggedInMenu menuLabel={displayName} auth={auth} />
-    </div>
-  )
-}
 
-LoggedIn.propTypes = {
-  user: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+    <li className='primaryLink hasChildren'>
+      <Link to='/users/user'> {displayName} </Link>
+      <ul className='subMenu'>
+        <li><Link to='/users/user' > Profile </Link></li>
+        <li><a href='#' onClick={() => auth.logout()}> Logout </a></li>
+      </ul>
+    </li>
+  )
 }
 
 export default LoggedIn

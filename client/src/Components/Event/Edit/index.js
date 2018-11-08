@@ -6,12 +6,15 @@ import { withStyles } from '@material-ui/core/styles';
 
 import styles from './styles';
 
+import TopBar from '../../TopBar';
+
 import { showEventCalls } from '../../../GraphQL/Calls/index';
 
 class Edit extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <TopBar />
         <Typography
           variant='display1'
           align='center'

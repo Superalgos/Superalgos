@@ -1,12 +1,15 @@
 import React from 'react';
 import { Query } from 'react-apollo';
 
+import TopBar from '../TopBar';
+
 import { hostedEventsCalls } from '../../GraphQL/Calls/index';
 
 import Event from './Event';
 
 const HostedEvent = () => (
   <React.Fragment>
+    <TopBar size='medium' title='Your hosted events' text='You are one of the pillars of this community, thank you' />
     <Query
       query={hostedEventsCalls.EVENTS_EVENTSBYHOST}
     >

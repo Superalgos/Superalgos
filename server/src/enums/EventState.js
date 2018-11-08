@@ -4,14 +4,16 @@ export const CANCELLED = 'CANCELLED';
 export const RUNNING = 'RUNNING';
 export const INTERRUPTED = 'INTERRUPTED';
 export const FINISHED = 'FINISHED';
+export const ARCHIVED = 'ARCHIVED';
 
-export const EventStatusEnum = [
+export const EventStateEnum = [
   UNPUBLISHED,
   PUBLISHED,
   CANCELLED,
   RUNNING,
   INTERRUPTED,
   FINISHED,
+  ARCHIVED,
 ];
 
-export default EventStatusEnum;
+export default EventStateEnum;

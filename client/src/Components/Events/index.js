@@ -1,9 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-class Index extends React.Component {
-  render () {
-    return <p>Here will come a list the competitions you applied for</p>
-  }
-}
+const Index = () => <p>Here will come a list the competitions you applied for</p>;
 
-export default Index
+export default Index;

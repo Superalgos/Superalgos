@@ -1,21 +1,19 @@
-import React from 'react'
-import { Typography } from '@material-ui/core'
+import React from 'react';
+import { Typography } from '@material-ui/core';
 
-import { withStyles } from '@material-ui/core/styles'
-import styles from '../styles'
+import { withStyles } from '@material-ui/core/styles';
+import styles from '../styles';
 
-import Event from '../Event'
+import Event from '../Event';
 
 class Past extends React.Component {
-  render () {
-    const classes = this.props.classes
-    const { PastEvents } = this.props
+  render() {
+    const { classes } = this.props;
+    const { PastEvents } = this.props;
 
-    const pastEvents = PastEvents.map((event, index) => {
-      return (
-        <Event key={index} event={event} />
-      )
-    })
+    const pastEvents = PastEvents.map((event, index) => (
+      <Event key={index} event={event} />
+    ));
     return (
       <React.Fragment>
         <Typography
@@ -29,8 +27,8 @@ class Past extends React.Component {
         </Typography>
         {pastEvents}
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(Past)
+export default withStyles(styles)(Past);

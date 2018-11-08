@@ -1,9 +1,10 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export const eventMinimalInfo = gql`
   fragment EventMinimalInfo on events_Event {
+    id
+    state
     name
-    designator
     startDatetime
     finishDatetime
     host {
@@ -13,11 +14,12 @@ export const eventMinimalInfo = gql`
     }
     description
   }
-`
+`;
 
 export const eventFullInfo = gql`
   fragment EventFullInfo on events_Event {
-    designator
+    id
+    state
     name
     host{
       alias
@@ -58,4 +60,4 @@ export const eventFullInfo = gql`
       }
     }
   }
-`
+`;

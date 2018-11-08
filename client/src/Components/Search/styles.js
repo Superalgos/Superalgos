@@ -4,11 +4,11 @@ const styles = theme => ({
     width: '100%',
     backgroundColor: theme.palette.background.paper,
     padding: 0,
-    margin: 0
+    margin: 0,
   },
   tabTitle: {
     width: '25%',
-    maxWidth: 'none'
+    maxWidth: 'none',
   },
   card: {
     flexGrow: 1,
@@ -16,18 +16,18 @@ const styles = theme => ({
     marginTop: 20,
     marginBottom: 20,
     marginLeft: 400,
-    marginRight: 400
+    marginRight: 400,
   },
   buttonList: {
     margin: theme.spacing.unit,
-    float: 'right'
+    float: 'right',
   },
   buttonGrid: {
-    marginTop: -20
+    marginTop: -20,
   },
   title: {
-    marginTop: 20
-  }
-})
+    marginTop: 20,
+  },
+});
 
-export default styles
+export default styles;

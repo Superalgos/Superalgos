@@ -1,16 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import classNames from 'classnames'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
-import { AppBar, Toolbar, Typography, Button } from '@material-ui/core'
-import { withStyles } from '@material-ui/core/styles'
+import {
+  AppBar, Toolbar, Typography, Button,
+} from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
-import datas from './data'
-import styles from './styles'
+import datas from './data';
+import styles from './styles';
 
-const TopBar = ({ classes, user, match }) => {
+const TopBar = ({ classes }) => {
   const buttons = datas.map((data, index) => {
-    const Icon = data.icon
+    const Icon = data.icon;
     return (
       <Button
         key={index}
@@ -22,9 +24,8 @@ const TopBar = ({ classes, user, match }) => {
         to={data.to}>
         <Icon className={classNames(classes.leftIcon, classes.iconSmall)} />
         {data.text}
-      </Button>)
-  }
-  )
+      </Button>);
+  });
   return (
     <div className={classes.root}>
       <AppBar position='static' color='secondary'>
@@ -36,7 +37,7 @@ const TopBar = ({ classes, user, match }) => {
         </Toolbar>
       </AppBar>
     </div>
-  )
-}
+  );
+};
 
-export default withStyles(styles)(TopBar)
+export default withStyles(styles)(TopBar);

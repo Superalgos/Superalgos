@@ -5,22 +5,15 @@ const styles = theme => ({
     marginTop: 20,
     marginBottom: 20,
     marginLeft: 400,
-    marginRight: 400
+    marginRight: 400,
   },
   buttonList: {
     margin: theme.spacing.unit,
-    float: 'right'
+    float: 'right',
   },
   buttonGrid: {
-    marginTop: -20
+    marginTop: -20,
   },
-  addButton: {
-    display: 'block',
-    padding: 20,
-    marginTop: 20,
-    marginRight: 20,
-    marginLeft: 'auto'
-  }
-})
+});
 
-export default styles
+export default styles;

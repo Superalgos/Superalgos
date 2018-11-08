@@ -12,11 +12,14 @@ import {
   ParticipantType,
   PrizeType,
 } from './index';
+import EventStateEnumType from './enum/EventState';
 
 const EventType = new GraphQLObjectType({
   name: 'Event',
+  description: 'Everything you need to know about an event',
   fields: () => ({
-    designator: { type: GraphQLID },
+    id: { type: GraphQLID },
+    state: { type: EventStateEnumType },
     name: { type: GraphQLString },
     hostId: { type: GraphQLString },
     description: { type: GraphQLString },
@@ -25,13 +28,13 @@ const EventType = new GraphQLObjectType({
     formula: {
       type: FormulaType,
       resolve(parent) {
-        return parent.formula;
+        return parent.formulaId;
       },
     },
     plotter: {
       type: PlotterType,
       resolve(parent) {
-        return parent.plotter;
+        return parent.plotterId;
       },
     },
     rules: {

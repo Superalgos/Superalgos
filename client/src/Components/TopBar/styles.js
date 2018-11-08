@@ -1,37 +1,27 @@
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   flex: {
     flexGrow: 1,
-    marginLeft: 30
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
+    marginLeft: 30,
   },
   cssRoot: {
     color: '#FFFFFF',
     backgroundColor: theme.palette.secondary,
     '&:hover': {
-      backgroundColor: theme.palette.dark
+      backgroundColor: theme.palette.dark,
     },
     whiteSpace: 'nowrap',
     paddingRight: 2 * theme.spacing.unit,
-    paddingLeft: 2 * theme.spacing.unit
-  },
-  button: {
-    margin: theme.spacing.unit
+    paddingLeft: 2 * theme.spacing.unit,
   },
   leftIcon: {
-    marginRight: theme.spacing.unit
-  },
-  rightIcon: {
-    marginLeft: theme.spacing.unit
+    marginRight: theme.spacing.unit,
   },
   iconSmall: {
-    fontSize: 20
-  }
-})
+    fontSize: 20,
+  },
+});
 
-export default styles
+export default styles;

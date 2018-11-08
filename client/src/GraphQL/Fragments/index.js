@@ -1,9 +1,15 @@
 import {
   eventMinimalInfo,
-  eventFullInfo
-} from './event'
+  eventFullInfo,
+} from './event';
+import {
+  formulaInfo,
+  plotterInfo,
+} from './options';
 
 export {
   eventMinimalInfo,
-  eventFullInfo
-}
+  eventFullInfo,
+  formulaInfo,
+  plotterInfo,
+};

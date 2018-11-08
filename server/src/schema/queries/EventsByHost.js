@@ -5,6 +5,7 @@ import {
 } from 'graphql';
 import { EventType } from '../types';
 import { Event } from '../../models';
+import { UNPUBLISHED, ARCHIVED } from '../../enums/EventState';
 
 const args = {
   hostId: { type: GraphQLString },
@@ -14,7 +15,7 @@ const args = {
 
 const resolve = (parent, { hostId, minDate, maxDate }, context) => Event.find(
   Object.assign(
-    hostId ? { hostId } : { hostId: context.userId },
+    hostId ? { hostId, state: { $nin: [UNPUBLISHED, ARCHIVED] } } : { hostId: context.userId },
     minDate || maxDate
       ? {
         startDatetime:

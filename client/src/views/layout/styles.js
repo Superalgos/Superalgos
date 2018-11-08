@@ -1,6 +1,9 @@
 const styles = theme => ({
-  mainContainer: {
-    minHeight: 1000
+  layout: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    minHeight: 'calc(100vh)'
   }
 })
 

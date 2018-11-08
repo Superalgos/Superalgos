@@ -9,9 +9,11 @@ import styles from './styles'
 class Index extends React.Component {
   render () {
     return (
-      <div className={this.props.classes.mainContainer}>
+      <div className={this.props.classes.layout}>
         <Header auth={this.props.auth} />
-        {this.props.children}
+        <div>
+          {this.props.children}
+        </div>
         <Footer />
       </div>
     )

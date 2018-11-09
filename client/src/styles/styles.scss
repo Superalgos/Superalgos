@@ -357,3 +357,61 @@ header.menu{
     }
   }
 }
+
+.homePage{
+  padding-top: 70px;
+  padding-bottom: 70px;
+  margin-right: auto;
+  margin-left: auto;
+  @media screen and (min-width: $break-small) {
+    width: 750px;
+  }
+  @media screen and (min-width: $break-middle) {
+    width: 970px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1170px;
+  }
+  .title{
+    padding: 0 0 10px 0;
+    font-size: 45px;
+    line-height: 55px;
+    padding: 40px 0 0.5em 0;
+    font-weight: 100;
+  }
+  .subtitle{
+    padding-bottom: 5px;
+    font-size: 20px;
+    line-height: 19px;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1em;
+
+  }
+  .column{
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    @media screen and (min-width: $break-small) {
+      width: 50%;
+    }
+    p{
+      font-size: 16px;
+      line-height: 25px;
+      margin-bottom: 0.75em;
+      margin-top: 0.75em;
+      font-size: 16px;
+      font-weight: 300;
+      color: #5a6266;
+      text-size-adjust: 100%;
+      a{
+        text-decoration: none;
+        transition: all 0.3s ease-in-out 0s;
+        color: #CC5835;
+      }
+    }
+  }
+
+}

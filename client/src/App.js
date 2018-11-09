@@ -7,11 +7,12 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { withStyles } from '@material-ui/core/styles'
 import { theme, globalStyles } from './styles'
+import './styles/styles.scss'
 
 import { client } from './graphql/apollo'
 import Auth from './auth'
 
-import { Layout, Home, Charts, Callback } from './views'
+import { Layout, Home, Charts, Callback, EmailSignupConfirm } from './views'
 
 import Users from '@advancedalgos/users-client'
 import Teams from '@advancedalgos/teams-client'
@@ -36,6 +37,13 @@ export const MasterApp = (props) => (
               render={props => {
                 auth.handleAuthentication(props)
                 return <Callback {...props} />
+              }}
+            />
+            <Route
+              path='/email-verification'
+              render={props => {
+                console.log(props, props.match)
+                return <EmailSignupConfirm {...props} />
               }}
             />
             <Route

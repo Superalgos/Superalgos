@@ -229,6 +229,9 @@ header.menu{
               padding: 0 40px 0 30px;
               text-decoration: none;
               color: white;
+              &:hover{
+                color: $advanced-algos-red;
+              }
             }
             ul.subMenu{
               display: none;
@@ -280,6 +283,9 @@ header.menu{
             }
             a{
               color: white;
+              &:hover{
+                color: $advanced-algos-red;
+              }
               text-decoration: none;
               &.selected{
                 color: $advanced-algos-red;

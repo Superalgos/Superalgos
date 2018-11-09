@@ -2,17 +2,22 @@ import {
   Search,
   GamepadRounded,
   AccessibilityNew,
-  LibraryAdd
+  LibraryAdd,
+  Home,
+  ImportContacts,
+  BugReport,
+  People
 } from '@material-ui/icons'
 
 const usersMenus = {
   title: 'Users',
   to: '/users',
   submenus: [
-    { title: 'Your profile', to: '/users/user', icon: Search },
-    { title: 'Directory', to: '/users/browse', icon: GamepadRounded },
-    { title: 'Search', to: '/users/search', icon: AccessibilityNew },
-    { title: 'Report', to: '/report/users', icon: LibraryAdd }
+    { title: 'Home', to: '/users/', icon: Home },
+    { title: 'Directory', to: '/users/browse', icon: ImportContacts },
+    { title: 'Search', to: '/users/search', icon: Search },
+    { title: 'Report', to: '/report/users', icon: BugReport },
+    { title: 'Your Profile', to: '/users/user', icon: People }
   ]
 }
 

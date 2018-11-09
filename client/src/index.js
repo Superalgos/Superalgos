@@ -11,7 +11,6 @@ import {
   FinancialBeings,
   Settings,
   Teams,
-  TeamBar,
   globalStyles
 } from './views'
 
@@ -35,16 +34,8 @@ class App extends Component {
   }
 
   render () {
-    const { match } = this.props
-    let loggedIn
-    if (this.state.user !== null) {
-      loggedIn = (<TeamBar match={match} user={this.state.user} />)
-    } else {
-      loggedIn = ''
-    }
     return (
       <div className='App'>
-        {loggedIn}
         <Switch>
           <Route exact path={`/teams`} component={Teams} />
           <Route

@@ -3,17 +3,23 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
 import { MessageCard } from '@advancedalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import ManageTeamsItem from './ManageTeamsItem'
-import CreateTeamDialog from './CreateTeamDialog'
+import CreateTeamForm from './CreateTeamForm'
 
 import log from '../../../utils/log'
 
 const styles = theme => ({
+  container: {
+    padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`,
+    margin: `${theme.spacing.unit * 1}px 0`
+  },
   heroContent: {
     maxWidth: 600,
     margin: '0 auto',
@@ -63,7 +69,7 @@ export const ManageTeamsList = ({ classes, user = null, ...props }) => (
         if (data.teams_TeamsByOwner.length > 0) {
           return (
             <React.Fragment>
-              <Grid container spacing={40}>
+              <Grid container spacing={0} direction='column' justify='center' alignItems='center'>
                 {!loading &&
                   data.teams_TeamsByOwner.map(team => (
                     <ManageTeamsItem
@@ -79,21 +85,37 @@ export const ManageTeamsList = ({ classes, user = null, ...props }) => (
           )
         } else {
           return (
-            <Grid container spacing={40}>
-              <Grid item xs={10}>
-                <MessageCard message='You don&rsquo;t have any teams. Create one!'>
-                  <CreateTeamDialog />
-                </MessageCard>
+            <Paper>
+              <Grid container spacing={0} direction='column' justify='center' alignItems='center' className={classes.container}>
+                <Grid item xs={10}>
+                  <Typography variant='h5' align='center'>
+                    You don&rsquo;t have any teams. Create one!
+                  </Typography>
+                  <Typography variant='body2' align='center' gutterBottom>
+                    To begin developing on the Advanced Algos platform, as well as participate in Algobot competitions,
+                    you'll need to create a team. A default trading algobot will be cloned and added to your team so
+                    that you can begin experimenting right away..
+                  </Typography>
+                  <CreateTeamForm />
+                </Grid>
               </Grid>
-            </Grid>
+            </Paper>
           )
         }
       } else {
         return (
-          <Grid container spacing={40}>
+          <Grid spacing={0} direction='column' justify='center' alignItems='center'>
             <Grid item xs={12}>
-              <MessageCard message='Loading...' />
-              {errors !== null && <MessageCard message={errors} />}
+              {errors === null &&
+                <Typography variant='h5' align='center' gutterBottom>
+                  Loading...
+                </Typography>
+              }
+              {errors !== null &&
+                <Typography variant='h5' align='center' gutterBottom>
+                  {errors}
+                </Typography>
+              }
             </Grid>
           </Grid>
         )

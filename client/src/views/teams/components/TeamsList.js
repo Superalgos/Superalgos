@@ -30,10 +30,15 @@ const styles = theme => ({
     flexDirection: 'column'
   },
   cardMedia: {
-    paddingTop: '56.25%' // 16:9
+    paddingTop: '25%' // 16:9
   },
   cardContent: {
     flexGrow: 1
+  },
+  avatar: {
+    maxWidth: 50,
+    height: 50,
+    margin: '0  1em 1em 0'
   },
   buttonRight: {
     justifyContent: 'flex-end'
@@ -78,16 +83,6 @@ export const TeamsList = ({ classes, match }) => (
           } else {
             return (
               <React.Fragment>
-                <div className={classes.heroContent}>
-                  <Typography
-                    variant='h3'
-                    align='center'
-                    color='textPrimary'
-                    gutterBottom
-                  >
-                    Teams
-                  </Typography>
-                </div>
                 <Grid container spacing={40}>
                   {!loading &&
                     data.teams_Teams.edges.map(team => (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BannerTopBar from '../BannerTopBar'
+import BannerTopBar from '../common'
 import { Typography } from '@material-ui/core'
 
 class Home extends Component {

@@ -17,7 +17,7 @@ import {
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 
-import TopBar from '../TopBar';
+import BannerTopBar from '../BannerTopBar';
 
 import { listEventsCalls } from '../../GraphQL/Calls/index';
 
@@ -53,7 +53,7 @@ class Search extends React.Component {
     const { value } = this.state;
     return (
       <React.Fragment>
-        <TopBar size='medium' title='Events' text='All the events are going to be listed here' />
+        <BannerTopBar size='medium' title='Events' text='All the events are going to be listed here' />
         <Query
           query={listEventsCalls.EVENTS_EVENTS}
         >

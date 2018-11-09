@@ -76,7 +76,8 @@ class Header extends Component {
     let user = JSON.parse(this.state.user)
 
     const menus = allMenus.map(({ to, title, submenus, authenticated }, index) => {
-      if (authenticated) {
+      console.log(!authenticated)
+      if (authenticated && !(this.state.user !== undefined && this.state.user !== null)) {
         return
       }
       return (
@@ -90,7 +91,7 @@ class Header extends Component {
           <ul className='subMenu'>
             {
               submenus.map(({ icon: Icon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
-                if (subAuthenticated) {
+                if (subAuthenticated && !(this.state.user !== undefined && this.state.user !== null)) {
                   return
                 }
                 if (externalLink) {

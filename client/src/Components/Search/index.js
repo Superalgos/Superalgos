@@ -53,7 +53,12 @@ class Search extends React.Component {
     const { value } = this.state;
     return (
       <React.Fragment>
-        <BannerTopBar size='medium' title='Events' text='All the events are going to be listed here' />
+        <BannerTopBar
+          size='medium'
+          title='Events'
+          text='All the events are going to be listed here'
+          backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/events.jpg'
+        />
         <Query
           query={listEventsCalls.EVENTS_EVENTS}
         >

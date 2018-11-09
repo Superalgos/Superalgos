@@ -72,7 +72,7 @@ class Create extends React.Component {
     const { classes } = this.props;
     return (
       <React.Fragment>
-        <BannerTopBar />
+        <BannerTopBar backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/events.jpg' />
         <Mutation mutation={hostedEventsCalls.EVENTS_CREATEEVENT}
           update={(store, { data }) => {
             this.props.history.push(`/events/edit/${data.events_CreateEvent.id}`);

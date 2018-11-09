@@ -7,6 +7,7 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { withStyles } from '@material-ui/core/styles'
 import { theme, globalStyles } from './styles'
+import './styles/styles.scss'
 
 import { client } from './graphql/apollo'
 import Auth from './auth'

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
+import BannerTopBar from '../BannerTopBar'
 
 const styles = theme => ({
   '@global': {
@@ -39,7 +40,12 @@ class Charts extends Component {
 
   render () {
     return (
-      <React.Fragment />
+      <BannerTopBar
+        size='big'
+        title='Advanced Algos Charts'
+        text='But if you see me, there is probably a problem somewhere, try reloading the page in a moment.'
+        backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+      />
     )
   }
 }

@@ -4,12 +4,6 @@ import { Link } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 import withWidth from '@material-ui/core/withWidth'
 
-// icons
-import ExitIcon from '@material-ui/icons/ExitToApp'
-
-// styles
-import './styles.scss'
-
 // components
 import { LoggedIn } from './LoggedIn'
 
@@ -92,7 +86,12 @@ class Header extends Component {
           <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
           <ul className='subMenu'>
             {
-              submenus.map(({ icon: Icon, to: subTo, title: subTitle }, subindex) => {
+              submenus.map(({ icon: Icon, to: subTo, title: subTitle, externalLink }, subindex) => {
+                if (externalLink) {
+                  return (
+                    <li key={subindex}><a href={subTo}> <Icon /> {subTitle} </a></li>
+                  )
+                }
                 return (
                   <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <Icon /> {subTitle} </Link></li>
                 )
@@ -112,7 +111,7 @@ class Header extends Component {
           <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
             <ul className='primaryMenu'>
               <li className='primaryLink'>
-                <Link to='/'> Charts </Link>
+                <Link to='/charts'> Charts </Link>
               </li>
               {menus}
               <li className='primaryLink'>
@@ -134,9 +133,6 @@ class Header extends Component {
                   <a href='#' onClick={() => auth.login()}> Login / Sign Up </a>
                 </li>
               )}
-              <li className='primaryLink'>
-                <a href='https://www.advancedalgos.net'> <ExitIcon /> </a>
-              </li>
             </ul>
           </nav>
         </div>

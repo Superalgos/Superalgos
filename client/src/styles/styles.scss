@@ -1,24 +1,3 @@
-body{
-  overflow-y:scroll;
-
-  &::-webkit-scrollbar-track {
-    border: 1px solid #000;
-    padding: 2px 0;
-    background-color: #404040;
-  }
-
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #737272;
-    border: 1px solid #000;
-  }
-}
-
 $break-big: 1280px;
 $break-middle: 992px;
 $break-small: 768px;
@@ -39,6 +18,52 @@ $mobile-handle-height: 45px;
 $transition-time: 0.3s;
 
 $advanced-algos-red: rgb(245,88,88);
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+body{
+  overflow-y:scroll;
+
+  &::-webkit-scrollbar-track {
+    border: 1px solid #000;
+    padding: 2px 0;
+    background-color: #404040;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #737272;
+    border: 1px solid #000;
+  }
+}
 
 header.menu{
   transition: $transition-time;
@@ -177,6 +202,19 @@ header.menu{
             min-width: 240px;
             min-height: 50px;
             border-bottom: 1px solid white;
+            &.hasChildren{
+              &:after{
+                content: '';
+                float: right;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                padding: 3px;
+                margin-top: 18px;
+                margin-right: 7px;
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+              }
+            }
             &:last-child{
               border-bottom: 0;
             }
@@ -191,6 +229,9 @@ header.menu{
               padding: 0 40px 0 30px;
               text-decoration: none;
               color: white;
+              &:hover{
+                color: $advanced-algos-red;
+              }
             }
             ul.subMenu{
               display: none;
@@ -225,8 +266,26 @@ header.menu{
             padding-bottom: ( $height-large-device - $text-height ) / 2;
             padding-right: 21px;
             padding-left: 21px;
+            &.hasChildren{
+              &:after{
+                content: '';
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                display: inline-block;
+                padding: 3px;
+                margin-bottom: 2px;
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+              }
+              >a{
+                margin-right:6px;
+              }
+            }
             a{
               color: white;
+              &:hover{
+                color: $advanced-algos-red;
+              }
               text-decoration: none;
               &.selected{
                 color: $advanced-algos-red;
@@ -264,4 +323,101 @@ header.menu{
       }
     }
   }
+}
+
+.bannerTopBar{
+  background-image: url(https://advancedalgos.net/img/photos/teams.jpg);
+  width: 100%;
+  height: 220px;
+  &.big{
+    height: 100vh;
+    .caption{
+      display: block;
+    }
+  }
+  &.medium{
+    height: 50vh;
+    .caption{
+      display: block;
+    }
+  }
+  .caption{
+    display: none;
+    position: relative;
+    top: 50%;
+    transform: translateY(-100%);
+    font-family: Saira;
+    .title{
+      color: white;
+      font-size: 64px;
+      line-height: 78px;
+      font-weight: 100;
+      @include fluid-type($break-extra-small, $break-big, 26px, 64px);
+    }
+    .text{
+      color: white;
+      line-height: 30px;
+      font-weight: 600;
+      padding: 20px 0 0.5em 0;
+      @include fluid-type($break-extra-small, $break-big, 18px, 20px);
+    }
+  }
+}
+
+.homePage{
+  padding-top: 70px;
+  padding-bottom: 70px;
+  margin-right: auto;
+  margin-left: auto;
+  @media screen and (min-width: $break-small) {
+    width: 750px;
+  }
+  @media screen and (min-width: $break-middle) {
+    width: 970px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1170px;
+  }
+  .title{
+    padding: 0 0 10px 0;
+    font-size: 45px;
+    line-height: 55px;
+    padding: 40px 0 0.5em 0;
+    font-weight: 100;
+  }
+  .subtitle{
+    padding-bottom: 5px;
+    font-size: 20px;
+    line-height: 19px;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1em;
+
+  }
+  .column{
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    @media screen and (min-width: $break-small) {
+      width: 50%;
+    }
+    p{
+      font-size: 16px;
+      line-height: 25px;
+      margin-bottom: 0.75em;
+      margin-top: 0.75em;
+      font-size: 16px;
+      font-weight: 300;
+      color: #5a6266;
+      text-size-adjust: 100%;
+      a{
+        text-decoration: none;
+        transition: all 0.3s ease-in-out 0s;
+        color: #CC5835;
+      }
+    }
+  }
+
 }

@@ -9,6 +9,8 @@ import axios from 'axios'
 
 import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams, events } from './links'
+import { typeDef as masterSchema } from './schema'
+import masterResolvers from './resolvers'
 import logger from './logger'
 
 async function getUserId (authId) {
@@ -58,8 +60,9 @@ async function run () {
     process.env.KEYVAULT_API_URL,
     process.env.KEYVAULT_API_PRESHARED)
 
-  var schemas = []
+  var schemas = [masterSchema]
   var resolvers = {}
+  resolvers = Object.assign(resolvers, masterResolvers)
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)
@@ -154,7 +157,7 @@ async function run () {
     schema,
     context,
     formatError: error => {
-      logger.error('An error ocurred inside a module: ' + error)
+      logger.error(`An error ocurred inside a module: ${JSON.stringify(error)}`)
       return error
     },
     formatResponse: response => {

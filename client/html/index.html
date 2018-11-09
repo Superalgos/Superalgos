@@ -19,15 +19,21 @@
   <script type="text/javascript">
     function loadCanvas(){
 
-      window.canvasApp = {
-          sessionToken: '',
-          executingAt: 'Master App',
-          visible: false,
-          topMargin: 25,
-          urlPrefix: 'https://develop.advancedalgos.net/'  /* 'http://localhost:1337/'   */   /*  'https://develop.advancedalgos.net/'  */
-      };
+      if (window.canvasApp.visible === undefined) {
+        window.canvasApp = {
+            sessionToken: '',
+            executingAt: 'Master App',
+            visible: false,
+            topMargin: 180,
+            urlPrefix: 'https://develop.advancedalgos.net/' ,  /* 'http://localhost:1337/'   */   /*  'https://develop.advancedalgos.net/'  */
+            graphQL: {
+            masterAppApiUrl: 'https://app-api.advancedalgos.net/graphql'
+        },
+        context: {}
+        };
 
-      loadAdvancedAlgosPlatform();
+        loadAdvancedAlgosPlatform();
+      }
     }
   </script>
 </head>

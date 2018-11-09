@@ -24,7 +24,7 @@
     "@advancedalgos/events-client": "^0.0.4",
     "@advancedalgos/key-vault-client": "^0.0.21",
     "@advancedalgos/teams-client": "^0.0.26",
-    "@advancedalgos/users-client": "^0.0.19",
+    "@advancedalgos/users-client": "^0.0.20",
     "@advancedalgos/web-components": "0.0.13",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",

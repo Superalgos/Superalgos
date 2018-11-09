@@ -5,7 +5,9 @@ import {
   LibraryAdd,
   ImportContacts,
   BugReport,
-  People
+  People,
+  Group,
+  Adb
 } from '@material-ui/icons'
 
 const usersMenus = {
@@ -24,9 +26,9 @@ const teamsMenus = {
   to: '/teams',
   submenus: [
     { title: 'All teams', to: '/teams', icon: Search },
-    { title: 'Your teams', to: '/teams/manage-teams', icon: GamepadRounded, authenticated: true },
-    { title: 'Team members', to: '/teams/team-members', icon: GamepadRounded, authenticated: true },
-    { title: 'Financial beings', to: '/teams/financial-beings', icon: GamepadRounded, authenticated: true },
+    { title: 'Your teams', to: '/teams/manage-teams', icon: Group, authenticated: true },
+    { title: 'Team members', to: '/teams/team-members', icon: People, authenticated: true },
+    { title: 'Financial beings', to: '/teams/financial-beings', icon: Adb, authenticated: true },
     { title: 'Report', to: 'https://github.com/AdvancedAlgos/TeamsModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }

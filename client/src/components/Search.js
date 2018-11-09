@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import UserSearch from './UserSearch'
 import {compose} from 'react-apollo'
 import Paper from '@material-ui/core/Paper'
-import TopBar from './TopBar'
+import BannerTopBar from './BannerTopBar'
 
 // Materia UI
 
@@ -25,7 +25,12 @@ class Search extends Component {
     const { classes } = this.props
     return (
       <React.Fragment>
-        <TopBar size='medium' title='Users Search' text='Find anyone involved in Advanced Algos here.' />
+        <BannerTopBar
+          size='medium'
+          title='Users Search'
+          text='Find anyone involved in Advanced Algos here.'
+          backgroundUrl='https://advancedalgos.net/img/photos/connect.jpg'
+        />
         <Paper className={classes.root}>
           <UserSearch />
         </Paper>

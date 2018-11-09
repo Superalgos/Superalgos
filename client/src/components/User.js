@@ -1,11 +1,16 @@
 import React from 'react'
 import UserTabs from './UserTabs'
-import TopBar from './TopBar'
+import BannerTopBar from './BannerTopBar'
 
 const User = () => {
   return (
     <React.Fragment>
-      <TopBar size='medium' title='Your Profile' text='Manage your profile info, pictures and more.' />
+      <BannerTopBar
+        size='medium'
+        title='Your Profile'
+        text='Manage your profile info, pictures and more.'
+        backgroundUrl='https://advancedalgos.net/img/photos/connect.jpg'
+      />
       <UserTabs />
     </React.Fragment>
   )

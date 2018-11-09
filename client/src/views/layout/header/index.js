@@ -75,7 +75,10 @@ class Header extends Component {
     }
     let user = JSON.parse(this.state.user)
 
-    const menus = allMenus.map(({ to, title, submenus }, index) => {
+    const menus = allMenus.map(({ to, title, submenus, authenticated }, index) => {
+      if (authenticated) {
+        return
+      }
       return (
         <li
           onMouseEnter={() => this.toggleMenuOpen(index, bigScreen)}
@@ -86,7 +89,10 @@ class Header extends Component {
           <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
           <ul className='subMenu'>
             {
-              submenus.map(({ icon: Icon, to: subTo, title: subTitle, externalLink }, subindex) => {
+              submenus.map(({ icon: Icon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
+                if (subAuthenticated) {
+                  return
+                }
                 if (externalLink) {
                   return (
                     <li key={subindex}><a href={subTo}> <Icon /> {subTitle} </a></li>

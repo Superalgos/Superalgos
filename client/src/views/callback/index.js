@@ -1,6 +1,6 @@
 import React from 'react'
 
-import BannerTopBar from '../common'
+import { BannerTopBar } from '../common'
 
 const Callback = () => <BannerTopBar
   size='big'

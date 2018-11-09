@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
-import BannerTopBar from '../common'
+import { BannerTopBar } from '../common'
 
 const styles = theme => ({
   '@global': {

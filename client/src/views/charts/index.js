@@ -43,7 +43,7 @@ class Charts extends Component {
       <BannerTopBar
         size='medium'
         title=''
-        text='If you see me, there is probably a problem somewhere, try reloading the page in a moment.'
+        text='Charts loading...'
         backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
       />
     )

@@ -68,20 +68,18 @@ export const ManageTeamsList = ({ classes, user = null, ...props }) => (
       if (!loading && !error) {
         if (data.teams_TeamsByOwner.length > 0) {
           return (
-            <React.Fragment>
-              <Grid container spacing={0} direction='column' justify='center' alignItems='center'>
-                {!loading &&
-                  data.teams_TeamsByOwner.map(team => (
-                    <ManageTeamsItem
-                      key={team.id}
-                      team={team}
-                      classes={classes}
-                      {...props}
-                    />
-                  ))}
-                {errors}
-              </Grid>
-            </React.Fragment>
+            <Grid container spacing={0} direction='column' justify='center' alignItems='center'>
+              {!loading &&
+                data.teams_TeamsByOwner.map(team => (
+                  <ManageTeamsItem
+                    key={team.id}
+                    team={team}
+                    classes={classes}
+                    {...props}
+                  />
+                ))}
+              {errors}
+            </Grid>
           )
         } else {
           return (
@@ -94,7 +92,7 @@ export const ManageTeamsList = ({ classes, user = null, ...props }) => (
                   <Typography variant='body2' align='center' gutterBottom>
                     To begin developing on the Advanced Algos platform, as well as participate in Algobot competitions,
                     you'll need to create a team. A default trading algobot will be cloned and added to your team so
-                    that you can begin experimenting right away..
+                    that you can begin experimenting right away.
                   </Typography>
                   <CreateTeamForm />
                 </Grid>

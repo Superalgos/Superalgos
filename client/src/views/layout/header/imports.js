@@ -29,7 +29,7 @@ const teamsMenus = {
     { title: 'Your teams', to: '/teams/manage-teams', icon: GamepadRounded },
     { title: 'Team members', to: '/teams/team-members', icon: GamepadRounded },
     { title: 'Financial beings', to: '/teams/financial-beings', icon: GamepadRounded },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/TeamsModule/issues/new', icon: LibraryAdd, externalLink: true }
+    { title: 'Report', to: 'https://github.com/AdvancedAlgos/TeamsModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
@@ -41,7 +41,7 @@ const eventsMenus = {
     { title: 'Your events', to: '/events/my', icon: GamepadRounded },
     { title: 'Your hosted events', to: '/events/host', icon: AccessibilityNew },
     { title: 'Host an event', to: '/events/create', icon: LibraryAdd },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: LibraryAdd, externalLink: true }
+    { title: 'Report', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
@@ -51,7 +51,7 @@ const keyvaultMenus = {
   submenus: [
     { title: 'Manage keys', to: '/key-vault/browse', icon: Search },
     { title: 'Add key', to: '/key-vault/addKey', icon: GamepadRounded },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/KeyVaultModule/issues/new', icon: LibraryAdd, externalLink: true }
+    { title: 'Report', to: 'https://github.com/AdvancedAlgos/KeyVaultModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 

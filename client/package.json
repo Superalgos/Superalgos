@@ -1,7 +1,7 @@
 {
   "name": "@advancedalgos/users-client",
   "description": "Advanced Algos Users client-side web app",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "main": "src/index.js",
   "dependencies": {
     "@material-ui/core": "^3.2.0",

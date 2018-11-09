@@ -1,11 +1,11 @@
 import React from 'react'
 import UserTabs from './UserTabs'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import TopBar from './TopBar'
 
 const User = () => {
   return (
     <React.Fragment>
-      <CssBaseline />
+      <TopBar size='medium' title='Your Profile' text='Manage your profile info, pictures and more.' />
       <UserTabs />
     </React.Fragment>
   )

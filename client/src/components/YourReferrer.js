@@ -126,44 +126,6 @@ class YourReferrer extends Component {
     	    }
     	}
 
-  componentDidMount () {
-    window.dispatchEvent(new Event('load')) // This is a workaround to solve the problem that the slider does not show up
-  }
-
-  addSlider () {
-    return (
-      <section id='mainslider' className='fullwidth no_padding_container no_margin_col'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-sm-12'>
-              <div className='flexslider'>
-                <ul className='slides text-center'>
-                  <li>
-                    <img src='https://aacorporatesitedevelop.azurewebsites.net/img/photos/connect.jpg' alt='' />
-                    <div className='slide_description_wrapper slider_textblock_center'>
-                      <div className='slide_description to_animate'>
-                        <div data-animation='fadeInUp' align='center'>
-                          <div>
-                            <div>
-                              <h3>Your Referrer</h3>
-                              <h4 className='white-text'>
-                                <br />It is important to know who introduced you to Advanced Algos.
-                                  </h4>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
   addForm () {
     const { classes } = this.props
     return (
@@ -176,7 +138,6 @@ class YourReferrer extends Component {
   render () {
     return (
       <React.Fragment>
-        {this.addSlider()}
         {this.addForm()}
       </React.Fragment>
     )

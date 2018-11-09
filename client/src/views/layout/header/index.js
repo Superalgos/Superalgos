@@ -76,7 +76,6 @@ class Header extends Component {
     let user = JSON.parse(this.state.user)
 
     const menus = allMenus.map(({ to, title, submenus, authenticated }, index) => {
-      console.log(!authenticated)
       if (authenticated && !(this.state.user !== undefined && this.state.user !== null)) {
         return
       }

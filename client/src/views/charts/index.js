@@ -41,9 +41,9 @@ class Charts extends Component {
   render () {
     return (
       <BannerTopBar
-        size='big'
-        title='Advanced Algos Charts'
-        text='But if you see me, there is probably a problem somewhere, try reloading the page in a moment.'
+        size='medium'
+        title=''
+        text='If you see me, there is probably a problem somewhere, try reloading the page in a moment.'
         backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
       />
     )

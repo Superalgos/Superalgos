@@ -19,8 +19,8 @@ const BannerTopBar = ({
 BannerTopBar.propTypes = {
   backgroundUrl: PropTypes.string,
   size: PropTypes.string,
-  title: PropTypes.string,
-  text: PropTypes.string
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 }
 
 export default BannerTopBar

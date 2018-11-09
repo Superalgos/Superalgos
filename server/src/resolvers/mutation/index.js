@@ -1,2 +1,3 @@
-import { mergeDirectoryModules } from '../../utils'
-export default mergeDirectoryModules(__dirname)
+import SendgridMutations from './sendgrid'
+
+export { SendgridMutations }

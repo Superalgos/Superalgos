@@ -1,8 +1,8 @@
 export const typeDef = `
   type Mutation {
-    sendgrid_NewsletterSignup(email: String!): String
-    sendgrid_NewsletterSignupVerify(email: String!): String
-    sendgrid_Contact(email: String!, subject: String!, Message: String!, recaptcha: String!): String
+    master_NewsletterSignup(email: String!): String
+    master_NewsletterSignupVerify(token: String!): String
+    master_Contact(email: String!, subject: String!, Message: String!, recaptcha: String!): String
   }
 
   schema {

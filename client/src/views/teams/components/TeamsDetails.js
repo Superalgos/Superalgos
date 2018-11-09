@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
 
 import { Link } from 'react-router-dom'
@@ -22,37 +23,38 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit * 6,
-    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-      width: 900,
+    [theme.breakpoints.up(800 + theme.spacing.unit * 3 * 2)]: {
+      width: 800,
       marginLeft: 'auto',
       marginRight: 'auto'
     }
   },
   paper: {
-    marginTop: theme.spacing.unit * 3,
+    marginTop: 0,
     marginBottom: theme.spacing.unit * 3,
-    padding: theme.spacing.unit * 2,
-    [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
+    padding: 0,
+    [theme.breakpoints.up(800 + theme.spacing.unit * 3 * 2)]: {
       marginTop: theme.spacing.unit * 6,
       marginBottom: theme.spacing.unit * 6,
-      padding: theme.spacing.unit * 3
+      padding: `0 0 ${theme.spacing.unit * 6}px`
     }
   },
   heroContent: {
-    maxWidth: 600,
+    maxWidth: 800,
     margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`
+    padding: `0 0 ${theme.spacing.unit * 6}px`
+  },
+  teamContent: {
+    margin: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 3}px 0 0`
   },
   banner: {
     maxWidth: '100%',
-    height: 'auto',
-    margin: '0 auto'
+    height: 'auto'
   },
   avatar: {
     maxWidth: 100,
     height: 100,
-    margin: '0  1em 1em 0',
-    float: 'left'
+    margin: `${theme.spacing.unit * 1}px 0 0 ${theme.spacing.unit * 3}px `
   }
 })
 
@@ -73,31 +75,38 @@ const TeamsDetails = ({ classes, team }) => {
     <React.Fragment>
       <CssBaseline />
       <main className={classes.layout}>
+        <Link to='/teams'>&larr; Back to all teams</Link>
         <Paper className={classes.paper}>
-          <Link to='/teams'>&larr; Back to all teams</Link>
           <div className={classes.heroContent}>
             <img src={banner} alt={team.name} className={classes.banner} />
-            <img src={avatar} alt={team.name} className={classes.avatar} />
-            <Typography
-              variant='h2'
-              align='center'
-              color='textPrimary'
-              gutterBottom
-            >
-              {team.name}
-            </Typography>
-            <Typography variant='subtitle1' color='textSecondary'>
-              {team.createdAt}
-            </Typography>
-            <Typography variant='subtitle1' color='textSecondary'>
-              Motto: {team.profile.motto}
-            </Typography>
-            <Typography variant='subtitle1' color='textSecondary'>
-              Description: {team.profile.description}
-            </Typography>
-            <Typography variant='subtitle1' paragraph gutterBottom>
-              Members: {team.members.length}
-            </Typography>
+            <Grid container>
+              <Grid md={3}>
+                <img src={avatar} alt={team.name} className={classes.avatar} />
+              </Grid>
+              <Grid md={9}>
+                <Grid container className={classes.teamContent} direction='column'>
+                  <Typography
+                    variant='h2'
+                    color='textPrimary'
+                    gutterBottom
+                  >
+                    {team.name}
+                  </Typography>
+                  <Typography variant='subtitle1' color='textSecondary'>
+                    {team.createdAt}
+                  </Typography>
+                  <Typography variant='subtitle1' color='textSecondary'>
+                    Motto: {team.profile.motto}
+                  </Typography>
+                  <Typography variant='subtitle1' color='textSecondary'>
+                    Description: {team.profile.description}
+                  </Typography>
+                  <Typography variant='subtitle1' paragraph gutterBottom>
+                    Members: {team.members.length}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
           </div>
         </Paper>
       </main>

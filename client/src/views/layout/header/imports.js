@@ -7,7 +7,9 @@ import {
   BugReport,
   People,
   Group,
-  Adb
+  Adb,
+  VpnKey,
+  AddCircleOutline
 } from '@material-ui/icons'
 
 const usersMenus = {
@@ -50,8 +52,8 @@ const keyvaultMenus = {
   to: '/key-vault',
   authenticated: true,
   submenus: [
-    { title: 'Manage keys', to: '/key-vault/browse', icon: Search },
-    { title: 'Add key', to: '/key-vault/addKey', icon: GamepadRounded },
+    { title: 'Manage keys', to: '/key-vault/browse', icon: VpnKey },
+    { title: 'Add key', to: '/key-vault/addKey', icon: AddCircleOutline },
     { title: 'Report', to: 'https://github.com/AdvancedAlgos/KeyVaultModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }

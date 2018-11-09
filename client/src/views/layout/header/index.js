@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 import withWidth from '@material-ui/core/withWidth'
 
-// styles
-import './styles.scss'
-
 // components
 import { LoggedIn } from './LoggedIn'
 

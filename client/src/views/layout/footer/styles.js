@@ -10,6 +10,9 @@ const styles = theme => ({
   textSuccess: {
     color: lightGreen[400]
   },
+  copyright: {
+    paddingTop: theme.spacing.unit * 3
+  },
   linkLight: {
     color: theme.palette.secondary.main,
     textDecoration: 'none'

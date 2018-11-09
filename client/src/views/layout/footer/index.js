@@ -43,6 +43,7 @@ class Footer extends Component {
                 <Typography variant='subtitle1' className={classes.textLight}>
                   <Link to='legal-privacy-statement.shtml' className={classes.linkLight}>Privacy Statement</Link> | <a href='legal-terms-of-service.shtml' className={classes.linkLight}>Terms of Service</a>
                 </Typography>
+                <Typography variant='body2' className={classNames(classes.textLight, classes.copyright)} gutterBottom>&copy; Advanced Algos, Ltd. 2018 | All Rights Reserved.</Typography>
               </Grid>
             </Grid>
             <Grid item xs={12} sm={1} md={1} />

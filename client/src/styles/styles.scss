@@ -202,6 +202,19 @@ header.menu{
             min-width: 240px;
             min-height: 50px;
             border-bottom: 1px solid white;
+            &.hasChildren{
+              &:after{
+                content: '';
+                float: right;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                padding: 3px;
+                margin-top: 18px;
+                margin-right: 7px;
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+              }
+            }
             &:last-child{
               border-bottom: 0;
             }
@@ -250,6 +263,21 @@ header.menu{
             padding-bottom: ( $height-large-device - $text-height ) / 2;
             padding-right: 21px;
             padding-left: 21px;
+            &.hasChildren{
+              &:after{
+                content: '';
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                display: inline-block;
+                padding: 3px;
+                margin-bottom: 2px;
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+              }
+              >a{
+                margin-right:6px;
+              }
+            }
             a{
               color: white;
               text-decoration: none;

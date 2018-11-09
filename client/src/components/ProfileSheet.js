@@ -320,9 +320,13 @@ class ProfileSheet extends Component {
 
         <form onSubmit={this.submitForm.bind(this)}>
 
+          <Typography className={classes.typography} variant='h5' gutterBottom>
+          Profile Sheet
+        </Typography>
+
           <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
-      Use this form to control the information you keep at the Advanced Algos system about yourself.
-      </Typography>
+          Use this form to control the information you keep at the Advanced Algos system about yourself.
+          </Typography>
 
           <Grid container justify='center' >
             <Grid item>

@@ -130,6 +130,9 @@ class YourReferrer extends Component {
     const { classes } = this.props
     return (
       <Paper className={classes.root}>
+        <Typography className={classes.typography} variant='h5' gutterBottom>
+      Your Referrer
+    </Typography>
         {this.renderMode()}
       </Paper>
     )

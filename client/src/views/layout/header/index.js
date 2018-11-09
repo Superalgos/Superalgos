@@ -4,12 +4,6 @@ import { Link } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 import withWidth from '@material-ui/core/withWidth'
 
-// icons
-import ExitIcon from '@material-ui/icons/ExitToApp'
-
-// styles
-import './styles.scss'
-
 // components
 import { LoggedIn } from './LoggedIn'
 
@@ -81,7 +75,10 @@ class Header extends Component {
     }
     let user = JSON.parse(this.state.user)
 
-    const menus = allMenus.map(({ to, title, submenus }, index) => {
+    const menus = allMenus.map(({ to, title, submenus, authenticated }, index) => {
+      if (authenticated && !(this.state.user !== undefined && this.state.user !== null)) {
+        return
+      }
       return (
         <li
           onMouseEnter={() => this.toggleMenuOpen(index, bigScreen)}
@@ -92,7 +89,15 @@ class Header extends Component {
           <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
           <ul className='subMenu'>
             {
-              submenus.map(({ icon: Icon, to: subTo, title: subTitle }, subindex) => {
+              submenus.map(({ icon: Icon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
+                if (subAuthenticated && !(this.state.user !== undefined && this.state.user !== null)) {
+                  return
+                }
+                if (externalLink) {
+                  return (
+                    <li key={subindex}><a href={subTo}> <Icon /> {subTitle} </a></li>
+                  )
+                }
                 return (
                   <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <Icon /> {subTitle} </Link></li>
                 )
@@ -112,7 +117,7 @@ class Header extends Component {
           <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
             <ul className='primaryMenu'>
               <li className='primaryLink'>
-                <Link to='/'> Charts </Link>
+                <Link to='/charts'> Charts </Link>
               </li>
               {menus}
               <li className='primaryLink'>
@@ -134,9 +139,6 @@ class Header extends Component {
                   <a href='#' onClick={() => auth.login()}> Login / Sign Up </a>
                 </li>
               )}
-              <li className='primaryLink'>
-                <a href='https://www.advancedalgos.net'> <ExitIcon /> </a>
-              </li>
             </ul>
           </nav>
         </div>

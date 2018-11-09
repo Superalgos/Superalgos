@@ -334,19 +334,20 @@ header.menu{
     height: 100vh;
     .caption{
       display: block;
+      top: 42%;
     }
   }
   &.medium{
     height: 50vh;
     .caption{
       display: block;
+      top: 46%;
     }
   }
   .caption{
     display: none;
     position: relative;
     top: 50%;
-    transform: translateY(-100%);
     font-family: Saira;
     .title{
       color: white;

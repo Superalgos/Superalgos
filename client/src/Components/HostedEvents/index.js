@@ -9,7 +9,12 @@ import Event from './Event';
 
 const HostedEvent = () => (
   <React.Fragment>
-    <BannerTopBar size='medium' title='Your hosted events' text='You are one of the pillars of this community, thank you' />
+    <BannerTopBar
+      size='medium'
+      title='Your hosted events'
+      text='You are one of the pillars of this community, thank you'
+      backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/events.jpg'
+    />
     <Query
       query={hostedEventsCalls.EVENTS_EVENTSBYHOST}
     >

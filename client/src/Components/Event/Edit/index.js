@@ -14,7 +14,7 @@ class Edit extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <BannerTopBar />
+        <BannerTopBar backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/events.jpg' />
         <Typography
           variant='display1'
           align='center'

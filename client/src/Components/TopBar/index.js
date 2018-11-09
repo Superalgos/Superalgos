@@ -1,43 +1,42 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 
-import {
-  AppBar, Toolbar, Typography, Button,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
-import datas from './data';
 import styles from './styles';
 
-const TopBar = ({ classes }) => {
-  const buttons = datas.map((data, index) => {
-    const Icon = data.icon;
+class TopBar extends React.Component {
+  render() {
+    const {
+      classes,
+      size,
+      title,
+      text,
+    } = this.props;
+    if (size === 'big') {
+      return (
+        <div className={classes.rootBig}>
+          <div className={classes.captions}>
+            <Typography className={classes.title} variant='headline' align='center'>{title}</Typography>
+            <Typography className={classes.text} variant='subheading' align='center'>{text}</Typography>
+          </div>
+        </div>
+      );
+    }
+    if (size === 'medium') {
+      return (
+        <div className={classes.rootMedium}>
+          <div className={classes.captions}>
+            <Typography className={classes.title} variant='headline' align='center'>{title}</Typography>
+            <Typography className={classes.text} variant='subheading' align='center'>{text}</Typography>
+          </div>
+        </div>
+      );
+    }
     return (
-      <Button
-        key={index}
-        variant='text'
-        size='small'
-        className={classNames(classes.button, classes.cssRoot)}
-        title={data.title}
-        component={Link}
-        to={data.to}>
-        <Icon className={classNames(classes.leftIcon, classes.iconSmall)} />
-        {data.text}
-      </Button>);
-  });
-  return (
-    <div className={classes.root}>
-      <AppBar position='static' color='secondary'>
-        <Toolbar>
-          <Typography variant='h5' color='inherit' className={classes.flex}>
-            Manage competition
-          </Typography>
-          {buttons}
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
-};
+      <div className={classes.rootSmall} />
+    );
+  }
+}
 
 export default withStyles(styles)(TopBar);

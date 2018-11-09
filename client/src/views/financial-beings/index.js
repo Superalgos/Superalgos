@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { withStyles } from '@material-ui/core/styles'
 
-import { TopBar } from '../common'
+import { BannerTopBar } from '../common'
 import ManageFBList from './components/ManageFBList'
 
 const styles = theme => ({
@@ -14,7 +14,7 @@ const styles = theme => ({
 
 const FinancialBeings = ({ classes }) => (
   <div>
-    <TopBar size='medium' title='Manage Your Financial Beings' text='Manage your Advanced Algos Financial Beings' />
+    <BannerTopBar size='medium' title='Manage Your Financial Beings' text='Manage your Advanced Algos Financial Beings' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
     <ManageFBList />
   </div>
 )

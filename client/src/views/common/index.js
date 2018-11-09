@@ -1,4 +1,4 @@
 import TeamBar from './components/TeamBar'
-import TopBar from './components/TopBar'
+import BannerTopBar from './components/BannerTopBar'
 
-export { TeamBar, TopBar }
+export { TeamBar, BannerTopBar }

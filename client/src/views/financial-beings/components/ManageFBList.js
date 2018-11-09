@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
 import { MessageCard } from '@advancedalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -61,36 +63,49 @@ export const ManageFBList = ({ classes }) => (
       if (!loading && !error) {
         if (data.teams_TeamsByOwner.length > 0) {
           return (
-            <React.Fragment>
-              <Grid container spacing={40}>
-                {!loading &&
-                  data.teams_TeamsByOwner.map(team => (
-                    <ManageFBItem
-                      key={team.id}
-                      team={team}
-                      classes={classes}
-                    />
-                  ))}
-                {errors}
-              </Grid>
-            </React.Fragment>
+            <Grid container spacing={0} direction='column' justify='center' alignItems='center'>
+              {!loading &&
+                data.teams_TeamsByOwner.map(team => (
+                  <ManageFBItem
+                    key={team.id}
+                    team={team}
+                    classes={classes}
+                  />
+                ))}
+              {errors}
+            </Grid>
           )
         } else {
           return (
-            <Grid container spacing={40}>
-              <Grid item xs={12}>
-                <MessageCard message='No financial beings yet — Create a team first!' />
-                {errors !== null && <MessageCard message={errors} />}
+            <Paper>
+              <Grid container spacing={0} direction='column' justify='center' alignItems='center' className={classes.container}>
+                <Grid item xs={10}>
+                  <Typography variant='h5' align='center'>
+                    You don&rsquo;t have any financial being. To create one, create a team first!
+                  </Typography>
+                  <Typography variant='body2' align='center' gutterBottom>
+                    After you create a team, a default trading algobot will be cloned and added to your team so
+                    that you can begin experimenting right away.
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
+            </Paper>
           )
         }
       } else {
         return (
-          <Grid container spacing={40}>
+          <Grid spacing={0} direction='column' justify='center' alignItems='center'>
             <Grid item xs={12}>
-              <MessageCard message='Loading...' />
-              {errors !== null && <MessageCard message={errors} />}
+              {errors === null &&
+                <Typography variant='h5' align='center' gutterBottom>
+                  Loading...
+                </Typography>
+              }
+              {errors !== null &&
+                <Typography variant='h5' align='center' gutterBottom>
+                  {errors}
+                </Typography>
+              }
             </Grid>
           </Grid>
         )

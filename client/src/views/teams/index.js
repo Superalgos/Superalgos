@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { withStyles } from '@material-ui/core/styles'
 
-import { TopBar } from '../common'
+import { BannerTopBar } from '../common'
 import TeamsList from './components/TeamsList'
 
 const styles = theme => ({
@@ -31,7 +31,7 @@ const styles = theme => ({
 
 const Teams = ({ classes, match }) => (
   <React.Fragment>
-    <TopBar size='medium' title='Browse Teams' text='Explore Advanced Algos Teams' />
+    <BannerTopBar size='medium' title='Browse Teams' text='Explore Advanced Algos Teams' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
     <main className={classes.layout}>
       <TeamsList match={match} />
     </main>

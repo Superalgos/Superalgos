@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 
 // import ManageTeamMembersList from './components/ManageTeamMembersList'
-import { TopBar } from '../common'
+import { BannerTopBar } from '../common'
 
 const styles = theme => ({
   tableContainer: {
@@ -14,7 +14,7 @@ const styles = theme => ({
 
 const TeamMembers = ({ classes }) => (
   <div>
-    <TopBar size='big' title='Team Members' text='Coming soon. Invite and manage team members.' />
+    <BannerTopBar size='big' title='Team Members' text='Coming soon. Invite and manage team members.' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
   </div>
 )
 

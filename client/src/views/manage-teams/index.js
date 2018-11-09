@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 
-import { TopBar } from '../common'
+import { BannerTopBar } from '../common'
 import ManageTeamsList from './components/ManageTeamsList'
 
 const styles = theme => ({
@@ -24,7 +24,7 @@ const styles = theme => ({
 
 const ManageTeams = ({ classes, ...props }) => (
   <div>
-    <TopBar size='medium' title='Manage Your Teams' text='Create and manage your Advanced Algos teams' />
+    <BannerTopBar size='medium' title='Manage Your Teams' text='Create and manage your Advanced Algos teams' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
     <Grid
       container
       direction='column'

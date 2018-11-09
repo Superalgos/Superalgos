@@ -38,6 +38,7 @@ const server = new ApolloServer({
     message: error.message,
     path: error.path,
   }),
+  introspection: true,
 });
 
 server.applyMiddleware({

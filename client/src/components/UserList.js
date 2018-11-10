@@ -30,7 +30,7 @@ import Slide from '@material-ui/core/Slide';
 import UserProfile from './UserProfile';
 
 // Images
-import PortraitImage from '../img/portrait.jpg'
+import UserDefaultPicture from '../img/user-default-pic.jpg'
 
 const styles = theme => ({
   root: {
@@ -108,7 +108,7 @@ class UserList extends Component {
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
-                  image={PortraitImage}
+                  image={UserDefaultPicture}
                   title="User Profile"
 
                 />
@@ -167,7 +167,7 @@ class UserList extends Component {
     const { classes } = this.props;
     return (
       <React.Fragment>
-        <Grid container justify="center" spacing={24} className={classes.root}>
+        <Grid container justify="center" spacing={40} className={classes.root}>
           {this.displayUsers()}
         </Grid>
       </React.Fragment>

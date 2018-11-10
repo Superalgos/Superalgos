@@ -25,7 +25,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 
 // Images
-import PortraitImage from '../img/portrait.jpg'
+import UserDefaultPicture from '../img/user-default-pic.jpg'
 
 const styles = theme => ({
   card: {
@@ -132,7 +132,7 @@ class DescendentsTree extends Component {
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
-                    image={PortraitImage}
+                    image={UserDefaultPicture}
                     title='User Profile'
 
                 />
@@ -201,7 +201,7 @@ class DescendentsTree extends Component {
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
-                  image={PortraitImage}
+                  image={UserDefaultPicture}
                   title='User Profile'
 
               />

@@ -17,7 +17,7 @@ import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 
 // Images
-import PortraitImage from '../img/portrait.jpg'
+import UserDefaultPicture from '../img/user-default-pic.jpg'
 
 const styles = theme => ({
   card: {
@@ -170,7 +170,7 @@ class UserSearch extends Component {
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
-                    image={PortraitImage}
+                    image={UserDefaultPicture}
                     title='User Profile'
 
                 />

@@ -84,7 +84,34 @@
                         productCard.container.parentContainer = thisObject.container;
                         productCard.container.isWheelable = true;
 
-                        productCard.container.eventHandler.listenToEvent("Images Loaded", addProductCardToArray)
+                        /* Positioning within thisObject Panel */
+
+                        let position = {
+                            x: 10,
+                            y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+                        };
+
+                        productCard.container.frame.position.x = position.x;
+                        productCard.container.frame.position.y = position.y + lastY;
+
+                        lastY = lastY + productCard.container.frame.height;
+
+                        /* Add to the Product Array */
+
+                        productCards.push(productCard);
+
+                        /* Add to Visible Product Array */
+
+                        if (productCard.container.frame.position.y + productCard.container.frame.height < thisObject.container.frame.height) {
+
+                            visibleProductCards.push(productCard);
+
+                        }
+
+                        /* Listen to Status Changes Events */
+
+                        productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
+                        productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 
                     }
                 }
@@ -93,39 +120,6 @@
 
         thisObject.container.eventHandler.listenToEvent("Mouse Wheel", onMouseWheel);
         isInitialized = true;
-
-    }
-
-    function addProductCardToArray(productCard) {
-
-        /* Positioning within thisObject Panel */
-
-        let position = {
-            x: 10,
-            y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
-        };
-
-        productCard.container.frame.position.x = position.x;
-        productCard.container.frame.position.y = position.y + lastY;
-
-        lastY = lastY + productCard.container.frame.height;
-
-        /* Add to the Product Array */
-
-        productCards.push(productCard);
-
-        /* Add to Visible Product Array */
-
-        if (productCard.container.frame.position.y + productCard.container.frame.height < thisObject.container.frame.height) {
-
-            visibleProductCards.push(productCard);
-
-        }
-
-        /* Listen to Status Changes Events */
-
-        productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged);
-        productCard.container.eventHandler.listenToEvent('Mouse Wheel', onMouseWheel);
 
     }
 

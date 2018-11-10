@@ -212,7 +212,6 @@
 
             function onLegacyImageLoad() {
                 legacyTeamAvatarLoaded = true;
-                imageLoaded();
             }
 
             legacyTeamAvatar.src = window.canvasApp.urlPrefix + "Images/" + LEGACY_TEAM + "/" + LEGACY_TEAM + ".png";
@@ -223,7 +222,6 @@
             function onLegacyImageLoadBot() {
                 legacyBotAvatarLoaded = true;
                 thisObject.bot.avatar = legacyBotAvatar;
-                imageLoaded();
             }
 
             legacyBotAvatar.src = window.canvasApp.urlPrefix + "Images/" + LEGACY_TEAM + "/" + REPO + "/" + PROFILE_PIC;
@@ -244,7 +242,6 @@
 
             function onImageLoad() {
                 teamAvatarLoaded = true;
-                imageLoaded();
             }
 
             teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM);
@@ -255,23 +252,9 @@
             function onImageLoadBot() {
                 botAvatarLoaded = true;
                 thisObject.bot.avatar = botAvatar;
-                imageLoaded();
             }
 
             botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + "-" + BOT);
-
-        }
-    }
-
-    function imageLoaded() {
-
-        /* We need 2 images, one for the team and one for the bot, to consider this Card valid and able to be shown. */
-
-        imagesLoaded++;
-
-        if (imagesLoaded === 2) {
-
-            thisObject.container.eventHandler.raiseEvent("Images Loaded", thisObject);
 
         }
     }

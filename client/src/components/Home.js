@@ -10,7 +10,7 @@ class Home extends Component {
           size='big'
           title='Users Module'
           text='Responsible for all human users of the Advanced Algos Platform.'
-          backgroundUrl='https://advancedalgos.net/img/photos/connect.jpg'
+          backgroundUrl='https://advancedalgos.net/img/photos/users.jpg'
         />
       </React.Fragment>
     )

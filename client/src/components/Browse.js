@@ -11,7 +11,7 @@ class Browse extends Component {
           size='medium'
           title='Users Directory'
           text='Everyone involved in Advanced Algos is here.'
-          backgroundUrl='https://advancedalgos.net/img/photos/connect.jpg'
+          backgroundUrl='https://advancedalgos.net/img/photos/users.jpg'
         />
         <UserList />
       </React.Fragment>

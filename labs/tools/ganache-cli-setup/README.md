@@ -1,0 +1,11 @@
+Ganache accounts:
+
+mnemonic: act analyst ability congress enter point unlock universe winner achieve refuse border
+
+Account #0
+Address: 0x06bB4674A4b08d07186b721378C7e241eD85443b
+Private Key: 0x0936af475d2701538aad321f87e0a51f2b297634653393e8cab7290a674009a5
+
+Account #1
+Address: 0x6d197071d41C77A2779B33304B8cC6Ea41f69918
+Private Key: 0x5e697f9196588307b9e818fafca38c33f6592c005bfd190820b1d2cc2d608882

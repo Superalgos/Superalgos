@@ -36,10 +36,10 @@ export const TeamsItem = ({ classes, team }) => {
           />
           <CardContent className={classes.cardContent}>
             <Grid container>
-              <Grid md={3}>
+              <Grid item md={3}>
                 <img src={avatar} alt={team.name} className={classes.avatar} />
               </Grid>
-              <Grid md={9}>
+              <Grid item md={9}>
                 <Typography gutterBottom variant='h5' component='h2'>
                   {team.name}
                 </Typography>

@@ -1,0 +1,68 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import { BannerTopBar } from '../../common'
+import SignupForm from './SignupForm'
+
+export class SignupVerifyResponse extends React.Component {
+  componentDidMount () {
+    const { mutate } = this.props
+    mutate()
+  };
+
+  render () {
+    const { loading, error, data } = this.props
+    let BannerTitle = ''
+    let BannerText = ''
+    let displayForm = false
+    console.log('SignupVerifyResponse:', loading, error, data)
+    if (error) {
+      if (error.message === 'GraphQL error: Error: Token Expired. Please resubmit email address.') {
+        BannerText = [
+          'Newsletter Signup Error: Verification Token Expired',
+          <br key='EmailSignupConfirm-error-br' />,
+          'Please try signing up again! We apologize for the inconvenience,',
+          <br key='EmailSignupConfirm-error-br2' />,
+          'but we highly value your seurity and privacy.'
+        ]
+      } else {
+        BannerText = ['Newsletter Signup Error: ', <br key='EmailSignupConfirm-error-br' />, error.message]
+      }
+    }
+    if (loading && !error) {
+      BannerText = ['Processing newsletter sign-up...', <br key='EmailSignupConfirm-br' />, 'Thank you for opting-in to recieve updates about the Advanced Algos project!']
+    }
+    if (data !== undefined && data !== null) {
+      console.log(data)
+      return (
+        <React.Fragment>
+          <BannerTopBar
+            size='big'
+            title={BannerTitle}
+            text={BannerText}
+            backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+          />
+          {displayForm && <SignupForm />}
+        </React.Fragment>
+      )
+    } else {
+      return (
+        <BannerTopBar
+          size='big'
+          title=''
+          text='Newsletter Signup Error'
+          backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+        />
+      )
+    }
+  }
+}
+
+SignupVerifyResponse.propTypes = {
+  mutate: PropTypes.string,
+  loading: PropTypes.bool,
+  error: PropTypes.object,
+  data: PropTypes.object
+}
+
+export default SignupVerifyResponse

@@ -4,12 +4,12 @@ import queryString from 'query-string'
 import { Mutation } from 'react-apollo'
 
 import { BannerTopBar } from '../common'
+import SignupVerifyResponse from './components/SignupVerifyResponse'
 
 import NEWSLETTER_SIGNUP_VERIFY from './graphql/NewsletterSignupVerify'
 
 export const EmailSignupConfirm = ({ tokenParam }) => {
   let token
-  let BannerTitle = ''
   let BannerText = ''
   if (tokenParam !== '' && tokenParam !== null) {
     const values = queryString.parse(tokenParam)
@@ -38,33 +38,14 @@ export const EmailSignupConfirm = ({ tokenParam }) => {
       variables={{ token: token }}
     >
       {(NewsletterSignupVerify, { loading, error, data }) => {
-        console.log(loading, error, data)
-        if (error) {
-          BannerText = ['Newsletter Signup Error: ', <br key='EmailSignupConfirm-error-br' />, JSON.stringify(error)]
-        }
-        if (loading && !error) {
-          BannerText = ['Processing newsletter sign-up...', <br key='EmailSignupConfirm-br' />, 'Thank you for opting-in to recieve updates about the Advanced Algos project!']
-        }
-        if (data !== undefined && data !== null) {
-          console.log(data)
-          return (
-            <BannerTopBar
-              size='big'
-              title={BannerTitle}
-              text={BannerText}
-              backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
-            />
-          )
-        } else {
-          return (
-            <BannerTopBar
-              size='big'
-              title=''
-              text='Newsletter Signup Error'
-              backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
-            />
-          )
-        }
+        return (
+          <SignupVerifyResponse
+            mutate={NewsletterSignupVerify}
+            loading={loading}
+            error={error}
+            data={data}
+          />
+        )
       }
       }
     </Mutation>

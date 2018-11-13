@@ -13,7 +13,7 @@ class Home extends Component {
           backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
         />
         <div className='homePage'>
-          <Typography variant='h1' align='center' className='title'>Welcome to the Superalgos Platform!</Typography>
+          <Typography variant='h1' align='center' className='title'>Welcome to the Advanced Algos Platform!</Typography>
           <Typography variant='h2' align='center' className='subtitle'>CO-CREATE >> COMPETE >> EVOLVE</Typography>
           <div className='column'>
             <Typography align='justify'>

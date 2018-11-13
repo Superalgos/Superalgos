@@ -13,10 +13,9 @@ import DescendentsTree from './DescendentsTree'
 
 const styles = theme => ({
   root: {
-    width: '50%',
+    width: '100%',
     flexGrow: 1,
     padding: 10,
-    marginLeft: '25%',
     marginTop: '5%',
     marginBottom: '10%'
   },
@@ -84,7 +83,9 @@ class YourDescendents extends Component {
   render () {
     return (
       <React.Fragment>
-        {this.addForm()}
+        <div className='container'>
+          {this.addForm()}
+        </div>
       </React.Fragment>
     )
   }

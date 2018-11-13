@@ -27,10 +27,9 @@ import AALogo from '../img/aa-logo.png'
 
 const styles = theme => ({
   root: {
-    width: '50%',
+    width: '100%',
     flexGrow: 1,
     padding: 10,
-    marginLeft: '25%',
     marginTop: '5%',
     marginBottom: '10%'
   },
@@ -511,7 +510,9 @@ class ProfileSheet extends Component {
   render () {
     return (
       <React.Fragment>
-        {this.addForm()}
+        <div className='container'>
+          {this.addForm()}
+        </div>
       </React.Fragment>
     )
   }

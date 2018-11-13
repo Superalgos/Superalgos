@@ -13,7 +13,9 @@ class Browse extends Component {
           text='Everyone involved in Advanced Algos is here.'
           backgroundUrl='https://advancedalgos.net/img/photos/users.jpg'
         />
-        <UserList />
+        <div className='container'>
+          <UserList />
+        </div>
       </React.Fragment>
     )
   }

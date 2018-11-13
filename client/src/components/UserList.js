@@ -34,9 +34,9 @@ import UserDefaultPicture from '../img/user-default-pic.jpg'
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    padding: 60,
-    margin: 2,
+    paddingTop:30,
+    paddingBottom:30,
+    flexGrow: 1 
   },
   card: {
     maxWidth: 345,

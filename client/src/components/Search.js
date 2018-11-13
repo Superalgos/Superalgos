@@ -10,10 +10,9 @@ import { withStyles } from '@material-ui/core/styles'
 
 const styles = theme => ({
   root: {
-    width: '50%',
+    width: '100%',
     flexGrow: 1,
     padding: 10,
-    marginLeft: '25%',
     marginTop: '5%',
     marginBottom: '10%'
   }
@@ -31,9 +30,11 @@ class Search extends Component {
           text='Find anyone involved in Advanced Algos here.'
           backgroundUrl='https://advancedalgos.net/img/photos/users.jpg'
         />
-        <Paper className={classes.root}>
-          <UserSearch />
-        </Paper>
+        <div className='container'>
+          <Paper className={classes.root}>
+            <UserSearch />
+          </Paper>
+        </div>
       </React.Fragment>
     )
   }

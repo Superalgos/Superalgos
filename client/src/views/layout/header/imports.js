@@ -12,6 +12,8 @@ import {
   AddCircleOutline
 } from '@material-ui/icons'
 
+import { FINANCIAL_BEINGS, BROWSE_FB, SEARCH_FB, GENEALOGY_FB } from "../../../constants/routes";
+
 const usersMenus = {
   title: 'Users',
   to: '/users',
@@ -58,6 +60,13 @@ const keyvaultMenus = {
   ]
 }
 
-const allMenus = [ usersMenus, teamsMenus, eventsMenus, keyvaultMenus ]
+const financialBeingsMenus = {
+  title: 'Financial beings',
+  to: FINANCIAL_BEINGS,
+  authenticated: false,
+  submenus:[]
+};
+
+const allMenus = [ usersMenus, teamsMenus, eventsMenus, financialBeingsMenus, keyvaultMenus ];
 
 export default allMenus

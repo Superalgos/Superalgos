@@ -9,7 +9,6 @@ $height-not-top: 87px;
 
 $image-height-big: 75px;
 $image-height-small: 45px;
-$image-height-xsmall: 35px;
 
 $text-height: 25px;
 
@@ -125,8 +124,8 @@ header.menu{
       margin-top: ( $height-nav-bar - $image-height-big ) / 2 ;
       height: $image-height-big;
       @media screen and (max-width: $break-xs) {
-        height: $image-height-xsmall;
-        margin-top: ( $height-nav-bar - $image-height-xsmall ) / 2 ;
+        height: $image-height-small;
+        margin-top: ( $height-nav-bar - $image-height-small ) / 2 ;
       }
     }
     .mobileHandle.openedMobile{

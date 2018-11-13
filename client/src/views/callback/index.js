@@ -1,7 +1,12 @@
 import React from 'react'
 
-import { MessageCard } from '@advancedalgos/web-components'
+import { BannerTopBar } from '../common'
 
-const Callback = () => <MessageCard message='Authenticating...' />
+const Callback = () => <BannerTopBar
+  size='big'
+  title=''
+  text='Authenticating...'
+  backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+/>
 
 export default Callback

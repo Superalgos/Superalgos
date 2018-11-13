@@ -12,7 +12,7 @@ import './styles/styles.scss'
 import { client } from './graphql/apollo'
 import Auth from './auth'
 
-import { Layout, Home, Charts, Callback } from './views'
+import { Layout, Home, Charts, Callback, EmailSignupConfirm } from './views'
 
 import Users from '@advancedalgos/users-client'
 import Teams from '@advancedalgos/teams-client'
@@ -37,6 +37,13 @@ export const MasterApp = (props) => (
               render={props => {
                 auth.handleAuthentication(props)
                 return <Callback {...props} />
+              }}
+            />
+            <Route
+              path='/email-verification'
+              render={props => {
+                console.log(props.location)
+                return <EmailSignupConfirm {...props} tokenParam={props.location.search} />
               }}
             />
             <Route

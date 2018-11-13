@@ -27,7 +27,7 @@ const teamsMenus = {
   title: 'Teams',
   to: '/teams',
   submenus: [
-    { title: 'All teams', to: '/teams', icon: Search },
+    { title: 'Explore teams', to: '/teams/explore', icon: Search },
     { title: 'Your teams', to: '/teams/manage-teams', icon: Group, authenticated: true },
     { title: 'Team members', to: '/teams/team-members', icon: People, authenticated: true },
     { title: 'Financial beings', to: '/teams/financial-beings', icon: Adb, authenticated: true },

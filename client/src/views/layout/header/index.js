@@ -149,7 +149,7 @@ class Header extends Component {
             </nav>
           </div>
         </header>
-        {onTop ? <div /> : <div className='toTop' onClick={() => { this.scrollToTop() }} />}
+        {onTop ? '' : <div className='toTop' onClick={() => { this.scrollToTop() }} />}
       </React.Fragment>
     )
   }

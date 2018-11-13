@@ -39,7 +39,7 @@ class App extends Component {
       <div className='App'>
         <Switch>
           <Route exact path={`/teams`} component={Landing} />
-          <Route exact path={`/browse-teams`} component={Teams} />
+          <Route exact path={`/teams/explore`} component={Teams} />
           <Route
             exact
             path={`/teams/manage-teams`}

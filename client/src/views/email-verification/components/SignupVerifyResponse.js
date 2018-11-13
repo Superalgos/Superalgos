@@ -31,24 +31,34 @@ export class SignupVerifyResponse extends React.Component {
       } else {
         BannerText = ['Newsletter Signup Error: ', <br key='EmailSignupConfirm-error-br' />, error.message]
       }
+      return (
+        <BannerTopBar
+          size='big'
+          title={BannerTitle}
+          text={BannerText}
+          backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+        />
+      )
     }
     if (loading && !error) {
       BannerText = ['Processing newsletter sign-up...', <br key='EmailSignupConfirm-br' />, 'Thank you for opting-in to recieve updates about the Advanced Algos project!']
     }
     if (data !== undefined && data !== null) {
       console.log(data)
-      return (
-        <React.Fragment>
-          <BannerTopBar
-            size='big'
-            title={BannerTitle}
-            text={BannerText}
-            backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
-          >
-            {displayForm && <SignupForm alignCenter />}
-          </BannerTopBar>
-        </React.Fragment>
-      )
+      if (data.master_NewsletterSignupVerify === 'SUCCESS') {
+        return (
+          <React.Fragment>
+            <BannerTopBar
+              size='big'
+              title='Mailing Sign-Up Complete!'
+              text='We look forward to keeping you up-to-date on the Advanced Algos project.'
+              backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+            >
+              {displayForm && <SignupForm alignCenter />}
+            </BannerTopBar>
+          </React.Fragment>
+        )
+      }
     } else {
       return (
         <BannerTopBar
@@ -63,7 +73,7 @@ export class SignupVerifyResponse extends React.Component {
 }
 
 SignupVerifyResponse.propTypes = {
-  mutate: PropTypes.string,
+  mutate: PropTypes.function,
   loading: PropTypes.bool,
   error: PropTypes.object,
   data: PropTypes.object

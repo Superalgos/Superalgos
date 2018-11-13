@@ -44,7 +44,7 @@ export class SignupForm extends Component {
       >
         {(NewsletterSignup, { loading, error, data }) => {
           return (
-            <Grid container className={classes.signupRight} direction='column' justify={alignCenter ? 'center' : ''}>
+            <Grid container className={classes.signupRight} direction='column' justify={alignCenter ? 'center' : 'flex-start'}>
               {displayTitle && <Typography variant='h4' className={classes.textWhite} gutterBottom>Stay in touch!</Typography>}
               {displayIntro && <Typography variant='subtitle1' className={classes.textWhite} gutterBottom>Opt-in our mailing list to stay up to date with the Advanced Algos Project.</Typography>}
               <form id='email-signup' action='#' className='form-inline' autoComplete='off'>

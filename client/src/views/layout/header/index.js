@@ -29,6 +29,11 @@ class Header extends Component {
     }
   }
 
+  scrollToTop () {
+    document.body.scrollTop = 0 // For Safari
+    document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+  }
+
   toggleMobileOpen () {
     this.setState({ mobileOpen: !this.state.mobileOpen })
   }
@@ -108,41 +113,44 @@ class Header extends Component {
     })
 
     return (
-      <header className={onTop ? 'menu' : 'menu notOnTop'}>
-        <div className='container'>
-          <Link to='/'> <img className='logo' src={AALogo} alt='Advanced Algos' /> </Link>
-          <div className={mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'} onClick={() => this.toggleMobileOpen()}>
-            Menu
-          </div>
-          <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
-            <ul className='primaryMenu'>
-              <li className='primaryLink'>
-                <Link to='/charts'> Charts </Link>
-              </li>
-              {menus}
-              <li className='primaryLink'>
-                <a href='https://www.advancedalgos.net/documentation-quick-start.shtml'> Docs </a>
-              </li>
-              {this.state.user !== undefined && this.state.user !== null ? (
-                <LoggedIn
-                  user={user}
-                  auth={auth}
-                  bigScreen={bigScreen}
-                  openedMenu={openedMenu}
-                  toggleMenuOpen={(keyValue, allowedValue) => this.toggleMenuOpen(keyValue, allowedValue)}
-                  mouseLeave={(allowedValue) => this.mouseLeave(allowedValue)}
-                  closeAll={() => this.closeAll()}
-                />
-              ) : (
-
+      <React.Fragment>
+        <header className={onTop ? 'menu' : 'menu notOnTop'}>
+          <div className='container'>
+            <Link to='/'> <img className='logo' src={AALogo} alt='Advanced Algos' /> </Link>
+            <div className={mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'} onClick={() => this.toggleMobileOpen()}>
+              Menu
+            </div>
+            <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
+              <ul className='primaryMenu'>
                 <li className='primaryLink'>
-                  <a href='#' onClick={() => auth.login()}> Login / Sign Up </a>
+                  <Link to='/charts'> Charts </Link>
                 </li>
-              )}
-            </ul>
-          </nav>
-        </div>
-      </header>
+                {menus}
+                <li className='primaryLink'>
+                  <a href='https://www.advancedalgos.net/documentation-quick-start.shtml'> Docs </a>
+                </li>
+                {this.state.user !== undefined && this.state.user !== null ? (
+                  <LoggedIn
+                    user={user}
+                    auth={auth}
+                    bigScreen={bigScreen}
+                    openedMenu={openedMenu}
+                    toggleMenuOpen={(keyValue, allowedValue) => this.toggleMenuOpen(keyValue, allowedValue)}
+                    mouseLeave={(allowedValue) => this.mouseLeave(allowedValue)}
+                    closeAll={() => this.closeAll()}
+                  />
+                ) : (
+
+                  <li className='primaryLink'>
+                    <a href='#' onClick={() => auth.login()}> Login / Sign Up </a>
+                  </li>
+                )}
+              </ul>
+            </nav>
+          </div>
+        </header>
+        {onTop ? <div /> : <div className='toTop' onClick={() => { this.scrollToTop() }} />}
+      </React.Fragment>
     )
   }
 }

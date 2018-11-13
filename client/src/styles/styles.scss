@@ -412,5 +412,26 @@ header.menu{
       }
     }
   }
+}
 
+.toTop{
+  position: fixed;
+  height: 40px;
+  width: 40px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #1a1a1a;
+  border-radius: 100%;
+  &:after{
+    content: '';
+    float: right;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    padding: 3px;
+    margin-top: 18px;
+    margin-right: 15px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
 }

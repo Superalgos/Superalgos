@@ -18,11 +18,7 @@ export default {
     logger.info('master_NewsletterSignup params email:')
     logger.info(email)
     const token = jwt.sign({ email: email }, API_KEY, { expiresIn: '1d' })
-    let origin = 'https://advancedalgos.net'
     const params = '/email-verification?token='
-    if (dev){
-      origin = 'http://localhost:3100'
-    }
 
     const headers = {
       'Content-Type': 'application/json',
@@ -162,10 +158,6 @@ export default {
     return subscribe
   },
   async master_Contact(parent, { email, subject, message, recaptcha }, ctx, info) {
-    let origin = 'https://advancedalgos.net'
-    if (dev){
-      origin = 'http://localhost:4000'
-    }
     const headers = {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin' : origin,

@@ -25,35 +25,41 @@ export class SignupForm extends Component {
 
     this.state = {
       email: '',
-      emailError: ''
+      emailError: '',
+      success: false
     }
   }
 
   render () {
-    const { classes, width } = this.props
+    const {
+      classes,
+      width,
+      alignCenter,
+      displayTitle,
+      displayIntro
+    } = this.props
     return (
       <Mutation
         mutation={NEWSLETTER_SIGNUP}
       >
         {(NewsletterSignup, { loading, error, data }) => {
-          let successMessage = false
-          if (data.NewsletterSignup === 'SUCESS') {
-            successMessage = true
-          }
           return (
-            <Grid container className={classes.signupRight} direction='column'>
-              <Typography variant='h4' className={classes.textWhite} gutterBottom>Stay in touch!</Typography>
-              <Typography variant='subtitle1' className={classes.textWhite} gutterBottom>Opt-in our mailing list to stay up to date with the Advanced Algos Project.</Typography>
+            <Grid container className={classes.signupRight} direction='column' justify={alignCenter ? 'center' : ''}>
+              {displayTitle && <Typography variant='h4' className={classes.textWhite} gutterBottom>Stay in touch!</Typography>}
+              {displayIntro && <Typography variant='subtitle1' className={classes.textWhite} gutterBottom>Opt-in our mailing list to stay up to date with the Advanced Algos Project.</Typography>}
               <form id='email-signup' action='#' className='form-inline' autoComplete='off'>
                 <Typography
-                  variant='body2'
+                  variant='subtitle1'
                   className={classes.textSuccess}
                   gutterBottom
-                  style={successMessage ? 'display: block' : 'display: none'}
+                  style={{
+                    display: this.state.success ? 'block' : 'none',
+                    textAlign: alignCenter ? 'center' : 'inherit'
+                  }}
                 >
-                  Thank you for your interest! We'll keep you informed
+                  Thank you for signing up! Please check your email and click on the confirmation link to complete the signup process.
                 </Typography>
-                <Grid container className={classes.signupContainer} justify={width === 'xs' ? 'center' : 'flex-start'}>
+                <Grid container className={classes.signupContainer} justify={(width === 'xs' || alignCenter) ? 'center' : 'flex-start'}>
                   <InputBase
                     id='email'
                     placeholder='Enter your email'
@@ -62,12 +68,13 @@ export class SignupForm extends Component {
                       input: classes.signupInput
                     }}
                     onChange={this.handleChange}
+                    value={this.state.email}
                   />
                   <Button
                     id='email-submit'
                     className={classes.signupInputSubmit}
                     onClick={e => {
-                      this.handleSubmit(e, NewsletterSignup, this.state.email)
+                      this.handleSubmit(e, NewsletterSignup)
                     }}
                   >
                     Submit
@@ -103,23 +110,27 @@ export class SignupForm extends Component {
     switch (id) {
       case 'email':
         if (!isEmpty(error)) this.setState({ emailError: error })
-        this.setState({ emaail: value })
+        this.setState({ email: value })
         break
       default:
     }
   }
 
-  async handleSubmit (e, NewsletterSignup, email) {
+  async handleSubmit (e, NewsletterSignup) {
     e.preventDefault()
-    const signupResponse = await NewsletterSignup({ variables: { email } })
+    console.log('NewsletterSignup handleSubmit: ', this.state.email)
+    const signupResponse = await NewsletterSignup({ variables: { email: this.state.email } })
     console.log('NewsletterSignup: ', signupResponse)
-    this.setState({ email: '' })
+    if (signupResponse.data.master_NewsletterSignup === 'SUCCESS') this.setState({ email: '', success: true })
   }
 }
 
 SignupForm.propTypes = {
   classes: PropTypes.object,
-  width: PropTypes.string
+  width: PropTypes.string,
+  alignCenter: PropTypes.bool,
+  displayTitle: PropTypes.bool,
+  displayIntro: PropTypes.bool
 }
 
 const SignupFormWithStyles = withStyles(styles)(SignupForm)

@@ -6,17 +6,20 @@ const BannerTopBar = ({
   size,
   backgroundUrl,
   title,
-  text
+  text,
+  children
 }) => (
   <div className={`bannerTopBar ${size}`} style={backgroundUrl ? { backgroundImage: `url(${backgroundUrl})` } : {}}>
     <div className='caption'>
       <Typography className='title' variant='h1' align='center'>{title}</Typography>
       <Typography className='text' variant='h2' align='center'>{text}</Typography>
+      {children}
     </div>
   </div>
 )
 
 BannerTopBar.propTypes = {
+  children: PropTypes.node,
   backgroundUrl: PropTypes.string,
   size: PropTypes.string,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),

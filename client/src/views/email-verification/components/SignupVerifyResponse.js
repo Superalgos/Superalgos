@@ -19,12 +19,15 @@ export class SignupVerifyResponse extends React.Component {
     if (error) {
       if (error.message === 'GraphQL error: Error: Token Expired. Please resubmit email address.') {
         BannerText = [
-          'Newsletter Signup Error: Verification Token Expired',
+          <strong key='EmailSignupConfirm-error-b1'>
+            Newsletter Signup Error: Verification Token Expired
+          </strong>,
           <br key='EmailSignupConfirm-error-br' />,
-          'Please try signing up again! We apologize for the inconvenience,',
+          'Please resubmit your email address and a new token will be emailed to you.',
           <br key='EmailSignupConfirm-error-br2' />,
-          'but we highly value your seurity and privacy.'
+          ' We apologize for the inconvenience, but we highly value your seurity and privacy.'
         ]
+        displayForm = true
       } else {
         BannerText = ['Newsletter Signup Error: ', <br key='EmailSignupConfirm-error-br' />, error.message]
       }
@@ -41,8 +44,9 @@ export class SignupVerifyResponse extends React.Component {
             title={BannerTitle}
             text={BannerText}
             backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
-          />
-          {displayForm && <SignupForm />}
+          >
+            {displayForm && <SignupForm alignCenter />}
+          </BannerTopBar>
         </React.Fragment>
       )
     } else {

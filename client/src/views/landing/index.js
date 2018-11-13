@@ -22,7 +22,7 @@ const styles = theme => ({
 
 const Landing = ({ classes, ...props }) => (
   <div>
-    <BannerTopBar size='big' title='Teams Module' text='Create and manage your Advanced Algos teams' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
+    <BannerTopBar size='big' title='Teams Module' text='Discover, create and manage Advanced Algos teams.' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
   </div>
 )
 

@@ -591,7 +591,23 @@ function onBrowserRequest(request, response) {
                         let botCodeName = decodeURI(requestParameters[6]);
                         let botDisplayName = decodeURI(requestParameters[7]);
                         let userId = decodeURI(requestParameters[8]);
+                        let sharedSecret = decodeURI(requestParameters[9]);
 
+                        if (sharedSecret !== serverConfig.newTeamSharedSecret) {
+
+                            let customFailResponse = {
+                                result: global.DEFAULT_FAIL_RESPONSE.result,
+                                message: "The shared secret provided is incorrect"
+                            }
+
+                            respondWithContent(JSON.stringify(customFailResponse), response);
+
+                            if (CONSOLE_LOG === true) { console.log("[WARN] server -> AABrowserAPI -> newTeam -> Shared Secret Received Incorrect."); }
+
+                            return;
+
+                        }
+                         
                         teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, userId, onSetupFinished);
 
                         function onSetupFinished(err) {
@@ -620,6 +636,22 @@ function onBrowserRequest(request, response) {
                         let userName = decodeURI(requestParameters[4]);
                         let botCodeName = decodeURI(requestParameters[5]);
                         let userId = decodeURI(requestParameters[6]);
+                        let sharedSecret = decodeURI(requestParameters[7]);
+
+                        if (sharedSecret !== serverConfig.deleteTeamSharedSecret) {
+
+                            let customFailResponse = {
+                                result: global.DEFAULT_FAIL_RESPONSE.result,
+                                message: "The shared secret provided is incorrect"
+                            }
+
+                            respondWithContent(JSON.stringify(customFailResponse), response);
+
+                            if (CONSOLE_LOG === true) { console.log("[WARN] server -> AABrowserAPI -> deleteTeam -> Shared Secret Received Incorrect."); }
+
+                            return;
+
+                        }
 
                         teamSetup.deleteTeam(devTeamCodeName, userName, botCodeName, userId, onSetupFinished);
 

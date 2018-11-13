@@ -90,16 +90,6 @@ async function run () {
     resolvers
   })
 
-  const defaultQuery = `{
-  teams_Teams{
-    edges{
-      node{
-        name
-      }
-    }
-  }
-}
-`
   const app = express()
 
   app.use('/graphql',
@@ -168,13 +158,7 @@ async function run () {
       settings: {
         'editor.theme': 'dark',
         'editor.cursorShape': 'line'
-      },
-      tabs: [
-        {
-          endpoint: process.env.GRAPHQL_API_URL,
-          query: defaultQuery
-        }
-      ]
+      }
     }
   })
 

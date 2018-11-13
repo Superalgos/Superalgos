@@ -80,7 +80,7 @@ class Header extends Component {
     }
     let user = JSON.parse(this.state.user)
 
-    const menus = allMenus.map(({ to, title, submenus, authenticated }, index) => {
+    const menus = allMenus.map(({ icon: Icon, to, title, submenus, authenticated }, index) => {
       if (authenticated && !(this.state.user !== undefined && this.state.user !== null)) {
         return
       }
@@ -91,20 +91,27 @@ class Header extends Component {
           key={index}
           className={openedMenu === index ? 'primaryLink hasChildren selected' : 'primaryLink hasChildren'}
         >
-          <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
+          { bigScreen
+            ? <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
+            : <a onClick={() => this.toggleMenuOpen(index, true)}> {title} </a>
+          }
           <ul className='subMenu'>
+            { bigScreen
+              ? ''
+              : <li key={index + 'home'}><a href={to}> <Icon /> Homepage </a></li>
+            }
             {
-              submenus.map(({ icon: Icon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
+              submenus.map(({ icon: SubIcon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
                 if (subAuthenticated && !(this.state.user !== undefined && this.state.user !== null)) {
                   return
                 }
                 if (externalLink) {
                   return (
-                    <li key={subindex}><a href={subTo}> <Icon /> {subTitle} </a></li>
+                    <li key={subindex}><a href={subTo}> <SubIcon /> {subTitle} </a></li>
                   )
                 }
                 return (
-                  <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <Icon /> {subTitle} </Link></li>
+                  <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <SubIcon /> {subTitle} </Link></li>
                 )
               })}
           </ul>

@@ -18,10 +18,10 @@ const usersMenus = {
   to: '/users',
   icon: Home,
   submenus: [
+    { title: 'Your Profile', to: '/users/user', icon: People, authenticated: true },
     { title: 'Directory', to: '/users/browse', icon: ImportContacts },
     { title: 'Search', to: '/users/search', icon: Search },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: BugReport, externalLink: true },
-    { title: 'Your Profile', to: '/users/user', icon: People, authenticated: true }
+    { title: 'Report', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 

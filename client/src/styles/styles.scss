@@ -65,7 +65,7 @@ body{
 }
 
 .container{
-  padding: 70px 15px 70px 15px;
+  padding: 15px 15px 15px 15px;
   margin-left: auto;
   margin-right: auto;
 
@@ -371,6 +371,8 @@ header.menu{
 }
 
 .homePage.container{
+  padding-top: 70px;
+  padding-bottom: 70px;
   .title{
     padding: 0 0 10px 0;
     @include fluid-type($break-xs, $break-lg, 24px, 45px);

@@ -11,6 +11,7 @@ import {
   FinancialBeings,
   Settings,
   Teams,
+  Landing,
   globalStyles
 } from './views'
 
@@ -37,7 +38,8 @@ class App extends Component {
     return (
       <div className='App'>
         <Switch>
-          <Route exact path={`/teams`} component={Teams} />
+          <Route exact path={`/teams`} component={Landing} />
+          <Route exact path={`/teams/explore`} component={Teams} />
           <Route
             exact
             path={`/teams/manage-teams`}

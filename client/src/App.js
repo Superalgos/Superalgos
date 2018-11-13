@@ -42,8 +42,8 @@ export const MasterApp = (props) => (
             <Route
               path='/email-verification'
               render={props => {
-                console.log(props, props.match)
-                return <EmailSignupConfirm {...props} />
+                console.log(props.location)
+                return <EmailSignupConfirm {...props} tokenParam={props.location.search} />
               }}
             />
             <Route

@@ -12,10 +12,3 @@ npm-debug.log*
 
 #Mac specific files
 .DS_Store
-client/package-lock.json
-client/package-lock.json
-server/package-lock.json
-server/package-lock.json
-client/package-lock.json
-server/package-lock.json
-client/package-lock.json

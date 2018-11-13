@@ -9,12 +9,14 @@ import {
   Group,
   Adb,
   VpnKey,
+  Home,
   AddCircleOutline
 } from '@material-ui/icons'
 
 const usersMenus = {
   title: 'Users',
   to: '/users',
+  icon: Home,
   submenus: [
     { title: 'Directory', to: '/users/browse', icon: ImportContacts },
     { title: 'Search', to: '/users/search', icon: Search },
@@ -26,6 +28,7 @@ const usersMenus = {
 const teamsMenus = {
   title: 'Teams',
   to: '/teams',
+  icon: Home,
   submenus: [
     { title: 'Explore teams', to: '/teams/explore', icon: Search },
     { title: 'Your teams', to: '/teams/manage-teams', icon: Group, authenticated: true },
@@ -38,6 +41,7 @@ const teamsMenus = {
 const eventsMenus = {
   title: 'Events',
   to: '/events',
+  icon: Home,
   submenus: [
     { title: 'All events', to: '/events', icon: Search },
     { title: 'Your events', to: '/events/my', icon: GamepadRounded, authenticated: true },
@@ -50,6 +54,7 @@ const eventsMenus = {
 const keyvaultMenus = {
   title: 'Key Vault',
   to: '/key-vault',
+  icon: Home,
   authenticated: true,
   submenus: [
     { title: 'Manage keys', to: '/key-vault/browse', icon: VpnKey },

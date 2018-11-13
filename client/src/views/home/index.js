@@ -12,7 +12,7 @@ class Home extends Component {
           text='Enabling the evolutionary race towards the emergence of superalgos'
           backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
         />
-        <div className='homePage'>
+        <div className='homePage container'>
           <Typography variant='h1' align='center' className='title'>Welcome to the Advanced Algos Platform!</Typography>
           <Typography variant='h2' align='center' className='subtitle'>CO-CREATE >> COMPETE >> EVOLVE</Typography>
           <div className='column'>

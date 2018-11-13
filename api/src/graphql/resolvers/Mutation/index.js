@@ -64,7 +64,7 @@ export const resolvers = {
       // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
 
       logger.info(`${platformUrl}${createTeamUrl}/${authId}`)
-      const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}/${authId}`)
+      const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}/${authId}/${process.env.AAWEB_TEAM_SHARED_SECRET}`)
         .then((result) => {
           console.log('createPlatformTeam result:', result.data)
           if(result.data.message === 'Team Name already taken'){
@@ -148,7 +148,7 @@ export const resolvers = {
 
           const alias = await result.data.users_User.alias
           // const email = result.data.users_User.email
-          const deleteTeamUrl = encodeURI(`${slug}/${alias}/${botSlug}`)
+          const deleteTeamUrl = encodeURI(`${slug}/${alias}/${botSlug}/${process.env.AAWEB_DELETE_TEAM_SHARED_SECRET}`)
           logger.info('deleteTeamUrl:')
           logger.info(JSON.stringify(await deleteTeamUrl))
 

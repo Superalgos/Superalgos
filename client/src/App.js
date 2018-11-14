@@ -20,14 +20,14 @@ import Events from '@advancedalgos/events-client'
 import KeyVault from '@advancedalgos/key-vault-client'
 import FinancialBeings from '@advancedalgos/financial-beings-client'
 
-import { FINANCIAL_BEINGS } from "./constants/routes";
+import { FINANCIAL_BEINGS } from './constants/routes'
 
 export const auth = new Auth(
   result => console.log('Authentication successful.'),
   client
 )
 
-export const MasterApp = (props) => (
+export const MasterApp = props => (
   <BrowserRouter>
     <ApolloProvider client={client}>
       <MuiThemeProvider theme={theme}>
@@ -46,7 +46,12 @@ export const MasterApp = (props) => (
               path='/email-verification'
               render={props => {
                 console.log(props.location)
-                return <EmailSignupConfirm {...props} tokenParam={props.location.search} />
+                return (
+                  <EmailSignupConfirm
+                    {...props}
+                    tokenParam={props.location.search}
+                  />
+                )
               }}
             />
             <Route

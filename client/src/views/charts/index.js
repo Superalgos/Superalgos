@@ -50,17 +50,24 @@ class Charts extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     context: state.context
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    hideFooter: () => { dispatch({ type: 'HIDE_FOOTER' }) },
-    showFooter: () => { dispatch({ type: 'SHOW_FOOTER' }) }
+    hideFooter: () => {
+      dispatch({ type: 'HIDE_FOOTER' })
+    },
+    showFooter: () => {
+      dispatch({ type: 'SHOW_FOOTER' })
+    }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Charts))
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(Charts))

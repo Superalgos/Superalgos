@@ -64,54 +64,100 @@ class Header extends Component {
   }
 
   render () {
-    const bigScreen = (this.props.width === 'lg' || this.props.width === 'xl')
+    const bigScreen = this.props.width === 'lg' || this.props.width === 'xl'
     let { auth } = this.props
     let { onTop, mobileOpen, openedMenu } = this.state
     if (window.localStorage.getItem('access_token')) {
-      if (jwtDecode(window.localStorage.getItem('access_token')).exp < new Date().getTime() / 1000) {
+      if (
+        jwtDecode(window.localStorage.getItem('access_token')).exp <
+        new Date().getTime() / 1000
+      ) {
         window.localStorage.clear()
         window.location.reload()
       }
     }
     let user = JSON.parse(this.state.user)
 
-    const menus = allMenus.map(({ to, title, submenus, authenticated }, index) => {
-      if (authenticated && !(this.state.user !== undefined && this.state.user !== null)) {
-        return
-      }
-      return (
-        <li
-          onMouseEnter={() => this.toggleMenuOpen(index, bigScreen)}
-          onMouseLeave={() => this.mouseLeave(bigScreen)}
-          key={index}
-          className={openedMenu === index ? 'primaryLink hasChildren selected' : 'primaryLink hasChildren'}
-        >
-          <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
-          <ul className='subMenu'>
-            {
-              submenus.map(({ icon: Icon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
-                if (subAuthenticated && !(this.state.user !== undefined && this.state.user !== null)) {
-                  return
-                }
-                if (externalLink) {
+    const menus = allMenus.map(
+      ({ to, title, submenus, authenticated }, index) => {
+        if (
+          authenticated &&
+          !(this.state.user !== undefined && this.state.user !== null)
+        ) {
+          return
+        }
+        return (
+          <li
+            onMouseEnter={() => this.toggleMenuOpen(index, bigScreen)}
+            onMouseLeave={() => this.mouseLeave(bigScreen)}
+            key={index}
+            className={
+              openedMenu === index
+                ? 'primaryLink hasChildren selected'
+                : 'primaryLink hasChildren'
+            }
+          >
+            <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}>
+              {' '}
+              {title}{' '}
+            </Link>
+            <ul className='subMenu'>
+              {submenus.map(
+                (
+                  {
+                    icon: Icon,
+                    to: subTo,
+                    title: subTitle,
+                    externalLink,
+                    authenticated: subAuthenticated
+                  },
+                  subindex
+                ) => {
+                  if (
+                    subAuthenticated &&
+                    !(this.state.user !== undefined && this.state.user !== null)
+                  ) {
+                    return
+                  }
+                  if (externalLink) {
+                    return (
+                      <li key={subindex}>
+                        <a href={subTo}>
+                          {' '}
+                          <Icon /> {subTitle}{' '}
+                        </a>
+                      </li>
+                    )
+                  }
                   return (
-                    <li key={subindex}><a href={subTo}> <Icon /> {subTitle} </a></li>
+                    <li key={subindex}>
+                      <Link to={subTo} onClick={() => this.closeAll(index)}>
+                        {' '}
+                        <Icon /> {subTitle}{' '}
+                      </Link>
+                    </li>
                   )
                 }
-                return (
-                  <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <Icon /> {subTitle} </Link></li>
-                )
-              })}
-          </ul>
-        </li>
-      )
-    })
+              )}
+            </ul>
+          </li>
+        )
+      }
+    )
 
     return (
       <header className={onTop ? 'menu' : 'menu notOnTop'}>
         <div className='container'>
-          <Link to='/'> <img className='logo' src={AALogo} alt='Advanced Algos' /> </Link>
-          <div className={mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'} onClick={() => this.toggleMobileOpen()}>
+          <Link to='/'>
+            {' '}
+            <img className='logo' src={AALogo} alt='Advanced Algos' />{' '}
+          </Link>
+          <div
+            className={
+              mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'
+            }
+            onClick={() => this.toggleMobileOpen()}
+          >
             Menu
           </div>
           <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
@@ -121,7 +167,10 @@ class Header extends Component {
               </li>
               {menus}
               <li className='primaryLink'>
-                <a href='https://www.advancedalgos.net/documentation-quick-start.shtml'> Docs </a>
+                <a href='https://www.advancedalgos.net/documentation-quick-start.shtml'>
+                  {' '}
+                  Docs{' '}
+                </a>
               </li>
               {this.state.user !== undefined && this.state.user !== null ? (
                 <LoggedIn
@@ -129,14 +178,18 @@ class Header extends Component {
                   auth={auth}
                   bigScreen={bigScreen}
                   openedMenu={openedMenu}
-                  toggleMenuOpen={(keyValue, allowedValue) => this.toggleMenuOpen(keyValue, allowedValue)}
-                  mouseLeave={(allowedValue) => this.mouseLeave(allowedValue)}
+                  toggleMenuOpen={(keyValue, allowedValue) =>
+                    this.toggleMenuOpen(keyValue, allowedValue)
+                  }
+                  mouseLeave={allowedValue => this.mouseLeave(allowedValue)}
                   closeAll={() => this.closeAll()}
                 />
               ) : (
-
                 <li className='primaryLink'>
-                  <a href='#' onClick={() => auth.login()}> Login / Sign Up </a>
+                  <a href='#' onClick={() => auth.login()}>
+                    {' '}
+                    Login / Sign Up{' '}
+                  </a>
                 </li>
               )}
             </ul>

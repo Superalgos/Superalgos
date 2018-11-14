@@ -26,7 +26,7 @@ export const TeamsItem = ({ classes, team }) => {
     banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
   }
   return (
-    <Grid item sm={6} md={4}>
+    <Grid item xs={12} sm={6} md={4}>
       <Card className={classes.card}>
         <CardActionArea>
           <CardMedia

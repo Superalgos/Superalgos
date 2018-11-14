@@ -11,8 +11,6 @@ const styles = theme => ({
   container: {
     width: 'auto',
     marginTop: theme.spacing.unit * 3,
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit * 6,
     [theme.breakpoints.up(800 + theme.spacing.unit * 3 * 2)]: {
       width: 800,
@@ -23,7 +21,7 @@ const styles = theme => ({
 })
 
 const ManageTeams = ({ classes, ...props }) => (
-  <div>
+  <div className='container'>
     <BannerTopBar size='medium' title='Manage Your Teams' text='Create and manage your Advanced Algos teams' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
     <Grid
       container

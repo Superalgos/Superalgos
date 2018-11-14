@@ -32,9 +32,9 @@ const styles = theme => ({
 const Teams = ({ classes, match }) => (
   <React.Fragment>
     <BannerTopBar size='medium' title='Browse Teams' text='Explore Advanced Algos Teams' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
-    <main className={classes.layout}>
+    <div className='container'>
       <TeamsList match={match} />
-    </main>
+    </div>
   </React.Fragment>
 )
 

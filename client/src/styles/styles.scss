@@ -235,6 +235,9 @@ header.menu{
               &:hover{
                 color: $advanced-algos-red;
               }
+              svg{
+                padding-top: 10px;
+              }
             }
             ul.subMenu{
               display: none;
@@ -292,6 +295,9 @@ header.menu{
               text-decoration: none;
               &.selected{
                 color: $advanced-algos-red;
+              }
+              svg{
+                padding-top: 10px;
               }
             }
             ul.subMenu{

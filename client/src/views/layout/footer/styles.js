@@ -11,20 +11,21 @@ const styles = theme => ({
     color: lightGreen[400]
   },
   copyright: {
-    paddingTop: theme.spacing.unit * 3
+    paddingTop: theme.spacing.unit * 9,
+    fontSize: '16px'
   },
   linkLight: {
     color: theme.palette.secondary.main,
     textDecoration: 'none'
   },
   descriptionLeft: {
-    marginLeft: theme.spacing.unit * 8,
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: 0
-    },
+    marginLeft: 0,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'center'
     }
+  },
+  descriptionText: {
+    fontSize: '16px'
   },
   signupRight: {
     marginTop: theme.spacing.unit * 2,
@@ -46,13 +47,14 @@ const styles = theme => ({
   },
   footerContainer: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(1200 + theme.spacing.unit * 3 * 2)]: {
       width: 1200,
       marginLeft: 'auto',
       marginRight: 'auto'
     }
+  },
+  footerLogo: {
+    marginBottom: theme.spacing.unit * 2
   },
   footerLink: {
     textDecoration: 'none',
@@ -101,7 +103,7 @@ const styles = theme => ({
   },
   icon: {
     margin: theme.spacing.unit * 1,
-    fontSize: 24
+    fontSize: 30
   },
   iconHover: {
     margin: theme.spacing.unit * 1,

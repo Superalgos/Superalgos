@@ -63,8 +63,8 @@ export class SignupVerifyResponse extends React.Component {
       return (
         <BannerTopBar
           size='big'
-          title=''
-          text='Newsletter Signup Error'
+          title='Processing...'
+          text=''
           backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
         />
       )

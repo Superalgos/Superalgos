@@ -98,7 +98,7 @@ class Header extends Component {
           <ul className='subMenu'>
             { bigScreen
               ? ''
-              : <li key={index + 'home'}><a href={to}> <Icon /> Homepage </a></li>
+              : <li key={index + 'home'}><Link to={to}> <Icon /> Homepage </Link></li>
             }
             {
               submenus.map(({ icon: SubIcon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
@@ -107,7 +107,7 @@ class Header extends Component {
                 }
                 if (externalLink) {
                   return (
-                    <li key={subindex}><a href={subTo}> <SubIcon /> {subTitle} </a></li>
+                    <li key={subindex}><a href={subTo} target='_blank'> <SubIcon /> {subTitle} </a></li>
                   )
                 }
                 return (

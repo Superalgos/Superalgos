@@ -12,7 +12,7 @@ import {
   AddCircleOutline
 } from '@material-ui/icons'
 
-import { FINANCIAL_BEINGS, BROWSE_FB, SEARCH_FB, GENEALOGY_FB } from "../../../constants/routes";
+import { FINANCIAL_BEINGS } from "../../../constants/routes";
 
 const usersMenus = {
   title: 'Users',

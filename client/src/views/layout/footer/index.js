@@ -35,13 +35,13 @@ class Footer extends Component {
           >
             <Grid item xs={12} sm={4} md={4}>
               <NavLink to='/'>
-                <img alt='' src={aalogo} width={'100%'} height={'auto'} />
+                <img alt='' src={aalogo} width={'100%'} height={'auto'} className={classes.footerLogo} />
               </NavLink>
               <Grid container className={classes.descriptionLeft} direction='column'>
-                <Typography variant='subtitle2' className={classes.textLight} ><strong>Advanced Algos Ltd.</strong></Typography>
-                <Typography variant='subtitle1' className={classes.textLight} gutterBottom>Ground Floor, Palace Court, Church Street,<br />St. Julians&nbsp;STJ3049, Malta</Typography>
-                <Typography variant='subtitle1' className={classes.textLight}>
-                  <Link to='legal-privacy-statement.shtml' className={classes.linkLight}>Privacy Statement</Link> | <a href='legal-terms-of-service.shtml' className={classes.linkLight}>Terms of Service</a>
+                <Typography className={classNames(classes.textLight, classes.descriptionText)} ><strong>Advanced Algos Ltd.</strong></Typography>
+                <Typography className={classNames(classes.textLight, classes.descriptionText)} gutterBottom>Ground Floor, Palace Court, Church Street,<br />St. Julians&nbsp;STJ3049, Malta</Typography>
+                <Typography className={classNames(classes.textLight, classes.descriptionText)}>
+                  <Link to='legal-privacy-statement.shtml' className={classNames(classes.textLight, classes.descriptionText)}>Privacy Statement</Link> | <a href='legal-terms-of-service.shtml' className={classes.linkLight}>Terms of Service</a>
                 </Typography>
                 <Typography variant='body2' className={classNames(classes.textLight, classes.copyright)} gutterBottom>&copy; Advanced Algos, Ltd. 2018 | All Rights Reserved.</Typography>
               </Grid>

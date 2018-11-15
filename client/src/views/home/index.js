@@ -10,7 +10,7 @@ class Home extends Component {
           size='big'
           title='Advanced Algos Platform'
           text='People and machines working together to create Superalgos'
-          backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+          backgroundUrl='https://advancedalgos.net/img/photos/superalgos-platform.jpg'
         />
         <div className='homePage container'>
           <Typography variant='h1' align='center' className='title'>Welcome to the Advanced Algos Platform!</Typography>

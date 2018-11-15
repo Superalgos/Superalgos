@@ -36,7 +36,7 @@ export class SignupVerifyResponse extends React.Component {
           size='big'
           title={BannerTitle}
           text={BannerText}
-          backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+          backgroundUrl='https://advancedalgos.net/img/photos/superalgos-platform.jpg'
         />
       )
     }
@@ -52,7 +52,7 @@ export class SignupVerifyResponse extends React.Component {
               size='big'
               title='Mailing Sign-Up Complete!'
               text='We look forward to keeping you up-to-date on the Advanced Algos project.'
-              backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+              backgroundUrl='https://advancedalgos.net/img/photos/superalgos-platform.jpg'
             >
               {displayForm && <SignupForm alignCenter />}
             </BannerTopBar>
@@ -65,7 +65,7 @@ export class SignupVerifyResponse extends React.Component {
           size='big'
           title='Processing...'
           text=''
-          backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+          backgroundUrl='https://advancedalgos.net/img/photos/superalgos-platform.jpg'
         />
       )
     }

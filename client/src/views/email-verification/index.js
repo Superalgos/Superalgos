@@ -27,7 +27,7 @@ export const EmailSignupConfirm = ({ tokenParam }) => {
         size='big'
         title=''
         text={BannerText}
-        backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+        backgroundUrl='https://advancedalgos.net/img/photos/superalgos-platform.jpg'
       />
     )
   }

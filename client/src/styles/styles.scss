@@ -44,7 +44,8 @@ $advanced-algos-red: rgb(245,88,88);
 }
 
 body{
-  overflow-y:scroll;
+  padding-right: 0 !important;
+  overflow-y: scroll;
 
   &::-webkit-scrollbar-track {
     border: 1px solid #000;

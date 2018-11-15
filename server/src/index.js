@@ -2,14 +2,13 @@
 /* This module imports */
 
 import 'dotenv/config'
+import './globals'
 import logger from './logger'
-import globals from './globals'
-import sessions from './sessions'
 import express from 'express'
 import graphqlHTTP from 'express-graphql'
 import schema from './schema/schema'
 import mongoose from 'mongoose'
-import checkJwt from './auth/middleware/jwt'
+import checkJwt from './auth/jwt'
 import wrongPreshared from './errors/notAllowed.json'
 import cors from 'cors'
 

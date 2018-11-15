@@ -2,9 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Advanced Algos Users backend API",
-  "main": "app.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node --presets env,stage-2 app.js",
+    "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -1,17 +1,17 @@
 
 /* This module imports */
 
-require('dotenv/config')
+import 'dotenv/config'
 import logger from './logger'
-const globals = require('./globals')
-const sessions = require('./sessions')
-const express = require('express')
-const graphqlHTTP = require('express-graphql')
-const schema = require('./schema/schema')
-const mongoose = require('mongoose')
-const checkJwt = require('./auth/middleware/jwt')
-const wrongPreshared = require('./errors/notAllowed.json')
-const cors = require('cors')
+import globals from './globals'
+import sessions from './sessions'
+import express from 'express'
+import graphqlHTTP from 'express-graphql'
+import schema from './schema/schema'
+import mongoose from 'mongoose'
+import checkJwt from './auth/middleware/jwt'
+import wrongPreshared from './errors/notAllowed.json'
+import cors from 'cors'
 
 require('dotenv').config()
 

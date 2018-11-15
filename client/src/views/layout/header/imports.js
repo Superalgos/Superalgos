@@ -57,7 +57,7 @@ const keyvaultMenus = {
   icon: Home,
   authenticated: true,
   submenus: [
-    { title: 'Manage keys', to: '/key-vault/browse', icon: VpnKey },
+    { title: 'Your keys', to: '/key-vault/browse', icon: VpnKey },
     { title: 'Add key', to: '/key-vault/addKey', icon: AddCircleOutline },
     { title: 'Report', to: 'https://github.com/AdvancedAlgos/KeyVaultModule/issues/new', icon: BugReport, externalLink: true }
   ]

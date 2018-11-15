@@ -1,6 +1,8 @@
 
 /* This module imports */
 
+require('dotenv/config')
+import logger from './config/logger'
 const globals = require('./globals')
 const sessions = require('./sessions')
 const express = require('express')
@@ -17,10 +19,11 @@ const app = express()
 // Allow crosss-origin requests
 app.use(cors())
 
-// Connect to the database
-mongoose.connect(mongodbConfig.connectionString, { useNewUrlParser: true })
+// Database Connection
+mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_DOMAIN}`, { useNewUrlParser: true })
+
 mongoose.connection.once('open', () => {
-  console.log('Connected to Mongo')
+  logger.info('Connected to the DB.')
 })
 
 /* Here we bind all requests to this endpoint to be procecced by the GraphQL Library. */

@@ -41,7 +41,7 @@ class Footer extends Component {
                 <Typography className={classNames(classes.textLight, classes.descriptionText)} ><strong>Advanced Algos Ltd.</strong></Typography>
                 <Typography className={classNames(classes.textLight, classes.descriptionText)} gutterBottom>Ground Floor, Palace Court, Church Street,<br />St. Julians&nbsp;STJ3049, Malta</Typography>
                 <Typography className={classNames(classes.textLight, classes.descriptionText)}>
-                  <Link to='legal-privacy-statement.shtml' className={classNames(classes.textLight, classes.descriptionText)}>Privacy Statement</Link> | <a href='legal-terms-of-service.shtml' className={classes.linkLight}>Terms of Service</a>
+                  <a href='legal-privacy-statement.shtml' className={classes.linkLight}>Privacy Statement</a> | <a href='legal-terms-of-service.shtml' className={classes.linkLight}>Terms of Service</a>
                 </Typography>
                 <Typography variant='body2' className={classNames(classes.textLight, classes.copyright)} gutterBottom>&copy; Advanced Algos, Ltd. 2018 | All Rights Reserved.</Typography>
               </Grid>

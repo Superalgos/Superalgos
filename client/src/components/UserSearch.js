@@ -17,7 +17,7 @@ import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 
 // Images
-import PortraitImage from '../img/portrait.jpg'
+import UserDefaultPicture from '../img/user-default-pic.jpg'
 
 const styles = theme => ({
   card: {
@@ -156,10 +156,10 @@ class UserSearch extends Component {
     if (data.loading) {
       return (<div> Loading Users... </div>)
     } else {
-      if (data.usersSearch === undefined) {
+      if (data.users_UsersSearch === undefined) {
         return (<div> No Users to Display </div>)
       } else {
-        return data.usersSearch.map(user => {
+        return data.users_UsersSearch.map(user => {
           return (
 
             <Grid key={user.id} item>
@@ -170,12 +170,12 @@ class UserSearch extends Component {
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
-                    image={PortraitImage}
+                    image={UserDefaultPicture}
                     title='User Profile'
 
                 />
                   <CardContent>
-                    <Typography gutterBottom variant='headline' component='h2'>
+                    <Typography gutterBottom component='h2'>
                       {user.alias}
                     </Typography>
                   </CardContent>
@@ -196,9 +196,14 @@ class UserSearch extends Component {
     }
   }
 
+  componentDidMount () {
+    window.dispatchEvent(new Event('load')) // This is a workaround to solve the problem that the slider does not show up
+  }
+
   render () {
     const { classes } = this.props
     return (
+
       <div>
         <form onSubmit={this.submitForm.bind(this)}>
 
@@ -257,6 +262,7 @@ class UserSearch extends Component {
           {this.displayUsers()}
         </Grid>
       </div>
+
     )
   }
 }

@@ -30,13 +30,13 @@ import Slide from '@material-ui/core/Slide';
 import UserProfile from './UserProfile';
 
 // Images
-import PortraitImage from '../img/portrait.jpg'
+import UserDefaultPicture from '../img/user-default-pic.jpg'
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    padding: 60,
-    margin: 2,
+    paddingTop:30,
+    paddingBottom:30,
+    flexGrow: 1 
   },
   card: {
     maxWidth: 345,
@@ -89,13 +89,14 @@ class UserList extends Component {
   };
 
   displayUsers(){
+    
     let data = this.props.getUsersQuery;
     const { classes } = this.props;
 
     if(data.loading){
       return ( <div> Loading Users... </div>);
     } else {
-      return data.users.map(user => {
+      return data.users_Users.map(user => {
 
         return (
 
@@ -107,12 +108,12 @@ class UserList extends Component {
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
-                  image={PortraitImage}
+                  image={UserDefaultPicture}
                   title="User Profile"
 
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="headline" component="h2">
+                  <Typography gutterBottom variant="h5" component="h2">
                     {user.alias}
                   </Typography>
                   <Typography className={classes.typography} gutterBottom>
@@ -135,7 +136,7 @@ class UserList extends Component {
                            <IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
                              <CloseIcon />
                            </IconButton>
-                           <Typography variant="title" color="inherit" className={classes.flex}>
+                           <Typography variant="h6" color="inherit" className={classes.flex}>
                              User Profile
                            </Typography>
                            <Button color="inherit" onClick={this.handleClose}>
@@ -166,7 +167,7 @@ class UserList extends Component {
     const { classes } = this.props;
     return (
       <React.Fragment>
-        <Grid container justify="center" spacing={24} className={classes.root}>
+        <Grid container justify="center" spacing={40} className={classes.root}>
           {this.displayUsers()}
         </Grid>
       </React.Fragment>

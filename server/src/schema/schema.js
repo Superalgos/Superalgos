@@ -390,15 +390,6 @@ function authenticate (encodedToken, callBackFunction) {
 
           if (global.INFO_LOG === true) { logger.debug('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> Existing User: ' + JSON.stringify(user)) }
 
-          /*
-
-          Here we save the user id of the logged in user at the server Sessions map, from there it will
-          be used to validate any further transaction comming from this same user.
-
-          */
-
-          global.Sessions.set(encodedToken, user.id)
-
           callBackFunction(global.DEFAULT_OK_RESPONSE, { authId: authId, alias: user.alias })
           return
         }
@@ -459,15 +450,6 @@ function authenticate (encodedToken, callBackFunction) {
             }
 
             if (global.INFO_LOG === true) { logger.debug('[INFO] ' + MODULE_NAME + ' -> authenticate -> onValidated -> onUserFound -> onSaved -> Saved User: ' + JSON.stringify(savedUser)) }
-
-             /*
-
-             Here we save the user id of the logged in user at the server Sessions map, from there it will
-             be used to validate any further transaction comming from this same user.
-
-             */
-
-            global.Sessions.set(encodedToken, savedUser.id)
 
             callBackFunction(global.DEFAULT_OK_RESPONSE, { authId, alias })
           }

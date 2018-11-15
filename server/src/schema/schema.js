@@ -1,11 +1,11 @@
 const MODULE_NAME = 'schema'
 
 import logger from '../logger'
+import _ from 'lodash'
+import User from '../models/user'
+import tokenDecoder from '../auth/token-decoder'
 
 const graphql = require('graphql')
-const _ = require('lodash')
-const User = require('../models/user')
-const tokenDecoder = require('../auth/token-decoder')
 
 const {
   GraphQLObjectType,

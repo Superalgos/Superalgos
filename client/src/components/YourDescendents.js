@@ -13,11 +13,11 @@ import DescendentsTree from './DescendentsTree'
 
 const styles = theme => ({
   root: {
-    width: '50%',
+    width: '100%',
     flexGrow: 1,
     padding: 10,
-    marginLeft: '25%',
-    marginTop: '2%'
+    marginTop: '5%',
+    marginBottom: '10%'
   },
   typography: {
     width: '80%',
@@ -59,23 +59,34 @@ class YourDescendents extends Component {
     }
   }
 
-  render () {
+  addForm () {
     const { classes } = this.props
-
     return (
       <Paper className={classes.root}>
-        <Typography className={classes.typography} variant='headline' gutterBottom>
-            Your Descendents
-        </Typography>
+
+        <Typography className={classes.typography} variant='h5' gutterBottom>
+      Your Decendents
+      </Typography>
 
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
         These are your decendents within the project. Your children referred you as the one who brought them to the project, while
-        your grandchildren referred your children and so on.
+        your grandchildren referred your children and so on. In order to be able to see your descendents, the users who you referred
+        must first point to you as your referrer.
         </Typography>
 
         <DescendentsTree userId={this.state.id} />
         <Grid container className={classes.grid} justify='center' spacing={24} />
       </Paper>
+    )
+  }
+
+  render () {
+    return (
+      <React.Fragment>
+        <div className='container'>
+          {this.addForm()}
+        </div>
+      </React.Fragment>
     )
   }
 }

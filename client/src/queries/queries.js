@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 const getUsersQuery = gql`
 {
-    users {
+    users_Users {
       id
       alias
       firstName
@@ -18,7 +18,7 @@ const getUsersQuery = gql`
 `
 const getUserProfileQuery = gql`
 query($id: ID){
-    user (id: $id){
+    users_User (id: $id){
       id
       alias
       firstName
@@ -35,7 +35,7 @@ query($id: ID){
 `
 const getUserByAuthIdQuery = gql`
 query($authId: String){
-    userByAuthId (authId: $authId){
+    users_UserByAuthId (authId: $authId){
       id
       referrerId
       alias
@@ -63,7 +63,7 @@ query(
   $middleName: String,
   $lastName: String
 ){
-    usersSearch (alias: $alias, firstName: $firstName, middleName: $middleName, lastName: $lastName){
+    users_UsersSearch (alias: $alias, firstName: $firstName, middleName: $middleName, lastName: $lastName){
       id
       alias
       firstName
@@ -76,7 +76,7 @@ const getDescendentsQuery = gql`
 query(
   $id: String
 ){
-    descendents (id: $id){
+    users_Descendents (id: $id){
       id
       alias
       firstName
@@ -104,7 +104,7 @@ query(
 `
 const getRolesQuery = gql`
 {
-    roles {
+    users_Roles {
       id
       name
     }
@@ -112,7 +112,6 @@ const getRolesQuery = gql`
 `
 const updateUserMutation = gql`
 mutation(
-  $id: ID!,
   $firstName:String,
   $middleName:String,
   $lastName:String,
@@ -123,8 +122,7 @@ mutation(
   $roleId:String!
 )
   {
-    updateUser (
-      id: $id,
+    users_UpdateUser (
       firstName:$firstName,
       middleName: $middleName,
       lastName: $lastName,
@@ -142,35 +140,15 @@ mutation(
 `
 const updateReferrerMutation = gql`
 mutation(
-  $id: ID!,
   $referrerId:String!
 )
   {
-    updateUserReferrer (
-      id: $id,
+    users_UpdateUserReferrer (
       referrerId:$referrerId
     )
     {
       id
       referrerId
-    }
-}
-`
-const updateUserImagesMutation = gql`
-mutation(
-  $id: ID!,
-  $avatarHandle:String,
-  $avatarChangeDate:String 
-)
-  {
-    updateUserImages (
-      id: $id,
-      avatarHandle:$avatarHandle,
-      avatarChangeDate: $avatarChangeDate 
-    )
-    {
-      id
-      alias
     }
 }
 `
@@ -182,6 +160,5 @@ export {
   getUsersBySearchFields,
   getDescendentsQuery,
   updateUserMutation,
-  updateReferrerMutation,
-  updateUserImagesMutation
+  updateReferrerMutation
 }

@@ -1,34 +1,29 @@
 {
-  "name": "client",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@advancedalgos/users-client",
+  "description": "Advanced Algos Users client-side web app",
+  "version": "0.0.24",
+  "main": "src/index.js",
   "dependencies": {
-    "@material-ui/core": "^3.0.2",
+    "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
-    "apollo-cache-inmemory": "^1.2.9",
-    "apollo-client": "^2.4.1",
-    "apollo-link": "^1.2.2",
-    "apollo-link-context": "^1.0.8",
-    "apollo-link-error": "^1.1.0",
-    "apollo-link-http": "^1.5.4",
-    "auth0-lock": "^11.9.0",
-    "filestack-js": "^1.5.1",
-    "filestack-react": "^2.0.0",
-    "graphql": "^14.0.0",
-    "graphql-tag": "^2.9.2",
-    "react": "^16.4.2",
-    "react-apollo": "^2.1.11",
-    "react-dom": "^16.4.2",
-    "react-easy-chart": "^1.0.0",
-    "react-redux": "^5.0.7",
+    "react": "^16.6.1",
+    "react-apollo": "^2.2.4",
+    "react-dom": "^16.6.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
-    "redux": "^4.0.0"
+    "react-scripts": "^2.0.4",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "prop-types": "^15.6.2",
+    "recompose": "^0.30.0",
+    "apollo-client": "2.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-hot-loader": "^4.3.11"
   }
 }

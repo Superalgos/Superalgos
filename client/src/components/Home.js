@@ -1,105 +1,41 @@
 import React, { Component } from 'react'
-import { compose } from 'recompose'
-import { withStyles } from '@material-ui/core/styles'
-import {LineChart} from 'react-easy-chart'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import CssBaseline from '@material-ui/core/CssBaseline'
-
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    padding: 100
-  },
-  grid: {
-    margin: theme.spacing.unit,
-    width: '50%'
-  },
-  typography: {
-    width: '100%',
-    marginTop: 20,
-    marginBottom: 20
-  },
-  '@global': {
-    body: {
-      backgroundColor: theme.palette.common.white
-    }
-  },
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-      width: 900,
-      marginLeft: 'auto',
-      marginRight: 'auto'
-    }
-  },
-  heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`
-  }
-})
+import BannerTopBar from './BannerTopBar'
+import { Typography } from '@material-ui/core'
 
 class Home extends Component {
 
   render () {
-    const { classes } = this.props
     return (
       <React.Fragment>
-        <CssBaseline />
-        <main className={classes.layout}>
-          <div className={classes.heroContent}>
-            <Typography
-              variant='display3'
-              align='center'
-              color='textPrimary'
-              gutterBottom
-            >
-              Collaborate. Innovate. Evolve.
+        <BannerTopBar
+          size='big'
+          title='Users Module'
+          text='Responsible for all human users of the Advanced Algos Platform.'
+          backgroundUrl='https://advancedalgos.net/img/photos/users.jpg'
+        />
+        <div className='homePage container'>
+          <Typography variant='h1' align='center' className='title'>Welcome to the Users Module!</Typography>
+          <Typography variant='h2' align='center' className='subtitle'>The human component of the Advanced Algos Ecosystem.</Typography>
+          <div className='column'>
+            <Typography align='justify'>
+              The Advanced Algos Ecosystem is made out of humans, financial beings and other entities such as teams.
             </Typography>
-            <Typography
-              variant='title'
-              align='center'
-              color='textSecondary'
-              component='h3'
-            >
-              Welcome to Advanced Algos Users Module
+            <Typography align='justify'>
+            Humans are either <strong>users</strong> or <strong>guests</strong>. If you haven’t signed up yet or you are logged off, then you are acting as a guest, with limited features. Please sign-up or log-in for a richer experience.
             </Typography>
           </div>
-        </main>
-
-        <Grid container justify='center' spacing={24}>
-          <Grid className={classes.grid} item>
-            <Typography className={classes.typography} gutterBottom variant='headline' component='h2'>
-          Intro
-          </Typography>
-            <Typography className={classes.typography} component='p'>
-          This module is responsible for managing users across the Advanced Algos system. Here you can browse the Users Directory, search for users and get to their profiles. You can create your own User profile if you sign up, or manage it if you already have one by logging in.
-          </Typography>
-            <Typography className={classes.typography} gutterBottom variant='headline' component='h2'>
-          Development Status
-          </Typography>
-            <Typography className={classes.typography} component='p'>
-          This module is is currently under heavy development. Implementation started 1st of September 2018 and this is the result of the 2nd sprint of 2 weeks of work each.
-          </Typography>
-            <Typography className={classes.typography} gutterBottom variant='headline' component='h2'>
-          What can you do?
-          </Typography>
-            <Typography className={classes.typography} component='p'>
-          Currently you can use the Browse section to list all registered users. At the Search page you can searh for users by name. Clicking on View Profile you can see some more info about that user. You can signup with your Github account and manage your profile information while logged in. While loggedin, you can edit your profile info, define your referrer and view your descendants. You will find all features under develpment with a dialog indicating it is not ready.
-          </Typography>
-
-          </Grid>
-        </Grid>
-
+          <div className='column'>
+            <Typography align='justify'>
+              Users may have different roles, such as developer, trader, analyst, etc. Each of these roles usually have personalized features throughout the system.
+            </Typography>
+            <Typography align='justify'>
+              The Users Module allows you to handle all of your details as a user of the system as well as finding other people in the ecosystem.
+            </Typography>
+          </div>
+        </div>
       </React.Fragment>
-
     )
   }
 }
 
-export default compose(
-  withStyles(styles)
-)(Home)
+export default Home

@@ -9,12 +9,12 @@ class Home extends Component {
         <BannerTopBar
           size='big'
           title='Advanced Algos Platform'
-          text='Enabling the evolutionary race towards the emergence of superalgos'
+          text='People and machines working together to create Superalgos'
           backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
         />
         <div className='homePage container'>
           <Typography variant='h1' align='center' className='title'>Welcome to the Advanced Algos Platform!</Typography>
-          <Typography variant='h2' align='center' className='subtitle'>CO-CREATE >> COMPETE >> EVOLVE</Typography>
+          <Typography variant='h2' align='center' className='subtitle'>Enabling the evolutionary race towards the emergence of superalgos</Typography>
           <div className='column'>
             <Typography align='justify'>
               Before you begin, please be aware <strong>this is a development environment in pre-alpha stage</strong>.

@@ -22,7 +22,7 @@ const decoder = webTokenLibrary({
 
 function decodeToken (token, callBackFunction) {
   try {
-    if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> decodeToken -> Entering function.') }
+    if (process.env.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> decodeToken -> Entering function.') }
 
     const decoded = JSONWebToken.decode(token, { complete: true })
     const header = decoded.header
@@ -33,8 +33,8 @@ function decodeToken (token, callBackFunction) {
       header.kid === null ||
       payload === null
     ) {
-      if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> Invalid Token. ') }
-      if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> token = ' + token) }
+      if (process.env.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> Invalid Token. ') }
+      if (process.env.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> token = ' + token) }
       callBackFunction(global.DEFAULT_FAIL_RESPONSE)
       return
     }
@@ -42,12 +42,12 @@ function decodeToken (token, callBackFunction) {
     decoder.getSigningKey(header.kid, onKeyReady)
 
     function onKeyReady (err, key) {
-      if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> Entering function.') }
+      if (process.env.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> Entering function.') }
 
       if (err) {
-        if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> Error getting the key. ') }
-        if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> key = ' + key) }
-        if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> err = ' + err) }
+        if (process.env.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> Error getting the key. ') }
+        if (process.env.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> key = ' + key) }
+        if (process.env.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> err = ' + err) }
         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
         return
       }
@@ -59,12 +59,12 @@ function decodeToken (token, callBackFunction) {
         onVerified)
 
       function onVerified (err, decoded) {
-        if (global.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> onVerified -> Entering function.') }
+        if (process.env.INFO_LOG === true) { console.log('[INFO] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> onVerified -> Entering function.') }
 
         if (err) {
-          if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> onVerified -> Error verifying. ') }
-          if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> onVerified -> decoded = ' + decoded) }
-          if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> onVerified -> err = ' + err) }
+          if (process.env.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> onVerified -> Error verifying. ') }
+          if (process.env.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> onVerified -> decoded = ' + decoded) }
+          if (process.env.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> onKeyReady -> onVerified -> err = ' + err) }
           callBackFunction(global.DEFAULT_FAIL_RESPONSE)
           return
         }
@@ -73,7 +73,7 @@ function decodeToken (token, callBackFunction) {
       }
     }
   } catch (err) {
-    if (global.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> err = ' + err) }
+    if (process.env.ERROR_LOG === true) { console.log('[ERROR] ' + MODULE_NAME + ' -> decodeToken -> err = ' + err) }
     callBackFunction(global.DEFAULT_FAIL_RESPONSE)
   }
 }

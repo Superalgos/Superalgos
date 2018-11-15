@@ -98,7 +98,7 @@ class Header extends Component {
           <ul className='subMenu'>
             { bigScreen
               ? ''
-              : <li key={index + 'home'}><Link to={to}> <Icon /> Homepage </Link></li>
+              : <li key={index + 'home'}><Link to={to}> <Icon /> Module Home Page </Link></li>
             }
             {
               submenus.map(({ icon: SubIcon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {

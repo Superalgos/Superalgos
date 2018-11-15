@@ -1,5 +1,4 @@
 
 client/node_modules/*
 server/node_modules/*
-server/auth/Auth0.js
 server/.env

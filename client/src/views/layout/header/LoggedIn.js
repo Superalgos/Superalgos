@@ -19,9 +19,10 @@ export const LoggedIn = props => {
     displayName = user.firstName
   }
 
-  if (isDefined(user.firstName) && isDefined(user.lastName)) {
-    displayName = user.firstName + ' ' + user.lastName
-  }
+  displayName = displayName.split('-')[0]
+  displayName = displayName.split('.')[0]
+  displayName = displayName.split('_')[0]
+  displayName = displayName.split(' ')[0]
 
   return (
 

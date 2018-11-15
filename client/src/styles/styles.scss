@@ -1,10 +1,9 @@
-$break-big: 1280px;
-$break-middle: 992px;
-$break-small: 768px;
-$break-extra-small: 532px;
+$break-lg: 1200px;
+$break-md: 992px;
+$break-sm: 768px;
+$break-xs: 540px;
 
-$height-large-device: 131px;
-$height-small-device: 220px;
+$height-nav-bar: 131px;
 
 $height-not-top: 87px;
 
@@ -65,6 +64,23 @@ body{
   }
 }
 
+.container{
+  padding: 15px 15px 15px 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 100%;
+  @media screen and (min-width: $break-sm) {
+    width: 768px;
+  }
+  @media screen and (min-width: $break-md) {
+    width: 970px;
+  }
+  @media screen and (min-width: $break-lg) {
+    width: 1170px;
+  }
+}
+
 header.menu{
   transition: $transition-time;
   &.notOnTop{
@@ -82,7 +98,7 @@ header.menu{
         margin-bottom: ( $height-not-top - $mobile-handle-height ) / 2 ;
       }
       nav.links{
-        @media screen and (min-width: $break-big) {
+        @media screen and (min-width: $break-lg) {
           ul.primaryMenu{
             li.primaryLink{
               padding-top: ( $height-not-top - $text-height ) / 2;
@@ -94,36 +110,23 @@ header.menu{
     }
   }
   position: fixed;
-  height: $height-large-device;
+  height: $height-nav-bar;
   width: 100vw;
   z-index: 125;
 
-  @media screen and (max-width: $break-extra-small) {
-    height: $height-small-device;
-  }
   .container{
+    padding-top: 0px;
+    padding-bottom: 0px;
     height: 100%;
     border-bottom: 1px solid rgba(142, 144, 146, 0.3);
-
-    width: 100%;
-    @media screen and (min-width: $break-small) {
-      width: 750px;
-    }
-    @media screen and (min-width: $break-middle) {
-      width: 970px;
-    }
-    @media screen and (min-width: $break-big) {
-      width: 1270px;
-    }
-
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
     img.logo{
       transition: $transition-time;
-      margin-top: ( $height-large-device - $image-height-big ) / 2 ;
+      margin-top: ( $height-nav-bar - $image-height-big ) / 2 ;
       height: $image-height-big;
+      @media screen and (max-width: $break-xs) {
+        height: $image-height-small;
+        margin-top: ( $height-nav-bar - $image-height-small ) / 2 ;
+      }
     }
     .mobileHandle.openedMobile{
       &:before{
@@ -169,21 +172,21 @@ header.menu{
       float: right;
       width: auto;
       clear: none;
-      margin-top: ( $height-large-device - $mobile-handle-height ) / 2 ;
-      margin-bottom: ( $height-large-device - $mobile-handle-height ) / 2 ;
-      margin-left: 0;
+      margin-top: ( $height-nav-bar - $mobile-handle-height ) / 2 ;
+      margin-bottom: ( $height-nav-bar - $mobile-handle-height ) / 2 ;
+      margin-left: 0 !important;
       margin-right: 20px;
       margin: 41px 0 42px 20px;
       padding: 0 18px 0 40px;
       position: relative;
       text-decoration: none;
       border-radius: 31px;
-      @media screen and (min-width: $break-big) {
+      @media screen and (min-width: $break-lg) {
         display: none;
       }
     }
     nav.links{
-      @media screen and (max-width: $break-big - 1) {
+      @media screen and (max-width: $break-lg - 1) {
         display: none;
         &.openedMobile{
           display: block;
@@ -209,7 +212,7 @@ header.menu{
                 border: solid white;
                 border-width: 0 2px 2px 0;
                 padding: 3px;
-                margin-top: 18px;
+                margin-top: -32px;
                 margin-right: 7px;
                 transform: rotate(45deg);
                 -webkit-transform: rotate(45deg);
@@ -232,6 +235,9 @@ header.menu{
               &:hover{
                 color: $advanced-algos-red;
               }
+              svg{
+                padding-top: 10px;
+              }
             }
             ul.subMenu{
               display: none;
@@ -245,7 +251,7 @@ header.menu{
           }
         }
       }
-      @media screen and (min-width: $break-big) {
+      @media screen and (min-width: $break-lg) {
         display: block;
         float: right;
         ul.primaryMenu{
@@ -262,10 +268,10 @@ header.menu{
             display: block;
             float: left;
             position: relative;
-            padding-top: ( $height-large-device - $text-height ) / 2;
-            padding-bottom: ( $height-large-device - $text-height ) / 2;
-            padding-right: 21px;
-            padding-left: 21px;
+            padding-top: ( $height-nav-bar - $text-height ) / 2;
+            padding-bottom: ( $height-nav-bar - $text-height ) / 2;
+            padding-right: 14px;
+            padding-left: 14px;
             &.hasChildren{
               &:after{
                 content: '';
@@ -289,6 +295,9 @@ header.menu{
               text-decoration: none;
               &.selected{
                 color: $advanced-algos-red;
+              }
+              svg{
+                padding-top: 10px;
               }
             }
             ul.subMenu{
@@ -327,6 +336,7 @@ header.menu{
 
 .bannerTopBar{
   background-position: center center;
+  background-size: cover;
   background-image: url(https://advancedalgos.net/img/photos/teams.jpg);
   width: 100%;
   height: 220px;
@@ -354,42 +364,31 @@ header.menu{
       font-size: 64px;
       line-height: 78px;
       font-weight: 100;
-      @include fluid-type($break-extra-small, $break-big, 26px, 64px);
+      @include fluid-type($break-xs, $break-lg, 26px, 64px);
     }
     .text{
       color: white;
       line-height: 30px;
       font-weight: 600;
       padding: 20px 0 0.5em 0;
-      @include fluid-type($break-extra-small, $break-big, 18px, 20px);
+      @include fluid-type($break-xs, $break-lg, 18px, 20px);
     }
   }
 }
 
-.homePage{
+.homePage.container{
   padding-top: 70px;
   padding-bottom: 70px;
-  margin-right: auto;
-  margin-left: auto;
-  @media screen and (min-width: $break-small) {
-    width: 750px;
-  }
-  @media screen and (min-width: $break-middle) {
-    width: 970px;
-  }
-  @media screen and (min-width: 1200px) {
-    width: 1170px;
-  }
   .title{
     padding: 0 0 10px 0;
-    font-size: 45px;
+    @include fluid-type($break-xs, $break-lg, 24px, 45px);
     line-height: 55px;
     padding: 40px 0 0.5em 0;
     font-weight: 100;
   }
   .subtitle{
     padding-bottom: 5px;
-    font-size: 20px;
+    @include fluid-type($break-xs, $break-lg, 18px, 20px);
     line-height: 19px;
     font-weight: 100;
     text-transform: uppercase;
@@ -402,7 +401,7 @@ header.menu{
     display: inline-block;
     width: 100%;
     padding: 10px;
-    @media screen and (min-width: $break-small) {
+    @media screen and (min-width: $break-sm) {
       width: 50%;
     }
     p{
@@ -421,5 +420,26 @@ header.menu{
       }
     }
   }
+}
 
+.toTop{
+  position: fixed;
+  height: 40px;
+  width: 40px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+  background-color: #1a1a1a;
+  border-radius: 100%;
+  &:after{
+    content: '';
+    float: right;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    padding: 3px;
+    margin-top: 18px;
+    margin-right: 15px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
 }

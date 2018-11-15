@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import withWidth from '@material-ui/core/withWidth'
 import { Mutation } from 'react-apollo'
@@ -45,8 +46,8 @@ export class SignupForm extends Component {
         {(NewsletterSignup, { loading, error, data }) => {
           return (
             <Grid container className={classes.signupRight} direction='column' justify={alignCenter ? 'center' : 'flex-start'}>
-              {displayTitle && <Typography variant='h4' className={classes.textWhite} gutterBottom>Stay in touch!</Typography>}
-              {displayIntro && <Typography variant='subtitle1' className={classes.textWhite} gutterBottom>Opt-in our mailing list to stay up to date with the Advanced Algos Project.</Typography>}
+              {displayTitle && <Typography variant='h4' className={classNames(classes.textWhite, classes.signupTitle)} gutterBottom>Stay in touch!</Typography>}
+              {displayIntro && <Typography variant='subtitle1' className={classNames(classes.textWhite, classes.signupText)} gutterBottom>Opt-in our mailing list to stay up to date with the Advanced Algos Project.</Typography>}
               <form id='email-signup' action='#' className='form-inline' autoComplete='off'>
                 <Typography
                   variant='subtitle1'

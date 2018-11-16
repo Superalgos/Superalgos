@@ -65,7 +65,7 @@ export class InviteMemberDialog extends Component {
             let loader = null
             if (loading) {
               loader = (
-                <Typography variant='subheading'>Submitting invitation...</Typography>
+                <Typography variant='subtitle1'>Submitting invitation...</Typography>
               )
             }
             if (error) {
@@ -120,7 +120,7 @@ export class InviteMemberDialog extends Component {
                       </FormControl>
                     )}
                     {data !== undefined && data.sendMemberInviteSG === 'Success' && (
-                      <Typography variant='subheading'>Invitation successfully sent!</Typography>
+                      <Typography variant='subtitle1'>Invitation successfully sent!</Typography>
                     )}
                   </DialogContent>
                   <DialogActions>

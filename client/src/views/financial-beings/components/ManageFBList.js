@@ -83,7 +83,7 @@ export const ManageFBList = ({ classes }) => (
                   <Typography variant='h5' align='center'>
                     You don&rsquo;t have any financial being. To create one, create a team first!
                   </Typography>
-                  <Typography variant='body2' align='center' gutterBottom>
+                  <Typography variant='body1' align='center' gutterBottom>
                     After you create a team, a default trading algobot will be cloned and added to your team so
                     that you can begin experimenting right away.
                   </Typography>

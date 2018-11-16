@@ -203,7 +203,7 @@ export class ManageTeamEdit extends Component {
                 debug
               />
               <Grid container className={classes.editContentContainer}>
-                <Grid item md={3} alignSelf='stretch'>
+                <Grid item md={3} >
                   <Grid container className={classes.teamMeta} direction='column' justify='flex-start'>
                     <Grid item>
                       <ImageUpload

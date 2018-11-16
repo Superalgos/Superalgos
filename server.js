@@ -435,7 +435,7 @@ function onBrowserRequest(request, response) {
             }
             break;
 
-        case "CloudVM": // This means the Scripts folder.
+        case "CloudVM": // This means the CloudVM folder.
             {
                 let filePath = requestParameters[2];
 
@@ -447,7 +447,7 @@ function onBrowserRequest(request, response) {
                     filePath = filePath + "/" + requestParameters[4];
                 }
 
-                respondWithFile('./CloudVM/' + filePath, response);
+                respondWithFile(serverConfig.pathToCanvasApp +'/CloudVM/' + filePath, response);
 
             }
             break;
@@ -464,7 +464,7 @@ function onBrowserRequest(request, response) {
                     filePath = filePath + "/" + requestParameters[4];
                 }
 
-                respondWithFile('./Exchange/' + filePath, response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/Exchange/' + filePath, response);
 
             }
             break;
@@ -508,7 +508,7 @@ function onBrowserRequest(request, response) {
         case "BottomSpace": // This means the BottomSpace folder.
             {
 
-                respondWithFile('./BottomSpace/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/BottomSpace/' + requestParameters[2], response);
 
             }
             break;
@@ -516,7 +516,7 @@ function onBrowserRequest(request, response) {
         case "TopSpace": // This means the TopSpace folder.
             {
 
-                respondWithFile('./TopSpace/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/TopSpace/' + requestParameters[2], response);
 
             }
             break;
@@ -1041,13 +1041,13 @@ function onBrowserRequest(request, response) {
             break;
         case "Panels":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
         case "ChartLayers":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
@@ -1059,25 +1059,25 @@ function onBrowserRequest(request, response) {
 
         case "Spaces":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
         case "Scales":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
         case "Files":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
         case "FloatingSpace":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
@@ -1125,7 +1125,7 @@ function onBrowserRequest(request, response) {
             }
         } else {
 
-            respondWithFile("" + requestParameters[1], response);
+            respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1], response);
 
         }
     }

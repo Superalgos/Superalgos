@@ -39,44 +39,17 @@
     <Compile Include="AABrowserAPI\UserAuthentication.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Animation.js" />
     <Compile Include="Azure\azure-storage.blob.js" />
-    <Compile Include="BottomSpace\DeleteTradingHistory.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="BreakpointsBar.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="BottomSpace\ChartAspectRatio.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CloudVM\CloudRequire.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CloudVM\CloudVM.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CloudVM\Exchange\ExchangeAPI.js" />
-    <Compile Include="Exchange\ExchangeAPI.js" />
+    <Compile Include="Ecosystem.js" />
+    <Compile Include="Plotter.js" />
+    <Compile Include="PlotterPanel.js" />
     <Compile Include="Server\Exchange\ExchangeAPI.js" />
     <Compile Include="Server\Exchange\exchangeUtils.js" />
-    <Compile Include="Globals.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Server\Exchange\Wrappers\beautifier.js" />
     <Compile Include="Server\Exchange\Wrappers\binance.js" />
     <Compile Include="Server\Exchange\Wrappers\binanceClient.js" />
     <Compile Include="Server\Exchange\Wrappers\poloniex.js" />
     <Compile Include="Server\Exchange\Wrappers\poloniexClient.js" />
-    <Compile Include="TopSpace\Login.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PlottersManager.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Scales\RightScale.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Scripts\AppLoader.js">
       <SubType>Code</SubType>
     </Compile>
@@ -89,68 +62,7 @@
     <Compile Include="Server\SessionManager.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CloudVM\CloudSupport.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CloudVM\WebFS.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FloatingSpace\Note.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FloatingSpace\NoteSets.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FloatingSpace\FloatingObject.js" />
-    <Compile Include="CompetitionStorage.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Files\FileSequence.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FloatingSpace\FloatingLayer.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ImageButton.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Server\StorageAccessManager.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Spaces\BottomSpace.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Spaces\TopSpace.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TopSpace\CompanyLogo.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TopSpace\CurrentBot.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TopSpace\CurrentProcess.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TopSpace\CurrentStartMode.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TopSpace\DevTeam.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TopSpace\EndUser.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="BottomSpace\PlayStopButton.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebDebugLog.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FloatingSpace\ProfileBalls.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FloatingSpace\ProfileBall.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Scripts\require.js" />
@@ -166,63 +78,7 @@
     <Compile Include="Server\Storage.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spaces\PanelsSpace.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PlotterPanel.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ProductCard.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Ecosystem.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Files\SingleFile.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Files\FileCloud.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Files\FileCursor.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Files\DailyFiles.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Candle.js" />
-    <Compile Include="Canvas.js" />
-    <Compile Include="Scales\ChartGrid.js" />
-    <Compile Include="Spaces\ChartSpace.js" />
-    <Compile Include="ChartUtilities.js" />
-    <Compile Include="Container.js" />
-    <Compile Include="Dashboard.js" />
-    <Compile Include="Files\MarketFiles.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Plotter.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="server.js" />
-    <Compile Include="Displace.js" />
-    <Compile Include="EventHandler.js" />
-    <Compile Include="Spaces\FloatingSpace.js" />
-    <Compile Include="Frame.js" />
-    <Compile Include="Panels\ProductsPanel.js" />
-    <Compile Include="Panels\TimeControlPanel.js" />
-    <Compile Include="TimeLineCoordinateSystem.js" />
-    <Compile Include="SplashScreen.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ProductStorage.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TextButton.js" />
-    <Compile Include="TimelineChart.js" />
-    <Compile Include="TimeMachine.js" />
-    <Compile Include="Utilities.js" />
-    <Compile Include="ViewPort.js" />
-    <Compile Include="VolumeBar.js" />
     <Content Include="index.html" />
     <Content Include="Server\Exchange\Wrappers\binanceProperties.json" />
     <Content Include="Server\Exchange\Wrappers\poloniexProperties.json" />
@@ -230,21 +86,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Azure\" />
-    <Folder Include="CloudVM\" />
-    <Folder Include="CloudVM\Exchange\" />
-    <Folder Include="Exchange\" />
     <Folder Include="Server\Exchange\" />
-    <Folder Include="Files\" />
-    <Folder Include="FloatingSpace\" />
     <Folder Include="AABrowserAPI\" />
-    <Folder Include="BottomSpace\" />
-    <Folder Include="Scales\" />
     <Folder Include="Server\Exchange\Wrappers\" />
-    <Folder Include="TopSpace\" />
     <Folder Include="Scripts\" />
     <Folder Include="Server\" />
-    <Folder Include="Spaces\" />
-    <Folder Include="Panels\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

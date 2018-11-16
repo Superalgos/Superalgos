@@ -85,7 +85,7 @@ const ManageTeamProfileView = ({ classes, team }) => {
     <React.Fragment>
       <img src={banner} alt={team.name} className={classes.banner} />
       <Grid container>
-        <Grid md={3}>
+        <Grid item md={3}>
           <Grid container className={classes.teamMeta} direction='column' justify='center'>
             <img src={avatar} alt={team.name} className={classes.avatar} />
             <Typography variant='subtitle1' paragraph gutterBottom>
@@ -99,7 +99,7 @@ const ManageTeamProfileView = ({ classes, team }) => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid md={9}>
+        <Grid item md={9}>
           <Grid container className={classes.teamContent} direction='column'>
             <Typography
               variant='h2'

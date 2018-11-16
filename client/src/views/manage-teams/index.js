@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { BannerTopBar } from '../common'
 import ManageTeamsList from './components/ManageTeamsList'
 
-const ManageTeams = ({ classes, match, ...props }) => (
+const ManageTeams = ({ match, ...props }) => (
   <div>
     <BannerTopBar
       size={match.params.slug !== undefined ? 'small' : 'medium'}
@@ -19,7 +19,6 @@ const ManageTeams = ({ classes, match, ...props }) => (
 )
 
 ManageTeams.propTypes = {
-  classes: PropTypes.object.isRequired,
   match: PropTypes.object
 }
 

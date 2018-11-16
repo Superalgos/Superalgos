@@ -128,7 +128,7 @@ export const ManageTeamsList = ({ classes, match, ...props }) => (
       } else {
         return (
           <div className={classes.root} >
-            <Grid spacing={0} direction='column' justify='center' alignItems='center'>
+            <Grid container spacing={0} direction='column' justify='center' alignItems='center'>
               <Grid item xs={12}>
                 {errors === null &&
                   <Typography variant='h5' align='center' gutterBottom>

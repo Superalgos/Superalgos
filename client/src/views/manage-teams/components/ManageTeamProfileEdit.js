@@ -48,11 +48,15 @@ const styles = theme => ({
     margin: '0 auto',
     padding: `0 0 ${theme.spacing.unit * 2}px`
   },
+  editContentContainer: {
+    marginBottom: `${theme.spacing.unit * 3}px`
+  },
   teamMeta: {
     borderRight: '1px solid #CCCCCC',
     margin: `${theme.spacing.unit * 3}px 0 0`,
     paddingLeft: `${theme.spacing.unit * 2}px`,
-    textAlign: 'center'
+    textAlign: 'center',
+    height: '100%'
   },
   teamContent: {
     '& h2': {
@@ -171,7 +175,12 @@ export class ManageTeamEdit extends Component {
                 fileName={`${team.slug}-banner.jpg`}
                 containerName={containerName}
                 existingImage={banner}
-                imagePreviewConfig={{ width: 800, title: 'Change Banner' }}
+                imagePreviewConfig={{
+                  width: '800px',
+                  height: '200px',
+                  title: 'Change Banner',
+                  fontSize: '1.5em'
+                }}
                 cropContainerConfig={{ x: 10, y: 10, width: 800, height: 200 }}
                 cropPreviewBox={{ width: 650, height: 200 }}
                 saveImageConfig={{
@@ -181,35 +190,56 @@ export class ManageTeamEdit extends Component {
                   autoRotate: true,
                   mimeType: 'image/jpeg'
                 }}
+                containerStyle={{
+                  display: 'block',
+                  margin: 0,
+                  height: '200px',
+                  width: '800px',
+                  overflow: 'visible'
+                }}
                 AzureStorageUrl={AzureStorageUrl}
                 AzureSASURL={AzureStorageSAS}
                 cropRatio={4}
                 debug
               />
-              <Grid container>
-                <Grid md={3}>
-                  <Grid container className={classes.teamMeta} direction='column' justify='center'>
-                    <ImageUpload
-                      key='avatar1'
-                      handleUrl={this.handleAvatar}
-                      fileName={`${team.slug}-avatar.jpg`}
-                      containerName={containerName}
-                      existingImage={avatar}
-                      imagePreviewConfig={{ width: 125, title: 'Change Avatar' }}
-                      cropContainerConfig={{ x: 10, y: 10, width: 200, height: 200 }}
-                      cropPreviewBox={{ width: 350, height: 350 }}
-                      saveImageConfig={{
-                        quality: 0.6,
-                        maxWidth: 200,
-                        maxHeight: 200,
-                        autoRotate: true,
-                        mimeType: 'image/jpeg'
-                      }}
-                      AzureStorageUrl={AzureStorageUrl}
-                      AzureSASURL={AzureStorageSAS}
-                      cropRatio={1}
-                      debug
-                    />
+              <Grid container className={classes.editContentContainer}>
+                <Grid item md={3} alignSelf='stretch'>
+                  <Grid container className={classes.teamMeta} direction='column' justify='flex-start'>
+                    <Grid item>
+                      <ImageUpload
+                        key='avatar1'
+                        handleUrl={this.handleAvatar}
+                        fileName={`${team.slug}-avatar.jpg`}
+                        containerName={containerName}
+                        existingImage={avatar}
+                        imagePreviewConfig={{
+                          width: '125px',
+                          height: '125px',
+                          title: 'Change Avatar',
+                          fontSize: '1.5em'
+                        }}
+                        cropContainerConfig={{ x: 10, y: 10, width: 200, height: 200 }}
+                        cropPreviewBox={{ width: 350, height: 350 }}
+                        saveImageConfig={{
+                          quality: 0.6,
+                          maxWidth: 200,
+                          maxHeight: 200,
+                          autoRotate: true,
+                          mimeType: 'image/jpeg'
+                        }}
+                        containerStyle={{
+                          display: 'block',
+                          margin: '0 auto 12px',
+                          height: '125px',
+                          width: '125px',
+                          overflow: 'visible'
+                        }}
+                        AzureStorageUrl={AzureStorageUrl}
+                        AzureSASURL={AzureStorageSAS}
+                        cropRatio={1}
+                        debug
+                      />
+                    </Grid>
                     <Typography variant='subtitle1' paragraph gutterBottom>
                       Members: {team.members.length}
                     </Typography>
@@ -221,7 +251,7 @@ export class ManageTeamEdit extends Component {
                     </Typography>
                   </Grid>
                 </Grid>
-                <Grid md={9}>
+                <Grid item md={9}>
                   <Grid container className={classes.teamContent} direction='column'>
                     <Typography
                       variant='h2'

@@ -60,7 +60,7 @@ export const resolvers = {
       logger.info('createTeamUrl:')
       logger.info(JSON.stringify(await createTeamUrl))
 
-      const platformUrl = 'https://app-dev.advancedalgos.net/AABrowserAPI/newTeam/'
+      const platformUrl = 'https://charts-dev.advancedalgos.net/AABrowserAPI/newTeam/'
       // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
 
       logger.info(`${platformUrl}${createTeamUrl}/${authId}`)
@@ -152,7 +152,7 @@ export const resolvers = {
           logger.info('deleteTeamUrl:')
           logger.info(JSON.stringify(await deleteTeamUrl))
 
-          const platformUrl = 'https://app-dev.advancedalgos.net/AABrowserAPI/deleteTeam/'
+          const platformUrl = 'https://charts-dev.advancedalgos.net/AABrowserAPI/deleteTeam/'
           // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
 
           logger.info(`${platformUrl}${deleteTeamUrl}/${authId}`)

@@ -65,10 +65,7 @@ const styles = theme => ({
     borderTop: '1px solid #CCCCCC',
     width: '90%',
     margin: `${theme.spacing.unit * 3}px auto`,
-    paddingTop: `${theme.spacing.unit * 3}px`,
-    '& h4': {
-      padding: `0 ${theme.spacing.unit * 3}px ${theme.spacing.unit * 1}px`
-    }
+    paddingTop: `${theme.spacing.unit * 3}px`
   },
   banner: {
     maxWidth: '100%',

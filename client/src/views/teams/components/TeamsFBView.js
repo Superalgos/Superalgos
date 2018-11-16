@@ -4,12 +4,9 @@ import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
-
-import ManageTeamProfileFBEdit from './ManageTeamProfileFBEdit'
 
 import log from '../../../utils/log'
 
@@ -37,7 +34,7 @@ const styles = theme => ({
   }
 })
 
-export const ManageTeamProvileFBView = ({ classes, team }) => {
+export const TeamsFBView = ({ classes, team }) => {
   log.debug('ManageTeamProvileFBView', team, team.fb[0], team.fb[0].avatar)
 
   let avatar = (team.fb[0].avatar !== undefined && team.fb[0].avatar !== null) ? team.fb[0].avatar : 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
@@ -59,18 +56,15 @@ export const ManageTeamProvileFBView = ({ classes, team }) => {
               {team.fb[0].kind}
             </Typography>
           </CardContent>
-          <CardActions>
-            <ManageTeamProfileFBEdit slug={team.slug} fb={team.fb[0]} />
-          </CardActions>
         </div>
       </Card>
     </Grid>
   )
 }
 
-ManageTeamProvileFBView.propTypes = {
+TeamsFBView.propTypes = {
   classes: PropTypes.object.isRequired,
   team: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(ManageTeamProvileFBView)
+export default withStyles(styles)(TeamsFBView)

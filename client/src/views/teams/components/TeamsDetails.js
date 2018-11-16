@@ -8,6 +8,8 @@ import { withStyles } from '@material-ui/core/styles'
 
 import { Link } from 'react-router-dom'
 
+import TeamsFBView from './TeamsFBView'
+
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -41,8 +43,12 @@ const styles = theme => ({
     margin: '0 auto',
     padding: `0 0 ${theme.spacing.unit * 2}px`
   },
+  metaContainer: {
+    marginTop: `${theme.spacing.unit * 1}px`,
+    alignSelf: 'stretch',
+    borderRight: '1px solid #CCCCCC'
+  },
   teamMeta: {
-    borderRight: '1px solid #CCCCCC',
     margin: `${theme.spacing.unit * 3}px 0 0`,
     paddingLeft: `${theme.spacing.unit * 2}px`,
     textAlign: 'center'
@@ -57,6 +63,12 @@ const styles = theme => ({
     '& h6': {
       padding: `0 ${theme.spacing.unit * 3}px 0`
     }
+  },
+  fbContent: {
+    borderTop: '1px solid #CCCCCC',
+    width: '90%',
+    margin: `${theme.spacing.unit * 3}px auto`,
+    paddingTop: `${theme.spacing.unit * 3}px`
   },
   banner: {
     maxWidth: '100%',
@@ -102,7 +114,7 @@ const TeamsDetails = ({ classes, team }) => {
           <div className={classes.heroContent}>
             <img src={banner} alt={team.name} className={classes.banner} />
             <Grid container>
-              <Grid md={3}>
+              <Grid md={3} className={classes.metaContainer}>
                 <Grid container className={classes.teamMeta} direction='column' justify='center'>
                   <img src={avatar} alt={team.name} className={classes.avatar} />
                   <Typography variant='subtitle1' paragraph gutterBottom>
@@ -135,6 +147,16 @@ const TeamsDetails = ({ classes, team }) => {
                   <Typography variant='h6' color='textPrimary' gutterBottom>
                     Description: {team.profile.description}
                   </Typography>
+                </Grid>
+                <Grid container className={classes.fbContent} direction='column'>
+                  <Typography
+                    variant='h4'
+                    color='textSecondary'
+                    gutterBottom
+                  >
+                    Financial Beings
+                  </Typography>
+                  <TeamsFBView team={team} />
                 </Grid>
               </Grid>
             </Grid>

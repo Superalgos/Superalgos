@@ -63,7 +63,7 @@ export const ManageMembersTeamItem = ({ classes, team, authId }) => {
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
     avatar = team.profile.avatar
   } else {
-    avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+    avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
   }
   if (team.members.length > 0) {
     return (

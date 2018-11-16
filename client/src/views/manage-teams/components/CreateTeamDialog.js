@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Mutation } from 'react-apollo'
 import { withStyles } from '@material-ui/core/styles'
 
+import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
 import TextField from '@material-ui/core/TextField'
@@ -34,14 +35,8 @@ const styles = theme => ({
     marginLeft: '20%',
     marginBottom: 10
   },
-  buttonRight: {
-    // position: 'absolute',
-    // right: '3em'
-    marginTop: '1em',
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    display: 'block',
-    lineHeight: '1em'
+  buttonFab: {
+    backgroundColor: '#CCCCCC'
   }
 })
 
@@ -93,12 +88,12 @@ export class CreateTeamDialog extends Component {
             })
           }
           return (
-            <div>
+            <Grid container justify='center'>
               <Button
                 variant='fab'
                 color='primary'
                 aria-label='Add'
-                className={classes.buttonRight}
+                className={classes.buttonFab}
                 onClick={this.handleClickOpen}
               >
                 <AddIcon />
@@ -172,7 +167,7 @@ export class CreateTeamDialog extends Component {
                   </DialogActions>
                 </div>
               </Dialog>
-            </div>
+            </Grid>
           )
         }}
       </Mutation>

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
@@ -19,9 +18,7 @@ const styles = theme => ({
     }
   },
   layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    width: '100%',
     marginBottom: theme.spacing.unit * 6,
     [theme.breakpoints.up(800 + theme.spacing.unit * 3 * 2)]: {
       width: 800,
@@ -36,25 +33,42 @@ const styles = theme => ({
     [theme.breakpoints.up(800 + theme.spacing.unit * 3 * 2)]: {
       marginTop: theme.spacing.unit * 3,
       marginBottom: theme.spacing.unit * 6,
-      padding: `0 0 ${theme.spacing.unit * 6}px`
+      padding: `0 0 ${theme.spacing.unit * 2}px`
     }
   },
   heroContent: {
     maxWidth: 800,
     margin: '0 auto',
-    padding: `0 0 ${theme.spacing.unit * 6}px`
+    padding: `0 0 ${theme.spacing.unit * 2}px`
+  },
+  teamMeta: {
+    borderRight: '1px solid #CCCCCC',
+    margin: `${theme.spacing.unit * 3}px 0 0`,
+    paddingLeft: `${theme.spacing.unit * 2}px`,
+    textAlign: 'center'
   },
   teamContent: {
-    margin: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 3}px 0 0`
+    '& h2': {
+      padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 2}px`
+    },
+    '& h4': {
+      padding: `0 ${theme.spacing.unit * 3}px ${theme.spacing.unit * 2}px`
+    },
+    '& h6': {
+      padding: `0 ${theme.spacing.unit * 3}px 0`
+    }
   },
   banner: {
     maxWidth: '100%',
-    height: 'auto'
+    height: 'auto',
+    width: '100%'
   },
   avatar: {
-    maxWidth: 100,
-    height: 100,
-    margin: `${theme.spacing.unit * 1}px 0 0 ${theme.spacing.unit * 3}px `
+    maxWidth: 125,
+    height: 125,
+    margin: `0 auto ${theme.spacing.unit * 2}px`,
+    verticalAlign: 'middle',
+    borderRadius: '50%'
   },
   backLink: {
     display: 'block',
@@ -69,25 +83,38 @@ const TeamsDetails = ({ classes, team }) => {
   if (team.profile.avatar !== undefined && team.profile.avatar !== null) {
     avatar = team.profile.avatar
   } else {
-    avatar = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164edaf95ee%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164edaf95ee%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.32500076293945%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E'
+    avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
   }
   let banner
   if (team.profile.banner !== undefined && team.profile.banner !== null) {
     banner = team.profile.banner
   } else {
-    banner = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164edaf95ee%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164edaf95ee%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.32500076293945%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E'
+    banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
   }
+
+  const created = new Date(team.createdAt)
+
   return (
-    <React.Fragment>
-      <CssBaseline />
+    <div className='container'>
       <main className={classes.layout}>
-        <Link to='/teams' className={classes.backLink}>&larr; Back to all teams</Link>
+        <Link to='/teams/explore' className={classes.backLink}>&larr; Back to all teams</Link>
         <Paper className={classes.paper}>
           <div className={classes.heroContent}>
             <img src={banner} alt={team.name} className={classes.banner} />
             <Grid container>
               <Grid md={3}>
-                <img src={avatar} alt={team.name} className={classes.avatar} />
+                <Grid container className={classes.teamMeta} direction='column' justify='center'>
+                  <img src={avatar} alt={team.name} className={classes.avatar} />
+                  <Typography variant='subtitle1' paragraph gutterBottom>
+                    Members: {team.members.length}
+                  </Typography>
+                  <Typography variant='subtitle1' paragraph gutterBottom>
+                    Financial Beings: 1
+                  </Typography>
+                  <Typography variant='subtitle1' paragraph gutterBottom>
+                    Created: {created.toLocaleDateString()}
+                  </Typography>
+                </Grid>
               </Grid>
               <Grid md={9}>
                 <Grid container className={classes.teamContent} direction='column'>
@@ -98,17 +125,15 @@ const TeamsDetails = ({ classes, team }) => {
                   >
                     {team.name}
                   </Typography>
-                  <Typography variant='subtitle1' color='textSecondary'>
-                    {team.createdAt}
-                  </Typography>
-                  <Typography variant='subtitle1' color='textSecondary'>
+                  <Typography
+                    variant='h4'
+                    color='textSecondary'
+                    gutterBottom
+                  >
                     Motto: {team.profile.motto}
                   </Typography>
-                  <Typography variant='subtitle1' color='textSecondary'>
+                  <Typography variant='h6' color='textPrimary' gutterBottom>
                     Description: {team.profile.description}
-                  </Typography>
-                  <Typography variant='subtitle1' paragraph gutterBottom>
-                    Members: {team.members.length}
                   </Typography>
                 </Grid>
               </Grid>
@@ -116,7 +141,7 @@ const TeamsDetails = ({ classes, team }) => {
           </div>
         </Paper>
       </main>
-    </React.Fragment>
+    </div>
   )
 }
 TeamsDetails.propTypes = {

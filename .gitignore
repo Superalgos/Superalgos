@@ -1,0 +1,7 @@
+
+.vs/*
+obj/*
+bin/*
+
+node_modules/*
+this.server.config.json

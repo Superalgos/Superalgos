@@ -19,7 +19,7 @@
 
             try {
                 let fs = require('fs');
-                filePath = '../' + 'Storage' + '/' + 'Storage.Permissions.json';
+                filePath = './' + 'Storage' + '/' + 'Storage.Permissions.json';
                 permissions = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
                 callBackFunction();

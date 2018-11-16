@@ -51,8 +51,12 @@ const styles = theme => ({
   editContentContainer: {
     marginBottom: `${theme.spacing.unit * 3}px`
   },
+  metaContainer: {
+    marginTop: `${theme.spacing.unit * 1}px`,
+    alignSelf: 'stretch',
+    borderRight: '1px solid #CCCCCC'
+  },
   teamMeta: {
-    borderRight: '1px solid #CCCCCC',
     margin: `${theme.spacing.unit * 3}px 0 0`,
     paddingLeft: `${theme.spacing.unit * 2}px`,
     textAlign: 'center',
@@ -60,19 +64,20 @@ const styles = theme => ({
   },
   teamContent: {
     '& h2': {
-      padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 2}px`
+      padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 3}px 0`
     },
     '& h4': {
       padding: `0 ${theme.spacing.unit * 3}px 0`
     },
     '& h6': {
-      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px 0`
+      padding: `0 ${theme.spacing.unit * 3}px 0`
     }
   },
   editInput: {
     padding: `0 ${theme.spacing.unit * 3}px ${theme.spacing.unit * 2}px`,
     '& label': {
-      padding: `0 ${theme.spacing.unit * 3}px 0`
+      display: 'none',
+      padding: `0 ${theme.spacing.unit * 4}px 0`
     }
   },
   banner: {
@@ -89,7 +94,7 @@ const styles = theme => ({
   }
 })
 
-export class ManageTeamEdit extends Component {
+export class ManageTeamProfileEdit extends Component {
   constructor (props) {
     super(props)
 
@@ -99,8 +104,9 @@ export class ManageTeamEdit extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleAvatar = this.handleAvatar.bind(this)
     this.handleBanner = this.handleBanner.bind(this)
+    this.startSave = this.startSave.bind(this)
 
-    log.debug('ManageTeamEdit', props.team)
+    log.debug('ManageTeamProfileEdit constructor', props.team)
     const motto = props.team.profile.motto || ''
     const description = props.team.profile.description || ''
     const avatar = props.team.profile.avatar || null
@@ -111,13 +117,14 @@ export class ManageTeamEdit extends Component {
       motto: motto,
       description: description,
       avatar: avatar,
-      banner: banner
+      banner: banner,
+      save: false
     }
   }
 
   render () {
     const { classes, team, match, save, handleUpdate } = this.props
-    log.debug('ManageTeamEdit ', this.props, this.props.slug, this.props.team, match)
+    log.debug('ManageTeamProfileEdit render', this.props, this.props.slug, this.props.team, match)
 
     const created = new Date(team.createdAt)
 
@@ -144,16 +151,17 @@ export class ManageTeamEdit extends Component {
           if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
           if (this.state.banner !== null) banner = this.state.banner
           log.debug('team images: ', avatar, banner)
-
-          if (save) {
-            this.handleSubmit(updateTeamProfile, team.slug, handleUpdate)
+          log.debug('saving profile status: ', save)
+          if (save && !this.state.save) {
+            log.debug('saving profile: ', save)
+            this.startSave(updateTeamProfile, team.slug, handleUpdate)
           }
 
           let errors
           let loader
           if (loading) {
             loader = (
-              <Typography variant='caption'>Submitting team...</Typography>
+              <Typography variant='caption'>Updating profile...</Typography>
             )
           }
           if (error) {
@@ -200,10 +208,9 @@ export class ManageTeamEdit extends Component {
                 AzureStorageUrl={AzureStorageUrl}
                 AzureSASURL={AzureStorageSAS}
                 cropRatio={4}
-                debug
               />
               <Grid container className={classes.editContentContainer}>
-                <Grid item md={3} >
+                <Grid item md={3} className={classes.metaContainer}>
                   <Grid container className={classes.teamMeta} direction='column' justify='flex-start'>
                     <Grid item>
                       <ImageUpload
@@ -234,10 +241,10 @@ export class ManageTeamEdit extends Component {
                           width: '125px',
                           overflow: 'visible'
                         }}
+                        dropzoneStyle={{ height: '125px' }}
                         AzureStorageUrl={AzureStorageUrl}
                         AzureSASURL={AzureStorageSAS}
                         cropRatio={1}
-                        debug
                       />
                     </Grid>
                     <Typography variant='subtitle1' paragraph gutterBottom>
@@ -263,7 +270,6 @@ export class ManageTeamEdit extends Component {
                     <Typography
                       variant='h4'
                       color='textSecondary'
-                      gutterBottom
                     >
                       Motto:
                     </Typography>
@@ -271,20 +277,18 @@ export class ManageTeamEdit extends Component {
                       autoFocus
                       margin='dense'
                       id='motto'
-                      label='Team Motto'
                       type='text'
                       fullWidth
                       value={this.state.motto}
                       onChange={this.handleChange}
                       className={classes.editInput}
                     />
-                    <Typography variant='h6' color='textPrimary' gutterBottom>
+                    <Typography variant='h6' color='textPrimary'>
                       Description:
                     </Typography>
                     <TextField
                       margin='dense'
                       id='description'
-                      label='Team Description'
                       type='text'
                       rows={4}
                       multiline
@@ -293,10 +297,12 @@ export class ManageTeamEdit extends Component {
                       onChange={this.handleChange}
                       className={classes.editInput}
                     />
+                    <Typography variant='h6' color='secondary'>
+                      {loader}
+                      {errors}
+                    </Typography>
                   </Grid>
                 </Grid>
-                {loader}
-                {errors}
               </Grid>
             </React.Fragment>
           )
@@ -314,6 +320,7 @@ export class ManageTeamEdit extends Component {
   }
 
   handleChange (e) {
+    log.debug('handleChange: ', e.target.id, e.target.value)
     switch (e.target.id) {
       case 'motto':
         this.setState({ motto: e.target.value })
@@ -335,9 +342,13 @@ export class ManageTeamEdit extends Component {
     this.setState({ banner: `${bannerUrl}?${Math.random()}` })
   }
 
-  async handleSubmit (updateTeamProfile, slug, handleUpdate) {
-    log.debug('handleSubmit: ', this.state)
+  startSave (updateTeamProfile, slug, handleUpdate) {
+    this.setState({ save: 'done' })
+    this.handleSubmit(updateTeamProfile, slug, handleUpdate)
+  }
 
+  async handleSubmit (updateTeamProfile, slug, handleUpdate) {
+    log.debug('updateTeamProfile, handleSubmit: ', this.state)
     await updateTeamProfile({
       variables: {
         slug,
@@ -349,12 +360,11 @@ export class ManageTeamEdit extends Component {
       }
     })
     window.canvasApp.eventHandler.raiseEvent('User Profile Changed')
-    this.setState({ description: '', motto: '', open: false })
     handleUpdate()
   }
 }
 
-ManageTeamEdit.propTypes = {
+ManageTeamProfileEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   team: PropTypes.object,
@@ -363,4 +373,4 @@ ManageTeamEdit.propTypes = {
   handleUpdate: PropTypes.func
 }
 
-export default withStyles(styles)(ManageTeamEdit)
+export default withStyles(styles)(ManageTeamProfileEdit)

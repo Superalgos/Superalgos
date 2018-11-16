@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
 
+import ManageTeamProfileFBView from './ManageTeamProfileFBView'
+
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -38,21 +40,34 @@ const styles = theme => ({
     margin: '0 auto',
     padding: `0 0 ${theme.spacing.unit * 2}px`
   },
+  metaContainer: {
+    marginTop: `${theme.spacing.unit * 1}px`,
+    alignSelf: 'stretch',
+    borderRight: '1px solid #CCCCCC'
+  },
   teamMeta: {
-    borderRight: '1px solid #CCCCCC',
     margin: `${theme.spacing.unit * 3}px 0 0`,
     paddingLeft: `${theme.spacing.unit * 2}px`,
     textAlign: 'center'
   },
   teamContent: {
     '& h2': {
-      padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 2}px`
+      padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 3}px 0`
     },
     '& h4': {
-      padding: `0 ${theme.spacing.unit * 3}px ${theme.spacing.unit * 2}px`
+      padding: `0 ${theme.spacing.unit * 3}px ${theme.spacing.unit * 1}px`
     },
     '& h6': {
       padding: `0 ${theme.spacing.unit * 3}px 0`
+    }
+  },
+  fbContent: {
+    borderTop: '1px solid #CCCCCC',
+    width: '90%',
+    margin: `${theme.spacing.unit * 3}px auto`,
+    paddingTop: `${theme.spacing.unit * 3}px`,
+    '& h4': {
+      padding: `0 ${theme.spacing.unit * 3}px ${theme.spacing.unit * 1}px`
     }
   },
   banner: {
@@ -85,7 +100,7 @@ const ManageTeamProfileView = ({ classes, team }) => {
     <React.Fragment>
       <img src={banner} alt={team.name} className={classes.banner} />
       <Grid container>
-        <Grid item md={3}>
+        <Grid item md={3} className={classes.metaContainer}>
           <Grid container className={classes.teamMeta} direction='column' justify='center'>
             <img src={avatar} alt={team.name} className={classes.avatar} />
             <Typography variant='subtitle1' paragraph gutterBottom>
@@ -118,6 +133,16 @@ const ManageTeamProfileView = ({ classes, team }) => {
             <Typography variant='h6' color='textPrimary' gutterBottom>
               Description: {team.profile.description}
             </Typography>
+          </Grid>
+          <Grid container className={classes.fbContent} direction='column'>
+            <Typography
+              variant='h4'
+              color='textSecondary'
+              gutterBottom
+            >
+              Financial Beings
+            </Typography>
+            <ManageTeamProfileFBView team={team} />
           </Grid>
         </Grid>
       </Grid>

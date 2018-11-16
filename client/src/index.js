@@ -8,7 +8,6 @@ import {
   AcceptTeamInvite,
   ManageTeams,
   TeamMembers,
-  FinancialBeings,
   Settings,
   Teams,
   Landing,
@@ -57,12 +56,7 @@ class App extends Component {
           />
           <Route
             exact
-            path={`/teams/financial-beings`}
-            render={props => <FinancialBeings {...props} auth={this.props.auth} />}
-          />
-          <Route
-            exact
-            path={`/teams/financial-beings`}
+            path={`/teams/settings`}
             render={props => <Settings {...props} auth={this.props.auth} />}
           />
           <Route

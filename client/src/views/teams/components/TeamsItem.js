@@ -30,7 +30,8 @@ const styles = theme => ({
     height: 65,
     margin: '0  0.875em 0 0',
     borderRadius: '50%',
-    verticalAlign: 'middle'
+    verticalAlign: 'middle',
+    alignSelf: 'flex-start'
   },
   buttonRight: {
     textDecoration: 'none'
@@ -61,7 +62,7 @@ export const TeamsItem = ({ classes, team }) => {
           />
           <CardContent className={classes.cardContent}>
             <Grid container>
-              <Grid item md={3} alignContent='flex-start' >
+              <Grid item md={3} >
                 <img src={avatar} alt={team.name} className={classes.avatar} />
               </Grid>
               <Grid item md={9}>

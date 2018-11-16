@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom'
 import ManageTeamProfileView from './ManageTeamProfileView'
 import ManageTeamProfileEdit from './ManageTeamProfileEdit'
 
+import log from '../../../utils/log'
+
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -72,6 +74,7 @@ export class ManageTeamProfile extends Component {
 
     this.toggleEdit = this.toggleEdit.bind(this)
     this.handleSave = this.handleSave.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
 
     this.state = {
       edit: false,
@@ -81,7 +84,7 @@ export class ManageTeamProfile extends Component {
 
   render () {
     const { classes, team, slug, match } = this.props
-
+    log.debug('ManageTeamProfile render', this.state)
     return (
       <div className='container'>
         <main className={classes.layout}>
@@ -94,7 +97,7 @@ export class ManageTeamProfile extends Component {
                   slug={slug}
                   match={match}
                   save={this.state.save}
-                  handleUpdate={e => this.toggleEdit}
+                  handleUpdate={this.handleUpdate}
                 />
               }
               <Grid container justify='flex-end' direction='row' spacing={24} className={classes.profileButtons}>
@@ -134,7 +137,7 @@ export class ManageTeamProfile extends Component {
                     </Grid>
                     <Grid item>
                       <Button
-                        onClick={e => this.handleSave()}
+                        onClick={e => this.handleSave(e)}
                         variant='contained'
                         color='secondary'
                       >
@@ -155,8 +158,15 @@ export class ManageTeamProfile extends Component {
     this.setState({ edit: !this.state.edit })
   }
 
-  handleSave () {
-    this.setState({ save: !this.state.edit })
+  handleSave (e) {
+    e.preventDefault()
+    log.debug('handleSave')
+    this.setState({ save: true })
+  }
+
+  handleUpdate () {
+    log.debug('handleUpdate')
+    this.setState({ edit: false, save: false })
   }
 }
 

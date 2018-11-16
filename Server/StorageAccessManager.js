@@ -9,29 +9,11 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(pServerConfig, callBackFunction) {
 
-        readStoragePermissions();
+        permissions = pServerConfig.storagePermissions;
 
-        function readStoragePermissions() {
-
-            let filePath;
-
-            try {
-                let fs = require('fs');
-                filePath = './' + 'Storage' + '/' + 'Storage.Permissions.json';
-                permissions = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-                callBackFunction();
-
-            }
-            catch (err) {
-                console.log("[ERROR] readStoragePermissions -> err = " + err.message);
-                console.log("[HINT] readStoragePermissions -> You need to have a file at this path -> " + filePath);
-
-                callBackFunction();
-            }
-        }
+        callBackFunction();
     }
 
     function getPermission(pContainer, pType, pDays) {

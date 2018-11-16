@@ -41,7 +41,7 @@ const styles = theme => ({
     margin: '0  1em 1em 0'
   },
   buttonRight: {
-    justifyContent: 'flex-end'
+    textDecoration: 'none'
   }
 })
 

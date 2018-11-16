@@ -34,7 +34,7 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 3,
     padding: 0,
     [theme.breakpoints.up(800 + theme.spacing.unit * 3 * 2)]: {
-      marginTop: theme.spacing.unit * 6,
+      marginTop: theme.spacing.unit * 3,
       marginBottom: theme.spacing.unit * 6,
       padding: `0 0 ${theme.spacing.unit * 6}px`
     }
@@ -55,6 +55,12 @@ const styles = theme => ({
     maxWidth: 100,
     height: 100,
     margin: `${theme.spacing.unit * 1}px 0 0 ${theme.spacing.unit * 3}px `
+  },
+  backLink: {
+    display: 'block',
+    textDecoration: 'none',
+    margin: `${theme.spacing.unit * 3}px 0 0`,
+    color: theme.palette.secondary.main
   }
 })
 
@@ -75,7 +81,7 @@ const TeamsDetails = ({ classes, team }) => {
     <React.Fragment>
       <CssBaseline />
       <main className={classes.layout}>
-        <Link to='/teams'>&larr; Back to all teams</Link>
+        <Link to='/teams' className={classes.backLink}>&larr; Back to all teams</Link>
         <Paper className={classes.paper}>
           <div className={classes.heroContent}>
             <img src={banner} alt={team.name} className={classes.banner} />

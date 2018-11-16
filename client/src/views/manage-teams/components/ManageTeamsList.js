@@ -5,6 +5,8 @@ import { Query } from 'react-apollo'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 import { MessageCard } from '@advancedalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -12,19 +14,11 @@ import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import ManageTeamsItem from './ManageTeamsItem'
 import CreateTeamForm from './CreateTeamForm'
+import CreateTeamDialog from './CreateTeamDialog'
 
 import log from '../../../utils/log'
 
 const styles = theme => ({
-  container: {
-    padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`,
-    margin: `${theme.spacing.unit * 1}px 0`
-  },
-  heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`
-  },
   cardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`
   },
@@ -68,7 +62,7 @@ export const ManageTeamsList = ({ classes, user = null, ...props }) => (
       if (!loading && !error) {
         if (data.teams_TeamsByOwner.length > 0) {
           return (
-            <Grid container spacing={0} direction='column' justify='center' alignItems='center'>
+            <Grid container spacing={8} direction='column' justify='stretch' alignItems='center'>
               {!loading &&
                 data.teams_TeamsByOwner.map(team => (
                   <ManageTeamsItem
@@ -79,12 +73,21 @@ export const ManageTeamsList = ({ classes, user = null, ...props }) => (
                   />
                 ))}
               {errors}
+              <Grid item xs={12} justify='stretch'>
+                <Card className={classes.card}>
+                  <div className={classes.cardDetails}>
+                    <CardContent className={classes.cardContent}>
+                      <CreateTeamDialog />
+                    </CardContent>
+                  </div>
+                </Card>
+              </Grid>
             </Grid>
           )
         } else {
           return (
             <Paper>
-              <Grid container spacing={0} direction='column' justify='center' alignItems='center' className={classes.container}>
+              <Grid container spacing={0} direction='column' justify='stretch' alignItems='center'>
                 <Grid item xs={10}>
                   <Typography variant='h5' align='center'>
                     You don&rsquo;t have any teams. Create one!

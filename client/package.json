@@ -23,9 +23,9 @@
   "devDependencies": {
     "@advancedalgos/events-client": "0.0.4",
     "@advancedalgos/key-vault-client": "0.0.24",
-    "@advancedalgos/teams-client": "0.0.27",
+    "@advancedalgos/teams-client": "0.0.28",
     "@advancedalgos/users-client": "0.0.24",
-    "@advancedalgos/web-components": "0.0.13",
+    "@advancedalgos/web-components": "0.0.15",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",

@@ -13,7 +13,8 @@
     <ProjectGuid>3ef11619-de26-4b8b-819d-a413df220b76</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>server.js</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,17 +31,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AABrowserAPI\BotCode.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="AABrowserAPI\TeamSetup.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="AABrowserAPI\UserAuthentication.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Animation.js" />
-    <Compile Include="Azure\azure-storage.blob.js" />
     <Compile Include="BottomSpace\DeleteTradingHistory.js">
       <SubType>Code</SubType>
     </Compile>
@@ -58,16 +49,9 @@
     </Compile>
     <Compile Include="CloudVM\Exchange\ExchangeAPI.js" />
     <Compile Include="Exchange\ExchangeAPI.js" />
-    <Compile Include="Server\Exchange\ExchangeAPI.js" />
-    <Compile Include="Server\Exchange\exchangeUtils.js" />
     <Compile Include="Globals.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Server\Exchange\Wrappers\beautifier.js" />
-    <Compile Include="Server\Exchange\Wrappers\binance.js" />
-    <Compile Include="Server\Exchange\Wrappers\binanceClient.js" />
-    <Compile Include="Server\Exchange\Wrappers\poloniex.js" />
-    <Compile Include="Server\Exchange\Wrappers\poloniexClient.js" />
     <Compile Include="TopSpace\Login.js">
       <SubType>Code</SubType>
     </Compile>
@@ -75,18 +59,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Scales\RightScale.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Scripts\AppLoader.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Scripts\AppPreLoader.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\BotsScripts.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\SessionManager.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CloudVM\CloudSupport.js">
@@ -112,9 +84,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ImageButton.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\StorageAccessManager.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Spaces\BottomSpace.js">
@@ -153,29 +122,10 @@
     <Compile Include="FloatingSpace\ProfileBall.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Scripts\require.js" />
-    <Compile Include="Server\CloudScripts.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\ConfigReader.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\Github.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Server\Storage.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Spaces\PanelsSpace.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PlotterPanel.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ProductCard.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Ecosystem.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Files\SingleFile.js">
@@ -200,10 +150,6 @@
     <Compile Include="Files\MarketFiles.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Plotter.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="server.js" />
     <Compile Include="Displace.js" />
     <Compile Include="EventHandler.js" />
     <Compile Include="Spaces\FloatingSpace.js" />
@@ -223,26 +169,16 @@
     <Compile Include="Utilities.js" />
     <Compile Include="ViewPort.js" />
     <Compile Include="VolumeBar.js" />
-    <Content Include="index.html" />
-    <Content Include="Server\Exchange\Wrappers\binanceProperties.json" />
-    <Content Include="Server\Exchange\Wrappers\poloniexProperties.json" />
-    <Content Include="this.server.config.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Azure\" />
     <Folder Include="CloudVM\" />
     <Folder Include="CloudVM\Exchange\" />
     <Folder Include="Exchange\" />
-    <Folder Include="Server\Exchange\" />
     <Folder Include="Files\" />
     <Folder Include="FloatingSpace\" />
-    <Folder Include="AABrowserAPI\" />
     <Folder Include="BottomSpace\" />
     <Folder Include="Scales\" />
-    <Folder Include="Server\Exchange\Wrappers\" />
     <Folder Include="TopSpace\" />
-    <Folder Include="Scripts\" />
-    <Folder Include="Server\" />
     <Folder Include="Spaces\" />
     <Folder Include="Panels\" />
   </ItemGroup>

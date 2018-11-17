@@ -49,7 +49,7 @@ function readStoragePermissions() {
         console.log( "[INFO] Run -> readStoragePermissions -> Entering function. ");
 
         let fs = require('fs');
-        filePath = './' + 'User-Profile' + '/' + 'User.Profile.json';
+        filePath = './' + 'configs' + '/' + 'User.Profile.json';
         global.USER_PROFILE = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
 
@@ -83,7 +83,7 @@ function readEmailConfiguration() {
         console.log( "Run : [INFO] readEmailConfiguration -> Entering function. ");
 
         let fs = require('fs');
-        filePath = './' + 'Email-Config' + '/' + 'Email.Config.json';
+        filePath = './' + 'configs' + '/' + 'Email.Config.json';
         global.EMAIL_CONFIG = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
         readExecutionConfiguration();
@@ -98,7 +98,7 @@ function readExecutionConfiguration() {
     let filePath;
     try {
         let fs = require('fs');
-        filePath = 'Execution.Config.json';
+        filePath = './configs/Execution.Config.json';
         let executionProperties = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         global.DEV_TEAM = executionProperties.devTeam;
         global.EXCHANGE_NAME = executionProperties.exchangeName;

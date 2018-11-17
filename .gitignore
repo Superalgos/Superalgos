@@ -9,6 +9,7 @@ bin/*
 *.cache
 node_modules/*
 exchange/Auth0.js
-Email-Config/Email.Config.json
-Execution.Config.json
-User-Profile/User.Profile.json
+configs/Email.Config.json
+
+configs/User.Profile.json
+configs/Execution.Config.json

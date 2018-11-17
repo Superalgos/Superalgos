@@ -133,7 +133,6 @@ function readExecutionConfiguration() {
         filePath = configDirectory +'/Execution.Config.json';
         let executionProperties = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         global.DEV_TEAM = executionProperties.devTeam;
-        global.USER_LOGGED_IN = executionProperties.userName;
         global.EXCHANGE_NAME = executionProperties.exchangeName;
         global.MARKET = executionProperties.market;
         global.EXECUTION_CONFIG = {

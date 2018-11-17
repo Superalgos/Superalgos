@@ -34,13 +34,37 @@ process.on('exit', function (code) {
     }
 });
 
-global.USER_PROFILE = {};
-global.EMAIL_CONFIG = {};
+readExecutionConfiguration();
 
-readStoragePermissions();
+function readExecutionConfiguration() {
+    let filePath;
+    try {
+        let fs = require('fs');
+
+        let configDirectory = process.argv[2];
+        if (configDirectory === undefined) {
+            console.log("[ERROR] Configuration file not passed as a command line argument.");
+            return;
+        }
+        filePath = configDirectory + '/Execution.Config.json';
+        let executionProperties = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        global.DEV_TEAM = executionProperties.devTeam;
+        global.EXCHANGE_NAME = executionProperties.exchangeName;
+        global.MARKET = executionProperties.market;
+        global.EXECUTION_CONFIG = {
+            executionList: executionProperties.executionList,
+            startMode: executionProperties.startMode
+        };
+
+        readStoragePermissions();
+    }
+    catch (err) {
+        console.log("[ERROR] readExecutionConfiguration -> err = " + err.message);
+        console.log("[HINT] You need to have a file at this path -> " + filePath);
+    }
+}
 
 function readStoragePermissions() {
-
     let filePath;
 
     try {
@@ -112,39 +136,11 @@ function readEmailConfiguration() {
         filePath = './' + 'configs' + '/' + 'Email.Config.json';
         global.EMAIL_CONFIG = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-        readExecutionConfiguration();
+        startRoot();
     }
     catch (err) {
         console.log("[ERROR] Run -> readEmailConfiguration -> err = " + err.message);
         console.log("[HINT] Run -> You need to have a file at this path -> " + filePath);
-    }
-}
-
-function readExecutionConfiguration() {
-    let filePath;
-    try {
-        let fs = require('fs');
-        
-		let configDirectory = process.argv[2];
-		if(configDirectory === undefined){
-			console.log("[ERROR] Configuration file not passed as a command line argument.");
-			return;
-		}
-        filePath = configDirectory +'/Execution.Config.json';
-        let executionProperties = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        global.DEV_TEAM = executionProperties.devTeam;
-        global.EXCHANGE_NAME = executionProperties.exchangeName;
-        global.MARKET = executionProperties.market;
-        global.EXECUTION_CONFIG = {
-            executionList: executionProperties.executionList,
-            startMode: executionProperties.startMode
-        };
-
-        startRoot();
-    }
-    catch (err) {
-        console.log("[ERROR] readExecutionConfiguration -> err = " + err.message);
-        console.log("[HINT] You need to have a file at this path -> " + filePath);
     }
 }
 

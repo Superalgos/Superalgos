@@ -1,9 +1,7 @@
 ﻿
 global.CURRENT_ENVIRONMENT = "Develop"; 
-global.CURRENT_EXECUTION_AT = "Browser"; 
+global.CURRENT_EXECUTION_AT = "Cloud"; 
 global.SHALL_BOT_STOP = false;
-global.USER_LOGGED_IN = "Ciencias"; 
-global.DEV_TEAM = "AAMasters";
 global.AT_BREAKPOINT = false; // This is used only when running at the browser. 
 
 /* Default parameters can be changed by the execution configuration */
@@ -49,25 +47,53 @@ function readStoragePermissions() {
         console.log( "[INFO] Run -> readStoragePermissions -> Entering function. ");
 
         let fs = require('fs');
-        filePath = '../' + 'User-Profile' + '/' + 'User.Profile.json';
+        filePath = './' + 'configs' + '/' + 'User.Profile.json';
         global.USER_PROFILE = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
+        /* Dinamically generating the azure storage  permissions for the bot to run */
 
-        /* Here we will rearrange the storage permissions array into a map, so that it can be easily consumed when needed. */
+        const MAX_STORAGE_PERMISSION_DAYS = 10;
+        const STORAGE_ACCESS_MANAGER = require('./StorageAccessManager');
+        storageAccessManager = STORAGE_ACCESS_MANAGER.newStorageAccessManager();
 
-        let permissionsMap = new Map;
+        storageAccessManager.initialize(global.USER_PROFILE.connectionString, onInitialized);
 
-        for (i = 0; i < global.USER_PROFILE.storagePermissions.length; i++) {
+        function onInitialized() {
 
-            let permission = global.USER_PROFILE.storagePermissions[i];
+            /* Here we will rearrange the storage permissions array into a map, so that it can be easily consumed when needed. */
 
-            permissionsMap.set(permission[0], permission[1]);
+            let permissionsMap = new Map;
+
+            let containers = ["AAPlatform", "AAVikings", global.USER_PROFILE.teamName]
+            let container;
+            let key;
+            let value;
+
+            for (let i = 0; i < containers.length; i++) {
+
+                container = containers[i];
+                let readPermission = storageAccessManager.getPermission(container.toLowerCase(), "READ", MAX_STORAGE_PERMISSION_DAYS);
+
+                key = container + ".READ";
+                value = readPermission;
+
+                permissionsMap.set(key, value);
+
+            }
+
+            let writePermission = storageAccessManager.getPermission(container.toLowerCase(), "WRITE", MAX_STORAGE_PERMISSION_DAYS);
+
+            key = container + ".WRITE";
+            value = writePermission;
+
+            permissionsMap.set(key, value);
+
+            global.USER_PROFILE.storagePermissions = permissionsMap;
+            global.USER_PROFILE.connectionString = "";
+
+            readEmailConfiguration();
 
         }
-
-        global.USER_PROFILE.storagePermissions = permissionsMap;
-
-        readEmailConfiguration();
     }
     catch (err) {
         console.log("[ERROR] Run -> readStoragePermissions -> err = " + err.message);
@@ -83,7 +109,7 @@ function readEmailConfiguration() {
         console.log( "Run : [INFO] readEmailConfiguration -> Entering function. ");
 
         let fs = require('fs');
-        filePath = '../' + 'Email-Config' + '/' + 'Email.Config.json';
+        filePath = './' + 'configs' + '/' + 'Email.Config.json';
         global.EMAIL_CONFIG = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
         readExecutionConfiguration();
@@ -98,9 +124,10 @@ function readExecutionConfiguration() {
     let filePath;
     try {
         let fs = require('fs');
-        filePath = '../Execution-Config/Execution.Config.json';
+        filePath = './configs/Execution.Config.json';
         let executionProperties = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         global.DEV_TEAM = executionProperties.devTeam;
+        global.USER_LOGGED_IN = executionProperties.userName;
         global.EXCHANGE_NAME = executionProperties.exchangeName;
         global.MARKET = executionProperties.market;
         global.EXECUTION_CONFIG = {
@@ -123,7 +150,7 @@ function readExchangeAPIKey() {
         console.log( "[INFO] Run -> readExchangeAPIKey -> Entering function. ");
 
         let fs = require('fs');
-        let filePath = '../' + 'Exchange-Keys' + '/' + 'Secret.Keys' + '.json';
+        let filePath = './configs/Secret.Keys' + '.json';
 
         global.EXCHANGE_KEYS = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         startRoot();

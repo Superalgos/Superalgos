@@ -68,6 +68,7 @@
     <Compile Include="StatusReport.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="StorageAccessManager.js" />
     <Compile Include="TradingBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>

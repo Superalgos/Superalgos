@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Fri Oct 05 2018 13:16:40 GMT-0700 (Pacific Daylight Time)
+# timestamp: Tue Nov 13 2018 13:35:00 GMT-0800 (PST)
 
 type AggregateFBStatus {
   count: Int!
@@ -147,13 +147,13 @@ input FBStatusSubscriptionWhereInput {
   node: FBStatusWhereInput
 }
 
-input FBStatusUpdateInput {
-  status: Status
-  reason: String
-}
-
 input FBStatusUpdateManyInput {
   create: [FBStatusCreateInput!]
+}
+
+input FBStatusUpdateManyMutationInput {
+  status: Status
+  reason: String
 }
 
 input FBStatusWhereInput {
@@ -252,7 +252,7 @@ type FinancialBeings implements Node {
   name: String!
   slug: String!
   avatar: String
-  team(where: TeamWhereInput): Team
+  team: Team
   status(where: FBStatusWhereInput, orderBy: FBStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FBStatus!]
   updatedAt: DateTime!
   createdAt: DateTime!
@@ -378,6 +378,14 @@ input FinancialBeingsUpdateInput {
   avatar: String
   team: TeamUpdateOneWithoutFbInput
   status: FBStatusUpdateManyInput
+}
+
+input FinancialBeingsUpdateManyMutationInput {
+  type: FBType
+  kind: FBKind
+  name: String
+  slug: String
+  avatar: String
 }
 
 input FinancialBeingsUpdateManyWithoutTeamInput {
@@ -822,13 +830,13 @@ input MemberStatusSubscriptionWhereInput {
   node: MemberStatusWhereInput
 }
 
-input MemberStatusUpdateInput {
-  status: Status
-  reason: String
-}
-
 input MemberStatusUpdateManyInput {
   create: [MemberStatusCreateInput!]
+}
+
+input MemberStatusUpdateManyMutationInput {
+  status: Status
+  reason: String
 }
 
 input MemberStatusWhereInput {
@@ -959,6 +967,12 @@ input MemberUpdateInput {
   visible: Boolean
   teams: TeamMembersUpdateManyWithoutMemberInput
   status: MemberStatusUpdateManyInput
+}
+
+input MemberUpdateManyMutationInput {
+  alias: String
+  authId: String
+  visible: Boolean
 }
 
 input MemberUpdateOneWithoutTeamsInput {
@@ -1176,16 +1190,16 @@ type Mutation {
   upsertMember(where: MemberWhereUniqueInput!, create: MemberCreateInput!, update: MemberUpdateInput!): Member!
   upsertFinancialBeings(where: FinancialBeingsWhereUniqueInput!, create: FinancialBeingsCreateInput!, update: FinancialBeingsUpdateInput!): FinancialBeings!
   upsertTeamMemberStatus(where: TeamMemberStatusWhereUniqueInput!, create: TeamMemberStatusCreateInput!, update: TeamMemberStatusUpdateInput!): TeamMemberStatus!
-  updateManyTeams(data: TeamUpdateInput!, where: TeamWhereInput): BatchPayload!
-  updateManyTeamMemberses(data: TeamMembersUpdateInput!, where: TeamMembersWhereInput): BatchPayload!
-  updateManyMembers(data: MemberUpdateInput!, where: MemberWhereInput): BatchPayload!
-  updateManyFinancialBeingses(data: FinancialBeingsUpdateInput!, where: FinancialBeingsWhereInput): BatchPayload!
-  updateManyTeamProfiles(data: TeamProfileUpdateInput!, where: TeamProfileWhereInput): BatchPayload!
-  updateManyWallets(data: WalletUpdateInput!, where: WalletWhereInput): BatchPayload!
-  updateManyMemberStatuses(data: MemberStatusUpdateInput!, where: MemberStatusWhereInput): BatchPayload!
-  updateManyFBStatuses(data: FBStatusUpdateInput!, where: FBStatusWhereInput): BatchPayload!
-  updateManyTeamMemberStatuses(data: TeamMemberStatusUpdateInput!, where: TeamMemberStatusWhereInput): BatchPayload!
-  updateManyTeamStatuses(data: TeamStatusUpdateInput!, where: TeamStatusWhereInput): BatchPayload!
+  updateManyTeams(data: TeamUpdateManyMutationInput!, where: TeamWhereInput): BatchPayload!
+  updateManyTeamMemberses(data: TeamMembersUpdateManyMutationInput!, where: TeamMembersWhereInput): BatchPayload!
+  updateManyMembers(data: MemberUpdateManyMutationInput!, where: MemberWhereInput): BatchPayload!
+  updateManyFinancialBeingses(data: FinancialBeingsUpdateManyMutationInput!, where: FinancialBeingsWhereInput): BatchPayload!
+  updateManyTeamProfiles(data: TeamProfileUpdateManyMutationInput!, where: TeamProfileWhereInput): BatchPayload!
+  updateManyWallets(data: WalletUpdateManyMutationInput!, where: WalletWhereInput): BatchPayload!
+  updateManyMemberStatuses(data: MemberStatusUpdateManyMutationInput!, where: MemberStatusWhereInput): BatchPayload!
+  updateManyFBStatuses(data: FBStatusUpdateManyMutationInput!, where: FBStatusWhereInput): BatchPayload!
+  updateManyTeamMemberStatuses(data: TeamMemberStatusUpdateManyMutationInput!, where: TeamMemberStatusWhereInput): BatchPayload!
+  updateManyTeamStatuses(data: TeamStatusUpdateManyMutationInput!, where: TeamStatusWhereInput): BatchPayload!
   deleteManyTeams(where: TeamWhereInput): BatchPayload!
   deleteManyTeamMemberses(where: TeamMembersWhereInput): BatchPayload!
   deleteManyMembers(where: MemberWhereInput): BatchPayload!
@@ -1290,10 +1304,10 @@ type Team implements Node {
   id: ID!
   name: String!
   slug: String!
-  profile(where: TeamProfileWhereInput): TeamProfile
+  profile: TeamProfile
   members(where: TeamMembersWhereInput, orderBy: TeamMembersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamMembers!]
   owner: String!
-  wallet(where: WalletWhereInput): Wallet
+  wallet: Wallet
   fb(where: FinancialBeingsWhereInput, orderBy: FinancialBeingsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FinancialBeings!]
   status(where: TeamStatusWhereInput, orderBy: TeamStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamStatus!]
   createdAt: DateTime!
@@ -1361,8 +1375,8 @@ type TeamEdge {
 
 type TeamMembers implements Node {
   id: ID!
-  member(where: MemberWhereInput): Member
-  team(where: TeamWhereInput): Team
+  member: Member
+  team: Team
   role: Role
   status(where: TeamMemberStatusWhereInput, orderBy: TeamMemberStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamMemberStatus!]
   email: String
@@ -1595,6 +1609,11 @@ input TeamMemberStatusUpdateManyInput {
   upsert: [TeamMemberStatusUpsertWithWhereUniqueNestedInput!]
 }
 
+input TeamMemberStatusUpdateManyMutationInput {
+  status: Status
+  reason: String
+}
+
 input TeamMemberStatusUpdateWithWhereUniqueNestedInput {
   where: TeamMemberStatusWhereUniqueInput!
   data: TeamMemberStatusUpdateDataInput!
@@ -1739,6 +1758,11 @@ input TeamMembersUpdateInput {
   member: MemberUpdateOneWithoutTeamsInput
   team: TeamUpdateOneWithoutMembersInput
   status: TeamMemberStatusUpdateManyInput
+}
+
+input TeamMembersUpdateManyMutationInput {
+  role: Role
+  email: String
 }
 
 input TeamMembersUpdateManyWithoutMemberInput {
@@ -2084,7 +2108,7 @@ input TeamProfileUpdateDataInput {
   banner: String
 }
 
-input TeamProfileUpdateInput {
+input TeamProfileUpdateManyMutationInput {
   description: String
   motto: String
   avatar: String
@@ -2411,13 +2435,13 @@ input TeamStatusSubscriptionWhereInput {
   node: TeamStatusWhereInput
 }
 
-input TeamStatusUpdateInput {
-  status: Status
-  reason: String
-}
-
 input TeamStatusUpdateManyInput {
   create: [TeamStatusCreateInput!]
+}
+
+input TeamStatusUpdateManyMutationInput {
+  status: Status
+  reason: String
 }
 
 input TeamStatusWhereInput {
@@ -2551,6 +2575,12 @@ input TeamUpdateInput {
   wallet: WalletUpdateOneInput
   fb: FinancialBeingsUpdateManyWithoutTeamInput
   status: TeamStatusUpdateManyInput
+}
+
+input TeamUpdateManyMutationInput {
+  name: String
+  slug: String
+  owner: String
 }
 
 input TeamUpdateOneWithoutFbInput {
@@ -2902,7 +2932,7 @@ input WalletUpdateDataInput {
   balance: Float
 }
 
-input WalletUpdateInput {
+input WalletUpdateManyMutationInput {
   balance: Float
 }
 

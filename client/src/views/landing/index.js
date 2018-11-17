@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
 import { BannerTopBar } from '../common'
@@ -21,9 +22,33 @@ const styles = theme => ({
 })
 
 const Landing = ({ classes, ...props }) => (
-  <div>
+  <React.Fragment>
     <BannerTopBar size='big' title='Teams Module' text='Discover, create and manage Advanced Algos teams.' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
-  </div>
+    <div className='homePage container'>
+      <Typography variant='h1' align='center' className='title'>
+        Welcome to the Teams Module!
+      </Typography>
+      <Typography variant='h2' align='center' className='subtitle'>
+        Multidisciplinary groups of humans joining forces to breed financial beings and compete.
+      </Typography>
+      <div className='column'>
+        <Typography align='justify'>
+          One of the core propositions of Advanced Algos revolves around people teaming up to breed financial beings and compete in algorithmic trading competitions. Both developing and competing are team activities.
+        </Typography>
+        <Typography align='justify'>
+          If you are a user of the system but still haven’t joined any teams, the Teams Module is the right place to find one or even create your own.
+        </Typography>
+      </div>
+      <div className='column'>
+        <Typography align='justify'>
+          You may join and participate in as many teams as you wish.
+        </Typography>
+        <Typography align='justify'>
+          When you create your own team, you become the team’s owner and may allow more people in the team at your sole discretion. It has been shown that larger teams tend to become more intelligent.
+        </Typography>
+      </div>
+    </div>
+  </React.Fragment>
 )
 
 Landing.propTypes = {

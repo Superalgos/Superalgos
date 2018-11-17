@@ -8,7 +8,7 @@ export const theme = createMuiTheme({
     secondary: indigo
   },
   typography: {
-    fontFamily: '"Saira","Saira Condenses", sans-serif'
+    fontFamily: '"Saira","Saira Condensed", sans-serif'
   },
   overrides: {
     Paper: {

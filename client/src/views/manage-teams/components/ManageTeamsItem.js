@@ -7,14 +7,16 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import EditIcon from '@material-ui/icons/Edit'
 
-import ManageTeamDetails from './ManageTeamDetails'
+import { Link } from 'react-router-dom'
+
 import ManageTeamDelete from './ManageTeamDelete'
-import ManageTeamEdit from './ManageTeamEdit'
 
 import log from '../../../utils/log'
 
-export const ManageTeamsItem = ({ classes, team, ...props }) => {
+export const ManageTeamsItem = ({ classes, team, match, ...props }) => {
   log.debug('ManageTeamsItem', team, team.profile, team.profile.avatar)
   let avatar
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
@@ -36,13 +38,22 @@ export const ManageTeamsItem = ({ classes, team, ...props }) => {
               {team.name}
             </Typography>
             <Typography variant='caption' color='textSecondary'>
-              {team.createdAt} | Members: {team.members.length}
+              Members: {team.members.length} | Financial Beings: {1}
             </Typography>
           </CardContent>
           <CardActions>
-            <ManageTeamDetails team={team} />
-            <ManageTeamEdit slug={team.slug} team={team} {...props} />
-            <ManageTeamDelete slug={team.slug} botSlug={team.fb[0].slug} />
+            <Grid container direction='row' justify='flex-end'>
+              <Button
+                size='small'
+                color='primary'
+                className={classes.buttonRight}
+                component={Link}
+                to={`${match.url}/${team.slug}`}
+              >
+                <EditIcon /> Manage Profile
+              </Button>
+              <ManageTeamDelete slug={team.slug} botSlug={team.fb[0].slug} />
+            </Grid>
           </CardActions>
         </div>
       </Card>
@@ -52,7 +63,8 @@ export const ManageTeamsItem = ({ classes, team, ...props }) => {
 
 ManageTeamsItem.propTypes = {
   classes: PropTypes.object.isRequired,
-  team: PropTypes.object.isRequired
+  team: PropTypes.object.isRequired,
+  match: PropTypes.object
 }
 
 export default ManageTeamsItem

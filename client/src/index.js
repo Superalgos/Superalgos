@@ -8,7 +8,6 @@ import {
   AcceptTeamInvite,
   ManageTeams,
   TeamMembers,
-  FinancialBeings,
   Settings,
   Teams,
   Landing,
@@ -47,17 +46,17 @@ class App extends Component {
           />
           <Route
             exact
+            path={`/teams/manage-teams/:slug`}
+            render={props => <ManageTeams {...props} auth={this.props.auth} user={this.state.user} />}
+          />
+          <Route
+            exact
             path={`/teams/team-members`}
             render={props => <TeamMembers {...props} auth={this.props.auth} />}
           />
           <Route
             exact
-            path={`/teams/financial-beings`}
-            render={props => <FinancialBeings {...props} auth={this.props.auth} />}
-          />
-          <Route
-            exact
-            path={`/teams/financial-beings`}
+            path={`/teams/settings`}
             render={props => <Settings {...props} auth={this.props.auth} />}
           />
           <Route
@@ -65,7 +64,7 @@ class App extends Component {
             path={`/teams/activate-team-membership`}
             render={props => <AcceptTeamInvite {...props} auth={this.props.auth} />}
           />
-          <Route path='/teams/:slug' component={Teams} />
+          <Route exact path='/teams/:slug' component={Teams} />
         </Switch>
       </div>
     )

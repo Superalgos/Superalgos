@@ -1,6 +1,6 @@
 ﻿
 global.CURRENT_ENVIRONMENT = "Develop"; 
-global.CURRENT_EXECUTION_AT = "Browser"; 
+global.CURRENT_EXECUTION_AT = "Cloud"; 
 global.SHALL_BOT_STOP = false;
 global.AT_BREAKPOINT = false; // This is used only when running at the browser. 
 

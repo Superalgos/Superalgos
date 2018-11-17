@@ -123,7 +123,7 @@ function readExchangeAPIKey() {
         console.log( "[INFO] Run -> readExchangeAPIKey -> Entering function. ");
 
         let fs = require('fs');
-        let filePath = '../' + 'Exchange-Keys' + '/' + 'Secret.Keys' + '.json';
+        let filePath = './configs/Secret.Keys' + '.json';
 
         global.EXCHANGE_KEYS = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         startRoot();

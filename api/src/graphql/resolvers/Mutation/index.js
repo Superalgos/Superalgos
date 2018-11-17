@@ -148,7 +148,7 @@ export const resolvers = {
 
           const alias = await result.data.users_User.alias
           // const email = result.data.users_User.email
-          const deleteTeamUrl = encodeURI(`${slug}/${alias}/${botSlug}/${process.env.AAWEB_DELETE_TEAM_SHARED_SECRET}`)
+          const deleteTeamUrl = encodeURI(`${slug}/${alias}/${botSlug}`)
           logger.info('deleteTeamUrl:')
           logger.info(JSON.stringify(await deleteTeamUrl))
 
@@ -156,7 +156,7 @@ export const resolvers = {
           // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
 
           logger.info(`${platformUrl}${deleteTeamUrl}/${authId}`)
-          const deletePlatformTeam = await axios.get(`${platformUrl}${deleteTeamUrl}/${authId}`)
+          const deletePlatformTeam = await axios.get(`${platformUrl}${deleteTeamUrl}/${authId}/${process.env.AAWEB_DELETE_TEAM_SHARED_SECRET}`)
             .then((result) => {
               console.log('deletePlatformTeam result:', result.data)
               if(result.data.result === 'Fail'){

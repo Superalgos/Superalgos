@@ -2,8 +2,6 @@
 global.CURRENT_ENVIRONMENT = "Develop"; 
 global.CURRENT_EXECUTION_AT = "Browser"; 
 global.SHALL_BOT_STOP = false;
-global.USER_LOGGED_IN = "Ciencias"; 
-global.DEV_TEAM = "AAMasters";
 global.AT_BREAKPOINT = false; // This is used only when running at the browser. 
 
 /* Default parameters can be changed by the execution configuration */
@@ -101,6 +99,7 @@ function readExecutionConfiguration() {
         filePath = './configs/Execution.Config.json';
         let executionProperties = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         global.DEV_TEAM = executionProperties.devTeam;
+        global.USER_LOGGED_IN = executionProperties.userName;
         global.EXCHANGE_NAME = executionProperties.exchangeName;
         global.MARKET = executionProperties.market;
         global.EXECUTION_CONFIG = {

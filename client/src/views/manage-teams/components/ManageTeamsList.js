@@ -27,6 +27,9 @@ const styles = theme => ({
     margin: `${theme.spacing.unit * 4}px auto`,
     padding: 0
   },
+  newTeamContainer: {
+    padding: `${theme.spacing.unit * 4}px 0`
+  },
   cardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`
   },
@@ -107,21 +110,23 @@ export const ManageTeamsList = ({ classes, match, ...props }) => (
         } else {
           return (
             <div className={classes.root} >
-              <Paper>
-                <Grid container spacing={0} direction='column' justify='stretch' alignItems='center'>
-                  <Grid item xs={10}>
-                    <Typography variant='h5' align='center'>
-                      You don&rsquo;t have any teams. Create one!
-                    </Typography>
-                    <Typography variant='body1' align='center' gutterBottom>
-                      To begin developing on the Advanced Algos platform, as well as participate in Algobot competitions,
-                      you'll need to create a team. A default trading algobot will be cloned and added to your team so
-                      that you can begin experimenting right away.
-                    </Typography>
-                    <CreateTeamForm />
+              <div className={classes.heroContent}>
+                <Paper>
+                  <Grid container spacing={0} direction='column' justify='stretch' alignItems='center' className={classes.newTeamContainer}>
+                    <Grid item xs={10}>
+                      <Typography variant='h5' align='center'>
+                        You don&rsquo;t have any teams. Create one!
+                      </Typography>
+                      <Typography variant='body1' align='center' gutterBottom>
+                        To begin developing on the Advanced Algos platform, as well as participate in Algobot competitions,
+                        you'll need to create a team. A default trading algobot will be cloned and added to your team so
+                        that you can begin experimenting right away.
+                      </Typography>
+                      <CreateTeamForm />
+                    </Grid>
                   </Grid>
-                </Grid>
-              </Paper>
+                </Paper>
+              </div>
             </div>
           )
         }

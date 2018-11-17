@@ -88,7 +88,7 @@ function readStoragePermissions() {
 
             let permissionsMap = new Map;
 
-            let containers = ["AAPlatform", "AAVikings", global.USER_PROFILE.teamName]
+            let containers = ["AAPlatform", "AAVikings", global.DEV_TEAM]
             let container;
             let key;
             let value;

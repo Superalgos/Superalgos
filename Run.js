@@ -124,7 +124,13 @@ function readExecutionConfiguration() {
     let filePath;
     try {
         let fs = require('fs');
-        filePath = './configs/Execution.Config.json';
+        
+		let configDirectory = process.argv[2];
+		if(configDirectory === undefined){
+			console.log("[ERROR] Configuration file not passed as a command line argument.");
+			return;
+		}
+        filePath = configDirectory +'/Execution.Config.json';
         let executionProperties = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         global.DEV_TEAM = executionProperties.devTeam;
         global.USER_LOGGED_IN = executionProperties.userName;
@@ -135,38 +141,11 @@ function readExecutionConfiguration() {
             startMode: executionProperties.startMode
         };
 
-        readExchangeAPIKey();
+        startRoot();
     }
     catch (err) {
         console.log("[ERROR] readExecutionConfiguration -> err = " + err.message);
         console.log("[HINT] You need to have a file at this path -> " + filePath);
-    }
-}
-
-//TODO Move this method inside ExchangeAPI
-function readExchangeAPIKey() {
-
-    try {
-        console.log( "[INFO] Run -> readExchangeAPIKey -> Entering function. ");
-
-        let fs = require('fs');
-        let filePath = './configs/Secret.Keys' + '.json';
-
-        global.EXCHANGE_KEYS = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        startRoot();
-    }
-    catch (err) {
-        console.log("[ERROR] Run -> readExchangeAPIKey -> err = " + err.message);
-        console.log("[HINT] Run -> You need to have a file at this path -> " + filePath);
-
-        global.EXCHANGE_KEYS = {
-            Poloniex: [{
-                Key: "",
-                Secret: ""
-            }]
-        }
-
-        startRoot();
     }
 }
 

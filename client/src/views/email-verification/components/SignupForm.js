@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import withWidth from '@material-ui/core/withWidth'
 import { Mutation } from 'react-apollo'
@@ -39,40 +40,15 @@ export class SignupForm extends Component {
       displayIntro
     } = this.props
     return (
-      <Mutation mutation={NEWSLETTER_SIGNUP}>
+      <Mutation
+        mutation={NEWSLETTER_SIGNUP}
+      >
         {(NewsletterSignup, { loading, error, data }) => {
           return (
-            <Grid
-              container
-              className={classes.signupRight}
-              direction='column'
-              justify={alignCenter ? 'center' : 'flex-start'}
-            >
-              {displayTitle && (
-                <Typography
-                  variant='h4'
-                  className={classes.textWhite}
-                  gutterBottom
-                >
-                  Stay in touch!
-                </Typography>
-              )}
-              {displayIntro && (
-                <Typography
-                  variant='subtitle1'
-                  className={classes.textWhite}
-                  gutterBottom
-                >
-                  Opt-in our mailing list to stay up to date with the Advanced
-                  Algos Project.
-                </Typography>
-              )}
-              <form
-                id='email-signup'
-                action='#'
-                className='form-inline'
-                autoComplete='off'
-              >
+            <Grid container className={classes.signupRight} direction='column' justify={alignCenter ? 'center' : 'flex-start'}>
+              {displayTitle && <Typography variant='h4' className={classNames(classes.textWhite, classes.signupTitle)} gutterBottom>Stay in touch!</Typography>}
+              {displayIntro && <Typography variant='subtitle1' className={classNames(classes.textWhite, classes.signupText)} gutterBottom>Opt-in our mailing list to stay up to date with the Advanced Algos Project.</Typography>}
+              <form id='email-signup' action='#' className='form-inline' autoComplete='off'>
                 <Typography
                   variant='subtitle1'
                   className={classes.textSuccess}
@@ -82,16 +58,9 @@ export class SignupForm extends Component {
                     textAlign: alignCenter ? 'center' : 'inherit'
                   }}
                 >
-                  Thank you for signing up! Please check your email and click on
-                  the confirmation link to complete the signup process.
+                  Thank you for signing up! Please check your email and click on the confirmation link to complete the signup process.
                 </Typography>
-                <Grid
-                  container
-                  className={classes.signupContainer}
-                  justify={
-                    width === 'xs' || alignCenter ? 'center' : 'flex-start'
-                  }
-                >
+                <Grid container className={classes.signupContainer} justify={(width === 'xs' || alignCenter) ? 'center' : 'flex-start'}>
                   <InputBase
                     id='email'
                     placeholder='Enter your email'
@@ -151,11 +120,9 @@ export class SignupForm extends Component {
   async handleSubmit (e, NewsletterSignup) {
     e.preventDefault()
     console.log('NewsletterSignup handleSubmit: ', this.state.email)
-    const signupResponse = await NewsletterSignup({
-      variables: { email: this.state.email }
-    })
+    const signupResponse = await NewsletterSignup({ variables: { email: this.state.email } })
     console.log('NewsletterSignup: ', signupResponse)
-    if (signupResponse.data.master_NewsletterSignup === 'SUCCESS') { this.setState({ email: '', success: true }) }
+    if (signupResponse.data.master_NewsletterSignup === 'SUCCESS') this.setState({ email: '', success: true })
   }
 }
 

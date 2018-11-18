@@ -29,11 +29,18 @@ const styles = theme => ({
       textAlign: 'center'
     }
   },
+  signupTitle: {
+    fontSize: '25px',
+    marginBottom: theme.spacing.unit * 5
+  },
+  signupText: {
+    fontSize: '16px'
+  },
   signupInput: {
     borderRadius: 4,
     backgroundColor: theme.palette.common.white,
     border: '1px solid #ced4da',
-    fontSize: 16,
+    fontSize: 20,
     padding: '10px 12px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     marginRight: theme.spacing.unit * 1
@@ -41,7 +48,7 @@ const styles = theme => ({
   signupInputSubmit: {
     boxShadow: 'none',
     textTransform: 'none',
-    fontSize: 16,
+    fontSize: 20,
     lineHeight: '1.1875em',
     color: theme.palette.common.white,
     padding: '10px 12px',

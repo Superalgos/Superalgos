@@ -31,7 +31,7 @@ const styles = theme => ({
 
 const Teams = ({ classes, match }) => (
   <React.Fragment>
-    <BannerTopBar size='medium' title='Teams Directory' text='All teams in Advanced Algos are here.' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
+    <BannerTopBar size={match.params.slug !== undefined ? 'small' : 'medium'} title='Browse Teams' text='Explore Advanced Algos Teams' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
     <div className='container'>
       <TeamsList match={match} />
     </div>

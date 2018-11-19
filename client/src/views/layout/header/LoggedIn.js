@@ -19,9 +19,10 @@ export const LoggedIn = props => {
     displayName = user.firstName
   }
 
-  if (isDefined(user.firstName) && isDefined(user.lastName)) {
-    displayName = user.firstName + ' ' + user.lastName
-  }
+  displayName = displayName.split('-')[0]
+  displayName = displayName.split('.')[0]
+  displayName = displayName.split('_')[0]
+  displayName = displayName.split(' ')[0]
 
   return (
 
@@ -32,8 +33,9 @@ export const LoggedIn = props => {
     >
       <Link to='/users/user' onClick={() => toggleMenuOpen(42, true)}> {displayName} </Link>
       <ul className='subMenu'>
-        <li><Link to='/users/user' onClick={() => closeAll()}> Profile </Link></li>
+        <li><Link to='/users/user' onClick={() => closeAll()}> Your Profile </Link></li>
         <li><a href='#' onClick={() => auth.logout()}> Logout </a></li>
+        <li><a href='https://www.advancedalgos.net'> Exit Platform </a></li>
       </ul>
     </li>
   )

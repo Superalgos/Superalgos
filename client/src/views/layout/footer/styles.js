@@ -42,7 +42,7 @@ const styles = theme => ({
   footer: {
     borderTop: `4px solid ${theme.palette.secondary.light}`,
     padding: `${theme.spacing.unit * 6}px 0`,
-    backgroundColor: '#19191C', /* #29292c */
+    backgroundColor: '#19191C' /* #29292c */,
     color: theme.palette.primary.light
   },
   footerContainer: {

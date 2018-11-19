@@ -137,7 +137,10 @@ export class ManageTeamProfileFBEdit extends Component {
                         width: '125px',
                         overflow: 'visible'
                       }}
-                      dropzoneStyle={{ height: '125px' }}
+                      dropzoneStyle={{
+                        height: 125,
+                        title: 'Drop new image or click to select'
+                      }}
                       AzureStorageUrl={AzureStorageUrl}
                       AzureSASURL={AzureStorageSAS}
                       cropRatio={1}

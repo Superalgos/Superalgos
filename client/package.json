@@ -27,7 +27,7 @@
   "devDependencies": {
     "@advancedalgos/events-client": "0.0.4",
     "@advancedalgos/financial-beings-client": "0.0.4",
-    "@advancedalgos/key-vault-client": "0.0.24",
+    "@advancedalgos/key-vault-client": "0.0.25",
     "@advancedalgos/teams-client": "0.0.29",
     "@advancedalgos/users-client": "0.0.24",
     "@advancedalgos/web-components": "0.0.15",

@@ -43,22 +43,27 @@ async function getUserId (authId) {
 }
 
 async function run () {
-  const transformedTeamsSchema = await createTransformedRemoteSchema(
-    'teams_',
-    process.env.TEAMS_API_URL,
-    process.env.TEAMS_API_PRESHARED)
-  const transformedUsersSchema = await createTransformedRemoteSchema(
-    'users_',
-    process.env.USERS_API_URL,
-    process.env.USERS_API_PRESHARED)
-  const transformedEventsSchema = await createTransformedRemoteSchema(
-    'events_',
-    process.env.EVENTS_API_URL,
-    process.env.EVENTS_API_PRESHARED)
+  logger.info('About to create schemas')
   const transformedKeyVaultSchema = await createTransformedRemoteSchema(
     'keyVault_',
     process.env.KEYVAULT_API_URL,
     process.env.KEYVAULT_API_PRESHARED)
+    logger.info('KeyVault schema created')
+  const transformedTeamsSchema = await createTransformedRemoteSchema(
+    'teams_',
+    process.env.TEAMS_API_URL,
+    process.env.TEAMS_API_PRESHARED)
+    logger.info('Teams schema created')
+  const transformedUsersSchema = await createTransformedRemoteSchema(
+    'users_',
+    process.env.USERS_API_URL,
+    process.env.USERS_API_PRESHARED)
+    logger.info('Users schema created')
+  const transformedEventsSchema = await createTransformedRemoteSchema(
+    'events_',
+    process.env.EVENTS_API_URL,
+    process.env.EVENTS_API_PRESHARED)
+    logger.info('Events schema created')
 
   var schemas = [masterSchema]
   var resolvers = {}
@@ -171,6 +176,7 @@ async function run () {
 }
 
 try {
+  logger.info('About to run main run method')
   run()
 } catch (e) {
   logger.error(`An general error occured while running the app: ${e}, details: ${e.message}, stack: ${e.stack}`)

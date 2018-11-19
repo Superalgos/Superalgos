@@ -18,9 +18,9 @@ const usersMenus = {
   to: '/users',
   icon: Home,
   submenus: [
-    { title: 'Your Profile', to: '/users/user', icon: People, authenticated: true },
     { title: 'Directory', to: '/users/browse', icon: ImportContacts },
     { title: 'Search', to: '/users/search', icon: Search },
+    { title: 'Your Profile', to: '/users/user', icon: People, authenticated: true },
     { title: 'Report a Bug', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }

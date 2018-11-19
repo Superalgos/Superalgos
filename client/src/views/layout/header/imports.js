@@ -30,7 +30,7 @@ const teamsMenus = {
   to: '/teams',
   icon: Home,
   submenus: [
-    { title: 'Explore teams', to: '/teams/explore', icon: Search },
+    { title: 'Directory', to: '/teams/explore', icon: ImportContacts },
     { title: 'Your teams', to: '/teams/manage-teams', icon: Group, authenticated: true },
     { title: 'Team members', to: '/teams/team-members', icon: People, authenticated: true },
     { title: 'Financial beings', to: '/teams/financial-beings', icon: Adb, authenticated: true },

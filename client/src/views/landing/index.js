@@ -23,7 +23,7 @@ const styles = theme => ({
 
 const Landing = ({ classes, ...props }) => (
   <React.Fragment>
-    <BannerTopBar size='big' title='Teams Module' text='Discover, create and manage Advanced Algos teams.' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
+    <BannerTopBar size='big' title='Teams Module' text='Responsible for all teams at Advanced Algos.' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
     <div className='homePage container'>
       <Typography variant='h1' align='center' className='title'>
         Welcome to the Teams Module!

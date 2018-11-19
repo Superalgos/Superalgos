@@ -26,6 +26,7 @@
   "homepage": "https://github.com/Algoteers/MasterApp#readme",
   "devDependencies": {
     "@advancedalgos/events-client": "0.0.4",
+    "@advancedalgos/financial-beings-client": "0.0.4",
     "@advancedalgos/key-vault-client": "0.0.24",
     "@advancedalgos/teams-client": "0.0.29",
     "@advancedalgos/users-client": "0.0.24",
@@ -38,6 +39,7 @@
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.2.0",
     "babel-loader": "^8.0.4",
+    "babel-preset-flow": "6.23.0",
     "connect-history-api-fallback": "^1.5.0",
     "css-loader": "^1.0.0",
     "debug": "^4.1.0",
@@ -45,12 +47,14 @@
     "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-flowtype": "^2.42.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^4.0.0",
     "file-loader": "^2.0.0",
+    "flow-bin": "0.79.1",
     "html-webpack-harddisk-plugin": "^0.2.0",
     "html-webpack-plugin": "^3.2.0",
     "koa-connect": "^2.0.1",
@@ -62,10 +66,7 @@
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
-    "webpack-merge": "^4.1.4",
-    "flow-bin": "0.79.1",
-    "babel-preset-flow": "6.23.0",
-    "eslint-plugin-flowtype": "^2.42.0"
+    "webpack-merge": "^4.1.4"
   },
   "standard": {
     "parser": "babel-eslint",

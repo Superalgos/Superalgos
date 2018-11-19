@@ -11,9 +11,7 @@ class Index extends React.Component {
     return (
       <div className={this.props.classes.layout}>
         <Header auth={this.props.auth} />
-        <div>
-          {this.props.children}
-        </div>
+        <div>{this.props.children}</div>
         <Footer />
       </div>
     )

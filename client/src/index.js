@@ -12,4 +12,9 @@ if (process.env.NODE_ENV !== 'production') {
   window.localStorage.setItem('debug', 'advanced-algos:*')
 }
 
-ReactDOM.render(<Provider store={store}><MasterApp /></Provider>, document.getElementById('masterApp'))
+ReactDOM.render(
+  <Provider store={store}>
+    <MasterApp />
+  </Provider>,
+  document.getElementById('masterApp')
+)

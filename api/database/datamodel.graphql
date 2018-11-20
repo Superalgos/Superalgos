@@ -36,6 +36,7 @@ type Team {
   fb: [FinancialBeings!]! @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
   status: [TeamStatus!]!
   createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type TeamProfile {

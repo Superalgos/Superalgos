@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Tue Nov 13 2018 13:35:00 GMT-0800 (PST)
+# timestamp: Tue Nov 20 2018 08:54:59 GMT-0800 (Pacific Standard Time)
 
 type AggregateFBStatus {
   count: Int!
@@ -55,7 +55,8 @@ enum FBKind {
   PLOTTER
 }
 
-type FBStatus {
+type FBStatus implements Node {
+  id: ID!
   status: Status
   reason: String
   createdAt: DateTime!
@@ -78,6 +79,7 @@ input FBStatusCreateInput {
 
 input FBStatusCreateManyInput {
   create: [FBStatusCreateInput!]
+  connect: [FBStatusWhereUniqueInput!]
 }
 
 """An edge in a connection."""
@@ -90,19 +92,20 @@ type FBStatusEdge {
 }
 
 enum FBStatusOrderByInput {
+  id_ASC
+  id_DESC
   status_ASC
   status_DESC
   reason_ASC
   reason_DESC
   createdAt_ASC
   createdAt_DESC
-  id_ASC
-  id_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
 type FBStatusPreviousValues {
+  id: ID!
   status: Status
   reason: String
   createdAt: DateTime!
@@ -147,13 +150,39 @@ input FBStatusSubscriptionWhereInput {
   node: FBStatusWhereInput
 }
 
+input FBStatusUpdateDataInput {
+  status: Status
+  reason: String
+}
+
+input FBStatusUpdateInput {
+  status: Status
+  reason: String
+}
+
 input FBStatusUpdateManyInput {
   create: [FBStatusCreateInput!]
+  connect: [FBStatusWhereUniqueInput!]
+  disconnect: [FBStatusWhereUniqueInput!]
+  delete: [FBStatusWhereUniqueInput!]
+  update: [FBStatusUpdateWithWhereUniqueNestedInput!]
+  upsert: [FBStatusUpsertWithWhereUniqueNestedInput!]
 }
 
 input FBStatusUpdateManyMutationInput {
   status: Status
   reason: String
+}
+
+input FBStatusUpdateWithWhereUniqueNestedInput {
+  where: FBStatusWhereUniqueInput!
+  data: FBStatusUpdateDataInput!
+}
+
+input FBStatusUpsertWithWhereUniqueNestedInput {
+  where: FBStatusWhereUniqueInput!
+  update: FBStatusUpdateDataInput!
+  create: FBStatusCreateInput!
 }
 
 input FBStatusWhereInput {
@@ -165,6 +194,46 @@ input FBStatusWhereInput {
 
   """Logical NOT on all given filters combined by AND."""
   NOT: [FBStatusWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
   status: Status
 
   """All values that are not equal to given value."""
@@ -237,6 +306,10 @@ input FBStatusWhereInput {
 
   """All values greater than or equal the given value."""
   createdAt_gte: DateTime
+}
+
+input FBStatusWhereUniqueInput {
+  id: ID
 }
 
 enum FBType {
@@ -738,7 +811,8 @@ type MemberPreviousValues {
   createdAt: DateTime!
 }
 
-type MemberStatus {
+type MemberStatus implements Node {
+  id: ID!
   status: Status
   reason: String
   createdAt: DateTime!
@@ -761,6 +835,7 @@ input MemberStatusCreateInput {
 
 input MemberStatusCreateManyInput {
   create: [MemberStatusCreateInput!]
+  connect: [MemberStatusWhereUniqueInput!]
 }
 
 """An edge in a connection."""
@@ -773,19 +848,20 @@ type MemberStatusEdge {
 }
 
 enum MemberStatusOrderByInput {
+  id_ASC
+  id_DESC
   status_ASC
   status_DESC
   reason_ASC
   reason_DESC
   createdAt_ASC
   createdAt_DESC
-  id_ASC
-  id_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
 type MemberStatusPreviousValues {
+  id: ID!
   status: Status
   reason: String
   createdAt: DateTime!
@@ -830,13 +906,39 @@ input MemberStatusSubscriptionWhereInput {
   node: MemberStatusWhereInput
 }
 
+input MemberStatusUpdateDataInput {
+  status: Status
+  reason: String
+}
+
+input MemberStatusUpdateInput {
+  status: Status
+  reason: String
+}
+
 input MemberStatusUpdateManyInput {
   create: [MemberStatusCreateInput!]
+  connect: [MemberStatusWhereUniqueInput!]
+  disconnect: [MemberStatusWhereUniqueInput!]
+  delete: [MemberStatusWhereUniqueInput!]
+  update: [MemberStatusUpdateWithWhereUniqueNestedInput!]
+  upsert: [MemberStatusUpsertWithWhereUniqueNestedInput!]
 }
 
 input MemberStatusUpdateManyMutationInput {
   status: Status
   reason: String
+}
+
+input MemberStatusUpdateWithWhereUniqueNestedInput {
+  where: MemberStatusWhereUniqueInput!
+  data: MemberStatusUpdateDataInput!
+}
+
+input MemberStatusUpsertWithWhereUniqueNestedInput {
+  where: MemberStatusWhereUniqueInput!
+  update: MemberStatusUpdateDataInput!
+  create: MemberStatusCreateInput!
 }
 
 input MemberStatusWhereInput {
@@ -848,6 +950,46 @@ input MemberStatusWhereInput {
 
   """Logical NOT on all given filters combined by AND."""
   NOT: [MemberStatusWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
   status: Status
 
   """All values that are not equal to given value."""
@@ -920,6 +1062,10 @@ input MemberStatusWhereInput {
 
   """All values greater than or equal the given value."""
   createdAt_gte: DateTime
+}
+
+input MemberStatusWhereUniqueInput {
+  id: ID
 }
 
 type MemberSubscriptionPayload {
@@ -1179,17 +1325,32 @@ type Mutation {
   updateTeamMembers(data: TeamMembersUpdateInput!, where: TeamMembersWhereUniqueInput!): TeamMembers
   updateMember(data: MemberUpdateInput!, where: MemberWhereUniqueInput!): Member
   updateFinancialBeings(data: FinancialBeingsUpdateInput!, where: FinancialBeingsWhereUniqueInput!): FinancialBeings
+  updateTeamProfile(data: TeamProfileUpdateInput!, where: TeamProfileWhereUniqueInput!): TeamProfile
+  updateWallet(data: WalletUpdateInput!, where: WalletWhereUniqueInput!): Wallet
+  updateMemberStatus(data: MemberStatusUpdateInput!, where: MemberStatusWhereUniqueInput!): MemberStatus
+  updateFBStatus(data: FBStatusUpdateInput!, where: FBStatusWhereUniqueInput!): FBStatus
   updateTeamMemberStatus(data: TeamMemberStatusUpdateInput!, where: TeamMemberStatusWhereUniqueInput!): TeamMemberStatus
+  updateTeamStatus(data: TeamStatusUpdateInput!, where: TeamStatusWhereUniqueInput!): TeamStatus
   deleteTeam(where: TeamWhereUniqueInput!): Team
   deleteTeamMembers(where: TeamMembersWhereUniqueInput!): TeamMembers
   deleteMember(where: MemberWhereUniqueInput!): Member
   deleteFinancialBeings(where: FinancialBeingsWhereUniqueInput!): FinancialBeings
+  deleteTeamProfile(where: TeamProfileWhereUniqueInput!): TeamProfile
+  deleteWallet(where: WalletWhereUniqueInput!): Wallet
+  deleteMemberStatus(where: MemberStatusWhereUniqueInput!): MemberStatus
+  deleteFBStatus(where: FBStatusWhereUniqueInput!): FBStatus
   deleteTeamMemberStatus(where: TeamMemberStatusWhereUniqueInput!): TeamMemberStatus
+  deleteTeamStatus(where: TeamStatusWhereUniqueInput!): TeamStatus
   upsertTeam(where: TeamWhereUniqueInput!, create: TeamCreateInput!, update: TeamUpdateInput!): Team!
   upsertTeamMembers(where: TeamMembersWhereUniqueInput!, create: TeamMembersCreateInput!, update: TeamMembersUpdateInput!): TeamMembers!
   upsertMember(where: MemberWhereUniqueInput!, create: MemberCreateInput!, update: MemberUpdateInput!): Member!
   upsertFinancialBeings(where: FinancialBeingsWhereUniqueInput!, create: FinancialBeingsCreateInput!, update: FinancialBeingsUpdateInput!): FinancialBeings!
+  upsertTeamProfile(where: TeamProfileWhereUniqueInput!, create: TeamProfileCreateInput!, update: TeamProfileUpdateInput!): TeamProfile!
+  upsertWallet(where: WalletWhereUniqueInput!, create: WalletCreateInput!, update: WalletUpdateInput!): Wallet!
+  upsertMemberStatus(where: MemberStatusWhereUniqueInput!, create: MemberStatusCreateInput!, update: MemberStatusUpdateInput!): MemberStatus!
+  upsertFBStatus(where: FBStatusWhereUniqueInput!, create: FBStatusCreateInput!, update: FBStatusUpdateInput!): FBStatus!
   upsertTeamMemberStatus(where: TeamMemberStatusWhereUniqueInput!, create: TeamMemberStatusCreateInput!, update: TeamMemberStatusUpdateInput!): TeamMemberStatus!
+  upsertTeamStatus(where: TeamStatusWhereUniqueInput!, create: TeamStatusCreateInput!, update: TeamStatusUpdateInput!): TeamStatus!
   updateManyTeams(data: TeamUpdateManyMutationInput!, where: TeamWhereInput): BatchPayload!
   updateManyTeamMemberses(data: TeamMembersUpdateManyMutationInput!, where: TeamMembersWhereInput): BatchPayload!
   updateManyMembers(data: MemberUpdateManyMutationInput!, where: MemberWhereInput): BatchPayload!
@@ -1254,7 +1415,12 @@ type Query {
   teamMembers(where: TeamMembersWhereUniqueInput!): TeamMembers
   member(where: MemberWhereUniqueInput!): Member
   financialBeings(where: FinancialBeingsWhereUniqueInput!): FinancialBeings
+  teamProfile(where: TeamProfileWhereUniqueInput!): TeamProfile
+  wallet(where: WalletWhereUniqueInput!): Wallet
+  memberStatus(where: MemberStatusWhereUniqueInput!): MemberStatus
+  fBStatus(where: FBStatusWhereUniqueInput!): FBStatus
   teamMemberStatus(where: TeamMemberStatusWhereUniqueInput!): TeamMemberStatus
+  teamStatus(where: TeamStatusWhereUniqueInput!): TeamStatus
   teamsConnection(where: TeamWhereInput, orderBy: TeamOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamConnection!
   teamMembersesConnection(where: TeamMembersWhereInput, orderBy: TeamMembersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TeamMembersConnection!
   membersConnection(where: MemberWhereInput, orderBy: MemberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MemberConnection!
@@ -1997,7 +2163,8 @@ type TeamPreviousValues {
   createdAt: DateTime!
 }
 
-type TeamProfile {
+type TeamProfile implements Node {
+  id: ID!
   description: String
   motto: String
   avatar: String
@@ -2025,6 +2192,7 @@ input TeamProfileCreateInput {
 
 input TeamProfileCreateOneInput {
   create: TeamProfileCreateInput
+  connect: TeamProfileWhereUniqueInput
 }
 
 """An edge in a connection."""
@@ -2037,6 +2205,8 @@ type TeamProfileEdge {
 }
 
 enum TeamProfileOrderByInput {
+  id_ASC
+  id_DESC
   description_ASC
   description_DESC
   motto_ASC
@@ -2049,11 +2219,10 @@ enum TeamProfileOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
-  id_ASC
-  id_DESC
 }
 
 type TeamProfilePreviousValues {
+  id: ID!
   description: String
   motto: String
   avatar: String
@@ -2108,6 +2277,13 @@ input TeamProfileUpdateDataInput {
   banner: String
 }
 
+input TeamProfileUpdateInput {
+  description: String
+  motto: String
+  avatar: String
+  banner: String
+}
+
 input TeamProfileUpdateManyMutationInput {
   description: String
   motto: String
@@ -2117,6 +2293,7 @@ input TeamProfileUpdateManyMutationInput {
 
 input TeamProfileUpdateOneInput {
   create: TeamProfileCreateInput
+  connect: TeamProfileWhereUniqueInput
   disconnect: Boolean
   delete: Boolean
   update: TeamProfileUpdateDataInput
@@ -2137,6 +2314,46 @@ input TeamProfileWhereInput {
 
   """Logical NOT on all given filters combined by AND."""
   NOT: [TeamProfileWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
   description: String
 
   """All values that are not equal to given value."""
@@ -2343,7 +2560,12 @@ input TeamProfileWhereInput {
   createdAt_gte: DateTime
 }
 
-type TeamStatus {
+input TeamProfileWhereUniqueInput {
+  id: ID
+}
+
+type TeamStatus implements Node {
+  id: ID!
   status: Status
   reason: String
   createdAt: DateTime!
@@ -2366,6 +2588,7 @@ input TeamStatusCreateInput {
 
 input TeamStatusCreateManyInput {
   create: [TeamStatusCreateInput!]
+  connect: [TeamStatusWhereUniqueInput!]
 }
 
 """An edge in a connection."""
@@ -2378,19 +2601,20 @@ type TeamStatusEdge {
 }
 
 enum TeamStatusOrderByInput {
+  id_ASC
+  id_DESC
   status_ASC
   status_DESC
   reason_ASC
   reason_DESC
   createdAt_ASC
   createdAt_DESC
-  id_ASC
-  id_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
 type TeamStatusPreviousValues {
+  id: ID!
   status: Status
   reason: String
   createdAt: DateTime!
@@ -2435,13 +2659,39 @@ input TeamStatusSubscriptionWhereInput {
   node: TeamStatusWhereInput
 }
 
+input TeamStatusUpdateDataInput {
+  status: Status
+  reason: String
+}
+
+input TeamStatusUpdateInput {
+  status: Status
+  reason: String
+}
+
 input TeamStatusUpdateManyInput {
   create: [TeamStatusCreateInput!]
+  connect: [TeamStatusWhereUniqueInput!]
+  disconnect: [TeamStatusWhereUniqueInput!]
+  delete: [TeamStatusWhereUniqueInput!]
+  update: [TeamStatusUpdateWithWhereUniqueNestedInput!]
+  upsert: [TeamStatusUpsertWithWhereUniqueNestedInput!]
 }
 
 input TeamStatusUpdateManyMutationInput {
   status: Status
   reason: String
+}
+
+input TeamStatusUpdateWithWhereUniqueNestedInput {
+  where: TeamStatusWhereUniqueInput!
+  data: TeamStatusUpdateDataInput!
+}
+
+input TeamStatusUpsertWithWhereUniqueNestedInput {
+  where: TeamStatusWhereUniqueInput!
+  update: TeamStatusUpdateDataInput!
+  create: TeamStatusCreateInput!
 }
 
 input TeamStatusWhereInput {
@@ -2453,6 +2703,46 @@ input TeamStatusWhereInput {
 
   """Logical NOT on all given filters combined by AND."""
   NOT: [TeamStatusWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
   status: Status
 
   """All values that are not equal to given value."""
@@ -2525,6 +2815,10 @@ input TeamStatusWhereInput {
 
   """All values greater than or equal the given value."""
   createdAt_gte: DateTime
+}
+
+input TeamStatusWhereUniqueInput {
+  id: ID
 }
 
 type TeamSubscriptionPayload {
@@ -2841,7 +3135,8 @@ input TeamWhereUniqueInput {
   slug: String
 }
 
-type Wallet {
+type Wallet implements Node {
+  id: ID!
   balance: Float
   updatedAt: DateTime!
 }
@@ -2862,6 +3157,7 @@ input WalletCreateInput {
 
 input WalletCreateOneInput {
   create: WalletCreateInput
+  connect: WalletWhereUniqueInput
 }
 
 """An edge in a connection."""
@@ -2874,17 +3170,18 @@ type WalletEdge {
 }
 
 enum WalletOrderByInput {
+  id_ASC
+  id_DESC
   balance_ASC
   balance_DESC
   updatedAt_ASC
   updatedAt_DESC
-  id_ASC
-  id_DESC
   createdAt_ASC
   createdAt_DESC
 }
 
 type WalletPreviousValues {
+  id: ID!
   balance: Float
   updatedAt: DateTime!
 }
@@ -2932,12 +3229,17 @@ input WalletUpdateDataInput {
   balance: Float
 }
 
+input WalletUpdateInput {
+  balance: Float
+}
+
 input WalletUpdateManyMutationInput {
   balance: Float
 }
 
 input WalletUpdateOneInput {
   create: WalletCreateInput
+  connect: WalletWhereUniqueInput
   disconnect: Boolean
   delete: Boolean
   update: WalletUpdateDataInput
@@ -2958,6 +3260,46 @@ input WalletWhereInput {
 
   """Logical NOT on all given filters combined by AND."""
   NOT: [WalletWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
   balance: Float
 
   """All values that are not equal to given value."""
@@ -3002,4 +3344,8 @@ input WalletWhereInput {
 
   """All values greater than or equal the given value."""
   updatedAt_gte: DateTime
+}
+
+input WalletWhereUniqueInput {
+  id: ID
 }

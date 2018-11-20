@@ -36,7 +36,7 @@ export const teamsByOwner = async (parent, args, ctx, info) => {
     throw new AuthenticationError()
     return
   }
-  return ctx.db.query.teams({where: { owner: authId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
+  return ctx.db.query.teams({where: { owner: authId }, orderBy:'createdAt_DESC'}, TEAMS_FRAGMENT)
 }
 
 export const teamsByRole = async (parent, args, ctx, info) => {

@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Tue Nov 20 2018 08:54:59 GMT-0800 (Pacific Standard Time)
+# timestamp: Tue Nov 20 2018 09:55:31 GMT-0800 (Pacific Standard Time)
 
 type AggregateFBStatus {
   count: Int!
@@ -1477,6 +1477,7 @@ type Team implements Node {
   fb(where: FinancialBeingsWhereInput, orderBy: FinancialBeingsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FinancialBeings!]
   status(where: TeamStatusWhereInput, orderBy: TeamStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TeamStatus!]
   createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 """A connection to a list of items."""
@@ -2161,6 +2162,7 @@ type TeamPreviousValues {
   slug: String!
   owner: String!
   createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type TeamProfile implements Node {
@@ -3116,6 +3118,28 @@ input TeamWhereInput {
 
   """All values greater than or equal the given value."""
   createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """All values that are not equal to given value."""
+  updatedAt_not: DateTime
+
+  """All values that are contained in given list."""
+  updatedAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updatedAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updatedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updatedAt_lte: DateTime
+
+  """All values greater than the given value."""
+  updatedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updatedAt_gte: DateTime
   profile: TeamProfileWhereInput
   members_every: TeamMembersWhereInput
   members_some: TeamMembersWhereInput

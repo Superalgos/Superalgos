@@ -8,7 +8,7 @@ export const fbByTeamMember = async (parent, args, ctx, info) => {
   if (!authId) {
     throw new AuthenticationError()
   }
-  let teamMemberFB = await ctx.db.query.teams({where: {members_some: {AND: [{member: {authId: authId}}]}}, orderBy: 'updatedAt_DESC'}, TEAM_FB_FRAGMENT)
+  let teamMemberFB = await ctx.db.query.teams({where: {members_some: {AND: [{member: {authId: authId}}]}}, orderBy: 'createdAt_DESC'}, TEAM_FB_FRAGMENT)
   logger.info('fbByTeamMember response: ', await teamMemberFB[0])
   return teamMemberFB[0]
 }

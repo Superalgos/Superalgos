@@ -39,6 +39,7 @@ type Team {
 }
 
 type TeamProfile {
+  id: ID! @unique
   description: String
   motto: String
   avatar: String
@@ -48,6 +49,7 @@ type TeamProfile {
 }
 
 type TeamStatus {
+  id: ID! @unique
   status: Status @Default(value: inactive)
   reason: String
   createdAt: DateTime!
@@ -82,12 +84,14 @@ type Member {
 }
 
 type MemberStatus {
+  id: ID! @unique
   status: Status @Default(value: INACTIVE)
   reason: String
   createdAt: DateTime!
 }
 
 type Wallet {
+  id: ID! @unique
   balance: Float
   updatedAt: DateTime!
 }
@@ -106,6 +110,7 @@ type FinancialBeings {
 }
 
 type FBStatus {
+  id: ID! @unique
   status: Status @Default(value: inactive)
   reason: String
   createdAt: DateTime!

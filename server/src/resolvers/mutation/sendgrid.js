@@ -6,12 +6,7 @@ import logger from '../../logger'
 
 const API_KEY = process.env.SG_APIKEY
 const API_KEY_CONTACTS = process.env.SG_APIKEY_CONTACTS
-
-const dev = process.env.NODE_ENV === 'development' ? true : false
-let origin = 'https://app.advancedalgos.net'
-if (dev){
-  origin = 'http://localhost:3100'
-}
+let origin = process.env.SANDGRID_ORIGN
 
 export default {
   async master_NewsletterSignup(parent, { email }, ctx, info) {
@@ -78,10 +73,7 @@ export default {
     return sendVerify
   },
   async master_NewsletterSignupVerify(parent, { token }, ctx, info){
-    let origin = 'https://app.advancedalgos.net'
-    if (dev){
-      origin = 'http://localhost:3100'
-    }
+    let origin = process.env.SANDGRID_ORIGN
     const headers = {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin' : origin,

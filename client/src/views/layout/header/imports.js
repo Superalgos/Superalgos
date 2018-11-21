@@ -13,6 +13,8 @@ import {
   AddCircleOutline
 } from '@material-ui/icons'
 
+import { FINANCIAL_BEINGS } from '../../../constants/routes'
+
 const usersMenus = {
   title: 'Users',
   to: '/users',
@@ -33,7 +35,6 @@ const teamsMenus = {
     { title: 'Explore teams', to: '/teams/explore', icon: Search },
     { title: 'Your teams', to: '/teams/manage-teams', icon: Group, authenticated: true },
     { title: 'Team members', to: '/teams/team-members', icon: People, authenticated: true },
-    { title: 'Financial beings', to: '/teams/financial-beings', icon: Adb, authenticated: true },
     { title: 'Report a Bug', to: 'https://github.com/AdvancedAlgos/TeamsModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
@@ -63,6 +64,19 @@ const keyvaultMenus = {
   ]
 }
 
-const allMenus = [ usersMenus, teamsMenus, eventsMenus, keyvaultMenus ]
+const financialBeingsMenus = {
+  title: 'Financial beings',
+  to: FINANCIAL_BEINGS,
+  authenticated: false,
+  submenus: []
+}
+
+const allMenus = [
+  usersMenus,
+  teamsMenus,
+  eventsMenus,
+  // financialBeingsMenus,
+  keyvaultMenus
+]
 
 export default allMenus

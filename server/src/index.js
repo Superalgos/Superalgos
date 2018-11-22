@@ -64,6 +64,11 @@ async function run () {
     process.env.EVENTS_API_URL,
     process.env.EVENTS_API_PRESHARED)
     logger.info('Events schema created')
+  const transformedFinancialBeingsSchema = await createTransformedRemoteSchema(
+    'financialBeings_',
+    process.env.FINANCIAL_BEINGS_API_URL,
+    process.env.FINANCIAL_BEINGS_API_PRESHARED)
+    logger.info('FINANCIAL_BEINGS schema created')
 
   var schemas = [masterSchema]
   var resolvers = {}
@@ -89,7 +94,10 @@ async function run () {
   if (transformedKeyVaultSchema) {
     schemas.push(transformedKeyVaultSchema)
   }
-
+  if (transformedFinancialBeingsSchema) {
+    schemas.push(transformedFinancialBeingsSchema)
+  }
+  
   const schema = mergeSchemas({
     schemas,
     resolvers

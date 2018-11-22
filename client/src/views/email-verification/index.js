@@ -33,10 +33,7 @@ export const EmailSignupConfirm = ({ tokenParam }) => {
   }
   console.log(token)
   return (
-    <Mutation
-      mutation={NEWSLETTER_SIGNUP_VERIFY}
-      variables={{ token: token }}
-    >
+    <Mutation mutation={NEWSLETTER_SIGNUP_VERIFY} variables={{ token: token }}>
       {(NewsletterSignupVerify, { loading, error, data }) => {
         return (
           <SignupVerifyResponse
@@ -46,8 +43,7 @@ export const EmailSignupConfirm = ({ tokenParam }) => {
             data={data}
           />
         )
-      }
-      }
+      }}
     </Mutation>
   )
 }

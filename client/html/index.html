@@ -32,7 +32,9 @@
         context: {}
         };
 
-        loadAdvancedAlgosPlatform();
+        let delay = 0
+        if (window.innerHeight === 0) {delay = 3000} // Inside IFRAMES the onload event is reaised before the window has its real size.
+        setTimeout(loadAdvancedAlgosPlatform, delay)
       }
     }
     function onResize(){

@@ -35,10 +35,16 @@
         loadAdvancedAlgosPlatform();
       }
     }
+    function onResize(){
+      if (window.canvasApp === undefined) {return}
+      if (window.canvasApp.eventHandler === undefined) {return}
+      window.canvasApp.eventHandler.raiseEvent('Browser Resized')
+    }
+
   </script>
 </head>
 
-<body id="body" onload="loadCanvas()" onresize="window.canvasApp.eventHandler.raiseEvent('Browser Resized')">
+<body id="body" onload="loadCanvas()" onresize="onResize()">
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
 </body>

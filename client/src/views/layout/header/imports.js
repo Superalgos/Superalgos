@@ -20,9 +20,9 @@ const usersMenus = {
   to: '/users',
   icon: Home,
   submenus: [
-    { title: 'Your Profile', to: '/users/user', icon: People, authenticated: true },
     { title: 'Directory', to: '/users/browse', icon: ImportContacts },
     { title: 'Search', to: '/users/search', icon: Search },
+    { title: 'Your Profile', to: '/users/user', icon: People, authenticated: true },
     { title: 'Report a Bug', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
@@ -32,7 +32,7 @@ const teamsMenus = {
   to: '/teams',
   icon: Home,
   submenus: [
-    { title: 'Explore teams', to: '/teams/explore', icon: Search },
+    { title: 'Directory', to: '/teams/explore', icon: ImportContacts },
     { title: 'Your teams', to: '/teams/manage-teams', icon: Group, authenticated: true },
     { title: 'Team members', to: '/teams/team-members', icon: People, authenticated: true },
     { title: 'Report a Bug', to: 'https://github.com/AdvancedAlgos/TeamsModule/issues/new', icon: BugReport, externalLink: true }
@@ -44,7 +44,7 @@ const eventsMenus = {
   to: '/events',
   icon: Home,
   submenus: [
-    { title: 'All events', to: '/events', icon: Search },
+    { title: 'Directory', to: '/events', icon: ImportContacts },
     { title: 'Your events', to: '/events/my', icon: GamepadRounded, authenticated: true },
     { title: 'Your hosted events', to: '/events/host', icon: AccessibilityNew, authenticated: true },
     { title: 'Host an event', to: '/events/create', icon: LibraryAdd, authenticated: true },

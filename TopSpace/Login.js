@@ -203,7 +203,7 @@ function newLogin() {
 
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
 
-                    console.log("Authentication Error. " + err.message);
+                    console.log("Please make sure you create a new team!");
                     return;
 
                 }

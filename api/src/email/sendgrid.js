@@ -4,15 +4,11 @@ var axios = require('axios')
 import { logger } from '../logger'
 
 const sendTeamMemberInvite = function(email, team) {
-    const dev = process.env.NODE_ENV === 'development' ? true : false
     logger.info(`sendTeamMemberInvite email|team: ${email} | ${team}`)
     const API_KEY = process.env.SG_APIKEY
     const token = jwt.sign({ email: email, team: team.slug }, API_KEY, { expiresIn: '7d' })
-    let origin = 'https://teams.advancedalgos.net'
+    let origin = process.env.SG_ORIGIN
     const params = '/activate-team-membership/'
-    if (dev){
-      origin = 'http://localhost:3001'
-    }
 
     const headers = {
       'Content-Type': 'application/json',
@@ -70,13 +66,9 @@ const sendTeamMemberInvite = function(email, team) {
 }
 
 const sendTeamCreateConfirmation = function(email, teamName, botName) {
-    const dev = process.env.NODE_ENV === 'development' ? true : false
     logger.info(`sendTeamCreateConfirmation email|teamName|botName: ${email} | ${teamName} | ${botName}`)
     const API_KEY = process.env.SG_APIKEY
-    let origin = 'https://teams.advancedalgos.net'
-    if (dev){
-      origin = 'http://localhost:3001'
-    }
+    let origin = process.env.SG_ORIGIN
 
     const headers = {
       'Content-Type': 'application/json',
@@ -93,7 +85,7 @@ const sendTeamCreateConfirmation = function(email, teamName, botName) {
               }
             ],
             dynamic_template_data: {
-              "aadeveloplink": "https://develop.advancedalgos.net/index.html",
+              "aadeveloplink": process.env.SG_PLATFORM_URL,
               "aateamname": teamName,
               "aabotname": botName,
               "subject": "Team " + teamName + " has been created!"

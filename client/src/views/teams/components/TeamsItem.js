@@ -43,13 +43,13 @@ export const TeamsItem = ({ classes, team }) => {
   if (team.profile.avatar !== undefined && team.profile.avatar !== 'a') {
     avatar = team.profile.avatar
   } else {
-    avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
+    avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
   }
   let banner
   if (team.profile.banner !== undefined && team.profile.banner !== null) {
     banner = team.profile.banner
   } else {
-    banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
+    banner = process.env.STORAGE_URL + '/module-teams/module-default/aa-banner-default.png'
   }
   return (
     <Grid item xs={12} sm={6} md={4}>

@@ -36,7 +36,7 @@ const styles = theme => ({
 
 export const TeamsFBView = ({ classes, team }) => {
   log.debug('ManageTeamProvileFBView', team, team.fb[0])
-  let avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
+  let avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
   if (team.fb.length > 0) {
     avatar = team.fb[0].avatar
 

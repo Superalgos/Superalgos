@@ -64,7 +64,7 @@ export class ManageTeamProfileFBEdit extends Component {
           const containerName = slug
 
           let avatar = null
-          if (this.state.avatar === null && fb.avatar === undefined) avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
+          if (this.state.avatar === null && fb.avatar === undefined) avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
           if (fb.avatar !== undefined && fb.avatar !== null) avatar = fb.avatar
           if (this.state.avatar !== null) avatar = this.state.avatar
 

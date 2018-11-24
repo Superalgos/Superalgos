@@ -21,7 +21,7 @@ export const getUser = authId => {
   logger.info(authId)
   return new Promise((resolve, reject) => {
     try {
-      return axios.post(process.env.PLATFORM_URL, {
+      return axios.post(process.env.PLATFORM_API_URL, {
         query: `query users_User($userId: ID!) {
           users_User(id: $userId){
             id

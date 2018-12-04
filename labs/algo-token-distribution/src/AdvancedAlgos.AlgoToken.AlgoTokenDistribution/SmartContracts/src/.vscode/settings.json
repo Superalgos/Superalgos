@@ -1,0 +1,9 @@
+{
+    "solidity.soliumRules": {
+        "indentation": "off",
+        "operator-whitespace": "off",
+        "error-reason": "off",
+        "linebreak-style": "off"
+    },
+    "solidity.packageDefaultDependenciesContractsDirectory": ""
+}

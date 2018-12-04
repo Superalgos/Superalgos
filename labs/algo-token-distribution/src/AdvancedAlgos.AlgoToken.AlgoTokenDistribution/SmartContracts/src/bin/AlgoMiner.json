@@ -1,0 +1,351 @@
+{
+    "abi": [
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "pauseMining",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "isAlgoMiner",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "pure",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "startMining",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "newMinerAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "migrateMiner",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "addSupervisor",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "addCoreTeam",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "isSystem",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "stopAndRemoveOwnership",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "resumeMining",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "isCoreTeam",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "addSystem",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "getCategory",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "isSupervisor",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "mine",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "deactivateMiner",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "newOwnerAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "resetMiner",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "activateMiner",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "renounceSupervisor",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "DAYS_PER_YEAR",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "renounceCoreTeam",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "stopMining",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "renounceSystem",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "name": "minerType",
+                    "type": "uint16"
+                },
+                {
+                    "name": "category",
+                    "type": "uint8"
+                },
+                {
+                    "name": "ownerAddress",
+                    "type": "address"
+                },
+                {
+                    "name": "tokenAddress",
+                    "type": "address"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        }
+    ],
+    "bytecode": "60806040523480156200001157600080fd5b5060405160808062000fb883398101604090815281516020830151918301516060909301519092906200004d33640100000000620000de810204565b6200006133640100000000620000fc810204565b620000753364010000000062000117810204565b6003805461ffff191661ffff959095169490941762ff000019166201000060ff949094169390930292909217630100000060b860020a0319166301000000600160a060020a03928316021790925560048054600160a060020a03191691909216179055620001c5565b620000f960008264010000000062000d1d6200013282021704565b50565b620000f960018264010000000062000d1d6200013282021704565b620000f960028264010000000062000d1d6200013282021704565b600160a060020a03811615156200014857600080fd5b6200015d82826401000000006200018d810204565b156200016857600080fd5b600160a060020a0316600090815260209190915260409020805460ff19166001179055565b6000600160a060020a0382161515620001a557600080fd5b50600160a060020a03166000908152602091909152604090205460ff1690565b610de380620001d56000396000f3006080604052600436106101275763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663162f986d811461012c5780631777fb4b1461014357806321b79d981461016c578063231d4e2a1461018157806329d10b6e146101a25780632e6b6849146101c357806334cdcf26146101e4578063363aa6c714610205578063427534a41461021a578063608d3d3d1461022f57806374be75921461025057806380258e471461027157806381a244591461029c57806399f4b251146102bd5780639e614ca0146102d2578063ada436e9146102e7578063b2a32cd514610308578063be9524941461031d578063c6846ef814610332578063d43acc7914610359578063da4086791461036e578063e9d6185914610383575b600080fd5b34801561013857600080fd5b50610141610398565b005b34801561014f57600080fd5b506101586103fe565b604080519115158252519081900360200190f35b34801561017857600080fd5b50610141610403565b34801561018d57600080fd5b50610141600160a060020a03600435166104a7565b3480156101ae57600080fd5b50610141600160a060020a0360043516610593565b3480156101cf57600080fd5b50610141600160a060020a03600435166105b0565b3480156101f057600080fd5b50610158600160a060020a03600435166105cd565b34801561021157600080fd5b506101416105e5565b34801561022657600080fd5b5061014161068e565b34801561023b57600080fd5b50610158600160a060020a03600435166106f1565b34801561025c57600080fd5b50610141600160a060020a0360043516610704565b34801561027d57600080fd5b50610286610721565b6040805160ff9092168252519081900360200190f35b3480156102a857600080fd5b50610158600160a060020a0360043516610730565b3480156102c957600080fd5b50610141610743565b3480156102de57600080fd5b50610141610915565b3480156102f357600080fd5b50610141600160a060020a036004351661096f565b34801561031457600080fd5b50610141610a05565b34801561032957600080fd5b50610141610b18565b34801561033e57600080fd5b50610347610b23565b60408051918252519081900360200190f35b34801561036557600080fd5b50610141610b29565b34801561037a57600080fd5b50610141610b32565b34801561038f57600080fd5b50610141610bbf565b6103a133610730565b15156103ac57600080fd5b600160045460a060020a900460ff1660038111156103c657fe5b146103d057600080fd5b600480546002919074ff0000000000000000000000000000000000000000191660a060020a835b0217905550565b600190565b60035463010000009004600160a060020a0316331461042157600080fd5b600160045460a060020a900460ff16600381111561043b57fe5b1461044557600080fd5b6004547501000000000000000000000000000000000000000000900460ff161561046e57600080fd5b6004805475ff00000000000000000000000000000000000000000019167501000000000000000000000000000000000000000000179055565b6104b0336106f1565b15156104bb57600080fd5b600060045460a060020a900460ff1660038111156104d557fe5b146104df57600080fd5b60048054604080517f70a08231000000000000000000000000000000000000000000000000000000008152309381019390935251610590928492600160a060020a0316916370a08231916024808201926020929091908290030181600087803b15801561054b57600080fd5b505af115801561055f573d6000803e3d6000fd5b505050506040513d602081101561057557600080fd5b5051600454600160a060020a0316919063ffffffff610bc816565b50565b61059c33610730565b15156105a757600080fd5b61059081610c80565b6105b9336106f1565b15156105c457600080fd5b61059081610c91565b60006105df818363ffffffff610ca216565b92915050565b6105ee33610730565b15156105f957600080fd5b600360045460a060020a900460ff16600381111561061357fe5b141561061e57600080fd5b6004805474ff00000000000000000000000000000000000000001916740300000000000000000000000000000000000000001775ff000000000000000000000000000000000000000000191690556003805476ffffffffffffffffffffffffffffffffffffffff00000019169055565b61069733610730565b15156106a257600080fd5b600260045460a060020a900460ff1660038111156106bc57fe5b146106c657600080fd5b600480546001919074ff0000000000000000000000000000000000000000191660a060020a836103f7565b60006105df60018363ffffffff610ca216565b61070d336105cd565b151561071857600080fd5b61059081610cd9565b60035462010000900460ff1690565b60006105df60028363ffffffff610ca216565b600061074e336105cd565b151561075957600080fd5b600160045460a060020a900460ff16600381111561077357fe5b1461077d57600080fd5b6004547501000000000000000000000000000000000000000000900460ff1615156107a757600080fd5b60045460b860020a900461ffff16151561081d576004805478ffff00000000000000000000000000000000000000000000001976ff0000000000000000000000000000000000000000000019909116760100000000000000000000000000000000000000000000171660b860020a1790556108e5565b60048054600161ffff60b860020a8084048216929092018116820278ffff00000000000000000000000000000000000000000000001990931692909217928390559091041661016e14156108e5576004805478ffff000000000000000000000000000000000000000000000019600160ff760100000000000000000000000000000000000000000000808504821692909201160276ff0000000000000000000000000000000000000000000019909216919091171660b860020a179055600554600290046005555b5060055460035460045461016d9092049161059091600160a060020a039182169163010000009091041683610bc8565b61091e336106f1565b151561092957600080fd5b600060045460a060020a900460ff16600381111561094357fe5b141561094e57600080fd5b6004805475ffff000000000000000000000000000000000000000019169055565b61097833610730565b151561098357600080fd5b600360045460a060020a900460ff16600381111561099d57fe5b146109a757600080fd5b6004805474ff0000000000000000000000000000000000000000191660a060020a17905560038054600160a060020a039290921663010000000276ffffffffffffffffffffffffffffffffffffffff00000019909216919091179055565b6000610a10336106f1565b1515610a1b57600080fd5b600060045460a060020a900460ff166003811115610a3557fe5b14610a3f57600080fd5b6005541515610af15760048054604080517f70a08231000000000000000000000000000000000000000000000000000000008152309381019390935251600160a060020a03909116916370a082319160248083019260209291908290030181600087803b158015610aaf57600080fd5b505af1158015610ac3573d6000803e3d6000fd5b505050506040513d6020811015610ad957600080fd5b50519050801515610ae957600080fd5b600281046005555b506004805474ff0000000000000000000000000000000000000000191660a060020a179055565b610b2133610cea565b565b61016d81565b610b2133610cfb565b60035463010000009004600160a060020a03163314610b5057600080fd5b600160045460a060020a900460ff166003811115610b6a57fe5b14610b7457600080fd5b6004547501000000000000000000000000000000000000000000900460ff161515610b9e57600080fd5b6004805475ff00000000000000000000000000000000000000000019169055565b610b2133610d0c565b82600160a060020a031663a9059cbb83836040518363ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018083600160a060020a0316600160a060020a0316815260200182815260200192505050602060405180830381600087803b158015610c4457600080fd5b505af1158015610c58573d6000803e3d6000fd5b505050506040513d6020811015610c6e57600080fd5b50511515610c7b57600080fd5b505050565b61059060028263ffffffff610d1d16565b61059060018263ffffffff610d1d16565b6000600160a060020a0382161515610cb957600080fd5b50600160a060020a03166000908152602091909152604090205460ff1690565b61059060008263ffffffff610d1d16565b61059060028263ffffffff610d6b16565b61059060018263ffffffff610d6b16565b61059060008263ffffffff610d6b16565b600160a060020a0381161515610d3257600080fd5b610d3c8282610ca2565b15610d4657600080fd5b600160a060020a0316600090815260209190915260409020805460ff19166001179055565b600160a060020a0381161515610d8057600080fd5b610d8a8282610ca2565b1515610d9557600080fd5b600160a060020a0316600090815260209190915260409020805460ff191690555600a165627a7a72305820346733bed0f72b16c5bb967042b5930d38e536cc6adf26f0a2b6cc22aaa8069d0029",
+    "functionHashes": {
+        "DAYS_PER_YEAR()": "c6846ef8",
+        "activateMiner()": "b2a32cd5",
+        "addCoreTeam(address)": "2e6b6849",
+        "addSupervisor(address)": "29d10b6e",
+        "addSystem(address)": "74be7592",
+        "deactivateMiner()": "9e614ca0",
+        "getCategory()": "80258e47",
+        "isAlgoMiner()": "1777fb4b",
+        "isCoreTeam(address)": "608d3d3d",
+        "isSupervisor(address)": "81a24459",
+        "isSystem(address)": "34cdcf26",
+        "migrateMiner(address)": "231d4e2a",
+        "mine()": "99f4b251",
+        "pauseMining()": "162f986d",
+        "renounceCoreTeam()": "d43acc79",
+        "renounceSupervisor()": "be952494",
+        "renounceSystem()": "e9d61859",
+        "resetMiner(address)": "ada436e9",
+        "resumeMining()": "427534a4",
+        "startMining()": "21b79d98",
+        "stopAndRemoveOwnership()": "363aa6c7",
+        "stopMining()": "da408679"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "711000",
+            "executionCost": "infinite",
+            "totalCost": "infinite"
+        },
+        "external": {
+            "DAYS_PER_YEAR()": "580",
+            "activateMiner()": "infinite",
+            "addCoreTeam(address)": "infinite",
+            "addSupervisor(address)": "infinite",
+            "addSystem(address)": "infinite",
+            "deactivateMiner()": "infinite",
+            "getCategory()": "652",
+            "isAlgoMiner()": "212",
+            "isCoreTeam(address)": "infinite",
+            "isSupervisor(address)": "infinite",
+            "isSystem(address)": "infinite",
+            "migrateMiner(address)": "infinite",
+            "mine()": "infinite",
+            "pauseMining()": "infinite",
+            "renounceCoreTeam()": "infinite",
+            "renounceSupervisor()": "infinite",
+            "renounceSystem()": "infinite",
+            "resetMiner(address)": "infinite",
+            "resumeMining()": "infinite",
+            "startMining()": "21272",
+            "stopAndRemoveOwnership()": "infinite",
+            "stopMining()": "21665"
+        }
+    }
+}

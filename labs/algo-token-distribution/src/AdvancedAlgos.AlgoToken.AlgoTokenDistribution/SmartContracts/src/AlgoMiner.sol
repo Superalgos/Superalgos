@@ -36,6 +36,8 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
         AlgoCoreTeamRole()
         AlgoSupervisorRole()
         public {
+        
+        require(category >= 0 && category <= 5);
 
         _minerType = minerType;
         _category = category;

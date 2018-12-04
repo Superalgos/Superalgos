@@ -36,7 +36,6 @@ type Team {
   fb: [FinancialBeings!]! @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
   status: [TeamStatus!]!
   createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type TeamProfile {
@@ -45,8 +44,8 @@ type TeamProfile {
   motto: String
   avatar: String
   banner: String
-  updatedAt: DateTime!
   createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type TeamStatus {
@@ -64,7 +63,6 @@ type TeamMembers {
   status: [TeamMemberStatus!]!
   email: String  @unique
   createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type TeamMemberStatus {
@@ -94,7 +92,7 @@ type MemberStatus {
 type Wallet {
   id: ID! @unique
   balance: Float
-  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type FinancialBeings {
@@ -106,8 +104,6 @@ type FinancialBeings {
   avatar: String
   team: Team @relation (name: "TeamFinancialBeing", onDelete: SET_NULL)
   status: [FBStatus!]!
-  updatedAt: DateTime!
-  createdAt: DateTime!
 }
 
 type FBStatus {

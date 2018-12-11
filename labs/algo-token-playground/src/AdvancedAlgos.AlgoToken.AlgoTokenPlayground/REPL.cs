@@ -26,6 +26,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground
             ContractManagementParsers.Register();
             AlgoTokenParsers.Register();
             AlgoPoolParsers.Register();
+            AlgoFeesParsers.Register();
             AlgoMinerParsers.Register();
         }
 

@@ -8,11 +8,11 @@ import logger from '../../logger'
 const API_KEY = process.env.SG_APIKEY
 const API_KEY_CAMPAIGN = process.env.SG_APIKEY_CAMPAIGN
 
-const origin = process.env.SG_PLATFORM_ORIGIN
+const origin = process.env.SG_CORPORATE_ORIGIN
 
 export default {
-  async Master_NewsletterSignup(parent, { email }, ctx, info) {
-    logger.debug('Master_NewsletterSignup params email:')
+  async Corporate_NewsletterSignup(parent, { email }, ctx, info) {
+    logger.debug('Corporate_NewsletterSignup params email:')
     logger.debug(email)
     const token = jwt.sign({ email: email }, API_KEY, { expiresIn: '1d' })
     const params = '/email-verification?token='
@@ -31,17 +31,17 @@ export default {
             },
             "subject": 'VERIFY YOUR INTEREST in Advanced Algos'
           }
-      ],
-      "from": {
-        "email": "feedback@advancedalgos.net",
-        "name": "Advanced Algos Team"
-      },
-      "reply_to": {
-        "email": "feedback@advancedalgos.net",
-        "name": "Advanced Algos Team"
-      },
-      "template_id": process.env.SG_MASTER_SIGNUP_EMAILID
-    })
+        ],
+        "from": {
+          "email": "feedback@advancedalgos.net",
+          "name": "Advanced Algos Team"
+        },
+        "reply_to": {
+          "email": "feedback@advancedalgos.net",
+          "name": "Advanced Algos Team"
+        },
+        "template_id": process.env.SG_CORPORATE_SIGNUP_EMAILID
+      })
 
     const sendVerify = axios({
       method: 'post',
@@ -53,8 +53,8 @@ export default {
       }
     })
     .then(function (response) {
-      logger.debug('Sendgrid Master SendVerify response:')
-      logger.debug (response)
+      logger.debug('Sendgrid sendVerify response:')
+      logger.debug(response)
       if (response.status >= 200 && response.status < 300) {
         return 'SUCCESS'
       } else {
@@ -62,18 +62,19 @@ export default {
       }
     })
     .catch(function (error) {
-      logger.error('Sendgrid Master SendVerify Error:')
+      logger.error('Sendgrid sendVerify Error:')
       logger.error(error)
-      throw new ApolloError(`Sendgrid Master SendVerify Error: ${error.response.data.errors[0].message}`, 404)
+      throw new ApolloError(`Sendgrid sendVerify Error: ${error.response.data.errors[0].message}`, 404)
     })
     return sendVerify
   },
-  async Master_NewsletterSignupVerify(parent, { token }, ctx, info){
+
+  async Corporate_NewsletterSignupVerify(parent, { token }, ctx, info){
     let verifiedToken
     try {
       verifiedToken = jwt.verify(token, API_KEY, {maxAge: '1d'})
     } catch(err) {
-      logger.error('Sendgrid Master verifiedToken Error:')
+      logger.error('Sendgrid verifiedToken Error:')
       logger.error(err)
       if (err.name === 'TokenExpiredError'){
         throw new ApolloError('Error: Token Expired. Please resubmit email address.', 400)
@@ -81,7 +82,7 @@ export default {
         throw new ApolloError(`Error: ${err.message}`, 400)
       }
     }
-    logger.debug('Sendgrid Master verifySignup verifiedToken: ')
+    logger.debug('Sendgrid verifySignup verifiedToken: ')
     logger.debug(verifiedToken)
 
     const email = verifiedToken.email
@@ -96,8 +97,8 @@ export default {
         }
     })
     .then(response => {
-      logger.info('Sendgrid Master verifySignup subscribe: ')
-      logger.info(response)
+      logger.debug('Sendgrid verifySignup subscribe: ')
+      logger.debug(response)
       const recipients = response.data.persisted_recipients
 
       if (recipients.length > 0 ){
@@ -110,8 +111,8 @@ export default {
           }
         })
         .then(response => {
-          logger.info('Sendgrid Master verifySignup addToList: ')
-          logger.info(response)
+          logger.debug('Sendgrid verifySignup addToList: ')
+          logger.debug(response)
           if (response.status >= 200 && response.status < 300) {
             return 'SUCCESS'
           } else {
@@ -119,7 +120,7 @@ export default {
           }
         })
         .catch(error => {
-          logger.error('Sendgrid Master verifySignUp subscribe Error:')
+          logger.error('Sendgrid verifySignUp subscribe Error:')
           logger.error(error)
           throw `Email SignUp Error: ${error}`
         })
@@ -132,13 +133,14 @@ export default {
       return response
     })
     .catch(error => {
-      logger.error('Sendgrid Master verifySubscribe Error:')
+      logger.error('Sendgrid verifySubscribe Error:')
       logger.error(error)
-      throw new ApolloError(`Sendgrid Master verifySubscribe Error: ${error.response.data.errors[0].message}`, 404)
+      throw new ApolloError(`Sendgrid verifySubscribe Error: ${error.response.data.errors[0].message}`, 404)
     })
     return subscribe
   },
-  async Master_Feedback(parent, { email, subject, message, recaptcha }, ctx, info) {
+
+  async Corporate_Contact(parent, { email, subject, message, recaptcha }, ctx, info) {
     const toEmail = 'feedback@advancedalgos.net'
 
     const data = JSON.stringify({
@@ -146,7 +148,7 @@ export default {
           {
             "to": [
               {
-                "email": toEmail
+                "email": email
               }
             ],
             dynamic_template_data: {
@@ -154,7 +156,7 @@ export default {
               "aacontactemail": email,
               "aacontactbody": message
             },
-            "subject": `AA Platform App Feedback - Message from ${name}`
+            "subject": `AA Corporate Site Contact - Message from ${name}`
           }
         ],
       "from": {
@@ -165,7 +167,7 @@ export default {
         "email": email,
         "name": name
       },
-      "template_id": process.env.SG_MASTER_FEEDBACK_EMAILID
+      "template_id": process.env.SG_CORPORATE_CONTACT_EMAILID
     })
 
     const checkCaptcha = axios({
@@ -189,17 +191,17 @@ export default {
           }
         })
         .then(function (response) {
-          logger.debug('Platform Feedback response: ')
+          logger.debug('Sendgrid Contact response: ')
           logger.debug(response)
           if (response.status >= 200 && response.status < 300) {
-            return `Platform Feedback email sent`
+            return `Corporate Contact email sent`
           } else {
             throw response.data.errors[0].message
           }
         })
         .catch(function (error) {
           logger.error(`sendgrid Error: ${JSON.stringify(error)}`)
-          throw `Platform Feedback email send error: ${error.response.data.errors[0].message}`
+          throw `Corporate Contact email send error: ${error.response.data.errors[0].message}`
         })
       }else{
         throw response.data
@@ -209,9 +211,9 @@ export default {
       return response
     })
     .catch(function (error) {
-      logger.error('Platform Feedback RECAPTCHA Error:')
+      logger.error('Sendgrid Corporate Contact RECAPTCHA Error:')
       logger.error(error)
-      throw new ApolloError(`Platform Feedback RECAPTCHA Error: ${error.response.data.errors[0].message}`, 404)
+      throw new ApolloError(`Sendgrid Corporate Contact RECAPTCHA Error: ${error.response.data.errors[0].message}`, 404)
     })
 
     return checkCaptcha

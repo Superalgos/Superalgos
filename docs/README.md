@@ -11,8 +11,13 @@ The Notifications Module graphql schema:
 
 ```
 type Mutation {
-  master
-  teamsSendMemberInvite(email: String!, teamId: String!): String
-  teamsVerifyMemberInvite(token: String!): String
+  Corporate_NewsletterSignup(email: String!): String
+  Corporate_NewsletterSignupVerify(token: String!): String
+  Corporate_Contact(email: String!, subject: String!, Message: String!, recaptcha: String!): String
+  Master_NewsletterSignup(email: String!): String
+  Master_NewsletterSignupVerify(token: String!): String
+  Master_Contact(email: String!, subject: String!, Message: String!, recaptcha: String!): String
+  Teams_SendTeamMemberInvite(email: String!, teamName: String!): String
+  Teams_SendTeamCreateConfirmation(email: String!, teamName: String!, botName: String!): String
 }
 ```

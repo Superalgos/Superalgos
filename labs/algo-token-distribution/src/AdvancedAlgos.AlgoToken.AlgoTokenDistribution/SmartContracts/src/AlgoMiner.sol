@@ -136,6 +136,8 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
 
         uint256 tokens = _currentYearSupply / DAYS_PER_YEAR;
 
+        require(tokens > 0);
+
         _token.safeTransfer(_miner, tokens);
     }
 
@@ -145,5 +147,13 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
 
     function getCategory() public view returns (uint8) {
         return _category;
+    }
+
+    function isMining() public view returns (bool) {
+        return _state == MinerState.Activated && _mining;
+    }
+
+    function getMiner() public view returns (address) {
+        return _miner;
     }
 }

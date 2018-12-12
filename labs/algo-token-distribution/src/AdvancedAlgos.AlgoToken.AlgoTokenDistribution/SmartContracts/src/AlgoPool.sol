@@ -19,6 +19,7 @@ contract AlgoPool is AlgoCoreTeamRole {
 
     uint16 private _poolType;
     IERC20 private _token;
+    mapping(address => bool) _fundedMiners;
 
     constructor(uint16 poolType, address tokenAddress)
         AlgoCoreTeamRole()
@@ -28,6 +29,8 @@ contract AlgoPool is AlgoCoreTeamRole {
     }
 
     function trasferToMiner(address minerAddress) public onlyCoreTeam {
+        require(!_fundedMiners[minerAddress]);
+
         IAlgoMiner algoMiner = IAlgoMiner(minerAddress);
         
         require(algoMiner.isAlgoMiner());
@@ -54,6 +57,7 @@ contract AlgoPool is AlgoCoreTeamRole {
 
         require(value > 0);
 
+        _fundedMiners[minerAddress] = true;
         _token.safeTransfer(minerAddress, value);
     }
 }

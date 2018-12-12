@@ -27,7 +27,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
 
         protected override string AbiResourceName => $"SmartContracts.src.bin.{nameof(AlgoFees)}.abi";
         protected override string BinResourceName => $"SmartContracts.src.bin.{nameof(AlgoFees)}.bin";
-        protected override BigInteger DeploymentGasUnits => 1200000;
+        protected override BigInteger DeploymentGasUnits => 1400000;
 
         public Task<TransactionReceipt> DeployAsync(string tokenAddress)
             => base.DeployAsync(tokenAddress);

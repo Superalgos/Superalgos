@@ -4,11 +4,12 @@ import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
 
 import "./IAlgoMiner.sol";
+import "./ERC20TokenHolder.sol";
 import "./AlgoSystemRole.sol";
 import "./AlgoCoreTeamRole.sol";
 import "./AlgoSupervisorRole.sol";
 
-contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlgoMiner {
+contract AlgoMiner is ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlgoMiner {
     using SafeERC20 for IERC20;
 
     uint256 public constant DAYS_PER_YEAR = 365;
@@ -23,7 +24,6 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
     uint16 private _minerType;
     uint8 private _category;
     address private _miner;
-    IERC20 private _token;
 
     MinerState private _state;
     bool private _mining;
@@ -31,7 +31,8 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
     uint16 private _currentDay;
     uint256 private _currentYearSupply;
 
-    constructor(uint16 minerType, uint8 category, address ownerAddress, address tokenAddress)
+    constructor(uint16 minerType, uint8 category, address minerAccountAddress, address tokenAddress)
+        ERC20TokenHolder(tokenAddress)
         AlgoSystemRole()
         AlgoCoreTeamRole()
         AlgoSupervisorRole()
@@ -41,8 +42,7 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
 
         _minerType = minerType;
         _category = category;
-        _miner = ownerAddress;
-        _token = IERC20(tokenAddress);
+        _miner = minerAccountAddress;
     }
 
     modifier onlyMiner() {
@@ -50,7 +50,7 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
         _;
     }
     
-    function activateMiner() public onlyCoreTeam {
+    function activateMiner() public notTerminated onlyCoreTeam {
         require(_state == MinerState.Deactivated);
 
         if(_currentYearSupply == 0) {
@@ -64,32 +64,33 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
         _state = MinerState.Activated;
     }
 
-    function deactivateMiner() public onlyCoreTeam {
+    function deactivateMiner() public notTerminated onlyCoreTeam {
         require(_state != MinerState.Deactivated);
         
         _state = MinerState.Deactivated;
         _mining = false;
     }
 
+    // TODO: Transfer the entire state to the new miner.
     function migrateMiner(address newMinerAddress) public onlyCoreTeam {
         require(_state == MinerState.Deactivated);
 
         _token.safeTransfer(newMinerAddress, _token.balanceOf(address(this)));
     }
 
-    function pauseMining() public onlySupervisor {
+    function pauseMining() public notTerminated onlySupervisor {
         require(_state == MinerState.Activated);
         
         _state = MinerState.Suspended;
     }
 
-    function resumeMining() public onlySupervisor {
+    function resumeMining() public notTerminated onlySupervisor {
         require(_state == MinerState.Suspended);
 
         _state = MinerState.Activated;
     }
 
-    function stopAndRemoveOwnership() public onlySupervisor {
+    function stopAndRemoveOwnership() public notTerminated onlySupervisor {
         require(_state != MinerState.Stopped);
         
         _state = MinerState.Stopped;
@@ -97,28 +98,28 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
         _miner = address(0);
     }
 
-    function resetMiner(address newOwnerAddress) public onlySupervisor {
+    function resetMiner(address newOwnerAddress) public notTerminated onlySupervisor {
         require(_state == MinerState.Stopped);
 
         _state = MinerState.Activated;
         _miner = newOwnerAddress;
     }
 
-    function startMining() public onlyMiner {
+    function startMining() public notTerminated onlyMiner {
         require(_state == MinerState.Activated);
         require(!_mining);
         
         _mining = true;
     }
 
-    function stopMining() public onlyMiner {
+    function stopMining() public notTerminated onlyMiner {
         require(_state == MinerState.Activated);
         require(_mining);
         
         _mining = false;
     }
 
-    function mine() public onlySystem {
+    function mine() public notTerminated onlySystem {
         require(_state == MinerState.Activated);
         require(_mining);
 
@@ -139,6 +140,10 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
         require(tokens > 0);
 
         _token.safeTransfer(_miner, tokens);
+    }
+
+    function terminate() public onlyCoreTeam {
+        _terminate();
     }
 
     function isAlgoMiner() public pure returns (bool) {

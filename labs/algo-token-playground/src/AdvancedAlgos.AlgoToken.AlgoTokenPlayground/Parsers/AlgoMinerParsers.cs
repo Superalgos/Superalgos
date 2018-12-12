@@ -13,7 +13,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
             (from command in CommonParsers.Token("deploy-algominer")
              from minerType in CommonParsers.IntegerValue
              from category in CommonParsers.IntegerValue
-             from ownerAddress in CommonParsers.StringValue
+             from minerAccountAddress in CommonParsers.StringValue
              from tokenAddress in CommonParsers.StringValue
              from name in CommonParsers.Switch('n', "name", CommonParsers.Identifier).Optional()
              select new AlgoMinerDeployCommand
@@ -21,7 +21,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
                  Name = name.GetOrDefault(),
                  MinerType = (ushort)minerType,
                  Category = (byte)category,
-                 OwnerAddress = ownerAddress,
+                 MinerAccountAddress = minerAccountAddress,
                  TokenAddress = tokenAddress
              }).Register();
 

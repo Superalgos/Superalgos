@@ -16,7 +16,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Commands.AlgoMinerContract
 
         public ushort MinerType { get; set; }
         public byte Category { get; set; }
-        public string OwnerAddress { get; set; }
+        public string MinerAccountAddress { get; set; }
         public string TokenAddress { get; set; }
 
         protected override async Task<TransactionReceipt> DeployContractAsync(RuntimeContext context, Web3 web3)
@@ -25,7 +25,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Commands.AlgoMinerContract
             return await algoMiner.DeployAsync(
                 MinerType,
                 Category,
-                context.ResolveAccountReference(OwnerAddress),
+                context.ResolveAccountReference(MinerAccountAddress),
                 context.ResolveContractReference(TokenAddress));
         }
     }

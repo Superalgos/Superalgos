@@ -220,12 +220,12 @@ The following commands are supported for the `AlgoMiner` contract:
 
 #### deploy-algominer
 
-`deploy-algominer <minerType> <category> <ownerAddress> <tokenAddress> [-n <contract_name>]`
+`deploy-algominer <minerType> <category> <minerAccountAddress> <tokenAddress> [-n <contract_name>]`
 
 Creates a new instance of the `AlgoPool` contract.
 * `minerType`: the type of miner (uint16)
 * `category`: the category of miner (uint8: valid from 0 to 5)
-* `ownerAddress`: the address of the miner's owner
+* `minerAccountAddress`: the address of the miner's owner
 * `tokenAddress`: the address of the AlgoToken contract
 
 >Example: `deploy-algominer 1 2 miner_1_account token -n miner_1`

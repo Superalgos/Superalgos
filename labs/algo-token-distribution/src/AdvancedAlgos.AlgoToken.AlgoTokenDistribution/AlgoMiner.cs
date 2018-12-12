@@ -32,10 +32,10 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
 
         protected override string AbiResourceName => $"SmartContracts.src.bin.{nameof(AlgoMiner)}.abi";
         protected override string BinResourceName => $"SmartContracts.src.bin.{nameof(AlgoMiner)}.bin";
-        protected override BigInteger DeploymentGasUnits => 1200000;
+        protected override BigInteger DeploymentGasUnits => 1400000;
 
-        public Task<TransactionReceipt> DeployAsync(ushort minerType, byte category, string ownerAddress, string tokenAddress)
-            => base.DeployAsync(minerType, category, ownerAddress, tokenAddress);
+        public Task<TransactionReceipt> DeployAsync(ushort minerType, byte category, string minerAccountAddress, string tokenAddress)
+            => base.DeployAsync(minerType, category, minerAccountAddress, tokenAddress);
 
         protected override void Initialize(Contract contractDescriptor)
         {

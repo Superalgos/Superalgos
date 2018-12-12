@@ -4,10 +4,11 @@ import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
 
 import "./IAlgoMiner.sol";
+import "./ERC20TokenHolder.sol";
 import "./AlgoSystemRole.sol";
 import "./AlgoCoreTeamRole.sol";
 
-contract AlgoFees is AlgoSystemRole, AlgoCoreTeamRole {
+contract AlgoFees is ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole {
     using SafeERC20 for IERC20;
 
     uint256 constant CAT_0_VALUE_PROPORTION = 1;
@@ -17,19 +18,19 @@ contract AlgoFees is AlgoSystemRole, AlgoCoreTeamRole {
     uint256 constant CAT_4_VALUE_PROPORTION = 40;
     uint256 constant CAT_5_VALUE_PROPORTION = 50;
 
-    IERC20 private _token;
     address[] private _miners;
     mapping(address => uint256) private _minersByAddress;
 
     constructor(address tokenAddress)
+        ERC20TokenHolder(tokenAddress)
         AlgoSystemRole()
         AlgoCoreTeamRole()
         public {
-        _token = IERC20(tokenAddress);
         _miners.push(address(0)); // Reserved as a marker for unregistered miner.
     }
 
-    function registerMiner(address minerAddress) public onlyCoreTeam {
+    function registerMiner(address minerAddress) public notTerminated onlyCoreTeam {
+        require(_miners.length < 1000);
         require(_minersByAddress[minerAddress] == 0);
 
         IAlgoMiner algoMiner = IAlgoMiner(minerAddress);
@@ -44,7 +45,7 @@ contract AlgoFees is AlgoSystemRole, AlgoCoreTeamRole {
         _miners.push(minerAddress);
     }
 
-    function unregisterMiner(address minerAddress) public onlyCoreTeam {
+    function unregisterMiner(address minerAddress) public notTerminated onlyCoreTeam {
         require(_miners.length > 1);
 
         if(_miners.length == 2) {
@@ -67,7 +68,7 @@ contract AlgoFees is AlgoSystemRole, AlgoCoreTeamRole {
         }
     }
 
-    function mine() public onlySystem {
+    function mine() public notTerminated onlySystem {
         require(_miners.length > 1);
 
         uint256 currentFeesBalance = _token.balanceOf(address(this));
@@ -126,6 +127,10 @@ contract AlgoFees is AlgoSystemRole, AlgoCoreTeamRole {
 
 			_token.safeTransfer(algoMiner.getMiner(), feePerMiner[minerCategory]);
         }
+    }
+
+    function terminate() public onlyCoreTeam {
+        _terminate();
     }
 
     function getMinerCount() public view returns (uint256) {

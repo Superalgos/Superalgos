@@ -57,7 +57,7 @@
         let sasToken = blobService.generateSharedAccessSignature(pContainer, blobName, sharedAccessPolicy);
 
         return "BlobEndpoint=https://aadevelop.blob.core.windows.net;SharedAccessSignature=" + sasToken + "";
-
+        //return "BlobEndpoint=https://aaproduction.blob.core.windows.net;SharedAccessSignature=" + sasToken + "";
     }
 }
 

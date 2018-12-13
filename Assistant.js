@@ -918,16 +918,17 @@
 
         try {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             /* Removing extra decimals. */
 
             pRate = thisObject.truncDecimals(pRate);
             pAmountA = thisObject.truncDecimals(pAmountA);
             pAmountB = thisObject.truncDecimals(pAmountB);
+
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
 
             /* Validations that the limits are not surpassed. */
 
@@ -947,24 +948,6 @@
                     callBackFunction(err);
                     return;
                 }
-
-                let aRate = thisObject.truncDecimals(pAmountA / pRate);
-
-                if (aRate !== pAmountB) {
-
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA / pRate !== pAmountB.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pRate = " + pRate);
-
-                    let err = {
-                        result: global.DEFAULT_FAIL_RESPONSE.result,
-                        message: 'pAmountB * pRate !== pAmountA'
-                    };
-
-                    callBackFunction(err);
-                    return;
-                }
             }
 
             if (pType === 'sell') {
@@ -978,24 +961,6 @@
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
                         message: 'pAmountB is grater than the Available Balance.'
-                    };
-
-                    callBackFunction(err);
-                    return;
-                }
-
-                let bRate = thisObject.truncDecimals(pAmountB * pRate);
-
-                if (bRate !== pAmountA) {
-
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB * pRate !== pAmountA.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pRate = " + pRate);
-
-                    let err = {
-                        result: global.DEFAULT_FAIL_RESPONSE.result,
-                        message: 'pAmountB * pRate !== pAmountA'
                     };
 
                     callBackFunction(err);

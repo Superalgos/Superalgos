@@ -1,4 +1,4 @@
-﻿
+﻿require('dotenv').config()
 global.CURRENT_ENVIRONMENT = "Develop"; 
 global.CURRENT_EXECUTION_AT = "Cloud"; 
 global.SHALL_BOT_STOP = false;
@@ -37,30 +37,36 @@ process.on('exit', function (code) {
 readExecutionConfiguration();
 
 function readExecutionConfiguration() {
-    let filePath;
     try {
-        let fs = require('fs');
+        console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
 
-        let configDirectory = process.argv[2];
-        if (configDirectory === undefined) {
-            console.log("[ERROR] Configuration file not passed as a command line argument.");
-            return;
-        }
-        filePath = configDirectory + '/Execution.Config.json';
-        let executionProperties = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        global.DEV_TEAM = executionProperties.devTeam;
-        global.EXCHANGE_NAME = executionProperties.exchangeName;
-        global.MARKET = executionProperties.market;
+        global.DEV_TEAM = process.env.DEV_TEAM;
+
+        let executionList = [{
+                enabled: "true",
+                devTeam: process.env.DEV_TEAM,
+                bot: process.env.BOT,
+                process: process.env.PROCESS
+        }]
+
+        // TODO Improve this by changing Root.js
+        let mode =
+            '{ "run":"false",' +
+              '"resumeExecution":' + process.env.RESUME_EXECUTION +
+            '}'
+        let startMode = JSON.parse('{ "live": ' + mode +', "backtest": '+mode+', "competition": '+mode+'}')
+        startMode[process.env.START_MODE].run="true"
+
         global.EXECUTION_CONFIG = {
-            executionList: executionProperties.executionList,
-            startMode: executionProperties.startMode
+            executionList: executionList,
+            startMode: startMode
         };
 
         readStoragePermissions();
     }
     catch (err) {
         console.log("[ERROR] readExecutionConfiguration -> err = " + err.message);
-        console.log("[HINT] You need to have a file at this path -> " + filePath);
+        console.log("[ERROR] readExecutionConfiguration -> err = " + err.stack);
     }
 }
 

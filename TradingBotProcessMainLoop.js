@@ -176,7 +176,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
-                    const EXCHANGE_API = require(ROOT_DIR + 'Exchange/ExchangeAPI');
+                    const EXCHANGE_API = require(ROOT_DIR + 'exchange/ExchangeAPI');
                     const CONTEXT = require(ROOT_DIR + 'Context');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');

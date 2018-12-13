@@ -37,7 +37,7 @@
             // TODO integrate with financial beings module to get the exchange
             let botExchange = 'Poloniex';
             let exchange = botExchange.toLowerCase() + 'Client.js';
-            let api = require('./Wrappers/' + exchange);
+            let api = require('./wrappers/' + exchange);
             
             request(authOptions, onTokenResponse);
 
@@ -67,7 +67,8 @@
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
 
         const keyVaultAPI = graphqlClient({
-            url: 'https://app-api.advancedalgos.net/graphql',
+            //url: 'https://platform-api.advancedalgos.net/graphql',
+            url: 'https://platform-dev-api.advancedalgos.net/graphql',
             headers: {
                 Authorization: 'Bearer ' + authToken
             }

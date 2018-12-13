@@ -529,8 +529,9 @@ exports.newRoot = function newRoot() {
                                 if (processConfig.startMode.live !== undefined) {
 
                                     if (processConfig.startMode.live.run === "true" && global.EXECUTION_CONFIG.startMode.live.run === "true") {
-
+                                        
                                         botConfig.startMode = "Live";
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
 
                                         let month = pad((new Date()).getUTCMonth() + 1, 2);
                                         let year = (new Date()).getUTCFullYear();
@@ -558,6 +559,8 @@ exports.newRoot = function newRoot() {
                                     if (processConfig.startMode.backtest.run === "true" && global.EXECUTION_CONFIG.startMode.backtest.run === "true") {
 
                                         botConfig.startMode = "Backtest";
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
+
                                         botConfig.backtest = processConfig.startMode.backtest;
 
                                         /* We override these waitTimes to the one specified at the backtest configuration. */
@@ -586,6 +589,8 @@ exports.newRoot = function newRoot() {
                                     if (processConfig.startMode.competition.run === "true" && global.EXECUTION_CONFIG.startMode.competition.run === "true") {
 
                                         botConfig.startMode = "Competition";
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
+
                                         botConfig.competition = processConfig.startMode.competition;
 
                                         if (processConfig.startMode.competition.resumeExecution === "false" && global.EXECUTION_CONFIG.startMode.competition.resumeExecution === "false") {

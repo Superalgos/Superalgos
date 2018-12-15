@@ -3,7 +3,7 @@ import axios from 'axios'
 import jwt from 'jsonwebtoken'
 import { ApolloError } from 'apollo-server-express'
 
-import logger from '../../logger'
+import logger from '../../../../logger'
 
 const API_KEY = process.env.SG_APIKEY
 const API_KEY_CAMPAIGN = process.env.SG_APIKEY_CAMPAIGN
@@ -12,8 +12,8 @@ const origin = process.env.SG_PLATFORM_ORIGIN
 
 export default {
   async Master_NewsletterSignup(parent, { email }, ctx, info) {
-    logger.debug('Master_NewsletterSignup params email:')
-    logger.debug(email)
+    logger.info('Master_NewsletterSignup params email:')
+    logger.info(email)
     const token = jwt.sign({ email: email }, API_KEY, { expiresIn: '1d' })
     const params = '/email-verification?token='
 
@@ -53,8 +53,8 @@ export default {
       }
     })
     .then(function (response) {
-      logger.debug('Sendgrid Master SendVerify response:')
-      logger.debug (response)
+      logger.info('Sendgrid Master SendVerify response:')
+      logger.info (response)
       if (response.status >= 200 && response.status < 300) {
         return 'SUCCESS'
       } else {
@@ -81,8 +81,8 @@ export default {
         throw new ApolloError(`Error: ${err.message}`, 400)
       }
     }
-    logger.debug('Sendgrid Master verifySignup verifiedToken: ')
-    logger.debug(verifiedToken)
+    logger.info('Sendgrid Master verifySignup verifiedToken: ')
+    logger.info(verifiedToken)
 
     const email = verifiedToken.email
 
@@ -189,8 +189,8 @@ export default {
           }
         })
         .then(function (response) {
-          logger.debug('Platform Feedback response: ')
-          logger.debug(response)
+          logger.info('Platform Feedback response: ')
+          logger.info(response)
           if (response.status >= 200 && response.status < 300) {
             return `Platform Feedback email sent`
           } else {

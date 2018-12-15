@@ -3,37 +3,19 @@ require('dotenv').config();
 import express from 'express'
 import createApolloServer from './ApolloServer'
 import { formatError } from './errors'
-import {
-  Prisma,
-  extractFragmentReplacements,
-  forwardTo
-} from 'prisma-binding'
 import { makeExecutableSchema } from 'graphql-tools'
 import { importSchema } from 'graphql-import'
-import parser from 'fast-xml-parser'
-import axios from 'axios'
 
 import { resolvers } from './graphql/resolvers'
 
-import { schemaDirectives } from './directives'
-
-import pubsub from './pubsub'
-import { logger } from './logger'
+import logger from './logger'
 
 import wrongPreshared from './errors/notAllowed.json'
 
 const GRAPHQL_ENDPOINT = '/graphql'
 const GRAPHQL_SUBSCRIPTIONS = '/graphql'
-const PORT = 4001
+const PORT = process.env.PORT
 const NODE_ENV = 'development'
-
-const db = new Prisma({
-  fragmentReplacements: extractFragmentReplacements(resolvers),
-  typeDefs: 'src/generated/prisma.graphql',
-  endpoint: process.env.PRISMA_ENDPOINT,
-  secret: process.env.PRISMA_SECRET,
-  debug: false
-})
 
 const app = express()
 
@@ -55,30 +37,33 @@ const corsOptions = {
 }
 
 const options = {
-  port: 4001,
+  port: PORT,
   cors: corsOptions,
   endpoint: '/graphql',
   subscriptions: '/graphql',
   playground: '/graphiql'
 }
 
-const server = createApolloServer(app, {
-  graphqlEndpoint: GRAPHQL_ENDPOINT,
-  subscriptionsEndpoint: GRAPHQL_SUBSCRIPTIONS,
-  apolloServerOptions: { formatError },
-  typeDefs: importSchema('src/graphql/schema.graphql'),
-  resolvers,
-  resolverValidationOptions: { requireResolversForResolveType: false },
-  schemaDirectives,
-  context: req  => ({
-    ...req ,
-    token: req.headers ? req.headers : undefined,
-    user: req.user ? req.user : undefined,
-    userId: (req.headers && req.headers.userid) ? req.headers.userid : undefined,
-    db,
-    pubsub
+let server
+try {
+  server = createApolloServer(app, {
+    graphqlEndpoint: GRAPHQL_ENDPOINT,
+    subscriptionsEndpoint: GRAPHQL_SUBSCRIPTIONS,
+    apolloServerOptions: { formatError },
+    typeDefs: importSchema('src/graphql/schema.graphql'),
+    resolvers,
+    resolverValidationOptions: { requireResolversForResolveType: false },
+    context: req  => ({
+      ...req ,
+      token: req.headers ? req.headers : undefined,
+      user: req.user ? req.user : undefined,
+      userId: (req.headers && req.headers.userid) ? req.headers.userid : undefined
+    })
   })
-})
+} catch (err) {
+  logger.error('Create Apollo Server Error: ')
+  logger.error(err)
+}
 
 server.listen({ port: PORT }, () => {
   logger.info(

@@ -1,6 +1,6 @@
 import { ApolloError } from 'apollo-server-express'
 import { inspect } from 'util'
-import { logger } from '../logger'
+import logger from '../logger'
 
 export {
   ApolloError,

@@ -3,7 +3,7 @@ import axios from 'axios'
 import jwt from 'jsonwebtoken'
 import { ApolloError } from 'apollo-server-express'
 
-import logger from '../../logger'
+import logger from '../../../../logger'
 
 const API_KEY = process.env.SG_APIKEY
 const API_KEY_CAMPAIGN = process.env.SG_APIKEY_CAMPAIGN
@@ -12,8 +12,8 @@ const origin = process.env.SG_PLATFORM_ORIGIN
 
 export default {
   async Teams_SendTeamMemberInvite(parent, { email, teamName }, ctx, info) {
-    logger.debug('Teams_NewsletterSignup params email:')
-    logger.debug(email)
+    logger.info('Teams_NewsletterSignup params email:')
+    logger.info(email)
     const token = jwt.sign({ email: email }, API_KEY, { expiresIn: '1d' })
     const params = '/email-verification?token='
 
@@ -127,7 +127,7 @@ export default {
       }
     })
     .catch(function (error) {
-      throw new ApolloError(`Team Creation Confirmation Error: ${error.response.data.errors[0].message}`, ${error.status})
+      throw new ApolloError(`Team Creation Confirmation Error: ${error.response.data.errors[0].message}`)
     })
     return sendTeamCreation
   }

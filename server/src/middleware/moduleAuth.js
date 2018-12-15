@@ -1,4 +1,4 @@
-import { logger } from '../logger'
+import logger from '../logger'
 
 export const moduleAuth = async (req, res, next, db) => {
   if (req.headers.preshared === process.env.PRESHARED_GATEWAY_KEY) {

@@ -3,7 +3,7 @@ import axios from 'axios'
 import jwt from 'jsonwebtoken'
 import { ApolloError } from 'apollo-server-express'
 
-import logger from '../../logger'
+import logger from '../../../../logger'
 
 const API_KEY = process.env.SG_APIKEY
 const API_KEY_CAMPAIGN = process.env.SG_APIKEY_CAMPAIGN
@@ -12,10 +12,10 @@ const origin = process.env.SG_CORPORATE_ORIGIN
 
 export default {
   async Corporate_NewsletterSignup(parent, { email }, ctx, info) {
-    logger.debug('Corporate_NewsletterSignup params email:')
-    logger.debug(email)
+    logger.info('Corporate_NewsletterSignup params email:')
+    logger.info(email)
     const token = jwt.sign({ email: email }, API_KEY, { expiresIn: '1d' })
-    const params = '/email-verification?token='
+    const params = '/email-verification.shtml?token='
 
     const data = JSON.stringify({
       "personalizations": [
@@ -53,8 +53,8 @@ export default {
       }
     })
     .then(function (response) {
-      logger.debug('Sendgrid sendVerify response:')
-      logger.debug(response)
+      logger.info('Sendgrid sendVerify response:')
+      logger.info(response)
       if (response.status >= 200 && response.status < 300) {
         return 'SUCCESS'
       } else {
@@ -82,8 +82,8 @@ export default {
         throw new ApolloError(`Error: ${err.message}`, 400)
       }
     }
-    logger.debug('Sendgrid verifySignup verifiedToken: ')
-    logger.debug(verifiedToken)
+    logger.info('Sendgrid verifySignup verifiedToken: ')
+    logger.info(verifiedToken)
 
     const email = verifiedToken.email
 
@@ -97,8 +97,8 @@ export default {
         }
     })
     .then(response => {
-      logger.debug('Sendgrid verifySignup subscribe: ')
-      logger.debug(response)
+      logger.info('Sendgrid verifySignup subscribe: ')
+      logger.info(response)
       const recipients = response.data.persisted_recipients
 
       if (recipients.length > 0 ){
@@ -111,8 +111,8 @@ export default {
           }
         })
         .then(response => {
-          logger.debug('Sendgrid verifySignup addToList: ')
-          logger.debug(response)
+          logger.info('Sendgrid verifySignup addToList: ')
+          logger.info(response)
           if (response.status >= 200 && response.status < 300) {
             return 'SUCCESS'
           } else {
@@ -140,8 +140,8 @@ export default {
     return subscribe
   },
 
-  async Corporate_Contact(parent, { email, subject, message, recaptcha }, ctx, info) {
-    const toEmail = 'feedback@advancedalgos.net'
+  async Corporate_Contact(parent, { email, name, message, recaptcha }, ctx, info) {
+    const toEmail = 'barrylow@gmail.com'// 'feedback@advancedalgos.net'
 
     const data = JSON.stringify({
       "personalizations": [
@@ -179,7 +179,7 @@ export default {
       }
     })
     .then(function (response) {
-      logger.info(response.data)
+      logger.info(response)
       if (response.status >= 200 && response.status < 300 && response.data.success) {
         return axios({
           method: 'post',
@@ -191,8 +191,8 @@ export default {
           }
         })
         .then(function (response) {
-          logger.debug('Sendgrid Contact response: ')
-          logger.debug(response)
+          logger.info('Sendgrid Contact response: ')
+          logger.info(response)
           if (response.status >= 200 && response.status < 300) {
             return `Corporate Contact email sent`
           } else {
@@ -204,7 +204,9 @@ export default {
           throw `Corporate Contact email send error: ${error.response.data.errors[0].message}`
         })
       }else{
-        throw response.data
+        logger.info('Corporate Contact recaptcha error')
+        logger.info(response.data)
+        throw { response: { data: JSON.stringify(response.data) } }
       }
     })
     .then(function(response){
@@ -213,7 +215,7 @@ export default {
     .catch(function (error) {
       logger.error('Sendgrid Corporate Contact RECAPTCHA Error:')
       logger.error(error)
-      throw new ApolloError(`Sendgrid Corporate Contact RECAPTCHA Error: ${error.response.data.errors[0].message}`, 404)
+      throw new ApolloError(`Sendgrid Corporate Contact RECAPTCHA Error: ${error.response.data}`, 404)
     })
 
     return checkCaptcha

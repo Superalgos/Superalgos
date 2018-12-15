@@ -2,7 +2,7 @@
   "name": "aa-notifications-server",
   "scripts": {
     "start": "NODE_ENV=production nodemon -e js,graphql -x node -r dotenv/config src/index.js",
-    "debug": "nodemon src/index.js --watch ./src --exec \"node --require @babel/register --require dotenv/config\"",
+    "debug": "nodemon --trace-warnings src/index.js --watch ./src --exec \"node  --require @babel/register --require dotenv/config\"",
     "playground": "graphql playground --dotenv dotenv/config",
     "dev": "npm-run-all --parallel debug playground"
   },
@@ -36,7 +36,9 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
     "dotenv": "^6.2.0",
+    "graphql-cli": "^2.17.0",
     "nodemon": "^1.18.7",
+    "npm-run-all": "^4.1.5",
     "winston": "^3.1.0"
   }
 }

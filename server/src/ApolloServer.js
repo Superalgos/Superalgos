@@ -54,6 +54,7 @@ export default function createApolloServer(
     tracing: true,
     cacheControl: true,
     introspection: true,
+    playground: true,
     engine: engineKey ? { apiKey: engineKey } : false,
     dataSources,
     // Resolvers context in POST requests

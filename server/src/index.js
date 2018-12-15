@@ -40,8 +40,7 @@ const options = {
   port: PORT,
   cors: corsOptions,
   endpoint: '/graphql',
-  subscriptions: '/graphql',
-  playground: '/graphiql'
+  subscriptions: '/graphql'
 }
 
 let server

@@ -9,8 +9,7 @@ import axios from 'axios'
 
 import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams, events } from './links'
-import { typeDef as masterSchema } from './schema'
-import masterResolvers from './resolvers'
+
 import logger from './logger'
 
 async function getUserId (authId) {
@@ -75,9 +74,8 @@ async function run () {
     process.env.NOTIFICATIONS_API_PRESHARED)
     logger.info('Notifications schema created')
 
-  var schemas = [masterSchema]
+  var schemas = []
   var resolvers = {}
-  resolvers = Object.assign(resolvers, masterResolvers)
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)

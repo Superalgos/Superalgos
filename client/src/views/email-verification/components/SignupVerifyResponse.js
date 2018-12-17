@@ -56,7 +56,7 @@ export class SignupVerifyResponse extends React.Component {
     }
     if (data !== undefined && data !== null) {
       console.log(data)
-      if (data.master_NewsletterSignupVerify === 'SUCCESS') {
+      if (data.notifications_Master_NewsletterSignupVerify === 'SUCCESS') {
         return (
           <React.Fragment>
             <BannerTopBar

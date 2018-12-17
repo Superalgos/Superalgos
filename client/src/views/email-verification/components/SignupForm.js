@@ -122,7 +122,7 @@ export class SignupForm extends Component {
     console.log('NewsletterSignup handleSubmit: ', this.state.email)
     const signupResponse = await NewsletterSignup({ variables: { email: this.state.email } })
     console.log('NewsletterSignup: ', signupResponse)
-    if (signupResponse.data.master_NewsletterSignup === 'SUCCESS') this.setState({ email: '', success: true })
+    if (signupResponse.data.notifications_Master_NewsletterSignup === 'SUCCESS') this.setState({ email: '', success: true })
   }
 }
 

@@ -9,8 +9,7 @@ import axios from 'axios'
 
 import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams, events } from './links'
-import { typeDef as masterSchema } from './schema'
-import masterResolvers from './resolvers'
+
 import logger from './logger'
 
 async function getUserId (authId) {
@@ -68,11 +67,15 @@ async function run () {
     'financialBeings_',
     process.env.FINANCIAL_BEINGS_API_URL,
     process.env.FINANCIAL_BEINGS_API_PRESHARED)
-    logger.info('FINANCIAL_BEINGS schema created')
+    logger.info('Financial Beings schema created')
+  const transformedNotificationsSchema = await createTransformedRemoteSchema(
+    'notifications_',
+    process.env.NOTIFICATIONS_API_URL,
+    process.env.NOTIFICATIONS_API_PRESHARED)
+    logger.info('Notifications schema created')
 
-  var schemas = [masterSchema]
+  var schemas = []
   var resolvers = {}
-  resolvers = Object.assign(resolvers, masterResolvers)
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)
@@ -97,7 +100,10 @@ async function run () {
   if (transformedFinancialBeingsSchema) {
     schemas.push(transformedFinancialBeingsSchema)
   }
-  
+  if (transformedNotificationsSchema) {
+    schemas.push(transformedNotificationsSchema)
+  }
+
   const schema = mergeSchemas({
     schemas,
     resolvers
@@ -164,7 +170,7 @@ async function run () {
       return error
     },
     formatResponse: response => {
-      logger.debug('Response from Apolo Server: ' + response)
+      logger.debug('Response from Apollo Server: ' + response)
       return response
     },
     playground: {
@@ -175,9 +181,29 @@ async function run () {
     }
   })
 
-  server.applyMiddleware({ app })
+  const whitelist = [
+    process.env.PROJECT_SITE_URL,
+    process.env.PLATFORM_URL,
+    process.env.GRAPHQL_API_URL,
+    process.env.TEAMS_API_URL,
+    process.env.USERS_API_URL,
+    process.env.EVENTS_API_URL,
+    process.env.KEYVAULT_API_URL,
+    process.env.FINANCIAL_BEINGS_API_URL,
+    process.env.NOTIFICATIONS_API_URL
+  ]
 
-  app.use(cors())
+  const corsOptionsDelegate = (req, callback) => {
+    let corsOptions
+    if (whitelist.indexOf(req.header('Origin')) !== -1) {
+      corsOptions = { origin: true, credentials: true }
+    } else {
+      corsOptions = { origin: false, credentials: true }
+    }
+    callback(null, corsOptions)
+  }
+
+  server.applyMiddleware({ app, cors: corsOptionsDelegate })
 
   app.listen(4100)
   logger.info(`Server running. Open ${process.env.GRAPHQL_API_URL} to run queries.`)

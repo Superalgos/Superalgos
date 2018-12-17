@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - [List changes here for upcoming release]
 
+## 0.1.2 - 2018-12-16
+### Change
+- Client: Upgrade Material-ui to fix webpack deepmerge import bug
+
 ## 0.1.1 - 2018-12-16
 ### Changed
 - Update Master Client integration with Notifications Module

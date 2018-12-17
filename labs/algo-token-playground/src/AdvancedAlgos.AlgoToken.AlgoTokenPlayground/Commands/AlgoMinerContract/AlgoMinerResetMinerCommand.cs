@@ -14,12 +14,15 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Commands.AlgoMinerContract
     public class AlgoMinerResetMinerCommand : EthInvokeTransactionalFunctionCommand
     {
         public string NewOwnerAddress { get; set; }
+        public string NewReferralAddress { get; set; }
 
         protected override async Task<TransactionReceipt> ExecuteAsync(RuntimeContext context, string contractAddress, Web3 web3)
         {
             var algoMiner = new AlgoMiner(contractAddress, web3, context.GasPriceProvider);
 
-            return await algoMiner.ResetMinerAsync(context.ResolveAccountReference(NewOwnerAddress));
+            return await algoMiner.ResetMinerAsync(
+                context.ResolveAccountReference(NewOwnerAddress),
+                context.ResolveAccountReference(NewReferralAddress));
         }
     }
 }

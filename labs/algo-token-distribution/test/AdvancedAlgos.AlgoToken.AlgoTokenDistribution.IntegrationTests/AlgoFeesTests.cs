@@ -37,16 +37,18 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
 
             // Create some miners...
             var minerAccounts = new IAccount[3];
+            var referralAccounts = new IAccount[3];
             AlgoMiner[] miners = new AlgoMiner[3];
 
             for (int i = 0; i < 3; i++)
             {
-                // Create an account for the miner...
+                // Create an account for the miner and the referral...
                 minerAccounts[i] = EthAccountFactory.Create();
+                referralAccounts[i] = EthAccountFactory.Create();
 
                 // Create the miner...
                 miners[i] = new AlgoMiner(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
-                await miners[i].DeployAsync(1, 2, minerAccounts[i].Address, token.ContractAddress);
+                await miners[i].DeployAsync(0, 2, minerAccounts[i].Address, referralAccounts[i].Address, token.ContractAddress);
             }
 
             // Register a miner...
@@ -115,6 +117,16 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             var token = new AlgoTokenV1(EthNetwork.Instance.GetWeb3(tokenOwnerAccount), EthNetwork.Instance.GasPriceProvider);
             await token.DeployAsync();
 
+            // Create the pools to transfer the proper number of tokens to the miners...
+            var pool1 = new AlgoPool(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
+            await pool1.DeployAsync(0, token.ContractAddress);
+            var pool2 = new AlgoPool(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
+            await pool2.DeployAsync(1, token.ContractAddress);
+
+            // Transfer some tokens to the pools...
+            await token.TransferAsync(pool1.ContractAddress, 100.MAlgo());
+            await token.TransferAsync(pool2.ContractAddress, 100.MAlgo());
+
             // Create a fees...
             var fees1 = new AlgoFees(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
             await fees1.DeployAsync(token.ContractAddress);
@@ -127,20 +139,23 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
 
             // Create one miner per category...
             var minerAccounts = new IAccount[6];
+            var referralAccounts = new IAccount[6];
             var miners = new AlgoMiner[6];
 
             for (byte i = 0; i <= 5; i++)
             {
-                // Create an account for the miner...
+                // Create an account for the miner and the referral...
                 minerAccounts[i] = EthAccountFactory.Create();
+                referralAccounts[i] = EthAccountFactory.Create();
                 await EthNetwork.Instance.RefillAsync(minerAccounts[i]);
 
                 // Create the miner...
                 miners[i] = new AlgoMiner(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
-                await miners[i].DeployAsync(1, i, minerAccounts[i].Address, token.ContractAddress);
+                await miners[i].DeployAsync(0, i, minerAccounts[i].Address, referralAccounts[i].Address, token.ContractAddress);
 
                 // Transfer some tokens to the miner so it can be activated...
-                await token.TransferAsync(miners[i].ContractAddress, 100.Algo());
+                await pool1.TrasferToMinerAsync(miners[i].ContractAddress);
+                await pool2.TrasferToMinerAsync(miners[i].ContractAddress);
 
                 // Activate the miner...
                 await miners[i].ActivateMinerAsync();

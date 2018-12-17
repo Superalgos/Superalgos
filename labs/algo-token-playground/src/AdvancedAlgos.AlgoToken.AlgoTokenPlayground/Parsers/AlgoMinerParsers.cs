@@ -11,17 +11,19 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
         public static void Register()
         {
             (from command in CommonParsers.Token("deploy-algominer")
-             from minerType in CommonParsers.IntegerValue
-             from category in CommonParsers.IntegerValue
+             from minerType in CommonParsers.ByteValue
+             from category in CommonParsers.ByteValue
              from minerAccountAddress in CommonParsers.StringValue
+             from referralAccountAddress in CommonParsers.StringValue
              from tokenAddress in CommonParsers.StringValue
              from name in CommonParsers.Switch('n', "name", CommonParsers.Identifier).Optional()
              select new AlgoMinerDeployCommand
              {
                  Name = name.GetOrDefault(),
-                 MinerType = (ushort)minerType,
-                 Category = (byte)category,
+                 MinerType = minerType,
+                 Category = category,
                  MinerAccountAddress = minerAccountAddress,
+                 ReferralAccountAddress = referralAccountAddress,
                  TokenAddress = tokenAddress
              }).Register();
 
@@ -65,10 +67,12 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
 
             (from contractReference in CommonParsers.Invoke("algominer-resetminer")
              from newOwnerAddress in CommonParsers.StringValue
+             from newReferralAddress in CommonParsers.StringValue
              select new AlgoMinerResetMinerCommand
              {
                  ContractReference = contractReference,
-                 NewOwnerAddress = newOwnerAddress
+                 NewOwnerAddress = newOwnerAddress,
+                 NewReferralAddress = newReferralAddress
              }).Register();
 
             (from contractReference in CommonParsers.Invoke("algominer-startmining")

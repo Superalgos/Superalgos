@@ -14,7 +14,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Commands.AlgoPoolContract
     {
         public override string DefaultName => "AlgoPool";
 
-        public ushort PoolType { get; set; }
+        public byte PoolType { get; set; }
         public string TokenAddress { get; set; }
 
         protected override async Task<TransactionReceipt> DeployContractAsync(RuntimeContext context, Web3 web3)

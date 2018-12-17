@@ -2,8 +2,8 @@
 import gql from 'graphql-tag'
 
 const NEWSLETTER_SIGNUP_VERIFY = gql`
-  mutation NewsletterSignupVerify($token: String!) {
-    master_NewsletterSignupVerify(token: $token)
+  mutation NewsletterSignupVerify($token: String!){
+    notifications_Master_NewsletterSignupVerify(token: $token)
   }
 `
 

@@ -1,6 +1,6 @@
 {
   "name": "master-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Responsible for loading all web modules and running them.",
   "main": "index.js",
   "scripts": {

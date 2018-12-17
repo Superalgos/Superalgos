@@ -66,7 +66,7 @@ const keyvaultMenus = {
 
 const financialBeingsMenus = {
   title: 'Financial beings',
-  to: FINANCIAL_BEINGS,
+  to: '/financial-beings',
   authenticated: false,
   submenus: []
 }

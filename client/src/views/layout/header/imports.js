@@ -75,7 +75,7 @@ const allMenus = [
   usersMenus,
   teamsMenus,
   eventsMenus,
-  // financialBeingsMenus,
+  financialBeingsMenus,
   keyvaultMenus
 ]
 

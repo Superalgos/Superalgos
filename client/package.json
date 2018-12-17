@@ -26,6 +26,7 @@
   "homepage": "https://github.com/Algoteers/MasterApp#readme",
   "devDependencies": {
     "@advancedalgos/events-client": "0.0.4",
+    "@advancedalgos/financial-beings-client": "0.0.5",
     "@advancedalgos/key-vault-client": "0.0.25",
     "@advancedalgos/teams-client": "0.0.30",
     "@advancedalgos/users-client": "0.0.24",

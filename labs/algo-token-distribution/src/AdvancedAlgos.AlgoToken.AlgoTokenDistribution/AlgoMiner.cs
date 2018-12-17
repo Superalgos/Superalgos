@@ -32,10 +32,10 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
 
         protected override string AbiResourceName => $"SmartContracts.src.bin.{nameof(AlgoMiner)}.abi";
         protected override string BinResourceName => $"SmartContracts.src.bin.{nameof(AlgoMiner)}.bin";
-        protected override BigInteger DeploymentGasUnits => 1400000;
+        protected override BigInteger DeploymentGasUnits => 1600000;
 
-        public Task<TransactionReceipt> DeployAsync(ushort minerType, byte category, string minerAccountAddress, string tokenAddress)
-            => base.DeployAsync(minerType, category, minerAccountAddress, tokenAddress);
+        public Task<TransactionReceipt> DeployAsync(byte minerType, byte category, string minerAccountAddress, string referralAccountAddress, string tokenAddress)
+            => base.DeployAsync(minerType, category, minerAccountAddress, referralAccountAddress, tokenAddress);
 
         protected override void Initialize(Contract contractDescriptor)
         {
@@ -73,8 +73,8 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
         public Task<TransactionReceipt> StopAndRemoveOwnershipAsync() =>
             InvokeAsync(_stopAndRemoveOwnership, 900000);
 
-        public Task<TransactionReceipt> ResetMinerAsync(string newOwnerAddress) =>
-            InvokeAsync(_resetMiner, 900000, newOwnerAddress);
+        public Task<TransactionReceipt> ResetMinerAsync(string newOwnerAddress, string newReferralAddress) =>
+            InvokeAsync(_resetMiner, 900000, newOwnerAddress, newReferralAddress);
 
         public Task<TransactionReceipt> StartMiningAsync() =>
             InvokeAsync(_startMining, 900000);

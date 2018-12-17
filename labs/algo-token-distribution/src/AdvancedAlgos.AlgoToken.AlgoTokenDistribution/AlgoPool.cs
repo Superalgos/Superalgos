@@ -21,7 +21,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
         protected override string BinResourceName => $"SmartContracts.src.bin.{nameof(AlgoPool)}.bin";
         protected override BigInteger DeploymentGasUnits => 1200000;
 
-        public Task<TransactionReceipt> DeployAsync(ushort poolType, string tokenAddress)
+        public Task<TransactionReceipt> DeployAsync(byte poolType, string tokenAddress)
             => base.DeployAsync(poolType, tokenAddress);
 
         protected override void Initialize(Contract contractDescriptor)

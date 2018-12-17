@@ -18,6 +18,8 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Runtime
 
         public string ResolveAccountReference(string reference)
         {
+            if (string.IsNullOrWhiteSpace(reference) || string.Equals(reference, "0x0", StringComparison.OrdinalIgnoreCase)) return "0x0";
+
             if (TryResolveAccountReference(reference, out string address)) return address;
 
             throw new Exception($"Invalid account name or address: '{reference}'.");

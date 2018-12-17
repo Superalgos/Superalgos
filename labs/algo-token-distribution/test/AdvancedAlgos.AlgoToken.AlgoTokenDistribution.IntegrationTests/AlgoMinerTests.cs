@@ -13,10 +13,8 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
 {
     public class AlgoMinerTests
     {
-        private const long INITIAL_SUPPLY = 1000000000;
-
         [Fact]
-        public async Task BasicMinerWorkfloWTest()
+        public async Task PoolBasedMinerBasicWorkfloWTest()
         {
             EthNetwork.UseGanacheTestNet();
 
@@ -27,6 +25,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             var coreTeamAccount = EthAccountFactory.Create();
             var supervisorAccount = EthAccountFactory.Create();
             var minerAccount = EthAccountFactory.Create();
+            var referralAccount = EthAccountFactory.Create();
 
             await EthNetwork.Instance.RefillAsync(tokenOwnerAccount);
             await EthNetwork.Instance.RefillAsync(systemAccount);
@@ -38,17 +37,19 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             var token = new AlgoTokenV1(EthNetwork.Instance.GetWeb3(tokenOwnerAccount), EthNetwork.Instance.GasPriceProvider);
             await token.DeployAsync();
 
-            // Create a pool...
+            // Create the pools to transfer the proper number of tokens to the miners...
             var pool1 = new AlgoPool(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
+            await pool1.DeployAsync(0, token.ContractAddress);
+            var pool2 = new AlgoPool(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
+            await pool2.DeployAsync(1, token.ContractAddress);
 
-            await pool1.DeployAsync(10, token.ContractAddress);
-
-            // Transfer some tokens to the pool...
+            // Transfer some tokens to the pools...
             await token.TransferAsync(pool1.ContractAddress, 100.MAlgo());
+            await token.TransferAsync(pool2.ContractAddress, 100.MAlgo());
 
             // Create a miner category 2...
             var miner1 = new AlgoMiner(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
-            await miner1.DeployAsync(5, 2, minerAccount.Address, token.ContractAddress);
+            await miner1.DeployAsync(0, 2, minerAccount.Address, referralAccount.Address, token.ContractAddress);
 
             // Add roles to the miner...
             await miner1.AddSystemAsync(systemAccount.Address);
@@ -56,9 +57,10 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
 
             // Transfer tokens to the miner...
             await pool1.TrasferToMinerAsync(miner1.ContractAddress);
+            await pool2.TrasferToMinerAsync(miner1.ContractAddress);
 
             // Ensure the miner received the tokens according to its category 2.
-            Assert.Equal(2.MAlgo(), await token.BalanceOfAsync(miner1.ContractAddress));
+            Assert.Equal(2.MAlgo() + 2.MAlgo() * 10 / 100, await token.BalanceOfAsync(miner1.ContractAddress));
 
             // Activate the miner...
             await miner1.ActivateMinerAsync();
@@ -72,13 +74,16 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
 
             var paymentPerDay = 2.MAlgo() / 2 / 365;
             BigInteger expectedMinerBalance = 0;
+            BigInteger expectedReferralBalance = 0;
 
             for (int i = 0; i < 5; i++)
             {
                 await miner1.MineAsync();
                 expectedMinerBalance += paymentPerDay;
+                expectedReferralBalance += paymentPerDay * 10 / 100;
 
                 Assert.Equal(expectedMinerBalance, await token.BalanceOfAsync(minerAccount.Address));
+                Assert.Equal(expectedReferralBalance, await token.BalanceOfAsync(referralAccount.Address));
             }
 
             // Pause the miner...
@@ -101,8 +106,10 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             miner1.Bind(EthNetwork.Instance.GetWeb3(coreTeamAccount));
             await miner1.MineAsync();
             expectedMinerBalance += paymentPerDay;
+            expectedReferralBalance += paymentPerDay * 10 / 100;
 
             Assert.Equal(expectedMinerBalance, await token.BalanceOfAsync(minerAccount.Address));
+            Assert.Equal(expectedReferralBalance, await token.BalanceOfAsync(referralAccount.Address));
         }
     }
 }

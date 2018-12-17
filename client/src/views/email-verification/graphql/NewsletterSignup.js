@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 const NEWSLETTER_SIGNUP = gql`
   mutation NewsletterSignup($email: String!) {
-    master_NewsletterSignup(email: $email)
+    notifications_Master_NewsletterSignup(email: $email)
   }
 `
 

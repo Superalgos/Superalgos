@@ -27,18 +27,26 @@
             topMargin: 130,
             urlPrefix: 'https://charts-dev.advancedalgos.net/' ,  /* 'http://localhost:1337/'   */   /*  'https://charts-dev.advancedalgos.net/'  */
             graphQL: {
-            masterAppApiUrl: 'https://app-api.advancedalgos.net/graphql'
+            masterAppApiUrl: 'https://platform-api-dev.advancedalgos.net/graphql'
         },
         context: {}
         };
 
-        loadAdvancedAlgosPlatform();
+        let delay = 0
+        if (window.innerHeight === 0) {delay = 3000} // Inside IFRAMES the onload event is reaised before the window has its real size.
+        setTimeout(loadAdvancedAlgosPlatform, delay)
       }
     }
+    function onResize(){
+      if (window.canvasApp === undefined) {return}
+      if (window.canvasApp.eventHandler === undefined) {return}
+      window.canvasApp.eventHandler.raiseEvent('Browser Resized')
+    }
+
   </script>
 </head>
 
-<body id="body" onload="loadCanvas()" onresize="window.canvasApp.eventHandler.raiseEvent('Browser Resized')">
+<body id="body" onload="loadCanvas()" onresize="onResize()">
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
 </body>

@@ -13,8 +13,6 @@ import {
   AddCircleOutline
 } from '@material-ui/icons'
 
-import { FINANCIAL_BEINGS } from '../../../constants/routes'
-
 const usersMenus = {
   title: 'Users',
   to: '/users',

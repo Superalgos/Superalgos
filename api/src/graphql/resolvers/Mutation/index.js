@@ -3,7 +3,7 @@ import { ApolloError } from 'apollo-server-express'
 
 import { getUser } from '../../../middleware/getMember'
 
-import { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } from '../../../email/sendgrid'
+import { notifications_sendTeamCreateConfirmation, notifications_sendTeamMemberInvite, notifications_VerifyTeamMemberInviteToken } from '../notifications/sendgrid'
 
 import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment'
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
@@ -20,14 +20,14 @@ export const resolvers = {
         create:{role:'MEMBER', email:email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invited by ${team.members[0].member.alias}`}}},
         update:{role: 'MEMBER', email: email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invite resent by ${team.members[0].member.alias}`}}}},
         `{ id }`)
-      const sendInvite = await sendTeamMemberInvite(email, team)
+      const sendInvite = await notifications_sendTeamMemberInvite(email, team)
       return sendInvite
     },
     async verifyTeamInvite(parent, { token }, ctx, info) {
       let verifiedToken = null
       let team = null
       try {
-        verifiedToken = await verifyInviteToken(token)
+        verifiedToken = await notifications_VerifyTeamMemberInviteToken(token)
         team = {
           email: verifiedToken.email,
           team: {
@@ -111,7 +111,7 @@ export const resolvers = {
           })
       }
 
-      sendTeamCreateConfirmation(email, name, botName)
+      notifications_sendTeamCreateConfirmation(email, name, botName)
 
       return createTeam
     },

@@ -4,14 +4,21 @@ import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
 
 import "./IAlgoMiner.sol";
+import "./AlgoCommon.sol";
+import "./ERC20TokenHolder.sol";
 import "./AlgoSystemRole.sol";
 import "./AlgoCoreTeamRole.sol";
 import "./AlgoSupervisorRole.sol";
 
-contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlgoMiner {
+contract AlgoMiner is AlgoCommon, ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlgoMiner {
     using SafeERC20 for IERC20;
 
     uint256 public constant DAYS_PER_YEAR = 365;
+
+    enum MinerType {
+        PoolBased,
+        NonPoolBased
+    }
 
     enum MinerState {
         Deactivated,
@@ -20,10 +27,10 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
         Stopped
     }
 
-    uint16 private _minerType;
+    MinerType private _minerType;
     uint8 private _category;
     address private _miner;
-    IERC20 private _token;
+    address private _referral;
 
     MinerState private _state;
     bool private _mining;
@@ -31,7 +38,8 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
     uint16 private _currentDay;
     uint256 private _currentYearSupply;
 
-    constructor(uint16 minerType, uint8 category, address ownerAddress, address tokenAddress)
+    constructor(MinerType minerType, uint8 category, address minerAccountAddress, address referralAccountAddress, address tokenAddress)
+        ERC20TokenHolder(tokenAddress)
         AlgoSystemRole()
         AlgoCoreTeamRole()
         AlgoSupervisorRole()
@@ -41,8 +49,8 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
 
         _minerType = minerType;
         _category = category;
-        _miner = ownerAddress;
-        _token = IERC20(tokenAddress);
+        _miner = minerAccountAddress;
+        _referral = referralAccountAddress;
     }
 
     modifier onlyMiner() {
@@ -50,21 +58,25 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
         _;
     }
     
-    function activateMiner() public onlyCoreTeam {
+    function activateMiner() public notTerminated onlyCoreTeam {
         require(_state == MinerState.Deactivated);
 
-        if(_currentYearSupply == 0) {
+        if(_minerType == MinerType.PoolBased && _currentYearSupply == 0) {
+
+            uint256 capacity = getCapacityByCategory(_category);
+            uint256 expectedBalance = capacity + capacity * 10 / 100;
+
             uint256 currentBalance = _token.balanceOf(address(this));
 
-            require(currentBalance != 0);
+            require(currentBalance == expectedBalance);
 
-            _currentYearSupply = currentBalance / 2;
+            _currentYearSupply = capacity / 2;
         }
 
         _state = MinerState.Activated;
     }
 
-    function deactivateMiner() public onlyCoreTeam {
+    function deactivateMiner() public notTerminated onlyCoreTeam {
         require(_state != MinerState.Deactivated);
         
         _state = MinerState.Deactivated;
@@ -77,48 +89,51 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
         _token.safeTransfer(newMinerAddress, _token.balanceOf(address(this)));
     }
 
-    function pauseMining() public onlySupervisor {
+    function pauseMining() public notTerminated onlySupervisor {
         require(_state == MinerState.Activated);
         
         _state = MinerState.Suspended;
     }
 
-    function resumeMining() public onlySupervisor {
+    function resumeMining() public notTerminated onlySupervisor {
         require(_state == MinerState.Suspended);
 
         _state = MinerState.Activated;
     }
 
-    function stopAndRemoveOwnership() public onlySupervisor {
+    function stopAndRemoveOwnership() public notTerminated onlySupervisor {
         require(_state != MinerState.Stopped);
         
         _state = MinerState.Stopped;
         _mining = false;
         _miner = address(0);
+        _referral = address(0);
     }
 
-    function resetMiner(address newOwnerAddress) public onlySupervisor {
+    function resetMiner(address newOwnerAddress, address newReferralAddress) public notTerminated onlySupervisor {
         require(_state == MinerState.Stopped);
 
         _state = MinerState.Activated;
         _miner = newOwnerAddress;
+        _referral = newReferralAddress;
     }
 
-    function startMining() public onlyMiner {
+    function startMining() public notTerminated onlyMiner {
         require(_state == MinerState.Activated);
         require(!_mining);
         
         _mining = true;
     }
 
-    function stopMining() public onlyMiner {
+    function stopMining() public notTerminated onlyMiner {
         require(_state == MinerState.Activated);
         require(_mining);
         
         _mining = false;
     }
 
-    function mine() public onlySystem {
+    function mine() public notTerminated onlySystem {
+        require(_minerType == MinerType.PoolBased);
         require(_state == MinerState.Activated);
         require(_mining);
 
@@ -134,26 +149,58 @@ contract AlgoMiner is AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlg
             }
         }
 
-        uint256 tokens = _currentYearSupply / DAYS_PER_YEAR;
+        uint256 minerTokens = _currentYearSupply / DAYS_PER_YEAR;
 
-        require(tokens > 0);
+        require(minerTokens > 0);
 
-        _token.safeTransfer(_miner, tokens);
+        _token.safeTransfer(_miner, minerTokens);
+
+        if(_referral != address(0)) {
+            uint256 referralTokens = minerTokens * 10 / 100;
+    
+            require(referralTokens > 0);
+    
+            _token.safeTransfer(_referral, referralTokens);
+        }
+    }
+
+    function terminate() public onlyCoreTeam {
+        _terminate();
     }
 
     function isAlgoMiner() public pure returns (bool) {
         return true;
     }
 
+    function getMinerType() public view returns (uint8) {
+        return uint8(_minerType);
+    }
+
     function getCategory() public view returns (uint8) {
         return _category;
+    }
+
+    function getMiner() public view returns (address) {
+        return _miner;
+    }
+
+    function getReferral() public view returns (address) {
+        return _referral;
     }
 
     function isMining() public view returns (bool) {
         return _state == MinerState.Activated && _mining;
     }
 
-    function getMiner() public view returns (address) {
-        return _miner;
+    function getCurrentYear() public view returns (uint8) {
+        return _currentYear;
+    }
+
+    function getCurrentDay() public view returns (uint16) {
+        return _currentDay;
+    }
+
+    function getCurrentYearSupply() public view returns (uint256) {
+        return _currentYearSupply;
     }
 }

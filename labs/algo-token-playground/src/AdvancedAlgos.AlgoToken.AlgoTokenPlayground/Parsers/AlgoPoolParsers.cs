@@ -11,13 +11,13 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
         public static void Register()
         {
             (from command in CommonParsers.Token("deploy-algopool")
-             from poolType in CommonParsers.IntegerValue
+             from poolType in CommonParsers.ByteValue
              from tokenAddress in CommonParsers.StringValue
              from name in CommonParsers.Switch('n', "name", CommonParsers.Identifier).Optional()
              select new AlgoPoolDeployCommand
              {
                  Name = name.GetOrDefault(),
-                 PoolType = (ushort)poolType,
+                 PoolType = poolType,
                  TokenAddress = tokenAddress
              }).Register();
 

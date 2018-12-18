@@ -24,6 +24,9 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
             from close in Parse.Char('"')
             select content;
 
+        public static readonly Parser<byte> ByteValue =
+            Integer.Select(x => byte.Parse(x, CultureInfo.InvariantCulture));
+
         public static readonly Parser<int> IntegerValue =
             Integer.Select(x => int.Parse(x, CultureInfo.InvariantCulture));
 

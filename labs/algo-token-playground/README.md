@@ -200,10 +200,10 @@ The following commands are supported for the `AlgoPool` contract:
 `deploy-algopool <poolType> <tokenAddress> [-n <contract_name>]`
 
 Creates a new instance of the `AlgoPool` contract.
-* `poolType`: the type of pool (uint16)
+* `poolType`: the type of pool (uint8: 0 = PoolType, 1 = ReferralPool)
 * `tokenAddress`: the address of the AlgoToken contract
 
->Example: `deploy-algopool 1 token -n dev_pool`
+>Example: `deploy-algopool 0 token -n dev_pool`
 
 #### algopool-trasfertominer
 
@@ -220,15 +220,16 @@ The following commands are supported for the `AlgoMiner` contract:
 
 #### deploy-algominer
 
-`deploy-algominer <minerType> <category> <ownerAddress> <tokenAddress> [-n <contract_name>]`
+`deploy-algominer <minerType> <category> <minerAccountAddress> <referralAccountAddress> <tokenAddress> [-n <contract_name>]`
 
 Creates a new instance of the `AlgoPool` contract.
-* `minerType`: the type of miner (uint16)
+* `minerType`: the type of miner (uint8: 0 = PoolBased, 1 = NonPoolBased)
 * `category`: the category of miner (uint8: valid from 0 to 5)
-* `ownerAddress`: the address of the miner's owner
+* `minerAccountAddress`: the address of the miner's owner
+* `referralAccountAddress`: the address of the referral
 * `tokenAddress`: the address of the AlgoToken contract
 
->Example: `deploy-algominer 1 2 miner_1_account token -n miner_1`
+>Example: `deploy-algominer 0 2 miner_1_account referral_1_account token -n miner_1`
 
 #### algominer-activateminer
 
@@ -275,16 +276,17 @@ Resumes the miner.
 
 `<contract>.algominer-stopandremoveownership`
 
-Sets the miner to the stopped state and remove the ownership, a new owner will be assigned using the `resetMiner` operation.
+Sets the miner to the stopped state and remove the ownership, a new owner and referral will be assigned using the `resetMiner` operation.
 
 >Example: `miner_1.algominer-stopandremoveownership`
 
 #### algominer-resetminer
 
-`<contract>.algominer-resetminer <newOwnerAddress>`
+`<contract>.algominer-resetminer <newOwnerAddress> <newReferralAddress>`
 
 Resets the miner.
 * `newOwnerAddress`: the address of the new owner
+* `newReferralAddress`: the address of the new referral
 
 >Example: `miner_1.algominer-resetminer`
 

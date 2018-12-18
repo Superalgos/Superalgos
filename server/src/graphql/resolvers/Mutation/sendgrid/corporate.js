@@ -36,10 +36,6 @@ export default {
           "email": "feedback@advancedalgos.net",
           "name": "Advanced Algos Team"
         },
-        "reply_to": {
-          "email": "feedback@advancedalgos.net",
-          "name": "Advanced Algos Team"
-        },
         "template_id": process.env.SG_CORPORATE_SIGNUP_EMAILID
       })
 
@@ -141,7 +137,7 @@ export default {
   },
 
   async Corporate_Contact(parent, { email, name, message, recaptcha }, ctx, info) {
-    const toEmail = 'barrylow@gmail.com'// 'feedback@advancedalgos.net'
+    const toEmail = process.env.CORPORATE_EMAIL
 
     const data = JSON.stringify({
       "personalizations": [
@@ -160,10 +156,6 @@ export default {
           }
         ],
       "from": {
-        "email": email,
-        "name": name
-      },
-      "reply_to": {
         "email": email,
         "name": name
       },

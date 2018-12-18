@@ -3,7 +3,7 @@ import { ApolloError } from 'apollo-server-express'
 
 import { getUser } from '../../../middleware/getMember'
 
-import { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken } from '../../../email/sendgrid'
+import { notifications_sendTeamCreateConfirmation, notifications_sendTeamMemberInvite, notifications_VerifyTeamMemberInviteToken } from '../notifications/sendgrid'
 
 import TEAMS_CONNECTIONS_FRAGMENT from '../../fragments/TeamsConnectionsFragment'
 import TEAMS_FRAGMENT from '../../fragments/TeamsFragment'
@@ -20,14 +20,14 @@ export const resolvers = {
         create:{role:'MEMBER', email:email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invited by ${team.members[0].member.alias}`}}},
         update:{role: 'MEMBER', email: email, team: {connect: {id: teamId}}, status:{create:{status: 'INVITED', reason: `Invite resent by ${team.members[0].member.alias}`}}}},
         `{ id }`)
-      const sendInvite = await sendTeamMemberInvite(email, team)
+      const sendInvite = await notifications_sendTeamMemberInvite(email, team)
       return sendInvite
     },
     async verifyTeamInvite(parent, { token }, ctx, info) {
       let verifiedToken = null
       let team = null
       try {
-        verifiedToken = await verifyInviteToken(token)
+        verifiedToken = await notifications_VerifyTeamMemberInviteToken(token)
         team = {
           email: verifiedToken.email,
           team: {
@@ -53,18 +53,17 @@ export const resolvers = {
       logger.info(JSON.stringify(await userData))
       const alias = await userData.data.users_User.alias
       const email = await userData.data.users_User.email
-      const avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
-      const banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
+      const avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
+      const banner = process.env.STORAGE_URL + '/module-teams/module-default/aa-banner-default.png'
 
       const createTeamUrl = encodeURI(`${slug}/${name}/${alias}/${botSlug}/${botName}`)
       logger.info('createTeamUrl:')
       logger.info(JSON.stringify(await createTeamUrl))
 
-      const platformUrl = 'https://charts-dev.advancedalgos.net/AABrowserAPI/newTeam/'
-      // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+      const chartsUrl = process.env.CHARTS_URL + '/AABrowserAPI/newTeam/'
 
-      logger.info(`${platformUrl}${createTeamUrl}/${authId}`)
-      const createPlatformTeam = await axios.get(`${platformUrl}${createTeamUrl}/${authId}/${process.env.AAWEB_TEAM_SHARED_SECRET}`)
+      logger.info(`${chartsUrl}${createTeamUrl}/${authId}`)
+      const createPlatformTeam = await axios.get(`${chartsUrl}${createTeamUrl}/${authId}/${process.env.AAWEB_TEAM_SHARED_SECRET}`)
         .then((result) => {
           console.log('createPlatformTeam result:', result.data)
           if(result.data.message === 'Team Name already taken'){
@@ -112,7 +111,7 @@ export const resolvers = {
           })
       }
 
-      sendTeamCreateConfirmation(email, name, botName)
+      notifications_sendTeamCreateConfirmation(email, name, botName)
 
       return createTeam
     },
@@ -152,11 +151,10 @@ export const resolvers = {
           logger.info('deleteTeamUrl:')
           logger.info(JSON.stringify(await deleteTeamUrl))
 
-          const platformUrl = 'https://charts-dev.advancedalgos.net/AABrowserAPI/deleteTeam/'
-          // const platformUrl = 'http://localhost:1337/AABrowserAPI/teamSetup/'
+          const chartsUrl = process.env.CHARTS_URL + '/AABrowserAPI/deleteTeam/'
 
-          logger.info(`${platformUrl}${deleteTeamUrl}/${authId}`)
-          const deletePlatformTeam = await axios.get(`${platformUrl}${deleteTeamUrl}/${authId}/${process.env.AAWEB_DELETE_TEAM_SHARED_SECRET}`)
+          logger.info(`${chartsUrl}${deleteTeamUrl}/${authId}`)
+          const deletePlatformTeam = await axios.get(`${chartsUrl}${deleteTeamUrl}/${authId}/${process.env.AAWEB_DELETE_TEAM_SHARED_SECRET}`)
             .then((result) => {
               console.log('deletePlatformTeam result:', result.data)
               if(result.data.result === 'Fail'){

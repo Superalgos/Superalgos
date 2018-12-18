@@ -72,12 +72,12 @@ export class ManageTeamDetails extends Component {
     if (profile.avatar !== undefined && profile.avatar !== null) {
       avatar = profile.avatar
     } else {
-      avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
+      avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
     }
     if (profile.banner !== undefined && profile.banner !== null) {
       banner = profile.banner
     } else {
-      banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
+      banner = process.env.STORAGE_URL + '/module-teams/module-default/aa-banner-default.png'
     }
     return (
       <div>

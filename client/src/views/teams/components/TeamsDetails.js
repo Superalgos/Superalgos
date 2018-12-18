@@ -95,13 +95,13 @@ const TeamsDetails = ({ classes, team }) => {
   if (team.profile.avatar !== undefined && team.profile.avatar !== null) {
     avatar = team.profile.avatar
   } else {
-    avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
+    avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
   }
   let banner
   if (team.profile.banner !== undefined && team.profile.banner !== null) {
     banner = team.profile.banner
   } else {
-    banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
+    banner = process.env.STORAGE_URL + '/module-teams/module-default/aa-banner-default.png'
   }
 
   const created = new Date(team.createdAt)

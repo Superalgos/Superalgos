@@ -88,8 +88,8 @@ const styles = theme => ({
 })
 
 const ManageTeamProfileView = ({ classes, team }) => {
-  let avatar = team.profile.avatar || 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
-  let banner = team.profile.banner || 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
+  let avatar = team.profile.avatar || process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
+  let banner = team.profile.banner || process.env.STORAGE_URL + '/module-teams/module-default/aa-banner-default.png'
 
   const created = new Date(team.createdAt)
 

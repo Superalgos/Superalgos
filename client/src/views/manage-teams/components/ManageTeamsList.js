@@ -22,10 +22,18 @@ const styles = theme => ({
   root: {
     flexGrow: 1
   },
+  typography: {
+    width: '80%',
+    marginLeft: '10%',
+    marginTop: 40
+  },
   heroContent: {
     maxWidth: 800,
     margin: `${theme.spacing.unit * 4}px auto`,
     padding: 0
+  },
+  newTeamContainer: {
+    padding: `${theme.spacing.unit * 4}px 0`
   },
   cardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`
@@ -50,6 +58,13 @@ const styles = theme => ({
     height: 100,
     maxWidth: 100,
     justifyContent: 'flex-start'
+  },
+  paper: {
+    width: '100%',
+    flexGrow: 1,
+    padding: 10,
+    marginTop: '5%',
+    marginBottom: '10%'
   }
 })
 
@@ -106,23 +121,23 @@ export const ManageTeamsList = ({ classes, match, ...props }) => (
           )
         } else {
           return (
-            <div className={classes.root} >
-              <Paper>
-                <Grid container spacing={0} direction='column' justify='stretch' alignItems='center'>
-                  <Grid item xs={10}>
-                    <Typography variant='h5' align='center'>
-                      You don&rsquo;t have any teams. Create one!
-                    </Typography>
-                    <Typography variant='body1' align='center' gutterBottom>
-                      To begin developing on the Advanced Algos platform, as well as participate in Algobot competitions,
-                      you'll need to create a team. A default trading algobot will be cloned and added to your team so
-                      that you can begin experimenting right away.
-                    </Typography>
-                    <CreateTeamForm />
-                  </Grid>
-                </Grid>
+            <div className='container'>
+              <Paper className={classes.paper} >
+
+                <Typography className={classes.typography} variant='h5' gutterBottom>
+                  Your First Team
+                </Typography>
+
+                <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+                  To begin developing on the Advanced Algos platform, as well as to participate in trading competitions,
+                  you will need to create a team or become a member of an existing one. Currently, the only option is to create your own team. As part of the same process, an already existing trading bot will be forked for you so that you do not have to start from scratch. It will be added to your team so
+                  that you can begin experimenting right away.
+                </Typography>
+                <CreateTeamForm />
+
               </Paper>
             </div>
+
           )
         }
       } else {

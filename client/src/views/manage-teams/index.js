@@ -8,10 +8,10 @@ const ManageTeams = ({ match, ...props }) => (
   <div>
     <BannerTopBar
       size={match.params.slug !== undefined ? 'small' : 'medium'}
-      title='Manage Your Teams'
-      text='Discover, Create and manage Advanced Algos Teams'
+      title='Your Teams'
+      text='Create and manage your teams here.'
       backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg'
-    />
+  />
     <div className='container'>
       <ManageTeamsList {...props} match={match} />
     </div>

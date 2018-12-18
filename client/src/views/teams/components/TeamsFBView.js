@@ -35,31 +35,47 @@ const styles = theme => ({
 })
 
 export const TeamsFBView = ({ classes, team }) => {
-  log.debug('ManageTeamProvileFBView', team, team.fb[0], team.fb[0].avatar)
+  log.debug('ManageTeamProvileFBView', team, team.fb[0])
+  let avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
+  if (team.fb.length > 0) {
+    avatar = team.fb[0].avatar
 
-  let avatar = (team.fb[0].avatar !== undefined && team.fb[0].avatar !== null) ? team.fb[0].avatar : 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
-
-  return (
-    <Grid item xs={12} className={classes.fbContainer}>
-      <Card className={classes.card}>
-        <div className={classes.cardDetails}>
-          <CardMedia
-            className={classes.cardMedia}
-            image={avatar}
-            title={team.name}
-          />
-          <CardContent className={classes.cardContent}>
-            <Typography gutterBottom variant='h5' component='h2'>
-              {team.fb[0].name}
-            </Typography>
-            <Typography variant='caption' color='textSecondary'>
-              {team.fb[0].kind}
-            </Typography>
-          </CardContent>
-        </div>
-      </Card>
-    </Grid>
-  )
+    return (
+      <Grid item xs={12} className={classes.fbContainer}>
+        <Card className={classes.card}>
+          <div className={classes.cardDetails}>
+            <CardMedia
+              className={classes.cardMedia}
+              image={avatar}
+              title={team.name}
+            />
+            <CardContent className={classes.cardContent}>
+              <Typography gutterBottom variant='h5' component='h2'>
+                {team.fb[0].name}
+              </Typography>
+              <Typography variant='caption' color='textSecondary'>
+                {team.fb[0].kind}
+              </Typography>
+            </CardContent>
+          </div>
+        </Card>
+      </Grid>
+    )
+  } else {
+    return (
+      <Grid item xs={12} className={classes.fbContainer}>
+        <Card className={classes.card}>
+          <div className={classes.cardDetails}>
+            <CardContent className={classes.cardContent}>
+              <Typography gutterBottom variant='h6'>
+                No Financial Beings
+              </Typography>
+            </CardContent>
+          </div>
+        </Card>
+      </Grid>
+    )
+  }
 }
 
 TeamsFBView.propTypes = {

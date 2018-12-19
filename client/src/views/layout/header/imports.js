@@ -7,7 +7,7 @@ import {
   BugReport,
   People,
   Group,
-  Adb,
+  // Adb,
   VpnKey,
   Home,
   AddCircleOutline
@@ -63,10 +63,12 @@ const keyvaultMenus = {
 }
 
 const financialBeingsMenus = {
-  title: 'Financial beings',
+  title: 'FBs',
   to: '/financial-beings',
   authenticated: false,
-  submenus: []
+  submenus: [
+    { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
+  ]
 }
 
 const allMenus = [

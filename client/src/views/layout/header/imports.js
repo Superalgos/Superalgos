@@ -13,8 +13,6 @@ import {
   AddCircleOutline
 } from '@material-ui/icons'
 
-import { FINANCIAL_BEINGS } from '../../../constants/routes'
-
 const usersMenus = {
   title: 'Users',
   to: '/users',
@@ -66,7 +64,7 @@ const keyvaultMenus = {
 
 const financialBeingsMenus = {
   title: 'Financial beings',
-  to: FINANCIAL_BEINGS,
+  to: '/financial-beings',
   authenticated: false,
   submenus: []
 }
@@ -75,7 +73,7 @@ const allMenus = [
   usersMenus,
   teamsMenus,
   eventsMenus,
-  // financialBeingsMenus,
+  financialBeingsMenus,
   keyvaultMenus
 ]
 

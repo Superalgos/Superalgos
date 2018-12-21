@@ -7,14 +7,15 @@ using AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Runtime;
 using AdvancedAlgos.AlgoToken.Framework.Ethereum;
 using Nethereum.Util;
 
-namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Commands.EthNetwork
+namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Commands.System
 {
-    public class ListEnvironmentCommand : ICommand
+    public class ResetCommand : ICommand
     {
         public Task ExecuteAsync(RuntimeContext context)
         {
-            Console.WriteLine($"- Network Url: '{context.EthNetworkUrl}'.");
-            Console.WriteLine($"- Gas Price: {UnitConversion.Convert.FromWei(context.GasPriceProvider.GetGasPrice(), UnitConversion.EthUnit.Gwei)}Gwei.");
+            context.Reset();
+
+            Console.WriteLine("Done.");
 
             return Task.CompletedTask;
         }

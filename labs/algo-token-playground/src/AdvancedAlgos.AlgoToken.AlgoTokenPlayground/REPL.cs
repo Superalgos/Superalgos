@@ -20,6 +20,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground
 
         static REPL()
         {
+            SystemParsers.Register();
             EthNetworkParsers.Register();
             EthTransactionsParsers.Register();
             AccountManagementParsers.Register();

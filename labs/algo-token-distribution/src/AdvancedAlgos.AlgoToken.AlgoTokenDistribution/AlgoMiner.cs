@@ -22,6 +22,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
         private Function _startMining;
         private Function _stopMining;
         private Function _mine;
+        private Function _terminate;
 
         private Function _addSystem;
         private Function _addCoreTeam;
@@ -49,6 +50,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
             _startMining = contractDescriptor.GetFunction("startMining");
             _stopMining = contractDescriptor.GetFunction("stopMining");
             _mine = contractDescriptor.GetFunction("mine");
+            _terminate = contractDescriptor.GetFunction("terminate");
 
             _addSystem = contractDescriptor.GetFunction("addSystem");
             _addCoreTeam = contractDescriptor.GetFunction("addCoreTeam");
@@ -84,6 +86,9 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
 
         public Task<TransactionReceipt> MineAsync() =>
             InvokeAsync(_mine, 900000);
+
+        public Task<TransactionReceipt> TerminateAsync() =>
+            InvokeAsync(_terminate, 900000);
 
         public Task<TransactionReceipt> AddSystemAsync(string account) =>
             InvokeAsync(_addSystem, 900000, account);

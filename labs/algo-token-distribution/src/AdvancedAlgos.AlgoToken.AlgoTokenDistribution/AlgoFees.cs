@@ -15,6 +15,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
         private Function _registerMiner;
         private Function _unregisterMiner;
         private Function _mine;
+        private Function _terminate;
 
         private Function _addSystem;
         private Function _addCoreTeam;
@@ -37,6 +38,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
             _registerMiner = contractDescriptor.GetFunction("registerMiner");
             _unregisterMiner = contractDescriptor.GetFunction("unregisterMiner");
             _mine = contractDescriptor.GetFunction("mine");
+            _terminate = contractDescriptor.GetFunction("terminate");
 
             _addSystem = contractDescriptor.GetFunction("addSystem");
             _addCoreTeam = contractDescriptor.GetFunction("addCoreTeam");
@@ -53,6 +55,9 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
 
         public Task<TransactionReceipt> MineAsync() =>
             InvokeAsync(_mine, 1500000);
+
+        public Task<TransactionReceipt> TerminateAsync() =>
+            InvokeAsync(_terminate, 900000);
 
         public Task<TransactionReceipt> AddSystemAsync(string account) =>
             InvokeAsync(_addSystem, 900000, account);

@@ -117,16 +117,6 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             var token = new AlgoTokenV1(EthNetwork.Instance.GetWeb3(tokenOwnerAccount), EthNetwork.Instance.GasPriceProvider);
             await token.DeployAsync();
 
-            // Create the pools to transfer the proper number of tokens to the miners...
-            var pool1 = new AlgoPool(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
-            await pool1.DeployAsync(0, token.ContractAddress);
-            var pool2 = new AlgoPool(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
-            await pool2.DeployAsync(1, token.ContractAddress);
-
-            // Transfer some tokens to the pools...
-            await token.TransferAsync(pool1.ContractAddress, 100.MAlgo());
-            await token.TransferAsync(pool2.ContractAddress, 100.MAlgo());
-
             // Create a fees...
             var fees1 = new AlgoFees(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
             await fees1.DeployAsync(token.ContractAddress);
@@ -149,13 +139,9 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
                 referralAccounts[i] = EthAccountFactory.Create();
                 await EthNetwork.Instance.RefillAsync(minerAccounts[i]);
 
-                // Create the miner...
+                // Create the miner as "NonPoolBased" so it can be activated...
                 miners[i] = new AlgoMiner(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
-                await miners[i].DeployAsync(0, i, minerAccounts[i].Address, referralAccounts[i].Address, token.ContractAddress);
-
-                // Transfer some tokens to the miner so it can be activated...
-                await pool1.TrasferToMinerAsync(miners[i].ContractAddress);
-                await pool2.TrasferToMinerAsync(miners[i].ContractAddress);
+                await miners[i].DeployAsync(1, i, minerAccounts[i].Address, referralAccounts[i].Address, token.ContractAddress);
 
                 // Activate the miner...
                 await miners[i].ActivateMinerAsync();
@@ -190,6 +176,44 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             Assert.Equal(30.Algo(), balance3);
             Assert.Equal(40.Algo(), balance4);
             Assert.Equal(50.Algo(), balance5);
+        }
+
+        [Fact]
+        public async Task TerminateTest()
+        {
+            EthNetwork.UseGanacheTestNet();
+
+            var prefundedAccount = new Account(EthNetwork.Instance.PrefundedPrivateKey);
+
+            var tokenOwnerAccount = EthAccountFactory.Create();
+            var coreTeamAccount = EthAccountFactory.Create();
+
+            await EthNetwork.Instance.RefillAsync(tokenOwnerAccount);
+            await EthNetwork.Instance.RefillAsync(coreTeamAccount);
+
+            // Create the ERC20 token...
+            var token = new AlgoTokenV1(EthNetwork.Instance.GetWeb3(tokenOwnerAccount), EthNetwork.Instance.GasPriceProvider);
+            await token.DeployAsync();
+
+            // Store the current balance of the token owner...
+            var tokenOwnerAccountBalance = await token.BalanceOfAsync(tokenOwnerAccount.Address);
+
+            // Create a fees...
+            var fees1 = new AlgoFees(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
+            await fees1.DeployAsync(token.ContractAddress);
+
+            // Transfer some tokens to the fees...
+            await token.TransferAsync(fees1.ContractAddress, 100.Algo());
+
+            // Ensure the receiver got the tokens...
+            Assert.Equal(100.Algo(), await token.BalanceOfAsync(fees1.ContractAddress));
+
+            // Terminate the contract.
+            await fees1.TerminateAsync();
+
+            // Ensure the contract returned all the tokens...
+            Assert.Equal(0, await token.BalanceOfAsync(fees1.ContractAddress));
+            Assert.Equal(100.Algo(), await token.BalanceOfAsync(coreTeamAccount.Address));
         }
     }
 }

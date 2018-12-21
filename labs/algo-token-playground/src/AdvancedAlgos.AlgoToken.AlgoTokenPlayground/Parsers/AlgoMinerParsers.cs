@@ -93,6 +93,12 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
                  ContractReference = contractReference,
              }).Register();
 
+            (from contractReference in CommonParsers.Invoke("algominer-terminate")
+             select new AlgoMinerTerminateCommand
+             {
+                 ContractReference = contractReference
+             }).Register();
+
             (from contractReference in CommonParsers.Invoke("algominer-addsystem")
              from account in CommonParsers.StringValue
              select new AlgoMinerAddSystemCommand

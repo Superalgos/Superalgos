@@ -200,7 +200,7 @@ The following commands are supported for the `AlgoPool` contract:
 `deploy-algopool <poolType> <tokenAddress> [-n <contract_name>]`
 
 Creates a new instance of the `AlgoPool` contract.
-* `poolType`: the type of pool (uint8: 0 = PoolType, 1 = ReferralPool)
+* `poolType`: the type of pool (uint8: 0 = MinerPool, 1 = ReferralPool)
 * `tokenAddress`: the address of the AlgoToken contract
 
 >Example: `deploy-algopool 0 token -n dev_pool`
@@ -213,6 +213,14 @@ Transfer tokens from the AlgoPool balance to the AlgoMiner balance. The amount o
 * `minerAddress`: the address of the AlgoMiner contract
 
 >Example: `dev_pool.algopool-trasfertominer miner_1`
+
+#### algopool-terminate
+
+`<contract>.algopool-terminate`
+
+Terminates the contract and return its balance to the creator.
+
+>Example: `dev_pool.algopool-terminate`
 
 ### AlgoMiner
 
@@ -314,6 +322,14 @@ This operation is executed by the system to request a payment from the AlgoMiner
 
 >Example: `miner_1.algominer-mine`
 
+#### algominer-terminate
+
+`<contract>.algominer-terminate`
+
+Terminates the contract and return its balance to the creator.
+
+>Example: `miner_1.algominer-terminate`
+
 #### algominer-addsystem
 
 `<contract>.algominer-addsystem <account>`
@@ -340,6 +356,61 @@ Adds the specified account to the "Supervisor" role.
 * `account`: the address of account to be added to the role.
 
 >Example: `miner_1.algominer-addsupervisor 0x862f8938949e4A1aA82Cd427d87E4fc76940e7a1`
+
+### AlgoFees
+
+The following commands are supported for the `AlgoFees` contract:
+
+#### deploy-algofees
+
+`deploy-algofees <tokenAddress> [-n <contract_name>]`
+
+Creates a new instance of the `AlgoFees` contract.
+* `tokenAddress`: the address of the AlgoToken contract
+
+>Example: `deploy-algofees token -n fees1`
+
+#### algofees-registerminer
+
+`<contract>.algofees-registerminer <minerAddress>`
+
+Registers a miner with the AlgoFees.
+* `minerAddress`: the address of the AlgoMiner contract
+
+>Example: `fees1.algofees-registerminer miner_0`
+
+#### algofees-unregisterminer
+
+`<contract>.algofees-unregisterminer <minerAddress>`
+
+Unregisters a miner from the AlgoFees.
+* `minerAddress`: the address of the AlgoMiner contract
+
+>Example: `fees1.algofees-unregisterminer miner_0`
+
+#### algofees-mine
+
+`<contract>.algofees-mine`
+
+This operation is executed by the system to request a payment from the AlgoFees to registered miners. The amount to pay is computed using the rules specified in the "Smart Contracts Requirements / Specifications" document.
+
+>Example: `fees1.algofees-mine`
+
+#### algominer-terminate
+
+`<contract>.algofees-terminate`
+
+Terminates the contract and return its balance to the creator.
+
+>Example: `algofees.algofees-terminate`
+
+### System commands
+
+#### reset
+
+Resets the current playground instance, removing all aliases created.
+
+>Example: `reset`
 
 ### Notes
 

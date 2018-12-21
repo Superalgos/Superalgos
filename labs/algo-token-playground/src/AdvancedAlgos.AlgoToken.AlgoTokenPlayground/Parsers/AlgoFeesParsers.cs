@@ -40,6 +40,12 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
              {
                  ContractReference = contractReference
              }).Register();
+
+            (from contractReference in CommonParsers.Invoke("algofees-terminate")
+             select new AlgoFeesTerminateCommand
+             {
+                 ContractReference = contractReference
+             }).Register();
         }
     }
 }

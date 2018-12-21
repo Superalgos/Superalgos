@@ -23,10 +23,6 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
              {
                  GasPrice = gasPrice
              }).Register();
-
-            (from command in CommonParsers.Token("list-env")
-             select new ListEnvironmentCommand()
-             ).Register();
         }
     }
 }

@@ -46,6 +46,11 @@ contract AlgoMiner is AlgoCommon, ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeam
         public {
         
         require(category >= 0 && category <= 5);
+        require(minerAccountAddress != address(0));
+
+        if(minerType == MinerType.PoolBased) {
+            require(referralAccountAddress != address(0));
+        }
 
         _minerType = minerType;
         _category = category;
@@ -150,18 +155,13 @@ contract AlgoMiner is AlgoCommon, ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeam
         }
 
         uint256 minerTokens = _currentYearSupply / DAYS_PER_YEAR;
+        uint256 referralTokens = minerTokens * 10 / 100;
 
         require(minerTokens > 0);
+        require(referralTokens > 0);
 
         _token.safeTransfer(_miner, minerTokens);
-
-        if(_referral != address(0)) {
-            uint256 referralTokens = minerTokens * 10 / 100;
-    
-            require(referralTokens > 0);
-    
-            _token.safeTransfer(_referral, referralTokens);
-        }
+        _token.safeTransfer(_referral, referralTokens);
     }
 
     function terminate() public onlyCoreTeam {

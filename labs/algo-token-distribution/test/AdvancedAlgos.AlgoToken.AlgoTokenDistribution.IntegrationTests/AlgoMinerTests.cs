@@ -111,5 +111,45 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             Assert.Equal(expectedMinerBalance, await token.BalanceOfAsync(minerAccount.Address));
             Assert.Equal(expectedReferralBalance, await token.BalanceOfAsync(referralAccount.Address));
         }
+
+        [Fact]
+        public async Task TerminateTest()
+        {
+            EthNetwork.UseGanacheTestNet();
+
+            var prefundedAccount = new Account(EthNetwork.Instance.PrefundedPrivateKey);
+
+            var tokenOwnerAccount = EthAccountFactory.Create();
+            var coreTeamAccount = EthAccountFactory.Create();
+            var minerAccount = EthAccountFactory.Create();
+            var referralAccount = EthAccountFactory.Create();
+
+            await EthNetwork.Instance.RefillAsync(tokenOwnerAccount);
+            await EthNetwork.Instance.RefillAsync(coreTeamAccount);
+
+            // Create the ERC20 token...
+            var token = new AlgoTokenV1(EthNetwork.Instance.GetWeb3(tokenOwnerAccount), EthNetwork.Instance.GasPriceProvider);
+            await token.DeployAsync();
+
+            // Store the current balance of the token owner...
+            var tokenOwnerAccountBalance = await token.BalanceOfAsync(tokenOwnerAccount.Address);
+
+            // Create a miner...
+            var miner1 = new AlgoMiner(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
+            await miner1.DeployAsync(0, 2, minerAccount.Address, referralAccount.Address, token.ContractAddress);
+
+            // Transfer some tokens to the miner...
+            await token.TransferAsync(miner1.ContractAddress, 100.Algo());
+
+            // Ensure the receiver got the tokens...
+            Assert.Equal(100.Algo(), await token.BalanceOfAsync(miner1.ContractAddress));
+
+            // Terminate the contract.
+            await miner1.TerminateAsync();
+
+            // Ensure the contract returned all the tokens...
+            Assert.Equal(0, await token.BalanceOfAsync(miner1.ContractAddress));
+            Assert.Equal(100.Algo(), await token.BalanceOfAsync(coreTeamAccount.Address));
+        }
     }
 }

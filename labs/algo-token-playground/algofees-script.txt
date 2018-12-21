@@ -24,22 +24,6 @@ deploy-algominer 1 2 miner_2_account ref_2_account token -n miner_2
 deploy-algominer 1 3 miner_3_account ref_3_account token -n miner_3
 deploy-algominer 1 4 miner_4_account ref_4_account token -n miner_4
 deploy-algominer 1 5 miner_5_account ref_5_account token -n miner_5
-deploy-algopool 0 token -n dev_pool
-deploy-algopool 1 token -n ref_pool
-token.algotoken-transfer dev_pool 100m
-token.algotoken-transfer ref_pool 100m
-dev_pool.algopool-trasfertominer miner_0
-ref_pool.algopool-trasfertominer miner_0
-dev_pool.algopool-trasfertominer miner_1
-ref_pool.algopool-trasfertominer miner_1
-dev_pool.algopool-trasfertominer miner_2
-ref_pool.algopool-trasfertominer miner_2
-dev_pool.algopool-trasfertominer miner_3
-ref_pool.algopool-trasfertominer miner_3
-dev_pool.algopool-trasfertominer miner_4
-ref_pool.algopool-trasfertominer miner_4
-dev_pool.algopool-trasfertominer miner_5
-ref_pool.algopool-trasfertominer miner_5
 miner_0.algominer-activateminer
 miner_1.algominer-activateminer
 miner_2.algominer-activateminer

@@ -12,9 +12,15 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Runtime
 
         public string EthNetworkUrl { get; set; } = LOCAL_NETWORK_URL;
         public EthAccountDescriptor CurrentAccount { get; set; }
-        public Dictionary<string, EthAccountDescriptor> Accounts { get; } = new Dictionary<string, EthAccountDescriptor>(StringComparer.OrdinalIgnoreCase);
-        public Dictionary<string, EthContractDescriptor> Contracts { get; } = new Dictionary<string, EthContractDescriptor>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, EthAccountDescriptor> Accounts { get; private set; } = new Dictionary<string, EthAccountDescriptor>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, EthContractDescriptor> Contracts { get; private set; } = new Dictionary<string, EthContractDescriptor>(StringComparer.OrdinalIgnoreCase);
         public StaticGasPriceProvider GasPriceProvider { get; } = new StaticGasPriceProvider();
+
+        public void Reset()
+        {
+            Accounts = new Dictionary<string, EthAccountDescriptor>(StringComparer.OrdinalIgnoreCase);
+            Contracts = new Dictionary<string, EthContractDescriptor>(StringComparer.OrdinalIgnoreCase);
+        }
 
         public string ResolveAccountReference(string reference)
         {

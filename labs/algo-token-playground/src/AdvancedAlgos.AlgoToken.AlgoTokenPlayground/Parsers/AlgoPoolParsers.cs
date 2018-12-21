@@ -28,6 +28,12 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
                  ContractReference = contractReference,
                  MinerAddress = minerAddress
              }).Register();
+
+            (from contractReference in CommonParsers.Invoke("algopool-terminate")
+             select new AlgoPoolTerminateCommand
+             {
+                 ContractReference = contractReference
+             }).Register();
         }
     }
 }

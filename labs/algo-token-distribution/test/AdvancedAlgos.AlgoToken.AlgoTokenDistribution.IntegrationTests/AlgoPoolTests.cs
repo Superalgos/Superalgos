@@ -123,5 +123,43 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             Assert.Equal(4.MAlgo() * 10 / 100, await token.BalanceOfAsync(miners[4].ContractAddress));
             Assert.Equal(5.MAlgo() * 10 / 100, await token.BalanceOfAsync(miners[5].ContractAddress));
         }
+
+        [Fact]
+        public async Task TerminateTest()
+        {
+            EthNetwork.UseGanacheTestNet();
+
+            var prefundedAccount = new Account(EthNetwork.Instance.PrefundedPrivateKey);
+
+            var tokenOwnerAccount = EthAccountFactory.Create();
+            var coreTeamAccount = EthAccountFactory.Create();
+
+            await EthNetwork.Instance.RefillAsync(tokenOwnerAccount);
+            await EthNetwork.Instance.RefillAsync(coreTeamAccount);
+
+            // Create the ERC20 token...
+            var token = new AlgoTokenV1(EthNetwork.Instance.GetWeb3(tokenOwnerAccount), EthNetwork.Instance.GasPriceProvider);
+            await token.DeployAsync();
+
+            // Store the current balance of the token owner...
+            var tokenOwnerAccountBalance = await token.BalanceOfAsync(tokenOwnerAccount.Address);
+
+            // Create a pool...
+            var pool1 = new AlgoPool(EthNetwork.Instance.GetWeb3(coreTeamAccount), EthNetwork.Instance.GasPriceProvider);
+            await pool1.DeployAsync(0, token.ContractAddress);
+
+            // Transfer some tokens to the pool...
+            await token.TransferAsync(pool1.ContractAddress, 100.Algo());
+
+            // Ensure the receiver got the tokens...
+            Assert.Equal(100.Algo(), await token.BalanceOfAsync(pool1.ContractAddress));
+
+            // Terminate the contract.
+            await pool1.TerminateAsync();
+
+            // Ensure the contract returned all the tokens...
+            Assert.Equal(0, await token.BalanceOfAsync(pool1.ContractAddress));
+            Assert.Equal(100.Algo(), await token.BalanceOfAsync(coreTeamAccount.Address));
+        }
     }
 }

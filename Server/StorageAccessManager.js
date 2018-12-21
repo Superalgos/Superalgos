@@ -5,39 +5,34 @@
         initialize: initialize
     }
 
-    let permissions;
+    let connectionString;
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(serverConfig, callBackFunction) {
 
-        readStoragePermissions();
+        switch (serverConfig.environment) {
 
-        function readStoragePermissions() {
+            case "Develop": {
 
-            let filePath;
-
-            try {
-                let fs = require('fs');
-                filePath = './' + 'Storage' + '/' + 'Storage.Permissions.json';
-                permissions = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-                callBackFunction();
-
+                connectionString = serverConfig.configAndPlugins.Develop.connectionString;
+                break;
             }
-            catch (err) {
-                console.log("[ERROR] readStoragePermissions -> err = " + err.message);
-                console.log("[HINT] readStoragePermissions -> You need to have a file at this path -> " + filePath);
 
-                callBackFunction();
+            case "Production": {
+
+                connectionString = serverConfig.configAndPlugins.Production.connectionString;
+                break;
             }
         }
+
+        callBackFunction();
     }
 
     function getPermission(pContainer, pType, pDays) {
 
         let azure = require('azure-storage');
-        let blobService = azure.createBlobService(permissions.connectionString);
+        let blobService = azure.createBlobService(connectionString);
 
         let startDate = new Date();
         startDate.setDate(startDate.getDate() - 1);

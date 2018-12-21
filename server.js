@@ -135,7 +135,7 @@ function initialize() {
                         const STORAGE_ACCESS_MANAGER = require('./Server/StorageAccessManager');
                         storageAccessManager = STORAGE_ACCESS_MANAGER.newStorageAccessManager();
 
-                        storageAccessManager.initialize(onInitialized);
+                        storageAccessManager.initialize(serverConfig, onInitialized);
 
                         function onInitialized() {
 

@@ -64,19 +64,34 @@ const keyvaultMenus = {
   ]
 }
 
+const operationsMenus = {
+  title: 'Operations',
+  to: '/operations',
+  icon: Home,
+  authenticated: true,
+  submenus: [
+    { title: 'Your clones', to: '/operations/browse', icon: ImportContacts },
+    { title: 'Clone a bot', to: '/operations/add', icon: AddCircleOutline },
+    { title: 'Report a Bug', to: 'https://github.com/AdvancedAlgos/OperationsModule/issues/new', icon: BugReport, externalLink: true }
+  ]
+}
+
 const financialBeingsMenus = {
-  title: 'Financial beings',
-  to: FINANCIAL_BEINGS,
+  title: 'FBs',
+  to: '/financial-beings',
   authenticated: false,
-  submenus: []
+  submenus: [
+    { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
+  ]
 }
 
 const allMenus = [
   usersMenus,
   teamsMenus,
   eventsMenus,
-  // financialBeingsMenus,
-  keyvaultMenus
+  financialBeingsMenus,
+  keyvaultMenus,
+  operationsMenus
 ]
 
 export default allMenus

@@ -18,6 +18,7 @@ import Users from '@advancedalgos/users-client'
 import Teams from '@advancedalgos/teams-client'
 import Events from '@advancedalgos/events-client'
 import KeyVault from '@advancedalgos/key-vault-client'
+import Operations from '@advancedalgos/operations-client'
 // import FinancialBeings from '@advancedalgos/financial-beings-client'
 
 import { FINANCIAL_BEINGS } from './constants/routes'
@@ -73,6 +74,10 @@ export const MasterApp = props => (
             <Route
               path='/key-vault'
               render={props => <KeyVault {...props} auth={auth} />}
+            />
+            <Route
+              path='/operations'
+              render={props => <Operations {...props} auth={auth} />}
             />
           </Switch>
         </Layout>

@@ -43,32 +43,30 @@ async function getUserId (authId) {
 }
 
 async function run () {
-  logger.info('About to create schemas')
   const transformedKeyVaultSchema = await createTransformedRemoteSchema(
     'keyVault_',
     process.env.KEYVAULT_API_URL,
     process.env.KEYVAULT_API_PRESHARED)
-    logger.info('KeyVault schema created')
   const transformedTeamsSchema = await createTransformedRemoteSchema(
     'teams_',
     process.env.TEAMS_API_URL,
     process.env.TEAMS_API_PRESHARED)
-    logger.info('Teams schema created')
   const transformedUsersSchema = await createTransformedRemoteSchema(
     'users_',
     process.env.USERS_API_URL,
     process.env.USERS_API_PRESHARED)
-    logger.info('Users schema created')
   const transformedEventsSchema = await createTransformedRemoteSchema(
     'events_',
     process.env.EVENTS_API_URL,
     process.env.EVENTS_API_PRESHARED)
-    logger.info('Events schema created')
   const transformedFinancialBeingsSchema = await createTransformedRemoteSchema(
     'financialBeings_',
     process.env.FINANCIAL_BEINGS_API_URL,
     process.env.FINANCIAL_BEINGS_API_PRESHARED)
-    logger.info('FINANCIAL_BEINGS schema created')
+  const transformedOperationsSchema = await createTransformedRemoteSchema(
+    'operations_',
+    process.env.OPERATIONS_API_URL,
+    process.env.OPERATIONS_API_PRESHARED)
 
   var schemas = [masterSchema]
   var resolvers = {}
@@ -97,7 +95,10 @@ async function run () {
   if (transformedFinancialBeingsSchema) {
     schemas.push(transformedFinancialBeingsSchema)
   }
-  
+  if (transformedOperationsSchema) {
+    schemas.push(transformedOperationsSchema)
+  }
+
   const schema = mergeSchemas({
     schemas,
     resolvers
@@ -184,7 +185,6 @@ async function run () {
 }
 
 try {
-  logger.info('About to run main run method')
   run()
 } catch (e) {
   logger.error(`An general error occured while running the app: ${e}, details: ${e.message}, stack: ${e.stack}`)

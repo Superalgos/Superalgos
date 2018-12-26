@@ -45,6 +45,7 @@ export const createRemoteSchema = async (uri, preshared_key) => {
 export const createTransformedRemoteSchema = async (prefix, uri, preshared_key) => {
   var schema
   try {
+    logger.info(`About to create ${prefix} schema at ${uri}`)
     schema = await createRemoteSchema(uri, preshared_key)
   } catch (error) {
     logger.error(`An error occured while fetching ${prefix}, ${uri} schema. Details: ${error}`)

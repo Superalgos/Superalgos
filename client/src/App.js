@@ -19,6 +19,7 @@ import Teams from '@advancedalgos/teams-client'
 import Events from '@advancedalgos/events-client'
 import KeyVault from '@advancedalgos/key-vault-client'
 import FinancialBeings from '@advancedalgos/financial-beings-client'
+import Operations from '@advancedalgos/operations-client'
 
 export const auth = new Auth(
   result => console.log('Authentication successful.'),
@@ -75,6 +76,10 @@ export const MasterApp = props => (
             <Route
               path='/key-vault'
               render={props => <KeyVault {...props} auth={auth} />}
+            />
+            <Route
+              path='/operations'
+              render={props => <Operations {...props} auth={auth} />}
             />
           </Switch>
         </Layout>

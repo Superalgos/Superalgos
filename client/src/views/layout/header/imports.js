@@ -7,13 +7,11 @@ import {
   BugReport,
   People,
   Group,
-  Adb,
+  // Adb,
   VpnKey,
   Home,
   AddCircleOutline
 } from '@material-ui/icons'
-
-import { FINANCIAL_BEINGS } from '../../../constants/routes'
 
 const usersMenus = {
   title: 'Users',

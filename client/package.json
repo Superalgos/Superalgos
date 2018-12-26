@@ -1,0 +1,35 @@
+{
+  "name": "@advancedalgos/operations-client",
+  "version": "0.0.1",
+  "description": "Advanced Algos Operations client-side web app",
+  "main": "src/index.js",
+  "dependencies": {
+    "@material-ui/core": "^3.2.2",
+    "@material-ui/icons": "^3.0.1",
+    "apollo-client": "^2.4.2",
+    "classnames": "^2.2.6",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "luxon": "^1.4.4",
+    "material-ui-pickers": "^1.0.1",
+    "react": "^16.6.1",
+    "react-apollo": "^2.2.4",
+    "react-dom": "^16.6.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "react-hot-loader": "^4.3.11"
+  },
+  "scripts": {
+    "start": "set PORT=3002 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

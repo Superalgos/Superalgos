@@ -31,6 +31,7 @@
     "@advancedalgos/teams-client": "0.0.32",
     "@advancedalgos/users-client": "0.0.24",
     "@advancedalgos/web-components": "0.0.18",
+    "@advancedalgos/operations-client": "0.0.1",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",

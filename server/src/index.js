@@ -70,7 +70,6 @@ async function run () {
     'notifications_',
     process.env.NOTIFICATIONS_API_URL,
     process.env.NOTIFICATIONS_API_PRESHARED)
-    logger.info('Notifications schema created')
 
   var schemas = []
   var resolvers = {}

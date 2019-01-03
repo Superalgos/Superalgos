@@ -57,7 +57,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             // Transfer tokens from the pool to the miners...
             for (int i = 0; i <= 5; i++)
             {
-                await pool1.TrasferToMinerAsync(miners[i].ContractAddress);
+                await pool1.TransferToMinerAsync(miners[i].ContractAddress);
             }
 
             // Ensure each miner received the proper amount of tokens according its category...
@@ -112,7 +112,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             // Transfer tokens from the pool to the miners...
             for (int i = 0; i <= 5; i++)
             {
-                await pool1.TrasferToMinerAsync(miners[i].ContractAddress);
+                await pool1.TransferToMinerAsync(miners[i].ContractAddress);
             }
 
             // Ensure each miner received the proper amount of tokens according its category...

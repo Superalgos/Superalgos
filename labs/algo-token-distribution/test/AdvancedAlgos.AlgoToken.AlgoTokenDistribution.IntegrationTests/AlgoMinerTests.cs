@@ -56,8 +56,8 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
             await miner1.AddSupervisorAsync(supervisorAccount.Address);
 
             // Transfer tokens to the miner...
-            await pool1.TrasferToMinerAsync(miner1.ContractAddress);
-            await pool2.TrasferToMinerAsync(miner1.ContractAddress);
+            await pool1.TransferToMinerAsync(miner1.ContractAddress);
+            await pool2.TransferToMinerAsync(miner1.ContractAddress);
 
             // Ensure the miner received the tokens according to its category 2.
             Assert.Equal(2.MAlgo() + 2.MAlgo() * 10 / 100, await token.BalanceOfAsync(miner1.ContractAddress));

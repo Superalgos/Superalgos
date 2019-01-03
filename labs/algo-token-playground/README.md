@@ -205,14 +205,14 @@ Creates a new instance of the `AlgoPool` contract.
 
 >Example: `deploy-algopool 0 token -n dev_pool`
 
-#### algopool-trasfertominer
+#### algopool-transfertominer
 
-`<contract>.algopool-trasfertominer <minerAddress>`
+`<contract>.algopool-transfertominer <minerAddress>`
 
 Transfer tokens from the AlgoPool balance to the AlgoMiner balance. The amount of tokens to be transfered is determined by the AlgoMiner category (see the specification document).
 * `minerAddress`: the address of the AlgoMiner contract
 
->Example: `dev_pool.algopool-trasfertominer miner_1`
+>Example: `dev_pool.algopool-transfertominer miner_1`
 
 #### algopool-terminate
 

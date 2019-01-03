@@ -26,7 +26,7 @@ contract AlgoPool is AlgoCommon, ERC20TokenHolder, AlgoCoreTeamRole {
         _poolType = poolType;
     }
 
-    function trasferToMiner(address minerAddress) public notTerminated onlyCoreTeam {
+    function transferToMiner(address minerAddress) public notTerminated onlyCoreTeam {
         require(!_fundedMiners[minerAddress]);
 
         IAlgoMiner algoMiner = IAlgoMiner(minerAddress);

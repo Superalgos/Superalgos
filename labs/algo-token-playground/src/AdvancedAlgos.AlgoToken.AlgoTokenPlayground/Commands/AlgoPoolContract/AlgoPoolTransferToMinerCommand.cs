@@ -11,7 +11,7 @@ using Nethereum.Web3;
 
 namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Commands.AlgoPoolContract
 {
-    public class AlgoPoolTrasferToMinerCommand : EthInvokeTransactionalFunctionCommand
+    public class AlgoPoolTransferToMinerCommand : EthInvokeTransactionalFunctionCommand
     {
         public string MinerAddress { get; set; }
 
@@ -19,7 +19,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Commands.AlgoPoolContract
         {
             var algoPool = new AlgoPool(contractAddress, web3, context.GasPriceProvider);
 
-            return await algoPool.TrasferToMinerAsync(context.ResolveContractReference(MinerAddress));
+            return await algoPool.TransferToMinerAsync(context.ResolveContractReference(MinerAddress));
         }
     }
 }

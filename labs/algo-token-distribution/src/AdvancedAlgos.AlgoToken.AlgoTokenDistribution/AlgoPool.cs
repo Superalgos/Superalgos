@@ -12,7 +12,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
 {
     public class AlgoPool : SmartContract<AlgoPool>
     {
-        private Function _trasferToMiner;
+        private Function _transferToMiner;
         private Function _terminate;
 
         public AlgoPool(Web3 web3, IGasPriceProvider gasPriceProvider) : base(web3, gasPriceProvider) { }
@@ -27,12 +27,12 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution
 
         protected override void Initialize(Contract contractDescriptor)
         {
-            _trasferToMiner = contractDescriptor.GetFunction("trasferToMiner");
+            _transferToMiner = contractDescriptor.GetFunction("transferToMiner");
             _terminate = contractDescriptor.GetFunction("terminate");
         }
 
-        public Task<TransactionReceipt> TrasferToMinerAsync(string minerAddress) =>
-            InvokeAsync(_trasferToMiner, 900000, minerAddress);
+        public Task<TransactionReceipt> TransferToMinerAsync(string minerAddress) =>
+            InvokeAsync(_transferToMiner, 900000, minerAddress);
 
         public Task<TransactionReceipt> TerminateAsync() =>
             InvokeAsync(_terminate, 900000);

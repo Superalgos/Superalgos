@@ -21,9 +21,9 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenPlayground.Parsers
                  TokenAddress = tokenAddress
              }).Register();
 
-            (from contractReference in CommonParsers.Invoke("algopool-trasfertominer")
+            (from contractReference in CommonParsers.Invoke("algopool-transfertominer")
              from minerAddress in CommonParsers.StringValue
-             select new AlgoPoolTrasferToMinerCommand
+             select new AlgoPoolTransferToMinerCommand
              {
                  ContractReference = contractReference,
                  MinerAddress = minerAddress

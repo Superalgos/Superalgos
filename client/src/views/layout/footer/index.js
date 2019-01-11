@@ -63,7 +63,7 @@ class Footer extends Component {
                     className={classNames(classes.icon, classes.iconHover)}
                   />
                 </a>
-                <a target='_blank' href='https://www.facebook.com/Advanced-Algos-173249670001615/' title='Meet us on Facebook' className={classes.linkLight}>
+                <a target='_blank' href='https://www.facebook.com/Superalgos-375022859724428/' title='Meet us on Facebook' className={classes.linkLight}>
                   <FontAwesomeIcon
                     icon={faFacebookF}
                     className={classNames(classes.icon, classes.iconHover)}

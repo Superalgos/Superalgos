@@ -15,7 +15,7 @@ import styles from './styles'
 
 import SignupForm from '../../email-verification/components/SignupForm'
 
-import aalogo from '../../../assets/superalgos/sa-logo-horiz-dark.svg'
+import aalogo from '../../../assets/superalgos/Superalgos-logo-horz-dark.svg'
 
 class Footer extends Component {
   render () {

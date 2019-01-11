@@ -8,7 +8,7 @@ import withWidth from '@material-ui/core/withWidth'
 import { LoggedIn } from './LoggedIn'
 
 import allMenus from './imports'
-import AALogo from '../../../assets/superalgos/sa-logo-horiz-dark.svg'
+import AALogo from '../../../assets/superalgos/Superalgos-logo-horz-dark.svg'
 
 class Header extends Component {
   constructor (props) {

@@ -51,7 +51,7 @@ export class SignupVerifyResponse extends React.Component {
       BannerText = [
         'Processing newsletter sign-up...',
         <br key='EmailSignupConfirm-br' />,
-        'Thank you for opting-in to recieve updates about the Advanced Algos project!'
+        'Thank you for opting-in to recieve updates about the Superalgos project!'
       ]
     }
     if (data !== undefined && data !== null) {
@@ -62,7 +62,7 @@ export class SignupVerifyResponse extends React.Component {
             <BannerTopBar
               size='big'
               title='Mailing Sign-Up Complete!'
-              text='We look forward to keeping you up-to-date on the Advanced Algos project.'
+              text='We look forward to keeping you up-to-date on the Superalgos project.'
               backgroundUrl='https://advancedalgos.net/img/photos/superalgos-platform.jpg'
             >
               {displayForm && <SignupForm alignCenter />}

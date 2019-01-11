@@ -1,8 +1,8 @@
 # Contributing
 
-We are thrilled you are interested in contributing to this repository. Your help may be essential to the project's success and we want you in! 
+We are thrilled you are interested in contributing to this repository. Your help may be essential to the project's success and we want you in!
 
-Advanced Algos LTD is a startup, currently at a very early stage. Although this repository is not open source software yet, we do welcome contributions from the community.
+Superalgos.org is an open source project, currently at a very early stage. Although this repository is not open source software yet, we do welcome contributions from the community.
 
 Contributions are deemed _voluntary work_. There might be incentives in place for certain kinds of contributions. Contact us for more information in this regards.
 
@@ -10,7 +10,7 @@ In any case, contributors agree to provide an express grant of patent rights for
 
 # Balanced Contributor Intellectual Property Agreement 1.0.1
 
-This BALANCED CONTRIBUTOR INTELLECTUAL PROPERTY AGREEMENT is between person or team submitting Pull Requests to this repository and Advanced Algos LTD ("Company").
+This BALANCED CONTRIBUTOR INTELLECTUAL PROPERTY AGREEMENT is between person or team submitting Pull Requests to this repository and Superalgos.org ("Company").
 
 **What is this?** This is the Company's Intellectual Property Agreement ("Agreement"). If you've worked in the technology space before, there's a good chance that you've run across one or more of these in the past. This document is the official, entire and exclusive agreement on what intellectual property ("IP") is yours, and what belongs to the Company.
 
@@ -26,9 +26,9 @@ Cool? Then, by submitting your first Pull Request, and as a condition of your co
 
    "Company IP" includes concepts, designs, developments, discoveries, ideas, improvements, inventions, trade secrets, trademarks, and works of authorship.
 
-2. **What the Company doesn't own.** If you create IP that doesn't fit into one of the categories listed above, the Company doesn't own it. In other words, the Company doesn't own concepts, designs, developments, discoveries, ideas, improvements, inventions, trade secrets, trademarks, or works of authorship that you develop, invent, or create that do not meet any of the conditions in Section 1. 
+2. **What the Company doesn't own.** If you create IP that doesn't fit into one of the categories listed above, the Company doesn't own it. In other words, the Company doesn't own concepts, designs, developments, discoveries, ideas, improvements, inventions, trade secrets, trademarks, or works of authorship that you develop, invent, or create that do not meet any of the conditions in Section 1.
 
-3. **Contribution of your IP to Company projects.** If you include your own IP – such as IP you created prior to working for the Company – into a Company product or service, it's still yours, of course, but you grant the Company a non-exclusive, irrevocable, fully paid-up, royalty-free, perpetual, sublicensable, transferable, worldwide license to use it without restriction in any way or implementation, in modified form, or as is, by itself, or incorporated into another product or service ("License"). If you include your name in any project over which the Company would have rights under this Agreement, such as in a copyright notice or a comment in code or documentation, then the License covers the rights associated with that use of your name as well.
+3. **Contribution of your IP to Company projects.** If you include your own IP ï¿½ such as IP you created prior to working for the Company ï¿½ into a Company product or service, it's still yours, of course, but you grant the Company a non-exclusive, irrevocable, fully paid-up, royalty-free, perpetual, sublicensable, transferable, worldwide license to use it without restriction in any way or implementation, in modified form, or as is, by itself, or incorporated into another product or service ("License"). If you include your name in any project over which the Company would have rights under this Agreement, such as in a copyright notice or a comment in code or documentation, then the License covers the rights associated with that use of your name as well.
 
 4. **Your contributions to non-Company projects.** The Company recognizes that you may be engaged in work that requires you to submit IP to entities other than the Company, such as open source projects used by the Company. Please make sure that Legal is aware of what you're working on so that Legal can help with any licensing issues. If any project asks you to sign a contribution agreement, you should check with Legal before doing so. These agreements may be legally binding on the Company and so should be run through Legal first.
 

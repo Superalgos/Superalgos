@@ -1,5 +1,5 @@
 # MasterApp
-The Master App is an application layer that wraps the client-side web modules of the various Advanced Algos platform modules (Users, Teams, KeyVault, Financial Beings, Hosts, etc).
+The Master App is an application layer that wraps the client-side web modules of the various Superalgos platform modules (Users, Teams, KeyVault, Financial Beings, Hosts, etc).
 It provides, to these modules, an authentication layer and GraphQL data layer, among other commonly used utilities and APIs.
 
 Each client-side module is published as an NPM package and their function is best described as a
@@ -12,7 +12,7 @@ React higher-order component encasing their given module use cases.
 Clone the repo.
 
 ```
-git clone https://github.com/AdvancedAlgos/MasterApp.git
+git clone https://github.com/Superalgos/MasterApp.git
 cd MasterApp
 ```
 

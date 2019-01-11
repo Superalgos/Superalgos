@@ -2,13 +2,13 @@
 
 We are thrilled you are interested in contributing to the this module. Your help may be essential to the project's success and we want you in! 
 
-Advanced Algos LTD is a startup, currently at a very early stage. Although this module is not open source software yet, we do welcome contributions from the community.
+Superalgos.org is an open source project, currently at a very early stage. Although this module is not open source software yet, we do welcome contributions from the community.
 
 Contributions are deemed _work for hire_ and --as such-- are compensated on a case by case basis, with ALGO tokens. Contributors agree to provide an express grant of patent rights for their contributions. Our Balanced Contributor Intellectual Property Agreement is a direct implementation of GitHub's [Balanced Employee Intellectual Property Agreement 1.0.1](https://github.com/github/balanced-employee-ip-agreement/blob/master/Balanced_Employee_IP_Agreement.md).
 
 # Balanced Contributor Intellectual Property Agreement 1.0.1
 
-This BALANCED CONTRIBUTOR INTELLECTUAL PROPERTY AGREEMENT is between person named below and Advanced Algos ("Company").
+This BALANCED CONTRIBUTOR INTELLECTUAL PROPERTY AGREEMENT is between person named below and Superalgos ("Company").
 
 **What is this?** This is the Company's Intellectual Property Agreement ("Agreement"). If you've worked in the technology space before, there's a good chance that you've run across one or more of these in the past. This document is the official, entire and exclusive agreement on what intellectual property ("IP") is yours, and what belongs to the Company.
 

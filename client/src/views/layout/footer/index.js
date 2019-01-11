@@ -15,7 +15,7 @@ import styles from './styles'
 
 import SignupForm from '../../email-verification/components/SignupForm'
 
-import aalogo from '../../../assets/advanced-algos/aa-logo-horiz-dark.svg'
+import aalogo from '../../../assets/superalgos/sa-logo-horiz-dark.svg'
 
 class Footer extends Component {
   render () {
@@ -38,12 +38,12 @@ class Footer extends Component {
                 <img alt='' src={aalogo} width={'100%'} height={'auto'} className={classes.footerLogo} />
               </NavLink>
               <Grid container className={classes.descriptionLeft} direction='column'>
-                <Typography className={classNames(classes.textLight, classes.descriptionText)} ><strong>Advanced Algos Ltd.</strong></Typography>
+                <Typography className={classNames(classes.textLight, classes.descriptionText)} ><strong>Superalgos Ltd.</strong></Typography>
                 <Typography className={classNames(classes.textLight, classes.descriptionText)} gutterBottom>Ground Floor, Palace Court, Church Street,<br />St. Julians&nbsp;STJ3049, Malta</Typography>
                 <Typography className={classNames(classes.textLight, classes.descriptionText)}>
                   <a target='_blank' href='https://www.advancedalgos.net/legal-privacy-statement.shtml' className={classes.linkLight}>Privacy Statement</a> | <a target='_blank' href='https://www.advancedalgos.net/legal-terms-of-service.shtml' className={classes.linkLight}>Terms of Service</a>
                 </Typography>
-                <Typography variant='body2' className={classNames(classes.textLight, classes.copyright)} gutterBottom>&copy; Advanced Algos, Ltd. 2018 | All Rights Reserved.</Typography>
+                <Typography variant='body2' className={classNames(classes.textLight, classes.copyright)} gutterBottom>&copy; Superalgos, Ltd. 2018 | All Rights Reserved.</Typography>
               </Grid>
             </Grid>
             <Grid item xs={12} sm={1} md={1} />

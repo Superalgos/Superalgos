@@ -8,7 +8,7 @@ import withWidth from '@material-ui/core/withWidth'
 import { LoggedIn } from './LoggedIn'
 
 import allMenus from './imports'
-import AALogo from '../../../assets/advanced-algos/aa-logo-dark.svg'
+import AALogo from '../../../assets/superalgos/sa-logo-horiz-dark.svg'
 
 class Header extends Component {
   constructor (props) {
@@ -123,7 +123,7 @@ class Header extends Component {
       <React.Fragment>
         <header className={onTop ? 'menu' : 'menu notOnTop'}>
           <div className='container'>
-            <Link to='/'> <img className='logo' src={AALogo} alt='Advanced Algos' /> </Link>
+            <Link to='/'> <img className='logo' src={AALogo} alt='Superalgos' /> </Link>
             <div className={mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'} onClick={() => this.toggleMobileOpen()}>
               Menu
             </div>

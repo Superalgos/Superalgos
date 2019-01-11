@@ -10,7 +10,7 @@ class Home extends Component {
           size='big'
           title='Superalgos Platform'
           text='People and machines working together to create Superalgos'
-          backgroundUrl='https://advancedalgos.net/img/photos/superalgos-platform.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
         />
         <div className='homePage container'>
           <Typography variant='h1' align='center' className='title'>Welcome to the Superalgos Platform!</Typography>
@@ -28,11 +28,11 @@ class Home extends Component {
           </div>
           <div className='column'>
             <Typography align='justify'>
-              Feel free to explore the menu in the top-right corner or visit the <a href='https://www.advancedalgos.net/documentation-quick-start.shtml' target='_blank'>Quick Start Guide</a>.
+              Feel free to explore the menu in the top-right corner or visit the <a href='https://www.superalgos.org/documentation-quick-start.shtml' target='_blank'>Quick Start Guide</a>.
               Reporting of bugs at the corresponding <a href='https://github.com/Superalgos' target='_blank' rel='nofollow'>Superalgos Github repository</a> is highly appreciated.
             </Typography>
             <Typography align='justify'>
-              Get in touch with the rest of the community and get answers to your questions in our <a href='https://t.me/advancedalgoscommunity' target='_blank' rel='nofollow'>Telegram Group</a>.
+              Get in touch with the rest of the community and get answers to your questions in our <a href='https://t.me/superalgoscommunity' target='_blank' rel='nofollow'>Telegram Group</a>.
               Have fun!
             </Typography>
           </div>

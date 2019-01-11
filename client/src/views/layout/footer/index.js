@@ -41,7 +41,7 @@ class Footer extends Component {
                 <Typography className={classNames(classes.textLight, classes.descriptionText)} ><strong>Superalgos Ltd.</strong></Typography>
                 <Typography className={classNames(classes.textLight, classes.descriptionText)} gutterBottom>Ground Floor, Palace Court, Church Street,<br />St. Julians&nbsp;STJ3049, Malta</Typography>
                 <Typography className={classNames(classes.textLight, classes.descriptionText)}>
-                  <a target='_blank' href='https://www.advancedalgos.net/legal-privacy-statement.shtml' className={classes.linkLight}>Privacy Statement</a> | <a target='_blank' href='https://www.advancedalgos.net/legal-terms-of-service.shtml' className={classes.linkLight}>Terms of Service</a>
+                  <a target='_blank' href='https://www.superalgos.org/legal-privacy-statement.shtml' className={classes.linkLight}>Privacy Statement</a> | <a target='_blank' href='https://www.superalgos.org/legal-terms-of-service.shtml' className={classes.linkLight}>Terms of Service</a>
                 </Typography>
                 <Typography variant='body2' className={classNames(classes.textLight, classes.copyright)} gutterBottom>&copy; Superalgos, Ltd. 2018 | All Rights Reserved.</Typography>
               </Grid>
@@ -51,13 +51,13 @@ class Footer extends Component {
               <SignupForm displayTitle displayIntro />
               <Typography variant='subtitle1' className={classes.textWhite} style={{ textAlign: width === 'xs' ? 'center' : '' }}>Meet us on Social Networks:</Typography>
               <Grid container justify={width === 'xs' ? 'center' : 'flex-start'}>
-                <a target='_blank' href='https://t.me/advancedalgoscommunity' title='Join us on Telgram' className={classes.linkLight}>
+                <a target='_blank' href='https://t.me/superalgoscommunity' title='Join us on Telgram' className={classes.linkLight}>
                   <FontAwesomeIcon
                     icon={faTelegramPlane}
                     className={classNames(classes.icon, classes.iconHover)}
                   />
                 </a>
-                <a target='_blank' href='https://twitter.com/advancedalgos' title='Follow us on Twitter' className={classes.linkLight}>
+                <a target='_blank' href='https://twitter.com/superalgos' title='Follow us on Twitter' className={classes.linkLight}>
                   <FontAwesomeIcon
                     icon={faTwitter}
                     className={classNames(classes.icon, classes.iconHover)}

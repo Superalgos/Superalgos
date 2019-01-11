@@ -6,7 +6,7 @@ const Callback = () => <BannerTopBar
   size='big'
   title=''
   text='Authenticating...'
-  backgroundUrl='https://advancedalgos.net/img/photos/superalgos-platform.jpg'
+  backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
 />
 
 export default Callback

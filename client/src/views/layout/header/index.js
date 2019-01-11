@@ -134,7 +134,7 @@ class Header extends Component {
                 </li>
                 {menus}
                 <li className='primaryLink'>
-                  <a href='https://www.advancedalgos.net/documentation-quick-start.shtml'> Docs </a>
+                  <a href='https://www.superalgos.org/documentation-quick-start.shtml'> Docs </a>
                 </li>
                 {this.state.user !== undefined && this.state.user !== null ? (
                   <LoggedIn

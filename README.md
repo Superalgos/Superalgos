@@ -61,7 +61,7 @@ In the client of the module to be developed:
 npm link
 ```
 
-Make note of the module package name — the name in the module's client package.json. *e.g. @advancedalgos/key-vault-client*
+Make note of the module package name — the name in the module's client package.json. *e.g. @superalgos/key-vault-client*
 
 In the Master app client dir link the developing module:
 
@@ -70,7 +70,7 @@ In the Master app client dir link the developing module:
 npm link <module-package-name>
 
 e.g.
-npm link @advancedalgos/key-vault-client
+npm link @superalgos/key-vault-client
 ```
 
 ### Starting a new module

@@ -33,7 +33,7 @@ The Graphql Playground will be viewable at [http://localhost:4100/graphql](http:
 
 **Setup Client**
 
-In another CLI window, navigate to the MasterAoo/client
+In another CLI window, navigate to the MasterApp/client
 
 ```
 cd ../client

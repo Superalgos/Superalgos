@@ -12,7 +12,7 @@ React higher-order component encasing their given module use cases.
 Clone the repo.
 
 ```
-git clone https://github.com/AdvancedAlgos/MasterApp.git
+git clone https://github.com/Superalgos/MasterApp.git
 cd MasterApp
 ```
 

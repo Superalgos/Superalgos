@@ -1,11 +1,11 @@
-# Advanced Algos Team Module
-[![npm client version](https://badge.fury.io/js/%40advancedalgos%2Fteams-client.svg)](https://badge.fury.io/js/%40advancedalgos%2Fteams-client)
+# Superalgos Team Module
+[![npm client version](https://badge.fury.io/js/%40superalgos%2Fteams-client.svg)](https://badge.fury.io/js/%40superalgos%2Fteams-client)
 
 ## Introduction
 
 The general purpose of the team module is
 
-This module explores crafting a strategic development pattern that upholds the Advanced Algos principles of rapid-evolution and automation built upon the values of collaboration, permissionless innovation, and accessibility.
+This module explores crafting a strategic development pattern that upholds the Superalgos principles of rapid-evolution and automation built upon the values of collaboration, permissionless innovation, and accessibility.
 
 #### This is a monorepo containing the Team GraphQL API server, Team Client, and Team Prisma Schema
 
@@ -17,7 +17,7 @@ Requirements:
 - NPM (comes installed with NodeJS)
 - [Github authorization via SSH](https://help.github.com/articles/connecting-to-github-with-ssh/): *optional* - removes need to authenticate every push or pull from GitHub especially as this is a private repo.
 
-1. Clone this repository `git clone https://github.com/Algoteers/aa-team-module.git`
+1. Clone this repository `git clone https://github.com/Superalgos/TeamsModule.git`
 2. `cd aa-team-module`
 5. Navigate to desired package in /packages and look at its README.md for further instructions.
 

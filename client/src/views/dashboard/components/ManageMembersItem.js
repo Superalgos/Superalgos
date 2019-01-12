@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import ManageMemberDelete from './ManageMemberDelete'
 import ManageMemberRole from './ManageMemberRole'
 import ManageMemberStatus from './ManageMemberStatus'
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 
 import log from '../../../utils/log'
 

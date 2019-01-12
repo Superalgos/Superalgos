@@ -14,7 +14,7 @@ const styles = theme => ({
 
 const FinancialBeings = ({ classes }) => (
   <div>
-    <BannerTopBar size='medium' title='Manage Your Financial Beings' text='Manage your Advanced Algos Financial Beings' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
+    <BannerTopBar size='medium' title='Manage Your Financial Beings' text='Manage your Superalgos Financial Beings' backgroundUrl='https://superalgos.org/img/photos/teams.jpg' />
     <ManageFBList />
   </div>
 )

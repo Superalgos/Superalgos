@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography'
 
 import InviteMemberDialog from './InviteMemberDialog'
 import ManageMembersItem from './ManageMembersItem'
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 
 import log from '../../../utils/log'
 

@@ -4,7 +4,7 @@ import { Query } from 'react-apollo'
 import { withStateHandlers, lifecycle, compose } from 'recompose'
 
 import Grid from '@material-ui/core/Grid'
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
 import { isDefined, isString } from '../../../utils/js-helpers'

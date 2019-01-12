@@ -1,7 +1,7 @@
 {
-  "name": "@advancedalgos/teams-client",
+  "name": "@superalgos/teams-client",
   "version": "0.0.32",
-  "description": "Advanced Algos Team client-side web app",
+  "description": "Superalgos Project Team client-side web app",
   "main": "src/index.js",
   "scripts": {
     "dev": "NODE_ENV=development PORT=3001 webpack-serve --config ./webpack.config.js",
@@ -16,7 +16,7 @@
   ],
   "repository": "",
   "author": "Barry Low <bearcanrun@gmail.com>",
-  "license": "AGPL-3.0",
+  "license": "READ LICENSE.MD",
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
@@ -69,8 +69,8 @@
     "workbox-cli": "^3.6.2"
   },
   "dependencies": {
-    "@advancedalgos/web-components": "0.0.18",
     "@azure/storage-blob": "^10.0.0-preview",
+    "@superalgos/web-components": "0.0.18",
     "apollo-cache-inmemory": "^1.3.5",
     "apollo-client": "^2.4.2",
     "apollo-link": "^1.2.3",

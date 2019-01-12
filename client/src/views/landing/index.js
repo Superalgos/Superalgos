@@ -23,7 +23,7 @@ const styles = theme => ({
 
 const Landing = ({ classes, ...props }) => (
   <React.Fragment>
-    <BannerTopBar size='big' title='Teams Module' text='Responsible for all teams at Advanced Algos.' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
+    <BannerTopBar size='big' title='Teams Module' text='Responsible for all teams at Advanced Algos.' backgroundUrl='https://superalgos.net/img/photos/teams.jpg' />
     <div className='homePage container'>
       <Typography variant='h1' align='center' className='title'>
         Welcome to the Teams Module!
@@ -33,7 +33,7 @@ const Landing = ({ classes, ...props }) => (
       </Typography>
       <div className='column'>
         <Typography align='justify'>
-          One of the core propositions of Advanced Algos revolves around people teaming up to breed financial beings and compete in algorithmic trading competitions. Both developing and competing are team activities.
+          One of the core propositions of the Superalgos projects revolves around people teaming up to breed financial beings and compete in algorithmic trading competitions. Both developing and competing are team activities.
         </Typography>
         <Typography align='justify'>
           If you are a user of the system but still haven’t joined any teams, the Teams Module is the right place to find one or even create your own.

@@ -13,7 +13,7 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import { MessageCard, ImageUpload } from '@advancedalgos/web-components'
+import { MessageCard, ImageUpload } from '@superalgos/web-components'
 
 import log from '../../../utils/log'
 

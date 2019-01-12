@@ -10,7 +10,7 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
 import Typography from '@material-ui/core/Typography'
 
-import { ImageUpload } from '@advancedalgos/web-components'
+import { ImageUpload } from '@superalgos/web-components'
 
 import UPDATE_FB from '../../../graphql/teams/UpdateFBMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'

@@ -13,7 +13,7 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
-import { ImageUpload } from '@advancedalgos/web-components'
+import { ImageUpload } from '@superalgos/web-components'
 
 import UPDATE_TEAM_PROFILE from '../../../graphql/teams/UpdateTeamProfileMutation'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'

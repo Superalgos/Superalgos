@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { parse } from '../../utils/js-helpers'
 import log from '../../utils/log'
 
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 
 class AcceptTeamInvite extends Component {
   render () {

@@ -1,21 +1,21 @@
 {
   "name": "NotificationsModule",
   "version": "0.0.1",
-  "description": "Advanced Algos Notifications Module",
+  "description": "Superalgos Notifications Module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AdvancedAlgos/NotificationsModule.git"
+    "url": "git+https://github.com/Superalgos/NotificationsModule.git"
   },
   "keywords": [
-    "Advanced Algos"
+    "Superalgos"
   ],
   "author": "Barry Low <bearcanru@gmail.com>",
   "license": "SEE LICENSE IN LICENSE.MD",
   "bugs": {
-    "url": "https://github.com/AdvancedAlgos/NotificationsModule.git/issues"
+    "url": "https://github.com/Superalgos/NotificationsModule.git/issues"
   },
-  "homepage": "https://github.com/AdvancedAlgos/NotificationsModule.git#readme"
+  "homepage": "https://github.com/Superalgos/NotificationsModule.git#readme"
 }

@@ -15,11 +15,11 @@ import Typography from '@material-ui/core/Typography'
 
 const styles = theme => ({
   root: {
-    width: '50%',
+    width: '100%',
     flexGrow: 1,
     padding: 10,
-    marginLeft: '25%',
-    marginTop: '2%'
+    marginTop: '5%',
+    marginBottom: '10%'
   },
   typography: {
     width: '80%',
@@ -125,16 +125,25 @@ class YourReferrer extends Component {
     	    }
     	}
 
-  render () {
+  addForm () {
     const { classes } = this.props
     return (
       <Paper className={classes.root}>
-        <Typography className={classes.typography} variant='headline' gutterBottom>
-            Your Referrer
-        </Typography>
-
+        <Typography className={classes.typography} variant='h5' gutterBottom>
+      Your Referrer
+    </Typography>
         {this.renderMode()}
       </Paper>
+    )
+  }
+
+  render () {
+    return (
+      <React.Fragment>
+        <div className='container'>
+          {this.addForm()}
+        </div>
+      </React.Fragment>
     )
   }
 }

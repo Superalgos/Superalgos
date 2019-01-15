@@ -1,52 +1,42 @@
-import React from 'react'
-import Button from '@material-ui/core/Button'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import React, { Component } from 'react'
+import { compose } from 'recompose'
+import { withStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
 
-class Contact extends React.Component {
-  state = {
-    open: true
+const styles = theme => ({
+  root: {
+    width: '50%',
+    flexGrow: 1,
+    padding: 10,
+    marginLeft: '25%',
+    marginTop: '5%',
+    marginBottom: '10%'
+  },
+  typography: {
+    width: '80%',
+    marginLeft: '10%',
+    marginTop: 40,
+    marginBottom: 40
   }
+})
 
-  handleClickOpen = () => {
-    this.setState({ open: true })
-  }
-
-  handleClose = () => {
-    this.setState({ open: false })
-  }
+class ProfileImages extends Component {
 
   render () {
+    const { classes } = this.props
     return (
-
       <React.Fragment>
-        <CssBaseline />
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby='alert-dialog-title'
-          aria-describedby='alert-dialog-description'>
-          <DialogTitle id='alert-dialog-title'>
-            {"Section under development."}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText id='alert-dialog-description'>
-              The functionality of this section has not been developed yet. We expect to have it for November 2018. Thanks for your understanding.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color='primary' autoFocus>
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
+        <Paper className={classes.root}>
+          <Typography className={classes.typography} variant='h5' gutterBottom>
+          Comming Soon
+        </Typography>
+        </Paper>
       </React.Fragment>
     )
   }
 }
 
-export default Contact
+export default compose(
+  withStyles(styles)
+)(ProfileImages)

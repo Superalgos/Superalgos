@@ -17,7 +17,7 @@ import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 
 // Images
-import PortraitImage from '../img/portrait.jpg'
+import UserDefaultPicture from '../img/user-default-pic.jpg'
 
 const styles = theme => ({
   card: {
@@ -170,7 +170,7 @@ class UserSearch extends Component {
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
-                    image={PortraitImage}
+                    image={UserDefaultPicture}
                     title='User Profile'
 
                 />
@@ -196,13 +196,18 @@ class UserSearch extends Component {
     }
   }
 
+  componentDidMount () {
+    window.dispatchEvent(new Event('load')) // This is a workaround to solve the problem that the slider does not show up
+  }
+
   render () {
     const { classes } = this.props
     return (
+
       <div>
         <form onSubmit={this.submitForm.bind(this)}>
 
-          <Typography className={classes.formTypography} variant='body2' gutterBottom align='left'>
+          <Typography className={classes.formTypography} variant='body1' gutterBottom align='left'>
         Use any of these fileds to search for users. {this.selectText()}
           </Typography>
 
@@ -257,6 +262,7 @@ class UserSearch extends Component {
           {this.displayUsers()}
         </Grid>
       </div>
+
     )
   }
 }

@@ -1,11 +1,16 @@
 import React from 'react'
 import UserTabs from './UserTabs'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import BannerTopBar from './BannerTopBar'
 
 const User = () => {
   return (
     <React.Fragment>
-      <CssBaseline />
+      <BannerTopBar
+        size='medium'
+        title='Your Profile'
+        text='Manage your profile info, pictures and more.'
+        backgroundUrl='https://advancedalgos.net/img/photos/users.jpg'
+      />
       <UserTabs />
     </React.Fragment>
   )

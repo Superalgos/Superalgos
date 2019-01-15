@@ -14,7 +14,7 @@ import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 
 // Images
-import PortraitImage from '../img/portrait.jpg'
+import UserDefaultPicture from '../img/user-default-pic.jpg'
 
 const styles = theme => ({
   root: {
@@ -107,7 +107,7 @@ class UserProfile extends Component {
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image={PortraitImage}
+                image={UserDefaultPicture}
                 title='User Profile'
 
               />

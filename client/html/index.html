@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Advanced Algos</title>
+  <title>Superalgos</title>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Responsible for loading all web modules and running them">
@@ -13,8 +13,8 @@
   <link rel="shortcut icon" type="image/png/ico" href="/favicon.ico" />
   <script src="https://unpkg.com/apollo-client-browser@1.7.0"></script>
 
-  <script type="text/javascript" src="https://charts-dev.advancedalgos.net/Scripts/require.js"></script>
-  <script type="text/javascript" src="https://charts-dev.advancedalgos.net/Scripts/AppPreLoader.js"></script>
+  <script type="text/javascript" src="https://charts-dev.superalgos.org/Scripts/require.js"></script>
+  <script type="text/javascript" src="https://charts-dev.superalgos.org/Scripts/AppPreLoader.js"></script>
 
   <script type="text/javascript">
     function loadCanvas(){
@@ -25,16 +25,16 @@
             executingAt: 'Master App',
             visible: false,
             topMargin: 130,
-            urlPrefix: 'https://charts-dev.advancedalgos.net/' ,  /* 'http://localhost:1337/'   */   /*  'https://charts-dev.advancedalgos.net/'  */
+            urlPrefix: 'https://charts-dev.superalgos.org/' ,  /* 'http://localhost:1337/'   */   /*  'https://charts-dev.superalgos.org/'  */
             graphQL: {
-            masterAppApiUrl: 'https://platform-api-dev.advancedalgos.net/graphql'
+            masterAppApiUrl: 'https://platform-api-dev.superalgos.org/graphql'
         },
         context: {}
         };
 
         let delay = 0
         if (window.innerHeight === 0) {delay = 3000} // Inside IFRAMES the onload event is reaised before the window has its real size.
-        setTimeout(loadAdvancedAlgosPlatform, delay)
+        setTimeout(loadSuperalgosPlatform, delay)
       }
     }
     function onResize(){

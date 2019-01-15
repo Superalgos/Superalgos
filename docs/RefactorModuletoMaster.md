@@ -16,6 +16,6 @@ The symlinks in
 1. Navigate to your module client.
 2. Run `npm link`
 3. Navigate `MasterApp/client`.
-4. Run `npm link [you-module-package]`. eg `npm link @advancedalgos/teams-client`
+4. Run `npm link [you-module-package]`. eg `npm link @superalgos/teams-client`
 5. Start server: `npm run dev`
 6. When a change is made in your module, after a second or two, the browser page should update without reloading.

@@ -18,20 +18,20 @@
     "type": "git",
     "url": "git+https://github.com/Algoteers/MasterApp.git"
   },
-  "author": "Advanced Algos, ltd.",
+  "author": "Superalgos.org",
   "license": "SEE LICENSE IN LICENSE.MD",
   "bugs": {
     "url": "https://github.com/Algoteers/MasterApp/issues"
   },
   "homepage": "https://github.com/Algoteers/MasterApp#readme",
   "devDependencies": {
-    "@advancedalgos/events-client": "0.0.4",
-    "@advancedalgos/financial-beings-client": "0.0.5",
-    "@advancedalgos/key-vault-client": "0.0.25",
-    "@advancedalgos/teams-client": "0.0.32",
-    "@advancedalgos/users-client": "0.0.24",
-    "@advancedalgos/web-components": "0.0.18",
-    "@advancedalgos/operations-client": "0.0.1",
+    "@superalgos/events-client": "0.0.4",
+    "@superalgos/financial-beings-client": "0.0.5",
+    "@superalgos/key-vault-client": "0.0.25",
+    "@superalgos/teams-client": "0.0.32",
+    "@superalgos/users-client": "0.0.24",
+    "@superalgos/web-components": "0.0.18",
+    "@superalgos/operations-client": "0.0.1",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",

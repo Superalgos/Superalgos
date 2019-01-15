@@ -9,12 +9,12 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: /node_modules\\@advancedalgos/,
+        include: /node_modules\\@superalgos/,
         loader: 'babel-loader'
       },
       {
         test: /\.js$/,
-        include: /node_modules\/@advancedalgos/,
+        include: /node_modules\/@superalgos/,
         loader: 'babel-loader'
       },
       {

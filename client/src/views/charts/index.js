@@ -44,7 +44,7 @@ class Charts extends Component {
         size='medium'
         title=''
         text='Charts loading...'
-        backgroundUrl='https://advancedalgos.net/img/photos/superalgos-platform.jpg'
+        backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
       />
     )
   }

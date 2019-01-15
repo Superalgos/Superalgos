@@ -1,653 +1,219 @@
-const CONSOLE_LOG = true;
 
-if (CONSOLE_LOG === true) {
+/* These 2 are global variables, that is why they do not have a let or var */
 
-    console.log("Node Server Starting. Be happy, everything is going to be allright. :-)");
+CONSOLE_LOG = true;
+CONSOLE_ERROR_LOG = true;
+LOG_FILE_CONTENT = false;
 
-}
-
-// serverConfig.localMode                 // This forces the server to read files from the local drive instead of github and to use develop storage and not production.
+if (CONSOLE_LOG === true) { console.log("[INFO] server -> Node Server Starting."); }
 
 let serverConfig;
 
-let githubData = new Map;
+global.DEFAULT_OK_RESPONSE = {
+    result: "Ok",
+    message: "Operation Succeeded"
+};
+
+global.DEFAULT_FAIL_RESPONSE = {
+    result: "Fail",
+    message: "Operation Failed"
+};
+
+global.DEFAULT_RETRY_RESPONSE = {
+    result: "Retry",
+    message: "Retry Later"
+};
+
+global.CUSTOM_OK_RESPONSE = {
+    result: "Ok, but check Message",
+    message: "Custom Message"
+};
+
+global.CUSTOM_FAIL_RESPONSE = {
+    result: "Fail Because",
+    message: "Custom Message"
+};
+
+let storageData = new Map;
+
+let HTMLCloudScripts;           // This are the html script tags needed to download the cloud web scripts.
+let botScripts;                 // This module is the one which grabs user bots scrips from the storage, and browserifys them.
+
 let ecosystem;
 let ecosystemObject;
 
 //'use strict';
-var http = require('http');
-var port = process.env.PORT || 1337;
+let http = require('http');
+let port = process.env.PORT || 1337;
+
+let isHttpServerStarted = false;
+
+const STORAGE = require('./Server/Storage');
+let storage = STORAGE.newStorage();
+
+let sessionManager;                                 // This module have all authenticated active sessions.
+let storageAccessManager;                           // This module manages the SAS for user to access the cloud storage from the browser.
 
 initialize();
 
 function initialize() {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> initialize -> Entering function."); }
 
-    readServerConfig();
+    /* Clear all cached information. */
 
-    function readServerConfig() {
+    storageData = new Map;
 
-        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readServerConfig -> Entering function."); }
+    const CONFIG_READER = require('./Server/ConfigReader');
+    let configReader = CONFIG_READER.newConfigReader();
 
-        let fs = require('fs');
-        try {
-            let fileName = './this.server.config.json';
-            fs.readFile(fileName, onFileRead);
+    configReader.initialize(ecosystem, ecosystemObject, storageData, onInitialized);
 
-            function onFileRead(err, file) {
+    function onInitialized(err, pServerConfig) {
 
-                try {
+        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readServerConfig -> onFileRead -> Entering function."); }
+            console.log("[ERROR] server -> initialize -> onInitialized -> err.message = " + err.message);
+            console.log("[ERROR] server -> initialize -> onInitialized -> Terminating Execution. ");
 
-                    let fileText;
-
-                    fileText = file.toString();
-                    fileText = fileText.trim(); // remove first byte with some encoding.
-
-                    serverConfig = JSON.parse(fileText);
-
-                    readEcosystemConfig();
-                }
-                catch (err) {
-                    console.log("[ERROR] initialize -> readServerConfig -> onFileRead -> File = " + fileName + " Error = " + err);
-                }
-
-            }
+            return;
         }
-        catch (err) {
-            console.log("[ERROR] initialize -> readServerConfig -> Error = " + err);
-        }
-    }
 
-    function readEcosystemConfig() {
+        serverConfig = pServerConfig;
 
-        try {
+        configReader.loadConfigs(onConfigsLoaded);
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> Entering function."); }
+        function onConfigsLoaded(err, pEcosystem, pEcosystemObject) {
 
-            if (CONSOLE_LOG === true && serverConfig.localMode === true) {
+            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                console.log("Hey! if you expect this to run at the web server I have some bad news for you son, serverConfig.localMode is true, that means the server wont find your local files. ");
+                console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> err.message = " + err.message);
+                console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> Terminating Execution. ");
 
+                return;
             }
 
-            /*
-    
-            This configuration file is the backbone of the system. The first file we are going to get is a template where other configurations are
-            injected and the files ends up inflated with all these configs in one single JSON object that in turn is later injected into a
-            javascript module with an object that is going to instantiate it at run-time.
-    
-            */
+            ecosystem = pEcosystem;
+            ecosystemObject = pEcosystemObject;
 
-            if (serverConfig.localMode === true) {
+            storage.initialize(storageData, serverConfig)
 
-                let fs = require('fs');
-                try {
-                    let fileName = '../AAPlatform/ecosystem.json';
-                    fs.readFile(fileName, onFileRead);
+            const CLOUD_SCRIPTS = require('./Server/CloudScripts');
+            let cloudScripts = CLOUD_SCRIPTS.newCloudScripts();
 
-                    function onFileRead(err, file) {
+            cloudScripts.initialize(ecosystem, ecosystemObject, serverConfig, storageData, onInitialized);
 
-                        try {
+            function onInitialized(err) {
 
-                            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> onFileRead -> Entering function."); }
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                            ecosystem = file.toString();
-                            ecosystem = ecosystem.trim(); // remove first byte with some encoding.
+                    console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> err.message = " + err.message);
+                    console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> Terminating Execution. ");
 
-                            ecosystemObject = JSON.parse(ecosystem);
-                            readCompetitionsConfig();
-                        }
-                        catch (err) {
-                            console.log("[ERROR] initialize -> readEcosystemConfig -> onFileRead -> File = " + fileName + " Error = " + err);
-                        }
-
-                    }
-                }
-                catch (err) {
-                    console.log("[ERROR] initialize -> readEcosystemConfig -> File = " + fileName + " Error = " + err);
+                    return;
                 }
 
-            } else {
+                cloudScripts.loadCloudScripts(onLoadCompeted);
 
-                getGithubData('AdvancedAlgos', 'AAPlatform', 'ecosystem.json', onDataArrived)
+                function onLoadCompeted(err, pHTMLCloudScripts) {
 
-                function onDataArrived(pData) {
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                    try {
+                        console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> onLoadCompeted -> err.message = " + err.message);
+                        console.log("[ERROR] server -> initialize -> onInitialized -> onConfigsLoaded -> onInitialized -> onLoadCompeted -> Terminating Execution. ");
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readEcosystemConfig -> onDataArrived -> Entering function."); }
-
-                        ecosystem = pData.toString();
-                        ecosystem = ecosystem.trim(); // remove first byte with some encoding.
-
-                        ecosystemObject = JSON.parse(ecosystem);
-                        readCompetitionsConfig();
+                        return;
                     }
-                    catch (err) {
-                        console.log("[ERROR] initialize -> readEcosystemConfig -> onDataArrived -> Error = " + err);
-                    }
-                }
-            }
-        }
-        catch (err) {
-            console.log("[ERROR] initialize -> readEcosystemConfig -> Error = " + err);
-        }
-    }
 
-    function readCompetitionsConfig() {
+                    const SESSION_MANAGER = require('./Server/SessionManager');
+                    sessionManager = SESSION_MANAGER.newSessionManager();
 
-        try {
+                    sessionManager.initialize(serverConfig, onInitialized);
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> Entering function."); }
+                    function onInitialized() {
 
-            /*
-    
-            The file previously read contains the reference to all competiotion hosts and their competitions. We use these references to load the specific
-            configurations and inject them to the first file.
-    
-            Lets remember that these files can come from 3 different sources, and this patter is later repeated many times down this module:
-    
-                1.If we are in debug mode, from the filesystem.
-                2.If we are in production from a cache we keep in memory at the node server.
-                3.If the cache does not have the file, then we get it from github.com, put in on the cache and serve it.
-    
-            2 and 3 are done by the getGithubData function.
-    
-            */
+                        const STORAGE_ACCESS_MANAGER = require('./Server/StorageAccessManager');
+                        storageAccessManager = STORAGE_ACCESS_MANAGER.newStorageAccessManager();
 
-            let requestsSent = 0;
-            let responsesReceived = 0;
+                        storageAccessManager.initialize(onInitialized);
 
-            for (let i = 0; i < ecosystemObject.hosts.length; i++) {
+                        function onInitialized() {
 
-                let host = ecosystemObject.hosts[i];
+                            const BOT_SCRIPTS = require('./Server/BotsScripts');
+                            botScripts = BOT_SCRIPTS.newBotScripts();
 
-                /* In this first section we will load the competitions configurations. */
+                            botScripts.initialize(serverConfig, onInitialized);
 
-                for (let j = 0; j < host.competitions.length; j++) {
+                            function onInitialized() {
 
-                    let competition = host.competitions[j];
+                                HTMLCloudScripts = pHTMLCloudScripts;
+                                startHtttpServer();
 
-                    requestsSent++;
-
-                    if (serverConfig.localMode === true) {
-
-                        let fs = require('fs');
-                        try {
-                            let fileName = '../Competitions/' + host.codeName + '/' + competition.repo + '/' + competition.configFile;
-                            fs.readFile(fileName, onFileRead);
-
-                            function onFileRead(err, pData) {
-
-                                try {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> fileName = " + fileName); }
-                                
-                                    responsesReceived++;
-
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
-
-                                    let configObj = JSON.parse(pData);
-
-                                    /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
-
-                                    configObj.repo = competition.repo;
-                                    configObj.configFile = competition.configFile;
-
-                                    host.competitions[j] = configObj;
-
-                                    if (requestsSent === responsesReceived) {
-
-                                        readBotsAndPlottersConfig();
-
-                                    }
-                                }
-                                catch (err) {
-                                    console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> File = " + fileName + " Error = " + err);
-                                }
-                            }
-                        }
-                        catch (err) {
-                            console.log("[ERROR] initialize -> readCompetitionsConfig -> File = " + fileName + " Error = " + err);
-                        }
-
-                    } else {
-
-                        getGithubData(host.codeName, competition.repo, competition.configFile, onDataArrived)
-
-                        function onDataArrived(pData) {
-
-                            try {
-
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> Entering function."); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> host.codeName = " + host.codeName); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> competition.repo = " + competition.repo); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> pData = " + pData); }
-
-                                responsesReceived++;
-
-                                pData = pData.toString();
-                                pData = pData.trim(); // remove first byte with some encoding.
-
-                                let configObj = JSON.parse(pData);
-
-                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
-
-                                configObj.repo = competition.repo;
-                                configObj.configFile = competition.configFile;
-
-                                host.competitions[j] = configObj;
-
-                                if (requestsSent === responsesReceived) {
-
-                                    readBotsAndPlottersConfig();
-
-                                }
-
-                            }
-                            catch (err) {
-                                console.log("[ERROR] initialize -> readCompetitionsConfig -> onDataArrived -> Error = " + err);
-                            }
-                        }
-                    }
-                }
-
-                /* In this second section we will load the plotters configurations. */
-
-                for (let j = 0; j < host.plotters.length; j++) {
-
-                    let plotter = host.plotters[j];
-
-                    requestsSent++;
-
-                    if (serverConfig.localMode === true) {
-
-                        let fs = require('fs');
-                        try {
-                            let fileName = '../Plotters/' + host.codeName + '/' + plotter.repo + '/' + plotter.configFile;
-                            fs.readFile(fileName, onFileRead);
-
-                            function onFileRead(err, pData) {
-
-                                try {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onFileRead -> fileName = " + fileName); }
-                                
-                                    responsesReceived++;
-
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
-
-                                    let configObj = JSON.parse(pData);
-
-                                    /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
-
-                                    configObj.repo = plotter.repo;
-                                    configObj.configFile = plotter.configFile;
-
-                                    host.plotters[j] = configObj;
-
-                                    if (requestsSent === responsesReceived) {
-
-                                        readBotsAndPlottersConfig();
-
-                                    }
-                                }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readCompetitionsConfig -> onFileRead -> File = " + fileName + " Error = " + err);
-                                }
-
-                            }
-                        }
-                        catch (err) {
-                            console.log("[ERROR] initialize -> readCompetitionsConfig -> File = " + fileName + " Error = " + err);
-                        }
-
-                    } else {
-
-                        getGithubData(host.codeName, plotter.repo, plotter.configFile, onDataArrived)
-
-                        function onDataArrived(pData) {
-
-                            try {
-
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> Entering function."); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> host.codeName = " + host.codeName); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readCompetitionsConfig -> onDataArrived -> pData = " + pData); }
-
-                                responsesReceived++;
-
-                                pData = pData.toString();
-                                pData = pData.trim(); // remove first byte with some encoding.
-
-                                let configObj = JSON.parse(pData);
-
-                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
-
-                                configObj.repo = plotter.repo;
-                                configObj.configFile = plotter.configFile;
-
-                                host.plotters[j] = configObj;
-
-                                if (requestsSent === responsesReceived) {
-
-                                    readBotsAndPlottersConfig();
-
-                                }
-
-                            }
-                            catch (err) {
-                                console.log("[ERROR] initialize -> readCompetitionsConfig -> onDataArrived -> Error = " + err);
                             }
                         }
                     }
                 }
             }
-        }
-        catch (err) {
-            console.log("[ERROR] initialize -> readCompetitionsConfig -> Error = " + err);
-        }
-    }
-
-    function readBotsAndPlottersConfig() {
-
-        try {
-
-            if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> Entering function."); }
-
-            /*
-    
-            Each bot has its configuration at its own repo since each team must be able to change it at will.
-            So what we do here is to use the master config at the AAPlatform repo that we already have on
-            memory and inject into it the config of each bot.
-    
-            Inmediatelly after that, we also load the Plotters configs using the same technique.
-    
-            */
-
-            let requestsSent = 0;
-            let responsesReceived = 0;
-
-            for (let i = 0; i < ecosystemObject.devTeams.length; i++) {
-
-                let devTeam = ecosystemObject.devTeams[i];
-
-                /* In the next section we are loading the bots configurations. */
-
-                for (let j = 0; j < devTeam.bots.length; j++) {
-
-                    let bot = devTeam.bots[j];
-
-                    requestsSent++;
-
-                    if (serverConfig.localMode === true) {
-
-                        let fs = require('fs');
-                        try {
-                            let fileName = '../Bots/' + devTeam.codeName + '/' + bot.repo + '/' + bot.configFile;
-                            fs.readFile(fileName, onFileRead);
-
-                            function onFileRead(err, pData) {
-
-                                try {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onFileRead -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onFileRead -> fileName = " + fileName); }
-
-                                    responsesReceived++;
-
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
-
-                                    let configObj = JSON.parse(pData);
-
-                                    /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
-
-                                    configObj.repo = bot.repo;
-                                    configObj.configFile = bot.configFile;
-
-                                    addStoragePermissions(configObj);
-
-                                    devTeam.bots[j] = configObj;
-
-                                    if (requestsSent === responsesReceived) {
-
-                                        startHtttpServer();
-
-                                    }
-                                }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> onFileRead -> File = " + fileName + " Error = " + err);
-                                }
-
-                            }
-                        }
-                        catch (err) {
-                            console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> File = " + fileName + " Error = " + err);
-                        }
-
-                    } else {
-
-                        getGithubData(devTeam.codeName, bot.repo, bot.configFile, onDataArrived)
-
-                        function onDataArrived(pData) {
-
-                            try {
-
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> Entering function."); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> bot.repo = " + bot.repo); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> pData = " + pData); }
-
-                                responsesReceived++;
-
-                                pData = pData.toString();
-                                pData = pData.trim(); // remove first byte with some encoding.
-
-                                let configObj = JSON.parse(pData);
-
-                                /* Since we are going to replace the full bot object and we dont want to lose these two properties, we do this: */
-
-                                configObj.repo = bot.repo;
-                                configObj.configFile = bot.configFile;
-
-                                addStoragePermissions(configObj);
-
-                                devTeam.bots[j] = configObj;
-
-                                if (requestsSent === responsesReceived) {
-
-                                    startHtttpServer();
-
-                                }
-
-                            }
-                            catch (err) {
-                                console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> onDataArrived -> Error = " + err);
-                            }
-                        }
-                    }
-                }
-
-                /* In the next section we are loading the plotters configurations. */
-
-                for (let j = 0; j < devTeam.plotters.length; j++) {
-
-                    let plotter = devTeam.plotters[j];
-
-                    requestsSent++;
-
-                    if (serverConfig.localMode === true) {
-
-                        let fs = require('fs');
-                        try {
-                            let fileName = '../Plotters/' + devTeam.codeName + '/' + plotter.repo + '/' + plotter.configFile;
-                            fs.readFile(fileName, onFileRead);
-
-                            function onFileRead(err, pData) {
-
-                                try {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onFileRead -> Entering function."); }
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onFileRead -> fileName = " + fileName); }
-
-                                    responsesReceived++;
-
-                                    pData = pData.toString();
-                                    pData = pData.trim(); // remove first byte with some encoding.
-
-                                    let configObj = JSON.parse(pData);
-
-                                    /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
-
-                                    configObj.repo = plotter.repo;
-                                    configObj.configFile = plotter.configFile;
-
-                                    devTeam.plotters[j] = configObj;
-
-                                    if (requestsSent === responsesReceived) {
-
-                                        startHtttpServer();
-
-                                    }
-                                }
-                                catch (err) {
-                                    console.log("[ERROR] initialize -> readPlottersConfig -> onFileRead -> File = " + fileName + " Error = " + err);
-                                }
-                            }
-                        }
-                        catch (err) {
-                            console.log("[ERROR] initialize -> readPlottersConfig -> File = " + fileName + " Error = " + err);
-                        }
-
-                    } else {
-
-                        getGithubData(devTeam.codeName, plotter.repo, plotter.configFile, onDataArrived)
-
-                        function onDataArrived(pData) {
-
-                            try {
-
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> Entering function."); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> devTeam.codeName = " + devTeam.codeName); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> plotter.repo = " + plotter.repo); }
-                                if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> onDataArrived -> pData = " + pData); }
-
-                                responsesReceived++;
-
-                                pData = pData.toString();
-                                pData = pData.trim(); // remove first byte with some encoding.
-
-                                let configObj = JSON.parse(pData);
-
-                                /* Since we are going to replace the full plotter object and we dont want to lose these two properties, we do this: */
-
-                                configObj.repo = plotter.repo;
-                                configObj.configFile = plotter.configFile;
-
-                                devTeam.plotters[j] = configObj;
-
-                                if (requestsSent === responsesReceived) {
-
-                                    startHtttpServer();
-
-                                }
-
-                            }
-                            catch (err) {
-                                console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> onDataArrived -> Error = " + err);
-                            }
-                        }
-                    }
-                }
-            }
-
-            function addStoragePermissions(pConfigObj) {
-
-                try {
-
-                    if (CONSOLE_LOG === true) { console.log("[INFO] initialize -> readBotsAndPlottersConfig -> addStoragePermissions -> Entering function."); }
-
-                    if (pConfigObj.storage !== undefined) { return; } // If this information is at the config file, then we take it, otherwise, we define it here. 
-
-                    let fileUri;
-                    let sas;
-
-                    switch (serverConfig.ambient) {
-
-                        case "Develop": {
-
-                            fileUri = "https://aadevelop.blob.core.windows.net";
-                            sas = "?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2019-01-01T17:39:27Z&st=2018-05-01T08:39:27Z&spr=https,http&sig=9atUljJam0E8zMg1VWQ0bGj2FqGYwtPIbImy5xyBMhE%3D"
-
-                            break;
-                        }
-
-                        case "Production": {
-
-                            fileUri = "https://aaproduction.blob.core.windows.net";
-                            sas = "?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2019-01-01T03:17:16Z&st=2018-05-01T18:17:16Z&spr=https,http&sig=Ok4l7YxZlduPJrX31Y%2FHyajzxCHRnfEnTkoiRsYDXhk%3D"
-
-                            break;
-                        }
-                    }
-
-                    pConfigObj.storage = {
-                        sas: sas,
-                        fileUri: fileUri
-                    };
-
-                }
-                catch (err) {
-                    console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> addStoragePermissions -> Error = " + err);
-                }
-            }
-
-        }
-        catch (err) {
-            console.log("[ERROR] initialize -> readBotsAndPlottersConfig -> Error = " + err);
         }
     }
 }
 
 function startHtttpServer() {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] startHtttpServer -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> startHtttpServer -> Entering function."); }
 
     try {
 
-        gWebServer = http.createServer(onBrowserRequest).listen(port);
+        if (isHttpServerStarted === false) {
+
+            gWebServer = http.createServer(onBrowserRequest).listen(port);
+            isHttpServerStarted = true;
+        }
     }
     catch (err) {
-        console.log("[ERROR] startHtttpServer -> Error = " + err);
+        console.log("[ERROR] server -> startHtttpServer -> Error = " + err);
     }
 }
 
 function onBrowserRequest(request, response) {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> Entering function."); }
-    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> request.url = " + request.url); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> Entering function."); }
+    if (CONSOLE_LOG === true && request.url.indexOf("NO-LOG") === -1) { console.log("[INFO] server -> onBrowserRequest -> request.url = " + request.url); }
 
-    var htmlResponse;
-    var requestParameters = request.url.split("/");
+    let htmlResponse;
+    let requestParameters = request.url.split("/");
+
+
+    if (requestParameters[1].indexOf("index.html") >= 0) {
+
+        /*
+        We use this to solve the problem when someone is arriving to the site with a sessionToken in the queryString. We extract here that
+        token, that will be sent later embedded into the HTML code, so that it can enter into the stardard circuit where any site can put
+        the sessionToken into their HTML code and from there the Browser app will log the user in.
+        */
+
+        let queryString = requestParameters[1].split("?");
+
+        requestParameters[1] = "";
+        requestParameters[2] = queryString[1];
+        homePage();
+
+        return;
+    }
+
+
 
     switch (requestParameters[1]) {
 
-        case "clear-cache": {
+        case serverConfig.reinitializeCommand: {
 
-            githubData = new Map;
+            initialize();
 
-            respondWithContent("command acepted", response);
+            respondWithContent("Node JS Server Reinitilized.", response);
 
         }
             break;
+
         case "Plotter.js":
             {
                 /*
@@ -665,7 +231,7 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
 
                         try {
 
@@ -678,7 +244,7 @@ function onBrowserRequest(request, response) {
                                 '        {' + '\n' +
                                 '            plotter = newPlotterName();' + '\n' +
                                 '        }' + '\n' +
-                                '        break;' + '\n' + '\n' 
+                                '        break;' + '\n' + '\n'
 
                             let devTeams = ecosystemObject.devTeams;
                             let hosts = ecosystemObject.hosts;
@@ -688,7 +254,7 @@ function onBrowserRequest(request, response) {
 
                             function addToFileContent(pDevTeamsOrHosts) {
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
 
                                 for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
@@ -724,7 +290,7 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("File Not Found: " + fileName + " or Error = " + err);
+                            console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
 
                     }
@@ -753,7 +319,7 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
 
                         try {
 
@@ -776,7 +342,7 @@ function onBrowserRequest(request, response) {
 
                             function addToFileContent(pDevTeamsOrHosts) {
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addToFileContent -> Entering function."); }
 
                                 for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
 
@@ -817,7 +383,7 @@ function onBrowserRequest(request, response) {
 
                         }
                         catch (err) {
-                            console.log("File Not Found: " + fileName + " or Error = " + err);
+                            console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
 
                     }
@@ -834,7 +400,7 @@ function onBrowserRequest(request, response) {
                 /*
 
                 At this page we need to insert the configuration file for the whole system that we assamble before at the begining of this module
-                execution. So what we do is to load a template file with an insertion point where the configuration json is injected in. 
+                execution. So what we do is to load a template file with an insertion point where the configuration json is injected in.
 
                 */
 
@@ -845,22 +411,21 @@ function onBrowserRequest(request, response) {
 
                     function onFileRead(err, file) {
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
 
                         try {
 
                             let fileContent = file.toString();
-                            let insertContent = JSON.stringify(ecosystemObject); 
+                            let insertContent = JSON.stringify(ecosystemObject);
 
-                            fileContent = fileContent.replace('"@ecosystem.json@"', insertContent); 
+                            fileContent = fileContent.replace('"@ecosystem.json@"', insertContent);
 
                             respondWithContent(fileContent, response);
 
                         }
                         catch (err) {
-                            console.log("File Not Found: " + fileName);
+                            console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
                         }
-
                     }
                 }
                 catch (err) {
@@ -870,54 +435,619 @@ function onBrowserRequest(request, response) {
             }
             break;
 
+        case "CloudVM": // This means the CloudVM folder.
+            {
+                let filePath = requestParameters[2];
+
+                if (requestParameters[3] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[3];
+                }
+
+                if (requestParameters[4] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[4];
+                }
+
+                respondWithFile(serverConfig.pathToCanvasApp +'/CloudVM/' + filePath, response);
+
+            }
+            break;
+
+        case "Exchange": // This means the Exchange folder.
+            {
+                let filePath = requestParameters[2];
+
+                if (requestParameters[3] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[3];
+                }
+
+                if (requestParameters[4] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[4];
+                }
+
+                respondWithFile(serverConfig.pathToCanvasApp + '/Exchange/' + filePath, response);
+
+            }
+            break;
+
+        case "Images": // This means the Scripts folder.
+            {
+
+                let path = './Images/' + requestParameters[2];
+
+                if (requestParameters[3] !== undefined) {
+
+                    path = path + "/" + requestParameters[3];
+
+                }
+
+                if (requestParameters[4] !== undefined) {
+
+                    path = path + "/" + requestParameters[4];
+
+                }
+
+                if (requestParameters[5] !== undefined) {
+
+                    path = path + "/" + requestParameters[5];
+
+                }
+
+                respondWithImage(path, response);
+
+            }
+            break;
+
+        case "favicon.ico": // This means the Scripts folder.
+            {
+
+                respondWithImage('./Images/' + 'favicon.ico', response);
+
+            }
+            break;
+
+        case "BottomSpace": // This means the BottomSpace folder.
+            {
+
+                respondWithFile(serverConfig.pathToCanvasApp + '/BottomSpace/' + requestParameters[2], response);
+
+            }
+            break;
+
+        case "TopSpace": // This means the TopSpace folder.
+            {
+
+                respondWithFile(serverConfig.pathToCanvasApp + '/TopSpace/' + requestParameters[2], response);
+
+            }
+            break;
+
+        case "AABrowserAPI": // This means the Scripts folder.
+            {
+                switch (requestParameters[2]) {
+
+                    case "saveBotCode": {
+
+                        const AABROWSER_API_BOT_CODE = require('./AABrowserAPI/' + 'BotCode');
+                        let botCode = AABROWSER_API_BOT_CODE.newBotCode();
+
+                        botCode.initialize(serverConfig);
+
+                        processPost(request, response, onPostReceived)
+
+                        function onPostReceived(pData) {
+
+                            let devTeam = requestParameters[3];
+                            let source = requestParameters[4] + "/" + requestParameters[5];
+                            let repo = requestParameters[6];
+                            let path;
+
+                            if (requestParameters[8] !== undefined) {
+                                path = requestParameters[7] + "/" + requestParameters[8];
+                            } else {
+                                path = requestParameters[7];
+                            }
+                            botCode.saveBotCode(devTeam, source, repo, path, pData, onResponse);
+
+                            function onResponse(err) {
+
+                                respondWithContent(JSON.stringify(err), response);
+                            }
+                        }
+
+                        break;
+                    }
+
+                    case "authenticateUser": {
+
+                        const AABROWSER_API_USER_AUTHENTICATION = require('./AABrowserAPI/' + 'UserAuthentication');
+                        let userAuthentication = AABROWSER_API_USER_AUTHENTICATION.newUserAuthentication();
+
+                        userAuthentication.initialize(sessionManager, storageAccessManager);
+                        userAuthentication.authenticateUser(requestParameters[3], onFinish);
+
+                        function onFinish(err, pUserProfile) {
+
+                            let responseToBrowser = {
+                                err: err,
+                                userProfile: pUserProfile
+                            };
+
+                            respondWithContent(JSON.stringify(responseToBrowser), response);
+                        }
+
+                        break;
+                    }
+
+                    case "newTeam": {
+
+                        const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup');
+                        let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup();
+
+                        teamSetup.initialize(serverConfig);
+
+                        let devTeamCodeName = decodeURI(requestParameters[3]);
+                        let devTeamDisplayName = decodeURI(requestParameters[4]);
+                        let userName = decodeURI(requestParameters[5]);
+                        let botCodeName = decodeURI(requestParameters[6]);
+                        let botDisplayName = decodeURI(requestParameters[7]);
+                        let userId = decodeURI(requestParameters[8]);
+                        let sharedSecret = decodeURI(requestParameters[9]);
+
+                        if (sharedSecret !== serverConfig.newTeamSharedSecret) {
+
+                            let customFailResponse = {
+                                result: global.DEFAULT_FAIL_RESPONSE.result,
+                                message: "The shared secret provided is incorrect"
+                            }
+
+                            respondWithContent(JSON.stringify(customFailResponse), response);
+
+                            if (CONSOLE_LOG === true) { console.log("[WARN] server -> AABrowserAPI -> newTeam -> Shared Secret Received Incorrect."); }
+
+                            return;
+
+                        }
+                         
+                        teamSetup.newTeam(devTeamCodeName, devTeamDisplayName, userName, botCodeName, botDisplayName, userId, onSetupFinished);
+
+                        function onSetupFinished(err) {
+
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                /* We must re-load all the webserver caches.*/
+
+                                initialize();
+
+                            }
+
+                            respondWithContent(JSON.stringify(err), response);
+                        }
+                        break;
+                    }
+
+                    case "deleteTeam": {
+
+                        const AABROWSER_API_TEAM_SETUP = require('./AABrowserAPI/' + 'TeamSetup');
+                        let teamSetup = AABROWSER_API_TEAM_SETUP.newTeamSetup();
+
+                        teamSetup.initialize(serverConfig);
+
+                        let devTeamCodeName = decodeURI(requestParameters[3]);
+                        let userName = decodeURI(requestParameters[4]);
+                        let botCodeName = decodeURI(requestParameters[5]);
+                        let userId = decodeURI(requestParameters[6]);
+                        let sharedSecret = decodeURI(requestParameters[7]);
+
+                        if (sharedSecret !== serverConfig.deleteTeamSharedSecret) {
+
+                            let customFailResponse = {
+                                result: global.DEFAULT_FAIL_RESPONSE.result,
+                                message: "The shared secret provided is incorrect"
+                            }
+
+                            respondWithContent(JSON.stringify(customFailResponse), response);
+
+                            if (CONSOLE_LOG === true) { console.log("[WARN] server -> AABrowserAPI -> deleteTeam -> Shared Secret Received Incorrect."); }
+
+                            return;
+
+                        }
+
+                        teamSetup.deleteTeam(devTeamCodeName, userName, botCodeName, userId, onSetupFinished);
+
+                        function onSetupFinished(err) {
+
+                            if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                /* We must re-load all the webserver caches.*/
+
+                                initialize();
+
+                            }
+
+                            respondWithContent(JSON.stringify(err), response);
+                        }
+                        break;
+                    }
+                }
+            }
+            break;
+
+        case "Scripts": // This means the Scripts folder.
+            {
+
+                if (requestParameters[2] === "AppLoader.js") {
+
+                    let fs = require('fs');
+                    try {
+                        let fileName = './Scripts/' + 'AppLoader.js';
+                        fs.readFile(fileName, onFileRead);
+
+                        function onFileRead(err, file) {
+
+                            if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
+
+                            try {
+
+                                let fileContent = file.toString();
+
+                                addCloudWebScripts();
+                                addPlotters();
+
+                                function addCloudWebScripts() {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addCloudWebScripts -> Entering function."); }
+
+                                    let firstPart = fileContent.substring(0, fileContent.indexOf('/* CloudWebScripts */') + 21);
+                                    let secondPart = fileContent.substring(fileContent.indexOf('/* CloudWebScripts */') + 21);
+
+                                    fileContent = firstPart + HTMLCloudScripts + secondPart;
+                                }
+
+                                function addPlotters() {
+
+                                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> Entering function."); }
+
+                                    let htmlLinePlotter = '' + '\n' +
+                                        '            "Plotters/@devTeam@/@repo@/@module@.js",'
+
+                                    let htmlLinePlotterPanel = '' + '\n' +
+                                        '            "PlotterPanels/@devTeam@/@repo@/@module@.js",'
+
+                                    let devTeams = ecosystemObject.devTeams;
+                                    let hosts = ecosystemObject.hosts;
+
+                                    addScript(devTeams);
+                                    addScript(hosts);
+
+                                    function addScript(pDevTeamsOrHosts) {
+
+                                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> addScript -> Entering function."); }
+
+                                        for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
+
+                                            let devTeam = pDevTeamsOrHosts[i];
+
+                                            for (let j = 0; j < devTeam.plotters.length; j++) {
+
+                                                let plotter = devTeam.plotters[j];
+
+                                                if (plotter.modules !== undefined) {
+
+                                                    for (let k = 0; k < plotter.modules.length; k++) {
+
+                                                        let module = plotter.modules[k];
+
+                                                        let htmlLineCopy = htmlLinePlotter;
+
+                                                        let stringToInsert;
+                                                        stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                                        stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                                        stringToInsert = stringToInsert.replace('@module@', module.moduleName);
+
+                                                        let firstPart = fileContent.substring(0, fileContent.indexOf('/* Plotters */') + 14);
+                                                        let secondPart = fileContent.substring(fileContent.indexOf('/* Plotters */') + 14);
+
+                                                        fileContent = firstPart + stringToInsert + secondPart;
+
+                                                        if (module.panels !== undefined) {
+
+                                                            for (let l = 0; l < module.panels.length; l++) {
+
+                                                                let panel = module.panels[l];
+
+                                                                let htmlLineCopy = htmlLinePlotterPanel;
+
+                                                                let stringToInsert;
+                                                                stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
+                                                                stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
+                                                                stringToInsert = stringToInsert.replace('@module@', panel.moduleName);
+
+                                                                let firstPart = fileContent.substring(0, fileContent.indexOf('/* PlotterPanels */') + 19);
+                                                                let secondPart = fileContent.substring(fileContent.indexOf('/* PlotterPanels */') + 19);
+
+                                                                fileContent = firstPart + stringToInsert + secondPart;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                respondWithContent(fileContent, response);
+
+                            }
+                            catch (err) {
+                                console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
+                            }
+                        }
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+                } else {
+
+                    respondWithFile('./Scripts/' + requestParameters[2], response);
+
+                }
+            }
+            break;
+
+        case "ExchangeAPI": // This is trying to access this library functionality from the broser.
+            {
+
+                /* We are going to let access the exchange only to authenticated users, that measn that we need the a valid session token. */
+
+                let botDisplayName = requestParameters[2];
+                let authToken = requestParameters[4];
+
+                if (authToken !== undefined) {
+                    global.MARKET = {
+                        assetA: "USDT",
+                        assetB: "BTC"
+                    };
+
+                    const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');
+                    let exchangeAPI = EXCHANGE_API.newExchangeAPI(botDisplayName, authToken);
+
+                    exchangeAPI.initialize(onInizialized);
+
+                    function onInizialized(err) {
+                        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Entering function."); }
+
+                        switch (err.result) {
+                            case global.DEFAULT_OK_RESPONSE.result: {
+                                if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI ->  onInizialized -> Execution finished well."); }
+                                callExchangeAPIMethod();
+                                return;
+                            }
+                            case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                respondWithContent("", response);
+                                return;
+                            }
+                            case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                console.log("[ERROR] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Operation Failed. Aborting the process.");
+                                respondWithContent("", response);
+                                return;
+                            }
+                        }
+                    }
+
+                    function callExchangeAPIMethod() {
+                        switch (requestParameters[3]) {
+
+                            case "getTicker": {
+                                exchangeAPI.getTicker(global.MARKET, onExchangeResponse);
+                                break;
+                            }
+
+                            case "getOpenPositions": {
+                                exchangeAPI.getOpenPositions(global.MARKET, onExchangeResponse);
+                                break;
+                            }
+
+                            case "getExecutedTrades": {
+                                exchangeAPI.getExecutedTrades(requestParameters[5], onExchangeResponse);
+                                break;
+                            }
+
+                            case "putPosition": {
+                                exchangeAPI.putPosition(global.MARKET, requestParameters[5], requestParameters[6], requestParameters[7], requestParameters[8], onExchangeResponse);
+                                break;
+                            }
+
+                            case "movePosition": {
+                                exchangeAPI.moveOrder(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                                break;
+                            }
+
+                            case "getPublicTradeHistory": {
+                                exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                                break;
+                            }
+
+                            case "initialize": {
+                                onExchangeResponse(global.DEFAULT_OK_RESPONSE);
+                                break;
+                            }
+
+                        }
+                    }
+
+                    function onExchangeResponse(err, exchangeResponse) {
+
+                        /* Delete these secrets before they get logged. */
+
+                        requestParameters[4] = "";
+                        if (err.result === global.DEFAULT_OK_RESPONSE.result)
+                            respondWithContent(JSON.stringify(exchangeResponse), response);
+                        else
+                            respondWithContent(JSON.stringify(err), response);
+                    }
+
+                    return;
+                }
+
+                else {
+
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        message: "You are not logged in."
+                    };
+
+                    respondWithContent(JSON.stringify(customResponse), response);
+
+                }
+            }
+            break;
+
+        case "AACloud": // This means the cloud folder.
+            {
+
+                let filePath = requestParameters[2];
+
+                if (requestParameters[3] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[3]
+                }
+
+                if (requestParameters[4] !== undefined) {
+                    filePath = filePath + "/" + requestParameters[4]
+                }
+
+                let map = storageData;
+
+                let script = map.get(filePath);
+
+                if (script !== undefined) {
+
+                    respondWithContent(script, response);
+
+                } else {
+
+                    if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> Script Not Found."); }
+                    if (CONSOLE_LOG === true) { console.log("[WARN] server -> onBrowserRequest -> readEcosystemConfig -> requestParameters[2] = " + requestParameters[2]); }
+
+                    respondWithContent("", response);
+                }
+            }
+            break;
+
+        case "Bots": // This means the cloud folder.
+            {
+                switch (requestParameters[3]) {
+
+                    case 'bots': {
+
+                        let devTeam = requestParameters[2];
+                        let source = requestParameters[3];
+                        let repo = requestParameters[4];
+                        let path;
+
+                        if (requestParameters[6] !== undefined) {
+                            path = requestParameters[5] + "/" + requestParameters[6];
+                        } else {
+                            path = requestParameters[5];
+                        }
+
+                        botScripts.getScript(devTeam, source, repo, path, onScriptReady)
+
+                        break;
+                    }
+
+                    case 'members': {
+
+                        let devTeam = requestParameters[2];
+                        let source = requestParameters[3] + "/" + requestParameters[4];
+                        let repo = requestParameters[5];
+                        let path;
+
+                        if (requestParameters[7] !== undefined) {
+                            path = requestParameters[6] + "/" + requestParameters[7];
+                        } else {
+                            path = requestParameters[6];
+                        }
+
+                        botScripts.getScript(devTeam, source, repo, path, onScriptReady)
+
+                        break;
+                    }
+
+                    default : {
+                        if (CONSOLE_LOG === true) { console.log("[ERROR] server -> onBrowserRequest -> Bots -> Invalid Request. "); }
+                    }
+                }
+
+                function onScriptReady(err, pScript) {
+
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                        console.log("[ERROR] server -> onBrowserRequest -> Bots -> onScriptReady -> Could not read a file. ");
+                        console.log("[ERROR] server -> onBrowserRequest -> Bots -> onScriptReady -> err.message = " + err.message);
+
+                        pScript = "/* Your bot source code could not be retrieved. */";
+
+                    }
+
+                    respondWithContent(pScript, response);
+
+                }
+            }
+            break;
+
         case "Plotters": // This means the plotter folder, not to be confused with the Plotters script!
             {
 
-                if (serverConfig.localMode === true) {
+                storage.readData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
-                    respondWithFile('../Plotters/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response);
+                function onDataArrived(err, pData) {
 
-                } else {
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                    getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived)
+                        console.log("[ERROR] server -> onBrowserRequest -> Plotters -> onDataArrived -> Could not read a file. ");
+                        console.log("[ERROR] server -> onBrowserRequest -> Plotters -> onDataArrived -> err.message = " + err.message);
 
-                    function onDataArrived(pData) {
-
-                        respondWithContent(pData, response);
+                        pData = "";
 
                     }
+
+                    respondWithContent(pData, response);
+
                 }
             }
-            break; 
+            break;
 
         case "PlotterPanels": // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
             {
+                storage.readData(requestParameters[2] + "/" + "plotters", requestParameters[3], requestParameters[4], true, onDataArrived);
 
-                if (serverConfig.localMode === true) {
+                function onDataArrived(err, pData) {
 
-                    respondWithFile('../Plotters/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response);
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                } else {
+                        console.log("[ERROR] server -> onBrowserRequest -> Plotters -> PlotterPanels -> Could not read a file. ");
+                        console.log("[ERROR] server -> onBrowserRequest -> Plotters -> PlotterPanels -> err.message = " + err.message);
 
-                    getGithubData(requestParameters[2], requestParameters[3], requestParameters[4], onDataArrived)
-
-                    function onDataArrived(pData) {
-
-                        respondWithContent(pData, response);
+                        pData = "";
 
                     }
+
+                    respondWithContent(pData, response);
+
                 }
             }
-            break; 
+            break;
         case "Panels":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
         case "ChartLayers":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
@@ -929,215 +1059,80 @@ function onBrowserRequest(request, response) {
 
         case "Spaces":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
+            }
+            break;
+
+        case "Scales":
+            {
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
         case "Files":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
         case "FloatingSpace":
             {
-                respondWithFile('./' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
             }
             break;
 
         default:
+            {
+                homePage();
+            }
+    }
 
-            if (requestParameters[1] === "") {
+    function homePage() {
 
-                let fs = require('fs');
-                try {
-                    let fileName = 'index.html';
-                    fs.readFile(fileName, onFileRead);
+        if (requestParameters[1] === "") {
 
-                    function onFileRead(err, file) {
+            let fs = require('fs');
+            try {
+                let fileName = 'index.html';
+                fs.readFile(fileName, onFileRead);
 
-                        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> Entering function."); }
+                function onFileRead(err, file) {
 
-                        try {
+                    if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> onFileRead -> Entering function."); }
 
-                            let fileContent = file.toString();
+                    try {
 
-                            addPlotters();
-                            addImages();
+                        let fileContent = file.toString();
 
-                            function addPlotters() {
+                        /* The second request parameters is the sessionToken, if it exists. */
 
-                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addPlotters -> Entering function."); }
+                        if (requestParameters[2] !== "" && requestParameters[2] !== undefined) {
 
-                                let htmlLinePlotter = '' + '\n' +
-                                    '    <script type="text/javascript" src="Plotters/@devTeam@/@repo@/@module@.js"></script>'
-
-                                let htmlLinePlotterPanel = '' + '\n' +
-                                    '    <script type="text/javascript" src="PlotterPanels/@devTeam@/@repo@/@module@.js"></script>'
-
-                                let devTeams = ecosystemObject.devTeams;
-                                let hosts = ecosystemObject.hosts;
-
-                                addScript(devTeams);
-                                addScript(hosts);
-
-                                function addScript(pDevTeamsOrHosts) {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addPlotters -> addScript -> Entering function."); }
-
-                                    for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
-
-                                        let devTeam = pDevTeamsOrHosts[i];
-
-                                        for (let j = 0; j < devTeam.plotters.length; j++) {
-
-                                            let plotter = devTeam.plotters[j];
-
-                                            for (let k = 0; k < plotter.modules.length; k++) {
-
-                                                let module = plotter.modules[k];
-
-                                                let htmlLineCopy = htmlLinePlotter;
-
-                                                let stringToInsert;
-                                                stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                                stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                                stringToInsert = stringToInsert.replace('@module@', module.moduleName);
-
-                                                let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Plotters-->') + 15);
-                                                let secondPart = fileContent.substring(fileContent.indexOf('<!--Plotters-->') + 15);
-
-                                                fileContent = firstPart + stringToInsert + secondPart;
-
-                                                for (let l = 0; l < module.panels.length; l++) {
-
-                                                    let panel = module.panels[l];
-
-                                                    let htmlLineCopy = htmlLinePlotterPanel;
-
-                                                    let stringToInsert;
-                                                    stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                                    stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                                    stringToInsert = stringToInsert.replace('@module@', panel.moduleName);
-
-                                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--PlotterPanels-->') + 20);
-                                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--PlotterPanels-->') + 20);
-
-                                                    fileContent = firstPart + stringToInsert + secondPart;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            function addImages() {
-
-                                if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addImages -> Entering function."); }
-
-                                const htmlLine = '' + '\n' +
-                                    '    <img id="@id@" width="0" height="0" src="https://raw.githubusercontent.com/@devTeam@/@repo@/master/@image@">'
-
-                                let devTeams = ecosystemObject.devTeams;
-
-                                addScript(devTeams);
-
-                                function addScript(pDevTeams) {
-
-                                    if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> onFileRead -> addImages -> addScript -> Entering function."); }
-
-                                    for (let i = 0; i < pDevTeams.length; i++) {
-
-                                        let devTeam = pDevTeams[i];
-
-                                        let htmlLineCopy = htmlLine;
-
-                                        let stringToInsert;
-                                        stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                        stringToInsert = stringToInsert.replace('@repo@', devTeam.codeName + "-Dev-Team");
-                                        stringToInsert = stringToInsert.replace('@image@', devTeam.codeName + ".png");
-                                        stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + ".png");
-
-                                        let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
-                                        let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
-
-                                        fileContent = firstPart + stringToInsert + secondPart;
-
-                                        for (let j = 0; j < devTeam.bots.length; j++) {
-
-                                            let bot = devTeam.bots[j];
-
-                                            if (bot.profilePicture !== undefined) {
-
-                                                let htmlLineCopy = htmlLine;
-
-                                                let stringToInsert;
-                                                stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                                stringToInsert = stringToInsert.replace('@repo@', bot.repo);
-                                                stringToInsert = stringToInsert.replace('@image@', bot.profilePicture);
-                                                stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + bot.profilePicture);
-
-                                                let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
-                                                let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
-
-                                                fileContent = firstPart + stringToInsert + secondPart;
-
-                                            }
-                                        }
-
-                                        for (let j = 0; j < devTeam.plotters.length; j++) {
-
-                                            let plotter = devTeam.plotters[j];
-
-                                            for (let k = 0; k < plotter.modules.length; k++) {
-
-                                                let module = plotter.modules[k];
-
-                                                if (module.profilePicture !== undefined) {
-
-                                                    let htmlLineCopy = htmlLine;
-
-                                                    let stringToInsert;
-                                                    stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName);
-                                                    stringToInsert = stringToInsert.replace('@repo@', plotter.repo);
-                                                    stringToInsert = stringToInsert.replace('@image@', module.profilePicture);
-                                                    stringToInsert = stringToInsert.replace('@id@', devTeam.codeName + "." + plotter.codeName + "." + module.codeName + "." + module.profilePicture);
-
-                                                    let firstPart = fileContent.substring(0, fileContent.indexOf('<!--Images-->') + 15);
-                                                    let secondPart = fileContent.substring(fileContent.indexOf('<!--Images-->') + 15);
-
-                                                    fileContent = firstPart + stringToInsert + secondPart;
-
-                                                } 
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                           
-
-                            respondWithContent(fileContent, response);
+                            fileContent = fileContent.replace("window.canvasApp.sessionToken = ''", "window.canvasApp.sessionToken = '" + requestParameters[2] + "'")
 
                         }
-                        catch (err) {
-                            console.log("File Not Found: " + fileName + " or Error = " + err);
-                        }
+
+                        respondWithContent(fileContent, response);
 
                     }
+                    catch (err) {
+                        console.log("[ERROR] server -> onBrowserRequest -> File Not Found: " + fileName + " or Error = " + err);
+                    }
                 }
-                catch (err) {
-                    console.log(err);
-                }
-            } else {
-
-                respondWithFile("" + requestParameters[1], response);
-
             }
+            catch (err) {
+                console.log(err);
+            }
+        } else {
+
+            respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1], response);
+
+        }
     }
 
     function sendResponseToBrowser(htmlResponse) {
 
-        if (CONSOLE_LOG === true) { console.log("[INFO] onBrowserRequest -> sendResponseToBrowser -> Entering function."); }
+        if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> sendResponseToBrowser -> Entering function."); }
 
         response.writeHead(200, { 'Content-Type': 'text/html' });
         response.write(htmlResponse);
@@ -1148,7 +1143,7 @@ function onBrowserRequest(request, response) {
 
 function respondWithContent(content, response) {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] respondWithContent -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithContent -> Entering function."); }
 
     try {
 
@@ -1164,13 +1159,13 @@ function respondWithContent(content, response) {
 
     }
     catch (err) {
-        returnEmptyArray();
+        returnEmptyArray(response);
     }
 }
 
 function respondWithFile(fileName, response) {
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] respondWithFile -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithFile -> Entering function."); }
 
     let fs = require('fs');
     try {
@@ -1179,7 +1174,7 @@ function respondWithFile(fileName, response) {
 
         function onFileRead(err, file) {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] respondWithFile -> onFileRead -> Entering function."); }
+            if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithFile -> onFileRead -> Entering function."); }
 
             try {
                 let htmlResponse = file.toString();
@@ -1189,15 +1184,15 @@ function respondWithFile(fileName, response) {
                 response.setHeader("Expires", "0"); // Proxies.
                 response.setHeader("Access-Control-Allow-Origin", "*"); // Allows to access data from other domains.
 
-                response.writeHead(200, { 'Content-Type': 'text/html' });
+                //response.writeHead(200, { 'Content-Type': 'text/html' });
                 response.write(htmlResponse);
                 response.end("\n");
                 //console.log("File Sent: " + fileName);
                 //
             }
             catch (err) {
+                console.log("[ERROR] server -> respondWithFile -> onFileRead -> File Not Found: " + fileName + " or Error = " + err);
                 returnEmptyArray();
-                console.log("File Not Found: " + fileName);
             }
 
         }
@@ -1205,10 +1200,49 @@ function respondWithFile(fileName, response) {
     catch (err) {
         returnEmptyArray();
     }
+}
 
-    function returnEmptyArray() {
+function respondWithImage(fileName, response) {
 
-        if (CONSOLE_LOG === true) { console.log("[INFO] respondWithFile -> returnEmptyArray -> Entering function."); }
+    if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithImage -> Entering function."); }
+
+    let fs = require('fs');
+    try {
+
+        fs.readFile(fileName, onFileRead);
+
+        function onFileRead(err, file) {
+
+            if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithImage -> onFileRead -> Entering function."); }
+
+            try {
+
+                response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+                response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+                response.setHeader("Expires", "0"); // Proxies.
+                response.setHeader("Access-Control-Allow-Origin", "*"); // Allows to access data from other domains.
+
+                response.writeHead(200, { 'Content-Type': 'image/png' });
+                response.end(file, 'binary');
+
+            }
+            catch (err) {
+
+                console.log("[ERROR] server -> respondWithImage -> onFileRead -> File Not Found: " + fileName + " or Error = " + err);
+            }
+
+        }
+    }
+    catch (err) {
+        console.log("[ERROR] server -> respondWithImage -> err = " + err);
+    }
+}
+
+function returnEmptyArray(response) {
+
+    try {
+
+        if (CONSOLE_LOG === true) { console.log("[INFO] server -> respondWithFile -> returnEmptyArray -> Entering function."); }
 
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
         response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
@@ -1218,97 +1252,33 @@ function respondWithFile(fileName, response) {
         response.write("[]");
         response.end("\n");
 
+    } catch (err) {
+
+        console.log("[ERROR] server -> returnEmptyArray -> err.message " + err.message);
+
     }
 }
 
-function getGithubData(pOrg, pRepo, pPath, callBackFunction) {
+function processPost(request, response, callback) {
+    let data = "";
+    if (typeof callback !== 'function') return null;
 
-    if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> Entering function."); }
+    if (request.method == 'POST') {
+        request.on('data', function (pData) {
+            data += pData;
+            if (data.length > 1e6) {
+                data = "";
+                response.writeHead(413, { 'Content-Type': 'text/plain' }).end();
+                request.connection.destroy();
+            }
+        });
 
-    let cacheVersion = githubData.get(pOrg + '.' + pRepo + '.' + pPath)
-
-    if (cacheVersion !== undefined) {
-
-        if (CONSOLE_LOG === true) {
-
-            console.log("getGithubData - " + pOrg + '.' + pRepo + '.' + pPath + " found at cache.  :-) ");
-
-        }
-
-        callBackFunction(cacheVersion);
+        request.on('end', function () {
+            callback(data);
+        });
 
     } else {
-
-        if (CONSOLE_LOG === true) {
-
-            console.log("getGithubData - " + pOrg + '.' + pRepo + '.' + pPath + " NOT found at cache.  :-( ");
-
-        }
-
-        const octokit = require('@octokit/rest')()
-        global.atob = require("atob");
-
-        let owner = pOrg;
-        let repo = pRepo;
-        let branch = "master";
-        let page = 1;
-        let per_page = 100;
-        let ref = "master";
-        let path = pPath;
-
-        octokit.repos.getContent({ owner, repo, path, ref }, onContent);
-
-        function onContent(error, result) {
-
-            if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] getGithubData -> onContent -> error = " + error); }
-
-            if (CONSOLE_LOG === true) {
-
-                console.log("[INFO] getGithubData -> onContent -> Github.com responded to request " + pOrg + '.' + pRepo + '.' + pPath + " with result = " + result.toString().substring(0,100));
-
-            }
-
-            if (error !== null) { console.log("getGithubData -> onContent -> " + error);}
-
-            let decoded = atob(result.data.content);
-
-            /*
-
-            This method usually brings up to 3 characters of encoding info at the begining of the JSON string which destroys the JSON format.
-            We will run the following code with the intention to eliminate this problem. 
-
-            */
-
-            let cleanString = decoded;
-            let jsonTest;
-
-            try {
-                jsonTest = JSON.parse(cleanString);
-            } catch (err) {
-                cleanString = decoded.substring(1);
-                try {
-                    jsonTest = JSON.parse(cleanString);
-                } catch (err) {
-                    cleanString = decoded.substring(2);
-                    try {
-                        jsonTest = JSON.parse(cleanString);
-                    } catch (err) {
-                        cleanString = decoded.substring(3);
-                        try {
-                            jsonTest = JSON.parse(cleanString);
-                        } catch (err) {
-                            console.log("getGithubData -> onContent -> Could not clean the data received -> Data = " + decoded.substring(0, 50));
-                        }
-                    }
-                }
-            }
-           
-            githubData.set(pOrg + '.' + pRepo + '.' + pPath, cleanString);
-
-            callBackFunction(cleanString);
-
-        }
+        response.writeHead(405, { 'Content-Type': 'text/plain' });
+        response.end();
     }
 }
-

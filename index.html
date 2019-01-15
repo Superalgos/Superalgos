@@ -4,77 +4,30 @@
     <meta charset="utf-8" />
     <title>Advanced Algos</title>
 
-    <script type="text/javascript" src="DebugLog.js"></script>
+    <script src="https://unpkg.com/apollo-client-browser@1.7.0"></script>
+    <script type="text/javascript" src="Scripts/require.js"></script>
+    <script type="text/javascript" src="Scripts/AppPreLoader.js"></script>
 
-    <!--Plotters-->
-    <!--PlotterPanels-->
-
-
-    <script type="text/javascript" src="Plotter.js"></script>
-    <script type="text/javascript" src="PlotterPanel.js"></script>
-
-    <script type="text/javascript" src="ProductStorage.js"></script>
-    <script type="text/javascript" src="CompetitionStorage.js"></script>
-    <script type="text/javascript" src="ProductCard.js"></script>
-    <script type="text/javascript" src="Ecosystem.js"></script>
-
-    <script type="text/javascript" src="SplashScreen.js"></script>
-    <script type="text/javascript" src="Canvas.js"></script>
-    <script type="text/javascript" src="Button.js"></script>
-    <script type="text/javascript" src="TextButton.js"></script>
-    <script type="text/javascript" src="ImageButton.js"></script>
-    <script type="text/javascript" src="EventHandler.js"></script>
-    <script type="text/javascript" src="Frame.js"></script>
-    <script type="text/javascript" src="Container.js"></script>
-    <script type="text/javascript" src="TimeMachine.js"></script>
-    <script type="text/javascript" src="Candle.js"></script>
-    <script type="text/javascript" src="VolumeBar.js"></script>
-    <script type="text/javascript" src="ChartUtilities.js"></script>
-    <script type="text/javascript" src="OrderBookDepthChart.js"></script>
-    <script type="text/javascript" src="TimelineChart.js"></script>
-    <script type="text/javascript" src="ChartGrid.js"></script>
-    <script type="text/javascript" src="Animation.js"></script>
-    <script type="text/javascript" src="Displace.js"></script>
-    <script type="text/javascript" src="TimeLineCoordinateSystem.js"></script>
-    <script type="text/javascript" src="Utilities.js"></script>
-    <script type="text/javascript" src="ViewPort.js"></script>
-    <script type="text/javascript" src="Dashboard.js"></script>
-    <script type="text/javascript" src="AccumulatedVolumeBar.js"></script>
-
-    <script type="text/javascript" src="Azure/azure-storage.blob.js"></script>
-
-    <script type="text/javascript" src="FloatingSpace/NoteSets.js"></script>
-    <script type="text/javascript" src="FloatingSpace/Note.js"></script>
-    <script type="text/javascript" src="FloatingSpace/ProfileBalls.js"></script>
-    <script type="text/javascript" src="FloatingSpace/ProfileBall.js"></script>
-    <script type="text/javascript" src="FloatingSpace/FloatingObject.js"></script>
-    <script type="text/javascript" src="FloatingSpace/FloatingLayer.js"></script>
-
-    <script type="text/javascript" src="Panels/TimeControlPanel.js"></script>
-    <script type="text/javascript" src="Panels/ProductsPanel.js"></script>
-
-    <script type="text/javascript" src="Spaces/PanelsSpace.js"></script>
-    <script type="text/javascript" src="Spaces/ChartSpace.js"></script>
-    <script type="text/javascript" src="Spaces/FloatingSpace.js"></script>
-
-    <script type="text/javascript" src="Files/SingleFile.js"></script>
-    <script type="text/javascript" src="Files/FileCloud.js"></script>
-    <script type="text/javascript" src="Files/MarketFiles.js"></script>
-    <script type="text/javascript" src="Files/DailyFiles.js"></script>
-    <script type="text/javascript" src="Files/FileCursor.js"></script>
-    <script type="text/javascript" src="Files/FileSequence.js"></script>
-
-    <style type="text/css">
-        browserCanvas {
-            border: 1px solid black;
-        }
-    </style>
 </head>
-<body id="body" style="margin: 0px; padding: 0px; border: 0px; overflow:hidden;" onload="dashboardStart();">
-    <canvas id="canvas" width="1400" height="600" border="0"></canvas>
-    <img id="AAMasters" width="0" height="0" src="https://avatars2.githubusercontent.com/u/36243600?s=400&u=4df23798487a2853d211e764efa55233b1147ddb&v=4">
+<body id="body" style="margin: 0px; padding: 0px; border: 0px; overflow:hidden;" onresize="window.canvasApp.eventHandler.raiseEvent('Browser Resized');" onload="
 
-    <!--Images-->
+    window.canvasApp = {
+        sessionToken: '',
+        executingAt: 'Master App',
+        visible: true,
+        topMargin: 85,
+        urlPrefix: 'https://charts-dev.advancedalgos.net/',   /* 'http://localhost:1337/'   */   /*  'https://charts-dev.advancedalgos.net/'  */
+        graphQL: {
+            masterAppApiUrl: 'https://app-api.advancedalgos.net/graphql'
+        },
+        context: {}
+    };
 
+    loadAdvancedAlgosPlatform();
+
+    ">
+
+    <div id="masterApp"></div>
+    <div id="canvasApp"></div>
 </body>
 </html>

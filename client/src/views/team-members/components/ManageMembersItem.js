@@ -32,7 +32,7 @@ export const ManageMembersItem = ({ classes, member, teamId, authId }) => {
           </Typography>
         </Grid>
         <Grid item xs={4}>
-          <Typography color='textSecondary' variant='body2' component='h4' align='left' >
+          <Typography color='textSecondary' variant='body1' component='h4' align='left' >
             {email !== null ? `${memberStatus[memberStatus.length - 1].status} | Sent: ${memberStatus[memberStatus.length - 1].createdAt}` : `${member.role} | Member since: `}
           </Typography>
         </Grid>

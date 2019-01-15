@@ -72,12 +72,12 @@ export class ManageTeamDetails extends Component {
     if (profile.avatar !== undefined && profile.avatar !== null) {
       avatar = profile.avatar
     } else {
-      avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+      avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
     }
     if (profile.banner !== undefined && profile.banner !== null) {
       banner = profile.banner
     } else {
-      banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
+      banner = process.env.STORAGE_URL + '/module-teams/module-default/aa-banner-default.png'
     }
     return (
       <div>

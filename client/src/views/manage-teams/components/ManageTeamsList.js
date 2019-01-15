@@ -3,21 +3,37 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
 import { MessageCard } from '@advancedalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
+
+import { isEmpty } from '../../../utils/js-helpers'
 
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import ManageTeamsItem from './ManageTeamsItem'
-import CreateTeamDialog from './CreateTeamDialog'
+import ManageTeamProfile from './ManageTeamProfile'
+import CreateTeamForm from './CreateTeamForm'
 
 import log from '../../../utils/log'
 
 const styles = theme => ({
+  root: {
+    flexGrow: 1
+  },
+  typography: {
+    width: '80%',
+    marginLeft: '10%',
+    marginTop: 40
+  },
   heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`
+    maxWidth: 800,
+    margin: `${theme.spacing.unit * 4}px auto`,
+    padding: 0
+  },
+  newTeamContainer: {
+    padding: `${theme.spacing.unit * 4}px 0`
   },
   cardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`
@@ -42,16 +58,25 @@ const styles = theme => ({
     height: 100,
     maxWidth: 100,
     justifyContent: 'flex-start'
+  },
+  paper: {
+    width: '100%',
+    flexGrow: 1,
+    padding: 10,
+    marginTop: '5%',
+    marginBottom: '10%'
   }
 })
 
-export const ManageTeamsList = ({ classes, user = null, ...props }) => (
+export const ManageTeamsList = ({ classes, match, ...props }) => (
   <Query
     query={GET_TEAMS_BY_OWNER}
     fetchPolicy='network-only'
   >
     {({ loading, error, data }) => {
       log.debug('GET_TEAMS_BY_OWNER: ', loading, error, data)
+      let slug = null
+      if (!isEmpty(match.params) && match.params.slug) slug = match.params.slug
 
       let errors = null
       if (error) {
@@ -62,40 +87,77 @@ export const ManageTeamsList = ({ classes, user = null, ...props }) => (
       if (!loading && !error) {
         if (data.teams_TeamsByOwner.length > 0) {
           return (
-            <React.Fragment>
-              <Grid container spacing={40}>
-                {!loading &&
-                  data.teams_TeamsByOwner.map(team => (
-                    <ManageTeamsItem
-                      key={team.id}
-                      team={team}
-                      classes={classes}
-                      {...props}
-                    />
-                  ))}
-                {errors}
-              </Grid>
-            </React.Fragment>
+            <div className={classes.root}>
+              <div className={slug === null ? classes.heroContent : ''}>
+                <Grid container spacing={8} direction='column' alignItems='stretch'>
+                  {!loading &&
+                    data.teams_TeamsByOwner.map(team => {
+                      if (slug === team.slug) {
+                        return (
+                          <ManageTeamProfile
+                            key={`team-profile-${team.id}`}
+                            team={team}
+                            slug={team.slug}
+                            match={match}
+                            {...props}
+                          />
+                        )
+                      } else {
+                        return (
+                          <ManageTeamsItem
+                            key={`team-list-${team.id}`}
+                            team={team}
+                            classes={classes}
+                            match={match}
+                            {...props}
+                          />
+                        )
+                      }
+                    })}
+                  {errors}
+                </Grid>
+              </div>
+            </div>
           )
         } else {
           return (
-            <Grid container spacing={40}>
-              <Grid item xs={10}>
-                <MessageCard message='You don&rsquo;t have any teams. Create one!'>
-                  <CreateTeamDialog />
-                </MessageCard>
-              </Grid>
-            </Grid>
+            <div className='container'>
+              <Paper className={classes.paper} >
+
+                <Typography className={classes.typography} variant='h5' gutterBottom>
+                  Your First Team
+                </Typography>
+
+                <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
+                  To begin developing on the Advanced Algos platform, as well as to participate in trading competitions,
+                  you will need to create a team or become a member of an existing one. Currently, the only option is to create your own team. As part of the same process, an already existing trading bot will be forked for you so that you do not have to start from scratch. It will be added to your team so
+                  that you can begin experimenting right away.
+                </Typography>
+                <CreateTeamForm />
+
+              </Paper>
+            </div>
+
           )
         }
       } else {
         return (
-          <Grid container spacing={40}>
-            <Grid item xs={12}>
-              <MessageCard message='Loading...' />
-              {errors !== null && <MessageCard message={errors} />}
+          <div className={classes.root} >
+            <Grid container spacing={0} direction='column' justify='center' alignItems='center'>
+              <Grid item xs={12}>
+                {errors === null &&
+                  <Typography variant='h5' align='center' gutterBottom>
+                    Loading...
+                  </Typography>
+                }
+                {errors !== null &&
+                  <Typography variant='h5' align='center' gutterBottom>
+                    {errors}
+                  </Typography>
+                }
+              </Grid>
             </Grid>
-          </Grid>
+          </div>
         )
       }
     }}
@@ -104,7 +166,8 @@ export const ManageTeamsList = ({ classes, user = null, ...props }) => (
 
 ManageTeamsList.propTypes = {
   user: PropTypes.any,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  match: PropTypes.object
 }
 
 export default withStyles(styles)(ManageTeamsList)

@@ -75,12 +75,12 @@ export class ManageTeamEdit extends Component {
           const AzureStorageSAS = process.env.AZURE_STORAGE_SAS_TEAMS
           const containerName = team.slug
           let avatar = null
-          if (this.state.avatar === null && team.profile !== null && (team.profile.avatar === undefined || team.profile.avatar === null)) avatar = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-avatar-default.png'
+          if (this.state.avatar === null && team.profile !== null && (team.profile.avatar === undefined || team.profile.avatar === null)) avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
           if (team.profile !== null && team.profile.avatar !== undefined && team.profile.avatar !== null) avatar = team.profile.avatar
           if (this.state.avatar !== null) avatar = this.state.avatar
 
           let banner = null
-          if (this.state.banner === null && team.profile !== null && (team.profile.banner === undefined || team.profile.banner === null)) banner = 'https://aadevelop.blob.core.windows.net/module-teams/module-default/aa-banner-default.png'
+          if (this.state.banner === null && team.profile !== null && (team.profile.banner === undefined || team.profile.banner === null)) banner = process.env.STORAGE_URL + '/module-teams/module-default/aa-banner-default.png'
           if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
           if (this.state.banner !== null) banner = this.state.banner
           log.debug('team images: ', avatar, banner)

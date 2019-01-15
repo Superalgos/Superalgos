@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import CssBaseline from '@material-ui/core/CssBaseline'
 import { withStyles } from '@material-ui/core/styles'
 
+import { BannerTopBar } from '../common'
 import TeamsList from './components/TeamsList'
 
 const styles = theme => ({
@@ -17,11 +17,12 @@ const styles = theme => ({
   },
   layout: {
     width: 'auto',
+    marginTop: theme.spacing.unit * 3,
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit * 6,
-    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-      width: 900,
+    [theme.breakpoints.up(1200 + theme.spacing.unit * 3 * 2)]: {
+      width: 1200,
       marginLeft: 'auto',
       marginRight: 'auto'
     }
@@ -30,10 +31,10 @@ const styles = theme => ({
 
 const Teams = ({ classes, match }) => (
   <React.Fragment>
-    <CssBaseline />
-    <main className={classes.layout}>
+    <BannerTopBar size={match.params.slug !== undefined ? 'small' : 'medium'} title='Teams Directory' text='All teams in Advanced Algos are here.' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
+    <div className='container'>
       <TeamsList match={match} />
-    </main>
+    </div>
   </React.Fragment>
 )
 

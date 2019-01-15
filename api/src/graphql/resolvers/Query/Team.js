@@ -16,7 +16,13 @@ export const teamById = async (parent, { teamId }, ctx, info) => {
 }
 
 export const teamByName = async (parent, { name }, ctx, info) => {
-  return ctx.db.query.team({ where: { name: name } }, `{ name }`)
+  return ctx.db.query.team({ where: { name: name } }, TEAMS_FRAGMENT)
+}
+
+export const teamBySlug= async (parent, { slug }, ctx, info) => {
+  logger.info('teamsBySlug')
+  logger.info(`slug: ${slug}`)
+  return ctx.db.query.team({ where: { slug: slug } }, TEAMS_FRAGMENT)
 }
 
 export const teamWithRole = async (parent, { teamId, role }, ctx, info) => {
@@ -30,7 +36,7 @@ export const teamsByOwner = async (parent, args, ctx, info) => {
     throw new AuthenticationError()
     return
   }
-  return ctx.db.query.teams({where: { owner: authId }, orderBy:'updatedAt_DESC'}, TEAMS_FRAGMENT)
+  return ctx.db.query.teams({where: { owner: authId }, orderBy:'createdAt_DESC'}, TEAMS_FRAGMENT)
 }
 
 export const teamsByRole = async (parent, args, ctx, info) => {

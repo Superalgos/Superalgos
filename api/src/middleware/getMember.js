@@ -19,10 +19,9 @@ export const getMember = async (req, res, next, db) => {
 export const getUser = authId => {
   logger.info('getUser MiddleWare')
   logger.info(authId)
-  const API_URL = 'https://app-api.advancedalgos.net/graphql'
   return new Promise((resolve, reject) => {
     try {
-      return axios.post(API_URL, {
+      return axios.post(process.env.PLATFORM_API_URL, {
         query: `query users_User($userId: ID!) {
           users_User(id: $userId){
             id

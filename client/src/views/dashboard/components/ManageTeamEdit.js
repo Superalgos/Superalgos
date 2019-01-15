@@ -129,11 +129,11 @@ export class ManageTeamEdit extends Component {
                         let avatar = null
                         if (team.profile !== null && team.profile.avatar !== undefined && team.profile.avatar !== null) avatar = team.profile.avatar
                         if (this.state.avatar !== null) avatar = this.state.avatar
-                        if (this.state.avatar === null && team.profile !== null && team.profile.avatar === undefined) avatar = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-avatar-default.png'
+                        if (this.state.avatar === null && team.profile !== null && team.profile.avatar === undefined) avatar = process.env.STORAGE_URL + '/module-teams/module-default/aa-avatar-default.png'
                         let banner = null
                         if (team.profile !== null && team.profile.banner !== undefined && team.profile.banner !== null) banner = team.profile.banner
                         if (this.state.banner !== null) banner = this.state.banner
-                        if (this.state.banner === null && team.profile !== null && team.profile.banner === undefined) banner = 'https://algobotcommstorage.blob.core.windows.net/aateammodule/aa-banner-default.png'
+                        if (this.state.banner === null && team.profile !== null && team.profile.banner === undefined) banner = process.env.STORAGE_URL + '/module-teams/module-default/aa-banner-default.png'
                         log.debug('team images: ', avatar, banner)
 
                         if (loading || data === undefined) {

@@ -3,14 +3,11 @@ import PropTypes from 'prop-types'
 import { Mutation } from 'react-apollo'
 import { withStyles } from '@material-ui/core/styles'
 
+import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import EditIcon from '@material-ui/icons/Edit'
-import TextField from '@material-ui/core/TextField'
 import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
-import DialogTitle from '@material-ui/core/DialogTitle'
 import Typography from '@material-ui/core/Typography'
 
 import { ImageUpload } from '@advancedalgos/web-components'
@@ -23,17 +20,16 @@ import { checkGraphQLError } from '../../../utils/graphql-errors'
 import log from '../../../utils/log'
 
 const styles = theme => ({
-  dialogContainer: {
-    display: 'block',
-    margin: '3em',
-    minWidth: 400
+  dialogTitle: {
+    textAlign: 'center',
+    paddingBottom: `${theme.spacing.unit * 2}px`
   },
   buttonRight: {
     justifyContent: 'flex-end'
   }
 })
 
-export class ManageFBEdit extends Component {
+export class ManageTeamProfileFBEdit extends Component {
   constructor (props) {
     super(props)
 
@@ -51,7 +47,7 @@ export class ManageFBEdit extends Component {
   }
 
   render () {
-    log.debug('ManageFBEdit ', this.props, this.props.slug, this.props.fb)
+    log.debug('ManageTeamProfileFBEdit ', this.props, this.props.slug, this.props.fb)
     const { classes, fb, slug } = this.props
     return (
       <Mutation
@@ -76,7 +72,7 @@ export class ManageFBEdit extends Component {
           let loader
           if (loading) {
             loader = (
-              <Typography variant='caption'>Submitting team...</Typography>
+              <Typography variant='caption'>Updating avatar...</Typography>
             )
           }
           if (error) {
@@ -90,6 +86,7 @@ export class ManageFBEdit extends Component {
               )
             })
           }
+          log.debug('ManageTeamProfileFBEdit mutation:', classes)
           return (
             <div>
               <Button
@@ -105,19 +102,25 @@ export class ManageFBEdit extends Component {
                 onClose={this.handleClose}
                 aria-labelledby='form-dialog-title'
               >
-                <div classes={classes.dialogContainer}>
-                  <DialogTitle id='form-dialog-title'>
-                    Edit Financial Being
-                  </DialogTitle>
-                  <DialogContent>
-                    <DialogContentText>Update Financial Beings's Avatar</DialogContentText>
+                <DialogContent>
+                  <Grid container justify='center' direction='column'>
+                    <Grid item className={classes.dialogTitle}>
+                      <Typography variant='h4'>
+                        Edit Financial Being
+                      </Typography>
+                    </Grid>
                     <ImageUpload
                       key='avatar'
                       handleUrl={this.handleAvatar}
                       fileName={`${fb.slug}-fb-avatar.jpg`}
                       containerName={containerName}
                       existingImage={avatar}
-                      imagePreviewConfig={{ width: 200, title: 'Change FB Avatar' }}
+                      imagePreviewConfig={{
+                        width: '125px',
+                        height: '125px',
+                        title: 'Change FB Avatar',
+                        fontSize: '1.5em'
+                      }}
                       cropContainerConfig={{ x: 10, y: 10, width: 200, height: 200 }}
                       cropPreviewBox={{ width: 350, height: 350 }}
                       saveImageConfig={{
@@ -127,38 +130,41 @@ export class ManageFBEdit extends Component {
                         autoRotate: true,
                         mimeType: 'image/jpeg'
                       }}
+                      containerStyle={{
+                        display: 'block',
+                        margin: '0 auto 3em',
+                        height: '125px',
+                        width: '125px',
+                        overflow: 'visible'
+                      }}
+                      dropzoneStyle={{
+                        height: 125,
+                        title: 'Drop new image or click to select'
+                      }}
                       AzureStorageUrl={AzureStorageUrl}
                       AzureSASURL={AzureStorageSAS}
                       cropRatio={1}
                       debug
                     />
-                    <TextField
-                      autoFocus
-                      margin='dense'
-                      id='name'
-                      label='Team Name'
-                      type='text'
-                      fullWidth
-                      disabled
-                      value={fb.name}
-                    />
                     {loader}
                     {errors}
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={this.handleClose} color='primary'>
-                      Cancel
-                    </Button>
-                    <Button
-                      onClick={e => {
-                        this.handleSubmit(e, updateFB, fb.id, slug)
-                      }}
-                      color='primary'
-                    >
-                      Update Financial Being
-                    </Button>
-                  </DialogActions>
-                </div>
+                    <Grid container justify='center' alignItems='center' direction='column'>
+                      <Button
+                        onClick={e => {
+                          this.handleSubmit(e, updateFB, fb.id, slug)
+                        }}
+                        color='secondary'
+                        variant='contained'
+                        size='small'
+                      >
+                        Update Financial Being
+                      </Button>
+                      <Button onClick={this.handleClose} color='primary'>
+                        Cancel
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </DialogContent>
               </Dialog>
             </div>
           )
@@ -195,10 +201,10 @@ export class ManageFBEdit extends Component {
   }
 }
 
-ManageFBEdit.propTypes = {
+ManageTeamProfileFBEdit.propTypes = {
   classes: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   fb: PropTypes.object
 }
 
-export default withStyles(styles)(ManageFBEdit)
+export default withStyles(styles)(ManageTeamProfileFBEdit)

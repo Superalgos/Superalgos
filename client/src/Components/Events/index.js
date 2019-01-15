@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import BannerTopBar from '../BannerTopBar';
 
-class Index extends React.Component {
-  render () {
-    return <p>Here will come a list the competitions you applied for</p>
-  }
-}
+const Index = () => (
+  <BannerTopBar
+    size='big'
+    title='Your events'
+    text='Here will be the list of YOUR events'
+    backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/events.jpg'
+  />
+);
 
-export default Index
+export default Index;

@@ -1,12 +1,12 @@
-import React from 'react'
-import { Typography } from '@material-ui/core'
+import React from 'react';
+import { Typography } from '@material-ui/core';
 
-import { withStyles } from '@material-ui/core/styles'
-import styles from '../styles'
+import { withStyles } from '@material-ui/core/styles';
+import styles from '../styles';
 
 class History extends React.Component {
-  render () {
-    const classes = this.props.classes
+  render() {
+    const { classes } = this.props;
     return (
       <Typography
         className={classes.title}
@@ -17,8 +17,8 @@ class History extends React.Component {
       >
         Your old events (maybe here, maybe not, who knows)
       </Typography>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(History)
+export default withStyles(styles)(History);

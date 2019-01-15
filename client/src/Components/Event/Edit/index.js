@@ -1,17 +1,20 @@
-import React from 'react'
-import { Query } from 'react-apollo'
+import React from 'react';
+import { Query } from 'react-apollo';
 
-import Typography from '@material-ui/core/Typography'
-import { withStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
-import styles from './styles'
+import styles from './styles';
 
-import { showEventCalls } from '../../../GraphQL/Calls/index'
+import BannerTopBar from '../../BannerTopBar';
+
+import { showEventCalls } from '../../../GraphQL/Calls/index';
 
 class Edit extends React.Component {
-  render () {
+  render() {
     return (
       <React.Fragment>
+        <BannerTopBar backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/events.jpg' />
         <Typography
           variant='display1'
           align='center'
@@ -22,21 +25,21 @@ class Edit extends React.Component {
         </Typography>
         <Query
           query={showEventCalls.EVENTS_EVENT}
-          variables={{ designator: this.props.match.params.slug }}
+          variables={{ eventId: this.props.match.params.slug }}
         >
           {({ loading, error, data }) => {
-            if (loading) return 'Loading...'
-            if (error) return `Error! ${error.message}`
+            if (loading) return 'Loading...';
+            if (error) return `Error! ${error.message}`;
             return (
               <p>
                 {data.events_Event.description}
               </p>
-            )
+            );
           }}
         </Query>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default withStyles(styles)(Edit)
+export default withStyles(styles)(Edit);

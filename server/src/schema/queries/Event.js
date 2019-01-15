@@ -7,17 +7,17 @@ import { EventType } from '../types';
 import { Event } from '../../models';
 
 const args = {
-  designator: { type: new GraphQLNonNull(GraphQLID) },
+  eventId: { type: new GraphQLNonNull(GraphQLID) },
 };
 
-const resolve = (parent, { designator }) => new Promise((res, rej) => {
-  Event.findOne({ designator }).exec((err, event) => {
+const resolve = (parent, { eventId: _id }) => new Promise((res, rej) => {
+  Event.findOne({ _id }).exec((err, event) => {
     if (err) {
       rej(err);
       return;
     }
     if (!event) {
-      rej(new DatabaseError('None of the events respond to that designator'));
+      rej(new DatabaseError('None of the events respond to that id'));
       return;
     }
     res(event);

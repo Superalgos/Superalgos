@@ -5,7 +5,7 @@ import { Query } from 'react-apollo'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 import { withStyles } from '@material-ui/core/styles'
 
 import { isEmpty } from '../../../utils/js-helpers'

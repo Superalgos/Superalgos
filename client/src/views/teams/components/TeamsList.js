@@ -5,7 +5,7 @@ import { Query } from 'react-apollo'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 
 import GET_ALL_TEAMS_QUERY from '../../../graphql/teams/GetAllTeamsQuery'
 

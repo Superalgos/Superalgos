@@ -14,7 +14,7 @@ const styles = theme => ({
 
 const TeamMembers = ({ classes }) => (
   <div>
-    <BannerTopBar size='big' title='Team Members' text='Coming soon. Invite and manage team members.' backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg' />
+    <BannerTopBar size='big' title='Team Members' text='Coming soon. Invite and manage team members.' backgroundUrl='https://superalgos.org/img/photos/teams.jpg' />
   </div>
 )
 

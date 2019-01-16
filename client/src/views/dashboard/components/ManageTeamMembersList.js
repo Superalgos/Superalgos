@@ -12,7 +12,7 @@ import { getItem } from '../../../utils/local-storage'
 import GET_TEAMS_BY_OWNER from '../../../graphql/teams/GetTeamsByOwnerQuery'
 
 import ManageMembersTeamItem from './ManageMembersTeamItem'
-import { MessageCard } from '@advancedalgos/web-components'
+import { MessageCard } from '@superalgos/web-components'
 
 import log from '../../../utils/log'
 

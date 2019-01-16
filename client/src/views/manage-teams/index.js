@@ -10,8 +10,8 @@ const ManageTeams = ({ match, ...props }) => (
       size={match.params.slug !== undefined ? 'small' : 'medium'}
       title='Your Teams'
       text='Create and manage your teams here.'
-      backgroundUrl='https://advancedalgos.net/img/photos/teams.jpg'
-  />
+      backgroundUrl='https://superalgos.net/img/photos/teams.jpg'
+    />
     <div className='container'>
       <ManageTeamsList {...props} match={match} />
     </div>

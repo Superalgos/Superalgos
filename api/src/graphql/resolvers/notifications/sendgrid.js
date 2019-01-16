@@ -1,7 +1,7 @@
 var jwt = require('jsonwebtoken')
 var axios = require('axios')
 
-import { logger } from '../logger'
+import { logger } from '../../../logger'
 
 export const notifications_sendTeamMemberInvite = (email, team) => {
   logger.info('notifications_sendTeamMemberInvite')
@@ -123,5 +123,3 @@ const verifyInviteToken = async function(token) {
   logger.info(`verifyInviteToken: ${verifiedToken}`)
   return verifiedToken
 }
-
-module.exports = { sendTeamMemberInvite, sendTeamCreateConfirmation, verifyInviteToken }

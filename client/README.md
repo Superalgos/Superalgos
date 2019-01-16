@@ -1,10 +1,8 @@
-# Advance Algos Team Client-side Application
+# Superalgos Team Client-side Application
 
-This is the Advanced Algos Team Module client-side web app a.k.a. single-page-application (SPA). We use Webpack 4 + Docker to develop locally, then build to a distribution bundle that can then be uploaded via FTP, git or used with a continuous integration workflow.
+This is the Superalgos Team Module client-side web app a.k.a. single-page-application (SPA). We use Webpack 4 + Docker to develop locally, then build to a distribution bundle that can then be uploaded via FTP, git or used with a continuous integration workflow.
 
-This webapp's server-side component is the [aateam-api package](../aateam-api#README).
-
-For more information on the general architecture and related technology of this module, please visit this repos [main documenation](../../docs#README).  
+This webapp's server-side component is the [apit directory](../api#README).
 
 ## Getting Started
 
@@ -51,58 +49,9 @@ To stop service
 docker-compose down
 ```
 
-## Overview
-The development architecture of the Algobots Community site is to allow both rapid initial development and ongoing rapid-evolution. As with any opinionated workflow, there's a learning curve, but the libraries and architecture of this application have been chosen to maximize collaboration, flexibility, and extensibility.
-
 ### Main Libraries
 
 - [*Webpack 4*](https://webpack.js.org/):web application bundler. Allows us to us latest newer JS ECMA features that increase productivity and code clarity. Also allows additional libraries such as modular and programmable CSS via SASS/SCSS/LESS. Provides webserver for local development.
-- [*Bulma CSS Framework*](https://bulma.io/documentation/): Bulma is a highly-customizable CSS-only framework allowing us to quickly prototype the layout of a webapp without being complicated by opinionated functionality represented in libraries such as Bootstrap or Material UI. Grants us the flexibility to create a custom look at top speed whilst minimizing baggage.
-- [*HyperApp*](https://github.com/hyperapp/hyperapp): Allows a controlled Flux-styled approach to state-management and data-flow through components like React minus the excess boilerplate and learning curve.
+- [*React*](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [*Material UI*](https://material-ui.com/): React components that implement Google's Material Design.
 - [*Docker*](https://www.docker.com/what-docker)
-
-### File organization
-
-```
-.                               # Top level directory located at your choice
-├── src		        
-│   ├── actions   # Actions are functions that change the app state
-│   ├── assets    # images, logos and other static assets
-│   ├── state     # Schema of state — the single source of truth concerning app state.
-│   ├── styles    # SASS/SCSS styles
-│   ├── utils    	# Local storage and other utils
-│   └── views     # Main folder for editing site content
-│       ├─ nav    	# Nav components — header, footer, etc.
-│       ├─ pages    	# Nav components — header, footer, etc.
-│				│	 ├─ landing    # Homepage
-│				│	 │	├─ sections    	# Homepage sections. Collated in its own index.js
-│				│	 │	└─ index.js    	# Main homepage component. Pulls in sections
-│				│	 └─ ...    	# Other page/component folders
-│       └─ index.js   # Main view container. Main router
-├── html		        
-│   └── index.html   # index.html template pulled in by Webpack to attach transpiled bundles
-├── index.js      # JS entry point to website
-│
-├── tools 				# utility scripts, mostly for webpack configuration
-│            
-├── node_modules  # created by running `npm install` in this packages root dir
-├── dist          # created by `npm run develop` - a cache of bundled files served by Webpack for local development
-└── build         # created by `npm run build` - location of deployable production bundle
-
-```
-
-## Deployment
-
-The simplest deployment is compiling/transpiling the site to a distribution bundle and then uploading the files in the bundle to a web-accessible folder or storage.
-
-For this application we use Webpack to transpile the application which combines and minimizes all code and assets into an optimized bundle without and of the development code and resources.
-
-To build, run:
-```
-	npm run build
-```
-Looking in this packages directory, there should be a ./build directory with the final built files that can be uploaded.
-
-### Deployment instructions
-
-Coming soon...

@@ -26,15 +26,9 @@ Cool? Then, by submitting your first Pull Request, and as a condition of your co
 
    "Project IP" includes concepts, designs, developments, discoveries, ideas, improvements, inventions, trade secrets, trademarks, and works of authorship.
 
-<<<<<<< HEAD
-2. **What the Project doesn't own.** If you create IP that doesn't fit into one of the categories listed above, the Project doesn't own it. In other words, the Project doesn't own concepts, designs, developments, discoveries, ideas, improvements, inventions, trade secrets, trademarks, or works of authorship that you develop, invent, or create that do not meet any of the conditions in Section 1. 
-
-3. **Contribution of your IP to Project projects.** If you include your own IP – such as IP you created prior to working for the Project – into a Project product or service, it's still yours, of course, but you grant the Project a non-exclusive, irrevocable, fully paid-up, royalty-free, perpetual, sublicensable, transferable, worldwide license to use it without restriction in any way or implementation, in modified form, or as is, by itself, or incorporated into another product or service ("License"). If you include your name in any project over which the Project would have rights under this Agreement, such as in a copyright notice or a comment in code or documentation, then the License covers the rights associated with that use of your name as well.
-=======
 2. **What the Project doesn't own.** If you create IP that doesn't fit into one of the categories listed above, the Project doesn't own it. In other words, the Project doesn't own concepts, designs, developments, discoveries, ideas, improvements, inventions, trade secrets, trademarks, or works of authorship that you develop, invent, or create that do not meet any of the conditions in Section 1.
 
 3. **Contribution of your IP to Project projects.** If you include your own IP ï¿½ such as IP you created prior to working for the Project ï¿½ into a Project product or service, it's still yours, of course, but you grant the Project a non-exclusive, irrevocable, fully paid-up, royalty-free, perpetual, sub-licensable, transferable, worldwide license to use it without restriction in any way or implementation, in modified form, or as is, by itself, or incorporated into another product or service ("License"). If you include your name in any project over which the Project would have rights under this Agreement, such as in a copyright notice or a comment in code or documentation, then the License covers the rights associated with that use of your name as well.
->>>>>>> Update license + contributing
 
 4. **Your contributions to non-Project projects.** The Project recognizes that you may be engaged in work that requires you to submit IP to entities other than the Project, such as open source projects used by the Project. Please make sure that Legal is aware of what you're working on so that Legal can help with any licensing issues. If any project asks you to sign a contribution agreement, you should check with Legal before doing so. These agreements may be legally binding on the Project and so should be run through Legal first.
 
@@ -48,8 +42,4 @@ Cool? Then, by submitting your first Pull Request, and as a condition of your co
 
    "Confidential Information" includes non-public technical details about our products or services, financial information, business strategies and forecasts, customer data, or any other information, data or know-how that is valuable to the Project because it is not publicly known.
 
-<<<<<<< HEAD
    The Project's Confidential Information is sensitive and we expect that you'll treat it as such. You agree to only use the Project's Confidential Information for the purpose of performing your contribution and for the benefit of the Project. You will do your best to keep Confidential Information secret. If you are not sure if something is Confidential Information, you should assume that it is, until you can confirm otherwise.
-=======
-   The Project's Confidential Information is sensitive and we expect that you'll treat it as such. You agree to only use the Project's Confidential Information for the purpose of performing your contribution and for the benefit of the Project. You will do your best to keep Confidential Information secret. If you are not sure if something is Confidential Information, you should assume that it is, until you can confirm otherwise.
->>>>>>> Update license + contributing

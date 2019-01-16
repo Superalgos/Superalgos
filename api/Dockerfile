@@ -14,7 +14,7 @@ COPY package.json /var/www/app/package.json
 # Install dependencies
 RUN npm install
 
-RUN npm audit fix
+# RUN npm audit fix
 
 # Copy application code
 COPY . /var/www/app

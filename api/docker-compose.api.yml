@@ -11,7 +11,7 @@ services:
       - /var/www/app/node_modules
     working_dir: /var/www/app
     restart: always
-    command: node -r dotenv/config src/index.js
+    command: node --require @babel/register --require dotenv/config src/index.js
     expose:
       - 4001
     network_mode: webproxy

@@ -138,6 +138,7 @@ export default {
   },
 
   async Corporate_Contact(parent, { email, name, message, recaptcha }, ctx, info) {
+    logger.info(`Corporate_Contact message: ${message}`)
     const data = JSON.stringify({
       "personalizations": [
           {
@@ -149,7 +150,7 @@ export default {
             dynamic_template_data: {
               "aacontactname": name,
               "aacontactemail": email,
-              "aacontactbody": decodeURI(message),
+              "aacontactbody": message,
               "subject": `Superalgos Project Site Contact - Message from ${name}`
             },
             "subject": `Superalgos Project Site Contact - Message from ${name}`

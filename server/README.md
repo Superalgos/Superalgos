@@ -1,10 +1,8 @@
-# Advance Algos Team GraphQL API Server
+# Superalgos Notifications GraphQL API Server
 
-This is the Advanced Algos Team Module server-side GraphQL API server. We use Webpack 4 + Docker to develop locally, then build to a distribution bundle that can then be uploaded via FTP, git or used with a continuous integration workflow.
+This is the Superalgos Notifications Module server-side GraphQL API server. We use Docker to develop locally and for our production workflow.
 
-This modules client-side component is the [aateam-client package](../aateam-client#README).
-
-For more information on the general architecture and related technology of this module, please visit this repos [main documenation](../../docs#README).  
+This module currently has no client-side component. 
 
 ## Getting Started
 
@@ -50,9 +48,6 @@ To stop service
 ```
 docker-compose down
 ```
-
-## Overview
-The development architecture of the Algobots Community site is to allow both rapid initial development and ongoing rapid-evolution. As with any opinionated workflow, there's a learning curve, but the libraries and architecture of this application have been chosen to maximize collaboration, flexibility, and extensibility.
 
 ### Main Libraries
 

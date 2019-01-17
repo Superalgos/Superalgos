@@ -27,14 +27,14 @@ export default {
             ],
             dynamic_template_data: {
               "aaverifylink": origin + params + token,
-              "subject": 'VERIFY YOUR INTEREST in Advanced Algos'
+              "subject": 'VERIFY YOUR INTEREST in the Superalgos project'
             },
-            "subject": 'VERIFY YOUR INTEREST in Advanced Algos'
+            "subject": 'VERIFY YOUR INTEREST in the Superalgos project'
           }
         ],
         "from": {
-          "email": "feedback@advancedalgos.net",
-          "name": "Advanced Algos Team"
+          "email": "feedback@superalgos.org",
+          "name": "Superalgos Project Team"
         },
         "template_id": process.env.SG_CORPORATE_SIGNUP_EMAILID
       })
@@ -152,7 +152,7 @@ export default {
               "aacontactemail": email,
               "aacontactbody": message
             },
-            "subject": `AA Corporate Site Contact - Message from ${name}`
+            "subject": `Superalgos Project Site Contact - Message from ${name}`
           }
         ],
       "from": {
@@ -186,17 +186,17 @@ export default {
           logger.info('Sendgrid Contact response: ')
           logger.info(response)
           if (response.status >= 200 && response.status < 300) {
-            return `Corporate Contact email sent`
+            return `Superalgos Project Contact email sent`
           } else {
             throw response.data.errors[0].message
           }
         })
         .catch(function (error) {
           logger.error(`sendgrid Error: ${JSON.stringify(error)}`)
-          throw `Corporate Contact email send error: ${error.response.data.errors[0].message}`
+          throw `Superalgos Project Contact email send error: ${error.response.data.errors[0].message}`
         })
       }else{
-        logger.info('Corporate Contact recaptcha error')
+        logger.info('Superalgos Project Contact recaptcha error')
         logger.info(response.data)
         throw { response: { data: JSON.stringify(response.data) } }
       }
@@ -205,9 +205,9 @@ export default {
       return response
     })
     .catch(function (error) {
-      logger.error('Sendgrid Corporate Contact RECAPTCHA Error:')
+      logger.error('Sendgrid Superalgos Project Contact RECAPTCHA Error:')
       logger.error(error)
-      throw new ApolloError(`Sendgrid Corporate Contact RECAPTCHA Error: ${error.response.data}`, 404)
+      throw new ApolloError(`Sendgrid Superalgos Project Contact RECAPTCHA Error: ${error.response.data}`, 404)
     })
 
     return checkCaptcha

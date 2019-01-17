@@ -1,8 +1,8 @@
-# Advanced Algos Notifications Module
+# Superlgos Notifications Module
 
 ## Introduction
 
-The general purpose of the notifications module is providing notification services to other AA Platform modules.
+The general purpose of the notifications module is providing notification services to other Superalgos Platform modules.
 
 ## Quick Start
 

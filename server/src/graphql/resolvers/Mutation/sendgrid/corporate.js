@@ -138,8 +138,7 @@ export default {
   },
 
   async Corporate_Contact(parent, { email, name, message, recaptcha }, ctx, info) {
-    logger.info(`Corporate_Contact message: ${message}`)
-    logger.info(`Corporate_Contact decoded message: ${decodeURI(message)}`)
+    logger.info(`Corporate_Contact: ${email} | ${name} | ${message} | ${recaptcha}`)
     const data = JSON.stringify({
       "personalizations": [
           {
@@ -151,7 +150,7 @@ export default {
             dynamic_template_data: {
               "aacontactname": name,
               "aacontactemail": email,
-              "aacontactbody": decodeURI(message),
+              "aacontactbody": message,
               "subject": `Superalgos Project Site Contact - Message from ${name}`
             },
             "subject": `Superalgos Project Site Contact - Message from ${name}`
@@ -177,7 +176,7 @@ export default {
       }
     })
     .then(function (response) {
-      logger.info(response)
+      // logger.info(response)
       if (response.status >= 200 && response.status < 300 && response.data.success) {
         return axios({
           method: 'post',
@@ -189,9 +188,10 @@ export default {
           }
         })
         .then(function (response) {
-          logger.info('Sendgrid Contact response: ')
-          logger.info(response)
+          // logger.info('Sendgrid Contact response: ')
+          // logger.info(response)
           if (response.status >= 200 && response.status < 300) {
+            logger.info('Sendgrid Contact email sent')
             return `Superalgos Project Contact email sent`
           } else {
             throw response.data.errors[0].message

@@ -7,7 +7,7 @@ import logger from '../../../../logger'
 
 const API_KEY = process.env.SG_APIKEY
 const API_KEY_CAMPAIGN = process.env.SG_APIKEY_CAMPAIGN
-const CORPORATE_EMAIL = this.process.CORPORATE_EMAIL
+const CORPORATE_EMAIL = process.env.CORPORATE_EMAIL
 
 const origin = process.env.SG_CORPORATE_ORIGIN
 

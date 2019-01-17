@@ -34,12 +34,12 @@ export default {
           }
         ],
         "from": {
-          "email": "noreply@advancedalgos.net",
-          "name": "Advanced Algos Teams"
+          "email": "noreply@superalgos.org",
+          "name": "Superalgos Project Teams"
         },
         "reply_to": {
-          "email": "feedback@advancedalgos.net",
-          "name": "Advanced Algos Teams"
+          "email": "feedback@superalgos.org",
+          "name": "Superalgos Project Teams"
         },
         "template_id": process.env.SG_TEAMS_MEMBER_INVITE_EMAILID
       })
@@ -91,7 +91,7 @@ export default {
               }
             ],
             dynamic_template_data: {
-              "aadeveloplink": "https://develop.advancedalgos.net/index.html",
+              "aadeveloplink": "https://platform.superalgos.org/index.html",
               "aateamname": teamName,
               "aabotname": botName,
               "subject": "Team " + teamName + " has been created!"
@@ -100,12 +100,12 @@ export default {
           }
         ],
         "from": {
-          "email": "noreply@advancedalgos.net",
-          "name": "Advanced Algos Teams"
+          "email": "noreply@superalgos.org",
+          "name": "Superalgos Project Teams"
         },
         "reply_to": {
-          "email": "feedback@advancedalgos.net",
-          "name": "Advanced Algos Teams"
+          "email": "feedback@superalgos.org",
+          "name": "Superalgos Project Teams"
         },
         "template_id": process.env.SG_TEAMS_TEAMCREATE_EMAILID
       })

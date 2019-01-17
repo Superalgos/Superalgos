@@ -27,18 +27,18 @@ export default {
             ],
             dynamic_template_data: {
               "aaverifylink": origin + params + token,
-              "subject": 'VERIFY YOUR INTEREST in Advanced Algos'
+              "subject": 'VERIFY YOUR INTEREST in the Superalgos Project'
             },
-            "subject": 'VERIFY YOUR INTEREST in Advanced Algos'
+            "subject": 'VERIFY YOUR INTEREST in the Superalgos Project'
           }
       ],
       "from": {
-        "email": "feedback@advancedalgos.net",
-        "name": "Advanced Algos Team"
+        "email": "feedback@superalgos.org",
+        "name": "Superalgos Project Team"
       },
       "reply_to": {
-        "email": "feedback@advancedalgos.net",
-        "name": "Advanced Algos Team"
+        "email": "feedback@superalgos.org",
+        "name": "Superalgos Project Team"
       },
       "template_id": process.env.SG_MASTER_SIGNUP_EMAILID
     })
@@ -139,7 +139,7 @@ export default {
     return subscribe
   },
   async Master_Feedback(parent, { email, subject, message, recaptcha }, ctx, info) {
-    const toEmail = 'feedback@advancedalgos.net'
+    const toEmail = 'feedback@superalgos.org'
 
     const data = JSON.stringify({
       "personalizations": [
@@ -154,7 +154,7 @@ export default {
               "aacontactemail": email,
               "aacontactbody": message
             },
-            "subject": `AA Platform App Feedback - Message from ${name}`
+            "subject": `Superalgos Platform App Feedback - Message from ${name}`
           }
         ],
       "from": {

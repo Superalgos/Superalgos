@@ -7,6 +7,7 @@ import logger from '../../../../logger'
 
 const API_KEY = process.env.SG_APIKEY
 const API_KEY_CAMPAIGN = process.env.SG_APIKEY_CAMPAIGN
+const CORPORATE_EMAIL = this.process.CORPORATE_EMAIL
 
 const origin = process.env.SG_CORPORATE_ORIGIN
 
@@ -137,25 +138,28 @@ export default {
   },
 
   async Corporate_Contact(parent, { email, name, message, recaptcha }, ctx, info) {
-    const toEmail = process.env.CORPORATE_EMAIL
-
     const data = JSON.stringify({
       "personalizations": [
           {
             "to": [
               {
-                "email": email
+                "email": CORPORATE_EMAIL
               }
             ],
             dynamic_template_data: {
               "aacontactname": name,
               "aacontactemail": email,
-              "aacontactbody": message
+              "aacontactbody": decodeURI(message),
+              "subject": `Superalgos Project Site Contact - Message from ${name}`
             },
             "subject": `Superalgos Project Site Contact - Message from ${name}`
           }
         ],
       "from": {
+        "email": "feedback@superalgos.org",
+        "name": "Superalgos Project Team"
+      },
+      "reply_to": {
         "email": email,
         "name": name
       },

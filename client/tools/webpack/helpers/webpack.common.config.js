@@ -19,6 +19,16 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        include: /node_modules\\@advancedalgos/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.js$/,
+        include: /node_modules\/@advancedalgos/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },

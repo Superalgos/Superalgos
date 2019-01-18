@@ -16,10 +16,10 @@ import { Layout, Home, Charts, Callback, EmailSignupConfirm } from './views'
 
 import Users from '@superalgos/users-client'
 import Teams from '@superalgos/teams-client'
-import Events from '@superalgos/events-client'
+import Events from '@advancedalgos/events-client'
 import KeyVault from '@superalgos/key-vault-client'
-import FinancialBeings from '@superalgos/financial-beings-client'
-import Operations from '@superalgos/operations-client'
+import FinancialBeings from '@advancedalgos/financial-beings-client'
+import Operations from '@advancedalgos/operations-client'
 
 export const auth = new Auth(
   result => console.log('Authentication successful.'),

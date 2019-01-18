@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - [List changes here for upcoming release]
 
+## 0.1.4 - 2019-01-17
+### Change
+- Both: Migrate to superalgos.org
+
 ## 0.1.3 - 2018-12-17
 ### Change
 - Client: Fix newsletter signup notification integration

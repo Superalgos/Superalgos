@@ -203,7 +203,8 @@ async function run () {
     callback(null, corsOptions)
   }
 
-  server.applyMiddleware({ app, cors: corsOptionsDelegate })
+  // server.applyMiddleware({ app, cors: corsOptionsDelegate })
+  server.applyMiddleware({ app, cors: { origin: true, credentials: true, methods:'GET,PUT,POST,DELETE,OPTIONS'}})
 
   app.listen(4100)
   logger.info(`Server running. Open ${process.env.GRAPHQL_API_URL} to run queries.`)

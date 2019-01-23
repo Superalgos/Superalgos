@@ -32,6 +32,7 @@ const VERIFY_TEAM_INVITE = gql`
 export const defaultOptions = {
   oidcConformant: true,
   autoclose: true,
+  allowedConnections: ['Username-Password-Authentication'],
   auth: {
     sso: true,
     redirectUrl: window.location.origin + '/callback',
@@ -40,6 +41,13 @@ export const defaultOptions = {
     params: {
       scope: `openid profile email user_metadata app_metadata picture`
     }
+  },
+  theme: {
+    logo: 'https://aadevelop.blob.core.windows.net/module-master/assets/logos/Superalgos-mark-auth0-lock.png',
+    primaryColor: '#e3493c'
+  },
+  languageDictionary: {
+    title: 'Platform Dev'
   }
 }
 

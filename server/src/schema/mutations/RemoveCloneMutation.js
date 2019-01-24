@@ -12,10 +12,9 @@ import {
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import removeKuberneteClone from '../../kubernetes/removeClone'
-//import saveAuditLog from './AddAuditLog'
 
 const args = {
-  id: {type: new GraphQLNonNull(GraphQLID)}
+  id: { type: new GraphQLNonNull(GraphQLID) }
 }
 
 const resolve = async (parent, { id }, context) => {
@@ -27,18 +26,19 @@ const resolve = async (parent, { id }, context) => {
 
   await removeKuberneteClone(id)
 
-  var query = {
+  const query = {
     _id: id,
     authId: context.userId
   }
+  const options = { new: true }
+  const update = { active: false }
 
-  //saveAuditLog(id, 'removeClone', context)
   logger.debug('removeClone -> Removing Clone from DB.')
-  Clone.deleteOne(query, function (err) {
+  Clone.findOneAndUpdate(query, update, options, (err, doc) => {
     if (err){
       throw new OperationsError(err)
     }else{
-      return 'Clone Removed'
+      resolve('Clone Removed.')
     }
   })
 }

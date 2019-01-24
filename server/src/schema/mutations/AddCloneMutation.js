@@ -40,7 +40,8 @@ const resolve = async(parent, { clone }, context) => {
   let existingClone = await Clone.find(
     {
       authId: context.userId,
-      mode: clone.mode
+      mode: clone.mode,
+      active: true
     })
 
   logger.debug('addClone -> Checking existing clone %j', existingClone)
@@ -48,8 +49,6 @@ const resolve = async(parent, { clone }, context) => {
     throw new CustomError('You can only create one clone per mode. Remove the'
       + ' existing clone of type: ' + clone.mode + ' and try again.')
   }
-
-  logger.debug('addClone -> Creating a new clone. %j', clone)
 
   try{
     const userTeam = await axios({
@@ -86,13 +85,13 @@ const resolve = async(parent, { clone }, context) => {
     clone.botId = userTeam.data.data.teams_FbByTeamMember.fb[0].slug
     clone.userLoggedIn = userTeam.data.data.teams_FbByTeamMember.members[0].member.alias
     clone.createDatetime = new Date().valueOf() / 1000|0
+    clone.active = true
 
+    logger.debug('addClone -> Creating a new clone. %j', clone)
     let newClone = new Clone(clone)
-
-    await createKubernetesClone(clone, newClone._id)
-
     newClone.id = newClone._id
     newClone.authId = context.userId
+    await createKubernetesClone(newClone)
 
     return new Promise((resolve, reject) => {
       newClone.save((err) => {
@@ -102,7 +101,6 @@ const resolve = async(parent, { clone }, context) => {
         }
         else {
           //TODO transaction on database
-          // saveAuditLog(newClone.id, 'addKey', context)
           logger.debug('addClone -> Save clone sucessful.')
           resolve(newClone)
         }

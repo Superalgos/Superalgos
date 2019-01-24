@@ -16,5 +16,13 @@ export const clone = gql`
     createDatetime
     lastLogs
     runAsTeam
+    summaryDate
+    buyAverage
+    sellAverage
+    marketRate
+    combinedProfitsA
+    combinedProfitsB
+    assetA
+    assetB
   }
 `;

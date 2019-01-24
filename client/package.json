@@ -1,7 +1,7 @@
 {
   "name": "@advancedalgos/operations-client",
   "version": "0.0.1",
-  "description": "Advanced Algos Operations client-side web app",
+  "description": "Superalgos Operations client-side web app",
   "main": "src/index.js",
   "dependencies": {
     "@material-ui/core": "^3.2.2",

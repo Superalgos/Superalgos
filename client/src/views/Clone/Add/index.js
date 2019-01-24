@@ -62,7 +62,7 @@ class AddClone extends Component {
           size='big'
           title='Create a bot clone'
           text="Please login to create a bot clone."
-          backgroundUrl='https://advancedalgos.net/img/photos/ecosystem.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
         />
       )
     } else return (
@@ -71,7 +71,7 @@ class AddClone extends Component {
             size='medium'
             title='Create a bot clone'
             text='Create a bot clone here.'
-            backgroundUrl='https://advancedalgos.net/img/photos/ecosystem.jpg'
+            backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
           />
 
           <div className='container'>

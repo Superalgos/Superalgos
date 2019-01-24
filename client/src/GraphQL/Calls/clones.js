@@ -19,6 +19,15 @@ const OPERATIONS_LIST_CLONES = gql`
   ${clone}
 `;
 
+const OPERATIONS_HISTORY_CLONES = gql`
+  query Operations_HistoryClones{
+    operations_HistoryClones {
+      ...clone
+    }
+  }
+  ${clone}
+`;
+
 const OPERATIONS_REMOVE_CLONE = gql`
   mutation Operations_RemoveClone($id: ID!){
     operations_RemoveClone( id: $id)
@@ -27,6 +36,7 @@ const OPERATIONS_REMOVE_CLONE = gql`
 
 export default {
   OPERATIONS_LIST_CLONES,
+  OPERATIONS_HISTORY_CLONES,
   OPERATIONS_ADD_CLONE,
   OPERATIONS_REMOVE_CLONE
 };

@@ -48,36 +48,62 @@ class ListClones extends Component {
         </ExpansionPanelSummary>
         <Divider />
         <ExpansionPanelDetails className={classes.details}>
-            <div className={classes.column}>
-              <Typography className={classes.cloneInfo1}>Created:</Typography>
-              { isDefined(clone.beginDatetime) &&
-                <Typography className={classes.cloneInfo1}>Begin:</Typography>
-              }
-              { isDefined(clone.endDatetime) &&
-                <Typography className={classes.cloneInfo1}>End:</Typography>
-              }
-              { isDefined(clone.waitTime) &&
-                <Typography className={classes.cloneInfo1}>Wait Time:</Typography>
-              }
-              <Typography className={classes.cloneInfo1}>Resume Execution:</Typography>
-              <Typography className={classes.cloneInfo1}>Run As Team:</Typography>
-            </div>
-            <div className={classes.column2}>
-              <Typography className={classes.cloneInfo2}>{toLocalTime(clone.createDatetime)}</Typography>
-              { isDefined(clone.beginDatetime) &&
-                <Typography className={classes.cloneInfo2}>{toLocalTime(clone.beginDatetime)}</Typography>
-              }
-              { isDefined(clone.endDatetime) &&
-                <Typography className={classes.cloneInfo2}>{toLocalTime(clone.endDatetime)}</Typography>
-              }
-              { isDefined(clone.waitTime) &&
-                <Typography className={classes.cloneInfo2}>{clone.waitTime}</Typography>
-              }
-              <Typography className={classes.cloneInfo2}>{clone.resumeExecution ? 'Yes':'No'}</Typography>
-              <Typography className={classes.cloneInfo2}>{clone.runAsTeam ? 'Yes':'No'}</Typography>
+            <div className={classes.column3}>
+              <Typography className={classes.cloneInfoTitle}>Context Information</Typography>
+              <div className={classes.details}>
+                <div className={classes.column4}>
+                  <Typography className={classes.cloneInfoBold}>Created:</Typography>
+                  { isDefined(clone.beginDatetime) &&
+                    <Typography className={classes.cloneInfoBold}>Begin:</Typography>
+                  }
+                  { isDefined(clone.endDatetime) &&
+                    <Typography className={classes.cloneInfoBold}>End:</Typography>
+                  }
+                  { isDefined(clone.waitTime) &&
+                    <Typography className={classes.cloneInfoBold}>Wait Time:</Typography>
+                  }
+                  <Typography className={classes.cloneInfoBold}>Resume Execution:</Typography>
+                  <Typography className={classes.cloneInfoBold}>Run As Team:</Typography>
+                </div>
+                <div className={classes.column4}>
+                  <Typography className={classes.cloneInfoNormal}>{toLocalTime(clone.createDatetime)}</Typography>
+                  { isDefined(clone.beginDatetime) &&
+                    <Typography className={classes.cloneInfoNormal}>{toLocalTime(clone.beginDatetime)}</Typography>
+                  }
+                  { isDefined(clone.endDatetime) &&
+                    <Typography className={classes.cloneInfoNormal}>{toLocalTime(clone.endDatetime)}</Typography>
+                  }
+                  { isDefined(clone.waitTime) &&
+                    <Typography className={classes.cloneInfoNormal}>{clone.waitTime}</Typography>
+                  }
+                  <Typography className={classes.cloneInfoNormal}>{clone.resumeExecution ? 'Yes':'No'}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.runAsTeam ? 'Yes':'No'}</Typography>
+                </div>
+              </div>
             </div>
             <div className={classNames(classes.column3, classes.helper)}>
-              <Typography className={classes.cloneInfo1}>Virtual Machine Status</Typography>
+              <Typography className={classes.cloneInfoTitle}>Trading Information</Typography>
+              <div className={classes.details}>
+                <div className={classes.column4}>
+                  <Typography className={classes.cloneInfoBold}>Date:</Typography>
+                  <Typography className={classes.cloneInfoBold}>Buy Average:</Typography>
+                  <Typography className={classes.cloneInfoBold}>Sell Average:</Typography>
+                  <Typography className={classes.cloneInfoBold}>Market Rate:</Typography>
+                  <Typography className={classes.cloneInfoBold}>ROI {clone.assetA}:</Typography>
+                  <Typography className={classes.cloneInfoBold}>ROI {clone.assetB}:</Typography>
+                </div>
+                <div className={classes.column4}>
+                  <Typography className={classes.cloneInfoNormal}>{toLocalTime(clone.summaryDate)}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.buyAverage}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.sellAverage}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.marketRate}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsA}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsB}</Typography>
+                </div>
+              </div>
+            </div>
+            <div className={classNames(classes.column3, classes.helper)}>
+              <Typography className={classes.cloneInfoTitle}>Virtual Machine Status</Typography>
               <TextField
                 id="outlined-state"
                 defaultValue={clone.state}
@@ -90,21 +116,27 @@ class ListClones extends Component {
               />
             </div>
         </ExpansionPanelDetails>
-        <Divider />
-        <ExpansionPanelActions>
-          <Button
-            className={classes.buttonList}
-            variant='contained' color='secondary' size='small'
-            onClick={() => this.setState({ isLogsDialogOpen: true })}>
-            View Logs
-          </Button>
-          <Button
-            className={classes.buttonList}
-            variant='contained' color='secondary' size='small'
-            onClick={this.handleRemoveDialogOpen}>
-            Delete
-          </Button>
-        </ExpansionPanelActions>
+        {
+          !this.props.isHistory &&
+            <Divider />
+        }
+        {
+          !this.props.isHistory &&
+            <ExpansionPanelActions>
+              <Button
+                className={classes.buttonList}
+                variant='contained' color='secondary' size='small'
+                onClick={() => this.setState({ isLogsDialogOpen: true })}>
+                View Logs
+              </Button>
+              <Button
+                className={classes.buttonList}
+                variant='contained' color='secondary' size='small'
+                onClick={this.handleRemoveDialogOpen}>
+                Delete
+              </Button>
+            </ExpansionPanelActions>
+        }
       </ExpansionPanel>
 
       <Dialog

@@ -3,7 +3,8 @@ import {
   GraphQLString,
   GraphQLInt,
   GraphQLBoolean,
-  GraphQLID
+  GraphQLID,
+  GraphQLFloat
 } from 'graphql'
 
 const CloneType = new GraphQLObjectType({
@@ -22,7 +23,15 @@ const CloneType = new GraphQLObjectType({
     stateDatetime: {type: GraphQLInt},
     createDatetime: {type: GraphQLInt},
     lastLogs: {type: GraphQLString},
-    runAsTeam: {type: GraphQLBoolean}
+    runAsTeam: {type: GraphQLBoolean},
+    summaryDate: {type: GraphQLInt},
+    buyAverage: {type: GraphQLFloat},
+    sellAverage: {type: GraphQLFloat},
+    marketRate: {type: GraphQLFloat},
+    combinedProfitsA: {type: GraphQLFloat},
+    combinedProfitsB: {type: GraphQLFloat},
+    assetA: {type: GraphQLString},
+    assetB: {type: GraphQLString}
   })
 })
 export default CloneType

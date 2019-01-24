@@ -46,7 +46,7 @@ const styles = theme => ({
   },
   helper: {
     borderLeft: `2px solid ${theme.palette.divider}`,
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
+    padding: `0px ${theme.spacing.unit * 2}px`,
   },
   logsDialog:{
     width:'1750px',
@@ -56,26 +56,27 @@ const styles = theme => ({
   details:{
     display:'flex'
   },
-  column: {
-    flexBasis: '15%',
-    maxWidth: '15%'
-  },
   column2: {
-    flexBasis: '42.5%',
-    maxWidth: '42.5%'
+    flexBasis: '50%',
+    maxWidth: '50%'
   },
   column3: {
-    flexBasis: '42.5%',
-    maxWidth: '42.5%'
+    flexBasis: '33.33%',
+    maxWidth: '33.33%'
   },
-  cloneInfo1:{
+  cloneInfoTitle:{
     fontWeight: '600',
-    paddingLeft: '16px',
-    paddingTop: '16px'
+    flexBasis: '100%',
+    maxWidth: '100%'
   },
-  cloneInfo2:{
-    paddingLeft: '16px',
-    paddingTop: '16px'
+  cloneInfoBold:{
+    fontWeight: '600',
+    paddingLeft: '10px',
+    paddingTop: '10px'
+  },
+  cloneInfoNormal:{
+    paddingLeft: '10px',
+    paddingTop: '10px'
   },
 })
 

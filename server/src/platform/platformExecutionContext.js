@@ -1,15 +1,13 @@
 import logger from '../config/logger'
-import { toPlatformDatetime, getJobNameFromClone } from '../config/utils'
-import envConfig from '../config/envConfig'
+import { toPlatformDatetime } from '../config/utils'
 import { KubernateError } from '../errors'
 import { Client, config } from 'kubernetes-client'
 // Get base Deployment config
 import deploymentManifest from '../config/clone-deployment.json'
 import { BACKTEST} from '../enums/CloneMode';
 
-const createClone = async (clone) => {
+const platformExecutionContext = async (clone, cloneName) => {
   try {
-    let cloneName = getJobNameFromClone(clone)
     logger.info("createClone %j", cloneName)
     const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
 
@@ -54,11 +52,6 @@ const createClone = async (clone) => {
 
     logger.debug("createClone Configuration for the execution.")
     env.push({
-      "name": "CLONE_ID",
-      "value": clone.id.toString()
-    })
-
-    env.push({
       "name": "START_MODE",
       "value": clone.mode.toLowerCase()
     })
@@ -102,4 +95,4 @@ const createClone = async (clone) => {
      throw new KubernateError(err)
   }
 }
-export default createClone
+export default platformExecutionContext

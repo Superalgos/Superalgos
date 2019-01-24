@@ -7,3 +7,7 @@ export function toPlatformDatetime (epoch) {
 export function isDefined (d) {
   return d !== null && typeof d !== 'undefined'
 }
+
+export function getJobNameFromClone (clone) {
+  return clone.teamId + '-' + clone.botId + '-' + clone.mode.toLowerCase()
+}

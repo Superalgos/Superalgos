@@ -9,20 +9,22 @@ import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import styles from './styles'
 
-import { types} from '../../../GraphQL/models'
-import { isDefined } from '../../../utils'
+import { types, startModes, availableMonths, processNames } from '../../../GraphQL/models'
+import { isDefined, getIndicatorYears } from '../../../utils'
 
 import {
    MenuItem, Button, TextField, FormControl, InputLabel, Input, Typography,
    Paper, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,
-   Select, FormControlLabel, Checkbox
+   Select, FormControlLabel, Checkbox, FormHelperText
 } from '@material-ui/core'
 
-import { DateTimePicker } from 'material-ui-pickers';
+import NumberFormat from 'react-number-format'
+
+import { DateTimePicker } from 'material-ui-pickers'
 import {
   ChevronLeft,
   ChevronRight,
-} from '@material-ui/icons';
+} from '@material-ui/icons'
 
 class AddClone extends Component {
 
@@ -31,17 +33,23 @@ class AddClone extends Component {
     let user = localStorage.getItem('user')
     this.state = {
       user: JSON.parse(user),
-      teamId:'',
-      botId:'',
-      mode:'',
+      selectedBot: {'id':''},
+      mode: '',
       resumeExecution: false,
       beginDatetime: DateTime.local().minus({ days: 8 }).startOf('day'),
       endDatetime: DateTime.local(),
       waitTime: 1,
-      state : '',
+      state: '',
       stateDatetime: 0,
       createDatetime: 0,
       runAsTeam: false,
+      financialBeings:[],
+
+      // Indicator Bot
+      startYear: 2019,
+      endYear: 2019,
+      month: 1,
+      botProcessName: '',
 
       //Error handlers
       nameError: false,
@@ -49,8 +57,9 @@ class AddClone extends Component {
       botError: false,
       modeError: false,
       isNewCloneConfirmationOpen: false,
-      serverResponse:'',
-      serverError: false
+      serverResponse: '',
+      serverError: false,
+      botProcessNameError: false
     }
   }
 
@@ -84,8 +93,7 @@ class AddClone extends Component {
 
               <Typography className={classes.typography} variant='subtitle1' align='justify'>
                 A bot clone it's a copy of your bot running on a virtual machine.
-                At the moment Live clones trade by default 0.001 BTC on Poloniex.
-                Please select the team and bot you want to clone!
+                Please select from your teams and bots the one you want to clone!
               </Typography>
 
               <FormControl className={classNames(classes.form, classes.textField)} fullWidth>
@@ -94,6 +102,8 @@ class AddClone extends Component {
                 </InputLabel>
                 <Query query={teams.GET_ALL_TEAMS_QUERY} >
                   {({ loading, error, data }) => {
+                    if (error) return `Error! There has been an error loading teams.`
+
                     if (loading) {
                       return (
                         <Select
@@ -106,7 +116,9 @@ class AddClone extends Component {
                           <MenuItem key='1' value='loading'>Loading...</MenuItem>
                         </Select>
                       )
-                    } else if(!isDefined(data.teams_FbByTeamMember)){
+                    }
+
+                    if(!isDefined(data.teams_FbByTeamMember)){
                         return (
                           <Select
                             value='noteams'
@@ -118,121 +130,241 @@ class AddClone extends Component {
                             <MenuItem key='1' value='noteams'>You don't have any teams yet.</MenuItem>
                           </Select>
                         )
-                    } else if (error) return `Error! There has been an error loading teams.`
+                    } else{
+                      this.financialBeings = data.teams_FbByTeamMember.fb
+                    }
 
                     return (
-                      <Select
-                        value={this.state.teamId}
-                        input={<Input />}
-                        className={classes.selectEmpty}
-                        onBlur={(e)=>this.setState({teamError:false})}
-                        error={this.state.teamError}
-                        onChange={e => this.setState({teamId:e.target.value})}
-                      >
-                        <MenuItem key={data.teams_FbByTeamMember.id}
-                          value={data.teams_FbByTeamMember.id}>
-                          {data.teams_FbByTeamMember.name + '/' + data.teams_FbByTeamMember.fb[0].name}
-                        </MenuItem>
-                      </Select>
+                        <Select
+                          value={this.state.selectedBot.id}
+                          displayEmpty
+                          className={classes.selectEmpty}
+                          onBlur={(e)=>this.setState({botError:false})}
+                          error={this.state.botError}
+                          onChange={e => this.setSelectedBot(e.target.value)}
+                        >
+                        {
+                          data.teams_FbByTeamMember.fb.map(financialBeing => (
+                            <MenuItem key={financialBeing.id} value={financialBeing.id}>
+                              {data.teams_FbByTeamMember.name + '/' + financialBeing.name}
+                            </MenuItem>
+                          ))
+                        }
+                        </Select>
                     )
                   }}
                 </Query>
+                <FormHelperText>{this.state.selectedBot.kind}</FormHelperText>
               </FormControl>
 
-               <TextField
-                  select
-                  label="Running Mode"
-                  className={classNames(classes.margin, classes.textField, classes.form)}
-                  value={this.state.mode}
-                  onChange={(e)=> this.setState({mode:e.target.value})}
-                  onBlur={(e)=>this.setState({modeError:false})}
-                  error={this.state.modeError}
-                  fullWidth
-                  >
-                  {types.map(option => (
-                    <MenuItem key={option} value={option}>
-                      {option}
-                    </MenuItem>
-                  ))}
-                </TextField>
+              { /* TRADER BOT */ }
+              { this.state.selectedBot.kind === "TRADER1" &&
+                  <React.Fragment>
+                    <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                      At the moment Live Trading Clones trade by default 0.001 BTC on Poloniex.
+                    </Typography>
 
-                { this.state.mode == "Backtest" &&
-                    <React.Fragment>
-                      <DateTimePicker
-                        autoOk
-                        disableFuture
-                        format="DD' at 'HH:mm"
-                        ampm={false}
-                        showTabs={false}
-                        leftArrowIcon={<ChevronLeft />}
-                        rightArrowIcon={<ChevronRight />}
-                        value={this.state.beginDatetime}
-                        label='Backtest Start Date'
-                        onChange={newVal => this.setState({ beginDatetime: newVal })}
-                        className={classNames(classes.form, classes.textField)}
-                        fullWidth
-                      />
+                    <TextField
+                       select
+                       label="Running Mode"
+                       className={classNames(classes.margin, classes.textField, classes.form)}
+                       value={this.state.mode}
+                       onChange={(e)=> this.setState({mode:e.target.value})}
+                       onBlur={(e)=>this.setState({modeError:false})}
+                       error={this.state.modeError}
+                       fullWidth
+                       >
+                       {types.map(option => (
+                         <MenuItem key={option} value={option}>
+                           {option}
+                         </MenuItem>
+                       ))}
+                     </TextField>
 
-                      <DateTimePicker
-                        autoOk
-                        disableFuture
-                        format="DD' at 'HH:mm"
-                        ampm={false}
-                        showTabs={false}
-                        leftArrowIcon={<ChevronLeft />}
-                        rightArrowIcon={<ChevronRight />}
-                        value={this.state.endDatetime}
-                        label='Backtest End Date'
-                        onChange={newVal => this.setState({ endDatetime: newVal })}
-                        className={classNames(classes.form, classes.textField)}
-                        fullWidth
-                      />
+                     { this.state.mode == "Backtest" &&
+                         <React.Fragment>
+                           <DateTimePicker
+                             autoOk
+                             disableFuture
+                             format="DD' at 'HH:mm"
+                             ampm={false}
+                             showTabs={false}
+                             leftArrowIcon={<ChevronLeft />}
+                             rightArrowIcon={<ChevronRight />}
+                             value={this.state.beginDatetime}
+                             label='Backtest Start Date'
+                             onChange={newVal => this.setState({ beginDatetime: newVal })}
+                             className={classNames(classes.form, classes.textField)}
+                             fullWidth
+                           />
 
-                      <TextField
-                        id="waitTime"
-                        label="Wait Time"
-                        className={classNames(classes.form, classes.textField)}
-                        value={this.state.waitTime}
-                        onChange={(e)=>this.setState({waitTime:e.target.value})}
-                        fullWidth
-                      />
-                    </React.Fragment>
-                }
+                           <DateTimePicker
+                             autoOk
+                             disableFuture
+                             format="DD' at 'HH:mm"
+                             ampm={false}
+                             showTabs={false}
+                             leftArrowIcon={<ChevronLeft />}
+                             rightArrowIcon={<ChevronRight />}
+                             value={this.state.endDatetime}
+                             label='Backtest End Date'
+                             onChange={newVal => this.setState({ endDatetime: newVal })}
+                             className={classNames(classes.form, classes.textField)}
+                             fullWidth
+                           />
 
-              <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                If Run as Team is selected, the clone will be taken from the
-                team respository instead of your own team member folder.
-                Competitions runs from the team respository.
-              </Typography>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={this.state.runAsTeam}
-                    onChange={(e)=>this.setState({runAsTeam:e.target.checked })}
-                    value="runAsTeam"
-                    color="primary"
-                  />
-                }
-                label="Run as Team"
-                className={classNames(classes.form, classes.textField)}
-              />
+                           <TextField
+                             id="waitTime"
+                             label="Wait Time"
+                             className={classNames(classes.form, classes.textField)}
+                             value={this.state.waitTime}
+                             onChange={(e)=>this.setState({waitTime:e.target.value})}
+                             fullWidth
+                           />
+                         </React.Fragment>
+                     }
 
-              <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                The Resume Execution option let's you pick up the context of
-                the last execution and continue from there.
-              </Typography>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={this.state.resumeExecution}
-                    onChange={(e)=>this.setState({resumeExecution:e.target.checked })}
-                    value="resumeExecution"
-                    color="primary"
-                  />
-                }
-                label="Resume Execution"
-                className={classNames(classes.form, classes.textField)}
-              />
+                   <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                     If Run as Team is selected, the clone will be taken from the
+                     team respository instead of your own team member folder.
+                     Competitions runs from the team respository.
+                   </Typography>
+                   <FormControlLabel
+                     control={
+                       <Checkbox
+                         checked={this.state.runAsTeam}
+                         onChange={(e)=>this.setState({runAsTeam:e.target.checked })}
+                         value="runAsTeam"
+                         color="primary"
+                       />
+                     }
+                     label="Run as Team"
+                     className={classNames(classes.form, classes.textField)}
+                   />
+
+                   <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                     The Resume Execution option let's you pick up the context of
+                     the last execution and continue from there.
+                   </Typography>
+                   <FormControlLabel
+                     control={
+                       <Checkbox
+                         checked={this.state.resumeExecution}
+                         onChange={(e)=>this.setState({resumeExecution:e.target.checked })}
+                         value="resumeExecution"
+                         color="primary"
+                       />
+                     }
+                     label="Resume Execution"
+                     className={classNames(classes.form, classes.textField)}
+                   />
+                  </React.Fragment>
+               }
+
+              { /* INDICATOR AND EXTRACTOR BOTS */ }
+              { (this.state.selectedBot.kind === "TRADER"
+                || this.state.selectedBot.kind === "EXTRACTOR") &&
+                  <React.Fragment>
+                    <TextField
+                       label="Process Name"
+                       className={classNames(classes.textField, classes.form)}
+                       value={this.state.botProcessName}
+                       onChange={(e)=> this.setState({botProcessName:e.target.value})}
+                       onBlur={(e)=>this.setState({botProcessNameError:false})}
+                       error={this.state.botProcessNameError}
+                       fullWidth
+                     />
+
+                    <TextField
+                       select
+                       label="Running Mode"
+                       className={classNames(classes.margin, classes.textField, classes.form)}
+                       value={this.state.mode}
+                       onChange={(e)=> this.setState({mode:e.target.value})}
+                       onBlur={(e)=>this.setState({modeError:false})}
+                       error={this.state.modeError}
+                       fullWidth
+                       >
+                       {startModes.map(option => (
+                         <MenuItem key={option} value={option}>
+                           {option}
+                         </MenuItem>
+                       ))}
+                     </TextField>
+
+                     { this.state.mode === "All Months" &&
+                         <React.Fragment>
+                           <TextField
+                              id="beginYearInput"
+                              select
+                              label="Start Year"
+                              className={classNames(classes.textField, classes.form)}
+                              value={this.state.startYear}
+                              onChange={(e)=> this.setState({startYear:e.target.value})}
+                              fullWidth
+                              >
+                              {getIndicatorYears().map((option, index) => (
+                                <MenuItem key={option} value={index}>
+                                  {option}
+                                </MenuItem>
+                              ))}
+                            </TextField>
+
+                            <TextField
+                               id="endYearInput"
+                               select
+                               label="End Year"
+                               className={classNames(classes.textField, classes.form)}
+                               value={this.state.endYear}
+                               onChange={(e)=> this.setState({endYear:e.target.value})}
+                               fullWidth
+                               >
+                               {getIndicatorYears().map((option, index) => (
+                                 <MenuItem key={option} value={index}>
+                                   {option}
+                                 </MenuItem>
+                               ))}
+                             </TextField>
+                         </React.Fragment>
+                     }
+
+                     { this.state.mode === "One Month" &&
+                         <React.Fragment>
+                           <TextField
+                              id="beginYearInput"
+                              select
+                              label="Year"
+                              className={classNames(classes.textField, classes.form)}
+                              value={this.state.startYear}
+                              onChange={(e)=> this.setState({startYear:e.target.value})}
+                              fullWidth
+                              >
+                              {getIndicatorYears().map((option, index) => (
+                                <MenuItem key={option} value={index}>
+                                  {option}
+                                </MenuItem>
+                              ))}
+                            </TextField>
+
+                            <TextField
+                               id="endYearInput"
+                               select
+                               label="Month"
+                               className={classNames(classes.textField, classes.form)}
+                               value={this.state.month}
+                               onChange={(e)=> this.setState({month:e.target.value})}
+                               fullWidth
+                               >
+                               {availableMonths.map(option => (
+                                 <MenuItem key={option} value={option}>
+                                   {option}
+                                 </MenuItem>
+                               ))}
+                             </TextField>
+                         </React.Fragment>
+                     }
+                  </React.Fragment>
+              }
 
               <div className={classes.actionButton} >
                  <Button
@@ -268,6 +400,17 @@ class AddClone extends Component {
     );
   }
 
+  setSelectedBot(botId){
+    if(isDefined(this.financialBeings)){
+      for (var i = 0; i < this.financialBeings.length; i++) {
+        if(this.financialBeings[i].id === botId){
+          this.setState({selectedBot:this.financialBeings[i]})
+          return
+        }
+      }
+    }
+  }
+
   async submitForm(e){
     e.preventDefault()
     let error = this.validate()
@@ -289,23 +432,28 @@ class AddClone extends Component {
   async createCloneOnServer(){
     let variables = {
       clone:{
-        teamId: this.state.teamId,
-        botId: this.state.botId,
+        botId: this.state.selectedBot.id,
         mode: this.state.mode,
         resumeExecution: this.state.resumeExecution,
         runAsTeam: this.state.runAsTeam
       }
     }
 
-    if(this.state.mode == "Backtest"){
+    if(this.state.mode === "Backtest"){
       variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000|0
       variables.clone.endDatetime = this.state.endDatetime.valueOf() / 1000|0
       variables.clone.waitTime = this.state.waitTime
     }
 
+    if(this.state.selectedBot.kind !== "TRADER"){
+      variables.clone.botProcessName = this.state.botProcessName
+      variables.clone.startYear = this.state.startYear
+      variables.clone.endYear = this.state.endYear
+      variables.clone.month = this.state.month
+    }
+
     return this.props.addCloneMutation({
       variables: variables
-      //refetchQueries: [{query: getClonesQuery}],
     })
   }
 
@@ -320,9 +468,8 @@ class AddClone extends Component {
 
     if(!this.state.serverError)
       this.setState({
-        teamId:'',
-        botId:'',
-        mode:'',
+        selectedBot: {'id':''},
+        mode: '',
         resumeExecution: false,
         beginDatetime: DateTime.local().minus({ days: 8 }).startOf('day'),
         endDatetime: DateTime.local(),
@@ -331,6 +478,7 @@ class AddClone extends Component {
         stateDatetime: 0,
         createDatetime: 0,
         runAsTeam: false,
+        botProcessName: '',
 
         //Error handlers
         nameError: false,
@@ -339,14 +487,15 @@ class AddClone extends Component {
         modeError: false,
         isNewCloneConfirmationOpen: false,
         serverResponse: '',
-        serverError: false
+        serverError: false,
+        botProcessNameError: false
       })
   };
 
   validate(){
     let isError = false
 
-    if(this.state.teamId.length < 1) {
+    if(this.state.selectedBot.length < 1) {
       isError = true
       this.setState(state => ({ teamError: true }));
     }
@@ -354,6 +503,11 @@ class AddClone extends Component {
     if(this.state.mode.length < 1) {
       isError = true
       this.setState(state => ({ modeError: true }));
+    }
+
+    if(this.state.botProcessName.length < 1) {
+      isError = true
+      this.setState(state => ({ botProcessNameError: true }));
     }
 
     return isError;

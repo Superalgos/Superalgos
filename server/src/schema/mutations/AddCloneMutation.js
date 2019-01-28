@@ -46,7 +46,7 @@ const resolve = async(parent, { clone }, context) => {
 
   logger.debug('addClone -> Checking existing clone %j', existingClone)
   if(isDefined(existingClone) && existingClone.length > 0){
-    throw new CustomError('You can only create one clone per mode. Remove the'
+    throw new CustomError('You can only have one active clone by mode. Remove the'
       + ' existing clone of type: ' + clone.mode + ' and try again.')
   }
 
@@ -76,8 +76,7 @@ const resolve = async(parent, { clone }, context) => {
         `,
       },
       headers: {
-        authorization: context.authorization,
-        preshared: process.env.OPERATIONS_API_PRESHARED
+        authorization: context.authorization
       }
     })
 

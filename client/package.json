@@ -1,6 +1,6 @@
 {
-  "name": "@advancedalgos/operations-client",
-  "version": "0.0.1",
+  "name": "@superalgos/operations-client",
+  "version": "0.0.2",
   "description": "Superalgos Operations client-side web app",
   "main": "src/index.js",
   "dependencies": {
@@ -15,6 +15,7 @@
     "react": "^16.6.1",
     "react-apollo": "^2.2.4",
     "react-dom": "^16.6.1",
+    "react-number-format": "^4.0.6",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {

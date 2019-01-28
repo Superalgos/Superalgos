@@ -65,7 +65,7 @@ class HistoryClones extends Component {
         <TopBar
           size='big'
           title='Bot Clone History'
-          text="You don't have any Bot Clone yet. Once you create one you will find it here."
+          text="You don't have any Clone yet. Once you create one you will find it here."
           backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
           />
       )

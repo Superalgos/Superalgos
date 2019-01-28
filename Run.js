@@ -42,14 +42,76 @@ readExecutionConfiguration();
 function readExecutionConfiguration() {
     try {
         console.log("[INFO] Run -> readExecutionConfiguration -> Entering function. ");
+        let startMode
 
+        // Environment Configuration
         global.CURRENT_ENVIRONMENT = process.env.PLATFORM_ENVIRONMENT
-        global.DEV_TEAM = process.env.DEV_TEAM;
-        global.RUN_AS_TEAM = (process.env.RUN_AS_TEAM === "true");
-        global.GATEWAY_ENDPOINT = process.env.GATEWAY_ENDPOINT;
-        global.STORAGE_URL = process.env.STORAGE_URL;
-        global.USER_LOGGED_IN = process.env.USER_LOGGED_IN;
-        global.CURRENT_BOT_REPO = process.env.BOT + "-" + process.env.TYPE + "-Bot";
+        global.GATEWAY_ENDPOINT = process.env.GATEWAY_ENDPOINT
+        global.STORAGE_URL = process.env.STORAGE_URL
+
+        // General Financial Being Configuration
+        global.DEV_TEAM = process.env.DEV_TEAM
+        global.CURRENT_BOT_REPO = process.env.BOT + "-" + process.env.TYPE + "-Bot"
+        global.RUN_AS_TEAM = (process.env.RUN_AS_TEAM === "true")
+        global.USER_LOGGED_IN = process.env.USER_LOGGED_IN
+
+        if (process.env.TYPE === 'Trading') {
+            let live = {
+                run: "false",
+                resumeExecution: process.env.RESUME_EXECUTION
+            }
+
+            let backtest = {
+                run: "false",
+                resumeExecution: process.env.RESUME_EXECUTION,
+                beginDatetime: process.env.BEGIN_DATE_TIME,
+                endDatetime: process.env.END_DATE_TIME,
+                waitTime: process.env.WAIT_TIME
+            }
+
+            let competition = {
+                run: "false",
+                resumeExecution: process.env.RESUME_EXECUTION,
+                beginDatetime: process.env.BEGIN_DATE_TIME,
+                endDatetime: process.env.END_DATE_TIME
+            }
+
+            startMode = {
+                live: live,
+                backtest: backtest,
+                competition: competition
+            }
+        } else if (process.env.TYPE === 'Indicator' || process.env.TYPE === 'Extractor') {
+            let allMonths = {
+                run: "false",
+                minYear: process.env.MIN_YEAR,
+                maxYear: process.env.MAX_YEAR
+            }
+            let oneMonth = {
+                run: "false",
+                year: process.env.YEAR,
+                month: process.env.MONTH
+            }
+            let noTime = {
+                run: "false"
+            }
+            let fixedInterval = {
+                run: "false",
+                interval: process.env.INTERVAL
+            }
+
+            startMode = {
+                allMonths: allMonths,
+                oneMonth: oneMonth,
+                noTime: noTime,
+                fixedInterval: fixedInterval
+            }
+        } else {
+            console.log("[ERROR] readExecutionConfiguration -> Bot Type is invalid." );
+            throw new Error("readExecutionConfiguration -> Bot Type is invalid.")
+        }
+
+        startMode[process.env.START_MODE].run = "true"
 
         let executionList = [{
             enabled: "true",
@@ -58,16 +120,6 @@ function readExecutionConfiguration() {
             process: process.env.PROCESS,
             repo: global.CURRENT_BOT_REPO
         }]
-
-        let mode =
-            '{ "run": "false",' +
-            '"resumeExecution": "' + process.env.RESUME_EXECUTION + '",' + 
-            '"beginDatetime": "' + process.env.BEGIN_DATE_TIME + '",' + 
-            '"endDatetime": "' + process.env.END_DATE_TIME + '",' + 
-            '"waitTime": "' + process.env.WAIT_TIME + '"' + 
-            '}'
-        let startMode = JSON.parse('{ "live": ' + mode +', "backtest": '+mode+', "competition": '+mode+'}')
-        startMode[process.env.START_MODE].run = "true"
 
         global.EXECUTION_CONFIG = {
             executionList: executionList,

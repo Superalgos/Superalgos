@@ -211,7 +211,7 @@ exports.newRoot = function newRoot() {
 
         for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
-            let listItem = PLATFORM_CONFIG.executionList[p];
+            let listItem;
 
             /*
               The local configuration allows to select the configuration to run
@@ -225,10 +225,10 @@ exports.newRoot = function newRoot() {
                 listItem = global.EXECUTION_CONFIG.executionList[p];
             }
 
-            if (listItem.enabled !== "true") {
+            if (listItem === undefined || listItem.enabled !== "true") {
 
                 console.log(logDisplace + "Root : [INFO] start -> Skipping process for being disabled.");
-                console.log(logDisplace + "Root : [INFO] start -> listItem.process = " + listItem.process);
+                console.log(logDisplace + "Root : [INFO] start -> listItem.process = " + PLATFORM_CONFIG.executionList[p].process);
 
                 continue;
             }

@@ -1,4 +1,5 @@
-﻿
+﻿const appRoot = require('app-root-path')
+const operationsIntegration = require(`${appRoot}/Integrations/OperationsModuleIntegration`)
 
 exports.newRoot = function newRoot() {
 
@@ -218,14 +219,13 @@ exports.newRoot = function newRoot() {
               Here we check that the local configuration for the execution
               exist, if it doesn't exist we will take the one on the server.
             */
-            let executionListItem;
             if (global.EXECUTION_CONFIG === undefined) {
-                executionListItem = listItem;
+                listItem = PLATFORM_CONFIG.executionList[p];
             } else {
-                executionListItem = global.EXECUTION_CONFIG.executionList[p];
+                listItem = global.EXECUTION_CONFIG.executionList[p];
             }
 
-            if (listItem.enabled !== "true" || executionListItem.enabled !== "true") {
+            if (listItem.enabled !== "true") {
 
                 console.log(logDisplace + "Root : [INFO] start -> Skipping process for being disabled.");
                 console.log(logDisplace + "Root : [INFO] start -> listItem.process = " + listItem.process);
@@ -344,7 +344,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
 
                             let processConfig = botConfig.processes[i];
-
+                            processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
                             try {
 
                                 /*
@@ -888,7 +888,7 @@ exports.newRoot = function newRoot() {
 
                                         tradingBotMainLoop.run(pGenes, pTotalInstances, whenRunFinishes);
 
-                                        function whenRunFinishes(err) {
+                                        function whenRunFinishes(err, context) {
 
                                             pBotConfig.loopCounter = 0;
 
@@ -913,6 +913,20 @@ exports.newRoot = function newRoot() {
                                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
                                                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                                 logger.persist();
+                                            }
+
+                                            // Update operations module with latest context
+                                            if (context !== undefined) {                                            
+                                                let lastExecution = context.executionHistory[context.executionHistory.length - 1]
+                                                let date = lastExecution[0] / 1000 | 0
+                                                let buyAvgRate = lastExecution[1]
+                                                let sellAvgRate = lastExecution[2]
+                                                let marketRate = lastExecution[7]
+                                                let combinedProfitsA = lastExecution[13]
+                                                let combinedProfitsB = lastExecution[14]
+
+                                                operationsIntegration.updateExecutionResults(date, buyAvgRate, sellAvgRate,
+                                                    marketRate, combinedProfitsA, combinedProfitsB)
                                             }
                                         }
 

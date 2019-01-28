@@ -33,6 +33,12 @@
     <Compile Include="CloudRequire.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="utils\auth.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utils\logger.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataDependencies.js">
       <SubType>Code</SubType>
     </Compile>
@@ -45,6 +51,9 @@
     <Compile Include="exchange\wrappers\binanceClient.js" />
     <Compile Include="exchange\wrappers\poloniex.js" />
     <Compile Include="exchange\wrappers\poloniexClient.js" />
+    <Compile Include="Integrations\OperationsModuleIntegration.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Root.js">
       <SubType>Code</SubType>
     </Compile>
@@ -76,13 +85,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="configs\Email.Config.json" />
     <Content Include="exchange\wrappers\binanceProperties.json" />
     <Content Include="exchange\wrappers\poloniexProperties.json" />
     <Content Include="this.config.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="configs\" />
     <Folder Include="Exchange\" />
     <Folder Include="Exchange\Wrappers\" />
+    <Folder Include="Integrations\" />
+    <Folder Include="utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->

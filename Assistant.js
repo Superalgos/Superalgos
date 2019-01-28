@@ -982,8 +982,8 @@
 
                     if (pRate !== marketRate) {
 
-                        logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> putPosition Rate can not be different to marketRate while in Backtesting Mode. ");
-                        onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
+                        logger.write(MODULE_NAME, "[WARNING] putPosition -> Input Validations -> putPosition Rate can is different to marketRate while in Backtesting Mode. ");
+                        //onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
                     }
 
                     let positionId = Math.trunc(Math.random(1) * 1000000);

@@ -52,7 +52,12 @@
 
                     switch (global.CURRENT_EXECUTION_AT) { // This is what determines if the bot is loaded from the devTeam or an endUser copy.
                         case "Cloud": {
-                            filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
+                            if (global.RUN_AS_TEAM) {
+                                filePath = global.DEV_TEAM + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.name; // DevTeams bots only are run at the cloud.
+                            } else {
+                                filePath = global.DEV_TEAM + "/" + "members" + "/" + global.USER_LOGGED_IN + "/" + global.CURRENT_BOT_REPO + "/" + pProcessConfig.name; // DevTeam Members bots only are run at the browser.
+                            }
+                            
                             break;
                         }
                         case "Browser": {
@@ -134,6 +139,8 @@
 
     function run(pGenes, pTotalAlgobots, callBackFunction) {
 
+        let context;
+
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
 
@@ -159,8 +166,6 @@
                         str = str.toString();
                         return str.length < max ? pad(" " + str, max) : str;
                     }
-
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.instance, 20) + " " + pad(bot.process, 30) + " Entered into Main Loop # " + pad(Number(bot.loopCounter) + 1, 8));
 
                     /* For each loop we want to create a new log file. */
 
@@ -289,7 +294,7 @@
                                         clearTimeout(nextLoopTimeoutHandle);
                                         clearTimeout(checkLoopHealthHandle);
                                         bot.enableCheckLoopHealth = false;
-                                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                        callBackFunction(global.DEFAULT_OK_RESPONSE, context);
                                         return;
                                     }
                                 }
@@ -341,7 +346,7 @@
                                     clearTimeout(nextLoopTimeoutHandle);
                                     clearTimeout(checkLoopHealthHandle);
                                     bot.enableCheckLoopHealth = false;
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE, context);
                                     return;
                                 }
                             }
@@ -369,9 +374,12 @@
 
                     }
 
-                    /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
+                    /* High level log entry  */
 
-                    let context;
+                    console.log(bot.processDatetime.toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.devTeam, 20) + " " + pad(bot.process, 30) + " " + bot.startMode + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
+
+                    /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
+                                        
                     let exchangeAPI;
                     let assistant;
                     let userBot;
@@ -994,7 +1002,7 @@
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
                             bot.enableCheckLoopHealth = false;
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                            callBackFunction(global.DEFAULT_OK_RESPONSE, context);
                             return;
 
                         }
@@ -1184,6 +1192,7 @@
                     callBackFunction(err);
                 }
             }
+
         }
 
         catch (err) {

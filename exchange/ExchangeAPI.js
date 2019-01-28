@@ -5,12 +5,12 @@
     This module allows trading bots to connect to the exchange and do trading operations on it. So far it can only work with Poloniex.
 
     */
-    const _ = require('lodash');
-    const isValidOrder = require('./exchangeUtils').isValidOrder;
+    const _ = require('lodash')
+    const isValidOrder = require('./exchangeUtils').isValidOrder
     const graphqlClient = require('graphql-client')
-    const request = require('request')
-    const authOptions = require('./Auth0')
-
+    const appRoot = require('app-root-path')
+    const auth = require(`${appRoot}/utils/auth`)
+    
     let MODULE_NAME = "Exchange API";
 
     let thisObject = {
@@ -29,7 +29,7 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    async function initialize(callBackFunction) {
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
@@ -38,27 +38,16 @@
             let botExchange = 'Poloniex';
             let exchange = botExchange.toLowerCase() + 'Client.js';
             let api = require('./wrappers/' + exchange);
-            
-            request(authOptions, onTokenResponse);
 
-            function onTokenResponse(error, response, body) {
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] onTokenResponse -> Entering function."); }
+            const authResponse = await auth.authenticate()
 
-                if (error) {
-                    logger.write(MODULE_NAME, "[ERROR] onTokenResponse -> err = " + error.message);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                } else {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] onTokenResponse -> Token Received."); }
-                    let response = JSON.parse(body)
-                    let authToken = response.access_token
-                    let keyVaultAPI = createKeyVaultAPIClient(authToken)
-                    apiClient = api.newAPIClient(keyVaultAPI, logger);
+            let keyVaultAPI = createKeyVaultAPIClient(authResponse.data.access_token)
+            apiClient = api.newAPIClient(keyVaultAPI, logger);
 
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                }
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
+
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -67,8 +56,7 @@
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
 
         const keyVaultAPI = graphqlClient({
-            //url: 'https://platform-api.advancedalgos.net/graphql',
-            url: 'https://platform-dev-api.advancedalgos.net/graphql',
+            url: global.GATEWAY_ENDPOINT,
             headers: {
                 Authorization: 'Bearer ' + authToken
             }

@@ -29,7 +29,7 @@ const createClone = async (clone, teamSlug, botSlug) => {
       "value": clone.botId
     })
     env.push({
-      "name": "KIND",
+      "name": "TYPE",
       "value": clone.kind
     })
     env.push({

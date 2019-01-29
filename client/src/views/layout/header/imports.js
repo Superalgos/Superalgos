@@ -68,7 +68,8 @@ const operationsMenus = {
   icon: Home,
   authenticated: true,
   submenus: [
-    { title: 'Your clones', to: '/operations/browse', icon: ImportContacts },
+    { title: 'Active clones', to: '/operations/browse', icon: ImportContacts },
+    { title: 'History', to: '/operations/history', icon: LibraryAdd },
     { title: 'Clone a bot', to: '/operations/add', icon: AddCircleOutline },
     { title: 'Report a Bug', to: 'https://github.com/Superalgos/OperationsModule/issues/new', icon: BugReport, externalLink: true }
   ]
@@ -77,6 +78,7 @@ const operationsMenus = {
 const financialBeingsMenus = {
   title: 'FBs',
   to: '/financial-beings',
+  icon: Home,
   authenticated: false,
   submenus: [
     { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
@@ -87,7 +89,7 @@ const allMenus = [
   usersMenus,
   teamsMenus,
   eventsMenus,
-  financialBeingsMenus,
+  // financialBeingsMenus,
   keyvaultMenus,
   operationsMenus
 ]

@@ -32,11 +32,10 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
   },
   textArea: {
+    width:'1750px',
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     whiteSpace: 'pre',
-    overflowY:'auto',
-    overflowX:'hidden'
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
@@ -52,9 +51,12 @@ const styles = theme => ({
     padding: `0px ${theme.spacing.unit * 2}px`,
   },
   logsDialog:{
-    width:'1750px',
-    overflowY:'auto',
+    overflowY:'hidden',
     overflowX:'hidden'
+  },
+  logsWrapper:{
+    overflowY:'auto',
+    overflowX:'auto'
   },
   details:{
     display:'flex'

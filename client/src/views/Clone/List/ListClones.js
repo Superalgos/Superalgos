@@ -88,7 +88,7 @@ class ListClones extends Component {
               <div className={classes.details}>
                 <div className={classes.column4}>
                   <Typography className={classes.cloneInfoBold}>Last Execution:</Typography>
-                  { (clone.kind === 'TRADER') &&
+                  { (clone.kind === 'TRADER' && isDefined(clone.assetA) ) &&
                     <React.Fragment>
                       <Typography className={classes.cloneInfoBold}>Buy Average:</Typography>
                       <Typography className={classes.cloneInfoBold}>Sell Average:</Typography>
@@ -100,7 +100,7 @@ class ListClones extends Component {
                 </div>
                 <div className={classes.column4}>
                   <Typography className={classes.cloneInfoNormal}>{isDefined(clone.summaryDate) ? toLocalTime(clone.summaryDate): 'waiting update...'}</Typography>
-                  { (clone.kind === 'INDICATOR' || clone.kind === 'EXTRACTOR') &&
+                  { ((clone.kind === 'INDICATOR' || clone.kind === 'EXTRACTOR') && isDefined(clone.assetA) ) &&
                     <React.Fragment>
                       <Typography className={classes.cloneInfoNormal}>{clone.buyAverage}</Typography>
                       <Typography className={classes.cloneInfoNormal}>{clone.sellAverage}</Typography>
@@ -188,19 +188,23 @@ class ListClones extends Component {
             Last clone logs
           </DialogTitle>
           <DialogContent className={classes.logsDialog}>
-            <TextField
-              id="outlined-logs"
-              label="Last Logs"
-              defaultValue={this.props.currentClone.lastLogs}
-              className={classes.textArea}
-              margin="normal"
-              InputProps={{
-                readOnly: true,
-              }}
-              variant="outlined"
-              fullWidth
-              multiline
-            />
+            <Typography className={classes.typography} variant='subtitle1' align='justify'>
+              Here you can check the clone output directly from the virtual machine.
+              The last 20 lines are displayed, but you can check the Logs Module for more details.
+            </Typography>
+            <div className={classes.logsWrapper}>
+              <TextField
+                id="outlined-logs"
+                defaultValue={this.props.currentClone.lastLogs}
+                className={classes.textArea}
+                margin="normal"
+                InputProps={{
+                  readOnly: true,
+                }}
+                fullWidth
+                multiline
+              />
+            </div>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleLogsDialogClose} className={classes.buttonList}

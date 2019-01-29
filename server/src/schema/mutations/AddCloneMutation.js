@@ -45,8 +45,8 @@ const resolve = async(parent, { clone }, context) => {
   }
 
   try{
+    // Authorization is handled by the teams module
     let botsByUser = await teams_FbByTeamMember(context.authorization)
-    console.log("botsByUser: ", botsByUser)
     let selectedBot = getSelectedBot(botsByUser.data.data.teams_FbByTeamMember, clone.botId)
     clone.teamId = botsByUser.data.data.teams_FbByTeamMember.id
     clone.botId = selectedBot.id

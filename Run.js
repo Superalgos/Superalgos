@@ -89,7 +89,7 @@ function readExecutionConfiguration() {
             }
             let oneMonth = {
                 run: "false",
-                year: process.env.YEAR,
+                year: process.env.MIN_YEAR,
                 month: process.env.MONTH
             }
             let noTime = {

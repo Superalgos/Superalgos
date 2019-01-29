@@ -1,7 +1,6 @@
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    padding: 10,
     margin: 10
   },
   image: {
@@ -33,49 +32,59 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
   },
   textArea: {
+    width:'1750px',
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     whiteSpace: 'pre',
-    overflowY:'auto',
-    overflowX:'hidden'
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
     flexBasis: '33.33%',
-    fontWeight: '600'
+    fontWeight: '600',
+    whiteSpace: 'nowrap',
+    display: 'inline-flex',
+    alignItems: 'center',
+    paddingRight: theme.typography.pxToRem(20)
   },
   helper: {
     borderLeft: `2px solid ${theme.palette.divider}`,
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
+    padding: `0px ${theme.spacing.unit * 2}px`,
   },
   logsDialog:{
-    width:'1750px',
-    overflowY:'auto',
+    overflowY:'hidden',
     overflowX:'hidden'
+  },
+  logsWrapper:{
+    overflowY:'auto',
+    overflowX:'auto'
   },
   details:{
     display:'flex'
   },
-  column: {
-    flexBasis: '15%',
-    maxWidth: '15%'
-  },
   column2: {
-    flexBasis: '42.5%',
-    maxWidth: '42.5%'
+    flexBasis: '50%',
+    maxWidth: '50%'
   },
   column3: {
-    flexBasis: '42.5%',
-    maxWidth: '42.5%'
+    flexBasis: '33.33%',
+    maxWidth: '33.33%'
   },
-  cloneInfo1:{
+  cloneInfoTitle:{
     fontWeight: '600',
-    paddingLeft: '16px',
-    paddingTop: '16px'
+    flexBasis: '100%',
+    maxWidth: '100%'
   },
-  cloneInfo2:{
-    paddingLeft: '16px',
-    paddingTop: '16px'
+  cloneInfoBold:{
+    fontWeight: '600',
+    paddingLeft: '10px',
+    paddingTop: '10px'
+  },
+  cloneInfoNormal:{
+    paddingLeft: '10px',
+    paddingTop: '10px'
+  },
+  avatar: {
+    margin: 10,
   },
 })
 

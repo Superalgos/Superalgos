@@ -1,4 +1,4 @@
-import CloneInputType from './Clone';
+import CloneInputType from './Clone'
 
 export {
   CloneInputType

@@ -3,30 +3,29 @@ import {
 } from 'graphql'
 
 import {
-  AuthentificationError,
-  OperationsError
+  AuthentificationError
 } from '../../errors'
 
 import { CloneType } from '../types'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
-import getCloneStatus from '../../kubernetes/getClonePodStatus'
-import getCloneLogs from '../../kubernetes/getClonePodLogs'
+import getKuberneteClonePodStatus from '../../kubernetes/getClonePodStatus'
+import getKuberneteClonePodLogs from '../../kubernetes/getClonePodLogs'
 import teams_FbByTeamMember from '../../graphQLCalls/teams_FbByTeamMember'
 import cloneDetails from './cloneDetails'
 
 const args = {}
 
 const resolve = async(parent, args, context) => {
-  logger.debug('List Clones -> Entering Fuction.')
-  try{
+  logger.debug('History Clones -> Entering Fuction.')
+
    if (!context.userId) {
      throw new AuthentificationError()
    }
 
    let clones = await Clone.find({
      authId: context.userId,
-     active: true
+     active: false
    })
 
    // TODO Refactor this code once financial beings api is ready
@@ -35,20 +34,13 @@ const resolve = async(parent, args, context) => {
 
    for (var i = 0; i < clones.length; i++) {
       clones[i] = await cloneDetails(context.authorization, botsByUser, clones[i])
-      let state = await getCloneStatus(clones[i].cloneName)
-      clones[i].state = state.substring(1, state.length-1)
-      let lastLogs = await getCloneLogs(clones[i].cloneName)
-      clones[i].lastLogs = lastLogs.substring(1, lastLogs.length-1)
    }
+
    return clones
- } catch (err){
-    logger.error('List Clones error: %s', err.stack)
-    throw new OperationsError('There has been an error listing the clones.')
- }
 }
 
 const query = {
-  clones: {
+  historyClones: {
     type: new GraphQLList(CloneType),
     args,
     resolve

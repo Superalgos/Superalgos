@@ -3,12 +3,12 @@ import { graphql } from 'react-apollo'
 import { clones } from '../../../GraphQL/Calls'
 import TopBar from '../../BannerTopBar'
 //import CloneDialog from './CloneDialog'
-import ListClones from './ListClones'
+import ListClones from '../List/ListClones'
 
 // Material-ui
 import { Typography, Paper } from '@material-ui/core'
 
-class BrowseClones extends Component {
+class HistoryClones extends Component {
 
   constructor (props) {
     super(props)
@@ -25,26 +25,26 @@ class BrowseClones extends Component {
       return (
         <TopBar
           size='big'
-          title='Your Bot Clones'
+          title='Bot Clone History'
           text='Loading your Bot Clones...'
           backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
         />
       )
-    } else if (data.operations_Clones && data.operations_Clones.length > 0) {
+    } else if (data.operations_HistoryClones && data.operations_HistoryClones.length > 0) {
       return (
         <React.Fragment>
           <TopBar
             size='medium'
-            title='Your Bot Clones'
+            title='Bot Clone History'
             text='All your Bot Clones are here.'
             backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
           />
 
           <div className='container'>
             {
-                data.operations_Clones.map((clone, i) => {
+                data.operations_HistoryClones.map((clone, i) => {
                   return (
-                    <ListClones key={clone.id} currentClone={clone} />
+                    <ListClones key={clone.id} currentClone={clone} isHistory={true}/>
                   )
                 })
             }
@@ -55,7 +55,7 @@ class BrowseClones extends Component {
       return (
         <TopBar
           size='big'
-          title='Your Bot Clones'
+          title='Bot Clone History'
           text='Please login to gain access to your Bot Clones.'
           backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
         />
@@ -64,8 +64,8 @@ class BrowseClones extends Component {
       return (
         <TopBar
           size='big'
-          title='Your Bot Clones'
-          text="You don't have any Bot Clone yet. Once you create one you will find it here."
+          title='Bot Clone History'
+          text="You don't have any Clone yet. Once you create one you will find it here."
           backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
           />
       )
@@ -82,7 +82,7 @@ class BrowseClones extends Component {
           backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
         />
       )
-    } else if (data.operations_Clones && data.operations_Clones.length > 0) {
+    } else if (data.operations_HistoryClones && data.operations_HistoryClones.length > 0) {
       return (
         <React.Fragment>
           <TopBar
@@ -94,7 +94,7 @@ class BrowseClones extends Component {
 
           <div className='container'>
             {
-              data.operations_Clones.map((clone, i) => {
+              data.operations_HistoryClones.map((clone, i) => {
                 return (
                   <ListClones key={clone.id} currentClone={clone} />
                 )
@@ -127,4 +127,4 @@ class BrowseClones extends Component {
 
 }
 
-export default graphql(clones.OPERATIONS_LIST_CLONES)(BrowseClones)
+export default graphql(clones.OPERATIONS_HISTORY_CLONES)(HistoryClones)

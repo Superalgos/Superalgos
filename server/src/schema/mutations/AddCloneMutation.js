@@ -1,7 +1,8 @@
 import { CloneInputType } from '../types/input';
 import { CloneType } from '../types';
 import { Clone } from '../../models';
-import { CloneModeEnum , BACKTEST} from '../../enums/CloneMode';
+import { CloneModeEnum } from '../../enums/CloneMode';
+import teams_FbByTeamMember from '../../graphQLCalls/teams_FbByTeamMember';
 
 import {
   AuthentificationError,
@@ -10,10 +11,9 @@ import {
   CustomError
 } from '../../errors'
 
-import axios from 'axios';
 import logger from '../../config/logger'
 import createKubernetesClone from '../../kubernetes/createClone'
-import { isDefined } from '../../config/utils'
+import { isDefined, getSelectedBot } from '../../config/utils'
 
 const args = {
   clone: {type: CloneInputType }
@@ -30,69 +30,35 @@ const resolve = async(parent, { clone }, context) => {
     throw new WrongArgumentsError('The mode selected is not valid.')
   }
 
-  // Disable execution dates if mode is not backtest
-  if((clone.hasOwnProperty('beginDatetime')
-      || clone.hasOwnProperty('endDatetime'))
-    && clone.mode !== BACKTEST){
-    throw new WrongArgumentsError('Ony Backtest mode allows begin and end date selection.')
-  }
-
   let existingClone = await Clone.find(
     {
       authId: context.userId,
-      mode: clone.mode
+      mode: clone.mode,
+      botId: clone.botId,
+      active: true
     })
 
   logger.debug('addClone -> Checking existing clone %j', existingClone)
-  if(isDefined(existingClone) && existingClone.length > 0){
-    throw new CustomError('You can only create one clone per mode. Remove the'
+  if(existingClone.length > 0){
+    throw new CustomError('You can only have one active clone by mode. Remove the'
       + ' existing clone of type: ' + clone.mode + ' and try again.')
   }
 
-  logger.debug('addClone -> Creating a new clone. %j', clone)
-
   try{
-    const userTeam = await axios({
-      url: process.env.GATEWAY_ENDPOINT,
-      method: 'post',
-      data: {
-        query: `
-        query Teams_FbByTeamMember {
-          teams_FbByTeamMember {
-            id
-            name
-            slug
-            fb {
-              id
-              name
-              slug
-            }
-            members {
-              member {
-                alias
-              }
-            }
-          }
-        }
-        `,
-      },
-      headers: {
-        authorization: context.authorization,
-        preshared: process.env.OPERATIONS_API_PRESHARED
-      }
-    })
-
-    clone.teamId = userTeam.data.data.teams_FbByTeamMember.slug
-    clone.botId = userTeam.data.data.teams_FbByTeamMember.fb[0].slug
-    clone.userLoggedIn = userTeam.data.data.teams_FbByTeamMember.members[0].member.alias
+    // Authorization is handled by the teams module
+    let botsByUser = await teams_FbByTeamMember(context.authorization)
+    let selectedBot = getSelectedBot(botsByUser.data.data.teams_FbByTeamMember, clone.botId)
+    clone.teamId = botsByUser.data.data.teams_FbByTeamMember.id
+    clone.botId = selectedBot.id
+    clone.userLoggedIn = botsByUser.data.data.teams_FbByTeamMember.members[0].member.alias //TODO change by context info if possible
     clone.createDatetime = new Date().valueOf() / 1000|0
+    clone.active = true
 
+    logger.debug('addClone -> Creating a new clone. %j', clone)
     let newClone = new Clone(clone)
-
-    await createKubernetesClone(clone, newClone._id)
-
     newClone.id = newClone._id
     newClone.authId = context.userId
+    await createKubernetesClone(newClone, botsByUser.data.data.teams_FbByTeamMember.slug, selectedBot.slug )
 
     return new Promise((resolve, reject) => {
       newClone.save((err) => {
@@ -102,14 +68,13 @@ const resolve = async(parent, { clone }, context) => {
         }
         else {
           //TODO transaction on database
-          // saveAuditLog(newClone.id, 'addKey', context)
           logger.debug('addClone -> Save clone sucessful.')
           resolve(newClone)
         }
       })
     })
-  } catch(error) {
-    logger.debug('addClone -> Error: %j', error)
+  } catch(err) {
+    logger.error('addClone -> Error: %s', err.stack)
     throw new OperationsError('There has been an error creating the clone.')
   }
 }

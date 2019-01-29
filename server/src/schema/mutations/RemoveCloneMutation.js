@@ -12,10 +12,11 @@ import {
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import removeKuberneteClone from '../../kubernetes/removeClone'
-//import saveAuditLog from './AddAuditLog'
+import teams_FbByTeamMember from '../../graphQLCalls/teams_FbByTeamMember'
+import { isDefined, getSelectedBot } from '../../config/utils'
 
 const args = {
-  id: {type: new GraphQLNonNull(GraphQLID)}
+  id: { type: new GraphQLNonNull(GraphQLID) }
 }
 
 const resolve = async (parent, { id }, context) => {
@@ -25,20 +26,37 @@ const resolve = async (parent, { id }, context) => {
     throw new AuthentificationError()
   }
 
-  await removeKuberneteClone(id)
+  let clone = await Clone.findOne({
+    _id: id,
+    authId: context.userId,
+    active: true
+  })
 
-  var query = {
+  if(!isDefined(clone)){
+    throw new CustomError('You are not authorized to remove this clone.')
+  }
+
+  // Authorization is also handled by the teams module
+  let botsByUser = await teams_FbByTeamMember(context.authorization)
+  let selectedBot = getSelectedBot(botsByUser.data.data.teams_FbByTeamMember, clone.botId)
+
+  logger.debug('removeClone -> Removing Clone from Kubernates.')
+  await removeKuberneteClone(clone, botsByUser.data.data.teams_FbByTeamMember.slug, selectedBot.slug)
+
+  const query = {
     _id: id,
     authId: context.userId
   }
+  const options = { new: true }
+  const update = { active: false }
 
-  //saveAuditLog(id, 'removeClone', context)
-  logger.debug('removeClone -> Removing Clone from DB.')
-  Clone.deleteOne(query, function (err) {
+  Clone.findOneAndUpdate(query, update, options, (err, doc) => {
     if (err){
+      logger.error('removeClone -> Error removing clone from the DB. %s', err.stack)
       throw new OperationsError(err)
     }else{
-      return 'Clone Removed'
+      logger.debug('removeClone -> Clone Removed from the DB.')
+      return('Clone Removed.')
     }
   })
 }

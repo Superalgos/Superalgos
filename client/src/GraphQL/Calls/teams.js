@@ -10,29 +10,12 @@ export const GET_ALL_TEAMS_QUERY = gql`
         id
         name
         slug
-      }
-    }
-  }
-`
-
-export const GET_ALL_TEAM_BOTS_QUERY = gql`
-  query teamBotsQuery($teamId: String!) {
-    teams_TeamById(teamId: $teamId) {
-      fb {
-        id
-        name
-        slug
-        team{
-          id
-          name
-          slug
-        }
+        kind
       }
     }
   }
 `
 
 export default {
-  GET_ALL_TEAMS_QUERY,
-  GET_ALL_TEAM_BOTS_QUERY
+  GET_ALL_TEAMS_QUERY
 };

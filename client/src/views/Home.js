@@ -12,7 +12,7 @@ class Home extends Component {
           size='big'
           title='Operations Module'
           text='Responsible for manage bot clones.'
-          backgroundUrl='https://advancedalgos.net/img/photos/ecosystem.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/ecosystem.jpg'
         />
 
         <div className='homePage container'>

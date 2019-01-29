@@ -39,7 +39,16 @@ const cloneSchema = new Schema({
   },
   stateDatetime: Number,
   createDatetime: Number,
-  runAsTeam: Boolean
+  runAsTeam: Boolean,
+  active: Boolean,
+  summaryDate: Number,
+  buyAverage: Number,
+  sellAverage: Number,
+  marketRate: Number,
+  combinedProfitsA: Number,
+  combinedProfitsB: Number,
+  assetA: String,
+  assetB: String
 })
 
 const Clone = mongoose.model('Clone', cloneSchema)

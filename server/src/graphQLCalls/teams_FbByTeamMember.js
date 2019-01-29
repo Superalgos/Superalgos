@@ -1,17 +1,39 @@
 import logger from '../config/logger'
-import { toPlatformDatetime } from '../config/utils'
+import axios from 'axios'
 
-const downloadBlob = async (containerName, blobName) => {
-  logger.debug('downloadBlob -> About to get a file: %s%s', containerName, blobName)
-  return new Promise((resolve, reject) => {
-      blobService.getBlobToText(containerName, blobName, (err, data) => {
-          if (err) {
-              reject(err);
-          } else {
-              resolve(data);
+const teams_FbByTeamMember = (authorization) => {
+  logger.debug('GraphQL call teams_FbByTeamMember')
+
+  return axios({
+    url: process.env.GATEWAY_ENDPOINT,
+    method: 'post',
+    data: {
+      query: `
+      query Teams_FbByTeamMember {
+        teams_FbByTeamMember {
+          id
+          name
+          slug
+          fb {
+            id
+            name
+            slug
+            kind
+            avatar
           }
-      });
-  });
+          members {
+            member {
+              alias
+            }
+          }
+        }
+      }
+      `,
+    },
+    headers: {
+      authorization: authorization
+    }
+  })
 };
 
-export default downloadBlob
+export default teams_FbByTeamMember

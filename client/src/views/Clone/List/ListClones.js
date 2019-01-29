@@ -11,7 +11,7 @@ import {
   ExpansionPanelActions, Chip, Divider
 
 } from '@material-ui/core'
-
+import Avatar from '@material-ui/core/Avatar';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import { isDefined, toLocalTime } from '../../../utils'
@@ -37,10 +37,12 @@ class ListClones extends Component {
       <ExpansionPanel className={classes.root}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <div className={classes.heading}>
-            <Typography className={classes.heading}>{clone.teamId}</Typography>
+            <Avatar src={clone.teamAvatar} className={classes.avatar} />
+            <Typography className={classes.heading}>{clone.teamName}</Typography>
           </div>
           <div className={classes.heading}>
-            <Typography className={classes.heading}>{clone.botId}</Typography>
+            <Avatar src={clone.botAvatar} className={classes.avatar} />
+            <Typography className={classes.heading}>{clone.botName}</Typography>
           </div>
           <div className={classes.heading}>
             <Typography className={classes.heading}>{clone.mode}</Typography>
@@ -82,23 +84,31 @@ class ListClones extends Component {
               </div>
             </div>
             <div className={classNames(classes.column3, classes.helper)}>
-              <Typography className={classes.cloneInfoTitle}>Trading Information</Typography>
+              <Typography className={classes.cloneInfoTitle}>Execution Information</Typography>
               <div className={classes.details}>
                 <div className={classes.column4}>
-                  <Typography className={classes.cloneInfoBold}>Date:</Typography>
-                  <Typography className={classes.cloneInfoBold}>Buy Average:</Typography>
-                  <Typography className={classes.cloneInfoBold}>Sell Average:</Typography>
-                  <Typography className={classes.cloneInfoBold}>Market Rate:</Typography>
-                  <Typography className={classes.cloneInfoBold}>ROI {clone.assetA}:</Typography>
-                  <Typography className={classes.cloneInfoBold}>ROI {clone.assetB}:</Typography>
+                  <Typography className={classes.cloneInfoBold}>Last Execution:</Typography>
+                  { (clone.kind === 'TRADER') &&
+                    <React.Fragment>
+                      <Typography className={classes.cloneInfoBold}>Buy Average:</Typography>
+                      <Typography className={classes.cloneInfoBold}>Sell Average:</Typography>
+                      <Typography className={classes.cloneInfoBold}>Market Rate:</Typography>
+                      <Typography className={classes.cloneInfoBold}>ROI {clone.assetA}:</Typography>
+                      <Typography className={classes.cloneInfoBold}>ROI {clone.assetB}:</Typography>
+                    </React.Fragment>
+                  }
                 </div>
                 <div className={classes.column4}>
-                  <Typography className={classes.cloneInfoNormal}>{toLocalTime(clone.summaryDate)}</Typography>
-                  <Typography className={classes.cloneInfoNormal}>{clone.buyAverage}</Typography>
-                  <Typography className={classes.cloneInfoNormal}>{clone.sellAverage}</Typography>
-                  <Typography className={classes.cloneInfoNormal}>{clone.marketRate}</Typography>
-                  <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsA}</Typography>
-                  <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsB}</Typography>
+                  <Typography className={classes.cloneInfoNormal}>{isDefined(clone.summaryDate) ? toLocalTime(clone.summaryDate): 'waiting update...'}</Typography>
+                  { (clone.kind === 'INDICATOR' || clone.kind === 'EXTRACTOR') &&
+                    <React.Fragment>
+                      <Typography className={classes.cloneInfoNormal}>{clone.buyAverage}</Typography>
+                      <Typography className={classes.cloneInfoNormal}>{clone.sellAverage}</Typography>
+                      <Typography className={classes.cloneInfoNormal}>{clone.marketRate}</Typography>
+                      <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsA}</Typography>
+                      <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsB}</Typography>
+                    </React.Fragment>
+                  }
                 </div>
               </div>
             </div>

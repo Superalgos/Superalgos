@@ -41,8 +41,6 @@ export class OperationsError extends Error {
   message = 'OperationsModule Internal Error. ' + this.message
   constructor(message){
     super(message)
-    logger.error(this.stack)
-    this.stack = ''
   }
 }
 

@@ -1,7 +1,6 @@
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    padding: 10,
     margin: 10
   },
   image: {
@@ -42,7 +41,11 @@ const styles = theme => ({
   heading: {
     fontSize: theme.typography.pxToRem(18),
     flexBasis: '33.33%',
-    fontWeight: '600'
+    fontWeight: '600',
+    whiteSpace: 'nowrap',
+    display: 'inline-flex',
+    alignItems: 'center',
+    paddingRight: theme.typography.pxToRem(20)
   },
   helper: {
     borderLeft: `2px solid ${theme.palette.divider}`,
@@ -77,6 +80,9 @@ const styles = theme => ({
   cloneInfoNormal:{
     paddingLeft: '10px',
     paddingTop: '10px'
+  },
+  avatar: {
+    margin: 10,
   },
 })
 

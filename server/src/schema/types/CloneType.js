@@ -31,7 +31,12 @@ const CloneType = new GraphQLObjectType({
     combinedProfitsA: {type: GraphQLFloat},
     combinedProfitsB: {type: GraphQLFloat},
     assetA: {type: GraphQLString},
-    assetB: {type: GraphQLString}
+    assetB: {type: GraphQLString},
+    kind: {type: GraphQLString},
+    teamName: {type: GraphQLString},
+    botName: {type: GraphQLString},
+    botAvatar: {type: GraphQLString},
+    teamAvatar: {type: GraphQLString}
   })
 })
 export default CloneType

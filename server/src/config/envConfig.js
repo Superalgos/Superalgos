@@ -7,11 +7,9 @@ env.push({
   "value": process.env.PLATFORM_ENVIRONMENT
 })
 
-// FIXME
 env.push({
   "name": "GATEWAY_ENDPOINT",
-  "value": "https://platform-api-dev.superalgos.org/graphql"
-  //"value": process.env.GATEWAY_ENDPOINT
+  "value": process.env.GATEWAY_ENDPOINT
 })
 
 env.push({

@@ -49,7 +49,7 @@ class AddClone extends Component {
       startYear: 2019,
       endYear: 2019,
       month: 1,
-      botProcessName: '',
+      processName: '',
 
       //Error handlers
       nameError: false,
@@ -59,7 +59,7 @@ class AddClone extends Component {
       isNewCloneConfirmationOpen: false,
       serverResponse: '',
       serverError: false,
-      botProcessNameError: false
+      processNameError: false
     }
   }
 
@@ -158,7 +158,7 @@ class AddClone extends Component {
               </FormControl>
 
               { /* TRADER BOT */ }
-              { this.state.selectedBot.kind === "TRADER1" &&
+              { this.state.selectedBot.kind === "TRADER" &&
                   <React.Fragment>
                     <Typography className={classes.typography} variant='subtitle1' align='justify'>
                       At the moment Live Trading Clones trade by default 0.001 BTC on Poloniex.
@@ -262,16 +262,16 @@ class AddClone extends Component {
                }
 
               { /* INDICATOR AND EXTRACTOR BOTS */ }
-              { (this.state.selectedBot.kind === "TRADER"
+              { (this.state.selectedBot.kind === "INDICATOR"
                 || this.state.selectedBot.kind === "EXTRACTOR") &&
                   <React.Fragment>
                     <TextField
                        label="Process Name"
                        className={classNames(classes.textField, classes.form)}
-                       value={this.state.botProcessName}
-                       onChange={(e)=> this.setState({botProcessName:e.target.value})}
-                       onBlur={(e)=>this.setState({botProcessNameError:false})}
-                       error={this.state.botProcessNameError}
+                       value={this.state.processName}
+                       onChange={(e)=> this.setState({processName:e.target.value})}
+                       onBlur={(e)=>this.setState({processNameError:false})}
+                       error={this.state.processNameError}
                        fullWidth
                      />
 
@@ -446,7 +446,7 @@ class AddClone extends Component {
     }
 
     if(this.state.selectedBot.kind !== "TRADER"){
-      variables.clone.botProcessName = this.state.botProcessName
+      variables.clone.processName = this.state.processName
       variables.clone.startYear = this.state.startYear
       variables.clone.endYear = this.state.endYear
       variables.clone.month = this.state.month
@@ -478,7 +478,7 @@ class AddClone extends Component {
         stateDatetime: 0,
         createDatetime: 0,
         runAsTeam: false,
-        botProcessName: '',
+        processName: '',
 
         //Error handlers
         nameError: false,
@@ -488,7 +488,7 @@ class AddClone extends Component {
         isNewCloneConfirmationOpen: false,
         serverResponse: '',
         serverError: false,
-        botProcessNameError: false
+        processNameError: false
       })
   };
 
@@ -497,7 +497,7 @@ class AddClone extends Component {
 
     if(this.state.selectedBot.length < 1) {
       isError = true
-      this.setState(state => ({ teamError: true }));
+      this.setState(state => ({ selectedBotError: true }));
     }
 
     if(this.state.mode.length < 1) {
@@ -505,9 +505,10 @@ class AddClone extends Component {
       this.setState(state => ({ modeError: true }));
     }
 
-    if(this.state.botProcessName.length < 1) {
+    if(this.state.selectedBot.kind !== "TRADER"
+        && this.state.processName.length < 1 ) {
       isError = true
-      this.setState(state => ({ botProcessNameError: true }));
+      this.setState(state => ({ processNameError: true }));
     }
 
     return isError;

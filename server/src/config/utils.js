@@ -8,6 +8,16 @@ export function isDefined (d) {
   return d !== null && typeof d !== 'undefined'
 }
 
-export function getJobNameFromClone (clone) {
-  return clone.teamId + '-' + clone.botId + '-' + clone.mode.toLowerCase()
+export function getJobNameFromClone (teamSlug, botSlug, mode) {
+  return teamSlug + '-' + botSlug + '-' + mode.toLowerCase()
+}
+
+export function getSelectedBot(botsByUser, selectedBotId){
+  if(isDefined(botsByUser)){
+    for (var i = 0; i < botsByUser.fb.length; i++) {
+      if(botsByUser.fb[i].id === selectedBotId){
+        return botsByUser.fb[i]
+      }
+    }
+  }
 }

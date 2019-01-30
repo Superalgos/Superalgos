@@ -32,6 +32,7 @@ class ListClones extends Component {
   render () {
     const { classes } = this.props
     const clone = this.props.currentClone
+    console.log(clone)
     return (
       <React.Fragment>
       <ExpansionPanel className={classes.root}>
@@ -83,48 +84,56 @@ class ListClones extends Component {
                 </div>
               </div>
             </div>
-            <div className={classNames(classes.column3, classes.helper)}>
-              <Typography className={classes.cloneInfoTitle}>Execution Information</Typography>
-              <div className={classes.details}>
-                <div className={classes.column4}>
-                  <Typography className={classes.cloneInfoBold}>Last Execution:</Typography>
-                  { (clone.botType === 'Trading' && isDefined(clone.assetA) ) &&
-                    <React.Fragment>
-                      <Typography className={classes.cloneInfoBold}>Buy Average:</Typography>
-                      <Typography className={classes.cloneInfoBold}>Sell Average:</Typography>
-                      <Typography className={classes.cloneInfoBold}>Market Rate:</Typography>
-                      <Typography className={classes.cloneInfoBold}>ROI {clone.assetA}:</Typography>
-                      <Typography className={classes.cloneInfoBold}>ROI {clone.assetB}:</Typography>
-                    </React.Fragment>
-                  }
+            { isDefined(clone.summaryDate) &&
+              <React.Fragment>
+                <div className={classNames(classes.column3, classes.helper)}>
+                  <Typography className={classes.cloneInfoTitle}>Execution Information</Typography>
+                  <div className={classes.details}>
+                    <div className={classes.column4}>
+                      <Typography className={classes.cloneInfoBold}>Last Execution:</Typography>
+                      { (clone.botType === 'TRADER' && isDefined(clone.assetA) ) &&
+                        <React.Fragment>
+                          <Typography className={classes.cloneInfoBold}>Buy Average:</Typography>
+                          <Typography className={classes.cloneInfoBold}>Sell Average:</Typography>
+                          <Typography className={classes.cloneInfoBold}>Market Rate:</Typography>
+                          <Typography className={classes.cloneInfoBold}>ROI {clone.assetA}:</Typography>
+                          <Typography className={classes.cloneInfoBold}>ROI {clone.assetB}:</Typography>
+                        </React.Fragment>
+                      }
+                    </div>
+                    <div className={classes.column4}>
+                      <Typography className={classes.cloneInfoNormal}>{ toLocalTime(clone.summaryDate) }</Typography>
+                      { (clone.botType === 'TRADER' && isDefined(clone.assetA) ) &&
+                        <React.Fragment>
+                          <Typography className={classes.cloneInfoNormal}>{clone.buyAverage}</Typography>
+                          <Typography className={classes.cloneInfoNormal}>{clone.sellAverage}</Typography>
+                          <Typography className={classes.cloneInfoNormal}>{clone.marketRate}</Typography>
+                          <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsA}</Typography>
+                          <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsB}</Typography>
+                        </React.Fragment>
+                      }
+                    </div>
+                  </div>
                 </div>
-                <div className={classes.column4}>
-                  <Typography className={classes.cloneInfoNormal}>{isDefined(clone.summaryDate) ? toLocalTime(clone.summaryDate): 'waiting update...'}</Typography>
-                  { ((clone.botType === 'Indicator' || clone.botType === 'Extraction') && isDefined(clone.assetA) ) &&
-                    <React.Fragment>
-                      <Typography className={classes.cloneInfoNormal}>{clone.buyAverage}</Typography>
-                      <Typography className={classes.cloneInfoNormal}>{clone.sellAverage}</Typography>
-                      <Typography className={classes.cloneInfoNormal}>{clone.marketRate}</Typography>
-                      <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsA}</Typography>
-                      <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsB}</Typography>
-                    </React.Fragment>
-                  }
+              </React.Fragment>
+            }
+            { (clone.state !== 'UNPUBLISHED') &&
+              <React.Fragment>
+                <div className={classNames(classes.column3, classes.helper)}>
+                  <Typography className={classes.cloneInfoTitle}>Virtual Machine Status</Typography>
+                  <TextField
+                    id="outlined-state"
+                    defaultValue={clone.state}
+                    margin="normal"
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                    fullWidth
+                    multiline
+                  />
                 </div>
-              </div>
-            </div>
-            <div className={classNames(classes.column3, classes.helper)}>
-              <Typography className={classes.cloneInfoTitle}>Virtual Machine Status</Typography>
-              <TextField
-                id="outlined-state"
-                defaultValue={clone.state}
-                margin="normal"
-                InputProps={{
-                  readOnly: true,
-                }}
-                fullWidth
-                multiline
-              />
-            </div>
+            </React.Fragment>
+          }
         </ExpansionPanelDetails>
         {
           !this.props.isHistory &&

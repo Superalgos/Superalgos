@@ -32,7 +32,6 @@ class ListClones extends Component {
   render () {
     const { classes } = this.props
     const clone = this.props.currentClone
-    console.log(clone)
     return (
       <React.Fragment>
       <ExpansionPanel className={classes.root}>

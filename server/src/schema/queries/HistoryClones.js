@@ -34,6 +34,7 @@ const resolve = async(parent, args, context) => {
 
    for (var i = 0; i < clones.length; i++) {
       clones[i] = await cloneDetails(context.authorization, botsByUser, clones[i])
+      clones[i].botType = clones[i].kind // Only for listing we show the teams value
    }
 
    return clones

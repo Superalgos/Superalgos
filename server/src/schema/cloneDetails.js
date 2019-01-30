@@ -9,6 +9,7 @@ const cloneDetails = async(authorization, botsByUser, clone) => {
   let selectedBot = getSelectedBot(botsByUser.data.data.teams_FbByTeamMember, clone.botId)
   clone.teamId = botsByUser.data.data.teams_FbByTeamMember.id
   clone.botId = selectedBot.id
+  clone.kind = selectedBot.kind
   clone.teamSlug = botsByUser.data.data.teams_FbByTeamMember.slug
   clone.botSlug = selectedBot.slug
   clone.cloneName = getJobNameFromClone(clone)

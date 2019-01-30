@@ -39,6 +39,7 @@ const resolve = async(parent, args, context) => {
       clones[i].state = state.substring(1, state.length-1)
       let lastLogs = await getCloneLogs(clones[i].cloneName)
       clones[i].lastLogs = lastLogs.substring(1, lastLogs.length-1)
+      clones[i].botType = clones[i].kind // Only for listing we show the teams value
    }
    return clones
  } catch (err){

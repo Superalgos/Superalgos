@@ -8,7 +8,7 @@ import { BACKTEST} from '../enums/CloneMode';
 
 const createClone = async (clone) => {
   try {
-    logger.info("createClone %j", clone)
+    logger.debug("createClone %s", clone.cloneName)
     const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
 
     // Make changes to base deployment config
@@ -127,13 +127,12 @@ const createClone = async (clone) => {
         })
     }
 
-    logger.debug("Configuration: %j.", env)
     deploymentManifest.spec.template.spec.containers[0].env = env
 
     const create = await client.apis.batch.v1.namespaces('default').jobs.post(
       { body: deploymentManifest })
 
-    logger.info("createClone %s on Kubernates success.", clone.cloneName)
+    logger.debug("createClone %s on Kubernates success.", clone.cloneName)
   } catch (err) {
      throw new KubernateError(err)
   }

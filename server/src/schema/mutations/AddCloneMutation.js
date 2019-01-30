@@ -43,7 +43,7 @@ const resolve = async(parent, { clone }, context) => {
       active: true
     })
 
-  logger.debug('addClone -> Checking existing clone %j', existingClone)
+  logger.debug('addClone -> Checking existing clone.')
   if(existingClone.length > 0){
     throw new OperationsError('You can only have one active clone by mode. Remove the'
       + ' existing clone of type: ' + clone.mode + ' and try again.')
@@ -66,7 +66,7 @@ const resolve = async(parent, { clone }, context) => {
     return new Promise((resolve, reject) => {
       newClone.save((err) => {
         if (err){
-          logger.debug('addClone -> Error: %j', err)
+          logger.error('addClone -> Error: %s', err.stack)
           reject('There has been an error storing the clone.')
         }
         else {

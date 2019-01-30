@@ -12,7 +12,7 @@ import logger from '../../config/logger'
 import getKuberneteClonePodStatus from '../../kubernetes/getClonePodStatus'
 import getKuberneteClonePodLogs from '../../kubernetes/getClonePodLogs'
 import teams_FbByTeamMember from '../../graphQLCalls/teams_FbByTeamMember'
-import cloneDetails from './cloneDetails'
+import cloneDetails from '../cloneDetails'
 
 const args = {}
 

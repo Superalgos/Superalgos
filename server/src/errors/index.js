@@ -5,7 +5,6 @@ export class AuthentificationError extends Error {
   message = 'Autentification not found, you have to be authentificated to perform this action'
   constructor(){
     super()
-    logger.error(this.stack)
   }
 }
 
@@ -14,7 +13,6 @@ export class DatabaseError extends Error {
   message = 'Ressource not found : ' + this.message
   constructor(message){
     super(message)
-    logger.error(this.stack)
   }
 }
 
@@ -23,7 +21,6 @@ export class WrongArgumentsError extends Error {
   message = 'Wrong arguments : ' + this.message
   constructor(message){
     super(message)
-    logger.error(this.stack)
   }
 }
 
@@ -32,7 +29,6 @@ export class ServiceUnavailableError extends Error {
   message = 'At least one service is unresponding ' + this.message
   constructor(message){
     super(message)
-    logger.error(this.stack)
   }
 }
 
@@ -50,15 +46,5 @@ export class KubernateError extends Error {
   constructor(message){
     super(message)
     logger.error(this.stack)
-  }
-}
-
-export class CustomError extends Error {
-  code = 500
-  message = this.message
-  constructor(message){
-    super(message)
-    logger.error(this.stack)
-    this.stack = ''
   }
 }

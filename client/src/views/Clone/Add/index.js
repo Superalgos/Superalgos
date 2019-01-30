@@ -435,7 +435,8 @@ class AddClone extends Component {
         botId: this.state.selectedBot.id,
         mode: this.state.mode,
         resumeExecution: this.state.resumeExecution,
-        runAsTeam: this.state.runAsTeam
+        runAsTeam: this.state.runAsTeam,
+        botType: this.getBotTypeFromKind(this.state.selectedBot.kind)
       }
     }
 
@@ -455,6 +456,15 @@ class AddClone extends Component {
     return this.props.addCloneMutation({
       variables: variables
     })
+  }
+
+  getBotTypeFromKind(kind){
+    if(kind === 'TRADER')
+      return 'Trading'
+    else if(kind === 'INDICATOR')
+      return 'Indicator'
+    else if(kind === 'EXTRACTOR')
+      return 'Extraction'
   }
 
   handleNewCloneConfirmationOpen = () => {

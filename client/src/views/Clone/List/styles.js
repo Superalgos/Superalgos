@@ -33,9 +33,11 @@ const styles = theme => ({
   },
   textArea: {
     width:'1750px',
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    margin: theme.spacing.unit,
     whiteSpace: 'pre',
+    width:'98%',
+    overflowY:'hidden',
+    overflowX:'hidden'
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
@@ -50,13 +52,10 @@ const styles = theme => ({
     borderLeft: `2px solid ${theme.palette.divider}`,
     padding: `0px ${theme.spacing.unit * 2}px`,
   },
-  logsDialog:{
-    overflowY:'hidden',
-    overflowX:'hidden'
-  },
   logsWrapper:{
+    width:'1750px',
     overflowY:'auto',
-    overflowX:'auto'
+    overflowX:'hidden'
   },
   details:{
     display:'flex'

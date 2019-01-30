@@ -8,8 +8,8 @@ export function isDefined (d) {
   return d !== null && typeof d !== 'undefined'
 }
 
-export function getJobNameFromClone (teamSlug, botSlug, mode) {
-  return teamSlug + '-' + botSlug + '-' + mode.toLowerCase()
+export function getJobNameFromClone (clone) {
+  return clone.teamSlug + '-' + clone.botSlug + '-' + clone.mode.toLowerCase()
 }
 
 export function getSelectedBot(botsByUser, selectedBotId){

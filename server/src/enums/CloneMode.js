@@ -1,9 +1,11 @@
 export const LIVE = 'Live'
 export const BACKTEST = 'Backtest'
 export const COMPETITION = 'Competition'
-export const ALL_MONTHS = 'All Months'
-export const ONE_MONTH = 'One Month'
-export const NO_TIME = 'No Time'
+export const ALL_MONTHS = 'allMonths'
+export const ONE_MONTH = 'oneMonth'
+export const NO_TIME = 'noTime'
+export const FIXED_INTERVAL = 'fixedInterval'
+
 
 export const CloneModeEnum = [
   LIVE,
@@ -11,7 +13,8 @@ export const CloneModeEnum = [
   COMPETITION,
   ALL_MONTHS,
   ONE_MONTH,
-  NO_TIME
+  NO_TIME,
+  FIXED_INTERVAL
 ]
 
 export default CloneModeEnum

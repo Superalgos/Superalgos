@@ -1,40 +1,66 @@
 import logger from '../config/logger'
-import { toPlatformDatetime, getJobNameFromClone, isDefined } from '../config/utils'
-import envConfig from '../config/envConfig'
+import { toPlatformDatetime, isDefined } from '../config/utils'
 import { KubernateError } from '../errors'
 import { Client, config } from 'kubernetes-client'
 // Get base Deployment config
 import deploymentManifest from '../config/clone-deployment.json'
 import { BACKTEST} from '../enums/CloneMode';
 
-const createClone = async (clone, teamSlug, botSlug) => {
+const createClone = async (clone) => {
   try {
-    let cloneName = getJobNameFromClone(teamSlug, botSlug, clone.mode)
-    logger.info("createClone %s", cloneName)
+    logger.info("createClone %j", clone)
     const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
 
     // Make changes to base deployment config
-    deploymentManifest.metadata.name = cloneName
+    deploymentManifest.metadata.name = clone.cloneName
 
     logger.debug("createClone Environment and Auth Configuration.")
-    let env = envConfig
+    let env = []
+    env.push({
+      "name": "PLATFORM_ENVIRONMENT",
+      "value": process.env.PLATFORM_ENVIRONMENT
+    })
+    env.push({
+      "name": "GATEWAY_ENDPOINT",
+      "value": process.env.GATEWAY_ENDPOINT
+    })
+    env.push({
+      "name": "STORAGE_BASE_URL",
+      "value": process.env.STORAGE_BASE_URL
+    })
+    env.push({
+      "name": "STORAGE_CONNECTION_STRING",
+      "value": process.env.STORAGE_CONNECTION_STRING
+    })
+    env.push({
+      "name": "AUTH_URL",
+      "value": process.env.AUTH_URL
+    })
+    env.push({
+      "name": "AUTH_CLIENT_ID",
+      "value": process.env.AUTH_CLIENT_ID
+    })
+    env.push({
+      "name": "AUTH_CLIENT_SECRET",
+      "value": process.env.AUTH_CLIENT_SECRET
+    })
+    env.push({
+      "name": "AUTH_AUDIENCE",
+      "value": process.env.AUTH_AUDIENCE
+    })
 
     logger.debug("createClone General Financial Being Configuration.")
     env.push({
       "name": "DEV_TEAM",
-      "value": clone.teamId
+      "value": clone.teamSlug
     })
     env.push({
       "name": "BOT",
-      "value": clone.botId
+      "value": clone.botSlug
     })
     env.push({
       "name": "TYPE",
-      "value": clone.kind
-    })
-    env.push({
-      "name": "PROCESS",
-      "value": clone.processName
+      "value": clone.botType
     })
     env.push({
       "name": "CLONE_ID",
@@ -54,7 +80,11 @@ const createClone = async (clone, teamSlug, botSlug) => {
     })
 
     logger.debug("createClone Trading Configuration.")
-    if(clone.kind === 'Trading'){
+    if(clone.botType === 'Trading'){
+      env.push({
+        "name": "PROCESS",
+        "value": 'Trading-Process'
+      })
       env.push({
         "name": "RESUME_EXECUTION",
         "value": clone.resumeExecution.toString()
@@ -74,7 +104,11 @@ const createClone = async (clone, teamSlug, botSlug) => {
           "value": clone.waitTime.toString()
         })
       }
-    } else if(clone.kind === 'Indicator' || clone.kind === 'Extractor'){
+    } else if(clone.botType === 'Indicator' || clone.botType === 'Extraction'){
+        env.push({
+          "name": "PROCESS",
+          "value": clone.processName
+        })
         env.push({
           "name": "MIN_YEAR",
           "value": isDefined(clone.startYear) ? clone.startYear.toString() : ''
@@ -93,12 +127,13 @@ const createClone = async (clone, teamSlug, botSlug) => {
         })
     }
 
+    logger.debug("Configuration: %j.", env)
     deploymentManifest.spec.template.spec.containers[0].env = env
 
     const create = await client.apis.batch.v1.namespaces('default').jobs.post(
       { body: deploymentManifest })
 
-    logger.info("createClone %s on Kubernates success.", cloneName)
+    logger.info("createClone %s on Kubernates success.", clone.cloneName)
   } catch (err) {
      throw new KubernateError(err)
   }

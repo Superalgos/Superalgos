@@ -14,7 +14,7 @@
         "containers": [
           {
             "name": "aadev",
-            "image": "benme/aadev:v3.3",
+            "image": "benme/aadev:v3.4",
             "command": ["node", "Run.js"],
             "env": [
             ]

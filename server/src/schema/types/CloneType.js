@@ -32,7 +32,7 @@ const CloneType = new GraphQLObjectType({
     combinedProfitsB: {type: GraphQLFloat},
     assetA: {type: GraphQLString},
     assetB: {type: GraphQLString},
-    kind: {type: GraphQLString},
+    botType: {type: GraphQLString},
     teamName: {type: GraphQLString},
     botName: {type: GraphQLString},
     botAvatar: {type: GraphQLString},

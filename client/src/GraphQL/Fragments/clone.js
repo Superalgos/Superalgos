@@ -24,7 +24,7 @@ export const clone = gql`
     combinedProfitsB
     assetA
     assetB
-    kind
+    botType
     teamName
     botName
     botAvatar

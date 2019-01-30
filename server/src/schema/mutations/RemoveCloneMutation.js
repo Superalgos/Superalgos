@@ -14,6 +14,7 @@ import logger from '../../config/logger'
 import removeKuberneteClone from '../../kubernetes/removeClone'
 import teams_FbByTeamMember from '../../graphQLCalls/teams_FbByTeamMember'
 import { isDefined, getSelectedBot } from '../../config/utils'
+import cloneDetails from '../cloneDetails'
 
 const args = {
   id: { type: new GraphQLNonNull(GraphQLID) }
@@ -33,15 +34,14 @@ const resolve = async (parent, { id }, context) => {
   })
 
   if(!isDefined(clone)){
-    throw new CustomError('You are not authorized to remove this clone.')
+    throw new OperationsError('You are not authorized to remove this clone.')
   }
 
-  // Authorization is also handled by the teams module
   let botsByUser = await teams_FbByTeamMember(context.authorization)
-  let selectedBot = getSelectedBot(botsByUser.data.data.teams_FbByTeamMember, clone.botId)
+  clone = await cloneDetails(context.authorization, botsByUser, clone)
 
   logger.debug('removeClone -> Removing Clone from Kubernates.')
-  await removeKuberneteClone(clone, botsByUser.data.data.teams_FbByTeamMember.slug, selectedBot.slug)
+  await removeKuberneteClone(clone)
 
   const query = {
     _id: id,

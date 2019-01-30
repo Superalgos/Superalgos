@@ -2,13 +2,14 @@ import { CloneInputType } from '../types/input';
 import { CloneType } from '../types';
 import { Clone } from '../../models';
 import { CloneModeEnum } from '../../enums/CloneMode';
+import { BotTypesEnum } from '../../enums/BotTypes';
 import teams_FbByTeamMember from '../../graphQLCalls/teams_FbByTeamMember';
+import cloneDetails from '../cloneDetails'
 
 import {
   AuthentificationError,
   WrongArgumentsError,
-  OperationsError,
-  CustomError
+  OperationsError
 } from '../../errors'
 
 import logger from '../../config/logger'
@@ -30,6 +31,10 @@ const resolve = async(parent, { clone }, context) => {
     throw new WrongArgumentsError('The mode selected is not valid.')
   }
 
+  if(!Object.values(BotTypesEnum).includes(clone.botType)){
+    throw new WrongArgumentsError('The bot type selected is not valid.')
+  }
+
   let existingClone = await Clone.find(
     {
       authId: context.userId,
@@ -40,25 +45,23 @@ const resolve = async(parent, { clone }, context) => {
 
   logger.debug('addClone -> Checking existing clone %j', existingClone)
   if(existingClone.length > 0){
-    throw new CustomError('You can only have one active clone by mode. Remove the'
+    throw new OperationsError('You can only have one active clone by mode. Remove the'
       + ' existing clone of type: ' + clone.mode + ' and try again.')
   }
 
   try{
     // Authorization is handled by the teams module
     let botsByUser = await teams_FbByTeamMember(context.authorization)
+    clone = await cloneDetails(context.authorization, botsByUser, clone)
     let selectedBot = getSelectedBot(botsByUser.data.data.teams_FbByTeamMember, clone.botId)
-    clone.teamId = botsByUser.data.data.teams_FbByTeamMember.id
-    clone.botId = selectedBot.id
-    clone.userLoggedIn = botsByUser.data.data.teams_FbByTeamMember.members[0].member.alias //TODO change by context info if possible
     clone.createDatetime = new Date().valueOf() / 1000|0
     clone.active = true
 
-    logger.debug('addClone -> Creating a new clone. %j', clone)
+    logger.debug('addClone -> Creating a new clone.')
     let newClone = new Clone(clone)
-    newClone.id = newClone._id
     newClone.authId = context.userId
-    await createKubernetesClone(newClone, botsByUser.data.data.teams_FbByTeamMember.slug, selectedBot.slug )
+    clone.id = newClone._id
+    await createKubernetesClone(clone)
 
     return new Promise((resolve, reject) => {
       newClone.save((err) => {

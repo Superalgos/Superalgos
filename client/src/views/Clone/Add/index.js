@@ -157,7 +157,6 @@ class AddClone extends Component {
                 <FormHelperText>{this.state.selectedBot.kind}</FormHelperText>
               </FormControl>
 
-              { /* TRADER BOT */ }
               { this.state.selectedBot.kind === "TRADER" &&
                   <React.Fragment>
                     <Typography className={classes.typography} variant='subtitle1' align='justify'>
@@ -213,6 +212,10 @@ class AddClone extends Component {
                              fullWidth
                            />
 
+                           <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                             The Wait Time represent the number of miliseconds the bot will wait between executions.
+                           </Typography>
+
                            <TextField
                              id="waitTime"
                              label="Wait Time"
@@ -261,7 +264,6 @@ class AddClone extends Component {
                   </React.Fragment>
                }
 
-              { /* INDICATOR AND EXTRACTOR BOTS */ }
               { (this.state.selectedBot.kind === "INDICATOR"
                 || this.state.selectedBot.kind === "EXTRACTOR") &&
                   <React.Fragment>
@@ -365,6 +367,11 @@ class AddClone extends Component {
                      }
                   </React.Fragment>
               }
+
+
+               <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                  You will your clone information under Active Clones until it finishes the execution, then it will moved to the History.
+               </Typography>
 
               <div className={classes.actionButton} >
                  <Button

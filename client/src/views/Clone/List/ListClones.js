@@ -107,8 +107,8 @@ class ListClones extends Component {
                           <Typography className={classes.cloneInfoNormal}>{clone.buyAverage}</Typography>
                           <Typography className={classes.cloneInfoNormal}>{clone.sellAverage}</Typography>
                           <Typography className={classes.cloneInfoNormal}>{clone.marketRate}</Typography>
-                          <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsA}</Typography>
-                          <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsB}</Typography>
+                          <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsA}%</Typography>
+                          <Typography className={classes.cloneInfoNormal}>{clone.combinedProfitsB}%</Typography>
                         </React.Fragment>
                       }
                     </div>

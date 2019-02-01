@@ -24,13 +24,13 @@ class Home extends Component {
           </Typography>
           <div className='column'>
             <Typography align='justify'>
-              The Operations module allows you to create copies of your bot
+              The Operations module allows you to create instances of your bots
               that will be executed on a virtual machine.
             </Typography>
           </div>
           <div className='column'>
             <Typography align='justify'>
-              
+
             </Typography>
           </div>
         </div>

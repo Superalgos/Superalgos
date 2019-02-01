@@ -12,8 +12,8 @@ import {
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import removeKuberneteClone from '../../kubernetes/removeClone'
-import teams_FbByTeamMember from '../../graphQLCalls/teams_FbByTeamMember'
-import { isDefined, getSelectedBot } from '../../config/utils'
+import teamQuery from '../../graphQLCalls/teamQuery'
+import { isDefined } from '../../config/utils'
 import cloneDetails from '../cloneDetails'
 
 const args = {
@@ -37,8 +37,8 @@ const resolve = async (parent, { id }, context) => {
     throw new OperationsError('You are not authorized to remove this clone.')
   }
 
-  let botsByUser = await teams_FbByTeamMember(context.authorization)
-  clone = await cloneDetails(context.authorization, botsByUser, clone)
+  let team = await teamQuery(context.authorization)
+  clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
 
   logger.debug('removeClone -> Removing Clone from Kubernates.')
   await removeKuberneteClone(clone)

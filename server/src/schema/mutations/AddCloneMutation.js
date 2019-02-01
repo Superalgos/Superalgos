@@ -3,7 +3,7 @@ import { CloneType } from '../types';
 import { Clone } from '../../models';
 import { CloneModeEnum } from '../../enums/CloneMode';
 import { BotTypesEnum } from '../../enums/BotTypes';
-import teams_FbByTeamMember from '../../graphQLCalls/teams_FbByTeamMember';
+import teamQuery from '../../graphQLCalls/teamQuery'
 import cloneDetails from '../cloneDetails'
 
 import {
@@ -14,7 +14,7 @@ import {
 
 import logger from '../../config/logger'
 import createKubernetesClone from '../../kubernetes/createClone'
-import { isDefined, getSelectedBot } from '../../config/utils'
+import { isDefined } from '../../config/utils'
 
 const args = {
   clone: {type: CloneInputType }
@@ -50,10 +50,8 @@ const resolve = async(parent, { clone }, context) => {
   }
 
   try{
-    // Authorization is handled by the teams module
-    let botsByUser = await teams_FbByTeamMember(context.authorization)
-    clone = await cloneDetails(context.authorization, botsByUser, clone)
-    let selectedBot = getSelectedBot(botsByUser.data.data.teams_FbByTeamMember, clone.botId)
+    let team = await teamQuery(context.authorization)
+    clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
     clone.createDatetime = new Date().valueOf() / 1000|0
     clone.active = true
 

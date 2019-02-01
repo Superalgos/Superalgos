@@ -7,12 +7,12 @@ import {
 } from 'graphql'
 
 import {
-
   OperationsError
 } from '../../errors'
 
 import { Clone } from '../../models'
 import logger from '../../config/logger'
+import teamQuery from '../../graphQLCalls/teamQuery'
 
 const args = {
   id: { type: new GraphQLNonNull(GraphQLID) },
@@ -29,34 +29,57 @@ const args = {
 const resolve = async (parent,
     { id, summaryDate, buyAverage, sellAverage, marketRate, combinedProfitsA,
       combinedProfitsB, assetA, assetB
-    }) => {
+    }, context) => {
+
   logger.debug('UpdateExecutionSummary -> Entering Function.')
 
-  const query = { _id: id }
-  const options = { new: true }
-  const update = {
-    summaryDate: summaryDate,
-    buyAverage: buyAverage,
-    sellAverage: sellAverage,
-    marketRate: marketRate,
-    combinedProfitsA: combinedProfitsA,
-    combinedProfitsB: combinedProfitsB,
-    assetA: assetA,
-    assetB: assetB
+  if (!context.userId) {
+    throw new AuthentificationError()
   }
 
-  let sucessful
-  await Clone.findOneAndUpdate(query, update, options, (err, doc) => {
-    if (err){
-      throw new OperationsError(err)
-    } else {
-      logger.debug('Execution summary updated')
-      sucessful = true
-    }
-  })
+  try{
+    let sucessful
 
-  if(sucessful){
-    return 'Execution summary updated.'
+    let clone = await Clone.findOne( {
+      _id: id,
+      active: true
+    })
+
+    let team = await teamQuery(context.authorization)
+    clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
+
+    logger.debug('removeClone -> Removing Clone from Kubernates.')
+    await removeKuberneteClone(clone)
+
+    const query = { _id: id }
+    const options = { new: true }
+    const update = {
+      summaryDate: summaryDate,
+      buyAverage: buyAverage,
+      sellAverage: sellAverage,
+      marketRate: marketRate,
+      combinedProfitsA: combinedProfitsA,
+      combinedProfitsB: combinedProfitsB,
+      assetA: assetA,
+      assetB: assetB
+    }
+
+    await Clone.update(query, update, (err) => {
+      if (err){
+        logger.error('Error updating execution summary on the database. %s', err.stack)
+        throw new OperationsError(err.message)
+      } else {
+        logger.debug('Execution summary updated.')
+        sucessful = true
+      }
+    })
+
+    if(sucessful){
+      return 'Execution summary updated.'
+    }
+  } catch (error) {
+    logger.error('Error updating the execution summary. %s', error.stack)
+    throw new OperationsError(error.message)
   }
 }
 

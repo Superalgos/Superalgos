@@ -50,7 +50,7 @@ const resolve = async(parent, { clone }, context) => {
   }
 
   try{
-    let team = await teamQuery(context.authorization)
+    let team = await teamQuery(context.authorization, clone.teamId)
     clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
     clone.createDatetime = new Date().valueOf() / 1000|0
     clone.active = true

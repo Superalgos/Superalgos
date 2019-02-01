@@ -10,6 +10,7 @@ const Type = new GraphQLInputObjectType({
   name: 'CloneInput',
   description: 'Payload for clone input',
   fields: () => ({
+    teamId: { type: new GraphQLNonNull(GraphQLString) },
     botId: { type: new GraphQLNonNull(GraphQLString) },
     mode: { type: GraphQLString },
     resumeExecution: { type: GraphQLBoolean },

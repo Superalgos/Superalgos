@@ -43,7 +43,8 @@ class AddClone extends Component {
       stateDatetime: 0,
       createDatetime: 0,
       runAsTeam: false,
-      financialBeings:[],
+      teams: [],
+      teamId: '',
 
       // Indicator Bot
       startYear: 2019,
@@ -131,7 +132,7 @@ class AddClone extends Component {
                           </Select>
                         )
                     } else{
-                      this.financialBeings = data.teams_FbByTeamMember.fb
+                      this.teams = data.teams_FbByTeamMember
                     }
 
                     return (
@@ -408,10 +409,11 @@ class AddClone extends Component {
   }
 
   setSelectedBot(botId){
-    if(isDefined(this.financialBeings)){
-      for (var i = 0; i < this.financialBeings.length; i++) {
-        if(this.financialBeings[i].id === botId){
-          this.setState({selectedBot:this.financialBeings[i]})
+    if(isDefined(this.teams)){
+      for (var i = 0; i < this.teams.fb.length; i++) {
+        if(this.teams.fb[i].id === botId){
+          this.setState({selectedBot:this.teams.fb[i]})
+          this.setState({teamId:this.teams.id})
           return
         }
       }
@@ -439,6 +441,7 @@ class AddClone extends Component {
   async createCloneOnServer(){
     let variables = {
       clone:{
+        teamId: this.state.teamId,
         botId: this.state.selectedBot.id,
         mode: this.state.mode,
         resumeExecution: this.state.resumeExecution,
@@ -496,6 +499,8 @@ class AddClone extends Component {
         createDatetime: 0,
         runAsTeam: false,
         processName: '',
+        teams: [],
+        teamId: '',
 
         //Error handlers
         nameError: false,

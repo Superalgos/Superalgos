@@ -37,7 +37,7 @@ const resolve = async (parent, { id }, context) => {
     throw new OperationsError('You are not authorized to remove this clone.')
   }
 
-  let team = await teamQuery(context.authorization)
+  let team = await teamQuery(context.authorization, clone.teamId)
   clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
 
   logger.debug('removeClone -> Removing Clone from Kubernates.')

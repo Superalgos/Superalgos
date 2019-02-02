@@ -45,7 +45,7 @@ const resolve = async (parent,
       active: true
     })
 
-    let team = await teamQuery(context.authorization)
+    let team = await teamQuery(context.authorization, clone.teamId)
     clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
 
     logger.debug('removeClone -> Removing Clone from Kubernates.')

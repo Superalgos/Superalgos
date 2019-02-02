@@ -13,6 +13,9 @@ import {
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import teamQuery from '../../graphQLCalls/teamQuery'
+import cloneDetails from '../cloneDetails'
+import removeKuberneteClone from '../../kubernetes/removeClone'
+import { isDefined } from '../../config/utils'
 
 const args = {
   id: { type: new GraphQLNonNull(GraphQLID) },
@@ -45,10 +48,14 @@ const resolve = async (parent,
       active: true
     })
 
+    if(!isDefined(clone)){
+      return "Clone not found."
+    }
+
     let team = await teamQuery(context.authorization, clone.teamId)
     clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
 
-    logger.debug('removeClone -> Removing Clone from Kubernates.')
+    logger.debug('UpdateExecutionSummary -> Removing Clone from Kubernates.')
     await removeKuberneteClone(clone)
 
     const query = { _id: id }
@@ -61,22 +68,24 @@ const resolve = async (parent,
       combinedProfitsA: combinedProfitsA,
       combinedProfitsB: combinedProfitsB,
       assetA: assetA,
-      assetB: assetB
+      assetB: assetB,
+      active: false
     }
 
-    await Clone.update(query, update, (err) => {
+    logger.debug('UpdateExecutionSummary -> Updating clone on database.')
+    await Clone.update(query, update, options, (err, clone) => {
       if (err){
         logger.error('Error updating execution summary on the database. %s', err.stack)
-        throw new OperationsError(err.message)
+        throw err
       } else {
         logger.debug('Execution summary updated.')
         sucessful = true
       }
     })
 
-    if(sucessful){
+    if(sucessful)
       return 'Execution summary updated.'
-    }
+
   } catch (error) {
     logger.error('Error updating the execution summary. %s', error.stack)
     throw new OperationsError(error.message)

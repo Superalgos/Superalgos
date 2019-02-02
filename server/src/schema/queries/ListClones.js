@@ -13,6 +13,7 @@ import logger from '../../config/logger'
 import getCloneStatus from '../../kubernetes/getClonePodStatus'
 import getCloneLogs from '../../kubernetes/getClonePodLogs'
 import cloneDetails from '../cloneDetails'
+import teamQuery from '../../graphQLCalls/teamQuery'
 
 const args = {}
 

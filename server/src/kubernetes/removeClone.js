@@ -4,12 +4,12 @@ import { Client, config } from 'kubernetes-client'
 
 const removeClone = async (clone) => {
   try {
-    logger.debug("removeClone %s", clone.cloneName)
+    logger.debug("removeClone %s", clone.id)
     const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
 
     let query = {
       "qs":{
-        "labelSelector": "job-name=" + clone.cloneName
+        "labelSelector": "job-name=" + clone.id
       }
     }
 

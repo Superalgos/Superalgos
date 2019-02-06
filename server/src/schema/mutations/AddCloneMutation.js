@@ -35,20 +35,6 @@ const resolve = async(parent, { clone }, context) => {
     throw new WrongArgumentsError('The bot type selected is not valid.')
   }
 
-  let existingClone = await Clone.find(
-    {
-      authId: context.userId,
-      mode: clone.mode,
-      botId: clone.botId,
-      active: true
-    })
-
-  logger.debug('addClone -> Checking existing clone.')
-  if(existingClone.length > 0){
-    throw new OperationsError('You can only have one active clone by mode. Remove the'
-      + ' existing clone of type: ' + clone.mode + ' and try again.')
-  }
-
   try{
     let team = await teamQuery(context.authorization, clone.teamId)
     clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)

@@ -24,6 +24,7 @@ const CloneType = new GraphQLObjectType({
     createDatetime: {type: GraphQLInt},
     lastLogs: {type: GraphQLString},
     runAsTeam: {type: GraphQLBoolean},
+    processName: { type: GraphQLString },
     summaryDate: {type: GraphQLInt},
     buyAverage: {type: GraphQLFloat},
     sellAverage: {type: GraphQLFloat},

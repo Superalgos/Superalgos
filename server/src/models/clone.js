@@ -48,7 +48,11 @@ const cloneSchema = new Schema({
   combinedProfitsA: Number,
   combinedProfitsB: Number,
   assetA: String,
-  assetB: String
+  assetB: String,
+  processName: {
+    type: String,
+    required: true,
+  }
 })
 
 const Clone = mongoose.model('Clone', cloneSchema)

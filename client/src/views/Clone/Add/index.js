@@ -146,7 +146,7 @@ class AddClone extends Component {
                         >
                         {
                           data.teams_TeamsByOwner.map(team => (
-                            team.map(financialBeing => (
+                            team.fb.map(financialBeing => (
                               <MenuItem key={financialBeing.id} value={financialBeing.id}>
                                 {team.name + '/' + financialBeing.name}
                               </MenuItem>
@@ -373,7 +373,7 @@ class AddClone extends Component {
 
 
                <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                  You will your clone information under Active Clones until it finishes the execution, then it will moved to the History.
+                  You will be able to query your clone information under Active Clones until it finishes the execution, then it will moved to the History.
                </Typography>
 
               <div className={classes.actionButton} >
@@ -412,11 +412,13 @@ class AddClone extends Component {
 
   setSelectedBot(botId){
     if(isDefined(this.teams)){
-      for (var i = 0; i < this.teams.fb.length; i++) {
-        if(this.teams.fb[i].id === botId){
-          this.setState({selectedBot:this.teams.fb[i]})
-          this.setState({teamId:this.teams.id})
-          return
+      for (var j = 0; j < this.teams.length; j++) {
+        for (var i = 0; i < this.teams[j].fb.length; i++) {
+          if(this.teams[j].fb[i].id === botId){
+            this.setState({selectedBot:this.teams[j].fb[i]})
+            this.setState({teamId:this.teams[j].id})
+            return
+          }
         }
       }
     }

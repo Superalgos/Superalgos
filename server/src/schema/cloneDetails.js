@@ -17,7 +17,7 @@ const cloneDetails = async(authId, team, clone) => {
   clone.kind = selectedBot.kind
   clone.teamSlug = team.slug
   clone.botSlug = selectedBot.slug
-  clone.cloneName = clone.teamSlug + '-' + clone.botSlug + '-' + clone.mode.toLowerCase()
+  clone.cloneName = (clone.teamSlug + '-' + clone.botSlug + '-' + clone.mode).toLowerCase()
   clone.teamName = team.name
   clone.botName = selectedBot.name
   clone.botAvatar = selectedBot.avatar

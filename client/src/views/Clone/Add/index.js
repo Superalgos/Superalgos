@@ -119,7 +119,7 @@ class AddClone extends Component {
                       )
                     }
 
-                    if(!isDefined(data.teams_FbByTeamMember)){
+                    if(!isDefined(data.teams_TeamsByOwner)){
                         return (
                           <Select
                             value='noteams'
@@ -132,7 +132,7 @@ class AddClone extends Component {
                           </Select>
                         )
                     } else{
-                      this.teams = data.teams_FbByTeamMember
+                      this.teams = data.teams_TeamsByOwner
                     }
 
                     return (
@@ -145,10 +145,12 @@ class AddClone extends Component {
                           onChange={e => this.setSelectedBot(e.target.value)}
                         >
                         {
-                          data.teams_FbByTeamMember.fb.map(financialBeing => (
-                            <MenuItem key={financialBeing.id} value={financialBeing.id}>
-                              {data.teams_FbByTeamMember.name + '/' + financialBeing.name}
-                            </MenuItem>
+                          data.teams_TeamsByOwner.map(team => (
+                            team.map(financialBeing => (
+                              <MenuItem key={financialBeing.id} value={financialBeing.id}>
+                                {team.name + '/' + financialBeing.name}
+                              </MenuItem>
+                            ))
                           ))
                         }
                         </Select>
@@ -289,8 +291,8 @@ class AddClone extends Component {
                        fullWidth
                        >
                        {startModes.map(option => (
-                         <MenuItem key={option} value={option}>
-                           {option}
+                         <MenuItem key={option.value} value={option.value}>
+                           {option.name}
                          </MenuItem>
                        ))}
                      </TextField>

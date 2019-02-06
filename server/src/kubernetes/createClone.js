@@ -4,15 +4,16 @@ import { KubernateError } from '../errors'
 import { Client, config } from 'kubernetes-client'
 // Get base Deployment config
 import deploymentManifest from '../config/clone-deployment.json'
-import { BACKTEST} from '../enums/CloneMode';
+import { BACKTEST, NO_TIME } from '../enums/CloneMode'
+import { TRADER, INDICATOR, EXTRACTION } from '../enums/BotTypes'
 
 const createClone = async (clone) => {
   try {
-    logger.debug("createClone %s", clone.cloneName)
+    logger.debug("createClone %s", clone.id)
     const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
 
     // Make changes to base deployment config
-    deploymentManifest.metadata.name = clone.cloneName
+    deploymentManifest.metadata.name = clone.id
 
     logger.debug("createClone Environment and Auth Configuration.")
     let env = []
@@ -68,7 +69,7 @@ const createClone = async (clone) => {
     })
     env.push({
       "name": "START_MODE",
-      "value": clone.mode.toLowerCase()
+      "value": clone.mode
     })
     env.push({
       "name": "RUN_AS_TEAM",
@@ -78,13 +79,13 @@ const createClone = async (clone) => {
       "name": "USER_LOGGED_IN",
       "value": clone.userLoggedIn
     })
+    env.push({
+      "name": "PROCESS",
+      "value": clone.processName
+    })
 
     logger.debug("createClone Trading Configuration.")
-    if(clone.botType === 'Trading'){
-      env.push({
-        "name": "PROCESS",
-        "value": 'Trading-Process'
-      })
+    if(clone.botType === TRADER ){
       env.push({
         "name": "RESUME_EXECUTION",
         "value": clone.resumeExecution.toString()
@@ -104,27 +105,25 @@ const createClone = async (clone) => {
           "value": clone.waitTime.toString()
         })
       }
-    } else if(clone.botType === 'Indicator' || clone.botType === 'Extraction'){
-        env.push({
-          "name": "PROCESS",
-          "value": clone.processName
-        })
-        env.push({
-          "name": "MIN_YEAR",
-          "value": isDefined(clone.startYear) ? clone.startYear.toString() : ''
-        })
-        env.push({
-          "name": "MAX_YEAR",
-          "value": isDefined(clone.endYear) ? clone.endYear.toString() : ''
-        })
-        env.push({
-          "name": "MONTH",
-          "value": isDefined(clone.month) ? clone.month.toString() : ''
-        })
-        env.push({
-          "name": "INTERVAL",
-          "value": isDefined(clone.interval) ? clone.interval.toString() : ''
-        })
+    } else if(clone.botType === INDICATOR || clone.botType === EXTRACTION ){
+        if(clone.mode !== NO_TIME){
+          env.push({
+            "name": "MIN_YEAR",
+            "value": isDefined(clone.startYear) ? clone.startYear.toString() : ''
+          })
+          env.push({
+            "name": "MAX_YEAR",
+            "value": isDefined(clone.endYear) ? clone.endYear.toString() : ''
+          })
+          env.push({
+            "name": "MONTH",
+            "value": isDefined(clone.month) ? clone.month.toString() : ''
+          })
+          env.push({
+            "name": "INTERVAL",
+            "value": isDefined(clone.interval) ? clone.interval.toString() : ''
+          })
+        }
     }
 
     deploymentManifest.spec.template.spec.containers[0].env = env

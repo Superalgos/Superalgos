@@ -30,11 +30,12 @@ const resolve = async(parent, args, context) => {
    }).sort({createDatetime: -1})
 
    for (var i = 0; i < clones.length; i++) {
+      logger.debug('List Clones -> clone: %j',clones[i] )
       let team = await teamQuery(context.authorization, clones[i].teamId)
       clones[i] = await cloneDetails(context.userId, team.data.data.teams_TeamById, clones[i])
-      let state = await getCloneStatus(clones[i].cloneName)
+      let state = await getCloneStatus(clones[i].id)
       clones[i].state = state.substring(1, state.length-1)
-      let lastLogs = await getCloneLogs(clones[i].cloneName)
+      let lastLogs = await getCloneLogs(clones[i].id)
       clones[i].lastLogs = lastLogs.substring(1, lastLogs.length-1)
       clones[i].botType = clones[i].kind // Only for listing we show the teams value
    }

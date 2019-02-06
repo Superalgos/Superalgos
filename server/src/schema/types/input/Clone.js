@@ -22,7 +22,7 @@ const Type = new GraphQLInputObjectType({
     endYear: { type: GraphQLInt },
     month: { type: GraphQLInt },
     interval: { type: GraphQLInt },
-    processName: { type: GraphQLString },
+    processName: { type: new GraphQLNonNull(GraphQLString) },
     botType: { type: new GraphQLNonNull(GraphQLString) }
     })
 });

@@ -9,7 +9,7 @@ import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import styles from './styles'
 
-import { types, startModes, availableMonths, processNames } from '../../../GraphQL/models'
+import { tradingStartModes, indicatorStartModes, availableMonths, processNames } from '../../../GraphQL/models'
 import { isDefined, getIndicatorYears } from '../../../utils'
 
 import {
@@ -176,9 +176,9 @@ class AddClone extends Component {
                        error={this.state.modeError}
                        fullWidth
                        >
-                       {types.map(option => (
+                       {Object.keys(tradingStartModes).map(option => (
                          <MenuItem key={option} value={option}>
-                           {option}
+                           {tradingStartModes[option]}
                          </MenuItem>
                        ))}
                      </TextField>
@@ -290,9 +290,9 @@ class AddClone extends Component {
                        error={this.state.modeError}
                        fullWidth
                        >
-                       {startModes.map(option => (
-                         <MenuItem key={option.value} value={option.value}>
-                           {option.name}
+                       {Object.keys(indicatorStartModes).map(option => (
+                         <MenuItem key={option} value={option}>
+                           {indicatorStartModes[option]}
                          </MenuItem>
                        ))}
                      </TextField>
@@ -449,7 +449,6 @@ class AddClone extends Component {
         botId: this.state.selectedBot.id,
         mode: this.state.mode,
         resumeExecution: this.state.resumeExecution,
-        runAsTeam: this.state.runAsTeam,
         botType: this.getBotTypeFromKind(this.state.selectedBot.kind)
       }
     }
@@ -460,11 +459,15 @@ class AddClone extends Component {
       variables.clone.waitTime = this.state.waitTime
     }
 
-    if(this.state.selectedBot.kind !== "TRADER"){
+    if(this.state.selectedBot.kind === "TRADER"){
+      variables.clone.runAsTeam = this.state.runAsTeam
+      variables.clone.processName = 'Trading-Process'
+    } else {
       variables.clone.processName = this.state.processName
       variables.clone.startYear = this.state.startYear
       variables.clone.endYear = this.state.endYear
       variables.clone.month = this.state.month
+      variables.clone.runAsTeam = true
     }
 
     return this.props.addCloneMutation({

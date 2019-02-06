@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const GET_ALL_TEAMS_QUERY = gql`
-  query Teams_FbByTeamMember {
-    teams_FbByTeamMember {
+  query {
+    teams_TeamsByOwner {
       id
       name
       slug

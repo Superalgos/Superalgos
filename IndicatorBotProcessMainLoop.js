@@ -182,7 +182,8 @@
 
                     /* High level log entry  */
 
-                    console.log(bot.processDatetime.toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(pMonth, 2) + "/" + pad(pYear, 4) + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
+                    console.log(bot.processDatetime.toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(pMonth, 2) + "/" + pad(pYear, 4)
+                        + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 

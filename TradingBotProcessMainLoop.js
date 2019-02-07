@@ -366,7 +366,7 @@
                         }
                     }
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> bot.processDatetime = " + bot.processDatetime); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> bot.processDatetime = " + bot.processDatetime.toISOString()); }
 
                     if (global.AT_BREAKPOINT === true) {
 
@@ -376,7 +376,8 @@
 
                     /* High level log entry  */
 
-                    console.log(bot.processDatetime.toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.devTeam, 20) + " " + pad(bot.process, 30) + " " + bot.startMode + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8));
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.devTeam, 20) + " " + pad(bot.process, 30)
+                        + " " + bot.startMode + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8) + " bot.processDatetime = " + bot.processDatetime.toISOString());
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
                                         

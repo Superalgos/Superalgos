@@ -1,6 +1,6 @@
 {
   "name": "@superalgos/operations-client",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Superalgos Operations client-side web app",
   "main": "src/index.js",
   "dependencies": {

@@ -183,7 +183,7 @@ class AddClone extends Component {
                        ))}
                      </TextField>
 
-                     { this.state.mode == "Backtest" &&
+                     { this.state.mode == "backtest" &&
                          <React.Fragment>
                            <DateTimePicker
                              autoOk
@@ -297,7 +297,7 @@ class AddClone extends Component {
                        ))}
                      </TextField>
 
-                     { this.state.mode === "All Months" &&
+                     { this.state.mode === "allMonths" &&
                          <React.Fragment>
                            <TextField
                               id="beginYearInput"
@@ -333,7 +333,7 @@ class AddClone extends Component {
                          </React.Fragment>
                      }
 
-                     { this.state.mode === "One Month" &&
+                     { this.state.mode === "oneMonth" &&
                          <React.Fragment>
                            <TextField
                               id="beginYearInput"
@@ -453,7 +453,7 @@ class AddClone extends Component {
       }
     }
 
-    if(this.state.mode === "Backtest"){
+    if(this.state.mode === "backtest"){
       variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000|0
       variables.clone.endDatetime = this.state.endDatetime.valueOf() / 1000|0
       variables.clone.waitTime = this.state.waitTime

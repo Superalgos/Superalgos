@@ -15,12 +15,15 @@ export const linkSchemaDefs =
     extend type events_Participant {
       participant: teams_Team
     }
+    extend type events_Participant {
+      clone: operations_GetClones
+    }
     extend type events_Invitation {
       invitee: teams_Team
     }
   `
 
-export const resolver = (usersSchema, teamsSchema) => ({
+export const resolver = (usersSchema, teamsSchema, operationsSchema) => ({
   events_Event: {
     host: {
       fragment: `fragment UserFragment on events_Event{hostId}`,
@@ -94,6 +97,19 @@ export const resolver = (usersSchema, teamsSchema) => ({
           info
         })
       }
+    },
+    clone: {
+      fragment: `fragment CloneFragment on events_Participant{operationId}`,
+      resolve ({operationId : cloneIdList}, args, context, info) {
+        return info.mergeInfo.delegateToSchema({
+          schema: operationsSchema,
+          operation: 'query',
+          fieldName: 'operations_GetClones',
+          args: { cloneIdList },
+          context,
+          info
+        })
+      }
     }
   },
   events_Invitation: {
@@ -110,7 +126,7 @@ export const resolver = (usersSchema, teamsSchema) => ({
         })
       }
     }
-  }
+  },
 })
 
 export default { resolver, linkSchemaDefs }

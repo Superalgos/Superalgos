@@ -86,9 +86,9 @@ async function run () {
   }
   if (transformedEventsSchema) {
     schemas.push(transformedEventsSchema)
-    if (transformedUsersSchema && transformedTeamsSchema) {
+    if (transformedUsersSchema && transformedTeamsSchema && transformedOperationsSchema) {
       schemas.push(events.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, events.resolver(transformedUsersSchema, transformedTeamsSchema))
+      resolvers = Object.assign(resolvers, events.resolver(transformedUsersSchema, transformedTeamsSchema, transformedOperationsSchema))
     }
   }
   if (transformedKeyVaultSchema) {

@@ -6,6 +6,7 @@
     }
 
     let connectionString;
+    let blobEndpoint;
 
     return thisObject;
 
@@ -15,12 +16,14 @@
 
             case "Develop": {
 
+                blobEndpoint = serverConfig.productsStorage.Develop.fileUri;
                 connectionString = serverConfig.configAndPlugins.Develop.connectionString;
                 break;
             }
 
             case "Production": {
 
+                blobEndpoint = serverConfig.productsStorage.Production.fileUri;
                 connectionString = serverConfig.configAndPlugins.Production.connectionString;
                 break;
             }
@@ -69,7 +72,7 @@
 
         let sasToken = blobService.generateSharedAccessSignature(pContainer, blobName, sharedAccessPolicy);
 
-        return "BlobEndpoint=https://aadevelop.blob.core.windows.net;SharedAccessSignature=" + sasToken + "";
+        return "BlobEndpoint=" + blobEndpoint + ";SharedAccessSignature=" + sasToken + "";
 
     }
 }

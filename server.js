@@ -812,7 +812,7 @@ function onBrowserRequest(request, response) {
                     const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');
                     let exchangeAPI = EXCHANGE_API.newExchangeAPI(botDisplayName, authToken);
 
-                    exchangeAPI.initialize(onInizialized);
+                    exchangeAPI.initialize(serverConfig, onInizialized);
 
                     function onInizialized(err) {
                         if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Entering function."); }

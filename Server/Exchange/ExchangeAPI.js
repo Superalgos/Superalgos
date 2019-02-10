@@ -8,9 +8,6 @@
     const _ = require('lodash');
     const isValidOrder = require('./exchangeUtils').isValidOrder;
     const graphqlClient = require('graphql-client')
-
-    const MASTER_APP_API = 'https://app-api.advancedalgos.net/graphql';
-    //const MASTER_APP_API = 'http://localhost:4100/graphql';
     
     let MODULE_NAME = "Exchange API";
 
@@ -30,7 +27,7 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(serverConfig, callBackFunction) {
         try {
 
             if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> initialize -> Entering function."); }
@@ -40,11 +37,13 @@
             let exchange = botExchange.toLowerCase() + 'Client.js';
             let api = require('./Wrappers/' + exchange);
 
+            let masterAppServerURL = serverConfig.masterAppServerURL;
+
             if (!authToken) {
                 console.log("[ERROR] Exchange API -> initialize -> User Not Logged In.");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             } else {
-                let keyVaultAPI = createKeyVaultAPIClient(authToken)
+                let keyVaultAPI = createKeyVaultAPIClient(masterAppServerURL, authToken)
                 apiClient = api.newAPIClient(keyVaultAPI);
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -55,11 +54,11 @@
         }
     }
 
-    function createKeyVaultAPIClient(authToken) {
+    function createKeyVaultAPIClient(masterAppServerURL, authToken) {
         if (CONSOLE_LOG === true) { console.log("[INFO] createKeyVaultAPIClient -> Entering function."); }
 
         const keyVaultAPI = graphqlClient({
-            url: MASTER_APP_API,
+            url: masterAppServerURL,
             headers: {
                 Authorization: 'Bearer ' + authToken
             }

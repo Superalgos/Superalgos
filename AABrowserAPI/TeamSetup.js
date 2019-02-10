@@ -6,7 +6,7 @@
         initialize: initialize
     }
 
-    const MASTER_APP_API = 'https://app-api.advancedalgos.net/graphql';
+    let masterAppServerURL;
 
     let storage;
 
@@ -16,6 +16,7 @@
 
         const STORAGE = require('../Server/Storage');
         storage = STORAGE.newStorage();
+        masterAppServerURL = pServerConfig.masterAppServerURL;
 
         storage.initialize(undefined, pServerConfig);
     }
@@ -526,7 +527,7 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        url: MASTER_APP_API
+                        url: masterAppServerURL
                     });
 
 
@@ -1015,7 +1016,7 @@
                     const graphqlClient = require('graphql-client')
 
                     const usersModuleAPI = graphqlClient({
-                        url: MASTER_APP_API
+                        url: masterAppServerURL
                     });
 
 

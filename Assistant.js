@@ -1358,45 +1358,8 @@
     }
 	
     function sendEmail(pTitle, pBody, pTo) {
-        try {
-
-            /**
-             Email configuration is not available when running the bot on the browser.
-            */
-            if (global.CURRENT_EXECUTION_AT === "Browser") {
-                logger.write(MODULE_NAME, "[WARN] sendEmail -> Send emails is disabled from the browser.");
-                return;
-            }
-
-            let emailList = pTo; //TODO Pending to add spam controller
-            let runIndex = context.statusReport.runs.length - 1;
-
-            let transporter = nodemailer.createTransport({
-                service: global.EMAIL_CONFIG.service,
-                auth: {
-                    user: global.EMAIL_CONFIG.user,
-                    pass: global.EMAIL_CONFIG.pass
-                }
-            });
-
-            let mailOptions = {
-                from: global.EMAIL_CONFIG.from,
-                bcc: emailList,
-                subject: bot.startMode + "." + runIndex + ' - ' + pTitle,
-                text: pBody
-            };
-
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    logger.write(MODULE_NAME, "[ERROR] sendEmail -> err = " + error);
-                } else {
-                    logger.write(MODULE_NAME, "[INFO] sendEmail -> Email sent = " + info.response);
-                }
-            });
-
-        } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] sendEmail -> err = " + err.message);
-        }
+        logger.write(MODULE_NAME, "[WARN] sendEmail -> Send emails is currently disabled.");
+        return;        
     }
 
     function truncDecimals(pFloatValue, pDecimals) {

@@ -47,7 +47,6 @@ function readExecutionConfiguration() {
         // Environment Configuration
         global.CURRENT_ENVIRONMENT = process.env.PLATFORM_ENVIRONMENT
         global.GATEWAY_ENDPOINT = process.env.GATEWAY_ENDPOINT
-        global.STORAGE_URL = process.env.STORAGE_URL
 
         // General Financial Being Configuration
         global.DEV_TEAM = process.env.DEV_TEAM
@@ -182,33 +181,15 @@ function readStoragePermissions() {
 
             global.USER_PROFILE.storagePermissions = permissionsMap;
             global.USER_PROFILE.connectionString = "";
+            process.env.STORAGE_CONNECTION_STRING = "";
 
-            readEmailConfiguration();
+            startRoot();
 
         }
     }
     catch (err) {
         console.log("[ERROR] Run -> readStoragePermissions -> err = " + err.message);
         console.log("[HINT] Run -> readStoragePermissions -> You need to have a file at this path -> " + filePath);
-    }
-}
-
-function readEmailConfiguration() {
-
-    let filePath;
-
-    try {
-        console.log( "Run : [INFO] readEmailConfiguration -> Entering function. ");
-
-        let fs = require('fs');
-        filePath = './' + 'configs' + '/' + 'Email.Config.json';
-        global.EMAIL_CONFIG = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-        startRoot();
-    }
-    catch (err) {
-        console.log("[ERROR] Run -> readEmailConfiguration -> err = " + err.message);
-        console.log("[HINT] Run -> You need to have a file at this path -> " + filePath);
     }
 }
 

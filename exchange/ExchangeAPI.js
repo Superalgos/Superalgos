@@ -39,9 +39,9 @@
             let exchange = botExchange.toLowerCase() + 'Client.js';
             let api = require('./wrappers/' + exchange);
 
-            const authResponse = await auth.authenticate()
+            const accessToken = await auth.authenticate()
 
-            let keyVaultAPI = createKeyVaultAPIClient(authResponse.data.access_token)
+            let keyVaultAPI = createKeyVaultAPIClient(accessToken)
             apiClient = api.newAPIClient(keyVaultAPI, logger);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);

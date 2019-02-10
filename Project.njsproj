@@ -85,13 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="configs\Email.Config.json" />
     <Content Include="exchange\wrappers\binanceProperties.json" />
     <Content Include="exchange\wrappers\poloniexProperties.json" />
     <Content Include="this.config.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="configs\" />
     <Folder Include="Exchange\" />
     <Folder Include="Exchange\Wrappers\" />
     <Folder Include="Integrations\" />

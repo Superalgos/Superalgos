@@ -841,11 +841,11 @@ exports.newRoot = function newRoot() {
 
                                     }
 
-                                    let clonName = "Clon" + clonKey;
+                                    let clonName = botConfig.codeName + "-" + "Clon" + clonKey + "-" + process.env.CLONE_ID;
 
-                                    botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "-" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+                                    botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
-                                    botConfig.instance = "Clon" + clonKey;
+                                    botConfig.instance = clonName;
                                     botConfig.instanceIndex = i;
 
                                     setTimeout(execute, i * Math.random() * 10 * 1000);
@@ -861,7 +861,11 @@ exports.newRoot = function newRoot() {
                                 /* If the bot does not have any genes at all */
 
                                 let genes = {};
-                                pBotConfig.instance = "Master";
+                                let clonName = botConfig.codeName + "-" + process.env.CLONE_ID;
+
+                                botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+
+                                pBotConfig.instance = clonName;
                                 pBotConfig.instanceIndex = 0;
 
                                 createBotInstance(genes, 1, pBotConfig);

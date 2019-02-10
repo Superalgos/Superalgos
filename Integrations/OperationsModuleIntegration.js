@@ -10,7 +10,7 @@ exports.updateExecutionResults = async function (summaryDate, buyAverage, sellAv
 
     try {
 
-        const authResponse = await auth.authenticate()
+        const accessToken = await auth.authenticate()
 
         const operationsResponse = await axios({
             url: process.env.GATEWAY_ENDPOINT,
@@ -46,11 +46,13 @@ exports.updateExecutionResults = async function (summaryDate, buyAverage, sellAv
                 },
             },
             headers: {
-                authorization: 'Bearer ' + authResponse.data.access_token
+                authorization: 'Bearer ' + accessToken
             }
         })
 
-        logger.debug('updateExecutionResults -> Operations Module Response: %s', operationsResponse.data.data.operations_UpdateExecutionSummary)
+        if (!operationsResponse.data.errors)
+            logger.debug('updateExecutionResults -> Operations Module Response: %s', operationsResponse.data.data.operations_UpdateExecutionSummary)
+        else throw new Error(operationsResponse.data.errors[0].message)
 
     } catch (error) {
         logger.error('updateExecutionResults -> Error: ' + error.stack)

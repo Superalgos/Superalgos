@@ -46,7 +46,7 @@ const eventsMenus = {
     { title: 'Your events', to: '/events/my', icon: GamepadRounded, authenticated: true },
     { title: 'Your hosted events', to: '/events/host', icon: AccessibilityNew, authenticated: true },
     { title: 'Host an event', to: '/events/create', icon: LibraryAdd, authenticated: true },
-    { title: 'Report a Bug', to: 'https://github.com/Superalgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/EventsClientModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
@@ -75,15 +75,15 @@ const operationsMenus = {
   ]
 }
 
-const financialBeingsMenus = {
-  title: 'FBs',
-  to: '/financial-beings',
-  icon: Home,
-  authenticated: false,
-  submenus: [
-    { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
-  ]
-}
+// const financialBeingsMenus = {
+//   title: 'FBs',
+//   to: '/financial-beings',
+//   icon: Home,
+//   authenticated: false,
+//   submenus: [
+//     { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
+//   ]
+// }
 
 const allMenus = [
   usersMenus,

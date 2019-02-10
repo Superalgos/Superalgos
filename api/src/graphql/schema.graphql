@@ -1,9 +1,9 @@
 # import Query.TeamConnection, Team from "../generated/prisma.graphql"
 
-directive @isAuthenticated on QUERY | FIELD | MUTATION
-directive @hasRole(roles: [String]) on QUERY | FIELD | MUTATION
-directive @isOwner(type: String) on QUERY | MUTATION
-directive @isOwnerOrHasRole(type: String, roles: [String]) on QUERY | MUTATION
+directive @isAuthenticated on QUERY | FIELD | MUTATION | FIELD_DEFINITION
+directive @hasRole(roles: [String]) on QUERY | FIELD | MUTATION | FIELD_DEFINITION
+directive @isOwner(type: String) on QUERY | MUTATION | FIELD_DEFINITION
+directive @isOwnerOrHasRole(type: String, roles: [String]) on QUERY | MUTATION | FIELD_DEFINITION
 
 type Query {
   teams: TeamConnection

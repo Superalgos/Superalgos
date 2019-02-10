@@ -1,5 +1,5 @@
-import '@babel/polyfill'
-require('dotenv').config();
+require("@babel/register");
+require("@babel/polyfill");
 import express from 'express'
 import createApolloServer from './ApolloServer'
 import { formatError } from './errors'
@@ -24,12 +24,13 @@ import wrongPreshared from './errors/notAllowed.json'
 
 const GRAPHQL_ENDPOINT = '/graphql'
 const GRAPHQL_SUBSCRIPTIONS = '/graphql'
-const PORT = 4001
-const NODE_ENV = 'development'
+const PORT = process.env.PORT
+const NODE_ENV = process.env.NODE_ENV
+const SCHEMA_PATH = process.env.SCHEMA_PATH
 
 const db = new Prisma({
   fragmentReplacements: extractFragmentReplacements(resolvers),
-  typeDefs: 'src/generated/prisma.graphql',
+  typeDefs: importSchema(SCHEMA_PATH),
   endpoint: process.env.PRISMA_ENDPOINT,
   secret: process.env.PRISMA_SECRET,
   debug: false

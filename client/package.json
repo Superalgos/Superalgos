@@ -1,6 +1,6 @@
 {
   "name": "@superalgos/teams-client",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "Superalgos Project Team client-side web app",
   "main": "src/index.js",
   "scripts": {

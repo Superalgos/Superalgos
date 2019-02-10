@@ -38,7 +38,6 @@ class Technical extends React.Component {
     this.props.edit('rules', [...this.props.event.rules, {
       title,
       description,
-      position: this.props.event.rules.length,
     }]);
     this.closeDialogs();
   }

@@ -1,5 +1,5 @@
 import { SchemaDirectiveVisitor } from 'apollo-server-express'
-import _get from 'lodash.get'
+import _get from 'lodash/get'
 import { logger, AuthenticationError, DatabaseError } from '../logger'
 
 const memberLocationOnContext = 'request.user'

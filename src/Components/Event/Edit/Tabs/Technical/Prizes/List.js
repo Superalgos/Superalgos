@@ -12,7 +12,7 @@ import {
 
 const DragHandle = SortableHandle(() => <div className='dragHandle' />);
 
-const SortableItem = SortableElement(({ value, deletePrize }) => (
+const SortableItem = SortableElement(({ value, deletePrize, index }) => (
   <div className='sortableListItem'>
     <Grid container spacing={16}>
       <Grid item>
@@ -27,7 +27,7 @@ const SortableItem = SortableElement(({ value, deletePrize }) => (
           </Typography>
         </Grid>
         <Grid item>
-          <Typography style={{ cursor: 'pointer' }} onClick={() => deletePrize(value.position)} >Remove</Typography>
+          <Typography style={{ cursor: 'pointer' }} onClick={() => deletePrize(index)} >Remove</Typography>
         </Grid>
       </Grid>
     </Grid>
@@ -44,22 +44,14 @@ const SortableList = SortableContainer(({ items, deletePrize }) => (
 
 class List extends React.Component {
   onSortEnd = ({ oldIndex, newIndex }) => {
-    let newPrizes = this.props.prizes.slice(0);
+    const newPrizes = this.props.prizes.slice(0);
     newPrizes.splice(newIndex, 0, newPrizes.splice(oldIndex, 1)[0]);
-    newPrizes = newPrizes.map((prize, index) => {
-      prize.position = index;
-      return prize;
-    });
     this.props.edit(newPrizes);
   }
 
   deletePrize = (deletedIndex) => {
-    let newPrizes = this.props.prizes.slice(0);
+    const newPrizes = this.props.prizes.slice(0);
     newPrizes.splice(deletedIndex, 1);
-    newPrizes = newPrizes.map((prize, index) => {
-      prize.position = index;
-      return prize;
-    });
     this.props.edit(newPrizes);
   }
 

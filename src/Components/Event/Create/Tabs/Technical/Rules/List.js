@@ -12,7 +12,7 @@ import {
 
 const DragHandle = SortableHandle(() => <div className='dragHandle' />);
 
-const SortableItem = SortableElement(({ value, deleteRule }) => (
+const SortableItem = SortableElement(({ value, deleteRule, index }) => (
   <div className='sortableListItem'>
     <Grid container spacing={16}>
       <Grid item>
@@ -28,7 +28,7 @@ const SortableItem = SortableElement(({ value, deleteRule }) => (
           </Typography>
         </Grid>
         <Grid item>
-          <Typography style={{ cursor: 'pointer' }} onClick={() => deleteRule(value.position)} >Remove</Typography>
+          <Typography style={{ cursor: 'pointer' }} onClick={() => deleteRule(index)} >Remove</Typography>
         </Grid>
       </Grid>
     </Grid>
@@ -45,22 +45,14 @@ const SortableList = SortableContainer(({ items, deleteRule }) => (
 
 class List extends React.Component {
   onSortEnd = ({ oldIndex, newIndex }) => {
-    let newRules = this.props.rules.slice(0);
+    const newRules = this.props.rules.slice(0);
     newRules.splice(newIndex, 0, newRules.splice(oldIndex, 1)[0]);
-    newRules = newRules.map((rule, index) => {
-      rule.position = index;
-      return rule;
-    });
     this.props.edit(newRules);
   }
 
   deleteRule = (deletedIndex) => {
-    let newRules = this.props.rules.slice(0);
+    const newRules = this.props.rules.slice(0);
     newRules.splice(deletedIndex, 1);
-    newRules = newRules.map((rule, index) => {
-      rule.position = index;
-      return rule;
-    });
     this.props.edit(newRules);
   }
 

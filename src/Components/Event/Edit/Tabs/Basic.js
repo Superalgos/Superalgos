@@ -29,7 +29,7 @@ class Basic extends React.Component {
 
         <TextField
           label='Public id'
-          value='Your public ID will be generated automatically'
+          value={`${event.id}(your public ID is generated automatically and unmutable)`}
           className={classes.inputField}
           disabled
         />

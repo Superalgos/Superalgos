@@ -39,6 +39,7 @@ class Queried extends React.Component {
     super(props);
     this.state = {
       value: 0,
+      id: this.props.event.id,
       title: this.props.event.title,
       subtitle: this.props.event.subtitle,
       description: this.props.event.description,
@@ -62,6 +63,7 @@ class Queried extends React.Component {
 
   render() {
     const {
+      id,
       title,
       subtitle,
       description,
@@ -76,9 +78,9 @@ class Queried extends React.Component {
     const { classes } = this.props;
     return (
       <React.Fragment>
-        <Mutation mutation={hostedEventsCalls.EVENTS_CREATEEVENT}
+        <Mutation mutation={hostedEventsCalls.EVENTS_EDITEVENT}
           update={(store, { data }) => {
-            this.props.history.push(`/events/edit/${data.events_CreateEvent.id}`);
+            this.props.history.push(`/events/edit/${data.events_EditEvent.id}`);
           }
           }
         >
@@ -127,6 +129,7 @@ class Queried extends React.Component {
                       e.preventDefault();
                       hostEvent({
                         variables: {
+                          eventId: id,
                           event: {
                             title,
                             subtitle,
@@ -143,6 +146,7 @@ class Queried extends React.Component {
                     {value === 0 && <TabContainer>
                       <Basic
                         event={{
+                          id,
                           title,
                           subtitle,
                           description,

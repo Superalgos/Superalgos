@@ -56,14 +56,15 @@ export const eventFullInfo = gql`
     }
     participants {
       participantId
-
       participant {
         id
         name
       }
       state
-      botId
-      releaseId
+      operationId
+      clone{
+        botId
+      }
     }
     invitations {
       inviteeId

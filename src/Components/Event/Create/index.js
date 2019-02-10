@@ -125,10 +125,17 @@ class Create extends React.Component {
                   <Typography className={classes.typography} variant='h5' gutterBottom>
                     Create a new event
                   </Typography>
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      hostEvent({
+                  {value === 0 && <TabContainer>
+                    <Basic
+                      event={{
+                        title,
+                        subtitle,
+                        description,
+                        startDatetime,
+                        finishDatetime,
+                      }}
+                      edit={(newType, newVal) => this.handleEventChange(newType, newVal)}
+                      create={() => hostEvent({
                         variables: {
                           event: {
                             title,
@@ -140,35 +147,35 @@ class Create extends React.Component {
                             plotterId,
                           },
                         },
-                      });
-                    }}
-                  >
-                    {value === 0 && <TabContainer>
-                      <Basic
-                        event={{
-                          title,
-                          subtitle,
-                          description,
-                          startDatetime,
-                          finishDatetime,
-                        }}
-                        edit={(newType, newVal) => this.handleEventChange(newType, newVal)}
-                      />
-                    </TabContainer>}
-                    {value === 1 && <TabContainer>
-                      <Technical
-                        event={{
-                          formulaId,
-                          plotterId,
-                          prizes,
-                          rules,
-                        }}
-                        edit={(newType, newVal) => this.handleEventChange(newType, newVal)}
-                      />
-                    </TabContainer>}
-                    {value === 2 && <TabContainer><TeamsServer /></TabContainer>}
-                    {value === 3 && <TabContainer><PresentationPage /></TabContainer>}
-                  </form>
+                      })}
+                    />
+                  </TabContainer>}
+                  {value === 1 && <TabContainer>
+                    <Technical
+                      event={{
+                        formulaId,
+                        plotterId,
+                        prizes,
+                        rules,
+                      }}
+                      edit={(newType, newVal) => this.handleEventChange(newType, newVal)}
+                      create={() => hostEvent({
+                        variables: {
+                          event: {
+                            title,
+                            subtitle,
+                            description,
+                            startDatetime: startDatetime.valueOf() / 1000,
+                            finishDatetime: finishDatetime.valueOf() / 1000,
+                            formulaId,
+                            plotterId,
+                          },
+                        },
+                      })}
+                    />
+                  </TabContainer>}
+                  {value === 2 && <TabContainer><TeamsServer /></TabContainer>}
+                  {value === 3 && <TabContainer><PresentationPage /></TabContainer>}
                 </Paper>
               </div>
             </div>

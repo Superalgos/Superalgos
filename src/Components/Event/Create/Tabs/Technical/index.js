@@ -58,7 +58,9 @@ class Technical extends React.Component {
   }
 
   render() {
-    const { classes, event, edit } = this.props;
+    const {
+      classes, event, edit, create,
+    } = this.props;
     const {
       isNewPlotterOpen, isNewFormulaOpen, isNewRuleOpen, isNewPrizeOpen,
     } = this.state;
@@ -182,7 +184,7 @@ class Technical extends React.Component {
 
         <Grid container justify='center' >
           <Grid item>
-            <Button className={classes.bottomButton} type='submit' variant='contained' color='secondary'>
+            <Button className={classes.bottomButton} onClick={() => create()} variant='contained' color='secondary'>
               Create the event
             </Button>
           </Grid>

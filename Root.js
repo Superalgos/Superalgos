@@ -1,4 +1,5 @@
-﻿
+﻿const appRoot = require('app-root-path')
+const operationsIntegration = require(`${appRoot}/Integrations/OperationsModuleIntegration`)
 
 exports.newRoot = function newRoot() {
 
@@ -210,7 +211,7 @@ exports.newRoot = function newRoot() {
 
         for (let p = 0; p < global.PLATFORM_CONFIG.executionList.length; p++) {
 
-            let listItem = PLATFORM_CONFIG.executionList[p];
+            let listItem;
 
             /*
               The local configuration allows to select the configuration to run
@@ -218,17 +219,16 @@ exports.newRoot = function newRoot() {
               Here we check that the local configuration for the execution
               exist, if it doesn't exist we will take the one on the server.
             */
-            let executionListItem;
             if (global.EXECUTION_CONFIG === undefined) {
-                executionListItem = listItem;
+                listItem = PLATFORM_CONFIG.executionList[p];
             } else {
-                executionListItem = global.EXECUTION_CONFIG.executionList[p];
+                listItem = global.EXECUTION_CONFIG.executionList[p];
             }
 
-            if (listItem.enabled !== "true" || executionListItem.enabled !== "true") {
+            if (listItem === undefined || listItem.enabled !== "true") {
 
                 console.log(logDisplace + "Root : [INFO] start -> Skipping process for being disabled.");
-                console.log(logDisplace + "Root : [INFO] start -> listItem.process = " + listItem.process);
+                console.log(logDisplace + "Root : [INFO] start -> listItem.process = " + PLATFORM_CONFIG.executionList[p].process);
 
                 continue;
             }
@@ -344,7 +344,7 @@ exports.newRoot = function newRoot() {
                             if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
 
                             let processConfig = botConfig.processes[i];
-
+                            processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
                             try {
 
                                 /*
@@ -529,8 +529,9 @@ exports.newRoot = function newRoot() {
                                 if (processConfig.startMode.live !== undefined) {
 
                                     if (processConfig.startMode.live.run === "true" && global.EXECUTION_CONFIG.startMode.live.run === "true") {
-
+                                        
                                         botConfig.startMode = "Live";
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
 
                                         let month = pad((new Date()).getUTCMonth() + 1, 2);
                                         let year = (new Date()).getUTCFullYear();
@@ -558,6 +559,8 @@ exports.newRoot = function newRoot() {
                                     if (processConfig.startMode.backtest.run === "true" && global.EXECUTION_CONFIG.startMode.backtest.run === "true") {
 
                                         botConfig.startMode = "Backtest";
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
+
                                         botConfig.backtest = processConfig.startMode.backtest;
 
                                         /* We override these waitTimes to the one specified at the backtest configuration. */
@@ -586,6 +589,8 @@ exports.newRoot = function newRoot() {
                                     if (processConfig.startMode.competition.run === "true" && global.EXECUTION_CONFIG.startMode.competition.run === "true") {
 
                                         botConfig.startMode = "Competition";
+                                        console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
+
                                         botConfig.competition = processConfig.startMode.competition;
 
                                         if (processConfig.startMode.competition.resumeExecution === "false" && global.EXECUTION_CONFIG.startMode.competition.resumeExecution === "false") {
@@ -836,11 +841,11 @@ exports.newRoot = function newRoot() {
 
                                     }
 
-                                    let clonName = "Clon" + clonKey;
+                                    let clonName = botConfig.codeName + "-" + "Clon" + clonKey + "-" + process.env.CLONE_ID;
 
-                                    botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "-" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+                                    botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
-                                    botConfig.instance = "Clon" + clonKey;
+                                    botConfig.instance = clonName;
                                     botConfig.instanceIndex = i;
 
                                     setTimeout(execute, i * Math.random() * 10 * 1000);
@@ -856,7 +861,11 @@ exports.newRoot = function newRoot() {
                                 /* If the bot does not have any genes at all */
 
                                 let genes = {};
-                                pBotConfig.instance = "Master";
+                                let clonName = botConfig.codeName + "-" + process.env.CLONE_ID;
+
+                                botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+
+                                pBotConfig.instance = clonName;
                                 pBotConfig.instanceIndex = 0;
 
                                 createBotInstance(genes, 1, pBotConfig);
@@ -883,7 +892,7 @@ exports.newRoot = function newRoot() {
 
                                         tradingBotMainLoop.run(pGenes, pTotalInstances, whenRunFinishes);
 
-                                        function whenRunFinishes(err) {
+                                        function whenRunFinishes(err, context) {
 
                                             pBotConfig.loopCounter = 0;
 
@@ -908,6 +917,20 @@ exports.newRoot = function newRoot() {
                                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
                                                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                                 logger.persist();
+                                            }
+
+                                            // Update operations module with latest context
+                                            if (context !== undefined) {                                            
+                                                let lastExecution = context.executionHistory[context.executionHistory.length - 1]
+                                                let date = lastExecution[0] / 1000 | 0
+                                                let buyAvgRate = lastExecution[1]
+                                                let sellAvgRate = lastExecution[2]
+                                                let marketRate = lastExecution[7]
+                                                let combinedProfitsA = lastExecution[13]
+                                                let combinedProfitsB = lastExecution[14]
+
+                                                operationsIntegration.updateExecutionResults(date, buyAvgRate, sellAvgRate,
+                                                    marketRate, combinedProfitsA, combinedProfitsB)
                                             }
                                         }
 

@@ -14,35 +14,35 @@
       "repo": "AAMariam-Trading-Bot"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "devTeam": "AAMasters",
       "bot": "AACharly",
       "process": "Poloniex-Live-Trades",
       "repo": "AACharly-Extraction-Bot"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "devTeam": "AAMasters",
       "bot": "AACharly",
       "process": "Poloniex-Hole-Fixing",
       "repo": "AACharly-Extraction-Bot"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "devTeam": "AAMasters",
       "bot": "AABruce",
       "process": "One-Min-Daily-Candles-Volumes",
       "repo": "AABruce-Indicator-Bot"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "devTeam": "AAMasters",
       "bot": "AAOlivia",
       "process": "Multi-Period-Daily",
       "repo": "AAOlivia-Indicator-Bot"
     },
     {
-      "enabled": "true",
+      "enabled": "false",
       "devTeam": "AAMasters",
       "bot": "AAOlivia",
       "process": "Multi-Period-Market",

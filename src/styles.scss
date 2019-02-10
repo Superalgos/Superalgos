@@ -1,0 +1,22 @@
+.eventsModule{
+  .sortableListItem{
+    padding-top: 15px;
+    margin-right: 15px;
+    padding-bottom: 15px;
+    margin-left: 15px;
+    border-bottom: 1px solid rgba(142, 144, 146, 0.3);
+  }
+}
+
+.dragHandle{
+  position: relative;
+  top: 1px;
+  display: block;
+  width: 18px;
+  height: 11px;
+  opacity: .25;
+  margin-right: 20px;
+  cursor: row-resize;
+  background: -webkit-linear-gradient(top,#000,#000 20%,#fff 0,#fff 40%,#000 0,#000 60%,#fff 0,#fff 80%,#000 0,#000);
+  background: linear-gradient(180deg,#000,#000 20%,#fff 0,#fff 40%,#000 0,#000 60%,#fff 0,#fff 80%,#000 0,#000);
+}

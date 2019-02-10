@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:8
 
-ENV PORT=4101
+ENV PORT=4301
 
 RUN mkdir -p /var/www/app && \
     mkdir -p /var/www/app/node_modules

@@ -3,9 +3,9 @@
   "kind": "Job",
   "metadata": {
     "labels": {
-      "app": "aadev"
+      "app": "aacloud"
     },
-    "name": "aadev-deployment"
+    "name": "aacloud"
   },
   "spec": {
     "template": {
@@ -13,8 +13,8 @@
         "restartPolicy": "Never",
         "containers": [
           {
-            "name": "aadev",
-            "image": "benme/aadev:v3.8",
+            "name": "aacloud",
+            "image": "superalgos/aacloud:v1.0",
             "command": ["node", "Run.js"],
             "env": [
             ]
@@ -23,7 +23,7 @@
       },
       "metadata": {
         "labels": {
-          "app": "aadev"
+          "app": "aacloud"
         }
       }
     }

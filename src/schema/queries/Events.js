@@ -13,6 +13,7 @@ const args = {
   state: { type: EventStateEnum },
   hostId: { type: GraphQLString },
   participantId: { type: GraphQLString },
+  inviteeId: { type: GraphQLString },
   minStartDate: { type: GraphQLInt },
   maxStartDate: { type: GraphQLInt },
   minEndDate: { type: GraphQLInt },
@@ -23,6 +24,7 @@ const resolve = (parent, {
   state,
   hostId,
   participantId,
+  inviteeId,
   minStartDate,
   maxStartDate,
   minEndDate,
@@ -39,6 +41,7 @@ const resolve = (parent, {
         state ? { state } : { state: { $nin: [UNPUBLISHED, ARCHIVED] } },
         hostId ? { hostId } : {},
         participantId ? { participants: { $elemMatch: { participantId } } } : {},
+        inviteeId ? { invitations: { $elemMatch: { inviteeId } } } : {},
         minStartDate || maxStartDate
           ? {
             startDatetime:

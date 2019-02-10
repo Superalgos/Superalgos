@@ -1,1 +1,1 @@
-# EventsServerModule
+EventsServer

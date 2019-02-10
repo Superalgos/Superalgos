@@ -19,7 +19,9 @@ import styles from '../styles';
 
 class Basic extends React.Component {
   render() {
-    const { classes, event, edit } = this.props;
+    const {
+      classes, event, edit, saveChanges,
+    } = this.props;
     return (
       <React.Fragment>
         <Typography className={classes.typography} variant='body1' gutterBottom align='left'>
@@ -102,7 +104,7 @@ class Basic extends React.Component {
             >
               Go to technical tab
             </Button>
-            <Button className={classes.bottomButton} type='submit' variant='contained' color='secondary'>
+            <Button className={classes.bottomButton} onClick={() => saveChanges()} variant='contained' color='secondary'>
               Or Create event
             </Button>
           </Grid>

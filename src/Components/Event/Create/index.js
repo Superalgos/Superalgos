@@ -145,6 +145,8 @@ class Create extends React.Component {
                             finishDatetime: finishDatetime.valueOf() / 1000,
                             formulaId,
                             plotterId,
+                            prizes,
+                            rules,
                           },
                         },
                       })}
@@ -169,6 +171,8 @@ class Create extends React.Component {
                             finishDatetime: finishDatetime.valueOf() / 1000,
                             formulaId,
                             plotterId,
+                            prizes,
+                            rules,
                           },
                         },
                       })}

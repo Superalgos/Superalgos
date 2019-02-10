@@ -30,7 +30,7 @@ const resolve = (parent, {
   minEndDate,
   maxEndDate,
 }, { userId }) => {
-  if (state === UNPUBLISHED && hostId !== userId) {
+  if (state === UNPUBLISHED && hostId !== userId && hostId !== 'self') {
     throw new AuthentificationError('You cannot get unpublished events of other users.');
   }
 
@@ -39,7 +39,8 @@ const resolve = (parent, {
     Event.find(
       Object.assign(
         state ? { state } : { state: { $nin: [UNPUBLISHED, ARCHIVED] } },
-        hostId ? { hostId } : {},
+        (hostId && hostId !== 'self') ? { hostId } : {},
+        (hostId === 'self') ? { hostId: userId } : {},
         participantId ? { participants: { $elemMatch: { participantId } } } : {},
         inviteeId ? { invitations: { $elemMatch: { inviteeId } } } : {},
         minStartDate || maxStartDate

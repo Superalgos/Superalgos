@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Superalgos</title>
+  <title>Superalgos Platform</title>
+  <meta name="description" content="The system enabling a collective of humans and machines to collaborate and compete while co-building trading algorithms.">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Responsible for loading all web modules and running them">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,600|Saira:300,600&amp;subset=latin-ext,vietnamese" rel="stylesheet">
@@ -18,18 +18,17 @@
 
   <script type="text/javascript">
     function loadCanvas(){
-
       if (window.canvasApp.visible === undefined) {
         window.canvasApp = {
             sessionToken: '',
             executingAt: 'Master App',
             visible: false,
             topMargin: 130,
-            urlPrefix: 'https://charts-dev.superalgos.org/' ,  /* 'http://localhost:1337/'   */   /*  'https://charts-dev.superalgos.org/'  */
+            urlPrefix: '<%= process.env.CANVAS_URL %>',
             graphQL: {
-            masterAppApiUrl: 'https://platform-api-dev.superalgos.org/graphql'
-        },
-        context: {}
+                masterAppApiUrl: '<%= process.env.PLATFORM_API_URL %>',
+            },
+            context: {}
         };
 
         let delay = 0
@@ -37,12 +36,12 @@
         setTimeout(loadAdvancedAlgosPlatform, delay)
       }
     }
+
     function onResize(){
       if (window.canvasApp === undefined) {return}
       if (window.canvasApp.eventHandler === undefined) {return}
       window.canvasApp.eventHandler.raiseEvent('Browser Resized')
     }
-
   </script>
 </head>
 

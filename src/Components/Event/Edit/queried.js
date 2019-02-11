@@ -81,8 +81,7 @@ class Queried extends React.Component {
         <Mutation mutation={hostedEventsCalls.EVENTS_EDITEVENT}
           update={(store, { data }) => {
             this.props.history.push(`/events/edit/${data.events_EditEvent.id}`);
-          }
-          }
+          }}
         >
           {editHosted => (
             <div className={classes.root}>

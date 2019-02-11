@@ -20,8 +20,17 @@ const EVENTS_EDITEVENT = gql`
 `;
 
 const EVENTS_EVENTSBYHOST = gql`
-  query Events_EventsByHost{
-    events_EventsByHost {
+  query Events_Events($hostId: String!, $state: events_EventStateEnum){
+    events_Events(hostId: $hostId, state: $state) {
+      ...EventFullInfo
+    }
+  }
+  ${eventFullInfo}
+`;
+
+const EVENTS_PUBLISHEVENT = gql`
+  mutation Events_ChangeEventState($eventId:  ID!, $state: events_EventStateEnum, $maxEndDate: Number, $minEndDate: Number) {
+    events_ChangeEventState(eventId: $eventId, state: $state, maxEndDate: $maxEndDate, minEndDate: $minEndDate ) {
       ...EventFullInfo
     }
   }
@@ -32,4 +41,5 @@ export default {
   EVENTS_CREATEEVENT,
   EVENTS_EDITEVENT,
   EVENTS_EVENTSBYHOST,
+  EVENTS_PUBLISHEVENT,
 };

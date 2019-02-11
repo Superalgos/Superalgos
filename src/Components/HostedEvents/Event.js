@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Mutation } from 'react-apollo';
+
 
 import {
   Grid, Paper,
@@ -9,51 +11,78 @@ import {
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 
+import { hostedEventsCalls } from '../../GraphQL/Calls/index';
+
 import { toLocalTime } from '../../utils';
 
 class Event extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, showOnly } = this.props;
     const {
       id,
-      name,
+      title,
+      subtitle,
       startDatetime,
       finishDatetime,
       host,
+      formula,
       description,
     } = this.props.event;
     return (
       <Paper className={classes.card}>
         <Grid container spacing={16}>
           <Grid item xs>
-            <Typography gutterBottom variant='h5'> {name} </Typography>
+            <Typography gutterBottom variant='h5'> {title} </Typography>
+            <Typography gutterBottom variant='h6'> {subtitle} </Typography>
             <Typography gutterBottom>From : {toLocalTime(startDatetime)} </Typography>
             <Typography gutterBottom>To : {toLocalTime(finishDatetime)} </Typography>
           </Grid>
           <Grid item xs>
-            <Typography gutterBottom>
-              Hosted by: {host.alias} ({host.lastName} {host.firstName})
-            </Typography>
-            <Typography gutterBottom>Formula: </Typography>
-            <Typography gutterBottom>First prize: </Typography>
+            <Typography gutterBottom variant='h6'> Description : </Typography>
+            <Typography gutterBottom> {description} </Typography>
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction='column' spacing={16}>
               <Grid item xs>
-                <Typography gutterBottom variant='h5'> Description : </Typography>
-                <Typography gutterBottom> {description} </Typography>
+                <Typography gutterBottom>
+                  Hosted by: {host.alias} ({host.lastName} {host.firstName})
+                </Typography>
+                <Typography gutterBottom>Formula: {formula.name} </Typography>
               </Grid>
               <Grid item className={classes.buttonGrid}>
-                <Button
-                  className={classes.buttonList}
-                  variant='outlined'
-                  color='primary'
-                  size='small'
-                  component={Link}
-                  to={`/events/edit/${id}`}
-                >
-                  Edit
-                </Button>
+                { !showOnly
+                  ? <React.Fragment>
+                    <Mutation mutation={hostedEventsCalls.EVENTS_PUBLISHEVENT}
+                      update={() => {
+                        this.props.history.push(`/events/edit/${id}`);
+                      }}
+                    >
+                      {publishEvent => (
+                        <Button
+                          className={classes.buttonList}
+                          variant='outlined'
+                          color='secondary'
+                          size='small'
+                          onClick={() => publishEvent({ variables: { eventId: id, state: 'PUBLISHED' } })}
+                        >
+                          Publish
+                        </Button>
+                      )}
+                    </Mutation>
+                    <Button
+                      className={classes.buttonList}
+                      variant='outlined'
+                      color='primary'
+                      size='small'
+                      component={Link}
+                      to={`/events/edit/${id}`}
+                    >
+                      Edit
+                    </Button>
+                  </React.Fragment>
+                  : ''
+                }
+
                 <Button
                   className={classes.buttonList}
                   variant='outlined'

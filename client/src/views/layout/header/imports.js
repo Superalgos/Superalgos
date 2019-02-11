@@ -88,7 +88,7 @@ const financialBeingsMenus = {
 const allMenus = [
   usersMenus,
   teamsMenus,
-  eventsMenus,
+  // eventsMenus,
   // financialBeingsMenus,
   keyvaultMenus,
   operationsMenus

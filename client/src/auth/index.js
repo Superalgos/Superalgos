@@ -47,7 +47,7 @@ export const defaultOptions = {
     primaryColor: '#e3493c'
   },
   languageDictionary: {
-    title: 'Platform Dev'
+    title: 'Superalgos Platform'
   },
   avatar:null
 }

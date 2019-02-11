@@ -1,0 +1,29 @@
+{
+  "name": "operations-server",
+  "version": "1.0.0",
+  "description": "Superalgos Operations backend API",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.0",
+    "kubernetes-client": "^6.5.1",
+    "mongoose": "^5.2.12",
+    "winston": "^3.1.0"
+  }
+}

@@ -33,6 +33,8 @@ const resolve = (parent, { eventId: _id, state }, { userId: hostId }) => {
   }
 
   switch (state) {
+    case UNPUBLISHED:
+      throw new NotImplementedYetError('Still working on it');
     case PUBLISHED:
       return new Promise((res, rej) => {
         Event.findOneAndUpdate({ _id, hostId, state: UNPUBLISHED }, { state }, { new: true }, (err, modifiedEvent) => {

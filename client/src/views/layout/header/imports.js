@@ -43,7 +43,6 @@ const eventsMenus = {
   icon: Home,
   submenus: [
     { title: 'Directory', to: '/events', icon: ImportContacts },
-    { title: 'Your events', to: '/events/my', icon: GamepadRounded, authenticated: true },
     { title: 'Your hosted events', to: '/events/host', icon: AccessibilityNew, authenticated: true },
     { title: 'Host an event', to: '/events/create', icon: LibraryAdd, authenticated: true },
     { title: 'Report a Bug', to: 'https://github.com/Superalgos/EventsClientModule/issues/new', icon: BugReport, externalLink: true }

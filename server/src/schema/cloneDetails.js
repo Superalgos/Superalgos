@@ -5,7 +5,7 @@ import { AutorizationError } from '../errors'
 const cloneDetails = async(authId, team, clone) => {
   logger.debug('Retrieving clone details.')
 
-  if(!(authId === process.env.AACLOUD_ID || isAuthorized(team, authId))){
+  if(!(authId === (process.env.AUTH_CLIENT_ID + '@clients') || isAuthorized(team, authId))){
     logger.debug('User %s is not authorized to manage team %s.', authId, team.slug )
     throw new AutorizationError()
   }

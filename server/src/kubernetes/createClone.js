@@ -131,7 +131,7 @@ const createClone = async (clone) => {
     const create = await client.apis.batch.v1.namespaces('default').jobs.post(
       { body: deploymentManifest })
 
-    logger.debug("createClone %s on Kubernates success.", clone.cloneName)
+    logger.debug("createClone %s on Kubernates success.", clone.id)
   } catch (err) {
      throw new KubernateError(err)
   }

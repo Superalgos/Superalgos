@@ -30,7 +30,6 @@ const resolve = async(parent, args, context) => {
    }).sort({createDatetime: -1})
 
    for (var i = 0; i < clones.length; i++) {
-      logger.debug('List Clones -> clone: %j',clones[i] )
       let team = await teamQuery(context.authorization, clones[i].teamId)
       clones[i] = await cloneDetails(context.userId, team.data.data.teams_TeamById, clones[i])
       let state = await getCloneStatus(clones[i].id)

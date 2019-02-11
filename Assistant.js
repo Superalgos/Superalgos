@@ -182,7 +182,9 @@
                                         end: candleArray[i][5]
                                     };
 
-                                    if (bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end) {
+                                    // TODO condition added for when there is no market rate available.
+                                    if ((bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end)
+                                        || (i + 1) === candleArray.length) {
 
                                         marketRate = (candle.open + candle.close) / 2;
                                         marketRate = thisObject.truncDecimals(marketRate);
@@ -198,7 +200,6 @@
                                         return;
                                     }
                                 }
-
                             } catch (err) {
                                 logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + err.message);
                                 logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");

@@ -8,13 +8,13 @@ class Home extends Component {
       <React.Fragment>
         <BannerTopBar
           size='big'
-          title='Advanced Algos Platform'
-          text='Enabling the evolutionary race towards the emergence of superalgos'
-          backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+          title='Superalgos Platform'
+          text='People and machines working together to create Superalgos'
+          backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
         />
         <div className='homePage container'>
-          <Typography variant='h1' align='center' className='title'>Welcome to the Advanced Algos Platform!</Typography>
-          <Typography variant='h2' align='center' className='subtitle'>CO-CREATE >> COMPETE >> EVOLVE</Typography>
+          <Typography variant='h1' align='center' className='title'>Welcome to the Superalgos Platform!</Typography>
+          <Typography variant='h2' align='center' className='subtitle'>Enabling the evolutionary race towards the emergence of superalgos</Typography>
           <div className='column'>
             <Typography align='justify'>
               Before you begin, please be aware <strong>this is a development environment in pre-alpha stage</strong>.
@@ -28,11 +28,11 @@ class Home extends Component {
           </div>
           <div className='column'>
             <Typography align='justify'>
-              Feel free to explore the menu in the top-right corner or visit the <a href='https://www.advancedalgos.net/documentation-quick-start.shtml' target='_blank'>Quick Start Guide</a>.
-              Reporting of bugs at the corresponding <a href='https://github.com/AdvancedAlgos' target='_blank' rel='nofollow'>Advanced Algos Github repository</a> is highly appreciated.
+              Feel free to explore the menu in the top-right corner or visit the <a href='https://www.superalgos.org/documentation-quick-start.shtml' target='_blank'>Quick Start Guide</a>.
+              Reporting of bugs at the corresponding <a href='https://github.com/Superalgos' target='_blank' rel='nofollow'>Superalgos Github repository</a> is highly appreciated.
             </Typography>
             <Typography align='justify'>
-              Get in touch with the rest of the community and get answers to your questions in our <a href='https://t.me/advancedalgoscommunity' target='_blank' rel='nofollow'>Telegram Group</a>.
+              Get in touch with the rest of the community and get answers to your questions in our <a href='https://t.me/superalgoscommunity' target='_blank' rel='nofollow'>Telegram Group</a>.
               Have fun!
             </Typography>
           </div>

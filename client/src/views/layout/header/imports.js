@@ -7,7 +7,7 @@ import {
   BugReport,
   People,
   Group,
-  Adb,
+  // Adb,
   VpnKey,
   Home,
   AddCircleOutline
@@ -18,10 +18,10 @@ const usersMenus = {
   to: '/users',
   icon: Home,
   submenus: [
-    { title: 'Your Profile', to: '/users/user', icon: People, authenticated: true },
     { title: 'Directory', to: '/users/browse', icon: ImportContacts },
     { title: 'Search', to: '/users/search', icon: Search },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
+    { title: 'Your Profile', to: '/users/user', icon: People, authenticated: true },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
@@ -30,11 +30,10 @@ const teamsMenus = {
   to: '/teams',
   icon: Home,
   submenus: [
-    { title: 'Explore teams', to: '/teams/explore', icon: Search },
+    { title: 'Directory', to: '/teams/explore', icon: ImportContacts },
     { title: 'Your teams', to: '/teams/manage-teams', icon: Group, authenticated: true },
     { title: 'Team members', to: '/teams/team-members', icon: People, authenticated: true },
-    { title: 'Financial beings', to: '/teams/financial-beings', icon: Adb, authenticated: true },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/TeamsModule/issues/new', icon: BugReport, externalLink: true }
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/TeamsModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
@@ -43,11 +42,11 @@ const eventsMenus = {
   to: '/events',
   icon: Home,
   submenus: [
-    { title: 'All events', to: '/events', icon: Search },
+    { title: 'Directory', to: '/events', icon: ImportContacts },
     { title: 'Your events', to: '/events/my', icon: GamepadRounded, authenticated: true },
     { title: 'Your hosted events', to: '/events/host', icon: AccessibilityNew, authenticated: true },
     { title: 'Host an event', to: '/events/create', icon: LibraryAdd, authenticated: true },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
@@ -57,12 +56,42 @@ const keyvaultMenus = {
   icon: Home,
   authenticated: true,
   submenus: [
-    { title: 'Manage keys', to: '/key-vault/browse', icon: VpnKey },
+    { title: 'Your keys', to: '/key-vault/browse', icon: VpnKey },
     { title: 'Add key', to: '/key-vault/addKey', icon: AddCircleOutline },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/KeyVaultModule/issues/new', icon: BugReport, externalLink: true }
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/KeyVaultModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
-const allMenus = [ usersMenus, teamsMenus, eventsMenus, keyvaultMenus ]
+const operationsMenus = {
+  title: 'Operations',
+  to: '/operations',
+  icon: Home,
+  authenticated: true,
+  submenus: [
+    { title: 'Active clones', to: '/operations/browse', icon: ImportContacts },
+    { title: 'History', to: '/operations/history', icon: LibraryAdd },
+    { title: 'Clone a bot', to: '/operations/add', icon: AddCircleOutline },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/OperationsModule/issues/new', icon: BugReport, externalLink: true }
+  ]
+}
+
+const financialBeingsMenus = {
+  title: 'FBs',
+  to: '/financial-beings',
+  icon: Home,
+  authenticated: false,
+  submenus: [
+    { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
+  ]
+}
+
+const allMenus = [
+  usersMenus,
+  teamsMenus,
+  // eventsMenus,
+  // financialBeingsMenus,
+  keyvaultMenus,
+  operationsMenus
+]
 
 export default allMenus

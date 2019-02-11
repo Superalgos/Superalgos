@@ -7,7 +7,7 @@ $height-nav-bar: 131px;
 
 $height-not-top: 87px;
 
-$image-height-big: 75px;
+$image-height-big: 60px;
 $image-height-small: 45px;
 
 $text-height: 25px;
@@ -44,7 +44,8 @@ $advanced-algos-red: rgb(245,88,88);
 }
 
 body{
-  overflow-y:scroll;
+  padding-right: 0 !important;
+  overflow-y: scroll;
 
   &::-webkit-scrollbar-track {
     border: 1px solid #000;
@@ -235,6 +236,9 @@ header.menu{
               &:hover{
                 color: $advanced-algos-red;
               }
+              svg{
+                padding-top: 10px;
+              }
             }
             ul.subMenu{
               display: none;
@@ -293,6 +297,9 @@ header.menu{
               &.selected{
                 color: $advanced-algos-red;
               }
+              svg{
+                padding-top: 10px;
+              }
             }
             ul.subMenu{
               display: none;
@@ -331,7 +338,7 @@ header.menu{
 .bannerTopBar{
   background-position: center center;
   background-size: cover;
-  background-image: url(https://advancedalgos.net/img/photos/teams.jpg);
+  background-image: url(https://superalgos.org/img/photos/teams.jpg);
   width: 100%;
   height: 220px;
   &.big{

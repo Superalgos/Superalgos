@@ -8,7 +8,7 @@ export class SignupVerifyResponse extends React.Component {
   componentDidMount () {
     const { mutate } = this.props
     mutate()
-  };
+  }
 
   render () {
     const { loading, error, data } = this.props
@@ -17,7 +17,10 @@ export class SignupVerifyResponse extends React.Component {
     let displayForm = false
     console.log('SignupVerifyResponse:', loading, error, data)
     if (error) {
-      if (error.message === 'GraphQL error: Error: Token Expired. Please resubmit email address.') {
+      if (
+        error.message ===
+        'GraphQL error: Error: Token Expired. Please resubmit email address.'
+      ) {
         BannerText = [
           <strong key='EmailSignupConfirm-error-b1'>
             Newsletter Signup Error: Verification Token Expired
@@ -29,30 +32,38 @@ export class SignupVerifyResponse extends React.Component {
         ]
         displayForm = true
       } else {
-        BannerText = ['Newsletter Signup Error: ', <br key='EmailSignupConfirm-error-br' />, error.message]
+        BannerText = [
+          'Newsletter Signup Error: ',
+          <br key='EmailSignupConfirm-error-br' />,
+          error.message
+        ]
       }
       return (
         <BannerTopBar
           size='big'
           title={BannerTitle}
           text={BannerText}
-          backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
         />
       )
     }
     if (loading && !error) {
-      BannerText = ['Processing newsletter sign-up...', <br key='EmailSignupConfirm-br' />, 'Thank you for opting-in to recieve updates about the Advanced Algos project!']
+      BannerText = [
+        'Processing newsletter sign-up...',
+        <br key='EmailSignupConfirm-br' />,
+        'Thank you for opting-in to recieve updates about the Superalgos project!'
+      ]
     }
     if (data !== undefined && data !== null) {
       console.log(data)
-      if (data.master_NewsletterSignupVerify === 'SUCCESS') {
+      if (data.notifications_Master_NewsletterSignupVerify === 'SUCCESS') {
         return (
           <React.Fragment>
             <BannerTopBar
               size='big'
               title='Mailing Sign-Up Complete!'
-              text='We look forward to keeping you up-to-date on the Advanced Algos project.'
-              backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+              text='We look forward to keeping you up-to-date on the Superalgos project.'
+              backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
             >
               {displayForm && <SignupForm alignCenter />}
             </BannerTopBar>
@@ -65,7 +76,7 @@ export class SignupVerifyResponse extends React.Component {
           size='big'
           title='Processing...'
           text=''
-          backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+          backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
         />
       )
     }

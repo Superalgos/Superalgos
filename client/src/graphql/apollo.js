@@ -7,12 +7,7 @@ import { setContext } from 'apollo-link-context'
 
 import { getItem } from '../utils/local-storage'
 
-const graphqlEndpoint =
-  process.env.NODE_ENV === 'production'
-    ? process.env.PROD_GRAPHQL
-    : process.env.DEV_GRAPHQL
-
-const httpLink = new HttpLink({ uri: graphqlEndpoint })
+const httpLink = new HttpLink({ uri: process.env.PLATFORM_API_URL })
 
 const authRetryLink = onError(
   ({ graphQLErrors, networkError, operation, forward }) => {

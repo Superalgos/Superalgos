@@ -47,7 +47,7 @@ export class SignupForm extends Component {
           return (
             <Grid container className={classes.signupRight} direction='column' justify={alignCenter ? 'center' : 'flex-start'}>
               {displayTitle && <Typography variant='h4' className={classNames(classes.textWhite, classes.signupTitle)} gutterBottom>Stay in touch!</Typography>}
-              {displayIntro && <Typography variant='subtitle1' className={classNames(classes.textWhite, classes.signupText)} gutterBottom>Opt-in our mailing list to stay up to date with the Advanced Algos Project.</Typography>}
+              {displayIntro && <Typography variant='subtitle1' className={classNames(classes.textWhite, classes.signupText)} gutterBottom>Opt-in our mailing list to stay up to date with the Superalgos Project.</Typography>}
               <form id='email-signup' action='#' className='form-inline' autoComplete='off'>
                 <Typography
                   variant='subtitle1'
@@ -122,7 +122,7 @@ export class SignupForm extends Component {
     console.log('NewsletterSignup handleSubmit: ', this.state.email)
     const signupResponse = await NewsletterSignup({ variables: { email: this.state.email } })
     console.log('NewsletterSignup: ', signupResponse)
-    if (signupResponse.data.master_NewsletterSignup === 'SUCCESS') this.setState({ email: '', success: true })
+    if (signupResponse.data.notifications_Master_NewsletterSignup === 'SUCCESS') this.setState({ email: '', success: true })
   }
 }
 

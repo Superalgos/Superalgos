@@ -2,43 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Advanced Algos</title>
+  <title>Superalgos Platform</title>
+  <meta name="description" content="The system enabling a collective of humans and machines to collaborate and compete while co-building trading algorithms.">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Responsible for loading all web modules and running them">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,600|Saira:300,600&amp;subset=latin-ext,vietnamese" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <link rel="shortcut icon" type="image/png/ico" href="/favicon.ico" />
+  <link rel="shortcut icon" type="image/png/ico" href="/html/favicon.ico" />
   <script src="https://unpkg.com/apollo-client-browser@1.7.0"></script>
 
-  <script type="text/javascript" src="https://develop.advancedalgos.net/Scripts/Require.js"></script>
-  <script type="text/javascript" src="https://develop.advancedalgos.net/Scripts/AppPreLoader.js"></script>
+  <script type="text/javascript" src="https://charts-dev.superalgos.org/Scripts/require.js"></script>
+  <script type="text/javascript" src="https://charts-dev.superalgos.org/Scripts/AppPreLoader.js"></script>
 
   <script type="text/javascript">
     function loadCanvas(){
-
       if (window.canvasApp.visible === undefined) {
         window.canvasApp = {
             sessionToken: '',
             executingAt: 'Master App',
             visible: false,
             topMargin: 130,
-            urlPrefix: 'https://develop.advancedalgos.net/' ,  /* 'http://localhost:1337/'   */   /*  'https://develop.advancedalgos.net/'  */
+            urlPrefix: '<%= process.env.CANVAS_URL %>',
             graphQL: {
-            masterAppApiUrl: 'https://app-api.advancedalgos.net/graphql'
-        },
-        context: {}
+                masterAppApiUrl: '<%= process.env.PLATFORM_API_URL %>',
+            },
+            context: {}
         };
 
-        loadAdvancedAlgosPlatform();
+        let delay = 0
+        if (window.innerHeight === 0) {delay = 3000} // Inside IFRAMES the onload event is reaised before the window has its real size.
+        setTimeout(loadAdvancedAlgosPlatform, delay)
       }
+    }
+
+    function onResize(){
+      if (window.canvasApp === undefined) {return}
+      if (window.canvasApp.eventHandler === undefined) {return}
+      window.canvasApp.eventHandler.raiseEvent('Browser Resized')
     }
   </script>
 </head>
 
-<body id="body" onload="loadCanvas()" onresize="window.canvasApp.eventHandler.raiseEvent('Browser Resized')">
+<body id="body" onload="loadCanvas()" onresize="onResize()">
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
 </body>

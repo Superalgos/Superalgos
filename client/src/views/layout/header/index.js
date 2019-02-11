@@ -8,7 +8,7 @@ import withWidth from '@material-ui/core/withWidth'
 import { LoggedIn } from './LoggedIn'
 
 import allMenus from './imports'
-import AALogo from '../../../assets/advanced-algos/aa-logo-dark.svg'
+import AALogo from '../../../assets/superalgos/Superalgos-logo-horz-dark.svg'
 
 class Header extends Component {
   constructor (props) {
@@ -98,7 +98,7 @@ class Header extends Component {
           <ul className='subMenu'>
             { bigScreen
               ? ''
-              : <li key={index + 'home'}><a href={to}> <Icon /> Homepage </a></li>
+              : <li key={index + 'home'}><Link to={to}> <Icon /> Module Home Page </Link></li>
             }
             {
               submenus.map(({ icon: SubIcon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
@@ -107,7 +107,7 @@ class Header extends Component {
                 }
                 if (externalLink) {
                   return (
-                    <li key={subindex}><a href={subTo}> <SubIcon /> {subTitle} </a></li>
+                    <li key={subindex}><a href={subTo} target='_blank'> <SubIcon /> {subTitle} </a></li>
                   )
                 }
                 return (
@@ -123,7 +123,7 @@ class Header extends Component {
       <React.Fragment>
         <header className={onTop ? 'menu' : 'menu notOnTop'}>
           <div className='container'>
-            <Link to='/'> <img className='logo' src={AALogo} alt='Advanced Algos' /> </Link>
+            <Link to='/'> <img className='logo' src={AALogo} alt='Superalgos' /> </Link>
             <div className={mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'} onClick={() => this.toggleMobileOpen()}>
               Menu
             </div>
@@ -134,7 +134,7 @@ class Header extends Component {
                 </li>
                 {menus}
                 <li className='primaryLink'>
-                  <a href='https://www.advancedalgos.net/documentation-quick-start.shtml'> Docs </a>
+                  <a href='https://www.superalgos.org/documentation-quick-start.shtml'> Docs </a>
                 </li>
                 {this.state.user !== undefined && this.state.user !== null ? (
                   <LoggedIn

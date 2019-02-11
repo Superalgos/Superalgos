@@ -27,16 +27,13 @@ export const EmailSignupConfirm = ({ tokenParam }) => {
         size='big'
         title=''
         text={BannerText}
-        backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+        backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
       />
     )
   }
   console.log(token)
   return (
-    <Mutation
-      mutation={NEWSLETTER_SIGNUP_VERIFY}
-      variables={{ token: token }}
-    >
+    <Mutation mutation={NEWSLETTER_SIGNUP_VERIFY} variables={{ token: token }}>
       {(NewsletterSignupVerify, { loading, error, data }) => {
         return (
           <SignupVerifyResponse
@@ -46,8 +43,7 @@ export const EmailSignupConfirm = ({ tokenParam }) => {
             data={data}
           />
         )
-      }
-      }
+      }}
     </Mutation>
   )
 }

@@ -145,6 +145,10 @@ function newCompetitionStorage(pName) {
 
             thisObject.competitorsSequences.push(fileSequences);
 
+            if (pCompetition.participants.length === 0) { //If there are no competitions, respond OK
+                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
+            }
+
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err); }

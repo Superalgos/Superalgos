@@ -14,13 +14,13 @@ const removeClone = async (clone) => {
     }
 
     const removed = await client.apis.batch.v1.namespaces('default').jobs(
-      clone.cloneName).delete()
+      clone.id).delete()
 
     const pod = await client.api.v1.namespaces('default').pods.get(query)
     const podRemoved = await client.api.v1.namespaces('default')
       .pods(pod.body.items[0].metadata.name).delete()
 
-    logger.debug("removeClone %s on kubernates succesful", clone.cloneName)
+    logger.debug("removeClone %s on kubernates succesful", clone.id)
   } catch (err) {
       throw new KubernateError(err)
   }

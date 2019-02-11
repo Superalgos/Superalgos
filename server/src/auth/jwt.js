@@ -1,6 +1,7 @@
-const jwt = require('express-jwt');
-const jwksRsa = require('jwks-rsa');
-const AUTH_CONFIG = require('../Auth0');
+
+const jwt = require('express-jwt')
+const jwksRsa = require('jwks-rsa')
+
 // Authentication middleware. When used, the
 // if the access token exists, it be verified against
 // the Auth0 JSON Web Key Set
@@ -12,14 +13,14 @@ const checkJwt = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 1,
-    jwksUri: `https://${AUTH_CONFIG.domain}/.well-known/jwks.json`
+    jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
   }),
 
   // Validate the audience and the issuer.
   credentialsRequired: false,
-  audience: AUTH_CONFIG.api_audience,
-  issuer: AUTH_CONFIG.issuer,
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: process.env.AUTH0_ISSUER,
   algorithms: [`RS256`]
-});
+})
 
-module.exports = checkJwt ;
+module.exports = checkJwt

@@ -44,6 +44,8 @@ const styles = theme => ({
     flex: 1
   },
   grid: {
+    width: '80%',
+    marginLeft: '10%',
     paddingTop: '30',
     marginTop: 30
   },

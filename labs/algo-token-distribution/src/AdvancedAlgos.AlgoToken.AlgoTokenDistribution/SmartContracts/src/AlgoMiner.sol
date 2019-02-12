@@ -13,7 +13,7 @@ import "./AlgoSupervisorRole.sol";
 contract AlgoMiner is AlgoCommon, ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole, AlgoSupervisorRole, IAlgoMiner {
     using SafeERC20 for IERC20;
 
-    uint256 public constant DAYS_PER_YEAR = 365;
+    uint256 private constant DAYS_PER_YEAR = 365;
 
     enum MinerType {
         PoolBased,

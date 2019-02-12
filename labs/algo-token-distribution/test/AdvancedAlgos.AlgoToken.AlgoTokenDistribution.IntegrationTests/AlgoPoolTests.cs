@@ -17,7 +17,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
         [Fact]
         public async Task MinerPoolTransferToMinerTest()
         {
-            EthNetwork.UseGanacheTestNet();
+            EthNetwork.UseDefaultTestNet();
 
             var prefundedAccount = new Account(EthNetwork.Instance.PrefundedPrivateKey);
 
@@ -72,7 +72,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
         [Fact]
         public async Task ReferralPoolTransferToMinerTest()
         {
-            EthNetwork.UseGanacheTestNet();
+            EthNetwork.UseDefaultTestNet();
 
             var prefundedAccount = new Account(EthNetwork.Instance.PrefundedPrivateKey);
 
@@ -127,7 +127,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoTokenDistribution.IntegrationTests
         [Fact]
         public async Task TerminateTest()
         {
-            EthNetwork.UseGanacheTestNet();
+            EthNetwork.UseDefaultTestNet();
 
             var prefundedAccount = new Account(EthNetwork.Instance.PrefundedPrivateKey);
 

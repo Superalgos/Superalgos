@@ -11,12 +11,12 @@ import "./AlgoCoreTeamRole.sol";
 contract AlgoFees is ERC20TokenHolder, AlgoSystemRole, AlgoCoreTeamRole {
     using SafeERC20 for IERC20;
 
-    uint256 constant CAT_0_VALUE_PROPORTION = 1;
-    uint256 constant CAT_1_VALUE_PROPORTION = 10;
-    uint256 constant CAT_2_VALUE_PROPORTION = 20;
-    uint256 constant CAT_3_VALUE_PROPORTION = 30;
-    uint256 constant CAT_4_VALUE_PROPORTION = 40;
-    uint256 constant CAT_5_VALUE_PROPORTION = 50;
+    uint256 private constant CAT_0_VALUE_PROPORTION = 1;
+    uint256 private constant CAT_1_VALUE_PROPORTION = 10;
+    uint256 private constant CAT_2_VALUE_PROPORTION = 20;
+    uint256 private constant CAT_3_VALUE_PROPORTION = 30;
+    uint256 private constant CAT_4_VALUE_PROPORTION = 40;
+    uint256 private constant CAT_5_VALUE_PROPORTION = 50;
 
     address[] private _miners;
     mapping(address => uint256) private _minersByAddress;

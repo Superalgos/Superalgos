@@ -17,7 +17,7 @@ contract AlgoPool is AlgoCommon, ERC20TokenHolder, AlgoCoreTeamRole {
     }
 
     PoolType private _poolType;
-    mapping(address => bool) _fundedMiners;
+    mapping(address => bool) private _fundedMiners;
 
     constructor(PoolType poolType, address tokenAddress)
         ERC20TokenHolder(tokenAddress)

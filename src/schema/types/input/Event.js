@@ -17,7 +17,7 @@ const Type = new GraphQLInputObjectType({
     hostId: { type: GraphQLString },
     description: { type: GraphQLString },
     startDatetime: { type: GraphQLInt },
-    finishDatetime: { type: GraphQLInt },
+    endDatetime: { type: GraphQLInt },
     formulaId: { type: GraphQLString },
     plotterId: { type: GraphQLString },
     prizes: { type: new GraphQLList(InputPrizeType) },

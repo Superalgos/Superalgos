@@ -54,7 +54,7 @@ const resolve = (parent, {
           : {},
         minEndDate || maxEndDate
           ? {
-            startDatetime:
+            endDatetime:
                 Object.assign(
                   minEndDate ? { $gte: minEndDate } : {},
                   maxEndDate ? { $lte: maxEndDate } : {},

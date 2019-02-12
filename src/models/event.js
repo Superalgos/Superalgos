@@ -34,7 +34,7 @@ const eventSchema = new Schema({
     type: Number,
     required: true,
   },
-  finishDatetime: {
+  endDatetime: {
     type: Number,
     required: true,
   },

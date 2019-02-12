@@ -26,7 +26,7 @@ const EventType = new GraphQLObjectType({
     hostId: { type: GraphQLString },
     description: { type: GraphQLString },
     startDatetime: { type: GraphQLInt },
-    finishDatetime: { type: GraphQLInt },
+    endDatetime: { type: GraphQLInt },
     state: { type: EventStateEnumType },
     rules: {
       type: new GraphQLList(RuleType),

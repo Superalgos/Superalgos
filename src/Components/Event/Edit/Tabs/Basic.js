@@ -87,9 +87,9 @@ class Basic extends React.Component {
                 showTabs={false}
                 leftArrowIcon={<ChevronLeft />}
                 rightArrowIcon={<ChevronRight />}
-                value={event.finishDatetime}
-                helperText='Competition finishing date'
-                onChange={newVal => edit('finishDatetime', newVal)}
+                value={event.endDatetime}
+                helperText='Competition ending date'
+                onChange={newVal => edit('endDatetime', newVal)}
               />
             </Grid>
           </Grid>

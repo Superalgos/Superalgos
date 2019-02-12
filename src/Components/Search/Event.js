@@ -13,35 +13,37 @@ import { toLocalTime } from '../../utils';
 
 class Event extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, event } = this.props;
     const {
       id,
-      name,
+      title,
+      subtitle,
       startDatetime,
-      finishDatetime,
+      endDatetime,
       host,
+      formula,
       description,
-    } = this.props.event;
+    } = event;
     return (
       <Paper className={classes.card}>
         <Grid container spacing={16}>
           <Grid item xs>
-            <Typography gutterBottom variant='h5'> {name} </Typography>
+            <Typography gutterBottom variant='h5'> {title} </Typography>
+            <Typography gutterBottom variant='h6'> {subtitle} </Typography>
             <Typography gutterBottom>From : {toLocalTime(startDatetime)} </Typography>
-            <Typography gutterBottom>To : {toLocalTime(finishDatetime)} </Typography>
+            <Typography gutterBottom>To : {toLocalTime(endDatetime)} </Typography>
           </Grid>
           <Grid item xs>
-            <Typography gutterBottom>
-              Hosted by: {host.alias} ({host.lastName} {host.firstName})
-            </Typography>
-            <Typography gutterBottom>Formula: </Typography>
-            <Typography gutterBottom>First prize: </Typography>
+            <Typography gutterBottom variant='h6'> Description : </Typography>
+            <Typography gutterBottom> {description} </Typography>
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction='column' spacing={16}>
               <Grid item xs>
-                <Typography gutterBottom variant='h5'> Description : </Typography>
-                <Typography gutterBottom> {description} </Typography>
+                <Typography gutterBottom>
+                  Hosted by: {host.alias} ({host.lastName} {host.firstName})
+                </Typography>
+                <Typography gutterBottom>Formula: {formula.name} </Typography>
               </Grid>
               <Grid item className={classes.buttonGrid}>
                 <Button

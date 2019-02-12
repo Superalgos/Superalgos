@@ -1,14 +1,15 @@
 import gql from 'graphql-tag';
-import { eventMinimalInfo } from '../Fragments';
+import { eventFullInfo } from '../Fragments';
 
 const EVENTS_EVENTS = gql`
-  query Events_Events{
-    events_Events {
-      ...EventMinimalInfo
+  query Events_Events($minStartDate: Int, $maxStartDate: Int, $minEndDate: Int, $maxEndDate: Int){
+    events_Events(minStartDate: $minStartDate, maxStartDate: $maxStartDate, minEndDate: $minEndDate, maxEndDate: $maxEndDate) {
+      ...EventFullInfo
     }
   }
-  ${eventMinimalInfo}
+  ${eventFullInfo}
 `;
+
 export default {
   EVENTS_EVENTS,
 };

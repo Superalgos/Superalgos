@@ -6,7 +6,7 @@ export const eventMinimalInfo = gql`
     state
     title
     startDatetime
-    finishDatetime
+    endDatetime
     host {
       alias
       firstName
@@ -37,7 +37,7 @@ export const eventFullInfo = gql`
     }
     description
     startDatetime
-    finishDatetime
+    endDatetime
     state
     rules {
       title

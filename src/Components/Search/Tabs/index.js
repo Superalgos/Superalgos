@@ -1,11 +1,11 @@
 import Future from './Future';
 import History from './History';
-import Incoming from './Incoming';
+import Ongoing from './Ongoing';
 import Past from './Past';
 
 export {
   Future,
   History,
-  Incoming,
+  Ongoing,
   Past,
 };

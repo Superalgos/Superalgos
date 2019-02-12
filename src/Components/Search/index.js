@@ -9,7 +9,7 @@ import {
   Tab,
 } from '@material-ui/core';
 import {
-  GetApp as IncomingIcon,
+  GetApp as OngoingIcon,
   AlarmAdd as FutureIcon,
   History as HistoryIcon,
 } from '@material-ui/icons';
@@ -24,7 +24,7 @@ import { listEventsCalls } from '../../GraphQL/Calls/index';
 import {
   Future,
   History,
-  Incoming,
+  Ongoing,
   Past,
 } from './Tabs';
 
@@ -66,14 +66,11 @@ class Search extends React.Component {
             if (loading) return 'Loading...';
             if (error) return `Error! ${error.message}`;
             const now = Math.floor(DateTime.local().valueOf() / 1000);
-            const inTwoWeeks = Math.floor(DateTime.local().plus({ weeks: 2 }).valueOf() / 1000);
 
-            const IncomingEvents = data.events_Events.filter(event => event.startDatetime > now
-              && event.startDatetime < inTwoWeeks);
-            const OngoingEvents = data.events_Events.filter(event => event.finishDatetime > now
+            const OngoingEvents = data.events_Events.filter(event => event.endDatetime > now
               && event.startDatetime < now);
             const FutureEvents = data.events_Events.filter(event => event.startDatetime > now);
-            const PastEvents = data.events_Events.filter(event => event.finishDatetime < now);
+            const PastEvents = data.events_Events.filter(event => event.endDatetime < now);
 
             return (
               <React.Fragment>
@@ -89,8 +86,8 @@ class Search extends React.Component {
                     >
                       <Tab
                         className={classes.tabTitle}
-                        label='Ongoing &amp; Incoming'
-                        icon={<IncomingIcon />}
+                        label='Ongoing'
+                        icon={<OngoingIcon />}
                       />
                       <Tab
                         className={classes.tabTitle}
@@ -110,7 +107,7 @@ class Search extends React.Component {
                     </Tabs>
                   </AppBar>
                   {value === 0 && <TabContainer>
-                    <Incoming IncomingEvents={IncomingEvents} OngoingEvents={OngoingEvents} />
+                    <Ongoing OngoingEvents={OngoingEvents} />
                   </TabContainer>}
                   {value === 1 && <TabContainer><Future FutureEvents={FutureEvents} /></TabContainer>}
                   {value === 2 && <TabContainer><History /></TabContainer>}

@@ -17,17 +17,17 @@ import { toLocalTime } from '../../utils';
 
 class Event extends React.Component {
   render() {
-    const { classes, showOnly } = this.props;
+    const { classes, showOnly, event } = this.props;
     const {
       id,
       title,
       subtitle,
       startDatetime,
-      finishDatetime,
+      endDatetime,
       host,
       formula,
       description,
-    } = this.props.event;
+    } = event;
     return (
       <Paper className={classes.card}>
         <Grid container spacing={16}>
@@ -35,7 +35,7 @@ class Event extends React.Component {
             <Typography gutterBottom variant='h5'> {title} </Typography>
             <Typography gutterBottom variant='h6'> {subtitle} </Typography>
             <Typography gutterBottom>From : {toLocalTime(startDatetime)} </Typography>
-            <Typography gutterBottom>To : {toLocalTime(finishDatetime)} </Typography>
+            <Typography gutterBottom>To : {toLocalTime(endDatetime)} </Typography>
           </Grid>
           <Grid item xs>
             <Typography gutterBottom variant='h6'> Description : </Typography>
@@ -54,7 +54,7 @@ class Event extends React.Component {
                   ? <React.Fragment>
                     <Mutation mutation={hostedEventsCalls.EVENTS_PUBLISHEVENT}
                       update={() => {
-                        this.props.history.push(`/events/edit/${id}`);
+                        window.location.reload();
                       }}
                     >
                       {publishEvent => (
@@ -82,7 +82,6 @@ class Event extends React.Component {
                   </React.Fragment>
                   : ''
                 }
-
                 <Button
                   className={classes.buttonList}
                   variant='outlined'

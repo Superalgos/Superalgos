@@ -47,7 +47,7 @@ class Queried extends React.Component {
       endDatetime: this.props.event.endDatetime * 1000,
       formulaId: this.props.event.formula.id,
       plotterId: this.props.event.plotter.id,
-      prizes: this.props.event.prizes,
+      prizes: this.counterremapPrizes(this.props.event.prizes),
       rules: this.props.event.rules,
     };
   }
@@ -60,6 +60,38 @@ class Queried extends React.Component {
     this.setState({ [newType]: newVal });
   }
 
+  counterremapPrizes = (prizes) => {
+    const counterremapPrizes = [];
+    prizes.forEach((prize) => {
+      counterremapPrizes.push({
+        from: parseInt(prize.condition.from, 10),
+        to: parseInt(prize.condition.to, 10),
+        additional: prize.condition.additional,
+        amount: parseInt(prize.pool.amount, 10),
+        asset: prize.pool.asset,
+      });
+    });
+    return counterremapPrizes;
+  }
+
+  remapPrizes = (prizes) => {
+    const remappedPrizes = [];
+
+    prizes.forEach((prize) => {
+      remappedPrizes.push({
+        condition: {
+          from: parseInt(prize.from, 10),
+          to: parseInt(prize.to, 10),
+          additional: prize.additional,
+        },
+        pool: {
+          amount: parseInt(prize.amount, 10),
+          asset: prize.asset,
+        },
+      });
+    });
+    return remappedPrizes;
+  }
 
   render() {
     const {
@@ -147,6 +179,8 @@ class Queried extends React.Component {
                             endDatetime: endDatetime.valueOf() / 1000,
                             formulaId,
                             plotterId,
+                            prizes: this.remapPrizes(prizes),
+                            rules,
                           },
                         },
                       })}
@@ -172,7 +206,7 @@ class Queried extends React.Component {
                             endDatetime: endDatetime.valueOf() / 1000,
                             formulaId,
                             plotterId,
-                            prizes,
+                            prizes: this.remapPrizes(prizes),
                             rules,
                           },
                         },

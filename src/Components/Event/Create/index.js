@@ -62,6 +62,25 @@ class Create extends React.Component {
     this.setState({ [newType]: newVal });
   }
 
+  remapPrizes = (prizes) => {
+    const remappedPrizes = [];
+
+    prizes.forEach((prize) => {
+      remappedPrizes.push({
+        condition: {
+          from: parseInt(prize.from, 10),
+          to: parseInt(prize.to, 10),
+          additional: prize.additional,
+        },
+        pool: {
+          amount: parseInt(prize.amount, 10),
+          asset: prize.asset,
+        },
+      });
+    });
+    return remappedPrizes;
+  }
+
   render() {
     const {
       title,
@@ -145,7 +164,7 @@ class Create extends React.Component {
                             endDatetime: endDatetime.valueOf() / 1000,
                             formulaId,
                             plotterId,
-                            prizes,
+                            prizes: this.remapPrizes(prizes),
                             rules,
                           },
                         },
@@ -171,7 +190,7 @@ class Create extends React.Component {
                             endDatetime: endDatetime.valueOf() / 1000,
                             formulaId,
                             plotterId,
-                            prizes,
+                            prizes: this.remapPrizes(prizes),
                             rules,
                           },
                         },

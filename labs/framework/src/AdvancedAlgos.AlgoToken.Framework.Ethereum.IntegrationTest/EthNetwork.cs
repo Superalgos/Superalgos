@@ -26,6 +26,8 @@ namespace AdvancedAlgos.AlgoToken.Framework.Ethereum.IntegrationTest
         public IGasPriceProvider GasPriceProvider { get; private set; }
         public BigInteger TxBaseFeeWei => GasPriceProvider.GetGasPrice() * TRANSACTION_BASE_FEE;
 
+        public static void UseDefaultTestNet() => UseGethTestNet();
+
         public static void UseGanacheTestNet()
         {
             Instance = new EthNetwork

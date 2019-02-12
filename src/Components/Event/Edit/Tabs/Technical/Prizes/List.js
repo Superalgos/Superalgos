@@ -21,7 +21,7 @@ const SortableItem = SortableElement(({ value, deletePrize, index }) => (
       <Grid item xs={12} sm container>
         <Grid item xs container direction="column" spacing={16}>
           <Typography gutterBottom variant="subtitle1">
-            {value.fromRank}{value.toRank}{value.additional}{value.amount}{value.asset}
+            {value.from}{value.to}{value.additional}{value.amount}{value.asset}
           </Typography>
           <Typography color="textSecondary">
           </Typography>

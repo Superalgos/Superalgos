@@ -20,7 +20,7 @@ class New extends React.Component {
 
   render() {
     const {
-      fromRank, toRank, additional, amount, asset,
+      from, to, additional, amount, asset,
     } = this.state;
     const { addPrize, closeDialogs } = this.props;
     return (
@@ -37,8 +37,8 @@ class New extends React.Component {
             onSubmit={(e) => {
               e.preventDefault();
               addPrize({
-                fromRank,
-                toRank,
+                from,
+                to,
                 additional,
                 amount,
                 asset,
@@ -61,14 +61,14 @@ class New extends React.Component {
 
             <TextField
               label='From rank'
-              value={fromRank}
-              onChange={e => this.setState({ fromRank: e.target.value })}
+              value={from}
+              onChange={e => this.setState({ from: e.target.value })}
               type="number"
             />
             <TextField
               label='To rank'
-              value={toRank}
-              onChange={e => this.setState({ toRank: e.target.value })}
+              value={to}
+              onChange={e => this.setState({ to: e.target.value })}
               type="number"
             />
             <TextField

@@ -1,10 +1,14 @@
 {
-  "name": "events-server",
+  "name": "modulename-server",
   "version": "0.1.0",
-  "description": "Advanced Algos Event backend API",
+  "description": "Advanced Algos modulename backend API",
   "author": "",
   "license": "",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Superalgos/ModulenameServerModule.git"
+  },
   "scripts": {
     "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"

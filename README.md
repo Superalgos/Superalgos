@@ -1,5 +1,7 @@
 This is a draft of the boilerplate we'll use for backends using mongoose and node.
 
+Don't forget to update the module name in ./package.json on lines 1-4-10.
+
 The following files are there as examples, you have to change them with your own :
   **/index.js files should be adapted for your file structure
 

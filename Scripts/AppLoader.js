@@ -27,7 +27,9 @@
 
                 /* PlotterPanels */
 
+
                 "Globals.js",
+                "Ecosystem.js",
 
                 "BottomSpace/DeleteTradingHistory.js",
                 "BottomSpace/ChartAspectRatio.js",
@@ -81,7 +83,6 @@
                 "ProductStorage.js",
                 "CompetitionStorage.js",
                 "ProductCard.js",
-                "Ecosystem.js",
 
                 "SplashScreen.js",
                 "Canvas.js",

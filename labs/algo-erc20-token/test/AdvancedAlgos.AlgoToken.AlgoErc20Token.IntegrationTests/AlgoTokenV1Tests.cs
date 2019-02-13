@@ -17,7 +17,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoErc20Token.IntegrationTests
         [Fact]
         public async Task DeployContractAndTransferTokensTest()
         {
-            EthNetwork.UseGanacheTestNet();
+            EthNetwork.UseDefaultTestNet();
 
             var account1 = new Account(EthNetwork.Instance.PrefundedPrivateKey);
             var account2 = EthAccountFactory.Create();
@@ -39,7 +39,7 @@ namespace AdvancedAlgos.AlgoToken.AlgoErc20Token.IntegrationTests
         [Fact]
         public async Task PausableFeatureTest()
         {
-            EthNetwork.UseGanacheTestNet();
+            EthNetwork.UseDefaultTestNet();
 
             var account1 = new Account(EthNetwork.Instance.PrefundedPrivateKey);
             var account2 = EthAccountFactory.Create();

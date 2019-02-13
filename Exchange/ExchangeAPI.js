@@ -7,7 +7,7 @@
     */
     const _ = require('lodash')
     const isValidOrder = require('./exchangeUtils').isValidOrder
-    const graphqlClient = require('graphql-client')
+    const axios = require('axios')
     const appRoot = require('app-root-path')
     const auth = require(`${appRoot}/utils/auth`)
     
@@ -55,37 +55,38 @@
     function createKeyVaultAPIClient(authToken) {
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
 
-        const keyVaultAPI = graphqlClient({
-            url: global.GATEWAY_ENDPOINT,
-            headers: {
-                Authorization: 'Bearer ' + authToken
-            }
-        });
-
+        const keyVaultAPI = {}
         keyVaultAPI.signTransaction = function (transaction, next) {
-            let variables = {
-                botId: bot.codeName,
-                transaction: transaction
-            }
+            axios({
+                url: global.GATEWAY_ENDPOINT,
+                method: 'post',
+                data: {
+                    query: `
+                    mutation keyVault_SignTransaction($keyId: String!, $cloneId: String!, $transaction: String!){
+                        keyVault_SignTransaction(keyId: $keyId, cloneId: $cloneId, transaction: $transaction){
+                            key,
+                            signature,
+                            date
+                        }
+                    }
+                    `,
+                    variables: {
+                        keyId: process.env.KEY_ID,
+                        cloneId: process.env.CLONE_ID,
+                        transaction: transaction
+                    }
+                },
+                headers: {
+                    authorization: 'Bearer ' + authToken
+                }
 
-            keyVaultAPI.query(`
-                mutation($botId: String, $transaction: String!){
-                keyVault_SignTransaction(botId: $botId, transaction: $transaction){
-                    key,
-                    signature,
-                    date
-                }
-                }`, variables, function (req, res) {
-                if (res.status === 401) {
-                    next(undefined, 'Error from graphql: Not authorized');
-                }
             }).then(res => {
                 if (res.errors) {
                     next(undefined, 'Error from graphql: ' + res.errors);
                 } else {
                     let signature = {
-                        Key: res.data.keyVault_SignTransaction.key,
-                        Sign: res.data.keyVault_SignTransaction.signature
+                        Key: res.data.data.keyVault_SignTransaction.key,
+                        Sign: res.data.data.keyVault_SignTransaction.signature
                     }
                     next(signature)
                 }

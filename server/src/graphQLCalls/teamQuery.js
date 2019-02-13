@@ -1,8 +1,8 @@
 import logger from '../config/logger'
 import axios from 'axios'
 
-const teamQuery = async(authorization, teamId) => {
-  logger.debug('GraphQL retrieving team information. %s', teamId)
+const teamQuery = (authorization, teamId) => {
+  logger.debug('teamQuery -> Entering function')
 
   return axios({
     url: process.env.GATEWAY_ENDPOINT,

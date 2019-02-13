@@ -1,23 +1,26 @@
-import { CloneInputType } from '../types/input';
-import { CloneType } from '../types';
-import { Clone } from '../../models';
-import { CloneModeEnum } from '../../enums/CloneMode';
-import { BotTypesEnum } from '../../enums/BotTypes';
+import { CloneInputType } from '../types/input'
+import { CloneType } from '../types'
+import { Clone } from '../../models'
+import { CloneModeEnum } from '../../enums/CloneMode'
+import { BotTypesEnum } from '../../enums/BotTypes'
 import teamQuery from '../../graphQLCalls/teamQuery'
+import authorizeClone from '../../graphQLCalls/authorizeClone'
 import cloneDetails from '../cloneDetails'
 
 import {
   AuthentificationError,
   WrongArgumentsError,
-  OperationsError
+  OperationsError,
+  AutorizationError
 } from '../../errors'
 
 import logger from '../../config/logger'
 import createKubernetesClone from '../../kubernetes/createClone'
 import { isDefined } from '../../config/utils'
+import { LIVE } from '../../enums/CloneMode'
 
 const args = {
-  clone: {type: CloneInputType }
+  clone: { type: CloneInputType }
 }
 
 const resolve = async(parent, { clone }, context) => {
@@ -27,40 +30,44 @@ const resolve = async(parent, { clone }, context) => {
     throw new AuthentificationError()
   }
 
-  if(!Object.values(CloneModeEnum).includes(clone.mode)){
+  if (!Object.values(CloneModeEnum).includes(clone.mode)) {
     throw new WrongArgumentsError('The mode selected is not valid.')
   }
 
-  if(!Object.values(BotTypesEnum).includes(clone.botType)){
+  if (!Object.values(BotTypesEnum).includes(clone.botType)) {
     throw new WrongArgumentsError('The bot type selected is not valid.')
   }
 
-  try{
+  if (clone.mode === LIVE && !isDefined(clone.keyId)) {
+    throw new WrongArgumentsError('The key was not provided to run the clone in Live mode.')
+  }
+
+  try {
     let team = await teamQuery(context.authorization, clone.teamId)
     clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
-    clone.createDatetime = new Date().valueOf() / 1000|0
+    clone.createDatetime = new Date().valueOf() / 1000 | 0
     clone.active = true
 
-    logger.debug('addClone -> Creating a new clone.')
     let newClone = new Clone(clone)
     newClone.authId = context.userId
     clone.id = newClone._id
-    await createKubernetesClone(clone)
 
-    return new Promise((resolve, reject) => {
-      newClone.save((err) => {
-        if (err){
-          logger.error('addClone -> Error: %s', err.stack)
-          reject('There has been an error storing the clone.')
-        }
-        else {
-          //TODO transaction on database
-          logger.debug('addClone -> Save clone sucessful.')
-          resolve(newClone)
-        }
-      })
-    })
-  } catch(err) {
+    logger.debug('addClone -> Creating the clone on the Database.')
+    let savedClone = await newClone.save()
+
+    if (clone.mode === LIVE) {
+      logger.debug('addClone -> Authorizing clone to use the key.')
+      let response = await authorizeClone(context.authorization, clone.keyId, clone.id, false)
+      logger.debug('addClone -> Authorizing clone to use the key.')
+      if (response.data.data.keyVault_AuthorizeClone === clone.keyId) {
+        await createKubernetesClone(clone)
+      } else {
+        throw new AutorizationError()
+      }
+    }
+    logger.debug('addClone -> Clone created sucessfully.')
+    return savedClone
+  } catch (err) {
     logger.error('addClone -> Error: %s', err.stack)
     throw new OperationsError('There has been an error creating the clone.')
   }

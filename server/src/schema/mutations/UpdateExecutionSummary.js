@@ -13,6 +13,7 @@ import {
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import teamQuery from '../../graphQLCalls/teamQuery'
+import authorizeClone from '../../graphQLCalls/authorizeClone'
 import cloneDetails from '../cloneDetails'
 import removeKuberneteClone from '../../kubernetes/removeClone'
 import { isDefined } from '../../config/utils'
@@ -54,9 +55,6 @@ const resolve = async (parent,
 
     let team = await teamQuery(context.authorization, clone.teamId)
     clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
-
-    logger.debug('UpdateExecutionSummary -> Removing Clone from Kubernates.')
-    await removeKuberneteClone(clone)
 
     const query = { _id: id }
     const options = { new: true }

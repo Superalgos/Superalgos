@@ -2,8 +2,8 @@ import logger from '../config/logger'
 import { isDefined } from '../config/utils'
 import { AutorizationError } from '../errors'
 
-const cloneDetails = async(authId, team, clone) => {
-  logger.debug('Retrieving clone details.')
+const cloneDetails = (authId, team, clone) => {
+  logger.debug('cloneDetails -> Entering function.')
 
   if(!(authId === (process.env.AUTH_CLIENT_ID + '@clients') || isAuthorized(team, authId))){
     logger.debug('User %s is not authorized to manage team %s.', authId, team.slug )
@@ -22,12 +22,12 @@ const cloneDetails = async(authId, team, clone) => {
   clone.teamAvatar = team.profile.avatar
   clone.userLoggedIn = team.members[0].member.alias //TODO change by context info if possible
 
-  logger.debug('Retrieving clone details complete.')
+  logger.debug('cloneDetails -> Retrieving clone details complete.')
   return clone
 };
 
 function getSelectedBot(team, selectedBotId){
-  logger.debug('Getting selected bot.')
+  logger.debug('cloneDetails -> Getting selected bot.')
   if(isDefined(team)){
     for (var i = 0; i < team.fb.length; i++) {
       if(team.fb[i].id === selectedBotId){
@@ -38,7 +38,7 @@ function getSelectedBot(team, selectedBotId){
 }
 
 function isAuthorized(team, authId){
-  logger.debug('Checking if the user is authorized by the teams module.')
+  logger.debug('cloneDetails -> Checking if the user is authorized by the teams module.')
   let authorized = false
   if(isDefined(team)){
     for (var i = 0; i < team.members.length; i++) {

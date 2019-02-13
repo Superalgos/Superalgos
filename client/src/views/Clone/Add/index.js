@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { graphql, compose, Query } from 'react-apollo'
-import { clones, teams } from '../../../GraphQL/Calls'
+import { clones, teams, keys } from '../../../GraphQL/Calls'
 import { DateTime } from 'luxon';
 
 import TopBar from '../../BannerTopBar'
@@ -45,6 +45,7 @@ class AddClone extends Component {
       runAsTeam: false,
       teams: [],
       teamId: '',
+      keyId: '',
 
       // Indicator Bot
       startYear: 2019,
@@ -60,7 +61,8 @@ class AddClone extends Component {
       isNewCloneConfirmationOpen: false,
       serverResponse: '',
       serverError: false,
-      processNameError: false
+      processNameError: false,
+      keyIdError: false
     }
   }
 
@@ -227,6 +229,60 @@ class AddClone extends Component {
                              onChange={(e)=>this.setState({waitTime:e.target.value})}
                              fullWidth
                            />
+                         </React.Fragment>
+                     }
+
+                     { this.state.mode == "live" &&
+                         <React.Fragment>
+                           <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                             Select one of your available Exchange API Keys to be used by this clone.
+                           </Typography>
+
+                          <Query
+                             query={keys.GET_ALL_KEYS}
+                           >
+                             {({ loading, error, data }) => {
+                               if (loading) return (
+                                 <TextField
+                                    select
+                                    label="Exchange API Key"
+                                    className={classNames(classes.margin, classes.textField, classes.form)}
+                                    value={this.state.keyId}
+                                    onChange={(e)=> this.setState({keyId:e.target.value})}
+                                    onBlur={(e)=>this.setState({keyIdError:false})}
+                                    error={this.state.keyIdError}
+                                    fullWidth
+                                    >
+                                    <MenuItem key='1' value='Loading keys...'>
+                                      'Loading keys...'
+                                    </MenuItem>
+                                 </TextField>
+                               );
+                               if (error) return `Error! ${error.message}`;
+                               const list = data.keyVault_AvailableKeys.map((key) => (
+                                 <MenuItem key={key.id} value={key.id}>
+                                   {key.key}
+                                 </MenuItem>
+                               ));
+                               return (
+                                 <TextField
+                                    select
+                                    label="Exchange API Key"
+                                    className={classNames(classes.margin, classes.textField, classes.form)}
+                                    value={this.state.keyId}
+                                    onChange={(e)=> this.setState({keyId:e.target.value})}
+                                    onBlur={(e)=>this.setState({keyIdError:false})}
+                                    error={this.state.keyIdError}
+                                    fullWidth
+                                    >
+                                   { list }
+                                 </TextField>
+                               );
+                             }}
+                           </Query>
+
+
+
                          </React.Fragment>
                      }
 
@@ -399,7 +455,8 @@ class AddClone extends Component {
                 </DialogContentText>
               </DialogContent>
               <DialogActions>
-                <Button onClick={this.handleNewCloneConfirmationClose} color="primary" autoFocus>
+                <Button onClick={this.handleNewCloneConfirmationClose}
+                  variant='contained' color='secondary' autoFocus>
                   Ok
                 </Button>
               </DialogActions>
@@ -431,7 +488,7 @@ class AddClone extends Component {
       let serverResponse = await this.createCloneOnServer()
       error = serverResponse.errors || !isDefined(serverResponse.data.operations_AddClone)
       if(error){
-        this.state.serverResponse = serverResponse.errors[0].message
+        this.state.serverResponse = serverResponse.errors[0].message || serverResponse.errors[0]
         this.state.serverError = true
       }else{
         this.state.serverResponse = "The new clone was sucessfully created."
@@ -453,15 +510,16 @@ class AddClone extends Component {
       }
     }
 
-    if(this.state.mode === "backtest"){
-      variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000|0
-      variables.clone.endDatetime = this.state.endDatetime.valueOf() / 1000|0
-      variables.clone.waitTime = this.state.waitTime
-    }
-
     if(this.state.selectedBot.kind === "TRADER"){
       variables.clone.runAsTeam = this.state.runAsTeam
       variables.clone.processName = 'Trading-Process'
+      if(this.state.mode === "backtest"){
+        variables.clone.beginDatetime = this.state.beginDatetime.valueOf() / 1000|0
+        variables.clone.endDatetime = this.state.endDatetime.valueOf() / 1000|0
+        variables.clone.waitTime = this.state.waitTime
+      } else {
+        variables.clone.keyId = this.state.keyId
+      }
     } else {
       variables.clone.processName = this.state.processName
       variables.clone.startYear = this.state.startYear
@@ -508,6 +566,7 @@ class AddClone extends Component {
         processName: '',
         teams: [],
         teamId: '',
+        keyId: '',
 
         //Error handlers
         nameError: false,
@@ -517,7 +576,8 @@ class AddClone extends Component {
         isNewCloneConfirmationOpen: false,
         serverResponse: '',
         serverError: false,
-        processNameError: false
+        processNameError: false,
+        keyIdError: false
       })
   };
 

@@ -53,6 +53,5 @@ export class KubernateError extends Error {
   message = 'OperationsModule Kubernate Error. ' + this.message
   constructor(message){
     super(message)
-    logger.error(this.stack)
   }
 }

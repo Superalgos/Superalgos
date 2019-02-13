@@ -3,7 +3,6 @@ const availableMonths = ["January", "February", "March", "April", "May", "June",
 
 const tradingStartModes ={
     live: "Live",
-    competition: "Competition",
     backtest: "Backtest"
 }
 

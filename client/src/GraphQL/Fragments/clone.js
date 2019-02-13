@@ -30,5 +30,6 @@ export const clone = gql`
     botAvatar
     teamAvatar
     processName
+    keyId
   }
 `;

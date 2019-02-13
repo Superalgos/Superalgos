@@ -23,6 +23,7 @@ const cloneSchema = new Schema({
       type: String,
       required: true,
   },
+  keyId: String,
   mode: {
     type: String,
     enum: CloneModeEnum,

@@ -18,7 +18,7 @@ const args = {
 }
 
 const resolve = async(parent, { cloneIdList }, context) => {
-  logger.debug('Get Clones -> Entering Fuction. %j', cloneIdList)
+  logger.debug('Get Clones -> Entering Fuction.')
   try{
      let clones = []
      for (var i = 0; i < cloneIdList.length; i++) {
@@ -44,7 +44,6 @@ const resolve = async(parent, { cloneIdList }, context) => {
            id: cloneIdList[i]
          })
        }
-
      }
 
      return clones

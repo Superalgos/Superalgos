@@ -12,10 +12,10 @@ import Home from './views/Home'
 const App = () => (
   <MuiPickersUtilsProvider utils={LuxonUtils}>
     <Switch>
-      <Route exact path='/operations/' component={Home} />
-      <Route path='/operations/browse' component={BrowseClones} />
-      <Route path='/operations/history' component={HistoryClones} />
-      <Route path='/operations/add' component={AddClone} />
+      <Route exact path='/clones/' component={Home} />
+      <Route path='/clones/browse' component={BrowseClones} />
+      <Route path='/clones/history' component={HistoryClones} />
+      <Route path='/clones/add' component={AddClone} />
     </Switch>
   </MuiPickersUtilsProvider>
 )

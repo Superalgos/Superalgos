@@ -104,6 +104,11 @@ const createClone = async (clone) => {
           "name": "WAIT_TIME",
           "value": clone.waitTime.toString()
         })
+      } else{
+        env.push({
+          "name": "KEY_ID",
+          "value": clone.keyId
+        })
       }
     } else if(clone.botType === INDICATOR || clone.botType === EXTRACTION ){
         if(clone.mode !== NO_TIME){

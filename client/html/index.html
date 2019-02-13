@@ -20,6 +20,7 @@
     function loadCanvas(){
       if (window.canvasApp.visible === undefined) {
         window.canvasApp = {
+            version: '1.0.0',  // This is used to avoid catching problems at the browser level.
             sessionToken: '',
             executingAt: 'Master App',
             visible: false,

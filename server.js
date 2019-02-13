@@ -183,7 +183,6 @@ function onBrowserRequest(request, response) {
     let htmlResponse;
     let requestParameters = request.url.split("/");
 
-
     if (requestParameters[1].indexOf("index.html") >= 0) {
 
         /*
@@ -201,7 +200,8 @@ function onBrowserRequest(request, response) {
         return;
     }
 
-
+    requestParameters = request.url.split("?"); // Remove version information
+    requestParameters = requestParameters[0].split("/"); 
 
     switch (requestParameters[1]) {
 

@@ -8,8 +8,9 @@
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
-    const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
+    const operationsIntegration = require('./Integrations/OperationsModuleIntegration')
 
+    const BLOB_STORAGE = require(ROOT_DIR + 'BlobStorage');
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
 
@@ -907,11 +908,25 @@
                         }
                     }
 
-                    function saveContext() {
+                    async function saveContext() {
 
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext ->  Entering function."); }
+
+                            // Update operations module with latest context
+                            let lastExecution = context.newHistoryRecord
+                            let date = lastExecution.date / 1000 | 0
+                            let buyAvgRate = lastExecution.buyAvgRate
+                            let sellAvgRate = lastExecution.sellAvgRate
+                            let marketRate = lastExecution.marketRate
+                            let combinedProfitsA = lastExecution.combinedProfitsA
+                            let combinedProfitsB = lastExecution.combinedProfitsB
+
+                            await operationsIntegration.updateExecutionResults(date, buyAvgRate, sellAvgRate,
+                                marketRate, combinedProfitsA, combinedProfitsB)
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext ->  Execution Results updated."); }
 
                             context.saveThemAll(onFinished);
 

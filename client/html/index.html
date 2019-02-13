@@ -32,9 +32,13 @@
             context: {}
         };
 
-        let delay = 0
-        if (window.innerHeight === 0) {delay = 3000} // Inside IFRAMES the onload event is reaised before the window has its real size.
-        setTimeout(loadAdvancedAlgosPlatform, delay)
+        try {
+          loadAdvancedAlgosPlatform();
+        }
+        catch(err) {
+          console.log("[ERROR] MasterApp -> Index -> CanvasApp can not be started. Please check that AAWeb is running.");
+          console.log("[ERROR] MasterApp -> Index -> err = " + err);
+        }
       }
     }
 

@@ -1,16 +1,15 @@
-const availableMonths = ["January", "February", "March", "April", "May", "June",
-          "July", "August", "September", "October", "November", "December"]
+const availableMonths = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December']
 
-const tradingStartModes ={
-    live: "Live",
-    competition: "Competition",
-    backtest: "Backtest"
+const tradingStartModes = {
+  live: 'Live',
+  backtest: 'Backtest'
 }
 
 const indicatorStartModes = {
-  allMonths: "All Months",
-  oneMonth: "One Month",
-  noTime: "No Time"
+  allMonths: 'All Months',
+  oneMonth: 'One Month',
+  noTime: 'No Time'
 }
 
 const exchanges = [
@@ -19,7 +18,5 @@ const exchanges = [
     name: 'Poloniex'
   }
 ]
-
-
 
 export { tradingStartModes, exchanges, indicatorStartModes, availableMonths }

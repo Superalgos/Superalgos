@@ -4,12 +4,12 @@ import { Client, config } from 'kubernetes-client'
 
 const getClonePodStatus = async (cloneName) => {
   try {
-    logger.debug("getClonePodStatus on kubernates started. ")
+    logger.debug('getClonePodStatus on kubernates started. ')
     const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
 
     let query = {
-      "qs":{
-        "labelSelector": "job-name="+cloneName
+      'qs': {
+        'labelSelector': 'job-name=' + cloneName
       }
     }
 
@@ -21,10 +21,10 @@ const getClonePodStatus = async (cloneName) => {
       && clonePodStatus.terminated.hasOwnProperty('containerID')) {
       delete clonePodStatus.terminated.containerID
     }
-    logger.debug("getClonePodStatus %s on kubernates successful", cloneName)
+    logger.debug('getClonePodStatus %s on kubernates successful', cloneName)
     return JSON.stringify(clonePodStatus, null, 2)
   } catch (err) {
-     throw new KubernateError(err)
+    throw new KubernateError(err)
   }
 }
 export default getClonePodStatus

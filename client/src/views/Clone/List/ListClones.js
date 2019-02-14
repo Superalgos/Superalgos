@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
 import { clones } from '../../../GraphQL/Calls'
-import Poloniex from '../../../img/poloniex.png'
-import Binance from '../../../img/binance.png'
-
 import {
-  Grid, Paper, Typography, Button, TextField, Dialog, DialogContent,
+  Typography, Button, TextField, Dialog, DialogContent,
   DialogContentText, DialogTitle, DialogActions,
   ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary,
-  ExpansionPanelActions, Chip, Divider
+  ExpansionPanelActions, Divider
 
 } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 import { tradingStartModes, indicatorStartModes } from '../../../GraphQL/models'
 import { isDefined, toLocalTime } from '../../../utils'
 import classNames from 'classnames'

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
-import { withStyles } from '@material-ui/core/styles'
 import TopBar from './BannerTopBar'
 
 class Home extends Component {
@@ -29,9 +28,7 @@ class Home extends Component {
             </Typography>
           </div>
           <div className='column'>
-            <Typography align='justify'>
-
-            </Typography>
+            <Typography align='justify' />
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from 'graphql-tag'
 
 export const clone = gql`
   fragment clone on operations_Clone {
@@ -30,5 +30,6 @@ export const clone = gql`
     botAvatar
     teamAvatar
     processName
+    keyId
   }
-`;
+`

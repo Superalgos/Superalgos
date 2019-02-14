@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { clones } from '../../../GraphQL/Calls'
 import TopBar from '../../BannerTopBar'
-//import CloneDialog from './CloneDialog'
 import ListClones from './ListClones'
-
-// Material-ui
-import { Typography, Paper } from '@material-ui/core'
 
 class BrowseClones extends Component {
 

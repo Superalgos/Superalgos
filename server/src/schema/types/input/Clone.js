@@ -4,7 +4,7 @@ import {
   GraphQLInputObjectType,
   GraphQLBoolean,
   GraphQLNonNull
-} from 'graphql';
+} from 'graphql'
 
 const Type = new GraphQLInputObjectType({
   name: 'CloneInput',
@@ -23,8 +23,9 @@ const Type = new GraphQLInputObjectType({
     month: { type: GraphQLInt },
     interval: { type: GraphQLInt },
     processName: { type: new GraphQLNonNull(GraphQLString) },
-    botType: { type: new GraphQLNonNull(GraphQLString) }
-    })
-});
+    botType: { type: new GraphQLNonNull(GraphQLString) },
+    keyId: { type: GraphQLString }
+  })
+})
 
-export default Type;
+export default Type

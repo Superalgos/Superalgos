@@ -10,13 +10,13 @@ export function toLocalTime (epoch) {
 }
 
 export function toUTCTimestamp (localDate) {
-  if(isDefined(localDate)){
+  if (isDefined(localDate)) {
     const date = new Date(localDate.valueOf())
     const utcDate = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(),
     date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(),
     date.getUTCSeconds())
 
-    return utcDate.valueOf() / 1000|0
+    return utcDate.valueOf() / 1000 | 0
   }
 }
 
@@ -77,7 +77,7 @@ export function getIndicatorYears () {
   const localDate = new Date()
   let availableYears = []
   for (var i = 2015; i <= localDate.getUTCFullYear(); i++) {
-    availableYears[i-2015] = i
+    availableYears[i - 2015] = i
   }
   return availableYears
 }

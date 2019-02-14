@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { clones } from '../../../GraphQL/Calls'
 import TopBar from '../../BannerTopBar'
-//import CloneDialog from './CloneDialog'
 import ListClones from '../List/ListClones'
-
-// Material-ui
-import { Typography, Paper } from '@material-ui/core'
 
 class HistoryClones extends Component {
 
@@ -44,7 +40,7 @@ class HistoryClones extends Component {
             {
                 data.operations_HistoryClones.map((clone, i) => {
                   return (
-                    <ListClones key={clone.id} currentClone={clone} isHistory={true}/>
+                    <ListClones key={clone.id} currentClone={clone} isHistory />
                   )
                 })
             }

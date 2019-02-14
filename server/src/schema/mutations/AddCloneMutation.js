@@ -73,7 +73,7 @@ const resolve = async(parent, { clone }, context) => {
   }
 }
 
-const mutation = {
+const AddCloneMutation = {
   addClone: {
     type: CloneType,
     args,
@@ -81,4 +81,4 @@ const mutation = {
   }
 }
 
-export default mutation
+export default AddCloneMutation

@@ -10,8 +10,6 @@ import {
 import { CloneType } from '../types'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
-import getKuberneteClonePodStatus from '../../kubernetes/getClonePodStatus'
-import getKuberneteClonePodLogs from '../../kubernetes/getClonePodLogs'
 import cloneDetails from '../cloneDetails'
 import teamQuery from '../../graphQLCalls/teamQuery'
 
@@ -42,7 +40,7 @@ const resolve = async(parent, args, context) => {
  }
 }
 
-const query = {
+const HistoryClones = {
   historyClones: {
     type: new GraphQLList(CloneType),
     args,
@@ -50,4 +48,4 @@ const query = {
   }
 }
 
-export default query
+export default HistoryClones

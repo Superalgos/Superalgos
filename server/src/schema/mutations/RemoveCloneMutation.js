@@ -64,7 +64,7 @@ const resolve = async (parent, { id }, context) => {
   })
 }
 
-const mutation = {
+const RemoveCloneMutation = {
   removeClone: {
     type: GraphQLString,
     args,
@@ -72,4 +72,4 @@ const mutation = {
   }
 }
 
-export default mutation
+export default RemoveCloneMutation

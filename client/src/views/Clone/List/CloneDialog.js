@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import AddClone from './AddClone'
-
-import AddIcon from '@material-ui/icons/Add'
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
-
 import {
-  Button, Dialog, DialogContent, DialogContentText, DialogTitle, Paper, Typography
+  Button, Dialog, DialogContent, DialogContentText, DialogTitle
 } from '@material-ui/core'
 
 class CloneDialog extends Component {

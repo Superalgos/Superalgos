@@ -32,7 +32,6 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
   },
   textArea: {
-    width:'1750px',
     margin: theme.spacing.unit,
     whiteSpace: 'pre',
     width:'98%',

@@ -45,7 +45,7 @@ const resolve = async(parent, args, context) => {
  }
 }
 
-const query = {
+const ListClones = {
   clones: {
     type: new GraphQLList(CloneType),
     args,
@@ -53,4 +53,4 @@ const query = {
   }
 }
 
-export default query
+export default ListClones

@@ -1,5 +1,3 @@
-import logger from '../config/logger'
-
 export class AuthentificationError extends Error {
   code = 401
   message = 'Autentification not found, you have to be authentificated to perform this action.'

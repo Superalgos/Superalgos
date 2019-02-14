@@ -2,24 +2,17 @@ import React, { Component } from 'react'
 import { graphql, compose, Query } from 'react-apollo'
 import { clones, teams, keys } from '../../../GraphQL/Calls'
 import { DateTime } from 'luxon';
-
 import TopBar from '../../BannerTopBar'
-
 import { withStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import styles from './styles'
-
-import { tradingStartModes, indicatorStartModes, availableMonths, processNames } from '../../../GraphQL/models'
+import { tradingStartModes, indicatorStartModes, availableMonths } from '../../../GraphQL/models'
 import { isDefined, getIndicatorYears } from '../../../utils'
-
 import {
    MenuItem, Button, TextField, FormControl, InputLabel, Input, Typography,
    Paper, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,
    Select, FormControlLabel, Checkbox, FormHelperText
 } from '@material-ui/core'
-
-import NumberFormat from 'react-number-format'
-
 import { DateTimePicker } from 'material-ui-pickers'
 import {
   ChevronLeft,

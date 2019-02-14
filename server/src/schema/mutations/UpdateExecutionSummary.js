@@ -5,17 +5,13 @@ import {
   GraphQLInt,
   GraphQLFloat
 } from 'graphql'
-
 import {
   OperationsError
 } from '../../errors'
-
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import teamQuery from '../../graphQLCalls/teamQuery'
-import authorizeClone from '../../graphQLCalls/authorizeClone'
 import cloneDetails from '../cloneDetails'
-import removeKuberneteClone from '../../kubernetes/removeClone'
 import { isDefined } from '../../config/utils'
 
 const args = {
@@ -34,23 +30,22 @@ const resolve = async (parent,
     { id, summaryDate, buyAverage, sellAverage, marketRate, combinedProfitsA,
       combinedProfitsB, assetA, assetB
     }, context) => {
-
   logger.debug('UpdateExecutionSummary -> Entering Function.')
 
   if (!context.userId) {
     throw new AuthentificationError()
   }
 
-  try{
+  try {
     let sucessful
 
-    let clone = await Clone.findOne( {
+    let clone = await Clone.findOne({
       _id: id,
       active: true
     })
 
-    if(!isDefined(clone)){
-      return "Clone not found."
+    if (!isDefined(clone)) {
+      return 'Clone not found.'
     }
 
     let team = await teamQuery(context.authorization, clone.teamId)
@@ -72,7 +67,7 @@ const resolve = async (parent,
 
     logger.debug('UpdateExecutionSummary -> Updating clone on database.')
     await Clone.update(query, update, options, (err, clone) => {
-      if (err){
+      if (err) {
         logger.error('Error updating execution summary on the database. %s', err.stack)
         throw err
       } else {
@@ -81,16 +76,16 @@ const resolve = async (parent,
       }
     })
 
-    if(sucessful)
+    if (sucessful) {
       return 'Execution summary updated.'
-
+    }
   } catch (error) {
     logger.error('Error updating the execution summary. %s', error.stack)
     throw new OperationsError(error.message)
   }
 }
 
-const mutation = {
+const UpdateExecutionSummary = {
   updateExecutionSummary: {
     type: GraphQLString,
     args,
@@ -98,4 +93,4 @@ const mutation = {
   }
 }
 
-export default mutation
+export default UpdateExecutionSummary

@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from 'graphql-tag'
 
 export const GET_ALL_KEYS = gql`
   query {
@@ -12,4 +12,4 @@ export const GET_ALL_KEYS = gql`
 
 export default {
   GET_ALL_KEYS
-};
+}

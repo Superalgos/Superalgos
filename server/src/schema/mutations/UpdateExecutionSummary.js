@@ -5,9 +5,7 @@ import {
   GraphQLInt,
   GraphQLFloat
 } from 'graphql'
-import {
-  OperationsError
-} from '../../errors'
+import { OperationsError } from '../../errors'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import teamQuery from '../../graphQLCalls/teamQuery'

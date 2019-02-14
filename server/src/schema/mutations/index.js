@@ -1,7 +1,4 @@
-import {
-  GraphQLObjectType
-} from 'graphql'
-
+import { GraphQLObjectType } from 'graphql'
 import AddCloneMutation from './AddCloneMutation'
 import RemoveCloneMutation from './RemoveCloneMutation'
 import UpdateExecutionSummary from './UpdateExecutionSummary'

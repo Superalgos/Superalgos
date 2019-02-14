@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from 'graphql-tag'
 
 export const GET_ALL_TEAMS_QUERY = gql`
   query {
@@ -18,4 +18,4 @@ export const GET_ALL_TEAMS_QUERY = gql`
 
 export default {
   GET_ALL_TEAMS_QUERY
-};
+}

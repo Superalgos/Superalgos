@@ -17,26 +17,26 @@ const styles = theme => ({
   },
   buttonList: {
     margin: theme.spacing.unit,
-    float: 'right',
+    float: 'right'
   },
   buttonGrid: {
-    marginTop: -20,
+    marginTop: -20
   },
   button: {
     display: 'block',
     marginLeft: 'auto',
-    marginRight: 'auto',
+    marginRight: 'auto'
   },
   textField: {
     marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing.unit
   },
   textArea: {
     margin: theme.spacing.unit,
     whiteSpace: 'pre',
-    width:'98%',
-    overflowY:'hidden',
-    overflowX:'hidden'
+    width: '98%',
+    overflowY: 'hidden',
+    overflowX: 'hidden'
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
@@ -49,15 +49,15 @@ const styles = theme => ({
   },
   helper: {
     borderLeft: `2px solid ${theme.palette.divider}`,
-    padding: `0px ${theme.spacing.unit * 2}px`,
+    padding: `0px ${theme.spacing.unit * 2}px`
   },
-  logsWrapper:{
-    width:'1750px',
-    overflowY:'auto',
-    overflowX:'hidden'
+  logsWrapper: {
+    width: '1750px',
+    overflowY: 'auto',
+    overflowX: 'hidden'
   },
-  details:{
-    display:'flex'
+  details: {
+    display: 'flex'
   },
   column2: {
     flexBasis: '50%',
@@ -67,23 +67,23 @@ const styles = theme => ({
     flexBasis: '33.33%',
     maxWidth: '33.33%'
   },
-  cloneInfoTitle:{
+  cloneInfoTitle: {
     fontWeight: '600',
     flexBasis: '100%',
     maxWidth: '100%'
   },
-  cloneInfoBold:{
+  cloneInfoBold: {
     fontWeight: '600',
     paddingLeft: '10px',
     paddingTop: '10px'
   },
-  cloneInfoNormal:{
+  cloneInfoNormal: {
     paddingLeft: '10px',
     paddingTop: '10px'
   },
   avatar: {
-    margin: 10,
-  },
+    margin: 10
+  }
 })
 
 export default styles

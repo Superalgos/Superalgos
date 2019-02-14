@@ -40,7 +40,7 @@ class HistoryClones extends Component {
             {
                 data.operations_HistoryClones.map((clone, i) => {
                   return (
-                    <ListClones key={clone.id} currentClone={clone} isHistory={true}/>
+                    <ListClones key={clone.id} currentClone={clone} isHistory />
                   )
                 })
             }

@@ -1,7 +1,4 @@
-import {
-  GraphQLObjectType,
-  GraphQLID
-} from 'graphql'
+import { GraphQLObjectType, GraphQLID } from 'graphql'
 
 const GetClonesType = new GraphQLObjectType({
   name: 'GetClones',

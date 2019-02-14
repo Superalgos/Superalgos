@@ -34,13 +34,13 @@ const teamQuery = (authorization, teamId) => {
       }
       `,
       variables: {
-         teamId: teamId
-       }
+        teamId: teamId
+      }
     },
     headers: {
       authorization: authorization
     }
   })
-};
+}
 
 export default teamQuery

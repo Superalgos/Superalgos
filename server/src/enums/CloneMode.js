@@ -6,7 +6,6 @@ export const ONE_MONTH = 'oneMonth'
 export const NO_TIME = 'noTime'
 export const FIXED_INTERVAL = 'fixedInterval'
 
-
 export const CloneModeEnum = [
   LIVE,
   BACKTEST,

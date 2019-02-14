@@ -6,14 +6,12 @@ import { BotTypesEnum } from '../../enums/BotTypes'
 import teamQuery from '../../graphQLCalls/teamQuery'
 import authorizeClone from '../../graphQLCalls/authorizeClone'
 import cloneDetails from '../cloneDetails'
-
 import {
   AuthentificationError,
   WrongArgumentsError,
   OperationsError,
   AutorizationError
 } from '../../errors'
-
 import logger from '../../config/logger'
 import createKubernetesClone from '../../kubernetes/createClone'
 import { isDefined } from '../../config/utils'

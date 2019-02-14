@@ -10,8 +10,6 @@ const createClone = async (clone) => {
   try {
     logger.debug('createClone %s', clone.id)
     const client = new Client({config: config.fromKubeconfig(), version: '1.9'})
-
-    // Make changes to base deployment config
     deploymentManifest.metadata.name = clone.id
 
     logger.debug('createClone Environment and Auth Configuration.')

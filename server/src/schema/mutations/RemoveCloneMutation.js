@@ -1,14 +1,5 @@
-import {
-  GraphQLNonNull,
-  GraphQLID,
-  GraphQLString
-} from 'graphql'
-
-import {
-  AuthentificationError,
-  OperationsError
-} from '../../errors'
-
+import { GraphQLNonNull, GraphQLID, GraphQLString } from 'graphql'
+import { AuthentificationError, OperationsError } from '../../errors'
 import { Clone } from '../../models'
 import logger from '../../config/logger'
 import removeKuberneteClone from '../../kubernetes/removeClone'
@@ -33,7 +24,7 @@ const resolve = async (parent, { id }, context) => {
     active: true
   })
 
-  if(!isDefined(clone)){
+  if (!isDefined(clone)) {
     throw new OperationsError('You are not authorized to remove this clone.')
   }
 
@@ -54,12 +45,12 @@ const resolve = async (parent, { id }, context) => {
   const update = { active: false }
 
   Clone.findOneAndUpdate(query, update, options, (err, doc) => {
-    if (err){
+    if (err) {
       logger.error('removeClone -> Error removing clone from the DB. %s', err.stack)
       throw new OperationsError(err)
-    }else{
+    } else {
       logger.debug('removeClone -> Clone Removed from the DB.')
-      return('Clone Removed.')
+      return ('Clone Removed.')
     }
   })
 }

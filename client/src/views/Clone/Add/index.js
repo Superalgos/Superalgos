@@ -14,10 +14,7 @@ import {
    Select, FormControlLabel, Checkbox, FormHelperText
 } from '@material-ui/core'
 import { DateTimePicker } from 'material-ui-pickers'
-import {
-  ChevronLeft,
-  ChevronRight,
-} from '@material-ui/icons'
+import { ChevronLeft, ChevronRight } from '@material-ui/icons'
 
 class AddClone extends Component {
 

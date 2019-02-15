@@ -35,8 +35,6 @@ const resolve = async (parent,
   }
 
   try {
-    let sucessful
-
     let clone = await Clone.findOne({
       _id: id,
       active: true
@@ -63,19 +61,19 @@ const resolve = async (parent,
     }
 
     logger.debug('UpdateExecutionSummary -> Updating clone on database.')
-    await Clone.update(query, update, options, (err, clone) => {
-      if (err) {
-        logger.error('Error updating execution summary on the database. %s', err.stack)
-        throw err
-      } else {
+
+    return new Promise((res, rej) => {
+      Clone.update(query, update, options, (err, clone) => {
+        if (err) {
+          logger.error('Error updating execution summary on the database. %s', err.stack)
+          rej(err)
+          return
+        }
         logger.debug('Execution summary updated.')
-        sucessful = true
-      }
+        res('Execution summary updated.')
+      })
     })
 
-    if (sucessful) {
-      return 'Execution summary updated.'
-    }
   } catch (error) {
     logger.error('Error updating the execution summary. %s', error.stack)
     throw new OperationsError(error.message)

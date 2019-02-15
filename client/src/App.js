@@ -74,11 +74,11 @@ export const MasterApp = props => (
               render={props => <FinancialBeings {...props} auth={auth}/>}
             />
             <Route
-              path='/key-vault'
+              path='/keys'
               render={props => <KeyVault {...props} auth={auth} />}
             />
             <Route
-              path='/operations'
+              path='/clones'
               render={props => <Operations {...props} auth={auth} />}
             />
           </Switch>

@@ -9,8 +9,7 @@ import axios from 'axios'
 
 import { createTransformedRemoteSchema } from './createRemoteSchema'
 import { teams, events } from './links'
-import { typeDef as masterSchema } from './schema'
-import masterResolvers from './resolvers'
+
 import logger from './logger'
 
 async function getUserId (authId) {
@@ -43,6 +42,10 @@ async function getUserId (authId) {
 }
 
 async function run () {
+  const transformedKeyVaultSchema = await createTransformedRemoteSchema(
+    'keyVault_',
+    process.env.KEYVAULT_API_URL,
+    process.env.KEYVAULT_API_PRESHARED)
   const transformedTeamsSchema = await createTransformedRemoteSchema(
     'teams_',
     process.env.TEAMS_API_URL,
@@ -55,14 +58,21 @@ async function run () {
     'events_',
     process.env.EVENTS_API_URL,
     process.env.EVENTS_API_PRESHARED)
-  const transformedKeyVaultSchema = await createTransformedRemoteSchema(
-    'keyVault_',
-    process.env.KEYVAULT_API_URL,
-    process.env.KEYVAULT_API_PRESHARED)
+  const transformedFinancialBeingsSchema = await createTransformedRemoteSchema(
+    'financialBeings_',
+    process.env.FINANCIAL_BEINGS_API_URL,
+    process.env.FINANCIAL_BEINGS_API_PRESHARED)
+  const transformedOperationsSchema = await createTransformedRemoteSchema(
+    'operations_',
+    process.env.OPERATIONS_API_URL,
+    process.env.OPERATIONS_API_PRESHARED)
+  const transformedNotificationsSchema = await createTransformedRemoteSchema(
+    'notifications_',
+    process.env.NOTIFICATIONS_API_URL,
+    process.env.NOTIFICATIONS_API_PRESHARED)
 
-  var schemas = [masterSchema]
+  var schemas = []
   var resolvers = {}
-  resolvers = Object.assign(resolvers, masterResolvers)
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)
@@ -84,22 +94,21 @@ async function run () {
   if (transformedKeyVaultSchema) {
     schemas.push(transformedKeyVaultSchema)
   }
+  if (transformedFinancialBeingsSchema) {
+    schemas.push(transformedFinancialBeingsSchema)
+  }
+  if (transformedOperationsSchema) {
+    schemas.push(transformedOperationsSchema)
+  }
+  if (transformedNotificationsSchema) {
+    schemas.push(transformedNotificationsSchema)
+  }
 
   const schema = mergeSchemas({
     schemas,
     resolvers
   })
 
-  const defaultQuery = `{
-  teams_Teams{
-    edges{
-      node{
-        name
-      }
-    }
-  }
-}
-`
   const app = express()
 
   app.use('/graphql',
@@ -157,30 +166,22 @@ async function run () {
     schema,
     context,
     formatError: error => {
-      logger.error(`An error ocurred inside a module: ${JSON.stringify(error)}`)
-      return error
+      logger.error('An error ocurred inside a module: %s', error.message)
+      return error.message
     },
     formatResponse: response => {
-      logger.debug('Response from Apolo Server: ' + response)
+      logger.debug('Response from Apollo Server: ' + response)
       return response
     },
     playground: {
       settings: {
         'editor.theme': 'dark',
         'editor.cursorShape': 'line'
-      },
-      tabs: [
-        {
-          endpoint: process.env.GRAPHQL_API_URL,
-          query: defaultQuery
-        }
-      ]
+      }
     }
   })
 
-  server.applyMiddleware({ app })
-
-  app.use(cors())
+  server.applyMiddleware({ app, cors: { origin: true, credentials: true, methods:'GET,PUT,POST,DELETE,OPTIONS'}})
 
   app.listen(4100)
   logger.info(`Server running. Open ${process.env.GRAPHQL_API_URL} to run queries.`)

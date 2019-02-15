@@ -11,21 +11,11 @@ const styles = theme => ({
     color: lightGreen[400]
   },
   copyright: {
-    paddingTop: theme.spacing.unit * 9,
-    fontSize: '16px'
+    paddingTop: theme.spacing.unit * 3
   },
   linkLight: {
     color: theme.palette.secondary.main,
     textDecoration: 'none'
-  },
-  descriptionLeft: {
-    marginLeft: 0,
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'center'
-    }
-  },
-  descriptionText: {
-    fontSize: '16px'
   },
   signupRight: {
     marginTop: theme.spacing.unit * 2,
@@ -39,50 +29,26 @@ const styles = theme => ({
       textAlign: 'center'
     }
   },
-  footer: {
-    borderTop: `4px solid ${theme.palette.secondary.light}`,
-    padding: `${theme.spacing.unit * 6}px 0`,
-    backgroundColor: '#19191C' /* #29292c */,
-    color: theme.palette.primary.light
+  signupTitle: {
+    fontSize: '25px',
+    marginBottom: theme.spacing.unit * 5
   },
-  footerContainer: {
-    width: 'auto',
-    [theme.breakpoints.up(1200 + theme.spacing.unit * 3 * 2)]: {
-      width: 1200,
-      marginLeft: 'auto',
-      marginRight: 'auto'
-    }
+  signupText: {
+    fontSize: '16px'
   },
-  footerLogo: {
-    marginBottom: theme.spacing.unit * 2
-  },
-  footerLink: {
-    textDecoration: 'none',
-    '&:hover': {
-      color: theme.palette.secondary.light
-    }
-  },
-  footerInputRoot: {
-    'label + &': {
-      marginTop: theme.spacing.unit * 3
-    },
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'center'
-    }
-  },
-  footerInput: {
+  signupInput: {
     borderRadius: 4,
     backgroundColor: theme.palette.common.white,
     border: '1px solid #ced4da',
-    fontSize: 16,
+    fontSize: 20,
     padding: '10px 12px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     marginRight: theme.spacing.unit * 1
   },
-  footerInputSubmit: {
+  signupInputSubmit: {
     boxShadow: 'none',
     textTransform: 'none',
-    fontSize: 16,
+    fontSize: 20,
     lineHeight: '1.1875em',
     color: theme.palette.common.white,
     padding: '10px 12px',
@@ -99,16 +65,6 @@ const styles = theme => ({
     },
     '&:focus': {
       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)'
-    }
-  },
-  icon: {
-    margin: theme.spacing.unit * 1,
-    fontSize: 30
-  },
-  iconHover: {
-    margin: theme.spacing.unit * 1,
-    '&:hover': {
-      color: theme.palette.secondary.light
     }
   }
 })

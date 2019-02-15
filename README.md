@@ -1,5 +1,5 @@
 # MasterApp
-The Master App is an application layer that wraps the client-side web modules of the various Advanced Algos platform modules (Users, Teams, KeyVault, Financial Beings, Hosts, etc).
+The Master App is an application layer that wraps the client-side web modules of the various Superalgos platform modules (Users, Teams, KeyVault, Financial Beings, Hosts, etc).
 It provides, to these modules, an authentication layer and GraphQL data layer, among other commonly used utilities and APIs.
 
 Each client-side module is published as an NPM package and their function is best described as a
@@ -12,7 +12,7 @@ React higher-order component encasing their given module use cases.
 Clone the repo.
 
 ```
-git clone https://github.com/AdvancedAlgos/MasterApp.git
+git clone https://github.com/Superalgos/MasterApp.git
 cd MasterApp
 ```
 
@@ -33,7 +33,7 @@ The Graphql Playground will be viewable at [http://localhost:4100/graphql](http:
 
 **Setup Client**
 
-In another CLI window, navigate to the MasterAoo/client
+In another CLI window, navigate to the MasterApp/client
 
 ```
 cd ../client
@@ -61,7 +61,7 @@ In the client of the module to be developed:
 npm link
 ```
 
-Make note of the module package name — the name in the module's client package.json. *e.g. @advancedalgos/key-vault-client*
+Make note of the module package name — the name in the module's client package.json. *e.g. @superalgos/key-vault-client*
 
 In the Master app client dir link the developing module:
 
@@ -70,7 +70,7 @@ In the Master app client dir link the developing module:
 npm link <module-package-name>
 
 e.g.
-npm link @advancedalgos/key-vault-client
+npm link @superalgos/key-vault-client
 ```
 
 ### Starting a new module

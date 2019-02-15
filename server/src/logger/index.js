@@ -26,6 +26,7 @@ const logger = createLogger({
   level: 'info',
   format: format.combine(
           format.colorize(),
+          format.splat(),
           format.timestamp({ format: 'YY/MM/DD HH:mm' }),
           format.printf(
             info => `${info.timestamp} - ${info.level}: ${JSON.parse(JSON.stringify(inspect(info.message)))}`

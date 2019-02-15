@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
-import BannerTopBar from '../BannerTopBar'
+import { BannerTopBar } from '../common'
 
 const styles = theme => ({
   '@global': {
@@ -25,6 +25,10 @@ const styles = theme => ({
 
 class Charts extends Component {
   componentDidMount () {
+    if (window.canvasApp.visible === undefined) {
+      loadCanvas() // This happens only once.
+    }
+
     window.canvasApp.visible = true
     let body = document.getElementById('body')
     body.style = 'margin: 0px; padding: 0px; border: 0px; overflow:hidden;'
@@ -41,26 +45,33 @@ class Charts extends Component {
   render () {
     return (
       <BannerTopBar
-        size='big'
-        title='Advanced Algos Charts'
-        text='But if you see me, there is probably a problem somewhere, try reloading the page in a moment.'
-        backgroundUrl='https://aacorporatesitedevelop.azurewebsites.net/img/photos/superalgos-platform.jpg'
+        size='medium'
+        title=''
+        text='Charts loading...'
+        backgroundUrl='https://superalgos.org/img/photos/superalgos-platform.jpg'
       />
     )
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     context: state.context
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    hideFooter: () => { dispatch({ type: 'HIDE_FOOTER' }) },
-    showFooter: () => { dispatch({ type: 'SHOW_FOOTER' }) }
+    hideFooter: () => {
+      dispatch({ type: 'HIDE_FOOTER' })
+    },
+    showFooter: () => {
+      dispatch({ type: 'SHOW_FOOTER' })
+    }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Charts))
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(Charts))

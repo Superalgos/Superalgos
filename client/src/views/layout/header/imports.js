@@ -3,58 +3,94 @@ import {
   GamepadRounded,
   AccessibilityNew,
   LibraryAdd,
-  Home,
   ImportContacts,
   BugReport,
-  People
+  People,
+  Group,
+  VpnKey,
+  Home,
+  AddCircleOutline
 } from '@material-ui/icons'
 
 const usersMenus = {
   title: 'Users',
   to: '/users',
+  icon: Home,
   submenus: [
-    { title: 'Home', to: '/users/', icon: Home },
     { title: 'Directory', to: '/users/browse', icon: ImportContacts },
     { title: 'Search', to: '/users/search', icon: Search },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: BugReport, externalLink: true },
-    { title: 'Your Profile', to: '/users/user', icon: People }
+    { title: 'Your Profile', to: '/users/user', icon: People, authenticated: true },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
 const teamsMenus = {
   title: 'Teams',
   to: '/teams',
+  icon: Home,
   submenus: [
-    { title: 'All teams', to: '/teams', icon: Search },
-    { title: 'Your teams', to: '/teams/manage-teams', icon: GamepadRounded },
-    { title: 'Team members', to: '/teams/team-members', icon: GamepadRounded },
-    { title: 'Financial beings', to: '/teams/financial-beings', icon: GamepadRounded },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/TeamsModule/issues/new', icon: LibraryAdd, externalLink: true }
+    { title: 'Directory', to: '/teams/explore', icon: ImportContacts },
+    { title: 'Your teams', to: '/teams/manage-teams', icon: Group, authenticated: true },
+    { title: 'Team members', to: '/teams/team-members', icon: People, authenticated: true },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/TeamsModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
 const eventsMenus = {
   title: 'Events',
   to: '/events',
+  icon: Home,
   submenus: [
-    { title: 'All events', to: '/events', icon: Search },
-    { title: 'Your events', to: '/events/my', icon: GamepadRounded },
-    { title: 'Your hosted events', to: '/events/host', icon: AccessibilityNew },
-    { title: 'Host an event', to: '/events/create', icon: LibraryAdd },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/UsersModule/issues/new', icon: LibraryAdd, externalLink: true }
+    { title: 'Directory', to: '/events', icon: ImportContacts },
+    { title: 'Your events', to: '/events/my', icon: GamepadRounded, authenticated: true },
+    { title: 'Your hosted events', to: '/events/host', icon: AccessibilityNew, authenticated: true },
+    { title: 'Host an event', to: '/events/create', icon: LibraryAdd, authenticated: true },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/UsersModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
 const keyvaultMenus = {
-  title: 'Key Vault',
-  to: '/key-vault',
+  title: 'Keys',
+  to: '/keys',
+  icon: Home,
+  authenticated: true,
   submenus: [
-    { title: 'Manage keys', to: '/key-vault/browse', icon: Search },
-    { title: 'Add key', to: '/key-vault/addKey', icon: GamepadRounded },
-    { title: 'Report', to: 'https://github.com/AdvancedAlgos/KeyVaultModule/issues/new', icon: LibraryAdd, externalLink: true }
+    { title: 'Your keys', to: '/keys/browse', icon: VpnKey },
+    { title: 'Add key', to: '/keys/addKey', icon: AddCircleOutline },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/KeyVaultModule/issues/new', icon: BugReport, externalLink: true }
   ]
 }
 
-const allMenus = [ usersMenus, teamsMenus, eventsMenus, keyvaultMenus ]
+const operationsMenus = {
+  title: 'Clones',
+  to: '/clones',
+  icon: Home,
+  authenticated: true,
+  submenus: [
+    { title: 'Active Clones', to: '/clones/browse', icon: ImportContacts },
+    { title: 'History Clones', to: '/clones/history', icon: LibraryAdd },
+    { title: 'Create Clone', to: '/clones/add', icon: AddCircleOutline },
+    { title: 'Report a Bug', to: 'https://github.com/Superalgos/OperationsModule/issues/new', icon: BugReport, externalLink: true }
+  ]
+}
+
+const financialBeingsMenus = {
+  title: 'FBs',
+  to: '/financial-beings',
+  icon: Home,
+  authenticated: false,
+  submenus: [
+    { title: 'Directory', to: '/financial-beings', icon: ImportContacts }
+  ]
+}
+
+const allMenus = [
+  usersMenus,
+  teamsMenus,
+  // eventsMenus,
+  // financialBeingsMenus,
+  keyvaultMenus,
+  operationsMenus
+]
 
 export default allMenus

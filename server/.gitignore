@@ -20,5 +20,8 @@ dist/
 # Visual Studio Code
 .vscode
 
-#Mac specific files
+# Mac specific files
 .DS_Store
+
+# JetBrains
+.idea

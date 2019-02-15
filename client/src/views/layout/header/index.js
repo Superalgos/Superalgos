@@ -8,7 +8,7 @@ import withWidth from '@material-ui/core/withWidth'
 import { LoggedIn } from './LoggedIn'
 
 import allMenus from './imports'
-import AALogo from '../../../assets/advanced-algos/aa-logo-dark.svg'
+import AALogo from '../../../assets/superalgos/Superalgos-logo-horz-dark.svg'
 
 class Header extends Component {
   constructor (props) {
@@ -27,6 +27,11 @@ class Header extends Component {
     } else {
       this.setState({ onTop: true })
     }
+  }
+
+  scrollToTop () {
+    document.body.scrollTop = 0 // For Safari
+    document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
   }
 
   toggleMobileOpen () {
@@ -75,7 +80,10 @@ class Header extends Component {
     }
     let user = JSON.parse(this.state.user)
 
-    const menus = allMenus.map(({ to, title, submenus }, index) => {
+    const menus = allMenus.map(({ icon: Icon, to, title, submenus, authenticated }, index) => {
+      if (authenticated && !(this.state.user !== undefined && this.state.user !== null)) {
+        return
+      }
       return (
         <li
           onMouseEnter={() => this.toggleMenuOpen(index, bigScreen)}
@@ -83,17 +91,27 @@ class Header extends Component {
           key={index}
           className={openedMenu === index ? 'primaryLink hasChildren selected' : 'primaryLink hasChildren'}
         >
-          <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
+          { bigScreen
+            ? <Link to={to} onClick={() => this.toggleMenuOpen(index, true)}> {title} </Link>
+            : <a onClick={() => this.toggleMenuOpen(index, true)}> {title} </a>
+          }
           <ul className='subMenu'>
+            { bigScreen
+              ? ''
+              : <li key={index + 'home'}><Link to={to}> <Icon /> Module Home Page </Link></li>
+            }
             {
-              submenus.map(({ icon: Icon, to: subTo, title: subTitle, externalLink }, subindex) => {
+              submenus.map(({ icon: SubIcon, to: subTo, title: subTitle, externalLink, authenticated: subAuthenticated }, subindex) => {
+                if (subAuthenticated && !(this.state.user !== undefined && this.state.user !== null)) {
+                  return
+                }
                 if (externalLink) {
                   return (
-                    <li key={subindex}><a href={subTo}> <Icon /> {subTitle} </a></li>
+                    <li key={subindex}><a href={subTo} target='_blank'> <SubIcon /> {subTitle} </a></li>
                   )
                 }
                 return (
-                  <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <Icon /> {subTitle} </Link></li>
+                  <li key={subindex}><Link to={subTo} onClick={() => this.closeAll(index)}> <SubIcon /> {subTitle} </Link></li>
                 )
               })}
           </ul>
@@ -102,41 +120,44 @@ class Header extends Component {
     })
 
     return (
-      <header className={onTop ? 'menu' : 'menu notOnTop'}>
-        <div className='container'>
-          <Link to='/'> <img className='logo' src={AALogo} alt='Advanced Algos' /> </Link>
-          <div className={mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'} onClick={() => this.toggleMobileOpen()}>
-            Menu
-          </div>
-          <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
-            <ul className='primaryMenu'>
-              <li className='primaryLink'>
-                <Link to='/charts'> Charts </Link>
-              </li>
-              {menus}
-              <li className='primaryLink'>
-                <a href='https://www.advancedalgos.net/documentation-quick-start.shtml'> Docs </a>
-              </li>
-              {this.state.user !== undefined && this.state.user !== null ? (
-                <LoggedIn
-                  user={user}
-                  auth={auth}
-                  bigScreen={bigScreen}
-                  openedMenu={openedMenu}
-                  toggleMenuOpen={(keyValue, allowedValue) => this.toggleMenuOpen(keyValue, allowedValue)}
-                  mouseLeave={(allowedValue) => this.mouseLeave(allowedValue)}
-                  closeAll={() => this.closeAll()}
-                />
-              ) : (
-
+      <React.Fragment>
+        <header className={onTop ? 'menu' : 'menu notOnTop'}>
+          <div className='container'>
+            <Link to='/'> <img className='logo' src={AALogo} alt='Superalgos' /> </Link>
+            <div className={mobileOpen ? 'mobileHandle openedMobile' : 'mobileHandle'} onClick={() => this.toggleMobileOpen()}>
+              Menu
+            </div>
+            <nav className={mobileOpen ? 'links openedMobile' : 'links'}>
+              <ul className='primaryMenu'>
                 <li className='primaryLink'>
-                  <a href='#' onClick={() => auth.login()}> Login / Sign Up </a>
+                  <Link to='/charts'> Charts </Link>
                 </li>
-              )}
-            </ul>
-          </nav>
-        </div>
-      </header>
+                {menus}
+                <li className='primaryLink'>
+                  <a href='https://www.superalgos.org/documentation-quick-start.shtml'> Docs </a>
+                </li>
+                {this.state.user !== undefined && this.state.user !== null ? (
+                  <LoggedIn
+                    user={user}
+                    auth={auth}
+                    bigScreen={bigScreen}
+                    openedMenu={openedMenu}
+                    toggleMenuOpen={(keyValue, allowedValue) => this.toggleMenuOpen(keyValue, allowedValue)}
+                    mouseLeave={(allowedValue) => this.mouseLeave(allowedValue)}
+                    closeAll={() => this.closeAll()}
+                  />
+                ) : (
+
+                  <li className='primaryLink'>
+                    <a href='#' onClick={() => auth.login()}> Login / Sign Up </a>
+                  </li>
+                )}
+              </ul>
+            </nav>
+          </div>
+        </header>
+        {onTop ? '' : <div className='toTop' onClick={() => { this.scrollToTop() }} />}
+      </React.Fragment>
     )
   }
 }

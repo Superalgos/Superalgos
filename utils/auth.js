@@ -1,12 +1,9 @@
 ﻿const axios = require('axios')
-const appRoot = require('app-root-path')
-const { logger } = require(`${appRoot}/utils/logger`)
 
 exports.authenticate = async function () {
     try {
 
         if (!global.ACCESS_TOKEN) {
-            logger.debug('authenticate -> Entering Function.')
 
             const authBody = '{"client_id":"' + process.env.AUTH_CLIENT_ID
                 + '","client_secret": "' + process.env.AUTH_CLIENT_SECRET
@@ -33,7 +30,6 @@ exports.authenticate = async function () {
         return global.ACCESS_TOKEN
         
     } catch (error) {
-        logger.error('authenticate -> Error: ' + error.stack)
         throw new Error('There has been an error on the authentication: ' + error)
     }
 }

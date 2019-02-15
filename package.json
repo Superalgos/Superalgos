@@ -16,7 +16,6 @@
     "azure-storage": "^2.8.2",
     "dotenv": "^6.0.0",
     "graphql": "^14.0.2",
-    "graphql-client": "^2.0.1",
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
     "nodemailer": "^4.6.8",

@@ -1,7 +1,4 @@
-﻿const appRoot = require('app-root-path')
-const operationsIntegration = require(`${appRoot}/Integrations/OperationsModuleIntegration`)
-
-exports.newRoot = function newRoot() {
+﻿exports.newRoot = function newRoot() {
 
     /* Callbacks default responses. */
 
@@ -917,21 +914,7 @@ exports.newRoot = function newRoot() {
                                                 logger.write(MODULE_NAME, "[ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
                                                 console.log(logDisplace + "Root : [ERROR] start -> findProcess -> runTradingBot -> createBotInstance -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
                                                 logger.persist();
-                                            }
-
-                                            // Update operations module with latest context
-                                            if (context !== undefined) {                                            
-                                                let lastExecution = context.executionHistory[context.executionHistory.length - 1]
-                                                let date = lastExecution[0] / 1000 | 0
-                                                let buyAvgRate = lastExecution[1]
-                                                let sellAvgRate = lastExecution[2]
-                                                let marketRate = lastExecution[7]
-                                                let combinedProfitsA = lastExecution[13]
-                                                let combinedProfitsB = lastExecution[14]
-
-                                                operationsIntegration.updateExecutionResults(date, buyAvgRate, sellAvgRate,
-                                                    marketRate, combinedProfitsA, combinedProfitsB)
-                                            }
+                                            }                                            
                                         }
 
                                     } else {

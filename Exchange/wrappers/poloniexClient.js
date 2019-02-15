@@ -6,7 +6,7 @@
     */
 
     const FULL_LOG = true;
-    const LOG_FILE_CONTENT = true;
+    const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "poloniexClient";
 
     const retry = require('../exchangeUtils').retry;
@@ -300,7 +300,7 @@
 
             try {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeErr = " + stringExchangeErr); }
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
+                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] analizeResponse -> exchangeResponse = " + stringExchangeResponse); }
 
                 if (exchangeErr) {
                     error = global.DEFAULT_FAIL_RESPONSE;

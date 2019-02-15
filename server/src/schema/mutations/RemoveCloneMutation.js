@@ -17,42 +17,48 @@ const resolve = async (parent, { id }, context) => {
   if (!context.userId) {
     throw new AuthentificationError()
   }
+  try {
+    let clone = await Clone.findOne({
+      _id: id,
+      authId: context.userId,
+      active: true
+    })
 
-  let clone = await Clone.findOne({
-    _id: id,
-    authId: context.userId,
-    active: true
-  })
-
-  if (!isDefined(clone)) {
-    throw new OperationsError('You are not authorized to remove this clone.')
-  }
-
-  let team = await teamQuery(context.authorization, clone.teamId)
-  clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
-
-  logger.debug('removeClone -> Release the clone key.')
-  await authorizeClone(context.authorization, clone.keyId, clone.id, true)
-
-  logger.debug('removeClone -> Removing Clone from Kubernates.')
-  await removeKuberneteClone(clone)
-
-  const query = {
-    _id: id,
-    authId: context.userId
-  }
-  const options = { new: true }
-  const update = { active: false }
-
-  Clone.findOneAndUpdate(query, update, options, (err, doc) => {
-    if (err) {
-      logger.error('removeClone -> Error removing clone from the DB. %s', err.stack)
-      throw new OperationsError(err)
-    } else {
-      logger.debug('removeClone -> Clone Removed from the DB.')
-      return ('Clone Removed.')
+    if (!isDefined(clone)) {
+      throw new OperationsError('You are not authorized to remove this clone.')
     }
-  })
+
+    let team = await teamQuery(context.authorization, clone.teamId)
+    clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
+
+    logger.debug('removeClone -> Release the clone key.')
+    await authorizeClone(context.authorization, clone.keyId, clone.id, true)
+
+    logger.debug('removeClone -> Removing Clone from Kubernates.')
+    await removeKuberneteClone(clone)
+
+    const query = {
+      _id: id,
+      authId: context.userId
+    }
+    const options = { new: true }
+    const update = { active: false }
+
+    return new Promise((res, rej) => {
+      Clone.findOneAndUpdate(query, update, options, (err, doc) => {
+        if (err) {
+          logger.error('removeClone -> Error removing clone from the DB. %s', err.stack)
+          rej(err)
+          return
+        }
+        logger.debug('removeClone -> Clone Removed from the DB.')
+        res('Clone Removed.')
+      })
+    })
+  } catch (error) {
+    logger.error('Error removing the clone. %s', error.stack)
+    throw new OperationsError(error.message)
+  }
 }
 
 const RemoveCloneMutation = {

@@ -6,6 +6,7 @@ import removeKuberneteClone from '../../kubernetes/removeClone'
 import teamQuery from '../../graphQLCalls/teamQuery'
 import { isDefined } from '../../config/utils'
 import cloneDetails from '../cloneDetails'
+import authorizeClone from '../../graphQLCalls/authorizeClone'
 
 const args = {
   id: { type: new GraphQLNonNull(GraphQLID) }

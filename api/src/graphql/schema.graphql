@@ -11,7 +11,9 @@ type Query {
   teamByName(name: String!): Team
   teamBySlug(slug: String!): Team
   teamById(teamId: String!): Team
+  teamsByIds(teamIds: [ID!]): [Team]
   teamWithRole(teamId: String!, role: String!): Team
+  teamAuthorization(teamId: String!, role: String): Team
   teamsByOwner: [Team!]! @isAuthenticated
   teamsByRole: [Team!]! @isAuthenticated
   fbByTeamMember: Team @isAuthenticated

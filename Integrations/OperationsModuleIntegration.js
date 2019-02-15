@@ -1,12 +1,9 @@
 ﻿const axios = require('axios')
 const appRoot = require('app-root-path')
-const { logger } = require(`${appRoot}/utils/logger`)
 const auth = require(`${appRoot}/utils/auth`)
 
 exports.updateExecutionResults = async function (summaryDate, buyAverage, sellAverage,
     marketRate, combinedProfitsA, combinedProfitsB) {
-
-    logger.debug('updateExecutionResults -> Entering Function.')
 
     try {
 
@@ -50,12 +47,10 @@ exports.updateExecutionResults = async function (summaryDate, buyAverage, sellAv
             }
         })
 
-        if (!operationsResponse.data.errors)
-            logger.debug('updateExecutionResults -> Operations Module Response: %s', operationsResponse.data.data.operations_UpdateExecutionSummary)
-        else throw new Error(operationsResponse.data.errors[0].message)
+        if (operationsResponse.data.errors)
+            throw new Error(operationsResponse.data.errors[0].message)
 
     } catch (error) {
-        logger.error('updateExecutionResults -> Error: ' + error.stack)
-        throw new Error('There has been an error updating the execution report: ' + error)
+        throw new Error('There has been an error updating the execution on the clone: ' + error)
     }
 }

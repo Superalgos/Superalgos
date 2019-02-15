@@ -59,8 +59,7 @@ const resolve = async (parent,
       combinedProfitsA: combinedProfitsA,
       combinedProfitsB: combinedProfitsB,
       assetA: assetA,
-      assetB: assetB,
-      active: false
+      assetB: assetB
     }
 
     logger.debug('UpdateExecutionSummary -> Updating clone on database.')

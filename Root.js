@@ -350,7 +350,7 @@
                                 case "Browser": {
                                     let startMode = {
                                         live: { run: "false" },
-                                        backtest: { run: "false" },
+                                        backtest: { run: "false", waitTime: 5000 },
                                         competition: { run: "false" }
                                     }
                                     let browserStartMode = global.CURRENT_START_MODE.toLowerCase()

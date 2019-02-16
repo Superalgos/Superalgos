@@ -1,4 +1,4 @@
-﻿exports.newExchangeAPI = function newExchangeAPI(bot, logger) {
+﻿exports.newExchangeAPI = function newExchangeAPI(logger, authToken) {
 
     /*
 
@@ -35,7 +35,21 @@
             let exchange = botExchange.toLowerCase() + 'Client.js';
             let api = require('./wrappers/' + exchange);
 
-            let keyVaultAPI = createKeyVaultAPIClient()
+            let accessToken
+            let keyId
+            let cloneId
+            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                keyId = process.env.KEY_ID
+                cloneId = process.env.CLONE_ID
+
+                let auth = require('../utils/auth')
+                let authTokenCloud = await auth.authenticate()
+                accessToken = 'Bearer ' + authTokenCloud
+            } else if (global.CURRENT_EXECUTION_AT === "Browser") {
+                accessToken = 'Bearer ' + authToken
+            }
+
+            let keyVaultAPI = createKeyVaultAPIClient(accessToken, keyId, cloneId)
             apiClient = api.newAPIClient(keyVaultAPI, logger);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -46,23 +60,9 @@
         }
     }
 
-    function createKeyVaultAPIClient() {
+    function createKeyVaultAPIClient(accessToken, keyId, cloneId) {
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
-
-        let accessToken
-        let keyId
-        let cloneId
-        if (global.CURRENT_EXECUTION_AT === "Cloud") {
-            keyId = process.env.KEY_ID
-            cloneId = process.env.CLONE_ID
-
-            let auth = require('../utils/auth')
-            let authToken = await auth.authenticate()
-            accessToken = 'Bearer ' + authToken
-        } else if (global.CURRENT_EXECUTION_AT === "Browser") {
-            accessToken = window.localStorage.getItem('access_token')
-        }
-
+        
         const keyVaultAPI = {}
         keyVaultAPI.signTransaction = function (transaction, next) {
             axios({

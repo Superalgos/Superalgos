@@ -91,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exchange\" />
-    <Folder Include="Exchange\Wrappers\" />
+    <Folder Include="Exchange\wrappers\" />
     <Folder Include="Integrations\" />
     <Folder Include="utils\" />
   </ItemGroup>

@@ -33,7 +33,7 @@
 
             let botExchange = 'Poloniex';
             let exchange = botExchange.toLowerCase() + 'Client.js';
-            let api = require('./Wrappers/' + exchange);
+            let api = require('./wrappers/' + exchange);
 
             let keyVaultAPI = createKeyVaultAPIClient()
             apiClient = api.newAPIClient(keyVaultAPI, logger);

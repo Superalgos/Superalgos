@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "apollo-boost": "^0.1.16",
-    "app-root-path": "^2.1.0",
     "assert": "^1.4.1",
     "axios": "^0.18.0",
     "azure-storage": "^2.8.2",

@@ -33,7 +33,6 @@
         let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + "/"
             + "getTicker" + "/"
             + authToken
             ;
@@ -54,7 +53,6 @@
         let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + "/"
             + "getOpenPositions" + "/"
             + authToken
             ;
@@ -75,7 +73,6 @@
         let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + "/"
             + "getExecutedTrades" + "/"
             + authToken + "/"
             + pPositionId
@@ -97,7 +94,6 @@
         let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + "/"
             + "putPosition" + "/"
             + authToken + "/"
             + pType + "/"
@@ -122,7 +118,6 @@
         let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + "/"
             + "movePosition" + "/"
             + authToken + "/"
             + pPositionId + "/"
@@ -146,7 +141,6 @@
         let authToken = window.localStorage.getItem('access_token');
 
         let path = SERVER_URL
-            + CURRENT_BOT_CODE_NAME + "/"
             + "getPublicTradeHistory" + "/"
             + authToken + "/"
             + startTime + "/"

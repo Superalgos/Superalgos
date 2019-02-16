@@ -1,6 +1,5 @@
 ﻿const axios = require('axios')
-const appRoot = require('app-root-path')
-const auth = require(`${appRoot}/utils/auth`)
+const auth = require('../utils/auth')
 
 exports.updateExecutionResults = async function (summaryDate, buyAverage, sellAverage,
     marketRate, combinedProfitsA, combinedProfitsB) {

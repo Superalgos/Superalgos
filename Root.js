@@ -341,53 +341,27 @@
                             if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> listItem.process = " + listItem.process); }
 
                             let processConfig = botConfig.processes[i];
-                            processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
-                            try {
-
-                                /*
-
-                                When running at the browser, the endUser can override the configured setting for the bot. In this scenario we use the commands
-                                sent from the User Interface.
-
-                                */
-
-                                if (UI_COMMANDS.startMode !== undefined) {
-
-                                    switch (UI_COMMANDS.startMode) {
-
-                                        case "Backtest": {
-
-                                            processConfig.startMode.backtest.run = "true";
-                                            processConfig.startMode.live.run = "false";
-                                            processConfig.startMode.competition.run = "false";
-
-                                            break;
-                                        }
-
-                                        case "Live": {
-
-                                            processConfig.startMode.backtest.run = "false";
-                                            processConfig.startMode.live.run = "true";
-                                            processConfig.startMode.competition.run = "false";
-
-                                            break;
-                                        }
-
-                                        case "Competition": {
-
-                                            processConfig.startMode.backtest.run = "false";
-                                            processConfig.startMode.live.run = "false";
-                                            processConfig.startMode.competition.run = "true";
-
-                                            break;
-                                        }
-                                    }
-
-                                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode Overwritten. "); }
-                                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> processConfig.startMode = " + processConfig.startMode); }
-
+                            
+                            switch (global.CURRENT_EXECUTION_AT) {
+                                case "Cloud": {
+                                    processConfig.startMode = global.EXECUTION_CONFIG.startMode // Override file storage configuration
+                                    break;
                                 }
+                                case "Browser": {
+                                    let startMode = {
+                                        live: { run: "false" },
+                                        backtest: { run: "false" },
+                                        competition: { run: "false" }
+                                    }
+                                    let browserStartMode = global.CURRENT_START_MODE.toLowerCase()
+                                    startMode[browserStartMode].run = "true"
 
+                                    processConfig.startMode = startMode
+                                    break;
+                                }
+                            }
+                            try {
+                                
                                 /* We test each type of start Mode to get what to run and how. */
 
                                 if (processConfig.startMode.allMonths !== undefined) {
@@ -525,7 +499,7 @@
 
                                 if (processConfig.startMode.live !== undefined) {
 
-                                    if (processConfig.startMode.live.run === "true" && global.EXECUTION_CONFIG.startMode.live.run === "true") {
+                                    if (processConfig.startMode.live.run === "true") {
                                         
                                         botConfig.startMode = "Live";
                                         console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
@@ -533,7 +507,7 @@
                                         let month = pad((new Date()).getUTCMonth() + 1, 2);
                                         let year = (new Date()).getUTCFullYear();
 
-                                        if (processConfig.startMode.live.resumeExecution === "true" && global.EXECUTION_CONFIG.startMode.live.resumeExecution === "true") {
+                                        if (processConfig.startMode.live.resumeExecution === "true") {
                                             botConfig.hasTheBotJustStarted = false;
                                         } else {
                                             botConfig.hasTheBotJustStarted = true;
@@ -553,7 +527,7 @@
 
                                 if (processConfig.startMode.backtest !== undefined) {
 
-                                    if (processConfig.startMode.backtest.run === "true" && global.EXECUTION_CONFIG.startMode.backtest.run === "true") {
+                                    if (processConfig.startMode.backtest.run === "true") {
 
                                         botConfig.startMode = "Backtest";
                                         console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
@@ -583,14 +557,14 @@
 
                                 if (processConfig.startMode.competition !== undefined) {
 
-                                    if (processConfig.startMode.competition.run === "true" && global.EXECUTION_CONFIG.startMode.competition.run === "true") {
+                                    if (processConfig.startMode.competition.run === "true") {
 
                                         botConfig.startMode = "Competition";
                                         console.log(logDisplace + "Root : [INFO] start -> findProcess -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
 
                                         botConfig.competition = processConfig.startMode.competition;
 
-                                        if (processConfig.startMode.competition.resumeExecution === "false" && global.EXECUTION_CONFIG.startMode.competition.resumeExecution === "false") {
+                                        if (processConfig.startMode.competition.resumeExecution === "false") {
                                             botConfig.hasTheBotJustStarted = true;
                                         } else {
                                             botConfig.hasTheBotJustStarted = false;
@@ -838,7 +812,11 @@
 
                                     }
 
-                                    let clonName = botConfig.codeName + "-" + "Clon" + clonKey + "-" + process.env.CLONE_ID;
+                                    let clonName = botConfig.codeName + "-" + "Clon" + clonKey;
+
+                                    if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                                        clonName += "-" + process.env.CLONE_ID;
+                                    }
 
                                     botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
@@ -858,8 +836,12 @@
                                 /* If the bot does not have any genes at all */
 
                                 let genes = {};
-                                let clonName = botConfig.codeName + "-" + process.env.CLONE_ID;
+                                let clonName = botConfig.codeName;
 
+                                if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                                    clonName += "-" + process.env.CLONE_ID;
+                                }
+                                
                                 botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
                                 pBotConfig.instance = clonName;
@@ -889,7 +871,7 @@
 
                                         tradingBotMainLoop.run(pGenes, pTotalInstances, whenRunFinishes);
 
-                                        function whenRunFinishes(err, context) {
+                                        function whenRunFinishes(err) {
 
                                             pBotConfig.loopCounter = 0;
 
@@ -937,7 +919,7 @@
                     console.log(logDisplace + "Root : [ERROR] start -> findProcess -> err.message = " + err.message);
                     return;
                 }
-            }
+            } 
         }
     }
 }

@@ -8,9 +8,6 @@
     const _ = require('lodash')
     const isValidOrder = require('./exchangeUtils').isValidOrder
     const axios = require('axios')
-    const appRoot = require('app-root-path')
-    const auth = require(`${appRoot}/utils/auth`)
-    
     let MODULE_NAME = "Exchange API";
 
     let thisObject = {
@@ -34,14 +31,11 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            // TODO integrate with financial beings module to get the exchange
             let botExchange = 'Poloniex';
             let exchange = botExchange.toLowerCase() + 'Client.js';
-            let api = require('./wrappers/' + exchange);
+            let api = require('./Wrappers/' + exchange);
 
-            const accessToken = await auth.authenticate()
-
-            let keyVaultAPI = createKeyVaultAPIClient(accessToken)
+            let keyVaultAPI = createKeyVaultAPIClient()
             apiClient = api.newAPIClient(keyVaultAPI, logger);
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -52,8 +46,22 @@
         }
     }
 
-    function createKeyVaultAPIClient(authToken) {
+    function createKeyVaultAPIClient() {
         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
+
+        let accessToken
+        let keyId
+        let cloneId
+        if (global.CURRENT_EXECUTION_AT === "Cloud") {
+            keyId = process.env.KEY_ID
+            cloneId = process.env.CLONE_ID
+
+            let auth = require('../utils/auth')
+            let authToken = await auth.authenticate()
+            accessToken = 'Bearer ' + authToken
+        } else if (global.CURRENT_EXECUTION_AT === "Browser") {
+            accessToken = window.localStorage.getItem('access_token')
+        }
 
         const keyVaultAPI = {}
         keyVaultAPI.signTransaction = function (transaction, next) {
@@ -62,8 +70,8 @@
                 method: 'post',
                 data: {
                     query: `
-                    mutation keyVault_SignTransaction($keyId: String!, $cloneId: String!, $transaction: String!){
-                        keyVault_SignTransaction(keyId: $keyId, cloneId: $cloneId, transaction: $transaction){
+                    mutation keyVault_SignTransaction($transaction: String!, $keyId: String, $cloneId: String){
+                        keyVault_SignTransaction(transaction: $transaction, keyId: $keyId, cloneId: $cloneId){
                             key,
                             signature,
                             date
@@ -71,13 +79,13 @@
                     }
                     `,
                     variables: {
-                        keyId: process.env.KEY_ID,
-                        cloneId: process.env.CLONE_ID,
-                        transaction: transaction
+                        transaction: transaction,
+                        keyId: keyId,
+                        cloneId: cloneId
                     }
                 },
                 headers: {
-                    authorization: 'Bearer ' + authToken
+                    authorization: accessToken
                 }
 
             }).then(res => {

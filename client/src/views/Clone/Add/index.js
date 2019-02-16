@@ -32,7 +32,7 @@ class AddClone extends Component {
       state: '',
       stateDatetime: 0,
       createDatetime: 0,
-      runAsTeam: false,
+      runAsTeam: true,
       teams: [],
       teamId: '',
       keyId: '',
@@ -52,7 +52,7 @@ class AddClone extends Component {
       serverResponse: '',
       serverError: false,
       processNameError: false,
-      keyIdError: false
+      keyIdError: false,
     }
   }
 
@@ -155,7 +155,16 @@ class AddClone extends Component {
               { this.state.selectedBot.kind === "TRADER" &&
                   <React.Fragment>
                     <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                      At the moment Live Trading Clones trade by default 0.001 BTC on Poloniex.
+                      Available Running Modes are Backtest and Live.
+                      <ul>
+                        <li>  Backtest mode does NOT put real orders at the exchange;
+                              it simulates the order execution at the specified price.
+
+                        </li>
+                        <li>
+                              Live mode DOES put real orders at the exchange.
+                        </li>
+                      </ul>
                     </Typography>
 
                     <TextField
@@ -271,7 +280,12 @@ class AddClone extends Component {
                              }}
                            </Query>
 
-
+                           <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                             Because we are still in early alpha-testing phase,
+                             Live Trading Clones are limited to an initial investment
+                             of 0.001 BTC. If you choose to run this bot or any modified
+                             version of the code, you are doing it at your own risk.
+                           </Typography>
 
                          </React.Fragment>
                      }
@@ -294,22 +308,6 @@ class AddClone extends Component {
                      className={classNames(classes.form, classes.textField)}
                    />
 
-                   <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                     The Resume Execution option let's you pick up the context of
-                     the last execution and continue from there.
-                   </Typography>
-                   <FormControlLabel
-                     control={
-                       <Checkbox
-                         checked={this.state.resumeExecution}
-                         onChange={(e)=>this.setState({resumeExecution:e.target.checked })}
-                         value="resumeExecution"
-                         color="primary"
-                       />
-                     }
-                     label="Resume Execution"
-                     className={classNames(classes.form, classes.textField)}
-                   />
                   </React.Fragment>
                }
 
@@ -417,9 +415,9 @@ class AddClone extends Component {
                   </React.Fragment>
               }
 
-
                <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                  You will be able to query your clone information under Active Clones until it finishes the execution, then it will moved to the History.
+                  You will be able to see the clone information under Active Clones.
+                  Whenever you decide to stop the clone you can delete it. On History Clones will find all deleted clones.
                </Typography>
 
               <div className={classes.actionButton} >
@@ -552,7 +550,7 @@ class AddClone extends Component {
         state : '',
         stateDatetime: 0,
         createDatetime: 0,
-        runAsTeam: false,
+        runAsTeam: true,
         processName: '',
         teams: [],
         teamId: '',

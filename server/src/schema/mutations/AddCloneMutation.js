@@ -15,7 +15,7 @@ import {
 import logger from '../../config/logger'
 import createKubernetesClone from '../../kubernetes/createClone'
 import { isDefined } from '../../config/utils'
-import { LIVE } from '../../enums/CloneMode'
+import { LIVE, COMPETITION } from '../../enums/CloneMode'
 
 const args = {
   clone: { type: CloneInputType }
@@ -36,8 +36,8 @@ const resolve = async(parent, { clone }, context) => {
     throw new WrongArgumentsError('The bot type selected is not valid.')
   }
 
-  if (clone.mode === LIVE && !isDefined(clone.keyId)) {
-    throw new WrongArgumentsError('The key was not provided to run the clone in Live mode.')
+  if ( (clone.mode === LIVE || clone.mode === COMPETITION) && !isDefined(clone.keyId)) {
+    throw new WrongArgumentsError('The key was not provided to run the clone.')
   }
 
   try {
@@ -53,7 +53,7 @@ const resolve = async(parent, { clone }, context) => {
     logger.debug('addClone -> Creating the clone on the Database.')
     let savedClone = await newClone.save()
 
-    if (clone.mode === LIVE) {
+    if (clone.mode === LIVE || clone.mode === COMPETITION) {
       logger.debug('addClone -> Authorizing clone to use the key.')
       let response = await authorizeClone(context.authorization, clone.keyId, clone.id, false)
       logger.debug('addClone -> Authorizing clone to use the key.')
@@ -62,7 +62,10 @@ const resolve = async(parent, { clone }, context) => {
       } else {
         throw new AutorizationError()
       }
+    }else{
+      await createKubernetesClone(clone)
     }
+
     logger.debug('addClone -> Clone created sucessfully.')
     return savedClone
   } catch (err) {

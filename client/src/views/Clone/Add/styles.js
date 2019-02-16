@@ -24,7 +24,7 @@ const styles = theme => ({
   typography: {
     width: '80%',
     marginLeft: '10%',
-    marginTop: 40
+    marginTop: 20
   },
   form: {
     marginTop: 20

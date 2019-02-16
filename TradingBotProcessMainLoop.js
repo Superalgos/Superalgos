@@ -295,7 +295,7 @@
                                         clearTimeout(nextLoopTimeoutHandle);
                                         clearTimeout(checkLoopHealthHandle);
                                         bot.enableCheckLoopHealth = false;
-                                        callBackFunction(global.DEFAULT_OK_RESPONSE, context);
+                                        callBackFunction(global.DEFAULT_OK_RESPONSE);
                                         return;
                                     }
                                 }
@@ -347,7 +347,7 @@
                                     clearTimeout(nextLoopTimeoutHandle);
                                     clearTimeout(checkLoopHealthHandle);
                                     bot.enableCheckLoopHealth = false;
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE, context);
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
                                     return;
                                 }
                             }
@@ -914,19 +914,21 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext ->  Entering function."); }
 
-                            // Update operations module with latest context
-                            let lastExecution = context.newHistoryRecord
-                            let date = lastExecution.date / 1000 | 0
-                            let buyAvgRate = lastExecution.buyAvgRate
-                            let sellAvgRate = lastExecution.sellAvgRate
-                            let marketRate = lastExecution.marketRate
-                            let combinedProfitsA = lastExecution.combinedProfitsA
-                            let combinedProfitsB = lastExecution.combinedProfitsB
+                            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                                // Update operations module with latest context
+                                let lastExecution = context.newHistoryRecord
+                                let date = lastExecution.date / 1000 | 0
+                                let buyAvgRate = lastExecution.buyAvgRate
+                                let sellAvgRate = lastExecution.sellAvgRate
+                                let marketRate = lastExecution.marketRate
+                                let combinedProfitsA = lastExecution.combinedProfitsA
+                                let combinedProfitsB = lastExecution.combinedProfitsB
 
-                            await operationsIntegration.updateExecutionResults(date, buyAvgRate, sellAvgRate,
-                                marketRate, combinedProfitsA, combinedProfitsB)
+                                await operationsIntegration.updateExecutionResults(date, buyAvgRate, sellAvgRate,
+                                    marketRate, combinedProfitsA, combinedProfitsB)
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext ->  Execution Results updated."); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> saveContext ->  Execution Results updated."); }
+                            }
 
                             context.saveThemAll(onFinished);
 
@@ -1018,7 +1020,7 @@
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
                             bot.enableCheckLoopHealth = false;
-                            callBackFunction(global.DEFAULT_OK_RESPONSE, context);
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
 
                         }

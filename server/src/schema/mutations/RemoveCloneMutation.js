@@ -7,6 +7,7 @@ import teamQuery from '../../graphQLCalls/teamQuery'
 import { isDefined } from '../../config/utils'
 import cloneDetails from '../cloneDetails'
 import authorizeClone from '../../graphQLCalls/authorizeClone'
+import { LIVE, COMPETITION } from '../../enums/CloneMode'
 
 const args = {
   id: { type: new GraphQLNonNull(GraphQLID) }
@@ -32,8 +33,10 @@ const resolve = async (parent, { id }, context) => {
     let team = await teamQuery(context.authorization, clone.teamId)
     clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
 
-    logger.debug('removeClone -> Release the clone key.')
-    await authorizeClone(context.authorization, clone.keyId, clone.id, true)
+    if ( (clone.mode === LIVE || clone.mode === COMPETITION) && !isDefined(clone.keyId)) {
+      logger.debug('removeClone -> Release the clone key.')
+      await authorizeClone(context.authorization, clone.keyId, clone.id, true)
+    }
 
     logger.debug('removeClone -> Removing Clone from Kubernates.')
     await removeKuberneteClone(clone)

@@ -864,8 +864,7 @@
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, emailList = global.EMAIL_CONFIG.adminList);
+                                            bot.enableCheckLoopHealth = false;                                            
                                             callBackFunction(err);
                                             return;
                                         }
@@ -878,7 +877,6 @@
                                             clearTimeout(nextLoopTimeoutHandle);
                                             clearTimeout(checkLoopHealthHandle);
                                             bot.enableCheckLoopHealth = false;
-                                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, emailList = global.EMAIL_CONFIG.adminList);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -891,7 +889,6 @@
                                     clearTimeout(nextLoopTimeoutHandle);
                                     clearTimeout(checkLoopHealthHandle);
                                     bot.enableCheckLoopHealth = false;
-                                    assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, emailList = global.EMAIL_CONFIG.adminList);
                                     callBackFunction(err);
                                 }
                             }
@@ -903,7 +900,6 @@
                             clearTimeout(nextLoopTimeoutHandle);
                             clearTimeout(checkLoopHealthHandle);
                             bot.enableCheckLoopHealth = false;
-                            assistant.sendEmail("FAIL", "Operation Failed. Aborting the process. err = " + err.message, emailList = global.EMAIL_CONFIG.adminList);
                             callBackFunction(err);
                         }
                     }

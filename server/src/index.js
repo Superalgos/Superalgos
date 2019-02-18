@@ -76,9 +76,9 @@ async function run () {
 
   if (transformedTeamsSchema) {
     schemas.push(transformedTeamsSchema)
-    if (transformedUsersSchema) {
+    if (transformedUsersSchema && transformedEventsSchema) {
       schemas.push(teams.linkSchemaDefs)
-      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema))
+      resolvers = Object.assign(resolvers, teams.resolver(transformedUsersSchema, transformedEventsSchema))
     }
   }
   if (transformedUsersSchema) {

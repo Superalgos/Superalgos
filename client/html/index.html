@@ -20,6 +20,7 @@
     function loadCanvas(){
       if (window.canvasApp.visible === undefined) {
         window.canvasApp = {
+            version: '1.0.0',  // This is used to avoid catching problems at the browser level.
             sessionToken: '',
             executingAt: 'Master App',
             visible: false,
@@ -31,9 +32,13 @@
             context: {}
         };
 
-        let delay = 0
-        if (window.innerHeight === 0) {delay = 3000} // Inside IFRAMES the onload event is reaised before the window has its real size.
-        setTimeout(loadAdvancedAlgosPlatform, delay)
+        try {
+          loadAdvancedAlgosPlatform();
+        }
+        catch(err) {
+          console.log("[ERROR] MasterApp -> Index -> CanvasApp can not be started. Please check that AAWeb is running.");
+          console.log("[ERROR] MasterApp -> Index -> err = " + err);
+        }
       }
     }
 
@@ -45,7 +50,7 @@
   </script>
 </head>
 
-<body id="body" onload="loadCanvas()" onresize="onResize()">
+<body id="body" onload="" onresize="onResize()">
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
 </body>

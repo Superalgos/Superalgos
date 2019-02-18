@@ -47,7 +47,6 @@ export const resolver = (usersSchema, teamsSchema, operationsSchema) => ({
     participatingAs: {
       fragment: `fragment TeamFragment on events_Event{participatingAsId}`,
       resolve ({participatingAsId : teamIds}, args, context, info) {
-        console.log(teamIds)
         return info.mergeInfo.delegateToSchema({
           schema: teamsSchema,
           operation: 'query',
@@ -61,7 +60,6 @@ export const resolver = (usersSchema, teamsSchema, operationsSchema) => ({
     canParticipateAs: {
       fragment: `fragment TeamFragment on events_Event{canParticipateAsId}`,
       resolve ({canParticipateAsId : teamIds}, args, context, info) {
-        console.log(teamIds)
         return info.mergeInfo.delegateToSchema({
           schema: teamsSchema,
           operation: 'query',

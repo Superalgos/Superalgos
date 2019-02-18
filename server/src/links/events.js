@@ -3,6 +3,12 @@ export const linkSchemaDefs =
     extend type events_Event {
       host: users_User
     }
+    extend type events_Event {
+      participatingAs: [teams_Team]
+    }
+    extend type events_Event {
+      canParticipateAs: [teams_Team]
+    }
     extend type events_Inviter {
       inviter: users_User
     }
@@ -33,6 +39,34 @@ export const resolver = (usersSchema, teamsSchema, operationsSchema) => ({
           operation: 'query',
           fieldName: 'users_User',
           args: { id },
+          context,
+          info
+        })
+      }
+    },
+    participatingAs: {
+      fragment: `fragment TeamFragment on events_Event{participatingAsId}`,
+      resolve ({participatingAsId : teamIds}, args, context, info) {
+        console.log(teamIds)
+        return info.mergeInfo.delegateToSchema({
+          schema: teamsSchema,
+          operation: 'query',
+          fieldName: 'teams_TeamsByIds',
+          args: { teamIds },
+          context,
+          info
+        })
+      }
+    },
+    canParticipateAs: {
+      fragment: `fragment TeamFragment on events_Event{canParticipateAsId}`,
+      resolve ({canParticipateAsId : teamIds}, args, context, info) {
+        console.log(teamIds)
+        return info.mergeInfo.delegateToSchema({
+          schema: teamsSchema,
+          operation: 'query',
+          fieldName: 'teams_TeamsByIds',
+          args: { teamIds },
           context,
           info
         })

@@ -47,6 +47,13 @@
       "bot": "AAOlivia",
       "process": "Multi-Period-Market",
       "repo": "AAOlivia-Indicator-Bot"
+    },
+    {
+      "enabled": "true",
+      "devTeam": "AAMasters",
+      "bot": "AAChris",
+      "process": "Multi-Period-Market",
+      "repo": "AAOlivia-Indicator-Bot"
     }
   ],
   "stopGracefully": false,

@@ -20,8 +20,22 @@ const EVENTS_EDITEVENT = gql`
 `;
 
 const EVENTS_EVENTSBYHOST = gql`
-  query Events_Events($hostId: String!, $state: events_EventStateEnum, $maxEndDate: Int, $minEndDate: Int){
-    events_Events(hostId: $hostId, state: $state, maxEndDate: $maxEndDate, minEndDate: $minEndDate) {
+  query Events_Events(
+    $hostId: String,
+    $state: events_EventStateEnum,
+    $minStartDate: Int,
+    $maxStartDate: Int,
+    $minEndDate: Int,
+    $maxEndDate: Int
+  ){
+    events_Events(
+      hostId: $hostId,
+      state: $state,
+      minStartDate: $minStartDate,
+      maxStartDate: $maxStartDate,
+      minEndDate: $minEndDate,
+      maxEndDate: $maxEndDate
+    ) {
       ...EventFullInfo
     }
   }

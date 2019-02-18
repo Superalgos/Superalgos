@@ -19,7 +19,7 @@ import styles from './styles';
 
 import BannerTopBar from '../BannerTopBar';
 
-import { listEventsCalls } from '../../GraphQL/Calls/index';
+import { hostedEventsCalls } from '../../GraphQL/Calls/index';
 
 import {
   Future,
@@ -51,6 +51,7 @@ class Search extends React.Component {
   render() {
     const { classes } = this.props;
     const { value } = this.state;
+    const time = { now: Math.floor(DateTime.local().valueOf() / 1000) };
     return (
       <React.Fragment>
         <BannerTopBar
@@ -59,64 +60,95 @@ class Search extends React.Component {
           text='All the events are going to be listed here'
           backgroundUrl='https://superalgos.org/img/photos/events.jpg'
         />
-        <Query
-          query={listEventsCalls.EVENTS_EVENTS}
-        >
-          {({ loading, error, data }) => {
-            if (loading) return 'Loading...';
-            if (error) return `Error! ${error.message}`;
-            const now = Math.floor(DateTime.local().valueOf() / 1000);
-
-            const OngoingEvents = data.events_Events.filter(event => event.endDatetime > now
-              && event.startDatetime < now);
-            const FutureEvents = data.events_Events.filter(event => event.startDatetime > now);
-            const PastEvents = data.events_Events.filter(event => event.endDatetime < now);
-
-            return (
-              <React.Fragment>
-                <div className={classes.root}>
-                  <AppBar position='static' color='default'>
-                    <Tabs
-                      value={value}
-                      onChange={this.handleChange}
-                      scrollable
-                      scrollButtons='off'
-                      indicatorColor='primary'
-                      textColor='primary'
-                    >
-                      <Tab
-                        className={classes.tabTitle}
-                        label='Ongoing'
-                        icon={<OngoingIcon />}
-                      />
-                      <Tab
-                        className={classes.tabTitle}
-                        label='Future'
-                        icon={<FutureIcon />}
-                      />
-                      <Tab
-                        className={classes.tabTitle}
-                        label='Your history'
-                        icon={<HistoryIcon />}
-                      />
-                      <Tab
-                        className={classes.tabTitle}
-                        label='Past'
-                        icon={<HistoryIcon />}
-                      />
-                    </Tabs>
-                  </AppBar>
-                  {value === 0 && <TabContainer>
-                    <Ongoing OngoingEvents={OngoingEvents} />
-                  </TabContainer>}
-                  {value === 1 && <TabContainer><Future FutureEvents={FutureEvents} /></TabContainer>}
-                  {value === 2 && <TabContainer><History /></TabContainer>}
-                  {value === 3 && <TabContainer><Past PastEvents={PastEvents} /></TabContainer>}
-                </div>
-              </React.Fragment>
-            );
-          }}
-        </Query>
+        <div className={classes.root}>
+          <AppBar position='static' color='default'>
+            <Tabs
+              value={value}
+              onChange={this.handleChange}
+              scrollable
+              scrollButtons='off'
+              indicatorColor='primary'
+              textColor='primary'
+            >
+              <Tab
+                className={classes.tabTitle}
+                label='Ongoing'
+                icon={<OngoingIcon />}
+              />
+              <Tab
+                className={classes.tabTitle}
+                label='Future'
+                icon={<FutureIcon />}
+              />
+              <Tab
+                className={classes.tabTitle}
+                label='Your history'
+                icon={<HistoryIcon />}
+              />
+              <Tab
+                className={classes.tabTitle}
+                label='Past'
+                icon={<HistoryIcon />}
+              />
+            </Tabs>
+          </AppBar>
+          <Query
+            query={hostedEventsCalls.EVENTS_EVENTSBYHOST}
+            variables={{ maxStartDate: time.now, minEndDate: time.now }}
+          >
+            {({ loading, error, data }) => {
+              if (loading) return 'Loading...';
+              if (error) return `Error! ${error.message}`;
+              return (
+                <React.Fragment>
+                  {value === 0 && <TabContainer><Ongoing Events={data.events_Events} /></TabContainer>}
+                </React.Fragment>
+              );
+            }}
+          </Query>
+          <Query
+            query={hostedEventsCalls.EVENTS_EVENTSBYHOST}
+            variables={{ minStartDate: time.now }}
+          >
+            {({ loading, error, data }) => {
+              if (loading) return 'Loading...';
+              if (error) return `Error! ${error.message}`;
+              return (
+                <React.Fragment>
+                  {value === 1 && <TabContainer><Future Events={data.events_Events} /></TabContainer>}
+                </React.Fragment>
+              );
+            }}
+          </Query>
+          <Query
+            query={hostedEventsCalls.EVENTS_EVENTSBYHOST}
+            variables={{ maxEndDate: time.now }}
+          >
+            {({ loading, error, data }) => {
+              if (loading) return 'Loading...';
+              if (error) return `Error! ${error.message}`;
+              return (
+                <React.Fragment>
+                  {value === 2 && <TabContainer><History Events={data.events_Events} /></TabContainer>}
+                </React.Fragment>
+              );
+            }}
+          </Query>
+          <Query
+            query={hostedEventsCalls.EVENTS_EVENTSBYHOST}
+            variables={{ maxEndDate: time.now }}
+          >
+            {({ loading, error, data }) => {
+              if (loading) return 'Loading...';
+              if (error) return `Error! ${error.message}`;
+              return (
+                <React.Fragment>
+                  {value === 3 && <TabContainer><Past PastEvents={data.events_Events} /></TabContainer>}
+                </React.Fragment>
+              );
+            }}
+          </Query>
+        </div>
       </React.Fragment>
     );
   }

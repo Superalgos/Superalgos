@@ -16,7 +16,7 @@ class History extends React.Component {
           color='textPrimary'
           gutterBottom
         >
-          Your old events (maybe here, maybe not, who knows)
+          Your old events (comming soon)
         </Typography>
       </div>
     );

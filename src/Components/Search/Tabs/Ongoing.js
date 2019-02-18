@@ -8,9 +8,9 @@ import Event from '../Event';
 
 class Ongoing extends React.Component {
   render() {
-    const { OngoingEvents, classes } = this.props;
+    const { Events, classes } = this.props;
 
-    const ongoingEvents = OngoingEvents.map((event, index) => (
+    const events = Events.map((event, index) => (
       <Event key={index} event={event} />
     ));
     return (
@@ -24,7 +24,7 @@ class Ongoing extends React.Component {
         >
           Ongoing events:
         </Typography>
-        {ongoingEvents}
+        {events}
       </div>
     );
   }

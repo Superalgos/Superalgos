@@ -66,6 +66,14 @@ export const eventFullInfo = gql`
         botId
       }
     }
+    participatingAs{
+      id
+      name
+    }
+    canParticipateAs{
+      id
+      name
+    }
     invitations {
       inviteeId
       invitee {

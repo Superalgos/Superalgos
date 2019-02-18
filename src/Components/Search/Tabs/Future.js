@@ -9,9 +9,9 @@ import Event from '../Event';
 class Future extends React.Component {
   render() {
     const { classes } = this.props;
-    const { FutureEvents } = this.props;
+    const { Events } = this.props;
 
-    const futureEvents = FutureEvents.map((event, index) => (
+    const events = Events.map((event, index) => (
       <Event key={index} event={event} />
     ));
     return (
@@ -25,7 +25,7 @@ class Future extends React.Component {
         >
         Future events
         </Typography>
-        {futureEvents}
+        {events}
       </div>
     );
   }

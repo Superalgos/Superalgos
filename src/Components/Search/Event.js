@@ -23,6 +23,7 @@ class Event extends React.Component {
       host,
       formula,
       description,
+      participatingAs,
     } = event;
     return (
       <Paper className={classes.card}>
@@ -44,6 +45,7 @@ class Event extends React.Component {
                   Hosted by: {host.alias} ({host.lastName} {host.firstName})
                 </Typography>
                 <Typography gutterBottom>Formula: {formula.name} </Typography>
+                <Typography gutterBottom>You are participating as : { participatingAs.map(team => `${team.name}, `) } </Typography>
               </Grid>
               <Grid item className={classes.buttonGrid}>
                 <Button

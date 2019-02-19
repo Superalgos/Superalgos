@@ -44,7 +44,7 @@ const resolve = (parent,
       headers: { authorization },
     }).then(
       (result) => {
-        if (!result.data.data.teamsByRole.some(team => team.id === participantId)) {
+        if (!result.data.data.teams_TeamsByRole.some(team => team.id === participantId)) {
           rej(new WrongArgumentsError('You are not eligible to register this team'));
           return;
         }

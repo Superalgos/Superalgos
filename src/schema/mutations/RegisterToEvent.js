@@ -58,18 +58,8 @@ const resolve = (parent,
             method: 'post',
             data: {
               query: `
-                mutation {
-                  operations_AddClone(
-                    clone: {
-                      botId: "${botId}"
-                      botType: "Trading"
-                      mode: "competition"
-                      resumeExecution: false
-                      runAsTeam: true
-                      teamId: "${participantId}"
-                      processName: "${event.title}-${participantId}"
-                    }
-                  ) {
+                {
+                  keyVault_DefaultKey{
                     id
                   }
                 }
@@ -77,18 +67,49 @@ const resolve = (parent,
             },
             headers: { authorization },
           }).then(
-            (operationCreation) => {
-              event.participants.push({
-                participantId,
-                operationId: operationCreation.data.data.operations_AddClone.id,
-              });
-              event.save((error) => {
-                if (error) {
-                  rej(error);
-                  return;
-                }
-                res(event);
-              });
+            (keyResult) => {
+              axios({
+                url: process.env.GATEWAY_ENDPOINT,
+                method: 'post',
+                data: {
+                  query: `
+                    mutation {
+                      operations_AddClone(
+                        clone: {
+                          botId: "${botId}"
+                          botType: "Trading"
+                          mode: "competition"
+                          resumeExecution: false
+                          runAsTeam: true
+                          teamId: "${participantId}"
+                          processName: "${event.title}-${participantId}"
+                          keyId: "${keyResult.data.data.keyVault_DefaultKey.id}"
+                        }
+                      ) {
+                        id
+                      }
+                    }
+                  `,
+                },
+                headers: { authorization },
+              }).then(
+                (operationCreation) => {
+                  event.participants.push({
+                    participantId,
+                    operationId: operationCreation.data.data.operations_AddClone.id,
+                  });
+                  event.save((error) => {
+                    if (error) {
+                      rej(error);
+                      return;
+                    }
+                    res(event);
+                  });
+                },
+                (error) => {
+                  rej(new ServiceUnavailableError(error));
+                },
+              );
             },
             (error) => {
               rej(new ServiceUnavailableError(error));

@@ -12,7 +12,7 @@ class Future extends React.Component {
     const { Events } = this.props;
 
     const events = Events.map((event, index) => (
-      <Event key={index} event={event} />
+      <Event key={index} event={event} enrollable={true} />
     ));
     return (
       <div className='container'>

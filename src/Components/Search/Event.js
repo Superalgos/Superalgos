@@ -1,19 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Mutation } from 'react-apollo';
 
 import {
   Grid, Paper,
   Typography,
   Button,
+  Select,
+  MenuItem,
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
+import { hostedEventsCalls } from '../../GraphQL/Calls/index';
 
 import { toLocalTime } from '../../utils';
 
 class Event extends React.Component {
   render() {
-    const { classes, event } = this.props;
+    const { classes, event, enrollable = false } = this.props;
     const {
       id,
       title,
@@ -24,7 +28,20 @@ class Event extends React.Component {
       formula,
       description,
       participatingAs,
+      canParticipateAs,
     } = event;
+
+    const fbs = [];
+
+    canParticipateAs.forEach((team) => {
+      team.fb.forEach((finb) => {
+        fbs.push({
+          value: `${team.id}|${finb.id}`,
+          text: `${team.name} > ${finb.name}`,
+        });
+      });
+    });
+
     return (
       <Paper className={classes.card}>
         <Grid container spacing={16}>
@@ -48,6 +65,54 @@ class Event extends React.Component {
                 <Typography gutterBottom>You are participating as : { participatingAs.map(team => `${team.name}, `) } </Typography>
               </Grid>
               <Grid item className={classes.buttonGrid}>
+                { enrollable
+                  ? <Mutation mutation={hostedEventsCalls.REGISTER_EVENT}
+                      update={() => {
+                        window.location.reload();
+                      }}
+                    >
+                    {enrollToEvent => (
+                      <Select
+                        value={''}
+                        onChange={(val) => {
+                          enrollToEvent({
+                            variables: {
+                              eventId: id,
+                              participantId: val.target.value.split('|')[0],
+                              botId: val.target.value.split('|')[1],
+                            },
+                          });
+                        }}
+                        name='bot'
+                        displayEmpty
+                        className={classes.selectEmpty}
+                      >
+                        <MenuItem value='' disabled>
+                          Enroll as :
+                        </MenuItem>
+                        { fbs.map(finb => <MenuItem
+                              key={finb.value}
+                              value={finb.value}>{finb.text}</MenuItem>) }
+                      </Select>
+                      // <Button
+                      //   className={classes.buttonList}
+                      //   variant='outlined'
+                      //   color='secondary'
+                      //   size='small'
+                      //   onClick={() => enrollToEvent({
+                      //     variables: {
+                      //       eventId: id,
+                      //       participantId: 'test',
+                      //       botId: 'test',
+                      //     },
+                      //   })}
+                      // >
+                      //   Enroll
+                      // </Button>
+                    )}
+                  </Mutation>
+                  : ''
+                }
                 <Button
                   className={classes.buttonList}
                   variant='outlined'

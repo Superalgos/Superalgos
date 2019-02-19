@@ -51,9 +51,22 @@ const EVENTS_PUBLISHEVENT = gql`
   ${eventFullInfo}
 `;
 
+const REGISTER_EVENT = gql`
+  mutation Events_RegisterToEvent($eventId: ID!, $participantId: String!, $botId: String!) {
+    events_RegisterToEvent(
+      eventId: $eventId
+      participant: { participantId: $participantId, botId: $botId }
+    ) {
+      ...EventFullInfo
+    }
+  }
+  ${eventFullInfo}
+`;
+
 export default {
   EVENTS_CREATEEVENT,
   EVENTS_EDITEVENT,
   EVENTS_EVENTSBYHOST,
   EVENTS_PUBLISHEVENT,
+  REGISTER_EVENT,
 };

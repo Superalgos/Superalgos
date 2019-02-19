@@ -73,6 +73,10 @@ export const eventFullInfo = gql`
     canParticipateAs{
       id
       name
+      fb{
+        id
+        name
+      }
     }
     invitations {
       inviteeId

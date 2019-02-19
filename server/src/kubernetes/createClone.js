@@ -3,7 +3,7 @@ import { toPlatformDatetime, isDefined } from '../config/utils'
 import { KubernateError } from '../errors'
 import { Client, config } from 'kubernetes-client'
 import deploymentManifest from '../config/clone-deployment.json'
-import { BACKTEST, NO_TIME } from '../enums/CloneMode'
+import { BACKTEST, COMPETITION, LIVE, NO_TIME } from '../enums/CloneMode'
 import { TRADER, INDICATOR, EXTRACTION } from '../enums/BotTypes'
 
 const createClone = async (clone) => {
@@ -101,7 +101,20 @@ const createClone = async (clone) => {
           'name': 'WAIT_TIME',
           'value': clone.waitTime.toString()
         })
-      } else {
+      } else if (clone.mode === COMPETITION) {
+        env.push({
+          'name': 'BEGIN_DATE_TIME',
+          'value': toPlatformDatetime(clone.beginDatetime)
+        })
+        env.push({
+          'name': 'END_DATE_TIME',
+          'value': toPlatformDatetime(clone.endDatetime)
+        })
+        env.push({
+          'name': 'KEY_ID',
+          'value': clone.keyId
+        })
+      } else if (clone.mode === LIVE) {
         env.push({
           'name': 'KEY_ID',
           'value': clone.keyId

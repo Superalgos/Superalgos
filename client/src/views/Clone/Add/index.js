@@ -32,7 +32,7 @@ class AddClone extends Component {
       state: '',
       stateDatetime: 0,
       createDatetime: 0,
-      runAsTeam: true,
+      runAsTeam: false,
       teams: [],
       teamId: '',
       keyId: '',
@@ -290,23 +290,28 @@ class AddClone extends Component {
                          </React.Fragment>
                      }
 
-                   <Typography className={classes.typography} variant='subtitle1' align='justify'>
-                     If Run as Team is selected, the clone will be taken from the
-                     team respository instead of your own team member folder.
-                     Competitions runs from the team respository.
-                   </Typography>
-                   <FormControlLabel
-                     control={
-                       <Checkbox
-                         checked={this.state.runAsTeam}
-                         onChange={(e)=>this.setState({runAsTeam:e.target.checked })}
-                         value="runAsTeam"
-                         color="primary"
+                   {  false &&
+                     <React.Fragment>
+                       <Typography className={classes.typography} variant='subtitle1' align='justify'>
+                         If Run as Team is selected, the clone will be taken from the
+                         team respository instead of your own team member folder.
+                         Competitions runs from the team respository.
+                       </Typography>
+
+                       <FormControlLabel
+                         control={
+                           <Checkbox
+                             checked={this.state.runAsTeam}
+                             onChange={(e)=>this.setState({runAsTeam:e.target.checked })}
+                             value="runAsTeam"
+                             color="primary"
+                           />
+                         }
+                         label="Run as Team"
+                         className={classNames(classes.form, classes.textField)}
                        />
-                     }
-                     label="Run as Team"
-                     className={classNames(classes.form, classes.textField)}
-                   />
+                     </React.Fragment>
+                   }
 
                   </React.Fragment>
                }
@@ -550,7 +555,7 @@ class AddClone extends Component {
         state : '',
         stateDatetime: 0,
         createDatetime: 0,
-        runAsTeam: true,
+        runAsTeam: false,
         processName: '',
         teams: [],
         teamId: '',

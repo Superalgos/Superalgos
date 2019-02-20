@@ -1,0 +1,20 @@
+{
+  "displayName": "Plotters Bollinger Bands",
+  "codeName": "PlottersBollingerBands",
+  "devTeam": "AAMasters",
+  "modules": [
+    {
+      "codeName": "BollingerBands",
+      "moduleName": "BollingerBands",
+      "description": "Plots Bollinger Bands.",
+      "profilePicture": "BollingerBands.png",
+      "panels": [
+        {
+          "codeName": "BollingerBandsPanel",
+          "moduleName": "BollingerBandsPanel",
+          "event": "Current Band Changed"
+        }
+      ]
+    }
+  ]
+}

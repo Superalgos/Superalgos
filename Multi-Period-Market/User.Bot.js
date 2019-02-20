@@ -10,7 +10,7 @@
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
-    const BOLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
+    const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
 
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
@@ -209,7 +209,7 @@
 
                                                     let band;
 
-                                                    for (let i = n - 1; i < candles.length - 1; i++) { // Go through all the candles to generate a band segment for each of them.
+                                                    for (let i = n - 1; i < candles.length; i++) { // Go through all the candles to generate a band segment for each of them.
 
                                                         let movingAverage = 0;
                                                         for (let j = i - n + 1; j < i + 1; j++) { // go through the last n candles to calculate the moving average.
@@ -223,10 +223,11 @@
                                                         }
                                                         standardDeviation = standardDeviation / n;
                                                         standardDeviation = Math.sqrt(standardDeviation);
-
+                                                      
                                                         band = {
                                                             begin: candles[i].begin,
                                                             end: candles[i].end,
+                                                            close: candles[i].close,
                                                             movingAverage: movingAverage,
                                                             standardDeviation: standardDeviation
                                                         };
@@ -261,6 +262,7 @@
                                                         fileContent = fileContent + separator + '[' +
                                                             band.begin + "," +
                                                             band.end + "," +
+                                                            band.close + "," +
                                                             band.movingAverage + "," +
                                                             band.standardDeviation + "]";
 
@@ -275,7 +277,7 @@
                                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                                                     let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                                    let filePath = filePathRoot + "/Output/" + BOLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+                                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
 
                                                     chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 

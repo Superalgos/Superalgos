@@ -5,7 +5,6 @@
     const LOG_FILE_CONTENT = false;
 
     const GMT_SECONDS = ':00.000 GMT+0000';
-    const GMT_MILI_SECONDS = '.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
     const MODULE_NAME = "User Bot";
@@ -15,10 +14,7 @@
     const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
-    const CANDLE_STAIRS_FOLDER_NAME = "Candle-Stairs";
-
-    const VOLUMES_FOLDER_NAME = "Volumes";
-    const VOLUME_STAIRS_FOLDER_NAME = "Volume-Stairs";
+    const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
 
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
@@ -28,7 +24,7 @@
     };
 
     let oliviaStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
-    let tomStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    let chrisStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
@@ -47,7 +43,7 @@
 
             statusDependencies = pStatusDependencies;
 
-            commons.initializeStorage(oliviaStorage, tomStorage, onInizialized);
+            commons.initializeStorage(oliviaStorage, chrisStorage, onInizialized);
 
             function onInizialized(err) {
 
@@ -72,7 +68,7 @@
     
     This process is going to do the following:
     
-    Read the candles and volumes from Olivia and produce for each market two files with candles stairs and volumes stairs respectively.
+    Read the candles from Olivia and produce daily files with bollinger bands.
     
     */
 
@@ -82,19 +78,14 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
-            /* One of the challenges of this process is that each imput file contains one day of candles. So if a stair spans more than one day
-            then we dont want to break the stais in two pieces. What we do is that we read to candles files at the time and record at the current
-            date all stairs of the day plus the ones thas spans to the second day without bigining at the second day. Then when we process the next
-            day, we must remember where the last stairs of each type endded, so as not to create overlapping stairs in the current day. */
-
             let market = global.MARKET;
 
             /* Context Variables */
 
             let contextVariables = {
-                lastCandleFile: undefined,          // Datetime of the last file files sucessfully produced by this process.
+                lastBandFile: undefined,          // Datetime of the last file files sucessfully produced by this process.
                 firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
-                maxCandleFile: undefined            // Datetime of the last file available to be used as an input of this process.
+                maxBandFile: undefined            // Datetime of the last file available to be used as an input of this process.
             };
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
@@ -181,11 +172,11 @@
                         return;
                     }
 
-                    contextVariables.maxCandleFile = new Date(thisReport.lastFile.valueOf());
+                    contextVariables.maxBandFile = new Date(thisReport.lastFile.valueOf());
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = "AAMasters" + "-" + "AATom" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "AAChris" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -206,37 +197,37 @@
 
                     if (thisReport.lastFile !== undefined) {
 
-                        contextVariables.lastCandleFile = new Date(thisReport.lastFile);
+                        contextVariables.lastBandFile = new Date(thisReport.lastFile);
 
                         /*
-                        The stairs objects can span more than one day. In order not to cut these objects into two when this happens, this process will alsways read
-                        3 files.
+                        The bands objects needs to be calculated over more than one day in some situations. In order to simplify the calculations we will
+                        always load the last 2 days of candles, and run the calculations on that array.
 
-                        1. The first file is a stairs file corresponding to processDay -2. From there we will know where the last staris ended.
-                        2. The second is a candle or volume file corresponding to processDay -1.
-                        3. The third is a candle of volume file at processDay.
+                        1. So first we will load the candles file of processDay -1.
+                        2. Secondly we will load the candles file of processDay.
 
-                        We will recalculate 2 and 3 considering the objects already in 1, so as to make the transition between 2 and 3 smooth.
+                        After reading these two files we will add all candles to a unique array.
                         */
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile !== undefined"); }
 
-                        buildStairs();
+                        buildBands();
                         return;
 
                     } else {
 
                         /*
                         In the case when there is no status report, we take the date of the file with the first trades as the begining of the market. Then we will
-                        go one day back in time, so that when we enter the loop, one day will be added and we will be exactly at the date where the first trades occured.
+                        go one day further in time, so that the previous day does fine a file at the begining of the market.
                         */
 
-                        contextVariables.lastCandleFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                        contextVariables.lastBandFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                        contextVariables.lastBandFile = new Date(contextVariables.lastBandFile.valueOf() + ONE_DAY_IN_MILISECONDS); 
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastCandleFile = " + contextVariables.lastCandleFile); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastBandFile = " + contextVariables.lastBandFile); }
 
-                        buildStairs();
+                        buildBands();
                         return;
                     }
 
@@ -250,15 +241,15 @@
                 }
             }
 
-            function buildStairs() {
+            function buildBands() {
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> Entering function."); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> Entering function."); }
 
                     let n;
-                    processDate = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> processDate = " + processDate); }
+                    processDate = new Date(contextVariables.lastBandFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> processDate = " + processDate); }
 
                     advanceTime();
 
@@ -268,20 +259,20 @@
 
                             logger.newInternalLoop(bot.codeName, bot.process);
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> Entering function."); }
 
                             processDate = new Date(processDate.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> processDate = " + processDate); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> previousDay = " + previousDay); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> processDate = " + processDate); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> previousDay = " + previousDay); }
 
                             /* Validation that we are not going past the head of the market. */
 
-                            if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+                            if (processDate.valueOf() > contextVariables.maxBandFile.valueOf()) {
 
                                 const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> advanceTime -> " + logText); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> " + logText); }
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
@@ -291,7 +282,7 @@
                             periodsLoop();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> advanceTime -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> advanceTime -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -300,7 +291,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> periodsLoop -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> periodsLoop -> Entering function."); }
 
                             /*
             
@@ -313,7 +304,7 @@
                             loopBody();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -322,1151 +313,290 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> Entering function."); }
 
                             const timePeriod = global.dailyFilePeriods[n][1];
 
-                            let endOfLastCandleStair = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
-                            let endOfLastBuyVolumeStair = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
-                            let endOfLastSellVolumeStair = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
+                            let candles = [];                   // Here we will put all the candles of the 2 files read.
 
-                            /*
-                            By default we set the starting date of the processDay - 2 file. If we find the file this value shoulld be overwritten by the value of the end property
-                            of the last object on the file.
-                            */
+                            let previousDayFile;
+                            let processDayFile;
 
-                            endOfLastCandleStair = endOfLastCandleStair.valueOf();
-                            endOfLastBuyVolumeStair = endOfLastBuyVolumeStair.valueOf();
-                            endOfLastSellVolumeStair = endOfLastSellVolumeStair.valueOf();
+                            getPreviousDayFile();
 
-                            getEndOfLastCandleStair();
-
-                            function getEndOfLastCandleStair() {
+                            function getPreviousDayFile() {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastCandleStair -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> Entering function."); }
 
-                                    let fileDate = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
-                                    getCandleStairsFile();
+                                    let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
+                                    let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                    function getCandleStairsFile() {
+                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+
+                                    oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+
+                                    function onCurrentDayFileReceived(err, text) {
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> Entering function."); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> text = " + text); }
 
-                                            let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
-
-                                            let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                            let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
-
-                                            tomStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                                            function onFileReceived(err, text) {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> Entering function."); }
-
-                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> text = " + text); }
-
-                                                    if (
-                                                        err.result === global.CUSTOM_FAIL_RESPONSE.result &&
-                                                        (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
-                                                    ) {
-
-                                                        getEndOfLastVolumeStair();
-                                                        return;
-                                                    }
-
-                                                    let stairsFile = JSON.parse(text);
-
-                                                    if (stairsFile.length > 0) {
-
-                                                        endOfLastCandleStair = stairsFile[stairsFile.length - 1][5]; // We get from the last regord the end value. Position 5 = Stairs.end 
-                                                        getEndOfLastVolumeStair();
-
-                                                    } else {
-
-                                                        getEndOfLastVolumeStair();
-                                                        return;
-
-                                                    }
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> err = " + err.message);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> filePath = " + filePath);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> market = " + market.assetA + '_' + market.assetB);
-
-                                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                                }
-                                            }
+                                            previousDayFile = JSON.parse(text);
+                                            getProcessDayFile()
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
-                            function getEndOfLastVolumeStair() {
+                            function getProcessDayFile() {
 
                                 try {
 
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> Entering function."); }
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastVolumeStair -> Entering function."); }
+                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                    let fileName = market.assetA + '_' + market.assetB + ".json"
 
-                                    let fileDate = new Date(previousDay.valueOf() - ONE_DAY_IN_MILISECONDS);
-                                    getCandleStairsFile();
+                                    let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
 
-                                    function getCandleStairsFile() {
+                                    oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+
+                                    function onCurrentDayFileReceived(err, text) {
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> Entering function."); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> text = " + text); }
 
-                                            let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                                            processDayFile = JSON.parse(text);
+                                            buildBands();
 
-                                            let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                            let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
-
-                                            tomStorage.getTextFile(filePath, fileName, onFileReceived, true);
-
-                                            function onFileReceived(err, text) {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> Entering function."); }
-                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> text = " + text); }
-
-                                                    if (
-                                                        err.result === global.CUSTOM_FAIL_RESPONSE.result &&
-                                                        (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
-                                                    ) {
-
-                                                        processCandles();
-                                                        return;
-                                                    }
-
-                                                    let stairsFile = JSON.parse(text);
-
-                                                    if (stairsFile.length > 0) {
-
-                                                        for (let i = 0; i < stairsFile.length; i++) {
-
-                                                            let stairs = {
-                                                                type: stairsFile[i][0],
-                                                                begin: stairsFile[i][1],
-                                                                end: stairsFile[i][2],
-                                                                direction: stairsFile[i][3],
-                                                                barsCount: stairsFile[i][4],
-                                                                firstAmount: stairsFile[i][5],
-                                                                lastAmount: stairsFile[i][6]
-                                                            };
-
-                                                            if (stairs.type === 'buy') {
-
-                                                                endOfLastBuyVolumeStair = stairs.end;
-
-                                                            } else {
-
-                                                                endOfLastSellVolumeStair = stairs.end;
-
-                                                            }
-                                                        }
-
-                                                        processCandles();
-
-                                                    } else {
-
-                                                        processCandles();
-                                                        return;
-
-                                                    }
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> err = " + err.message);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> filePath = " + filePath);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> market = " + market.assetA + '_' + market.assetB);
-
-                                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                                }
-                                            }
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                                            if (processDate.valueOf() > contextVariables.maxBandFile.valueOf()) {
+
+                                                processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
+                                                buildBands();
+
+                                            } else {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                return;
+                                            }
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
-                            function processCandles() {
+                            function buildBands() {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> buildBands -> Entering function."); }
 
-                                    let candles = [];                   // Here we will put all the candles of the 2 files read.
+                                    addCandlesToSingleArray(previousDayFile);
+                                    addCandlesToSingleArray(processDayFile);
+                                    calculateBands();
 
-                                    let previousDayStairsArray = [];    // Here All the stairs of the previous day. 
-                                    let processDayStairsArray = [];     // Here All the stairs of the process day. 
-
-                                    let previousDayFile;
-                                    let processDayFile;
-
-                                    getCandleStairsFile();
-
-                                    function getCandleStairsFile() {
+                                    function addCandlesToSingleArray(candlesFile) {
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getCandleStairsFile -> Entering function."); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> buildBands -> addCandlesToSingleArray -> Entering function."); }
 
-                                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                                            for (let i = 0; i < candlesFile.length; i++) {
 
-                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                            let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                                let candle = {
+                                                    open: undefined,
+                                                    close: undefined,
+                                                    min: 10000000000000,
+                                                    max: 0,
+                                                    begin: undefined,
+                                                    end: undefined,
+                                                    direction: undefined
+                                                };
 
-                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                                                candle.min = candlesFile[i][0];
+                                                candle.max = candlesFile[i][1];
 
-                                            function onCurrentDayFileReceived(err, text) {
+                                                candle.open = candlesFile[i][2];
+                                                candle.close = candlesFile[i][3];
 
-                                                try {
+                                                candle.begin = candlesFile[i][4];
+                                                candle.end = candlesFile[i][5];
 
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> Entering function."); }
-                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> text = " + text); }
+                                                if (candle.open > candle.close) { candle.direction = 'down'; }
+                                                if (candle.open < candle.close) { candle.direction = 'up'; }
+                                                if (candle.open === candle.close) { candle.direction = 'side'; }
 
-                                                    previousDayFile = JSON.parse(text);
-                                                    getProcessDayFile()
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.message);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
-
-                                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                                }
+                                                candles.push(candle);
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
-                                    }
-
-                                    function getProcessDayFile() {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getProcessDayFile -> Entering function."); }
-
-                                            let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
-
-                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                            let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
-
-                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
-
-                                            function onCurrentDayFileReceived(err, text) {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> Entering function."); }
-                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> text = " + text); }
-
-                                                    processDayFile = JSON.parse(text);
-                                                    buildCandles();
-
-                                                } catch (err) {
-
-                                                    if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
-
-                                                        processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
-                                                        buildCandles();
-
-                                                    } else {
-
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.message);
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
-
-                                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                                        return;
-                                                    }
-                                                }
-                                            }
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
-                                    }
-
-                                    function buildCandles() {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> buildCandles -> Entering function."); }
-
-                                            pushCandles(previousDayFile);
-                                            pushCandles(processDayFile);
-                                            findCandleStairs();
-
-                                            function pushCandles(candlesFile) {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> buildCandles -> pushCandles -> Entering function."); }
-
-                                                    for (let i = 0; i < candlesFile.length; i++) {
-
-                                                        let candle = {
-                                                            open: undefined,
-                                                            close: undefined,
-                                                            min: 10000000000000,
-                                                            max: 0,
-                                                            begin: undefined,
-                                                            end: undefined,
-                                                            direction: undefined
-                                                        };
-
-                                                        candle.min = candlesFile[i][0];
-                                                        candle.max = candlesFile[i][1];
-
-                                                        candle.open = candlesFile[i][2];
-                                                        candle.close = candlesFile[i][3];
-
-                                                        candle.begin = candlesFile[i][4];
-                                                        candle.end = candlesFile[i][5];
-
-                                                        if (candle.open > candle.close) { candle.direction = 'down'; }
-                                                        if (candle.open < candle.close) { candle.direction = 'up'; }
-                                                        if (candle.open === candle.close) { candle.direction = 'side'; }
-
-                                                        candles.push(candle);
-                                                    }
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> buildCandles -> pushCandles -> err = " + err.message);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                    return;
-                                                }
-                                            }
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> buildCandles -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> buildBands -> addCandlesToSingleArray -> err = " + err.message);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
                                     }
 
-                                    function findCandleStairs() {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> findCandleStairs -> Entering function."); }
-
-                                            /* Finding stairs */
-
-                                            let stairs;
-
-                                            for (let i = 0; i < candles.length - 1; i++) {
-
-                                                let currentCandle = candles[i];
-                                                let nextCandle = candles[i + 1];
-
-                                                if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'side') {
-
-                                                    if (stairs === undefined) {
-
-                                                        stairs = {
-                                                            open: undefined,
-                                                            close: undefined,
-                                                            min: 10000000000000,
-                                                            max: 0,
-                                                            begin: undefined,
-                                                            end: undefined,
-                                                            direction: undefined,
-                                                            candleCount: 0,
-                                                            firstMin: 0,
-                                                            firstMax: 0,
-                                                            lastMin: 0,
-                                                            lastMax: 0
-                                                        };
-
-                                                        stairs.direction = currentCandle.direction;
-                                                        stairs.candleCount = 2;
-
-                                                        stairs.begin = currentCandle.begin;
-                                                        stairs.end = nextCandle.end;
-
-                                                        stairs.open = currentCandle.open;
-                                                        stairs.close = nextCandle.close;
-
-                                                        if (currentCandle.min < nextCandle.min) { stairs.min = currentCandle.min; } else { stairs.min = nextCandle.min; }
-                                                        if (currentCandle.max > nextCandle.max) { stairs.max = currentCandle.max; } else { stairs.max = nextCandle.max; }
-
-                                                        if (stairs.direction === 'up') {
-
-                                                            stairs.firstMin = currentCandle.open;
-                                                            stairs.firstMax = currentCandle.close;
-
-                                                            stairs.lastMin = nextCandle.open;
-                                                            stairs.lastMax = nextCandle.close;
-
-                                                        } else {
-
-                                                            stairs.firstMin = currentCandle.close;
-                                                            stairs.firstMax = currentCandle.open;
-
-                                                            stairs.lastMin = nextCandle.close;
-                                                            stairs.lastMax = nextCandle.open;
-
-                                                        }
-
-
-                                                    } else {
-
-                                                        stairs.candleCount++;
-                                                        stairs.end = nextCandle.end;
-                                                        stairs.close = nextCandle.close;
-
-                                                        if (stairs.min < nextCandle.min) { stairs.min = currentCandle.min; }
-                                                        if (stairs.max > nextCandle.max) { stairs.max = currentCandle.max; }
-
-                                                        if (stairs.direction === 'up') {
-
-                                                            stairs.lastMin = nextCandle.open;
-                                                            stairs.lastMax = nextCandle.close;
-
-                                                        } else {
-
-                                                            stairs.lastMin = nextCandle.close;
-                                                            stairs.lastMax = nextCandle.open;
-
-                                                        }
-
-                                                    }
-
-                                                } else {
-
-                                                    if (stairs !== undefined) {
-
-                                                        /*
-                                                        Here we detect stairs that started at process day - 2. 
-                                                        */
-
-                                                        if (stairs.begin > endOfLastCandleStair) {
-
-                                                            if (stairs.begin >= processDate.valueOf()) {
-
-                                                                processDayStairsArray.push(stairs);
-
-                                                            } else {
-
-                                                                previousDayStairsArray.push(stairs);
-
-                                                            }
-                                                        }
-
-                                                        stairs = undefined;
-                                                    }
-                                                }
-                                            }
-
-                                            writeCandleStairsFile();
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> findCandleStairs -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
-                                        }
-                                    }
-
-                                    function writeCandleStairsFile() {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> Entering function."); }
-
-                                            writeFile(previousDayStairsArray, previousDay, onPreviousFileWritten);
-
-                                            function onPreviousFileWritten() {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> Entering function."); }
-
-                                                    writeFile(processDayStairsArray, processDate, onProcessFileWritten);
-
-                                                    function onProcessFileWritten() {
-
-                                                        try {
-
-                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> Entering function."); }
-
-                                                            processVolumes();
-
-                                                        } catch (err) {
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> err = " + err.message);
-                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                        }
-                                                    }
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> onPreviousFileWritten -> err = " + err.message);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                }
-                                            }
-
-                                            function writeFile(pStairs, pDate, callback) {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> Entering function."); }
-
-                                                    let separator = "";
-                                                    let fileRecordCounter = 0;
-
-                                                    let fileContent = "";
-
-                                                    for (i = 0; i < pStairs.length; i++) {
-
-                                                        let stairs = pStairs[i];
-
-                                                        fileContent = fileContent + separator + '[' +
-                                                            stairs.open + "," +
-                                                            stairs.close + "," +
-                                                            stairs.min + "," +
-                                                            stairs.max + "," +
-                                                            stairs.begin + "," +
-                                                            stairs.end + "," +
-                                                            '"' + stairs.direction + '"' + "," +
-                                                            stairs.candleCount + "," +
-                                                            stairs.firstMin + "," +
-                                                            stairs.firstMax + "," +
-                                                            stairs.lastMin + "," +
-                                                            stairs.lastMax + "]";
-
-                                                        if (separator === "") { separator = ","; }
-
-                                                        fileRecordCounter++;
-
-                                                    }
-
-                                                    fileContent = "[" + fileContent + "]";
-
-                                                    let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
-                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                                    let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
-
-                                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                                    function onFileCreated(err) {
-
-                                                        try {
-
-                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> Entering function."); }
-
-                                                            if (LOG_FILE_CONTENT === true) {
-                                                                logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated ->  Content written = " + fileContent);
-                                                            }
-
-                                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> err = " + err.message);
-                                                                callBack(err);
-                                                                return;
-                                                            }
-
-                                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> " + logText); }
-
-                                                            callback();
-
-                                                        } catch (err) {
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> err = " + err.message);
-                                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                                        }
-                                                    }
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> err = " + err.message);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                }
-                                            }
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> writeCandleStairsFile -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
-                                    }
-
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> buildBands -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
                                 }
                             }
 
-                            function processVolumes() {
+                            function calculateBands() {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> calculateBands -> Entering function."); }
 
-                                    let volumes = [];
+                                    let bandsArray = [];
+                                    let numberOfPeriods = 20;
 
-                                    let previousDayStairsArray = [];    // Here All the stairs of the previous day. 
-                                    let processDayStairsArray = [];     // Here All the stairs of the process day. 
+                                    /* Building bands */
 
-                                    let previousDayFile;
-                                    let processDayFile;
+                                    let band;
 
-                                    getCandleStairsFile();
+                                    for (let i = numberOfPeriods - 1; i < candles.length; i++) { // Go through all the candles to generate a band segment for each of them.
 
-                                    function getCandleStairsFile() {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getCandleStairsFile -> Entering function."); }
-
-                                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
-
-                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                            let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
-
-                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
-
-                                            function onCurrentDayFileReceived(err, text) {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> Entering function."); }
-                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> text = " + text); }
-
-                                                    previousDayFile = JSON.parse(text);
-                                                    getProcessDayFile()
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.message);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
-
-                                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                                }
-                                            }
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        let movingAverage = 0;
+                                        for (let j = i - numberOfPeriods + 1; j < i + 1; j++) { // go through the last n candles to calculate the moving average.
+                                            movingAverage = movingAverage + candles[j].close;
                                         }
+                                        movingAverage = movingAverage / numberOfPeriods;
+
+                                        let standardDeviation = 0;
+                                        for (let j = i - numberOfPeriods + 1; j < i + 1; j++) { // go through the last n candles to calculate the standard deviation.
+                                            standardDeviation = standardDeviation + Math.pow(candles[j].close - movingAverage, 2);
+                                        }
+                                        standardDeviation = standardDeviation / numberOfPeriods;
+                                        standardDeviation = Math.sqrt(standardDeviation);
+
+                                       
+
+                                        band = {
+                                            begin: candles[i].begin,
+                                            end: candles[i].end,
+                                            movingAverage: movingAverage,
+                                            standardDeviation: standardDeviation
+                                        };
+
+                                        /* Will only add to the array the bands of the current day */
+
+                                        if (band.begin >= processDate.valueOf()) { bandsArray.push(band); }
+                                        
                                     }
 
-                                    function getProcessDayFile() {
+                                    writeFile(bandsArray);
 
-                                        try {
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> calculateBands -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+                            }
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getProcessDayFile -> Entering function."); }
+                            function writeFile(pBands, callback) {
 
-                                            let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                                try {
 
-                                            let filePathRoot = bot.devTeam + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                            let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> Entering function."); }
 
-                                            oliviaStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+                                    let separator = "";
+                                    let fileRecordCounter = 0;
 
-                                            function onCurrentDayFileReceived(err, text) {
+                                    let fileContent = "";
 
-                                                try {
+                                    for (i = 0; i < pBands.length; i++) {
 
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> Entering function."); }
-                                                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> text = " + text); }
+                                        let band = pBands[i];
 
-                                                    processDayFile = JSON.parse(text);
-                                                    buildVolumes();
+                                        fileContent = fileContent + separator + '[' +
+                                            band.begin + "," +
+                                            band.end + "," +
+                                            band.movingAverage + "," +
+                                            band.standardDeviation + "]";
 
-                                                } catch (err) {
+                                        if (separator === "") { separator = ","; }
 
-                                                    if (processDate.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+                                        fileRecordCounter++;
 
-                                                        processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
-                                                        buildVolumes();
-
-                                                    } else {
-
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.message);
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
-
-                                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                                        return;
-                                                    }
-                                                }
-                                            }
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
                                     }
 
-                                    function buildVolumes() {
+                                    fileContent = "[" + fileContent + "]";
+
+                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+
+                                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated(err) {
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> buildVolumes -> Entering function."); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated -> Entering function."); }
 
-                                            pushVolumes(previousDayFile);
-                                            pushVolumes(processDayFile);
-                                            findVolumesStairs();
-
-                                            function pushVolumes(volumesFile) {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> buildVolumes -> pushVolumes -> Entering function."); }
-
-                                                    for (let i = 0; i < volumesFile.length; i++) {
-
-                                                        let volume = {
-                                                            amountBuy: 0,
-                                                            amountSell: 0,
-                                                            begin: undefined,
-                                                            end: undefined
-                                                        };
-
-                                                        volume.amountBuy = volumesFile[i][0];
-                                                        volume.amountSell = volumesFile[i][1];
-
-                                                        volume.begin = volumesFile[i][2];
-                                                        volume.end = volumesFile[i][3];
-
-                                                        volumes.push(volume);
-
-                                                    }
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> buildVolumes -> pushVolumes -> err = " + err.message);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                }
+                                            if (LOG_FILE_CONTENT === true) {
+                                                logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated ->  Content written = " + fileContent);
                                             }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+
+                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated -> " + logText); }
+
+                                            controlLoop();
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> buildVolumes -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
-                                    }
-
-                                    function findVolumesStairs() {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> findVolumesStairs -> Entering function."); }
-
-                                            /* Finding stairs */
-
-                                            let buyUpStairs;
-                                            let buyDownStairs;
-
-                                            let sellUpStairs;
-                                            let sellDownStairs;
-
-                                            for (let i = 0; i < volumes.length - 1; i++) {
-
-                                                let currentVolume = volumes[i];
-                                                let nextVolume = volumes[i + 1];
-
-
-                                                /* buy volume going up */
-
-                                                if (currentVolume.amountBuy < nextVolume.amountBuy) {
-
-                                                    if (buyUpStairs === undefined) {
-
-                                                        buyUpStairs = {
-                                                            type: undefined,
-                                                            begin: undefined,
-                                                            end: undefined,
-                                                            direction: undefined,
-                                                            barsCount: 0,
-                                                            firstAmount: 0,
-                                                            lastAmount: 0
-                                                        };
-
-                                                        buyUpStairs.type = 'buy';
-                                                        buyUpStairs.direction = 'up';
-                                                        buyUpStairs.barsCount = 2;
-
-                                                        buyUpStairs.begin = currentVolume.begin;
-                                                        buyUpStairs.end = nextVolume.end;
-
-                                                        buyUpStairs.firstAmount = currentVolume.amountBuy;
-                                                        buyUpStairs.lastAmount = nextVolume.amountBuy;
-
-                                                    } else {
-
-                                                        buyUpStairs.barsCount++;
-                                                        buyUpStairs.end = nextVolume.end;
-                                                        buyUpStairs.lastAmount = nextVolume.amountBuy;
-
-                                                    }
-
-                                                } else {
-
-                                                    if (buyUpStairs !== undefined) {
-
-                                                        if (buyUpStairs.barsCount > 2) {
-
-                                                            pushToArray(buyUpStairs);
-                                                        }
-
-                                                        buyUpStairs = undefined;
-                                                    }
-                                                }
-
-                                                /* buy volume going down */
-
-                                                if (currentVolume.amountBuy > nextVolume.amountBuy) {
-
-                                                    if (buyDownStairs === undefined) {
-
-                                                        buyDownStairs = {
-                                                            type: undefined,
-                                                            begin: undefined,
-                                                            end: undefined,
-                                                            direction: undefined,
-                                                            barsCount: 0,
-                                                            firstAmount: 0,
-                                                            lastAmount: 0
-                                                        };
-
-                                                        buyDownStairs.type = 'buy';
-                                                        buyDownStairs.direction = 'down';
-                                                        buyDownStairs.barsCount = 2;
-
-                                                        buyDownStairs.begin = currentVolume.begin;
-                                                        buyDownStairs.end = nextVolume.end;
-
-                                                        buyDownStairs.firstAmount = currentVolume.amountBuy;
-                                                        buyDownStairs.lastAmount = nextVolume.amountBuy;
-
-                                                    } else {
-
-                                                        buyDownStairs.barsCount++;
-                                                        buyDownStairs.end = nextVolume.end;
-                                                        buyDownStairs.lastAmount = nextVolume.amountBuy;
-
-                                                    }
-
-                                                } else {
-
-                                                    if (buyDownStairs !== undefined) {
-
-                                                        if (buyDownStairs.barsCount > 2) {
-
-                                                            pushToArray(buyDownStairs);
-                                                        }
-
-                                                        buyDownStairs = undefined;
-                                                    }
-                                                }
-
-                                                /* sell volume going up */
-
-                                                if (currentVolume.amountSell < nextVolume.amountSell) {
-
-                                                    if (sellUpStairs === undefined) {
-
-                                                        sellUpStairs = {
-                                                            type: undefined,
-                                                            begin: undefined,
-                                                            end: undefined,
-                                                            direction: undefined,
-                                                            barsCount: 0,
-                                                            firstAmount: 0,
-                                                            lastAmount: 0
-                                                        };
-
-                                                        sellUpStairs.type = 'sell';
-                                                        sellUpStairs.direction = 'up';
-                                                        sellUpStairs.barsCount = 2;
-
-                                                        sellUpStairs.begin = currentVolume.begin;
-                                                        sellUpStairs.end = nextVolume.end;
-
-                                                        sellUpStairs.firstAmount = currentVolume.amountSell;
-                                                        sellUpStairs.lastAmount = nextVolume.amountSell;
-
-                                                    } else {
-
-                                                        sellUpStairs.barsCount++;
-                                                        sellUpStairs.end = nextVolume.end;
-                                                        sellUpStairs.lastAmount = nextVolume.amountSell;
-
-                                                    }
-
-                                                } else {
-
-                                                    if (sellUpStairs !== undefined) {
-
-                                                        if (sellUpStairs.barsCount > 2) {
-
-                                                            pushToArray(sellUpStairs);
-                                                        }
-
-                                                        sellUpStairs = undefined;
-                                                    }
-                                                }
-
-                                                /* sell volume going down */
-
-                                                if (currentVolume.amountSell > nextVolume.amountSell) {
-
-                                                    if (sellDownStairs === undefined) {
-
-                                                        sellDownStairs = {
-                                                            type: undefined,
-                                                            begin: undefined,
-                                                            end: undefined,
-                                                            direction: undefined,
-                                                            barsCount: 0,
-                                                            firstAmount: 0,
-                                                            lastAmount: 0
-                                                        };
-
-                                                        sellDownStairs.type = 'sell';
-                                                        sellDownStairs.direction = 'down';
-                                                        sellDownStairs.barsCount = 2;
-
-                                                        sellDownStairs.begin = currentVolume.begin;
-                                                        sellDownStairs.end = nextVolume.end;
-
-                                                        sellDownStairs.firstAmount = currentVolume.amountSell;
-                                                        sellDownStairs.lastAmount = nextVolume.amountSell;
-
-                                                    } else {
-
-                                                        sellDownStairs.barsCount++;
-                                                        sellDownStairs.end = nextVolume.end;
-                                                        sellDownStairs.lastAmount = nextVolume.amountSell;
-
-                                                    }
-
-                                                } else {
-
-                                                    if (sellDownStairs !== undefined) {
-
-                                                        if (sellDownStairs.barsCount > 2) {
-
-                                                            pushToArray(sellDownStairs);
-                                                        }
-
-                                                        sellDownStairs = undefined;
-                                                    }
-                                                }
-
-                                                function pushToArray(stairs) {
-
-                                                    if (INTENSIVE_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> findVolumesStairs -> pushToArray -> Entering function."); }
-
-                                                    try {
-
-                                                        if (stairs !== undefined) {
-
-                                                            /*
-                                                           Here we detect stairs that started at process day - 2. 
-                                                           */
-
-                                                            if (stairs.type === 'sell') {
-
-                                                                if (stairs.begin > endOfLastSellVolumeStair) {
-
-                                                                    if (stairs.begin >= processDate.valueOf()) {
-
-                                                                        processDayStairsArray.push(stairs);
-
-                                                                    } else {
-
-                                                                        previousDayStairsArray.push(stairs);
-
-                                                                    }
-                                                                }
-                                                            }
-                                                            else {
-
-                                                                if (stairs.begin > endOfLastBuyVolumeStair) {
-
-                                                                    if (stairs.begin >= processDate.valueOf()) {
-
-                                                                        processDayStairsArray.push(stairs);
-
-                                                                    } else {
-
-                                                                        previousDayStairsArray.push(stairs);
-
-                                                                    }
-                                                                }
-
-                                                            }
-
-                                                            stairs = undefined;
-                                                        }
-
-                                                    } catch (err) {
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> findVolumesStairs -> pushToArray -> err = " + err.message);
-                                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                    }
-                                                }
-                                            }
-
-                                            writeVolumeStairsFile();
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> findVolumesStairs -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
-                                    }
-
-                                    function writeVolumeStairsFile() {
-
-                                        try {
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> Entering function."); }
-
-                                            writeFile(previousDayStairsArray, previousDay, onPreviousFileWritten);
-
-                                            function onPreviousFileWritten() {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> Entering function."); }
-
-                                                    writeFile(processDayStairsArray, processDate, onProcessFileWritten);
-
-                                                    function onProcessFileWritten() {
-
-                                                        try {
-
-                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> Entering function."); }
-
-                                                            controlLoop();
-
-                                                        } catch (err) {
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> onProcessFileWritten -> err = " + err.message);
-                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                        }
-                                                    }
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> err = " + err.message);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                }
-                                            }
-
-                                            function writeFile(pStairs, pDate, callback) {
-
-                                                try {
-
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> Entering function."); }
-
-                                                    let separator = "";
-                                                    let fileRecordCounter = 0;
-
-                                                    let fileContent = "";
-
-                                                    for (i = 0; i < pStairs.length; i++) {
-
-                                                        let stairs = pStairs[i];
-
-                                                        fileContent = fileContent + separator + '[' +
-                                                            '"' + stairs.type + '"' + "," +
-                                                            stairs.begin + "," +
-                                                            stairs.end + "," +
-                                                            '"' + stairs.direction + '"' + "," +
-                                                            stairs.barsCount + "," +
-                                                            stairs.firstAmount + "," +
-                                                            stairs.lastAmount + "]";
-
-                                                        if (separator === "") { separator = ","; }
-
-                                                        fileRecordCounter++;
-
-                                                    }
-
-                                                    fileContent = "[" + fileContent + "]";
-
-                                                    let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
-                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-
-                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                                    let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
-
-                                                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                                                    function onFileCreated(err) {
-
-                                                        try {
-
-                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated -> Entering function."); }
-
-                                                            if (LOG_FILE_CONTENT === true) {
-                                                                logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated ->  Content written = " + fileContent);
-                                                            }
-
-                                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated -> err = " + err.message);
-                                                                callBack(err);
-                                                                return;
-                                                            }
-
-                                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated -> " + logText); }
-
-                                                            callback();
-
-                                                        } catch (err) {
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> writeFile -> onFileCreated -> err = " + err.message);
-                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                        }
-                                                    }
-
-                                                } catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> onPreviousFileWritten -> writeFile -> err = " + err.message);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                }
-                                            }
-
-                                        } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> writeVolumeStairsFile -> err = " + err.message);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeFile -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
+
+          
+
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -1475,7 +605,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> controlLoop -> Entering function."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> controlLoop -> Entering function."); }
 
                             n++;
 
@@ -1493,32 +623,32 @@
 
                                     try {
 
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> controlLoop -> onWritten -> Entering function."); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> controlLoop -> onWritten -> Entering function."); }
 
                                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> controlLoop -> onWritten -> err = " + err.message);
-                                            callBack(err);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> controlLoop -> onWritten -> err = " + err.message);
+                                            callBackFunction(err);
                                             return;
                                         }
 
                                         writeStatusReport(processDate, advanceTime);
 
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> controlLoop -> onWritten -> err = " + err.message);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> controlLoop -> onWritten -> err = " + err.message);
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> controlLoop -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> controlLoop -> err = " + err.message);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
 
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> err.message = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> err.message = " + err.message);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -1529,32 +659,20 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
-                    writeDataRange(contextVariables.firstTradeFile, processDate, CANDLE_STAIRS_FOLDER_NAME, onCandlesStairsDataRangeWritten);
+                    writeDataRange(contextVariables.firstTradeFile, processDate, BOLLINGER_BANDS_FOLDER_NAME, onBandsBandsDataRangeWritten);
 
-                    function onCandlesStairsDataRangeWritten(err) {
+                    function onBandsBandsDataRangeWritten(err) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onCandlesStairsDataRangeWritten -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onBandsBandsDataRangeWritten -> err = " + err.message);
                             callBack(err);
                             return;
                         }
 
-                        writeDataRange(contextVariables.firstTradeFile, processDate, VOLUME_STAIRS_FOLDER_NAME, onVolumeStairsDataRangeWritten);
+                        callBack(global.DEFAULT_OK_RESPONSE);
 
-                        function onVolumeStairsDataRangeWritten(err) {
-
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] writeDataRanges -> writeDataRanges -> onVolumeStairsDataRangeWritten -> Entering function."); }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onVolumeStairsDataRangeWritten -> err = " + err.message);
-                                callBack(err);
-                                return;
-                            }
-
-                            callBack(global.DEFAULT_OK_RESPONSE);
-                        }
                     }
                 }
                 catch (err) {
@@ -1583,7 +701,7 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> fileName = " + fileName); }
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> filePath = " + filePath); }
 
-                    tomStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -1615,7 +733,7 @@
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "AATom" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let reportKey = "AAMasters" + "-" + "AAChris" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

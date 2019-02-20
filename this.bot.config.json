@@ -112,26 +112,26 @@
   ],
   "products": [
     {
-      "codeName": "Bolinger-Bands",
-      "displayName": "Bolinger Bands",
-      "description": "Bolinger Bands",
+      "codeName": "Bollinger-Bands",
+      "displayName": "Bollinger Bands",
+      "description": "Bollinger Bands",
       "storageAccount": "aachris",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-          "filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bolinger-Bands/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Bands/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-          "filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bolinger-Bands/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Bands/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bolinger-Bands/Multi-Period-Daily",
+            "filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Bands/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }
@@ -143,8 +143,8 @@
       ],
       "plotter": {
         "devTeam": "AAMasters",
-        "codeName": "PlottersBolingerBands",
-        "moduleName": "BolingerBands"
+        "codeName": "PlottersBollingerBands",
+        "moduleName": "BollingerBands"
       }
     }
   ]

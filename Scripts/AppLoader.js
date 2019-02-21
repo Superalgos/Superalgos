@@ -27,7 +27,9 @@
 
                 /* PlotterPanels */
 
+
                 "Globals.js",
+                "Ecosystem.js",
 
                 "BottomSpace/DeleteTradingHistory.js",
                 "BottomSpace/ChartAspectRatio.js",
@@ -65,10 +67,11 @@
                 "FloatingSpace/FloatingLayer.js",
 
                 "Exchange/ExchangeAPI.js",
-                "CloudVM/CloudSupport.js",
-                "CloudVM/CloudRequire.js",
-                "CloudVM/WebFS.js",
-                "CloudVM/CloudVM.js",
+
+                "CloudAppWrapper/CloudSupport.js",
+                "CloudAppWrapper/CloudRequire.js",
+                "CloudAppWrapper/WebFS.js",
+                "CloudAppWrapper/BrowserRun.js",
 
                 "Scales/ChartGrid.js",
                 "Scales/RightScale.js",
@@ -81,7 +84,6 @@
                 "ProductStorage.js",
                 "CompetitionStorage.js",
                 "ProductCard.js",
-                "Ecosystem.js",
 
                 "SplashScreen.js",
                 "Canvas.js",
@@ -107,10 +109,15 @@
             ];
 
             let downloadedCounter = 0;
+            let versionParam = window.canvasApp.version;
+            if (versionParam === undefined) { versionParam = ''; }
+            else {
+                versionParam = '?' + versionParam;
+            }
 
             for (let i = 0; i < modulesArray.length; i++) {
 
-                let path = window.canvasApp.urlPrefix + modulesArray[i];
+                let path = window.canvasApp.urlPrefix + modulesArray[i] + versionParam;
 
                 REQUIREJS([path], onRequired);
 

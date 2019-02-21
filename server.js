@@ -183,7 +183,6 @@ function onBrowserRequest(request, response) {
     let htmlResponse;
     let requestParameters = request.url.split("/");
 
-
     if (requestParameters[1].indexOf("index.html") >= 0) {
 
         /*
@@ -201,7 +200,8 @@ function onBrowserRequest(request, response) {
         return;
     }
 
-
+    requestParameters = request.url.split("?"); // Remove version information
+    requestParameters = requestParameters[0].split("/"); 
 
     switch (requestParameters[1]) {
 
@@ -435,7 +435,7 @@ function onBrowserRequest(request, response) {
             }
             break;
 
-        case "CloudVM": // This means the CloudVM folder.
+        case "CloudAppWrapper": // This means the BrowserRun folder.
             {
                 let filePath = requestParameters[2];
 
@@ -447,7 +447,7 @@ function onBrowserRequest(request, response) {
                     filePath = filePath + "/" + requestParameters[4];
                 }
 
-                respondWithFile(serverConfig.pathToCanvasApp +'/CloudVM/' + filePath, response);
+                respondWithFile(serverConfig.pathToCloudAppWrapperComponent + '/' + filePath, response);
 
             }
             break;
@@ -1071,7 +1071,7 @@ function onBrowserRequest(request, response) {
 
         case "Files":
             {
-                respondWithFile(serverConfig.pathToCanvasApp + '/' + requestParameters[1] + '/' + requestParameters[2], response);
+                respondWithFile(serverConfig.pathToFilesComponent + '/' + requestParameters[2], response);
             }
             break;
 

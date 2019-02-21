@@ -42,6 +42,33 @@ const EVENTS_EVENTSBYHOST = gql`
   ${eventFullInfo}
 `;
 
+const EVENTS_EVENT_AND_AKEY = gql`
+  query Events_Events(
+    $hostId: String,
+    $state: events_EventStateEnum,
+    $minStartDate: Int,
+    $maxStartDate: Int,
+    $minEndDate: Int,
+    $maxEndDate: Int
+  ){
+    events_Events(
+      hostId: $hostId,
+      state: $state,
+      minStartDate: $minStartDate,
+      maxStartDate: $maxStartDate,
+      minEndDate: $minEndDate,
+      maxEndDate: $maxEndDate
+    ) {
+      ...EventFullInfo
+    }
+    keyVault_AvailableKeys{
+      id
+      key
+    }
+  }
+  ${eventFullInfo}
+`;
+
 const EVENTS_PUBLISHEVENT = gql`
   mutation Events_ChangeEventState($eventId:  ID!, $state: events_EventStateEnum) {
     events_ChangeEventState(eventId: $eventId, state: $state) {
@@ -52,10 +79,10 @@ const EVENTS_PUBLISHEVENT = gql`
 `;
 
 const REGISTER_EVENT = gql`
-  mutation Events_RegisterToEvent($eventId: ID!, $participantId: String!, $botId: String!) {
+  mutation Events_RegisterToEvent($eventId: ID!, $keyId: String!, $participantId: String!, $botId: String!) {
     events_RegisterToEvent(
       eventId: $eventId
-      participant: { participantId: $participantId, botId: $botId }
+      participant: { keyId: $keyId, participantId: $participantId, botId: $botId }
     ) {
       ...EventFullInfo
     }
@@ -67,6 +94,7 @@ export default {
   EVENTS_CREATEEVENT,
   EVENTS_EDITEVENT,
   EVENTS_EVENTSBYHOST,
+  EVENTS_EVENT_AND_AKEY,
   EVENTS_PUBLISHEVENT,
   REGISTER_EVENT,
 };

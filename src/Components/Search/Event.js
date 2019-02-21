@@ -16,8 +16,23 @@ import { hostedEventsCalls } from '../../GraphQL/Calls/index';
 import { toLocalTime } from '../../utils';
 
 class Event extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      keyId: '',
+      participantId: '',
+      botId: '',
+    };
+  }
+
   render() {
-    const { classes, event, enrollable = false } = this.props;
+    const { keyId, participantId, botId } = this.state;
+    const {
+      classes,
+      event,
+      availableKey = [],
+      enrollable = false,
+    } = this.props;
     const {
       id,
       title,
@@ -65,50 +80,64 @@ class Event extends React.Component {
                 <Typography gutterBottom>You are participating as : { participatingAs.map(team => `${team.name}, `) } </Typography>
               </Grid>
               <Grid item className={classes.buttonGrid}>
-                { enrollable
+                { enrollable && fbs.length
                   ? <Mutation mutation={hostedEventsCalls.REGISTER_EVENT}
                       update={() => {
                         window.location.reload();
                       }}
                     >
                     {enrollToEvent => (
-                      <Select
-                        value={''}
-                        onChange={(val) => {
-                          enrollToEvent({
-                            variables: {
-                              eventId: id,
+                      <React.Fragment>
+                        <Select
+                          value={`${participantId}|${botId}`}
+                          onChange={(val) => {
+                            this.setState({
                               participantId: val.target.value.split('|')[0],
                               botId: val.target.value.split('|')[1],
+                            });
+                          }}
+                          name='bot'
+                          displayEmpty
+                          className={classes.selectEmpty}
+                        >
+                          <MenuItem value='|' disabled>
+                            Enroll as :
+                          </MenuItem>
+                          { fbs.map(finb => <MenuItem
+                            key={finb.value}
+                            value={finb.value}>{finb.text}</MenuItem>) }
+                        </Select>
+                        <Select
+                          value={keyId}
+                          onChange={(val) => { this.setState({ keyId: val.target.value }); }}
+                          name='key'
+                          displayEmpty
+                          className={classes.selectEmpty}
+                        >
+                          <MenuItem value='' disabled>
+                            Select key
+                          </MenuItem>
+                          { availableKey.map(akey => <MenuItem
+                            key={akey.id}
+                            value={akey.id}>{akey.key}</MenuItem>) }
+                        </Select>
+                        <Button
+                          className={classes.buttonList}
+                          variant='outlined'
+                          color='secondary'
+                          size='small'
+                          onClick={() => enrollToEvent({
+                            variables: {
+                              eventId: id,
+                              keyId,
+                              participantId,
+                              botId,
                             },
-                          });
-                        }}
-                        name='bot'
-                        displayEmpty
-                        className={classes.selectEmpty}
-                      >
-                        <MenuItem value='' disabled>
-                          Enroll as :
-                        </MenuItem>
-                        { fbs.map(finb => <MenuItem
-                              key={finb.value}
-                              value={finb.value}>{finb.text}</MenuItem>) }
-                      </Select>
-                      // <Button
-                      //   className={classes.buttonList}
-                      //   variant='outlined'
-                      //   color='secondary'
-                      //   size='small'
-                      //   onClick={() => enrollToEvent({
-                      //     variables: {
-                      //       eventId: id,
-                      //       participantId: 'test',
-                      //       botId: 'test',
-                      //     },
-                      //   })}
-                      // >
-                      //   Enroll
-                      // </Button>
+                          })}
+                        >
+                          Enroll
+                        </Button>
+                      </React.Fragment>
                     )}
                   </Mutation>
                   : ''

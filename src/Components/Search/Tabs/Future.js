@@ -9,10 +9,10 @@ import Event from '../Event';
 class Future extends React.Component {
   render() {
     const { classes } = this.props;
-    const { Events } = this.props;
+    const { Events, AKey } = this.props;
 
     const events = Events.map((event, index) => (
-      <Event key={index} event={event} enrollable={true} />
+      <Event key={index} event={event} availableKey={AKey} enrollable={true} />
     ));
     return (
       <div className='container'>

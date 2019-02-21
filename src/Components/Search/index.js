@@ -107,7 +107,7 @@ class Search extends React.Component {
             }}
           </Query>
           <Query
-            query={hostedEventsCalls.EVENTS_EVENTSBYHOST}
+            query={hostedEventsCalls.EVENTS_EVENT_AND_AKEY}
             variables={{ minStartDate: time.now }}
           >
             {({ loading, error, data }) => {
@@ -115,7 +115,7 @@ class Search extends React.Component {
               if (error) return `Error! ${error.message}`;
               return (
                 <React.Fragment>
-                  {value === 1 && <TabContainer><Future Events={data.events_Events} /></TabContainer>}
+                  {value === 1 && <TabContainer><Future Events={data.events_Events} AKey={data.keyVault_AvailableKeys} /></TabContainer>}
                 </React.Fragment>
               );
             }}

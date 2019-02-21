@@ -18,7 +18,7 @@ const args = {
 };
 
 const resolve = (parent,
-  { eventId: _id, participant: { participantId, botId } },
+  { eventId: _id, participant: { keyId, participantId, botId } },
   { userId, authorization }) => {
   if (!userId) {
     throw new AuthentificationError();
@@ -78,7 +78,10 @@ const resolve = (parent,
                           resumeExecution: false
                           runAsTeam: true
                           teamId: "${participantId}"
-                          processName: "${event.title}-${participantId}"
+                          processName: "Trading-Process"
+                          keyId: "${keyId}"
+                          beginDatetime: "${event.startDatetime}"
+                          endDatetime: "${event.endDatetime}"
                         }
                       ) {
                         id

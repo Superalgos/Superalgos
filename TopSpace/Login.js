@@ -29,7 +29,7 @@ function newLogin() {
 
     function initialize(callBackFunction) {
 
-        
+
         const accessToken = window.localStorage.getItem("access_token");
         let user = window.localStorage.getItem("user");
 
@@ -90,7 +90,7 @@ function newLogin() {
                 })
                     .then(response => {
                         sessionToken = response.data.users_UserByAuthId.sessionToken;
-                         
+
                         window.localStorage.setItem('loggedInUser', JSON.stringify(response.data.users_UserByAuthId));
                         resolve({ user: response.data.users_UserByAuthId})
                     })
@@ -99,7 +99,7 @@ function newLogin() {
                         reject(error)
                     });
                 });
-            }   
+            }
 
             const networkInterfaceTeams = Apollo.lib.createNetworkInterface({
                 uri: window.canvasApp.graphQL.masterAppApiUrl
@@ -169,17 +169,67 @@ function newLogin() {
             })
         }
 
+        // Gettings events
+
+
+        const networkInterfaceEvents = Apollo.lib.createNetworkInterface({
+            uri: window.canvasApp.graphQL.masterAppApiUrl
+        });
+
+        networkInterfaceEvents.use([{
+        applyMiddleware(req, next) {
+            req.options.headers = {
+            authorization: `Bearer ${accessToken}`
+            };
+            next();
+        }
+        }]);
+
+        const apolloClientEvents = new Apollo.lib.ApolloClient({
+            networkInterface: networkInterfaceEvents,
+            connectToDevTools: true,
+        });
+
+        const EVENTS = Apollo.gql`
+        query events($maxStartDate: Int, $minEndDate: Int){
+            events_Events(maxStartDate: $maxStartDate, minEndDate: $minEndDate){
+                id
+                title
+            }
+        }
+    `
+
+    const getCurrentEvents = () => {
+        var d = new Date();
+        var nowSeconds = Math.round(d.getTime() / 1000);
+        var twoWeeksAgoSeconds = nowSeconds - 1209600;
+        return new Promise((resolve, reject) => {
+            apolloClientEvents.query({
+            query: EVENTS,
+            variables: { maxStartDate: nowSeconds, minEndDate: twoWeeksAgoSeconds }
+            })
+            .then(response => {
+                window.localStorage.setItem('currentEvents', JSON.stringify(response.data.events_Events));
+                resolve({ currentEvents: response.data.events_Events})
+            })
+            .catch(error => {
+                console.log("apolloClient error getting current events", error)
+                reject (error)
+            });
+        })
+    }
+
         // To avoid race conditions, add asynchronous fetches to array
         let fetchDataPromises = [];
 
-        fetchDataPromises.push(getUser(), getTeamByOwner());
+        fetchDataPromises.push(getUser(), getTeamByOwner(), getCurrentEvents());
 
         // When all asynchronous fetches resolve, authenticate user or throw error.
         Promise.all(fetchDataPromises).then(result => {
 
             /* this is the time to authenticate the user at AAWeb */
 
-            authenticateUser(); 
+            authenticateUser();
 
         }, err => {
             console.error("fetchData error", err)
@@ -219,7 +269,7 @@ function newLogin() {
 
 
     function onClick() {
- 
+
     }
 
     function getContainer(point) {

@@ -4,7 +4,7 @@ function newCurrentBot() {
     let thisObject = {
         container: undefined,
         draw: draw,
-        getContainer: getContainer,  
+        getContainer: getContainer,
         initialize: initialize
     };
 

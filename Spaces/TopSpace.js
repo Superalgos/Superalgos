@@ -11,6 +11,7 @@ function newTopSpace() {
         currentBot: undefined,
         currentProcess: undefined,
         currentStartMode: undefined,
+        currentEvent: undefined,
         login: undefined,
         initialize: initialize
     };
@@ -29,6 +30,7 @@ function newTopSpace() {
 
         let sharedStatus = {
             currentDevTeamIndex: 0,
+            currentEventIndex: 0,
             currentUserBotIndex: 0,
             currentProcessIndex: 0,
             currentBotType: "",
@@ -43,6 +45,7 @@ function newTopSpace() {
         thisObject.currentBot = newCurrentBot();
         thisObject.currentProcess = newCurrentProcess();
         thisObject.currentStartMode = newCurrentStartMode();
+        thisObject.currentEvent = newCurrentEvent();
         thisObject.devTeam = newDevTeam();
 
         window.canvasApp.eventHandler.listenToEvent("Browser Resized", resize);
@@ -54,8 +57,8 @@ function newTopSpace() {
             thisObject.currentBot.initialize(sharedStatus);
             thisObject.currentProcess.initialize(sharedStatus);
             thisObject.currentStartMode.initialize(sharedStatus);
+            thisObject.currentEvent.initialize(sharedStatus);
             thisObject.devTeam.initialize(sharedStatus);
-          
         }
     }
 
@@ -91,6 +94,9 @@ function newTopSpace() {
         container = thisObject.currentStartMode.getContainer(point);
         if (container !== undefined) { return container; }
 
+        container = thisObject.currentEvent.getContainer(point);
+        if (container !== undefined) { return container; }
+
         container = thisObject.login.getContainer(point);
         if (container !== undefined) { return container; }
 
@@ -111,6 +117,7 @@ function newTopSpace() {
         thisObject.currentBot.draw();
         thisObject.currentProcess.draw();
         thisObject.currentStartMode.draw();
+        thisObject.currentEvent.draw();
         thisObject.login.draw();
 
     }

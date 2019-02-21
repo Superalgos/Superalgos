@@ -104,6 +104,9 @@
     <Compile Include="TopSpace\CurrentStartMode.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TopSpace\CurrentEvent.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TopSpace\DevTeam.js">
       <SubType>Code</SubType>
     </Compile>

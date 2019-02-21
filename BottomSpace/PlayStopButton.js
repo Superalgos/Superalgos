@@ -3,7 +3,7 @@ function newPlayStopButton() {
 
     var thisObject = {
         container: undefined,
-        setDatetime: setDatetime, 
+        setDatetime: setDatetime,
         draw: draw,
         getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
         initialize: initialize
@@ -59,8 +59,7 @@ function newPlayStopButton() {
     }
 
     function resize() {
-
-        container.frame.position.x = viewPort.visibleArea.topLeft.x + 150 * 4;
+        container.frame.position.x = viewPort.visibleArea.topLeft.x + 150 * 5;
         container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     }

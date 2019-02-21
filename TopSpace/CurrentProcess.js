@@ -4,7 +4,7 @@ function newCurrentProcess() {
     let thisObject = {
         container: undefined,
         draw: draw,
-        getContainer: getContainer,    
+        getContainer: getContainer,
         initialize: initialize
     };
 
@@ -56,7 +56,7 @@ function newCurrentProcess() {
 
     function resize() {
 
-        container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 2;
+        container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 3;
         container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     }
@@ -71,7 +71,7 @@ function newCurrentProcess() {
                 window.CURRENT_PROCESS = window.USER_PROFILE.devTeams[sharedStatus.currentDevTeamIndex].userBots[sharedStatus.currentUserBotIndex].processes[sharedStatus.currentProcessIndex].name;
 
                 return;
-            }   
+            }
         }
 
         window.CURRENT_PROCESS = NOT_FOUND;

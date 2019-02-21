@@ -1,14 +1,13 @@
-﻿
-function newCurrentStartMode() {
+﻿function newCurrentEvent() {
 
-    var thisObject = {
+    let thisObject = {
         container: undefined,
         draw: draw,
-        getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+        getContainer: getContainer,
         initialize: initialize
     };
 
-    var container = newContainer();
+    let container = newContainer();
     container.initialize();
     thisObject.container = container;
 
@@ -20,14 +19,36 @@ function newCurrentStartMode() {
     container.isDraggeable = false;
     container.isClickeable = true;
 
+    const NOT_FOUND = "Event NOT FOUND";
+
+    let sharedStatus;
+    let storedEvents;
+    let label = "Event -"
+
     return thisObject;
 
-    function initialize() {
+    function initialize(pSharedStatus) {
 
-        window.CURRENT_START_MODE = window.localStorage.getItem("currentStartMode");
+        let sessionToken = window.localStorage.getItem('sessionToken');
 
-        if (window.CURRENT_START_MODE === null) {
-            window.CURRENT_START_MODE = "Backtest";
+        if (sessionToken === null || sessionToken === "") {
+            /* not logged in */
+            return;
+        }
+
+        sharedStatus = pSharedStatus;
+
+        storedEvents = window.localStorage.getItem('currentEvents');
+        if (storedEvents === null || storedEvents === "[]" || storedEvents === "") {
+            window.EVENTS = "";
+            window.CURRENT_EVENT_TITLE = "";
+            label = NOT_FOUND;
+        } else {
+            storedEvents = JSON.parse(storedEvents)
+            window.EVENTS = storedEvents;
+            window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
+            label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
+            sharedStatus.eventHandler.raiseEvent("Event Changed");
         }
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
@@ -37,7 +58,7 @@ function newCurrentStartMode() {
 
     function resize() {
 
-        container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 4;
+        container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 2;
         container.frame.position.y = viewPort.visibleArea.bottomLeft.y;
 
     }
@@ -51,22 +72,22 @@ function newCurrentStartMode() {
             return;
         }
 
-        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return; }
+        if (sharedStatus.currentEventIndex + 1 === window.EVENTS.length) {
 
-        switch (window.CURRENT_START_MODE) {
+            sharedStatus.currentEventIndex = 0;
+            window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
+            label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
+            sharedStatus.eventHandler.raiseEvent("Event Changed");
+            return;
+        }
 
-            case "Backtest": {
-                window.CURRENT_START_MODE = "Live";
-                break;
-            }
-            case "Live": {
-                window.CURRENT_START_MODE = "Competition";
-                break;
-            }
-            case "Competition": {
-                window.CURRENT_START_MODE = "Backtest";
-                break;
-            }
+        if (sharedStatus.currentEventIndex + 1 < window.EVENTS.length) {
+
+            sharedStatus.currentEventIndex++;
+            window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
+            label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
+            sharedStatus.eventHandler.raiseEvent("Event Changed");
+            return;
         }
 
     }
@@ -99,14 +120,10 @@ function newCurrentStartMode() {
             return;
         }
 
-        if (window.CURRENT_BOT_DISPLAY_NAME === "") { return;}
-
         thisObject.container.frame.draw(false, false);
 
         let breakpointsHeight = 14;
         let fontSize = 12;
-        let label = window.CURRENT_START_MODE + " Mode";
-        if (label === "undefined Mode") { label = "" };
 
         let point = {
             x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize / 3,

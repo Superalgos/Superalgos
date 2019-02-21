@@ -15,6 +15,14 @@
           "event": "Current Band Changed"
         }
       ]
+    },
+    {
+      "codeName": "PercentageBandwidth",
+      "moduleName": "PercentageBandwidth",
+      "description": "Plots Bollinger Bands.",
+      "profilePicture": "PercentageBandwidth.png",
+      "panels": [
+      ]
     }
   ]
 }

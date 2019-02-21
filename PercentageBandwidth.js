@@ -1,5 +1,4 @@
-﻿function newAAMastersPlottersBollingerBandsBollingerBands ()
-{
+﻿function newAAMastersPlottersBollingerBandsPercentageBandwidth () {
 
     const MODULE_NAME = "Bands Plotter";
     const INFO_LOG = false;
@@ -18,11 +17,11 @@
         setTimePeriod: setTimePeriod,
         setDatetime: setDatetime,
         draw: draw,
-        recalculateScale: recalculateScale, 
+        recalculateScale: recalculateScale,
 
         /* Events declared outside the plotter. */
 
-        onDailyFileLoaded: onDailyFileLoaded, 
+        onDailyFileLoaded: onDailyFileLoaded,
 
         // Secondary functions and properties.
 
@@ -35,7 +34,8 @@
     container.initialize();
     thisObject.container = container;
 
-    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let plotAreaFrame = newTimeLineCoordinateSystem();  // Used for full frame view.
+    let plotAreaViewport = newTimeLineCoordinateSystem();  // Used for viewport view.
 
     let timePeriod;                     // This will hold the current Time Period the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -70,7 +70,8 @@
 
             marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
 
-            recalculateScale();
+            recalculateScaleY();
+            recalculateScaleX();
 
             /* Now we set the right files according to current Period. */
 
@@ -94,6 +95,13 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err.message = " + err.message); }
         }
+    }
+
+    function recalculateScale () {
+
+        recalculateScaleY();
+        recalculateScaleX();
+
     }
 
     function getContainer(point) {
@@ -261,8 +269,8 @@
 
             let daysOnSides = getSideDays(timePeriod);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, plotAreaFrame);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, plotAreaFrame);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -348,8 +356,8 @@
 
             let daysOnSides = getSideDays(timePeriod);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, plotAreaFrame);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, plotAreaFrame);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -395,58 +403,72 @@
         }
     }
 
-    function recalculateScale() {
+    function recalculateScaleX() {
 
         try {
 
-            if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> Entering function."); }
+            if (INFO_LOG === true) { logger.write("[INFO] recalculateScaleX -> Entering function."); }
 
-            if (marketFile === undefined) { return; } // We need the market file to be loaded to make the calculation.
-
-            if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
-
-            let minValue = {
-                x: EARLIEST_DATE.valueOf(),
-                y: 0
+            var minValue = {
+                x: EARLIEST_DATE.valueOf()
             };
 
-            let maxValue = {
-                x: MAX_PLOTABLE_DATE.valueOf(),
-                y: nextPorwerOf10(getMaxRate()) / 4 // TODO: This 4 is temporary
+            var maxValue = {
+                x: MAX_PLOTABLE_DATE.valueOf()
             };
 
-
-            timeLineCoordinateSystem.initialize(
+            plotAreaViewport.initializeX(
                 minValue,
                 maxValue,
-                thisObject.container.frame.width,
-                thisObject.container.frame.height
+                thisObject.container.frame.width
             );
 
-            function getMaxRate() {
-
-                if (INFO_LOG === true) { logger.write("[INFO] recalculateScale -> getMaxRate -> Entering function."); }
-
-                let maxValue = 0;
-
-                for (let i = 0; i < marketFile.length; i++) {
-
-                    let currentMax = marketFile[i][2];   // 2 = movingAvarage.
-
-                    if (maxValue < currentMax) {
-                        maxValue = currentMax;
-                    }
-                }
-
-                return maxValue;
-
-            }
+            plotAreaFrame.initializeX(
+                minValue,
+                maxValue,
+                thisObject.container.frame.width
+            );
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err.message = " + err.message); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleX -> err.message = " + err.message); }
         }
     }
+
+    function recalculateScaleY() {
+
+        try {
+
+            if (INFO_LOG === true) { logger.write("[INFO] recalculateScaleY -> Entering function."); }
+
+            var minValue = {
+                y: 0
+            };
+
+            var maxValue = {
+                y: 0
+            };
+
+            maxValue.y = 100;
+
+            plotAreaViewport.initializeY(
+                minValue,
+                maxValue,
+                viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y
+            );
+
+            plotAreaFrame.initializeY(
+                minValue,
+                maxValue,
+                thisObject.container.frame.height
+            );
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleY -> err.message = " + err.message); }
+        }
+    }
+
 
     function plotChart() {
 
@@ -459,6 +481,29 @@
 
             if (bands.length > 0) {
 
+                /* This next section is to get ready in order to be able to plot dinamically constrained to the viewport */
+
+                let visibleHeight = viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y;
+
+                let frameCorner1 = {
+                    x: 0,
+                    y: 0
+                };
+
+                let frameCorner2 = {
+                    x: thisObject.container.frame.width,
+                    y: thisObject.container.frame.height
+                };
+
+                /* Now the transformations. */
+
+                frameCorner1 = transformThisPoint(frameCorner1, thisObject.container.frame.container);
+                frameCorner2 = transformThisPoint(frameCorner2, thisObject.container.frame.container);
+
+                let frameHeightInViewPort = frameCorner2.y - frameCorner1.y;
+                let pbChartHeight = 20;
+                let pbOffset = 100 / 5 * 4;
+
                 /* Now we calculate and plot the bands */
 
                 for (let i = 1; i < bands.length; i++) {
@@ -466,196 +511,247 @@
                     band = bands[i];
                     previousBand = bands[i - 1];
 
-                    /* From here we draw the actual Bollinger Bands and lines it contains. */
+                    /* Here we will draw the percent bandwidth chart */
 
-                    let bandPoint1 = {
-                        x: band.begin,
-                        y: previousBand.movingAverage - 2 * previousBand.standardDeviation
-                    };
+                    let lowerBB;
+                    let upperBB;
 
-                    let bandPoint2 = {
-                        x: band.begin,
-                        y: previousBand.movingAverage + 2 * previousBand.standardDeviation
-                    };
+                    lowerBB = band.movingAverage - 2 * band.standardDeviation;
+                    upperBB = band.movingAverage + 2 * band.standardDeviation;
 
-                    let bandPoint3 = {
-                        x: band.end,
-                        y: band.movingAverage + 2 * band.standardDeviation
-                    };
+                    let currentPercentBandwidth = (band.close - lowerBB) / (upperBB - lowerBB) * pbChartHeight;
+                    if (currentPercentBandwidth > pbChartHeight) { currentPercentBandwidth = pbChartHeight };
+                    if (currentPercentBandwidth < 0) { currentPercentBandwidth = 0 };
 
-                    let bandPoint4 = {
-                        x: band.end,
-                        y: band.movingAverage - 2 * band.standardDeviation
-                    };
+                    lowerBB = previousBand.movingAverage - 2 * previousBand.standardDeviation;
+                    upperBB = previousBand.movingAverage + 2 * previousBand.standardDeviation;
 
-                    let bandPoint5 = {
-                        x: band.begin,
-                        y: previousBand.movingAverage
-                    };
+                    let previousPercentBandwidth = (previousBand.close - lowerBB) / (upperBB - lowerBB) * pbChartHeight;
+                    if (previousPercentBandwidth > pbChartHeight) { previousPercentBandwidth = pbChartHeight };
+                    if (previousPercentBandwidth < 0) { previousPercentBandwidth = 0 };
 
-                    let bandPoint6 = {
-                        x: band.end,
-                        y: band.movingAverage
-                    };
+                    let pbPoint1;
+                    let pbPoint2;
+                    let pbPoint3;
+                    let pbPoint4;
+                    let pbPoint5;
+                    let pbPoint6;
 
-                    bandPoint1 = timeLineCoordinateSystem.transformThisPoint(bandPoint1);
-                    bandPoint2 = timeLineCoordinateSystem.transformThisPoint(bandPoint2);
-                    bandPoint3 = timeLineCoordinateSystem.transformThisPoint(bandPoint3);
-                    bandPoint4 = timeLineCoordinateSystem.transformThisPoint(bandPoint4);
-                    bandPoint5 = timeLineCoordinateSystem.transformThisPoint(bandPoint5);
-                    bandPoint6 = timeLineCoordinateSystem.transformThisPoint(bandPoint6);
+                    function calculateCoordinates(plot, height) {
 
-                    bandPoint1 = transformThisPoint(bandPoint1, thisObject.container);
-                    bandPoint2 = transformThisPoint(bandPoint2, thisObject.container);
-                    bandPoint3 = transformThisPoint(bandPoint3, thisObject.container);
-                    bandPoint4 = transformThisPoint(bandPoint4, thisObject.container);
-                    bandPoint5 = transformThisPoint(bandPoint5, thisObject.container);
-                    bandPoint6 = transformThisPoint(bandPoint6, thisObject.container);
+                        pbPoint1 = {
+                            x: band.begin,
+                            y: previousPercentBandwidth + pbOffset
+                        };
 
-                    if (bandPoint2.x < viewPort.visibleArea.bottomLeft.x || bandPoint1.x > viewPort.visibleArea.bottomRight.x) {
-                        continue;
+                        pbPoint2 = {
+                            x: band.end,
+                            y: currentPercentBandwidth + pbOffset
+                        };
+
+                        /* Points needed for the lines */
+
+                        pbPoint3 = {
+                            x: 0,
+                            y: 0 * pbChartHeight / 100 + pbOffset
+                        };
+
+                        pbPoint4 = {
+                            x: 0,
+                            y: 30 * pbChartHeight / 100 + pbOffset
+                        };
+
+                        pbPoint5 = {
+                            x: 0,
+                            y: 70 * pbChartHeight / 100 + pbOffset
+                        };
+
+                        pbPoint6 = {
+                            x: 0,
+                            y: 100 * pbChartHeight / 100 + pbOffset
+                        };
+
+                        pbPoint1 = plot.transformThisPoint(pbPoint1);
+                        pbPoint2 = plot.transformThisPoint(pbPoint2);
+
+                        pbPoint3 = plot.transformThisPoint(pbPoint3);
+                        pbPoint4 = plot.transformThisPoint(pbPoint4);
+                        pbPoint5 = plot.transformThisPoint(pbPoint5);
+                        pbPoint6 = plot.transformThisPoint(pbPoint6);
+
+                        pbPoint1 = transformThisPoint(pbPoint1, thisObject.container);
+                        pbPoint2 = transformThisPoint(pbPoint2, thisObject.container);
+
+                        pbPoint3 = transformThisPoint(pbPoint3, thisObject.container);
+                        pbPoint4 = transformThisPoint(pbPoint4, thisObject.container);
+                        pbPoint5 = transformThisPoint(pbPoint5, thisObject.container);
+                        pbPoint6 = transformThisPoint(pbPoint6, thisObject.container);
+
+                        if (pbPoint1.x < viewPort.visibleArea.bottomLeft.x || pbPoint2.x > viewPort.visibleArea.bottomRight.x) {
+                            return false;
+                        }
+
+                        return true;
+
                     }
 
-                    bandPoint1 = viewPort.fitIntoVisibleArea(bandPoint1);
-                    bandPoint2 = viewPort.fitIntoVisibleArea(bandPoint2);
-                    bandPoint3 = viewPort.fitIntoVisibleArea(bandPoint3);
-                    bandPoint4 = viewPort.fitIntoVisibleArea(bandPoint4);
-                    bandPoint5 = viewPort.fitIntoVisibleArea(bandPoint5);
-                    bandPoint6 = viewPort.fitIntoVisibleArea(bandPoint6);
+                    if (calculateCoordinates(plotAreaFrame, thisObject.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
+
+                    if (frameHeightInViewPort > visibleHeight * 2 / 3) {
+
+                        if (calculateCoordinates(plotAreaViewport, visibleHeight) === false) {
+                            continue;
+                        }  // We snap t to the view port.
+
+                        /* Now we set the real value of y. */
+
+                        pbPoint1.y = viewPort.visibleArea.bottomRight.y - (previousPercentBandwidth + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint2.y = viewPort.visibleArea.bottomRight.y - (currentPercentBandwidth + pbOffset) * plotAreaViewport.scale.y;
+
+                        pbPoint3.y = viewPort.visibleArea.bottomRight.y - (0 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint4.y = viewPort.visibleArea.bottomRight.y - (30 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint5.y = viewPort.visibleArea.bottomRight.y - (70 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint6.y = viewPort.visibleArea.bottomRight.y - (100 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
+
+                    }
+
+                    /* Everything must fit within the visible area */
+
+                    pbPoint1 = viewPort.fitIntoVisibleArea(pbPoint1);
+                    pbPoint2 = viewPort.fitIntoVisibleArea(pbPoint2);
+
+                    pbPoint3 = viewPort.fitIntoVisibleArea(pbPoint3);
+                    pbPoint4 = viewPort.fitIntoVisibleArea(pbPoint4);
+                    pbPoint5 = viewPort.fitIntoVisibleArea(pbPoint5);
+                    pbPoint6 = viewPort.fitIntoVisibleArea(pbPoint6);
 
 
+                    /* Now the drawing of the lines */
 
-                    /* First we are drawing a semi-transparent background */
+                    let bgOpacityA = 0.05;
+                    let bgOpacityB = 0.05;
+                    let bgOpacityC = 0.05;
+
+                    let fgOpacity = '1';
+
+                    let lineWidthA = 0.2;
+                    let lineWidthB = 0.2;
+                    let lineWidthC = 0.2;
+
+                    if (pbPoint1.y > pbPoint4.y || pbPoint2.y > pbPoint4.y) {
+                        bgOpacityA = bgOpacityA * 2;
+                    }
+
+                    if (pbPoint1.y < pbPoint5.y || pbPoint2.y < pbPoint5.y) {
+                        bgOpacityC = bgOpacityC * 2;
+                    }
+
+                    if (pbPoint1.y >= pbPoint3.y || pbPoint2.y >= pbPoint3.y) {
+                        bgOpacityA = bgOpacityA * 1.5;
+                        lineWidthA = lineWidthA * 2;
+                    }
+
+                    if (pbPoint1.y <= pbPoint6.y || pbPoint2.y <= pbPoint6.y) {
+                        bgOpacityC = bgOpacityC * 1.5;
+                        lineWidthC = lineWidthC * 2;
+                    }
 
                     browserCanvasContext.beginPath();
 
-                    browserCanvasContext.moveTo(bandPoint1.x, bandPoint1.y);
-                    browserCanvasContext.lineTo(bandPoint2.x, bandPoint2.y);
-                    browserCanvasContext.lineTo(bandPoint3.x, bandPoint3.y);
-                    browserCanvasContext.lineTo(bandPoint4.x, bandPoint4.y);
+                    browserCanvasContext.moveTo(pbPoint1.x, pbPoint3.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint3.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint4.y);
+                    browserCanvasContext.lineTo(pbPoint1.x, pbPoint4.y);
 
                     browserCanvasContext.closePath();
+
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ',' + bgOpacityA + ' )';
+                    browserCanvasContext.fill();
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(pbPoint1.x, pbPoint4.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint4.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint5.y);
+                    browserCanvasContext.lineTo(pbPoint1.x, pbPoint5.y);
+
+                    browserCanvasContext.closePath();
+
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + bgOpacityB + ')';
+                    browserCanvasContext.fill();
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(pbPoint1.x, pbPoint5.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint5.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint6.y);
+                    browserCanvasContext.lineTo(pbPoint1.x, pbPoint6.y);
+
+                    browserCanvasContext.closePath();
+
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + bgOpacityC + ')';
+                    browserCanvasContext.fill();
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(pbPoint1.x, pbPoint3.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint3.y);
+
+                    browserCanvasContext.closePath();
+
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + fgOpacity + ')';
+                    browserCanvasContext.lineWidth = lineWidthA;
+                    browserCanvasContext.stroke();
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(pbPoint1.x, pbPoint4.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint4.y);
+                    browserCanvasContext.moveTo(pbPoint1.x, pbPoint5.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint5.y);
+
+                    browserCanvasContext.closePath();
+
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + fgOpacity + ')';
+                    browserCanvasContext.lineWidth = lineWidthB;
+                    browserCanvasContext.stroke();
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(pbPoint1.x, pbPoint6.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint6.y);
+
+                    browserCanvasContext.closePath();
+
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + fgOpacity + ')';
+                    browserCanvasContext.lineWidth = lineWidthC;
+                    browserCanvasContext.stroke();
+
+                    /* Now the drawing of the percentage bandwidth*/
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(pbPoint1.x, pbPoint1.y);
+                    browserCanvasContext.lineTo(pbPoint2.x, pbPoint2.y);
+
+                    browserCanvasContext.closePath();
+
 
                     if (datetime !== undefined) {
 
                         let dateValue = datetime.valueOf();
 
                         if (dateValue >= band.begin && dateValue <= band.end) {
-
-                            /* highlight the current band */
-
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.05)'; // Current band accroding to time
-
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
                         } else {
-
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.05)';
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', 1)';
                         }
-
                     } else {
-
-                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.05)';
-
-                    }
-
-                    if (
-                        bandPoint1.x < viewPort.visibleArea.topLeft.x + 50
-                        ||
-                        bandPoint1.x > viewPort.visibleArea.bottomRight.x - 50
-                    ) {
-                        // we leave this bands without fill.
-                    } else {
-                        browserCanvasContext.fill();
-                    }
-
-
-
-
-                    /* Next we are drawing the outter bands lines */
-
-                    browserCanvasContext.beginPath();
-
-                    browserCanvasContext.moveTo(bandPoint1.x, bandPoint1.y);
-                    browserCanvasContext.lineTo(bandPoint4.x, bandPoint4.y);
-                    browserCanvasContext.moveTo(bandPoint2.x, bandPoint2.y);
-                    browserCanvasContext.lineTo(bandPoint3.x, bandPoint3.y);
-
-                    browserCanvasContext.closePath();
-
-
-                    if (datetime !== undefined) {
-
-                        let dateValue = datetime.valueOf();
-
-                        if (dateValue >= band.begin && dateValue <= band.end) {
-
-                            /* highlight the current band */
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
-
-                            let currentBand = {
-                                bodyWidth: bandPoint3.x - bandPoint2.x,
-                                leftBodyHeight: bandPoint2.y - bandPoint1.y,
-                                rightBodyHeight: bandPoint3.y - bandPoint4.y,
-                                topDelta: bandPoint3.y - bandPoint2.y,
-                                bottomDelta: bandPoint4.y - bandPoint1.y,
-                                period: timePeriod,
-                                innerBand: band
-                            };
-
-                            thisObject.container.eventHandler.raiseEvent("Current Band Changed", currentBand);
-
-                        } else {
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)';
-
-                        }
-
-                    } else {
-
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)';
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', 1)';
                     }
 
                     browserCanvasContext.lineWidth = 0.2;
                     browserCanvasContext.stroke();
-
-
-
-                    /* Finally we draw the moving average line */
-
-                    browserCanvasContext.beginPath();
-
-                    browserCanvasContext.moveTo(bandPoint5.x, bandPoint5.y);
-                    browserCanvasContext.lineTo(bandPoint6.x, bandPoint6.y);
-
-                    browserCanvasContext.closePath();
-
-
-                    if (datetime !== undefined) {
-
-                        let dateValue = datetime.valueOf();
-
-                        if (dateValue >= band.begin && dateValue <= band.end) {
-
-                            /* highlight the current band */
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
-
-
-                        } else {
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
-
-                        }
-
-                    } else {
-
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
-
-                    }
-
-                    browserCanvasContext.lineWidth = 0.2;
-                    browserCanvasContext.stroke();
-
 
                 }
             }

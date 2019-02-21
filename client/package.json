@@ -27,7 +27,7 @@
   "devDependencies": {
     "@superalgos/events-client": "0.0.1",
     "@advancedalgos/financial-beings-client": "0.0.5",
-    "@superalgos/operations-client": "0.0.15",
+    "@superalgos/operations-client": "0.0.16",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",

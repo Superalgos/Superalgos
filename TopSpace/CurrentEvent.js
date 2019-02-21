@@ -48,7 +48,8 @@
             window.EVENTS = storedEvents;
             window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
             label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
-            sharedStatus.eventHandler.raiseEvent("Event Changed");
+            window.localStorage.setItem('currentEventObject', JSON.stringify(storedEvents[sharedStatus.currentEventIndex]));
+            sharedStatus.eventHandler.raiseEvent('Event Changed');
         }
 
         thisObject.container.eventHandler.listenToEvent("onMouseClick", onClick);
@@ -77,7 +78,8 @@
             sharedStatus.currentEventIndex = 0;
             window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
             label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
-            sharedStatus.eventHandler.raiseEvent("Event Changed");
+            window.localStorage.setItem('currentEventObject', JSON.stringify(storedEvents[sharedStatus.currentEventIndex]));
+            sharedStatus.eventHandler.raiseEvent('Event Changed');
             return;
         }
 
@@ -86,7 +88,8 @@
             sharedStatus.currentEventIndex++;
             window.CURRENT_EVENT_TITLE = storedEvents[sharedStatus.currentEventIndex].title;
             label = "Event - " + storedEvents[sharedStatus.currentEventIndex].title;
-            sharedStatus.eventHandler.raiseEvent("Event Changed");
+            window.localStorage.setItem('currentEventObject', JSON.stringify(storedEvents[sharedStatus.currentEventIndex]));
+            sharedStatus.eventHandler.raiseEvent('Event Changed');
             return;
         }
 

@@ -38,7 +38,7 @@ function newTopSpace() {
         };
 
         thisObject.login = newLogin();
-        thisObject.login.initialize(onLoginInitialized);
+        thisObject.login.initialize(sharedStatus, onLoginInitialized);
 
         thisObject.companyLogo = newCompanyLogo();
         thisObject.endUser = newEndUser();

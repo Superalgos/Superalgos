@@ -27,11 +27,13 @@ function newLogin() {
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(pSharedStatus, callBackFunction) {
 
 
         const accessToken = window.localStorage.getItem("access_token");
         let user = window.localStorage.getItem("user");
+
+        sharedStatus = pSharedStatus;
 
         if (user === null) {
 
@@ -176,15 +178,6 @@ function newLogin() {
             uri: window.canvasApp.graphQL.masterAppApiUrl
         });
 
-        networkInterfaceEvents.use([{
-        applyMiddleware(req, next) {
-            req.options.headers = {
-            authorization: `Bearer ${accessToken}`
-            };
-            next();
-        }
-        }]);
-
         const apolloClientEvents = new Apollo.lib.ApolloClient({
             networkInterface: networkInterfaceEvents,
             connectToDevTools: true,
@@ -195,6 +188,17 @@ function newLogin() {
             events_Events(maxStartDate: $maxStartDate, minEndDate: $minEndDate){
                 id
                 title
+                startDatetime
+                endDatetime
+                participants{
+                  participant{
+                    name
+                    profile{
+                      avatar
+                    }
+                  }
+                  operationId
+                }
             }
         }
     `
@@ -209,7 +213,18 @@ function newLogin() {
             variables: { maxStartDate: nowSeconds, minEndDate: twoWeeksAgoSeconds }
             })
             .then(response => {
-                window.localStorage.setItem('currentEvents', JSON.stringify(response.data.events_Events));
+                currentEvent = window.localStorage.getItem('currentEventObject');
+                if (currentEvent === null || currentEvent === "[]" || currentEvent === "") {
+                    sharedStatus.currentEventIndex = 0;
+                } else {
+                    currentEvent = JSON.parse(currentEvent);
+                    sharedStatus.currentEventIndex = response.data.events_Events.findIndex(function(element) {
+                        return element.id == currentEvent.id;
+                    });
+                    if ( sharedStatus.currentEventIndex === -1 ) {
+                        sharedStatus.currentEventIndex = 0;
+                    }
+                }
                 resolve({ currentEvents: response.data.events_Events})
             })
             .catch(error => {

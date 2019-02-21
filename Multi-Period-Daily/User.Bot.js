@@ -503,6 +503,7 @@
                                         band = {
                                             begin: candles[i].begin,
                                             end: candles[i].end,
+                                            close: candles[i].close,
                                             movingAverage: movingAverage,
                                             standardDeviation: standardDeviation
                                         };
@@ -540,6 +541,7 @@
                                         fileContent = fileContent + separator + '[' +
                                             band.begin + "," +
                                             band.end + "," +
+                                            band.close + "," +
                                             band.movingAverage + "," +
                                             band.standardDeviation + "]";
 

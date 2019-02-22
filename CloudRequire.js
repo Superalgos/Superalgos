@@ -38,7 +38,28 @@
                     let USER_BOT_MODULE = {};
                     USER_BOT_MODULE.newUserBot = eval(text);
 
-                    callBackFunction(global.DEFAULT_OK_RESPONSE, USER_BOT_MODULE);
+                    /*
+                        This following code is to load the bot code from a file on the file system.
+                        It is useful for when you are activelly changing the code and dont wont to upload it to the storage at every run
+                    */
+
+                    /*
+                    let fs = require('fs');
+                    try {
+                        let fileName = "C:/Users/Luis/source/repos/Bots/AAMasters/AAChris-Indicator-Bot/Multi-Period-Daily/User.Bot.js";
+                        fs.readFile(fileName, onFileRead);
+
+                        function onFileRead(err, file) {
+                            let fileString = file.toString();
+                            USER_BOT_MODULE.newUserBot = eval(fileString);
+                            callBackFunction(global.DEFAULT_OK_RESPONSE, USER_BOT_MODULE);
+                        }
+                    }
+                    catch(err) {
+                            console.log("ERROR LOADING FILE FROM FILE SYSTEM");
+                    }
+                    */
+                    callBackFunction(global.DEFAULT_OK_RESPONSE, USER_BOT_MODULE); // Coment this when loading from file system.
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] downloadBot -> onFileReceived -> err.message = " + err.message);

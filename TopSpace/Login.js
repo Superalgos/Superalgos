@@ -213,6 +213,7 @@ function newLogin() {
             variables: { maxStartDate: nowSeconds, minEndDate: twoWeeksAgoSeconds }
             })
             .then(response => {
+                window.localStorage.setItem('currentEvents', JSON.stringify(response.data.events_Events));
                 currentEvent = window.localStorage.getItem('currentEventObject');
                 if (currentEvent === null || currentEvent === "[]" || currentEvent === "") {
                     sharedStatus.currentEventIndex = 0;

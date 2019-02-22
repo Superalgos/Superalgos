@@ -33,7 +33,7 @@ const resolve = async (parent, { id }, context) => {
     let team = await teamQuery(context.authorization, clone.teamId)
     clone = await cloneDetails(context.userId, team.data.data.teams_TeamById, clone)
 
-    if ( (clone.mode === LIVE || clone.mode === COMPETITION) && !isDefined(clone.keyId)) {
+    if ((clone.mode === LIVE || clone.mode === COMPETITION) && isDefined(clone.keyId)) {
       logger.debug('removeClone -> Release the clone key.')
       await authorizeClone(context.authorization, clone.keyId, clone.id, true)
     }

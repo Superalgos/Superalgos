@@ -813,6 +813,7 @@
                                     }
 
                                     let clonName = botConfig.codeName + "-" + "Clon" + clonKey;
+                                    clonName += ".1.0";
 
                                     if (global.CURRENT_EXECUTION_AT === "Cloud") {
                                         clonName += "-" + process.env.CLONE_ID;
@@ -842,6 +843,8 @@
                                     clonName += "-" + process.env.CLONE_ID;
                                 }
                                 
+                                clonName += ".1.0";
+
                                 botConfig.filePathRoot = botConfig.devTeam + "/" + clonName + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
                                 pBotConfig.instance = clonName;

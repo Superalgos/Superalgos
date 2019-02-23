@@ -1,61 +1,49 @@
-﻿function newCloudRequire(bot, logger) {
+ ﻿function newCloudRequire (bot, logger) {
+   const INFO_LOG = true
+   const LOG_FILE_CONTENT = false
 
-    const INFO_LOG = true;
-    const LOG_FILE_CONTENT = false;
+   const MODULE_NAME = 'Cloud Require'
 
-    const MODULE_NAME = "Cloud Require";
+   let thisObject = {
+     downloadBot: downloadBot,
+     downloadCommons: downloadCommons
+   }
 
-    let thisObject = {
-        downloadBot: downloadBot,
-        downloadCommons: downloadCommons
-    };
+   return thisObject
 
-    return thisObject;
+   function downloadBot (pCloudStorage, pFilePath, callBackFunction) {
+     try {
+       if (INFO_LOG === true) { logger.write(MODULE_NAME, '[INFO] downloadBot -> Entering function.') }
 
-    function downloadBot(pCloudStorage, pFilePath, callBackFunction) {
+       let filePath = window.canvasApp.urlPrefix + 'Bots' + '/' + pFilePath + '/' + 'User.Bot.js'
 
-        try {
+       downloadModule(filePath, onDownloaded)
 
-            if (INFO_LOG === true) { logger.write(MODULE_NAME, "[INFO] downloadBot -> Entering function."); }
+       function onDownloaded (pModule) {
+         callBackFunction(window.DEFAULT_OK_RESPONSE, pModule)
+         return
+       }
+     } catch (err) {
+       logger.write(MODULE_NAME, '[ERROR] downloadBot -> err = ' + err.message)
+       callBackFunction(window.DEFAULT_FAIL_RESPONSE)
+     }
+   }
 
-            let filePath = window.canvasApp.urlPrefix + "Bots" + "/" + pFilePath + "/" + "User.Bot.js";
+   function downloadCommons (pCloudStorage, pFilePath, callBackFunction) {
+     try {
+       if (INFO_LOG === true) { logger.write(MODULE_NAME, '[INFO] downloadCommons -> Entering function.') }
 
-            downloadModule(filePath, onDownloaded)
+       let filePath = window.canvasApp.urlPrefix + 'Bots' + '/' + pFilePath + '/' + 'Commons.js'
 
-            function onDownloaded(pModule) {
+       downloadModule(filePath, onDownloaded)
 
-                callBackFunction(window.DEFAULT_OK_RESPONSE, pModule);
-                return;
-
-            }
-
-        } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] downloadBot -> err = " + err.message);
-            callBackFunction(window.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function downloadCommons(pCloudStorage, pFilePath, callBackFunction) {
-
-        try {
-
-            if (INFO_LOG === true) { logger.write(MODULE_NAME, "[INFO] downloadCommons -> Entering function."); }
-
-            let filePath = window.canvasApp.urlPrefix + "Bots" + "/" + pFilePath + "/" + "Commons.js";
-
-            downloadModule(filePath, onDownloaded)
-
-            function onDownloaded(pModule) {
-
-                callBackFunction(window.DEFAULT_OK_RESPONSE, pModule);
-                return;
-
-            }
-
-        } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] downloadCommons -> err = " + err.message);
-            callBackFunction(window.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-};
+       function onDownloaded (pModule) {
+         callBackFunction(window.DEFAULT_OK_RESPONSE, pModule)
+         return
+       }
+     } catch (err) {
+       logger.write(MODULE_NAME, '[ERROR] downloadCommons -> err = ' + err.message)
+       callBackFunction(window.DEFAULT_FAIL_RESPONSE)
+     }
+   }
+ };

@@ -1,84 +1,75 @@
-﻿
-function newCompanyLogo() {
+ ﻿
+function newCompanyLogo () {
+  var thisObject = {
+    container: undefined,
+    draw: draw,
+    getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+    initialize: initialize
+  }
 
-    var thisObject = {
-        container: undefined,
-        draw: draw,
-        getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-        initialize: initialize
-    };
+  var container = newContainer()
+  container.initialize()
+  thisObject.container = container
 
-    var container = newContainer();
-    container.initialize();
-    thisObject.container = container;
+  thisObject.container.frame.width = 150
+  thisObject.container.frame.height = TOP_SPACE_HEIGHT
 
-    thisObject.container.frame.width = 150;
-    thisObject.container.frame.height = TOP_SPACE_HEIGHT;
+  container.frame.position.x = 0
+  container.frame.position.y = 0
 
-    container.frame.position.x = 0;
-    container.frame.position.y = 0;
+  container.isDraggeable = false
 
-    container.isDraggeable = false;
+  let logo
+  let canDrawLogo = false
 
-    let logo; 
-    let canDrawLogo = false;
+  return thisObject
 
-    return thisObject;
-
-    function initialize() {
-
-        if (window.canvasApp.executingAt === 'Master App') {
-            currentLabel = "";
-            return;
-        }
-
-        logo = new Image();
-
-        logo.onload = onImageLoad;
-
-        function onImageLoad() {
-            canDrawLogo = true;
-            }
-
-        logo.src = window.canvasApp.urlPrefix + "Images/aa-logo-dark-8.png";
-
+  function initialize () {
+    if (window.canvasApp.executingAt === 'Master App') {
+      currentLabel = ''
+      return
     }
 
-    function getContainer(point) {
+    logo = new Image()
 
-        let container;
+    logo.onload = onImageLoad
+
+    function onImageLoad () {
+      canDrawLogo = true
+    }
+
+    logo.src = window.canvasApp.urlPrefix + 'Images/aa-logo-dark-8.png'
+  }
+
+  function getContainer (point) {
+    let container
 
         /* First we check if this point is inside this object UI. */
 
-        if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-
-            return this.container;
-
-        } else {
-
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      return this.container
+    } else {
             /* This point does not belong to this space. */
 
-            return undefined;
-        }
+      return undefined
+    }
+  }
 
+  function draw () {
+    thisObject.container.frame.draw(false, false)
+
+    if (canDrawLogo === false) { return }
+
+    let imageHeight = 24
+    let imageWidth = 120
+
+    let imagePoint = {
+      x: 10,
+      y: thisObject.container.frame.height / 2 - imageHeight / 2
     }
 
-    function draw() {
+    imagePoint = thisObject.container.frame.frameThisPoint(imagePoint)
 
-        thisObject.container.frame.draw(false, false);
-
-        if (canDrawLogo === false) { return;}
-
-        let imageHeight = 24;
-        let imageWidth = 120;
-
-        let imagePoint = {
-            x: 10,
-            y: thisObject.container.frame.height / 2 - imageHeight / 2
-        };
-
-        imagePoint = thisObject.container.frame.frameThisPoint(imagePoint);
-
-        browserCanvasContext.drawImage(logo, imagePoint.x, imagePoint.y, imageWidth, imageHeight);
-    }
+    browserCanvasContext.drawImage(logo, imagePoint.x, imagePoint.y, imageWidth, imageHeight)
+  }
 }

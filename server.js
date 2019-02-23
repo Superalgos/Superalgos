@@ -1170,6 +1170,11 @@ function respondWithFile(fileName, response) {
     let fs = require('fs');
     try {
 
+        if (fileName.indexOf("undefined") > 0 ) {
+            console.log("[WRN] server -> respondWithFile -> Received request for undefined file. ");
+            return;
+        }
+
         fs.readFile(fileName, onFileRead);
 
         function onFileRead(err, file) {

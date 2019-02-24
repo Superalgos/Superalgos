@@ -25,7 +25,7 @@
 
         // Secondary functions and properties.
 
-        currentBand: undefined
+        currentPercentageBandwidth: undefined
     };
 
     /* this is part of the module template */
@@ -48,7 +48,7 @@
 
     /* these are module specific variables: */
 
-    let bands = [];                   // Here we keep the bands to be ploted every time the Draw() function is called by the AAWebPlatform.
+    let percentageBandwidthArray = [];                   // Here we keep the percentageBandwidthArray to be ploted every time the Draw() function is called by the AAWebPlatform.
 
     return thisObject;
 
@@ -249,7 +249,7 @@
 
             }
 
-            thisObject.container.eventHandler.raiseEvent("Bands Changed", bands);
+            thisObject.container.eventHandler.raiseEvent("Bands Changed", percentageBandwidthArray);
 
         } catch (err) {
 
@@ -279,7 +279,7 @@
 
             let currentDate = new Date(farLeftDate.valueOf());
 
-            bands = [];
+            percentageBandwidthArray = [];
 
             while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
@@ -291,28 +291,26 @@
 
                     for (let i = 0; i < dailyFile.length; i++) {
 
-                        let band = {
+                        let percentageBandwidth = {
                             begin: undefined,
                             end: undefined,
-                            close: undefined,
-                            movingAverage: undefined,
-                            standardDeviation: undefined
+                            value: undefined,
+                            movingAverage: undefined
                         };
 
-                        band.begin = dailyFile[i][0];
-                        band.end = dailyFile[i][1];
-                        band.close = dailyFile[i][2];
-                        band.movingAverage = dailyFile[i][3];
-                        band.standardDeviation = dailyFile[i][4];
+                        percentageBandwidth.begin = dailyFile[i][0];
+                        percentageBandwidth.end = dailyFile[i][1];
+                        percentageBandwidth.value = dailyFile[i][2];
+                        percentageBandwidth.movingAverage = dailyFile[i][3];
 
-                        if (band.begin >= farLeftDate.valueOf() && band.end <= farRightDate.valueOf()) {
+                        if (percentageBandwidth.begin >= farLeftDate.valueOf() && percentageBandwidth.end <= farRightDate.valueOf()) {
 
-                            bands.push(band);
+                            percentageBandwidthArray.push(percentageBandwidth);
 
-                            if (datetime.valueOf() >= band.begin && datetime.valueOf() <= band.end) {
+                            if (datetime.valueOf() >= percentageBandwidth.begin && datetime.valueOf() <= percentageBandwidth.end) {
 
-                                thisObject.currentBand = band;
-                                thisObject.container.eventHandler.raiseEvent("Current Band Changed", thisObject.currentBand);
+                                thisObject.currentPercentageBandwidth = percentageBandwidth;
+                                thisObject.container.eventHandler.raiseEvent("Current Percentage Bandwidth Changed", thisObject.currentPercentageBandwidth);
 
                             }
                         }
@@ -322,23 +320,23 @@
                 currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
             }
 
-            /* Lests check if all the visible screen is going to be covered by bands. */
+            /* Lests check if all the visible screen is going to be covered by percentageBandwidthArray. */
 
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
 
-            if (bands.length > 0) {
+            if (percentageBandwidthArray.length > 0) {
 
-                if (bands[0].begin > lowerEnd || bands[bands.length - 1].end < upperEnd) {
+                if (percentageBandwidthArray[0].begin > lowerEnd || percentageBandwidthArray[percentageBandwidthArray.length - 1].end < upperEnd) {
 
                     setTimeout(recalculate, 2000);
 
-                    //console.log("File missing while calculating bands, scheduling a recalculation in 2 seconds.");
+                    //console.log("File missing while calculating percentageBandwidthArray, scheduling a recalculation in 2 seconds.");
 
                 }
             }
 
-            //console.log("Olivia > recalculateUsingDailyFiles > total bands generated : " + bands.length);
+            //console.log("Olivia > recalculateUsingDailyFiles > total percentageBandwidthArray generated : " + percentageBandwidthArray.length);
 
         } catch (err) {
 
@@ -364,38 +362,36 @@
             leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5);
             rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
 
-            bands = [];
+            percentageBandwidthArray = [];
 
             for (let i = 0; i < marketFile.length; i++) {
 
-                let band = {
+                let percentageBandwidth = {
                     begin: undefined,
                     end: undefined,
-                    close: undefined,
-                    movingAverage: undefined,
-                    standardDeviation: undefined
+                    value: undefined,
+                    movingAverage: undefined
                 };
 
-                band.begin = marketFile[i][0];
-                band.end = marketFile[i][1];
-                band.close = marketFile[i][2];
-                band.movingAverage = marketFile[i][3];
-                band.standardDeviation = marketFile[i][4];
+                percentageBandwidth.begin = marketFile[i][0];
+                percentageBandwidth.end = marketFile[i][1];
+                percentageBandwidth.value = marketFile[i][2];
+                percentageBandwidth.movingAverage = marketFile[i][3];
 
-                if (band.begin >= leftDate.valueOf() && band.end <= rightDate.valueOf()) {
+                if (percentageBandwidth.begin >= leftDate.valueOf() && percentageBandwidth.end <= rightDate.valueOf()) {
 
-                    bands.push(band);
+                    percentageBandwidthArray.push(percentageBandwidth);
 
-                    if (datetime.valueOf() >= band.begin && datetime.valueOf() <= band.end) {
+                    if (datetime.valueOf() >= percentageBandwidth.begin && datetime.valueOf() <= percentageBandwidth.end) {
 
-                        thisObject.currentBand = band;
-                        thisObject.container.eventHandler.raiseEvent("Current Band Changed", thisObject.currentBand);
+                        thisObject.currentPercentageBandwidth = percentageBandwidth;
+                        thisObject.container.eventHandler.raiseEvent("Current Percentage Bandwidth Changed", thisObject.currentPercentageBandwidth);
 
                     }
                 }
             }
 
-            //console.log("Olivia > recalculateUsingMarketFiles > total bands generated : " + bands.length);
+            //console.log("Olivia > recalculateUsingMarketFiles > total percentageBandwidthArray generated : " + percentageBandwidthArray.length);
 
         } catch (err) {
 
@@ -476,10 +472,10 @@
 
             if (INTENSIVE_LOG === true) { logger.write("[INFO] plotChart -> Entering function."); }
 
-            let band;
+            let percentageBandwidth;
             let previousBand;
 
-            if (bands.length > 0) {
+            if (percentageBandwidthArray.length > 0) {
 
                 /* This next section is to get ready in order to be able to plot dinamically constrained to the viewport */
 
@@ -504,31 +500,25 @@
                 let pbChartHeight = 20;
                 let pbOffset = 100 / 5 * 4;
 
-                /* Now we calculate and plot the bands */
+                /* Now we calculate and plot the percentageBandwidthArray */
 
-                for (let i = 1; i < bands.length; i++) {
+                for (let i = 1; i < percentageBandwidthArray.length; i++) {
 
-                    band = bands[i];
-                    previousBand = bands[i - 1];
+                    percentageBandwidth = percentageBandwidthArray[i];
+                    previousBand = percentageBandwidthArray[i - 1];
 
                     /* Here we will draw the percent bandwidth chart */
 
-                    let lowerBB;
-                    let upperBB;
-
-                    lowerBB = band.movingAverage - 2 * band.standardDeviation;
-                    upperBB = band.movingAverage + 2 * band.standardDeviation;
-
-                    let currentPercentBandwidth = (band.close - lowerBB) / (upperBB - lowerBB) * pbChartHeight;
+                    let currentPercentBandwidth = percentageBandwidth.value * pbChartHeight / 100;
                     if (currentPercentBandwidth > pbChartHeight) { currentPercentBandwidth = pbChartHeight };
                     if (currentPercentBandwidth < 0) { currentPercentBandwidth = 0 };
 
-                    lowerBB = previousBand.movingAverage - 2 * previousBand.standardDeviation;
-                    upperBB = previousBand.movingAverage + 2 * previousBand.standardDeviation;
-
-                    let previousPercentBandwidth = (previousBand.close - lowerBB) / (upperBB - lowerBB) * pbChartHeight;
+                    let previousPercentBandwidth = previousBand.value * pbChartHeight / 100;
                     if (previousPercentBandwidth > pbChartHeight) { previousPercentBandwidth = pbChartHeight };
                     if (previousPercentBandwidth < 0) { previousPercentBandwidth = 0 };
+
+                    let currentMovingAverage = percentageBandwidth.movingAverage * pbChartHeight / 100;
+                    let previousMovingAverage = previousBand.movingAverage * pbChartHeight / 100;
 
                     let pbPoint1;
                     let pbPoint2;
@@ -536,16 +526,18 @@
                     let pbPoint4;
                     let pbPoint5;
                     let pbPoint6;
+                    let pbPoint7;
+                    let pbPoint8;
 
                     function calculateCoordinates(plot, height) {
 
                         pbPoint1 = {
-                            x: band.begin,
+                            x: percentageBandwidth.begin,
                             y: previousPercentBandwidth + pbOffset
                         };
 
                         pbPoint2 = {
-                            x: band.end,
+                            x: percentageBandwidth.end,
                             y: currentPercentBandwidth + pbOffset
                         };
 
@@ -571,6 +563,18 @@
                             y: 100 * pbChartHeight / 100 + pbOffset
                         };
 
+                        /* Moving Average */
+
+                        pbPoint7 = {
+                            x: percentageBandwidth.begin,
+                            y: previousMovingAverage + pbOffset
+                        };
+
+                        pbPoint8 = {
+                            x: percentageBandwidth.end,
+                            y: currentMovingAverage + pbOffset
+                        };
+
                         pbPoint1 = plot.transformThisPoint(pbPoint1);
                         pbPoint2 = plot.transformThisPoint(pbPoint2);
 
@@ -579,6 +583,9 @@
                         pbPoint5 = plot.transformThisPoint(pbPoint5);
                         pbPoint6 = plot.transformThisPoint(pbPoint6);
 
+                        pbPoint7 = plot.transformThisPoint(pbPoint7);
+                        pbPoint8 = plot.transformThisPoint(pbPoint8);
+
                         pbPoint1 = transformThisPoint(pbPoint1, thisObject.container);
                         pbPoint2 = transformThisPoint(pbPoint2, thisObject.container);
 
@@ -586,6 +593,9 @@
                         pbPoint4 = transformThisPoint(pbPoint4, thisObject.container);
                         pbPoint5 = transformThisPoint(pbPoint5, thisObject.container);
                         pbPoint6 = transformThisPoint(pbPoint6, thisObject.container);
+
+                        pbPoint7 = transformThisPoint(pbPoint7, thisObject.container);
+                        pbPoint8 = transformThisPoint(pbPoint8, thisObject.container);
 
                         if (pbPoint1.x < viewPort.visibleArea.bottomLeft.x || pbPoint2.x > viewPort.visibleArea.bottomRight.x) {
                             return false;
@@ -613,6 +623,9 @@
                         pbPoint5.y = viewPort.visibleArea.bottomRight.y - (70 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
                         pbPoint6.y = viewPort.visibleArea.bottomRight.y - (100 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
 
+                        pbPoint7.y = viewPort.visibleArea.bottomRight.y - (previousMovingAverage + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint8.y = viewPort.visibleArea.bottomRight.y - (currentMovingAverage + pbOffset) * plotAreaViewport.scale.y;
+
                     }
 
                     /* Everything must fit within the visible area */
@@ -624,6 +637,9 @@
                     pbPoint4 = viewPort.fitIntoVisibleArea(pbPoint4);
                     pbPoint5 = viewPort.fitIntoVisibleArea(pbPoint5);
                     pbPoint6 = viewPort.fitIntoVisibleArea(pbPoint6);
+
+                    pbPoint7 = viewPort.fitIntoVisibleArea(pbPoint7);
+                    pbPoint8 = viewPort.fitIntoVisibleArea(pbPoint8);
 
 
                     /* Now the drawing of the lines */
@@ -741,7 +757,7 @@
 
                         let dateValue = datetime.valueOf();
 
-                        if (dateValue >= band.begin && dateValue <= band.end) {
+                        if (dateValue >= percentageBandwidth.begin && dateValue <= percentageBandwidth.end) {
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
                         } else {
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', 1)';
@@ -749,6 +765,33 @@
                     } else {
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', 1)';
                     }
+
+                    browserCanvasContext.lineWidth = 0.2;
+                    browserCanvasContext.stroke();
+
+                    /* Now the drawing of the moving average*/
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(pbPoint7.x, pbPoint7.y);
+                    browserCanvasContext.lineTo(pbPoint8.x, pbPoint8.y);
+
+                    browserCanvasContext.closePath();
+
+                    if (pbPoint7.y > pbPoint8.y) {
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)';
+                    } else {
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
+                    }
+
+                    if (datetime !== undefined) {
+
+                        let dateValue = datetime.valueOf();
+
+                        if (dateValue >= percentageBandwidth.begin && dateValue <= percentageBandwidth.end) {
+                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
+                        } 
+                    } 
 
                     browserCanvasContext.lineWidth = 0.2;
                     browserCanvasContext.stroke();

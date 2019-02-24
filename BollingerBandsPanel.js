@@ -146,13 +146,20 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
 
         browserCanvasContext.beginPath();
 
-        browserCanvasContext.moveTo(bandPoint1.x, bandPoint1.y + (bandPoint2.y - bandPoint1.y) / 2);
-        browserCanvasContext.lineTo(bandPoint4.x, bandPoint4.y - (bandPoint4.y - bandPoint3.y) / 2);
+        let y1 = bandPoint1.y + (bandPoint2.y - bandPoint1.y) / 2;
+        let y2 = bandPoint4.y - (bandPoint4.y - bandPoint3.y) / 2;
+
+        browserCanvasContext.moveTo(bandPoint1.x, y1);
+        browserCanvasContext.lineTo(bandPoint4.x, y2);
 
 
         browserCanvasContext.closePath();
 
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
+        if (y1 > y2) {
+            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)';
+        } else {
+            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
+        }
 
         browserCanvasContext.lineWidth = 0.2;
         browserCanvasContext.stroke();
@@ -170,8 +177,8 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
         printLabel('Moving Average', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '1');
         printLabel(currentBand.innerBand.movingAverage, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '0.50');
 
-        printLabel('Standard Deviation', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '1');
-        printLabel(currentBand.innerBand.standardDeviation, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '0.50');
+        printLabel('Deviation', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '1');
+        printLabel(currentBand.innerBand.deviation, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '0.50');
 
         function printLabel(labelToPrint, x, y, opacity) {
 

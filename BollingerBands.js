@@ -286,16 +286,16 @@
                         let band = {
                             begin: undefined,
                             end: undefined,
-                            close: undefined,
                             movingAverage: undefined,
-                            standardDeviation: undefined
+                            standardDeviation: undefined,
+                            deviation: undefined
                         };
 
                         band.begin = dailyFile[i][0];
                         band.end = dailyFile[i][1];
-                        band.close = dailyFile[i][2];
-                        band.movingAverage = dailyFile[i][3];
-                        band.standardDeviation = dailyFile[i][4];
+                        band.movingAverage = dailyFile[i][2];
+                        band.standardDeviation = dailyFile[i][3];
+                        band.deviation = dailyFile[i][4];
 
                         if (band.begin >= farLeftDate.valueOf() && band.end <= farRightDate.valueOf()) {
 
@@ -363,16 +363,16 @@
                 let band = {
                     begin: undefined,
                     end: undefined,
-                    close: undefined,
                     movingAverage: undefined,
-                    standardDeviation: undefined
+                    standardDeviation: undefined,
+                    deviation: undefined
                 };
 
                 band.begin = marketFile[i][0];
                 band.end = marketFile[i][1];
-                band.close = marketFile[i][2];
-                band.movingAverage = marketFile[i][3];
-                band.standardDeviation = marketFile[i][4];
+                band.movingAverage = marketFile[i][2];
+                band.standardDeviation = marketFile[i][3];
+                band.deviation = marketFile[i][4];
 
                 if (band.begin >= leftDate.valueOf() && band.end <= rightDate.valueOf()) {
 
@@ -470,22 +470,22 @@
 
                     let bandPoint1 = {
                         x: band.begin,
-                        y: previousBand.movingAverage - 2 * previousBand.standardDeviation
+                        y: previousBand.movingAverage - previousBand.deviation
                     };
 
                     let bandPoint2 = {
                         x: band.begin,
-                        y: previousBand.movingAverage + 2 * previousBand.standardDeviation
+                        y: previousBand.movingAverage + previousBand.deviation
                     };
 
                     let bandPoint3 = {
                         x: band.end,
-                        y: band.movingAverage + 2 * band.standardDeviation
+                        y: band.movingAverage + band.deviation
                     };
 
                     let bandPoint4 = {
                         x: band.end,
-                        y: band.movingAverage - 2 * band.standardDeviation
+                        y: band.movingAverage - band.deviation
                     };
 
                     let bandPoint5 = {
@@ -629,28 +629,20 @@
 
                     browserCanvasContext.closePath();
 
+                    if (bandPoint5.y > bandPoint6.y) {
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)';
+                    } else {
+                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
+                    }
 
                     if (datetime !== undefined) {
 
                         let dateValue = datetime.valueOf();
 
                         if (dateValue >= band.begin && dateValue <= band.end) {
-
                             /* highlight the current band */
-
                             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'; // Current band accroding to time
-
-
-                        } else {
-
-                            browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
-
                         }
-
-                    } else {
-
-                        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)';
-
                     }
 
                     browserCanvasContext.lineWidth = 0.2;

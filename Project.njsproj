@@ -19,6 +19,9 @@
   <ItemGroup>
     <Compile Include="BollingerBandsPanel.js" />
     <Compile Include="BollingerBands.js" />
+    <Compile Include="PercentageBandwidth.js">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="this.plotter.config.json" />

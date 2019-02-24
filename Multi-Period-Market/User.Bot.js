@@ -8,6 +8,7 @@
     const EXCHANGE_NAME = "Poloniex";
 
     const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth";
+    const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
     const CANDLES_FOLDER_NAME = "Candles";
     const SIMULATED_RECORDS_FOLDER_NAME = "Trading-Simulation";
 
@@ -116,17 +117,19 @@
 
                             let marketFile;
 
-                            let percentgeBandwidthArray = new Map();
+                            let percentgeBandwidthMap = new Map();
+                            let bollingerBandsMap = new Map();
+                            
                             let candles = [];
                             let recordsArray = [];
 
-                            nextChrisFile();
+                            nextPercentageBandwidth();
 
-                            function nextChrisFile() {
+                            function nextPercentageBandwidth() {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextChrisFile -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> Entering function."); }
 
                                     let fileName = market.assetA + '_' + market.assetB + ".json";
 
@@ -139,12 +142,12 @@
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextChrisFile -> onFileReceived -> Entering function."); }
-                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextChrisFile -> onFileReceived -> text = " + text); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> onFileReceived -> text = " + text); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextChrisFile -> onFileReceived -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> onFileReceived -> err = " + err.message);
                                                 callBackFunction(err);
                                                 return;
 
@@ -152,25 +155,25 @@
 
                                             marketFile = JSON.parse(text);
 
-                                            buildPercentgeBandwidthArray();
+                                            buildPercentageBandwidthMap();
 
                                             
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextChrisFile -> onFileReceived -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> onFileReceived -> err = " + err.message);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextChrisFile -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextPercentageBandwidth -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
-                            function buildPercentgeBandwidthArray() {
+                            function buildPercentageBandwidthMap() {
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildPercentgeBandwidthArray -> Entering function."); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildPercentageBandwidthMap -> Entering function."); }
 
                                 try {
 
@@ -183,7 +186,82 @@
                                             movingAverage: marketFile[i][3]
                                         };
 
-                                        percentgeBandwidthArray.set(percentgeBandwidth.begin, percentgeBandwidth);
+                                        percentgeBandwidthMap.set(percentgeBandwidth.begin, percentgeBandwidth);
+
+                                    }
+
+                                    nextBollingerBands();
+
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildPercentageBandwidthMap -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function nextBollingerBands() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerBands -> Entering function."); }
+
+                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAChris" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                    chrisStorage.getTextFile(filePath, fileName, onFileReceived, true);
+
+                                    function onFileReceived(err, text) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerBands -> onFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> nextBollingerBands -> onFileReceived -> text = " + text); }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerBands -> onFileReceived -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+
+                                            }
+
+                                            marketFile = JSON.parse(text);
+
+                                            buildBollingerBandsMap();
+
+
+                                        }
+                                        catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerBands -> onFileReceived -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        }
+                                    }
+                                }
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> nextBollingerBands -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function buildBollingerBandsMap() {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildRecords -> loopBody -> buildBollingerBandsMap -> Entering function."); }
+
+                                try {
+
+                                    for (let i = 0; i < marketFile.length; i++) {
+
+                                        let bollingerBands = {
+                                            begin: marketFile[i][0],
+                                            end: marketFile[i][1],
+                                            movingAverage: marketFile[i][2],
+                                            standardDeviation: marketFile[i][3],
+                                            deviation: marketFile[i][4]
+                                        };
+
+                                        bollingerBandsMap.set(bollingerBands.begin, bollingerBands);
 
                                     }
 
@@ -191,7 +269,7 @@
 
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildPercentgeBandwidthArray -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildRecords -> loopBody -> buildBollingerBandsMap -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -321,7 +399,9 @@
                                     for (let i = 0; i < candles.length; i++) {
 
                                         let candle = candles[i];
-                                        let percentgeBandwidth = percentgeBandwidthArray.get(candle.begin);
+                                        let percentgeBandwidth = percentgeBandwidthMap.get(candle.begin);
+                                        let band = bollingerBandsMap.get(candle.begin);
+                                        
 
                                         if (percentgeBandwidth === undefined) { continue;}
 
@@ -353,6 +433,14 @@
                                             continue;
                                         };
 
+                                        /* Start Trailing Stop Condition */
+
+                                        if (candle.max < band.movingAverage && lastOperation === 'Sell') {
+
+                                            stopLoss = band.movingAverage;
+
+                                        }
+
                                         /* Stop Loss condition */
 
                                         let mustBuy = false;
@@ -366,7 +454,7 @@
                                         }
 
                                         /* Buy condition */
-
+                                        /*
                                         if (percentgeBandwidth.value <= 50 && lastOperation === 'Sell' && mustBuy === false) {
 
                                             balanceAssetA = balanceAssetB / candle.close;
@@ -374,6 +462,7 @@
                                             rate = candle.close;
                                             mustBuy = true;
                                         };
+                                        */
 
                                         if (mustBuy === true) {
 

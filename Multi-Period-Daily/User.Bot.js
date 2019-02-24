@@ -481,11 +481,11 @@
                                     let pBArray = [];
                                     let numberOfPeriodsBB = 20;
                                     let numberOfStandardDeviations = 2;
+                                    let numberOfPeriodsPB = 10;
 
                                     /* Building bands */
 
                                     let band;
-                                    let previousBand;
 
                                     for (let i = numberOfPeriodsBB - 1; i < candles.length; i++) { // Go through all the candles to generate a band segment for each of them.
 
@@ -503,6 +503,7 @@
                                         }
                                         standardDeviation = standardDeviation / numberOfPeriodsBB;
                                         standardDeviation = Math.sqrt(standardDeviation);
+                                        if (standardDeviation === 0) { standardDeviation = 0.000000001; } // This is to prevent a division by zero later.  
 
                                         band = {
                                             begin: candles[i].begin,
@@ -524,22 +525,7 @@
                                         lowerBB = band.movingAverage - band.deviation;
                                         upperBB = band.movingAverage + band.deviation;
 
-                                        let currentPercentBandwidth = (candles[i].close - lowerBB) / (upperBB - lowerBB) * 100;
-
-                                        let previousPercentBandwidth;
-
-                                        if (previousBand !== undefined) {
-
-                                            lowerBB = previousBand.movingAverage - previousBand.deviation;
-                                            upperBB = previousBand.movingAverage + previousBand.deviation;
-
-                                            previousPercentBandwidth = (candles[i - 1].close - lowerBB) / (upperBB - lowerBB) * 100;
-
-                                        } else {
-                                            previousPercentBandwidth = currentPercentBandwidth;
-                                        }
-                                        
-                                        previousBand = band;
+                                        let value = (candles[i].close - lowerBB) / (upperBB - lowerBB) * 100;
                                         
                                         /* Moving Average Calculation */
 
@@ -554,22 +540,21 @@
 
                                         movingAverage = 0;
                                         for (let j = currentPosition - numberOfPreviousPeriods; j < currentPosition; j++) { // go through the last numberOfPeriodsPBs to calculate the moving average.
-                                            movingAverage = movingAverage + pBArray[j].currentPercentBandwidth;
+                                            movingAverage = movingAverage + pBArray[j].value;
                                         }
-                                        movingAverage = movingAverage + currentPercentBandwidth;
+                                        movingAverage = movingAverage + value;
                                         movingAverage = movingAverage / (numberOfPreviousPeriods + 1);
 
                                         let percentageBandwidth = {
                                             begin: candles[i].begin,
                                             end: candles[i].end,
-                                            previousPercentBandwidth: previousPercentBandwidth,
-                                            currentPercentBandwidth: currentPercentBandwidth,
+                                            value: value,
                                             movingAverage: movingAverage
                                         };
 
                                         /* Will only add to the array the pBs of the current day */
 
-                                        if (pB.begin >= processDate.valueOf()) { pBArray.push(percentageBandwidth); }
+                                        if (percentageBandwidth.begin >= processDate.valueOf()) { pBArray.push(percentageBandwidth); }
                                     }
 
                                     writeBandsFile(bandsArray, pBArray);
@@ -670,8 +655,7 @@
                                         fileContent = fileContent + separator + '[' +
                                             pB.begin + "," +
                                             pB.end + "," +
-                                            pB.previousPercentBandwidth + "," +
-                                            pB.currentPercentBandwidth + "," +
+                                            pB.value + "," +
                                             pB.movingAverage + "]";
 
                                         if (separator === "") { separator = ","; }

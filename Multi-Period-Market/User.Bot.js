@@ -326,7 +326,9 @@
 
                                 try {
 
-                                    for (let i = 0; i < marketFile.length; i++) {
+                                    let initialBuffer = 3;
+
+                                    for (let i = 0 + initialBuffer; i < marketFile.length; i++) {
 
                                         let candle = {
                                             open: undefined,
@@ -372,7 +374,7 @@
 
                                     /* Building records */
 
-                                    let stopLossPercentage = 1;
+                                    let stopLossPercentage = 2;
                                     let initialBalanceA = 1;
                                     let record;
                                     let lastOperation = 'Buy';
@@ -394,7 +396,11 @@
                                     let type = '';
                                     let rate = 0;
                                     let previousPBMovingAverage = 0;
+                                    let previousPreviousPBMovingAverage = 0;
+                                    let previousBandMovingAverage = 0;
+                                    let previousStopLoss = 0;
                                     let trailingStop = false;
+                                    let pBOK = false;
 
                                     for (let i = 0; i < candles.length; i++) {
 
@@ -409,12 +415,25 @@
 
                                         periods++;
 
-                                        /* Sell condition */
+                                        /* PB Coming Down from the roof enables condition to sell */
 
                                         if (
-                                            percentgeBandwidth.value >= 80 &&
+                                            percentgeBandwidth.value >= 70 &&
                                             lastOperation === 'Buy' &&
-                                            (previousPBMovingAverage > percentgeBandwidth.movingAverage)
+                                            (previousPreviousPBMovingAverage > previousPBMovingAverage) &&
+                                            (previousPBMovingAverage > percentgeBandwidth.movingAverage )
+                                        ) {
+
+                                            pBOK = true;
+
+                                        };
+
+                                        /* Sell Condition */
+
+                                        if (
+                                            pBOK === true &&
+                                            previousBandMovingAverage > band.movingAverage &&
+                                            lastOperation === 'Buy' 
                                         ) {
 
                                             previousBalanceAssetA = balanceAssetA;
@@ -427,18 +446,36 @@
 
                                             type = '"Sell"';
                                             lastOperation = 'Sell';
+                                            pBOK = false;
 
                                             addRecord();
 
                                             continue;
-                                        };
+
+                                        }
 
                                         /* Start Trailing Stop Condition */
 
-                                        if (candle.max < band.movingAverage && lastOperation === 'Sell') {
+                                        if (
+                                            candle.max < band.movingAverage &&
+                                            lastOperation === 'Sell' &&
+                                            (previousBandMovingAverage > band.movingAverage) &&
+                                            (candle.min < band.movingAverage - band.deviation)
+                                            ) {
 
-                                            stopLoss = band.movingAverage;
+                                            trailingStop = true;
+                                            
+                                        }
 
+                                        if (trailingStop === true) {
+
+                                            let newStopLoss = band.movingAverage + band.movingAverage * stopLossPercentage / 100;
+
+                                            if (newStopLoss < previousStopLoss) {
+                                                stopLoss = newStopLoss;
+                                            } else {
+                                                stopLoss = previousStopLoss;
+                                            }
                                         }
 
                                         /* Stop Loss condition */
@@ -468,6 +505,7 @@
 
                                             stopLoss = 0;
                                             trailingStop = false;
+                                     
                                             roundtrips++;
                                             lastProfit = balanceAssetA - previousBalanceAssetA;
                                             profit = profit + lastProfit;
@@ -497,7 +535,6 @@
 
                                         type = '""';
                                         addRecord();
-                                        previousPBMovingAverage = percentgeBandwidth.movingAverage;
 
                                         function addRecord() {
 
@@ -523,6 +560,11 @@
                                             }
 
                                             recordsArray.push(record);
+
+                                            previousPreviousPBMovingAverage = previousPBMovingAverage
+                                            previousPBMovingAverage = percentgeBandwidth.movingAverage;
+                                            previousBandMovingAverage = band.movingAverage;
+                                            previousStopLoss = stopLoss;
                                         }
                                     }
 

@@ -1,0 +1,753 @@
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, BLOB_STORAGE, FILE_STORAGE) {
+
+    const FULL_LOG = true;
+    const INTENSIVE_LOG = false;
+    const LOG_FILE_CONTENT = false;
+
+    const GMT_SECONDS = ':00.000 GMT+0000';
+    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+
+    const MODULE_NAME = "User Bot";
+
+    const EXCHANGE_NAME = "Poloniex";
+
+    const TRADES_FOLDER_NAME = "Trades";
+
+    const CANDLES_FOLDER_NAME = "Bands";
+    const SIMULATED_TRADES_FOLDER_NAME = "Trading-Simulation";
+
+    const commons = COMMONS.newCommons(bot, logger, UTILITIES);
+
+    thisObject = {
+        initialize: initialize,
+        start: start
+    };
+
+    let chrisStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+    let jasonStorage = BLOB_STORAGE.newBlobStorage(bot, logger);
+
+    let utilities = UTILITIES.newCloudUtilities(bot, logger);
+
+    let statusDependencies;
+
+    return thisObject;
+
+    function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
+
+        try {
+
+            logger.fileName = MODULE_NAME;
+            logger.initialize();
+
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+
+            statusDependencies = pStatusDependencies;
+
+            commons.initializeStorage(chrisStorage, jasonStorage, onInizialized);
+
+            function onInizialized(err) {
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onInizialized -> Initialization Succeed."); }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                } else {
+                    logger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> err = " + err.message);
+                    callBackFunction(err);
+                }
+            }
+
+        } catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    /*
+    
+    This process is going to do the following:
+    
+    Read the bands from Chris and produce daily files with bollinger trades.
+    
+    */
+
+    function start(callBackFunction) {
+
+        try {
+
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
+
+            let market = global.MARKET;
+
+            /* Context Variables */
+
+            let contextVariables = {
+                lastTradeFile: undefined,          // Datetime of the last file files sucessfully produced by this process.
+                firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
+                maxTradeFile: undefined            // Datetime of the last file available to be used as an input of this process.
+            };
+
+            let previousDay;                        // Holds the date of the previous day relative to the processing date.
+            let processDate;                        // Holds the processing date.
+
+            getContextVariables();
+
+            function getContextVariables() {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Entering function."); }
+
+                    let thisReport;
+                    let reportKey;
+                    let statusReport;
+
+                    /* We look first for Charly in order to get when the market starts. */
+
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Poloniex-Historic-Trades" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    statusReport = statusDependencies.statusReports.get(reportKey);
+
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    if (statusReport.status === "Status Report is corrupt.") {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+
+                    if (thisReport.lastFile === undefined) {
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency does not exist."
+                        }
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
+
+                    contextVariables.firstTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+
+                    /* Second, we get the report from Chris, to know when the marted ends. */
+
+                    reportKey = "AAMasters" + "-" + "AAChris" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    statusReport = statusDependencies.statusReports.get(reportKey);
+
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    if (statusReport.status === "Status Report is corrupt.") {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+
+                    if (thisReport.lastFile === undefined) {
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency not ready."
+                        }
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
+
+                    contextVariables.maxTradeFile = new Date(thisReport.lastFile.valueOf());
+
+                    /* Finally we get our own Status Report. */
+
+                    reportKey = "AAMasters" + "-" + "AAJason" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+
+                    statusReport = statusDependencies.statusReports.get(reportKey);
+
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    if (statusReport.status === "Status Report is corrupt.") {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return;
+                    }
+
+                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+
+                    if (thisReport.lastFile !== undefined) {
+
+                        contextVariables.lastTradeFile = new Date(thisReport.lastFile);
+
+                        /*
+                        The trades objects needs to be calculated over more than one day in some situations. In order to simplify the calculations we will
+                        always load the last 2 days of bands, and run the calculations on that array.
+
+                        1. So first we will load the bands file of processDay -1.
+                        2. Secondly we will load the bands file of processDay.
+
+                        After reading these two files we will add all bands to a unique array.
+                        */
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile !== undefined"); }
+
+                        buildTrades();
+                        return;
+
+                    } else {
+
+                        /*
+                        In the case when there is no status report, we take the date of the file with the first trades as the begining of the market. Then we will
+                        go one day further in time, so that the previous day does fine a file at the begining of the market.
+                        */
+
+                        contextVariables.lastTradeFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                        contextVariables.lastTradeFile = new Date(contextVariables.lastTradeFile.valueOf() + ONE_DAY_IN_MILISECONDS); 
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastTradeFile = " + contextVariables.lastTradeFile); }
+
+                        buildTrades();
+                        return;
+                    }
+
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.message);
+                    if (err.message === "Cannot read property 'file' of undefined") {
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                    }
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function buildTrades() {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> Entering function."); }
+
+                    let n;
+                    processDate = new Date(contextVariables.lastTradeFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> processDate = " + processDate); }
+
+                    advanceTime();
+
+                    function advanceTime() {
+
+                        try {
+
+                            logger.newInternalLoop(bot.codeName, bot.process);
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> advanceTime -> Entering function."); }
+
+                            processDate = new Date(processDate.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            previousDay = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> advanceTime -> processDate = " + processDate); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> advanceTime -> previousDay = " + previousDay); }
+
+                            /* Validation that we are not going past the head of the market. */
+
+                            if (processDate.valueOf() > contextVariables.maxTradeFile.valueOf()) {
+
+                                const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> advanceTime -> " + logText); }
+
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                return;
+
+                            }
+
+                            periodsLoop();
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> advanceTime -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+
+                    function periodsLoop() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> periodsLoop -> Entering function."); }
+
+                            /*
+            
+                            We will iterate through all posible timePeriods.
+            
+                            */
+
+                            n = 0   // loop Variable representing each possible period as defined at the periods array.
+
+                            loopBody();
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+
+                    function loopBody() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> Entering function."); }
+
+                            const timePeriod = global.dailyFilePeriods[n][1];
+
+                            let bands = [];                   // Here we will put all the bands of the 2 files read.
+
+                            let previousDayFile;
+                            let processDayFile;
+
+                            getPreviousDayFile();
+
+                            function getPreviousDayFile() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getPreviousDayFile -> Entering function."); }
+
+                                    let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
+                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAChris" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+
+                                    chrisStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+
+                                    function onCurrentDayFileReceived(err, text) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> text = " + text); }
+
+                                            previousDayFile = JSON.parse(text);
+                                            getProcessDayFile()
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getPreviousDayFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function getProcessDayFile() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getProcessDayFile -> Entering function."); }
+
+                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+
+                                    let filePathRoot = bot.devTeam + "/" + "AAChris" + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+
+                                    chrisStorage.getTextFile(filePath, fileName, onCurrentDayFileReceived, true);
+
+                                    function onCurrentDayFileReceived(err, text) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> text = " + text); }
+
+                                            processDayFile = JSON.parse(text);
+                                            buildTrades();
+
+                                        } catch (err) {
+
+                                            if (processDate.valueOf() > contextVariables.maxTradeFile.valueOf()) {
+
+                                                processDayFile = [];  // we are past the head of the market, then no worries if this file is non existent.
+                                                buildTrades();
+
+                                            } else {
+
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+
+                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                return;
+                                            }
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> getProcessDayFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+                            function buildTrades() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> buildTrades -> Entering function."); }
+
+                                    addBandsToSingleArray(previousDayFile);
+                                    addBandsToSingleArray(processDayFile);
+                                    calculateTrades();
+
+                                    function addBandsToSingleArray(bandsFile) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> buildTrades -> addBandsToSingleArray -> Entering function."); }
+
+                                            for (let i = 0; i < bandsFile.length; i++) {
+
+                                                let band = {
+                                                    open: undefined,
+                                                    close: undefined,
+                                                    min: 10000000000000,
+                                                    max: 0,
+                                                    begin: undefined,
+                                                    end: undefined,
+                                                    direction: undefined
+                                                };
+
+                                                band.min = bandsFile[i][0];
+                                                band.max = bandsFile[i][1];
+
+                                                band.open = bandsFile[i][2];
+                                                band.close = bandsFile[i][3];
+
+                                                band.begin = bandsFile[i][4];
+                                                band.end = bandsFile[i][5];
+
+                                                if (band.open > band.close) { band.direction = 'down'; }
+                                                if (band.open < band.close) { band.direction = 'up'; }
+                                                if (band.open === band.close) { band.direction = 'side'; }
+
+                                                bands.push(band);
+                                            }
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> buildTrades -> addBandsToSingleArray -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            return;
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> buildTrades -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+                            }
+
+                            function calculateTrades() {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> calculateTrades -> Entering function."); }
+
+                                    let tradesArray = [];
+                                    let numberOfPeriods = 20;
+
+                                    /* Building trades */
+
+                                    let trade;
+
+                                    for (let i = numberOfPeriods - 1; i < bands.length; i++) { // Go through all the bands to generate a trade segment for each of them.
+
+                                        let movingAverage = 0;
+                                        for (let j = i - numberOfPeriods + 1; j < i + 1; j++) { // go through the last n bands to calculate the moving average.
+                                            movingAverage = movingAverage + bands[j].close;
+                                        }
+                                        movingAverage = movingAverage / numberOfPeriods;
+
+                                        let standardDeviation = 0;
+                                        for (let j = i - numberOfPeriods + 1; j < i + 1; j++) { // go through the last n bands to calculate the standard deviation.
+                                            standardDeviation = standardDeviation + Math.pow(bands[j].close - movingAverage, 2);
+                                        }
+                                        standardDeviation = standardDeviation / numberOfPeriods;
+                                        standardDeviation = Math.sqrt(standardDeviation);
+
+                                        trade = {
+                                            begin: bands[i].begin,
+                                            end: bands[i].end,
+                                            movingAverage: movingAverage,
+                                            standardDeviation: standardDeviation
+                                        };
+
+                                        /* Will only add to the array the trades of the current day */
+
+                                        if (trade.begin >= processDate.valueOf()) { tradesArray.push(trade); }
+                                        
+                                    }
+
+                                    writeFile(tradesArray);
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> calculateTrades -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    return;
+                                }
+                            }
+
+                            function writeFile(pTrades, callback) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> Entering function."); }
+
+                                    let separator = "";
+                                    let fileRecordCounter = 0;
+
+                                    let fileContent = "";
+
+                                    for (i = 0; i < pTrades.length; i++) {
+
+                                        let trade = pTrades[i];
+
+                                        fileContent = fileContent + separator + '[' +
+                                            trade.begin + "," +
+                                            trade.end + "," +
+                                            trade.movingAverage + "," +
+                                            trade.standardDeviation + "]";
+
+                                        if (separator === "") { separator = ","; }
+
+                                        fileRecordCounter++;
+
+                                    }
+
+                                    fileContent = "[" + fileContent + "]";
+
+                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + SIMULATED_TRADES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+
+                                    jasonStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated(err) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated -> Entering function."); }
+
+                                            if (LOG_FILE_CONTENT === true) {
+                                                logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated ->  Content written = " + fileContent);
+                                            }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+
+                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated -> " + logText); }
+
+                                            controlLoop();
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> writeTradeTradesFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> writeTradeTradesFile -> writeFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+
+          
+
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> loopBody -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+
+                    function controlLoop() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> controlLoop -> Entering function."); }
+
+                            n++;
+
+                            if (n < global.dailyFilePeriods.length) {
+
+                                loopBody();
+
+                            } else {
+
+                                n = 0;
+
+                                writeDataRanges(onWritten);
+
+                                function onWritten(err) {
+
+                                    try {
+
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildTrades -> controlLoop -> onWritten -> Entering function."); }
+
+                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> controlLoop -> onWritten -> err = " + err.message);
+                                            callBackFunction(err);
+                                            return;
+                                        }
+
+                                        writeStatusReport(processDate, advanceTime);
+
+                                    } catch (err) {
+                                        logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> controlLoop -> onWritten -> err = " + err.message);
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    }
+                                }
+                            }
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> periodsLoop -> controlLoop -> err = " + err.message);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+                }
+
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> buildTrades -> err.message = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function writeDataRanges(callBack) {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
+
+                    writeDataRange(contextVariables.firstTradeFile, processDate, SIMULATED_TRADES_FOLDER_NAME, onTradesTradesDataRangeWritten);
+
+                    function onTradesTradesDataRangeWritten(err) {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onTradesTradesDataRangeWritten -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        callBack(global.DEFAULT_OK_RESPONSE);
+
+                    }
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRanges -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                }
+
+            }
+
+            function writeDataRange(pBegin, pEnd, pProductFolder, callBack) {
+
+                try {
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> Entering function."); }
+
+                    let dataRange = {
+                        begin: pBegin.valueOf(),
+                        end: pEnd.valueOf()
+                    };
+
+                    let fileContent = JSON.stringify(dataRange);
+
+                    let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
+                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
+
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> fileName = " + fileName); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> filePath = " + filePath); }
+
+                    jasonStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                    function onFileCreated(err) {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated -> Entering function."); }
+
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.message);
+                            callBack(err);
+                            return;
+                        }
+
+                        if (LOG_FILE_CONTENT === true) {
+                            logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
+                        }
+
+                        callBack(global.DEFAULT_OK_RESPONSE);
+                    }
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> err = " + err.message);
+                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function writeStatusReport(lastFileDate, callBack) {
+
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
+
+                try {
+
+                    let reportKey = "AAMasters" + "-" + "AAJason" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let thisReport = statusDependencies.statusReports.get(reportKey);
+
+                    thisReport.file.lastExecution = bot.processDatetime;
+                    thisReport.file.lastFile = lastFileDate;
+                    thisReport.save(callBack);
+
+                }
+                catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.message);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+        }
+        catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] start -> err.message = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+};

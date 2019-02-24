@@ -15,6 +15,7 @@
 
     const CANDLES_FOLDER_NAME = "Candles";
     const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
+    const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth";
 
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
@@ -477,44 +478,101 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> calculateBands -> Entering function."); }
 
                                     let bandsArray = [];
-                                    let numberOfPeriods = 20;
+                                    let pBArray = [];
+                                    let numberOfPeriodsBB = 20;
+                                    let numberOfStandardDeviations = 2;
 
                                     /* Building bands */
 
                                     let band;
+                                    let previousBand;
 
-                                    for (let i = numberOfPeriods - 1; i < candles.length; i++) { // Go through all the candles to generate a band segment for each of them.
+                                    for (let i = numberOfPeriodsBB - 1; i < candles.length; i++) { // Go through all the candles to generate a band segment for each of them.
+
+                                        /* Calculating the bollinger bands. */
 
                                         let movingAverage = 0;
-                                        for (let j = i - numberOfPeriods + 1; j < i + 1; j++) { // go through the last n candles to calculate the moving average.
+                                        for (let j = i - numberOfPeriodsBB + 1; j < i + 1; j++) { // go through the last n candles to calculate the moving average.
                                             movingAverage = movingAverage + candles[j].close;
                                         }
-                                        movingAverage = movingAverage / numberOfPeriods;
+                                        movingAverage = movingAverage / numberOfPeriodsBB;
 
                                         let standardDeviation = 0;
-                                        for (let j = i - numberOfPeriods + 1; j < i + 1; j++) { // go through the last n candles to calculate the standard deviation.
+                                        for (let j = i - numberOfPeriodsBB + 1; j < i + 1; j++) { // go through the last n candles to calculate the standard deviation.
                                             standardDeviation = standardDeviation + Math.pow(candles[j].close - movingAverage, 2);
                                         }
-                                        standardDeviation = standardDeviation / numberOfPeriods;
+                                        standardDeviation = standardDeviation / numberOfPeriodsBB;
                                         standardDeviation = Math.sqrt(standardDeviation);
-
-                                       
 
                                         band = {
                                             begin: candles[i].begin,
                                             end: candles[i].end,
-                                            close: candles[i].close,
                                             movingAverage: movingAverage,
-                                            standardDeviation: standardDeviation
+                                            standardDeviation: standardDeviation,
+                                            deviation: standardDeviation * numberOfStandardDeviations
                                         };
 
                                         /* Will only add to the array the bands of the current day */
 
                                         if (band.begin >= processDate.valueOf()) { bandsArray.push(band); }
+
+                                        /* Calculating %B */
+
+                                        let lowerBB;
+                                        let upperBB;
+
+                                        lowerBB = band.movingAverage - band.deviation;
+                                        upperBB = band.movingAverage + band.deviation;
+
+                                        let currentPercentBandwidth = (candles[i].close - lowerBB) / (upperBB - lowerBB) * 100;
+
+                                        let previousPercentBandwidth;
+
+                                        if (previousBand !== undefined) {
+
+                                            lowerBB = previousBand.movingAverage - previousBand.deviation;
+                                            upperBB = previousBand.movingAverage + previousBand.deviation;
+
+                                            previousPercentBandwidth = (candles[i - 1].close - lowerBB) / (upperBB - lowerBB) * 100;
+
+                                        } else {
+                                            previousPercentBandwidth = currentPercentBandwidth;
+                                        }
                                         
+                                        previousBand = band;
+                                        
+                                        /* Moving Average Calculation */
+
+                                        let numberOfPreviousPeriods;
+                                        let currentPosition = pBArray.length;
+
+                                        if (currentPosition < numberOfPeriodsPB) { // Avoinding to get into negative array indexes
+                                            numberOfPreviousPeriods = currentPosition;
+                                        } else {
+                                            numberOfPreviousPeriods = numberOfPeriodsPB;
+                                        }
+
+                                        movingAverage = 0;
+                                        for (let j = currentPosition - numberOfPreviousPeriods; j < currentPosition; j++) { // go through the last numberOfPeriodsPBs to calculate the moving average.
+                                            movingAverage = movingAverage + pBArray[j].currentPercentBandwidth;
+                                        }
+                                        movingAverage = movingAverage + currentPercentBandwidth;
+                                        movingAverage = movingAverage / (numberOfPreviousPeriods + 1);
+
+                                        let percentageBandwidth = {
+                                            begin: candles[i].begin,
+                                            end: candles[i].end,
+                                            previousPercentBandwidth: previousPercentBandwidth,
+                                            currentPercentBandwidth: currentPercentBandwidth,
+                                            movingAverage: movingAverage
+                                        };
+
+                                        /* Will only add to the array the pBs of the current day */
+
+                                        if (pB.begin >= processDate.valueOf()) { pBArray.push(percentageBandwidth); }
                                     }
 
-                                    writeFile(bandsArray);
+                                    writeBandsFile(bandsArray, pBArray);
 
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> calculateBands -> err = " + err.message);
@@ -523,11 +581,11 @@
                                 }
                             }
 
-                            function writeFile(pBands, callback) {
+                            function writeBandsFile(pBands, pPB) {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> Entering function."); }
 
                                     let separator = "";
                                     let fileRecordCounter = 0;
@@ -541,9 +599,9 @@
                                         fileContent = fileContent + separator + '[' +
                                             band.begin + "," +
                                             band.end + "," +
-                                            band.close + "," +
                                             band.movingAverage + "," +
-                                            band.standardDeviation + "]";
+                                            band.standardDeviation + "," +
+                                            band.deviation + "]";
 
                                         if (separator === "") { separator = ","; }
 
@@ -565,36 +623,105 @@
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated -> Entering function."); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> Entering function."); }
 
                                             if (LOG_FILE_CONTENT === true) {
-                                                logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated ->  Content written = " + fileContent);
+                                                logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated ->  Content written = " + fileContent);
                                             }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> err = " + err.message);
                                                 callBackFunction(err);
                                                 return;
                                             }
 
                                             const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated -> " + logText); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> " + logText); }
 
-                                            controlLoop();
+                                            writePBFile(pPB);
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeFile -> onFileCreated -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> err = " + err.message);
                                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeFile -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> err = " + err.message);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
-          
+                            function writePBFile(pPercentageBandwidths) {
+
+                                try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> Entering function."); }
+
+                                    let separator = "";
+                                    let fileRecordCounter = 0;
+
+                                    let fileContent = "";
+
+                                    for (i = 0; i < pPercentageBandwidths.length; i++) {
+
+                                        let pB = pPercentageBandwidths[i];
+
+                                        fileContent = fileContent + separator + '[' +
+                                            pB.begin + "," +
+                                            pB.end + "," +
+                                            pB.previousPercentBandwidth + "," +
+                                            pB.currentPercentBandwidth + "," +
+                                            pB.movingAverage + "]";
+
+                                        if (separator === "") { separator = ","; }
+
+                                        fileRecordCounter++;
+
+                                    }
+
+                                    fileContent = "[" + fileContent + "]";
+
+                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+
+                                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                    function onFileCreated(err) {
+
+                                        try {
+
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> Entering function."); }
+
+                                            if (LOG_FILE_CONTENT === true) {
+                                                logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated ->  Content written = " + fileContent);
+                                            }
+
+                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> err = " + err.message);
+                                                callBackFunction(err);
+                                                return;
+                                            }
+
+                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> " + logText); }
+
+                                            controlLoop();
+
+                                        } catch (err) {
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> err = " + err.message);
+                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                        }
+                                    }
+
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writePBFile -> err = " + err.message);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
 
 
                         } catch (err) {

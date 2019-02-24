@@ -11,6 +11,7 @@
 
     const CANDLES_FOLDER_NAME = "Candles";
     const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";
+    const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth";
 
     const commons = COMMONS.newCommons(bot, logger, UTILITIES);
 
@@ -153,7 +154,6 @@
                                             let marketFile = JSON.parse(text);
 
                                             let candles = [];
-                                            let bandsArray = [];
 
                                             buildCandles();
 
@@ -203,40 +203,99 @@
 
                                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> buildBands -> Entering function."); }
 
-                                                    let n = 20;
+                                                    let bandsArray = [];
+                                                    let pBArray = [];
+                                                    let numberOfPeriodsBB = 20;
+                                                    let numberOfStandardDeviations = 2;
+                                                    let numberOfPeriodsPB = 10;
 
                                                     /* Building bands */
 
                                                     let band;
+                                                    let previousBand;
 
-                                                    for (let i = n - 1; i < candles.length; i++) { // Go through all the candles to generate a band segment for each of them.
+                                                    for (let i = numberOfPeriodsBB - 1; i < candles.length; i++) { // Go through all the candles to generate a band segment for each of them.
 
                                                         let movingAverage = 0;
-                                                        for (let j = i - n + 1; j < i + 1; j++) { // go through the last n candles to calculate the moving average.
+                                                        for (let j = i - numberOfPeriodsBB + 1; j < i + 1; j++) { // go through the last numberOfPeriodsBB candles to calculate the moving average.
                                                             movingAverage = movingAverage + candles[j].close;     
                                                         }
-                                                        movingAverage = movingAverage / n;
+                                                        movingAverage = movingAverage / numberOfPeriodsBB;
 
                                                         let standardDeviation = 0;
-                                                        for (let j = i - n + 1; j < i + 1; j++) { // go through the last n candles to calculate the standard deviation.
+                                                        for (let j = i - numberOfPeriodsBB + 1; j < i + 1; j++) { // go through the last numberOfPeriodsBB candles to calculate the standard deviation.
                                                             standardDeviation = standardDeviation + Math.pow (candles[j].close - movingAverage, 2);
                                                         }
-                                                        standardDeviation = standardDeviation / n;
+                                                        standardDeviation = standardDeviation / numberOfPeriodsBB;
                                                         standardDeviation = Math.sqrt(standardDeviation);
                                                       
                                                         band = {
                                                             begin: candles[i].begin,
                                                             end: candles[i].end,
-                                                            close: candles[i].close,
                                                             movingAverage: movingAverage,
-                                                            standardDeviation: standardDeviation
+                                                            standardDeviation: standardDeviation,
+                                                            deviation: standardDeviation * numberOfStandardDeviations
                                                         };
 
                                                         bandsArray.push(band);
-   
+
+                                                        /* Calculating %B */
+
+                                                        let lowerBB;
+                                                        let upperBB;
+
+                                                        lowerBB = band.movingAverage - band.deviation;
+                                                        upperBB = band.movingAverage + band.deviation;
+
+                                                        let currentPercentBandwidth = (candles[i].close - lowerBB) / (upperBB - lowerBB) * 100;
+
+                                                        let previousPercentBandwidth;
+
+                                                        if (previousBand !== undefined) {
+
+                                                            lowerBB = previousBand.movingAverage - previousBand.deviation;
+                                                            upperBB = previousBand.movingAverage + previousBand.deviation;
+
+                                                            previousPercentBandwidth = (candles[i-1].close - lowerBB) / (upperBB - lowerBB) * 100;
+
+                                                        } else {
+                                                            previousPercentBandwidth = currentPercentBandwidth;
+                                                        }
+
+                                                        previousBand = band;
+
+                                                        /* Moving Average Calculation */
+                                                        
+                                                        let numberOfPreviousPeriods;
+                                                        let currentPosition = pBArray.length;
+
+                                                        if (currentPosition < numberOfPeriodsPB) { // Avoinding to get into negative array indexes
+                                                            numberOfPreviousPeriods = currentPosition;
+                                                        } else {
+                                                            numberOfPreviousPeriods = numberOfPeriodsPB;
+                                                        }
+
+                                                        movingAverage = 0;
+                                                        for (let j = currentPosition - numberOfPreviousPeriods; j < currentPosition; j++) { // go through the last numberOfPeriodsPBs to calculate the moving average.
+                                                            movingAverage = movingAverage + pBArray[j].currentPercentBandwidth;
+                                                        }
+                                                        movingAverage = movingAverage + currentPercentBandwidth;
+                                                        movingAverage = movingAverage / (numberOfPreviousPeriods + 1);
+
+                                                        let percentageBandwidth = {
+                                                            begin: candles[i].begin,
+                                                            end: candles[i].end,
+                                                            previousPercentBandwidth: previousPercentBandwidth,
+                                                            currentPercentBandwidth: currentPercentBandwidth,
+                                                            movingAverage: movingAverage
+                                                        };
+
+                                                        /* Will only add to the array the pBs of the current day */
+
+                                                        pBArray.push(percentageBandwidth);
                                                     }
 
-                                                    writeBandsFile();
+                                                    writeBandsFile(bandsArray, pBArray);
                                                 }
                                                 catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> buildBands -> err = " + err.message);
@@ -244,7 +303,7 @@
                                                 }
                                             }
 
-                                            function writeBandsFile() {
+                                            function writeBandsFile(pBands, pPB) {
 
                                                 try {
 
@@ -255,16 +314,16 @@
 
                                                     let fileContent = "";
 
-                                                    for (i = 0; i < bandsArray.length; i++) {
+                                                    for (i = 0; i < pBands.length; i++) {
 
-                                                        let band = bandsArray[i];
+                                                        let band = pBands[i];
 
                                                         fileContent = fileContent + separator + '[' +
                                                             band.begin + "," +
                                                             band.end + "," +
-                                                            band.close + "," +
                                                             band.movingAverage + "," +
-                                                            band.standardDeviation + "]";
+                                                            band.standardDeviation + "," +
+                                                            band.deviation + "]";
 
                                                         if (separator === "") { separator = ","; }
 
@@ -299,7 +358,7 @@
 
                                                             }
 
-                                                            controlLoop();
+                                                            writePBFile(pPB);
 
                                                         }
                                                         catch (err) {
@@ -313,6 +372,78 @@
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
+
+
+                                            function writePBFile(pPercentageBandwidths) {
+
+                                                try {
+
+                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> Entering function."); }
+
+                                                    let separator = "";
+                                                    let fileRecordCounter = 0;
+
+                                                    let fileContent = "";
+
+                                                    for (i = 0; i < pPercentageBandwidths.length; i++) {
+
+                                                        let pB = pPercentageBandwidths[i];
+
+                                                        fileContent = fileContent + separator + '[' +
+                                                            pB.begin + "," +
+                                                            pB.end + "," +
+                                                            pB.previousPercentBandwidth + "," +
+                                                            pB.currentPercentBandwidth + "," +
+                                                            pB.movingAverage + "]";
+
+                                                        if (separator === "") { separator = ","; }
+
+                                                        fileRecordCounter++;
+
+                                                    }
+
+                                                    fileContent = "[" + fileContent + "]";
+
+                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+
+                                                    let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.PLATFORM_CONFIG.codeName + "." + global.PLATFORM_CONFIG.version.major + "." + global.PLATFORM_CONFIG.version.minor + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                                    let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriod;
+
+                                                    chrisStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
+
+                                                    function onFileCreated(err) {
+
+                                                        try {
+
+                                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> Entering function."); }
+                                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> fileContent = " + fileContent); }
+
+                                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> err = " + err.message);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> filePath = " + filePath);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+
+                                                                callBackFunction(err);
+                                                                return;
+
+                                                            }
+
+                                                            controlLoop();
+
+                                                        }
+                                                        catch (err) {
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> err = " + err.message);
+                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                        }
+                                                    }
+                                                }
+                                                catch (err) {
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> err = " + err.message);
+                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                }
+                                            }
+
                                         }
                                         catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.message);

@@ -373,6 +373,12 @@
                                     /* Building records */
 
                                     let stopLossPercentage = 2;
+                                    let previousStopLoss = 0;
+                                    let trailingStop = false;
+                                    let stopLoss = 0;
+                                    let stopLossDecay = 0;
+                                    let stopLossDecayIncrement = 0.05;
+
                                     let initialBalanceA = 1;
                                     let record;
                                     let lastOperation = 'Buy';
@@ -381,7 +387,8 @@
                                     let balanceAssetB = 0;
                                     let profit = 0;
                                     let lastProfit = 0;
-                                    let stopLoss = 0;
+                                    let sellRate = 0;
+                                    
                                     let previousBalanceAssetA = 0;
                                     let roundtrips = 0;
                                     let hits = 0;
@@ -393,8 +400,7 @@
                                     let anualizedRateOfReturn = 0;
                                     let type = '';
                                     let rate = 0;
-                                    let previousStopLoss = 0;
-                                    let trailingStop = false;
+                                    
                                     let pBOK = false;
 
                                     let initialBuffer = 3;
@@ -420,7 +426,7 @@
                                             (percentgeBandwidthMap.get(candles[i - 2].begin).movingAverage > percentgeBandwidthMap.get(candles[i - 1].begin).movingAverage) &&
                                             (percentgeBandwidthMap.get(candles[i - 1].begin).movingAverage > percentgeBandwidth.movingAverage )
                                         ) {
-
+                                            type = '"Pre-Sell"';
                                             pBOK = true;
 
                                         };
@@ -439,12 +445,16 @@
 
                                             balanceAssetB = balanceAssetA * candle.close;
                                             balanceAssetA = 0;
-                                            stopLoss = candle.close + candle.close * stopLossPercentage / 100;
+                                            
                                             rate = candle.close;
+                                            sellRate = rate;
+
+                                            stopLoss = sellRate + sellRate * stopLossPercentage / 100;
 
                                             type = '"Sell"';
                                             lastOperation = 'Sell';
                                             pBOK = false;
+                                            stopLossDecay = 0;
 
                                             addRecord();
 
@@ -467,13 +477,15 @@
 
                                         if (trailingStop === true) {
 
-                                            let newStopLoss = band.movingAverage + band.movingAverage * stopLossPercentage / 100;
+                                            let newStopLoss = band.movingAverage + band.movingAverage * (stopLossPercentage - stopLossDecay) / 100;
 
                                             if (newStopLoss < previousStopLoss) {
                                                 stopLoss = newStopLoss;
                                             } else {
                                                 stopLoss = previousStopLoss;
                                             }
+                                        } else {
+                                            stopLoss = sellRate + sellRate * (stopLossPercentage - stopLossDecay) / 100;
                                         }
 
                                         /* Stop Loss condition */
@@ -502,6 +514,7 @@
                                         if (mustBuy === true) {
 
                                             stopLoss = 0;
+                                            sellRate = 0;
                                             trailingStop = false;
                                      
                                             roundtrips++;
@@ -530,8 +543,7 @@
                                         }
 
                                         /* Not a buy or sell condition */
-
-                                        type = '""';
+                                        
                                         addRecord();
 
                                         function addRecord() {
@@ -560,6 +572,10 @@
                                             recordsArray.push(record);
 
                                             previousStopLoss = stopLoss;
+                                            stopLossDecay = stopLossDecay + stopLossDecayIncrement;
+
+                                            type = '""';
+
                                         }
                                     }
 

@@ -9,7 +9,9 @@
   "dependencies": {
     "@octokit/rest": "^14.0.9",
     "atob": "^2.1.1",
+    "axios": "^0.18.0",
     "azure-storage": "^2.8.2",
+    "dotenv": "^6.2.0",
     "graphql": "^14.0.2",
     "graphql-client": "^2.0.1",
     "lodash": "^4.17.11",

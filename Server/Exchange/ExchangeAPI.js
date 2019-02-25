@@ -1,14 +1,13 @@
-﻿exports.newExchangeAPI = function newExchangeAPI(botDisplayName, authToken) {
+﻿exports.newExchangeAPI = function newExchangeAPI(logger, authToken) {
 
-    /* 
+    /*
 
     This module allows trading bots to connect to the exchange and do trading operations on it. So far it can only work with Poloniex.
 
     */
-    const _ = require('lodash');
-    const isValidOrder = require('./exchangeUtils').isValidOrder;
-    const graphqlClient = require('graphql-client')
-    
+    const _ = require('lodash')
+    const isValidOrder = require('./exchangeUtils').isValidOrder
+    const axios = require('axios')
     let MODULE_NAME = "Exchange API";
 
     let thisObject = {
@@ -27,81 +26,89 @@
 
     return thisObject;
 
-    function initialize(serverConfig, callBackFunction) {
+    async function initialize(callBackFunction) {
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> initialize -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            //TODO From financial beings we get the exchange the bot is trading
             let botExchange = 'Poloniex';
             let exchange = botExchange.toLowerCase() + 'Client.js';
-            let api = require('./Wrappers/' + exchange);
+            let api = require('./wrappers/' + exchange);
 
-            let masterAppServerURL = serverConfig.masterAppServerURL;
+            let accessToken
+            let keyId
+            let cloneId
+            if (global.CURRENT_EXECUTION_AT === "Cloud") {
+                keyId = process.env.KEY_ID
+                cloneId = process.env.CLONE_ID
 
-            if (!authToken) {
-                console.log("[ERROR] Exchange API -> initialize -> User Not Logged In.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            } else {
-                let keyVaultAPI = createKeyVaultAPIClient(masterAppServerURL, authToken)
-                apiClient = api.newAPIClient(keyVaultAPI);
-
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                let auth = require('../utils/auth')
+                let authTokenCloud = await auth.authenticate()
+                accessToken = 'Bearer ' + authTokenCloud
+            } else if (global.CURRENT_EXECUTION_AT === "Browser") {
+                accessToken = 'Bearer ' + authToken
             }
+
+            let keyVaultAPI = createKeyVaultAPIClient(accessToken, keyId, cloneId)
+            apiClient = api.newAPIClient(keyVaultAPI, logger);
+
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
+
         } catch (err) {
-            console.log("[ERROR] ExchangeAPI -> initialize -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function createKeyVaultAPIClient(masterAppServerURL, authToken) {
-        if (CONSOLE_LOG === true) { console.log("[INFO] createKeyVaultAPIClient -> Entering function."); }
+    function createKeyVaultAPIClient(accessToken, keyId, cloneId) {
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Entering function."); }
 
-        const keyVaultAPI = graphqlClient({
-            url: masterAppServerURL,
-            headers: {
-                Authorization: 'Bearer ' + authToken
-            }
-        });
-
+        const keyVaultAPI = {}
         keyVaultAPI.signTransaction = function (transaction, next) {
-            let variables = {
-                botId: botDisplayName,
-                transaction: transaction
-            }
-            
-            keyVaultAPI.query(`
-                mutation($botId: String, $transaction: String!){
-                keyVault_SignTransaction(botId: $botId, transaction: $transaction){
-                    key,
-                    signature,
-                    date
-                }
-                }`, variables, function (req, res) {
-                    if (res.status === 401) {
-                        next(undefined, 'Error from graphql: Not authorized');
-                    }
-                }).then(res => {
-                    if (res.errors) {
-                        next(undefined, 'Error from graphql: ' + res.errors);
-                    } else {
-                        let signature = {
-                            Key: res.data.keyVault_SignTransaction.key,
-                            Sign: res.data.keyVault_SignTransaction.signature
+            axios({
+                url: global.GATEWAY_ENDPOINT,
+                method: 'post',
+                data: {
+                    query: `
+                    mutation keyVault_SignTransaction($transaction: String!, $keyId: String, $cloneId: String){
+                        keyVault_SignTransaction(transaction: $transaction, keyId: $keyId, cloneId: $cloneId){
+                            key,
+                            signature,
+                            date
                         }
-                        next(signature)
                     }
-                }).catch(error => {
-                    next(undefined, 'Error signing the message on the key vault: ' + error.message);
-                });
+                    `,
+                    variables: {
+                        transaction: transaction,
+                        keyId: keyId,
+                        cloneId: cloneId
+                    }
+                },
+                headers: {
+                    authorization: accessToken
+                }
+
+            }).then(res => {
+                if (res.errors) {
+                    next(undefined, 'Error from graphql: ' + res.errors);
+                } else {
+                    let signature = {
+                        Key: res.data.data.keyVault_SignTransaction.key,
+                        Sign: res.data.data.keyVault_SignTransaction.signature
+                    }
+                    next(signature)
+                }
+            }).catch(error => {
+                next(undefined, 'Error signing the message on the key vault: ' + error.message);
+            });
         }
 
-        if (CONSOLE_LOG === true) { console.log("[INFO] createKeyVaultAPIClient -> Returning graphql client."); }
+        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createKeyVaultAPIClient -> Returning graphql client."); }
 
         return keyVaultAPI;
     }
 
-    /*  
+    /*
      *  Position Object = {
      *           id,        String
      *           type,      String
@@ -111,7 +118,7 @@
      *           fee,       Number
      *           datetime   Date
      *       };
-     */    
+     */
     function truncDecimals(pFloatValue) {
         let decimals = getMaxDecimalPositions();
         return parseFloat(parseFloat(pFloatValue).toFixed(decimals));
@@ -140,12 +147,12 @@
     function getExchangeProperties() {
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> getExchangeProperties -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExchangeProperties -> Entering function."); }
 
             return apiClient.getExchangeProperties();
 
         } catch (err) {
-            console.log("[ERROR] ExchangeAPI -> getExchangeProperties -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] getExchangeProperties -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -162,12 +169,12 @@
     function getTicker(pMarket, callBack) {
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> getTicker -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTicker -> Entering function."); }
 
             apiClient.getTicker(pMarket, callBack);
 
         } catch (err) {
-            console.log("[ERROR] ExchangeAPI -> getTicker -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] getTicker -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -175,18 +182,18 @@
     /*
      * Returns the open positions ath the exchange for a given market and user account.
      * The object returned is an array of positions
-     * 
+     *
      */
     function getOpenPositions(pMarket, callBack) {
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> getOpenPositions -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getOpenPositions -> pMarket = " + JSON.stringify(pMarket)); }
 
             apiClient.getOpenPositions(pMarket, callBack);
 
         } catch (err) {
-            console.log("[ERROR] ExchangeAPI -> getOpenPositions -> Error = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] getOpenPositions -> Error = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -198,13 +205,13 @@
     function getExecutedTrades(pPositionId, callBack) {
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> getExecutedTrades -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> getExecutedTrades -> pPositionId = " + pPositionId); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getExecutedTrades -> pPositionId = " + pPositionId); }
 
             apiClient.getExecutedTrades(pPositionId, callBack);
 
         } catch (err) {
-            console.log("[ERROR] ExchangeAPI -> getExecutedTrades -> Error = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] getExecutedTrades -> Error = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -216,12 +223,12 @@
     function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBack) {
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> putPosition -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> putPosition -> pMarket = " + JSON.stringify(pMarket)); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> putPosition -> pType = " + pType); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> putPosition -> pRate = " + truncDecimals(pRate)); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> putPosition -> pAmountA = " + truncDecimals(pAmountA)); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> putPosition -> pAmountB = " + truncDecimals(pAmountB)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pMarket = " + JSON.stringify(pMarket)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + truncDecimals(pRate)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + truncDecimals(pAmountA)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + truncDecimals(pAmountB)); }
 
             let check = isValidOrder({
                 market: getMarketConfig(),
@@ -240,17 +247,17 @@
                     apiClient.sell(pMarket.assetA, pMarket.assetB, truncDecimals(pRate), truncDecimals(pAmountB), callBack);
                     return;
                 }
-                
-                console.log("[ERROR] ExchangeAPI -> putPosition -> pType must be either 'buy' or 'sell'.");
+
+                logger.write(MODULE_NAME, "[ERROR] putPosition -> pType must be either 'buy' or 'sell'.");
                 callBack(global.DEFAULT_FAIL_RESPONSE);
 
             } else {
-                console.log("[ERROR] ExchangeAPI -> putPosition -> The order is invalid: " + check.reason);
+                logger.write(MODULE_NAME, "[ERROR] putPosition -> The order is invalid: " + check.reason);
                 callBack(global.DEFAULT_FAIL_RESPONSE);
             }
 
         } catch (err) {
-            console.log("[ERROR] ExchangeAPI -> putPosition -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -262,14 +269,14 @@
     function movePosition(pPosition, pNewRate, pNewAmountB, callBack) {
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> movePosition -> Entering function."); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> movePosition -> pPosition = " + JSON.stringify(pPosition)); }
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> movePosition -> pNewRate = " + truncDecimals(pNewRate)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + truncDecimals(pNewRate)); }
 
             apiClient.movePosition(pPosition, truncDecimals(pNewRate), truncDecimals(pNewAmountB), callBack);
 
         } catch (err) {
-            console.log("[ERROR] ExchangeAPI -> movePosition -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -291,12 +298,12 @@
     function getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack) {
         try {
 
-            if (CONSOLE_LOG === true) { console.log("[INFO] ExchangeAPI -> getTradeHistory -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTradeHistory -> Entering function."); }
 
             apiClient.getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack);
 
         } catch (err) {
-            console.log("[ERROR] ExchangeAPI -> getTradeHistory -> err = " + err.message);
+            logger.write(MODULE_NAME, "[ERROR] getTradeHistory -> err = " + err.message);
             callBack(global.DEFAULT_FAIL_RESPONSE);
         }
     }

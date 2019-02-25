@@ -183,6 +183,7 @@ function onBrowserRequest(request, response) {
     let htmlResponse;
     let requestParameters = request.url.split("/");
 
+
     if (requestParameters[1].indexOf("index.html") >= 0) {
 
         /*
@@ -201,7 +202,7 @@ function onBrowserRequest(request, response) {
     }
 
     requestParameters = request.url.split("?"); // Remove version information
-    requestParameters = requestParameters[0].split("/"); 
+    requestParameters = requestParameters[0].split("/");
 
     switch (requestParameters[1]) {
 
@@ -799,21 +800,37 @@ function onBrowserRequest(request, response) {
             {
 
                 /* We are going to let access the exchange only to authenticated users, that measn that we need the a valid session token. */
-
-                let botDisplayName = requestParameters[2];
-                let authToken = requestParameters[4];
+                let authToken = requestParameters[3];
 
                 if (authToken !== undefined) {
+                    global.CURRENT_EXECUTION_AT = "Browser"
+                    global.GATEWAY_ENDPOINT = serverConfig.masterAppServerURL
+
                     global.MARKET = {
                         assetA: "USDT",
                         assetB: "BTC"
                     };
 
-                    const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');
-                    let exchangeAPI = EXCHANGE_API.newExchangeAPI(botDisplayName, authToken);
+                    global.LOG_CONTROL = {
+                        "Exchange API": {
+                            logInfo: true,
+                            logWarnings: false,
+                            logErrors: true,
+                            logContent: false,
+                            intensiveLogging: false
+                        }
+                    }
 
-                    exchangeAPI.initialize(serverConfig, onInizialized);
-
+                    let logger = {
+                        write: function (moduleName, message) {
+                            console.log(moduleName + " " + message);
+                        }
+                    }
+                    
+                    const EXCHANGE_API = require('./Server/Exchange/ExchangeAPI');                    
+                    let exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, authToken);
+                    exchangeAPI.initialize(onInizialized);
+                    
                     function onInizialized(err) {
                         if (CONSOLE_LOG === true) { console.log("[INFO] server -> onBrowserRequest -> ExchangeAPI -> onInizialized -> Entering function."); }
 
@@ -837,7 +854,7 @@ function onBrowserRequest(request, response) {
                     }
 
                     function callExchangeAPIMethod() {
-                        switch (requestParameters[3]) {
+                        switch (requestParameters[2]) {
 
                             case "getTicker": {
                                 exchangeAPI.getTicker(global.MARKET, onExchangeResponse);
@@ -850,22 +867,22 @@ function onBrowserRequest(request, response) {
                             }
 
                             case "getExecutedTrades": {
-                                exchangeAPI.getExecutedTrades(requestParameters[5], onExchangeResponse);
+                                exchangeAPI.getExecutedTrades(requestParameters[4], onExchangeResponse);
                                 break;
                             }
 
                             case "putPosition": {
-                                exchangeAPI.putPosition(global.MARKET, requestParameters[5], requestParameters[6], requestParameters[7], requestParameters[8], onExchangeResponse);
+                                exchangeAPI.putPosition(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
                                 break;
                             }
 
                             case "movePosition": {
-                                exchangeAPI.moveOrder(requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                                exchangeAPI.moveOrder(requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
                                 break;
                             }
 
                             case "getPublicTradeHistory": {
-                                exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[5], requestParameters[6], requestParameters[7], onExchangeResponse);
+                                exchangeAPI.getPublicTradeHistory(global.MARKET, requestParameters[4], requestParameters[5], requestParameters[6], onExchangeResponse);
                                 break;
                             }
 

@@ -1,0 +1,20 @@
+{
+  "displayName": "Plotters Trading Simulation",
+  "codeName": "PlottersTradingSimulation",
+  "devTeam": "AAMasters",
+  "modules": [
+    {
+      "codeName": "TradingSimulation",
+      "moduleName": "TradingSimulation",
+      "description": "Plots Bollinger Records.",
+      "profilePicture": "TradingSimulation.png",
+      "panels": [
+        {
+          "codeName": "TradingSimulationPanel",
+          "moduleName": "TradingSimulationPanel",
+          "event": "Current Record Changed"
+        }
+      ]
+    }
+  ]
+}
